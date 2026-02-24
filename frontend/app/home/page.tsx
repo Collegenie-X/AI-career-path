@@ -4,6 +4,8 @@ import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { TabBar } from '@/components/tab-bar';
+import { BadgeToastManager } from '@/components/badge-toast';
+import { useBadgeChecker } from '@/hooks/use-badge-checker';
 import { getRecommendedJobs } from '@/lib/recommendations';
 import { getLevelForXP, getXPProgress } from '@/lib/xp';
 import kingdomsData from '@/data/kingdoms.json';
@@ -27,6 +29,7 @@ function StarField({ count = 40 }: { count?: number }) {
       size: Math.random() * 2 + 1,
       delay: Math.random() * 4,
       dur: 2 + Math.random() * 3,
+      opacity: 0.15 + Math.random() * 0.5,
     })), [count]);
 
   return (
@@ -40,7 +43,7 @@ function StarField({ count = 40 }: { count?: number }) {
             top: `${s.y}%`,
             width: s.size,
             height: s.size,
-            opacity: 0.15 + Math.random() * 0.5,
+            opacity: s.opacity,
             animation: `twinkle ${s.dur}s ease-in-out ${s.delay}s infinite`,
           }}
         />
@@ -78,6 +81,7 @@ export default function HomePage() {
   const router = useRouter();
   const [userData, setUserData] = useState<UserProfile | null>(null);
   const [mounted, setMounted] = useState(false);
+  const { newBadges } = useBadgeChecker();
 
   useEffect(() => {
     setMounted(true);
@@ -286,17 +290,19 @@ export default function HomePage() {
               return (
                 <button
                   key={job.id}
-                  className="w-full glass-card p-4 flex items-center gap-4 text-left group relative overflow-hidden"
+                  className="w-full glass-card p-3 flex items-center gap-3 text-left group relative overflow-hidden"
                   onClick={() => router.push(`/jobs/${job.id}`)}
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
                   {/* Job icon with planet glow */}
                   <div className="relative flex-shrink-0">
                     <div
-                      className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl"
+                      className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl overflow-hidden"
                       style={{
                         background: `linear-gradient(135deg, ${star?.color || '#6C5CE7'}22, ${star?.color || '#6C5CE7'}44)`,
                         boxShadow: `0 0 20px ${star?.color || '#6C5CE7'}22`,
+                        fontSize: '1.25rem',
+                        lineHeight: 1,
                       }}
                     >
                       {job.icon}
@@ -314,11 +320,11 @@ export default function HomePage() {
                       <div className="w-1.5 h-1.5 rounded-full" style={{ background: star?.color || '#6C5CE7' }} />
                     </div>
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-semibold text-white text-base">{job.name}</div>
-                    <div className="text-xs text-gray-400 flex items-center gap-1 mt-0.5">
-                      <span>{star?.icon}</span>
-                      <span>{star?.name}</span>
+                  <div className="flex-1 min-w-0 overflow-hidden">
+                    <div className="font-semibold text-white text-sm truncate">{job.name}</div>
+                    <div className="text-xs text-gray-400 flex items-center gap-1 mt-0.5 min-w-0">
+                      <span className="flex-shrink-0">{star?.icon}</span>
+                      <span className="truncate">{star?.name}</span>
                     </div>
                   </div>
                   <div className="flex items-center gap-1.5 text-yellow-400 text-xs font-semibold">
@@ -366,6 +372,9 @@ export default function HomePage() {
       )}
 
       <TabBar />
+      
+      {/* Badge Toast Notifications */}
+      <BadgeToastManager badgeIds={newBadges.map(b => b.badgeId)} />
     </div>
   );
 }

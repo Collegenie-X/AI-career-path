@@ -4,9 +4,40 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 
+const PARTICLE_COLORS = ['#6C5CE7', '#a29bfe', '#3B82F6', '#22C55E', '#FBBF24'];
+
+type Particle = {
+  id: number;
+  width: number;
+  height: number;
+  left: number;
+  top: number;
+  color: string;
+  duration: number;
+  delay: number;
+  opacity: number;
+};
+
 export default function SplashPage() {
   const router = useRouter();
   const [phase, setPhase] = useState(0); // 0=init, 1=logo, 2=title, 3=fadeout
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        width: Math.random() * 4 + 2,
+        height: Math.random() * 4 + 2,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        color: PARTICLE_COLORS[i % 5],
+        duration: 3 + Math.random() * 4,
+        delay: Math.random() * 2,
+        opacity: 0.4 + Math.random() * 0.3,
+      }))
+    );
+  }, []);
 
   useEffect(() => {
     const t1 = setTimeout(() => setPhase(1), 200);
@@ -32,19 +63,19 @@ export default function SplashPage() {
       }}
     >
       {/* Animated background particles */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {particles.map((p) => (
         <div
-          key={i}
+          key={p.id}
           className="absolute rounded-full"
           style={{
-            width: Math.random() * 4 + 2,
-            height: Math.random() * 4 + 2,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            backgroundColor: ['#6C5CE7', '#a29bfe', '#3B82F6', '#22C55E', '#FBBF24'][i % 5],
-            opacity: phase >= 1 ? 0.4 + Math.random() * 0.3 : 0,
-            animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 2}s`,
+            width: p.width,
+            height: p.height,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            backgroundColor: p.color,
+            opacity: phase >= 1 ? p.opacity : 0,
+            animation: `float ${p.duration}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
             transition: 'opacity 1s ease-out',
           }}
         />
