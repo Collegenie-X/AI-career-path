@@ -1,0 +1,70 @@
+{
+  "slides": [
+    {
+      "id": "discover",
+      "colorKey": "purple",
+      "titleKey": "slide_discover_title",
+      "subtitleKey": "slide_discover_subtitle",
+      "descriptionKey": "slide_discover_description",
+      "iconKey": "Sparkles",
+      "floatingIcons": [
+        { "icon": "?", "x": "15%", "y": "20%", "size": 28, "delay": 0 },
+        { "icon": "!", "x": "78%", "y": "15%", "size": 24, "delay": 0.5 },
+        { "icon": "*", "x": "85%", "y": "65%", "size": 20, "delay": 1 },
+        { "icon": "+", "x": "10%", "y": "70%", "size": 22, "delay": 1.5 }
+      ]
+    },
+    {
+      "id": "explore",
+      "colorKey": "blue",
+      "titleKey": "slide_explore_title",
+      "subtitleKey": "slide_explore_subtitle",
+      "descriptionKey": "slide_explore_description",
+      "iconKey": "Compass",
+      "floatingIcons": [
+        { "icon": "🏰", "x": "12%", "y": "18%", "size": 28, "delay": 0 },
+        { "icon": "🗺️", "x": "82%", "y": "22%", "size": 24, "delay": 0.3 },
+        { "icon": "⚔️", "x": "80%", "y": "68%", "size": 26, "delay": 0.6 },
+        { "icon": "🛡️", "x": "15%", "y": "72%", "size": 22, "delay": 0.9 }
+      ]
+    },
+    {
+      "id": "career-process",
+      "colorKey": "green",
+      "titleKey": "slide_career_process_title",
+      "subtitleKey": "slide_career_process_subtitle",
+      "descriptionKey": "slide_career_process_description",
+      "iconKey": "GitBranch",
+      "floatingIcons": [
+        { "icon": "☀️", "x": "18%", "y": "15%", "size": 26, "delay": 0 },
+        { "icon": "💼", "x": "80%", "y": "20%", "size": 24, "delay": 0.4 },
+        { "icon": "🎯", "x": "85%", "y": "70%", "size": 22, "delay": 0.8 },
+        { "icon": "📊", "x": "12%", "y": "68%", "size": 20, "delay": 1.2 }
+      ],
+      "steps": [
+        { "emoji": "🔍", "labelKey": "step_job_search" },
+        { "emoji": "🎮", "labelKey": "step_day_experience" },
+        { "emoji": "🗺️", "labelKey": "step_career_path_check" }
+      ]
+    },
+    {
+      "id": "career-builder",
+      "colorKey": "amber",
+      "titleKey": "slide_career_builder_title",
+      "subtitleKey": "slide_career_builder_subtitle",
+      "descriptionKey": "slide_career_builder_description",
+      "iconKey": "Map",
+      "floatingIcons": [
+        { "icon": "⭐", "x": "14%", "y": "16%", "size": 26, "delay": 0 },
+        { "icon": "🏆", "x": "82%", "y": "18%", "size": 28, "delay": 0.3 },
+        { "icon": "📋", "x": "78%", "y": "72%", "size": 22, "delay": 0.7 },
+        { "icon": "🎖️", "x": "16%", "y": "70%", "size": 24, "delay": 1 }
+      ],
+      "steps": [
+        { "emoji": "🎯", "labelKey": "step_activity_select" },
+        { "emoji": "🏅", "labelKey": "step_award_cert" },
+        { "emoji": "🚀", "labelKey": "step_roadmap_complete" }
+      ]
+    }
+  ]
+}
