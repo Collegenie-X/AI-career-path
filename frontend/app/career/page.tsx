@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TabBar } from '@/components/tab-bar';
-import careerMakerData from '@/data/career-maker.json';
+import exploreStar from '@/data/stars/explore-star.json';
 import { storage } from '@/lib/storage';
 import {
   Sparkles, Filter, ChevronDown, ChevronUp,
@@ -12,8 +12,20 @@ import {
   Rocket, ClipboardList,
 } from 'lucide-react';
 
-type Kingdom = typeof careerMakerData.kingdoms[0];
-type CareerItem = Kingdom['careerItems'][0];
+type StarData = typeof exploreStar;
+type CareerItem = {
+  id: string;
+  type: 'activity' | 'award' | 'certification';
+  title: string;
+  grades: string[];
+  months: number[];
+  difficulty: number;
+  cost: string;
+  organizer: string;
+  online: boolean;
+  description: string;
+  tags: string[];
+};
 
 const GRADES = ['초등', '중등', '고등'] as const;
 const MONTHS = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
@@ -86,8 +98,8 @@ function FilterChip({
 
 /* ─── Career Item Card ─── */
 function CareerItemCard({
-  item, kingdom, onAdd, saved,
-}: { item: CareerItem; kingdom: Kingdom; onAdd: (item: CareerItem, grade: string, month: number) => void; saved: boolean }) {
+  item, star, onAdd, saved,
+}: { item: CareerItem; star: StarData; onAdd: (item: CareerItem, grade: string, month: number) => void; saved: boolean }) {
   const [showDetail, setShowDetail] = useState(false);
   const [selectedGrade, setSelectedGrade] = useState(item.grades[0]);
   const [selectedMonth, setSelectedMonth] = useState(item.months[0]);
@@ -175,16 +187,16 @@ function CareerItemCard({
             </div>
             <div className="flex gap-2">
               {item.grades.map(g => (
-                <button
-                  key={g}
-                  className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
-                  style={selectedGrade === g
-                    ? { backgroundColor: kingdom.color, color: '#fff' }
-                    : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}
-                  onClick={() => setSelectedGrade(g)}
-                >
-                  {g}
-                </button>
+              <button
+                key={g}
+                className="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
+                style={selectedGrade === g
+                  ? { backgroundColor: star.color, color: '#fff' }
+                  : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}
+                onClick={() => setSelectedGrade(g)}
+              >
+                {g}
+              </button>
               ))}
             </div>
           </div>
@@ -201,7 +213,7 @@ function CareerItemCard({
                   key={m}
                   className="w-10 h-8 rounded-lg text-xs font-semibold transition-all"
                   style={selectedMonth === m
-                    ? { backgroundColor: kingdom.color, color: '#fff' }
+                    ? { backgroundColor: star.color, color: '#fff' }
                     : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}
                   onClick={() => setSelectedMonth(m)}
                 >
@@ -216,7 +228,7 @@ function CareerItemCard({
             className="w-full h-11 rounded-xl flex items-center justify-center gap-2 text-sm font-bold text-white transition-all"
             style={saved
               ? { background: `linear-gradient(135deg, #22C55E, #16A34A)` }
-              : { background: `linear-gradient(135deg, ${kingdom.color}, ${kingdom.color}aa)` }}
+              : { background: `linear-gradient(135deg, ${star.color}, ${star.color}aa)` }}
             onClick={() => onAdd(item, selectedGrade, selectedMonth)}
           >
             {saved ? (
@@ -265,9 +277,9 @@ function PlanBadge({ plan, onRemove }: { plan: SavedPlan; onRemove: (id: string)
 /* ─── Inner Content (uses useSearchParams) ─── */
 function CareerMakerContent() {
   const searchParams = useSearchParams();
-  const initKingdomId = searchParams.get('kingdom') ?? careerMakerData.kingdoms[0].id;
+  const initStarId = searchParams.get('star') ?? exploreStar.id;
 
-  const [selectedKingdomId, setSelectedKingdomId] = useState(initKingdomId);
+  const [selectedStarId, setSelectedStarId] = useState(initStarId);
   const [selectedGrades, setSelectedGrades] = useState<string[]>([]);
   const [selectedMonths, setSelectedMonths] = useState<number[]>([]);
   const [selectedDifficulties, setSelectedDifficulties] = useState<number[]>([]);
@@ -276,8 +288,12 @@ function CareerMakerContent() {
   const [savedPlans, setSavedPlans] = useState<SavedPlan[]>([]);
   const [showPlans, setShowPlans] = useState(false);
 
-  const kingdoms = careerMakerData.kingdoms;
-  const kingdom = kingdoms.find(k => k.id === selectedKingdomId) ?? kingdoms[0];
+  // TODO: Load all 8 stars dynamically
+  const stars = [exploreStar];
+  const star = stars.find(s => s.id === selectedStarId) ?? stars[0];
+  
+  // Mock career items for now
+  const careerItems: CareerItem[] = [];
 
   /* Load saved plans from localStorage */
   useEffect(() => {
@@ -293,7 +309,7 @@ function CareerMakerContent() {
   };
 
   /* Filtered items */
-  const filteredItems = kingdom.careerItems.filter(item => {
+  const filteredItems = careerItems.filter(item => {
     if (selectedGrades.length > 0 && !item.grades.some(g => selectedGrades.includes(g))) return false;
     if (selectedMonths.length > 0 && !item.months.some(m => selectedMonths.includes(m))) return false;
     if (selectedDifficulties.length > 0 && !selectedDifficulties.includes(item.difficulty)) return false;
@@ -314,9 +330,9 @@ function CareerMakerContent() {
       type: item.type,
       grade,
       targetMonth: month,
-      kingdomId: kingdom.id,
-      kingdomName: kingdom.name,
-      color: kingdom.color,
+      kingdomId: star.id,
+      kingdomName: star.name,
+      color: star.color,
       savedAt: new Date().toISOString(),
     };
     persistPlans([...savedPlans, plan]);
@@ -402,47 +418,47 @@ function CareerMakerContent() {
       )}
 
       <div className="relative z-10 px-4 pt-4 space-y-4">
-        {/* Kingdom Selector */}
+        {/* Star Selector */}
         <div>
-          <div className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-semibold">왕국 선택</div>
+          <div className="text-xs text-gray-400 uppercase tracking-wider mb-2 font-semibold">별 선택</div>
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            {kingdoms.map(k => (
+            {stars.map(s => (
               <button
-                key={k.id}
+                key={s.id}
                 className="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold transition-all"
-                style={selectedKingdomId === k.id
-                  ? { backgroundColor: k.color, color: '#fff', boxShadow: `0 0 12px ${k.color}66` }
+                style={selectedStarId === s.id
+                  ? { backgroundColor: s.color, color: '#fff', boxShadow: `0 0 12px ${s.color}66` }
                   : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.1)' }}
-                onClick={() => setSelectedKingdomId(k.id)}
+                onClick={() => setSelectedStarId(s.id)}
               >
-                <span>{k.emoji}</span>
-                <span>{k.name}</span>
+                <span>{s.emoji}</span>
+                <span>{s.name}</span>
               </button>
             ))}
           </div>
         </div>
 
-        {/* Selected Kingdom Info */}
+        {/* Selected Star Info */}
         <div
           className="rounded-2xl p-4 flex items-center gap-3"
           style={{
-            background: `linear-gradient(135deg, ${kingdom.bgColor}ee, ${kingdom.bgColor}88)`,
-            border: `1px solid ${kingdom.color}33`,
+            background: `linear-gradient(135deg, ${star.bgColor}ee, ${star.bgColor}88)`,
+            border: `1px solid ${star.color}33`,
           }}
         >
-          <span className="text-3xl">{kingdom.emoji}</span>
+          <span className="text-3xl">{star.emoji}</span>
           <div>
-            <div className="font-bold text-white">{kingdom.name}</div>
-            <div className="text-xs mt-0.5" style={{ color: `${kingdom.color}cc` }}>
-              {kingdom.careerItems.length}개 활동/수상/자격증
+            <div className="font-bold text-white">{star.name}</div>
+            <div className="text-xs mt-0.5" style={{ color: `${star.color}cc` }}>
+              {careerItems.length}개 활동/수상/자격증
             </div>
           </div>
           <button
             className="ml-auto flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold"
             style={{
-              backgroundColor: `${kingdom.color}22`,
-              color: kingdom.color,
-              border: `1px solid ${kingdom.color}44`,
+              backgroundColor: `${star.color}22`,
+              color: star.color,
+              border: `1px solid ${star.color}44`,
             }}
             onClick={() => setShowFilters(f => !f)}
           >
@@ -451,7 +467,7 @@ function CareerMakerContent() {
             {(selectedGrades.length + selectedMonths.length + selectedDifficulties.length + selectedTypes.length) > 0 && (
               <span
                 className="w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-bold"
-                style={{ backgroundColor: kingdom.color, color: '#fff' }}
+                style={{ backgroundColor: star.color, color: '#fff' }}
               >
                 {selectedGrades.length + selectedMonths.length + selectedDifficulties.length + selectedTypes.length}
               </span>
@@ -486,7 +502,7 @@ function CareerMakerContent() {
                     key={g}
                     label={g}
                     active={selectedGrades.includes(g)}
-                    color={kingdom.color}
+                    color={star.color}
                     onClick={() => setSelectedGrades(v => toggle(v, g))}
                   />
                 ))}
@@ -501,7 +517,7 @@ function CareerMakerContent() {
                     key={i}
                     label={m}
                     active={selectedMonths.includes(i + 1)}
-                    color={kingdom.color}
+                    color={star.color}
                     onClick={() => setSelectedMonths(v => toggle(v, i + 1))}
                   />
                 ))}
@@ -516,7 +532,7 @@ function CareerMakerContent() {
                     key={d}
                     label={`${'★'.repeat(d)}`}
                     active={selectedDifficulties.includes(d)}
-                    color={kingdom.color}
+                    color={star.color}
                     onClick={() => setSelectedDifficulties(v => toggle(v, d))}
                   />
                 ))}
@@ -558,7 +574,7 @@ function CareerMakerContent() {
               <CareerItemCard
                 key={item.id}
                 item={item}
-                kingdom={kingdom}
+                star={star}
                 onAdd={addToPlan}
                 saved={savedItemIds.has(item.id)}
               />

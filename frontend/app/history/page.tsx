@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { TabBar } from '@/components/tab-bar';
 import { storage } from '@/lib/storage';
 import { getLevelForXP } from '@/lib/xp';
-import careerMakerData from '@/data/career-maker.json';
+import exploreStar from '@/data/stars/explore-star.json';
 import {
   Clock, Trophy, Activity, Award,
   Zap, Star, Sparkles, BookOpen,
@@ -139,39 +139,40 @@ function PlanTimeline({ plans }: { plans: SavedPlan[] }) {
   );
 }
 
-/* ─── Kingdom Progress ─── */
-function KingdomProgress({ plans }: { plans: SavedPlan[] }) {
-  const kingdoms = careerMakerData.kingdoms;
-  const counts = kingdoms
-    .map(k => ({
-      ...k,
-      count: plans.filter(p => p.kingdomId === k.id).length,
+/* ─── Star Progress ─── */
+function StarProgress({ plans }: { plans: SavedPlan[] }) {
+  // TODO: Load all 8 stars dynamically
+  const stars = [exploreStar];
+  const counts = stars
+    .map(s => ({
+      ...s,
+      count: plans.filter(p => p.kingdomId === s.id).length,
     }))
-    .filter(k => k.count > 0)
+    .filter(s => s.count > 0)
     .sort((a, b) => b.count - a.count);
 
   if (counts.length === 0) return null;
-  const maxCount = Math.max(...counts.map(k => k.count));
+  const maxCount = Math.max(...counts.map(s => s.count));
 
   return (
     <div className="glass-card p-4 rounded-2xl space-y-3">
       <div className="text-sm font-semibold text-white flex items-center gap-2">
         <TrendingUp className="w-4 h-4 text-primary" />
-        왕국별 계획 현황
+        별별 계획 현황
       </div>
-      {counts.map(k => (
-        <div key={k.id} className="space-y-1">
+      {counts.map(s => (
+        <div key={s.id} className="space-y-1">
           <div className="flex items-center justify-between text-xs">
             <div className="flex items-center gap-1.5">
-              <span>{k.emoji}</span>
-              <span className="text-gray-300">{k.name}</span>
+              <span>{s.emoji}</span>
+              <span className="text-gray-300">{s.name}</span>
             </div>
-            <span style={{ color: k.color }}>{k.count}개</span>
+            <span style={{ color: s.color }}>{s.count}개</span>
           </div>
           <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-700"
-              style={{ width: `${(k.count / maxCount) * 100}%`, backgroundColor: k.color }}
+              style={{ width: `${(s.count / maxCount) * 100}%`, backgroundColor: s.color }}
             />
           </div>
         </div>
@@ -311,8 +312,8 @@ export default function HistoryPage() {
           })}
         </div>
 
-        {/* Kingdom Progress */}
-        <KingdomProgress plans={savedPlans} />
+        {/* Star Progress */}
+        <StarProgress plans={savedPlans} />
 
         {/* Tab Switcher */}
         <div className="flex gap-2">

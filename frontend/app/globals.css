@@ -104,9 +104,10 @@
   * {
     border-color: rgb(var(--border));
   }
-  body {
+  html, body {
     background-color: rgb(var(--background));
     color: rgb(var(--foreground));
+    overflow-x: hidden;
   }
 }
 
