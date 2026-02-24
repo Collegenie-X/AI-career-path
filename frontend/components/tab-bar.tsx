@@ -1,13 +1,13 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { Rocket, Compass, Map, BookOpen } from 'lucide-react';
+import { Home, Briefcase, Map, History } from 'lucide-react';
 
 const tabs = [
-  { id: 'home', label: '홈', icon: Rocket, path: '/home' },
-  { id: 'explore', label: '탐험', icon: Compass, path: '/explore' },
-  { id: 'path', label: '미션', icon: Map, path: '/path' },
-  { id: 'portfolio', label: '드림북', icon: BookOpen, path: '/portfolio' },
+  { id: 'home',    label: '홈',          icon: Home,      path: '/home' },
+  { id: 'jobs',    label: 'Job 체험',    icon: Briefcase, path: '/jobs/explore' },
+  { id: 'career',  label: '커리어',      icon: Map,       path: '/career' },
+  { id: 'history', label: '히스토리',    icon: History,   path: '/history' },
 ];
 
 export function TabBar() {
@@ -22,7 +22,7 @@ export function TabBar() {
   return (
     <div
       className="fixed bottom-0 left-1/2 -translate-x-1/2 z-50 w-full max-w-[430px] border-t border-white/10"
-      style={{ backgroundColor: 'rgba(26,26,46,0.92)', backdropFilter: 'blur(20px)' }}
+      style={{ backgroundColor: 'rgba(26,26,46,0.95)', backdropFilter: 'blur(20px)' }}
     >
       <div className="flex items-center justify-around py-1.5 px-2">
         {tabs.map(tab => {
@@ -59,7 +59,6 @@ export function TabBar() {
           );
         })}
       </div>
-      {/* Safe area bottom */}
       <div className="h-[env(safe-area-inset-bottom)]" />
     </div>
   );
