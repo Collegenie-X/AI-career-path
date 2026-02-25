@@ -29,12 +29,12 @@
       ]
     },
     {
-      "id": "career-process",
+      "id": "job-experience",
       "colorKey": "green",
-      "titleKey": "slide_career_process_title",
-      "subtitleKey": "slide_career_process_subtitle",
-      "descriptionKey": "slide_career_process_description",
-      "iconKey": "GitBranch",
+      "titleKey": "slide_job_experience_title",
+      "subtitleKey": "slide_job_experience_subtitle",
+      "descriptionKey": "slide_job_experience_description",
+      "iconKey": "Briefcase",
       "floatingIcons": [
         { "icon": "☀️", "x": "18%", "y": "15%", "size": 26, "delay": 0 },
         { "icon": "💼", "x": "80%", "y": "20%", "size": 24, "delay": 0.4 },
@@ -42,9 +42,9 @@
         { "icon": "📊", "x": "12%", "y": "68%", "size": 20, "delay": 1.2 }
       ],
       "steps": [
-        { "emoji": "🔍", "labelKey": "step_job_search" },
-        { "emoji": "🎮", "labelKey": "step_day_experience" },
-        { "emoji": "🗺️", "labelKey": "step_career_path_check" }
+        { "emoji": "☀️", "labelKey": "step_daily_schedule" },
+        { "emoji": "⚙️", "labelKey": "step_work_process" },
+        { "emoji": "🎓", "labelKey": "step_career_timeline" }
       ]
     },
     {
@@ -61,9 +61,23 @@
         { "icon": "🎖️", "x": "16%", "y": "70%", "size": 24, "delay": 1 }
       ],
       "steps": [
-        { "emoji": "🎯", "labelKey": "step_activity_select" },
-        { "emoji": "🏅", "labelKey": "step_award_cert" },
-        { "emoji": "🚀", "labelKey": "step_roadmap_complete" }
+        { "emoji": "🎯", "labelKey": "step_goal_job" },
+        { "emoji": "📝", "labelKey": "step_todo_list" },
+        { "emoji": "🚀", "labelKey": "step_one_click_plan" }
+      ]
+    },
+    {
+      "id": "success",
+      "colorKey": "pink",
+      "titleKey": "slide_success_title",
+      "subtitleKey": "slide_success_subtitle",
+      "descriptionKey": "slide_success_description",
+      "iconKey": "Trophy",
+      "floatingIcons": [
+        { "icon": "🎓", "x": "12%", "y": "18%", "size": 28, "delay": 0 },
+        { "icon": "🏆", "x": "80%", "y": "15%", "size": 26, "delay": 0.3 },
+        { "icon": "💼", "x": "82%", "y": "68%", "size": 24, "delay": 0.6 },
+        { "icon": "⭐", "x": "15%", "y": "72%", "size": 22, "delay": 0.9 }
       ]
     }
   ]

@@ -1,6 +1,6 @@
 'use client';
 
-import { Clock, TrendingUp, Briefcase, Zap, Star } from 'lucide-react';
+import { Clock, TrendingUp, Briefcase, Zap, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { PhaseIllustration } from '../PhaseIllustration';
 import { LABELS } from '../../config';
 import type { Job, StarData, WorkPhase } from '../../types';
@@ -12,27 +12,56 @@ interface ProcessTabProps {
   processStep: number;
   phases: WorkPhase[];
   isLastPhase: boolean;
+  onStepChange: (step: number) => void;
 }
 
-export function ProcessTab({ job, star, currentPhase, processStep, phases, isLastPhase }: ProcessTabProps) {
+export function ProcessTab({ job, star, currentPhase, processStep, phases, isLastPhase, onStepChange }: ProcessTabProps) {
   return (
-    <div className="px-4 pt-2 pb-4">
-      {/* Progress bar */}
-      <div className="flex gap-1.5 mb-1">
+    <div className="px-4 pt-3 pb-6">
+      {/* Slide illustration with nav arrows */}
+      <div className="relative mb-5">
+        <PhaseIllustration phase={currentPhase} jobId={job.id} color={star.color} />
+
+        {/* Left arrow */}
+        {processStep > 0 && (
+          <button
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all active:scale-90"
+            style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}
+            onClick={() => onStepChange(processStep - 1)}
+          >
+            <ChevronLeft className="w-5 h-5 text-white" />
+          </button>
+        )}
+
+        {/* Right arrow */}
+        {!isLastPhase && (
+          <button
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all active:scale-90"
+            style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}
+            onClick={() => onStepChange(processStep + 1)}
+          >
+            <ChevronRight className="w-5 h-5 text-white" />
+          </button>
+        )}
+      </div>
+
+      {/* Dot indicators */}
+      <div className="flex items-center justify-center gap-2 mb-5">
         {phases.map((_, i) => (
-          <div
+          <button
             key={i}
-            className="flex-1 h-1 rounded-full transition-all duration-500"
-            style={{ backgroundColor: i <= processStep ? star.color : 'rgba(255,255,255,0.1)' }}
+            onClick={() => onStepChange(i)}
+            className="transition-all duration-300"
+            style={{
+              width: i === processStep ? 24 : 8,
+              height: 8,
+              borderRadius: 4,
+              backgroundColor: i === processStep ? star.color : 'rgba(255,255,255,0.18)',
+              boxShadow: i === processStep ? `0 0 8px ${star.color}88` : 'none',
+            }}
           />
         ))}
       </div>
-      <div className="text-[11px] text-gray-500 mb-3">
-        {processStep + 1} / {phases.length} {LABELS.process_step_counter}
-      </div>
-
-      {/* Big illustration */}
-      <PhaseIllustration phase={currentPhase} jobId={job.id} color={star.color} />
 
       {/* Title + desc */}
       <div className="mb-4">

@@ -5,8 +5,8 @@ import { Home, Briefcase, Map, History } from 'lucide-react';
 
 const tabs = [
   { id: 'home',    label: '홈',          icon: Home,      path: '/home' },
-  { id: 'jobs',    label: 'Job 체험',    icon: Briefcase, path: '/jobs/explore' },
-  { id: 'career',  label: '커리어',      icon: Map,       path: '/career' },
+  { id: 'jobs',    label: '직업 체험',    icon: Briefcase, path: '/jobs/explore' },
+  { id: 'career',  label: '커리어 패스',      icon: Map,       path: '/career' },
   { id: 'history', label: '히스토리',    icon: History,   path: '/history' },
 ];
 

@@ -3,11 +3,11 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TabBar } from '@/components/tab-bar';
-import { Hammer, Sparkles, Plus, Pencil } from 'lucide-react';
-import { LABELS } from './config';
+import { Sparkles, Plus } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
-import { CareerPathTimeline } from './components/CareerPathTimeline';
+import { CareerPathSelector } from './components/CareerPathSelector';
+import { VerticalTimelineList } from './components/VerticalTimelineList';
 import templates from '@/data/career-path-templates.json';
 
 type TabId = 'explore' | 'builder' | 'timeline';
@@ -18,7 +18,7 @@ const TABS: { id: TabId; label: string; emoji: string }[] = [
   { id: 'timeline', label: '타임라인', emoji: '🗺️' },
 ];
 
-const STORAGE_KEY = 'career_plan_v2';
+const STORAGE_KEY = 'career_plans_v3'; // Changed to support multiple plans
 
 /* ─── Star background ─── */
 function StarField() {
@@ -49,14 +49,20 @@ function StarField() {
 
 /* ─── Builder landing (빌더 탭 — 다이얼로그 열기 전) ─── */
 function BuilderLanding({
-  currentPlan,
+  plans,
+  selectedPlanId,
+  onSelectPlan,
   onNew,
   onEdit,
+  onDelete,
   onViewTimeline,
 }: {
-  currentPlan: CareerPlan | null;
+  plans: CareerPlan[];
+  selectedPlanId: string | null;
+  onSelectPlan: (planId: string) => void;
   onNew: () => void;
-  onEdit: () => void;
+  onEdit: (plan: CareerPlan) => void;
+  onDelete: (planId: string) => void;
   onViewTimeline: () => void;
 }) {
   return (
@@ -74,62 +80,17 @@ function BuilderLanding({
         <p className="text-sm text-gray-400 text-center mb-5 leading-relaxed">
           왕국 선택부터 학년별 계획까지<br />단계별로 쉽게 만들어요
         </p>
-        <button
-          onClick={onNew}
-          className="w-full h-14 rounded-2xl font-black text-base text-white flex items-center justify-center gap-3 transition-all active:scale-[0.98]"
-          style={{
-            background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-            boxShadow: '0 6px 24px rgba(108,92,231,0.45)',
-          }}
-        >
-          <Plus className="w-5 h-5" />
-          새 커리어 패스 만들기
-          <Sparkles className="w-4 h-4 opacity-80" />
-        </button>
       </div>
 
-      {/* Existing plan */}
-      {currentPlan && (
-        <div
-          className="rounded-2xl p-4"
-          style={{
-            background: `linear-gradient(135deg, ${currentPlan.starColor}18, ${currentPlan.starColor}08)`,
-            border: `1.5px solid ${currentPlan.starColor}30`,
-          }}
-        >
-          <div className="text-xs text-gray-500 font-semibold mb-3 uppercase tracking-wider">현재 커리어 패스</div>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">{currentPlan.jobEmoji}</span>
-            <div>
-              <div className="font-bold text-white">{currentPlan.title}</div>
-              <div className="text-xs mt-0.5" style={{ color: `${currentPlan.starColor}cc` }}>
-                {currentPlan.starEmoji} {currentPlan.starName} · {currentPlan.years.length}개 학년 · {currentPlan.years.reduce((s, y) => s + y.items.length, 0)}개 항목
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-2">
-            <button
-              onClick={onEdit}
-              className="h-11 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95"
-              style={{
-                backgroundColor: `${currentPlan.starColor}20`,
-                color: currentPlan.starColor,
-                border: `1px solid ${currentPlan.starColor}44`,
-              }}
-            >
-              <Pencil className="w-4 h-4" />
-              수정하기
-            </button>
-            <button
-              onClick={onViewTimeline}
-              className="h-11 rounded-xl text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.65)' }}
-            >
-              🗺️ 타임라인 보기
-            </button>
-          </div>
-        </div>
-      )}
+      {/* Career path selector */}
+      <CareerPathSelector
+        plans={plans}
+        selectedPlanId={selectedPlanId}
+        onSelectPlan={onSelectPlan}
+        onNewPlan={onNew}
+        onEditPlan={onEdit}
+        onDeletePlan={onDelete}
+      />
 
       {/* How it works */}
       <div
@@ -144,7 +105,7 @@ function BuilderLanding({
           { step: 2, emoji: '🎯', title: '직업 선택', desc: '왕국의 대표 직업 중 목표를 골라요' },
           { step: 3, emoji: '📅', title: '학년 선택', desc: '계획할 학년을 모두 체크해요' },
           { step: 4, emoji: '✏️', title: '계획 추가', desc: '학년별로 목표·활동·수상·자격증을 추가해요' },
-          { step: 5, emoji: '🎉', title: '완성!', desc: '저장 후 타임라인 WBS로 확인해요' },
+          { step: 5, emoji: '🎉', title: '완성!', desc: '저장 후 타임라인으로 확인해요' },
         ].map(item => (
           <div key={item.step} className="flex items-start gap-3">
             <div
@@ -168,27 +129,69 @@ function BuilderLanding({
 function CareerPageContent() {
   const searchParams = useSearchParams();
 
-  const initTab = (searchParams.get('tab') as TabId | null) ?? 'explore';
-
-  const [activeTab, setActiveTab] = useState<TabId>(initTab);
-  const [currentPlan, setCurrentPlan] = useState<CareerPlan | null>(null);
+  // Always start with 'explore' on server to avoid hydration mismatch.
+  // After mount we sync from the URL query param.
+  const [activeTab, setActiveTab] = useState<TabId>('explore');
+  const [plans, setPlans] = useState<CareerPlan[]>([]);
+  const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
   const [builderOpen, setBuilderOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  /* Load saved plan */
+  /* Client-only bootstrap — runs once after hydration */
   useEffect(() => {
+    setMounted(true);
+
+    // Sync tab from URL now that we're on the client
+    const tabParam = searchParams.get('tab') as TabId | null;
+    if (tabParam && ['explore', 'builder', 'timeline'].includes(tabParam)) {
+      setActiveTab(tabParam);
+    }
+
+    // Load saved plans from localStorage
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setCurrentPlan(JSON.parse(raw));
+      if (raw) {
+        const loadedPlans = JSON.parse(raw) as CareerPlan[];
+        setPlans(loadedPlans);
+        if (loadedPlans.length > 0) {
+          setSelectedPlanId(loadedPlans[0].id);
+        }
+      }
     } catch {}
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const savePlans = (updatedPlans: CareerPlan[]) => {
+    setPlans(updatedPlans);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  };
+
   const savePlan = (plan: CareerPlan) => {
-    setCurrentPlan(plan);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
+    const existingIndex = plans.findIndex((p) => p.id === plan.id);
+    let updatedPlans: CareerPlan[];
+
+    if (existingIndex >= 0) {
+      updatedPlans = [...plans];
+      updatedPlans[existingIndex] = plan;
+    } else {
+      updatedPlans = [...plans, plan];
+    }
+
+    savePlans(updatedPlans);
+    setSelectedPlanId(plan.id);
     setBuilderOpen(false);
     setEditingPlan(null);
     setActiveTab('timeline');
+  };
+
+  const deletePlan = (planId: string) => {
+    const updatedPlans = plans.filter((p) => p.id !== planId);
+    savePlans(updatedPlans);
+    
+    if (selectedPlanId === planId) {
+      setSelectedPlanId(updatedPlans.length > 0 ? updatedPlans[0].id : null);
+    }
   };
 
   const openNew = () => {
@@ -196,8 +199,8 @@ function CareerPageContent() {
     setBuilderOpen(true);
   };
 
-  const openEdit = () => {
-    setEditingPlan(currentPlan);
+  const openEdit = (plan: CareerPlan) => {
+    setEditingPlan(plan);
     setBuilderOpen(true);
   };
 
@@ -240,6 +243,15 @@ function CareerPageContent() {
     savePlan(plan);
   };
 
+  const selectedPlan = mounted ? (plans.find((p) => p.id === selectedPlanId) ?? null) : null;
+
+  /* Propagate inline plan edits from timeline back to storage */
+  const updatePlanInline = (updatedPlan: CareerPlan) => {
+    const updatedPlans = plans.map((p) => p.id === updatedPlan.id ? updatedPlan : p);
+    setPlans(updatedPlans);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  };
+
   return (
     <div
       className="min-h-screen pb-24 relative overflow-hidden"
@@ -263,26 +275,26 @@ function CareerPageContent() {
             </h1>
             <p className="text-xs text-gray-500">나만의 진로 로드맵</p>
           </div>
-          {currentPlan && (
+          {mounted && selectedPlan && (
             <div
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl"
               style={{
-                backgroundColor: `${currentPlan.starColor}18`,
-                border: `1px solid ${currentPlan.starColor}33`,
+                backgroundColor: `${selectedPlan.starColor}18`,
+                border: `1px solid ${selectedPlan.starColor}33`,
               }}
             >
-              <span className="text-base">{currentPlan.jobEmoji}</span>
-              <span className="text-[11px] font-bold" style={{ color: currentPlan.starColor }}>
-                {currentPlan.jobName}
+              <span className="text-base">{selectedPlan.jobEmoji}</span>
+              <span className="text-[11px] font-bold" style={{ color: selectedPlan.starColor }}>
+                {selectedPlan.jobName}
               </span>
             </div>
           )}
         </div>
 
-        {/* Tab bar */}
+        {/* Tab bar — inactive style is always the same on server, active style applied after mount */}
         <div className="flex gap-1.5 pb-3">
           {TABS.map(tab => {
-            const active = activeTab === tab.id;
+            const active = mounted && activeTab === tab.id;
             return (
               <button
                 key={tab.id}
@@ -308,50 +320,49 @@ function CareerPageContent() {
         </div>
       </div>
 
-      {/* Tab content */}
+      {/* Tab content — render nothing until mounted so SSR HTML is stable */}
       <div className="relative z-10 px-4 pt-4">
-        {activeTab === 'explore' && (
-          <CareerPathList
-            onUseTemplate={handleUseTemplate}
-            onNewPath={openNew}
-          />
-        )}
-
-        {/* Fixed "커리어 패스 만들기" CTA — explore tab only */}
-        {activeTab === 'explore' && !builderOpen && (
-          <div
-            className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto"
-          >
-            <button
-              onClick={openNew}
-              className="w-full h-14 rounded-2xl font-black text-base text-white flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]"
-              style={{
-                background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                boxShadow: '0 8px 28px rgba(108,92,231,0.55)',
-              }}
-            >
-              <Plus className="w-5 h-5" />
-              커리어 패스 만들기
-            </button>
-          </div>
-        )}
-
-        {activeTab === 'builder' && (
+        {!mounted ? null : activeTab === 'explore' ? (
+          <>
+            <CareerPathList
+              onUseTemplate={handleUseTemplate}
+              onNewPath={openNew}
+            />
+            {!builderOpen && (
+              <div className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto">
+                <button
+                  onClick={openNew}
+                  className="w-full h-14 rounded-2xl font-black text-base text-white flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]"
+                  style={{
+                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                    boxShadow: '0 8px 28px rgba(108,92,231,0.55)',
+                  }}
+                >
+                  <Plus className="w-5 h-5" />
+                  커리어 패스 만들기
+                </button>
+              </div>
+            )}
+          </>
+        ) : activeTab === 'builder' ? (
           <BuilderLanding
-            currentPlan={currentPlan}
+            plans={plans}
+            selectedPlanId={selectedPlanId}
+            onSelectPlan={setSelectedPlanId}
             onNew={openNew}
             onEdit={openEdit}
+            onDelete={deletePlan}
             onViewTimeline={() => setActiveTab('timeline')}
           />
-        )}
-
-        {activeTab === 'timeline' && (
-          <CareerPathTimeline
-            plan={currentPlan}
+        ) : activeTab === 'timeline' ? (
+          <VerticalTimelineList
+            allPlans={plans}
             onEdit={openEdit}
+            onUpdatePlan={updatePlanInline}
+            onDeletePlan={deletePlan}
             onNewPlan={openNew}
           />
-        )}
+        ) : null}
       </div>
 
       <TabBar />

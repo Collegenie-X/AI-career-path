@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Star, Briefcase } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
 import { StarProfilePanel, StarProfileSummary } from '@/components/star-profile-panel';
@@ -28,6 +28,7 @@ import type { StarData, Job } from './types';
 
 export default function JobsExplorePage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showStarProfile, setShowStarProfile] = useState(false);
@@ -42,6 +43,20 @@ export default function JobsExplorePage() {
     communicateStar,
     challengeStar,
   ] as StarData[];
+
+  useEffect(() => {
+    const starId = searchParams.get('starId');
+    const jobId = searchParams.get('jobId');
+    if (starId && jobId) {
+      const star = stars.find(s => s.id === starId);
+      if (star) {
+        setSelectedStar(star);
+        const job = star.jobs.find((j: Job) => j.id === jobId);
+        if (job) setSelectedJob(job);
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   return (
     <div

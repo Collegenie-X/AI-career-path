@@ -1,12 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { ProcessTab } from './ProcessTab';
 import { TimelineTab } from './TimelineTab';
 import { DailyScheduleTab } from './DailyScheduleTab';
 import { ModalHeader } from './ModalHeader';
 import { ModalTabs, type ModalTab } from './ModalTabs';
-import { ModalControls } from './ModalControls';
 import { JobHeroBanner } from './JobHeroBanner';
 import type { Job, StarData } from '../../types';
 
@@ -19,22 +18,33 @@ interface JobDetailModalProps {
 export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
   const [activeTab, setActiveTab] = useState<ModalTab>('process');
   const [processStep, setProcessStep] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   const phases = job.workProcess.phases;
-  const currentPhase = phases[processStep];
   const isLastPhase = processStep === phases.length - 1;
 
-  const handleNext = () => {
-    if (isLastPhase) {
-      setActiveTab('daily');
-      setProcessStep(0);
-    } else {
-      setProcessStep(s => s + 1);
+  const goToStep = (step: number) => {
+    if (step >= 0 && step < phases.length) {
+      setProcessStep(step);
     }
   };
 
-  const handlePrev = () => {
-    setProcessStep(s => s - 1);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    const dy = e.changedTouches[0].clientY - touchStartY.current;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0 && !isLastPhase) goToStep(processStep + 1);
+      else if (dx > 0 && processStep > 0) goToStep(processStep - 1);
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
   };
 
   return (
@@ -49,18 +59,24 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
         <ModalHeader job={job} star={star} onClose={onClose} />
 
         <JobHeroBanner job={job} star={star} />
-        
-        <ModalTabs activeTab={activeTab} star={star} onTabChange={setActiveTab} />
 
-        <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <ModalTabs activeTab={activeTab} star={star} onTabChange={(tab) => { setActiveTab(tab); setProcessStep(0); }} />
+
+        <div
+          className="flex-1 overflow-y-auto"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+          onTouchStart={activeTab === 'process' ? handleTouchStart : undefined}
+          onTouchEnd={activeTab === 'process' ? handleTouchEnd : undefined}
+        >
           {activeTab === 'process' && (
-            <ProcessTab 
+            <ProcessTab
               job={job}
               star={star}
-              currentPhase={currentPhase}
+              currentPhase={phases[processStep]}
               processStep={processStep}
               phases={phases}
               isLastPhase={isLastPhase}
+              onStepChange={goToStep}
             />
           )}
           {activeTab === 'daily' && (
@@ -70,16 +86,6 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
             <TimelineTab job={job} star={star} />
           )}
         </div>
-
-        {activeTab === 'process' && (
-          <ModalControls
-            processStep={processStep}
-            isLastPhase={isLastPhase}
-            star={star}
-            onPrev={handlePrev}
-            onNext={handleNext}
-          />
-        )}
       </div>
     </div>
   );
