@@ -28,7 +28,7 @@ export function ProcessTab({ job, star, currentPhase, processStep, phases, isLas
         ))}
       </div>
       <div className="text-[11px] text-gray-500 mb-3">
-        {processStep + 1} / {phases.length} 단계
+        {processStep + 1} / {phases.length} {LABELS.process_step_counter}
       </div>
 
       {/* Big illustration */}

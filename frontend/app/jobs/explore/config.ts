@@ -1,5 +1,41 @@
 // ─── Configuration ───────────────────────────────────────────────
 
+import type { DailyScheduleItem } from './types';
+
+// ─── 일과 타입 색상 ────────────────────────────────────────────
+export const SCHEDULE_TYPE_COLORS: Record<DailyScheduleItem['type'], string> = {
+  morning: '#F59E0B',
+  meeting: '#8B5CF6',
+  work: '#10B981',
+  lunch: '#F97316',
+  review: '#3B82F6',
+  admin: '#6B7280',
+  evening: '#EC4899',
+  field: '#06B6D4',
+};
+
+// ─── 일과 타입 라벨 ────────────────────────────────────────────
+export const SCHEDULE_TYPE_LABELS: Record<DailyScheduleItem['type'], string> = {
+  morning: '아침',
+  meeting: '미팅',
+  work: '작업',
+  lunch: '점심',
+  review: '검토',
+  admin: '행정',
+  evening: '저녁',
+  field: '현장',
+};
+
+// ─── 홀랜드 코드 라벨 ─────────────────────────────────────────
+export const HOLLAND_CODE_LABELS: Record<string, string> = {
+  R: '현실형',
+  I: '탐구형',
+  A: '예술형',
+  S: '사회형',
+  E: '기업형',
+  C: '관습형',
+};
+
 export const PHASE_BG_COLORS: Record<number, string> = {
   1: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   2: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
@@ -35,6 +71,7 @@ export const LABELS = {
   
   // Modal
   modal_process_tab: '직무 프로세스',
+  modal_daily_tab: '주요 일과',
   modal_timeline_tab: '커리어 패스',
   modal_duration: '소요 시간',
   modal_example: '실제 예시',
@@ -50,4 +87,23 @@ export const LABELS = {
   modal_total_cost: '총 예상 비용',
   modal_key_success: '핵심 성공 지표',
   modal_step: 'STEP',
+
+  // Hero banner
+  hero_suitable_personality: '유리한 성향',
+
+  // Daily schedule tab
+  daily_coming_soon: '이 직업의 일과 데이터를 준비 중입니다.',
+  daily_note: '실제 일과는 직장 유형·상황에 따라 다를 수 있습니다. 위 일과는 대표적인 하루의 흐름을 보여줍니다.',
+
+  // Process tab
+  process_step_counter: '단계',
+  process_step_label: 'STEP',
+
+  // Timeline tab
+  timeline_setak_label: '세특 포인트',
+  timeline_cost_prefix: '💰 총',
+  timeline_cost_inline: '💰',
+
+  // Page header
+  features_section_title: '✨ 주요 기능',
 };

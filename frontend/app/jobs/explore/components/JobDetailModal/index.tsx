@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { X, Briefcase, Calendar } from 'lucide-react';
-import { JOB_ILLUSTRATIONS } from '../../constants/jobIllustrations';
 import { ProcessTab } from './ProcessTab';
 import { TimelineTab } from './TimelineTab';
+import { DailyScheduleTab } from './DailyScheduleTab';
 import { ModalHeader } from './ModalHeader';
-import { ModalTabs } from './ModalTabs';
+import { ModalTabs, type ModalTab } from './ModalTabs';
 import { ModalControls } from './ModalControls';
+import { JobHeroBanner } from './JobHeroBanner';
 import type { Job, StarData } from '../../types';
 
 interface JobDetailModalProps {
@@ -17,7 +17,7 @@ interface JobDetailModalProps {
 }
 
 export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
-  const [activeTab, setActiveTab] = useState<'process' | 'timeline'>('process');
+  const [activeTab, setActiveTab] = useState<ModalTab>('process');
   const [processStep, setProcessStep] = useState(0);
 
   const phases = job.workProcess.phases;
@@ -26,7 +26,7 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
 
   const handleNext = () => {
     if (isLastPhase) {
-      setActiveTab('timeline');
+      setActiveTab('daily');
       setProcessStep(0);
     } else {
       setProcessStep(s => s + 1);
@@ -47,11 +47,13 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
         }}
       >
         <ModalHeader job={job} star={star} onClose={onClose} />
+
+        <JobHeroBanner job={job} star={star} />
         
         <ModalTabs activeTab={activeTab} star={star} onTabChange={setActiveTab} />
 
         <div className="flex-1 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
-          {activeTab === 'process' ? (
+          {activeTab === 'process' && (
             <ProcessTab 
               job={job}
               star={star}
@@ -60,7 +62,11 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
               phases={phases}
               isLastPhase={isLastPhase}
             />
-          ) : (
+          )}
+          {activeTab === 'daily' && (
+            <DailyScheduleTab job={job} star={star} />
+          )}
+          {activeTab === 'timeline' && (
             <TimelineTab job={job} star={star} />
           )}
         </div>

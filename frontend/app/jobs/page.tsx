@@ -9,6 +9,7 @@ import {
   CTASection,
   BackgroundEffects,
 } from './components';
+import { LABELS } from './config';
 import type { JobsPageData } from './types';
 
 const jobsContent = jobsContentData as JobsPageData;
@@ -33,10 +34,10 @@ export default function JobsPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent">
-              직업 탐색
+              {LABELS.page_title}
             </h1>
             <p className="text-xs text-gray-400">
-              나에게 맞는 직업을 찾아보세요
+              {LABELS.page_subtitle}
             </p>
           </div>
           <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
@@ -53,7 +54,7 @@ export default function JobsPage() {
         {/* Features Section */}
         <section>
           <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4 flex items-center gap-2">
-            ✨ 주요 기능
+            {LABELS.features_section_title}
           </h2>
           <div className="space-y-3">
             {jobsContent.features.map((feature, index) => (

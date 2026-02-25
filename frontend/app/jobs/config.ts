@@ -58,6 +58,9 @@ export const LABELS = {
   cta_primary: '직업 탐색 시작',
   cta_secondary: '더 알아보기',
   
+  // 섹션 헤더
+  features_section_title: '✨ 주요 기능',
+
   // 기능 카드
   feature_explore_title: '직업 탐색',
   feature_explore_desc: '8개 왕국의 다양한 직업을 탐색하세요',

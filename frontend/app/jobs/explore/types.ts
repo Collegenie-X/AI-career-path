@@ -12,12 +12,28 @@ export type StarData = {
   starProfile?: unknown;
 };
 
+export type DailyScheduleItem = {
+  time: string;
+  activity: string;
+  detail?: string;
+  icon: string;
+  type: 'morning' | 'meeting' | 'work' | 'lunch' | 'review' | 'admin' | 'evening' | 'field';
+};
+
+export type DailySchedule = {
+  title: string;
+  basis: string;
+  schedule: DailyScheduleItem[];
+};
+
 export type Job = {
   id: string;
   name: string;
   icon: string;
   shortDesc: string;
+  description?: string;
   holland: string;
+  coreCompetencies?: string[];
   salaryRange: string;
   futureGrowth: number;
   aiRisk: string;
@@ -31,6 +47,7 @@ export type Job = {
     milestones: Milestone[];
     keySuccess: string[];
   };
+  dailySchedule?: DailySchedule;
 };
 
 export type WorkPhase = {

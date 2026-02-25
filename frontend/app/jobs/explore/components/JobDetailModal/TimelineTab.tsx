@@ -23,7 +23,7 @@ export function TimelineTab({ job, star }: TimelineTabProps) {
         <div className="text-white font-bold text-lg mb-1">{job.careerTimeline.title}</div>
         <div className="flex items-center gap-3 text-xs text-gray-400">
           <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{job.careerTimeline.totalYears}</span>
-          <span className="flex items-center gap-1">💰 총 {job.careerTimeline.totalCost}</span>
+          <span className="flex items-center gap-1">{LABELS.timeline_cost_prefix} {job.careerTimeline.totalCost}</span>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ export function TimelineTab({ job, star }: TimelineTabProps) {
                     >
                       {m.period} {m.semester}
                     </span>
-                    {m.cost && <span className="text-[10px] text-gray-600">💰 {m.cost}</span>}
+                    {m.cost && <span className="text-[10px] text-gray-600">{LABELS.timeline_cost_inline} {m.cost}</span>}
                   </div>
 
                   <div className="font-bold text-white text-sm mb-1">{m.title}</div>
@@ -104,7 +104,7 @@ export function TimelineTab({ job, star }: TimelineTabProps) {
                       className="mt-2 p-2.5 rounded-xl"
                       style={{ background: 'rgba(108,92,231,0.1)', border: '1px solid rgba(108,92,231,0.25)' }}
                     >
-                      <div className="text-[9px] font-bold text-purple-400 mb-0.5 uppercase tracking-wider">세특 포인트</div>
+                      <div className="text-[9px] font-bold text-purple-400 mb-0.5 uppercase tracking-wider">{LABELS.timeline_setak_label}</div>
                       <div className="text-xs text-gray-300 leading-relaxed">{m.setak}</div>
                     </div>
                   )}
