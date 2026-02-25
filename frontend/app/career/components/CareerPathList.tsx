@@ -2,17 +2,21 @@
 
 import { useState, useMemo } from 'react';
 import {
-  Heart, Users, ChevronRight, ChevronDown, ChevronUp,
-  Sparkles, Plus, BookOpen, Star
+  Heart, Users, ChevronRight,
+  Sparkles, Plus, BookOpen, Star, Globe,
 } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import templates from '@/data/career-path-templates.json';
+import { CareerPathDetailDialog } from './CareerPathDetailDialog';
+import type { CareerPlan } from './CareerPathBuilder';
 
 type Template = typeof templates[0];
 
 type CareerPathListProps = {
   onUseTemplate: (template: Template) => void;
   onNewPath: () => void;
+  myPublicPlans?: CareerPlan[];
+  onViewMyPlan?: (plan: CareerPlan) => void;
 };
 
 const STAR_FILTERS = [
@@ -28,8 +32,11 @@ const STAR_FILTERS = [
 ];
 
 /* ─── Accordion card ─── */
-function TemplateRow({ template, onUse }: { template: Template; onUse: () => void }) {
-  const [open, setOpen] = useState(false);
+function TemplateRow({ template, onUse, onShowDetail }: { 
+  template: Template; 
+  onUse: () => void;
+  onShowDetail: () => void;
+}) {
   const [liked, setLiked] = useState(false);
   const [localLikes, setLocalLikes] = useState(template.likes);
 
@@ -39,35 +46,29 @@ function TemplateRow({ template, onUse }: { template: Template; onUse: () => voi
     setLocalLikes(n => liked ? n - 1 : n + 1);
   };
 
-  const itemCounts = template.years.flatMap(y => y.items).reduce(
-    (acc, item) => { acc[item.type] = (acc[item.type] || 0) + 1; return acc; },
-    {} as Record<string, number>
-  );
-
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-200"
+      className="rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer"
       style={{
-        border: `1px solid ${open ? template.starColor + '44' : template.starColor + '18'}`,
-        backgroundColor: open ? `${template.starColor}08` : 'rgba(255,255,255,0.03)',
+        border: `1px solid ${template.starColor}18`,
+        backgroundColor: 'rgba(255,255,255,0.03)',
       }}
+      onClick={onShowDetail}
     >
-      {/* ── Row (always visible) ── */}
       <div className="w-full flex items-center gap-3 px-4 py-3.5">
         {/* Job emoji */}
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 cursor-pointer"
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
           style={{
             background: `linear-gradient(135deg, ${template.starColor}28, ${template.starColor}10)`,
             border: `1px solid ${template.starColor}30`,
           }}
-          onClick={() => setOpen(o => !o)}
         >
           {template.jobEmoji}
         </div>
 
         {/* Main info */}
-        <div className="flex-1 min-w-0 cursor-pointer" onClick={() => setOpen(o => !o)}>
+        <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             <span className="text-[10px] text-gray-400">{template.starEmoji} {template.starName}</span>
@@ -92,87 +93,71 @@ function TemplateRow({ template, onUse }: { template: Template; onUse: () => voi
             <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
             <span className="text-[10px] font-semibold">{localLikes}</span>
           </button>
-          <div className="cursor-pointer" onClick={() => setOpen(o => !o)}>
-            {open
-              ? <ChevronUp className="w-4 h-4 text-gray-500" />
-              : <ChevronDown className="w-4 h-4 text-gray-500" />}
-          </div>
+          <ChevronRight className="w-4 h-4 text-gray-500" />
         </div>
       </div>
+    </div>
+  );
+}
 
-      {/* ── Expanded details ── */}
-      {open && (
+/* ─── My public plan card ─── */
+function MyPublicPlanCard({ plan, onClick }: { plan: CareerPlan; onClick: () => void }) {
+  const totalItems = plan.years.reduce((s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0), 0);
+  const sharedDate = plan.sharedAt
+    ? new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })
+    : null;
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99]"
+      style={{
+        border: `1px solid ${plan.starColor}30`,
+        background: `linear-gradient(135deg, ${plan.starColor}12, ${plan.starColor}06)`,
+      }}
+      onClick={onClick}
+    >
+      <div className="flex items-center gap-3 px-4 py-3.5">
         <div
-          className="px-4 pb-4 space-y-3"
-          style={{ borderTop: `1px solid ${template.starColor}18` }}
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
+            border: `1px solid ${plan.starColor}30`,
+          }}
         >
-          {/* Description */}
-          <p className="text-xs text-gray-400 leading-relaxed pt-3">{template.description}</p>
-
-          {/* Type breakdown */}
-          <div className="flex gap-2 flex-wrap">
-            {Object.entries(itemCounts).map(([type, count]) => {
-              const tc = ITEM_TYPES.find(t => t.value === type);
-              if (!tc) return null;
-              return (
-                <span key={type} className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-full font-semibold"
-                  style={{ backgroundColor: `${tc.color}18`, color: tc.color }}>
-                  {tc.emoji} {tc.label} {count}
-                </span>
-              );
-            })}
-          </div>
-
-          {/* Grade mini pills */}
-          <div className="flex gap-1.5 flex-wrap">
-            {template.years.map(year => (
-              <div key={year.gradeId}
-                className="flex items-center gap-1 px-2.5 py-1 rounded-lg"
-                style={{ backgroundColor: `${template.starColor}14`, border: `1px solid ${template.starColor}20` }}>
-                <span className="text-[10px] font-bold" style={{ color: template.starColor }}>{year.gradeLabel}</span>
-                <span className="text-[10px] text-gray-500">{year.items.length}개</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Tags */}
-          <div className="flex gap-1 flex-wrap">
-            {template.tags.slice(0, 5).map(tag => (
-              <span key={tag} className="text-[9px] px-1.5 py-0.5 rounded-full text-gray-600"
-                style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-                #{tag}
-              </span>
-            ))}
-          </div>
-
-          {/* Use button — small, inline */}
-          <div className="flex items-center justify-between pt-1">
-            <div className="flex items-center gap-1 text-[10px] text-gray-500">
-              <Users className="w-3 h-3" />
-              {template.uses}명 사용 중
-            </div>
-            <button
-              onClick={onUse}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95"
-              style={{
-                backgroundColor: `${template.starColor}20`,
-                color: template.starColor,
-                border: `1px solid ${template.starColor}44`,
-              }}
-            >
-              이 패스 사용하기
-              <ChevronRight className="w-3.5 h-3.5" />
-            </button>
+          {plan.jobEmoji}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
+          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            <span className="text-[10px] text-gray-400">{plan.starEmoji} {plan.starName}</span>
+            <span className="text-[10px] text-gray-600">·</span>
+            <span className="text-[10px] text-gray-500">{plan.years.length}학년 · {totalItems}개</span>
+            {sharedDate && (
+              <>
+                <span className="text-[10px] text-gray-600">·</span>
+                <span className="text-[10px] text-gray-500">{sharedDate} 공개</span>
+              </>
+            )}
           </div>
         </div>
-      )}
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <span
+            className="flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full"
+            style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.25)' }}
+          >
+            <Globe style={{ width: 9, height: 9 }} />공개중
+          </span>
+          <ChevronRight className="w-4 h-4 text-gray-500" />
+        </div>
+      </div>
     </div>
   );
 }
 
 /* ─── Main list ─── */
-export function CareerPathList({ onUseTemplate, onNewPath }: CareerPathListProps) {
+export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onViewMyPlan }: CareerPathListProps) {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
   const filtered = useMemo(() => {
     return activeFilter === 'all'
@@ -180,9 +165,17 @@ export function CareerPathList({ onUseTemplate, onNewPath }: CareerPathListProps
       : templates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
 
+  const handleUseTemplate = () => {
+    if (selectedTemplate) {
+      onUseTemplate(selectedTemplate);
+      setSelectedTemplate(null);
+    }
+  };
+
   return (
-    /* Extra bottom padding so fixed button doesn't cover last card */
-    <div className="space-y-4 pb-24">
+    <>
+      {/* Extra bottom padding so fixed button doesn't cover last card */}
+      <div className="space-y-4 pb-24">
 
       {/* ── Hero header ── */}
       <div
@@ -269,6 +262,25 @@ export function CareerPathList({ onUseTemplate, onNewPath }: CareerPathListProps
         ))}
       </div>
 
+      {/* ── 내가 공유한 패스 섹션 ── */}
+      {(myPublicPlans ?? []).length > 0 && (
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
+            <span className="text-xs font-bold text-white">내가 공유한 패스</span>
+            <span className="text-[10px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
+          </div>
+          {(myPublicPlans ?? []).map(plan => (
+            <MyPublicPlanCard
+              key={plan.id}
+              plan={plan}
+              onClick={() => onViewMyPlan?.(plan)}
+            />
+          ))}
+          <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+        </div>
+      )}
+
       {/* ── Count line ── */}
       <div className="flex items-center justify-between px-0.5">
         <span className="text-xs font-semibold text-gray-400">
@@ -277,23 +289,34 @@ export function CareerPathList({ onUseTemplate, onNewPath }: CareerPathListProps
         <span className="text-[10px] text-gray-600">탭해서 펼쳐보기</span>
       </div>
 
-      {/* ── Accordion list ── */}
-      {filtered.length === 0 ? (
-        <div className="py-12 text-center">
-          <Sparkles className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-          <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
-        </div>
-      ) : (
-        <div className="space-y-2">
-          {filtered.map(template => (
-            <TemplateRow
-              key={template.id}
-              template={template}
-              onUse={() => onUseTemplate(template)}
-            />
-          ))}
-        </div>
+        {/* ── Accordion list ── */}
+        {filtered.length === 0 ? (
+          <div className="py-12 text-center">
+            <Sparkles className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+            <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {filtered.map(template => (
+              <TemplateRow
+                key={template.id}
+                template={template}
+                onUse={() => onUseTemplate(template)}
+                onShowDetail={() => setSelectedTemplate(template)}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Detail Dialog */}
+      {selectedTemplate && (
+        <CareerPathDetailDialog
+          template={selectedTemplate}
+          onClose={() => setSelectedTemplate(null)}
+          onUseTemplate={handleUseTemplate}
+        />
       )}
-    </div>
+    </>
   );
 }

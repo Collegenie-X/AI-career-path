@@ -4,9 +4,10 @@ import { useState, useRef, useEffect } from 'react';
 import {
   Calendar, Target, Pencil, Plus, Trash2, Check,
   CheckCircle2, Circle, ChevronDown, X, MoreHorizontal,
+  Share2, Globe, Eye, EyeOff,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
-import type { CareerPlan, PlanItem, YearPlan } from './CareerPathBuilder';
+import type { CareerPlan, PlanItem, YearPlan, PlanGroup } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
 
 /* ─── Types ─── */
@@ -18,6 +19,7 @@ type Props = {
   onUpdatePlan: (plan: CareerPlan) => void;
   onDeletePlan: (planId: string) => void;
   onNewPlan: () => void;
+  onSharePlan?: (plan: CareerPlan, isPublic: boolean) => void;
 };
 
 /* ─── Inline editable title ─── */
@@ -240,17 +242,44 @@ function YearTimelineNode({
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
 }) {
   const grade = GRADE_YEARS.find((g) => g.id === year.gradeId);
-  const checkedCount = year.items.filter((it) => it.checked).length;
-  const totalCount = year.items.length;
+  const groupItems = (year.groups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
+  const checkedCount = [
+    ...year.items.filter((it) => (it as PlanItemWithCheck).checked),
+    ...groupItems.filter(it => it.checked),
+  ].length;
+  const totalCount = year.items.length + groupItems.length;
 
   const toggleCheck = (itemId: string) =>
-    onUpdateYear({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, checked: !it.checked } : it) });
+    onUpdateYear({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) });
+
+  const toggleCheckInGroup = (groupId: string, itemId: string) => {
+    const groups = (year.groups ?? []).map(g =>
+      g.id === groupId
+        ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) }
+        : g
+    );
+    onUpdateYear({ ...year, groups });
+  };
 
   const deleteItem = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.filter((it) => it.id !== itemId) });
 
+  const deleteItemFromGroup = (groupId: string, itemId: string) => {
+    const groups = (year.groups ?? []).map(g =>
+      g.id === groupId ? { ...g, items: g.items.filter(it => it.id !== itemId) } : g
+    );
+    onUpdateYear({ ...year, groups });
+  };
+
   const saveItemTitle = (itemId: string, title: string) =>
     onUpdateYear({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, title } : it) });
+
+  const saveItemTitleInGroup = (groupId: string, itemId: string, title: string) => {
+    const groups = (year.groups ?? []).map(g =>
+      g.id === groupId ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, title } : it) } : g
+    );
+    onUpdateYear({ ...year, groups });
+  };
 
   const addItem = (title: string, type: PlanItem['type']) => {
     const newItem: PlanItemWithCheck = {
@@ -313,7 +342,39 @@ function YearTimelineNode({
           </div>
         )}
 
-        {/* Items */}
+        {/* Groups */}
+        {(year.groups ?? []).length > 0 && (
+          <div className="space-y-2">
+            {(year.groups ?? []).map((group) => (
+              <div key={group.id} className="rounded-2xl overflow-hidden"
+                style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
+                <div className="flex items-center gap-2 px-3 py-2"
+                  style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
+                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                  <span className="flex-1 text-xs font-bold" style={{ color }}>{group.label}</span>
+                  <span className="text-[10px] text-gray-600">{group.items.length}개</span>
+                </div>
+                {group.items.length > 0 && (
+                  <div className="px-3 py-2 space-y-1.5">
+                    {(group.items as PlanItemWithCheck[]).map((item) => (
+                      <ItemRow
+                        key={item.id}
+                        item={item}
+                        color={color}
+                        onToggleCheck={() => toggleCheckInGroup(group.id, item.id)}
+                        onDelete={() => deleteItemFromGroup(group.id, item.id)}
+                        onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
+                        onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Ungrouped items */}
         <div className="space-y-2">
           {year.items.map((item) => (
             <ItemRow key={item.id} item={item} color={color}
@@ -325,7 +386,7 @@ function YearTimelineNode({
           <QuickAddItem color={color} onAdd={addItem} />
         </div>
 
-        {year.items.length === 0 && year.goals.length === 0 && (
+        {year.items.length === 0 && year.goals.length === 0 && (year.groups ?? []).length === 0 && (
           <div className="text-center py-3 rounded-xl"
             style={{ border: `1px dashed ${color}28`, backgroundColor: `${color}05` }}>
             <p className="text-xs text-gray-500">항목을 추가해 보세요</p>
@@ -338,7 +399,7 @@ function YearTimelineNode({
 
 /* ─── Single plan accordion card ─── */
 function PlanAccordionCard({
-  plan, isOpen, onToggle, onEdit, onDelete, onUpdatePlan, onItemInfoClick,
+  plan, isOpen, onToggle, onEdit, onDelete, onUpdatePlan, onItemInfoClick, onShare,
 }: {
   plan: CareerPlan; isOpen: boolean;
   onToggle: () => void;
@@ -346,6 +407,7 @@ function PlanAccordionCard({
   onDelete: () => void;
   onUpdatePlan: (p: CareerPlan) => void;
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
+  onShare: (isPublic: boolean) => void;
 }) {
   const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
   const sortedYears = [...plan.years].sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
@@ -357,6 +419,30 @@ function PlanAccordionCard({
     onUpdatePlan({ ...plan, years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y) });
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showShareConfirm, setShowShareConfirm] = useState(false);
+  const [editingTitle, setEditingTitle] = useState(false);
+  const [titleDraft, setTitleDraft] = useState(plan.title);
+  const titleInputRef = useRef<HTMLInputElement>(null);
+
+  const commitTitle = () => {
+    const t = titleDraft.trim();
+    if (t && t !== plan.title) onUpdatePlan({ ...plan, title: t });
+    else setTitleDraft(plan.title);
+    setEditingTitle(false);
+  };
+
+  const handleTogglePublic = () => {
+    if (!plan.isPublic) {
+      setShowShareConfirm(true);
+    } else {
+      onShare(false);
+    }
+  };
+
+  const confirmShare = () => {
+    onShare(true);
+    setShowShareConfirm(false);
+  };
 
   return (
     <div
@@ -369,9 +455,12 @@ function PlanAccordionCard({
       }}
     >
       {/* ── Header row (always visible) ── */}
-      <button
-        className="w-full flex items-center gap-3 px-4 py-3.5 text-left transition-all"
-        onClick={onToggle}
+      <div
+        className="w-full flex items-center gap-3 px-4 py-3.5 text-left transition-all cursor-pointer"
+        onClick={(e) => {
+          if ((e.target as HTMLElement).closest('input')) return;
+          onToggle();
+        }}
       >
         {/* Job emoji */}
         <div
@@ -388,7 +477,31 @@ function PlanAccordionCard({
 
         {/* Info */}
         <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug truncate">{plan.title}</div>
+          {/* Inline editable title */}
+          {editingTitle ? (
+            <input
+              ref={titleInputRef}
+              value={titleDraft}
+              onChange={(e) => setTitleDraft(e.target.value)}
+              onBlur={commitTitle}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') commitTitle();
+                if (e.key === 'Escape') { setTitleDraft(plan.title); setEditingTitle(false); }
+              }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full bg-transparent text-sm font-bold text-white outline-none border-b pb-0.5"
+              style={{ borderColor: plan.starColor }}
+              autoFocus
+            />
+          ) : (
+            <div
+              className="font-bold text-white text-sm leading-snug truncate cursor-text"
+              onClick={(e) => { e.stopPropagation(); setTitleDraft(plan.title); setEditingTitle(true); }}
+              title="클릭하여 제목 수정"
+            >
+              {plan.title}
+            </div>
+          )}
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             <span className="text-[10px] font-semibold" style={{ color: `${plan.starColor}cc` }}>
               {plan.starEmoji} {plan.starName}
@@ -420,36 +533,104 @@ function PlanAccordionCard({
             transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         />
-      </button>
+      </div>
 
       {/* ── Expanded body ── */}
       {isOpen && (
         <div style={{ borderTop: `1px solid ${plan.starColor}22` }}>
           {/* Action bar */}
-          <div className="flex gap-2 px-4 py-3">
-            <button onClick={onEdit}
-              className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
-              style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
-              <Pencil style={{ width: 13, height: 13 }} />수정하기
-            </button>
-            {!showDeleteConfirm ? (
-              <button onClick={() => setShowDeleteConfirm(true)}
-                className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
-                style={{ backgroundColor: 'rgba(239,68,68,0.12)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.28)' }}>
-                <Trash2 style={{ width: 13, height: 13 }} />삭제
+          <div className="px-4 py-3 space-y-2">
+            <div className="flex gap-2">
+              <button onClick={onEdit}
+                className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
+                style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
+                <Pencil style={{ width: 13, height: 13 }} />수정하기
               </button>
-            ) : (
-              <div className="flex gap-1.5">
-                <button onClick={() => setShowDeleteConfirm(false)}
-                  className="h-9 px-3 rounded-xl text-xs font-semibold"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}>
-                  취소
+
+              {/* 탐색 공유 토글 버튼 */}
+              <button
+                onClick={handleTogglePublic}
+                className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
+                style={plan.isPublic
+                  ? { backgroundColor: 'rgba(34,197,94,0.18)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.4)' }
+                  : { backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)' }
+                }
+              >
+                {plan.isPublic
+                  ? <><Globe style={{ width: 13, height: 13 }} />공개중</>
+                  : <><Share2 style={{ width: 13, height: 13 }} />공유</>
+                }
+              </button>
+
+              {!showDeleteConfirm ? (
+                <button onClick={() => setShowDeleteConfirm(true)}
+                  className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
+                  style={{ backgroundColor: 'rgba(239,68,68,0.12)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.28)' }}>
+                  <Trash2 style={{ width: 13, height: 13 }} />삭제
                 </button>
-                <button onClick={onDelete}
-                  className="h-9 px-3 rounded-xl text-xs font-bold"
-                  style={{ backgroundColor: '#ef4444', color: '#fff' }}>
-                  삭제 확인
+              ) : (
+                <div className="flex gap-1.5">
+                  <button onClick={() => setShowDeleteConfirm(false)}
+                    className="h-9 px-3 rounded-xl text-xs font-semibold"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}>
+                    취소
+                  </button>
+                  <button onClick={onDelete}
+                    className="h-9 px-3 rounded-xl text-xs font-bold"
+                    style={{ backgroundColor: '#ef4444', color: '#fff' }}>
+                    삭제 확인
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* 공개 상태 표시 배너 */}
+            {plan.isPublic && (
+              <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
+                style={{ backgroundColor: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
+                <Globe style={{ width: 14, height: 14, color: '#22C55E', flexShrink: 0 }} />
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs font-bold text-white">탐색 탭에 공개됨</div>
+                  <div className="text-[10px] text-gray-400">다른 유저들이 보고 댓글을 달 수 있어요</div>
+                </div>
+                <button
+                  onClick={() => onShare(false)}
+                  className="flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold flex-shrink-0 transition-all active:scale-95"
+                  style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}>
+                  <EyeOff style={{ width: 11, height: 11 }} />비공개
                 </button>
+              </div>
+            )}
+
+            {/* 공유 확인 패널 */}
+            {showShareConfirm && (
+              <div className="rounded-xl p-3.5 space-y-3"
+                style={{ backgroundColor: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.25)' }}>
+                <div className="flex items-start gap-2.5">
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'rgba(34,197,94,0.18)' }}>
+                    <Eye style={{ width: 15, height: 15, color: '#22C55E' }} />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-white">탐색 탭에 공개할까요?</div>
+                    <div className="text-[10px] text-gray-400 mt-0.5 leading-relaxed">
+                      다른 유저들이 이 커리어 패스를 탐색 탭에서 볼 수 있고,<br />
+                      좋아요·댓글로 소통할 수 있어요.
+                    </div>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <button onClick={() => setShowShareConfirm(false)}
+                    className="flex-1 h-8 rounded-xl text-xs font-semibold"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}>
+                    취소
+                  </button>
+                  <button onClick={confirmShare}
+                    className="flex-1 h-8 rounded-xl text-xs font-bold transition-all active:scale-95"
+                    style={{ backgroundColor: '#22C55E', color: '#fff' }}>
+                    공개하기
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -479,7 +660,7 @@ function PlanAccordionCard({
 }
 
 /* ─── Main export ─── */
-export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeletePlan, onNewPlan }: Props) {
+export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeletePlan, onNewPlan, onSharePlan }: Props) {
   const [openPlanId, setOpenPlanId] = useState<string | null>(allPlans[0]?.id ?? null);
   const [detailItem, setDetailItem] = useState<{ item: PlanItem; gradeLabel: string } | null>(null);
 
@@ -531,6 +712,11 @@ export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeleteP
           onDelete={() => { onDeletePlan(plan.id); if (openPlanId === plan.id) setOpenPlanId(null); }}
           onUpdatePlan={onUpdatePlan}
           onItemInfoClick={(item, gradeLabel) => setDetailItem({ item, gradeLabel })}
+          onShare={(isPublic) => {
+            const updated = { ...plan, isPublic, sharedAt: isPublic ? new Date().toISOString() : undefined };
+            onUpdatePlan(updated);
+            onSharePlan?.(updated, isPublic);
+          }}
         />
       ))}
 

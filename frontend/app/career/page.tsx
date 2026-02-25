@@ -136,6 +136,7 @@ function CareerPageContent() {
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
   const [builderOpen, setBuilderOpen] = useState(false);
+  const [builderInitialStep, setBuilderInitialStep] = useState<number | undefined>(undefined);
   const [mounted, setMounted] = useState(false);
 
   /* Client-only bootstrap — runs once after hydration */
@@ -196,17 +197,20 @@ function CareerPageContent() {
 
   const openNew = () => {
     setEditingPlan(null);
+    setBuilderInitialStep(1);
     setBuilderOpen(true);
   };
 
   const openEdit = (plan: CareerPlan) => {
     setEditingPlan(plan);
+    setBuilderInitialStep(3);
     setBuilderOpen(true);
   };
 
   const closeBuilder = () => {
     setBuilderOpen(false);
     setEditingPlan(null);
+    setBuilderInitialStep(undefined);
   };
 
   const handleUseTemplate = (template: typeof templates[0]) => {
@@ -250,6 +254,14 @@ function CareerPageContent() {
     const updatedPlans = plans.map((p) => p.id === updatedPlan.id ? updatedPlan : p);
     setPlans(updatedPlans);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  };
+
+  const handleSharePlan = (plan: CareerPlan, isPublic: boolean) => {
+    // 실제 서버 연동 시 여기서 API 호출
+    // 현재는 로컬 상태만 업데이트 (updatePlanInline이 이미 처리)
+    if (isPublic) {
+      setActiveTab('explore');
+    }
   };
 
   return (
@@ -327,6 +339,10 @@ function CareerPageContent() {
             <CareerPathList
               onUseTemplate={handleUseTemplate}
               onNewPath={openNew}
+              myPublicPlans={plans.filter(p => p.isPublic)}
+              onViewMyPlan={(plan) => {
+                // 추후 내 공개 플랜 상세 다이얼로그 연결
+              }}
             />
             {!builderOpen && (
               <div className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto">
@@ -361,6 +377,7 @@ function CareerPageContent() {
             onUpdatePlan={updatePlanInline}
             onDeletePlan={deletePlan}
             onNewPlan={openNew}
+            onSharePlan={handleSharePlan}
           />
         ) : null}
       </div>
@@ -371,6 +388,7 @@ function CareerPageContent() {
       {builderOpen && (
         <CareerPathBuilder
           initialPlan={editingPlan}
+          initialStep={builderInitialStep}
           onSave={savePlan}
           onClose={closeBuilder}
         />

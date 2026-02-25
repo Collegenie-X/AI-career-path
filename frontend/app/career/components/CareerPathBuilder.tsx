@@ -27,11 +27,18 @@ export type PlanItem = {
   custom?: boolean;
 };
 
+export type PlanGroup = {
+  id: string;
+  label: string;
+  items: PlanItem[];
+};
+
 export type YearPlan = {
   gradeId: string;
   gradeLabel: string;
   goals: string[];
   items: PlanItem[];
+  groups?: PlanGroup[];
 };
 
 export type CareerPlan = {
@@ -46,10 +53,13 @@ export type CareerPlan = {
   years: YearPlan[];
   createdAt: string;
   title: string;
+  isPublic?: boolean;
+  sharedAt?: string;
 };
 
 type Props = {
   initialPlan?: CareerPlan | null;
+  initialStep?: number;
   onSave: (plan: CareerPlan) => void;
   onClose: () => void;
 };
@@ -563,6 +573,7 @@ function YearPlanCard({
   onUpdate: (y: YearPlan) => void; onRemove: () => void;
 }) {
   const [showAddItem, setShowAddItem] = useState(false);
+  const [addItemGroupId, setAddItemGroupId] = useState<string | undefined>(undefined);
   const [goalInput, setGoalInput] = useState('');
   const [showGoalTemplates, setShowGoalTemplates] = useState(false);
   const [editingGoalIdx, setEditingGoalIdx] = useState<number | null>(null);
@@ -571,6 +582,10 @@ function YearPlanCard({
   const [editingItemId, setEditingItemId] = useState<string | null>(null);
   const [editingItemTitle, setEditingItemTitle] = useState('');
   const [celebrateItemId, setCelebrateItemId] = useState<string | null>(null);
+  const [showAddGroup, setShowAddGroup] = useState(false);
+  const [groupInput, setGroupInput] = useState('');
+  const [editingGroupId, setEditingGroupId] = useState<string | null>(null);
+  const [editingGroupLabel, setEditingGroupLabel] = useState('');
 
   const addGoal = () => {
     if (!goalInput.trim()) return;
@@ -616,17 +631,29 @@ function YearPlanCard({
     setTimeout(() => setCelebrateGoal(null), 1000);
   };
 
-  const addItem = (item: Omit<PlanItem, 'id'>) => {
+  const addItem = (item: Omit<PlanItem, 'id'>, groupId?: string) => {
     const newItem: PlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}` };
-    onUpdate({ ...yearPlan, items: [...yearPlan.items, newItem] });
-    
-    // 🎉 Celebration effect
+    if (groupId) {
+      const groups = (yearPlan.groups ?? []).map(g =>
+        g.id === groupId ? { ...g, items: [...g.items, newItem] } : g
+      );
+      onUpdate({ ...yearPlan, groups });
+    } else {
+      onUpdate({ ...yearPlan, items: [...yearPlan.items, newItem] });
+    }
     setCelebrateItemId(newItem.id);
     setTimeout(() => setCelebrateItemId(null), 1000);
   };
 
-  const removeItem = (id: string) => {
-    onUpdate({ ...yearPlan, items: yearPlan.items.filter(it => it.id !== id) });
+  const removeItem = (id: string, groupId?: string) => {
+    if (groupId) {
+      const groups = (yearPlan.groups ?? []).map(g =>
+        g.id === groupId ? { ...g, items: g.items.filter(it => it.id !== id) } : g
+      );
+      onUpdate({ ...yearPlan, groups });
+    } else {
+      onUpdate({ ...yearPlan, items: yearPlan.items.filter(it => it.id !== id) });
+    }
   };
 
   const startEditItem = (item: PlanItem) => {
@@ -634,9 +661,14 @@ function YearPlanCard({
     setEditingItemTitle(item.title);
   };
 
-  const saveEditItem = (itemId: string) => {
+  const saveEditItem = (itemId: string, groupId?: string) => {
     if (!editingItemTitle.trim()) {
-      removeItem(itemId);
+      removeItem(itemId, groupId);
+    } else if (groupId) {
+      const groups = (yearPlan.groups ?? []).map(g =>
+        g.id === groupId ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it) } : g
+      );
+      onUpdate({ ...yearPlan, groups });
     } else {
       const newItems = yearPlan.items.map(it =>
         it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it
@@ -647,10 +679,29 @@ function YearPlanCard({
     setEditingItemTitle('');
   };
 
-  const totalCount = yearPlan.goals.length + yearPlan.items.length;
+  const addGroup = (label: string) => {
+    const newGroup: PlanGroup = {
+      id: `group-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      label,
+      items: [],
+    };
+    onUpdate({ ...yearPlan, groups: [...(yearPlan.groups ?? []), newGroup] });
+  };
+
+  const removeGroup = (groupId: string) => {
+    onUpdate({ ...yearPlan, groups: (yearPlan.groups ?? []).filter(g => g.id !== groupId) });
+  };
+
+  const renameGroup = (groupId: string, label: string) => {
+    const groups = (yearPlan.groups ?? []).map(g => g.id === groupId ? { ...g, label } : g);
+    onUpdate({ ...yearPlan, groups });
+  };
+
+  const allGroupItems = (yearPlan.groups ?? []).flatMap(g => g.items);
+  const totalCount = yearPlan.goals.length + yearPlan.items.length + allGroupItems.length;
 
   // summarize months across all items for the header
-  const allMonths = [...new Set(yearPlan.items.flatMap(it => it.months))].sort((a, b) => a - b);
+  const allMonths = [...new Set([...yearPlan.items, ...allGroupItems].flatMap(it => it.months))].sort((a, b) => a - b);
 
   return (
     <>
@@ -813,28 +864,186 @@ function YearPlanCard({
 
             <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }} />
 
-            {/* Items */}
+            {/* Items section header */}
             <div>
               <div className="flex items-center justify-between mb-2.5">
                 <div className="flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" style={{ color }} />
                   <span className="text-xs font-bold text-white">활동 · 수상 · 작품 · 자격증</span>
                 </div>
-                <button onClick={() => setShowAddItem(true)}
-                  className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
-                  style={{ background: `linear-gradient(135deg, ${color}30, ${color}15)`, border: `1px solid ${color}50`, color }}>
-                  <Plus className="w-3 h-3" />추가
-                </button>
+                <div className="flex items-center gap-1.5">
+                  <button
+                    onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
+                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
+                    style={{ background: `linear-gradient(135deg, ${color}30, ${color}15)`, border: `1px solid ${color}50`, color }}>
+                    <Plus className="w-3 h-3" />항목
+                  </button>
+                  <button
+                    onClick={() => setShowAddGroup(true)}
+                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
+                    <Plus className="w-3 h-3" />그룹
+                  </button>
+                </div>
               </div>
 
-              {yearPlan.items.length === 0 ? (
-                <button onClick={() => setShowAddItem(true)}
+              {/* Add group input */}
+              {showAddGroup && (
+                <div className="mb-3 flex gap-2">
+                  <input
+                    type="text"
+                    value={groupInput}
+                    onChange={(e) => setGroupInput(e.target.value)}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' && groupInput.trim()) { addGroup(groupInput.trim()); setGroupInput(''); setShowAddGroup(false); }
+                      if (e.key === 'Escape') { setGroupInput(''); setShowAddGroup(false); }
+                    }}
+                    placeholder="예: 1학기, 여름방학, 3~6월..."
+                    autoFocus
+                    className="flex-1 h-9 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: `1px solid ${color}44` }}
+                  />
+                  <button
+                    onClick={() => { if (groupInput.trim()) { addGroup(groupInput.trim()); setGroupInput(''); setShowAddGroup(false); } }}
+                    disabled={!groupInput.trim()}
+                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
+                    style={{ backgroundColor: color }}>
+                    <Check className="w-4 h-4 text-white" />
+                  </button>
+                  <button
+                    onClick={() => { setGroupInput(''); setShowAddGroup(false); }}
+                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+                    <X className="w-3.5 h-3.5 text-gray-400" />
+                  </button>
+                </div>
+              )}
+
+              {/* Groups */}
+              {(yearPlan.groups ?? []).length > 0 && (
+                <div className="space-y-3 mb-3">
+                  {(yearPlan.groups ?? []).map(group => (
+                    <div key={group.id} className="rounded-2xl overflow-hidden"
+                      style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
+                      {/* Group header */}
+                      <div className="flex items-center gap-2 px-3 py-2"
+                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
+                        {editingGroupId === group.id ? (
+                          <input
+                            type="text"
+                            value={editingGroupLabel}
+                            onChange={(e) => setEditingGroupLabel(e.target.value)}
+                            onBlur={() => { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); setEditingGroupId(null); }}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter') { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); setEditingGroupId(null); }
+                              if (e.key === 'Escape') setEditingGroupId(null);
+                            }}
+                            autoFocus
+                            className="flex-1 bg-transparent text-xs font-bold text-white outline-none"
+                          />
+                        ) : (
+                          <span
+                            className="flex-1 text-xs font-bold cursor-text"
+                            style={{ color }}
+                            onClick={() => { setEditingGroupId(group.id); setEditingGroupLabel(group.label); }}
+                          >
+                            {group.label}
+                          </span>
+                        )}
+                        <span className="text-[10px] text-gray-600">{group.items.length}개</span>
+                        <button
+                          onClick={() => { setAddItemGroupId(group.id); setShowAddItem(true); }}
+                          className="flex items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-bold transition-all active:scale-95"
+                          style={{ backgroundColor: `${color}18`, color }}>
+                          <Plus className="w-3 h-3" />추가
+                        </button>
+                        <button onClick={() => removeGroup(group.id)}
+                          className="w-6 h-6 rounded-lg flex items-center justify-center"
+                          style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
+                          <Trash2 className="w-3 h-3 text-red-400" />
+                        </button>
+                      </div>
+                      {/* Group items */}
+                      {group.items.length > 0 && (
+                        <div className="px-3 py-2 space-y-1.5">
+                          <AnimatePresence>
+                            {group.items.map(item => {
+                              const tc = ITEM_TYPES.find(t => t.value === item.type)!;
+                              const monthLabel = item.months.length === 1
+                                ? `${item.months[0]}월`
+                                : item.months.length <= 3
+                                ? item.months.map(m => `${m}월`).join('·')
+                                : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
+                              return (
+                                <motion.div
+                                  key={item.id}
+                                  initial={{ opacity: 0, y: -6 }}
+                                  animate={{ opacity: 1, y: 0, scale: celebrateItemId === item.id ? [1, 1.04, 1] : 1 }}
+                                  exit={{ opacity: 0, x: -16 }}
+                                  transition={{ duration: 0.25 }}
+                                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl group"
+                                  style={{ backgroundColor: `${tc.color}10`, border: `1px solid ${tc.color}22` }}
+                                >
+                                  <span className="text-base flex-shrink-0">{tc.emoji}</span>
+                                  <div className="flex-1 min-w-0">
+                                    {editingItemId === item.id ? (
+                                      <input
+                                        type="text"
+                                        value={editingItemTitle}
+                                        onChange={(e) => setEditingItemTitle(e.target.value)}
+                                        onKeyDown={(e) => {
+                                          if (e.key === 'Enter') saveEditItem(item.id, group.id);
+                                          if (e.key === 'Escape') setEditingItemId(null);
+                                        }}
+                                        onBlur={() => saveEditItem(item.id, group.id)}
+                                        autoFocus
+                                        className="w-full bg-transparent text-sm font-semibold text-white outline-none"
+                                      />
+                                    ) : (
+                                      <div className="text-sm font-semibold text-white line-clamp-1 cursor-pointer"
+                                        onClick={() => startEditItem(item)}>
+                                        {item.title}
+                                      </div>
+                                    )}
+                                    <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                                      <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
+                                      <span className="text-[10px] text-gray-500">📅 {monthLabel}</span>
+                                    </div>
+                                  </div>
+                                  <button onClick={() => removeItem(item.id, group.id)}
+                                    className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                                    style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+                                    <Trash2 className="w-3 h-3 text-gray-600" />
+                                  </button>
+                                </motion.div>
+                              );
+                            })}
+                          </AnimatePresence>
+                        </div>
+                      )}
+                      {group.items.length === 0 && (
+                        <button
+                          onClick={() => { setAddItemGroupId(group.id); setShowAddItem(true); }}
+                          className="w-full py-3 flex items-center justify-center gap-1.5 text-xs"
+                          style={{ color: `${color}66` }}>
+                          <Plus className="w-3.5 h-3.5" />이 그룹에 항목 추가
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Ungrouped items */}
+              {yearPlan.items.length === 0 && (yearPlan.groups ?? []).length === 0 ? (
+                <button onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
                   className="w-full py-4 rounded-2xl flex flex-col items-center gap-1.5 transition-all active:scale-[0.99]"
                   style={{ border: `1.5px dashed ${color}30`, backgroundColor: `${color}06` }}>
                   <div className="flex gap-1.5 text-lg">{ITEM_TYPES.map(t => <span key={t.value}>{t.emoji}</span>)}</div>
-                  <span className="text-xs text-gray-500">탭해서 항목 추가</span>
+                  <span className="text-xs text-gray-500">항목 추가 또는 그룹으로 묶기</span>
                 </button>
-              ) : (
+              ) : yearPlan.items.length > 0 ? (
                 <div className="space-y-1.5">
                   <AnimatePresence>
                     {yearPlan.items.map(item => {
@@ -921,14 +1130,14 @@ function YearPlanCard({
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
-                    onClick={() => setShowAddItem(true)}
+                    onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
                     className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold"
                     style={{ border: `1px dashed ${color}30`, color: `${color}80` }}
                   >
                     <Plus className="w-3.5 h-3.5" />더 추가하기
                   </motion.button>
                 </div>
-              )}
+              ) : null}
             </div>
 
             <button onClick={onRemove}
@@ -940,7 +1149,12 @@ function YearPlanCard({
       </div>
 
       {showAddItem && (
-        <AddItemSheet starId={starId} color={color} onAdd={addItem} onClose={() => setShowAddItem(false)} />
+        <AddItemSheet
+          starId={starId}
+          color={color}
+          onAdd={(item) => addItem(item, addItemGroupId)}
+          onClose={() => { setShowAddItem(false); setAddItemGroupId(undefined); }}
+        />
       )}
     </>
   );
@@ -984,7 +1198,7 @@ function Step3Planner({
     if (expandedId === gradeId) setExpandedId(next.length > 0 ? next[next.length - 1].gradeId : null);
   };
 
-  const totalItems = yearPlans.reduce((s, y) => s + y.items.length, 0);
+  const totalItems = yearPlans.reduce((s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0), 0);
   const totalGoals = yearPlans.reduce((s, y) => s + y.goals.length, 0);
 
   return (
@@ -1102,7 +1316,10 @@ function Step3Planner({
    STEP 4 — Summary
 ══════════════════════════════════════════ */
 function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: string }) {
-  const allItems = (plan.years ?? []).flatMap(y => y.items);
+  const allItems = (plan.years ?? []).flatMap(y => [
+    ...y.items,
+    ...(y.groups ?? []).flatMap(g => g.items),
+  ]);
   const typeCounts = allItems.reduce((acc, item) => { acc[item.type] = (acc[item.type] || 0) + 1; return acc; }, {} as Record<string, number>);
 
   return (
@@ -1139,7 +1356,9 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
         <div className="text-xs text-gray-500 uppercase tracking-wider mb-2.5 font-semibold">학년별 요약</div>
         <div className="space-y-2">
           {(plan.years ?? []).map(year => {
-            const allMonths = [...new Set(year.items.flatMap(it => it.months))].sort((a, b) => a - b);
+            const yearAllItems = [...year.items, ...(year.groups ?? []).flatMap(g => g.items)];
+            const allMonths = [...new Set(yearAllItems.flatMap(it => it.months))].sort((a, b) => a - b);
+            const yearTypeCounts = yearAllItems.reduce((acc, it) => { acc[it.type] = (acc[it.type] || 0) + 1; return acc; }, {} as Record<string, number>);
             return (
               <div key={year.gradeId} className="flex items-center gap-3 px-4 py-3 rounded-xl"
                 style={{ backgroundColor: `${color}10`, border: `1px solid ${color}20` }}>
@@ -1152,6 +1371,11 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
                   <div className="text-xs text-gray-400 mt-0.5">
                     {year.goals[0] ? `🎯 ${year.goals[0]}${year.goals.length > 1 ? ` 외 ${year.goals.length - 1}개` : ''}` : '목표 없음'}
                   </div>
+                  {(year.groups ?? []).length > 0 && (
+                    <div className="text-[10px] text-gray-500 mt-0.5">
+                      {(year.groups ?? []).map(g => g.label).join(' · ')}
+                    </div>
+                  )}
                   {allMonths.length > 0 && (
                     <div className="text-[10px] mt-0.5" style={{ color: `${color}88` }}>
                       📅 {allMonths.map(m => `${m}월`).join('·')}
@@ -1159,11 +1383,10 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
                   )}
                 </div>
                 <div className="flex gap-1.5 flex-wrap justify-end">
-                  {Object.entries(year.items.reduce((acc, it) => { acc[it.type] = (acc[it.type] || 0) + 1; return acc; }, {} as Record<string, number>))
-                    .map(([type, count]) => {
-                      const tc = ITEM_TYPES.find(t => t.value === type)!;
-                      return <span key={type} className="text-xs font-bold" style={{ color: tc.color }}>{tc.emoji}{count}</span>;
-                    })}
+                  {Object.entries(yearTypeCounts).map(([type, count]) => {
+                    const tc = ITEM_TYPES.find(t => t.value === type)!;
+                    return <span key={type} className="text-xs font-bold" style={{ color: tc.color }}>{tc.emoji}{count}</span>;
+                  })}
                 </div>
               </div>
             );
@@ -1177,8 +1400,8 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
 /* ══════════════════════════════════════════
    Main Builder dialog
 ══════════════════════════════════════════ */
-export function CareerPathBuilder({ initialPlan, onSave, onClose }: Props) {
-  const [step, setStep] = useState(1);
+export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }: Props) {
+  const [step, setStep] = useState(initialStep ?? 1);
   const [starId, setStarId] = useState(initialPlan?.starId ?? '');
   const [jobId, setJobId] = useState(initialPlan?.jobId ?? '');
   const [yearPlans, setYearPlans] = useState<YearPlan[]>(initialPlan?.years ?? []);

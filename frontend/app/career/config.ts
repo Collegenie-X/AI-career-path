@@ -68,6 +68,17 @@ export const LABELS = {
   grades: ['초등 4학년', '초등 5학년', '초등 6학년', '중학교 1학년', '중학교 2학년', '중학교 3학년', '고등학교 1학년', '고등학교 2학년'],
   grade_short: ['초4', '초5', '초6', '중1', '중2', '중3', '고1', '고2'],
 
+  // Report
+  report_content_title: '콘텐츠 신고',
+  report_comment_title: '댓글 신고',
+  report_reason_label: '신고 사유를 선택해 주세요',
+  report_detail_label: '추가 설명',
+  report_detail_hint: '선택',
+  report_submit: '신고 제출',
+  report_done_title: '신고가 접수되었습니다',
+  report_done_desc: '운영팀이 검토 후 조치하겠습니다.',
+  report_notice: '허위 신고 반복 시 이용이 제한될 수 있습니다',
+
   // Misc
   xp_gained: 'XP 획득',
   new_badge: '새 배지 획득',
