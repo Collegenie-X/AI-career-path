@@ -1,13 +1,13 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { Home, Briefcase, Map, History } from 'lucide-react';
+import { Home, Briefcase, Map, Rocket } from 'lucide-react';
 
 const tabs = [
-  { id: 'home',    label: '홈',          icon: Home,      path: '/home' },
-  { id: 'jobs',    label: '직업 체험',    icon: Briefcase, path: '/jobs/explore' },
-  { id: 'career',  label: '커리어 패스',      icon: Map,       path: '/career' },
-  { id: 'history', label: '히스토리',    icon: History,   path: '/history' },
+  { id: 'home',       label: '홈',          icon: Home,     path: '/home' },
+  { id: 'jobs',       label: '직업 체험',    icon: Briefcase, path: '/jobs/explore' },
+  { id: 'career',     label: '커리어 패스',  icon: Map,      path: '/career' },
+  { id: 'launchpad',  label: '런치패드',     icon: Rocket,   path: '/launchpad' },
 ];
 
 export function TabBar() {

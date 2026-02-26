@@ -511,7 +511,7 @@ function AptitudeSection({ riasec, onTest, onViewReport }: {
             onClick={onTest}
           >
             <ClipboardList className="w-3.5 h-3.5" />
-            다시 풀기
+            다시 검사
           </button>
           <button
             className="rounded-xl px-3 py-2.5 flex items-center justify-center gap-1.5 text-xs font-bold transition-all active:scale-95"
@@ -519,7 +519,7 @@ function AptitudeSection({ riasec, onTest, onViewReport }: {
             onClick={onViewReport}
           >
             <Brain className="w-3.5 h-3.5" />
-            상세 리포트
+            리포트
           </button>
         </div>
       </div>

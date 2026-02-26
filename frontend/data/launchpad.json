@@ -1,0 +1,74 @@
+[
+  {
+    "id": "lp-001",
+    "title": "AI 커리어 패스 작성 워크숍",
+    "type": "career_workshop",
+    "mode": "offline",
+    "description": "함께 모여 나만의 커리어 패스를 직접 작성하는 오프라인 워크숍",
+    "agenda": [
+      { "id": "ag-1", "text": "자기소개 및 진로 고민 나누기 (20분)" },
+      { "id": "ag-2", "text": "커리어 패스 작성 가이드 설명 (15분)" },
+      { "id": "ag-3", "text": "개인별 커리어 패스 작성 실습 (40분)" },
+      { "id": "ag-4", "text": "작성 결과 공유 및 피드백 (25분)" }
+    ],
+    "date": "2026-03-15",
+    "time": "14:00",
+    "location": "서울 강남구 (장소 확정 후 공지)",
+    "maxParticipants": 12,
+    "currentParticipants": 7,
+    "hostName": "DreamPath 팀",
+    "tags": ["커리어패스", "오프라인", "워크숍"],
+    "resources": [
+      { "id": "r1", "title": "커리어 패스 작성 가이드", "url": "https://example.com/guide" }
+    ],
+    "createdAt": "2026-02-20T10:00:00Z"
+  },
+  {
+    "id": "lp-002",
+    "title": "IT 직업 세미나 — 개발자 현직자 토크",
+    "type": "seminar",
+    "mode": "online",
+    "description": "현직 개발자가 직접 들려주는 실무 이야기. 중고등학생 눈높이 Q&A",
+    "agenda": [
+      { "id": "ag-1", "text": "현직 개발자 커리어 여정 소개 (15분)" },
+      { "id": "ag-2", "text": "실무에서 실제로 하는 일 (20분)" },
+      { "id": "ag-3", "text": "중학생~고등학생 때 준비하면 좋은 것들 (15분)" },
+      { "id": "ag-4", "text": "자유 Q&A (10분)" }
+    ],
+    "date": "2026-03-22",
+    "time": "19:00",
+    "location": "온라인 (Zoom 링크 참가자 공유)",
+    "maxParticipants": 30,
+    "currentParticipants": 18,
+    "hostName": "테크스타 운영진",
+    "tags": ["IT", "개발자", "세미나", "온라인"],
+    "resources": [
+      { "id": "r2", "title": "사전 설문지", "url": "https://example.com/survey" },
+      { "id": "r3", "title": "발표 자료 (사전 공유)", "url": "https://example.com/slides" }
+    ],
+    "createdAt": "2026-02-18T09:00:00Z"
+  },
+  {
+    "id": "lp-003",
+    "title": "프로젝트 실행 스터디 — 공모전 준비반",
+    "type": "project_group",
+    "mode": "hybrid",
+    "description": "공모전 참가를 목표로 함께 기획하고 실행하는 스터디",
+    "agenda": [
+      { "id": "ag-1", "text": "참여 공모전 선정 및 팀 구성" },
+      { "id": "ag-2", "text": "주제 브레인스토밍 및 아이디어 정리" },
+      { "id": "ag-3", "text": "역할 분담 및 주간 목표 설정" },
+      { "id": "ag-4", "text": "매주 온라인 체크인 (30분)" },
+      { "id": "ag-5", "text": "월 1회 오프라인 중간 점검" }
+    ],
+    "date": "2026-03-08",
+    "time": "10:00",
+    "location": "온라인 + 월 1회 오프라인",
+    "maxParticipants": 6,
+    "currentParticipants": 4,
+    "hostName": "김진로",
+    "tags": ["공모전", "프로젝트", "스터디"],
+    "resources": [],
+    "createdAt": "2026-02-15T14:00:00Z"
+  }
+]

@@ -197,6 +197,14 @@
   0% { transform: translateY(30px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
 }
+@keyframes sheet-slide-up {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
+@keyframes sheet-fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 @keyframes scale-bounce {
   0% { transform: scale(0.5); opacity: 0; }
   60% { transform: scale(1.1); }
