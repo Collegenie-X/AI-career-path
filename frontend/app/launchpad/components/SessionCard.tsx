@@ -165,7 +165,7 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
         )}
 
         {/* 액션 버튼 */}
-        <button
+        {/* <button
           className="w-full h-9 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
           style={
             isOwner
@@ -197,7 +197,7 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
           ) : (
             <><span>{LAUNCHPAD_LABELS.joinButton}</span><ChevronRight className="w-3.5 h-3.5" /></>
           )}
-        </button>
+        </button> */}
       </div>
     </div>
   );

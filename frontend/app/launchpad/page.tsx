@@ -368,7 +368,7 @@ export default function LaunchpadPage() {
 
         {/* ── SECTION 2: 내 현황 ── */}
         <div className="px-4 mt-5">
-          <SectionHeader label="내 현황" sub="참여 중인 모임과 내가 만든 모임" accent="#22C55E" />
+          <SectionHeader label="잔체 런치패드" sub="참여 중인 모임과 내가 만든 모임" accent="#22C55E" />
           <MyTabs active={myTab} onChange={setMyTab} counts={myCounts} />
         </div>
 
@@ -380,26 +380,9 @@ export default function LaunchpadPage() {
         </div>
 
         {/* ── SECTION 4: 목록 ── */}
-        <div className="px-4 mt-5">
+        <div className="px-4 mt-3">
           {/* 목록 헤더 */}
           <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <div className="w-1 h-5 rounded-full" style={{ backgroundColor: activeTypeCfg?.color ?? '#6C5CE7' }} />
-              <span className="text-sm font-bold text-white">
-                {activeTypeCfg ? activeTypeCfg.label : '전체 런치패드'}
-              </span>
-              <span className="text-xs font-bold px-2 py-0.5 rounded-full"
-                style={{ backgroundColor: (activeTypeCfg?.color ?? '#6C5CE7') + '20', color: activeTypeCfg?.color ?? '#6C5CE7' }}>
-                {filtered.length}
-              </span>
-            </div>
-            <button
-              className="text-[11px] font-semibold flex items-center gap-1 px-3 py-1.5 rounded-xl transition-all active:scale-95"
-              style={{ backgroundColor: 'rgba(108,92,231,0.15)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.25)' }}
-              onClick={() => setShowForm(true)}
-            >
-              <Plus className="w-3 h-3" />새 모임
-            </button>
           </div>
 
           {/* 카드 목록 */}
