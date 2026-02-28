@@ -11,6 +11,21 @@ export type AgendaItem = {
   text: string;
 };
 
+export type Reply = {
+  id: string;
+  text: string;
+  author: string;
+  createdAt: string;
+};
+
+export type Comment = {
+  id: string;
+  text: string;
+  author: string;
+  createdAt: string;
+  replies: Reply[];
+};
+
 export type LaunchpadSession = {
   id: string;
   title: string;
@@ -21,6 +36,12 @@ export type LaunchpadSession = {
   date: string;
   time: string;
   location: string;
+  zoomLink?: string;
+  schoolName?: string;
+  clubName?: string;
+  isTeacherCreated?: boolean;
+  teacherName?: string;
+  careerPathRef?: string;
   maxParticipants: number;
   currentParticipants: number;
   hostName: string;

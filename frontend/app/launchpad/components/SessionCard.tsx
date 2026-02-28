@@ -1,6 +1,6 @@
 'use client';
 
-import { Calendar, MapPin, Users, ExternalLink, Pencil, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, Users, ExternalLink, Pencil, Video, School, GraduationCap } from 'lucide-react';
 import { SESSION_TYPES, MODE_LABELS, LAUNCHPAD_LABELS } from '../config';
 import type { LaunchpadSession } from '../types';
 
@@ -20,6 +20,8 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
   const TypeIcon = typeCfg.icon;
   const isFull = session.currentParticipants >= session.maxParticipants;
   const fillRatio = Math.min(session.currentParticipants / session.maxParticipants, 1);
+  const isOnline  = session.mode === 'online';
+  const isClub    = session.mode === 'offline';
 
   const dateStr = new Date(session.date).toLocaleDateString('ko-KR', {
     month: 'short', day: 'numeric', weekday: 'short',
@@ -38,10 +40,46 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
       {/* 상단 컬러 바 */}
       <div className="h-0.5 w-full" style={{ background: `linear-gradient(to right, ${typeCfg.color}, ${typeCfg.color}44)` }} />
 
+      {/* 온라인/동아리 토핑 배너 */}
+      {isOnline && (
+        <div
+          className="px-4 py-1.5 flex items-center gap-1.5"
+          style={{ backgroundColor: 'rgba(59,130,246,0.1)', borderBottom: '1px solid rgba(59,130,246,0.15)' }}
+        >
+          <Video className="w-3 h-3 text-blue-400" />
+          <span className="text-[10px] font-bold text-blue-300">온라인 Zoom 세션</span>
+          {session.isTeacherCreated && (
+            <>
+              <span className="text-gray-700">·</span>
+              <GraduationCap className="w-3 h-3 text-yellow-400" />
+              <span className="text-[10px] font-bold text-yellow-300">{LAUNCHPAD_LABELS.teacherBadge}</span>
+            </>
+          )}
+        </div>
+      )}
+      {isClub && (
+        <div
+          className="px-4 py-1.5 flex items-center gap-1.5"
+          style={{ backgroundColor: 'rgba(34,197,94,0.1)', borderBottom: '1px solid rgba(34,197,94,0.15)' }}
+        >
+          <School className="w-3 h-3 text-green-400" />
+          <span className="text-[10px] font-bold text-green-300">
+            {session.schoolName ? `${session.schoolName}` : '학교 동아리'}
+            {session.clubName && ` · ${session.clubName}`}
+          </span>
+          {session.isTeacherCreated && (
+            <>
+              <span className="text-gray-700">·</span>
+              <GraduationCap className="w-3 h-3 text-yellow-400" />
+              <span className="text-[10px] font-bold text-yellow-300">{session.teacherName ?? LAUNCHPAD_LABELS.teacherBadge}</span>
+            </>
+          )}
+        </div>
+      )}
+
       <div className="p-4">
         {/* 상단 행 */}
         <div className="flex items-start gap-3 mb-3">
-          {/* 아이콘 */}
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
             style={{ background: `linear-gradient(135deg, ${typeCfg.color}30, ${typeCfg.color}15)`, border: `1px solid ${typeCfg.color}40` }}
@@ -49,11 +87,9 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
             <TypeIcon className="w-5 h-5" style={{ color: typeCfg.color }} />
           </div>
 
-          {/* 제목 + 배지 */}
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2">
               <div className="text-sm font-bold text-white leading-snug line-clamp-2 flex-1">{session.title}</div>
-              {/* 오너 수정 버튼 */}
               {isOwner && (
                 <button
                   className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-all active:scale-90"
@@ -65,7 +101,6 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
               )}
             </div>
 
-            {/* 타입 + 방식 배지 */}
             <div className="flex items-center gap-1.5 mt-1 flex-wrap">
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                 style={{ backgroundColor: `${typeCfg.color}20`, color: typeCfg.color }}>
@@ -73,7 +108,7 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
               </span>
               <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
                 style={{ backgroundColor: `${modeCfg.color}18`, color: modeCfg.color }}>
-                {modeCfg.label}
+                {session.mode === 'online' ? '🔵 Zoom' : session.mode === 'offline' ? '🏫 동아리' : '🔀 온·오프'}
               </span>
               {isJoined && !isOwner && (
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
@@ -106,7 +141,7 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
         {session.agenda && session.agenda.length > 0 && (
           <div className="mb-3 px-3 py-2 rounded-xl space-y-1"
             style={{ backgroundColor: 'rgba(108,92,231,0.08)', border: '1px solid rgba(108,92,231,0.18)' }}>
-            {session.agenda.slice(0, 3).map((item, idx) => (
+            {session.agenda.slice(0, 2).map((item, idx) => (
               <div key={item.id} className="flex items-center gap-2">
                 <span className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-black flex-shrink-0"
                   style={{ backgroundColor: 'rgba(108,92,231,0.3)', color: '#a78bfa' }}>
@@ -115,20 +150,22 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
                 <span className="text-[11px] text-gray-300 truncate">{item.text}</span>
               </div>
             ))}
-            {session.agenda.length > 3 && (
-              <div className="text-[10px] text-gray-600 pl-6">+{session.agenda.length - 3}개 더보기</div>
+            {session.agenda.length > 2 && (
+              <div className="text-[10px] text-gray-600 pl-6">+{session.agenda.length - 2}개 더보기</div>
             )}
           </div>
         )}
 
-        {/* 메타 정보 */}
+        {/* 메타 */}
         <div className="flex items-center gap-3 mb-3 flex-wrap">
           <div className="flex items-center gap-1 text-[11px] text-gray-500">
             <Calendar className="w-3 h-3" style={{ color: typeCfg.color }} />
             <span>{dateStr} {session.time}</span>
           </div>
           <div className="flex items-center gap-1 text-[11px] text-gray-500 min-w-0">
-            <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: typeCfg.color }} />
+            {isOnline
+              ? <Video className="w-3 h-3 flex-shrink-0 text-blue-400" />
+              : <MapPin className="w-3 h-3 flex-shrink-0" style={{ color: typeCfg.color }} />}
             <span className="truncate">{session.location}</span>
           </div>
         </div>
@@ -143,16 +180,14 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
             <span className="text-gray-600">by {session.hostName}</span>
           </div>
           <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-            <div
-              className="h-full rounded-full transition-all duration-700"
+            <div className="h-full rounded-full transition-all duration-700"
               style={{
                 width: `${fillRatio * 100}%`,
                 background: isFull
                   ? 'linear-gradient(to right, #EF4444, #f87171)'
                   : `linear-gradient(to right, ${typeCfg.color}, ${typeCfg.color}99)`,
                 boxShadow: `0 0 6px ${isFull ? '#EF4444' : typeCfg.color}60`,
-              }}
-            />
+              }} />
           </div>
         </div>
 
@@ -164,40 +199,26 @@ export function SessionCard({ session, isJoined, isOwner, onJoin, onCancel, onDe
           </div>
         )}
 
-        {/* 액션 버튼 */}
-        {/* <button
-          className="w-full h-9 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
-          style={
-            isOwner
-              ? { backgroundColor: 'rgba(108,92,231,0.15)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.25)' }
-              : isJoined
-              ? { backgroundColor: 'rgba(239,68,68,0.12)', color: '#f87171', border: '1px solid rgba(239,68,68,0.2)' }
-              : isFull
-              ? { backgroundColor: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.25)', cursor: 'not-allowed', border: '1px solid rgba(255,255,255,0.06)' }
-              : {
-                  background: `linear-gradient(135deg, ${typeCfg.color}, ${typeCfg.color}cc)`,
-                  color: '#fff',
-                  boxShadow: `0 2px 12px ${typeCfg.color}40`,
-                }
-          }
-          onClick={e => {
-            e.stopPropagation();
-            if (isOwner) { onDetail(session); return; }
-            if (isFull && !isJoined) return;
-            isJoined ? onCancel(session.id) : onJoin(session.id);
-          }}
-          disabled={isFull && !isJoined && !isOwner}
-        >
-          {isOwner ? (
-            <><span>상세 보기</span><ChevronRight className="w-3.5 h-3.5" /></>
-          ) : isJoined ? (
-            LAUNCHPAD_LABELS.cancelButton
-          ) : isFull ? (
-            LAUNCHPAD_LABELS.fullBadge
-          ) : (
-            <><span>{LAUNCHPAD_LABELS.joinButton}</span><ChevronRight className="w-3.5 h-3.5" /></>
-          )}
-        </button> */}
+        {/* Zoom 입장 버튼 (온라인 + Zoom 링크 있을 때) */}
+        {isOnline && session.zoomLink && (
+          <a
+            href={session.zoomLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="w-full h-9 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all active:scale-[0.98]"
+            style={{
+              background: 'linear-gradient(135deg, rgba(59,130,246,0.3), rgba(59,130,246,0.15))',
+              border: '1px solid rgba(59,130,246,0.4)',
+              color: '#60a5fa',
+              boxShadow: '0 2px 10px rgba(59,130,246,0.2)',
+              display: 'flex',
+            }}
+          >
+            <Video className="w-3.5 h-3.5" />
+            {LAUNCHPAD_LABELS.zoomJoinButton}
+          </a>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 'use client';
 
-import { X, Calendar, MapPin, Users, ExternalLink, Trash2, Pencil } from 'lucide-react';
+import { X, Calendar, MapPin, Users, ExternalLink, Trash2, Pencil, Video, School, GraduationCap } from 'lucide-react';
 import { SESSION_TYPES, MODE_LABELS, LAUNCHPAD_LABELS } from '../config';
 import type { LaunchpadSession } from '../types';
+import { CommentSection } from './CommentSection';
 
 type Props = {
   session: LaunchpadSession;
@@ -19,24 +20,20 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
   const typeCfg = SESSION_TYPES[session.type];
   const modeCfg = MODE_LABELS[session.mode];
   const TypeIcon = typeCfg.icon;
-  const isFull = session.currentParticipants >= session.maxParticipants;
+  const isFull   = session.currentParticipants >= session.maxParticipants;
+  const isOnline = session.mode === 'online';
+  const isClub   = session.mode === 'offline';
 
   const dateStr = new Date(session.date).toLocaleDateString('ko-KR', {
     year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
   });
 
   return (
-    /* ── 오버레이 ── */
     <div
       className="fixed inset-0 z-[60] flex items-end justify-center"
-      style={{
-        backgroundColor: 'rgba(0,0,0,0.65)',
-        backdropFilter: 'blur(4px)',
-        animation: 'sheet-fade-in 0.2s ease-out forwards',
-      }}
+      style={{ backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(4px)', animation: 'sheet-fade-in 0.2s ease-out forwards' }}
       onClick={onClose}
     >
-      {/* ── 시트 본체 ── */}
       <div
         className="w-full max-w-[430px] rounded-t-3xl flex flex-col"
         style={{
@@ -44,11 +41,10 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
           border: '1px solid rgba(255,255,255,0.12)',
           borderBottom: 'none',
           maxHeight: 'calc(100dvh - 30px)',
-          animation: 'sheet-slide-up 0.32s cubic-bezier(0.32, 0.72, 0, 1) forwards',
+          animation: 'sheet-slide-up 0.32s cubic-bezier(0.32,0.72,0,1) forwards',
         }}
         onClick={e => e.stopPropagation()}
       >
-        {/* 핸들 */}
         <div className="flex justify-center pt-3 pb-1 flex-shrink-0">
           <div className="w-10 h-1 rounded-full bg-white/25" />
         </div>
@@ -62,28 +58,79 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
             </div>
             <div className="min-w-0">
               <div className="text-sm font-bold text-white leading-snug">{session.title}</div>
-              <div className="text-[11px] mt-0.5 flex items-center gap-1.5">
+              <div className="text-[11px] mt-0.5 flex items-center gap-1.5 flex-wrap">
                 <span style={{ color: typeCfg.color }}>{typeCfg.label}</span>
                 <span className="text-gray-600">·</span>
-                <span style={{ color: modeCfg.color }}>{modeCfg.label}</span>
+                <span style={{ color: modeCfg.color }}>
+                  {isOnline ? '🔵 Zoom 온라인' : isClub ? '🏫 학교 동아리' : '🔀 온·오프'}
+                </span>
+                {session.isTeacherCreated && (
+                  <>
+                    <span className="text-gray-600">·</span>
+                    <span className="text-yellow-400 flex items-center gap-0.5">
+                      <GraduationCap className="w-3 h-3" />
+                      <span style={{ fontSize: '10px' }}>{LAUNCHPAD_LABELS.teacherBadge}</span>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors"
-            style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-          >
+          <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
             <X className="w-4 h-4 text-gray-400" />
           </button>
         </div>
 
-        {/* 스크롤 영역 */}
         <div className="overflow-y-auto overscroll-contain px-5 py-4 space-y-4" style={{ WebkitOverflowScrolling: 'touch' }}>
 
           {/* 설명 */}
           {session.description && (
             <p className="text-sm text-gray-300 leading-relaxed">{session.description}</p>
+          )}
+
+          {/* Zoom 입장 배너 */}
+          {isOnline && session.zoomLink && (
+            <a
+              href={session.zoomLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 p-3.5 rounded-2xl transition-all active:opacity-70"
+              style={{
+                background: 'linear-gradient(135deg, rgba(59,130,246,0.2), rgba(59,130,246,0.08))',
+                border: '1.5px solid rgba(59,130,246,0.4)',
+                boxShadow: '0 2px 16px rgba(59,130,246,0.15)',
+              }}
+            >
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #2563EB, #1D4ED8)' }}>
+                <Video className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-sm font-bold text-blue-300">Zoom으로 참여하기</div>
+                <div className="text-[10px] text-blue-400/60 truncate">{session.zoomLink}</div>
+              </div>
+              <ExternalLink className="w-4 h-4 text-blue-400 flex-shrink-0" />
+            </a>
+          )}
+
+          {/* 학교 동아리 배너 */}
+          {isClub && (session.schoolName || session.clubName) && (
+            <div
+              className="flex items-center gap-3 p-3.5 rounded-2xl"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34,197,94,0.15), rgba(34,197,94,0.06))',
+                border: '1.5px solid rgba(34,197,94,0.3)',
+              }}
+            >
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(135deg, #16A34A, #15803D)' }}>
+                <School className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-green-300">{session.schoolName ?? '학교 동아리'}</div>
+                {session.clubName && <div className="text-xs text-green-400/70">{session.clubName}</div>}
+              </div>
+            </div>
           )}
 
           {/* 세부 항목 */}
@@ -125,7 +172,7 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
             </div>
             <div className="flex items-start gap-3 p-3 rounded-xl"
               style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <MapPin className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+              {isOnline ? <Video className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" /> : <MapPin className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />}
               <div>
                 <div className="text-[10px] text-gray-500 mb-0.5">장소</div>
                 <div className="text-sm text-white">{session.location}</div>
@@ -185,7 +232,7 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
           <div className="text-xs text-gray-600">주최: {session.hostName}</div>
 
           {/* 액션 버튼 */}
-          <div className="pt-2 pb-10 space-y-2">
+          <div className="pt-2 space-y-2">
             {isOwner ? (
               <div className="flex gap-2">
                 <button
@@ -220,6 +267,15 @@ export function SessionDetail({ session, isJoined, isOwner, onJoin, onCancel, on
               </button>
             )}
           </div>
+
+          {/* 구분선 */}
+          <div className="h-px my-2" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+
+          {/* 댓글 섹션 */}
+          <CommentSection sessionId={session.id} />
+
+          {/* 하단 여백 */}
+          <div className="h-10" />
         </div>
       </div>
     </div>
