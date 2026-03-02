@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Star, Briefcase } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
@@ -26,7 +26,7 @@ import {
 import { LABELS } from './config';
 import type { StarData, Job } from './types';
 
-export default function JobsExplorePage() {
+function JobsExploreContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
@@ -138,5 +138,17 @@ export default function JobsExplorePage() {
         />
       )}
     </div>
+  );
+}
+
+export default function JobsExplorePage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen relative overflow-hidden flex items-center justify-center">
+        <div className="text-gray-400">Loading...</div>
+      </div>
+    }>
+      <JobsExploreContent />
+    </Suspense>
   );
 }
