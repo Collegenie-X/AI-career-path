@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "DreamPath",
+    "slug": "dreampath-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#0E0E1C"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.dreampath.app",
+      "backgroundColor": "#0E0E1C"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundColor": "#0E0E1C"
+      },
+      "package": "com.dreampath.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}

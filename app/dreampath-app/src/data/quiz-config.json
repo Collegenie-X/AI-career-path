@@ -1,0 +1,64 @@
+{
+  "modeSelect": {
+    "title": "직업 적성 검사",
+    "subtitle": "나에게 맞는 직업 유형을 발견해보세요",
+    "emoji": "🌟",
+    "modes": [
+      {
+        "id": "quick",
+        "title": "빠른 검사",
+        "badge": "10문항",
+        "description": "약 3~5분 • 핵심 5개 유형 탐색",
+        "emoji": "⚡",
+        "questionCount": 10,
+        "color": "#6C5CE7",
+        "recommended": false
+      },
+      {
+        "id": "detailed",
+        "title": "정밀 검사",
+        "badge": "30문항",
+        "description": "약 10~15분 • 상세 강점 리포트 제공",
+        "emoji": "🔭",
+        "questionCount": 30,
+        "color": "#F39C12",
+        "recommended": true
+      }
+    ],
+    "zoneIcons": ["🧠", "❤️", "💪", "🌈", "📚"],
+    "tip": "정답이 없어요! 솔직하게 답하면 더 정확해요 ✨"
+  },
+  "quiz": {
+    "xpPerQuestion": 5,
+    "zones": {
+      "성격": {
+        "color": "#6C5CE7",
+        "icon": "🧠"
+      },
+      "흥미": {
+        "color": "#E74C3C",
+        "icon": "❤️"
+      },
+      "강점": {
+        "color": "#27AE60",
+        "icon": "💪"
+      },
+      "가치관": {
+        "color": "#F39C12",
+        "icon": "🌈"
+      },
+      "학습": {
+        "color": "#3498DB",
+        "icon": "📚"
+      }
+    },
+    "labels": {
+      "analyzing": "우주 적성 데이터 분석 중...",
+      "xpEarned": "XP 획득",
+      "progress": "진행률",
+      "feedbackZoneComplete": "분석 완료",
+      "feedbackNext": "다음 문제로",
+      "feedbackViewResult": "결과 보기 🏆"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+[
+  { "level": 1, "name": "꿈의 씨앗", "minXP": 0, "maxXP": 299, "unlocks": ["적성 검사", "직업 카드 스와이프", "기본 직업 정보"], "icon": "Sprout" },
+  { "level": 2, "name": "호기심 탐험가", "minXP": 300, "maxXP": 799, "unlocks": ["별 탐험", "하루 시뮬레이션", "직업 상세 정보 L3"], "icon": "Compass" },
+  { "level": 3, "name": "경험 수집가", "minXP": 800, "maxXP": 1799, "unlocks": ["1주일 체험 캠프", "커리어 패스 기본", "가상 합격자 패스"], "icon": "Backpack" },
+  { "level": 4, "name": "진로 설계사", "minXP": 1800, "maxXP": 3299, "unlocks": ["커리어 패스 상세", "GAP 분석", "연봉 협상 게임"], "icon": "Pencil" },
+  { "level": 5, "name": "미래 건축가", "minXP": 3300, "maxXP": 5499, "unlocks": ["클루 팀 결성", "섀도우 프로젝트", "Q&A 게시판"], "icon": "Building" },
+  { "level": 6, "name": "드림 마스터", "minXP": 5500, "maxXP": 99999, "unlocks": ["포트폴리오 자동 생성", "프로젝트 배포 인증", "전체 기능 해금"], "icon": "Crown" }
+]
