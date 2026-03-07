@@ -27,7 +27,12 @@ export function ProcessTab({ job, starColor }: ProcessTabProps) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.processDescription}>{workProcess.description}</Text>
+      <ProcessHeader
+        title={workProcess.title}
+        description={workProcess.description}
+        phaseCount={workProcess.phases.length}
+        starColor={starColor}
+      />
       {workProcess.phases.map((phase, index) => (
         <PhaseStepItem
           key={phase.id}
@@ -39,6 +44,39 @@ export function ProcessTab({ job, starColor }: ProcessTabProps) {
           onToggle={() => handleToggle(index)}
         />
       ))}
+    </View>
+  );
+}
+
+function ProcessHeader({
+  title,
+  description,
+  phaseCount,
+  starColor,
+}: {
+  title: string;
+  description: string;
+  phaseCount: number;
+  starColor: string;
+}) {
+  return (
+    <View style={[styles.processHeaderCard, { borderColor: `${starColor}25` }]}>
+      <View style={styles.processHeaderRow}>
+        <View style={[styles.processHeaderIconBox, { backgroundColor: `${starColor}20` }]}>
+          <Text style={styles.processHeaderIcon}>🏛️</Text>
+        </View>
+        <View style={styles.processHeaderTextBlock}>
+          <Text style={styles.processHeaderTitle}>{title}</Text>
+          <View style={styles.processHeaderMeta}>
+            <View style={[styles.processHeaderBadge, { backgroundColor: `${starColor}18` }]}>
+              <Text style={[styles.processHeaderBadgeText, { color: starColor }]}>
+                {phaseCount}단계 프로세스
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <Text style={styles.processDescription}>{description}</Text>
     </View>
   );
 }
@@ -98,7 +136,7 @@ function PhaseStepItem({
             </View>
             <View style={styles.stepTitleBlock}>
               <Text style={styles.stepStepLabel}>
-                {JOBS_EXPLORE_LABELS.processStepPrefix} {index + 1}
+                {JOBS_EXPLORE_LABELS.processStepPrefix} {index + 1} · {phase.phase}
               </Text>
               <Text style={[styles.stepTitle, isExpanded && { color: COLORS.white }]}>
                 {phase.title}
@@ -110,55 +148,88 @@ function PhaseStepItem({
           </TouchableOpacity>
 
           {isExpanded && (
-            <View style={styles.stepExpandedContent}>
-              <Text style={styles.stepDescription}>{phase.description}</Text>
-
-              {phase.example && (
-                <View style={[styles.exampleCard, { borderLeftColor: starColor }]}>
-                  <View style={styles.exampleHeader}>
-                    <Text style={styles.exampleIcon}>💡</Text>
-                    <Text style={[styles.exampleLabel, { color: starColor }]}>
-                      {JOBS_EXPLORE_LABELS.exampleLabel}
-                    </Text>
-                  </View>
-                  <Text style={styles.exampleText}>{phase.example}</Text>
-                </View>
-              )}
-
-              {phase.tools.length > 0 && (
-                <View style={styles.chipSection}>
-                  <View style={styles.chipSectionHeader}>
-                    <Text style={styles.chipSectionIcon}>🏛️</Text>
-                    <Text style={styles.chipSectionLabel}>{JOBS_EXPLORE_LABELS.toolsLabel}</Text>
-                  </View>
-                  <View style={styles.chipRow}>
-                    {phase.tools.map((tool) => (
-                      <View key={tool} style={styles.chip}>
-                        <Text style={styles.chipText}>{tool}</Text>
-                      </View>
-                    ))}
-                  </View>
-                </View>
-              )}
-
-              {phase.skills.length > 0 && (
-                <View style={styles.chipSection}>
-                  <View style={styles.chipSectionHeader}>
-                    <Text style={styles.chipSectionIcon}>⚡</Text>
-                    <Text style={styles.chipSectionLabel}>{JOBS_EXPLORE_LABELS.skillsLabel}</Text>
-                  </View>
-                  <View style={styles.chipRow}>
-                    {phase.skills.map((skill) => (
-                      <View key={skill} style={[styles.chip, styles.skillChip]}>
-                        <Text style={[styles.chipText, styles.skillChipText]}>⚡ {skill}</Text>
-                      </View>
-                    ))}
-                  </View>
-                </View>
-              )}
-            </View>
+            <PhaseExpandedContent phase={phase} starColor={starColor} />
           )}
         </View>
+      </View>
+    </View>
+  );
+}
+
+function PhaseExpandedContent({ phase, starColor }: { phase: WorkPhase; starColor: string }) {
+  return (
+    <View style={styles.stepExpandedContent}>
+      <Text style={styles.stepDescription}>{phase.description}</Text>
+
+      {phase.example && (
+        <View style={[styles.exampleCard, { borderLeftColor: starColor }]}>
+          <View style={styles.exampleHeader}>
+            <Text style={styles.exampleIcon}>💡</Text>
+            <Text style={[styles.exampleLabel, { color: starColor }]}>
+              {JOBS_EXPLORE_LABELS.exampleLabel}
+            </Text>
+          </View>
+          <Text style={styles.exampleText}>{phase.example}</Text>
+        </View>
+      )}
+
+      <View style={styles.chipsRow}>
+        {phase.tools && phase.tools.length > 0 && (
+          <ChipSection
+            icon="🛠️"
+            label={JOBS_EXPLORE_LABELS.toolsLabel}
+            chips={phase.tools}
+            chipStyle="tool"
+          />
+        )}
+
+        {phase.skills && phase.skills.length > 0 && (
+          <ChipSection
+            icon="⚡"
+            label={JOBS_EXPLORE_LABELS.skillsLabel}
+            chips={phase.skills}
+            chipStyle="skill"
+          />
+        )}
+      </View>
+    </View>
+  );
+}
+
+function ChipSection({
+  icon,
+  label,
+  chips,
+  chipStyle,
+}: {
+  icon: string;
+  label: string;
+  chips: string[];
+  chipStyle: 'tool' | 'skill';
+}) {
+  return (
+    <View style={styles.chipSection}>
+      <View style={styles.chipSectionHeader}>
+        <Text style={styles.chipSectionIcon}>{icon}</Text>
+        <Text style={styles.chipSectionLabel}>{label}</Text>
+      </View>
+      <View style={styles.chipRow}>
+        {chips.map((chip) => (
+          <View
+            key={chip}
+            style={[
+              styles.chip,
+              chipStyle === 'skill' && styles.skillChip,
+            ]}
+          >
+            <Text style={[
+              styles.chipText,
+              chipStyle === 'skill' && styles.skillChipText,
+            ]}>
+              {chipStyle === 'skill' ? `⚡ ${chip}` : chip}
+            </Text>
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -176,12 +247,59 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZES.sm,
     color: COLORS.textSecondary,
   },
-  processDescription: {
-    fontSize: FONT_SIZES.xs,
-    color: COLORS.textSecondary,
-    lineHeight: 18,
-    marginBottom: SPACING.md,
+
+  processHeaderCard: {
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    padding: SPACING.lg,
+    marginBottom: SPACING.lg,
+    gap: SPACING.md,
   },
+  processHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.sm,
+  },
+  processHeaderIconBox: {
+    width: 40,
+    height: 40,
+    borderRadius: BORDER_RADIUS.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  processHeaderIcon: {
+    fontSize: 20,
+  },
+  processHeaderTextBlock: {
+    flex: 1,
+    gap: 4,
+  },
+  processHeaderTitle: {
+    fontSize: FONT_SIZES.md,
+    fontWeight: '900',
+    color: COLORS.white,
+  },
+  processHeaderMeta: {
+    flexDirection: 'row',
+    gap: SPACING.xs,
+  },
+  processHeaderBadge: {
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 3,
+    borderRadius: BORDER_RADIUS.full,
+  },
+  processHeaderBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+  },
+  processDescription: {
+    fontSize: FONT_SIZES.sm,
+    color: COLORS.textSecondary,
+    lineHeight: 22,
+  },
+
   stepWrapper: {
     marginBottom: 0,
   },
@@ -268,9 +386,9 @@ const styles = StyleSheet.create({
     gap: SPACING.md,
   },
   stepDescription: {
-    fontSize: FONT_SIZES.xs,
+    fontSize: FONT_SIZES.sm,
     color: COLORS.textSecondary,
-    lineHeight: 18,
+    lineHeight: 20,
   },
   exampleCard: {
     backgroundColor: 'rgba(255,255,255,0.04)',
@@ -292,9 +410,12 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   exampleText: {
-    fontSize: FONT_SIZES.xs,
+    fontSize: FONT_SIZES.sm,
     color: COLORS.textSecondary,
-    lineHeight: 18,
+    lineHeight: 20,
+  },
+  chipsRow: {
+    gap: SPACING.md,
   },
   chipSection: {
     gap: 6,

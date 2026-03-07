@@ -89,6 +89,7 @@ export const LABELS = {
   modal_step: 'STEP',
 
   // Hero banner
+  hero_job_intro: '직업 소개',
   hero_suitable_personality: '유리한 성향',
 
   // Daily schedule tab
@@ -106,4 +107,28 @@ export const LABELS = {
 
   // Page header
   features_section_title: '✨ 주요 기능',
+
+  // StarInfoBanner
+  star_core_traits_title: '핵심 특성',
+  star_view_more_traits: '가지 특성 보기',
+  star_not_fit_title: '이런 사람은 신중하게 고려하세요',
+  star_difficulty_label: '난이도',
+  star_difficulty_levels: {
+    '1': '매우 쉬움',
+    '2': '쉬움',
+    '3': '보통',
+    '4': '어려움',
+    '5': '매우 어려움',
+  } as Record<string, string>,
+  star_preparation_label: '준비 기간',
+  star_preparation_unit: '년',
+  star_preparation_sub_label: '평균 준비 기간',
+  star_holland_code_label: 'Holland 코드',
+  star_key_subjects_label: '핵심 과목',
+
+  process_phase_badge: '단계 프로세스',
+  process_step_prefix: 'STEP',
+
+  timeline_key_success: '핵심 성공 지표',
+  timeline_total_cost: '총 예상 비용',
 };

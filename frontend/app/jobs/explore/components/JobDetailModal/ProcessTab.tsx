@@ -1,164 +1,272 @@
 'use client';
 
-import { Clock, TrendingUp, Briefcase, Zap, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import { PhaseIllustration } from '../PhaseIllustration';
+import { useState, useCallback } from 'react';
+import { Clock, Briefcase, Zap } from 'lucide-react';
 import { LABELS } from '../../config';
 import type { Job, StarData, WorkPhase } from '../../types';
 
 interface ProcessTabProps {
   job: Job;
   star: StarData;
-  currentPhase: WorkPhase;
-  processStep: number;
-  phases: WorkPhase[];
-  isLastPhase: boolean;
-  onStepChange: (step: number) => void;
 }
 
-export function ProcessTab({ job, star, currentPhase, processStep, phases, isLastPhase, onStepChange }: ProcessTabProps) {
+function ProcessHeader({
+  title,
+  description,
+  phaseCount,
+  starColor,
+}: {
+  title: string;
+  description: string;
+  phaseCount: number;
+  starColor: string;
+}) {
   return (
-    <div className="px-4 pt-3 pb-6">
-      {/* Slide illustration with nav arrows */}
-      <div className="relative mb-5">
-        <PhaseIllustration phase={currentPhase} jobId={job.id} color={star.color} />
-
-        {/* Left arrow */}
-        {processStep > 0 && (
-          <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all active:scale-90"
-            style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}
-            onClick={() => onStepChange(processStep - 1)}
-          >
-            <ChevronLeft className="w-5 h-5 text-white" />
-          </button>
-        )}
-
-        {/* Right arrow */}
-        {!isLastPhase && (
-          <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10 transition-all active:scale-90"
-            style={{ background: 'rgba(0,0,0,0.45)', border: '1px solid rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}
-            onClick={() => onStepChange(processStep + 1)}
-          >
-            <ChevronRight className="w-5 h-5 text-white" />
-          </button>
-        )}
-      </div>
-
-      {/* Dot indicators */}
-      <div className="flex items-center justify-center gap-2 mb-5">
-        {phases.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => onStepChange(i)}
-            className="transition-all duration-300"
-            style={{
-              width: i === processStep ? 24 : 8,
-              height: 8,
-              borderRadius: 4,
-              backgroundColor: i === processStep ? star.color : 'rgba(255,255,255,0.18)',
-              boxShadow: i === processStep ? `0 0 8px ${star.color}88` : 'none',
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Title + desc */}
-      <div className="mb-4">
-        <h3 className="text-white font-bold text-2xl mb-2 leading-tight">{currentPhase.title}</h3>
-        <p className="text-gray-300 text-sm leading-relaxed">{currentPhase.description}</p>
-      </div>
-
-      {/* Duration */}
-      <div
-        className="flex items-center gap-2 px-4 py-3 rounded-2xl mb-4"
-        style={{ background: `${star.color}15`, border: `1px solid ${star.color}33` }}
-      >
-        <Clock className="w-4 h-4 flex-shrink-0" style={{ color: star.color }} />
-        <span className="text-sm font-semibold text-white">{LABELS.modal_duration}</span>
-        <span className="ml-auto text-sm font-bold" style={{ color: star.color }}>{currentPhase.duration}</span>
-      </div>
-
-      {/* Example */}
-      {currentPhase.example && (
+    <div
+      className="rounded-2xl p-4 mb-5 border"
+      style={{
+        backgroundColor: 'rgba(255,255,255,0.04)',
+        borderColor: `${starColor}25`,
+      }}
+    >
+      <div className="flex items-center gap-3 mb-2">
         <div
-          className="rounded-2xl p-4 mb-4 relative overflow-hidden"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)' }}
+          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          style={{ backgroundColor: `${starColor}20` }}
         >
-          <div className="absolute top-3 right-3 text-2xl opacity-20">💡</div>
-          <div className="text-xs font-bold text-yellow-400 mb-2 flex items-center gap-1.5">
-            <span className="text-base">💡</span> {LABELS.modal_example}
-          </div>
-          <p className="text-sm text-gray-300 leading-relaxed">{currentPhase.example}</p>
+          <span className="text-xl">🏛️</span>
         </div>
+        <div className="flex-1">
+          <h3 className="font-extrabold text-white text-base">{title}</h3>
+          <span
+            className="inline-block mt-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
+            style={{ backgroundColor: `${starColor}18`, color: starColor }}
+          >
+            {phaseCount}
+            {LABELS.process_phase_badge}
+          </span>
+        </div>
+      </div>
+      {description && (
+        <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
       )}
+    </div>
+  );
+}
 
-      {/* Tools */}
-      <div className="mb-4">
-        <div className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
-          <Briefcase className="w-3.5 h-3.5" /> {LABELS.modal_tools}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {currentPhase.tools.map((tool, i) => (
+function PhaseStepItem({
+  phase,
+  index,
+  starColor,
+  isLast,
+  isExpanded,
+  onToggle,
+}: {
+  phase: WorkPhase;
+  index: number;
+  starColor: string;
+  isLast: boolean;
+  isExpanded: boolean;
+  onToggle: () => void;
+}) {
+  return (
+    <div className="mb-3">
+      <div className="flex gap-2">
+        <div className="w-9 flex flex-col items-center">
+          <div
+            className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 border-2 z-10"
+            style={{
+              backgroundColor: isExpanded ? `${starColor}30` : `${starColor}15`,
+              borderColor: isExpanded ? starColor : `${starColor}40`,
+            }}
+          >
             <span
-              key={i}
-              className="px-3 py-1.5 rounded-xl text-xs font-semibold"
-              style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.12)' }}
+              className="text-[11px] font-extrabold"
+              style={{ color: isExpanded ? starColor : `${starColor}90` }}
             >
-              {tool}
+              {index + 1}
             </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Skills */}
-      <div className="mb-4">
-        <div className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5 uppercase tracking-wider">
-          <Zap className="w-3.5 h-3.5" /> {LABELS.modal_skills}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {currentPhase.skills.map((skill, i) => (
-            <span
-              key={i}
-              className="px-3 py-1.5 rounded-xl text-xs font-bold"
-              style={{ background: `${star.color}22`, color: star.color, border: `1px solid ${star.color}44` }}
-            >
-              ⚡ {skill}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Last step summary */}
-      {isLastPhase && (
-        <div
-          className="rounded-2xl p-4 mt-2"
-          style={{ background: `linear-gradient(135deg, ${star.color}22, ${star.color}11)`, border: `1.5px solid ${star.color}44` }}
-        >
-          <div className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-            <TrendingUp className="w-4 h-4" style={{ color: star.color }} />
-            {LABELS.modal_summary}
           </div>
-          <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-              <span className="text-gray-400">{LABELS.modal_salary}</span>
-              <span className="text-white font-semibold">{job.salaryRange}</span>
+          {!isLast && (
+            <div
+              className="flex-1 w-0.5 min-h-4 mt-0.5"
+              style={{
+                backgroundColor: isExpanded ? `${starColor}25` : 'rgba(255,255,255,0.08)',
+              }}
+            />
+          )}
+        </div>
+
+        <div
+          className="flex-1 rounded-xl border overflow-hidden"
+          style={{
+            backgroundColor: 'rgba(255,255,255,0.03)',
+            borderColor: 'rgba(255,255,255,0.07)',
+          }}
+        >
+          <button
+            type="button"
+            onClick={onToggle}
+            className="w-full flex items-center gap-2 p-3 text-left transition-colors"
+            style={{
+              backgroundColor: isExpanded ? 'rgba(255,255,255,0.05)' : 'transparent',
+            }}
+          >
+            <div
+              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+              style={{
+                backgroundColor: isExpanded ? `${starColor}20` : 'rgba(255,255,255,0.06)',
+              }}
+            >
+              <span className="text-lg">{phase.icon}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-400">{LABELS.modal_ai_risk}</span>
-              <span className="font-semibold" style={{ color: star.color }}>{job.aiRisk}</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-gray-400">{LABELS.modal_future_growth}</span>
-              <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5" style={{ color: i < job.futureGrowth ? '#FBBF24' : '#333', fill: i < job.futureGrowth ? '#FBBF24' : 'none' }} />
-                ))}
+            <div className="flex-1 min-w-0">
+              <div className="text-[10px] font-bold text-gray-500">
+                {LABELS.process_step_prefix} {index + 1} · {phase.phase}
+              </div>
+              <div
+                className={`text-sm font-extrabold ${isExpanded ? 'text-white' : 'text-gray-400'}`}
+              >
+                {phase.title}
               </div>
             </div>
+            <div
+              className="px-2 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0"
+              style={{ backgroundColor: `${starColor}18`, color: starColor }}
+            >
+              {phase.duration}
+            </div>
+          </button>
+
+          {isExpanded && (
+            <PhaseExpandedContent phase={phase} starColor={starColor} />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PhaseExpandedContent({ phase, starColor }: { phase: WorkPhase; starColor: string }) {
+  const tools = phase.tools ?? [];
+  const skills = phase.skills ?? [];
+
+  return (
+    <div
+      className="p-3 border-t space-y-3"
+      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
+    >
+      <p className="text-sm text-gray-400 leading-relaxed">{phase.description}</p>
+
+      {phase.example && (
+        <div
+          className="rounded-xl p-3 border-l-4"
+          style={{
+            backgroundColor: 'rgba(255,255,255,0.04)',
+            borderLeftColor: starColor,
+          }}
+        >
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <span className="text-base">💡</span>
+            <span className="text-xs font-extrabold" style={{ color: starColor }}>
+              {LABELS.modal_example}
+            </span>
           </div>
+          <p className="text-sm text-gray-300 leading-relaxed">{phase.example}</p>
         </div>
       )}
+
+      <div className="space-y-2">
+        {tools.length > 0 && (
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Briefcase className="w-3 h-3 text-gray-500" />
+              <span className="text-xs font-bold text-gray-500">{LABELS.modal_tools}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {tools.map((tool) => (
+                <span
+                  key={tool}
+                  className="px-2 py-1 rounded-lg text-xs font-semibold"
+                  style={{
+                    backgroundColor: 'rgba(255,255,255,0.06)',
+                    color: 'rgba(255,255,255,0.8)',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                  }}
+                >
+                  {tool}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {skills.length > 0 && (
+          <div>
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Zap className="w-3 h-3 text-gray-500" />
+              <span className="text-xs font-bold text-gray-500">{LABELS.modal_skills}</span>
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="px-2 py-1 rounded-lg text-xs font-bold"
+                  style={{
+                    backgroundColor: 'rgba(108,92,231,0.12)',
+                    color: '#A29BFE',
+                  }}
+                >
+                  ⚡ {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function ProcessTab({ job, star }: ProcessTabProps) {
+  const workProcess = job.workProcess;
+  const [expandedIndex, setExpandedIndex] = useState<number>(0);
+
+  const handleToggle = useCallback((index: number) => {
+    setExpandedIndex((prev) => (prev === index ? -1 : index));
+  }, []);
+
+  if (!workProcess?.phases?.length) {
+    return (
+      <div className="px-4 py-12 text-center text-gray-500 text-sm">
+        직무 프로세스 정보가 준비 중입니다
+      </div>
+    );
+  }
+
+  const phases = workProcess.phases;
+  const title = workProcess.title ?? `${job.name} 직무 프로세스`;
+  const description = workProcess.description ?? '';
+
+  return (
+    <div className="px-4 pt-3 pb-6">
+      <ProcessHeader
+        title={title}
+        description={description}
+        phaseCount={phases.length}
+        starColor={star.color}
+      />
+      {phases.map((phase, index) => (
+        <PhaseStepItem
+          key={phase.id}
+          phase={phase}
+          index={index}
+          starColor={star.color}
+          isLast={index === phases.length - 1}
+          isExpanded={expandedIndex === index}
+          onToggle={() => handleToggle(index)}
+        />
+      ))}
     </div>
   );
 }

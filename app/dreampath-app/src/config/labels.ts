@@ -81,8 +81,10 @@ export const JOBS_EXPLORE_LABELS = jobsExploreConfig.labels as {
   starDetailJobCount: string;
   starDetailJobExperience: string;
   difficultyLabel: string;
+  difficultyLevels: Record<number, string>;
   preparationLabel: string;
   preparationUnit: string;
+  preparationSubLabel: string;
   detailView: string;
   careerPassMake: string;
   careerPassDescription: string;
@@ -92,6 +94,7 @@ export const JOBS_EXPLORE_LABELS = jobsExploreConfig.labels as {
   viewMoreTraits: string;
   coreTraitsTitle: string;
   fitPersonalityTitle: string;
+  notFitTitle: string;
   whyGroupTitle: string;
   hollandCodeLabel: string;
   keySubjectsLabel: string;

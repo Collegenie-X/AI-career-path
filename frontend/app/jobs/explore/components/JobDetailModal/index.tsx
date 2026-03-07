@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { ProcessTab } from './ProcessTab';
 import { TimelineTab } from './TimelineTab';
 import { DailyScheduleTab } from './DailyScheduleTab';
@@ -17,35 +17,6 @@ interface JobDetailModalProps {
 
 export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
   const [activeTab, setActiveTab] = useState<ModalTab>('process');
-  const [processStep, setProcessStep] = useState(0);
-  const touchStartX = useRef<number | null>(null);
-  const touchStartY = useRef<number | null>(null);
-
-  const phases = job.workProcess.phases;
-  const isLastPhase = processStep === phases.length - 1;
-
-  const goToStep = (step: number) => {
-    if (step >= 0 && step < phases.length) {
-      setProcessStep(step);
-    }
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-    touchStartY.current = e.touches[0].clientY;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX.current === null || touchStartY.current === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX.current;
-    const dy = e.changedTouches[0].clientY - touchStartY.current;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-      if (dx < 0 && !isLastPhase) goToStep(processStep + 1);
-      else if (dx > 0 && processStep > 0) goToStep(processStep - 1);
-    }
-    touchStartX.current = null;
-    touchStartY.current = null;
-  };
 
   return (
     <div className="fixed inset-0 z-50 flex justify-center" style={{ backgroundColor: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)' }}>
@@ -60,24 +31,14 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
 
         <JobHeroBanner job={job} star={star} />
 
-        <ModalTabs activeTab={activeTab} star={star} onTabChange={(tab) => { setActiveTab(tab); setProcessStep(0); }} />
+        <ModalTabs activeTab={activeTab} star={star} onTabChange={setActiveTab} />
 
         <div
           className="flex-1 overflow-y-auto"
           style={{ WebkitOverflowScrolling: 'touch' }}
-          onTouchStart={activeTab === 'process' ? handleTouchStart : undefined}
-          onTouchEnd={activeTab === 'process' ? handleTouchEnd : undefined}
         >
           {activeTab === 'process' && (
-            <ProcessTab
-              job={job}
-              star={star}
-              currentPhase={phases[processStep]}
-              processStep={processStep}
-              phases={phases}
-              isLastPhase={isLastPhase}
-              onStepChange={goToStep}
-            />
+            <ProcessTab job={job} star={star} />
           )}
           {activeTab === 'daily' && (
             <DailyScheduleTab job={job} star={star} />

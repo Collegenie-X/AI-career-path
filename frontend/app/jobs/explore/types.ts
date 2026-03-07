@@ -1,5 +1,25 @@
 // ─── Types ───────────────────────────────────────────────
 
+export type StarProfile = {
+  tagline?: string;
+  coreTraits?: { icon: string; label: string; desc: string }[];
+  fitPersonality?: {
+    title: string;
+    traits: string[];
+    notFit?: string[];
+  };
+  whyThisGroup?: {
+    title: string;
+    reason: string;
+    commonDNA: string[];
+  };
+  hollandCode?: string;
+  keySubjects?: string[];
+  careerKeyword?: string;
+  difficultyLevel?: number;
+  avgPreparationYears?: number;
+};
+
 export type StarData = {
   id: string;
   name: string;
@@ -9,7 +29,7 @@ export type StarData = {
   bgColor: string;
   jobCount: number;
   jobs: Job[];
-  starProfile?: unknown;
+  starProfile?: StarProfile;
 };
 
 export type DailyScheduleItem = {
@@ -32,12 +52,16 @@ export type Job = {
   icon: string;
   shortDesc: string;
   description?: string;
+  /** 상세 직업 소개 (2~4문장, 직무 프로세스 상단에 표시) */
+  detailedIntroduction?: string;
   holland: string;
   coreCompetencies?: string[];
   salaryRange: string;
   futureGrowth: number;
   aiRisk: string;
   workProcess: {
+    title?: string;
+    description?: string;
     phases: WorkPhase[];
   };
   careerTimeline: {

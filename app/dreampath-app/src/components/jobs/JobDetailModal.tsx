@@ -221,10 +221,10 @@ const styles = StyleSheet.create({
     paddingBottom: SPACING.sm,
   },
   traitsDescription: {
-    fontSize: FONT_SIZES.xs,
+    fontSize: FONT_SIZES.sm,
     color: COLORS.textSecondary,
-    lineHeight: 18,
-    marginBottom: SPACING.sm,
+    lineHeight: 20,
+    marginBottom: SPACING.md,
   },
   traitsSection: {
     backgroundColor: 'rgba(255,255,255,0.03)',

@@ -7,6 +7,7 @@ import type {
   CareerGradeGroup,
   CareerItem,
   CareerItemType,
+  CareerMilestone,
 } from '../../../lib/types';
 
 interface CareerPathTabProps {
@@ -29,12 +30,6 @@ const ITEM_TYPE_CONFIG: Record<CareerItemType, { label: string; color: string; b
   activity: { label: '활동', color: '#3B82F6', bg: 'rgba(59,130,246,0.12)', iconBg: 'rgba(59,130,246,0.20)' },
   award: { label: '수상·대회', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', iconBg: 'rgba(245,158,11,0.20)' },
   certification: { label: '자격증', color: '#22C55E', bg: 'rgba(34,197,94,0.12)', iconBg: 'rgba(34,197,94,0.20)' },
-};
-
-const DIFFICULTY_DISPLAY = (level: number) => {
-  const filled = '★'.repeat(level);
-  const empty = '☆'.repeat(5 - level);
-  return filled + empty;
 };
 
 export function CareerPathTab({ job, starColor }: CareerPathTabProps) {
@@ -62,8 +57,6 @@ export function CareerPathTab({ job, starColor }: CareerPathTabProps) {
         totalYears={timeline.totalYears}
         totalCost={timeline.totalCost}
         starColor={starColor}
-        gradeCount={timeline.gradeGroups?.length}
-        itemCount={timeline.gradeGroups?.reduce((sum, g) => sum + g.itemCount, 0)}
       />
 
       {hasGradeGroups
@@ -77,16 +70,9 @@ export function CareerPathTab({ job, starColor }: CareerPathTabProps) {
             />
           ))
         : timeline.milestones.map((milestone, index) => (
-            <LegacyMilestoneRow
-              key={`${milestone.period}-${index}`}
-              period={milestone.period}
-              semester={milestone.semester}
-              icon={milestone.icon}
-              title={milestone.title}
-              activities={milestone.activities}
-              awards={milestone.awards}
-              achievement={milestone.achievement}
-              cost={milestone.cost}
+            <TimelineStepRow
+              key={`${milestone.period}-${milestone.semester}-${index}`}
+              milestone={milestone}
               isLast={index === timeline.milestones.length - 1}
               starColor={starColor}
             />
@@ -102,39 +88,82 @@ function CareerPathHeader({
   totalYears,
   totalCost,
   starColor,
-  gradeCount,
-  itemCount,
 }: {
   title: string;
   totalYears: string;
   totalCost: string;
   starColor: string;
-  gradeCount?: number;
-  itemCount?: number;
 }) {
   return (
-    <View style={[styles.headerCard, { borderColor: `${starColor}30` }]}>
-      <View style={styles.headerTitleRow}>
-        <View style={[styles.headerIconBox, { backgroundColor: `${starColor}20` }]}>
-          <Text style={styles.headerIconEmoji}>🎓</Text>
+    <View style={[styles.headerCard, { borderColor: `${starColor}25` }]}>
+      <Text style={styles.headerTitle}>{title}</Text>
+      <View style={styles.headerMetaRow}>
+        <View style={[styles.headerMetaChip, { backgroundColor: `${starColor}15` }]}>
+          <Text style={styles.headerMetaIcon}>📅</Text>
+          <Text style={[styles.headerMetaText, { color: starColor }]}>{totalYears}</Text>
         </View>
-        <View style={styles.headerTitleBlock}>
-          <Text style={styles.headerTitle}>{title}</Text>
-          {gradeCount && itemCount && (
-            <Text style={styles.headerSubInfo}>
-              🏫 {gradeCount}개 학년 · {itemCount}개 항목 · ✅ 공식
-            </Text>
-          )}
+        <View style={[styles.headerMetaChip, { backgroundColor: `${starColor}15` }]}>
+          <Text style={styles.headerMetaIcon}>💰</Text>
+          <Text style={[styles.headerMetaText, { color: starColor }]}>총 {totalCost}</Text>
         </View>
       </View>
-      <View style={styles.headerMetaRow}>
-        <View style={styles.headerMetaChip}>
-          <Text style={styles.headerMetaIcon}>📅</Text>
-          <Text style={styles.headerMetaText}>{totalYears}</Text>
+    </View>
+  );
+}
+
+function TimelineStepRow({
+  milestone,
+  isLast,
+  starColor,
+}: {
+  milestone: CareerMilestone;
+  isLast: boolean;
+  starColor: string;
+}) {
+  const { period, semester, icon, title, activities, awards, achievement, cost } = milestone;
+  const hasAwards = awards && awards.length > 0;
+
+  return (
+    <View style={[styles.stepSection, !isLast && styles.stepSectionBorder]}>
+      <View style={styles.stepRow}>
+        <View style={styles.timelineColumn}>
+          <View style={[styles.stepIconCircle, { backgroundColor: `${starColor}25`, borderColor: `${starColor}50` }]}>
+            <Text style={styles.stepIcon}>{icon}</Text>
+          </View>
+          {!isLast && <View style={[styles.timelineLine, { backgroundColor: `${starColor}20` }]} />}
         </View>
-        <View style={styles.headerMetaChip}>
-          <Text style={styles.headerMetaIcon}>💰</Text>
-          <Text style={styles.headerMetaText}>총 {totalCost}</Text>
+
+        <View style={styles.stepContent}>
+          <View style={styles.stepMetaRow}>
+            <View style={[styles.periodBadge, { backgroundColor: `${starColor}20` }]}>
+              <Text style={[styles.periodText, { color: starColor }]}>{period} {semester}</Text>
+            </View>
+            <View style={styles.costRow}>
+              <Text style={styles.costIcon}>💰</Text>
+              <Text style={styles.costText}>{cost ?? '무료'}</Text>
+            </View>
+          </View>
+
+          <Text style={styles.stepTitle}>{title}</Text>
+
+          <View style={styles.activitiesBlock}>
+            {activities.map((a) => (
+              <Text key={a} style={styles.activityBullet}>• {a}</Text>
+            ))}
+          </View>
+
+          <View style={styles.achievementsRow}>
+            {hasAwards && awards!.map((award) => (
+              <View key={award} style={styles.achievementItem}>
+                <Text style={styles.achievementIcon}>{award.includes('합격') ? '✅' : '🏆'}</Text>
+                <Text style={award.includes('합격') ? styles.achievementTextGreen : styles.achievementTextGold}>{award}</Text>
+              </View>
+            ))}
+            <View style={styles.achievementItem}>
+              <Text style={styles.achievementIcon}>✅</Text>
+              <Text style={styles.achievementTextGreen}>{achievement}</Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -155,12 +184,8 @@ function GradeGroupSection({
   const gradeColor = GRADE_CODE_COLORS[group.gradeCode] ?? starColor;
 
   return (
-    <View style={[styles.gradeSection, isExpanded && { borderColor: `${gradeColor}30` }]}>
-      <TouchableOpacity
-        style={styles.gradeHeader}
-        onPress={onToggle}
-        activeOpacity={0.75}
-      >
+    <View style={[styles.gradeSection, { borderColor: `${gradeColor}30` }]}>
+      <TouchableOpacity style={styles.gradeHeader} onPress={onToggle} activeOpacity={0.75}>
         <View style={[styles.gradeCodeBadge, { backgroundColor: gradeColor }]}>
           <Text style={styles.gradeCodeText}>{group.gradeCode}</Text>
         </View>
@@ -176,13 +201,24 @@ function GradeGroupSection({
           {group.description && (
             <Text style={styles.gradeDescription}>{group.description}</Text>
           )}
-
           {group.goals && group.goals.length > 0 && (
-            <GoalsSection goals={group.goals} gradeColor={gradeColor} />
+            <View style={styles.goalsRow}>
+              <Text style={styles.goalsLabel}>목표</Text>
+              <View style={styles.goalsChips}>
+                {group.goals.map((g) => (
+                  <View key={g} style={[styles.goalChip, { borderColor: gradeColor }]}>
+                    <Text style={styles.goalChipText}>{g}</Text>
+                  </View>
+                ))}
+              </View>
+            </View>
           )}
-
           {group.items && group.items.length > 0 && (
-            <ItemsSection items={group.items} gradeColor={gradeColor} />
+            <View style={styles.itemsGrid}>
+              {group.items.map((item, idx) => (
+                <GradeItemCard key={`${item.name}-${idx}`} item={item} />
+              ))}
+            </View>
           )}
         </View>
       )}
@@ -190,158 +226,31 @@ function GradeGroupSection({
   );
 }
 
-function GoalsSection({ goals, gradeColor }: { goals: string[]; gradeColor: string }) {
-  return (
-    <View style={styles.goalsSection}>
-      <View style={styles.sectionLabelRow}>
-        <Text style={styles.sectionLabelIcon}>◎</Text>
-        <Text style={styles.sectionLabelText}>목표</Text>
-      </View>
-      <View style={styles.goalsList}>
-        {goals.map((goal) => (
-          <View key={goal} style={[styles.goalItem, { borderLeftColor: gradeColor }]}>
-            <View style={[styles.goalDot, { backgroundColor: gradeColor }]} />
-            <Text style={styles.goalText}>{goal}</Text>
-          </View>
-        ))}
-      </View>
-    </View>
-  );
-}
-
-function ItemsSection({ items, gradeColor }: { items: CareerItem[]; gradeColor: string }) {
-  const certifications = items.filter((i) => i.type === 'certification');
-  const awards = items.filter((i) => i.type === 'award');
-  const activities = items.filter((i) => i.type === 'activity');
-
-  return (
-    <View style={styles.itemsSection}>
-      <View style={styles.sectionLabelRow}>
-        <Text style={styles.sectionLabelIcon}>⚡</Text>
-        <Text style={styles.sectionLabelText}>활동·수상·자격증</Text>
-      </View>
-
-      {certifications.length > 0 && (
-        <ItemTypeGroup typeLabel="자격증" items={certifications} />
-      )}
-      {awards.length > 0 && (
-        <ItemTypeGroup typeLabel="수상·대회" items={awards} />
-      )}
-      {activities.length > 0 && (
-        <ItemTypeGroup typeLabel="활동" items={activities} />
-      )}
-    </View>
-  );
-}
-
-function ItemTypeGroup({ typeLabel, items }: { typeLabel: string; items: CareerItem[] }) {
-  return (
-    <View style={styles.itemTypeGroup}>
-      {items.map((item, index) => (
-        <ActivityItemCard key={`${item.name}-${index}`} item={item} />
-      ))}
-    </View>
-  );
-}
-
-function ActivityItemCard({ item }: { item: CareerItem }) {
+function GradeItemCard({ item }: { item: CareerItem }) {
   const typeConfig = ITEM_TYPE_CONFIG[item.type] ?? ITEM_TYPE_CONFIG.activity;
 
   return (
-    <View style={[styles.activityCard, { borderLeftColor: typeConfig.color }]}>
-      <View style={styles.activityCardRow}>
-        <View style={[styles.activityIconBox, { backgroundColor: typeConfig.iconBg }]}>
-          <Text style={styles.activityIcon}>{item.icon}</Text>
+    <View style={[styles.itemCard, { borderLeftColor: typeConfig.color }]}>
+      <View style={styles.itemCardRow}>
+        <View style={[styles.itemIconBox, { backgroundColor: typeConfig.iconBg }]}>
+          <Text style={styles.itemIcon}>{item.icon}</Text>
         </View>
-        <View style={styles.activityCardBody}>
-          <Text style={styles.activityName}>{item.name}</Text>
-          <View style={styles.activityBadgeRow}>
-            <View style={[styles.typeBadge, { backgroundColor: typeConfig.bg }]}>
-              <Text style={[styles.typeBadgeText, { color: typeConfig.color }]}>
-                {typeConfig.label}
-              </Text>
+        <View style={styles.itemCardBody}>
+          <Text style={styles.itemName}>{item.name}</Text>
+          <View style={styles.itemMetaRow}>
+            <View style={[styles.itemTypeBadge, { backgroundColor: typeConfig.bg }]}>
+              <Text style={[styles.itemTypeText, { color: typeConfig.color }]}>{typeConfig.label}</Text>
             </View>
-            {item.duration && (
-              <Text style={styles.metaText}>📅 {item.duration}</Text>
-            )}
-            {item.cost && (
-              <Text style={styles.metaText}>💰 {item.cost}</Text>
-            )}
-            {item.difficulty !== undefined && (
-              <Text style={styles.difficultyText}>{DIFFICULTY_DISPLAY(item.difficulty)}</Text>
-            )}
+            {item.duration && <Text style={styles.itemMeta}>📅 {item.duration}</Text>}
+            {item.cost && <Text style={styles.itemMeta}>💰 {item.cost}</Text>}
           </View>
-          {item.organization && (
-            <Text style={styles.activityOrg}>{item.organization}</Text>
-          )}
         </View>
       </View>
     </View>
   );
 }
 
-function LegacyMilestoneRow({
-  period,
-  semester,
-  icon,
-  title,
-  activities,
-  awards,
-  achievement,
-  cost,
-  isLast,
-  starColor,
-}: {
-  period: string;
-  semester: string;
-  icon: string;
-  title: string;
-  activities: string[];
-  awards?: string[];
-  achievement: string;
-  cost?: string;
-  isLast: boolean;
-  starColor: string;
-}) {
-  const hasAwards = awards && awards.length > 0;
-
-  return (
-    <View style={styles.legacyRow}>
-      <View style={styles.legacyTimeline}>
-        <View style={[styles.legacyIconCircle, { backgroundColor: `${starColor}20`, borderColor: `${starColor}40` }]}>
-          <Text style={styles.legacyIcon}>{icon}</Text>
-        </View>
-        {!isLast && <View style={styles.legacyLine} />}
-      </View>
-      <View style={styles.legacyContent}>
-        <View style={styles.legacyHeaderRow}>
-          <View style={[styles.legacyPeriodBadge, { backgroundColor: `${starColor}18` }]}>
-            <Text style={[styles.legacyPeriodText, { color: starColor }]}>{period} {semester}</Text>
-          </View>
-          {cost && <Text style={styles.legacyCost}>💰 {cost}</Text>}
-        </View>
-        <Text style={styles.legacyTitle}>{title}</Text>
-        {activities.map((a) => (
-          <Text key={a} style={styles.legacyActivity}>• {a}</Text>
-        ))}
-        {hasAwards && awards!.map((award) => (
-          <Text key={award} style={styles.legacyAward}>
-            {award.includes('합격') ? '✅' : '☆'} {award}
-          </Text>
-        ))}
-        <Text style={styles.legacyAchievement}>✅ {achievement}</Text>
-      </View>
-    </View>
-  );
-}
-
-function KeySuccessSection({
-  keySuccess,
-  totalCost,
-}: {
-  keySuccess: string[];
-  totalCost: string;
-}) {
+function KeySuccessSection({ keySuccess, totalCost }: { keySuccess: string[]; totalCost: string }) {
   return (
     <View style={styles.keySuccessCard}>
       <View style={styles.keySuccessHeader}>
@@ -366,7 +275,7 @@ function KeySuccessSection({
 
 const styles = StyleSheet.create({
   container: {
-    gap: SPACING.sm,
+    gap: 0,
   },
   emptyContainer: {
     alignItems: 'center',
@@ -379,83 +288,167 @@ const styles = StyleSheet.create({
 
   headerCard: {
     backgroundColor: 'rgba(255,255,255,0.04)',
-    borderRadius: BORDER_RADIUS.md,
+    borderRadius: BORDER_RADIUS.lg,
     borderWidth: 1,
-    padding: SPACING.md,
-    marginBottom: SPACING.xs,
-  },
-  headerTitleRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-    marginBottom: SPACING.sm,
-  },
-  headerIconBox: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  headerIconEmoji: {
-    fontSize: 20,
-  },
-  headerTitleBlock: {
-    flex: 1,
+    padding: SPACING.lg,
+    marginBottom: SPACING.lg,
   },
   headerTitle: {
     fontSize: FONT_SIZES.md,
     fontWeight: '900',
     color: COLORS.white,
-  },
-  headerSubInfo: {
-    fontSize: 10,
-    color: COLORS.textMuted,
-    marginTop: 2,
+    marginBottom: SPACING.md,
   },
   headerMetaRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: SPACING.sm,
   },
   headerMetaChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
-    backgroundColor: 'rgba(255,255,255,0.04)',
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 4,
-    borderRadius: BORDER_RADIUS.full,
+    gap: 6,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.md,
   },
   headerMetaIcon: {
-    fontSize: 11,
+    fontSize: 14,
   },
   headerMetaText: {
+    fontSize: FONT_SIZES.sm,
+    fontWeight: '800',
+  },
+
+  stepSection: {
+    marginBottom: SPACING.lg,
+  },
+  stepSectionBorder: {
+    paddingBottom: SPACING.lg,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.06)',
+  },
+  stepRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  timelineColumn: {
+    width: 44,
+    alignItems: 'center',
+  },
+  stepIconCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 1,
+  },
+  stepIcon: {
+    fontSize: 18,
+  },
+  timelineLine: {
+    flex: 1,
+    width: 2,
+    minHeight: 24,
+    marginTop: 4,
+  },
+  stepContent: {
+    flex: 1,
+    paddingLeft: SPACING.md,
+  },
+  stepMetaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.sm,
+    gap: SPACING.sm,
+  },
+  periodBadge: {
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.full,
+  },
+  periodText: {
+    fontSize: FONT_SIZES.xs,
+    fontWeight: '800',
+  },
+  costRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+  },
+  costIcon: {
+    fontSize: 12,
+  },
+  costText: {
     fontSize: FONT_SIZES.xs,
     color: COLORS.textSecondary,
+    fontWeight: '600',
+  },
+  stepTitle: {
+    fontSize: FONT_SIZES.md,
+    fontWeight: '900',
+    color: COLORS.white,
+    marginBottom: SPACING.sm,
+  },
+  activitiesBlock: {
+    gap: 4,
+    marginBottom: SPACING.sm,
+  },
+  activityBullet: {
+    fontSize: FONT_SIZES.xs,
+    color: COLORS.textSecondary,
+    lineHeight: 18,
+  },
+  achievementsRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'center',
+    gap: SPACING.md,
+  },
+  achievementItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  achievementIcon: {
+    fontSize: 12,
+  },
+  achievementTextGreen: {
+    fontSize: FONT_SIZES.xs,
+    color: '#22C55E',
+    fontWeight: '600',
+  },
+  achievementTextGold: {
+    fontSize: FONT_SIZES.xs,
+    color: '#FBBF24',
+    fontWeight: '600',
   },
 
   gradeSection: {
     backgroundColor: 'rgba(255,255,255,0.03)',
-    borderRadius: BORDER_RADIUS.md,
+    borderRadius: BORDER_RADIUS.lg,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.07)',
+    marginBottom: SPACING.md,
     overflow: 'hidden',
   },
   gradeHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
-    padding: SPACING.md,
+    padding: SPACING.lg,
   },
   gradeCodeBadge: {
-    width: 34,
-    height: 34,
-    borderRadius: 17,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
   },
   gradeCodeText: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: '900',
     color: COLORS.white,
   },
@@ -468,220 +461,118 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   gradeItemCount: {
-    fontSize: 10,
+    fontSize: 11,
     color: COLORS.textMuted,
-    marginTop: 1,
+    marginTop: 2,
   },
   gradeChevron: {
-    fontSize: 10,
+    fontSize: 11,
     color: COLORS.textMuted,
   },
   gradeBody: {
     borderTopWidth: 1,
     borderTopColor: 'rgba(255,255,255,0.06)',
-    padding: SPACING.md,
-    gap: SPACING.md,
+    padding: SPACING.lg,
+    gap: SPACING.lg,
   },
   gradeDescription: {
     fontSize: FONT_SIZES.xs,
     color: COLORS.textSecondary,
     lineHeight: 18,
   },
-
-  goalsSection: {
-    gap: 6,
+  goalsRow: {
+    gap: SPACING.sm,
   },
-  sectionLabelRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-    marginBottom: 4,
-  },
-  sectionLabelIcon: {
-    fontSize: 12,
-    color: COLORS.textMuted,
-  },
-  sectionLabelText: {
+  goalsLabel: {
     fontSize: FONT_SIZES.xs,
     fontWeight: '700',
     color: COLORS.textMuted,
   },
-  goalsList: {
-    gap: 4,
-  },
-  goalItem: {
+  goalsChips: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: SPACING.sm,
-    backgroundColor: 'rgba(255,255,255,0.03)',
-    borderRadius: BORDER_RADIUS.sm,
+    flexWrap: 'wrap',
+    gap: SPACING.xs,
+  },
+  goalChip: {
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.full,
+    borderWidth: 1,
     borderLeftWidth: 3,
-    paddingHorizontal: SPACING.md,
-    paddingVertical: 8,
   },
-  goalDot: {
-    width: 5,
-    height: 5,
-    borderRadius: 2.5,
-  },
-  goalText: {
+  goalChipText: {
     fontSize: FONT_SIZES.xs,
     color: COLORS.textSecondary,
-    flex: 1,
   },
-
-  itemsSection: {
+  itemsGrid: {
     gap: SPACING.sm,
   },
-  itemTypeGroup: {
-    gap: 6,
-  },
-
-  activityCard: {
+  itemCard: {
     backgroundColor: 'rgba(255,255,255,0.04)',
     borderRadius: BORDER_RADIUS.md,
     borderLeftWidth: 3,
     padding: SPACING.md,
   },
-  activityCardRow: {
+  itemCardRow: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: SPACING.sm,
   },
-  activityIconBox: {
+  itemIconBox: {
     width: 40,
     height: 40,
     borderRadius: BORDER_RADIUS.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  activityIcon: {
-    fontSize: 20,
+  itemIcon: {
+    fontSize: 18,
   },
-  activityCardBody: {
+  itemCardBody: {
     flex: 1,
-    gap: 3,
   },
-  activityName: {
+  itemName: {
     fontSize: FONT_SIZES.sm,
     fontWeight: '800',
     color: COLORS.white,
   },
-  activityBadgeRow: {
+  itemMetaRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 4,
-    alignItems: 'center',
-  },
-  typeBadge: {
-    paddingHorizontal: 7,
-    paddingVertical: 2,
-    borderRadius: BORDER_RADIUS.full,
-  },
-  typeBadgeText: {
-    fontSize: 10,
-    fontWeight: '700',
-  },
-  metaText: {
-    fontSize: 10,
-    color: COLORS.textMuted,
-  },
-  difficultyText: {
-    fontSize: 10,
-    color: '#F59E0B',
-    letterSpacing: 0.5,
-  },
-  activityOrg: {
-    fontSize: 10,
-    color: COLORS.textMuted,
-  },
-
-  legacyRow: {
-    flexDirection: 'row',
-  },
-  legacyTimeline: {
-    width: 40,
-    alignItems: 'center',
-  },
-  legacyIconCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    borderWidth: 1.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    zIndex: 1,
-  },
-  legacyIcon: {
-    fontSize: 14,
-  },
-  legacyLine: {
-    flex: 1,
-    width: 1.5,
-    backgroundColor: 'rgba(255,255,255,0.07)',
-  },
-  legacyContent: {
-    flex: 1,
-    paddingLeft: SPACING.sm,
-    paddingBottom: SPACING.md,
-  },
-  legacyHeaderRow: {
-    flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
-    marginBottom: 3,
     marginTop: 4,
   },
-  legacyPeriodBadge: {
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 2,
+  itemTypeBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
     borderRadius: BORDER_RADIUS.full,
   },
-  legacyPeriodText: {
+  itemTypeText: {
     fontSize: 10,
-    fontWeight: '800',
-  },
-  legacyCost: {
-    fontSize: 10,
-    color: COLORS.textMuted,
-  },
-  legacyTitle: {
-    fontSize: FONT_SIZES.sm,
-    fontWeight: '900',
-    color: COLORS.white,
-    marginBottom: 3,
-  },
-  legacyActivity: {
-    fontSize: FONT_SIZES.xs,
-    color: COLORS.textSecondary,
-    lineHeight: 17,
-  },
-  legacyAward: {
-    fontSize: FONT_SIZES.xs,
-    color: '#FBBF24',
     fontWeight: '700',
   },
-  legacyAchievement: {
-    fontSize: FONT_SIZES.xs,
-    color: '#22C55E',
-    fontWeight: '600',
-    marginTop: 2,
+  itemMeta: {
+    fontSize: 10,
+    color: COLORS.textMuted,
   },
 
   keySuccessCard: {
-    backgroundColor: 'rgba(255,255,255,0.03)',
-    borderRadius: BORDER_RADIUS.md,
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderRadius: BORDER_RADIUS.lg,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.07)',
-    padding: SPACING.md,
+    borderColor: 'rgba(255,255,255,0.08)',
+    padding: SPACING.lg,
+    marginTop: SPACING.sm,
   },
   keySuccessHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: SPACING.sm,
-    marginBottom: SPACING.sm,
+    marginBottom: SPACING.md,
   },
   keySuccessIcon: {
-    fontSize: 14,
+    fontSize: 16,
   },
   keySuccessTitle: {
     fontSize: FONT_SIZES.sm,
@@ -689,8 +580,8 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   keySuccessList: {
-    gap: 6,
-    marginBottom: SPACING.sm,
+    gap: SPACING.sm,
+    marginBottom: SPACING.md,
   },
   keySuccessItem: {
     flexDirection: 'row',
@@ -698,21 +589,21 @@ const styles = StyleSheet.create({
     gap: SPACING.sm,
   },
   keySuccessCheck: {
-    fontSize: 11,
+    fontSize: 12,
   },
   keySuccessText: {
     fontSize: FONT_SIZES.xs,
     color: COLORS.textSecondary,
     flex: 1,
-    lineHeight: 17,
+    lineHeight: 18,
   },
   totalCostRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: SPACING.md,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255,255,255,0.07)',
-    paddingTop: SPACING.sm,
+    borderTopColor: 'rgba(255,255,255,0.06)',
   },
   totalCostLabel: {
     fontSize: FONT_SIZES.xs,

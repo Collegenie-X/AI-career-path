@@ -1,6 +1,7 @@
 'use client';
 
-import { Brain } from 'lucide-react';
+import { useState } from 'react';
+import { Brain, ChevronDown, ChevronUp } from 'lucide-react';
 import { LABELS, HOLLAND_CODE_LABELS } from '../../config';
 import type { Job, StarData } from '../../types';
 
@@ -19,17 +20,52 @@ function parseHolland(code: string): string {
 export function JobHeroBanner({ job, star }: JobHeroBannerProps) {
   const competencies = job.coreCompetencies ?? [];
   const hollandLabel = parseHolland(job.holland);
+  const hasIntroContent = !!(job.description || job.detailedIntroduction);
+  const [isIntroExpanded, setIsIntroExpanded] = useState(true);
 
   return (
     <div
       className="flex-shrink-0 px-4 pt-3 pb-4 border-b border-white/10"
       style={{ background: 'rgba(18,18,42,0.97)' }}
     >
-      {/* Job description */}
-      {job.description && (
-        <p className="text-sm text-gray-300 leading-relaxed mb-3">
-          {job.description}
-        </p>
+      {/* 직업 소개 아코디언 */}
+      {hasIntroContent && (
+        <div
+          className="rounded-xl mb-3 overflow-hidden"
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <button
+            type="button"
+            onClick={() => setIsIntroExpanded(!isIntroExpanded)}
+            className="w-full flex items-center justify-between gap-2 px-3 py-2.5 text-left"
+          >
+            <div className="flex-1 min-w-0">
+              <span className="text-xs font-bold text-white">{LABELS.hero_job_intro}</span>
+              {!isIntroExpanded && job.description && (
+                <p className="text-xs text-gray-500 truncate mt-0.5">{job.description}</p>
+              )}
+            </div>
+            {isIntroExpanded ? (
+              <ChevronUp className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            ) : (
+              <ChevronDown className="w-4 h-4 text-gray-400 flex-shrink-0" />
+            )}
+          </button>
+          {isIntroExpanded && (
+            <div className="px-3 pb-3 pt-0 border-t border-white/6">
+              {job.description && (
+                <p className="text-sm text-gray-300 leading-relaxed mb-2">
+                  {job.description}
+                </p>
+              )}
+              {job.detailedIntroduction && (
+                <p className="text-xs text-gray-300 leading-relaxed whitespace-pre-line">
+                  {job.detailedIntroduction}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       )}
 
       {/* Suitable personality row */}
