@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, ScrollView, FlatList,
 } from 'react-native';
@@ -7,6 +7,7 @@ import {
   CAREER_LABELS, CAREER_ITEM_TYPES, STAR_FILTERS,
   type CareerPlan,
 } from '../../config/career-path';
+import { storage } from '../../lib/storage';
 import templates from '../../data/career-path-templates.json';
 import { TemplateDetailModal } from './TemplateDetailModal';
 
@@ -51,9 +52,8 @@ function StatItem({ icon, value, label }: { icon: string; value: string; label: 
 }
 
 function TemplateRow({
-  template, onShowDetail,
-}: { template: Template; onShowDetail: () => void }) {
-  const [liked, setLiked] = useState(false);
+  template, liked, onShowDetail, onToggleLike,
+}: { template: Template; liked: boolean; onShowDetail: () => void; onToggleLike: () => void }) {
   const localLikes = liked ? template.likes + 1 : template.likes;
 
   return (
@@ -81,7 +81,7 @@ function TemplateRow({
         </View>
       </View>
       <TouchableOpacity
-        onPress={() => setLiked(!liked)}
+        onPress={onToggleLike}
         style={styles.likeButton}
         hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
       >
@@ -97,6 +97,16 @@ function TemplateRow({
 export function ExploreTab({ onUseTemplate, onNewPath }: ExploreTabProps) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [likedTemplateIds, setLikedTemplateIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    storage.templateLikes.getAll().then(setLikedTemplateIds);
+  }, []);
+
+  const handleToggleLike = async (templateId: string) => {
+    const result = await storage.templateLikes.toggle(templateId);
+    setLikedTemplateIds(result.likedIds);
+  };
 
   const filtered = useMemo(() => {
     return activeFilter === 'all'
@@ -157,7 +167,9 @@ export function ExploreTab({ onUseTemplate, onNewPath }: ExploreTabProps) {
               <TemplateRow
                 key={template.id}
                 template={template}
+                liked={likedTemplateIds.includes(template.id)}
                 onShowDetail={() => setSelectedTemplate(template)}
+                onToggleLike={() => handleToggleLike(template.id)}
               />
             ))}
           </View>

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "seed-comment-001",
+    "templateId": "tpl-doctor-001",
+    "authorName": "김진로",
+    "authorEmoji": "👨‍🎓",
+    "content": "정말 체계적인 패스네요! 중학교 때부터 준비하면 좋을 것 같아요.",
+    "likes": 12,
+    "createdAt": "2026-03-05T10:30:00.000Z"
+  },
+  {
+    "id": "seed-comment-002",
+    "templateId": "tpl-doctor-001",
+    "authorName": "이미래",
+    "authorEmoji": "👩‍🔬",
+    "content": "KBO 준비 일정이 구체적으로 나와있어서 도움이 많이 됐습니다!",
+    "likes": 8,
+    "createdAt": "2026-03-02T14:20:00.000Z"
+  },
+  {
+    "id": "seed-comment-003",
+    "templateId": "tpl-ai-researcher-001",
+    "authorName": "코딩맨",
+    "authorEmoji": "💻",
+    "content": "Kaggle 대회 참가 일정이 잘 정리되어 있네요. 감사합니다!",
+    "likes": 5,
+    "createdAt": "2026-03-04T09:15:00.000Z"
+  },
+  {
+    "id": "seed-comment-004",
+    "templateId": "tpl-app-developer-001",
+    "authorName": "앱개발러",
+    "authorEmoji": "📱",
+    "content": "해커톤 준비 순서가 잘 짜여져 있어요! 참고하겠습니다.",
+    "likes": 7,
+    "createdAt": "2026-03-03T16:45:00.000Z"
+  },
+  {
+    "id": "seed-comment-005",
+    "templateId": "tpl-webtoon-001",
+    "authorName": "그림쟁이",
+    "authorEmoji": "🎨",
+    "content": "웹툰 작가 꿈꾸는 중학생인데 GTQ부터 시작하면 되는군요!",
+    "likes": 3,
+    "createdAt": "2026-03-01T11:00:00.000Z"
+  },
+  {
+    "id": "seed-comment-006",
+    "templateId": "tpl-ux-designer-001",
+    "authorName": "디자이너꿈",
+    "authorEmoji": "🖥️",
+    "content": "Figma 커뮤니티 챌린지 정보 감사합니다! 바로 참가해볼게요.",
+    "likes": 4,
+    "createdAt": "2026-03-04T08:00:00.000Z"
+  },
+  {
+    "id": "seed-comment-007",
+    "templateId": "tpl-teacher-001",
+    "authorName": "미래교사",
+    "authorEmoji": "📚",
+    "content": "사범대 체험 캠프 정보가 정말 유용해요!",
+    "likes": 6,
+    "createdAt": "2026-03-03T12:00:00.000Z"
+  },
+  {
+    "id": "seed-comment-008",
+    "templateId": "tpl-lawyer-001",
+    "authorName": "법학도",
+    "authorEmoji": "⚖️",
+    "content": "모의재판 동아리 운영 팁도 있으면 좋겠어요!",
+    "likes": 2,
+    "createdAt": "2026-03-02T09:30:00.000Z"
+  },
+  {
+    "id": "seed-comment-009",
+    "templateId": "tpl-env-engineer-001",
+    "authorName": "지구지킴이",
+    "authorEmoji": "🌍",
+    "content": "환경기능사 준비 일정이 딱 맞아요. 감사합니다!",
+    "likes": 3,
+    "createdAt": "2026-03-01T15:00:00.000Z"
+  },
+  {
+    "id": "seed-comment-010",
+    "templateId": "tpl-youtuber-001",
+    "authorName": "영상크루",
+    "authorEmoji": "🎥",
+    "content": "YouTube Creator Academy 무료라니! 바로 수강 신청합니다.",
+    "likes": 9,
+    "createdAt": "2026-03-04T18:00:00.000Z"
+  },
+  {
+    "id": "seed-comment-011",
+    "templateId": "tpl-entrepreneur-001",
+    "authorName": "스타트업러",
+    "authorEmoji": "🚀",
+    "content": "비즈쿨 경진대회 정보 감사합니다. 중3 때 도전해볼게요!",
+    "likes": 5,
+    "createdAt": "2026-03-03T10:00:00.000Z"
+  }
+]

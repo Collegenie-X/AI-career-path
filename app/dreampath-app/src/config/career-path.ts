@@ -1,5 +1,16 @@
 export type CareerItemType = 'activity' | 'award' | 'portfolio' | 'certification';
 
+export interface CareerPathComment {
+  id: string;
+  templateId: string;
+  authorName: string;
+  authorEmoji: string;
+  content: string;
+  likes: number;
+  createdAt: string;
+  updatedAt?: string;
+}
+
 export interface CareerPlanItem {
   id: string;
   type: CareerItemType;
@@ -156,6 +167,20 @@ export const CAREER_LABELS = {
   detailUses: '명 사용',
   detailYears: '학년',
   detailItems: '개',
+  detailTimelineSectionTitle: '학년별 상세',
+
+  commentSectionTitle: '댓글',
+  commentPlaceholder: '댓글 추가...',
+  commentSubmit: '댓글 작성',
+  commentEdit: '수정',
+  commentDelete: '삭제',
+  commentDeleteConfirm: '이 댓글을 삭제할까요?',
+  commentDeleteCancel: '취소',
+  commentEmpty: '아직 댓글이 없어요. 첫 댓글을 남겨보세요!',
+  commentTimeAgo: '전',
+  commentEdited: '(수정됨)',
+  commentEditSave: '저장',
+  commentEditCancel: '취소',
 } as const;
 
 export const CAREER_ITEM_TYPES = [

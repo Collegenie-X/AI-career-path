@@ -8,6 +8,7 @@ import { ExploreTab } from '../components/career/ExploreTab';
 import { BuilderTab } from '../components/career/BuilderTab';
 import { TimelineTab } from '../components/career/TimelineTab';
 import { BuilderWizard } from '../components/career/BuilderWizard';
+import { StarryBackground } from '../components/jobs/StarryBackground';
 
 type TabKey = 'explore' | 'builder' | 'timeline';
 
@@ -98,6 +99,7 @@ export function CareerPathScreen() {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
+      <StarryBackground />
       <View style={styles.header}>
         <View>
           <Text style={styles.pageTitle}>{CAREER_LABELS.pageTitle}</Text>

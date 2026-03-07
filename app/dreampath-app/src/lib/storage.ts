@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { UserProfile, RIASECResult, XPLog } from './types';
-import type { CareerPlan } from '../config/career-path';
+import type { CareerPlan, CareerPathComment } from '../config/career-path';
 
 const KEYS = {
   USER_PROFILE: 'dreampath_user_profile',
@@ -9,6 +9,10 @@ const KEYS = {
   EARNED_BADGES: 'dreampath_earned_badges',
   FAVORITE_JOBS: 'dreampath_favorite_jobs',
   CAREER_PLANS: 'career_plans',
+  CAREER_PATH_COMMENTS: 'career_path_comments',
+  CAREER_PATH_LIKED_COMMENTS: 'career_path_liked_comments',
+  CAREER_PATH_LIKED_TEMPLATES: 'career_path_liked_templates',
+  CAREER_PATH_BOOKMARKED_TEMPLATES: 'career_path_bookmarked_templates',
 } as const;
 
 async function getItem<T>(key: string, defaultValue: T): Promise<T> {
@@ -98,6 +102,88 @@ export const storage = {
       await setItem(KEYS.CAREER_PLANS, updated);
       return updated;
     },
+  },
+  templateLikes: {
+    getAll: () => getItem<string[]>(KEYS.CAREER_PATH_LIKED_TEMPLATES, []),
+    toggle: async (templateId: string): Promise<{ liked: boolean; likedIds: string[] }> => {
+      const ids = await getItem<string[]>(KEYS.CAREER_PATH_LIKED_TEMPLATES, []);
+      const idx = ids.indexOf(templateId);
+      if (idx >= 0) { ids.splice(idx, 1); } else { ids.push(templateId); }
+      await setItem(KEYS.CAREER_PATH_LIKED_TEMPLATES, ids);
+      return { liked: idx < 0, likedIds: ids };
+    },
+  },
+  templateBookmarks: {
+    getAll: () => getItem<string[]>(KEYS.CAREER_PATH_BOOKMARKED_TEMPLATES, []),
+    toggle: async (templateId: string): Promise<{ bookmarked: boolean; bookmarkedIds: string[] }> => {
+      const ids = await getItem<string[]>(KEYS.CAREER_PATH_BOOKMARKED_TEMPLATES, []);
+      const idx = ids.indexOf(templateId);
+      if (idx >= 0) { ids.splice(idx, 1); } else { ids.push(templateId); }
+      await setItem(KEYS.CAREER_PATH_BOOKMARKED_TEMPLATES, ids);
+      return { bookmarked: idx < 0, bookmarkedIds: ids };
+    },
+  },
+  careerPathComments: {
+    getByTemplate: async (templateId: string): Promise<CareerPathComment[]> => {
+      const all = await getItem<CareerPathComment[]>(KEYS.CAREER_PATH_COMMENTS, []);
+      return all.filter((c) => c.templateId === templateId).sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+    },
+    add: async (comment: CareerPathComment): Promise<CareerPathComment[]> => {
+      const all = await getItem<CareerPathComment[]>(KEYS.CAREER_PATH_COMMENTS, []);
+      const updated = [...all, comment];
+      await setItem(KEYS.CAREER_PATH_COMMENTS, updated);
+      return updated.filter((c) => c.templateId === comment.templateId).sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+    },
+    update: async (commentId: string, content: string): Promise<CareerPathComment[]> => {
+      const all = await getItem<CareerPathComment[]>(KEYS.CAREER_PATH_COMMENTS, []);
+      let templateId = '';
+      const updated = all.map((c) => {
+        if (c.id === commentId) {
+          templateId = c.templateId;
+          return { ...c, content, updatedAt: new Date().toISOString() };
+        }
+        return c;
+      });
+      await setItem(KEYS.CAREER_PATH_COMMENTS, updated);
+      return updated.filter((c) => c.templateId === templateId).sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+    },
+    remove: async (commentId: string): Promise<CareerPathComment[]> => {
+      const all = await getItem<CareerPathComment[]>(KEYS.CAREER_PATH_COMMENTS, []);
+      const target = all.find((c) => c.id === commentId);
+      const templateId = target?.templateId ?? '';
+      const updated = all.filter((c) => c.id !== commentId);
+      await setItem(KEYS.CAREER_PATH_COMMENTS, updated);
+      return updated.filter((c) => c.templateId === templateId).sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+    },
+    toggleLike: async (commentId: string): Promise<{ liked: boolean; likedIds: string[] }> => {
+      const likedIds = await getItem<string[]>(KEYS.CAREER_PATH_LIKED_COMMENTS, []);
+      const idx = likedIds.indexOf(commentId);
+      if (idx >= 0) {
+        likedIds.splice(idx, 1);
+      } else {
+        likedIds.push(commentId);
+      }
+      await setItem(KEYS.CAREER_PATH_LIKED_COMMENTS, likedIds);
+
+      const all = await getItem<CareerPathComment[]>(KEYS.CAREER_PATH_COMMENTS, []);
+      const updated = all.map((c) => {
+        if (c.id === commentId) {
+          return { ...c, likes: idx >= 0 ? Math.max(0, c.likes - 1) : c.likes + 1 };
+        }
+        return c;
+      });
+      await setItem(KEYS.CAREER_PATH_COMMENTS, updated);
+      return { liked: idx < 0, likedIds };
+    },
+    getLikedIds: () => getItem<string[]>(KEYS.CAREER_PATH_LIKED_COMMENTS, []),
   },
   reset: async () => {
     const keys = Object.values(KEYS);

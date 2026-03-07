@@ -13,26 +13,10 @@ import { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../config/theme';
 import { ModeSelectScreen, QuizMode } from '../components/quiz/ModeSelectScreen';
 import { QuizFeedbackPanel } from '../components/quiz/QuizFeedbackPanel';
 import { QuizProgressSegments } from '../components/quiz/QuizProgressSegments';
+import { StarryBackground } from '../components/jobs/StarryBackground';
 
 import quizQuestionsData from '../data/quiz-questions.json';
 import quizConfigData from '../data/quiz-config.json';
-
-const STAR_POSITIONS = [
-  { left: 6,  top: 8,  size: 1.5, opacity: 0.35 },
-  { left: 20, top: 4,  size: 2,   opacity: 0.2  },
-  { left: 50, top: 6,  size: 1,   opacity: 0.4  },
-  { left: 75, top: 10, size: 1,   opacity: 0.25 },
-  { left: 90, top: 5,  size: 2,   opacity: 0.2  },
-  { left: 88, top: 22, size: 1,   opacity: 0.3  },
-  { left: 4,  top: 30, size: 1.5, opacity: 0.2  },
-  { left: 95, top: 45, size: 1,   opacity: 0.25 },
-  { left: 3,  top: 60, size: 2,   opacity: 0.15 },
-  { left: 92, top: 70, size: 1,   opacity: 0.3  },
-  { left: 10, top: 80, size: 1,   opacity: 0.2  },
-  { left: 85, top: 88, size: 1.5, opacity: 0.25 },
-  { left: 40, top: 92, size: 1,   opacity: 0.2  },
-  { left: 60, top: 96, size: 2,   opacity: 0.15 },
-];
 
 interface QuizQuestion {
   id: number;
@@ -231,22 +215,7 @@ export function QuizScreen({ onComplete, onBack }: QuizScreenProps) {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      {STAR_POSITIONS.map((star, i) => (
-        <View
-          key={i}
-          pointerEvents="none"
-          style={{
-            position: 'absolute',
-            width: star.size,
-            height: star.size,
-            borderRadius: star.size,
-            backgroundColor: '#FFFFFF',
-            left: `${star.left}%` as any,
-            top: `${star.top}%` as any,
-            opacity: star.opacity,
-          }}
-        />
-      ))}
+      <StarryBackground />
 
       {/* ── 헤더 ── */}
       <View style={styles.header}>

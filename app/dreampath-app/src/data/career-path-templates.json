@@ -261,7 +261,7 @@
     "likes": 312,
     "uses": 141,
     "tags": ["앱", "개발", "코딩", "기술"],
-    "totalItems": 13,
+    "totalItems": 14,
     "years": [
       {
         "gradeId": "mid2",
@@ -269,7 +269,8 @@
         "goals": ["코딩 기초 자격증", "Python 입문", "개발 환경 세팅"],
         "items": [
           { "type": "certification", "title": "COS Pro 2급 (Python)", "month": 6, "difficulty": 2, "cost": "3만원", "organizer": "YBM" },
-          { "type": "activity", "title": "이솦(EBS SW) AI 과정 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "EBS" }
+          { "type": "activity", "title": "이솦(EBS SW) AI 과정 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "EBS" },
+          { "type": "activity", "title": "GitHub 계정 생성 및 첫 저장소", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "자체" }
         ]
       },
       {
@@ -443,7 +444,7 @@
     "likes": 121,
     "uses": 39,
     "tags": ["환경", "공학", "자연", "탐구"],
-    "totalItems": 11,
+    "totalItems": 12,
     "years": [
       {
         "gradeId": "mid2",
@@ -451,7 +452,8 @@
         "goals": ["기초 자격증 취득", "환경 봉사 시작", "생태 탐구 시작"],
         "items": [
           { "type": "certification", "title": "컴퓨터활용능력 2급", "month": 6, "difficulty": 2, "cost": "1.9만원", "organizer": "대한상공회의소" },
-          { "type": "activity", "title": "해변 정화 봉사 (iNaturalist 기록)", "month": 5, "difficulty": 2, "cost": "무료", "organizer": "시민과학" }
+          { "type": "activity", "title": "해변 정화 봉사 (iNaturalist 기록)", "month": 5, "difficulty": 2, "cost": "무료", "organizer": "시민과학" },
+          { "type": "activity", "title": "환경동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" }
         ]
       },
       {
