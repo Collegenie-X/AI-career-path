@@ -150,7 +150,7 @@ export function SplashScreen({ onFinish, onDevMenu }: SplashScreenProps) {
   return (
     <Animated.View style={[styles.container, { opacity: containerOpacity }]}>
       {phase >= 1 && (
-        <SplashOnboardingBackground particleCount={20} showGlowOrbs={true} />
+        <SplashOnboardingBackground particleCount={50} showGlowOrbs={true} />
       )}
 
       <Animated.View

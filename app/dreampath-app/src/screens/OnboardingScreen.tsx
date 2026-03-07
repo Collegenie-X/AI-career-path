@@ -238,27 +238,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: SPACING.xl,
     paddingBottom: SPACING.xxxl,
     alignItems: 'center',
-    gap: SPACING.xl,
+    gap: SPACING.lg,
   },
   dotsContainer: {
     flexDirection: 'row',
-    gap: 10,
+    gap: 8,
     marginBottom: SPACING.xs,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   dot: {
-    height: 6,
-    borderRadius: 3,
+    height: 8,
+    borderRadius: 4,
   },
   dotActive: {
-    width: 32,
+    width: 24,
   },
   dotInactive: {
-    width: 6,
+    width: 8,
     backgroundColor: 'rgba(255,255,255,0.25)',
   },
   nextButton: {
     width: '100%',
-    borderRadius: 24,
+    borderRadius: 8,
     overflow: 'hidden',
   },
   nextButtonGradient: {
@@ -267,9 +269,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   nextButtonText: {
-    fontSize: 17,
+    fontSize: 14,
     fontWeight: '800',
     color: COLORS.white,
+    textAlign: 'center',
   },
   profileSetup: {
     flex: 1,

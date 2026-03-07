@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useCallback } from 'react';
 import {
   Heart, Users, ChevronRight,
-  Sparkles, Plus, BookOpen, Star, Globe,
+  Sparkles, BookOpen, Star, Globe, Bookmark, BookmarkCheck,
 } from 'lucide-react';
-import { ITEM_TYPES } from '../config';
 import templates from '@/data/career-path-templates.json';
+import communityData from '@/data/share-community.json';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
 import type { CareerPlan } from './CareerPathBuilder';
+import type { SharedPlan, UserReactionState } from './community/types';
 
 type Template = typeof templates[0];
 
@@ -21,21 +22,42 @@ type CareerPathListProps = {
 
 const STAR_FILTERS = [
   { id: 'all',         label: '전체', emoji: '✨' },
-  { id: 'explore',    label: '탐구',  emoji: '🔬' },
-  { id: 'create',     label: '창작',  emoji: '🎨' },
-  { id: 'tech',       label: '기술',  emoji: '💻' },
-  { id: 'nature',     label: '자연',  emoji: '🌱' },
-  { id: 'connect',    label: '연결',  emoji: '🤝' },
-  { id: 'order',      label: '질서',  emoji: '⚖️' },
-  { id: 'communicate',label: '소통',  emoji: '📡' },
-  { id: 'challenge',  label: '도전',  emoji: '🚀' },
+  { id: 'explore',     label: '탐구', emoji: '🔬' },
+  { id: 'create',      label: '창작', emoji: '🎨' },
+  { id: 'tech',        label: '기술', emoji: '💻' },
+  { id: 'nature',      label: '자연', emoji: '🌱' },
+  { id: 'connect',     label: '연결', emoji: '🤝' },
+  { id: 'order',       label: '질서', emoji: '⚖️' },
+  { id: 'communicate', label: '소통', emoji: '📡' },
+  { id: 'challenge',   label: '도전', emoji: '🚀' },
 ];
 
-/* ─── Accordion card ─── */
-function TemplateRow({ template, onUse, onShowDetail }: { 
-  template: Template; 
-  onUse: () => void;
+const COMMUNITY_REACTIONS_KEY = 'community_reactions_v1';
+const TEMPLATE_BOOKMARKS_KEY  = 'template_bookmarks_v1';
+
+/* ─── localStorage helpers ─── */
+function loadTemplateBookmarkIds(): string[] {
+  try {
+    const raw = localStorage.getItem(TEMPLATE_BOOKMARKS_KEY);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch { return []; }
+}
+
+function saveTemplateBookmarkIds(ids: string[]): void {
+  try { localStorage.setItem(TEMPLATE_BOOKMARKS_KEY, JSON.stringify(ids)); } catch {}
+}
+
+/* ─── Template row card ─── */
+function TemplateRow({
+  template,
+  isBookmarked,
+  onShowDetail,
+  onToggleBookmark,
+}: {
+  template: Template;
+  isBookmarked: boolean;
   onShowDetail: () => void;
+  onToggleBookmark: (e: React.MouseEvent) => void;
 }) {
   const [liked, setLiked] = useState(false);
   const [localLikes, setLocalLikes] = useState(template.likes);
@@ -49,14 +71,10 @@ function TemplateRow({ template, onUse, onShowDetail }: {
   return (
     <div
       className="rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer"
-      style={{
-        border: `1px solid ${template.starColor}18`,
-        backgroundColor: 'rgba(255,255,255,0.03)',
-      }}
+      style={{ border: `1px solid ${template.starColor}18`, backgroundColor: 'rgba(255,255,255,0.03)' }}
       onClick={onShowDetail}
     >
       <div className="w-full flex items-center gap-3 px-4 py-3.5">
-        {/* Job emoji */}
         <div
           className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
           style={{
@@ -67,7 +85,6 @@ function TemplateRow({ template, onUse, onShowDetail }: {
           {template.jobEmoji}
         </div>
 
-        {/* Main info */}
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
@@ -83,8 +100,7 @@ function TemplateRow({ template, onUse, onShowDetail }: {
           </div>
         </div>
 
-        {/* Right side: like + chevron */}
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-1 flex-shrink-0">
           <button
             onClick={handleLike}
             className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all"
@@ -92,6 +108,16 @@ function TemplateRow({ template, onUse, onShowDetail }: {
           >
             <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
             <span className="text-[10px] font-semibold">{localLikes}</span>
+          </button>
+          <button
+            onClick={onToggleBookmark}
+            className="p-1.5 rounded-lg transition-all active:scale-95"
+            style={isBookmarked ? { color: '#FBBF24' } : { color: '#555570' }}
+            title={isBookmarked ? '즐겨찾기 해제' : '즐겨찾기'}
+          >
+            {isBookmarked
+              ? <BookmarkCheck className="w-3.5 h-3.5" />
+              : <Bookmark className="w-3.5 h-3.5" />}
           </button>
           <ChevronRight className="w-4 h-4 text-gray-500" />
         </div>
@@ -102,7 +128,10 @@ function TemplateRow({ template, onUse, onShowDetail }: {
 
 /* ─── My public plan card ─── */
 function MyPublicPlanCard({ plan, onClick }: { plan: CareerPlan; onClick: () => void }) {
-  const totalItems = plan.years.reduce((s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0), 0);
+  const totalItems = plan.years.reduce(
+    (s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0),
+    0,
+  );
   const sharedDate = plan.sharedAt
     ? new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })
     : null;
@@ -154,15 +183,225 @@ function MyPublicPlanCard({ plan, onClick }: { plan: CareerPlan; onClick: () => 
   );
 }
 
+/* ─── Bookmarked template card (탐색 즐겨찾기) ─── */
+function BookmarkedTemplateCard({
+  template,
+  onShowDetail,
+  onRemoveBookmark,
+}: {
+  template: Template;
+  onShowDetail: () => void;
+  onRemoveBookmark: (e: React.MouseEvent) => void;
+}) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99]"
+      style={{ border: `1px solid ${template.starColor}28`, backgroundColor: 'rgba(255,255,255,0.03)' }}
+      onClick={onShowDetail}
+    >
+      <div className="flex items-center gap-3 px-4 py-3.5">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, ${template.starColor}28, ${template.starColor}10)`,
+            border: `1px solid ${template.starColor}30`,
+          }}
+        >
+          {template.jobEmoji}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
+          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            <span className="text-[10px] text-gray-400">{template.starEmoji} {template.starName}</span>
+            <span className="text-[10px] text-gray-600">·</span>
+            <span className="text-[10px] text-gray-500">{template.totalItems}개 · {template.years.length}학년</span>
+            {template.authorType === 'official' && (
+              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
+            )}
+          </div>
+        </div>
+        <button
+          onClick={onRemoveBookmark}
+          className="p-1.5 rounded-lg transition-all active:scale-95 flex-shrink-0"
+          style={{ color: '#FBBF24' }}
+          title="즐겨찾기 해제"
+        >
+          <BookmarkCheck className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Bookmarked community plan card ─── */
+function BookmarkedCommunityCard({
+  plan,
+  isLiked,
+  likeCount,
+  bookmarkCount,
+  onToggleLike,
+  onToggleBookmark,
+}: {
+  plan: SharedPlan;
+  isLiked: boolean;
+  likeCount: number;
+  bookmarkCount: number;
+  onToggleLike: () => void;
+  onToggleBookmark: () => void;
+}) {
+  const sharedDate = new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' });
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{ border: `1px solid ${plan.starColor}22`, backgroundColor: 'rgba(255,255,255,0.03)' }}
+    >
+      <div className="flex items-center gap-3 px-4 py-3.5">
+        <div
+          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
+            border: `1px solid ${plan.starColor}30`,
+          }}
+        >
+          {plan.jobEmoji}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
+          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            <span className="text-[10px] text-gray-400">{plan.ownerEmoji} {plan.ownerName}</span>
+            <span className="text-[10px] text-gray-600">·</span>
+            <span className="text-[10px] text-gray-500">{plan.jobEmoji} {plan.jobName}</span>
+            <span className="text-[10px] text-gray-600">·</span>
+            <span className="text-[10px] text-gray-500">{sharedDate}</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-1 flex-shrink-0">
+          <button
+            onClick={e => { e.stopPropagation(); onToggleLike(); }}
+            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg transition-all"
+            style={isLiked ? { color: '#FF6477' } : { color: '#555570' }}
+          >
+            <Heart className="w-3.5 h-3.5" fill={isLiked ? '#FF6477' : 'none'} />
+            <span className="text-[10px] font-semibold">{likeCount}</span>
+          </button>
+          <button
+            onClick={e => { e.stopPropagation(); onToggleBookmark(); }}
+            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg transition-all"
+            style={{ color: '#FBBF24' }}
+            title="즐겨찾기 해제"
+          >
+            <BookmarkCheck className="w-3.5 h-3.5" />
+            <span className="text-[10px] font-semibold">{bookmarkCount}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Main list ─── */
 export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onViewMyPlan }: CareerPathListProps) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
 
+  /* ─── Template bookmarks ─── */
+  const [templateBookmarkIds, setTemplateBookmarkIds] = useState<string[]>([]);
+
+  /* ─── Community reactions ─── */
+  const [reactions, setReactions] = useState<UserReactionState>({ likedPlanIds: [], bookmarkedPlanIds: [] });
+  const [likeCounts, setLikeCounts] = useState<Record<string, number>>(() => {
+    const counts: Record<string, number> = {};
+    (communityData.sharedPlans as SharedPlan[]).forEach(p => { counts[p.id] = p.likes; });
+    return counts;
+  });
+  const [bookmarkCounts, setBookmarkCounts] = useState<Record<string, number>>(() => {
+    const counts: Record<string, number> = {};
+    (communityData.sharedPlans as SharedPlan[]).forEach(p => { counts[p.id] = p.bookmarks; });
+    return counts;
+  });
+
+  /* Load from localStorage on mount */
+  useEffect(() => {
+    setTemplateBookmarkIds(loadTemplateBookmarkIds());
+
+    try {
+      const raw = localStorage.getItem(COMMUNITY_REACTIONS_KEY);
+      if (!raw) return;
+      const saved = JSON.parse(raw) as UserReactionState;
+      setReactions(saved);
+      setLikeCounts(() => {
+        const counts: Record<string, number> = {};
+        (communityData.sharedPlans as SharedPlan[]).forEach(p => {
+          counts[p.id] = p.likes + (saved.likedPlanIds.includes(p.id) ? 1 : 0);
+        });
+        return counts;
+      });
+      setBookmarkCounts(() => {
+        const counts: Record<string, number> = {};
+        (communityData.sharedPlans as SharedPlan[]).forEach(p => {
+          counts[p.id] = p.bookmarks + (saved.bookmarkedPlanIds.includes(p.id) ? 1 : 0);
+        });
+        return counts;
+      });
+    } catch {}
+  }, []);
+
+  /* Template bookmark toggle */
+  const handleToggleTemplateBookmark = useCallback((templateId: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setTemplateBookmarkIds(prev => {
+      const next = prev.includes(templateId)
+        ? prev.filter(id => id !== templateId)
+        : [...prev, templateId];
+      saveTemplateBookmarkIds(next);
+      return next;
+    });
+  }, []);
+
+  /* Community like toggle */
+  const handleToggleLike = useCallback((planId: string) => {
+    setReactions(prev => {
+      const wasLiked = prev.likedPlanIds.includes(planId);
+      const updated: UserReactionState = {
+        ...prev,
+        likedPlanIds: wasLiked
+          ? prev.likedPlanIds.filter(id => id !== planId)
+          : [...prev.likedPlanIds, planId],
+      };
+      localStorage.setItem(COMMUNITY_REACTIONS_KEY, JSON.stringify(updated));
+      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.likes ?? 0;
+      setLikeCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasLiked ? 0 : 1) }));
+      return updated;
+    });
+  }, []);
+
+  /* Community bookmark toggle */
+  const handleToggleCommunityBookmark = useCallback((planId: string) => {
+    setReactions(prev => {
+      const wasBookmarked = prev.bookmarkedPlanIds.includes(planId);
+      const updated: UserReactionState = {
+        ...prev,
+        bookmarkedPlanIds: wasBookmarked
+          ? prev.bookmarkedPlanIds.filter(id => id !== planId)
+          : [...prev.bookmarkedPlanIds, planId],
+      };
+      localStorage.setItem(COMMUNITY_REACTIONS_KEY, JSON.stringify(updated));
+      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.bookmarks ?? 0;
+      setBookmarkCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasBookmarked ? 0 : 1) }));
+      return updated;
+    });
+  }, []);
+
+  /* Derived data */
+  const allSharedPlans = communityData.sharedPlans as SharedPlan[];
+  const bookmarkedTemplates = templates.filter(t => templateBookmarkIds.includes(t.id));
+  const bookmarkedCommunityPlans = allSharedPlans.filter(p => reactions.bookmarkedPlanIds.includes(p.id));
+  const totalBookmarkCount = bookmarkedTemplates.length + bookmarkedCommunityPlans.length;
+
   const filtered = useMemo(() => {
-    return activeFilter === 'all'
-      ? templates
-      : templates.filter(t => t.starId === activeFilter);
+    return activeFilter === 'all' ? templates : templates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
 
   const handleUseTemplate = () => {
@@ -172,124 +411,159 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
     }
   };
 
+  /* When detail dialog closes, re-sync template bookmarks (dialog also writes to localStorage) */
+  const handleDetailClose = useCallback(() => {
+    setTemplateBookmarkIds(loadTemplateBookmarkIds());
+    setSelectedTemplate(null);
+  }, []);
+
   return (
     <>
-      {/* Extra bottom padding so fixed button doesn't cover last card */}
       <div className="space-y-4 pb-24">
 
-      {/* ── Hero header ── */}
-      <div
-        className="relative rounded-3xl overflow-hidden px-5 py-6"
-        style={{
-          background: 'linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)',
-          border: '1.5px solid rgba(108,92,231,0.35)',
-        }}
-      >
-        {/* Decorative blobs */}
-        <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-20 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }} />
-        <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full opacity-15 pointer-events-none"
-          style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }} />
-
-        <div className="relative">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4" style={{ color: '#a78bfa' }} />
-            <span className="text-xs font-bold" style={{ color: '#a78bfa' }}>커리어 패스 탐색</span>
-          </div>
-          <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
-            나의 진로 로드맵,<br />
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-              여기서 찾아보세요
-            </span>
-          </h2>
-          <p className="text-xs text-gray-400 leading-relaxed mb-4">
-            다양한 직업의 커리어 패스를 참고하거나<br />나만의 패스를 직접 만들어 보세요.
-          </p>
-
-          {/* Stats row */}
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1.5">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(108,92,231,0.25)' }}>
-                <BookOpen className="w-3.5 h-3.5" style={{ color: '#a78bfa' }} />
-              </div>
-              <div>
-                <div className="text-sm font-black text-white">{templates.length}</div>
-                <div className="text-[9px] text-gray-500 -mt-0.5">커리어 패스</div>
-              </div>
+        {/* ── Hero header ── */}
+        <div
+          className="relative rounded-3xl overflow-hidden px-5 py-6"
+          style={{
+            background: 'linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)',
+            border: '1.5px solid rgba(108,92,231,0.35)',
+          }}
+        >
+          <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-20 pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }} />
+          <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full opacity-15 pointer-events-none"
+            style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }} />
+          <div className="relative">
+            <div className="flex items-center gap-2 mb-2">
+              <Sparkles className="w-4 h-4" style={{ color: '#a78bfa' }} />
+              <span className="text-xs font-bold" style={{ color: '#a78bfa' }}>커리어 패스 탐색</span>
             </div>
-            <div className="w-px h-6 bg-white/10" />
-            <div className="flex items-center gap-1.5">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(59,130,246,0.2)' }}>
-                <Star className="w-3.5 h-3.5 text-blue-400" />
-              </div>
-              <div>
-                <div className="text-sm font-black text-white">8</div>
-                <div className="text-[9px] text-gray-500 -mt-0.5">왕국</div>
-              </div>
-            </div>
-            <div className="w-px h-6 bg-white/10" />
-            <div className="flex items-center gap-1.5">
-              <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(34,197,94,0.18)' }}>
-                <Users className="w-3.5 h-3.5 text-green-400" />
-              </div>
-              <div>
-                <div className="text-sm font-black text-white">
-                  {templates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
+            <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
+              나의 진로 로드맵,<br />
+              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+                여기서 찾아보세요
+              </span>
+            </h2>
+            <p className="text-xs text-gray-400 leading-relaxed mb-4">
+              다양한 직업의 커리어 패스를 참고하거나<br />나만의 패스를 직접 만들어 보세요.
+            </p>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-1.5">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(108,92,231,0.25)' }}>
+                  <BookOpen className="w-3.5 h-3.5" style={{ color: '#a78bfa' }} />
                 </div>
-                <div className="text-[9px] text-gray-500 -mt-0.5">총 사용</div>
+                <div>
+                  <div className="text-sm font-black text-white">{templates.length}</div>
+                  <div className="text-[9px] text-gray-500 -mt-0.5">커리어 패스</div>
+                </div>
+              </div>
+              <div className="w-px h-6 bg-white/10" />
+              <div className="flex items-center gap-1.5">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(59,130,246,0.2)' }}>
+                  <Star className="w-3.5 h-3.5 text-blue-400" />
+                </div>
+                <div>
+                  <div className="text-sm font-black text-white">8</div>
+                  <div className="text-[9px] text-gray-500 -mt-0.5">왕국</div>
+                </div>
+              </div>
+              <div className="w-px h-6 bg-white/10" />
+              <div className="flex items-center gap-1.5">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(34,197,94,0.18)' }}>
+                  <Users className="w-3.5 h-3.5 text-green-400" />
+                </div>
+                <div>
+                  <div className="text-sm font-black text-white">
+                    {templates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
+                  </div>
+                  <div className="text-[9px] text-gray-500 -mt-0.5">총 사용</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* ── Kingdom filter chips ── */}
-      <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide">
-        {STAR_FILTERS.map(f => (
-          <button
-            key={f.id}
-            onClick={() => setActiveFilter(f.id)}
-            className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
-            style={activeFilter === f.id
-              ? { backgroundColor: '#6C5CE7', color: '#fff', boxShadow: '0 0 10px #6C5CE755' }
-              : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.08)' }}
-          >
-            {f.emoji} {f.label}
-          </button>
-        ))}
-      </div>
+        {/* ── 즐겨찾기 섹션 (템플릿 + 커뮤니티 통합) ── */}
+        {totalBookmarkCount > 0 && (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
+              <span className="text-xs font-bold text-white">즐겨찾기</span>
+              <span className="text-[10px] text-gray-500">{totalBookmarkCount}개 저장됨</span>
+            </div>
 
-      {/* ── 내가 공유한 패스 섹션 ── */}
-      {(myPublicPlans ?? []).length > 0 && (
-        <div className="space-y-2">
-          <div className="flex items-center gap-2">
-            <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
-            <span className="text-xs font-bold text-white">내가 공유한 패스</span>
-            <span className="text-[10px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
+            {/* 템플릿 즐겨찾기 */}
+            {bookmarkedTemplates.map(template => (
+              <BookmarkedTemplateCard
+                key={template.id}
+                template={template}
+                onShowDetail={() => setSelectedTemplate(template)}
+                onRemoveBookmark={e => handleToggleTemplateBookmark(template.id, e)}
+              />
+            ))}
+
+            {/* 커뮤니티 공유 패스 즐겨찾기 */}
+            {bookmarkedCommunityPlans.map(plan => (
+              <BookmarkedCommunityCard
+                key={plan.id}
+                plan={plan}
+                isLiked={reactions.likedPlanIds.includes(plan.id)}
+                likeCount={likeCounts[plan.id] ?? plan.likes}
+                bookmarkCount={bookmarkCounts[plan.id] ?? plan.bookmarks}
+                onToggleLike={() => handleToggleLike(plan.id)}
+                onToggleBookmark={() => handleToggleCommunityBookmark(plan.id)}
+              />
+            ))}
+
+            <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
           </div>
-          {(myPublicPlans ?? []).map(plan => (
-            <MyPublicPlanCard
-              key={plan.id}
-              plan={plan}
-              onClick={() => onViewMyPlan?.(plan)}
-            />
+        )}
+
+        {/* ── 내가 공유한 패스 섹션 ── */}
+        {(myPublicPlans ?? []).length > 0 && (
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
+              <span className="text-xs font-bold text-white">내가 공유한 패스</span>
+              <span className="text-[10px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
+            </div>
+            {(myPublicPlans ?? []).map(plan => (
+              <MyPublicPlanCard
+                key={plan.id}
+                plan={plan}
+                onClick={() => onViewMyPlan?.(plan)}
+              />
+            ))}
+            <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+          </div>
+        )}
+
+        {/* ── Kingdom filter chips ── */}
+        <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide">
+          {STAR_FILTERS.map(f => (
+            <button
+              key={f.id}
+              onClick={() => setActiveFilter(f.id)}
+              className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
+              style={activeFilter === f.id
+                ? { backgroundColor: '#6C5CE7', color: '#fff', boxShadow: '0 0 10px #6C5CE755' }
+                : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              {f.emoji} {f.label}
+            </button>
           ))}
-          <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
         </div>
-      )}
 
-      {/* ── Count line ── */}
-      <div className="flex items-center justify-between px-0.5">
-        <span className="text-xs font-semibold text-gray-400">
-          {filtered.length}개 커리어 패스
-        </span>
-        <span className="text-[10px] text-gray-600">탭해서 펼쳐보기</span>
-      </div>
+        {/* ── Count line ── */}
+        <div className="flex items-center justify-between px-0.5">
+          <span className="text-xs font-semibold text-gray-400">{filtered.length}개 커리어 패스</span>
+          <span className="text-[10px] text-gray-600">탭해서 상세보기</span>
+        </div>
 
-        {/* ── Accordion list ── */}
+        {/* ── Template list ── */}
         {filtered.length === 0 ? (
           <div className="py-12 text-center">
             <Sparkles className="w-8 h-8 text-gray-700 mx-auto mb-3" />
@@ -301,19 +575,20 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
               <TemplateRow
                 key={template.id}
                 template={template}
-                onUse={() => onUseTemplate(template)}
+                isBookmarked={templateBookmarkIds.includes(template.id)}
                 onShowDetail={() => setSelectedTemplate(template)}
+                onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
               />
             ))}
           </div>
         )}
       </div>
 
-      {/* Detail Dialog */}
+      {/* Detail dialog — onClose re-syncs bookmark state */}
       {selectedTemplate && (
         <CareerPathDetailDialog
           template={selectedTemplate}
-          onClose={() => setSelectedTemplate(null)}
+          onClose={handleDetailClose}
           onUseTemplate={handleUseTemplate}
         />
       )}

@@ -1,0 +1,542 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "커뮤니티 학교·그룹·공유 패스 목 데이터",
+    "ui": {
+      "schoolJoinTitle": "학교 참여하기",
+      "schoolJoinDesc": "진로 선생님이 알려준 학교 코드를 입력하세요.\n같은 학교 친구들의 공유된 커리어 패스를 볼 수 있어요.",
+      "schoolCodePlaceholder": "학교 코드 입력 (예: FUTURE2024)",
+      "schoolEmptyTitle": "학교 공간에 참여하세요",
+      "schoolEmptyDesc": "선생님이 알려준 학교 코드를 입력하면\n같은 학교 친구들의 커리어 패스를 볼 수 있어요",
+      "groupCreateTitle": "새 그룹 만들기",
+      "groupIconLabel": "그룹 아이콘",
+      "groupNameLabel": "그룹 이름",
+      "groupNamePlaceholder": "예: IT 개발자 꿈나무들",
+      "groupDescLabel": "설명",
+      "groupDescPlaceholder": "어떤 그룹인지 간단히 설명해 주세요",
+      "groupCreateButton": "그룹 만들기",
+      "groupEmptyTitle": "아직 참여한 그룹이 없어요",
+      "groupEmptyDesc": "새 그룹을 만들거나 초대 코드로 참여하세요",
+      "sharedPlansLabel": "공유된 패스",
+      "membersLabel": "멤버",
+      "searchPlaceholder": "이름, 직업, 패스 검색...",
+      "filterAll": "전체",
+      "filterPublic": "전체 공유",
+      "filterOperator": "운영자 공유",
+      "sortRecent": "최신순",
+      "sortLikes": "좋아요순",
+      "sortBookmarks": "즐겨찾기순",
+      "noPlansMatch": "조건에 맞는 공유 패스가 없어요",
+      "inviteCopySuccess": "초대 링크 복사됨!",
+      "inviteCopyButton": "친구 초대하기"
+    }
+  },
+  "schools": [
+    {
+      "id": "school-1",
+      "name": "서울 미래중학교",
+      "code": "FUTURE2024",
+      "operatorId": "teacher-1",
+      "operatorName": "김진로",
+      "operatorEmoji": "👩‍🏫",
+      "grades": ["mid1", "mid2", "mid3"],
+      "memberCount": 87,
+      "description": "서울 강남구 소재, 진로 탐색 프로그램 우수 학교",
+      "createdAt": "2025-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "school-2",
+      "name": "인천 꿈나무초등학교",
+      "code": "DREAM2024",
+      "operatorId": "teacher-2",
+      "operatorName": "박미래",
+      "operatorEmoji": "👨‍🏫",
+      "grades": ["elem4", "elem5", "elem6"],
+      "memberCount": 124,
+      "description": "인천 연수구 소재, 초등 진로 체험 중심",
+      "createdAt": "2025-02-15T00:00:00.000Z"
+    },
+    {
+      "id": "school-3",
+      "name": "부산 해운대고등학교",
+      "code": "HAEUNDAE2024",
+      "operatorId": "teacher-3",
+      "operatorName": "이진로",
+      "operatorEmoji": "👩‍🏫",
+      "grades": ["high1", "high2", "high3"],
+      "memberCount": 312,
+      "description": "부산 해운대구 소재, 대입 및 진로 상담 특화",
+      "createdAt": "2025-01-10T00:00:00.000Z"
+    }
+  ],
+  "groups": [
+    {
+      "id": "group-1",
+      "name": "IT 개발자 꿈나무들",
+      "emoji": "💻",
+      "description": "프로그래밍과 IT에 관심 있는 친구들 모임. 코딩 대회, 해커톤, 프로젝트 함께해요.",
+      "color": "#3B82F6",
+      "creatorId": "user-1",
+      "creatorName": "민수",
+      "memberCount": 5,
+      "inviteCode": "GRP-IT-001",
+      "members": [
+        { "id": "user-1", "name": "민수", "emoji": "🧑‍💻", "grade": "mid2", "joinedAt": "2025-03-01T00:00:00.000Z", "role": "creator" },
+        { "id": "user-2", "name": "지현", "emoji": "👩‍💻", "grade": "mid2", "joinedAt": "2025-03-02T00:00:00.000Z", "role": "member" },
+        { "id": "user-3", "name": "서준", "emoji": "🧑", "grade": "mid1", "joinedAt": "2025-03-03T00:00:00.000Z", "role": "member" },
+        { "id": "user-4", "name": "하은", "emoji": "👧", "grade": "mid2", "joinedAt": "2025-03-04T00:00:00.000Z", "role": "member" },
+        { "id": "user-5", "name": "도윤", "emoji": "🧒", "grade": "mid3", "joinedAt": "2025-03-05T00:00:00.000Z", "role": "member" }
+      ],
+      "sharedPlanCount": 3,
+      "tags": ["코딩", "IT", "개발"],
+      "createdAt": "2025-03-01T00:00:00.000Z"
+    },
+    {
+      "id": "group-2",
+      "name": "의료 분야 탐구반",
+      "emoji": "🏥",
+      "description": "의사, 간호사, 약사 등 의료 분야 진로 탐구. 과학 올림피아드, 봉사활동 정보 공유.",
+      "color": "#22C55E",
+      "creatorId": "user-6",
+      "creatorName": "예린",
+      "memberCount": 4,
+      "inviteCode": "GRP-MED-002",
+      "members": [
+        { "id": "user-6", "name": "예린", "emoji": "👩‍⚕️", "grade": "mid2", "joinedAt": "2025-03-10T00:00:00.000Z", "role": "creator" },
+        { "id": "user-7", "name": "시우", "emoji": "🧑‍⚕️", "grade": "mid2", "joinedAt": "2025-03-11T00:00:00.000Z", "role": "member" },
+        { "id": "user-8", "name": "수아", "emoji": "👧", "grade": "mid1", "joinedAt": "2025-03-12T00:00:00.000Z", "role": "member" },
+        { "id": "user-9", "name": "준혁", "emoji": "🧑", "grade": "mid3", "joinedAt": "2025-03-13T00:00:00.000Z", "role": "member" }
+      ],
+      "sharedPlanCount": 2,
+      "tags": ["의료", "과학", "탐구"],
+      "createdAt": "2025-03-10T00:00:00.000Z"
+    },
+    {
+      "id": "group-3",
+      "name": "예술가 모임",
+      "emoji": "🎨",
+      "description": "디자인, 음악, 미술 등 창작 분야에 관심 있는 친구들. 포트폴리오 피드백과 전시 정보 공유.",
+      "color": "#EC4899",
+      "creatorId": "user-10",
+      "creatorName": "채원",
+      "memberCount": 3,
+      "inviteCode": "GRP-ART-003",
+      "members": [
+        { "id": "user-10", "name": "채원", "emoji": "🎨", "grade": "mid2", "joinedAt": "2025-04-01T00:00:00.000Z", "role": "creator" },
+        { "id": "user-11", "name": "현우", "emoji": "🎵", "grade": "mid1", "joinedAt": "2025-04-02T00:00:00.000Z", "role": "member" },
+        { "id": "user-12", "name": "소율", "emoji": "📸", "grade": "mid2", "joinedAt": "2025-04-03T00:00:00.000Z", "role": "member" }
+      ],
+      "sharedPlanCount": 2,
+      "tags": ["디자인", "미술", "창작"],
+      "createdAt": "2025-04-01T00:00:00.000Z"
+    },
+    {
+      "id": "group-4",
+      "name": "법률·사회 분야",
+      "emoji": "⚖️",
+      "description": "변호사, 판사, 검사, 사회복지사 등 법률·사회 분야 진로 탐구 모임.",
+      "color": "#8B5CF6",
+      "creatorId": "user-13",
+      "creatorName": "준서",
+      "memberCount": 4,
+      "inviteCode": "GRP-LAW-004",
+      "members": [
+        { "id": "user-13", "name": "준서", "emoji": "⚖️", "grade": "mid3", "joinedAt": "2025-04-15T00:00:00.000Z", "role": "creator" },
+        { "id": "user-14", "name": "유나", "emoji": "👩‍⚖️", "grade": "mid2", "joinedAt": "2025-04-16T00:00:00.000Z", "role": "member" },
+        { "id": "user-15", "name": "민준", "emoji": "🧑", "grade": "mid3", "joinedAt": "2025-04-17T00:00:00.000Z", "role": "member" },
+        { "id": "user-16", "name": "서연", "emoji": "👧", "grade": "mid2", "joinedAt": "2025-04-18T00:00:00.000Z", "role": "member" }
+      ],
+      "sharedPlanCount": 1,
+      "tags": ["법률", "사회", "정의"],
+      "createdAt": "2025-04-15T00:00:00.000Z"
+    }
+  ],
+  "sharedPlans": [
+    {
+      "id": "shared-1",
+      "planId": "plan-demo-1",
+      "ownerId": "user-1",
+      "ownerName": "민수",
+      "ownerEmoji": "🧑‍💻",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "소프트웨어 개발자 로드맵",
+      "description": "중학교 시절부터 정보올림피아드, 해커톤, 포트폴리오까지 체계적으로 준비한 SW 개발자 진로 계획.",
+      "jobEmoji": "💻",
+      "jobName": "소프트웨어 개발자",
+      "starName": "기술의 별",
+      "starEmoji": "💻",
+      "starColor": "#3B82F6",
+      "yearCount": 3,
+      "itemCount": 12,
+      "sharedAt": "2025-03-15T00:00:00.000Z",
+      "likes": 12,
+      "bookmarks": 5,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["프로그래밍 기초 완성", "수학 실력 향상"],
+          "items": [
+            { "id": "i1", "type": "certification", "title": "정보처리기능사 필기 준비", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "한국산업인력공단" },
+            { "id": "i2", "type": "activity", "title": "스크래치 코딩 동아리 가입", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+            { "id": "i3", "type": "activity", "title": "SW 마이스터고 탐방", "month": 10, "difficulty": 1, "cost": "무료", "organizer": "학교" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["파이썬 기초 완성", "첫 앱 개발 도전"],
+          "items": [
+            { "id": "i4", "type": "activity", "title": "파이썬 기초 온라인 강의 수강", "month": 3, "difficulty": 2, "cost": "3만원", "organizer": "인프런" },
+            { "id": "i5", "type": "award", "title": "학교 코딩 경진대회 참가", "month": 5, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+            { "id": "i6", "type": "portfolio", "title": "간단한 계산기 앱 제작", "month": 8, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+            { "id": "i7", "type": "activity", "title": "KBO 청소년 해커톤 참가", "month": 11, "difficulty": 3, "cost": "무료", "organizer": "KBO" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["포트폴리오 완성", "고등학교 진학 준비"],
+          "items": [
+            { "id": "i8", "type": "award", "title": "정보올림피아드 지역 예선 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "한국정보올림피아드" },
+            { "id": "i9", "type": "portfolio", "title": "개인 포트폴리오 사이트 제작", "month": 7, "difficulty": 3, "cost": "1만원", "organizer": "개인" },
+            { "id": "i10", "type": "activity", "title": "SW 마이스터고 오픈캠퍼스 참가", "month": 9, "difficulty": 1, "cost": "무료", "organizer": "한국디지털미디어고" },
+            { "id": "i11", "type": "certification", "title": "정보처리기능사 취득", "month": 11, "difficulty": 3, "cost": "1.8만원", "organizer": "한국산업인력공단" },
+            { "id": "i12", "type": "activity", "title": "깃허브 포트폴리오 정리", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "민수야, 코딩 대회 참가 계획이 좋아! 정보올림피아드도 한번 알아보면 좋겠어요.",
+          "createdAt": "2025-03-16T10:00:00.000Z"
+        },
+        {
+          "id": "comment-2",
+          "authorId": "user-2",
+          "authorName": "지현",
+          "authorEmoji": "👩‍💻",
+          "authorRole": "peer",
+          "content": "나도 같이 코딩 대회 나가자! 팀 프로젝트 하면 좋겠다 😊",
+          "createdAt": "2025-03-17T14:30:00.000Z"
+        }
+      ],
+      "groupIds": ["group-1"],
+      "tags": ["SW", "코딩", "정보올림피아드"]
+    },
+    {
+      "id": "shared-2",
+      "planId": "plan-demo-2",
+      "ownerId": "user-6",
+      "ownerName": "예린",
+      "ownerEmoji": "👩‍⚕️",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "operator",
+      "title": "의사 되기 프로젝트",
+      "description": "의과대학 입시를 위한 과학 탐구, 봉사활동, 올림피아드 참가가 담긴 체계적인 의사 진로 계획.",
+      "jobEmoji": "🏥",
+      "jobName": "의사",
+      "starName": "탐구의 별",
+      "starEmoji": "🔬",
+      "starColor": "#8B5CF6",
+      "yearCount": 3,
+      "itemCount": 15,
+      "sharedAt": "2025-03-20T00:00:00.000Z",
+      "likes": 8,
+      "bookmarks": 3,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["기초 과학 실력 다지기", "봉사활동 시작"],
+          "items": [
+            { "id": "j1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+            { "id": "j2", "type": "activity", "title": "병원 봉사활동 (월 1회)", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "서울대병원" },
+            { "id": "j3", "type": "award", "title": "교내 과학 탐구 발표대회 참가", "month": 10, "difficulty": 2, "cost": "무료", "organizer": "학교" },
+            { "id": "j4", "type": "activity", "title": "의학 진로 특강 참가", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울의대" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["과학 심화 학습", "의학 관련 독서 10권"],
+          "items": [
+            { "id": "j5", "type": "activity", "title": "생명과학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+            { "id": "j6", "type": "award", "title": "전국 과학 탐구 올림피아드 참가", "month": 5, "difficulty": 4, "cost": "무료", "organizer": "한국과학창의재단" },
+            { "id": "j7", "type": "activity", "title": "청소년 의학 캠프 참가", "month": 7, "difficulty": 2, "cost": "5만원", "organizer": "대한의사협회" },
+            { "id": "j8", "type": "portfolio", "title": "의학 관련 독서 기록 포트폴리오", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+            { "id": "j9", "type": "activity", "title": "병원 봉사활동 지속 (월 2회)", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "서울대병원" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["과학고/의대 진학 준비", "봉사 200시간 달성"],
+          "items": [
+            { "id": "j10", "type": "award", "title": "한국생물올림피아드 참가", "month": 4, "difficulty": 5, "cost": "무료", "organizer": "한국생물올림피아드위원회" },
+            { "id": "j11", "type": "activity", "title": "과학고 탐방 및 입시 설명회", "month": 6, "difficulty": 1, "cost": "무료", "organizer": "한성과학고" },
+            { "id": "j12", "type": "certification", "title": "응급처치 자격증 취득", "month": 8, "difficulty": 2, "cost": "3만원", "organizer": "대한적십자사" },
+            { "id": "j13", "type": "portfolio", "title": "진로 탐구 보고서 작성", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+            { "id": "j14", "type": "activity", "title": "봉사활동 200시간 달성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "서울대병원" },
+            { "id": "j15", "type": "activity", "title": "의대 입시 전략 컨설팅", "month": 11, "difficulty": 2, "cost": "무료", "organizer": "학교" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-3",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "예린이의 계획이 매우 체계적이에요! 과학 탐구 대회도 추가해 보면 좋겠습니다.",
+          "createdAt": "2025-03-21T09:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-2"],
+      "tags": ["의대", "과학", "KBO"]
+    },
+    {
+      "id": "shared-3",
+      "planId": "plan-demo-3",
+      "ownerId": "user-3",
+      "ownerName": "서준",
+      "ownerEmoji": "🧑",
+      "ownerGrade": "mid1",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "게임 개발자의 길",
+      "description": "Unity와 C#으로 게임을 만들며, 청소년 게임 공모전과 넥슨 대회까지 도전하는 게임 개발자 로드맵.",
+      "jobEmoji": "🎮",
+      "jobName": "게임 개발자",
+      "starName": "기술의 별",
+      "starEmoji": "💻",
+      "starColor": "#3B82F6",
+      "yearCount": 2,
+      "itemCount": 8,
+      "sharedAt": "2025-04-01T00:00:00.000Z",
+      "likes": 15,
+      "bookmarks": 7,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["게임 엔진 기초 학습", "첫 게임 완성"],
+          "items": [
+            { "id": "k1", "type": "activity", "title": "Unity 기초 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "유니티 코리아" },
+            { "id": "k2", "type": "activity", "title": "게임 개발 동아리 창설", "month": 4, "difficulty": 2, "cost": "무료", "organizer": "학교" },
+            { "id": "k3", "type": "portfolio", "title": "간단한 2D 플랫폼 게임 제작", "month": 9, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+            { "id": "k4", "type": "award", "title": "청소년 게임 개발 공모전 참가", "month": 11, "difficulty": 3, "cost": "무료", "organizer": "한국콘텐츠진흥원" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["게임 포트폴리오 완성", "C# 프로그래밍 심화"],
+          "items": [
+            { "id": "k5", "type": "activity", "title": "C# 프로그래밍 심화 학습", "month": 3, "difficulty": 3, "cost": "5만원", "organizer": "인프런" },
+            { "id": "k6", "type": "portfolio", "title": "3D 미로 탈출 게임 제작", "month": 7, "difficulty": 4, "cost": "무료", "organizer": "개인" },
+            { "id": "k7", "type": "award", "title": "넥슨 청소년 게임 개발 대회 참가", "month": 9, "difficulty": 4, "cost": "무료", "organizer": "넥슨" },
+            { "id": "k8", "type": "activity", "title": "게임 개발사 현장 체험", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "넥슨 코리아" }
+          ]
+        }
+      ],
+      "operatorComments": [],
+      "groupIds": ["group-1"],
+      "tags": ["게임", "Unity", "개발"]
+    },
+    {
+      "id": "shared-4",
+      "planId": "plan-demo-4",
+      "ownerId": "user-10",
+      "ownerName": "채원",
+      "ownerEmoji": "🎨",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "UX 디자이너 로드맵",
+      "description": "Figma 프로토타이핑, 사용자 리서치, 디자인 공모전까지 UX 디자이너를 위한 창작형 커리어 패스.",
+      "jobEmoji": "🎨",
+      "jobName": "UX 디자이너",
+      "starName": "창작의 별",
+      "starEmoji": "🎨",
+      "starColor": "#EC4899",
+      "yearCount": 3,
+      "itemCount": 10,
+      "sharedAt": "2025-04-05T00:00:00.000Z",
+      "likes": 21,
+      "bookmarks": 9,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["디자인 기초 이해", "드로잉 실력 향상"],
+          "items": [
+            { "id": "l1", "type": "activity", "title": "미술 심화 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+            { "id": "l2", "type": "certification", "title": "디지털 기초 자격증 취득", "month": 4, "difficulty": 2, "cost": "1.8만원", "organizer": "한국정보통신진흥협회" },
+            { "id": "l3", "type": "activity", "title": "서울시립미술관 청소년 워크숍", "month": 3, "difficulty": 1, "cost": "무료~3만원", "organizer": "서울시립미술관" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["Figma 기초 완성", "UX 프로세스 이해"],
+          "items": [
+            { "id": "l4", "type": "activity", "title": "Figma 프로토타이핑 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "Figma 공식" },
+            { "id": "l5", "type": "activity", "title": "사용자 리서치 역할극 실습", "month": 5, "difficulty": 2, "cost": "무료", "organizer": "학교" },
+            { "id": "l6", "type": "portfolio", "title": "앱 UI 리디자인 프로젝트", "month": 8, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+            { "id": "l7", "type": "award", "title": "청소년 디자인 공모전 참가", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "한국디자인진흥원" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["포트폴리오 완성", "예술고 진학 준비"],
+          "items": [
+            { "id": "l8", "type": "portfolio", "title": "UX 포트폴리오 사이트 제작", "month": 6, "difficulty": 4, "cost": "1만원", "organizer": "개인" },
+            { "id": "l9", "type": "activity", "title": "디자인 멘토링 프로그램 참가", "month": 8, "difficulty": 2, "cost": "무료", "organizer": "카카오" },
+            { "id": "l10", "type": "award", "title": "전국 학생 디자인 대전 참가", "month": 10, "difficulty": 4, "cost": "무료", "organizer": "교육부" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-4",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "채원이 디자인 포트폴리오 준비 계획이 인상적이에요! 미술 관련 봉사활동도 고려해 보세요.",
+          "createdAt": "2025-04-06T11:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-3"],
+      "tags": ["UX", "디자인", "Figma"]
+    },
+    {
+      "id": "shared-5",
+      "planId": "plan-demo-5",
+      "ownerId": "user-7",
+      "ownerName": "시우",
+      "ownerEmoji": "🧑‍⚕️",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "operator",
+      "title": "약사 커리어 패스",
+      "description": "화학·생물 기초부터 약학대학 탐방, 화학올림피아드까지 약사 진로를 위한 탐구형 계획.",
+      "jobEmoji": "💊",
+      "jobName": "약사",
+      "starName": "탐구의 별",
+      "starEmoji": "🔬",
+      "starColor": "#22C55E",
+      "yearCount": 3,
+      "itemCount": 11,
+      "sharedAt": "2025-04-10T00:00:00.000Z",
+      "likes": 4,
+      "bookmarks": 2,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["화학·생물 기초 다지기", "약국 봉사 시작"],
+          "items": [
+            { "id": "m1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+            { "id": "m2", "type": "activity", "title": "지역 약국 봉사활동", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "지역 약국" },
+            { "id": "m3", "type": "activity", "title": "약사 직업 체험의 날 참가", "month": 10, "difficulty": 1, "cost": "무료", "organizer": "대한약사회" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["화학 심화 학습", "의약품 관련 독서"],
+          "items": [
+            { "id": "m4", "type": "activity", "title": "화학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+            { "id": "m5", "type": "award", "title": "과학 탐구 발표대회 참가", "month": 6, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+            { "id": "m6", "type": "portfolio", "title": "의약품 성분 탐구 보고서", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+            { "id": "m7", "type": "activity", "title": "약학대학 탐방 프로그램", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울대 약학대학" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["과학고 진학 준비", "봉사 150시간 달성"],
+          "items": [
+            { "id": "m8", "type": "award", "title": "한국화학올림피아드 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "대한화학회" },
+            { "id": "m9", "type": "certification", "title": "응급처치 자격증 취득", "month": 7, "difficulty": 2, "cost": "3만원", "organizer": "대한적십자사" },
+            { "id": "m10", "type": "activity", "title": "봉사활동 150시간 달성", "month": 11, "difficulty": 2, "cost": "무료", "organizer": "지역 약국" },
+            { "id": "m11", "type": "portfolio", "title": "진로 탐구 포트폴리오 완성", "month": 12, "difficulty": 3, "cost": "무료", "organizer": "개인" }
+          ]
+        }
+      ],
+      "operatorComments": [],
+      "groupIds": ["group-2"],
+      "tags": ["약사", "화학", "약학"]
+    },
+    {
+      "id": "shared-6",
+      "planId": "plan-demo-6",
+      "ownerId": "user-13",
+      "ownerName": "준서",
+      "ownerEmoji": "⚖️",
+      "ownerGrade": "mid3",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "변호사 진로 로드맵",
+      "description": "법률 동아리, 모의법정, 법학 경시대회까지 법조인을 꿈꾸는 학생을 위한 체계적 계획.",
+      "jobEmoji": "⚖️",
+      "jobName": "변호사",
+      "starName": "질서의 별",
+      "starEmoji": "⚖️",
+      "starColor": "#8B5CF6",
+      "yearCount": 2,
+      "itemCount": 9,
+      "sharedAt": "2025-04-20T00:00:00.000Z",
+      "likes": 6,
+      "bookmarks": 4,
+      "years": [
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["법률 기초 이해", "독서 습관 형성"],
+          "items": [
+            { "id": "n1", "type": "activity", "title": "법률 동아리 가입", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+            { "id": "n2", "type": "activity", "title": "법률 관련 독서 5권", "month": 6, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+            { "id": "n3", "type": "activity", "title": "법원 견학", "month": 9, "difficulty": 1, "cost": "무료", "organizer": "서울중앙지방법원" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["모의법정 참가", "법학 경시대회 도전"],
+          "items": [
+            { "id": "n4", "type": "activity", "title": "청소년 모의법정 대회 참가", "month": 4, "difficulty": 3, "cost": "무료", "organizer": "대한법률구조공단" },
+            { "id": "n5", "type": "award", "title": "전국 법학 경시대회 참가", "month": 7, "difficulty": 4, "cost": "무료", "organizer": "한국법학교수회" },
+            { "id": "n6", "type": "portfolio", "title": "법률 이슈 분석 보고서", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+            { "id": "n7", "type": "activity", "title": "로스쿨 오픈캠퍼스 참가", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울대 로스쿨" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-5",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "준서야, 모의법정 참가 계획이 좋아! 변호사 사무소 인턴 체험도 알아보면 좋겠어요.",
+          "createdAt": "2025-04-21T14:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-4"],
+      "tags": ["법률", "변호사", "모의법정"]
+    }
+  ]
+}

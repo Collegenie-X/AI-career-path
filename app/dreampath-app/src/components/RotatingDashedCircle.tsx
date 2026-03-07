@@ -1,6 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import Svg, { Circle } from 'react-native-svg';
+
+const DASH_STROKE_WIDTH = 2;
+const DASH_LENGTH = 5;
+const DASH_GAP = 5;
 
 interface RotatingDashedCircleProps {
   size?: number;
@@ -12,8 +17,8 @@ interface RotatingDashedCircleProps {
 
 export function RotatingDashedCircle({
   size = 200,
-  color = 'rgba(255,255,255,0.6)',
-  strokeWidth = 2,
+  color = 'rgba(255,255,255,0.9)',
+  strokeWidth = DASH_STROKE_WIDTH,
   glowColor = '#6C5CE7',
   children,
 }: RotatingDashedCircleProps) {
@@ -23,7 +28,7 @@ export function RotatingDashedCircle({
     const animation = Animated.loop(
       Animated.timing(rotateAnim, {
         toValue: 1,
-        duration: 24000,
+        duration: 16000,
         useNativeDriver: true,
       }),
     );
@@ -36,32 +41,43 @@ export function RotatingDashedCircle({
     outputRange: ['0deg', '360deg'],
   });
 
+  const r = size / 2 - strokeWidth / 2;
+  const cx = size / 2;
+  const cy = size / 2;
+
   return (
     <View style={[styles.container, { width: size + strokeWidth * 4, height: size + strokeWidth * 4 }]}>
       {/* 중앙 glow 효과 */}
-      <View style={[styles.glowContainer, { width: size, height: size }]}>
+      <View style={[styles.glowContainer, { width: size, height: size, opacity: 0.5 }]}>
         <LinearGradient
-          colors={[`${glowColor}40`, `${glowColor}00`]}
+          colors={[`${glowColor}25`, `${glowColor}02`, 'transparent'] as [string, string, ...string[]]}
+          locations={[0, 0.5, 1]}
           start={{ x: 0.5, y: 0.5 }}
           end={{ x: 1, y: 1 }}
           style={styles.glowGradient}
         />
       </View>
 
-      {/* 회전하는 점선 원 */}
+      {/* 회전하는 점선 원 - SVG로 굵기·간격 조절 */}
       <Animated.View
         style={[
-          styles.dashedRing,
-          {
-            width: size,
-            height: size,
-            borderRadius: size / 2,
-            borderWidth: strokeWidth,
-            borderColor: color,
-            transform: [{ rotate: rotation }],
-          },
+          styles.dashedRingWrapper,
+          { width: size, height: size, transform: [{ rotate: rotation }] },
         ]}
-      />
+      >
+        <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+          <Circle
+            cx={cx}
+            cy={cy}
+            r={r}
+            stroke={color}
+            strokeWidth={strokeWidth}
+            fill="none"
+            strokeDasharray={`${DASH_LENGTH} ${DASH_GAP}`}
+            strokeLinecap="round"
+          />
+        </Svg>
+      </Animated.View>
 
       {/* 아이콘 */}
       <View style={[styles.iconWrapper, { width: size, height: size }]}>{children}</View>
@@ -73,6 +89,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'visible',
   },
   glowContainer: {
     position: 'absolute',
@@ -84,12 +101,12 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 9999,
   },
-  dashedRing: {
+  dashedRingWrapper: {
     position: 'absolute',
-    borderStyle: 'dashed',
   },
   iconWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'visible',
   },
 });

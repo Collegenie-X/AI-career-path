@@ -1,8 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { RotatingDashedCircle } from '../RotatingDashedCircle';
-import { IconWithOrbit } from './IconWithOrbit';
+import { SquareWithOrbit } from './SquareWithOrbit';
 import { COLORS, SPACING } from '../../config/theme';
 
 const ACCENT_COLOR_MAP: Record<string, string> = {
@@ -63,19 +62,11 @@ export function OnboardingSlideContent({ item, totalSteps }: OnboardingSlideCont
     <View style={styles.slide}>
       <View style={styles.iconSection}>
         <RotatingDashedCircle
-          color={`${accentColor}50`}
-          size={200}
-          strokeWidth={1.5}
+          color={`${accentColor}40`}
+          size={160}
           glowColor={accentColor}
         >
-          <LinearGradient
-            colors={[accentColor, `${accentColor}BB`] as [string, string]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.iconGradient}
-          >
-            <IconWithOrbit icon={item.icon} color={COLORS.white} size={68} />
-          </LinearGradient>
+          <SquareWithOrbit icon={item.icon} accentColor={accentColor} />
         </RotatingDashedCircle>
       </View>
 
@@ -113,13 +104,6 @@ const styles = StyleSheet.create({
   },
   iconSection: {
     marginBottom: SPACING.md,
-  },
-  iconGradient: {
-    width: 130,
-    height: 130,
-    borderRadius: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   stepBadge: {
     paddingHorizontal: SPACING.xl,

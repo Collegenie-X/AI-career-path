@@ -170,6 +170,23 @@ function CommentItem({
   );
 }
 
+const TEMPLATE_BOOKMARKS_KEY = 'template_bookmarks_v1';
+
+function loadTemplateBookmarks(): string[] {
+  try {
+    const raw = localStorage.getItem(TEMPLATE_BOOKMARKS_KEY);
+    return raw ? (JSON.parse(raw) as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveTemplateBookmarks(ids: string[]): void {
+  try {
+    localStorage.setItem(TEMPLATE_BOOKMARKS_KEY, JSON.stringify(ids));
+  } catch {}
+}
+
 /* ─── Main dialog ─── */
 export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Props) {
   const [liked, setLiked] = useState(false);
@@ -182,7 +199,11 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    setMounted(true);
+    const saved = loadTemplateBookmarks();
+    setBookmarked(saved.includes(template.id));
+  }, [template.id]);
 
   const [comments, setComments] = useState<Comment[]>([
     {
@@ -351,9 +372,18 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             </button>
 
             <button
-              onClick={() => setBookmarked(!bookmarked)}
+              onClick={() => {
+                const next = !bookmarked;
+                setBookmarked(next);
+                const saved = loadTemplateBookmarks();
+                const updated = next
+                  ? [...saved.filter(id => id !== template.id), template.id]
+                  : saved.filter(id => id !== template.id);
+                saveTemplateBookmarks(updated);
+              }}
               className="p-1.5 rounded-full transition-all active:scale-95"
               style={{ backgroundColor: bookmarked ? 'rgba(251,191,36,0.15)' : 'rgba(255,255,255,0.07)' }}
+              title={bookmarked ? '즐겨찾기 해제' : '즐겨찾기 추가'}
             >
               {bookmarked
                 ? <BookmarkCheck style={{ width: 16, height: 16, color: '#FBBF24' }} />

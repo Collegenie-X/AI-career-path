@@ -54,6 +54,7 @@ export type CareerPlan = {
   createdAt: string;
   title: string;
   isPublic?: boolean;
+  shareType?: string;
   sharedAt?: string;
 };
 

@@ -1,4 +1,7 @@
 {
+  "layout": {
+    "centerIconSize": 130
+  },
   "splash": {
     "appName": "DreamPath",
     "tagline": "Career RPG Adventure",

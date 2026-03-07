@@ -4,11 +4,13 @@ import { useState, useRef, useEffect } from 'react';
 import {
   Calendar, Target, Pencil, Plus, Trash2, Check,
   CheckCircle2, Circle, ChevronDown, X, MoreHorizontal,
-  Share2, Globe, Eye, EyeOff,
+  Share2, Globe, Eye, EyeOff, Shield,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import type { CareerPlan, PlanItem, YearPlan, PlanGroup } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
+import { ShareSettingsDialog } from './community/ShareSettingsDialog';
+import type { ShareType } from './community/types';
 
 /* ─── Types ─── */
 type PlanItemWithCheck = PlanItem & { checked?: boolean };
@@ -19,7 +21,7 @@ type Props = {
   onUpdatePlan: (plan: CareerPlan) => void;
   onDeletePlan: (planId: string) => void;
   onNewPlan: () => void;
-  onSharePlan?: (plan: CareerPlan, isPublic: boolean) => void;
+  onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: string) => void;
 };
 
 /* ─── Inline editable title ─── */
@@ -407,7 +409,7 @@ function PlanAccordionCard({
   onDelete: () => void;
   onUpdatePlan: (p: CareerPlan) => void;
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
-  onShare: (isPublic: boolean) => void;
+  onShare: (isPublic: boolean, shareType?: ShareType) => void;
 }) {
   const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
   const sortedYears = [...plan.years].sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
@@ -419,7 +421,7 @@ function PlanAccordionCard({
     onUpdatePlan({ ...plan, years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y) });
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [showShareConfirm, setShowShareConfirm] = useState(false);
+  const [showShareSettings, setShowShareSettings] = useState(false);
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleDraft, setTitleDraft] = useState(plan.title);
   const titleInputRef = useRef<HTMLInputElement>(null);
@@ -431,17 +433,18 @@ function PlanAccordionCard({
     setEditingTitle(false);
   };
 
-  const handleTogglePublic = () => {
-    if (!plan.isPublic) {
-      setShowShareConfirm(true);
-    } else {
-      onShare(false);
-    }
+  const handleOpenShareSettings = () => {
+    setShowShareSettings(true);
   };
 
-  const confirmShare = () => {
-    onShare(true);
-    setShowShareConfirm(false);
+  const handleShareConfirm = (selectedShareType: ShareType) => {
+    onShare(true, selectedShareType);
+    setShowShareSettings(false);
+  };
+
+  const handleMakePrivate = () => {
+    onShare(false, undefined);
+    setShowShareSettings(false);
   };
 
   return (
@@ -547,17 +550,21 @@ function PlanAccordionCard({
                 <Pencil style={{ width: 13, height: 13 }} />수정하기
               </button>
 
-              {/* 탐색 공유 토글 버튼 */}
+              {/* 공유 설정 버튼 */}
               <button
-                onClick={handleTogglePublic}
+                onClick={handleOpenShareSettings}
                 className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
                 style={plan.isPublic
-                  ? { backgroundColor: 'rgba(34,197,94,0.18)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.4)' }
+                  ? plan.shareType === 'operator'
+                    ? { backgroundColor: 'rgba(108,92,231,0.18)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.4)' }
+                    : { backgroundColor: 'rgba(34,197,94,0.18)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.4)' }
                   : { backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)' }
                 }
               >
                 {plan.isPublic
-                  ? <><Globe style={{ width: 13, height: 13 }} />공개중</>
+                  ? plan.shareType === 'operator'
+                    ? <><Shield style={{ width: 13, height: 13 }} />운영자 공유</>
+                    : <><Globe style={{ width: 13, height: 13 }} />전체 공유</>
                   : <><Share2 style={{ width: 13, height: 13 }} />공유</>
                 }
               </button>
@@ -587,14 +594,27 @@ function PlanAccordionCard({
             {/* 공개 상태 표시 배너 */}
             {plan.isPublic && (
               <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
-                style={{ backgroundColor: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)' }}>
-                <Globe style={{ width: 14, height: 14, color: '#22C55E', flexShrink: 0 }} />
+                style={{
+                  backgroundColor: plan.shareType === 'operator' ? 'rgba(108,92,231,0.08)' : 'rgba(34,197,94,0.08)',
+                  border: `1px solid ${plan.shareType === 'operator' ? 'rgba(108,92,231,0.2)' : 'rgba(34,197,94,0.2)'}`,
+                }}>
+                {plan.shareType === 'operator'
+                  ? <Shield style={{ width: 14, height: 14, color: '#a78bfa', flexShrink: 0 }} />
+                  : <Globe style={{ width: 14, height: 14, color: '#22C55E', flexShrink: 0 }} />
+                }
                 <div className="flex-1 min-w-0">
-                  <div className="text-xs font-bold text-white">탐색 탭에 공개됨</div>
-                  <div className="text-[10px] text-gray-400">다른 유저들이 보고 댓글을 달 수 있어요</div>
+                  <div className="text-xs font-bold text-white">
+                    {plan.shareType === 'operator' ? '운영자에게 공유됨' : '커뮤니티에 공개됨'}
+                  </div>
+                  <div className="text-[10px] text-gray-400">
+                    {plan.shareType === 'operator'
+                      ? '진로 선생님이 확인하고 코멘트를 남길 수 있어요'
+                      : '같은 학교 친구들이 보고 코멘트를 남길 수 있어요'
+                    }
+                  </div>
                 </div>
                 <button
-                  onClick={() => onShare(false)}
+                  onClick={handleMakePrivate}
                   className="flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold flex-shrink-0 transition-all active:scale-95"
                   style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}>
                   <EyeOff style={{ width: 11, height: 11 }} />비공개
@@ -602,36 +622,15 @@ function PlanAccordionCard({
               </div>
             )}
 
-            {/* 공유 확인 패널 */}
-            {showShareConfirm && (
-              <div className="rounded-xl p-3.5 space-y-3"
-                style={{ backgroundColor: 'rgba(34,197,94,0.07)', border: '1px solid rgba(34,197,94,0.25)' }}>
-                <div className="flex items-start gap-2.5">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: 'rgba(34,197,94,0.18)' }}>
-                    <Eye style={{ width: 15, height: 15, color: '#22C55E' }} />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-white">탐색 탭에 공개할까요?</div>
-                    <div className="text-[10px] text-gray-400 mt-0.5 leading-relaxed">
-                      다른 유저들이 이 커리어 패스를 탐색 탭에서 볼 수 있고,<br />
-                      좋아요·댓글로 소통할 수 있어요.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <button onClick={() => setShowShareConfirm(false)}
-                    className="flex-1 h-8 rounded-xl text-xs font-semibold"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}>
-                    취소
-                  </button>
-                  <button onClick={confirmShare}
-                    className="flex-1 h-8 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{ backgroundColor: '#22C55E', color: '#fff' }}>
-                    공개하기
-                  </button>
-                </div>
-              </div>
+            {/* 공유 설정 다이얼로그 */}
+            {showShareSettings && (
+              <ShareSettingsDialog
+                planTitle={plan.title}
+                currentShareType={plan.isPublic ? (plan.shareType as ShareType ?? 'public') : null}
+                onConfirm={handleShareConfirm}
+                onMakePrivate={handleMakePrivate}
+                onClose={() => setShowShareSettings(false)}
+              />
             )}
           </div>
 
@@ -712,10 +711,15 @@ export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeleteP
           onDelete={() => { onDeletePlan(plan.id); if (openPlanId === plan.id) setOpenPlanId(null); }}
           onUpdatePlan={onUpdatePlan}
           onItemInfoClick={(item, gradeLabel) => setDetailItem({ item, gradeLabel })}
-          onShare={(isPublic) => {
-            const updated = { ...plan, isPublic, sharedAt: isPublic ? new Date().toISOString() : undefined };
+          onShare={(isPublic, shareType) => {
+            const updated = {
+              ...plan,
+              isPublic,
+              shareType: isPublic ? shareType : undefined,
+              sharedAt: isPublic ? new Date().toISOString() : undefined,
+            };
             onUpdatePlan(updated);
-            onSharePlan?.(updated, isPublic);
+            onSharePlan?.(updated, isPublic, shareType);
           }}
         />
       ))}

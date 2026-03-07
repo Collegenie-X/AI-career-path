@@ -45,8 +45,8 @@ function ItemRow({
       opacity: checked ? 0.55 : 1,
     }]}>
       <TouchableOpacity onPress={onToggle} style={styles.checkButton}>
-        <Text style={{ fontSize: 16, color: checked ? (tc?.color ?? color) : 'rgba(255,255,255,0.2)' }}>
-          {checked ? '✅' : '⭕'}
+        <Text style={[styles.checkboxText, { color: checked ? (tc?.color ?? color) : 'rgba(255,255,255,0.25)' }]}>
+          {checked ? '☑' : '☐'}
         </Text>
       </TouchableOpacity>
       <View style={[styles.itemIcon, { backgroundColor: (tc?.color ?? color) + '1a', borderColor: (tc?.color ?? color) + '30' }]}>
@@ -474,6 +474,7 @@ const styles = StyleSheet.create({
 
   itemRow: { flexDirection: 'row', alignItems: 'flex-start', gap: SPACING.sm, padding: SPACING.md, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
   checkButton: { marginTop: 2 },
+  checkboxText: { fontSize: 14 },
   itemIcon: { width: 36, height: 36, borderRadius: BORDER_RADIUS.lg, justifyContent: 'center', alignItems: 'center', borderWidth: 1 },
   itemContent: { flex: 1 },
   itemTitleTouch: { minHeight: 22 },
