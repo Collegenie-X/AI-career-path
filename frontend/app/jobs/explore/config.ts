@@ -156,4 +156,43 @@ export const LABELS = {
 
   timeline_key_success: '핵심 성공 지표',
   timeline_total_cost: '총 예상 비용',
+
+  // Explore tab navigation
+  explore_tab_star: '직업탐색',
+  explore_tab_route: '직업별 루트',
+  explore_tab_admission: '고입전략',
+};
+
+// ─── High School Admission Labels ─────────────────────────────
+export const HIGH_SCHOOL_LABELS = {
+  difficulty_label: '입학 난이도',
+  admission_process: '입학 전형',
+  key_activities: '핵심 활동 비중',
+  preparation_timeline: '준비 타임라인',
+  pros: '장점',
+  cons: '단점',
+  admission_tip: '합격 전략 TIP',
+  representative_schools: '대표 학교',
+  annual_admission_prefix: '연 ',
+  annual_admission_suffix: '명',
+  school_types_title: '고교 유형별 전략',
+  section_guide: '유형별 가이드',
+  section_flow: '나에게 맞는 고교 찾기',
+  decision_flow_title: '나에게 맞는 고교는?',
+  decision_flow_reset: '다시 시작',
+  decision_flow_yes: '예',
+  decision_flow_no: '아니오',
+  decision_flow_result: '추천 고교',
+  decision_flow_view_detail: '상세 전략 보기',
+};
+
+// ─── Job Career Route Labels ──────────────────────────────────
+export const JOB_ROUTE_LABELS = {
+  career_path: '고입 → 대입 → 취업 루트',
+  recommended_universities: '추천 대학',
+  key_preparation: '핵심 준비 사항',
+  future_outlook: '미래 전망',
+  show_overview: '전체 연결도 보기',
+  hide_overview: '전체 연결도 닫기',
+  job_count_suffix: '개 직업',
 };
