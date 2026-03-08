@@ -65,7 +65,10 @@ function InlineTitle({ value, color, onSave }: { value: string; color: string; o
 }
 
 /* ─── Goal row ─── */
-function GoalRow({ goal, color, onSave, onDelete }: { goal: string; color: string; onSave: (v: string) => void; onDelete: () => void }) {
+function GoalRow({ goal, color, isEditMode, onSave, onDelete }: {
+  goal: string; color: string; isEditMode: boolean;
+  onSave: (v: string) => void; onDelete: () => void;
+}) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(goal);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -77,6 +80,12 @@ function GoalRow({ goal, color, onSave, onDelete }: { goal: string; color: strin
   };
 
   useEffect(() => { if (editing) inputRef.current?.focus(); }, [editing]);
+
+  const handleClick = () => {
+    if (!isEditMode) return;
+    setDraft(goal);
+    setEditing(true);
+  };
 
   return (
     <div
@@ -97,22 +106,27 @@ function GoalRow({ goal, color, onSave, onDelete }: { goal: string; color: strin
           className="flex-1 bg-transparent text-sm text-white outline-none"
         />
       ) : (
-        <span className="flex-1 text-sm text-white cursor-text" onClick={() => { setDraft(goal); setEditing(true); }}>
+        <span
+          className={`flex-1 text-sm text-white ${isEditMode ? 'cursor-text' : ''}`}
+          onClick={handleClick}
+        >
           {goal}
         </span>
       )}
-      <button onClick={onDelete} className="opacity-0 group-hover:opacity-100 transition-opacity active:scale-90">
-        <X style={{ width: 13, height: 13, color: '#ef4444' }} />
-      </button>
+      {isEditMode && (
+        <button onClick={onDelete} className="opacity-0 group-hover:opacity-100 transition-opacity active:scale-90">
+          <X style={{ width: 13, height: 13, color: '#ef4444' }} />
+        </button>
+      )}
     </div>
   );
 }
 
 /* ─── Item row (todo-style) ─── */
 function ItemRow({
-  item, color, onToggleCheck, onDelete, onTitleSave, onInfoClick,
+  item, color, isEditMode, onToggleCheck, onDelete, onTitleSave, onInfoClick,
 }: {
-  item: PlanItemWithCheck; color: string;
+  item: PlanItemWithCheck; color: string; isEditMode: boolean;
   onToggleCheck: () => void; onDelete: () => void;
   onTitleSave: (t: string) => void; onInfoClick: () => void;
 }) {
@@ -135,7 +149,7 @@ function ItemRow({
       {/* Branch connector */}
       <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
 
-      {/* Checkbox */}
+      {/* Checkbox (항상 표시 — todo 체크) */}
       <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
         style={{ color: checked ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}>
         {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
@@ -148,8 +162,18 @@ function ItemRow({
       </div>
 
       {/* Content */}
-      <div className="flex-1 min-w-0">
-        <InlineTitle value={item.title} color={typeConf?.color ?? color} onSave={onTitleSave} />
+      <div
+        className="flex-1 min-w-0"
+        onClick={!isEditMode ? onInfoClick : undefined}
+        role={!isEditMode ? 'button' : undefined}
+        tabIndex={!isEditMode ? 0 : undefined}
+        onKeyDown={!isEditMode ? (e) => { if (e.key === 'Enter' || e.key === ' ') onInfoClick(); } : undefined}
+      >
+        {isEditMode ? (
+          <InlineTitle value={item.title} color={typeConf?.color ?? color} onSave={onTitleSave} />
+        ) : (
+          <span className="text-sm font-semibold text-white leading-snug cursor-pointer hover:underline decoration-dotted" title="탭하여 상세 보기">{item.title}</span>
+        )}
         <div className="flex items-center gap-1.5 mt-1 flex-wrap">
           <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
             style={{ backgroundColor: `${typeConf?.color ?? color}22`, color: typeConf?.color ?? color }}>
@@ -164,17 +188,19 @@ function ItemRow({
         </div>
       </div>
 
-      {/* Actions */}
-      <div className="flex items-center gap-1 flex-shrink-0">
-        <button onClick={onInfoClick} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
-          style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-          <MoreHorizontal style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.35)' }} />
-        </button>
-        <button onClick={onDelete} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
-          style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
-          <Trash2 style={{ width: 13, height: 13, color: '#ef4444' }} />
-        </button>
-      </div>
+      {/* Actions — 수정 모드에서만 삭제/상세 버튼 표시 */}
+      {isEditMode && (
+        <div className="flex items-center gap-1 flex-shrink-0">
+          <button onClick={onInfoClick} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
+            style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+            <MoreHorizontal style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.35)' }} />
+          </button>
+          <button onClick={onDelete} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
+            style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
+            <Trash2 style={{ width: 13, height: 13, color: '#ef4444' }} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -236,10 +262,10 @@ function QuickAddItem({ color, onAdd }: { color: string; onAdd: (title: string, 
 
 /* ─── Year node (timeline branch) ─── */
 function YearTimelineNode({
-  year, color, isLast, onUpdateYear, onItemInfoClick,
+  year, color, isLast, isEditMode, onUpdateYear, onItemInfoClick,
 }: {
   year: YearPlan & { items: PlanItemWithCheck[] };
-  color: string; isLast: boolean;
+  color: string; isLast: boolean; isEditMode: boolean;
   onUpdateYear: (y: YearPlan) => void;
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
 }) {
@@ -334,11 +360,13 @@ function YearTimelineNode({
               <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400">
                 <Target style={{ width: 12, height: 12 }} />목표
               </div>
-              <button onClick={() => onUpdateYear({ ...year, goals: [...year.goals, '새 목표'] })}
-                className="text-[10px] font-bold" style={{ color: `${color}99` }}>+ 추가</button>
+              {isEditMode && (
+                <button onClick={() => onUpdateYear({ ...year, goals: [...year.goals, '새 목표'] })}
+                  className="text-[10px] font-bold" style={{ color: `${color}99` }}>+ 추가</button>
+              )}
             </div>
             {year.goals.map((goal, idx) => (
-              <GoalRow key={idx} goal={goal} color={color}
+              <GoalRow key={idx} goal={goal} color={color} isEditMode={isEditMode}
                 onSave={(v) => saveGoal(idx, v)} onDelete={() => deleteGoal(idx)} />
             ))}
           </div>
@@ -363,6 +391,7 @@ function YearTimelineNode({
                         key={item.id}
                         item={item}
                         color={color}
+                        isEditMode={isEditMode}
                         onToggleCheck={() => toggleCheckInGroup(group.id, item.id)}
                         onDelete={() => deleteItemFromGroup(group.id, item.id)}
                         onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
@@ -379,16 +408,16 @@ function YearTimelineNode({
         {/* Ungrouped items */}
         <div className="space-y-2">
           {year.items.map((item) => (
-            <ItemRow key={item.id} item={item} color={color}
+            <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
               onToggleCheck={() => toggleCheck(item.id)}
               onDelete={() => deleteItem(item.id)}
               onTitleSave={(title) => saveItemTitle(item.id, title)}
               onInfoClick={() => onItemInfoClick(item, year.gradeLabel)} />
           ))}
-          <QuickAddItem color={color} onAdd={addItem} />
+          {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
         </div>
 
-        {year.items.length === 0 && year.goals.length === 0 && (year.groups ?? []).length === 0 && (
+        {year.items.length === 0 && year.goals.length === 0 && (year.groups ?? []).length === 0 && isEditMode && (
           <div className="text-center py-3 rounded-xl"
             style={{ border: `1px dashed ${color}28`, backgroundColor: `${color}05` }}>
             <p className="text-xs text-gray-500">항목을 추가해 보세요</p>
@@ -422,6 +451,7 @@ function PlanAccordionCard({
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showShareSettings, setShowShareSettings] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [editingTitle, setEditingTitle] = useState(false);
   const [titleDraft, setTitleDraft] = useState(plan.title);
   const titleInputRef = useRef<HTMLInputElement>(null);
@@ -432,6 +462,9 @@ function PlanAccordionCard({
     else setTitleDraft(plan.title);
     setEditingTitle(false);
   };
+
+  useEffect(() => { if (editingTitle) titleInputRef.current?.focus(); }, [editingTitle]);
+  useEffect(() => { if (!editingTitle) setTitleDraft(plan.title); }, [plan.title, editingTitle]);
 
   const handleOpenShareSettings = () => {
     setShowShareSettings(true);
@@ -480,7 +513,7 @@ function PlanAccordionCard({
 
         {/* Info */}
         <div className="flex-1 min-w-0">
-          {/* Inline editable title */}
+          {/* 제목: 뷰 모드에서는 읽기 전용, 수정 모드에서만 인라인 편집 */}
           {editingTitle ? (
             <input
               ref={titleInputRef}
@@ -498,9 +531,9 @@ function PlanAccordionCard({
             />
           ) : (
             <div
-              className="font-bold text-white text-sm leading-snug truncate cursor-text"
-              onClick={(e) => { e.stopPropagation(); setTitleDraft(plan.title); setEditingTitle(true); }}
-              title="클릭하여 제목 수정"
+              className={`font-bold text-white text-sm leading-snug truncate ${isEditMode ? 'cursor-text' : ''}`}
+              onClick={isEditMode ? (e) => { e.stopPropagation(); setTitleDraft(plan.title); setEditingTitle(true); } : undefined}
+              title={isEditMode ? '클릭하여 제목 수정' : undefined}
             >
               {plan.title}
             </div>
@@ -544,11 +577,26 @@ function PlanAccordionCard({
           {/* Action bar */}
           <div className="px-4 py-3 space-y-2">
             <div className="flex gap-2">
-              <button onClick={onEdit}
-                className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
-                style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
-                <Pencil style={{ width: 13, height: 13 }} />수정하기
-              </button>
+              {isEditMode ? (
+                <>
+                  <button onClick={() => setIsEditMode(false)}
+                    className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
+                    style={{ backgroundColor: `${plan.starColor}25`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
+                    <Check style={{ width: 13, height: 13 }} />수정 완료
+                  </button>
+                  <button onClick={onEdit}
+                    className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.12)' }}>
+                    <Pencil style={{ width: 13, height: 13 }} />전체 수정
+                  </button>
+                </>
+              ) : (
+                <button onClick={() => setIsEditMode(true)}
+                  className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
+                  style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
+                  <Pencil style={{ width: 13, height: 13 }} />수정하기
+                </button>
+              )}
 
               {/* 공유 설정 버튼 */}
               <button
@@ -639,6 +687,13 @@ function PlanAccordionCard({
             {/* Vertical line */}
             <div className="absolute left-[38px] top-0 bottom-4 w-0.5"
               style={{ backgroundColor: `${plan.starColor}28` }} />
+            {isEditMode && (
+              <div className="mb-3 px-3 py-2 rounded-xl text-xs font-semibold"
+                style={{ border: `1px solid ${plan.starColor}30`, backgroundColor: `${plan.starColor}0a`, color: `${plan.starColor}cc` }}>
+                ✏️ 부분 수정 — 제목·목표·항목 탭하여 수정, 전체 수정은 빌더에서
+              </div>
+            )}
+
             <div className="space-y-0">
               {sortedYears.map((year, idx) => (
                 <YearTimelineNode
@@ -646,6 +701,7 @@ function PlanAccordionCard({
                   year={year as YearPlan & { items: PlanItemWithCheck[] }}
                   color={plan.starColor}
                   isLast={idx === sortedYears.length - 1}
+                  isEditMode={isEditMode}
                   onUpdateYear={updateYear}
                   onItemInfoClick={onItemInfoClick}
                 />

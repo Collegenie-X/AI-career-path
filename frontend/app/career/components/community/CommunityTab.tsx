@@ -16,6 +16,7 @@ const SUB_TABS: { id: SubTab; label: string; icon: typeof SchoolIcon }[] = [
 ];
 
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
+const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
 
 /* ─── Join school dialog ─── */
 function JoinSchoolDialog({ onClose, onJoin }: {
@@ -96,7 +97,39 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
     return counts;
   });
 
-  /* Load persisted reactions once on mount */
+  /* 확인 필요 뱃지: 조회 시 사라짐 (localStorage) */
+  const [checkedPlans, setCheckedPlans] = useState<Record<string, string>>(() => {
+    try {
+      const raw = localStorage.getItem(CHECKED_PLANS_STORAGE_KEY);
+      return raw ? (JSON.parse(raw) as Record<string, string>) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  /* 상세 조회 시 해당 패스를 '확인함'으로 기록 */
+  const handleViewPlanDetail = useCallback((plan: SharedPlan | null) => {
+    setSelectedPlan(plan);
+    if (plan) {
+      const checkedAt = new Date().toISOString();
+      setCheckedPlans(prev => {
+        const next = { ...prev, [plan.id]: checkedAt };
+        localStorage.setItem(CHECKED_PLANS_STORAGE_KEY, JSON.stringify(next));
+        return next;
+      });
+    }
+  }, []);
+
+  /* Load persisted reactions + checked plans once on mount */
+  useEffect(() => {
+    try {
+      const rawChecked = localStorage.getItem(CHECKED_PLANS_STORAGE_KEY);
+      if (rawChecked) {
+        setCheckedPlans(JSON.parse(rawChecked) as Record<string, string>);
+      }
+    } catch {}
+  }, []);
+
   useEffect(() => {
     try {
       const raw = localStorage.getItem(REACTIONS_STORAGE_KEY);
@@ -213,9 +246,10 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
           bookmarkedPlanIds={reactions.bookmarkedPlanIds}
           likeCounts={likeCounts}
           bookmarkCounts={bookmarkCounts}
+          checkedPlans={checkedPlans}
           onToggleLike={handleToggleLike}
           onToggleBookmark={handleToggleBookmark}
-          onViewPlanDetail={setSelectedPlan}
+          onViewPlanDetail={handleViewPlanDetail}
           onJoinSchool={() => setShowJoinSchool(true)}
         />
       ) : (
@@ -226,9 +260,10 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
           bookmarkedPlanIds={reactions.bookmarkedPlanIds}
           likeCounts={likeCounts}
           bookmarkCounts={bookmarkCounts}
+          checkedPlans={checkedPlans}
           onToggleLike={handleToggleLike}
           onToggleBookmark={handleToggleBookmark}
-          onViewPlanDetail={setSelectedPlan}
+          onViewPlanDetail={handleViewPlanDetail}
         />
       )}
 

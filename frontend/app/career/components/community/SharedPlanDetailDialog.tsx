@@ -4,10 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import {
   X, Shield, Globe, MessageSquare, Send,
   Calendar, Target, Heart, Bookmark,
-  ChevronDown, ChevronUp,
+  ChevronDown, ChevronUp, Flag, MoreVertical, CornerDownRight,
 } from 'lucide-react';
 import { GRADE_YEARS, ITEM_TYPES } from '../../config';
-import type { SharedPlan, OperatorComment, SharedPlanYear } from './types';
+import type { SharedPlan, OperatorComment, OperatorCommentNode, SharedPlanYear } from './types';
+import { ReportModal, type ReportTarget } from '../ReportModal';
 
 /* ─── Item type config helper ─── */
 function getItemTypeConfig(type: string) {
@@ -152,50 +153,190 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
   );
 }
 
-/* ─── Comment bubble ─── */
-function CommentBubble({ comment }: { comment: OperatorComment }) {
+/** 플랫 댓글 목록 → 트리 구조로 변환 */
+function buildCommentTree(comments: OperatorComment[]): OperatorCommentNode[] {
+  const rootComments = comments.filter(c => !c.parentId);
+  const byParent = new Map<string, OperatorComment[]>();
+  comments.filter(c => c.parentId).forEach(c => {
+    const pid = c.parentId!;
+    if (!byParent.has(pid)) byParent.set(pid, []);
+    byParent.get(pid)!.push(c);
+  });
+  const toNode = (c: OperatorComment): OperatorCommentNode => {
+    const replies = (byParent.get(c.id) ?? []).sort(
+      (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    ).map(toNode);
+    return { ...c, replies };
+  };
+  return rootComments
+    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
+    .map(toNode);
+}
+
+/* ─── Comment bubble (트리 구조: 댓글 + 대댓글) ─── */
+function CommentBubble({
+  node,
+  depth,
+  onReport,
+  onReply,
+  replyTargetId,
+  onReplySubmit,
+  onReplyCancel,
+  starColor,
+}: {
+  node: OperatorCommentNode;
+  depth: number;
+  onReport: (comment: OperatorComment) => void;
+  onReply: (parentId: string) => void;
+  replyTargetId: string | null;
+  onReplySubmit: (parentId: string, text: string) => void;
+  onReplyCancel: () => void;
+  starColor: string;
+}) {
+  const comment = node;
   const isOperator = comment.authorRole === 'operator';
+  const isReply = depth > 0;
   const timeLabel = new Date(comment.createdAt).toLocaleDateString('ko-KR', {
     month: 'short', day: 'numeric',
   });
 
   return (
-    <div className={`flex gap-2.5 ${isOperator ? '' : 'flex-row-reverse'}`}>
-      <div
-        className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0"
-        style={{
-          backgroundColor: isOperator ? 'rgba(108,92,231,0.2)' : 'rgba(59,130,246,0.15)',
-          border: `1px solid ${isOperator ? 'rgba(108,92,231,0.3)' : 'rgba(59,130,246,0.25)'}`,
-        }}
-      >
-        {comment.authorEmoji}
-      </div>
-      <div className={`flex-1 max-w-[80%] ${isOperator ? '' : 'flex flex-col items-end'}`}>
-        <div className="flex items-center gap-1.5 mb-1">
-          <span className="text-[11px] font-bold text-white">{comment.authorName}</span>
-          {isOperator && (
-            <span
-              className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
-              style={{ backgroundColor: 'rgba(108,92,231,0.2)', color: '#a78bfa' }}
-            >
-              운영자
-            </span>
-          )}
-          <span className="text-[9px] text-gray-600">{timeLabel}</span>
-        </div>
+    <div className={`relative ${isReply ? 'mt-2 pl-6' : ''}`}>
+      {isReply && (
+        <CornerDownRight className="absolute left-0 top-1 w-4 h-4 text-gray-600" style={{ opacity: 0.6 }} />
+      )}
+      <div className={`flex gap-2.5 ${isOperator ? '' : 'flex-row-reverse'}`}>
         <div
-          className="px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed"
+          className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0"
           style={{
-            backgroundColor: isOperator ? 'rgba(108,92,231,0.1)' : 'rgba(59,130,246,0.08)',
-            border: `1px solid ${isOperator ? 'rgba(108,92,231,0.2)' : 'rgba(59,130,246,0.15)'}`,
-            color: 'rgba(255,255,255,0.85)',
-            borderTopLeftRadius: isOperator ? 4 : undefined,
-            borderTopRightRadius: !isOperator ? 4 : undefined,
+            backgroundColor: isOperator ? 'rgba(108,92,231,0.2)' : 'rgba(59,130,246,0.15)',
+            border: `1px solid ${isOperator ? 'rgba(108,92,231,0.3)' : 'rgba(59,130,246,0.25)'}`,
           }}
         >
-          {comment.content}
+          {comment.authorEmoji}
+        </div>
+        <div className={`flex-1 max-w-[80%] ${isOperator ? '' : 'flex flex-col items-end'}`}>
+          <div className="flex items-center gap-1.5 mb-1">
+            <span className="text-[11px] font-bold text-white">{comment.authorName}</span>
+            {isOperator && (
+              <span
+                className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                style={{ backgroundColor: 'rgba(108,92,231,0.2)', color: '#a78bfa' }}
+              >
+                운영자
+              </span>
+            )}
+            <span className="text-[9px] text-gray-600">{timeLabel}</span>
+            <button
+              onClick={() => onReport(comment)}
+              className="p-1 rounded-lg transition-all ml-auto flex-shrink-0"
+              style={{ color: 'rgba(255,255,255,0.25)' }}
+              title="신고"
+            >
+              <Flag className="w-3.5 h-3.5" />
+            </button>
+          </div>
+          <div
+            className="px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed"
+            style={{
+              backgroundColor: isOperator ? 'rgba(108,92,231,0.1)' : 'rgba(59,130,246,0.08)',
+              border: `1px solid ${isOperator ? 'rgba(108,92,231,0.2)' : 'rgba(59,130,246,0.15)'}`,
+              color: 'rgba(255,255,255,0.85)',
+              borderTopLeftRadius: isOperator ? 4 : undefined,
+              borderTopRightRadius: !isOperator ? 4 : undefined,
+            }}
+          >
+            {comment.content}
+          </div>
+          <button
+            onClick={() => onReply(comment.id)}
+            className="mt-1.5 text-[10px] font-semibold transition-all"
+            style={{ color: 'rgba(255,255,255,0.4)' }}
+          >
+            답글 {node.replies.length > 0 ? `(${node.replies.length})` : ''}
+          </button>
         </div>
       </div>
+
+      {/* 대댓글 입력 (해당 댓글에 답글 작성 중일 때) */}
+      {replyTargetId === comment.id && (
+        <ReplyInput
+          parentAuthorName={comment.authorName}
+          onSubmit={(text) => { onReplySubmit(comment.id, text); onReplyCancel(); }}
+          onCancel={onReplyCancel}
+          starColor={starColor}
+        />
+      )}
+
+      {/* 대댓글 목록 */}
+      {node.replies.length > 0 && (
+        <div className="mt-2 space-y-2">
+          {node.replies.map((reply) => (
+            <CommentBubble
+              key={reply.id}
+              node={reply}
+              depth={depth + 1}
+              onReport={(c) => onReport(c)}
+              onReply={onReply}
+              replyTargetId={replyTargetId}
+              onReplySubmit={onReplySubmit}
+              onReplyCancel={onReplyCancel}
+              starColor={starColor}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Reply input (대댓글 입력) ─── */
+function ReplyInput({
+  parentAuthorName,
+  onSubmit,
+  onCancel,
+  starColor,
+}: {
+  parentAuthorName: string;
+  onSubmit: (text: string) => void;
+  onCancel: () => void;
+  starColor: string;
+}) {
+  const [text, setText] = useState('');
+
+  const handleSubmit = () => {
+    if (!text.trim()) return;
+    onSubmit(text.trim());
+    setText('');
+  };
+
+  return (
+    <div className="mt-2 flex gap-2 items-center pl-10">
+      <input
+        value={text}
+        onChange={e => setText(e.target.value)}
+        onKeyDown={e => {
+          if (e.key === 'Enter') handleSubmit();
+          if (e.key === 'Escape') onCancel();
+        }}
+        placeholder={`@${parentAuthorName}에게 답글...`}
+        className="flex-1 h-9 px-3 rounded-xl text-xs text-white placeholder-gray-500 outline-none"
+        style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+      />
+      <button
+        onClick={handleSubmit}
+        disabled={!text.trim()}
+        className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all active:scale-90 disabled:opacity-30"
+        style={{ backgroundColor: starColor }}
+      >
+        <Send className="w-3.5 h-3.5 text-white" />
+      </button>
+      <button
+        onClick={onCancel}
+        className="text-[10px] font-semibold text-gray-500"
+      >
+        취소
+      </button>
     </div>
   );
 }
@@ -254,6 +395,9 @@ export function SharedPlanDetailDialog({
 }: Props) {
   const [comments, setComments] = useState<OperatorComment[]>(plan.operatorComments);
   const [activeSection, setActiveSection] = useState<'timeline' | 'comments'>('timeline');
+  const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
+  const [showContentMenu, setShowContentMenu] = useState(false);
+  const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
   const commentsEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -268,9 +412,10 @@ export function SharedPlanDetailDialog({
     year: 'numeric', month: 'long', day: 'numeric',
   });
 
-  const handleSendComment = (text: string) => {
+  const handleSendComment = (text: string, parentId?: string) => {
     const newComment: OperatorComment = {
       id: `comment-${Date.now()}`,
+      parentId,
       authorId: 'current-user',
       authorName: '나',
       authorEmoji: '🧑',
@@ -282,8 +427,14 @@ export function SharedPlanDetailDialog({
     onAddComment(plan.id, newComment);
   };
 
+  const handleReplySubmit = (parentId: string, text: string) => {
+    handleSendComment(text, parentId);
+  };
+
+  const commentTree = buildCommentTree(comments);
+
   return (
-    <div className="fixed inset-0 z-50 flex flex-col">
+    <div className="fixed inset-0 z-[100] flex flex-col">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
       <div
@@ -323,13 +474,50 @@ export function SharedPlanDetailDialog({
                 </div>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ml-2"
-              style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-            >
-              <X className="w-4 h-4 text-gray-400" />
-            </button>
+            <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+              <button
+                onClick={() => setShowContentMenu(m => !m)}
+                className="w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                title="더보기"
+              >
+                <MoreVertical className="w-4 h-4 text-gray-400" />
+              </button>
+              <button
+                onClick={onClose}
+                className="w-8 h-8 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+              >
+                <X className="w-4 h-4 text-gray-400" />
+              </button>
+            </div>
+            {showContentMenu && (
+              <>
+                <div
+                  className="fixed inset-0 z-[101]"
+                  onClick={() => setShowContentMenu(false)}
+                />
+                <div
+                  className="absolute right-4 top-14 z-[102] rounded-2xl overflow-hidden w-40 shadow-2xl"
+                  style={{
+                    backgroundColor: '#1a1a38',
+                    border: '1px solid rgba(255,255,255,0.12)',
+                  }}
+                >
+                  <button
+                    onClick={() => {
+                      setShowContentMenu(false);
+                      setReportTarget({ kind: 'content', id: plan.id, title: plan.title });
+                    }}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-sm text-left transition-all"
+                    style={{ color: '#ef4444' }}
+                  >
+                    <Flag className="w-3.5 h-3.5 flex-shrink-0" />
+                    콘텐츠 신고
+                  </button>
+                </div>
+              </>
+            )}
           </div>
 
           {/* Info chips */}
@@ -420,7 +608,7 @@ export function SharedPlanDetailDialog({
         {/* ── Scrollable body ── */}
         <div className="flex-1 overflow-y-auto">
           {activeSection === 'timeline' ? (
-            <div className="px-5 py-4">
+            <div className="px-5 py-4" style={{ paddingBottom: 'max(6rem, calc(6rem + env(safe-area-inset-bottom, 0px)))' }}>
               {plan.years.length === 0 ? (
                 <div className="py-12 text-center">
                   <div className="text-4xl mb-3">📭</div>
@@ -435,7 +623,7 @@ export function SharedPlanDetailDialog({
               )}
             </div>
           ) : (
-            <div className="px-5 py-4 space-y-3">
+            <div className="px-5 py-4 space-y-3" style={{ paddingBottom: 'max(6rem, calc(6rem + env(safe-area-inset-bottom, 0px)))' }}>
               {comments.length === 0 ? (
                 <div
                   className="py-8 text-center rounded-xl"
@@ -446,8 +634,18 @@ export function SharedPlanDetailDialog({
                   <p className="text-[10px] text-gray-600 mt-0.5">첫 코멘트를 남겨보세요!</p>
                 </div>
               ) : (
-                comments.map(comment => (
-                  <CommentBubble key={comment.id} comment={comment} />
+                commentTree.map((node) => (
+                  <CommentBubble
+                    key={node.id}
+                    node={node}
+                    depth={0}
+                    onReport={(c) => setReportTarget({ kind: 'comment', id: c.id, author: c.authorName })}
+                    onReply={setReplyTargetId}
+                    replyTargetId={replyTargetId}
+                    onReplySubmit={handleReplySubmit}
+                    onReplyCancel={() => setReplyTargetId(null)}
+                    starColor={plan.starColor}
+                  />
                 ))
               )}
               <div ref={commentsEndRef} />
@@ -457,12 +655,24 @@ export function SharedPlanDetailDialog({
 
         {/* ── Comment input (sticky bottom) ── */}
         <div
-          className="flex-shrink-0 px-5 pb-8 pt-2"
-          style={{ backgroundColor: '#0e0e24' }}
+          className="flex-shrink-0 px-5 pt-2"
+          style={{
+            backgroundColor: '#0e0e24',
+            paddingBottom: 'max(2rem, env(safe-area-inset-bottom, 0px))',
+          }}
         >
           <CommentInput onSend={handleSendComment} starColor={plan.starColor} />
         </div>
       </div>
+
+      {/* ── Report modal ── */}
+      {reportTarget && (
+        <ReportModal
+          target={reportTarget}
+          accentColor={plan.starColor}
+          onClose={() => setReportTarget(null)}
+        />
+      )}
     </div>
   );
 }

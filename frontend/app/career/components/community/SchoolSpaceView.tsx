@@ -3,11 +3,13 @@
 import { useState, useMemo } from 'react';
 import {
   School as SchoolIcon, Users, Filter, Search,
-  Heart, TrendingUp, Bookmark,
+  Heart, TrendingUp, Bookmark, Clock,
 } from 'lucide-react';
 import { GRADE_YEARS } from '../../config';
 import type { SharedPlan, School } from './types';
+import communityData from '@/data/share-community.json';
 import { SharedPlanCardWithReactions } from './SharedPlanCardWithReactions';
+import { formatTimeAgo } from './formatTime';
 
 const GRADE_FILTER_OPTIONS = [
   { id: 'all', label: '전체' },
@@ -20,12 +22,13 @@ const SHARE_TYPE_FILTERS = [
   { id: 'operator', label: '운영자 공유', emoji: '🛡️' },
 ];
 
-type SortOption = 'recent' | 'likes' | 'bookmarks';
+type SortOption = 'recent' | 'updated' | 'likes' | 'bookmarks';
 
-const SORT_OPTIONS: { id: SortOption; label: string; icon: typeof Heart }[] = [
-  { id: 'recent', label: '최신순', icon: TrendingUp },
-  { id: 'likes', label: '좋아요순', icon: Heart },
-  { id: 'bookmarks', label: '즐겨찾기순', icon: Bookmark },
+const SORT_OPTION_IDS: { id: SortOption; key: string; icon: typeof Heart }[] = [
+  { id: 'recent', key: 'sortRecent', icon: TrendingUp },
+  { id: 'updated', key: 'sortUpdated', icon: Clock },
+  { id: 'likes', key: 'sortLikes', icon: Heart },
+  { id: 'bookmarks', key: 'sortBookmarks', icon: Bookmark },
 ];
 
 type Props = {
@@ -35,6 +38,7 @@ type Props = {
   bookmarkedPlanIds: string[];
   likeCounts: Record<string, number>;
   bookmarkCounts: Record<string, number>;
+  checkedPlans: Record<string, string>;
   onToggleLike: (planId: string) => void;
   onToggleBookmark: (planId: string) => void;
   onViewPlanDetail: (plan: SharedPlan) => void;
@@ -44,6 +48,7 @@ type Props = {
 export function SchoolSpaceView({
   school, sharedPlans,
   likedPlanIds, bookmarkedPlanIds, likeCounts, bookmarkCounts,
+  checkedPlans,
   onToggleLike, onToggleBookmark,
   onViewPlanDetail, onJoinSchool,
 }: Props) {
@@ -72,6 +77,9 @@ export function SchoolSpaceView({
       result = [...result].sort((a, b) => (likeCounts[b.id] ?? b.likes) - (likeCounts[a.id] ?? a.likes));
     } else if (sortBy === 'bookmarks') {
       result = [...result].sort((a, b) => (bookmarkCounts[b.id] ?? b.bookmarks) - (bookmarkCounts[a.id] ?? a.bookmarks));
+    } else if (sortBy === 'updated') {
+      const getUpdated = (p: SharedPlan) => new Date(p.updatedAt ?? p.sharedAt).getTime();
+      result = [...result].sort((a, b) => getUpdated(b) - getUpdated(a));
     } else {
       result = [...result].sort((a, b) => new Date(b.sharedAt).getTime() - new Date(a.sharedAt).getTime());
     }
@@ -118,12 +126,20 @@ export function SchoolSpaceView({
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-base font-bold text-white">{school.name}</div>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex items-center gap-2 mt-0.5 flex-wrap">
               <span className="text-[10px] text-gray-400">{school.operatorEmoji} {school.operatorName} 선생님</span>
               <span className="text-[10px] text-gray-600">·</span>
               <span className="flex items-center gap-0.5 text-[10px] text-gray-400">
                 <Users className="w-2.5 h-2.5" />{school.memberCount}명
               </span>
+              {(school.updatedAt ?? school.createdAt) && (
+                <>
+                  <span className="text-[10px] text-gray-600">·</span>
+                  <span className="flex items-center gap-0.5 text-[10px] text-gray-500">
+                    <Clock className="w-2.5 h-2.5" />최근 활동 {formatTimeAgo(school.updatedAt ?? school.createdAt)}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -173,26 +189,27 @@ export function SchoolSpaceView({
         ))}
       </div>
 
-      {/* Sort + count */}
-      <div className="flex items-center justify-between px-0.5">
-        <span className="text-xs font-semibold text-gray-400">
-          {filteredPlans.length}개 공유된 패스
+      {/* Sort + count (좌우 스크롤) */}
+      <div className="flex items-center gap-2 overflow-x-auto overflow-y-hidden scrollbar-hide -mx-0.5 pb-0.5">
+        <span className="text-xs font-semibold text-gray-400 flex-shrink-0 whitespace-nowrap">
+          {String((communityData.meta?.ui as Record<string, string>)?.sharedPlansCountFormat ?? 'N개').replace('N', String(filteredPlans.length))}
         </span>
-        <div className="flex gap-1">
-          {SORT_OPTIONS.map(opt => {
+        <div className="flex gap-1.5 flex-shrink-0">
+          {SORT_OPTION_IDS.map(opt => {
             const isActive = sortBy === opt.id;
             const Icon = opt.icon;
+            const label = (communityData.meta?.ui as Record<string, string>)?.[opt.key] ?? opt.id;
             return (
               <button
                 key={opt.id}
                 onClick={() => setSortBy(opt.id)}
-                className="flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-semibold transition-all"
+                className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[10px] font-semibold transition-all flex-shrink-0"
                 style={isActive
                   ? { backgroundColor: 'rgba(108,92,231,0.15)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.3)' }
                   : { color: 'rgba(255,255,255,0.3)' }}
               >
                 <Icon className="w-2.5 h-2.5" />
-                {opt.label}
+                {label}
               </button>
             );
           })}
@@ -215,6 +232,7 @@ export function SchoolSpaceView({
               isBookmarked={bookmarkedPlanIds.includes(plan.id)}
               likeCount={likeCounts[plan.id] ?? plan.likes}
               bookmarkCount={bookmarkCounts[plan.id] ?? plan.bookmarks}
+              checkedAt={checkedPlans[plan.id]}
               onToggleLike={() => onToggleLike(plan.id)}
               onToggleBookmark={() => onToggleBookmark(plan.id)}
               onViewDetail={() => onViewPlanDetail(plan)}

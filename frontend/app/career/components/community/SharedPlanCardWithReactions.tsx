@@ -1,8 +1,10 @@
 'use client';
 
-import { Heart, Bookmark, MessageSquare, Shield, Globe, ChevronRight } from 'lucide-react';
+import { Heart, Bookmark, MessageSquare, Shield, Globe, ChevronRight, Clock } from 'lucide-react';
 import { GRADE_YEARS, ITEM_TYPES } from '../../config';
 import type { SharedPlan } from './types';
+import communityData from '@/data/share-community.json';
+import { formatTimeAgo, formatShortDate, isRecentlyUpdated, isEdited, isOlderThanWeek } from './formatTime';
 
 type Props = {
   plan: SharedPlan;
@@ -10,6 +12,8 @@ type Props = {
   isBookmarked: boolean;
   likeCount: number;
   bookmarkCount: number;
+  /** ISO string when user last viewed this plan; used to hide "확인 필요" badge */
+  checkedAt?: string;
   onToggleLike: () => void;
   onToggleBookmark: () => void;
   onViewDetail: () => void;
@@ -17,12 +21,19 @@ type Props = {
 
 export function SharedPlanCardWithReactions({
   plan, isLiked, isBookmarked, likeCount, bookmarkCount,
+  checkedAt,
   onToggleLike, onToggleBookmark, onViewDetail,
 }: Props) {
   const isOperatorOnly = plan.shareType === 'operator';
   const commentCount = plan.operatorComments.length;
   const gradeInfo = GRADE_YEARS.find(g => g.id === plan.ownerGrade);
-  const sharedDate = new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' });
+  const displayTime = plan.updatedAt ?? plan.sharedAt;
+  const sharedDate = formatShortDate(plan.sharedAt);
+  const timeAgo = formatTimeAgo(displayTime);
+  const showNewBadge = isRecentlyUpdated(displayTime);
+  const showEdited = isEdited(plan.sharedAt, plan.updatedAt);
+  const isChecked = Boolean(checkedAt && checkedAt >= displayTime);
+  const showCheckNeededBadge = isOlderThanWeek(displayTime) && !isChecked;
 
   /* 첫 번째 학년의 첫 번째 항목 미리보기 */
   const firstYear = plan.years?.[0];
@@ -69,6 +80,23 @@ export function SharedPlanCardWithReactions({
 
             {/* Badges row */}
             <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
+              {showNewBadge && (
+                <span
+                  className="text-[9px] font-black px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(34,197,94,0.2)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.35)' }}
+                >
+                  NEW
+                </span>
+              )}
+              {showCheckNeededBadge && !showNewBadge && (
+                <span
+                  className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: '#FBBF24', border: '1px solid rgba(251,191,36,0.3)' }}
+                  title={String((communityData.meta?.ui as Record<string, string>)?.checkNeededBadgeTitle ?? '1주일 이상 경과 · 확인 필요')}
+                >
+                  {String((communityData.meta?.ui as Record<string, string>)?.checkNeededBadge ?? '확인 필요')}
+                </span>
+              )}
               {isOperatorOnly ? (
                 <span
                   className="flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full"
@@ -86,7 +114,10 @@ export function SharedPlanCardWithReactions({
               )}
               <span className="text-[10px] text-gray-500">{plan.yearCount}학년 · {plan.itemCount}개</span>
               <span className="text-[10px] text-gray-600">·</span>
-              <span className="text-[10px] text-gray-500">{sharedDate}</span>
+              <span className="flex items-center gap-0.5 text-[10px] text-gray-500" title={showEdited ? `수정됨 · ${sharedDate}` : sharedDate}>
+                {showEdited && <Clock className="w-2.5 h-2.5" />}
+                {timeAgo}
+              </span>
               {commentCount > 0 && (
                 <>
                   <span className="text-[10px] text-gray-600">·</span>

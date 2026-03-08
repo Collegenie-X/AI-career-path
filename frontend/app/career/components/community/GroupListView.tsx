@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import {
   Users, Plus, ChevronRight, Crown, MessageSquare,
-  Copy, Check, X, UserPlus, Heart, Bookmark,
+  Copy, Check, X, UserPlus, Heart, Bookmark, Clock,
 } from 'lucide-react';
 import { GRADE_YEARS } from '../../config';
 import type { CommunityGroup, SharedPlan } from './types';
 import { SharedPlanCardWithReactions } from './SharedPlanCardWithReactions';
+import { formatTimeAgo, isRecentlyUpdated } from './formatTime';
 
 function GroupCard({
   group, sharedPlansInGroup, onOpen,
@@ -39,6 +40,24 @@ function GroupCard({
             <span className="text-sm font-bold text-white">{group.name}</span>
           </div>
           <p className="text-[11px] text-gray-400 line-clamp-1 mb-2">{group.description}</p>
+
+          {/* 업데이트 시간 */}
+          {(group.updatedAt ?? group.createdAt) && (
+            <div className="flex items-center gap-1 mb-2">
+              <Clock className="w-2.5 h-2.5 text-gray-500" />
+              <span className="text-[10px] text-gray-500">
+                {formatTimeAgo(group.updatedAt ?? group.createdAt)}
+              </span>
+              {isRecentlyUpdated(group.updatedAt ?? group.createdAt) && (
+                <span
+                  className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                  style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
+                >
+                  NEW
+                </span>
+              )}
+            </div>
+          )}
 
           {/* Members preview */}
           <div className="flex items-center gap-2">
@@ -75,6 +94,7 @@ function GroupCard({
 function GroupDetailView({
   group, sharedPlans, onBack, onViewPlanDetail,
   likedPlanIds, bookmarkedPlanIds, likeCounts, bookmarkCounts,
+  checkedPlans,
   onToggleLike, onToggleBookmark,
 }: {
   group: CommunityGroup;
@@ -85,6 +105,7 @@ function GroupDetailView({
   bookmarkedPlanIds: string[];
   likeCounts: Record<string, number>;
   bookmarkCounts: Record<string, number>;
+  checkedPlans: Record<string, string>;
   onToggleLike: (planId: string) => void;
   onToggleBookmark: (planId: string) => void;
 }) {
@@ -181,6 +202,7 @@ function GroupDetailView({
               isBookmarked={bookmarkedPlanIds.includes(plan.id)}
               likeCount={likeCounts[plan.id] ?? plan.likes}
               bookmarkCount={bookmarkCounts[plan.id] ?? plan.bookmarks}
+              checkedAt={checkedPlans[plan.id]}
               onToggleLike={() => onToggleLike(plan.id)}
               onToggleBookmark={() => onToggleBookmark(plan.id)}
               onViewDetail={() => onViewPlanDetail(plan)}
@@ -279,6 +301,7 @@ type Props = {
   bookmarkedPlanIds: string[];
   likeCounts: Record<string, number>;
   bookmarkCounts: Record<string, number>;
+  checkedPlans: Record<string, string>;
   onToggleLike: (planId: string) => void;
   onToggleBookmark: (planId: string) => void;
   onViewPlanDetail: (plan: SharedPlan) => void;
@@ -287,6 +310,7 @@ type Props = {
 export function GroupListView({
   groups, sharedPlans,
   likedPlanIds, bookmarkedPlanIds, likeCounts, bookmarkCounts,
+  checkedPlans,
   onToggleLike, onToggleBookmark,
   onViewPlanDetail,
 }: Props) {
@@ -307,6 +331,7 @@ export function GroupListView({
         bookmarkedPlanIds={bookmarkedPlanIds}
         likeCounts={likeCounts}
         bookmarkCounts={bookmarkCounts}
+        checkedPlans={checkedPlans}
         onToggleLike={onToggleLike}
         onToggleBookmark={onToggleBookmark}
       />

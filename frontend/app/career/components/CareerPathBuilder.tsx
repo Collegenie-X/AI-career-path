@@ -12,6 +12,7 @@ import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
+import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
 
 /* ─── Types ─── */
 export type ItemType = 'activity' | 'award' | 'portfolio' | 'certification';
@@ -1314,85 +1315,49 @@ function Step3Planner({
 }
 
 /* ══════════════════════════════════════════
-   STEP 4 — Summary
+   STEP 4 — Summary (상세 타임라인 미리보기)
 ══════════════════════════════════════════ */
 function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: string }) {
-  const allItems = (plan.years ?? []).flatMap(y => [
+  const years = plan.years ?? [];
+  const allItems = years.flatMap(y => [
     ...y.items,
     ...(y.groups ?? []).flatMap(g => g.items),
   ]);
-  const typeCounts = allItems.reduce((acc, item) => { acc[item.type] = (acc[item.type] || 0) + 1; return acc; }, {} as Record<string, number>);
 
   return (
     <div className="space-y-5">
+      {/* 헤더: 완성 안내 */}
       <div className="rounded-2xl p-5 text-center"
         style={{ background: `linear-gradient(135deg, ${color}22, ${color}08)`, border: `1px solid ${color}33` }}>
         <div className="text-5xl mb-3">🎉</div>
         <div className="text-xl font-black text-white">커리어 패스 완성!</div>
-        <div className="text-sm text-gray-400 mt-1.5">{plan.jobEmoji} {plan.jobName} 커리어 패스가 만들어졌어요</div>
+        <div className="text-sm text-gray-400 mt-1.5">저장 후 타임라인에서 전체 로드맵을 확인하세요</div>
       </div>
 
-      <div className="grid grid-cols-2 gap-2.5">
-        <div className="rounded-xl p-3.5" style={{ background: `linear-gradient(135deg, ${color}20, ${color}08)`, border: `1px solid ${color}22` }}>
-          <div className="text-3xl font-black" style={{ color }}>{allItems.length}</div>
-          <div className="text-xs text-gray-400 mt-1">총 계획 항목</div>
-        </div>
-        <div className="rounded-xl p-3.5" style={{ background: 'linear-gradient(135deg, rgba(167,139,250,0.2), rgba(167,139,250,0.05))', border: '1px solid rgba(167,139,250,0.2)' }}>
-          <div className="text-3xl font-black text-purple-300">{(plan.years ?? []).length}</div>
-          <div className="text-xs text-gray-400 mt-1">계획 학년</div>
-        </div>
-        {Object.entries(typeCounts).map(([type, count]) => {
-          const tc = ITEM_TYPES.find(t => t.value === type)!;
-          return (
-            <div key={type} className="rounded-xl p-3.5"
-              style={{ background: `linear-gradient(135deg, ${tc.color}18, ${tc.color}06)`, border: `1px solid ${tc.color}20` }}>
-              <div className="text-3xl font-black" style={{ color: tc.color }}>{count}</div>
-              <div className="text-xs text-gray-400 mt-1">{tc.emoji} {tc.label}</div>
-            </div>
-          );
-        })}
+      {/* 왕국 → 직업 플로우 */}
+      <div className="flex items-center gap-2 flex-wrap">
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
+          style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}
+        >
+          {plan.starEmoji} {plan.starName}
+        </span>
+        <ArrowRight className="w-4 h-4 text-gray-500" />
+        <span
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
+          style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}
+        >
+          {plan.jobEmoji} {plan.jobName}
+        </span>
       </div>
 
+      {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) */}
       <div>
-        <div className="text-xs text-gray-500 uppercase tracking-wider mb-2.5 font-semibold">학년별 요약</div>
-        <div className="space-y-2">
-          {(plan.years ?? []).map(year => {
-            const yearAllItems = [...year.items, ...(year.groups ?? []).flatMap(g => g.items)];
-            const allMonths = [...new Set(yearAllItems.flatMap(it => it.months))].sort((a, b) => a - b);
-            const yearTypeCounts = yearAllItems.reduce((acc, it) => { acc[it.type] = (acc[it.type] || 0) + 1; return acc; }, {} as Record<string, number>);
-            return (
-              <div key={year.gradeId} className="flex items-center gap-3 px-4 py-3 rounded-xl"
-                style={{ backgroundColor: `${color}10`, border: `1px solid ${color}20` }}>
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
-                  style={{ backgroundColor: color, color: '#fff' }}>{year.gradeLabel}</div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-sm font-semibold text-white">
-                    {GRADE_YEARS.find(g => g.id === year.gradeId)?.fullLabel}
-                  </div>
-                  <div className="text-xs text-gray-400 mt-0.5">
-                    {year.goals[0] ? `🎯 ${year.goals[0]}${year.goals.length > 1 ? ` 외 ${year.goals.length - 1}개` : ''}` : '목표 없음'}
-                  </div>
-                  {(year.groups ?? []).length > 0 && (
-                    <div className="text-[10px] text-gray-500 mt-0.5">
-                      {(year.groups ?? []).map(g => g.label).join(' · ')}
-                    </div>
-                  )}
-                  {allMonths.length > 0 && (
-                    <div className="text-[10px] mt-0.5" style={{ color: `${color}88` }}>
-                      📅 {allMonths.map(m => `${m}월`).join('·')}
-                    </div>
-                  )}
-                </div>
-                <div className="flex gap-1.5 flex-wrap justify-end">
-                  {Object.entries(yearTypeCounts).map(([type, count]) => {
-                    const tc = ITEM_TYPES.find(t => t.value === type)!;
-                    return <span key={type} className="text-xs font-bold" style={{ color: tc.color }}>{tc.emoji}{count}</span>;
-                  })}
-                </div>
-              </div>
-            );
-          })}
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">학년별 계획</span>
+          <span className="text-[11px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>
         </div>
+        <CareerPathTimelinePreview years={years} color={color} />
       </div>
     </div>
   );

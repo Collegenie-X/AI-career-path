@@ -17,55 +17,77 @@ interface TimelineTabProps {
   onNewPlan: () => void;
 }
 
-function ItemRow({
-  item, color, onToggle, onDelete, onTitleSave,
-}: {
-  item: CareerPlanItem; color: string;
-  onToggle: () => void; onDelete: () => void; onTitleSave: (title: string) => void;
-}) {
+// ─── ItemRow ────────────────────────────────────────────────────────────────
+
+interface ItemRowProps {
+  item: CareerPlanItem;
+  color: string;
+  isEditMode: boolean;
+  onToggle: () => void;
+  onDelete: () => void;
+  onTitleSave: (title: string) => void;
+}
+
+function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave }: ItemRowProps) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(item.title);
   const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
   const checked = !!item.checked;
-  const monthLabel = item.months.length <= 3
-    ? item.months.map((m) => `${m}월`).join('·')
-    : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
+  const monthLabel =
+    item.months.length <= 3
+      ? item.months.map((m) => `${m}월`).join('·')
+      : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
-  const commit = () => {
-    const t = draft.trim();
-    if (t) onTitleSave(t);
+  const commitTitleEdit = () => {
+    const trimmed = draft.trim();
+    if (trimmed) onTitleSave(trimmed);
     else setDraft(item.title);
     setEditing(false);
   };
 
+  const handleTitlePress = () => {
+    if (!isEditMode) return;
+    setDraft(item.title);
+    setEditing(true);
+  };
+
   return (
-    <View style={[styles.itemRow, {
-      backgroundColor: checked ? 'rgba(255,255,255,0.02)' : (tc?.color ?? color) + '0e',
-      borderColor: checked ? 'rgba(255,255,255,0.06)' : (tc?.color ?? color) + '28',
-      opacity: checked ? 0.55 : 1,
-    }]}>
+    <View
+      style={[
+        styles.itemRow,
+        {
+          backgroundColor: checked ? 'rgba(255,255,255,0.02)' : (tc?.color ?? color) + '0e',
+          borderColor: checked ? 'rgba(255,255,255,0.06)' : (tc?.color ?? color) + '28',
+          opacity: checked ? 0.55 : 1,
+        },
+      ]}
+    >
       <TouchableOpacity onPress={onToggle} style={styles.checkButton}>
         <Text style={[styles.checkboxText, { color: checked ? (tc?.color ?? color) : 'rgba(255,255,255,0.25)' }]}>
           {checked ? '☑' : '☐'}
         </Text>
       </TouchableOpacity>
+
       <View style={[styles.itemIcon, { backgroundColor: (tc?.color ?? color) + '1a', borderColor: (tc?.color ?? color) + '30' }]}>
         <Text style={{ fontSize: 16 }}>{tc?.emoji ?? '📌'}</Text>
       </View>
+
       <View style={styles.itemContent}>
         {editing ? (
           <TextInput
             value={draft}
             onChangeText={setDraft}
-            onBlur={commit}
-            onSubmitEditing={commit}
+            onBlur={commitTitleEdit}
+            onSubmitEditing={commitTitleEdit}
             style={[styles.itemTitleInput, { borderColor: tc?.color ?? color }]}
             placeholderTextColor="#4B5563"
             autoFocus
           />
         ) : (
-          <TouchableOpacity onPress={() => { setDraft(item.title); setEditing(true); }} style={styles.itemTitleTouch}>
-            <Text style={[styles.itemTitle, checked && styles.itemTitleChecked]} numberOfLines={1}>{item.title}</Text>
+          <TouchableOpacity onPress={handleTitlePress} style={styles.itemTitleTouch} disabled={!isEditMode}>
+            <Text style={[styles.itemTitle, checked && styles.itemTitleChecked]} numberOfLines={1}>
+              {item.title}
+            </Text>
           </TouchableOpacity>
         )}
         <View style={styles.itemMeta}>
@@ -75,24 +97,41 @@ function ItemRow({
           <Text style={styles.itemMonthText}>📅 {monthLabel}</Text>
         </View>
       </View>
-      <TouchableOpacity onPress={onDelete} style={styles.deleteButton}>
-        <Text style={{ fontSize: 12, color: '#EF4444' }}>✕</Text>
-      </TouchableOpacity>
+
+      {isEditMode && (
+        <TouchableOpacity onPress={onDelete} style={styles.deleteButton}>
+          <Text style={{ fontSize: 12, color: '#EF4444' }}>✕</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
 
-function GoalRow({ goal, color, onSave, onDelete }: {
-  goal: string; color: string; onSave: (v: string) => void; onDelete: () => void;
-}) {
+// ─── GoalRow ─────────────────────────────────────────────────────────────────
+
+interface GoalRowProps {
+  goal: string;
+  color: string;
+  isEditMode: boolean;
+  onSave: (value: string) => void;
+  onDelete: () => void;
+}
+
+function GoalRow({ goal, color, isEditMode, onSave, onDelete }: GoalRowProps) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(goal);
 
-  const commit = () => {
-    const t = draft.trim();
-    if (t) onSave(t);
+  const commitGoalEdit = () => {
+    const trimmed = draft.trim();
+    if (trimmed) onSave(trimmed);
     else onDelete();
     setEditing(false);
+  };
+
+  const handleGoalPress = () => {
+    if (!isEditMode) return;
+    setDraft(goal);
+    setEditing(true);
   };
 
   return (
@@ -102,28 +141,38 @@ function GoalRow({ goal, color, onSave, onDelete }: {
         <TextInput
           value={draft}
           onChangeText={setDraft}
-          onBlur={commit}
-          onSubmitEditing={commit}
+          onBlur={commitGoalEdit}
+          onSubmitEditing={commitGoalEdit}
           style={styles.goalInput}
           placeholderTextColor="#4B5563"
           autoFocus
         />
       ) : (
-        <TouchableOpacity style={styles.goalTextWrap} onPress={() => { setDraft(goal); setEditing(true); }}>
+        <TouchableOpacity style={styles.goalTextWrap} onPress={handleGoalPress} disabled={!isEditMode}>
           <Text style={styles.goalText} numberOfLines={1}>{goal}</Text>
         </TouchableOpacity>
       )}
-      <TouchableOpacity onPress={onDelete}>
-        <Text style={{ fontSize: 10, color: '#EF4444' }}>✕</Text>
-      </TouchableOpacity>
+      {isEditMode && (
+        <TouchableOpacity onPress={onDelete}>
+          <Text style={{ fontSize: 10, color: '#EF4444' }}>✕</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 }
 
-function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
-  year: CareerYearPlan; color: string; isLast: boolean;
-  onUpdate: (y: CareerYearPlan) => void; onAddItem: () => void;
-}) {
+// ─── YearNode ─────────────────────────────────────────────────────────────────
+
+interface YearNodeProps {
+  year: CareerYearPlan;
+  color: string;
+  isLast: boolean;
+  isEditMode: boolean;
+  onUpdate: (y: CareerYearPlan) => void;
+  onAddItem: () => void;
+}
+
+function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: YearNodeProps) {
   const [expanded, setExpanded] = useState(true);
   const grade = CAREER_GRADE_YEARS.find((g) => g.id === year.gradeId);
   const groupItems = (year.groups ?? []).flatMap((g) => g.items);
@@ -135,13 +184,15 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
   const toggleItemCheck = (itemId: string) => {
     onUpdate({
       ...year,
-      items: year.items.map((it) => it.id === itemId ? { ...it, checked: !it.checked } : it),
+      items: year.items.map((it) => (it.id === itemId ? { ...it, checked: !it.checked } : it)),
     });
   };
 
   const toggleCheckInGroup = (groupId: string, itemId: string) => {
     const groups = (year.groups ?? []).map((g) =>
-      g.id === groupId ? { ...g, items: g.items.map((it) => it.id === itemId ? { ...it, checked: !it.checked } : it) } : g
+      g.id === groupId
+        ? { ...g, items: g.items.map((it) => (it.id === itemId ? { ...it, checked: !it.checked } : it)) }
+        : g,
     );
     onUpdate({ ...year, groups });
   };
@@ -152,18 +203,20 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
 
   const deleteItemFromGroup = (groupId: string, itemId: string) => {
     const groups = (year.groups ?? []).map((g) =>
-      g.id === groupId ? { ...g, items: g.items.filter((it) => it.id !== itemId) } : g
+      g.id === groupId ? { ...g, items: g.items.filter((it) => it.id !== itemId) } : g,
     );
     onUpdate({ ...year, groups });
   };
 
   const saveItemTitle = (itemId: string, title: string) => {
-    onUpdate({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, title } : it) });
+    onUpdate({ ...year, items: year.items.map((it) => (it.id === itemId ? { ...it, title } : it)) });
   };
 
   const saveItemTitleInGroup = (groupId: string, itemId: string, title: string) => {
     const groups = (year.groups ?? []).map((g) =>
-      g.id === groupId ? { ...g, items: g.items.map((it) => it.id === itemId ? { ...it, title } : it) } : g
+      g.id === groupId
+        ? { ...g, items: g.items.map((it) => (it.id === itemId ? { ...it, title } : it)) }
+        : g,
     );
     onUpdate({ ...year, groups });
   };
@@ -194,9 +247,7 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
             <Text style={styles.yearItemCount}>{totalCount}개 항목</Text>
           </View>
           <View style={styles.yearHeaderRight}>
-            {totalCount > 0 && (
-              <Text style={styles.yearProgress}>{checkedCount}/{totalCount}</Text>
-            )}
+            {totalCount > 0 && <Text style={styles.yearProgress}>{checkedCount}/{totalCount}</Text>}
             <Text style={styles.chevron}>{expanded ? '▾' : '▸'}</Text>
           </View>
         </TouchableOpacity>
@@ -217,6 +268,7 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
                     key={i}
                     goal={goal}
                     color={color}
+                    isEditMode={isEditMode}
                     onSave={(v) => saveGoal(i, v)}
                     onDelete={() => deleteGoal(i)}
                   />
@@ -232,6 +284,7 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
                     key={item.id}
                     item={item}
                     color={color}
+                    isEditMode={isEditMode}
                     onToggle={() => toggleCheckInGroup(group.id, item.id)}
                     onDelete={() => deleteItemFromGroup(group.id, item.id)}
                     onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
@@ -245,15 +298,18 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
                 key={item.id}
                 item={item}
                 color={color}
+                isEditMode={isEditMode}
                 onToggle={() => toggleItemCheck(item.id)}
                 onDelete={() => deleteItem(item.id)}
                 onTitleSave={(title) => saveItemTitle(item.id, title)}
               />
             ))}
 
-            <TouchableOpacity onPress={onAddItem} style={[styles.addItemButton, { borderColor: color + '35' }]}>
-              <Text style={[styles.addItemText, { color: color + '99' }]}>+ {CAREER_LABELS.timelineAddItem}</Text>
-            </TouchableOpacity>
+            {isEditMode && (
+              <TouchableOpacity onPress={onAddItem} style={[styles.addItemButton, { borderColor: color + '35' }]}>
+                <Text style={[styles.addItemText, { color: color + '99' }]}>+ {CAREER_LABELS.timelineAddItem}</Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
       </View>
@@ -261,15 +317,63 @@ function YearNode({ year, color, isLast, onUpdate, onAddItem }: {
   );
 }
 
-function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: {
+// ─── PlanTitleEditor ──────────────────────────────────────────────────────────
+
+interface PlanTitleEditorProps {
+  title: string;
+  color: string;
+  onSave: (title: string) => void;
+}
+
+function PlanTitleEditor({ title, color, onSave }: PlanTitleEditorProps) {
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(title);
+
+  const commitTitleEdit = () => {
+    const trimmed = draft.trim();
+    if (trimmed) onSave(trimmed);
+    else setDraft(title);
+    setEditing(false);
+  };
+
+  if (editing) {
+    return (
+      <TextInput
+        value={draft}
+        onChangeText={setDraft}
+        onBlur={commitTitleEdit}
+        onSubmitEditing={commitTitleEdit}
+        style={[styles.planTitleInput, { borderColor: color }]}
+        placeholderTextColor="#4B5563"
+        placeholder={CAREER_LABELS.timelinePlanTitlePlaceholder}
+        autoFocus
+      />
+    );
+  }
+
+  return (
+    <TouchableOpacity onPress={() => { setDraft(title); setEditing(true); }} style={styles.planTitleTouch}>
+      <Text style={styles.planTitle} numberOfLines={1}>{title}</Text>
+      <Text style={[styles.planTitleEditHint, { color: color + '80' }]}>✏️</Text>
+    </TouchableOpacity>
+  );
+}
+
+// ─── PlanAccordion ────────────────────────────────────────────────────────────
+
+interface PlanAccordionProps {
   plan: CareerPlan;
   onUpdate: (p: CareerPlan) => void;
   onDelete: () => void;
   onEdit: () => void;
   onAddItemForYear: (gradeId: string) => void;
-}) {
+}
+
+function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: PlanAccordionProps) {
   const [expanded, setExpanded] = useState(true);
+  const [isEditMode, setIsEditMode] = useState(false);
   const color = plan.starColor || COLORS.primary;
+
   const totalItems = plan.years.reduce(
     (s, y) => s + y.items.length + (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0),
     0,
@@ -285,8 +389,12 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: {
   const handleUpdateYear = (updatedYear: CareerYearPlan) => {
     onUpdate({
       ...plan,
-      years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y),
+      years: plan.years.map((y) => (y.gradeId === updatedYear.gradeId ? updatedYear : y)),
     });
+  };
+
+  const handleTitleSave = (title: string) => {
+    onUpdate({ ...plan, title });
   };
 
   const handleDeleteConfirm = () => {
@@ -300,13 +408,19 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: {
     );
   };
 
+  const toggleEditMode = () => setIsEditMode((prev) => !prev);
+
   return (
     <View style={[styles.planCard, { borderColor: color + '20' }]}>
-      <TouchableOpacity onPress={() => setExpanded(!expanded)} style={styles.planHeader} activeOpacity={0.7}>
+      {/* 플랜 헤더 */}
+      <TouchableOpacity
+        onPress={() => setExpanded(!expanded)}
+        style={styles.planHeader}
+        activeOpacity={0.7}
+      >
         <View style={styles.planHeaderLeft}>
           <Text style={{ fontSize: 28 }}>{plan.starEmoji}</Text>
           <View style={styles.planHeaderInfo}>
-            <Text style={styles.planTitle} numberOfLines={1}>{plan.title}</Text>
             <View style={styles.planMeta}>
               <Text style={[styles.planMetaText, { color }]}>{plan.jobEmoji} {plan.jobName}</Text>
               <Text style={styles.planMetaDivider}>·</Text>
@@ -321,21 +435,59 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: {
 
       {expanded && (
         <View style={styles.planBody}>
+          {/* 제목 (항상 인라인 수정 가능) */}
+          <PlanTitleEditor title={plan.title} color={color} onSave={handleTitleSave} />
+
+          {/* 액션 버튼 영역 */}
           <View style={styles.planActions}>
-            <TouchableOpacity onPress={onEdit} style={[styles.actionButton, { backgroundColor: color + '18' }]}>
-              <Text style={[styles.actionButtonText, { color }]}>✏️ {CAREER_LABELS.timelineEdit}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={handleDeleteConfirm} style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}>
-              <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑 {CAREER_LABELS.timelineDelete}</Text>
-            </TouchableOpacity>
+            {isEditMode ? (
+              <>
+                <TouchableOpacity
+                  onPress={toggleEditMode}
+                  style={[styles.actionButton, { backgroundColor: color + '25', flex: 1 }]}
+                >
+                  <Text style={[styles.actionButtonText, { color }]}>✅ {CAREER_LABELS.timelineEditDone}</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={onEdit}
+                  style={[styles.actionButton, { backgroundColor: 'rgba(255,255,255,0.06)' }]}
+                >
+                  <Text style={[styles.actionButtonText, { color: '#9CA3AF' }]}>🛠 전체 수정</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={handleDeleteConfirm}
+                  style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}
+                >
+                  <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑</Text>
+                </TouchableOpacity>
+              </>
+            ) : (
+              <TouchableOpacity
+                onPress={toggleEditMode}
+                style={[styles.actionButton, { backgroundColor: color + '18', flex: 1 }]}
+              >
+                <Text style={[styles.actionButtonText, { color }]}>✏️ {CAREER_LABELS.timelineEdit}</Text>
+              </TouchableOpacity>
+            )}
           </View>
 
+          {/* 수정 모드 안내 배너 */}
+          {isEditMode && (
+            <View style={[styles.editModeBanner, { borderColor: color + '30', backgroundColor: color + '0a' }]}>
+              <Text style={[styles.editModeBannerText, { color: color + 'cc' }]}>
+                ✏️ {CAREER_LABELS.timelineEditMode} — 항목 제목 탭하여 수정, ✕ 버튼으로 삭제
+              </Text>
+            </View>
+          )}
+
+          {/* 연도별 타임라인 */}
           {plan.years.map((year, idx) => (
             <YearNode
               key={year.gradeId}
               year={year}
               color={color}
               isLast={idx === plan.years.length - 1}
+              isEditMode={isEditMode}
               onUpdate={handleUpdateYear}
               onAddItem={() => onAddItemForYear(year.gradeId)}
             />
@@ -346,6 +498,8 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: {
   );
 }
 
+// ─── TimelineTab (메인) ───────────────────────────────────────────────────────
+
 export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onNewPlan }: TimelineTabProps) {
   const [addItemTarget, setAddItemTarget] = useState<{ planId: string; gradeId: string } | null>(null);
 
@@ -353,11 +507,14 @@ export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onN
 
   const handleAddItem = (item: Omit<CareerPlanItem, 'id'>) => {
     if (!addItemTarget || !targetPlan) return;
-    const newItem: CareerPlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}` };
+    const newItem: CareerPlanItem = {
+      ...item,
+      id: `item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    };
     const updatedPlan: CareerPlan = {
       ...targetPlan,
       years: targetPlan.years.map((y) =>
-        y.gradeId === addItemTarget.gradeId ? { ...y, items: [...y.items, newItem] } : y
+        y.gradeId === addItemTarget.gradeId ? { ...y, items: [...y.items, newItem] } : y,
       ),
     };
     onUpdatePlan(updatedPlan);
@@ -415,6 +572,8 @@ export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onN
   );
 }
 
+// ─── Styles ───────────────────────────────────────────────────────────────────
+
 const styles = StyleSheet.create({
   container: { flex: 1 },
   scrollContent: { padding: SPACING.lg, gap: SPACING.lg },
@@ -422,28 +581,68 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: FONT_SIZES.lg, fontWeight: '700', color: '#fff' },
   headerCount: { fontSize: FONT_SIZES.xs, color: '#6B7280' },
 
-  planCard: { borderRadius: BORDER_RADIUS.xl, backgroundColor: 'rgba(255,255,255,0.03)', borderWidth: 1, overflow: 'hidden' },
-  planHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: SPACING.lg },
+  planCard: {
+    borderRadius: BORDER_RADIUS.xl,
+    backgroundColor: 'rgba(255,255,255,0.03)',
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+  planHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: SPACING.lg,
+  },
   planHeaderLeft: { flexDirection: 'row', alignItems: 'center', gap: SPACING.md, flex: 1 },
   planHeaderInfo: { flex: 1, gap: 2 },
-  planTitle: { fontSize: FONT_SIZES.md, fontWeight: '700', color: '#fff' },
   planMeta: { flexDirection: 'row', alignItems: 'center', gap: 4 },
   planMetaText: { fontSize: 10, color: '#9CA3AF' },
   planMetaDivider: { fontSize: 10, color: '#4B5563' },
   chevron: { fontSize: 14, color: '#6B7280' },
 
   planBody: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.lg, gap: SPACING.md },
+
+  planTitleTouch: { flexDirection: 'row', alignItems: 'center', gap: SPACING.xs },
+  planTitle: { fontSize: FONT_SIZES.md, fontWeight: '700', color: '#fff', flex: 1 },
+  planTitleEditHint: { fontSize: 12 },
+  planTitleInput: {
+    fontSize: FONT_SIZES.md,
+    fontWeight: '700',
+    color: '#fff',
+    borderBottomWidth: 1.5,
+    paddingVertical: 4,
+  },
+
   planActions: { flexDirection: 'row', gap: SPACING.sm },
-  actionButton: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.sm },
+  actionButton: {
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderRadius: BORDER_RADIUS.sm,
+    alignItems: 'center',
+  },
   actionButtonText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
+
+  editModeBanner: {
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderRadius: BORDER_RADIUS.md,
+    borderWidth: 1,
+  },
+  editModeBannerText: { fontSize: 11, fontWeight: '600' },
 
   yearNode: { flexDirection: 'row' },
   timelineTrack: { width: 38, alignItems: 'center' },
   gradeBadge: {
-    width: 38, height: 38, borderRadius: 19,
-    justifyContent: 'center', alignItems: 'center',
-    shadowOffset: { width: 0, height: 0 }, shadowOpacity: 0.5, shadowRadius: 10,
-    elevation: 6, zIndex: 1,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.5,
+    shadowRadius: 10,
+    elevation: 6,
+    zIndex: 1,
   },
   gradeBadgeText: { fontSize: 11, fontWeight: '900', color: '#fff' },
   timelineLine: { width: 2, flex: 1, marginTop: 4 },
@@ -462,20 +661,41 @@ const styles = StyleSheet.create({
   yearBody: { gap: SPACING.md, marginTop: SPACING.xs },
   goalsSection: { gap: SPACING.sm },
   sectionLabel: { fontSize: 11, fontWeight: '700', color: '#6B7280', letterSpacing: 0.5 },
-  itemsSection: { gap: SPACING.sm },
   groupSection: { gap: SPACING.sm },
   groupLabel: { fontSize: 11, fontWeight: '700', marginBottom: SPACING.xs },
-  goalInput: { flex: 1, fontSize: FONT_SIZES.sm, color: '#fff', paddingVertical: 4 },
-  goalTextWrap: { flex: 1 },
 
-  goalRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
+  goalRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.sm,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+  },
   goalDot: { width: 6, height: 6, borderRadius: 3 },
   goalText: { flex: 1, fontSize: FONT_SIZES.sm, color: '#fff' },
+  goalTextWrap: { flex: 1 },
+  goalInput: { flex: 1, fontSize: FONT_SIZES.sm, color: '#fff', paddingVertical: 4 },
 
-  itemRow: { flexDirection: 'row', alignItems: 'flex-start', gap: SPACING.sm, padding: SPACING.md, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
+  itemRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: SPACING.sm,
+    padding: SPACING.md,
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+  },
   checkButton: { marginTop: 2 },
   checkboxText: { fontSize: 14 },
-  itemIcon: { width: 36, height: 36, borderRadius: BORDER_RADIUS.lg, justifyContent: 'center', alignItems: 'center', borderWidth: 1 },
+  itemIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: BORDER_RADIUS.lg,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+  },
   itemContent: { flex: 1 },
   itemTitleTouch: { minHeight: 22 },
   itemTitle: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },
@@ -485,25 +705,51 @@ const styles = StyleSheet.create({
   itemTypeBadge: { paddingHorizontal: 6, paddingVertical: 2, borderRadius: BORDER_RADIUS.full },
   itemTypeText: { fontSize: 9, fontWeight: '700' },
   itemMonthText: { fontSize: 9, color: '#6B7280' },
-  deleteButton: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, backgroundColor: 'rgba(239,68,68,0.1)', justifyContent: 'center', alignItems: 'center' },
+  deleteButton: {
+    width: 28,
+    height: 28,
+    borderRadius: BORDER_RADIUS.sm,
+    backgroundColor: 'rgba(239,68,68,0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 
-  addItemButton: { paddingVertical: SPACING.md, borderRadius: BORDER_RADIUS.lg, borderWidth: 1, borderStyle: 'dashed', alignItems: 'center' },
+  addItemButton: {
+    paddingVertical: SPACING.md,
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    alignItems: 'center',
+  },
   addItemText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
 
   newPlanButton: {
-    paddingVertical: SPACING.lg, borderRadius: BORDER_RADIUS.lg,
-    borderWidth: 1, borderStyle: 'dashed', borderColor: 'rgba(108,92,231,0.3)',
-    backgroundColor: 'rgba(108,92,231,0.06)', alignItems: 'center',
+    paddingVertical: SPACING.lg,
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+    borderStyle: 'dashed',
+    borderColor: 'rgba(108,92,231,0.3)',
+    backgroundColor: 'rgba(108,92,231,0.06)',
+    alignItems: 'center',
   },
   newPlanButtonText: { fontSize: FONT_SIZES.sm, fontWeight: '700', color: 'rgba(108,92,231,0.7)' },
 
-  emptyContainer: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: SPACING.xxxl, gap: SPACING.md },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: SPACING.xxxl,
+    gap: SPACING.md,
+  },
   emptyEmoji: { fontSize: 56 },
   emptyTitle: { fontSize: FONT_SIZES.lg, fontWeight: '700', color: '#fff' },
   emptyDesc: { fontSize: FONT_SIZES.sm, color: '#6B7280', textAlign: 'center' },
   emptyButton: {
-    marginTop: SPACING.md, paddingHorizontal: SPACING.xxl, paddingVertical: SPACING.md,
-    borderRadius: BORDER_RADIUS.lg, backgroundColor: COLORS.primary,
+    marginTop: SPACING.md,
+    paddingHorizontal: SPACING.xxl,
+    paddingVertical: SPACING.md,
+    borderRadius: BORDER_RADIUS.lg,
+    backgroundColor: COLORS.primary,
   },
   emptyButtonText: { fontSize: FONT_SIZES.sm, fontWeight: '700', color: '#fff' },
 });

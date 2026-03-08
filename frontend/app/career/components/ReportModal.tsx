@@ -235,7 +235,10 @@ export function ReportModal({ target, accentColor = '#6C5CE7', onClose }: Props)
         {/* ── Footer buttons ── */}
         <div
           className="flex-shrink-0 p-4 border-t space-y-2"
-          style={{ borderColor: 'rgba(255,255,255,0.07)' }}
+          style={{
+            borderColor: 'rgba(255,255,255,0.07)',
+            paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+          }}
         >
           {step === 'reason' && (
             <button

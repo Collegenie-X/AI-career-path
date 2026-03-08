@@ -1,5 +1,31 @@
-import { Rocket, BookOpen, Zap, Video, School } from 'lucide-react';
+import { Rocket, BookOpen, Zap, Video, School, Flame } from 'lucide-react';
 
+/* ─── 상위 탭 (커리어 섹션과 동일한 패턴) ─── */
+export type LaunchpadTabId = 'explore' | 'community' | 'my';
+
+export const LAUNCHPAD_TABS: { id: LaunchpadTabId; label: string; emoji: string }[] = [
+  { id: 'explore',   label: '탐색',       emoji: '🔍' },
+  { id: 'community', label: '커뮤니티',   emoji: '👥' },
+  { id: 'my',        label: '내 런치패드', emoji: '🚀' },
+];
+
+/* ─── 커뮤니티 서브탭 ─── */
+export type CommunitySubTab = 'school' | 'groups';
+
+export const COMMUNITY_SUB_TABS: { id: CommunitySubTab; label: string; emoji: string }[] = [
+  { id: 'school', label: '학교 동아리', emoji: '🏫' },
+  { id: 'groups', label: '그룹',       emoji: '👥' },
+];
+
+/* ─── 내 런치패드 서브탭 ─── */
+export type MySubTab = 'joined' | 'owned';
+
+export const MY_SUB_TABS: { id: MySubTab; label: string; icon: typeof Flame }[] = [
+  { id: 'joined', label: '참여 중',     icon: Flame },
+  { id: 'owned',  label: '내가 만든 것', icon: Rocket },
+];
+
+/* ─── UI 라벨 ─── */
 export const LAUNCHPAD_LABELS = {
   title: '런치패드',
   subtitle: '커리어를 함께 실행하는 공간',
@@ -26,6 +52,14 @@ export const LAUNCHPAD_LABELS = {
   schoolRequired: '학교명 필수',
   zoomLinkPlaceholder: 'https://zoom.us/j/...',
   careerPathLink: '커리어 패스에서 가져오기',
+  communityEmpty: '아직 등록된 모임이 없어요',
+  communityEmptyDesc: '학교 동아리나 그룹을 만들어보세요',
+  groupCreateButton: '그룹 만들기',
+  groupJoinButton: '그룹 참여',
+  groupMemberCount: '멤버',
+  onlineBadge: '온라인',
+  offlineBadge: '오프라인',
+  hybridBadge: '온·오프',
 } as const;
 
 export const SESSION_TYPES = {

@@ -293,7 +293,18 @@ AI-career-path/
 │   │   │   └── components/
 │   │   │       ├── CareerPathDetailDialog.tsx  # 상세 정보 + 사용하기
 │   │   │       ├── CareerPathList.tsx          # 패스 탐색 목록
-│   │   │       └── VerticalTimelineList.tsx    # 나만의 타임라인
+│   │   │       ├── VerticalTimelineList.tsx    # 나만의 타임라인
+│   │   │       ├── CareerPathBuilder.tsx        # 전체 수정 빌더
+│   │   │       ├── ReportModal.tsx             # 신고 모달 (공통)
+│   │   │       └── community/                  # 커뮤니티 (학교 공간·그룹)
+│   │   │           ├── CommunityTab.tsx       # 학교 공간 / 그룹 탭
+│   │   │           ├── SchoolSpaceView.tsx    # 학교 공간 뷰
+│   │   │           ├── GroupListView.tsx       # 그룹 목록·상세
+│   │   │           ├── SharedPlanCardWithReactions.tsx  # 공유 패스 카드
+│   │   │           ├── SharedPlanDetailDialog.tsx       # 공유 패스 상세
+│   │   │           ├── ShareSettingsDialog.tsx          # 공유 설정
+│   │   │           ├── formatTime.ts          # 시간 포맷 유틸
+│   │   │           └── types.ts               # 커뮤니티 타입
 │   │   ├── launchpad/         # 런치패드 (세미나·프로젝트·스터디 모임)
 │   │   │   └── components/
 │   │   │       ├── SessionCard.tsx    # 세션 카드
@@ -309,6 +320,7 @@ AI-career-path/
 │   │   ├── career-paths.json  # 커리어 패스 데이터
 │   │   ├── career-path-templates.json  # 커리어 패스 템플릿
 │   │   ├── launchpad.json     # 런치패드 세션 시드 데이터
+│   │   ├── share-community.json  # 학교 공간·그룹·공유 패스 시드 데이터
 │   │   ├── badges.json        # 뱃지 데이터 (12개)
 │   │   ├── questions.json     # RIASEC 20문항
 │   │   ├── simulations.json   # 시뮬레이션 시나리오
@@ -382,6 +394,12 @@ pnpm run lint
 - [x] **나만의 타임라인 — 선택한 패스로 커리어 계획 관리**
 - [x] 커리어 패스 상세 다이얼로그 (좋아요, 즐겨찾기, 댓글, 공유)
 - [x] 커리어 패스 C2C 공유 (내부 타임라인 / 외부 링크 복사)
+- [x] **커뮤니티** — 학교 공간 · 그룹 (공유 패스 탐색)
+  - [x] 학교 공간 (학교 코드로 참여, 같은 학교 공유 패스 목록)
+  - [x] 그룹 (그룹 생성·참여, 친구 초대, 그룹 내 공유 패스)
+  - [x] 공유 패스 카드 (좋아요, 북마크, NEW/확인 필요 뱃지, 업데이트 시간)
+  - [x] 공유 패스 상세 (댓글·대댓글 트리, 신고, 운영자 공유)
+  - [x] 확인 필요 뱃지 — 1주일 이상 경과 시 표시, 상세 조회 시 사라짐 (localStorage)
 - [x] **런치패드** — 세미나 · 프로젝트 모임 · 스터디 (모임 만들기 & 참여)
   - [x] 세션 생성/수정/삭제 (CRUD)
   - [x] 참여/취소 (실시간 인원 카운트)
@@ -417,6 +435,7 @@ pnpm run lint
 | [`docs/SITEMAP.md`](frontend/docs/SITEMAP.md) | 전체 사이트맵 & 페이지 구성도 |
 | [`docs/BADGE_SYSTEM.md`](frontend/docs/BADGE_SYSTEM.md) | 뱃지 시스템 설계 가이드 |
 | [`docs/CHANGES_SUMMARY.md`](frontend/docs/CHANGES_SUMMARY.md) | 기획 및 개발 현황 |
+| [`frontend/app/career/커뮤니티_학교공간_그룹_운영자_설계.md`](frontend/app/career/커뮤니티_학교공간_그룹_운영자_설계.md) | 커뮤니티 설계서 (학교 공간·그룹·운영자) |
 
 ---
 

@@ -6,12 +6,18 @@ export type PlanItemType = 'activity' | 'award' | 'portfolio' | 'certification';
 
 export interface OperatorComment {
   id: string;
+  parentId?: string; // 없으면 최상위 댓글, 있으면 대댓글(답글)
   authorId: string;
   authorName: string;
   authorEmoji: string;
   authorRole: CommentAuthorRole;
   content: string;
   createdAt: string;
+}
+
+/** 댓글 트리 노드 (대댓글 포함) */
+export interface OperatorCommentNode extends OperatorComment {
+  replies: OperatorCommentNode[];
 }
 
 export interface SharedPlanItem {
@@ -49,6 +55,7 @@ export interface SharedPlan {
   yearCount: number;
   itemCount: number;
   sharedAt: string;
+  updatedAt?: string; // 없으면 sharedAt 사용. 코멘트·수정 시 갱신
   likes: number;
   bookmarks: number;
   years: SharedPlanYear[];
@@ -81,6 +88,7 @@ export interface CommunityGroup {
   members: GroupMember[];
   sharedPlanCount: number;
   createdAt: string;
+  updatedAt?: string; // 없으면 createdAt 또는 최신 패스 sharedAt 사용
 }
 
 export interface School {
@@ -93,4 +101,5 @@ export interface School {
   grades: string[];
   memberCount: number;
   createdAt: string;
+  updatedAt?: string; // 학교 공간 전체 최신 활동 시각
 }

@@ -1,7 +1,8 @@
 {
   "meta": {
-    "version": "1.0",
+    "version": "1.1",
     "description": "커뮤니티 학교·그룹·공유 패스 목 데이터",
+    "lastUpdated": "2025-04-28T00:00:00.000Z",
     "ui": {
       "schoolJoinTitle": "학교 참여하기",
       "schoolJoinDesc": "진로 선생님이 알려준 학교 코드를 입력하세요.\n같은 학교 친구들의 공유된 커리어 패스를 볼 수 있어요.",
@@ -23,12 +24,22 @@
       "filterAll": "전체",
       "filterPublic": "전체 공유",
       "filterOperator": "운영자 공유",
-      "sortRecent": "최신순",
-      "sortLikes": "좋아요순",
-      "sortBookmarks": "즐겨찾기순",
+      "sortRecent": "최신",
+      "sortUpdated": "갱신",
+      "sortLikes": "좋아요",
+      "sortBookmarks": "북마크",
+      "sharedPlansCountFormat": "N개",
+      "sortLabel": "정렬",
       "noPlansMatch": "조건에 맞는 공유 패스가 없어요",
       "inviteCopySuccess": "초대 링크 복사됨!",
-      "inviteCopyButton": "친구 초대하기"
+      "inviteCopyButton": "친구 초대하기",
+      "updatedAtLabel": "업데이트",
+      "editedLabel": "수정됨",
+      "newBadge": "NEW",
+      "sortByUpdated": "최근 업데이트순",
+      "lastActivityLabel": "최근 활동",
+      "checkNeededBadge": "확인 필요",
+      "checkNeededBadgeTitle": "1주일 이상 경과 · 확인 필요"
     }
   },
   "schools": [
@@ -42,7 +53,8 @@
       "grades": ["mid1", "mid2", "mid3"],
       "memberCount": 87,
       "description": "서울 강남구 소재, 진로 탐색 프로그램 우수 학교",
-      "createdAt": "2025-03-01T00:00:00.000Z"
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2025-04-21T18:30:00.000Z"
     },
     {
       "id": "school-2",
@@ -54,7 +66,8 @@
       "grades": ["elem4", "elem5", "elem6"],
       "memberCount": 124,
       "description": "인천 연수구 소재, 초등 진로 체험 중심",
-      "createdAt": "2025-02-15T00:00:00.000Z"
+      "createdAt": "2025-02-15T00:00:00.000Z",
+      "updatedAt": "2025-02-15T00:00:00.000Z"
     },
     {
       "id": "school-3",
@@ -66,7 +79,8 @@
       "grades": ["high1", "high2", "high3"],
       "memberCount": 312,
       "description": "부산 해운대구 소재, 대입 및 진로 상담 특화",
-      "createdAt": "2025-01-10T00:00:00.000Z"
+      "createdAt": "2025-01-10T00:00:00.000Z",
+      "updatedAt": "2025-01-10T00:00:00.000Z"
     }
   ],
   "groups": [
@@ -87,9 +101,10 @@
         { "id": "user-4", "name": "하은", "emoji": "👧", "grade": "mid2", "joinedAt": "2025-03-04T00:00:00.000Z", "role": "member" },
         { "id": "user-5", "name": "도윤", "emoji": "🧒", "grade": "mid3", "joinedAt": "2025-03-05T00:00:00.000Z", "role": "member" }
       ],
-      "sharedPlanCount": 3,
-      "tags": ["코딩", "IT", "개발"],
-      "createdAt": "2025-03-01T00:00:00.000Z"
+      "sharedPlanCount": 4,
+      "tags": ["코딩", "IT", "개발", "AI"],
+      "createdAt": "2025-03-01T00:00:00.000Z",
+      "updatedAt": "2025-04-28T12:00:00.000Z"
     },
     {
       "id": "group-2",
@@ -109,7 +124,8 @@
       ],
       "sharedPlanCount": 2,
       "tags": ["의료", "과학", "탐구"],
-      "createdAt": "2025-03-10T00:00:00.000Z"
+      "createdAt": "2025-03-10T00:00:00.000Z",
+      "updatedAt": "2025-04-11T16:45:00.000Z"
     },
     {
       "id": "group-3",
@@ -128,7 +144,8 @@
       ],
       "sharedPlanCount": 2,
       "tags": ["디자인", "미술", "창작"],
-      "createdAt": "2025-04-01T00:00:00.000Z"
+      "createdAt": "2025-04-01T00:00:00.000Z",
+      "updatedAt": "2025-04-07T09:00:00.000Z"
     },
     {
       "id": "group-4",
@@ -148,7 +165,8 @@
       ],
       "sharedPlanCount": 1,
       "tags": ["법률", "사회", "정의"],
-      "createdAt": "2025-04-15T00:00:00.000Z"
+      "createdAt": "2025-04-15T00:00:00.000Z",
+      "updatedAt": "2025-04-21T18:30:00.000Z"
     }
   ],
   "sharedPlans": [
@@ -171,6 +189,7 @@
       "yearCount": 3,
       "itemCount": 12,
       "sharedAt": "2025-03-15T00:00:00.000Z",
+      "updatedAt": "2026-03-08T02:00:00.000Z",
       "likes": 12,
       "bookmarks": 5,
       "years": [
@@ -219,6 +238,16 @@
           "createdAt": "2025-03-16T10:00:00.000Z"
         },
         {
+          "id": "comment-1-1",
+          "parentId": "comment-1",
+          "authorId": "user-1",
+          "authorName": "민수",
+          "authorEmoji": "👨‍💻",
+          "authorRole": "peer",
+          "content": "선생님 감사해요! 정보올림피아드 일정 찾아볼게요.",
+          "createdAt": "2025-03-16T11:30:00.000Z"
+        },
+        {
           "id": "comment-2",
           "authorId": "user-2",
           "authorName": "지현",
@@ -226,6 +255,16 @@
           "authorRole": "peer",
           "content": "나도 같이 코딩 대회 나가자! 팀 프로젝트 하면 좋겠다 😊",
           "createdAt": "2025-03-17T14:30:00.000Z"
+        },
+        {
+          "id": "comment-2-1",
+          "parentId": "comment-2",
+          "authorId": "user-1",
+          "authorName": "민수",
+          "authorEmoji": "🧑‍💻",
+          "authorRole": "peer",
+          "content": "좋아! 같이 팀 만들자 👍",
+          "createdAt": "2025-03-17T16:00:00.000Z"
         }
       ],
       "groupIds": ["group-1"],
@@ -250,6 +289,7 @@
       "yearCount": 3,
       "itemCount": 15,
       "sharedAt": "2025-03-20T00:00:00.000Z",
+      "updatedAt": "2025-03-22T08:30:00.000Z",
       "likes": 8,
       "bookmarks": 3,
       "years": [
@@ -299,6 +339,26 @@
           "authorRole": "operator",
           "content": "예린이의 계획이 매우 체계적이에요! 과학 탐구 대회도 추가해 보면 좋겠습니다.",
           "createdAt": "2025-03-21T09:00:00.000Z"
+        },
+        {
+          "id": "comment-3-1",
+          "parentId": "comment-3",
+          "authorId": "user-6",
+          "authorName": "예린",
+          "authorEmoji": "👩‍⚕️",
+          "authorRole": "peer",
+          "content": "선생님 감사합니다! 생물올림피아드 일정 확인해볼게요.",
+          "createdAt": "2025-03-21T10:15:00.000Z"
+        },
+        {
+          "id": "comment-3-2",
+          "parentId": "comment-3",
+          "authorId": "user-7",
+          "authorName": "시우",
+          "authorEmoji": "🧑‍⚕️",
+          "authorRole": "peer",
+          "content": "저도 예린이 계획 참고해서 수정할게요!",
+          "createdAt": "2025-03-22T08:30:00.000Z"
         }
       ],
       "groupIds": ["group-2"],
@@ -323,6 +383,7 @@
       "yearCount": 2,
       "itemCount": 8,
       "sharedAt": "2025-04-01T00:00:00.000Z",
+      "updatedAt": "2025-04-02T14:20:00.000Z",
       "likes": 15,
       "bookmarks": 7,
       "years": [
@@ -349,7 +410,27 @@
           ]
         }
       ],
-      "operatorComments": [],
+      "operatorComments": [
+        {
+          "id": "comment-game-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "서준이 게임 개발 포트폴리오 계획 멋지네요! 넥슨 대회 일정 미리 확인해 두세요.",
+          "createdAt": "2025-04-02T11:00:00.000Z"
+        },
+        {
+          "id": "comment-game-1-1",
+          "parentId": "comment-game-1",
+          "authorId": "user-3",
+          "authorName": "서준",
+          "authorEmoji": "🧑",
+          "authorRole": "peer",
+          "content": "네! 올해 9월에 있다고 들었어요. 준비 열심히 할게요.",
+          "createdAt": "2025-04-02T14:20:00.000Z"
+        }
+      ],
       "groupIds": ["group-1"],
       "tags": ["게임", "Unity", "개발"]
     },
@@ -372,6 +453,7 @@
       "yearCount": 3,
       "itemCount": 10,
       "sharedAt": "2025-04-05T00:00:00.000Z",
+      "updatedAt": "2025-04-07T09:00:00.000Z",
       "likes": 21,
       "bookmarks": 9,
       "years": [
@@ -416,6 +498,25 @@
           "authorRole": "operator",
           "content": "채원이 디자인 포트폴리오 준비 계획이 인상적이에요! 미술 관련 봉사활동도 고려해 보세요.",
           "createdAt": "2025-04-06T11:00:00.000Z"
+        },
+        {
+          "id": "comment-4-1",
+          "parentId": "comment-4",
+          "authorId": "user-10",
+          "authorName": "채원",
+          "authorEmoji": "🎨",
+          "authorRole": "peer",
+          "content": "감사해요! 미술관 워크숍도 찾아보고 있어요.",
+          "createdAt": "2025-04-06T15:30:00.000Z"
+        },
+        {
+          "id": "comment-4-2",
+          "authorId": "user-11",
+          "authorName": "현우",
+          "authorEmoji": "🎵",
+          "authorRole": "peer",
+          "content": "Figma 강의 추천해 주실 수 있나요?",
+          "createdAt": "2025-04-07T09:00:00.000Z"
         }
       ],
       "groupIds": ["group-3"],
@@ -440,6 +541,7 @@
       "yearCount": 3,
       "itemCount": 11,
       "sharedAt": "2025-04-10T00:00:00.000Z",
+      "updatedAt": "2025-04-11T16:45:00.000Z",
       "likes": 4,
       "bookmarks": 2,
       "years": [
@@ -476,7 +578,27 @@
           ]
         }
       ],
-      "operatorComments": [],
+      "operatorComments": [
+        {
+          "id": "comment-pharm-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "시우야, 화학올림피아드 준비 계획 좋아! 약학대학 탐방도 꼭 참여해 보세요.",
+          "createdAt": "2025-04-11T10:00:00.000Z"
+        },
+        {
+          "id": "comment-pharm-1-1",
+          "parentId": "comment-pharm-1",
+          "authorId": "user-7",
+          "authorName": "시우",
+          "authorEmoji": "🧑‍⚕️",
+          "authorRole": "peer",
+          "content": "네 선생님! 11월에 서울대 약학대학 탐방 신청해 둘게요.",
+          "createdAt": "2025-04-11T16:45:00.000Z"
+        }
+      ],
       "groupIds": ["group-2"],
       "tags": ["약사", "화학", "약학"]
     },
@@ -499,6 +621,7 @@
       "yearCount": 2,
       "itemCount": 9,
       "sharedAt": "2025-04-20T00:00:00.000Z",
+      "updatedAt": "2025-04-21T18:30:00.000Z",
       "likes": 6,
       "bookmarks": 4,
       "years": [
@@ -533,10 +656,86 @@
           "authorRole": "operator",
           "content": "준서야, 모의법정 참가 계획이 좋아! 변호사 사무소 인턴 체험도 알아보면 좋겠어요.",
           "createdAt": "2025-04-21T14:00:00.000Z"
+        },
+        {
+          "id": "comment-5-1",
+          "parentId": "comment-5",
+          "authorId": "user-13",
+          "authorName": "준서",
+          "authorEmoji": "⚖️",
+          "authorRole": "peer",
+          "content": "감사합니다! 법률구조공단 인턴 프로그램도 찾아볼게요.",
+          "createdAt": "2025-04-21T18:30:00.000Z"
         }
       ],
       "groupIds": ["group-4"],
       "tags": ["법률", "변호사", "모의법정"]
+    },
+    {
+      "id": "shared-7",
+      "planId": "plan-demo-7",
+      "ownerId": "user-2",
+      "ownerName": "지현",
+      "ownerEmoji": "👩‍💻",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "AI·데이터 분석가 로드맵",
+      "description": "파이썬, 머신러닝, 데이터 시각화까지. AI 시대를 위한 데이터 사이언스 진로 계획.",
+      "jobEmoji": "🤖",
+      "jobName": "AI·데이터 분석가",
+      "starName": "기술의 별",
+      "starEmoji": "💻",
+      "starColor": "#06B6D4",
+      "yearCount": 3,
+      "itemCount": 10,
+      "sharedAt": "2025-04-25T00:00:00.000Z",
+      "updatedAt": "2025-04-28T12:00:00.000Z",
+      "likes": 9,
+      "bookmarks": 5,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goals": ["수학 기초 다지기", "파이썬 입문"],
+          "items": [
+            { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업" },
+            { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goals": ["데이터 분석 기초", "시각화 도구 학습"],
+          "items": [
+            { "id": "o3", "type": "activity", "title": "판다스·넘파이 학습", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "인프런" },
+            { "id": "o4", "type": "portfolio", "title": "공공데이터 분석 프로젝트", "month": 8, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+            { "id": "o5", "type": "award", "title": "청소년 데이터 분석 대회", "month": 10, "difficulty": 4, "cost": "무료", "organizer": "통계청" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goals": ["머신러닝 입문", "포트폴리오 완성"],
+          "items": [
+            { "id": "o6", "type": "activity", "title": "머신러닝 기초 강의", "month": 4, "difficulty": 4, "cost": "5만원", "organizer": "패스트캠퍼스" },
+            { "id": "o7", "type": "portfolio", "title": "AI 프로젝트 포트폴리오", "month": 9, "difficulty": 4, "cost": "무료", "organizer": "개인" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-ai-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "지현이 AI 로드맵 정말 체계적이에요! 통계청 대회 일정 미리 확인해 두세요.",
+          "createdAt": "2025-04-26T09:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-1"],
+      "tags": ["AI", "데이터", "파이썬"]
     }
   ]
 }

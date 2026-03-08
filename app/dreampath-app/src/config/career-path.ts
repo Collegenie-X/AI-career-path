@@ -59,7 +59,7 @@ export const CAREER_LABELS = {
 
   tabExplore: '탐색',
   tabBuilder: '빌더',
-  tabTimeline: '타임라인',
+  tabTimeline: '내 패스',
 
   exploreHeroLabel: '커리어 패스 탐색',
   exploreHeroTitle: '나의 진로 로드맵,\n여기서 찾아보세요',
@@ -88,11 +88,15 @@ export const CAREER_LABELS = {
   timelineEmptyDescription: '빌더에서 나만의 로드맵을 만들어보세요',
   timelineCreateButton: '커리어 패스 만들기',
   timelineEdit: '수정하기',
+  timelineEditDone: '수정 완료',
+  timelineEditMode: '수정 모드',
+  timelineViewMode: '보기 모드',
   timelineDelete: '삭제',
   timelineDeleteConfirm: '삭제 확인',
   timelineDeleteCancel: '취소',
   timelineComplete: '완료',
   timelineAddItem: '항목 추가',
+  timelinePlanTitlePlaceholder: '커리어 패스 이름을 입력하세요',
 
   stepKingdom: '왕국 선택',
   stepJob: '직업 선택',
