@@ -9,7 +9,7 @@ import { GroupListView } from './GroupListView';
 type Props = {
   sessions: LaunchpadSession[];
   onDetailSession: (session: LaunchpadSession) => void;
-  onCreateSession: () => void;
+  onCreateSession: (groupId?: string) => void;
 };
 
 export function CommunityTab({ sessions, onDetailSession, onCreateSession }: Props) {

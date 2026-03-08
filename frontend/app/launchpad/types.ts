@@ -1,4 +1,4 @@
-import type { SessionType, ModeType } from './config';
+import type { SessionType, ModeType, PurposeTagKey, GroupCategoryKey } from './config';
 
 export type Resource = {
   id: string;
@@ -26,6 +26,11 @@ export type Comment = {
   replies: Reply[];
 };
 
+/* ─────────────────────────────────────────────────
+ *  탐색 모임 (개별 세션)
+ *  ─ groupId 가 있으면 커뮤니티 그룹 소속 모임
+ *  ─ groupId 가 없으면 탐색 탭에만 노출되는 독립 모임
+ * ───────────────────────────────────────────────── */
 export type LaunchpadSession = {
   id: string;
   title: string;
@@ -42,6 +47,8 @@ export type LaunchpadSession = {
   isTeacherCreated?: boolean;
   teacherName?: string;
   careerPathRef?: string;
+  purposeTags: PurposeTagKey[];
+  groupId?: string;
   maxParticipants: number;
   currentParticipants: number;
   hostName: string;
@@ -50,7 +57,9 @@ export type LaunchpadSession = {
   createdAt: string;
 };
 
-/* ─── 커뮤니티: 학교 동아리 ─── */
+/* ─────────────────────────────────────────────────
+ *  커뮤니티: 학교 동아리
+ * ───────────────────────────────────────────────── */
 export type SchoolClub = {
   id: string;
   schoolName: string;
@@ -65,12 +74,14 @@ export type SchoolClub = {
   createdAt: string;
 };
 
-/* ─── 커뮤니티: 그룹 ─── */
+/* ─────────────────────────────────────────────────
+ *  커뮤니티: 그룹
+ * ───────────────────────────────────────────────── */
 export type LaunchpadGroup = {
   id: string;
   name: string;
   description: string;
-  category: 'study' | 'project' | 'mentoring' | 'free';
+  category: GroupCategoryKey;
   mode: 'online' | 'offline' | 'hybrid';
   emoji: string;
   color: string;
@@ -82,10 +93,3 @@ export type LaunchpadGroup = {
   sessionIds: string[];
   createdAt: string;
 };
-
-export const GROUP_CATEGORIES = {
-  study:     { label: '스터디',   emoji: '📖', color: '#3B82F6' },
-  project:   { label: '프로젝트', emoji: '⚡', color: '#FBBF24' },
-  mentoring: { label: '멘토링',   emoji: '🎓', color: '#6C5CE7' },
-  free:      { label: '자유 모임', emoji: '🌟', color: '#22C55E' },
-} as const;

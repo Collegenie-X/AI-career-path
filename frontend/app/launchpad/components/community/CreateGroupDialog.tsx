@@ -2,9 +2,8 @@
 
 import { useState } from 'react';
 import { Plus, X, Video, School, Shuffle } from 'lucide-react';
-import { LAUNCHPAD_LABELS } from '../../config';
+import { LAUNCHPAD_LABELS, GROUP_CATEGORIES } from '../../config';
 import type { LaunchpadGroup } from '../../types';
-import { GROUP_CATEGORIES } from '../../types';
 
 const MODE_ICONS = {
   online: Video,

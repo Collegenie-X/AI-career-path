@@ -1,19 +1,20 @@
 'use client';
 
 import { useMemo } from 'react';
-import { Plus, Zap, ChevronRight, Target, Video, School, GraduationCap } from 'lucide-react';
+import { Plus, Zap, ChevronRight, Target, Video, School, GraduationCap, Search, Map, Trophy } from 'lucide-react';
 import { SESSION_TYPES, LAUNCHPAD_LABELS } from '../config';
 import type { LaunchpadSession } from '../types';
 import { SessionCard } from './SessionCard';
 
-/* ─── 타입 선택 탭 ─── */
-type TypeTabKey = 'all' | 'seminar' | 'career_workshop' | 'project_group';
+/* ─── 탐색 전용: 목적 기반 타입 탭 ─── */
+type TypeTabKey = 'all' | 'career_explore' | 'career_design' | 'challenge' | 'certification';
 
 const TYPE_TABS: { key: TypeTabKey; label: string; emoji: string; color: string }[] = [
-  { key: 'all',             label: '전체',     emoji: '🚀', color: '#6C5CE7' },
-  { key: 'seminar',         label: '세미나',   emoji: '📖', color: '#3B82F6' },
-  { key: 'career_workshop', label: '워크숍',   emoji: '🗺️', color: '#6C5CE7' },
-  { key: 'project_group',   label: '프로젝트', emoji: '⚡', color: '#FBBF24' },
+  { key: 'all',            label: '전체',       emoji: '🚀', color: '#6C5CE7' },
+  { key: 'career_explore', label: '진로 탐색',  emoji: '🔍', color: '#3B82F6' },
+  { key: 'career_design',  label: '커리어 설계', emoji: '🗺️', color: '#6C5CE7' },
+  { key: 'challenge',      label: '실행·도전',  emoji: '⚡', color: '#FBBF24' },
+  { key: 'certification',  label: '자격·수상',  emoji: '🏆', color: '#22C55E' },
 ];
 
 /* ─── 모드 필터 탭 ─── */
@@ -22,7 +23,7 @@ type ModeFilterKey = 'all' | 'online' | 'offline' | 'teacher';
 const MODE_FILTER_TABS: { key: ModeFilterKey; label: string; icon: React.ElementType; color: string }[] = [
   { key: 'all',     label: '전체',     icon: Target,         color: '#6C5CE7' },
   { key: 'online',  label: 'Zoom',     icon: Video,          color: '#3B82F6' },
-  { key: 'offline', label: '동아리',   icon: School,         color: '#22C55E' },
+  { key: 'offline', label: '오프라인', icon: School,         color: '#22C55E' },
   { key: 'teacher', label: '진로교사', icon: GraduationCap,  color: '#FBBF24' },
 ];
 
@@ -59,50 +60,52 @@ export function ExploreTab({
   onOpenForm,
   onOpenQuick,
 }: Props) {
+  const independentSessions = useMemo(
+    () => sessions.filter(s => !s.groupId),
+    [sessions],
+  );
+
   const filtered = useMemo(() =>
-    sessions.filter(s => {
+    independentSessions.filter(s => {
       const typeOk = typeFilter === 'all' || s.type === typeFilter;
       const modeOk = modeFilter === 'all'
         ? true
         : modeFilter === 'online'  ? s.mode === 'online'
-        : modeFilter === 'offline' ? s.mode === 'offline'
+        : modeFilter === 'offline' ? (s.mode === 'offline' || s.mode === 'hybrid')
         : s.isTeacherCreated === true;
       return typeOk && modeOk;
     }),
-    [sessions, typeFilter, modeFilter],
+    [independentSessions, typeFilter, modeFilter],
   );
 
   const typeCounts: Record<TypeTabKey, number> = useMemo(() => ({
-    all:             sessions.length,
-    seminar:         sessions.filter(s => s.type === 'seminar').length,
-    career_workshop: sessions.filter(s => s.type === 'career_workshop').length,
-    project_group:   sessions.filter(s => s.type === 'project_group').length,
-  }), [sessions]);
+    all:            independentSessions.length,
+    career_explore: independentSessions.filter(s => s.type === 'career_explore').length,
+    career_design:  independentSessions.filter(s => s.type === 'career_design').length,
+    challenge:      independentSessions.filter(s => s.type === 'challenge').length,
+    certification:  independentSessions.filter(s => s.type === 'certification').length,
+  }), [independentSessions]);
 
   const modeCounts: Record<ModeFilterKey, number> = useMemo(() => ({
-    all:     sessions.length,
-    online:  sessions.filter(s => s.mode === 'online').length,
-    offline: sessions.filter(s => s.mode === 'offline').length,
-    teacher: sessions.filter(s => s.isTeacherCreated).length,
-  }), [sessions]);
+    all:     independentSessions.length,
+    online:  independentSessions.filter(s => s.mode === 'online').length,
+    offline: independentSessions.filter(s => s.mode === 'offline' || s.mode === 'hybrid').length,
+    teacher: independentSessions.filter(s => s.isTeacherCreated).length,
+  }), [independentSessions]);
 
   const isFiltered = typeFilter !== 'all' || modeFilter !== 'all';
 
   return (
     <div className="space-y-4">
-      {/* Hero 배너 */}
       <HeroBanner onQuick={onOpenQuick} onFull={onOpenForm} />
 
-      {/* 모드 필터 */}
       <div>
         <SectionHeader label="모임 방식" sub="Zoom 온라인 우선 활성화" accent="#3B82F6" />
         <ModeFilterTabs active={modeFilter} onChange={onModeFilterChange} counts={modeCounts} />
       </div>
 
-      {/* 타입 필터 */}
       <TypeTabs active={typeFilter} onChange={onTypeFilterChange} counts={typeCounts} />
 
-      {/* 세션 목록 */}
       {filtered.length === 0 ? (
         <EmptyState onOpen={onOpenForm} filtered={isFiltered} />
       ) : (
@@ -138,19 +141,19 @@ function SectionHeader({ label, sub, accent }: { label: string; sub?: string; ac
   );
 }
 
-/* ─── 타입 탭 ─── */
+/* ─── 타입 탭 (5개 → grid-cols-5) ─── */
 function TypeTabs({ active, onChange, counts }: {
   active: TypeTabKey;
   onChange: (k: TypeTabKey) => void;
   counts: Record<TypeTabKey, number>;
 }) {
   return (
-    <div className="grid grid-cols-4 gap-1.5">
+    <div className="grid grid-cols-5 gap-1">
       {TYPE_TABS.map(t => {
         const isActive = active === t.key;
         return (
           <button key={t.key} onClick={() => onChange(t.key)}
-            className="relative flex flex-col items-center justify-center py-2.5 px-1 rounded-2xl transition-all active:scale-95"
+            className="relative flex flex-col items-center justify-center py-2.5 px-0.5 rounded-2xl transition-all active:scale-95"
             style={isActive
               ? { background: `linear-gradient(145deg, ${t.color}30, ${t.color}18)`, border: `1.5px solid ${t.color}70`, boxShadow: `0 0 12px ${t.color}30` }
               : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1.5px solid rgba(255,255,255,0.08)' }}>
@@ -159,11 +162,11 @@ function TypeTabs({ active, onChange, counts }: {
                 style={{ backgroundColor: t.color, boxShadow: `0 0 6px ${t.color}` }} />
             )}
             <span className="text-base mb-0.5">{t.emoji}</span>
-            <span className="text-[10px] font-bold" style={{ color: isActive ? t.color : 'rgba(255,255,255,0.4)' }}>
+            <span className="text-[9px] font-bold leading-tight text-center" style={{ color: isActive ? t.color : 'rgba(255,255,255,0.4)' }}>
               {t.label}
             </span>
             {counts[t.key] > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-[9px] font-black flex items-center justify-center"
+              <span className="absolute -top-1 -right-0.5 w-4 h-4 rounded-full text-[9px] font-black flex items-center justify-center"
                 style={{ backgroundColor: isActive ? t.color : 'rgba(255,255,255,0.15)', color: isActive ? '#fff' : 'rgba(255,255,255,0.6)' }}>
                 {counts[t.key]}
               </span>
@@ -208,6 +211,13 @@ function ModeFilterTabs({ active, onChange, counts }: {
 
 /* ─── Hero 배너 ─── */
 function HeroBanner({ onQuick, onFull }: { onQuick: () => void; onFull: () => void }) {
+  const HERO_ITEMS = [
+    { emoji: '🔍', label: '진로 탐색',  sub: '직업 알아보기', color: '#3B82F6' },
+    { emoji: '🗺️', label: '커리어 설계', sub: '로드맵 작성',  color: '#6C5CE7' },
+    { emoji: '⚡', label: '실행·도전',  sub: '공모전·프로젝트', color: '#FBBF24' },
+    { emoji: '🏆', label: '자격·수상',  sub: '자격증·포트폴리오', color: '#22C55E' },
+  ];
+
   return (
     <div
       className="rounded-3xl p-5 relative overflow-hidden"
@@ -226,34 +236,30 @@ function HeroBanner({ onQuick, onFull }: { onQuick: () => void; onFull: () => vo
         <div className="flex items-center gap-2 mb-2">
           <div className="px-2 py-0.5 rounded-full text-[10px] font-black tracking-widest uppercase"
             style={{ backgroundColor: 'rgba(108,92,231,0.3)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.4)' }}>
-            🚀 LAUNCHPAD
+            🔍 탐색
           </div>
           <div className="px-2 py-0.5 rounded-full text-[10px] font-black"
             style={{ backgroundColor: 'rgba(59,130,246,0.25)', color: '#60a5fa', border: '1px solid rgba(59,130,246,0.3)' }}>
-            🔵 Zoom 중심
+            개별 모임 참여
           </div>
         </div>
         <h2 className="text-[20px] font-black text-white leading-tight mb-1">
-          커리어를 함께
+          {LAUNCHPAD_LABELS.exploreHeroTitle}
           <span className="ml-1.5 bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 bg-clip-text text-transparent">
-            실행하는 공간
+            {LAUNCHPAD_LABELS.exploreHeroHighlight}
           </span>
         </h2>
         <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-          Zoom 세미나 · 워크숍 · 학교 동아리 모임을 직접 열거나 참여해보세요
+          {LAUNCHPAD_LABELS.exploreHeroDesc}
         </p>
 
-        <div className="grid grid-cols-3 gap-1.5 mb-4">
-          {[
-            { emoji: '📖', label: '세미나', sub: 'Zoom 강연', color: '#3B82F6' },
-            { emoji: '🗺️', label: '워크숍', sub: 'Zoom 실습', color: '#6C5CE7' },
-            { emoji: '🏫', label: '동아리', sub: '학교 내', color: '#22C55E' },
-          ].map(it => (
-            <div key={it.label} className="flex-1 rounded-xl py-2 px-1.5 text-center"
+        <div className="grid grid-cols-4 gap-1 mb-4">
+          {HERO_ITEMS.map(it => (
+            <div key={it.label} className="flex-1 rounded-xl py-2 px-1 text-center"
               style={{ backgroundColor: `${it.color}15`, border: `1px solid ${it.color}28` }}>
               <div className="text-lg mb-0.5">{it.emoji}</div>
-              <div className="text-[9px] font-bold leading-tight" style={{ color: it.color }}>{it.label}</div>
-              <div className="text-[8px] text-gray-600">{it.sub}</div>
+              <div className="text-[8px] font-bold leading-tight" style={{ color: it.color }}>{it.label}</div>
+              <div className="text-[7px] text-gray-600 leading-tight mt-0.5">{it.sub}</div>
             </div>
           ))}
         </div>
@@ -292,7 +298,7 @@ function EmptyState({ onOpen, filtered }: { onOpen: () => void; filtered: boolea
       </div>
       <div className="text-center">
         <p className="text-sm font-semibold text-gray-300">
-          {filtered ? '해당 조건의 런치패드가 없어요' : LAUNCHPAD_LABELS.emptyTitle}
+          {filtered ? '해당 조건의 모임이 없어요' : LAUNCHPAD_LABELS.emptyTitle}
         </p>
         <p className="text-xs text-gray-600 mt-1">
           {filtered ? '다른 카테고리를 선택해보세요' : LAUNCHPAD_LABELS.emptyDesc}
@@ -304,7 +310,7 @@ function EmptyState({ onOpen, filtered }: { onOpen: () => void; filtered: boolea
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #5B4ED4)', color: '#fff' }}
           onClick={onOpen}
         >
-          <Plus className="w-4 h-4" />런치패드 열기
+          <Plus className="w-4 h-4" />모임 열기
         </button>
       )}
     </div>

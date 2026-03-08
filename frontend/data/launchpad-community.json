@@ -120,8 +120,8 @@
     {
       "id": "grp-005",
       "name": "창업 아이디어 랩",
-      "description": "비즈니스 아이디어를 발굴하고 검증하는 자유 모임. 매주 Zoom 브레인스토밍",
-      "category": "free",
+      "description": "비즈니스 아이디어를 발굴하고 검증하는 멘토링 모임. 매주 Zoom 브레인스토밍",
+      "category": "mentoring",
       "mode": "online",
       "emoji": "💡",
       "color": "#F59E0B",

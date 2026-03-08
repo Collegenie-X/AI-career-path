@@ -23,7 +23,7 @@ function saveJoinedClubs(set: Set<string>) {
 type Props = {
   sessions: LaunchpadSession[];
   onDetailSession: (session: LaunchpadSession) => void;
-  onCreateSession: () => void;
+  onCreateSession: (groupId?: string) => void;
 };
 
 export function SchoolClubView({ sessions, onDetailSession, onCreateSession }: Props) {

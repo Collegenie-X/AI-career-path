@@ -1,21 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { Zap, ChevronDown, CheckCircle2, Rocket, BookOpen, School, Video, X } from 'lucide-react';
+import { Zap, ChevronDown, CheckCircle2, Rocket, School, Video, X } from 'lucide-react';
 import { SESSION_TYPES, MODE_LABELS, SCHOOL_LIST, CAREER_PATH_QUICK_TEMPLATES } from '../config';
-import type { SessionType, ModeType } from '../config';
+import type { SessionType, ModeType, PurposeTagKey } from '../config';
 import type { LaunchpadSession, AgendaItem } from '../types';
 
 type Props = {
   onSubmit: (session: Omit<LaunchpadSession, 'id' | 'createdAt' | 'currentParticipants'>) => void;
   onClose: () => void;
   onOpenFullForm: () => void;
-};
-
-const TYPE_ICONS: Record<SessionType, React.ElementType> = {
-  seminar: BookOpen,
-  career_workshop: Rocket,
-  project_group: Zap,
 };
 
 /* ─── 선택 드롭다운 ─── */
@@ -103,7 +97,7 @@ function SelectBox<T extends string>({
 /* ─── 메인 QuickCreator ─── */
 export function QuickCreator({ onSubmit, onClose, onOpenFullForm }: Props) {
   const [templateId, setTemplateId] = useState<string>(CAREER_PATH_QUICK_TEMPLATES[0].id);
-  const [type, setType]             = useState<SessionType>('seminar');
+  const [type, setType]             = useState<SessionType>('career_explore');
   const [mode, setMode]             = useState<ModeType>('online');
   const [school, setSchool]         = useState<string>('');
   const [date, setDate]             = useState('');
@@ -146,6 +140,7 @@ export function QuickCreator({ onSubmit, onClose, onOpenFullForm }: Props) {
       zoomLink:        mode !== 'offline' ? (zoomLink || undefined) : undefined,
       schoolName:      mode === 'offline' ? school : undefined,
       clubName:        mode === 'offline' ? '진로 동아리' : undefined,
+      purposeTags:     [...tpl.purposeTags] as PurposeTagKey[],
       maxParticipants: mode === 'offline' ? 20 : 30,
       hostName:        hostName.trim() || '익명',
       tags:            [...tpl.tags],

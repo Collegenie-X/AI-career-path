@@ -61,6 +61,7 @@ export default function LaunchpadPage() {
   const [showQuick, setShowQuick]       = useState(false);
   const [editTarget, setEditTarget]     = useState<LaunchpadSession | null>(null);
   const [detailSession, setDetail]      = useState<LaunchpadSession | null>(null);
+  const [createForGroupId, setCreateForGroupId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     setMounted(true);
@@ -81,11 +82,18 @@ export default function LaunchpadPage() {
     setJoined(prev => { const n = new Set(prev); n.delete(id); saveSet(JOINED_KEY, n); return n; });
   };
   const handleCreate = (data: Omit<LaunchpadSession, 'id' | 'createdAt' | 'currentParticipants'>) => {
-    const s: LaunchpadSession = { ...data, id: `lp-${Date.now()}`, currentParticipants: 0, createdAt: new Date().toISOString() };
+    const s: LaunchpadSession = {
+      ...data,
+      id: `lp-${Date.now()}`,
+      currentParticipants: 0,
+      createdAt: new Date().toISOString(),
+      groupId: createForGroupId ?? data.groupId,
+    };
     setSessions(prev => { const n = [s, ...prev]; saveSessions(n); return n; });
     setOwned(prev => { const n = new Set(prev).add(s.id); saveSet(OWNER_KEY, n); return n; });
     setShowForm(false);
     setShowQuick(false);
+    setCreateForGroupId(undefined);
   };
   const handleUpdate = (data: Omit<LaunchpadSession, 'id' | 'createdAt' | 'currentParticipants'>) => {
     if (!editTarget) return;
@@ -193,7 +201,10 @@ export default function LaunchpadPage() {
           <CommunityTab
             sessions={sessions}
             onDetailSession={setDetail}
-            onCreateSession={() => setShowForm(true)}
+            onCreateSession={(groupId?: string) => {
+              setCreateForGroupId(groupId);
+              setShowForm(true);
+            }}
           />
         ) : activeTab === 'my' ? (
           <MyLaunchpadTab

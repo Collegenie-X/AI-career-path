@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Users, Plus, Search, ChevronRight, Video, School, Shuffle, MessageCircle } from 'lucide-react';
-import { LAUNCHPAD_LABELS } from '../../config';
+import { LAUNCHPAD_LABELS, GROUP_CATEGORIES } from '../../config';
 import type { LaunchpadSession, LaunchpadGroup } from '../../types';
-import { GROUP_CATEGORIES } from '../../types';
 import { CreateGroupDialog } from './CreateGroupDialog';
 import communityData from '@/data/launchpad-community.json';
 
@@ -50,7 +49,7 @@ const MODE_LABELS_SHORT = {
 type Props = {
   sessions: LaunchpadSession[];
   onDetailSession: (session: LaunchpadSession) => void;
-  onCreateSession: () => void;
+  onCreateSession: (groupId?: string) => void;
 };
 
 export function GroupListView({ sessions, onDetailSession, onCreateSession }: Props) {
@@ -99,7 +98,7 @@ export function GroupListView({ sessions, onDetailSession, onCreateSession }: Pr
 
   const selectedGroup = selectedGroupId ? allGroups.find(g => g.id === selectedGroupId) : null;
   const groupSessions = selectedGroup
-    ? sessions.filter(s => selectedGroup.sessionIds.includes(s.id))
+    ? sessions.filter(s => s.groupId === selectedGroup.id || selectedGroup.sessionIds.includes(s.id))
     : [];
 
   if (selectedGroup) {
@@ -151,7 +150,7 @@ export function GroupListView({ sessions, onDetailSession, onCreateSession }: Pr
             key={group.id}
             group={group}
             isJoined={joinedGroups.has(group.id)}
-            sessionCount={sessions.filter(s => group.sessionIds.includes(s.id)).length}
+            sessionCount={sessions.filter(s => s.groupId === group.id || group.sessionIds.includes(s.id)).length}
             onSelect={() => setSelectedGroupId(group.id)}
           />
         ))
@@ -260,7 +259,7 @@ function GroupDetailView({
   onJoinGroup: () => void;
   onBack: () => void;
   onDetailSession: (session: LaunchpadSession) => void;
-  onCreateSession: () => void;
+  onCreateSession: (groupId?: string) => void;
 }) {
   const category = GROUP_CATEGORIES[group.category];
   const ModeIcon = MODE_ICONS[group.mode];
@@ -357,7 +356,7 @@ function GroupDetailView({
             )}
           </div>
           <button
-            onClick={onCreateSession}
+            onClick={() => onCreateSession(group.id)}
             className="flex items-center gap-1 text-[11px] font-bold px-3 py-1.5 rounded-lg transition-all active:scale-95"
             style={{ backgroundColor: `${group.color}18`, color: group.color, border: `1px solid ${group.color}30` }}
           >

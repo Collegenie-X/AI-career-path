@@ -2,8 +2,8 @@
 
 import { useState, useRef } from 'react';
 import { X, Plus, Trash2, CheckCircle2, Video, School, ChevronDown } from 'lucide-react';
-import { SESSION_TYPES, MODE_LABELS, SCHOOL_LIST } from '../config';
-import type { SessionType, ModeType } from '../config';
+import { SESSION_TYPES, MODE_LABELS, SCHOOL_LIST, PURPOSE_TAGS } from '../config';
+import type { SessionType, ModeType, PurposeTagKey } from '../config';
 import type { LaunchpadSession, Resource, AgendaItem } from '../types';
 
 type Props = {
@@ -177,8 +177,9 @@ export function SessionForm({ initial, onSubmit, onClose }: Props) {
   const isEdit = !!initial;
 
   const [title, setTitle]             = useState(initial?.title ?? '');
-  const [type, setType]               = useState<SessionType>(initial?.type ?? 'seminar');
+  const [type, setType]               = useState<SessionType>(initial?.type ?? 'career_explore');
   const [mode, setMode]               = useState<ModeType>(initial?.mode ?? 'online');
+  const [purposeTags, setPurposeTags] = useState<PurposeTagKey[]>(initial?.purposeTags ?? []);
   const [description, setDescription] = useState(initial?.description ?? '');
   const [agenda, setAgenda]           = useState<AgendaItem[]>(initial?.agenda ?? []);
   const [date, setDate]               = useState(initial?.date ?? '');
@@ -206,7 +207,13 @@ export function SessionForm({ initial, onSubmit, onClose }: Props) {
     ? (location || '온라인 (Zoom)')
     : (location || (schoolName ? `${schoolName} 진로실` : ''));
 
-  const canSubmit = title.trim() && date && time && (mode === 'offline' ? schoolName : true);
+  const canSubmit = title.trim() && date && time && purposeTags.length > 0 && (mode === 'offline' ? schoolName : true);
+
+  const togglePurposeTag = (key: PurposeTagKey) => {
+    setPurposeTags(prev =>
+      prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
+    );
+  };
 
   const handleSubmit = () => {
     if (!canSubmit) return;
@@ -222,6 +229,7 @@ export function SessionForm({ initial, onSubmit, onClose }: Props) {
       zoomLink: mode !== 'offline' && zoomLink.trim() ? zoomLink.trim() : undefined,
       schoolName: mode === 'offline' && schoolName ? schoolName : undefined,
       clubName: mode === 'offline' && clubName.trim() ? clubName.trim() : undefined,
+      purposeTags,
       maxParticipants,
       hostName: hostName.trim() || '익명',
       tags: tags.split(',').map(t => t.trim()).filter(Boolean),
@@ -266,7 +274,7 @@ export function SessionForm({ initial, onSubmit, onClose }: Props) {
         <div className="px-5 pt-1 pb-3 flex items-center justify-between flex-shrink-0 border-b border-white/10">
           <div>
             <div className="text-base font-bold text-white">{isEdit ? '런치패드 수정' : '런치패드 열기'}</div>
-            <div className="text-xs text-gray-500">{isEdit ? '내용을 수정하고 저장하세요' : '세미나 또는 실행 모임을 만들어보세요'}</div>
+            <div className="text-xs text-gray-500">{isEdit ? '내용을 수정하고 저장하세요' : '커리어 모임을 만들어보세요'}</div>
           </div>
           <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
             <X className="w-4 h-4 text-gray-400" />
@@ -289,19 +297,40 @@ export function SessionForm({ initial, onSubmit, onClose }: Props) {
 
             <div className="mb-3">
               <label style={lbl}>유형 *</label>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-4 gap-1.5">
                 {(Object.entries(SESSION_TYPES) as [SessionType, typeof SESSION_TYPES[SessionType]][]).map(([key, cfg]) => {
                   const Icon = cfg.icon;
                   return (
                     <button key={key}
-                      className="p-2.5 rounded-xl text-center transition-all active:scale-95"
+                      className="p-2 rounded-xl text-center transition-all active:scale-95"
                       style={type === key
                         ? { backgroundColor: cfg.bg, border: `1.5px solid ${cfg.color}60`, color: cfg.color, boxShadow: `0 0 10px ${cfg.color}20` }
                         : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#6b7280' }}
                       onClick={() => setType(key)}
                     >
                       <Icon className="w-4 h-4 mx-auto mb-1" />
-                      <div className="text-[10px] font-semibold">{cfg.label}</div>
+                      <div className="text-[9px] font-semibold leading-tight">{cfg.label}</div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <label style={lbl}>목적 태그 * <span className="text-[10px] text-gray-600">(1개 이상 선택)</span></label>
+              <div className="flex flex-wrap gap-1.5">
+                {PURPOSE_TAGS.map(tag => {
+                  const isSelected = purposeTags.includes(tag.key);
+                  return (
+                    <button key={tag.key}
+                      className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[11px] font-semibold transition-all active:scale-95"
+                      style={isSelected
+                        ? { backgroundColor: 'rgba(108,92,231,0.2)', border: '1.5px solid rgba(108,92,231,0.5)', color: '#a78bfa' }
+                        : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.1)', color: '#6b7280' }}
+                      onClick={() => togglePurposeTag(tag.key)}
+                    >
+                      <span>{tag.emoji}</span>
+                      <span>{tag.label}</span>
                     </button>
                   );
                 })}
