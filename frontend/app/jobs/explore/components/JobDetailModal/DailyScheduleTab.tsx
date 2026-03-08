@@ -5,6 +5,11 @@ import { LABELS, SCHEDULE_TYPE_COLORS, SCHEDULE_TYPE_LABELS } from '../../config
 import dailySchedulesData from '@/data/daily-schedules.json';
 import type { Job, StarData, DailySchedule } from '../../types';
 
+interface DailyScheduleTabProps {
+  job: Job;
+  star: StarData;
+}
+
 export function DailyScheduleTab({ job, star }: DailyScheduleTabProps) {
   const schedules = dailySchedulesData as Record<string, DailySchedule>;
   const schedule = job.dailySchedule ?? schedules[job.id];

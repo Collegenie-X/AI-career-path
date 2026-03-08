@@ -20,7 +20,10 @@ export function ModalTabs({ activeTab, star, onTabChange }: ModalTabsProps) {
   ];
 
   return (
-    <div className="flex-shrink-0 px-4 py-2.5 flex gap-1.5" style={{ background: 'rgba(18,18,42,0.95)' }}>
+    <div
+      className="flex-shrink-0 px-5 py-2.5 flex gap-1.5"
+      style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+    >
       {tabs.map(t => {
         const Icon = t.icon;
         const active = activeTab === t.key;

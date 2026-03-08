@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect, useMemo } from 'react';
-import { X, ChevronDown, ChevronUp, Star, Users, BookOpen, Zap, CheckCircle, XCircle, Info } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { X, ChevronDown, ChevronUp, Star, Users, BookOpen, Zap, Info } from 'lucide-react';
 import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
 import { LABELS } from '@/app/jobs/explore/config';
 
@@ -74,7 +75,7 @@ function SectionBlock({
   );
 }
 
-/* ─── Star Profile Panel (Bottom Sheet style) ─── */
+/* ─── Star Profile Panel (Bottom Sheet style — 커리어 패스 다이얼로그와 동일) ─── */
 export function StarProfilePanel({
   star,
   onClose,
@@ -82,12 +83,23 @@ export function StarProfilePanel({
   star: StarData;
   onClose: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
   const rawProfile = star.starProfile;
   const profile = useMemo(
     () => (rawProfile ? normalizeStarProfile(rawProfile as Parameters<typeof normalizeStarProfile>[0]) : null),
     [rawProfile]
   );
-  if (!profile) return null;
+
+  useEffect(() => {
+    setMounted(true);
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
+
+  if (!profile || !mounted) return null;
 
   const coreTraitsSection = profile.sections.find((s) => s.id === 'coreTraits');
   const fitSection = profile.sections.find((s) => s.id === 'fitPersonality');
@@ -96,73 +108,59 @@ export function StarProfilePanel({
   const fitItems = fitSection?.type === 'fitList' ? fitSection.fitItems : [];
   const notFitItems = fitSection?.type === 'fitList' ? fitSection.notFitItems : [];
 
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    window.addEventListener('keydown', handleEsc);
-    return () => window.removeEventListener('keydown', handleEsc);
-  }, [onClose]);
-
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 flex justify-center"
-      style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)' }}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
+      className="fixed inset-0 z-[9999] flex flex-col justify-end"
+      style={{ backgroundColor: 'rgba(0,0,0,0.82)' }}
+      onClick={onClose}
     >
       <div
-        className="relative w-full max-w-[430px] flex flex-col overflow-hidden"
+        className="w-full max-w-[430px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
         style={{
-          height: '100dvh',
-          background: 'linear-gradient(180deg, #12122a 0%, #0d0d1a 100%)',
+          backgroundColor: '#0d0d24',
+          border: '1px solid rgba(255,255,255,0.08)',
+          borderBottom: 'none',
+          maxHeight: 'calc(100vh - 56px)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Safe-area top spacer */}
-        <div style={{ height: 'env(safe-area-inset-top, 0px)' }} className="flex-shrink-0" />
-
-        {/* Header */}
+        {/* ── Header ── */}
         <div
-          className="flex-shrink-0 px-5 pt-2 pb-4 relative overflow-hidden"
-          style={{ background: `linear-gradient(135deg, ${star.bgColor}ff, ${star.bgColor}88)` }}
+          className="flex-shrink-0 px-5 py-4 relative overflow-hidden"
+          style={{
+            background: `linear-gradient(135deg, ${star.color}28, ${star.color}0a)`,
+            borderBottom: `1px solid ${star.color}30`,
+          }}
         >
-          <div className="absolute -right-4 -top-4 text-8xl opacity-10 select-none pointer-events-none">{star.emoji}</div>
-            <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-                style={{ background: `${star.color}33`, border: `2px solid ${star.color}66` }}
-              >
-                {star.emoji}
-              </div>
-              <div>
-                <div className="font-bold text-white text-lg leading-tight">{star.name}</div>
-                <div className="text-xs mt-0.5" style={{ color: `${star.color}cc` }}>
-                  {profile.meta.hollandCode}
-                </div>
+          <div className="absolute -right-4 -top-4 text-8xl opacity-10 select-none pointer-events-none">
+            {star.emoji}
+          </div>
+          <div className="flex items-start gap-3">
+            <div
+              className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+              style={{
+                width: 52,
+                height: 52,
+                background: `linear-gradient(135deg, ${star.color}40, ${star.color}18)`,
+                border: `1.5px solid ${star.color}44`,
+              }}
+            >
+              {star.emoji}
+            </div>
+            <div className="flex-1 min-w-0">
+              <h2 className="text-base font-bold text-white leading-snug">{star.name}</h2>
+              <div className="flex items-center gap-2 mt-1 flex-wrap">
+                <span className="text-xs text-gray-400">{star.description}</span>
               </div>
             </div>
             <button
               type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onClose();
-              }}
-              className="relative z-10 w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-1 transition-colors hover:bg-white/20 active:bg-white/30"
-              style={{ backgroundColor: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.15)' }}
+              onClick={(e) => { e.stopPropagation(); onClose(); }}
+              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
             >
-              <X className="w-4 h-4 text-white" />
+              <X className="w-4 h-4 text-gray-400" />
             </button>
-          </div>
-
-          {/* 간단 설명 */}
-          <div
-            className="mt-3 px-3 py-2 rounded-xl text-xs text-white/90 leading-relaxed"
-            style={{ background: `${star.color}22`, border: `1px solid ${star.color}33` }}
-          >
-            {star.description}
           </div>
 
           {/* Quick stats */}
@@ -198,10 +196,12 @@ export function StarProfilePanel({
           </div>
         </div>
 
-        {/* Scrollable body */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" style={{ WebkitOverflowScrolling: 'touch' }}>
-
-          {/* Core Traits (다이얼로그에서만 표시) */}
+        {/* ── Scrollable body ── */}
+        <div
+          className="flex-1 overflow-y-auto px-5 py-4 space-y-3"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
+          {/* Core Traits */}
           <SectionBlock title={LABELS.star_core_features_title} icon={Star} color={star.color} defaultOpen>
             <div className="grid grid-cols-2 gap-2 mt-2">
               {coreTraits.map((trait, i) => (
@@ -284,12 +284,12 @@ export function StarProfilePanel({
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {whySection.commonDNA.map((dna, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-1 rounded-full text-[10px] font-bold"
-                    style={{ background: `${star.color}20`, color: star.color, border: `1px solid ${star.color}33` }}
-                  >
-                    {dna}
+                    <span
+                      key={i}
+                      className="px-2.5 py-1 rounded-full text-[10px] font-bold"
+                      style={{ background: `${star.color}20`, color: star.color, border: `1px solid ${star.color}33` }}
+                    >
+                      {dna}
                     </span>
                   ))}
                 </div>
@@ -328,12 +328,10 @@ export function StarProfilePanel({
               </div>
             </div>
           )}
-
-          {/* Bottom padding for safe area */}
-          <div style={{ height: 'max(env(safe-area-inset-bottom, 0px), 24px)' }} />
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

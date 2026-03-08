@@ -13,13 +13,21 @@ interface ModalHeaderProps {
 export function ModalHeader({ job, star, onClose }: ModalHeaderProps) {
   return (
     <div
-      className="flex-shrink-0 flex items-center justify-between px-4 pb-3 border-b border-white/10"
-      style={{ paddingTop: 'max(16px, env(safe-area-inset-top, 16px))', background: 'rgba(18,18,42,0.98)' }}
+      className="flex-shrink-0 px-5 py-4"
+      style={{
+        background: `linear-gradient(135deg, ${star.color}28, ${star.color}0a)`,
+        borderBottom: `1px solid ${star.color}30`,
+      }}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-start gap-3">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl overflow-hidden"
-          style={{ background: `linear-gradient(135deg, ${star.color}55, ${star.color}22)`, border: `1.5px solid ${star.color}66` }}
+          className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 overflow-hidden"
+          style={{
+            width: 52,
+            height: 52,
+            background: `linear-gradient(135deg, ${star.color}40, ${star.color}18)`,
+            border: `1.5px solid ${star.color}44`,
+          }}
         >
           {JOB_ILLUSTRATIONS[job.id] ? (
             <div className="w-full h-full p-1">{JOB_ILLUSTRATIONS[job.id]}</div>
@@ -27,22 +35,22 @@ export function ModalHeader({ job, star, onClose }: ModalHeaderProps) {
             <span>{job.icon}</span>
           )}
         </div>
-        <div>
-          <div className="font-bold text-white text-base leading-tight">{job.name}</div>
-          <div className="text-xs flex items-center gap-1.5 mt-0.5">
-            <span style={{ color: star.color }}>{star.name}</span>
-            <span className="text-gray-600">·</span>
-            <span className="text-gray-400">{job.holland}</span>
+        <div className="flex-1 min-w-0">
+          <h2 className="text-base font-bold text-white leading-snug">{job.name}</h2>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="text-xs text-gray-400">{star.emoji} {star.name}</span>
+            <span className="text-xs text-gray-600">·</span>
+            <span className="text-xs text-gray-500">{job.holland}</span>
           </div>
         </div>
+        <button
+          onClick={onClose}
+          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
+        >
+          <X className="w-4 h-4 text-gray-400" />
+        </button>
       </div>
-      <button
-        onClick={onClose}
-        className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
-        style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)' }}
-      >
-        <X className="w-4 h-4 text-white" />
-      </button>
     </div>
   );
 }

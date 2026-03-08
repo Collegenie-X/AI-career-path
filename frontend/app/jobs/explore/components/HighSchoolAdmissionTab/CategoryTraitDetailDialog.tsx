@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import { X, CheckCircle, Circle, RotateCcw, Star } from 'lucide-react';
+import { CareerPathStyleDialog } from '../CareerPathStyleDialog';
 import type { HighSchoolCategory } from '../../types';
 import { CATEGORY_TRAIT_DETAIL } from './category-trait-detail-config';
 import { TRAIT_ITEMS } from './SchoolCategoryView';
@@ -47,17 +47,12 @@ function getResultMessage(score: number) {
 // ── 메인 컴포넌트 ─────────────────────────────────────────────
 
 export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDetailDialogProps) {
-  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
   const [activeTab, setActiveTab] = useState<DialogTabId>('traits');
   const [quizPhase, setQuizPhase] = useState<QuizPhase>({ phase: 'intro' });
   const [checkedItems, setCheckedItems] = useState<Set<number>>(new Set());
 
   const content = CATEGORY_TRAIT_DETAIL[category.id] ?? getDefaultContent();
   const { color: categoryColor, bgColor: categoryBgColor } = category;
-
-  useEffect(() => {
-    setPortalTarget(document.body);
-  }, []);
 
   const handleQuizAnswer = (answer: boolean) => {
     if (quizPhase.phase !== 'question') return;
@@ -84,51 +79,39 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
     });
   };
 
-  const dialogContent = (
-    <div
-      className="fixed top-0 left-0 w-screen z-[9999] flex flex-col overflow-x-hidden"
-      style={{
-        background: 'rgba(5,5,20,0.98)',
-        backdropFilter: 'blur(16px)',
-        height: '100dvh',
-      }}
-    >
-      <div
-        className="flex flex-col min-w-0 max-w-[480px] w-full mx-auto"
-        style={{ height: '100%', paddingTop: 20, paddingBottom: 20 }}
-      >
+  return (
+    <CareerPathStyleDialog onClose={onClose}>
+      <div className="flex flex-col" style={{ maxHeight: 'calc(100vh - 56px)' }}>
         {/* ── 헤더 ── */}
         <div
-          className="flex-shrink-0 px-4 pb-0"
+          className="flex-shrink-0 px-5 py-4"
           style={{
-            background: `linear-gradient(180deg, ${categoryBgColor} 0%, rgba(0,0,0,0) 100%)`,
-            borderBottom: `1px solid ${categoryColor}25`,
+            background: `linear-gradient(135deg, ${categoryColor}28, ${categoryColor}0a)`,
+            borderBottom: `1px solid ${categoryColor}30`,
           }}
         >
-          {/* 학교 유형 정보 */}
-          <div className="flex items-center justify-between pt-3 mb-3">
+          <div className="flex items-start justify-between gap-3 mb-3">
             <div className="flex items-center gap-3">
               <div
                 className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
                 style={{
-                  background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.3) 100%)`,
-                  border: `2px solid ${categoryColor}60`,
-                  boxShadow: `0 0 16px ${categoryColor}30`,
+                  background: `linear-gradient(135deg, ${categoryColor}40, ${categoryColor}18)`,
+                  border: `1.5px solid ${categoryColor}44`,
                 }}
               >
                 {category.emoji}
               </div>
               <div>
                 <h2 className="text-base font-bold text-white">{category.name}</h2>
-                <p className="text-[10px]" style={{ color: categoryColor }}>{category.description}</p>
+                <p className="text-[10px] text-gray-500 mt-0.5">{category.description}</p>
               </div>
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
               style={{ background: 'rgba(255,255,255,0.1)' }}
             >
-              <X className="w-4 h-4 text-gray-300" />
+              <X className="w-4 h-4 text-gray-400" />
             </button>
           </div>
 
@@ -156,7 +139,10 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
         </div>
 
         {/* ── 콘텐츠 ── */}
-        <div className="flex-1 overflow-y-auto overflow-x-hidden min-w-0" style={{ paddingBottom: 24 }}>
+        <div
+          className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 min-w-0"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           {activeTab === 'traits' && (
             <TraitsTab
               category={category}
@@ -187,11 +173,8 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
           )}
         </div>
       </div>
-    </div>
+    </CareerPathStyleDialog>
   );
-
-  if (!portalTarget) return null;
-  return createPortal(dialogContent, portalTarget);
 }
 
 // ── 탭 1: 특성 상세 ───────────────────────────────────────────

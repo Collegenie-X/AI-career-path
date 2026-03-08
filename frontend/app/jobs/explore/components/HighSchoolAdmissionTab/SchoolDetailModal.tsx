@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import {
   X, Star, MapPin, Users, BookOpen, Lightbulb, TrendingUp,
   CheckCircle, XCircle, Clock, Heart, MessageCircle, Calendar,
   Zap, Shield, Coffee, Target,
 } from 'lucide-react';
+import { CareerPathStyleDialog } from '../CareerPathStyleDialog';
 import type { HighSchoolDetail } from '../../types';
 
 type SchoolDetailModalProps = {
@@ -27,37 +27,18 @@ const DETAIL_TABS: { id: DetailTabId; label: string; emoji: string }[] = [
 
 export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onClose }: SchoolDetailModalProps) {
   const [activeTab, setActiveTab] = useState<DetailTabId>('intro');
-  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
 
-  useEffect(() => {
-    setPortalTarget(document.body);
-  }, []);
-
-  const modalContent = (
-    <div
-      className="fixed top-0 left-0 w-screen z-[9999] flex flex-col overflow-x-hidden"
-      style={{
-        background: 'rgba(0,0,0,0.96)',
-        backdropFilter: 'blur(12px)',
-        height: '100dvh',
-      }}
-    >
-      <div
-        className="flex flex-col min-w-0 max-w-[480px] w-full mx-auto"
-        style={{
-          height: '100%',
-          paddingTop: 20,
-          paddingBottom: 20,
-        }}
-      >
-      {/* 헤더 */}
-      <div
-        className="flex-shrink-0 px-4 pt-4 pb-0 min-w-0"
-        style={{
-          background: `linear-gradient(180deg, ${categoryBgColor} 0%, rgba(0,0,0,0) 100%)`,
-          borderBottom: `1px solid ${categoryColor}25`,
-        }}
-      >
+  return (
+    <CareerPathStyleDialog onClose={onClose}>
+      <div className="flex flex-col" style={{ maxHeight: 'calc(100vh - 56px)' }}>
+        {/* 헤더 */}
+        <div
+          className="flex-shrink-0 px-5 py-4 min-w-0"
+          style={{
+            background: `linear-gradient(135deg, ${categoryColor}28, ${categoryColor}0a)`,
+            borderBottom: `1px solid ${categoryColor}30`,
+          }}
+        >
         {/* 학교 기본 정보 */}
         <div className="flex items-start justify-between gap-3 mb-3 min-w-0">
           <div className="flex items-center gap-3 min-w-0 flex-1 overflow-hidden">
@@ -111,10 +92,10 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
             style={{ background: 'rgba(255,255,255,0.1)' }}
           >
-            <X className="w-4 h-4 text-gray-300" />
+            <X className="w-4 h-4 text-gray-400" />
           </button>
         </div>
 
@@ -139,32 +120,32 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
             </button>
           ))}
         </div>
-      </div>
+        </div>
 
-      {/* 콘텐츠 — 상하 고정 요소와 겹치지 않도록 마진 확보 */}
-      <div className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-3 space-y-3 min-w-0" style={{ paddingBottom: 32 }}>
-        {activeTab === 'intro' && (
-          <>
-            <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
-            <AdmissionTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
-          </>
-        )}
-        {activeTab === 'roadmap' && (
-          <>
-            <CareerPathTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
-            <SurvivalTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
-          </>
-        )}
-        {activeTab === 'reallife' && (
-          <RealLifeTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
-        )}
+        {/* 콘텐츠 — 스크롤 영역 */}
+        <div
+          className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 px-5 py-4 space-y-3 min-w-0"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
+          {activeTab === 'intro' && (
+            <>
+              <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+              <AdmissionTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+            </>
+          )}
+          {activeTab === 'roadmap' && (
+            <>
+              <CareerPathTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+              <SurvivalTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+            </>
+          )}
+          {activeTab === 'reallife' && (
+            <RealLifeTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+          )}
+        </div>
       </div>
-      </div>
-    </div>
+    </CareerPathStyleDialog>
   );
-
-  if (!portalTarget) return null;
-  return createPortal(modalContent, portalTarget);
 }
 
 // ── 학교 소개 탭 ──────────────────────────────────────────────
