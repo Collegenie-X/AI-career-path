@@ -2,7 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Star, Briefcase, Map, GraduationCap } from 'lucide-react';
+import { Star, Briefcase, GraduationCap } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import exploreStar from '@/data/stars/explore-star.json';
@@ -24,15 +24,13 @@ import {
   JobDetailModal,
 } from './components';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
-import { JobCareerRouteTab } from './components/JobCareerRouteTab';
 import { LABELS } from './config';
 import type { StarData, Job } from './types';
 
-type ExploreTabId = 'star' | 'route' | 'admission';
+type ExploreTabId = 'star' | 'admission';
 
 const EXPLORE_TABS: { id: ExploreTabId; label: string; icon: React.ReactNode }[] = [
   { id: 'star', label: LABELS.explore_tab_star, icon: <Star className="w-3.5 h-3.5" /> },
-  { id: 'route', label: LABELS.explore_tab_route, icon: <Map className="w-3.5 h-3.5" /> },
   { id: 'admission', label: LABELS.explore_tab_admission, icon: <GraduationCap className="w-3.5 h-3.5" /> },
 ];
 
@@ -70,7 +68,7 @@ function JobsExploreContent() {
 
   const handleTabChange = (tabId: ExploreTabId) => {
     setActiveTab(tabId);
-    if (tabId !== 'star') {
+    if (tabId === 'admission') {
       setSelectedStar(null);
       setSelectedJob(null);
     }
@@ -167,10 +165,7 @@ function JobsExploreContent() {
           </>
         )}
 
-        {/* ── 직업별 루트 탭 ── */}
-        {activeTab === 'route' && <JobCareerRouteTab />}
-
-        {/* ── 고입전략 탭 ── */}
+        {/* ── 고입 탐색 탭 ── */}
         {activeTab === 'admission' && <HighSchoolAdmissionTab />}
       </div>
 

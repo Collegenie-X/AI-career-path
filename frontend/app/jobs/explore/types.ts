@@ -165,6 +165,153 @@ export type HighSchoolAdmissionData = {
   decisionFlowQuestions: DecisionFlowQuestion[];
 };
 
+// ─── High School Admission V2 Types (Planet UI) ──────────────
+
+export type SchoolPlanetConfig = {
+  size: 'small' | 'medium' | 'large';
+  orbitRadius: number;
+  orbitSpeed: number;
+  glowColor: string;
+};
+
+export type SchoolCategoryTraits = {
+  aptitude: string;
+  studyStyle: string;
+  identity: string;
+  mentalStrength: string;
+  gradeRequirement: string;
+  aptitudeTest: string;
+  internalGradeStrategy: string;
+};
+
+export type SchoolAdmissionStep = {
+  step: number;
+  title: string;
+  detail: string;
+  icon: string;
+};
+
+export type SchoolCareerPath = {
+  middle1: string;
+  middle2: string;
+  middle3: string;
+};
+
+export type SchoolCareerPathDetail = {
+  grade: string;
+  icon: string;
+  tasks: string[];
+  keyPoint: string;
+};
+
+export type SchoolRealTalkItem = {
+  emoji: string;
+  title: string;
+  content: string;
+};
+
+export type SchoolDailyScheduleItem = {
+  time: string;
+  activity: string;
+  emoji: string;
+};
+
+export type SchoolSurvivalTip = {
+  emoji: string;
+  tip: string;
+};
+
+export type SchoolFamousProgramDetail = {
+  name: string;
+  emoji: string;
+  description: string;
+  benefit: string;
+};
+
+export type SchoolHighlightStat = {
+  label: string;
+  value: string;
+  emoji: string;
+  color: string;
+};
+
+export type HighSchoolDetail = {
+  id: string;
+  name: string;
+  shortName: string;
+  location: string;
+  type: string;
+  emoji: string;
+  color: string;
+  difficulty: number;
+  annualAdmission: number;
+  tuition: string;
+  dormitory: boolean;
+  ibCertified: boolean;
+  specialCertification: string;
+  teachingMethod: string;
+  famousPrograms: string[];
+  famousProgramDetails?: SchoolFamousProgramDetail[];
+  studentLevel: string;
+  admissionProcess: SchoolAdmissionStep[];
+  careerPath: SchoolCareerPath;
+  careerPathDetails?: SchoolCareerPathDetail[];
+  pros: string[];
+  cons: string[];
+  admissionTip: string;
+  targetUniversities: string[];
+  alumniCareers: string[];
+  highlightStats?: SchoolHighlightStat[];
+  realTalk?: SchoolRealTalkItem[];
+  dailySchedule?: SchoolDailyScheduleItem[];
+  survivalTips?: SchoolSurvivalTip[];
+  competitionLevel?: string;
+  studyHoursPerDay?: string;
+  selfStudyRatio?: string;
+  socialLife?: string;
+  mentalHealthNote?: string;
+};
+
+export type HighSchoolCategory = {
+  id: string;
+  name: string;
+  emoji: string;
+  color: string;
+  bgColor: string;
+  description: string;
+  planet: SchoolPlanetConfig;
+  categoryTraits: SchoolCategoryTraits;
+  schools: HighSchoolDetail[];
+};
+
+export type IdentityTip = {
+  icon: string;
+  title: string;
+  detail: string;
+};
+
+export type AptitudeQuestion = {
+  id: string;
+  question: string;
+  yes: string | null;
+  no: string | null;
+};
+
+export type HighSchoolAdmissionV2Data = {
+  meta: { title: string; subtitle: string; description: string };
+  categories: HighSchoolCategory[];
+  identityAndMentalStrength: {
+    title: string;
+    description: string;
+    tips: IdentityTip[];
+  };
+  aptitudeCheckList: {
+    title: string;
+    description: string;
+    questions: AptitudeQuestion[];
+  };
+};
+
 // ─── Job Career Route Types ───────────────────────────────────
 
 export type CareerStage = {

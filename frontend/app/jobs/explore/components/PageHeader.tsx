@@ -12,7 +12,7 @@ interface PageHeaderProps {
 export function PageHeader({ selectedStar, onBack }: PageHeaderProps) {
   return (
     <div
-      className="sticky top-0 z-20 backdrop-blur-xl border-b border-white/10 px-4 py-3"
+      className="sticky top-0 z-[60] backdrop-blur-xl border-b border-white/10 px-4 py-3"
       style={{ backgroundColor: 'rgba(18,18,42,0.97)' }}
     >
       <div className="flex items-center gap-3">

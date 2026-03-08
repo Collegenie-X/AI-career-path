@@ -1,142 +1,170 @@
 'use client';
 
 import { useState } from 'react';
-import { GraduationCap, Zap } from 'lucide-react';
-import admissionData from '@/data/high-school-admission.json';
-import type { HighSchoolAdmissionData } from '../../types';
-import { HIGH_SCHOOL_LABELS } from '../../config';
-import { SchoolTypeCard } from './SchoolTypeCard';
-import { DecisionFlowCard } from './DecisionFlowCard';
+import { Brain, Zap } from 'lucide-react';
 
-const typedAdmissionData = admissionData as HighSchoolAdmissionData;
+// ── 분리된 JSON 파일 import ──────────────────────────────────
+// 카테고리별로 파일이 나뉘어 있어 유지보수가 쉽습니다.
+// 새 학교 추가 시 해당 카테고리 파일만 수정하면 됩니다.
+import metaData from '@/data/high-school/meta.json';
+import scienceHigh from '@/data/high-school/science_high.json';
+import foreignLanguage from '@/data/high-school/foreign_language.json';
+import international from '@/data/high-school/international.json';
+import ibSchool from '@/data/high-school/ib.json';
+import autonomousPublic from '@/data/high-school/autonomous_public.json';
+import autonomousPrivate from '@/data/high-school/autonomous_private.json';
+import artsSports from '@/data/high-school/arts_sports.json';
+import meister from '@/data/high-school/meister.json';
+import business from '@/data/high-school/business.json';
+import generalElite from '@/data/high-school/general_elite.json';
+
+import type { HighSchoolAdmissionV2Data, HighSchoolCategory, HighSchoolDetail } from '../../types';
+import { PlanetOrbitView } from './PlanetOrbitView';
+import { SchoolCategoryView } from './SchoolCategoryView';
+import { SchoolDetailModal } from './SchoolDetailModal';
+import { AptitudeCheckSection } from './AptitudeCheckSection';
+import { IdentityMentalSection } from './IdentityMentalSection';
+
+// 분리된 카테고리 파일을 합쳐서 기존 타입과 호환되는 데이터 구성
+const typedData: HighSchoolAdmissionV2Data = {
+  ...(metaData as unknown as Pick<HighSchoolAdmissionV2Data, 'meta' | 'identityAndMentalStrength' | 'aptitudeCheckList'>),
+  categories: [
+    scienceHigh,
+    foreignLanguage,
+    international,
+    ibSchool,
+    autonomousPublic,
+    autonomousPrivate,
+    artsSports,
+    meister,
+    business,
+    generalElite,
+  ] as unknown as HighSchoolCategory[],
+};
+
+type AdmissionViewState =
+  | { view: 'planet' }
+  | { view: 'category'; category: HighSchoolCategory }
+  | { view: 'aptitude' }
+  | { view: 'identity' };
 
 export function HighSchoolAdmissionTab() {
-  const [expandedSchoolId, setExpandedSchoolId] = useState<string | null>(null);
-  const [activeSection, setActiveSection] = useState<'guide' | 'flow'>('guide');
+  const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
+  const [selectedSchool, setSelectedSchool] = useState<HighSchoolDetail | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<HighSchoolCategory | null>(null);
 
-  const handleToggleSchool = (schoolId: string) => {
-    setExpandedSchoolId((prev) => (prev === schoolId ? null : schoolId));
+  const handleSelectCategory = (category: HighSchoolCategory) => {
+    setViewState({ view: 'category', category });
   };
 
-  const handleSelectSchoolFromFlow = (schoolId: string) => {
-    setActiveSection('guide');
-    setExpandedSchoolId(schoolId);
-    setTimeout(() => {
-      const element = document.getElementById(`school-${schoolId}`);
-      element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
+  const handleSelectSchool = (school: HighSchoolDetail, category: HighSchoolCategory) => {
+    setSelectedSchool(school);
+    setSelectedCategory(category);
   };
+
+  const handleBackToPlanet = () => {
+    setViewState({ view: 'planet' });
+  };
+
+  const currentCategory = viewState.view === 'category' ? viewState.category : null;
 
   return (
-    <div className="space-y-4">
-      {/* Intro Banner */}
-      <div
-        className="rounded-2xl p-4"
-        style={{
-          background: 'linear-gradient(135deg, rgba(132,94,247,0.2) 0%, rgba(32,201,151,0.1) 100%)',
-          border: '1px solid rgba(132,94,247,0.3)',
-        }}
-      >
-        <div className="flex items-start gap-3">
-          <div className="text-2xl">🏫</div>
-          <div>
-            <h2 className="text-sm font-bold text-white">{typedAdmissionData.meta.title}</h2>
-            <p className="text-[11px] text-gray-300 mt-0.5">{typedAdmissionData.meta.description}</p>
+    <div className="space-y-3">
+      {/* 인트로 배너 */}
+      {viewState.view === 'planet' && (
+        <div
+          className="rounded-2xl p-3"
+          style={{
+            background: 'linear-gradient(135deg, rgba(132,94,247,0.2) 0%, rgba(32,201,151,0.1) 100%)',
+            border: '1px solid rgba(132,94,247,0.3)',
+          }}
+        >
+          <div className="flex items-start gap-3">
+            <div className="text-2xl">🪐</div>
+            <div>
+              <h2 className="text-sm font-bold text-white">{typedData.meta.title}</h2>
+              <p className="text-[11px] text-gray-300 mt-0.5">{typedData.meta.description}</p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* Section Toggle */}
-      <div
-        className="flex rounded-xl p-1"
-        style={{ background: 'rgba(255,255,255,0.05)' }}
-      >
-        <button
-          onClick={() => setActiveSection('guide')}
-          className="flex-1 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-          style={{
-            background: activeSection === 'guide' ? 'rgba(132,94,247,0.3)' : 'transparent',
-            color: activeSection === 'guide' ? '#c084fc' : '#9ca3af',
-          }}
+      {/* 섹션 선택 탭 (행성 뷰에서만 표시) */}
+      {viewState.view === 'planet' && (
+        <div
+          className="flex rounded-xl p-1 gap-1"
+          style={{ background: 'rgba(255,255,255,0.05)' }}
         >
-          <GraduationCap className="w-3.5 h-3.5" />
-          {HIGH_SCHOOL_LABELS.section_guide}
-        </button>
-        <button
-          onClick={() => setActiveSection('flow')}
-          className="flex-1 py-2 rounded-lg text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-          style={{
-            background: activeSection === 'flow' ? 'rgba(251,191,36,0.2)' : 'transparent',
-            color: activeSection === 'flow' ? '#fbbf24' : '#9ca3af',
-          }}
-        >
-          <Zap className="w-3.5 h-3.5" />
-          {HIGH_SCHOOL_LABELS.section_flow}
-        </button>
-      </div>
+          <button
+            onClick={() => setViewState({ view: 'aptitude' })}
+            className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
+            style={{ background: 'transparent', color: '#9ca3af' }}
+          >
+            <Brain className="w-3.5 h-3.5" />
+            적성 체크
+          </button>
+          <button
+            onClick={() => setViewState({ view: 'identity' })}
+            className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
+            style={{ background: 'transparent', color: '#9ca3af' }}
+          >
+            <Zap className="w-3.5 h-3.5" />
+            정체성 & 멘탈
+          </button>
+        </div>
+      )}
 
-      {/* Decision Flow Section */}
-      {activeSection === 'flow' && (
-        <DecisionFlowCard
-          questions={typedAdmissionData.decisionFlowQuestions}
-          schoolTypes={typedAdmissionData.schoolTypes}
-          onSelectSchool={handleSelectSchoolFromFlow}
+      {/* 행성 궤도 뷰 */}
+      {viewState.view === 'planet' && (
+        <div className="space-y-2">
+          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider text-center">
+            🪐 행성을 눌러 학교 유형을 탐방하세요
+          </p>
+          <PlanetOrbitView
+            categories={typedData.categories}
+            onSelectCategory={handleSelectCategory}
+          />
+        </div>
+      )}
+
+      {/* 카테고리 뷰 */}
+      {viewState.view === 'category' && currentCategory && (
+        <SchoolCategoryView
+          category={currentCategory}
+          onBack={handleBackToPlanet}
+          onSelectSchool={(school) => handleSelectSchool(school, currentCategory)}
         />
       )}
 
-      {/* School Guide Section */}
-      {activeSection === 'guide' && (
-        <div className="space-y-3">
-          <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider flex items-center gap-1.5">
-            <GraduationCap className="w-3.5 h-3.5" />
-            {HIGH_SCHOOL_LABELS.school_types_title}
-          </h3>
-          {typedAdmissionData.schoolTypes.map((school) => (
-            <div key={school.id} id={`school-${school.id}`}>
-              <SchoolTypeCard
-                school={school}
-                isExpanded={expandedSchoolId === school.id}
-                onToggle={() => handleToggleSchool(school.id)}
-              />
-            </div>
-          ))}
+      {/* 적성 체크 뷰 */}
+      {viewState.view === 'aptitude' && (
+        <AptitudeCheckSection
+          data={typedData.aptitudeCheckList}
+          categories={typedData.categories}
+          onBack={handleBackToPlanet}
+          onSelectCategory={handleSelectCategory}
+        />
+      )}
 
-          {/* 2028 Changes Banner */}
-          <div
-            className="rounded-2xl p-4"
-            style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
-          >
-            <h4 className="text-xs font-bold text-yellow-400 mb-2">
-              📅 {typedAdmissionData.admissionChanges2028.title}
-            </h4>
-            <p className="text-[11px] text-gray-300 mb-3 leading-relaxed">
-              {typedAdmissionData.admissionChanges2028.impact}
-            </p>
-            <div className="space-y-2">
-              {typedAdmissionData.admissionChanges2028.changes.map((change) => (
-                <div
-                  key={change.schoolType}
-                  className="flex items-start gap-2 p-2 rounded-xl"
-                  style={{ background: 'rgba(255,255,255,0.04)' }}
-                >
-                  <span
-                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                    style={{
-                      background: change.change2028 === '유리' ? 'rgba(16,185,129,0.2)' : 'rgba(251,191,36,0.2)',
-                      color: change.change2028 === '유리' ? '#10b981' : '#f59f00',
-                    }}
-                  >
-                    {change.change2028}
-                  </span>
-                  <div>
-                    <p className="text-[11px] font-semibold text-white">{change.schoolType}</p>
-                    <p className="text-[10px] text-gray-400">{change.reason}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      {/* 정체성 & 멘탈 뷰 */}
+      {viewState.view === 'identity' && (
+        <IdentityMentalSection
+          data={typedData.identityAndMentalStrength}
+          onBack={handleBackToPlanet}
+        />
+      )}
+
+      {/* 학교 상세 모달 */}
+      {selectedSchool && selectedCategory && (
+        <SchoolDetailModal
+          school={selectedSchool}
+          categoryColor={selectedCategory.color}
+          categoryBgColor={selectedCategory.bgColor}
+          onClose={() => {
+            setSelectedSchool(null);
+            setSelectedCategory(null);
+          }}
+        />
       )}
     </div>
   );
