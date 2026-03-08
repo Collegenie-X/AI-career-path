@@ -88,7 +88,6 @@ frontend/app/jobs/
 │   │   └── JobDetailModal/           # 직업 상세 모달 (풀스크린)
 │   │       ├── index.tsx             # 모달 루트 (탭 상태, 스와이프 제스처)
 │   │       ├── ModalHeader.tsx       # 모달 상단 헤더 (직업명·닫기)
-│   │       ├── JobHeroBanner.tsx     # 직업 설명·성향·핵심역량 배너
 │   │       ├── ModalTabs.tsx         # 탭 바 (직무 프로세스·주요 일과·커리어 패스)
 │   │       ├── ProcessTab.tsx        # 직무 프로세스 탭 (단계별 슬라이드)
 │   │       ├── DailyScheduleTab.tsx  # 주요 일과 탭 (타임라인)
@@ -176,7 +175,6 @@ type Job = {
   shortDesc: string;
   description?: string;
   holland: string;              // 'R', 'I+A', 'E+S' 등 홀랜드 코드
-  coreCompetencies?: string[];  // 핵심 역량 태그
   salaryRange: string;          // '3,000~5,000만원'
   futureGrowth: number;         // 1~5 (별점)
   aiRisk: string;               // '낮음', '보통', '높음'
@@ -458,7 +456,6 @@ JobDetailModal (fixed inset-0, z-50)
 ├── 배경: rgba(0,0,0,0.75) + backdrop-blur(8px)
 └── 내용 패널 (max-w-[430px], height: 100dvh)
     ├── ModalHeader          # 직업명·별이름·홀랜드코드·닫기 버튼
-    ├── JobHeroBanner        # 직업 설명·유리한 성향·핵심역량
     ├── ModalTabs            # 탭 바 (3개 탭)
     └── 스크롤 영역 (flex-1 overflow-y-auto)
         ├── [process] ProcessTab
@@ -471,14 +468,6 @@ JobDetailModal (fixed inset-0, z-50)
 - `JOB_ILLUSTRATIONS[job.id]` SVG 있으면 일러스트, 없으면 `job.icon`
 - `safe-area-inset-top` 처리 (노치 대응)
 - X 버튼 → `onClose()` 호출
-
-### `JobHeroBanner` 컴포넌트
-
-- `parseHolland(job.holland)`: `'I+A'` → `'탐구형 + 예술형'` 변환
-  ```typescript
-  code.split('+').map(c => HOLLAND_CODE_LABELS[c.trim()] ?? c.trim()).join(' + ')
-  ```
-- `job.coreCompetencies` 배열을 태그 형태로 나열
 
 ### `ModalTabs` 컴포넌트
 
@@ -842,7 +831,6 @@ JobDetailModal 오픈 (activeTab='process', processStep=0)
 |----------|-------|------|
 | `JobDetailModal` | `job`, `star`, `onClose` | `Job`, `StarData`, `() => void` |
 | `ModalHeader` | `job`, `star`, `onClose` | `Job`, `StarData`, `() => void` |
-| `JobHeroBanner` | `job`, `star` | `Job`, `StarData` |
 | `ModalTabs` | `activeTab`, `star`, `onTabChange` | `ModalTab`, `StarData`, `(tab: ModalTab) => void` |
 | `ProcessTab` | `job`, `star`, `currentPhase`, `processStep`, `phases`, `isLastPhase`, `onStepChange` | 각 타입 참조 |
 | `DailyScheduleTab` | `job`, `star` | `Job`, `StarData` |

@@ -6,7 +6,6 @@ import { TimelineTab } from './TimelineTab';
 import { DailyScheduleTab } from './DailyScheduleTab';
 import { ModalHeader } from './ModalHeader';
 import { ModalTabs, type ModalTab } from './ModalTabs';
-import { JobHeroBanner } from './JobHeroBanner';
 import type { Job, StarData } from '../../types';
 
 interface JobDetailModalProps {
@@ -27,12 +26,11 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
           background: 'linear-gradient(180deg, #12122a 0%, #0d0d1a 100%)',
         }}
       >
+        {/* 고정: 제목 상단 + 탭 바만 */}
         <ModalHeader job={job} star={star} onClose={onClose} />
-
-        <JobHeroBanner job={job} star={star} />
-
         <ModalTabs activeTab={activeTab} star={star} onTabChange={setActiveTab} />
 
+        {/* 스크롤 영역: 직무 프로세스 등 탭 컨텐츠만 */}
         <div
           className="flex-1 overflow-y-auto"
           style={{ WebkitOverflowScrolling: 'touch' }}

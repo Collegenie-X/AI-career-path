@@ -1,328 +1,162 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo } from 'react';
 import type { StarData } from '../types';
 import { LABELS } from '../config';
+import { ChevronRight, User, BarChart2, Clock } from 'lucide-react';
+import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
 
 interface StarInfoBannerProps {
   star: StarData;
+  onOpenDetail?: () => void;
 }
 
-function DifficultyDots({ level }: { level: number }) {
+function DifficultyDots({ level, color }: { level: number; color: string }) {
   return (
     <div className="flex gap-0.5 justify-center">
       {[...Array(5)].map((_, i) => (
         <div
           key={i}
           className="w-2 h-2 rounded-full"
-          style={{ backgroundColor: i < level ? '#FBBF24' : 'rgba(255,255,255,0.1)' }}
+          style={{ backgroundColor: i < level ? color : 'rgba(255,255,255,0.15)' }}
         />
       ))}
     </div>
   );
 }
 
-function AccordionSection({
-  isExpanded,
-  onToggle,
-  backgroundColor,
-  icon,
-  title,
-  previewContent,
-  children,
-}: {
-  isExpanded: boolean;
-  onToggle: () => void;
-  backgroundColor: string;
-  icon: string;
-  title: string;
-  previewContent?: React.ReactNode;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="rounded-xl p-3" style={{ backgroundColor }}>
-      <button
-        type="button"
-        onClick={onToggle}
-        className="w-full flex items-center gap-2 text-left"
-      >
-        <span className="text-base">{icon}</span>
-        <span className="font-bold text-white text-sm flex-1">{title}</span>
-        <span className="text-xs text-gray-500 font-bold">{isExpanded ? '▼' : '▶'}</span>
-      </button>
-      {!isExpanded && previewContent}
-      {isExpanded && (
-        <div className="pt-3 mt-2 border-t border-white/6">
-          {children}
-        </div>
-      )}
-    </div>
+/**
+ * 메인 페이지(jobs/explore)용 간단 카드
+ * - 아이콘, 제목, 간단 설명, 직무 성향·난이도·준비 기간, 상세 보기 버튼
+ */
+export function StarInfoBanner({ star, onOpenDetail }: StarInfoBannerProps) {
+  const rawProfile = star.starProfile;
+  const profile = useMemo(
+    () => (rawProfile ? normalizeStarProfile(rawProfile as Parameters<typeof normalizeStarProfile>[0]) : null),
+    [rawProfile]
   );
-}
+  const hasDetail = rawProfile && onOpenDetail;
 
-export function StarInfoBanner({ star }: StarInfoBannerProps) {
-  const profile = star.starProfile;
-  const [isTraitsExpanded, setIsTraitsExpanded] = useState(false);
-  const [isFitExpanded, setIsFitExpanded] = useState(false);
-  const [isNotFitExpanded, setIsNotFitExpanded] = useState(false);
-  const [isWhyExpanded, setIsWhyExpanded] = useState(false);
-
-  if (!profile) {
-    return (
-      <div
-        className="rounded-2xl p-3 flex items-center gap-3 relative overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${star.bgColor}ee, ${star.bgColor}88)`,
-          border: `2px solid ${star.color}55`,
-        }}
-      >
-        <div className="absolute -right-3 -top-3 text-6xl opacity-10">{star.emoji}</div>
-        <div
-          className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-          style={{ background: `${star.color}33`, border: `2px solid ${star.color}66` }}
-        >
-          {star.emoji}
-        </div>
-        <div className="flex-1">
-          <div className="font-bold text-white text-base">{star.name}</div>
-          <div className="text-xs leading-relaxed mt-0.5" style={{ color: `${star.color}cc` }}>
-            {star.description}
-          </div>
-        </div>
-      </div>
-    );
-  }
-
+  const meta = profile?.meta;
+  const hollandCode = meta?.hollandCode;
+  const difficultyLevel = meta?.difficultyLevel ?? 0;
+  const avgYears = meta?.avgPreparationYears ?? 0;
   const difficultyText =
-    profile.difficultyLevel != null
-      ? LABELS.star_difficulty_levels[String(profile.difficultyLevel)] ?? ''
-      : '';
+    difficultyLevel > 0 ? LABELS.star_difficulty_levels[String(difficultyLevel)] ?? '' : '';
 
   return (
     <div className="mb-4">
       <div
-        className="rounded-2xl p-4 gap-3 flex flex-col"
+        className="rounded-2xl p-5 flex flex-col items-center text-center relative overflow-hidden"
         style={{
           backgroundColor: `${star.color}08`,
           border: `1.5px solid ${star.color}25`,
         }}
       >
-        {/* 태그라인 & 해시태그 */}
-        <div className="pb-3 border-b border-white/8 space-y-1">
-          {profile.tagline && (
-            <p className="text-sm font-extrabold text-white text-center leading-relaxed">
-              &quot;{profile.tagline}&quot;
-            </p>
-          )}
-          {profile.careerKeyword && (
-            <div className="flex flex-wrap justify-center gap-1.5 mt-2">
-              {profile.careerKeyword
-                .split(/\s+/)
-                .filter((tag) => tag.startsWith('#'))
-                .map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: `${star.color}15`, color: star.color }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-            </div>
-          )}
+        <div className="absolute -right-4 -top-4 text-7xl opacity-10 select-none">{star.emoji}</div>
+
+        {/* 아이콘 */}
+        <div
+          className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 mb-3"
+          style={{ background: `${star.color}22`, border: `2px solid ${star.color}44` }}
+        >
+          {star.emoji}
         </div>
 
-        {/* 핵심 특성 아코디언 */}
-        {profile.coreTraits && profile.coreTraits.length > 0 && (
-          <AccordionSection
-            isExpanded={isTraitsExpanded}
-            onToggle={() => setIsTraitsExpanded(!isTraitsExpanded)}
-            backgroundColor="rgba(255,255,255,0.04)"
-            icon="🎯"
-            title={LABELS.star_core_traits_title}
-            previewContent={
-              <div className="flex flex-wrap gap-2 mt-3">
-                {profile.coreTraits.map((trait) => (
-                  <div
-                    key={trait.label}
-                    className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/6"
-                  >
-                    <span className="text-sm">{trait.icon}</span>
-                    <span className="text-sm font-bold text-white">{trait.label}</span>
-                  </div>
-                ))}
-              </div>
-            }
+        {/* 제목 */}
+        <h2 className="font-bold text-white text-lg mb-2">{star.name}</h2>
+
+        {/* 간단 설명 */}
+        <p className="text-sm text-gray-400 leading-relaxed mb-4 max-w-[280px]">
+          {star.description}
+        </p>
+
+        {/* 직무 성향 · 난이도 · 준비 기간 (세로 배치 + 아이콘) */}
+        {(hollandCode || difficultyLevel > 0 || avgYears > 0) && (
+          <div
+            className="w-full flex flex-col gap-2 py-3 px-4 rounded-xl mb-4"
+            style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
           >
-            <div className="flex flex-wrap gap-2">
-              {profile.coreTraits.map((trait) => (
+            {hollandCode && (
+              <div className="flex items-center gap-3">
                 <div
-                  key={trait.label}
-                  className="w-[48%] rounded-xl p-3 bg-white/4 border border-white/10 text-center"
+                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${star.color}20` }}
                 >
-                  <span className="text-lg block mb-0.5">{trait.icon}</span>
-                  <div className="text-sm font-extrabold text-white">{trait.label}</div>
-                  <div className="text-xs text-gray-400 leading-relaxed mt-0.5">{trait.desc}</div>
+                  <User className="w-4 h-4" style={{ color: star.color }} />
                 </div>
-              ))}
-            </div>
-          </AccordionSection>
-        )}
-
-        {/* 잘 맞는 사람 아코디언 */}
-        {profile.fitPersonality && (
-          <AccordionSection
-            isExpanded={isFitExpanded}
-            onToggle={() => setIsFitExpanded(!isFitExpanded)}
-            backgroundColor="rgba(34,197,94,0.08)"
-            icon="✨"
-            title={profile.fitPersonality.title}
-            previewContent={
-              <p className="text-sm text-gray-500 mt-2">
-                {profile.fitPersonality.traits.length}
-                {LABELS.star_view_more_traits}
-              </p>
-            }
-          >
-            <div className="space-y-2">
-              {profile.fitPersonality.traits.map((trait, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <span className="text-green-500 font-bold">✓</span>
-                  <span className="text-sm text-gray-300 leading-relaxed flex-1">{trait}</span>
+                <div className="flex-1 text-left min-w-0">
+                  <span className="text-[10px] text-gray-500 block">{LABELS.star_job_tendency_label}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span
+                      className="text-xs font-bold px-2 py-0.5 rounded-full inline-block"
+                      style={{ backgroundColor: `${star.color}25`, color: star.color }}
+                    >
+                      {hollandCode}
+                    </span>
+                    <span className="text-[10px] text-gray-600">{LABELS.star_job_tendency_hint}</span>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </AccordionSection>
-        )}
-
-        {/* 맞지 않는 사람 아코디언 */}
-        {profile.fitPersonality?.notFit && profile.fitPersonality.notFit.length > 0 && (
-          <AccordionSection
-            isExpanded={isNotFitExpanded}
-            onToggle={() => setIsNotFitExpanded(!isNotFitExpanded)}
-            backgroundColor="rgba(239,68,68,0.06)"
-            icon="⚠️"
-            title={LABELS.star_not_fit_title}
-            previewContent={
-              <p className="text-sm text-gray-500 mt-2">
-                {profile.fitPersonality.notFit.length}가지 주의 사항
-              </p>
-            }
-          >
-            <div className="space-y-2">
-              {profile.fitPersonality.notFit.map((trait, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <span className="text-red-500 font-bold">✗</span>
-                  <span className="text-sm text-gray-300 leading-relaxed flex-1">{trait}</span>
-                </div>
-              ))}
-            </div>
-          </AccordionSection>
-        )}
-
-        {/* 왜 이 직업들을 묶었나 아코디언 */}
-        {profile.whyThisGroup && (
-          <AccordionSection
-            isExpanded={isWhyExpanded}
-            onToggle={() => setIsWhyExpanded(!isWhyExpanded)}
-            backgroundColor="rgba(168,85,247,0.08)"
-            icon="💡"
-            title={profile.whyThisGroup.title}
-            previewContent={
-              <div className="flex flex-wrap gap-1 mt-2 items-center">
-                {profile.whyThisGroup.commonDNA.slice(0, 3).map((dna) => (
-                  <span
-                    key={dna}
-                    className="px-2 py-0.5 rounded-full text-xs font-bold"
-                    style={{ backgroundColor: `${star.color}15`, color: star.color }}
-                  >
-                    {dna}
-                  </span>
-                ))}
-                {profile.whyThisGroup.commonDNA.length > 3 && (
-                  <span className="text-xs text-gray-500 font-bold">
-                    +{profile.whyThisGroup.commonDNA.length - 3}
-                  </span>
-                )}
-              </div>
-            }
-          >
-            <div className="space-y-3">
-              <p className="text-sm text-gray-300 leading-relaxed">{profile.whyThisGroup.reason}</p>
-              <div className="flex flex-wrap gap-1.5">
-                {profile.whyThisGroup.commonDNA.map((dna) => (
-                  <span
-                    key={dna}
-                    className="px-3 py-1 rounded-full text-xs font-extrabold"
-                    style={{ backgroundColor: `${star.color}15`, color: star.color }}
-                  >
-                    {dna}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </AccordionSection>
-        )}
-
-        {/* 메타 정보 카드 */}
-        <div className="flex gap-2">
-          {profile.difficultyLevel != null && (
-            <div className="flex-1 rounded-xl p-3 bg-white/4 text-center">
-              <span className="text-lg block">📊</span>
-              <div className="text-xs text-gray-500">{LABELS.star_difficulty_label}</div>
-              <DifficultyDots level={profile.difficultyLevel} />
-              <div className="text-[10px] font-bold mt-0.5" style={{ color: star.color }}>
-                {difficultyText}
-              </div>
-            </div>
-          )}
-          {profile.avgPreparationYears != null && (
-            <div className="flex-1 rounded-xl p-3 bg-white/4 text-center">
-              <span className="text-lg block">⏱️</span>
-              <div className="text-xs text-gray-500">{LABELS.star_preparation_label}</div>
-              <div className="text-lg font-extrabold" style={{ color: star.color }}>
-                {profile.avgPreparationYears}
-                {LABELS.star_preparation_unit}
-              </div>
-              <div className="text-[10px] text-gray-500 text-center">
-                {LABELS.star_preparation_sub_label}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Holland 코드 + 핵심 과목 */}
-        {(profile.hollandCode || (profile.keySubjects && profile.keySubjects.length > 0)) && (
-          <div className="rounded-xl p-3 bg-white/4 space-y-2">
-            {profile.hollandCode && (
-              <div className="flex items-center gap-2">
-                <span className="text-sm">🔖</span>
-                <span className="text-sm font-bold text-white">{LABELS.star_holland_code_label}</span>
-                <span
-                  className="ml-auto px-3 py-0.5 rounded-full text-sm font-extrabold"
-                  style={{ backgroundColor: `${star.color}25`, color: star.color }}
-                >
-                  {profile.hollandCode}
-                </span>
               </div>
             )}
-            {profile.keySubjects && profile.keySubjects.length > 0 && (
-              <div>
-                <div className="text-xs text-gray-500 mb-1">{LABELS.star_key_subjects_label}</div>
-                <div className="flex flex-wrap gap-1">
-                  {profile.keySubjects.map((subject) => (
-                    <span
-                      key={subject}
-                      className="px-3 py-1 rounded-full text-xs font-bold"
-                      style={{ backgroundColor: `${star.color}15`, color: star.color }}
-                    >
-                      {subject}
+            {difficultyLevel > 0 && (
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${star.color}20` }}
+                >
+                  <BarChart2 className="w-4 h-4" style={{ color: star.color }} />
+                </div>
+                <div className="flex-1 text-left min-w-0">
+                  <span className="text-[10px] text-gray-500 block">{LABELS.star_difficulty_label}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <DifficultyDots level={difficultyLevel} color={star.color} />
+                    <span className="text-xs font-bold" style={{ color: star.color }}>
+                      {difficultyText}
                     </span>
-                  ))}
+                   
+                  </div>
+                </div>
+              </div>
+            )}
+            {avgYears > 0 && (
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ backgroundColor: `${star.color}20` }}
+                >
+                  <Clock className="w-4 h-4" style={{ color: star.color }} />
+                </div>
+                <div className="flex-1 text-left min-w-0">
+                  <span className="text-[10px] text-gray-500 block">{LABELS.star_preparation_label}</span>
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-sm font-bold" style={{ color: star.color }}>
+                      {LABELS.star_preparation_years_prefix} {avgYears}
+                      {LABELS.star_preparation_unit}
+                    </span>
+                    <span className="text-[10px] text-gray-600">{LABELS.star_preparation_hint}</span>
+                  </div>
                 </div>
               </div>
             )}
           </div>
+        )}
+
+        {/* 상세 보기 버튼 */}
+        {hasDetail && (
+          <button
+            type="button"
+            onClick={onOpenDetail}
+            className="w-full max-w-[200px] py-3 px-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+            style={{
+              backgroundColor: `${star.color}30`,
+              color: star.color,
+              border: `2px solid ${star.color}55`,
+            }}
+          >
+            {LABELS.star_view_detail_button}
+            <ChevronRight className="w-4 h-4" />
+          </button>
         )}
       </div>
     </div>

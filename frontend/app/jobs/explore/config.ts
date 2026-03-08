@@ -56,7 +56,7 @@ export const STAR_FIELD_CONFIG = {
 };
 
 export const LABELS = {
-  page_title: 'Job 간접 경험',
+  page_title: '직업 체험',
   page_subtitle: '8개 별의 직업 세계를 탐험하세요',
   star_selected_subtitle: '개 직업 프로세스 & 커리어 패스',
   intro_banner_title: '직업 세계 탐험',
@@ -99,6 +99,7 @@ export const LABELS = {
   // Process tab
   process_step_counter: '단계',
   process_step_label: 'STEP',
+  process_job_tendency: '직무 성향',
 
   // Timeline tab
   timeline_setak_label: '세특 포인트',
@@ -108,10 +109,26 @@ export const LABELS = {
   // Page header
   features_section_title: '✨ 주요 기능',
 
-  // StarInfoBanner
+  // StarInfoBanner / StarProfile
   star_core_traits_title: '핵심 특성',
+  star_fit_title: '이런 사람에게 딱 맞아요',
+  star_fit_simple_description: '이 별에 잘 맞는 성향을 확인해보세요.',
+  star_why_grouped_title: '왜 이 직업들을 묶었나요?',
+  star_fit_not_recommend_title: '이런 분께는 다른 별을 추천해요',
   star_view_more_traits: '가지 특성 보기',
   star_not_fit_title: '이런 사람은 신중하게 고려하세요',
+  star_not_fit_count_suffix: '가지 주의 사항',
+  star_career_keywords_label: '커리어 키워드',
+  star_core_features_title: '이 별의 핵심 특징',
+  star_key_subjects_section_title: '관련 핵심 과목',
+  star_preparation_difficulty_label: '준비 난이도',
+  star_preparation_period_label: '준비 기간',
+  star_preparation_years_prefix: '약',
+  star_preparation_years_suffix: '년',
+  star_preparation_summary_prefix: '준비',
+  star_common_dna_label: '공통 DNA',
+  star_view_detail: '상세 보기',
+  star_view_detail_button: '자세히 보기',
   star_difficulty_label: '난이도',
   star_difficulty_levels: {
     '1': '매우 쉬움',
@@ -124,7 +141,15 @@ export const LABELS = {
   star_preparation_unit: '년',
   star_preparation_sub_label: '평균 준비 기간',
   star_holland_code_label: 'Holland 코드',
+  star_job_tendency_label: '직무 성향',
+  star_job_tendency_hint: 'Holland 코드 기반 직무 유형',
+  star_difficulty_hint: '1~5단계 도달 난이도',
+  star_preparation_hint: '목표 달성까지 예상 연수',
   star_key_subjects_label: '핵심 과목',
+
+  /** 상세 보기에서 fit/notFit 항목에 사용할 아이콘 (순환) */
+  star_fit_item_icons: ['✨', '👍', '💡', '🎯', '🧪', '📚', '✓'] as const,
+  star_not_fit_item_icons: ['⚠️', '✗'] as const,
 
   process_phase_badge: '단계 프로세스',
   process_step_prefix: 'STEP',

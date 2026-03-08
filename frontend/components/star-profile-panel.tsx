@@ -1,33 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { X, ChevronDown, ChevronUp, Star, Users, BookOpen, Zap, CheckCircle, XCircle, Info } from 'lucide-react';
-
-type CoreTrait = {
-  icon: string;
-  label: string;
-  desc: string;
-};
-
-type StarProfile = {
-  tagline: string;
-  coreTraits: CoreTrait[];
-  fitPersonality: {
-    title: string;
-    traits: string[];
-    notFit: string[];
-  };
-  whyThisGroup: {
-    title: string;
-    reason: string;
-    commonDNA: string[];
-  };
-  hollandCode: string;
-  keySubjects: string[];
-  careerKeyword: string;
-  difficultyLevel: number;
-  avgPreparationYears: number;
-};
+import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
+import { LABELS } from '@/app/jobs/explore/config';
 
 type StarData = {
   id: string;
@@ -36,7 +12,7 @@ type StarData = {
   color: string;
   bgColor: string;
   description: string;
-  starProfile?: StarProfile;
+  starProfile?: unknown;
 };
 
 /* ─── Difficulty Dots ─── */
@@ -106,8 +82,19 @@ export function StarProfilePanel({
   star: StarData;
   onClose: () => void;
 }) {
-  const profile = star.starProfile;
+  const rawProfile = star.starProfile;
+  const profile = useMemo(
+    () => (rawProfile ? normalizeStarProfile(rawProfile as Parameters<typeof normalizeStarProfile>[0]) : null),
+    [rawProfile]
+  );
   if (!profile) return null;
+
+  const coreTraitsSection = profile.sections.find((s) => s.id === 'coreTraits');
+  const fitSection = profile.sections.find((s) => s.id === 'fitPersonality');
+  const whySection = profile.sections.find((s) => s.id === 'whyThisGroup');
+  const coreTraits = coreTraitsSection?.type === 'traitGrid' ? coreTraitsSection.items : [];
+  const fitItems = fitSection?.type === 'fitList' ? fitSection.fitItems : [];
+  const notFitItems = fitSection?.type === 'fitList' ? fitSection.notFitItems : [];
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -142,7 +129,7 @@ export function StarProfilePanel({
           style={{ background: `linear-gradient(135deg, ${star.bgColor}ff, ${star.bgColor}88)` }}
         >
           <div className="absolute -right-4 -top-4 text-8xl opacity-10 select-none pointer-events-none">{star.emoji}</div>
-          <div className="flex items-start justify-between gap-3">
+            <div className="flex items-start justify-between gap-3">
             <div className="flex items-center gap-3">
               <div
                 className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
@@ -153,7 +140,7 @@ export function StarProfilePanel({
               <div>
                 <div className="font-bold text-white text-lg leading-tight">{star.name}</div>
                 <div className="text-xs mt-0.5" style={{ color: `${star.color}cc` }}>
-                  {profile.hollandCode}
+                  {profile.meta.hollandCode}
                 </div>
               </div>
             </div>
@@ -170,12 +157,12 @@ export function StarProfilePanel({
             </button>
           </div>
 
-          {/* Tagline */}
+          {/* 간단 설명 */}
           <div
-            className="mt-3 px-3 py-2 rounded-xl text-xs font-semibold text-white/90 italic"
+            className="mt-3 px-3 py-2 rounded-xl text-xs text-white/90 leading-relaxed"
             style={{ background: `${star.color}22`, border: `1px solid ${star.color}33` }}
           >
-            &ldquo;{profile.tagline}&rdquo;
+            {star.description}
           </div>
 
           {/* Quick stats */}
@@ -184,21 +171,28 @@ export function StarProfilePanel({
             style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div className="flex-1 flex flex-col items-center justify-center py-2.5 px-2">
-              <div className="text-[10px] text-gray-500 mb-1.5 whitespace-nowrap">준비 난이도</div>
-              <DifficultyDots level={profile.difficultyLevel} color={star.color} />
+              <div className="text-[10px] text-gray-500 mb-1.5 whitespace-nowrap">
+                {LABELS.star_preparation_difficulty_label}
+              </div>
+              <DifficultyDots level={profile.meta.difficultyLevel} color={star.color} />
             </div>
             <div className="w-px self-stretch bg-white/10" />
             <div className="flex-1 flex flex-col items-center justify-center py-2.5 px-2">
-              <div className="text-[10px] text-gray-500 mb-1 whitespace-nowrap">준비 기간</div>
+              <div className="text-[10px] text-gray-500 mb-1 whitespace-nowrap">
+                {LABELS.star_preparation_period_label}
+              </div>
               <div className="text-sm font-bold" style={{ color: star.color }}>
-                약 {profile.avgPreparationYears}년
+                {LABELS.star_preparation_years_prefix} {profile.meta.avgPreparationYears}
+                {LABELS.star_preparation_years_suffix}
               </div>
             </div>
             <div className="w-px self-stretch bg-white/10" />
             <div className="flex-1 flex flex-col items-center justify-center py-2.5 px-2">
-              <div className="text-[10px] text-gray-500 mb-1 whitespace-nowrap">핵심 과목</div>
+              <div className="text-[10px] text-gray-500 mb-1 whitespace-nowrap">
+                {LABELS.star_key_subjects_label}
+              </div>
               <div className="text-[10px] text-gray-300 leading-snug text-center">
-                {profile.keySubjects.slice(0, 2).join(' · ')}
+                {profile.meta.keySubjects.slice(0, 2).join(' · ')}
               </div>
             </div>
           </div>
@@ -207,10 +201,10 @@ export function StarProfilePanel({
         {/* Scrollable body */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3" style={{ WebkitOverflowScrolling: 'touch' }}>
 
-          {/* Core Traits */}
-          <SectionBlock title="이 별의 핵심 특징" icon={Star} color={star.color} defaultOpen>
+          {/* Core Traits (다이얼로그에서만 표시) */}
+          <SectionBlock title={LABELS.star_core_features_title} icon={Star} color={star.color} defaultOpen>
             <div className="grid grid-cols-2 gap-2 mt-2">
-              {profile.coreTraits.map((trait, i) => (
+              {coreTraits.map((trait, i) => (
                 <div
                   key={i}
                   className="p-3 rounded-xl"
@@ -225,55 +219,88 @@ export function StarProfilePanel({
           </SectionBlock>
 
           {/* Fit Personality */}
-          <SectionBlock title={profile.fitPersonality.title} icon={Users} color={star.color} defaultOpen>
-            <div className="mt-2 space-y-1.5">
-              {profile.fitPersonality.traits.map((t, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <CheckCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: star.color }} />
-                  <span className="text-xs text-gray-300 leading-snug">{t}</span>
-                </div>
-              ))}
-            </div>
-            {profile.fitPersonality.notFit.length > 0 && (
-              <div className="mt-3 pt-3 border-t border-white/8">
-                <div className="text-[10px] font-bold text-gray-500 mb-1.5 uppercase tracking-wider">
-                  이런 분께는 다른 별을 추천해요
-                </div>
-                {profile.fitPersonality.notFit.map((t, i) => (
-                  <div key={i} className="flex items-start gap-2 mt-1">
-                    <XCircle className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-gray-600" />
-                    <span className="text-xs text-gray-500 leading-snug">{t}</span>
-                  </div>
-                ))}
+          {fitSection && (
+            <SectionBlock
+              title={LABELS[fitSection.titleKey] ?? LABELS.star_fit_title}
+              icon={Users}
+              color={star.color}
+              defaultOpen
+            >
+              <p className="text-xs text-gray-400 leading-relaxed mb-3">
+                {LABELS.star_fit_simple_description}
+              </p>
+              <div className="space-y-2">
+                {fitItems.map((t, i) => {
+                  const icons = LABELS.star_fit_item_icons as readonly string[];
+                  const icon = icons[i % icons.length] ?? '✓';
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-start gap-2.5 px-3 py-2 rounded-xl"
+                      style={{ background: `${star.color}10`, border: `1px solid ${star.color}22` }}
+                    >
+                      <span className="text-base flex-shrink-0">{icon}</span>
+                      <span className="text-xs text-gray-300 leading-snug flex-1">{t}</span>
+                    </div>
+                  );
+                })}
               </div>
-            )}
-          </SectionBlock>
+              {notFitItems.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-white/8">
+                  <div className="text-[10px] font-bold text-gray-500 mb-1.5 uppercase tracking-wider">
+                    {LABELS.star_fit_not_recommend_title}
+                  </div>
+                  <div className="space-y-2 mt-2">
+                    {notFitItems.map((t, i) => {
+                      const icons = LABELS.star_not_fit_item_icons as readonly string[];
+                      const icon = icons[i % icons.length] ?? '✗';
+                      return (
+                        <div
+                          key={i}
+                          className="flex items-start gap-2.5 px-3 py-2 rounded-xl bg-white/4 border border-white/8"
+                        >
+                          <span className="text-base flex-shrink-0">{icon}</span>
+                          <span className="text-xs text-gray-500 leading-snug flex-1">{t}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </SectionBlock>
+          )}
 
           {/* Why This Group */}
-          <SectionBlock title={profile.whyThisGroup.title} icon={Info} color={star.color}>
-            <p className="text-xs text-gray-300 leading-relaxed mt-2">
-              {profile.whyThisGroup.reason}
-            </p>
-            <div className="mt-3">
-              <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">공통 DNA</div>
-              <div className="flex flex-wrap gap-1.5">
-                {profile.whyThisGroup.commonDNA.map((dna, i) => (
+          {whySection && whySection.type === 'reasonWithTags' && (
+            <SectionBlock
+              title={LABELS[whySection.titleKey] ?? LABELS.star_why_grouped_title}
+              icon={Info}
+              color={star.color}
+            >
+              <p className="text-xs text-gray-300 leading-relaxed mt-2">{whySection.reason}</p>
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_common_dna_label}
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {whySection.commonDNA.map((dna, i) => (
                   <span
                     key={i}
                     className="px-2.5 py-1 rounded-full text-[10px] font-bold"
                     style={{ background: `${star.color}20`, color: star.color, border: `1px solid ${star.color}33` }}
                   >
                     {dna}
-                  </span>
-                ))}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          </SectionBlock>
+            </SectionBlock>
+          )}
 
           {/* Key Subjects */}
-          <SectionBlock title="관련 핵심 과목" icon={BookOpen} color={star.color}>
+          <SectionBlock title={LABELS.star_key_subjects_section_title} icon={BookOpen} color={star.color}>
             <div className="flex flex-wrap gap-2 mt-2">
-              {profile.keySubjects.map((subj, i) => (
+              {profile.meta.keySubjects.map((subj, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl"
@@ -287,18 +314,20 @@ export function StarProfilePanel({
           </SectionBlock>
 
           {/* Career Keywords */}
-          <div
-            className="rounded-2xl px-4 py-3 flex items-center gap-3"
-            style={{ background: `${star.color}12`, border: `1px solid ${star.color}22` }}
-          >
-            <span className="text-lg">{star.emoji}</span>
-            <div>
-              <div className="text-[10px] text-gray-500 mb-0.5">커리어 키워드</div>
-              <div className="text-xs font-bold" style={{ color: star.color }}>
-                {profile.careerKeyword}
+          {profile.careerKeywords.length > 0 && (
+            <div
+              className="rounded-2xl px-4 py-3 flex items-center gap-3"
+              style={{ background: `${star.color}12`, border: `1px solid ${star.color}22` }}
+            >
+              <span className="text-lg">{star.emoji}</span>
+              <div>
+                <div className="text-[10px] text-gray-500 mb-0.5">{LABELS.star_career_keywords_label}</div>
+                <div className="text-xs font-bold" style={{ color: star.color }}>
+                  {profile.careerKeywords.map((k) => `#${k}`).join(' ')}
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Bottom padding for safe area */}
           <div style={{ height: 'max(env(safe-area-inset-bottom, 0px), 24px)' }} />
@@ -316,8 +345,15 @@ export function StarProfileSummary({
   star: StarData;
   onOpenDetail: () => void;
 }) {
-  const profile = star.starProfile;
+  const rawProfile = star.starProfile;
+  const profile = useMemo(
+    () => (rawProfile ? normalizeStarProfile(rawProfile as Parameters<typeof normalizeStarProfile>[0]) : null),
+    [rawProfile]
+  );
   if (!profile) return null;
+
+  const coreTraitsSection = profile.sections.find((s) => s.id === 'coreTraits');
+  const coreTraits = coreTraitsSection?.type === 'traitGrid' ? coreTraitsSection.items : [];
 
   return (
     <button
@@ -330,14 +366,12 @@ export function StarProfileSummary({
     >
       <div className="absolute -right-3 -top-3 text-6xl opacity-10 select-none">{star.emoji}</div>
 
-      {/* Tagline */}
-      <div className="text-xs font-semibold italic mb-3" style={{ color: `${star.color}cc` }}>
-        &ldquo;{profile.tagline}&rdquo;
-      </div>
+      {/* 간단 설명 */}
+      <p className="text-xs text-gray-400 leading-relaxed mb-3">{star.description}</p>
 
       {/* Trait pills */}
       <div className="flex flex-wrap gap-1.5 mb-3">
-        {profile.coreTraits.map((t, i) => (
+        {coreTraits.map((t, i) => (
           <span
             key={i}
             className="flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold"
@@ -352,15 +386,19 @@ export function StarProfileSummary({
       {/* Stats row */}
       <div className="flex items-center gap-3">
         <div className="flex flex-row items-center gap-1.5">
-          <span className="text-[10px] text-gray-500">난이도</span>
-          <DifficultyDots level={profile.difficultyLevel} color={star.color} />
+          <span className="text-[10px] text-gray-500">{LABELS.star_difficulty_label}</span>
+          <DifficultyDots level={profile.meta.difficultyLevel} color={star.color} />
         </div>
         <div className="w-px h-3 bg-white/15" />
         <div className="text-[10px] text-gray-400">
-          준비 <span className="font-bold text-white">{profile.avgPreparationYears}년</span>
+          {LABELS.star_preparation_summary_prefix}{' '}
+          <span className="font-bold text-white">
+            {profile.meta.avgPreparationYears}
+            {LABELS.star_preparation_unit}
+          </span>
         </div>
         <div className="ml-auto flex items-center gap-1 text-[10px] font-bold" style={{ color: star.color }}>
-          상세 보기
+          {LABELS.star_view_detail}
           <ChevronDown className="w-3 h-3 rotate-[-90deg]" />
         </div>
       </div>

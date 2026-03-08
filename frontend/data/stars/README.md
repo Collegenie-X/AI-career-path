@@ -2,11 +2,35 @@
 
 각 별마다 15개 이상의 직업을 포함하며, 직업 프로세스 중심으로 구성되어 있습니다.
 
+## Star Profile 트리 구조
+
+`starProfile`은 **섹션 기반 트리**로 정의되어 UI 렌더 순서와 구조를 명확히 합니다.
+
+```
+starProfile
+├── tagline          # 한 줄 소개
+├── careerKeywords   # ["분석", "연구", ...] 배열 (config에서 # 자동 추가)
+├── sections[]       # 표시 순서가 보장된 섹션 배열
+│   ├── coreTraits   (type: traitGrid)  - 핵심 특성
+│   ├── fitPersonality (type: fitList)  - 잘 맞는/맞지 않는 사람
+│   └── whyThisGroup (type: reasonWithTags) - 직업 그룹핑 이유
+└── meta
+    ├── difficultyLevel
+    ├── avgPreparationYears
+    ├── hollandCode
+    └── keySubjects[]
+```
+
+- **레거시 형식** (coreTraits, fitPersonality 등 flat 구조)도 `normalizeProfile.ts`로 자동 변환됩니다.
+- **라벨**은 `app/jobs/explore/config.ts`의 LABELS에서 관리합니다.
+
 ## 파일 구조
 
 ```
 stars/
-├── explore-star.json      # 🔬 탐구의 별 (15개 직업)
+├── schema.ts           # 트리 구조 타입 정의
+├── normalizeProfile.ts # 레거시 → 트리 변환 유틸
+├── explore-star.json   # 🔬 탐구의 별 (3개 직업 샘플)
 ├── create-star.json       # 🎨 창작의 별 (15개 직업)
 ├── tech-star.json         # 💻 기술의 별 (15개 직업)
 ├── nature-star.json       # 🌱 자연의 별 (15개 직업)
@@ -30,7 +54,6 @@ stars/
 - `entryProcess`: 입직 프로세스
 
 ### 핵심 역량
-- `coreCompetencies`: 필요한 핵심 역량 배열
 
 ### 직업 프로세스 (workProcess)
 직업을 하나의 프로젝트로 보고, 단계별 프로세스를 정의:

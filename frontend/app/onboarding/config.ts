@@ -60,6 +60,7 @@ export const LABELS: Record<string, string> = {
   step_todo_list:         'TODO 리스트',
   step_one_click_plan:    '원클릭 계획',
   benefit_school_only:    '같은 학교만',
+  benefit_privacy:        '프라이버시',
   benefit_teacher_guide:  '선생님·상담 지원',
   benefit_share_path:     '학생 공유',
 

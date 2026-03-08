@@ -1,9 +1,17 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Clock, Briefcase, Zap } from 'lucide-react';
-import { LABELS } from '../../config';
+import { Clock, Briefcase, Zap, Brain } from 'lucide-react';
+import { LABELS, HOLLAND_CODE_LABELS } from '../../config';
 import type { Job, StarData, WorkPhase } from '../../types';
+
+function parseHolland(code: string): string {
+  return code
+    .split(/\+/)
+    .map((c) => HOLLAND_CODE_LABELS[c.trim()] ?? c.trim())
+    .filter(Boolean)
+    .join(' + ');
+}
 
 interface ProcessTabProps {
   job: Job;
@@ -248,6 +256,8 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
   const title = workProcess.title ?? `${job.name} 직무 프로세스`;
   const description = workProcess.description ?? '';
 
+  const hollandLabel = parseHolland(job.holland);
+
   return (
     <div className="px-4 pt-3 pb-6">
       <ProcessHeader
@@ -256,6 +266,21 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
         phaseCount={phases.length}
         starColor={star.color}
       />
+
+      {/* 직무 성향 */}
+      <div
+        className="rounded-2xl px-3 py-2.5 mb-5 flex items-center gap-2.5"
+        style={{ background: `${star.color}12`, border: `1px solid ${star.color}30` }}
+      >
+        <Brain className="w-4 h-4 flex-shrink-0" style={{ color: star.color }} />
+        <div className="flex-1 min-w-0">
+          <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: star.color }}>
+            {LABELS.process_job_tendency}
+          </span>
+          <p className="text-sm font-bold text-white mt-0.5">{hollandLabel}</p>
+        </div>
+      </div>
+
       {phases.map((phase, index) => (
         <PhaseStepItem
           key={phase.id}

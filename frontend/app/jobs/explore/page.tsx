@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Star, Briefcase } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
-import { StarProfilePanel, StarProfileSummary } from '@/components/star-profile-panel';
+import { StarProfilePanel } from '@/components/star-profile-panel';
 import exploreStar from '@/data/stars/explore-star.json';
 import createStar from '@/data/stars/create-star.json';
 import techStar from '@/data/stars/tech-star.json';
@@ -96,15 +96,14 @@ function JobsExploreContent() {
           </>
         ) : (
           <>
-            <StarInfoBanner star={selectedStar} />
-
-            {/* Star Profile Summary */}
-            {'starProfile' in selectedStar && selectedStar.starProfile && (
-              <StarProfileSummary
-                star={selectedStar as Parameters<typeof StarProfileSummary>[0]['star']}
-                onOpenDetail={() => setShowStarProfile(true)}
-              />
-            )}
+            <StarInfoBanner
+              star={selectedStar}
+              onOpenDetail={
+                'starProfile' in selectedStar && selectedStar.starProfile
+                  ? () => setShowStarProfile(true)
+                  : undefined
+              }
+            />
 
             {/* Jobs */}
             <div>

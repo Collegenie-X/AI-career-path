@@ -1,24 +1,9 @@
 // ─── Types ───────────────────────────────────────────────
 
-export type StarProfile = {
-  tagline?: string;
-  coreTraits?: { icon: string; label: string; desc: string }[];
-  fitPersonality?: {
-    title: string;
-    traits: string[];
-    notFit?: string[];
-  };
-  whyThisGroup?: {
-    title: string;
-    reason: string;
-    commonDNA: string[];
-  };
-  hollandCode?: string;
-  keySubjects?: string[];
-  careerKeyword?: string;
-  difficultyLevel?: number;
-  avgPreparationYears?: number;
-};
+import type { StarProfileTree, StarProfileLegacy } from '@/data/stars/schema';
+
+/** 트리 구조 또는 레거시 flat 구조 (normalizeStarProfile로 통일) */
+export type StarProfile = StarProfileTree | StarProfileLegacy;
 
 export type StarData = {
   id: string;
@@ -52,10 +37,7 @@ export type Job = {
   icon: string;
   shortDesc: string;
   description?: string;
-  /** 상세 직업 소개 (2~4문장, 직무 프로세스 상단에 표시) */
-  detailedIntroduction?: string;
   holland: string;
-  coreCompetencies?: string[];
   salaryRange: string;
   futureGrowth: number;
   aiRisk: string;
