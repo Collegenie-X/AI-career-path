@@ -55,12 +55,14 @@ export default function QuizPage() {
     });
     const result = generateRIASECResult(questions, map);
     storage.riasec.set(result);
+    const existingProfile = storage.user.get();
     storage.user.set({
-      id: Date.now().toString(),
-      nickname: '탐험가',
-      grade: '',
+      id: existingProfile?.id ?? Date.now().toString(),
+      nickname: existingProfile?.nickname ?? '탐험가',
+      school: existingProfile?.school ?? 'general',
+      grade: existingProfile?.grade ?? '',
       onboardingCompleted: true,
-      createdAt: new Date().toISOString(),
+      createdAt: existingProfile?.createdAt ?? new Date().toISOString(),
     });
     router.push(ROUTES.quizResults);
   }, [questions, router]);

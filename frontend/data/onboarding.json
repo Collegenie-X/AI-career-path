@@ -67,6 +67,25 @@
       ]
     },
     {
+      "id": "school-benefits",
+      "colorKey": "teal",
+      "titleKey": "slide_school_benefits_title",
+      "subtitleKey": "slide_school_benefits_subtitle",
+      "descriptionKey": "slide_school_benefits_description",
+      "iconKey": "Shield",
+      "floatingIcons": [
+        { "icon": "🏫", "x": "14%", "y": "18%", "size": 26, "delay": 0 },
+        { "icon": "🔒", "x": "82%", "y": "16%", "size": 24, "delay": 0.3 },
+        { "icon": "👥", "x": "80%", "y": "70%", "size": 26, "delay": 0.6 },
+        { "icon": "📋", "x": "16%", "y": "68%", "size": 22, "delay": 0.9 }
+      ],
+      "steps": [
+        { "emoji": "🏫", "labelKey": "benefit_school_only" },
+        { "emoji": "🔒", "labelKey": "프라이버시" },
+        { "emoji": "👩‍🏫", "labelKey": "benefit_teacher_guide" }
+      ]
+    },
+    {
       "id": "success",
       "colorKey": "pink",
       "titleKey": "slide_success_title",

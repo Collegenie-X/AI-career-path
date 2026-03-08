@@ -5,3 +5,5 @@ export { StepBadge } from './StepBadge';
 export { ProcessSteps } from './ProcessSteps';
 export { ProgressDots } from './ProgressDots';
 export { ActionButton } from './ActionButton';
+export { ProfileInputSlide } from './ProfileInputSlide';
+export type { ProfileInputValues } from './ProfileInputSlide';

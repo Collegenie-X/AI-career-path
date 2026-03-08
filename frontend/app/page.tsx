@@ -44,15 +44,17 @@ export default function SplashPage() {
     const t2 = setTimeout(() => setPhase(2), 900);
     const t3 = setTimeout(() => setPhase(3), 2200);
     const t4 = setTimeout(() => {
-      const user = storage.user.get();
-      if (user && user.onboardingCompleted) {
-        router.replace('/home');
-      } else {
-        router.replace('/onboarding');
-      }
+      // localStorage 비어 있으면 → 온보딩 / onboardingCompleted false여도 → 온보딩
+      const shouldGoHome = storage.user.isOnboardingCompleted();
+      router.replace(shouldGoHome ? '/home' : '/onboarding');
     }, 2800);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
-  }, [router]);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
+  }, []); // router는 안정적이므로 의존성 제외 → effect 재실행 시 타이머 취소 방지
 
   return (
     <div

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { TabBar } from '@/components/tab-bar';
 import { BadgeToastManager } from '@/components/badge-toast';
+import { WhyTabStructureSection } from './components/why-tab-structure-section';
 import { useBadgeChecker } from '@/hooks/use-badge-checker';
 import { getLevelForXP, getXPProgress } from '@/lib/xp';
 import exploreStar from '@/data/stars/explore-star.json';
@@ -855,6 +856,9 @@ export default function HomePage() {
 
       {/* Daily Mission */}
       <DailyMissionSection onQuiz={() => router.push('/quiz')} />
+
+      {/* Why This Tab Structure */}
+      <WhyTabStructureSection />
 
       <TabBar />
       <BadgeToastManager badgeIds={newBadges.map(b => b.badgeId)} />

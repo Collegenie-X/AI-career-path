@@ -222,6 +222,7 @@ export interface LevelDefinition {
 export interface UserProfile {
   id: string;
   nickname: string;
+  school: 'elementary' | 'middle' | 'high' | 'general'; // general: 일반인(비학생)
   grade: string;
   createdAt: string;
   onboardingCompleted: boolean;

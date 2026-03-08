@@ -1,0 +1,45 @@
+{
+  "whyThisStructure": {
+    "title": "WHY THIS APP?",
+    "subtitle": "각각 뭐 하는 곳이야? 🤔",
+    "items": [
+      {
+        "id": "home",
+        "icon": "home",
+        "emoji": "🏠",
+        "badge": "STEP 1",
+        "title": "홈 — 내 성장 레이더",
+        "description": "레벨·경험치·오늘의 미션이 다 여기 있어! 매일 들어오면 내가 얼마나 쑥쑥 크고 있는지 바로 보여줘. 출석만 해도 XP 득템!",
+        "color": "#6C5CE7"
+      },
+      {
+        "id": "jobs",
+        "icon": "briefcase",
+        "emoji": "🔭",
+        "badge": "STEP 2",
+        "title": "직업 체험 — 직업 적성 고민",
+        "description": "궁금한 직업을 골라서 실제 업무를 게임처럼 체험해봐. '이 직업 나한테 찰떡이다!' 싶은 걸 직접 느껴보는 곳이야.",
+        "color": "#3B82F6"
+      },
+      {
+        "id": "career",
+        "icon": "map",
+        "emoji": "🗺️",
+        "badge": "STEP 3",
+        "title": "커리어 패스 — 맞춤형 꿈 설계도",
+        "description": "원하는 직업까지 가는 길을 학년별로 쫙 펼쳐줘. 어떤 대회·자격증·활동이 필요한지 한눈에 보여서 '뭐부터 해야 하지?' 고민 끝!",
+        "color": "#A855F7"
+      },
+      {
+        "id": "launchpad",
+        "icon": "rocket",
+        "emoji": "🚀",
+        "badge": "STEP 4",
+        "title": "런치패드 — 함께 설계하고 만들기",
+        "description": "여긴 친구들이랑 같이 진로 고민하고, 작품·자소서도 만들면서 경험 쌓는 곳이야. 다 같이 아이디어 나누고 성장해보자!",
+        "color": "#EC4899"
+      }
+    ],
+    "footer": "🏠 탐색  →  🔭 체험  →  🗺️ 설계  →  🚀 발사! "
+  }
+}
