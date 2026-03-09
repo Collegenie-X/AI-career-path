@@ -5,6 +5,12 @@ import { Rocket, BookOpen, Zap, Video, School, Flame, Search, Map, Trophy, Users
  * ───────────────────────────────────────────────── */
 export type LaunchpadTabId = 'explore' | 'community' | 'my';
 
+/** 커뮤니티 탭 접근 제한 여부 (초대/가입요청 필요) */
+export const COMMUNITY_RESTRICTED = true;
+
+/** 데모용 기본 초대 코드 (백엔드 연동 시 제거) */
+export const COMMUNITY_DEMO_INVITE_CODE = 'DREAM2024';
+
 export const LAUNCHPAD_TABS: { id: LaunchpadTabId; label: string; emoji: string }[] = [
   { id: 'explore',   label: '탐색',       emoji: '🔍' },
   { id: 'community', label: '커뮤니티',   emoji: '👥' },
@@ -78,6 +84,31 @@ export const LAUNCHPAD_LABELS = {
   communityHeroTitle: '함께 성장하는',
   communityHeroHighlight: '커뮤니티',
   communityHeroDesc: '같은 목표를 가진 사람들과 지속적으로 활동하는 공간',
+
+  /* 커뮤니티 접근 제한 */
+  communityGateTitle: '커뮤니티는 제한적으로 운영됩니다',
+  communityGateDesc: '초대받은 분이거나 가입 요청 후 승인된 분만 이용할 수 있어요. 같은 목표를 가진 사람들과 안전하게 함께할 수 있습니다.',
+  communityGateInviteLabel: '초대 코드 입력',
+  communityGateInvitePlaceholder: '초대 코드를 입력하세요',
+  communityGateInviteButton: '코드로 입장하기',
+  communityGateInviteSuccess: '입장 완료! 커뮤니티를 이용할 수 있어요',
+  communityGateInviteError: '유효하지 않은 초대 코드예요',
+  communityGateRequestLabel: '가입 요청',
+  communityGateRequestDesc: '가입을 요청하면 관리자 검토 후 승인됩니다',
+  communityGateRequestButton: '가입 요청하기',
+  communityGateRequestPending: '승인 대기 중이에요',
+  communityGateRequestPendingDesc: '관리자 승인 후 알려드릴게요',
+  communityGateRequestIntroLabel: '간단한 자기 소개',
+  communityGateRequestIntroPlaceholder: '이름, 관심 분야, 가입 동기 등을 간단히 적어주세요',
+  communityGateRequestIntroRequired: '자기 소개를 입력해주세요',
+  communityGateRequestSubmit: '요청 보내기',
+
+  /* 운영자: 가입 요청 관리 */
+  communityAdminTitle: '가입 요청 관리',
+  communityAdminEmpty: '대기 중인 요청이 없어요',
+  communityAdminApprove: '승인',
+  communityAdminDeny: '거절',
+  communityAdminDemoApprove: '데모: 내 요청 승인하기',
 } as const;
 
 /* ─────────────────────────────────────────────────

@@ -1,10 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { COMMUNITY_SUB_TABS, LAUNCHPAD_LABELS, type CommunitySubTab } from '../../config';
+import { useState, useEffect } from 'react';
+import { COMMUNITY_SUB_TABS, type CommunitySubTab } from '../../config';
 import type { LaunchpadSession } from '../../types';
 import { SchoolClubView } from './SchoolClubView';
 import { GroupListView } from './GroupListView';
+import { CommunityAdminPanel } from './CommunityAdminPanel';
+
+const STORAGE_KEY_ACCESS = 'launchpad_community_access';
+
+function hasCommunityAccess(): boolean {
+  try {
+    return localStorage.getItem(STORAGE_KEY_ACCESS) === 'true';
+  } catch {
+    return false;
+  }
+}
 
 type Props = {
   sessions: LaunchpadSession[];
@@ -14,9 +25,21 @@ type Props = {
 
 export function CommunityTab({ sessions, onDetailSession, onCreateSession }: Props) {
   const [activeSubTab, setActiveSubTab] = useState<CommunitySubTab>('school');
+  const [hasAccess, setHasAccess] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setHasAccess(hasCommunityAccess());
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div className="space-y-4">
+      {hasAccess && (
+        <CommunityAdminPanel onApprove={() => setHasAccess(hasCommunityAccess())} />
+      )}
       {/* 서브탭 */}
       <div className="flex gap-2">
         {COMMUNITY_SUB_TABS.map(tab => {

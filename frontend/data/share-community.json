@@ -94,6 +94,7 @@
       "creatorName": "민수",
       "memberCount": 5,
       "inviteCode": "GRP-IT-001",
+      "isOperatorTest": true,
       "members": [
         { "id": "user-1", "name": "민수", "emoji": "🧑‍💻", "grade": "mid2", "joinedAt": "2025-03-01T00:00:00.000Z", "role": "creator" },
         { "id": "user-2", "name": "지현", "emoji": "👩‍💻", "grade": "mid2", "joinedAt": "2025-03-02T00:00:00.000Z", "role": "member" },
@@ -116,6 +117,7 @@
       "creatorName": "예린",
       "memberCount": 4,
       "inviteCode": "GRP-MED-002",
+      "isOperatorTest": true,
       "members": [
         { "id": "user-6", "name": "예린", "emoji": "👩‍⚕️", "grade": "mid2", "joinedAt": "2025-03-10T00:00:00.000Z", "role": "creator" },
         { "id": "user-7", "name": "시우", "emoji": "🧑‍⚕️", "grade": "mid2", "joinedAt": "2025-03-11T00:00:00.000Z", "role": "member" },

@@ -62,6 +62,7 @@ export type LaunchpadSession = {
  * ───────────────────────────────────────────────── */
 export type SchoolClub = {
   id: string;
+  code?: string;
   schoolName: string;
   clubName: string;
   description: string;
@@ -79,6 +80,7 @@ export type SchoolClub = {
  * ───────────────────────────────────────────────── */
 export type LaunchpadGroup = {
   id: string;
+  inviteCode?: string;
   name: string;
   description: string;
   category: GroupCategoryKey;

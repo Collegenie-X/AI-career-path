@@ -87,8 +87,10 @@ export interface CommunityGroup {
   memberCount: number;
   members: GroupMember[];
   sharedPlanCount: number;
+  inviteCode?: string;
   createdAt: string;
-  updatedAt?: string; // 없으면 createdAt 또는 최신 패스 sharedAt 사용
+  updatedAt?: string;
+  isOperatorTest?: boolean;  // 운영자 UI 테스트용 그룹
 }
 
 export interface School {

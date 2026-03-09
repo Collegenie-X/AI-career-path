@@ -1,12 +1,22 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { School as SchoolIcon, Users, X, Plus } from 'lucide-react';
+import { School as SchoolIcon, Users, Plus } from 'lucide-react';
 import communityData from '@/data/share-community.json';
 import type { SharedPlan, CommunityGroup, School, OperatorComment, UserReactionState } from './types';
 import { SchoolSpaceView } from './SchoolSpaceView';
 import { GroupListView } from './GroupListView';
 import { SharedPlanDetailDialog } from './SharedPlanDetailDialog';
+import { CommunityAdminPanel } from './CommunityAdminPanel';
+import { hasCommunityAccess } from '@/lib/communityAccess';
+import {
+  loadJoinedSchoolIds,
+  loadJoinedGroupIds,
+  joinSchool,
+  joinGroup,
+  leaveGroup,
+  leaveSchool,
+} from '@/lib/careerCommunity';
 
 type SubTab = 'school' | 'groups';
 
@@ -18,63 +28,22 @@ const SUB_TABS: { id: SubTab; label: string; icon: typeof SchoolIcon }[] = [
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
 const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
 
-/* ─── Join school dialog ─── */
-function JoinSchoolDialog({ onClose, onJoin }: {
-  onClose: () => void;
-  onJoin: (code: string) => void;
-}) {
-  const [code, setCode] = useState('');
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div
-        className="relative w-full max-w-[380px] rounded-3xl p-6 space-y-4"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
-      >
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-black text-white">학교 참여하기</h3>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-          >
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
-        </div>
-        <p className="text-xs text-gray-400 leading-relaxed">
-          진로 선생님이 알려준 학교 코드를 입력하세요.<br />
-          같은 학교 친구들의 공유된 커리어 패스를 볼 수 있어요.
-        </p>
-        <input
-          value={code}
-          onChange={e => setCode(e.target.value.toUpperCase())}
-          placeholder="학교 코드 입력 (예: FUTURE2024)"
-          className="w-full h-12 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none tracking-widest font-mono"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
-        />
-        <button
-          onClick={() => { if (code.trim()) onJoin(code.trim()); }}
-          disabled={!code.trim()}
-          className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
-        >
-          참여하기
-        </button>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Main export ─── */
 export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
   const [subTab, setSubTab] = useState<SubTab>('school');
-  const [showJoinSchool, setShowJoinSchool] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState<SharedPlan | null>(null);
+  const [hasAccess, setHasAccess] = useState(false);
+  const [joinedSchoolIds, setJoinedSchoolIds] = useState<string[]>(() => loadJoinedSchoolIds());
+  const [joinedGroupIds, setJoinedGroupIds] = useState<string[]>(() => loadJoinedGroupIds());
 
-  const [joinedSchool, setJoinedSchool] = useState<School | null>(
-    communityData.schools[0] as School,
-  );
+  useEffect(() => {
+    setHasAccess(hasCommunityAccess());
+  }, []);
+
+  const refreshJoinedIds = useCallback(() => {
+    setJoinedSchoolIds(loadJoinedSchoolIds());
+    setJoinedGroupIds(loadJoinedGroupIds());
+  }, []);
 
   const sharedPlans = communityData.sharedPlans as SharedPlan[];
   const groups = communityData.groups as CommunityGroup[];
@@ -195,17 +164,25 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
     });
   }, []);
 
-  const schoolPlans = joinedSchool
-    ? sharedPlans.filter(p => p.schoolId === joinedSchool.id)
-    : [];
+  const handleJoinSchool = useCallback((schoolId: string) => {
+    joinSchool(schoolId);
+    refreshJoinedIds();
+  }, [refreshJoinedIds]);
 
-  const handleJoinSchool = (code: string) => {
-    const found = communityData.schools.find(s => s.code === code) as School | undefined;
-    if (found) {
-      setJoinedSchool(found);
-      setShowJoinSchool(false);
-    }
-  };
+  const handleLeaveSchool = useCallback((schoolId: string) => {
+    leaveSchool(schoolId);
+    refreshJoinedIds();
+  }, [refreshJoinedIds]);
+
+  const handleJoinGroup = useCallback((groupId: string) => {
+    joinGroup(groupId);
+    refreshJoinedIds();
+  }, [refreshJoinedIds]);
+
+  const handleLeaveGroup = useCallback((groupId: string) => {
+    leaveGroup(groupId);
+    refreshJoinedIds();
+  }, [refreshJoinedIds]);
 
   const handleAddComment = (_planId: string, _comment: OperatorComment) => {
     // 추후 백엔드 연동 시 API 호출
@@ -213,6 +190,9 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
 
   return (
     <div className="space-y-4 pb-28">
+      {hasAccess && (
+        <CommunityAdminPanel onApprove={() => setHasAccess(hasCommunityAccess())} />
+      )}
       {/* Sub-tab switcher */}
       <div
         className="flex gap-2 p-1 rounded-xl"
@@ -240,21 +220,7 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
       {/* Content */}
       {subTab === 'school' ? (
         <SchoolSpaceView
-          school={joinedSchool}
-          sharedPlans={schoolPlans}
-          likedPlanIds={reactions.likedPlanIds}
-          bookmarkedPlanIds={reactions.bookmarkedPlanIds}
-          likeCounts={likeCounts}
-          bookmarkCounts={bookmarkCounts}
-          checkedPlans={checkedPlans}
-          onToggleLike={handleToggleLike}
-          onToggleBookmark={handleToggleBookmark}
-          onViewPlanDetail={handleViewPlanDetail}
-          onJoinSchool={() => setShowJoinSchool(true)}
-        />
-      ) : (
-        <GroupListView
-          groups={groups}
+          joinedSchoolIds={joinedSchoolIds}
           sharedPlans={sharedPlans}
           likedPlanIds={reactions.likedPlanIds}
           bookmarkedPlanIds={reactions.bookmarkedPlanIds}
@@ -264,6 +230,26 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
           onToggleLike={handleToggleLike}
           onToggleBookmark={handleToggleBookmark}
           onViewPlanDetail={handleViewPlanDetail}
+          onJoinSchool={handleJoinSchool}
+          onLeaveSchool={handleLeaveSchool}
+          onRefreshJoined={refreshJoinedIds}
+        />
+      ) : (
+        <GroupListView
+          groups={groups}
+          joinedGroupIds={joinedGroupIds}
+          sharedPlans={sharedPlans}
+          likedPlanIds={reactions.likedPlanIds}
+          bookmarkedPlanIds={reactions.bookmarkedPlanIds}
+          likeCounts={likeCounts}
+          bookmarkCounts={bookmarkCounts}
+          checkedPlans={checkedPlans}
+          onToggleLike={handleToggleLike}
+          onToggleBookmark={handleToggleBookmark}
+          onViewPlanDetail={handleViewPlanDetail}
+          onJoinGroup={handleJoinGroup}
+          onLeaveGroup={handleLeaveGroup}
+          onRefreshJoined={refreshJoinedIds}
         />
       )}
 
@@ -283,13 +269,6 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
       </div>
 
       {/* Dialogs */}
-      {showJoinSchool && (
-        <JoinSchoolDialog
-          onClose={() => setShowJoinSchool(false)}
-          onJoin={handleJoinSchool}
-        />
-      )}
-
       {selectedPlan && (
         <SharedPlanDetailDialog
           plan={selectedPlan}

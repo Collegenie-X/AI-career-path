@@ -2,6 +2,7 @@
   "schoolClubs": [
     {
       "id": "club-001",
+      "code": "CLUB-SH-001",
       "schoolName": "서울고등학교",
       "clubName": "진로탐색 동아리",
       "description": "다양한 직업 세계를 탐색하고 커리어 패스를 함께 설계하는 동아리",
@@ -15,6 +16,7 @@
     },
     {
       "id": "club-002",
+      "code": "CLUB-GN-002",
       "schoolName": "강남중학교",
       "clubName": "IT 동아리",
       "description": "앱 개발, 웹 프로그래밍 등 IT 기술을 배우고 프로젝트를 진행하는 동아리",
@@ -28,6 +30,7 @@
     },
     {
       "id": "club-003",
+      "code": "CLUB-HB-003",
       "schoolName": "한빛중학교",
       "clubName": "진로탐색반",
       "description": "다양한 직업인 초청 토크와 직업 체험 활동을 진행하는 진로 동아리",
@@ -41,6 +44,7 @@
     },
     {
       "id": "club-004",
+      "code": "CLUB-MR-004",
       "schoolName": "미래중학교",
       "clubName": "디자인 동아리",
       "description": "그래픽 디자인, UX/UI 디자인을 배우고 포트폴리오를 만드는 동아리",
@@ -55,6 +59,7 @@
   "groups": [
     {
       "id": "grp-001",
+      "inviteCode": "LP-AI-001",
       "name": "AI 커리어 스터디",
       "description": "AI/ML 분야 진로를 함께 탐색하고 스터디하는 온라인 그룹. 매주 Zoom으로 모여 학습 내용을 공유합니다.",
       "category": "study",
@@ -71,6 +76,7 @@
     },
     {
       "id": "grp-002",
+      "inviteCode": "LP-CONT-002",
       "name": "공모전 도전단",
       "description": "다양한 공모전에 함께 도전하는 프로젝트 그룹. 기획부터 제출까지 Zoom으로 협업합니다.",
       "category": "project",
@@ -87,6 +93,7 @@
     },
     {
       "id": "grp-003",
+      "inviteCode": "LP-DES-003",
       "name": "디자인 포트폴리오 모임",
       "description": "디자인 분야 포트폴리오를 함께 준비하고 피드백하는 온라인 멘토링 그룹",
       "category": "mentoring",
@@ -103,6 +110,7 @@
     },
     {
       "id": "grp-004",
+      "inviteCode": "LP-GAME-004",
       "name": "게임 개발 크루",
       "description": "Unity, Unreal 등으로 게임을 만들어보는 프로젝트 그룹. 초보자 환영!",
       "category": "project",
@@ -119,6 +127,7 @@
     },
     {
       "id": "grp-005",
+      "inviteCode": "LP-START-005",
       "name": "창업 아이디어 랩",
       "description": "비즈니스 아이디어를 발굴하고 검증하는 멘토링 모임. 매주 Zoom 브레인스토밍",
       "category": "mentoring",
@@ -135,6 +144,7 @@
     },
     {
       "id": "grp-006",
+      "inviteCode": "LP-MED-006",
       "name": "의료계 진로 탐색반",
       "description": "의사, 간호사, 약사 등 의료 분야 진로를 함께 탐색하는 스터디 그룹",
       "category": "study",

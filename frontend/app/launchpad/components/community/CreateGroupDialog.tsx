@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Plus, X, Video, School, Shuffle } from 'lucide-react';
 import { LAUNCHPAD_LABELS, GROUP_CATEGORIES } from '../../config';
 import type { LaunchpadGroup } from '../../types';
@@ -38,6 +39,7 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
     const cat = GROUP_CATEGORIES[category];
     onSubmit({
       id: `grp-${Date.now()}`,
+      inviteCode: `LP-CUST-${Date.now()}`,
       name: name.trim(),
       description: description.trim(),
       category,
@@ -65,9 +67,12 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
     outline: 'none',
   };
 
-  return (
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
+  const dialogContent = (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center"
+      className="fixed inset-0 z-[100] flex items-end justify-center"
       style={{ backgroundColor: 'rgba(0,0,0,0.65)', backdropFilter: 'blur(4px)' }}
       onClick={onClose}
     >
@@ -77,7 +82,7 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
           backgroundColor: '#1a1a2e',
           border: '1px solid rgba(255,255,255,0.12)',
           borderBottom: 'none',
-          maxHeight: 'calc(100dvh - 60px)',
+          maxHeight: '85dvh',
           animation: 'sheet-slide-up 0.32s cubic-bezier(0.32,0.72,0,1) forwards',
         }}
         onClick={e => e.stopPropagation()}
@@ -96,7 +101,7 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
           </button>
         </div>
 
-        <div className="overflow-y-auto overscroll-contain px-5 py-4 space-y-4" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-4 space-y-4 pb-6" style={{ WebkitOverflowScrolling: 'touch' }}>
           <div>
             <label className="text-xs text-gray-400 mb-1.5 block">그룹 이름 *</label>
             <input style={inp} placeholder="그룹 이름을 입력하세요" value={name} onChange={e => setName(e.target.value)} />
@@ -164,7 +169,7 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
             <input style={inp} placeholder="예: AI, 스터디, 프로젝트" value={tags} onChange={e => setTags(e.target.value)} />
           </div>
 
-          <div className="pt-2 pb-10">
+          <div className="pt-2">
             <button
               onClick={handleSubmit}
               disabled={!canSubmit}
@@ -181,4 +186,7 @@ export function CreateGroupDialog({ onSubmit, onClose }: Props) {
       </div>
     </div>
   );
+
+  if (!mounted || typeof document === 'undefined') return null;
+  return createPortal(dialogContent, document.body);
 }
