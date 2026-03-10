@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useCallback, useRef } from 'react';
+import { useState, useRef } from 'react';
 import {
   X, ChevronRight, ChevronLeft, Check, Plus, Trash2,
   Wand2, Pencil, Target, Lightbulb, Sparkles,
-  GraduationCap, Calendar, ArrowRight,
+  Calendar, ArrowRight,
   CheckCircle2, ChevronDown, ChevronUp, Flame, Info
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ITEM_TYPES, GRADE_YEARS } from '../config';
+import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
 import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
@@ -17,15 +17,43 @@ import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
 /* ─── Types ─── */
 export type ItemType = 'activity' | 'award' | 'portfolio' | 'certification';
 
+/** 학기 옵션: both=통합, first=1학기, second=2학기, split=분리, ''=미선택 */
+export type SemesterOption = 'both' | 'first' | 'second' | 'split' | '';
+
+/** 활동 하위의 작은 실행 단위 */
+export type SubItem = {
+  id: string;
+  title: string;
+  done?: boolean;
+};
+
 export type PlanItem = {
   id: string;
   type: ItemType;
   title: string;
-  months: number[];        // 다중 월 선택
+  months: number[];
   difficulty: number;
   cost: string;
   organizer: string;
   custom?: boolean;
+  /** 이 활동을 구성하는 하위 실행 항목들 */
+  subItems?: SubItem[];
+};
+
+/** 목표 하나 + 그 목표에 연결된 세부활동 묶음 */
+export type GoalActivityGroup = {
+  id: string;
+  goal: string;
+  items: PlanItem[];
+  isExpanded?: boolean;
+};
+
+/** 학기별 계획 단위 */
+export type SemesterPlan = {
+  semesterId: 'first' | 'second';
+  semesterLabel: string;
+  goalGroups: GoalActivityGroup[];
+  ungroupedItems: PlanItem[];
 };
 
 export type PlanGroup = {
@@ -37,9 +65,13 @@ export type PlanGroup = {
 export type YearPlan = {
   gradeId: string;
   gradeLabel: string;
+  semester: SemesterOption;
   goals: string[];
   items: PlanItem[];
   groups?: PlanGroup[];
+  /** 목표-활동 그룹핑 구조 (semester=split이면 학기별로 2개, 아니면 1개) */
+  semesterPlans?: SemesterPlan[];
+  goalGroups?: GoalActivityGroup[];
 };
 
 export type CareerPlan = {
@@ -565,6 +597,527 @@ function AddItemSheet({
 }
 
 /* ══════════════════════════════════════════
+   ActivityItemCard — 세부활동 하나 + 하위활동 아코디언
+══════════════════════════════════════════ */
+function ActivityItemCard({
+  item, color, onUpdate, onRemove,
+}: {
+  item: PlanItem;
+  color: string;
+  onUpdate: (updated: PlanItem) => void;
+  onRemove: () => void;
+}) {
+  const tc = ITEM_TYPES.find(t => t.value === item.type)!;
+  const subItems = item.subItems ?? [];
+  const [subExpanded, setSubExpanded] = useState(subItems.length > 0);
+  const [subInput, setSubInput] = useState('');
+  const [editingSubId, setEditingSubId] = useState<string | null>(null);
+  const [editingSubText, setEditingSubText] = useState('');
+
+  const monthLabel =
+    item.months.length === 1
+      ? `${item.months[0]}월`
+      : item.months.length <= 3
+      ? item.months.map(m => `${m}월`).join('·')
+      : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
+
+  const addSubItem = () => {
+    if (!subInput.trim()) return;
+    const newSub: SubItem = {
+      id: `sub-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      title: subInput.trim(),
+      done: false,
+    };
+    onUpdate({ ...item, subItems: [...subItems, newSub] });
+    setSubInput('');
+    setSubExpanded(true);
+  };
+
+  const toggleSubDone = (subId: string) => {
+    onUpdate({
+      ...item,
+      subItems: subItems.map(s => s.id === subId ? { ...s, done: !s.done } : s),
+    });
+  };
+
+  const removeSubItem = (subId: string) => {
+    onUpdate({ ...item, subItems: subItems.filter(s => s.id !== subId) });
+  };
+
+  const saveEditSub = (subId: string) => {
+    if (!editingSubText.trim()) {
+      removeSubItem(subId);
+    } else {
+      onUpdate({
+        ...item,
+        subItems: subItems.map(s => s.id === subId ? { ...s, title: editingSubText.trim() } : s),
+      });
+    }
+    setEditingSubId(null);
+    setEditingSubText('');
+  };
+
+  const doneCount = subItems.filter(s => s.done).length;
+
+  return (
+    <div
+      className="rounded-xl overflow-hidden transition-all"
+      style={{ backgroundColor: `${tc.color}0e`, border: `1px solid ${tc.color}28` }}
+    >
+      {/* 활동 헤더 행 */}
+      <div className="flex items-center gap-2.5 px-3 py-2.5">
+        <span className="text-base flex-shrink-0">{tc.emoji}</span>
+        <div className="flex-1 min-w-0">
+          <div className="text-sm font-semibold text-white line-clamp-1">{item.title}</div>
+          <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+            <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
+            <span className="text-[10px] text-gray-500">📅 {monthLabel}</span>
+            {item.cost !== '무료' && item.cost !== '자체 제작' && (
+              <span className="text-[10px] text-gray-600">{item.cost}</span>
+            )}
+            {subItems.length > 0 && (
+              <span className="text-[10px] text-gray-500">
+                {doneCount}/{subItems.length} 완료
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-1 flex-shrink-0">
+          {/* 하위활동 토글 */}
+          <button
+            onClick={() => setSubExpanded(e => !e)}
+            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg text-[10px] font-bold transition-all"
+            style={{
+              backgroundColor: subExpanded ? `${tc.color}22` : 'rgba(255,255,255,0.06)',
+              color: subExpanded ? tc.color : 'rgba(255,255,255,0.4)',
+            }}
+          >
+            <Plus className="w-2.5 h-2.5" />
+            하위
+            {subItems.length > 0 && (
+              <span className="ml-0.5">{subItems.length}</span>
+            )}
+          </button>
+          <button
+            onClick={onRemove}
+            className="w-6 h-6 rounded-lg flex items-center justify-center"
+            style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
+          >
+            <Trash2 className="w-3 h-3 text-gray-600" />
+          </button>
+        </div>
+      </div>
+
+      {/* 하위활동 패널 — 아코디언 */}
+      <AnimatePresence>
+        {subExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className="overflow-hidden"
+          >
+            <div
+              className="px-3 pb-2.5 space-y-1"
+              style={{ borderTop: `1px solid ${tc.color}18` }}
+            >
+              {/* 하위활동 목록 */}
+              {subItems.length > 0 && (
+                <div className="pt-2 space-y-1">
+                  <AnimatePresence>
+                    {subItems.map(sub => (
+                      <motion.div
+                        key={sub.id}
+                        initial={{ opacity: 0, x: -6 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.15 }}
+                        className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg group"
+                        style={{
+                          backgroundColor: sub.done ? `${tc.color}08` : 'rgba(255,255,255,0.04)',
+                          border: `1px solid ${sub.done ? tc.color + '20' : 'rgba(255,255,255,0.07)'}`,
+                        }}
+                      >
+                        {/* 완료 체크 */}
+                        <button
+                          onClick={() => toggleSubDone(sub.id)}
+                          className="flex-shrink-0 transition-all"
+                          style={{ color: sub.done ? tc.color : 'rgba(255,255,255,0.2)' }}
+                        >
+                          <CheckCircle2 style={{ width: 14, height: 14 }} />
+                        </button>
+
+                        {/* 제목 (인라인 편집) */}
+                        {editingSubId === sub.id ? (
+                          <input
+                            type="text"
+                            value={editingSubText}
+                            onChange={e => setEditingSubText(e.target.value)}
+                            onKeyDown={e => {
+                              if (e.key === 'Enter') saveEditSub(sub.id);
+                              if (e.key === 'Escape') setEditingSubId(null);
+                            }}
+                            onBlur={() => saveEditSub(sub.id)}
+                            autoFocus
+                            className="flex-1 bg-transparent text-xs text-white outline-none"
+                          />
+                        ) : (
+                          <span
+                            className="flex-1 text-xs text-white cursor-pointer leading-snug"
+                            style={{
+                              textDecoration: sub.done ? 'line-through' : 'none',
+                              color: sub.done ? 'rgba(255,255,255,0.35)' : undefined,
+                            }}
+                            onClick={() => { setEditingSubId(sub.id); setEditingSubText(sub.title); }}
+                          >
+                            {sub.title}
+                          </span>
+                        )}
+
+                        <button
+                          onClick={() => removeSubItem(sub.id)}
+                          className="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X className="w-2.5 h-2.5 text-gray-600" />
+                        </button>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                </div>
+              )}
+
+              {/* 하위활동 입력 */}
+              <div className="flex gap-1.5 pt-1">
+                <input
+                  type="text"
+                  value={subInput}
+                  onChange={e => setSubInput(e.target.value)}
+                  onKeyDown={e => { if (e.key === 'Enter') addSubItem(); }}
+                  placeholder="하위 활동 추가 (예: 스케치북 구매, 유튜브 강의 수강...)"
+                  className="flex-1 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${tc.color}25` }}
+                />
+                <button
+                  onClick={addSubItem}
+                  disabled={!subInput.trim()}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 disabled:opacity-30 transition-all"
+                  style={{ backgroundColor: `${tc.color}22`, color: tc.color }}
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════
+   GoalActivityGroupCard — 목표 + 연결된 세부활동 아코디언
+══════════════════════════════════════════ */
+function GoalActivityGroupCard({
+  group, color, starId, onUpdate, onRemove,
+}: {
+  group: GoalActivityGroup;
+  color: string;
+  starId: string;
+  onUpdate: (updated: GoalActivityGroup) => void;
+  onRemove: () => void;
+}) {
+  const [isExpanded, setIsExpanded] = useState(group.isExpanded ?? true);
+  const [showAddItem, setShowAddItem] = useState(false);
+  const [editingGoal, setEditingGoal] = useState(false);
+  const [goalText, setGoalText] = useState(group.goal);
+  const [celebrateItemId, setCelebrateItemId] = useState<string | null>(null);
+
+  const handleGoalSave = () => {
+    if (goalText.trim()) {
+      onUpdate({ ...group, goal: goalText.trim() });
+    }
+    setEditingGoal(false);
+  };
+
+  const handleAddItem = (item: Omit<PlanItem, 'id'>) => {
+    const newItem: PlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}`, subItems: [] };
+    onUpdate({ ...group, items: [...group.items, newItem], isExpanded: true });
+    setCelebrateItemId(newItem.id);
+    setTimeout(() => setCelebrateItemId(null), 1000);
+  };
+
+  const handleUpdateItem = (updated: PlanItem) => {
+    onUpdate({ ...group, items: group.items.map(it => it.id === updated.id ? updated : it) });
+  };
+
+  const handleRemoveItem = (itemId: string) => {
+    onUpdate({ ...group, items: group.items.filter(it => it.id !== itemId) });
+  };
+
+  const toggleExpanded = () => {
+    const next = !isExpanded;
+    setIsExpanded(next);
+    onUpdate({ ...group, isExpanded: next });
+  };
+
+  return (
+    <>
+      <div
+        className="rounded-2xl overflow-hidden transition-all duration-200"
+        style={{
+          border: `1.5px solid ${color}35`,
+          background: `linear-gradient(180deg, ${color}14 0%, ${color}06 100%)`,
+        }}
+      >
+        {/* Goal row — 항상 보임 */}
+        <div className="flex items-center gap-2.5 px-3.5 py-3">
+          <div
+            className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: `${color}25`, border: `1px solid ${color}44` }}
+          >
+            <Target className="w-3.5 h-3.5" style={{ color }} />
+          </div>
+
+          {editingGoal ? (
+            <input
+              type="text"
+              value={goalText}
+              onChange={(e) => setGoalText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') handleGoalSave();
+                if (e.key === 'Escape') { setGoalText(group.goal); setEditingGoal(false); }
+              }}
+              onBlur={handleGoalSave}
+              autoFocus
+              className="flex-1 bg-transparent text-sm font-bold text-white outline-none"
+            />
+          ) : (
+            <span
+              className="flex-1 text-sm font-bold text-white cursor-pointer leading-snug"
+              onClick={() => setEditingGoal(true)}
+            >
+              {group.goal}
+            </span>
+          )}
+
+          <div className="flex items-center gap-1.5 flex-shrink-0">
+            <span className="text-[10px] text-gray-500">{group.items.length}개 활동</span>
+            <button
+              onClick={toggleExpanded}
+              className="w-6 h-6 rounded-lg flex items-center justify-center transition-all"
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
+            >
+              {isExpanded
+                ? <ChevronUp className="w-3.5 h-3.5 text-gray-400" />
+                : <ChevronDown className="w-3.5 h-3.5 text-gray-400" />}
+            </button>
+            <button
+              onClick={onRemove}
+              className="w-6 h-6 rounded-lg flex items-center justify-center transition-all"
+              style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}
+            >
+              <Trash2 className="w-3 h-3 text-red-400" />
+            </button>
+          </div>
+        </div>
+
+        {/* 세부활동 목록 — 아코디언 */}
+        <AnimatePresence>
+          {isExpanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="overflow-hidden"
+            >
+              <div
+                className="px-3.5 pb-3 space-y-1.5"
+                style={{ borderTop: `1px solid ${color}18` }}
+              >
+                {/* 활동 목록 — ActivityItemCard로 렌더링 */}
+                {group.items.length > 0 && (
+                  <div className="pt-2 space-y-1.5">
+                    <AnimatePresence>
+                      {group.items.map((item) => (
+                        <motion.div
+                          key={item.id}
+                          initial={{ opacity: 0, y: -4 }}
+                          animate={{
+                            opacity: 1,
+                            y: 0,
+                            scale: celebrateItemId === item.id ? [1, 1.04, 1] : 1,
+                          }}
+                          exit={{ opacity: 0, x: -12 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <ActivityItemCard
+                            item={item}
+                            color={color}
+                            onUpdate={handleUpdateItem}
+                            onRemove={() => handleRemoveItem(item.id)}
+                          />
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                  </div>
+                )}
+
+                {/* 활동 추가 버튼 */}
+                <button
+                  onClick={() => setShowAddItem(true)}
+                  className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold transition-all active:scale-[0.99]"
+                  style={{
+                    border: `1px dashed ${color}30`,
+                    color: `${color}80`,
+                    backgroundColor: `${color}05`,
+                  }}
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  이 목표에 세부활동 추가
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {showAddItem && (
+        <AddItemSheet
+          starId={starId}
+          color={color}
+          onAdd={handleAddItem}
+          onClose={() => setShowAddItem(false)}
+        />
+      )}
+    </>
+  );
+}
+
+/* ══════════════════════════════════════════
+   SemesterSection — 학기 단위 목표-활동 그룹 관리
+══════════════════════════════════════════ */
+function SemesterSection({
+  semesterLabel, semesterEmoji, goalGroups, color, starId,
+  onUpdateGoalGroups,
+}: {
+  semesterLabel: string;
+  semesterEmoji: string;
+  goalGroups: GoalActivityGroup[];
+  color: string;
+  starId: string;
+  onUpdateGoalGroups: (groups: GoalActivityGroup[]) => void;
+}) {
+  const [goalInput, setGoalInput] = useState('');
+  const [showGoalTemplates, setShowGoalTemplates] = useState(false);
+
+  const addGoalGroup = (goalText: string) => {
+    if (!goalText.trim()) return;
+    const newGroup: GoalActivityGroup = {
+      id: `goal-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      goal: goalText.trim(),
+      items: [],
+      isExpanded: true,
+    };
+    onUpdateGoalGroups([...goalGroups, newGroup]);
+    setGoalInput('');
+  };
+
+  const updateGoalGroup = (updated: GoalActivityGroup) => {
+    onUpdateGoalGroups(goalGroups.map(g => g.id === updated.id ? updated : g));
+  };
+
+  const removeGoalGroup = (groupId: string) => {
+    onUpdateGoalGroups(goalGroups.filter(g => g.id !== groupId));
+  };
+
+  return (
+    <div className="space-y-3">
+      {/* 학기 헤더 */}
+      {semesterLabel && (
+        <div className="flex items-center gap-2">
+          <span className="text-sm">{semesterEmoji}</span>
+          <span className="text-xs font-bold text-white">{semesterLabel}</span>
+          <div className="flex-1 h-px" style={{ backgroundColor: `${color}25` }} />
+          <span className="text-[10px] text-gray-500">{goalGroups.length}개 목표</span>
+        </div>
+      )}
+
+      {/* 목표-활동 그룹 목록 */}
+      {goalGroups.length > 0 && (
+        <div className="space-y-2">
+          {goalGroups.map(group => (
+            <GoalActivityGroupCard
+              key={group.id}
+              group={group}
+              color={color}
+              starId={starId}
+              onUpdate={updateGoalGroup}
+              onRemove={() => removeGoalGroup(group.id)}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* 목표 추가 입력 */}
+      <div className="space-y-2">
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={goalInput}
+            onChange={e => setGoalInput(e.target.value)}
+            onKeyDown={e => { if (e.key === 'Enter') addGoalGroup(goalInput); }}
+            placeholder="목표를 입력하면 세부활동을 연결할 수 있어요"
+            className="flex-1 h-10 px-3.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+            style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+          />
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setShowGoalTemplates(true)}
+            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: `${color}15`, border: `1px solid ${color}33`, color }}
+            title="목표 템플릿"
+          >
+            <Sparkles className="w-4 h-4" />
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => addGoalGroup(goalInput)}
+            disabled={!goalInput.trim()}
+            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
+            style={{ backgroundColor: `${color}25`, border: `1px solid ${color}44`, color }}
+          >
+            <Plus className="w-4 h-4" />
+          </motion.button>
+        </div>
+
+        {goalGroups.length === 0 && (
+          <div
+            className="rounded-xl py-4 flex flex-col items-center gap-1.5"
+            style={{ border: `1.5px dashed ${color}25`, backgroundColor: `${color}05` }}
+          >
+            <Target className="w-5 h-5" style={{ color: `${color}60` }} />
+            <span className="text-xs text-gray-500">목표를 추가하고 세부활동을 연결하세요</span>
+          </div>
+        )}
+      </div>
+
+      {showGoalTemplates && (
+        <GoalTemplateSelector
+          onSelect={(goal) => { addGoalGroup(goal); setShowGoalTemplates(false); }}
+          onClose={() => setShowGoalTemplates(false)}
+          color={color}
+        />
+      )}
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════
    Single year card
 ══════════════════════════════════════════ */
 function YearPlanCard({
@@ -574,591 +1127,158 @@ function YearPlanCard({
   isExpanded: boolean; onToggle: () => void;
   onUpdate: (y: YearPlan) => void; onRemove: () => void;
 }) {
-  const [showAddItem, setShowAddItem] = useState(false);
-  const [addItemGroupId, setAddItemGroupId] = useState<string | undefined>(undefined);
-  const [goalInput, setGoalInput] = useState('');
-  const [showGoalTemplates, setShowGoalTemplates] = useState(false);
-  const [editingGoalIdx, setEditingGoalIdx] = useState<number | null>(null);
-  const [editingGoalText, setEditingGoalText] = useState('');
-  const [celebrateGoal, setCelebrateGoal] = useState<number | null>(null);
-  const [editingItemId, setEditingItemId] = useState<string | null>(null);
-  const [editingItemTitle, setEditingItemTitle] = useState('');
-  const [celebrateItemId, setCelebrateItemId] = useState<string | null>(null);
-  const [showAddGroup, setShowAddGroup] = useState(false);
-  const [groupInput, setGroupInput] = useState('');
-  const [editingGroupId, setEditingGroupId] = useState<string | null>(null);
-  const [editingGroupLabel, setEditingGroupLabel] = useState('');
+  const goalGroups = yearPlan.goalGroups ?? [];
+  const semesterPlans = yearPlan.semesterPlans ?? [];
+  const semesterConf = SEMESTER_OPTIONS.find(s => s.id === yearPlan.semester);
+  const needsSemesterPick = !yearPlan.semester;
 
-  const addGoal = () => {
-    if (!goalInput.trim()) return;
-    const newGoals = [...yearPlan.goals, goalInput.trim()];
-    onUpdate({ ...yearPlan, goals: newGoals });
-    setGoalInput('');
-    
-    // 🎉 Celebration effect
-    const newIdx = newGoals.length - 1;
-    setCelebrateGoal(newIdx);
-    setTimeout(() => setCelebrateGoal(null), 1000);
+  const totalGoals = yearPlan.semester === 'split'
+    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.length, 0)
+    : goalGroups.length;
+
+  const totalItems = yearPlan.semester === 'split'
+    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
+    : goalGroups.reduce((s, g) => s + g.items.length, 0);
+
+  const handleSemesterSelect = (semester: SemesterOption) => {
+    const newSemesterPlans: SemesterPlan[] = semester === 'split'
+      ? [
+          { semesterId: 'first', semesterLabel: '1학기 (3~8월)', goalGroups: [], ungroupedItems: [] },
+          { semesterId: 'second', semesterLabel: '2학기 (9~2월)', goalGroups: [], ungroupedItems: [] },
+        ]
+      : [];
+    onUpdate({ ...yearPlan, semester, semesterPlans: newSemesterPlans, goalGroups: [] });
   };
 
-  const removeGoal = (idx: number) => {
-    onUpdate({ ...yearPlan, goals: yearPlan.goals.filter((_, i) => i !== idx) });
+  const updateGoalGroups = (groups: GoalActivityGroup[]) => {
+    onUpdate({ ...yearPlan, goalGroups: groups });
   };
 
-  const startEditGoal = (idx: number) => {
-    setEditingGoalIdx(idx);
-    setEditingGoalText(yearPlan.goals[idx]);
+  const updateSemesterPlanGoalGroups = (semesterId: 'first' | 'second', groups: GoalActivityGroup[]) => {
+    const updated = semesterPlans.map(sp =>
+      sp.semesterId === semesterId ? { ...sp, goalGroups: groups } : sp
+    );
+    onUpdate({ ...yearPlan, semesterPlans: updated });
   };
-
-  const saveEditGoal = () => {
-    if (editingGoalIdx === null) return;
-    if (!editingGoalText.trim()) {
-      removeGoal(editingGoalIdx);
-    } else {
-      const newGoals = [...yearPlan.goals];
-      newGoals[editingGoalIdx] = editingGoalText.trim();
-      onUpdate({ ...yearPlan, goals: newGoals });
-    }
-    setEditingGoalIdx(null);
-    setEditingGoalText('');
-  };
-
-  const selectGoalTemplate = (goal: string) => {
-    const newGoals = [...yearPlan.goals, goal];
-    onUpdate({ ...yearPlan, goals: newGoals });
-    
-    // 🎉 Celebration effect
-    const newIdx = newGoals.length - 1;
-    setCelebrateGoal(newIdx);
-    setTimeout(() => setCelebrateGoal(null), 1000);
-  };
-
-  const addItem = (item: Omit<PlanItem, 'id'>, groupId?: string) => {
-    const newItem: PlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}` };
-    if (groupId) {
-      const groups = (yearPlan.groups ?? []).map(g =>
-        g.id === groupId ? { ...g, items: [...g.items, newItem] } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      onUpdate({ ...yearPlan, items: [...yearPlan.items, newItem] });
-    }
-    setCelebrateItemId(newItem.id);
-    setTimeout(() => setCelebrateItemId(null), 1000);
-  };
-
-  const removeItem = (id: string, groupId?: string) => {
-    if (groupId) {
-      const groups = (yearPlan.groups ?? []).map(g =>
-        g.id === groupId ? { ...g, items: g.items.filter(it => it.id !== id) } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      onUpdate({ ...yearPlan, items: yearPlan.items.filter(it => it.id !== id) });
-    }
-  };
-
-  const startEditItem = (item: PlanItem) => {
-    setEditingItemId(item.id);
-    setEditingItemTitle(item.title);
-  };
-
-  const saveEditItem = (itemId: string, groupId?: string) => {
-    if (!editingItemTitle.trim()) {
-      removeItem(itemId, groupId);
-    } else if (groupId) {
-      const groups = (yearPlan.groups ?? []).map(g =>
-        g.id === groupId ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it) } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      const newItems = yearPlan.items.map(it =>
-        it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it
-      );
-      onUpdate({ ...yearPlan, items: newItems });
-    }
-    setEditingItemId(null);
-    setEditingItemTitle('');
-  };
-
-  const addGroup = (label: string) => {
-    const newGroup: PlanGroup = {
-      id: `group-${Date.now()}-${Math.random().toString(36).slice(2)}`,
-      label,
-      items: [],
-    };
-    onUpdate({ ...yearPlan, groups: [...(yearPlan.groups ?? []), newGroup] });
-  };
-
-  const removeGroup = (groupId: string) => {
-    onUpdate({ ...yearPlan, groups: (yearPlan.groups ?? []).filter(g => g.id !== groupId) });
-  };
-
-  const renameGroup = (groupId: string, label: string) => {
-    const groups = (yearPlan.groups ?? []).map(g => g.id === groupId ? { ...g, label } : g);
-    onUpdate({ ...yearPlan, groups });
-  };
-
-  const allGroupItems = (yearPlan.groups ?? []).flatMap(g => g.items);
-  const totalCount = yearPlan.goals.length + yearPlan.items.length + allGroupItems.length;
-
-  // summarize months across all items for the header
-  const allMonths = [...new Set([...yearPlan.items, ...allGroupItems].flatMap(it => it.months))].sort((a, b) => a - b);
 
   return (
-    <>
-      <div className="rounded-2xl overflow-hidden transition-all duration-300"
-        style={{
-          border: `1.5px solid ${isExpanded ? color : color + '30'}`,
-          background: isExpanded ? `linear-gradient(180deg, ${color}18 0%, ${color}08 100%)` : `${color}08`,
-        }}>
-        {/* Card header */}
-        <div className="flex items-center gap-3 px-4 py-3.5 cursor-pointer" onClick={onToggle}>
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
-            style={{ background: `linear-gradient(135deg, ${color}, ${color}bb)`, color: '#fff' }}>
-            {yearPlan.gradeLabel}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="font-bold text-white text-sm">
-              {GRADE_YEARS.find(g => g.id === yearPlan.gradeId)?.fullLabel ?? yearPlan.gradeLabel}
-            </div>
-            {totalCount > 0 ? (
-              <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                {yearPlan.goals.length > 0 && <span className="text-[10px] text-gray-400">🎯 {yearPlan.goals.length}개 목표</span>}
-                {yearPlan.items.length > 0 && (
-                  <span className="text-[10px] text-gray-400">
-                    {yearPlan.items.slice(0, 3).map(it => ITEM_TYPES.find(t => t.value === it.type)?.emoji).join('')}
-                    {' '}{yearPlan.items.length}개 항목
-                  </span>
-                )}
-                {allMonths.length > 0 && (
-                  <span className="text-[10px]" style={{ color: `${color}99` }}>
-                    📅 {allMonths.slice(0, 4).map(m => `${m}월`).join('·')}{allMonths.length > 4 ? '…' : ''}
-                  </span>
-                )}
-              </div>
-            ) : (
-              <div className="text-[10px] text-gray-600 mt-0.5">탭해서 계획 추가하기</div>
-            )}
-          </div>
-          {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
+    <div className="rounded-2xl overflow-hidden transition-all duration-300"
+      style={{
+        border: `1.5px solid ${isExpanded ? color : color + '30'}`,
+        background: isExpanded ? `linear-gradient(180deg, ${color}18 0%, ${color}08 100%)` : `${color}08`,
+      }}>
+      {/* Card header — 항상 표시 */}
+      <div className="flex items-center gap-3 px-4 py-3.5 cursor-pointer" onClick={onToggle}>
+        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
+          style={{ background: `linear-gradient(135deg, ${color}, ${color}bb)`, color: '#fff' }}>
+          {yearPlan.gradeLabel}
         </div>
-
-        {/* Expanded body */}
-        {isExpanded && (
-          <div className="px-4 pb-4 space-y-4" style={{ borderTop: `1px solid ${color}20` }}>
-            {/* Goals */}
-            <div className="pt-3">
-              <div className="flex items-center gap-1.5 mb-2.5">
-                <Target className="w-3.5 h-3.5" style={{ color }} />
-                <span className="text-xs font-bold text-white">이 학년의 목표</span>
-                <span className="text-[10px] text-gray-500 ml-1">2~3개 추천</span>
-              </div>
-              
-              <AnimatePresence>
-                {yearPlan.goals.map((goal, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                    animate={{ 
-                      opacity: 1, 
-                      scale: celebrateGoal === idx ? [1, 1.05, 1] : 1,
-                      y: 0 
-                    }}
-                    exit={{ opacity: 0, scale: 0.9, x: -20 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex items-center gap-2 px-3 py-2 rounded-xl mb-1.5 group relative overflow-hidden"
-                    style={{ 
-                      backgroundColor: `${color}14`, 
-                      border: `1px solid ${color}22`,
-                      boxShadow: celebrateGoal === idx ? `0 0 20px ${color}66` : 'none'
-                    }}
-                  >
-                    {celebrateGoal === idx && (
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: [0, 1.5, 0] }}
-                        transition={{ duration: 0.8 }}
-                        className="absolute inset-0 rounded-xl"
-                        style={{ 
-                          background: `radial-gradient(circle, ${color}44 0%, transparent 70%)`,
-                          pointerEvents: 'none'
-                        }}
-                      />
-                    )}
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-                    
-                    {editingGoalIdx === idx ? (
-                      <input
-                        type="text"
-                        value={editingGoalText}
-                        onChange={(e) => setEditingGoalText(e.target.value)}
-                        onKeyDown={(e) => {
-                          if (e.key === 'Enter') saveEditGoal();
-                          if (e.key === 'Escape') setEditingGoalIdx(null);
-                        }}
-                        onBlur={saveEditGoal}
-                        autoFocus
-                        className="flex-1 bg-transparent text-sm text-white outline-none"
-                      />
-                    ) : (
-                      <span 
-                        className="flex-1 text-sm text-white cursor-pointer"
-                        onClick={() => startEditGoal(idx)}
-                      >
-                        {goal}
-                      </span>
-                    )}
-                    
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={() => removeGoal(idx)}
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                    >
-                      <X className="w-3.5 h-3.5 text-gray-600 hover:text-red-400" />
-                    </motion.button>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-              
-              {yearPlan.goals.length < 5 && (
-                <div className="flex gap-2">
-                  <input 
-                    type="text" 
-                    value={goalInput} 
-                    onChange={e => setGoalInput(e.target.value)}
-                    onKeyDown={e => { if (e.key === 'Enter') addGoal(); }}
-                    placeholder={`${yearPlan.gradeLabel} 목표를 입력하세요`}
-                    className="flex-1 h-10 px-3.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} 
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setShowGoalTemplates(true)}
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"
-                    style={{ backgroundColor: `${color}15`, border: `1px solid ${color}33`, color }}
-                    title="목표 템플릿 선택"
-                  >
-                    <Sparkles className="w-4 h-4" />
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={addGoal}
-                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all"
-                    style={{ backgroundColor: `${color}25`, border: `1px solid ${color}44`, color }}
-                  >
-                    <Plus className="w-4 h-4" />
-                  </motion.button>
-                </div>
-              )}
-            </div>
-            
-            {showGoalTemplates && (
-              <GoalTemplateSelector
-                onSelect={selectGoalTemplate}
-                onClose={() => setShowGoalTemplates(false)}
-                color={color}
-              />
-            )}
-
-            <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }} />
-
-            {/* Items section header */}
-            <div>
-              <div className="flex items-center justify-between mb-2.5">
-                <div className="flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" style={{ color }} />
-                  <span className="text-xs font-bold text-white">활동 · 수상 · 작품 · 자격증</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <button
-                    onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{ background: `linear-gradient(135deg, ${color}30, ${color}15)`, border: `1px solid ${color}50`, color }}>
-                    <Plus className="w-3 h-3" />항목
-                  </button>
-                  <button
-                    onClick={() => setShowAddGroup(true)}
-                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', color: 'rgba(255,255,255,0.6)' }}>
-                    <Plus className="w-3 h-3" />그룹
-                  </button>
-                </div>
-              </div>
-
-              {/* Add group input */}
-              {showAddGroup && (
-                <div className="mb-3 flex gap-2">
-                  <input
-                    type="text"
-                    value={groupInput}
-                    onChange={(e) => setGroupInput(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter' && groupInput.trim()) { addGroup(groupInput.trim()); setGroupInput(''); setShowAddGroup(false); }
-                      if (e.key === 'Escape') { setGroupInput(''); setShowAddGroup(false); }
-                    }}
-                    placeholder="예: 1학기, 여름방학, 3~6월..."
-                    autoFocus
-                    className="flex-1 h-9 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: `1px solid ${color}44` }}
-                  />
-                  <button
-                    onClick={() => { if (groupInput.trim()) { addGroup(groupInput.trim()); setGroupInput(''); setShowAddGroup(false); } }}
-                    disabled={!groupInput.trim()}
-                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
-                    style={{ backgroundColor: color }}>
-                    <Check className="w-4 h-4 text-white" />
-                  </button>
-                  <button
-                    onClick={() => { setGroupInput(''); setShowAddGroup(false); }}
-                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
-                    <X className="w-3.5 h-3.5 text-gray-400" />
-                  </button>
-                </div>
-              )}
-
-              {/* Groups */}
-              {(yearPlan.groups ?? []).length > 0 && (
-                <div className="space-y-3 mb-3">
-                  {(yearPlan.groups ?? []).map(group => (
-                    <div key={group.id} className="rounded-2xl overflow-hidden"
-                      style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                      {/* Group header */}
-                      <div className="flex items-center gap-2 px-3 py-2"
-                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
-                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-                        {editingGroupId === group.id ? (
-                          <input
-                            type="text"
-                            value={editingGroupLabel}
-                            onChange={(e) => setEditingGroupLabel(e.target.value)}
-                            onBlur={() => { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); setEditingGroupId(null); }}
-                            onKeyDown={(e) => {
-                              if (e.key === 'Enter') { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); setEditingGroupId(null); }
-                              if (e.key === 'Escape') setEditingGroupId(null);
-                            }}
-                            autoFocus
-                            className="flex-1 bg-transparent text-xs font-bold text-white outline-none"
-                          />
-                        ) : (
-                          <span
-                            className="flex-1 text-xs font-bold cursor-text"
-                            style={{ color }}
-                            onClick={() => { setEditingGroupId(group.id); setEditingGroupLabel(group.label); }}
-                          >
-                            {group.label}
-                          </span>
-                        )}
-                        <span className="text-[10px] text-gray-600">{group.items.length}개</span>
-                        <button
-                          onClick={() => { setAddItemGroupId(group.id); setShowAddItem(true); }}
-                          className="flex items-center gap-0.5 px-2 py-1 rounded-lg text-[10px] font-bold transition-all active:scale-95"
-                          style={{ backgroundColor: `${color}18`, color }}>
-                          <Plus className="w-3 h-3" />추가
-                        </button>
-                        <button onClick={() => removeGroup(group.id)}
-                          className="w-6 h-6 rounded-lg flex items-center justify-center"
-                          style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
-                          <Trash2 className="w-3 h-3 text-red-400" />
-                        </button>
-                      </div>
-                      {/* Group items */}
-                      {group.items.length > 0 && (
-                        <div className="px-3 py-2 space-y-1.5">
-                          <AnimatePresence>
-                            {group.items.map(item => {
-                              const tc = ITEM_TYPES.find(t => t.value === item.type)!;
-                              const monthLabel = item.months.length === 1
-                                ? `${item.months[0]}월`
-                                : item.months.length <= 3
-                                ? item.months.map(m => `${m}월`).join('·')
-                                : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
-                              return (
-                                <motion.div
-                                  key={item.id}
-                                  initial={{ opacity: 0, y: -6 }}
-                                  animate={{ opacity: 1, y: 0, scale: celebrateItemId === item.id ? [1, 1.04, 1] : 1 }}
-                                  exit={{ opacity: 0, x: -16 }}
-                                  transition={{ duration: 0.25 }}
-                                  className="flex items-center gap-2.5 px-3 py-2 rounded-xl group"
-                                  style={{ backgroundColor: `${tc.color}10`, border: `1px solid ${tc.color}22` }}
-                                >
-                                  <span className="text-base flex-shrink-0">{tc.emoji}</span>
-                                  <div className="flex-1 min-w-0">
-                                    {editingItemId === item.id ? (
-                                      <input
-                                        type="text"
-                                        value={editingItemTitle}
-                                        onChange={(e) => setEditingItemTitle(e.target.value)}
-                                        onKeyDown={(e) => {
-                                          if (e.key === 'Enter') saveEditItem(item.id, group.id);
-                                          if (e.key === 'Escape') setEditingItemId(null);
-                                        }}
-                                        onBlur={() => saveEditItem(item.id, group.id)}
-                                        autoFocus
-                                        className="w-full bg-transparent text-sm font-semibold text-white outline-none"
-                                      />
-                                    ) : (
-                                      <div className="text-sm font-semibold text-white line-clamp-1 cursor-pointer"
-                                        onClick={() => startEditItem(item)}>
-                                        {item.title}
-                                      </div>
-                                    )}
-                                    <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                                      <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
-                                      <span className="text-[10px] text-gray-500">📅 {monthLabel}</span>
-                                    </div>
-                                  </div>
-                                  <button onClick={() => removeItem(item.id, group.id)}
-                                    className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                                    style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-                                    <Trash2 className="w-3 h-3 text-gray-600" />
-                                  </button>
-                                </motion.div>
-                              );
-                            })}
-                          </AnimatePresence>
-                        </div>
-                      )}
-                      {group.items.length === 0 && (
-                        <button
-                          onClick={() => { setAddItemGroupId(group.id); setShowAddItem(true); }}
-                          className="w-full py-3 flex items-center justify-center gap-1.5 text-xs"
-                          style={{ color: `${color}66` }}>
-                          <Plus className="w-3.5 h-3.5" />이 그룹에 항목 추가
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Ungrouped items */}
-              {yearPlan.items.length === 0 && (yearPlan.groups ?? []).length === 0 ? (
-                <button onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
-                  className="w-full py-4 rounded-2xl flex flex-col items-center gap-1.5 transition-all active:scale-[0.99]"
-                  style={{ border: `1.5px dashed ${color}30`, backgroundColor: `${color}06` }}>
-                  <div className="flex gap-1.5 text-lg">{ITEM_TYPES.map(t => <span key={t.value}>{t.emoji}</span>)}</div>
-                  <span className="text-xs text-gray-500">항목 추가 또는 그룹으로 묶기</span>
-                </button>
-              ) : yearPlan.items.length > 0 ? (
-                <div className="space-y-1.5">
-                  <AnimatePresence>
-                    {yearPlan.items.map(item => {
-                      const tc = ITEM_TYPES.find(t => t.value === item.type)!;
-                      const monthLabel = item.months.length === 1
-                        ? `${item.months[0]}월`
-                        : item.months.length <= 3
-                        ? item.months.map(m => `${m}월`).join('·')
-                        : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
-                      return (
-                        <motion.div
-                          key={item.id}
-                          initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                          animate={{ 
-                            opacity: 1, 
-                            scale: celebrateItemId === item.id ? [1, 1.05, 1] : 1,
-                            y: 0 
-                          }}
-                          exit={{ opacity: 0, scale: 0.95, x: -20 }}
-                          transition={{ duration: 0.3 }}
-                          className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl group relative overflow-hidden"
-                          style={{ 
-                            backgroundColor: `${tc.color}10`, 
-                            border: `1px solid ${tc.color}22`,
-                            boxShadow: celebrateItemId === item.id ? `0 0 20px ${tc.color}66` : 'none'
-                          }}
-                        >
-                          {celebrateItemId === item.id && (
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              animate={{ scale: [0, 1.5, 0] }}
-                              transition={{ duration: 0.8 }}
-                              className="absolute inset-0 rounded-xl"
-                              style={{ 
-                                background: `radial-gradient(circle, ${tc.color}44 0%, transparent 70%)`,
-                                pointerEvents: 'none'
-                              }}
-                            />
-                          )}
-                          <span className="text-lg flex-shrink-0">{tc.emoji}</span>
-                          <div className="flex-1 min-w-0">
-                            {editingItemId === item.id ? (
-                              <input
-                                type="text"
-                                value={editingItemTitle}
-                                onChange={(e) => setEditingItemTitle(e.target.value)}
-                                onKeyDown={(e) => {
-                                  if (e.key === 'Enter') saveEditItem(item.id);
-                                  if (e.key === 'Escape') setEditingItemId(null);
-                                }}
-                                onBlur={() => saveEditItem(item.id)}
-                                autoFocus
-                                className="w-full bg-transparent text-sm font-semibold text-white outline-none"
-                              />
-                            ) : (
-                              <div 
-                                className="text-sm font-semibold text-white line-clamp-1 cursor-pointer"
-                                onClick={() => startEditItem(item)}
-                              >
-                                {item.title}
-                              </div>
-                            )}
-                            <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-                              <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
-                              <span className="text-[10px] text-gray-500">📅 {monthLabel}</span>
-                              {item.cost !== '무료' && item.cost !== '자체 제작' && (
-                                <span className="text-[10px] text-gray-600">{item.cost}</span>
-                              )}
-                            </div>
-                          </div>
-                          <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={() => removeItem(item.id)}
-                            className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-                            style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
-                          >
-                            <Trash2 className="w-3.5 h-3.5 text-gray-600" />
-                          </motion.button>
-                        </motion.div>
-                      );
-                    })}
-                  </AnimatePresence>
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    onClick={() => { setAddItemGroupId(undefined); setShowAddItem(true); }}
-                    className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs font-semibold"
-                    style={{ border: `1px dashed ${color}30`, color: `${color}80` }}
-                  >
-                    <Plus className="w-3.5 h-3.5" />더 추가하기
-                  </motion.button>
-                </div>
-              ) : null}
-            </div>
-
-            <button onClick={onRemove}
-              className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs text-gray-600 hover:text-red-400 transition-colors">
-              <Trash2 className="w-3 h-3" />이 학년 제거
-            </button>
+        <div className="flex-1 min-w-0">
+          <div className="font-bold text-white text-sm">
+            {GRADE_YEARS.find(g => g.id === yearPlan.gradeId)?.fullLabel ?? yearPlan.gradeLabel}
           </div>
-        )}
+          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+            {needsSemesterPick && (
+              <span className="text-[10px]" style={{ color: `${color}bb` }}>학기 구성을 선택하세요</span>
+            )}
+            {semesterConf && !needsSemesterPick && (
+              <span className="text-[10px]" style={{ color: `${color}99` }}>
+                {semesterConf.emoji} {semesterConf.label}
+              </span>
+            )}
+            {!needsSemesterPick && totalGoals > 0 && (
+              <span className="text-[10px] text-gray-400">🎯 {totalGoals}개 목표</span>
+            )}
+            {!needsSemesterPick && totalItems > 0 && (
+              <span className="text-[10px] text-gray-400">📌 {totalItems}개 활동</span>
+            )}
+            {!needsSemesterPick && totalGoals === 0 && totalItems === 0 && (
+              <span className="text-[10px] text-gray-600">목표를 추가해보세요</span>
+            )}
+          </div>
+        </div>
+        {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
       </div>
 
-      {showAddItem && (
-        <AddItemSheet
-          starId={starId}
-          color={color}
-          onAdd={(item) => addItem(item, addItemGroupId)}
-          onClose={() => { setShowAddItem(false); setAddItemGroupId(undefined); }}
-        />
+      {/* Expanded body */}
+      {isExpanded && (
+        <div className="px-4 pb-4 space-y-4" style={{ borderTop: `1px solid ${color}20` }}>
+
+          {/* ① 학기 선택 — semester 미설정 시 카드 상단에 인라인 표시 */}
+          {needsSemesterPick ? (
+            <div className="pt-3 space-y-2.5">
+              <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5" style={{ color }} />
+                이 학년을 어떻게 계획할까요?
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                {SEMESTER_OPTIONS.map(opt => (
+                  <button
+                    key={opt.id}
+                    onClick={() => handleSemesterSelect(opt.id as SemesterOption)}
+                    className="flex flex-col items-start gap-1 p-3 rounded-xl text-left transition-all active:scale-[0.97]"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      border: `1.5px solid ${color}35`,
+                    }}
+                  >
+                    <span className="text-xl">{opt.emoji}</span>
+                    <span className="text-xs font-bold text-white">{opt.label}</span>
+                    <span className="text-[10px] text-gray-500 leading-relaxed">{opt.description}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          ) : (
+            /* ② 학기 선택 완료 후 — 계획 입력 영역 */
+            <div className="pt-3 space-y-4">
+              {/* 학기 변경 버튼 (작게) */}
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                  {semesterConf?.emoji} {semesterConf?.label}
+                </span>
+                <button
+                  onClick={() => onUpdate({ ...yearPlan, semester: undefined as unknown as SemesterOption, goalGroups: [], semesterPlans: [] })}
+                  className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors underline"
+                >
+                  학기 변경
+                </button>
+              </div>
+
+              {yearPlan.semester === 'split' ? (
+                <div className="space-y-5">
+                  {semesterPlans.map(sp => (
+                    <SemesterSection
+                      key={sp.semesterId}
+                      semesterLabel={sp.semesterLabel}
+                      semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
+                      goalGroups={sp.goalGroups}
+                      color={color}
+                      starId={starId}
+                      onUpdateGoalGroups={(groups) => updateSemesterPlanGoalGroups(sp.semesterId, groups)}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <SemesterSection
+                  semesterLabel=""
+                  semesterEmoji=""
+                  goalGroups={goalGroups}
+                  color={color}
+                  starId={starId}
+                  onUpdateGoalGroups={updateGoalGroups}
+                />
+              )}
+            </div>
+          )}
+
+          <button onClick={onRemove}
+            className="w-full flex items-center justify-center gap-1.5 py-2 rounded-xl text-xs text-gray-600 hover:text-red-400 transition-colors">
+            <Trash2 className="w-3 h-3" />이 학년 제거
+          </button>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
@@ -1181,9 +1301,18 @@ function Step3Planner({
 
   const usedIds = yearPlans.map(y => y.gradeId);
 
-  const addGrade = (gradeId: string) => {
+  /** 학년 선택 즉시 카드 생성 — semester는 미설정 상태로 시작 */
+  const handleGradeSelect = (gradeId: string) => {
     const grade = GRADE_YEARS.find(g => g.id === gradeId)!;
-    const newYear: YearPlan = { gradeId, gradeLabel: grade.label, goals: [], items: [] };
+    const newYear: YearPlan = {
+      gradeId,
+      gradeLabel: grade.label,
+      semester: '',   // 카드 내부에서 선택
+      goals: [],
+      items: [],
+      goalGroups: [],
+      semesterPlans: [],
+    };
     onUpdateYears([...yearPlans, newYear]);
     setExpandedId(gradeId);
     setShowGradePicker(false);
@@ -1200,12 +1329,23 @@ function Step3Planner({
     if (expandedId === gradeId) setExpandedId(next.length > 0 ? next[next.length - 1].gradeId : null);
   };
 
-  const totalItems = yearPlans.reduce((s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0), 0);
-  const totalGoals = yearPlans.reduce((s, y) => s + y.goals.length, 0);
+  const totalGoals = yearPlans.reduce((s, y) => {
+    if (y.semester === 'split') {
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.length, 0);
+    }
+    return s + (y.goalGroups ?? []).length;
+  }, 0);
+
+  const totalItems = yearPlans.reduce((s, y) => {
+    if (y.semester === 'split') {
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0);
+    }
+    return s + (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
+  }, 0);
 
   return (
     <div className="space-y-4">
-      <TipBox text={`${job?.name ?? ''}의 커리어를 학년별로 쌓아가 보세요. 학년을 추가하면 계획표가 바로 펼쳐져요!`} />
+      <TipBox text={`${job?.name ?? ''}의 커리어를 학년별로 쌓아가 보세요. 목표를 먼저 세우고 세부활동을 연결하세요!`} />
 
       {yearPlans.length === 0 && (
         <div className="rounded-2xl py-8 flex flex-col items-center gap-3"
@@ -1222,7 +1362,8 @@ function Step3Planner({
           {yearPlans.map((year, idx) => (
             <div key={year.gradeId} className="relative">
               {idx < yearPlans.length - 1 && (
-                <div className="absolute left-[21px] top-full z-10" style={{ width: 2, height: 12, backgroundColor: `${color}40` }} />
+                <div className="absolute left-[21px] top-full z-10"
+                  style={{ width: 2, height: 12, backgroundColor: `${color}40` }} />
               )}
               <div className={idx > 0 ? 'mt-3' : ''}>
                 <YearPlanCard
@@ -1281,7 +1422,7 @@ function Step3Planner({
                   <div className="text-[10px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
                   <div className="flex gap-2 flex-wrap">
                     {available.map(g => (
-                      <button key={g.id} onClick={() => addGrade(g.id)}
+                      <button key={g.id} onClick={() => handleGradeSelect(g.id)}
                         className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-black transition-all active:scale-95"
                         style={{ background: `linear-gradient(135deg, ${color}30, ${color}18)`, border: `1.5px solid ${color}50`, color }}>
                         {g.label}
@@ -1302,7 +1443,7 @@ function Step3Planner({
           <Flame className="w-4 h-4 text-green-400 flex-shrink-0" />
           <div className="flex-1">
             <div className="text-xs font-bold text-green-300">
-              {yearPlans.length}개 학년 · {totalGoals}개 목표 · {totalItems}개 항목
+              {yearPlans.length}개 학년 · {totalGoals}개 목표 · {totalItems}개 활동
             </div>
             <div className="text-[10px] text-green-500 mt-0.5">완성 버튼을 눌러 저장하세요!</div>
           </div>
@@ -1379,7 +1520,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const canProceed = () => {
     if (step === 1) return !!starId;
     if (step === 2) return !!jobId;
-    if (step === 3) return yearPlans.length > 0;
+    if (step === 3) return yearPlans.length > 0 && yearPlans.every(y => y.semester.length > 0);
     return true;
   };
 

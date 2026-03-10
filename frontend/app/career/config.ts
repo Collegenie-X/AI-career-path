@@ -47,6 +47,14 @@ export const STAR_FILTERS = careerConfig.starFilters as readonly {
   emoji: string;
 }[];
 
+/** 학기 선택 옵션 */
+export const SEMESTER_OPTIONS = careerConfig.semesterOptions as readonly {
+  id: string;
+  label: string;
+  emoji: string;
+  description: string;
+}[];
+
 /** 라우트 경로 */
 export const ROUTES = careerConfig.routes as {
   readonly career: string;

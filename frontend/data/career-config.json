@@ -24,6 +24,12 @@
     { "id": "high1", "label": "고1", "fullLabel": "고등학교 1학년", "order": 7 },
     { "id": "high2", "label": "고2", "fullLabel": "고등학교 2학년", "order": 8 }
   ],
+  "semesterOptions": [
+    { "id": "both", "label": "1·2학기 통합", "emoji": "📅", "description": "학년 전체를 하나로 관리" },
+    { "id": "first", "label": "1학기만", "emoji": "🌸", "description": "3월 ~ 8월" },
+    { "id": "second", "label": "2학기만", "emoji": "🍂", "description": "9월 ~ 2월" },
+    { "id": "split", "label": "1·2학기 분리", "emoji": "✂️", "description": "학기별로 따로 계획" }
+  ],
   "starFilters": [
     { "id": "all", "label": "전체", "emoji": "✨" },
     { "id": "explore", "label": "탐구", "emoji": "🔬" },

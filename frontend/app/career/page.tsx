@@ -144,20 +144,34 @@ function CareerPageContent() {
       jobEmoji: template.jobEmoji,
       title: template.title,
       createdAt: new Date().toISOString(),
-      years: template.years.map(y => ({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      years: (template.years as any[]).map((y: any, yIdx: number) => ({
         gradeId: y.gradeId,
         gradeLabel: y.gradeLabel,
-        goals: y.goals,
-        items: y.items.map((item, idx) => ({
-          id: `tpl-${y.gradeId}-${idx}-${Date.now()}`,
-          type: item.type as 'activity' | 'award' | 'portfolio' | 'certification',
-          title: item.title,
-          months: 'months' in item && Array.isArray((item as { months?: number[] }).months)
-            ? (item as { months: number[] }).months
-            : 'month' in item ? [(item as { month: number }).month] : [3],
-          difficulty: item.difficulty,
-          cost: item.cost,
-          organizer: item.organizer,
+        semester: y.semester ?? 'both',
+        goals: y.goals ?? [],
+        items: [],
+        goalGroups: (y.goalGroups ?? []).map((g: any) => ({
+          ...g,
+          id: g.id ?? `tpl-g-${yIdx}-${Date.now()}`,
+          items: (g.items ?? []).map((item: any, iIdx: number) => ({
+            ...item,
+            id: item.id ?? `tpl-${y.gradeId}-${iIdx}-${Date.now()}`,
+            months: Array.isArray(item.months) ? item.months : [item.month ?? 3],
+            subItems: item.subItems ?? [],
+          })),
+        })),
+        semesterPlans: (y.semesterPlans ?? []).map((sp: any) => ({
+          ...sp,
+          goalGroups: (sp.goalGroups ?? []).map((g: any) => ({
+            ...g,
+            items: (g.items ?? []).map((item: any, iIdx: number) => ({
+              ...item,
+              id: item.id ?? `tpl-${y.gradeId}-sp-${iIdx}-${Date.now()}`,
+              months: Array.isArray(item.months) ? item.months : [item.month ?? 3],
+              subItems: item.subItems ?? [],
+            })),
+          })),
         })),
       })),
     };
