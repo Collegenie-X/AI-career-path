@@ -47,7 +47,14 @@ function PlanAccordionCard({
       : (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
     return s + directItems + groupItems + goalGroupItems;
   }, 0);
-  const checkedItems = plan.years.reduce((s, y) => s + y.items.filter((it) => (it as PlanItemWithCheck).checked).length, 0);
+  const checkedItems = plan.years.reduce((s, y) => {
+    const directChecked = y.items.filter((it) => (it as PlanItemWithCheck).checked).length;
+    const groupChecked = (y.groups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
+    const goalGroupChecked = y.semester === 'split'
+      ? (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0), 0)
+      : (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
+    return s + directChecked + groupChecked + goalGroupChecked;
+  }, 0);
 
   const updateYear = (updatedYear: YearPlan) =>
     onUpdatePlan({ ...plan, years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y) });

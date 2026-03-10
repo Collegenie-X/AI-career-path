@@ -46,6 +46,31 @@ export function YearTimelineNode({
     onUpdateYear({ ...year, groups });
   };
 
+  const toggleCheckInGoalGroup = (groupId: string, itemId: string) => {
+    const goalGroups = (year.goalGroups ?? []).map(g =>
+      g.id === groupId
+        ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) }
+        : g
+    );
+    onUpdateYear({ ...year, goalGroups });
+  };
+
+  const toggleCheckInSemesterPlan = (semesterId: string, groupId: string, itemId: string) => {
+    const semesterPlans = (year.semesterPlans ?? []).map(sp =>
+      sp.semesterId === semesterId
+        ? {
+            ...sp,
+            goalGroups: sp.goalGroups.map(g =>
+              g.id === groupId
+                ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) }
+                : g
+            ),
+          }
+        : sp
+    );
+    onUpdateYear({ ...year, semesterPlans });
+  };
+
   const deleteItem = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.filter((it) => it.id !== itemId) });
 
@@ -180,8 +205,8 @@ export function YearTimelineNode({
                         key={item.id}
                         item={item}
                         color={color}
-                        isEditMode={false}
-                        onToggleCheck={() => {}}
+                        isEditMode={isEditMode}
+                        onToggleCheck={() => toggleCheckInGoalGroup(group.id, item.id)}
                         onDelete={() => {}}
                         onTitleSave={() => {}}
                         onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
@@ -220,8 +245,8 @@ export function YearTimelineNode({
                             key={item.id}
                             item={item}
                             color={color}
-                            isEditMode={false}
-                            onToggleCheck={() => {}}
+                            isEditMode={isEditMode}
+                            onToggleCheck={() => toggleCheckInSemesterPlan(sp.semesterId, group.id, item.id)}
                             onDelete={() => {}}
                             onTitleSave={() => {}}
                             onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
