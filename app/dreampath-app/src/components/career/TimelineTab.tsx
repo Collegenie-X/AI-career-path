@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert,
 } from 'react-native';
@@ -176,7 +176,30 @@ interface YearNodeProps {
 
 function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem, onItemDetailPress }: YearNodeProps) {
   const [expanded, setExpanded] = useState(true);
+  const [expandedGoalIds, setExpandedGoalIds] = useState<Set<string>>(() =>
+    new Set((year.goalGroups ?? []).map((g) => g.id)),
+  );
   const grade = CAREER_GRADE_YEARS.find((g) => g.id === year.gradeId);
+
+  const toggleGoalExpand = (goalId: string) => {
+    setExpandedGoalIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(goalId)) next.delete(goalId);
+      else next.add(goalId);
+      return next;
+    });
+  };
+
+  const goalGroupIdList = (year.goalGroups ?? []).map((g) => g.id).join(',');
+  useEffect(() => {
+    const groups = year.goalGroups ?? [];
+    setExpandedGoalIds((prev) => {
+      const next = new Set(prev);
+      groups.forEach((g) => next.add(g.id));
+      return next;
+    });
+  }, [year.gradeId, goalGroupIdList]);
+
   const groupItems = (year.groups ?? []).flatMap((g) => g.items);
   const goalGroups = year.goalGroups ?? [];
   const goalGroupItems = goalGroups.flatMap((g) => g.items);
@@ -299,14 +322,20 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem, onItem
             {goalGroups.length > 0 ? (
               <View style={styles.goalGroupsSection}>
                 <Text style={styles.sectionLabel}>⊙ {CAREER_LABELS.goalTitle}</Text>
-                {goalGroups.map((group) => (
+                {goalGroups.map((group) => {
+                  const isGoalExpanded = expandedGoalIds.has(group.id);
+                  return (
                   <View key={group.id} style={[styles.goalGroupCard, { borderColor: color + '28', backgroundColor: color + '08' }]}>
-                    <View style={[styles.goalGroupHeader, { borderBottomColor: group.items.length > 0 ? color + '18' : 'transparent' }]}>
+                    <TouchableOpacity
+                      style={[styles.goalGroupHeader, { borderBottomColor: group.items.length > 0 ? color + '18' : 'transparent' }]}
+                      onPress={() => toggleGoalExpand(group.id)}
+                      activeOpacity={0.7}
+                    >
                       <View style={[styles.goalDot, { backgroundColor: color }]} />
                       <Text style={[styles.goalGroupTitle, { color }]}>{group.goal}</Text>
-                      <Text style={styles.goalGroupCount}>{group.items.length}{CAREER_LABELS.goalActivityCount}</Text>
-                    </View>
-                    {group.items.length > 0 ? (
+                      <Text style={styles.goalGroupChevron}>{isGoalExpanded ? '▾' : '▸'}</Text>
+                    </TouchableOpacity>
+                    {isGoalExpanded && group.items.length > 0 ? (
                       <View style={styles.goalGroupItems}>
                         {group.items.map((item) => (
                           <ItemRow
@@ -321,13 +350,14 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem, onItem
                           />
                         ))}
                       </View>
-                    ) : (
+                    ) : isGoalExpanded ? (
                       <View style={[styles.goalGroupEmpty, { borderColor: color + '20' }]}>
                         <Text style={styles.goalGroupEmptyText}>{CAREER_LABELS.goalNoActivity}</Text>
                       </View>
-                    )}
+                    ) : null}
                   </View>
-                ))}
+                  );
+                })}
               </View>
             ) : (
               <>
@@ -738,7 +768,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
   },
   goalGroupTitle: { fontSize: FONT_SIZES.sm, fontWeight: '700', flex: 1 },
-  goalGroupCount: { fontSize: 10, color: '#6B7280' },
+  goalGroupChevron: { fontSize: 14, color: '#6B7280' },
   goalGroupItems: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, gap: SPACING.sm },
   goalGroupEmpty: {
     paddingVertical: SPACING.md,

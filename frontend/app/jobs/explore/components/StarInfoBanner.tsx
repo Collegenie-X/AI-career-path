@@ -27,7 +27,8 @@ function DifficultyDots({ level, color }: { level: number; color: string }) {
 
 /**
  * 메인 페이지(jobs/explore)용 간단 카드
- * - 아이콘, 제목, 간단 설명, 직무 성향·난이도·준비 기간, 상세 보기 버튼
+ * - 간단 설명, 직무 성향·난이도·준비 기간, 상세 보기 버튼
+ * - 큰 아이콘/제목은 StarDetailDialog 헤더와 중복되므로 제외
  */
 export function StarInfoBanner({ star, onOpenDetail }: StarInfoBannerProps) {
   const rawProfile = star.starProfile;
@@ -45,7 +46,7 @@ export function StarInfoBanner({ star, onOpenDetail }: StarInfoBannerProps) {
     difficultyLevel > 0 ? LABELS.star_difficulty_levels[String(difficultyLevel)] ?? '' : '';
 
   return (
-    <div className="mb-4">
+    <div className="mb-10">
       <div
         className="rounded-2xl p-5 flex flex-col items-center text-center relative overflow-hidden"
         style={{
@@ -54,17 +55,6 @@ export function StarInfoBanner({ star, onOpenDetail }: StarInfoBannerProps) {
         }}
       >
         <div className="absolute -right-4 -top-4 text-7xl opacity-10 select-none">{star.emoji}</div>
-
-        {/* 아이콘 */}
-        <div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0 mb-3"
-          style={{ background: `${star.color}22`, border: `2px solid ${star.color}44` }}
-        >
-          {star.emoji}
-        </div>
-
-        {/* 제목 */}
-        <h2 className="font-bold text-white text-lg mb-2">{star.name}</h2>
 
         {/* 간단 설명 */}
         <p className="text-sm text-gray-400 leading-relaxed mb-4 max-w-[280px]">

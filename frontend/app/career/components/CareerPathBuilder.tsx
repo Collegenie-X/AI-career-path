@@ -1195,7 +1195,6 @@ function GoalActivityGroupCard({
           )}
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
-            <span className="text-[10px] text-gray-500">{group.items.length}개 활동</span>
             <button
               onClick={toggleExpanded}
               className="w-6 h-6 rounded-lg flex items-center justify-center transition-all"

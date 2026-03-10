@@ -252,7 +252,6 @@ function GoalActivityGroupTimelineCard({
           <Target style={{ width: 11, height: 11, color: planColor }} />
         </div>
         <span className="flex-1 text-xs font-bold text-white leading-snug">{group.goal}</span>
-        <span className="text-[10px] text-gray-500 flex-shrink-0">{group.items.length}개 활동</span>
         {isExpanded
           ? <ChevronUp className="w-3 h-3 text-gray-500 flex-shrink-0" />
           : <ChevronDown className="w-3 h-3 text-gray-500 flex-shrink-0" />}

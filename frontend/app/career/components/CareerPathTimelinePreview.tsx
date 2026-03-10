@@ -133,7 +133,6 @@ function GoalActivityGroupReadOnly({
           <Target style={{ width: 11, height: 11, color }} />
         </div>
         <span className="flex-1 text-xs font-bold text-white leading-snug">{group.goal}</span>
-        <span className="text-[10px] text-gray-500 flex-shrink-0">{(group.items ?? []).length}개</span>
         {isExpanded
           ? <ChevronUp style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
           : <ChevronDown style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />}

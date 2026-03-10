@@ -255,11 +255,6 @@ export function YearPlanCard({
                           activeOpacity={0.7}
                         >
                           <Text style={s.goalText}>{goalGroup.goal}</Text>
-                          {goalGroup.items.length > 0 && (
-                            <Text style={s.goalActivityCount}>
-                              {goalGroup.items.length}{CAREER_LABELS.goalActivityCount}
-                            </Text>
-                          )}
                         </TouchableOpacity>
                       )}
                       <TouchableOpacity onPress={() => toggleGoalExpand(goalGroup.id)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
@@ -394,7 +389,6 @@ const s = StyleSheet.create({
   goalDot: { width: 8, height: 8, borderRadius: 4 },
   goalTextContainer: { flex: 1 },
   goalText: { fontSize: FONT_SIZES.sm, fontWeight: '700', color: '#fff' },
-  goalActivityCount: { fontSize: 10, color: '#9CA3AF', marginTop: 2 },
   goalChevron: { fontSize: 12, color: '#9CA3AF', marginLeft: SPACING.xs },
   goalActions: { flexDirection: 'row', gap: SPACING.xs },
   goalEditBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, backgroundColor: 'rgba(255,255,255,0.08)', justifyContent: 'center', alignItems: 'center' },

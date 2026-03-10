@@ -6,6 +6,7 @@ import {
   X, Heart, Users, Calendar, Bookmark, BookmarkCheck,
   ExternalLink, Target, Sparkles, ThumbsUp, Edit2, Trash2,
   Flag, MessageCircle, MoreVertical, Link as LinkIcon,
+  ChevronDown, ChevronUp,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import templates from '@/data/career-path-templates.json';
@@ -198,6 +199,16 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
+
+  const toggleGoalExpand = (key: string) => {
+    setCollapsedGoalKeys(prev => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -503,23 +514,25 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                         const totalItems = allGroups.reduce((acc, g) => acc + (g.items?.length ?? 0), 0);
 
                         return (
-                          <div className="space-y-3 pt-1">
+                          <div className="space-y-3 pt-1" key={year.gradeId}>
                             {/* Year header */}
                             <div className="flex items-center justify-between">
                               <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
-                              <div className="text-[11px] text-gray-500 bg-white/5 px-2 py-0.5 rounded-full">
-                                {totalItems}개 활동
-                              </div>
                             </div>
 
-                            {allGroups.map((group, gi) => (
+                            {allGroups.map((group, gi) => {
+                              const goalKey = `${year.gradeId}-${gi}`;
+                              const isExpanded = !collapsedGoalKeys.has(goalKey);
+                              return (
                               <div key={gi} className="rounded-xl overflow-hidden"
                                 style={{ border: `1px solid ${template.starColor}20` }}>
 
-                                {/* ── 목표 섹션 헤더 ── */}
-                                <div
-                                  className="flex items-center gap-2 px-3 py-2"
+                                {/* ── 목표 섹션 헤더 (아코디언) ── */}
+                                <button
+                                  type="button"
+                                  className="w-full flex items-center gap-2 px-3 py-2 text-left"
                                   style={{ backgroundColor: `${template.starColor}18` }}
+                                  onClick={() => toggleGoalExpand(goalKey)}
                                 >
                                   <div
                                     className="flex items-center justify-center rounded-md flex-shrink-0"
@@ -539,19 +552,11 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                     </div>
                                     <div className="text-xs font-semibold text-white leading-snug">{group.goal}</div>
                                   </div>
-                                  <div
-                                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                                    style={{
-                                      backgroundColor: `${template.starColor}25`,
-                                      color: template.starColor,
-                                    }}
-                                  >
-                                    {(group.items ?? []).length}개
-                                  </div>
-                                </div>
+                                  {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                                </button>
 
                                 {/* ── 활동·수상·자격증 섹션 ── */}
-                                {(group.items ?? []).length > 0 && (
+                                {isExpanded && (group.items ?? []).length > 0 && (
                                   <div className="px-2 py-2 space-y-1.5"
                                     style={{ backgroundColor: `${template.starColor}06` }}>
                                     {/* 섹션 라벨 */}
@@ -658,7 +663,8 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                   </div>
                                 )}
                               </div>
-                            ))}
+                            );
+                            })}
                           </div>
                         );
                       })()}

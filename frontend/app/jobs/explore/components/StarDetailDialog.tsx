@@ -65,7 +65,7 @@ export function StarDetailDialog({
 
         {/* 스크롤 영역: StarInfoBanner + 직업 목록 + CTA */}
         <div
-          className="flex-1 overflow-y-auto px-4 py-4"
+          className="flex-1 overflow-y-auto px-4 pt-4 pb-8"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <StarInfoBanner
@@ -92,7 +92,9 @@ export function StarDetailDialog({
             </div>
           </div>
 
-          <CTABanner star={star} />
+          <div className="mt-6">
+            <CTABanner star={star} />
+          </div>
         </div>
       </div>
     </CareerPathStyleDialog>
