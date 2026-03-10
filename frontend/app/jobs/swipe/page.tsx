@@ -9,6 +9,7 @@ import jobsData from '@/data/jobs.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { Job, Kingdom } from '@/lib/types';
 import { storage } from '@/lib/storage';
+import { getJobDetailNav } from '@/app/jobs/explore/utils/resolveStarJob';
 import { ArrowLeft, Heart, X, Info } from 'lucide-react';
 
 export default function JobSwipePage() {
@@ -51,7 +52,8 @@ export default function JobSwipePage() {
 
   const handleInfo = () => {
     if (currentJob) {
-      router.push(`/jobs/${currentJob.id}`);
+      const nav = getJobDetailNav(currentJob.id, currentJob.kingdomId);
+      router.push(nav.url);
     }
   };
 
