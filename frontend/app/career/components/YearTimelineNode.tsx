@@ -4,7 +4,7 @@ import { Target } from 'lucide-react';
 import { GRADE_YEARS } from '../config';
 import type { PlanItem, YearPlan } from './CareerPathBuilder';
 import {
-  GoalRow, ItemRow, QuickAddItem,
+  ItemRow, QuickAddItem,
   type PlanItemWithCheck,
 } from './TimelineItemComponents';
 
@@ -27,12 +27,15 @@ export function YearTimelineNode({
     ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items)) as PlanItemWithCheck[]
     : (year.goalGroups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
 
+  const idsInGoalGroups = new Set(goalGroupItems.map(it => it.id));
+  const ungroupedYearItems = year.items.filter(it => !idsInGoalGroups.has(it.id));
+
   const checkedCount = [
-    ...year.items.filter((it) => (it as PlanItemWithCheck).checked),
+    ...ungroupedYearItems.filter((it) => (it as PlanItemWithCheck).checked),
     ...groupItems.filter(it => it.checked),
     ...goalGroupItems.filter(it => it.checked),
   ].length;
-  const totalCount = year.items.length + groupItems.length + goalGroupItems.length;
+  const totalCount = ungroupedYearItems.length + groupItems.length + goalGroupItems.length;
 
   const toggleCheck = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) });
@@ -99,14 +102,6 @@ export function YearTimelineNode({
     onUpdateYear({ ...year, items: [...year.items, newItem] });
   };
 
-  const saveGoal = (idx: number, value: string) => {
-    const goals = [...year.goals]; goals[idx] = value;
-    onUpdateYear({ ...year, goals });
-  };
-
-  const deleteGoal = (idx: number) =>
-    onUpdateYear({ ...year, goals: year.goals.filter((_, i) => i !== idx) });
-
   return (
     <div className="relative pl-14 pb-6">
       <div className="absolute left-0 top-0 w-11 h-11 rounded-full flex items-center justify-center text-sm font-black z-10 select-none"
@@ -121,7 +116,6 @@ export function YearTimelineNode({
             <div className="text-base font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
             <div className="text-xs text-gray-500 mt-0.5 flex items-center gap-2">
               {totalCount > 0 && <span>{checkedCount}/{totalCount} 완료</span>}
-              {year.goals.length > 0 && <span>{year.goals.length}개 목표</span>}
             </div>
           </div>
           {totalCount > 0 && (
@@ -133,25 +127,6 @@ export function YearTimelineNode({
             </div>
           )}
         </div>
-
-        {/* Goals (레거시 문자열 목표) */}
-        {year.goals.length > 0 && (
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400">
-                <Target style={{ width: 12, height: 12 }} />목표
-              </div>
-              {isEditMode && (
-                <button onClick={() => onUpdateYear({ ...year, goals: [...year.goals, '새 목표'] })}
-                  className="text-[10px] font-bold" style={{ color: `${color}99` }}>+ 추가</button>
-              )}
-            </div>
-            {year.goals.map((goal, idx) => (
-              <GoalRow key={idx} goal={goal} color={color} isEditMode={isEditMode}
-                onSave={(v) => saveGoal(idx, v)} onDelete={() => deleteGoal(idx)} />
-            ))}
-          </div>
-        )}
 
         {/* Groups (PlanGroup 구조) */}
         {(year.groups ?? []).length > 0 && (
@@ -264,19 +239,24 @@ export function YearTimelineNode({
           </div>
         )}
 
-        {/* Ungrouped items (직접 추가 항목) */}
-        <div className="space-y-2">
-          {year.items.map((item) => (
-            <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
-              onToggleCheck={() => toggleCheck(item.id)}
-              onDelete={() => deleteItem(item.id)}
-              onTitleSave={(title) => saveItemTitle(item.id, title)}
-              onInfoClick={() => onItemInfoClick(item, year.gradeLabel)} />
-          ))}
-          {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
-        </div>
+        {/* Ungrouped items (직접 추가 항목) — goalGroups에 이미 포함된 항목 제외하여 이중 표시 방지 */}
+        {(() => {
+          if (ungroupedYearItems.length === 0 && !isEditMode) return null;
+          return (
+            <div className="space-y-2">
+              {ungroupedYearItems.map((item) => (
+                <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
+                  onToggleCheck={() => toggleCheck(item.id)}
+                  onDelete={() => deleteItem(item.id)}
+                  onTitleSave={(title) => saveItemTitle(item.id, title)}
+                  onInfoClick={() => onItemInfoClick(item, year.gradeLabel)} />
+              ))}
+              {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
+            </div>
+          );
+        })()}
 
-        {totalCount === 0 && year.goals.length === 0 && isEditMode && (
+        {totalCount === 0 && isEditMode && (
           <div className="text-center py-3 rounded-xl"
             style={{ border: `1px dashed ${color}28`, backgroundColor: `${color}05` }}>
             <p className="text-xs text-gray-500">항목을 추가해 보세요</p>

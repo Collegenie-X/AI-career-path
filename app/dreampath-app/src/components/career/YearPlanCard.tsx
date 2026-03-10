@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import {
-  View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView,
+  View, Text, StyleSheet, TouchableOpacity, TextInput, ScrollView, Linking,
 } from 'react-native';
 import { SPACING, FONT_SIZES, BORDER_RADIUS } from '../../config/theme';
 import {
   CAREER_LABELS, CAREER_ITEM_TYPES, CAREER_GRADE_YEARS,
-  type CareerYearPlan, type CareerPlanItem, type CareerPlanGroup,
+  type CareerYearPlan, type CareerPlanItem, type GoalActivityGroup,
 } from '../../config/career-path';
 import { AddItemModal } from './AddItemModal';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
 
-const SEMESTER_PRESETS = ['1학기', '2학기', '여름방학', '겨울방학'];
+const GOAL_COLOR = '#A78BFA';
 
 interface YearPlanCardProps {
   yearPlan: CareerYearPlan;
@@ -26,112 +26,118 @@ export function YearPlanCard({
   yearPlan, color, starId, isExpanded, onToggle, onUpdate, onRemove,
 }: YearPlanCardProps) {
   const [showAddItem, setShowAddItem] = useState(false);
-  const [addItemGroupId, setAddItemGroupId] = useState<string | undefined>(undefined);
+  const [selectedGoalId, setSelectedGoalId] = useState<string | null>(null);
   const [goalInput, setGoalInput] = useState('');
   const [showGoalTemplates, setShowGoalTemplates] = useState(false);
-  const [editingGoalIdx, setEditingGoalIdx] = useState<number | null>(null);
+  const [editingGoalId, setEditingGoalId] = useState<string | null>(null);
   const [editingGoalText, setEditingGoalText] = useState('');
-  const [editingItemId, setEditingItemId] = useState<string | null>(null);
-  const [editingItemTitle, setEditingItemTitle] = useState('');
-  const [showAddGroup, setShowAddGroup] = useState(false);
-  const [groupInput, setGroupInput] = useState('');
-  const [editingGroupId, setEditingGroupId] = useState<string | null>(null);
-  const [editingGroupLabel, setEditingGroupLabel] = useState('');
+  const [expandedItemId, setExpandedItemId] = useState<string | null>(null);
+  const [expandedGoalId, setExpandedGoalId] = useState<string | null>(null);
+  const [editingItem, setEditingItem] = useState<CareerPlanItem | null>(null);
+  const [editingItemGoalId, setEditingItemGoalId] = useState<string | null>(null);
+
+  // 목표-활동 그룹 구조로 변환 또는 기존 구조 사용
+  const goalGroups: GoalActivityGroup[] = yearPlan.goalGroups ?? 
+    (yearPlan.goals || []).map((goal, idx) => ({
+      id: `goal-${idx}`,
+      goal,
+      items: [],
+      isExpanded: true,
+    }));
 
   const addGoal = () => {
     if (!goalInput.trim()) return;
-    onUpdate({ ...yearPlan, goals: [...yearPlan.goals, goalInput.trim()] });
+    const newGoalGroup: GoalActivityGroup = {
+      id: `goal-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      goal: goalInput.trim(),
+      items: [],
+      isExpanded: true,
+    };
+    onUpdate({ 
+      ...yearPlan, 
+      goalGroups: [...goalGroups, newGoalGroup],
+      goals: [...(yearPlan.goals || []), goalInput.trim()],
+    });
     setGoalInput('');
   };
 
-  const removeGoal = (idx: number) => {
-    onUpdate({ ...yearPlan, goals: yearPlan.goals.filter((_, i) => i !== idx) });
+  const removeGoal = (goalId: string) => {
+    const updated = goalGroups.filter((g) => g.id !== goalId);
+    onUpdate({ 
+      ...yearPlan, 
+      goalGroups: updated,
+      goals: updated.map(g => g.goal),
+    });
   };
 
   const selectGoalTemplate = (goal: string) => {
-    onUpdate({ ...yearPlan, goals: [...yearPlan.goals, goal] });
+    const newGoalGroup: GoalActivityGroup = {
+      id: `goal-${Date.now()}-${Math.random().toString(36).slice(2)}`,
+      goal,
+      items: [],
+      isExpanded: true,
+    };
+    onUpdate({ 
+      ...yearPlan, 
+      goalGroups: [...goalGroups, newGoalGroup],
+      goals: [...(yearPlan.goals || []), goal],
+    });
   };
 
-  const saveEditGoal = () => {
-    if (editingGoalIdx === null) return;
-    if (!editingGoalText.trim()) removeGoal(editingGoalIdx);
-    else {
-      const g = [...yearPlan.goals];
-      g[editingGoalIdx] = editingGoalText.trim();
-      onUpdate({ ...yearPlan, goals: g });
+  const saveEditGoal = (goalId: string) => {
+    if (!editingGoalText.trim()) {
+      removeGoal(goalId);
+    } else {
+      const updated = goalGroups.map((g) =>
+        g.id === goalId ? { ...g, goal: editingGoalText.trim() } : g
+      );
+      onUpdate({ 
+        ...yearPlan, 
+        goalGroups: updated,
+        goals: updated.map(g => g.goal),
+      });
     }
-    setEditingGoalIdx(null);
+    setEditingGoalId(null);
     setEditingGoalText('');
   };
 
-  const addItem = (item: Omit<CareerPlanItem, 'id'>) => {
-    const newItem: CareerPlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}` };
-    if (addItemGroupId) {
-      const groups = (yearPlan.groups ?? []).map((g) =>
-        g.id === addItemGroupId ? { ...g, items: [...g.items, newItem] } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      onUpdate({ ...yearPlan, items: [...yearPlan.items, newItem] });
-    }
-    setShowAddItem(false);
-    setAddItemGroupId(undefined);
-  };
-
-  const removeItem = (id: string, groupId?: string) => {
-    if (groupId) {
-      const groups = (yearPlan.groups ?? []).map((g) =>
-        g.id === groupId ? { ...g, items: g.items.filter((it) => it.id !== id) } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      onUpdate({ ...yearPlan, items: yearPlan.items.filter((it) => it.id !== id) });
-    }
-  };
-
-  const saveEditItem = (itemId: string, groupId?: string) => {
-    if (!editingItemTitle.trim()) {
-      removeItem(itemId, groupId);
-    } else if (groupId) {
-      const groups = (yearPlan.groups ?? []).map((g) =>
-        g.id === groupId ? { ...g, items: g.items.map((it) => it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it) } : g
-      );
-      onUpdate({ ...yearPlan, groups });
-    } else {
-      onUpdate({
-        ...yearPlan,
-        items: yearPlan.items.map((it) => (it.id === itemId ? { ...it, title: editingItemTitle.trim() } : it)),
-      });
-    }
-    setEditingItemId(null);
-    setEditingItemTitle('');
-  };
-
-  const addGroup = (label: string) => {
-    const newGroup: CareerPlanGroup = {
-      id: `group-${Date.now()}-${Math.random().toString(36).slice(2)}`,
-      label,
-      items: [],
+  const addItemToGoal = (item: Omit<CareerPlanItem, 'id'>, goalId: string) => {
+    const newItem: CareerPlanItem = { 
+      ...item, 
+      id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}` 
     };
-    onUpdate({ ...yearPlan, groups: [...(yearPlan.groups ?? []), newGroup] });
-    setGroupInput('');
-    setShowAddGroup(false);
+    const updated = goalGroups.map((g) =>
+      g.id === goalId ? { ...g, items: [...g.items, newItem] } : g
+    );
+    onUpdate({ ...yearPlan, goalGroups: updated });
+    setShowAddItem(false);
+    setSelectedGoalId(null);
   };
 
-  const removeGroup = (groupId: string) => {
-    onUpdate({ ...yearPlan, groups: (yearPlan.groups ?? []).filter((g) => g.id !== groupId) });
+  const removeItem = (itemId: string, goalId: string) => {
+    const updated = goalGroups.map((g) =>
+      g.id === goalId ? { ...g, items: g.items.filter((it) => it.id !== itemId) } : g
+    );
+    onUpdate({ ...yearPlan, goalGroups: updated });
   };
 
-  const renameGroup = (groupId: string, label: string) => {
-    const groups = (yearPlan.groups ?? []).map((g) => (g.id === groupId ? { ...g, label } : g));
-    onUpdate({ ...yearPlan, groups });
-    setEditingGroupId(null);
+  const updateItem = (itemId: string, goalId: string, updates: Partial<CareerPlanItem>) => {
+    const updated = goalGroups.map((g) =>
+      g.id === goalId 
+        ? { ...g, items: g.items.map((it) => it.id === itemId ? { ...it, ...updates } : it) } 
+        : g
+    );
+    onUpdate({ ...yearPlan, goalGroups: updated });
   };
 
-  const allGroupItems = (yearPlan.groups ?? []).flatMap((g) => g.items);
-  const totalCount = yearPlan.goals.length + yearPlan.items.length + allGroupItems.length;
+  const toggleGoalExpand = (goalId: string) => {
+    setExpandedGoalId(expandedGoalId === goalId ? null : goalId);
+  };
 
-  const renderItemRow = (item: CareerPlanItem, groupId?: string) => {
+  const totalItems = goalGroups.reduce((sum, g) => sum + g.items.length, 0);
+  const totalGoals = goalGroups.length;
+
+  const renderItemRow = (item: CareerPlanItem, goalId: string) => {
     const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
     const monthLabel =
       item.months.length === 1
@@ -140,38 +146,55 @@ export function YearPlanCard({
         ? item.months.map((m) => `${m}월`).join('·')
         : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
-    if (editingItemId === item.id) {
-      return (
-        <View key={item.id} style={[s.itemRow, { backgroundColor: (tc?.color ?? color) + '10', borderColor: (tc?.color ?? color) + '22' }]}>
-          <TextInput
-            value={editingItemTitle}
-            onChangeText={setEditingItemTitle}
-            onBlur={() => saveEditItem(item.id, groupId)}
-            onSubmitEditing={() => saveEditItem(item.id, groupId)}
-            style={s.itemInput}
-            placeholderTextColor="#4B5563"
-            autoFocus
-          />
-          <TouchableOpacity onPress={() => saveEditItem(item.id, groupId)} style={[s.itemSaveBtn, { backgroundColor: color }]}>
-            <Text style={s.itemSaveText}>✓</Text>
-          </TouchableOpacity>
-        </View>
-      );
-    }
+    const isExpanded = expandedItemId === item.id;
+    const hasDetails = item.url || item.description;
 
     return (
-      <View key={item.id} style={[s.itemRow, { backgroundColor: (tc?.color ?? color) + '10', borderColor: (tc?.color ?? color) + '22' }]}>
-        <Text style={s.itemEmoji}>{tc?.emoji ?? '📌'}</Text>
-        <TouchableOpacity style={s.itemInfo} onPress={() => { setEditingItemId(item.id); setEditingItemTitle(item.title); }}>
-          <Text style={s.itemTitle} numberOfLines={1}>{item.title}</Text>
-          <View style={s.itemMeta}>
-            <Text style={[s.itemType, { color: tc?.color ?? color }]}>{tc?.label}</Text>
-            <Text style={s.itemMonth}>📅 {monthLabel}</Text>
+      <View key={item.id} style={[s.itemContainer, { backgroundColor: (tc?.color ?? color) + '10', borderColor: (tc?.color ?? color) + '22' }]}>
+        <View style={s.itemRow}>
+          <TouchableOpacity
+            style={s.itemContentTouchable}
+            onPress={() => { setEditingItem(item); setEditingItemGoalId(goalId); }}
+            activeOpacity={0.7}
+          >
+            <Text style={s.itemEmoji}>{tc?.emoji ?? '📌'}</Text>
+            <View style={s.itemInfo}>
+              <Text style={s.itemTitle}>{item.title}</Text>
+              <View style={s.itemMeta}>
+                <Text style={[s.itemType, { color: tc?.color ?? color }]}>{tc?.label}</Text>
+                <Text style={s.itemMonth}>📅 {monthLabel}</Text>
+                {item.organizer && <Text style={s.itemOrganizer}>🏢 {item.organizer}</Text>}
+              </View>
+            </View>
+          </TouchableOpacity>
+          <View style={s.itemActions}>
+            {hasDetails && (
+              <TouchableOpacity onPress={() => setExpandedItemId(isExpanded ? null : item.id)} style={s.detailToggleBtn}>
+                <Text style={[s.detailToggleText, { color: tc?.color ?? color }]}>{isExpanded ? '▲' : '▼'}</Text>
+              </TouchableOpacity>
+            )}
+            <TouchableOpacity onPress={() => removeItem(item.id, goalId)} style={s.removeItemBtn}>
+              <Text style={s.removeItemText}>🗑</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => removeItem(item.id, groupId)} style={s.removeItemBtn}>
-          <Text style={s.removeItemText}>🗑</Text>
-        </TouchableOpacity>
+        </View>
+        
+        {isExpanded && hasDetails && (
+          <View style={[s.itemDetails, { borderTopColor: (tc?.color ?? color) + '20' }]}>
+            {item.url && (
+              <TouchableOpacity onPress={() => Linking.openURL(item.url!)} style={s.itemDetailRow}>
+                <Text style={s.itemDetailLabel}>🔗 {CAREER_LABELS.itemUrl}</Text>
+                <Text style={s.itemDetailLink} numberOfLines={1}>{item.url}</Text>
+              </TouchableOpacity>
+            )}
+            {item.description && (
+              <View style={s.itemDetailRow}>
+                <Text style={s.itemDetailLabel}>📝 {CAREER_LABELS.itemDescription}</Text>
+                <Text style={s.itemDetailText}>{item.description}</Text>
+              </View>
+            )}
+          </View>
+        )}
       </View>
     );
   };
@@ -185,18 +208,13 @@ export function YearPlanCard({
           </View>
           <View style={s.yearHeaderInfo}>
             <Text style={s.yearFullLabel}>{CAREER_GRADE_YEARS.find((g) => g.id === yearPlan.gradeId)?.fullLabel ?? yearPlan.gradeLabel}</Text>
-            {totalCount > 0 ? (
+            {totalGoals > 0 || totalItems > 0 ? (
               <View style={s.yearHeaderMeta}>
-                {yearPlan.goals.length > 0 && <Text style={s.yearMetaText}>🎯 {yearPlan.goals.length}개 목표</Text>}
-                {(yearPlan.items.length + allGroupItems.length) > 0 && (
-                  <Text style={s.yearMetaText}>
-                    {[...yearPlan.items, ...allGroupItems].slice(0, 3).map((it) => CAREER_ITEM_TYPES.find((t) => t.value === it.type)?.emoji).join('')}
-                    {' '}{yearPlan.items.length + allGroupItems.length}개 항목
-                  </Text>
-                )}
+                {totalGoals > 0 && <Text style={s.yearMetaText}>🎯 {totalGoals}개 목표</Text>}
+                {totalItems > 0 && <Text style={s.yearMetaText}>✨ {totalItems}개 활동</Text>}
               </View>
             ) : (
-              <Text style={s.yearMetaEmpty}>탭해서 계획 추가하기</Text>
+              <Text style={s.yearMetaEmpty}>탭해서 목표와 활동 추가하기</Text>
             )}
           </View>
           <Text style={s.chevron}>{isExpanded ? '▲' : '▼'}</Text>
@@ -204,37 +222,97 @@ export function YearPlanCard({
 
         {isExpanded && (
           <View style={[s.yearBody, { borderTopColor: color + '20' }]}>
-            {/* Goals */}
+            {/* 목표 중심 구조 */}
             <View style={s.sectionHeader}>
               <Text style={s.sectionIcon}>🎯</Text>
-              <Text style={s.sectionTitle}>{CAREER_LABELS.goalTitle}</Text>
-              <Text style={s.sectionHint}>{CAREER_LABELS.goalHint}</Text>
+              <Text style={s.sectionTitle}>목표와 세부 활동</Text>
+              <Text style={s.sectionHint}>목표 먼저 추가</Text>
             </View>
 
-            {yearPlan.goals.map((goal, idx) => (
-              <View key={idx} style={[s.goalRow, { backgroundColor: color + '14', borderColor: color + '22' }]}>
-                <View style={[s.goalDot, { backgroundColor: color }]} />
-                {editingGoalIdx === idx ? (
-                  <TextInput
-                    value={editingGoalText}
-                    onChangeText={setEditingGoalText}
-                    onBlur={saveEditGoal}
-                    onSubmitEditing={saveEditGoal}
-                    style={s.goalInput}
-                    autoFocus
-                  />
-                ) : (
-                  <TouchableOpacity style={s.goalTextWrap} onPress={() => { setEditingGoalIdx(idx); setEditingGoalText(goal); }}>
-                    <Text style={s.goalText}>{goal}</Text>
-                  </TouchableOpacity>
-                )}
-                <TouchableOpacity onPress={() => removeGoal(idx)}>
-                  <Text style={s.removeText}>✕</Text>
-                </TouchableOpacity>
-              </View>
-            ))}
+            {/* 목표 목록 */}
+            {goalGroups.map((goalGroup) => {
+              const isGoalExpanded = expandedGoalId === goalGroup.id || goalGroup.isExpanded;
+              
+              return (
+                <View key={goalGroup.id} style={[s.goalCard, { borderColor: GOAL_COLOR + '28', backgroundColor: GOAL_COLOR + '08' }]}>
+                  {/* 목표 헤더 - 텍스트 탭 시 수정, chevron 탭 시 펼치기/접기 */}
+                  <View style={s.goalHeader}>
+                    <View style={s.goalHeaderContent}>
+                      <View style={[s.goalDot, { backgroundColor: GOAL_COLOR }]} />
+                      {editingGoalId === goalGroup.id ? (
+                        <TextInput
+                          value={editingGoalText}
+                          onChangeText={setEditingGoalText}
+                          onBlur={() => saveEditGoal(goalGroup.id)}
+                          onSubmitEditing={() => saveEditGoal(goalGroup.id)}
+                          style={s.goalInputInline}
+                          autoFocus
+                        />
+                      ) : (
+                        <TouchableOpacity
+                          style={s.goalTextContainer}
+                          onPress={() => { setEditingGoalId(goalGroup.id); setEditingGoalText(goalGroup.goal); }}
+                          activeOpacity={0.7}
+                        >
+                          <Text style={s.goalText}>{goalGroup.goal}</Text>
+                          {goalGroup.items.length > 0 && (
+                            <Text style={s.goalActivityCount}>
+                              {goalGroup.items.length}{CAREER_LABELS.goalActivityCount}
+                            </Text>
+                          )}
+                        </TouchableOpacity>
+                      )}
+                      <TouchableOpacity onPress={() => toggleGoalExpand(goalGroup.id)} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}>
+                        <Text style={s.goalChevron}>{isGoalExpanded ? '▼' : '▶'}</Text>
+                      </TouchableOpacity>
+                    </View>
+                    
+                    <View style={s.goalActions}>
+                      <TouchableOpacity 
+                        onPress={() => { 
+                          setEditingGoalId(goalGroup.id); 
+                          setEditingGoalText(goalGroup.goal); 
+                        }}
+                        style={s.goalEditBtn}
+                      >
+                        <Text style={s.goalEditText}>✏️</Text>
+                      </TouchableOpacity>
+                      <TouchableOpacity onPress={() => removeGoal(goalGroup.id)} style={s.goalRemoveBtn}>
+                        <Text style={s.goalRemoveText}>✕</Text>
+                      </TouchableOpacity>
+                    </View>
+                  </View>
 
-            {yearPlan.goals.length < 5 && (
+                  {/* 세부 활동 목록 */}
+                  {isGoalExpanded && (
+                    <View style={s.goalBody}>
+                      {goalGroup.items.length === 0 ? (
+                        <TouchableOpacity 
+                          onPress={() => { setSelectedGoalId(goalGroup.id); setShowAddItem(true); }}
+                          style={[s.emptyActivities, { borderColor: color + '30' }]}
+                        >
+                          <Text style={s.emptyActivitiesText}>{CAREER_LABELS.goalNoActivity}</Text>
+                          <Text style={[s.emptyActivitiesHint, { color }]}>+ {CAREER_LABELS.goalAddActivity}</Text>
+                        </TouchableOpacity>
+                      ) : (
+                        <>
+                          {goalGroup.items.map((item) => renderItemRow(item, goalGroup.id))}
+                          <TouchableOpacity 
+                            onPress={() => { setSelectedGoalId(goalGroup.id); setShowAddItem(true); }}
+                            style={[s.addMoreButton, { borderColor: color + '30' }]}
+                          >
+                            <Text style={[s.addMoreText, { color }]}>+ 활동 추가</Text>
+                          </TouchableOpacity>
+                        </>
+                      )}
+                    </View>
+                  )}
+                </View>
+              );
+            })}
+
+            {/* 목표 추가 입력 */}
+            {goalGroups.length < 5 && (
               <View style={s.goalInputRow}>
                 <TextInput
                   value={goalInput}
@@ -245,104 +323,11 @@ export function YearPlanCard({
                   style={s.goalInput}
                   returnKeyType="done"
                 />
-                <TouchableOpacity onPress={() => setShowGoalTemplates(true)} style={[s.addGoalButton, { backgroundColor: color + '15', borderColor: color + '44' }]}>
-                  <Text style={[s.addGoalButtonText, { color }]}>✨</Text>
+                <TouchableOpacity onPress={() => setShowGoalTemplates(true)} style={[s.addGoalButton, { backgroundColor: GOAL_COLOR + '15', borderColor: GOAL_COLOR + '44' }]}>
+                  <Text style={[s.addGoalButtonText, { color: GOAL_COLOR }]}>✨</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={addGoal} style={[s.addGoalButton, { backgroundColor: color + '25', borderColor: color + '44' }]}>
-                  <Text style={[s.addGoalButtonText, { color }]}>+</Text>
-                </TouchableOpacity>
-              </View>
-            )}
-
-            <View style={[s.divider, { borderTopColor: 'rgba(255,255,255,0.06)' }]} />
-
-            {/* Items + Groups */}
-            <View style={s.sectionHeader}>
-              <Text style={s.sectionIcon}>✨</Text>
-              <Text style={s.sectionTitle}>{CAREER_LABELS.itemTitle}</Text>
-              <View style={s.sectionActions}>
-                <TouchableOpacity onPress={() => { setAddItemGroupId(undefined); setShowAddItem(true); }} style={[s.addItemBtn, { backgroundColor: color + '22', borderColor: color + '50' }]}>
-                  <Text style={[s.addItemBtnText, { color }]}>+ {CAREER_LABELS.itemAdd}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => setShowAddGroup(true)} style={[s.addItemBtn, { backgroundColor: 'rgba(255,255,255,0.07)', borderColor: 'rgba(255,255,255,0.12)' }]}>
-                  <Text style={[s.addItemBtnText, { color: 'rgba(255,255,255,0.6)' }]}>+ {CAREER_LABELS.itemGroupAdd}</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-
-            {showAddGroup && (
-              <View style={s.addGroupRow}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.semesterPresets}>
-                  {SEMESTER_PRESETS.map((preset) => (
-                    <TouchableOpacity key={preset} onPress={() => addGroup(preset)} style={[s.presetChip, { borderColor: color + '44' }]}>
-                      <Text style={[s.presetChipText, { color }]}>{preset}</Text>
-                    </TouchableOpacity>
-                  ))}
-                </ScrollView>
-                <View style={s.addGroupInputRow}>
-                  <TextInput
-                    value={groupInput}
-                    onChangeText={setGroupInput}
-                    placeholder={CAREER_LABELS.itemGroupPlaceholder}
-                    placeholderTextColor="#4B5563"
-                    style={s.groupInput}
-                  />
-                  <TouchableOpacity onPress={() => groupInput.trim() && addGroup(groupInput.trim())} style={[s.groupAddBtn, { backgroundColor: color }]} disabled={!groupInput.trim()}>
-                    <Text style={s.groupAddBtnText}>✓</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => { setGroupInput(''); setShowAddGroup(false); }} style={s.groupCancelBtn}>
-                    <Text style={s.groupCancelText}>✕</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            )}
-
-            {(yearPlan.groups ?? []).map((group) => (
-              <View key={group.id} style={[s.groupCard, { borderColor: color + '28', backgroundColor: color + '06' }]}>
-                <View style={[s.groupHeader, group.items.length > 0 && { borderBottomColor: color + '18' }]}>
-                  {editingGroupId === group.id ? (
-                    <TextInput
-                      value={editingGroupLabel}
-                      onChangeText={setEditingGroupLabel}
-                      onBlur={() => { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); }}
-                      onSubmitEditing={() => { if (editingGroupLabel.trim()) renameGroup(group.id, editingGroupLabel.trim()); }}
-                      style={s.groupLabelInput}
-                      autoFocus
-                    />
-                  ) : (
-                    <TouchableOpacity style={s.groupLabelWrap} onPress={() => { setEditingGroupId(group.id); setEditingGroupLabel(group.label); }}>
-                      <View style={[s.groupDot, { backgroundColor: color }]} />
-                      <Text style={[s.groupLabel, { color }]}>{group.label}</Text>
-                    </TouchableOpacity>
-                  )}
-                  <Text style={s.groupCount}>{group.items.length}개</Text>
-                  <TouchableOpacity onPress={() => { setAddItemGroupId(group.id); setShowAddItem(true); }} style={[s.groupAddItemBtn, { backgroundColor: color + '18' }]}>
-                    <Text style={[s.groupAddItemText, { color }]}>+ 추가</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => removeGroup(group.id)} style={s.groupRemoveBtn}>
-                    <Text style={s.groupRemoveText}>🗑</Text>
-                  </TouchableOpacity>
-                </View>
-                {group.items.length > 0 && (
-                  <View style={s.groupItems}>
-                    {group.items.map((item) => renderItemRow(item, group.id))}
-                  </View>
-                )}
-              </View>
-            ))}
-
-            {yearPlan.items.length === 0 && (yearPlan.groups ?? []).length === 0 ? (
-              <TouchableOpacity onPress={() => setShowAddItem(true)} style={[s.emptyItems, { borderColor: color + '30', backgroundColor: color + '06' }]}>
-                <View style={s.emptyItemsEmojis}>
-                  {CAREER_ITEM_TYPES.map((t) => <Text key={t.value} style={{ fontSize: 18 }}>{t.emoji}</Text>)}
-                </View>
-                <Text style={s.emptyItemsText}>{CAREER_LABELS.itemEmptyHint}</Text>
-              </TouchableOpacity>
-            ) : (
-              <View style={s.itemsList}>
-                {yearPlan.items.map((item) => renderItemRow(item))}
-                <TouchableOpacity onPress={() => setShowAddItem(true)} style={[s.addMoreButton, { borderColor: color + '30' }]}>
-                  <Text style={[s.addMoreText, { color: color + '80' }]}>+ {CAREER_LABELS.itemAddMore}</Text>
+                <TouchableOpacity onPress={addGoal} style={[s.addGoalButton, { backgroundColor: GOAL_COLOR + '25', borderColor: GOAL_COLOR + '44' }]}>
+                  <Text style={[s.addGoalButtonText, { color: GOAL_COLOR }]}>+</Text>
                 </TouchableOpacity>
               </View>
             )}
@@ -355,11 +340,31 @@ export function YearPlanCard({
       </View>
 
       {showGoalTemplates && (
-        <GoalTemplateSelector onSelect={selectGoalTemplate} onClose={() => setShowGoalTemplates(false)} color={color} />
+        <GoalTemplateSelector onSelect={selectGoalTemplate} onClose={() => setShowGoalTemplates(false)} color={GOAL_COLOR} />
       )}
 
-      {showAddItem && (
-        <AddItemModal starId={starId} color={color} onAdd={addItem} onClose={() => { setShowAddItem(false); setAddItemGroupId(undefined); }} />
+      {showAddItem && selectedGoalId && (
+        <AddItemModal 
+          starId={starId} 
+          color={color} 
+          onAdd={(item) => addItemToGoal(item, selectedGoalId)} 
+          onClose={() => { setShowAddItem(false); setSelectedGoalId(null); }} 
+        />
+      )}
+
+      {editingItem && editingItemGoalId && (
+        <AddItemModal 
+          starId={starId} 
+          color={color} 
+          initialItem={editingItem}
+          onSave={(updated) => {
+            updateItem(updated.id, editingItemGoalId, updated);
+            setEditingItem(null);
+            setEditingItemGoalId(null);
+          }}
+          onAdd={() => {}}
+          onClose={() => { setEditingItem(null); setEditingItemGoalId(null); }} 
+        />
       )}
     </>
   );
@@ -377,63 +382,60 @@ const s = StyleSheet.create({
   yearMetaEmpty: { fontSize: 10, color: '#4B5563', marginTop: 2 },
   chevron: { fontSize: 10, color: '#9CA3AF' },
   yearBody: { paddingHorizontal: SPACING.lg, paddingBottom: SPACING.lg, gap: SPACING.md, borderTopWidth: 1 },
+  
   sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, paddingTop: SPACING.md },
   sectionIcon: { fontSize: 14 },
   sectionTitle: { fontSize: FONT_SIZES.xs, fontWeight: '700', color: '#fff', flex: 1 },
   sectionHint: { fontSize: 10, color: '#6B7280' },
-  sectionActions: { flexDirection: 'row', gap: SPACING.sm },
-  goalRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
-  goalDot: { width: 6, height: 6, borderRadius: 3 },
-  goalTextWrap: { flex: 1 },
-  goalText: { fontSize: FONT_SIZES.sm, color: '#fff' },
-  goalInput: { flex: 1, height: 36, paddingHorizontal: 12, borderRadius: BORDER_RADIUS.lg, fontSize: FONT_SIZES.sm, color: '#fff', backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)' },
-  removeText: { fontSize: 12, color: '#6B7280' },
+  
+  goalCard: { borderRadius: BORDER_RADIUS.xl, borderWidth: 1.5, overflow: 'hidden' },
+  goalHeader: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: SPACING.md, paddingVertical: SPACING.md },
+  goalHeaderContent: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: SPACING.sm },
+  goalDot: { width: 8, height: 8, borderRadius: 4 },
+  goalTextContainer: { flex: 1 },
+  goalText: { fontSize: FONT_SIZES.sm, fontWeight: '700', color: '#fff' },
+  goalActivityCount: { fontSize: 10, color: '#9CA3AF', marginTop: 2 },
+  goalChevron: { fontSize: 12, color: '#9CA3AF', marginLeft: SPACING.xs },
+  goalActions: { flexDirection: 'row', gap: SPACING.xs },
+  goalEditBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, backgroundColor: 'rgba(255,255,255,0.08)', justifyContent: 'center', alignItems: 'center' },
+  goalEditText: { fontSize: 12 },
+  goalRemoveBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, backgroundColor: 'rgba(239,68,68,0.1)', justifyContent: 'center', alignItems: 'center' },
+  goalRemoveText: { fontSize: 14, color: '#EF4444' },
+  
+  goalBody: { paddingHorizontal: SPACING.md, paddingBottom: SPACING.md, gap: SPACING.sm },
+  emptyActivities: { paddingVertical: SPACING.lg, alignItems: 'center', gap: SPACING.xs, borderRadius: BORDER_RADIUS.lg, borderWidth: 1.5, borderStyle: 'dashed' },
+  emptyActivitiesText: { fontSize: FONT_SIZES.xs, color: '#6B7280' },
+  emptyActivitiesHint: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
+  
   goalInputRow: { flexDirection: 'row', gap: SPACING.sm },
+  goalInput: { flex: 1, height: 40, paddingHorizontal: 12, borderRadius: BORDER_RADIUS.lg, fontSize: FONT_SIZES.sm, color: '#fff', backgroundColor: 'rgba(255,255,255,0.06)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.1)' },
+  goalInputInline: { flex: 1, fontSize: FONT_SIZES.sm, fontWeight: '700', color: '#fff', paddingVertical: 4 },
   addGoalButton: { width: 40, height: 40, borderRadius: BORDER_RADIUS.lg, justifyContent: 'center', alignItems: 'center', borderWidth: 1 },
   addGoalButtonText: { fontSize: 16, fontWeight: '700' },
-  divider: { borderTopWidth: 1 },
-  addItemBtn: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
-  addItemBtnText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
-  addGroupRow: { gap: SPACING.sm },
-  semesterPresets: { flexDirection: 'row', gap: SPACING.sm, marginBottom: SPACING.xs },
-  presetChip: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
-  presetChipText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
-  addGroupInputRow: { flexDirection: 'row', gap: SPACING.sm },
-  groupInput: { flex: 1, height: 36, paddingHorizontal: 12, borderRadius: BORDER_RADIUS.lg, fontSize: FONT_SIZES.sm, color: '#fff', backgroundColor: 'rgba(255,255,255,0.07)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.12)' },
-  groupAddBtn: { width: 36, height: 36, borderRadius: BORDER_RADIUS.lg, justifyContent: 'center', alignItems: 'center' },
-  groupAddBtnText: { fontSize: 16, color: '#fff', fontWeight: '700' },
-  groupCancelBtn: { width: 36, height: 36, borderRadius: BORDER_RADIUS.lg, backgroundColor: 'rgba(255,255,255,0.06)', justifyContent: 'center', alignItems: 'center' },
-  groupCancelText: { fontSize: 14, color: '#6B7280' },
-  groupCard: { borderRadius: BORDER_RADIUS.xl, borderWidth: 1, overflow: 'hidden' },
-  groupHeader: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, paddingHorizontal: SPACING.md, paddingVertical: 10 },
-  groupLabelWrap: { flexDirection: 'row', alignItems: 'center', flex: 1 },
-  groupDot: { width: 6, height: 6, borderRadius: 3, marginRight: SPACING.sm },
-  groupLabel: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
-  groupLabelInput: { flex: 1, fontSize: FONT_SIZES.xs, fontWeight: '700', color: '#fff', paddingVertical: 4 },
-  groupCount: { fontSize: 10, color: '#6B7280' },
-  groupAddItemBtn: { paddingHorizontal: 8, paddingVertical: 4, borderRadius: BORDER_RADIUS.md },
-  groupAddItemText: { fontSize: 10, fontWeight: '700' },
-  groupRemoveBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, backgroundColor: 'rgba(239,68,68,0.1)', justifyContent: 'center', alignItems: 'center' },
-  groupRemoveText: { fontSize: 12 },
-  groupItems: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, gap: SPACING.sm },
-  itemsList: { gap: SPACING.sm },
-  itemRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.md, paddingHorizontal: 14, paddingVertical: SPACING.md, borderRadius: BORDER_RADIUS.lg, borderWidth: 1 },
+  
+  itemContainer: { borderRadius: BORDER_RADIUS.lg, borderWidth: 1, overflow: 'hidden' },
+  itemRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.md, paddingHorizontal: 14, paddingVertical: SPACING.md },
+  itemContentTouchable: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: SPACING.md },
   itemEmoji: { fontSize: 18 },
   itemInfo: { flex: 1 },
-  itemInput: { flex: 1, fontSize: FONT_SIZES.sm, color: '#fff', paddingVertical: SPACING.sm },
   itemTitle: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },
-  itemMeta: { flexDirection: 'row', gap: SPACING.sm, marginTop: 2 },
+  itemMeta: { flexDirection: 'row', gap: SPACING.sm, marginTop: 2, flexWrap: 'wrap' },
   itemType: { fontSize: 10, fontWeight: '700' },
   itemMonth: { fontSize: 10, color: '#6B7280' },
-  itemSaveBtn: { width: 36, height: 36, borderRadius: BORDER_RADIUS.lg, justifyContent: 'center', alignItems: 'center' },
-  itemSaveText: { fontSize: 16, color: '#fff', fontWeight: '700' },
+  itemOrganizer: { fontSize: 10, color: '#9CA3AF' },
+  itemActions: { flexDirection: 'row', gap: SPACING.xs, alignItems: 'center' },
+  detailToggleBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.05)' },
+  detailToggleText: { fontSize: 10, fontWeight: '700' },
   removeItemBtn: { width: 28, height: 28, borderRadius: BORDER_RADIUS.sm, justifyContent: 'center', alignItems: 'center', backgroundColor: 'rgba(255,255,255,0.05)' },
   removeItemText: { fontSize: 12 },
-  emptyItems: { borderRadius: BORDER_RADIUS.lg, paddingVertical: SPACING.lg, alignItems: 'center', gap: SPACING.sm, borderWidth: 1.5, borderStyle: 'dashed' },
-  emptyItemsEmojis: { flexDirection: 'row', gap: SPACING.sm },
-  emptyItemsText: { fontSize: FONT_SIZES.xs, color: '#6B7280' },
+  itemDetails: { paddingHorizontal: 14, paddingVertical: SPACING.md, borderTopWidth: 1, gap: SPACING.sm },
+  itemDetailRow: { gap: 4 },
+  itemDetailLabel: { fontSize: 10, fontWeight: '700', color: '#9CA3AF' },
+  itemDetailLink: { fontSize: FONT_SIZES.xs, color: '#60A5FA', textDecorationLine: 'underline' },
+  itemDetailText: { fontSize: FONT_SIZES.xs, color: '#D1D5DB', lineHeight: 18 },
+  
   addMoreButton: { alignItems: 'center', paddingVertical: SPACING.sm, borderRadius: BORDER_RADIUS.lg, borderWidth: 1, borderStyle: 'dashed' },
   addMoreText: { fontSize: FONT_SIZES.xs, fontWeight: '600' },
-  removeYearButton: { alignItems: 'center', paddingVertical: SPACING.sm },
+  removeYearButton: { alignItems: 'center', paddingVertical: SPACING.sm, marginTop: SPACING.md },
   removeYearText: { fontSize: FONT_SIZES.xs, color: '#6B7280' },
 });

@@ -28,6 +28,8 @@ export interface SharedPlanItem {
   difficulty: number;
   cost?: string;
   organizer?: string;
+  url?: string;
+  description?: string;
 }
 
 export interface SharedPlanYear {

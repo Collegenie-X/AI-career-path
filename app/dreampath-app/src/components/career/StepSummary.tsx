@@ -33,10 +33,18 @@ function StatBadge({ label, value, color }: { label: string; value: string | num
 
 function YearSummaryCard({ yearPlan, color }: { yearPlan: CareerYearPlan; color: string }) {
   const gradeInfo = CAREER_GRADE_YEARS.find((g) => g.id === yearPlan.gradeId);
-  const totalItems = yearPlan.items.length;
+  const goalGroups = yearPlan.goalGroups ?? [];
+  const hasGoalGroups = goalGroups.length > 0;
+  const goalsToShow = hasGoalGroups ? goalGroups.map((g) => g.goal) : yearPlan.goals;
+  const totalItems = hasGoalGroups
+    ? goalGroups.reduce((s, g) => s + g.items.length, 0)
+    : yearPlan.items.length;
+  const allItems = hasGoalGroups
+    ? goalGroups.flatMap((g) => g.items)
+    : yearPlan.items;
   const typeBreakdown = CAREER_ITEM_TYPES.map((t) => ({
     ...t,
-    count: yearPlan.items.filter((it) => it.type === t.value).length,
+    count: allItems.filter((it) => it.type === t.value).length,
   })).filter((t) => t.count > 0);
 
   return (
@@ -47,12 +55,14 @@ function YearSummaryCard({ yearPlan, color }: { yearPlan: CareerYearPlan; color:
             {gradeInfo?.groupEmoji} {gradeInfo?.fullLabel ?? yearPlan.gradeLabel}
           </Text>
         </View>
-        <Text style={styles.yearItemCount}>{totalItems}{CAREER_LABELS.detailItems}</Text>
+        <Text style={styles.yearItemCount}>
+          {hasGoalGroups ? `${goalGroups.length}개 목표 · ${totalItems}개 활동` : `${totalItems}${CAREER_LABELS.detailItems}`}
+        </Text>
       </View>
 
-      {yearPlan.goals.length > 0 && (
+      {goalsToShow.length > 0 && (
         <View style={styles.goalsList}>
-          {yearPlan.goals.map((goal, i) => (
+          {goalsToShow.map((goal, i) => (
             <View key={i} style={styles.goalRow}>
               <Text style={styles.goalBullet}>🎯</Text>
               <Text style={styles.goalText} numberOfLines={1}>{goal}</Text>
@@ -72,9 +82,9 @@ function YearSummaryCard({ yearPlan, color }: { yearPlan: CareerYearPlan; color:
         </View>
       )}
 
-      {yearPlan.items.length > 0 && (
+      {allItems.length > 0 && (
         <View style={styles.itemPreviewList}>
-          {yearPlan.items.slice(0, 4).map((item) => {
+          {allItems.slice(0, 4).map((item) => {
             const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
             return (
               <View key={item.id} style={styles.itemPreviewRow}>
@@ -86,8 +96,8 @@ function YearSummaryCard({ yearPlan, color }: { yearPlan: CareerYearPlan; color:
               </View>
             );
           })}
-          {yearPlan.items.length > 4 && (
-            <Text style={styles.moreItemsText}>+{yearPlan.items.length - 4}개 더</Text>
+          {allItems.length > 4 && (
+            <Text style={styles.moreItemsText}>+{allItems.length - 4}개 더</Text>
           )}
         </View>
       )}
@@ -96,8 +106,18 @@ function YearSummaryCard({ yearPlan, color }: { yearPlan: CareerYearPlan; color:
 }
 
 export function StepSummary({ plan, color }: StepSummaryProps) {
-  const totalItems = plan.years.reduce((sum, y) => sum + y.items.length, 0);
-  const totalGoals = plan.years.reduce((sum, y) => sum + y.goals.length, 0);
+  const totalItems = plan.years.reduce(
+    (sum, y) =>
+      sum +
+      y.items.length +
+      (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0) +
+      (y.goalGroups ?? []).reduce((sg, g) => sg + g.items.length, 0),
+    0,
+  );
+  const totalGoals = plan.years.reduce(
+    (sum, y) => sum + ((y.goalGroups ?? []).length > 0 ? (y.goalGroups ?? []).length : y.goals.length),
+    0,
+  );
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>

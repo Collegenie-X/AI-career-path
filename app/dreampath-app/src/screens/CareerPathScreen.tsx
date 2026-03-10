@@ -30,20 +30,49 @@ function convertTemplateToCareerPlan(template: any): CareerPlan {
     jobEmoji: template.jobEmoji,
     title: template.title.replace(' — ', ' · '),
     createdAt: new Date().toISOString(),
-    years: (template.years ?? []).map((y: any) => ({
-      gradeId: y.gradeId,
-      gradeLabel: y.gradeLabel,
-      goals: y.goals ?? [],
-      items: (y.items ?? []).map((it: any): CareerPlanItem => ({
+    years: (template.years ?? []).map((y: any) => {
+      const goals = y.goals ?? [];
+      const rawItems = y.items ?? [];
+      const items: CareerPlanItem[] = rawItems.map((it: any): CareerPlanItem => ({
         id: `item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-        type: it.type,
-        title: it.title,
-        months: it.months ?? (it.month ? [it.month] : [3]),
+        type: it.type ?? 'activity',
+        title: it.title ?? '',
+        months: Array.isArray(it.months) ? it.months : (typeof it.month === 'number' ? [it.month] : [3]),
         difficulty: it.difficulty ?? 2,
         cost: it.cost ?? '무료',
         organizer: it.organizer ?? '',
-      })),
-    })),
+        url: it.url,
+        description: it.description,
+      }));
+
+      // YearPlanCard는 goalGroups[].items만 렌더링함. goals+items → goalGroups로 변환
+      const firstGoal = goals.length > 0 ? goals[0] : '활동 목록';
+      const goalGroups: { id: string; goal: string; items: CareerPlanItem[]; isExpanded: boolean }[] =
+        items.length > 0
+          ? [
+              { id: `goal-${y.gradeId}-0`, goal: firstGoal, items, isExpanded: true },
+              ...goals.slice(1).map((g: string, idx: number) => ({
+                id: `goal-${y.gradeId}-${idx + 1}`,
+                goal: g,
+                items: [] as CareerPlanItem[],
+                isExpanded: true,
+              })),
+            ]
+          : goals.map((g: string, idx: number) => ({
+              id: `goal-${y.gradeId}-${idx}`,
+              goal: g,
+              items: [] as CareerPlanItem[],
+              isExpanded: true,
+            }));
+
+      return {
+        gradeId: y.gradeId,
+        gradeLabel: y.gradeLabel,
+        goals,
+        items,
+        goalGroups,
+      };
+    }),
   };
 }
 

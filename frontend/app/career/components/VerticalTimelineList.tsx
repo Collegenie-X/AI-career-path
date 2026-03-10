@@ -40,15 +40,25 @@ function PlanAccordionCard({
   const sortedYears = [...plan.years].sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
 
   const totalItems = plan.years.reduce((s, y) => {
-    const directItems = y.items.length;
+    const goalGroupItemIds = new Set(
+      y.semester === 'split'
+        ? (y.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items.map(it => it.id)))
+        : (y.goalGroups ?? []).flatMap(g => g.items.map(it => it.id))
+    );
+    const ungroupedDirectItems = y.items.filter(it => !goalGroupItemIds.has(it.id)).length;
     const groupItems = (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0);
     const goalGroupItems = y.semester === 'split'
       ? (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
       : (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
-    return s + directItems + groupItems + goalGroupItems;
+    return s + ungroupedDirectItems + groupItems + goalGroupItems;
   }, 0);
   const checkedItems = plan.years.reduce((s, y) => {
-    const directChecked = y.items.filter((it) => (it as PlanItemWithCheck).checked).length;
+    const goalGroupItemIds = new Set(
+      y.semester === 'split'
+        ? (y.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items.map(it => it.id)))
+        : (y.goalGroups ?? []).flatMap(g => g.items.map(it => it.id))
+    );
+    const directChecked = y.items.filter((it) => !goalGroupItemIds.has(it.id) && (it as PlanItemWithCheck).checked).length;
     const groupChecked = (y.groups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
     const goalGroupChecked = y.semester === 'split'
       ? (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0), 0)

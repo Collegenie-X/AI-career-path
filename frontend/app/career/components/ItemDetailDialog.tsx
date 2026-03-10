@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Calendar, DollarSign, Building2, Flame } from 'lucide-react';
+import { X, Calendar, DollarSign, Building2, Flame, Link as LinkIcon, FileText } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
 
@@ -188,6 +188,59 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
               </div>
             </div>
           )}
+
+          {/* URL - 항상 표시 */}
+          <div
+            className="flex items-start gap-3 p-4 rounded-xl"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <LinkIcon
+              className="w-5 h-5 flex-shrink-0 mt-0.5"
+              style={{ color: '#60a5fa' }}
+            />
+            <div className="flex-1">
+              <div className="text-xs font-bold text-gray-400 mb-1">공식 사이트</div>
+              {item.url?.trim() ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-blue-400 hover:text-blue-300 underline break-all"
+                >
+                  {item.url}
+                </a>
+              ) : (
+                <span className="text-sm text-gray-500 italic">정보 없음</span>
+              )}
+            </div>
+          </div>
+
+          {/* 설명 - 항상 표시 */}
+          <div
+            className="flex items-start gap-3 p-4 rounded-xl"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <FileText
+              className="w-5 h-5 flex-shrink-0 mt-0.5"
+              style={{ color: '#a78bfa' }}
+            />
+            <div className="flex-1">
+              <div className="text-xs font-bold text-gray-400 mb-1">상세 설명</div>
+              {item.description?.trim() ? (
+                <div className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">
+                  {item.description}
+                </div>
+              ) : (
+                <span className="text-sm text-gray-500 italic">정보 없음</span>
+              )}
+            </div>
+          </div>
 
           {/* 직접 입력 뱃지 */}
           {item.custom && (

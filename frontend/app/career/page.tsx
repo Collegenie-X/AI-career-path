@@ -133,6 +133,20 @@ function CareerPageContent() {
       setShowSignupDialog(true);
       return;
     }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const mapItem = (item: any, prefix: string, iIdx: number) => ({
+      id: item.id ?? `${prefix}-${iIdx}-${Date.now()}`,
+      type: item.type ?? 'activity',
+      title: item.title ?? '',
+      months: Array.isArray(item.months) ? item.months : (typeof item.month === 'number' ? [item.month] : [3]),
+      difficulty: item.difficulty ?? 2,
+      cost: item.cost ?? '무료',
+      organizer: item.organizer ?? '',
+      url: item.url,
+      description: item.description,
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const planFromTemplate: CareerPlan = {
       id: `from-template-${Date.now()}`,
       starId: template.starId,
@@ -145,35 +159,59 @@ function CareerPageContent() {
       title: template.title,
       createdAt: new Date().toISOString(),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      years: (template.years as any[]).map((y: any, yIdx: number) => ({
-        gradeId: y.gradeId,
-        gradeLabel: y.gradeLabel,
-        semester: y.semester ?? 'both',
-        goals: y.goals ?? [],
-        items: [],
-        goalGroups: (y.goalGroups ?? []).map((g: any) => ({
-          ...g,
-          id: g.id ?? `tpl-g-${yIdx}-${Date.now()}`,
-          items: (g.items ?? []).map((item: any, iIdx: number) => ({
-            ...item,
-            id: item.id ?? `tpl-${y.gradeId}-${iIdx}-${Date.now()}`,
-            months: Array.isArray(item.months) ? item.months : [item.month ?? 3],
-            subItems: item.subItems ?? [],
-          })),
-        })),
-        semesterPlans: (y.semesterPlans ?? []).map((sp: any) => ({
-          ...sp,
-          goalGroups: (sp.goalGroups ?? []).map((g: any) => ({
-            ...g,
-            items: (g.items ?? []).map((item: any, iIdx: number) => ({
-              ...item,
-              id: item.id ?? `tpl-${y.gradeId}-sp-${iIdx}-${Date.now()}`,
-              months: Array.isArray(item.months) ? item.months : [item.month ?? 3],
-              subItems: item.subItems ?? [],
+      years: (template.years as any[]).map((y: any, yIdx: number) => {
+        const goals = y.goals ?? [];
+        const rawItems = y.items ?? [];
+
+        // goalGroups가 있으면 사용, 없으면 템플릿 형식(goals+items) → goalGroups 변환
+        let goalGroups: { id: string; goal: string; items: ReturnType<typeof mapItem>[] }[];
+        if (Array.isArray(y.goalGroups) && y.goalGroups.length > 0) {
+          goalGroups = y.goalGroups.map((g: any, gi: number) => ({
+            id: g.id ?? `tpl-g-${yIdx}-${gi}-${Date.now()}`,
+            goal: g.goal ?? '',
+            items: (g.items ?? []).map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}-g${gi}`, iIdx)),
+          }));
+        } else {
+          const items = rawItems.map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx));
+          const firstGoal = goals.length > 0 ? goals[0] : '활동 목록';
+          goalGroups = items.length > 0
+            ? [
+                { id: `goal-${y.gradeId}-0`, goal: firstGoal, items },
+                ...goals.slice(1).map((g: string, idx: number) => ({
+                  id: `goal-${y.gradeId}-${idx + 1}`,
+                  goal: g,
+                  items: [] as ReturnType<typeof mapItem>[],
+                })),
+              ]
+            : goals.map((g: string, idx: number) => ({
+                id: `goal-${y.gradeId}-${idx}`,
+                goal: g,
+                items: [] as ReturnType<typeof mapItem>[],
+              }));
+        }
+
+        // goalGroups에 이미 포함된 항목은 year.items에 넣지 않음 (이중 표시 방지)
+        const ungroupedItems = Array.isArray(y.goalGroups) && y.goalGroups.length > 0
+          ? rawItems.map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx))
+          : []; // 템플릿(goals+items) 변환 시 모든 항목은 goalGroups에 있음
+
+        return {
+          gradeId: y.gradeId,
+          gradeLabel: y.gradeLabel,
+          semester: y.semester ?? 'both',
+          goals,
+          items: ungroupedItems,
+          goalGroups,
+          semesterPlans: (y.semesterPlans ?? []).map((sp: any) => ({
+            ...sp,
+            goalGroups: (sp.goalGroups ?? []).map((g: any, gi: number) => ({
+              ...g,
+              id: g.id ?? `tpl-sp-${yIdx}-${gi}`,
+              items: (g.items ?? []).map((item: any, iIdx: number) => mapItem(item, `tpl-sp-${y.gradeId}`, iIdx)),
             })),
           })),
-        })),
-      })),
+        };
+      }),
     };
     setEditingPlan(planFromTemplate);
     setBuilderInitialStep(3);

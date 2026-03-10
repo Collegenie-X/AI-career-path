@@ -5,7 +5,7 @@ import { createPortal } from 'react-dom';
 import {
   X, Heart, Users, Calendar, Bookmark, BookmarkCheck,
   ExternalLink, Target, Sparkles, ThumbsUp, Edit2, Trash2,
-  Flag, MessageCircle, MoreVertical,
+  Flag, MessageCircle, MoreVertical, Link as LinkIcon,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import templates from '@/data/career-path-templates.json';
@@ -487,6 +487,19 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                             }
                           });
                         }
+                        // 템플릿 형식(goals + items) 지원: goalGroups가 없을 때 — 모든 목표 표시, 첫 목표에 items 연결
+                        if (allGroups.length === 0) {
+                          const goals = Array.isArray(yearAny.goals) && yearAny.goals.length > 0
+                            ? yearAny.goals
+                            : ['활동 목록'];
+                          const items = Array.isArray(yearAny.items) ? yearAny.items : [];
+                          goals.forEach((goal: string, idx: number) => {
+                            allGroups.push({
+                              goal,
+                              items: idx === 0 ? items : [],
+                            });
+                          });
+                        }
                         const totalItems = allGroups.reduce((acc, g) => acc + (g.items?.length ?? 0), 0);
 
                         return (
@@ -606,7 +619,21 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                               )}
                                             </div>
                                             {item.organizer && (
-                                              <div className="text-[10px] text-gray-600 mt-0.5">{item.organizer}</div>
+                                              <div className="text-[10px] text-gray-600 mt-0.5">🏢 {item.organizer}</div>
+                                            )}
+                                            {item.url && (
+                                              <a
+                                                href={item.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1 mt-1 text-[10px] text-blue-400 hover:underline"
+                                              >
+                                                <LinkIcon style={{ width: 9, height: 9 }} />
+                                                {item.url}
+                                              </a>
+                                            )}
+                                            {item.description && (
+                                              <div className="text-[10px] text-gray-500 mt-1 leading-relaxed">{item.description}</div>
                                             )}
                                             {/* Sub-items preview */}
                                             {Array.isArray(item.subItems) && item.subItems.length > 0 && (

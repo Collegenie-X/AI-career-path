@@ -5,7 +5,7 @@
       { "id": "port-exp-01", "title": "생명과학 탐구 보고서", "subtitle": "특정 생물 현상을 직접 실험하고 분석한 보고서", "grades": ["중등", "고등"], "months": [3,4,5,6,7,8,9,10,11], "difficulty": 3, "tags": ["탐구", "보고서", "생명과학"], "tip": "연구 동기·가설·결과·결론 순서로 체계적으로 작성하면 학종 서류에 강점" },
       { "id": "port-exp-02", "title": "R&E 연구 논문", "subtitle": "대학 연계 또는 자체 연구 활동의 결과물 논문", "grades": ["고등"], "months": [9,10,11,12], "difficulty": 5, "tags": ["R&E", "논문", "연구"], "tip": "지도 교수 이름이 들어가면 학생부 기재 시 신뢰도 상승" },
       { "id": "port-exp-03", "title": "의약 관련 UCC 영상 제작", "subtitle": "건강·의학 주제를 탐구해 영상으로 제작한 작품", "grades": ["중등", "고등"], "months": [7,8,11,12], "difficulty": 2, "tags": ["UCC", "영상", "의학"], "tip": "과학 정확성과 편집 완성도 둘 다 신경쓰면 대회 출품도 가능" },
-      { "id": "port-exp-04", "title": "AI 데이터 분석 프로젝트", "subtitle": "공공데이터를 활용해 분석하고 인사이트를 도출한 보고서", "grades": ["고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 4, "tags": ["데이터분석", "AI", "Python"], "tip": "Kaggle이나 공공데이터포털 활용, Jupyter Notebook으로 시각화 포함" },
+      { "id": "port-exp-04", "title": "AI 데이터 분석 프로젝트", "subtitle": "공공데이터를 활용해 분석하고 인사이트를 도출한 보고서", "grades": ["고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 4, "tags": ["데이터분석", "AI", "Python"], "url": "https://www.kaggle.com", "tip": "Kaggle이나 공공데이터포털 활용, Jupyter Notebook으로 시각화 포함" },
       { "id": "port-exp-05", "title": "독서 심화 탐구 보고서", "subtitle": "과학·의학 관련 책을 읽고 주제를 확장해 탐구한 보고서", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 2, "tags": ["독서", "심화탐구", "보고서"], "tip": "단순 독후감이 아닌 '탐구형' 구성이 핵심 — 궁금한 점 → 조사 → 결론" }
     ],
     "create": [
@@ -16,10 +16,10 @@
       { "id": "port-cre-05", "title": "인디 게임 / 앱 제작", "subtitle": "RPG Maker·Unity 등으로 직접 제작한 게임 또는 앱", "grades": ["중등", "고등"], "months": [7,8,12,1], "difficulty": 4, "tags": ["게임", "인디", "Unity"], "tip": "itch.io나 구글 플레이스토어 배포 이력이 있으면 대입 서류에 강력함" }
     ],
     "tech": [
-      { "id": "port-tec-01", "title": "웹 서비스 / 앱 개발 프로젝트", "subtitle": "실제 문제를 해결하기 위해 직접 개발·배포한 웹/앱 서비스", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 4, "tags": ["웹개발", "앱", "배포"], "tip": "GitHub 리포지토리 + 실제 배포 URL이 있으면 최고의 포트폴리오" },
-      { "id": "port-tec-02", "title": "AI / 머신러닝 프로젝트", "subtitle": "데이터셋으로 모델을 학습시키고 결과를 분석한 프로젝트", "grades": ["고등"], "months": [7,8,12,1], "difficulty": 5, "tags": ["AI", "머신러닝", "Python"], "tip": "Kaggle 커널 공개나 GitHub 정리가 심사자에게 직접 보여줄 수 있는 방법" },
+      { "id": "port-tec-01", "title": "웹 서비스 / 앱 개발 프로젝트", "subtitle": "실제 문제를 해결하기 위해 직접 개발·배포한 웹/앱 서비스", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 4, "tags": ["웹개발", "앱", "배포"], "url": "https://github.com", "tip": "GitHub 리포지토리 + 실제 배포 URL이 있으면 최고의 포트폴리오" },
+      { "id": "port-tec-02", "title": "AI / 머신러닝 프로젝트", "subtitle": "데이터셋으로 모델을 학습시키고 결과를 분석한 프로젝트", "grades": ["고등"], "months": [7,8,12,1], "difficulty": 5, "tags": ["AI", "머신러닝", "Python"], "url": "https://www.kaggle.com", "tip": "Kaggle 커널 공개나 GitHub 정리가 심사자에게 직접 보여줄 수 있는 방법" },
       { "id": "port-tec-03", "title": "아두이노 / IoT 하드웨어 작품", "subtitle": "아두이노·라즈베리파이로 제작한 하드웨어 프로젝트", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 3, "tags": ["아두이노", "IoT", "하드웨어"], "tip": "동작 영상과 회로도를 함께 보관하면 완성도 있는 포트폴리오" },
-      { "id": "port-tec-04", "title": "오픈소스 기여 / 소프트웨어 패키지", "subtitle": "오픈소스 프로젝트에 기여하거나 직접 패키지를 배포", "grades": ["고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 5, "tags": ["오픈소스", "GitHub", "기여"], "tip": "Merged PR 또는 npm/PyPI 다운로드 수가 정량적 근거가 됨" },
+      { "id": "port-tec-04", "title": "오픈소스 기여 / 소프트웨어 패키지", "subtitle": "오픈소스 프로젝트에 기여하거나 직접 패키지를 배포", "grades": ["고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 5, "tags": ["오픈소스", "GitHub", "기여"], "url": "https://github.com", "tip": "Merged PR 또는 npm/PyPI 다운로드 수가 정량적 근거가 됨" },
       { "id": "port-tec-05", "title": "IT 창업 아이디어 사업계획서", "subtitle": "기술 기반 창업 아이디어를 구체화한 린 캔버스·사업계획서", "grades": ["중등", "고등"], "months": [7,8,11,12], "difficulty": 3, "tags": ["창업", "사업계획서", "IT"], "tip": "청소년 창업 대회나 해커톤 출품작으로 연계 가능" }
     ],
     "nature": [
@@ -41,7 +41,7 @@
       { "id": "port-ord-04", "title": "모의 창업 / 비즈니스 플랜", "subtitle": "학교 또는 자체 기획한 비즈니스 모델 캔버스·사업계획서", "grades": ["중등", "고등"], "months": [7,8,11,12], "difficulty": 3, "tags": ["창업", "비즈니스모델", "기획"], "tip": "린 스타트업 방법론 적용 시 더 체계적인 기획서 완성" }
     ],
     "communicate": [
-      { "id": "port-com-01", "title": "유튜브 / 팟캐스트 채널 운영", "subtitle": "특정 주제로 정기적으로 콘텐츠를 제작·운영한 채널", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 3, "tags": ["유튜브", "팟캐스트", "콘텐츠"], "tip": "구독자 수·조회수보다 꾸준함(에피소드 수)이 더 중요한 평가 기준" },
+      { "id": "port-com-01", "title": "유튜브 / 팟캐스트 채널 운영", "subtitle": "특정 주제로 정기적으로 콘텐츠를 제작·운영한 채널", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 3, "tags": ["유튜브", "팟캐스트", "콘텐츠"], "url": "https://www.youtube.com", "tip": "구독자 수·조회수보다 꾸준함(에피소드 수)이 더 중요한 평가 기준" },
       { "id": "port-com-02", "title": "번역 작품 (책·기사·영상)", "subtitle": "외국어 도서·기사·자막을 번역해 공개한 작품", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 3, "tags": ["번역", "외국어", "출판"], "tip": "Blog나 SNS에 꾸준히 게재하면 독자층 형성 및 포트폴리오 증거" },
       { "id": "port-com-03", "title": "칼럼 / 에세이 수록집", "subtitle": "특정 주제로 쓴 칼럼·에세이를 엮어 펴낸 글 모음집", "grades": ["중등", "고등"], "months": [7,8,11,12], "difficulty": 2, "tags": ["칼럼", "에세이", "글쓰기"], "tip": "학교 문집이나 교지 게재 이력도 가능; 개인 브런치 운영도 포트폴리오" },
       { "id": "port-com-04", "title": "교육 자료 / 강의 콘텐츠 개발", "subtitle": "특정 주제를 후배나 또래에게 가르치기 위해 제작한 교육 자료", "grades": ["중등", "고등"], "months": [1,2,3,4,5,6,7,8,9,10,11,12], "difficulty": 3, "tags": ["교육", "강의", "콘텐츠"], "tip": "교사나 교육 전문가를 지망한다면 교수법을 의도적으로 적용해 설명" }

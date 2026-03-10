@@ -39,10 +39,17 @@ export function StepPlanner({ yearPlans, onUpdateYears, starId, color, jobName }
   };
 
   const totalItems = yearPlans.reduce(
-    (s, y) => s + y.items.length + (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0),
+    (s, y) =>
+      s +
+      y.items.length +
+      (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0) +
+      (y.goalGroups ?? []).reduce((sg, g) => sg + g.items.length, 0),
     0,
   );
-  const totalGoals = yearPlans.reduce((s, y) => s + y.goals.length, 0);
+  const totalGoals = yearPlans.reduce(
+    (s, y) => s + ((y.goalGroups ?? []).length > 0 ? (y.goalGroups ?? []).length : y.goals.length),
+    0,
+  );
 
   const gradeGroups = [
     { label: '초등학교', emoji: '🏫', grades: CAREER_GRADE_YEARS.filter((g) => g.id.startsWith('elem')) },

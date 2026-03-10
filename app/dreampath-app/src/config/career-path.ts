@@ -19,6 +19,8 @@ export interface CareerPlanItem {
   difficulty: number;
   cost: string;
   organizer: string;
+  url?: string;
+  description?: string;
   custom?: boolean;
   checked?: boolean;
 }
@@ -29,12 +31,20 @@ export interface CareerPlanGroup {
   items: CareerPlanItem[];
 }
 
+export interface GoalActivityGroup {
+  id: string;
+  goal: string;
+  items: CareerPlanItem[];
+  isExpanded?: boolean;
+}
+
 export interface CareerYearPlan {
   gradeId: string;
   gradeLabel: string;
   goals: string[];
   items: CareerPlanItem[];
   groups?: CareerPlanGroup[];
+  goalGroups?: GoalActivityGroup[];
 }
 
 export interface CareerPlan {
@@ -137,6 +147,16 @@ export const CAREER_LABELS = {
   itemGroupEmpty: '이 그룹에 항목 추가',
   itemEmptyHint: '항목 추가 또는 그룹으로 묶기',
   itemAddMore: '더 추가하기',
+  itemUrl: 'URL',
+  itemDescription: '설명',
+  itemShowDetails: '상세 보기',
+  itemHideDetails: '접기',
+  itemEditUrl: 'URL 수정',
+  itemEditDescription: '설명 수정',
+  
+  goalAddActivity: '이 목표에 활동 추가',
+  goalNoActivity: '아직 세부 활동이 없어요',
+  goalActivityCount: '개 활동',
 
   addItemTitle: '항목 추가',
   addItemMonthTitle: '목표 월 설정',
@@ -160,6 +180,9 @@ export const CAREER_LABELS = {
   addItemCustomCostPlaceholder: '무료',
   addItemCustomOrganizerPlaceholder: '예: 학교·자체',
   addItemSubmit: '추가하기',
+  addItemEditTitle: '항목 수정',
+  addItemSaveEdit: '수정 완료',
+  itemClickToEdit: '탭하여 수정',
 
   summaryTitle: '커리어 패스 완성!',
   summaryTotalItems: '총 계획 항목',
