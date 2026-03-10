@@ -77,6 +77,25 @@ export function YearTimelineNode({
   const deleteItem = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.filter((it) => it.id !== itemId) });
 
+  const updateItemSubItem = (itemId: string, subItemId: string) => {
+    const toggleSub = (item: PlanItem): PlanItem => {
+      if (item.id !== itemId) return item;
+      const subs = item.subItems ?? [];
+      return { ...item, subItems: subs.map((s) => (s.id === subItemId ? { ...s, done: !s.done } : s)) };
+    };
+    const newYear: YearPlan = {
+      ...year,
+      items: year.items.map(toggleSub),
+      groups: (year.groups ?? []).map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      goalGroups: (year.goalGroups ?? []).map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      semesterPlans: (year.semesterPlans ?? []).map((sp) => ({
+        ...sp,
+        goalGroups: sp.goalGroups.map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      })),
+    };
+    onUpdateYear(newYear);
+  };
+
   const deleteItemFromGroup = (groupId: string, itemId: string) => {
     const groups = (year.groups ?? []).map(g =>
       g.id === groupId ? { ...g, items: g.items.filter(it => it.id !== itemId) } : g
@@ -152,6 +171,7 @@ export function YearTimelineNode({
                         onDelete={() => deleteItemFromGroup(group.id, item.id)}
                         onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
                         onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                        onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
                   </div>
@@ -185,6 +205,7 @@ export function YearTimelineNode({
                         onDelete={() => {}}
                         onTitleSave={() => {}}
                         onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                        onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
                   </div>
@@ -225,6 +246,7 @@ export function YearTimelineNode({
                             onDelete={() => {}}
                             onTitleSave={() => {}}
                             onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                            onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                           />
                         ))}
                       </div>
@@ -249,7 +271,8 @@ export function YearTimelineNode({
                   onToggleCheck={() => toggleCheck(item.id)}
                   onDelete={() => deleteItem(item.id)}
                   onTitleSave={(title) => saveItemTitle(item.id, title)}
-                  onInfoClick={() => onItemInfoClick(item, year.gradeLabel)} />
+                  onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                  onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined} />
               ))}
               {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
             </div>

@@ -6,28 +6,75 @@ import {
   Calendar, Target, Heart, Bookmark,
   ChevronDown, ChevronUp, Flag, MoreVertical, CornerDownRight,
 } from 'lucide-react';
-import { GRADE_YEARS, ITEM_TYPES } from '../../config';
-import type { SharedPlan, OperatorComment, OperatorCommentNode, SharedPlanYear } from './types';
+import { GRADE_YEARS } from '../../config';
+import type { SharedPlan, OperatorComment, OperatorCommentNode, SharedPlanYear, SharedPlanItem, SharedPlanGoalGroup } from './types';
 import { ReportModal, type ReportTarget } from '../ReportModal';
+import { PlanItemRowCard, PlanItemDetailSheet } from '../PlanItemDetailSheet';
 
-/* ─── Item type config helper ─── */
-function getItemTypeConfig(type: string) {
-  return ITEM_TYPES.find(t => t.value === type) ?? { label: type, color: '#888', emoji: '📌' };
-}
+/* ─── Goal group (목표 + 세부활동 그룹핑) ─── */
+function GoalGroupSection({
+  group,
+  starColor,
+  gradeLabel,
+  onItemSelect,
+}: {
+  group: SharedPlanGoalGroup;
+  starColor: string;
+  gradeLabel: string;
+  onItemSelect: (item: SharedPlanItem) => void;
+}) {
+  const [open, setOpen] = useState(true);
+  const itemCount = group.items.length;
 
-/* ─── Difficulty stars ─── */
-function DifficultyStars({ difficulty }: { difficulty: number }) {
   return (
-    <span className="text-[10px] text-gray-500">
-      {'★'.repeat(difficulty)}{'☆'.repeat(5 - difficulty)}
-    </span>
+    <div className="space-y-1.5">
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-left transition-all"
+        style={{
+          backgroundColor: `${starColor}10`,
+          border: `1px solid ${starColor}1e`,
+        }}
+      >
+        <div className="flex items-center gap-2 min-w-0">
+          <Target className="w-4 h-4 flex-shrink-0" style={{ color: starColor }} />
+          <span className="text-sm font-semibold text-white truncate">{group.goal}</span>
+        </div>
+        <span className="text-[10px] font-bold text-gray-500 flex-shrink-0">{itemCount}개</span>
+        {open ? <ChevronUp className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />}
+      </button>
+
+      {open && itemCount > 0 && (
+        <div className="pl-6 space-y-1">
+          {group.items.map(item => (
+            <div
+              key={item.id}
+              role="button"
+              tabIndex={0}
+              className="w-full text-left transition-all active:scale-[0.98] cursor-pointer"
+              onClick={() => onItemSelect(item)}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onItemSelect(item); } }}
+            >
+              <PlanItemRowCard item={item} color={starColor} />
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
 /* ─── Year section (accordion) ─── */
 function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: string }) {
   const [open, setOpen] = useState(true);
+  const [selectedItem, setSelectedItem] = useState<SharedPlanItem | null>(null);
   const gradeInfo = GRADE_YEARS.find(g => g.id === year.gradeId);
+
+  const goalGroups = year.goalGroups ?? [];
+  const goalCount = goalGroups.length || year.goals.length;
+  const itemCount = goalGroups.length > 0
+    ? goalGroups.reduce((acc, g) => acc + g.items.length, 0)
+    : year.items.length;
 
   return (
     <div className="relative pl-12">
@@ -60,7 +107,7 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
               {gradeInfo?.fullLabel ?? year.gradeLabel}
             </div>
             <div className="text-[10px] text-gray-500 text-left">
-              목표 {year.goals.length}개 · 계획 {year.items.length}개
+              목표 {goalCount}개 · 계획 {itemCount}개
             </div>
           </div>
           {open
@@ -70,85 +117,74 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
 
         {open && (
           <div className="space-y-3">
-            {/* Goals */}
-            {year.goals.length > 0 && (
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
-                  <Target style={{ width: 10, height: 10 }} />목표
-                </div>
-                {year.goals.map((goal, gi) => (
-                  <div
-                    key={gi}
-                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"
-                    style={{
-                      backgroundColor: `${starColor}10`,
-                      border: `1px solid ${starColor}1e`,
-                    }}
-                  >
-                    <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: starColor }} />
-                    <span className="text-gray-200">{goal}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Items */}
-            {year.items.length > 0 && (
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
-                  <Calendar style={{ width: 10, height: 10 }} />활동·수상·자격증
-                </div>
-                {year.items.map(item => {
-                  const typeConf = getItemTypeConfig(item.type);
-                  return (
-                    <div
-                      key={item.id}
-                      className="flex items-start gap-2.5 p-2.5 rounded-xl"
-                      style={{
-                        backgroundColor: `${typeConf.color}0d`,
-                        border: `1px solid ${typeConf.color}25`,
-                      }}
-                    >
+            {goalGroups.length > 0 ? (
+              /* 목표-세부활동 그룹핑 */
+              goalGroups.map((group, gi) => (
+                <GoalGroupSection
+                  key={gi}
+                  group={group}
+                  starColor={starColor}
+                  gradeLabel={gradeInfo?.fullLabel ?? year.gradeLabel}
+                  onItemSelect={setSelectedItem}
+                />
+              ))
+            ) : (
+              /* 하위 호환: goals + items 분리 */
+              <>
+                {year.goals.length > 0 && (
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                      <Target style={{ width: 10, height: 10 }} />목표
+                    </div>
+                    {year.goals.map((goal, gi) => (
                       <div
-                        className="w-8 h-8 rounded-lg flex items-center justify-center text-sm flex-shrink-0"
+                        key={gi}
+                        className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"
                         style={{
-                          backgroundColor: `${typeConf.color}18`,
-                          border: `1px solid ${typeConf.color}28`,
+                          backgroundColor: `${starColor}10`,
+                          border: `1px solid ${starColor}1e`,
                         }}
                       >
-                        {typeConf.emoji}
+                        <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: starColor }} />
+                        <span className="text-gray-200">{goal}</span>
                       </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
-                        <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                          <span
-                            className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-                            style={{ backgroundColor: `${typeConf.color}22`, color: typeConf.color }}
-                          >
-                            {typeConf.label}
-                          </span>
-                          <span className="flex items-center gap-0.5 text-[10px] text-gray-500">
-                            <Calendar style={{ width: 9, height: 9 }} />{item.month}월
-                          </span>
-                          {item.cost && (
-                            <span className="text-[10px] text-gray-600">{item.cost}</span>
-                          )}
-                          {item.difficulty > 0 && (
-                            <DifficultyStars difficulty={item.difficulty} />
-                          )}
-                        </div>
-                        {item.organizer && (
-                          <div className="text-[10px] text-gray-600 mt-0.5">{item.organizer}</div>
-                        )}
-                      </div>
+                    ))}
+                  </div>
+                )}
+                {year.items.length > 0 && (
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-1 text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                      <Calendar style={{ width: 10, height: 10 }} />활동·수상·자격증
                     </div>
-                  );
-                })}
-              </div>
+                    {year.items.map(item => (
+                      <div
+                        key={item.id}
+                        role="button"
+                        tabIndex={0}
+                        className="w-full text-left transition-all active:scale-[0.98] cursor-pointer"
+                        onClick={() => setSelectedItem(item)}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedItem(item); } }}
+                      >
+                        <PlanItemRowCard item={item} color={starColor} />
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </>
             )}
           </div>
         )}
       </div>
+
+      {/* 아이템 상세 시트 */}
+      {selectedItem && (
+        <PlanItemDetailSheet
+          item={selectedItem}
+          gradeLabel={gradeInfo?.fullLabel ?? year.gradeLabel}
+          color={starColor}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
     </div>
   );
 }

@@ -21,6 +21,16 @@
       {
         "gradeId": "mid2",
         "gradeLabel": "중2",
+        "goalGroups": [
+          { "goal": "기초 자격증 취득", "items": [
+            { "type": "certification", "title": "DIAT (디지털정보활용능력)", "months": [3], "difficulty": 1, "cost": "1.8만원", "organizer": "한국정보통신진흥협회", "url": "https://www.ihd.or.kr", "description": "디지털 정보 활용 능력을 측정하는 자격증. 컴퓨터 기초부터 문서 작성, 스프레드시트 활용까지 평가합니다." },
+            { "type": "certification", "title": "워드프로세서 자격증", "months": [6], "difficulty": 2, "cost": "1.9만원", "organizer": "대한상공회의소", "url": "https://license.korcham.net", "description": "문서 작성 및 편집 능력을 인증하는 국가기술자격증. 한글, MS Word 등을 활용한 실무 능력을 평가합니다." }
+          ]},
+          { "goal": "봉사활동 시작", "items": [
+            { "type": "activity", "title": "보건실 봉사 (주 1시간)", "months": [3], "difficulty": 1, "cost": "무료", "organizer": "학교", "description": "학교 보건실에서 간단한 업무를 돕는 봉사활동. 의료 현장에 대한 기초적인 이해를 쌓을 수 있습니다." }
+          ]},
+          { "goal": "과학 탐구 습관 형성", "items": [] }
+        ],
         "goals": ["기초 자격증 취득", "봉사활동 시작", "과학 탐구 습관 형성"],
         "items": [
           { "type": "certification", "title": "DIAT (디지털정보활용능력)", "months": [3], "difficulty": 1, "cost": "1.8만원", "organizer": "한국정보통신진흥협회", "url": "https://www.ihd.or.kr", "description": "디지털 정보 활용 능력을 측정하는 자격증. 컴퓨터 기초부터 문서 작성, 스프레드시트 활용까지 평가합니다." },
@@ -31,6 +41,17 @@
       {
         "gradeId": "mid3",
         "gradeLabel": "중3",
+        "goalGroups": [
+          { "goal": "생명과학 심화 학습", "items": [
+            { "type": "award", "title": "교내 과학탐구대회 참가", "months": [5], "difficulty": 2, "cost": "무료", "organizer": "학교", "description": "학교 내에서 진행되는 과학 탐구 발표 대회. 관심 있는 과학 주제를 선정하여 탐구하고 발표합니다." }
+          ]},
+          { "goal": "의료 관련 봉사 시작", "items": [
+            { "type": "certification", "title": "응급처치 자격 (BLS)", "months": [4], "difficulty": 1, "cost": "5만원", "organizer": "대한적십자사", "url": "https://www.redcross.or.kr", "description": "기본 심폐소생술(CPR)과 자동심장충격기(AED) 사용법을 배우는 필수 응급처치 교육 및 자격증입니다." }
+          ]},
+          { "goal": "첫 대외활동", "items": [
+            { "type": "activity", "title": "대한적십자사 RCY 캠프", "months": [7], "difficulty": 2, "cost": "무료", "organizer": "대한적십자사", "url": "https://www.redcross.or.kr", "description": "청소년 적십자(RCY) 회원들이 참여하는 여름 캠프. 봉사정신과 리더십을 기를 수 있습니다." }
+          ]}
+        ],
         "goals": ["생명과학 심화 학습", "의료 관련 봉사 시작", "첫 대외활동"],
         "items": [
           { "type": "certification", "title": "응급처치 자격 (BLS)", "months": [4], "difficulty": 1, "cost": "5만원", "organizer": "대한적십자사", "url": "https://www.redcross.or.kr", "description": "기본 심폐소생술(CPR)과 자동심장충격기(AED) 사용법을 배우는 필수 응급처치 교육 및 자격증입니다." },
@@ -41,6 +62,18 @@
       {
         "gradeId": "high1",
         "gradeLabel": "고1",
+        "goalGroups": [
+          { "goal": "KBO 준비 시작", "items": [
+            { "type": "award", "title": "한국생물올림피아드 (KBO) 예선", "months": [4], "difficulty": 4, "cost": "무료", "organizer": "한국생물과학협회", "url": "https://www.kbo-biology.or.kr", "description": "생물 분야 올림피아드 예선. 의약·생명공학 지망생에게 필수적인 대회로 본선 진출 시 대입에 큰 도움이 됩니다." }
+          ]},
+          { "goal": "컴활 2급 취득", "items": [
+            { "type": "certification", "title": "컴퓨터활용능력 2급", "months": [3], "difficulty": 2, "cost": "1.9만원", "organizer": "대한상공회의소", "url": "https://license.korcham.net", "description": "스프레드시트와 데이터베이스 활용 능력을 평가하는 국가기술자격증. 엑셀 실무 능력이 필수입니다." }
+          ]},
+          { "goal": "대학 R&E 탐색", "items": [
+            { "type": "activity", "title": "KAIST 과학영재캠프 (여름)", "months": [7], "difficulty": 3, "cost": "무료~10만원", "organizer": "KAIST", "url": "https://gifted.kaist.ac.kr", "description": "KAIST에서 진행하는 여름/겨울 과학 영재 캠프. 최신 과학 기술을 체험하고 대학 연구실을 방문합니다." },
+            { "type": "activity", "title": "의대 MMI 체험 프로그램", "months": [8], "difficulty": 4, "cost": "5만원", "organizer": "주요 의대", "description": "의대 입시 면접 형식인 MMI(다중미니면접)를 미리 체험하는 프로그램. 실제 면접 상황을 경험할 수 있습니다." }
+          ]}
+        ],
         "goals": ["KBO 준비 시작", "컴활 2급 취득", "대학 R&E 탐색"],
         "items": [
           { "type": "certification", "title": "컴퓨터활용능력 2급", "months": [3], "difficulty": 2, "cost": "1.9만원", "organizer": "대한상공회의소", "url": "https://license.korcham.net", "description": "스프레드시트와 데이터베이스 활용 능력을 평가하는 국가기술자격증. 엑셀 실무 능력이 필수입니다." },
@@ -52,6 +85,18 @@
       {
         "gradeId": "high2",
         "gradeLabel": "고2",
+        "goalGroups": [
+          { "goal": "대학 연계 R&E 참여", "items": [
+            { "type": "activity", "title": "대학 연계 R&E 연구", "months": [3,4,5,6,7,8,9,10,11], "difficulty": 5, "cost": "무료", "organizer": "각 대학·과학고", "description": "고교-대학 연계 연구 활동(R&E). 대학 교수님의 지도 아래 직접 실험하고 논문을 작성합니다. 의대 입시에 매우 유리합니다." },
+            { "type": "award", "title": "학술제 연구 발표", "months": [11], "difficulty": 4, "cost": "무료", "organizer": "학교", "description": "학교 학술제에서 R&E 연구 결과를 발표. 연구 과정과 결과를 정리하여 프레젠테이션합니다." }
+          ]},
+          { "goal": "TOEFL 취득", "items": [
+            { "type": "certification", "title": "TOEFL iBT (100점 이상 목표)", "months": [6], "difficulty": 4, "cost": "30만원", "organizer": "ETS", "url": "https://www.ets.org/toefl", "description": "해외 논문 읽기와 글로벌 경쟁력을 위한 영어 능력 시험. 의대 입시에서도 영어 실력이 중요합니다." }
+          ]},
+          { "goal": "KBO 본선 도전", "items": [
+            { "type": "award", "title": "한국생물올림피아드 (KBO) 본선", "months": [7], "difficulty": 5, "cost": "무료", "organizer": "한국생물과학협회", "url": "https://www.kbo-biology.or.kr", "description": "KBO 예선 통과 후 본선 진출. 상위 입상 시 의대 입시에서 최고 수준의 스펙으로 인정받습니다." }
+          ]}
+        ],
         "goals": ["대학 연계 R&E 참여", "TOEFL 취득", "KBO 본선 도전"],
         "items": [
           { "type": "activity", "title": "대학 연계 R&E 연구", "months": [3,4,5,6,7,8,9,10,11], "difficulty": 5, "cost": "무료", "organizer": "각 대학·과학고", "description": "고교-대학 연계 연구 활동(R&E). 대학 교수님의 지도 아래 직접 실험하고 논문을 작성합니다. 의대 입시에 매우 유리합니다." },

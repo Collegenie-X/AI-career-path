@@ -132,7 +132,7 @@ export function SharedPlanCardWithReactions({
           <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0 mt-2" />
         </div>
 
-        {/* Preview items (첫 학년 첫 2개 항목) */}
+        {/* Preview items (첫 학년 첫 2개 항목) — 아이콘 없음 */}
         {previewItems.length > 0 && (
           <div className="mt-3 space-y-1">
             {previewItems.map(item => {
@@ -143,7 +143,6 @@ export function SharedPlanCardWithReactions({
                   className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg"
                   style={{ backgroundColor: `${typeConf?.color ?? plan.starColor}0a` }}
                 >
-                  <span className="text-sm flex-shrink-0">{typeConf?.emoji ?? '📌'}</span>
                   <span className="text-[11px] text-gray-300 line-clamp-1 flex-1">{item.title}</span>
                   <span
                     className="text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"

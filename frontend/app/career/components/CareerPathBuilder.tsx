@@ -25,6 +25,8 @@ export type SubItem = {
   id: string;
   title: string;
   done?: boolean;
+  url?: string;
+  description?: string;
 };
 
 export type PlanItem = {
@@ -1784,8 +1786,8 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
         </span>
       </div>
 
-      {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) */}
-      <div>
+      {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) — 상하 여백 확보로 하위 상세 잘림 방지 */}
+      <div className="pb-12">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">학년별 계획</span>
           <span className="text-[11px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>

@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "1.1",
+    "version": "1.2",
     "description": "커뮤니티 학교·그룹·공유 패스 목 데이터",
-    "lastUpdated": "2025-04-28T00:00:00.000Z",
+    "lastUpdated": "2026-03-11T00:00:00.000Z",
     "ui": {
       "schoolJoinTitle": "학교 참여하기",
       "schoolJoinDesc": "진로 선생님이 알려준 학교 코드를 입력하세요.\n같은 학교 친구들의 공유된 커리어 패스를 볼 수 있어요.",
@@ -169,6 +169,27 @@
       "tags": ["법률", "사회", "정의"],
       "createdAt": "2025-04-15T00:00:00.000Z",
       "updatedAt": "2025-04-21T18:30:00.000Z"
+    },
+    {
+      "id": "group-5",
+      "name": "교육·사범 분야",
+      "emoji": "📚",
+      "description": "선생님, 교수, 교육 연구원 등 교육 분야에 관심 있는 친구들 모임. 교육 봉사, 멘토링 경험 공유.",
+      "color": "#F59E0B",
+      "creatorId": "user-12",
+      "creatorName": "소율",
+      "memberCount": 4,
+      "inviteCode": "GRP-EDU-005",
+      "members": [
+        { "id": "user-12", "name": "소율", "emoji": "📸", "grade": "mid2", "joinedAt": "2026-01-05T00:00:00.000Z", "role": "creator" },
+        { "id": "user-17", "name": "지안", "emoji": "🧑‍🍳", "grade": "mid2", "joinedAt": "2026-01-06T00:00:00.000Z", "role": "member" },
+        { "id": "user-18", "name": "다은", "emoji": "👩‍🏫", "grade": "mid1", "joinedAt": "2026-01-07T00:00:00.000Z", "role": "member" },
+        { "id": "user-19", "name": "태양", "emoji": "🧑", "grade": "mid3", "joinedAt": "2026-01-08T00:00:00.000Z", "role": "member" }
+      ],
+      "sharedPlanCount": 2,
+      "tags": ["교육", "사범", "멘토링", "봉사"],
+      "createdAt": "2026-01-05T00:00:00.000Z",
+      "updatedAt": "2026-03-08T10:00:00.000Z"
     }
   ],
   "sharedPlans": [
@@ -198,6 +219,15 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "프로그래밍 기초 완성", "items": [
+              { "id": "i2", "type": "activity", "title": "스크래치 코딩 동아리 가입", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+              { "id": "i3", "type": "activity", "title": "SW 마이스터고 탐방", "month": 10, "difficulty": 1, "cost": "무료", "organizer": "학교" }
+            ]},
+            { "goal": "수학 실력 향상", "items": [
+              { "id": "i1", "type": "certification", "title": "정보처리기능사 필기 준비", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "한국산업인력공단" }
+            ]}
+          ],
           "goals": ["프로그래밍 기초 완성", "수학 실력 향상"],
           "items": [
             { "id": "i1", "type": "certification", "title": "정보처리기능사 필기 준비", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "한국산업인력공단" },
@@ -208,6 +238,16 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "파이썬 기초 완성", "items": [
+              { "id": "i4", "type": "activity", "title": "파이썬 기초 온라인 강의 수강", "month": 3, "difficulty": 2, "cost": "3만원", "organizer": "인프런" }
+            ]},
+            { "goal": "첫 앱 개발 도전", "items": [
+              { "id": "i5", "type": "award", "title": "학교 코딩 경진대회 참가", "month": 5, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+              { "id": "i6", "type": "portfolio", "title": "간단한 계산기 앱 제작", "month": 8, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+              { "id": "i7", "type": "activity", "title": "KBO 청소년 해커톤 참가", "month": 11, "difficulty": 3, "cost": "무료", "organizer": "KBO" }
+            ]}
+          ],
           "goals": ["파이썬 기초 완성", "첫 앱 개발 도전"],
           "items": [
             { "id": "i4", "type": "activity", "title": "파이썬 기초 온라인 강의 수강", "month": 3, "difficulty": 2, "cost": "3만원", "organizer": "인프런" },
@@ -219,6 +259,17 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "포트폴리오 완성", "items": [
+              { "id": "i9", "type": "portfolio", "title": "개인 포트폴리오 사이트 제작", "month": 7, "difficulty": 3, "cost": "1만원", "organizer": "개인" },
+              { "id": "i12", "type": "activity", "title": "깃허브 포트폴리오 정리", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+            ]},
+            { "goal": "고등학교 진학 준비", "items": [
+              { "id": "i8", "type": "award", "title": "정보올림피아드 지역 예선 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "한국정보올림피아드" },
+              { "id": "i10", "type": "activity", "title": "SW 마이스터고 오픈캠퍼스 참가", "month": 9, "difficulty": 1, "cost": "무료", "organizer": "한국디지털미디어고" },
+              { "id": "i11", "type": "certification", "title": "정보처리기능사 취득", "month": 11, "difficulty": 3, "cost": "1.8만원", "organizer": "한국산업인력공단" }
+            ]}
+          ],
           "goals": ["포트폴리오 완성", "고등학교 진학 준비"],
           "items": [
             { "id": "i8", "type": "award", "title": "정보올림피아드 지역 예선 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "한국정보올림피아드" },
@@ -298,6 +349,16 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "기초 과학 실력 다지기", "items": [
+              { "id": "j1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+              { "id": "j3", "type": "award", "title": "교내 과학 탐구 발표대회 참가", "month": 10, "difficulty": 2, "cost": "무료", "organizer": "학교" },
+              { "id": "j4", "type": "activity", "title": "의학 진로 특강 참가", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울의대" }
+            ]},
+            { "goal": "봉사활동 시작", "items": [
+              { "id": "j2", "type": "activity", "title": "병원 봉사활동 (월 1회)", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "서울대병원" }
+            ]}
+          ],
           "goals": ["기초 과학 실력 다지기", "봉사활동 시작"],
           "items": [
             { "id": "j1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
@@ -309,6 +370,17 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "과학 심화 학습", "items": [
+              { "id": "j5", "type": "activity", "title": "생명과학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+              { "id": "j6", "type": "award", "title": "전국 과학 탐구 올림피아드 참가", "month": 5, "difficulty": 4, "cost": "무료", "organizer": "한국과학창의재단" },
+              { "id": "j7", "type": "activity", "title": "청소년 의학 캠프 참가", "month": 7, "difficulty": 2, "cost": "5만원", "organizer": "대한의사협회" },
+              { "id": "j9", "type": "activity", "title": "병원 봉사활동 지속 (월 2회)", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "서울대병원" }
+            ]},
+            { "goal": "의학 관련 독서 10권", "items": [
+              { "id": "j8", "type": "portfolio", "title": "의학 관련 독서 기록 포트폴리오", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+            ]}
+          ],
           "goals": ["과학 심화 학습", "의학 관련 독서 10권"],
           "items": [
             { "id": "j5", "type": "activity", "title": "생명과학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
@@ -321,6 +393,18 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "과학고/의대 진학 준비", "items": [
+              { "id": "j10", "type": "award", "title": "한국생물올림피아드 참가", "month": 4, "difficulty": 5, "cost": "무료", "organizer": "한국생물올림피아드위원회" },
+              { "id": "j11", "type": "activity", "title": "과학고 탐방 및 입시 설명회", "month": 6, "difficulty": 1, "cost": "무료", "organizer": "한성과학고" },
+              { "id": "j13", "type": "portfolio", "title": "진로 탐구 보고서 작성", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+              { "id": "j15", "type": "activity", "title": "의대 입시 전략 컨설팅", "month": 11, "difficulty": 2, "cost": "무료", "organizer": "학교" }
+            ]},
+            { "goal": "봉사 200시간 달성", "items": [
+              { "id": "j12", "type": "certification", "title": "응급처치 자격증 취득", "month": 8, "difficulty": 2, "cost": "3만원", "organizer": "대한적십자사" },
+              { "id": "j14", "type": "activity", "title": "봉사활동 200시간 달성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "서울대병원" }
+            ]}
+          ],
           "goals": ["과학고/의대 진학 준비", "봉사 200시간 달성"],
           "items": [
             { "id": "j10", "type": "award", "title": "한국생물올림피아드 참가", "month": 4, "difficulty": 5, "cost": "무료", "organizer": "한국생물올림피아드위원회" },
@@ -392,6 +476,16 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "게임 엔진 기초 학습", "items": [
+              { "id": "k1", "type": "activity", "title": "Unity 기초 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "유니티 코리아" },
+              { "id": "k2", "type": "activity", "title": "게임 개발 동아리 창설", "month": 4, "difficulty": 2, "cost": "무료", "organizer": "학교" }
+            ]},
+            { "goal": "첫 게임 완성", "items": [
+              { "id": "k3", "type": "portfolio", "title": "간단한 2D 플랫폼 게임 제작", "month": 9, "difficulty": 3, "cost": "무료", "organizer": "개인" },
+              { "id": "k4", "type": "award", "title": "청소년 게임 개발 공모전 참가", "month": 11, "difficulty": 3, "cost": "무료", "organizer": "한국콘텐츠진흥원" }
+            ]}
+          ],
           "goals": ["게임 엔진 기초 학습", "첫 게임 완성"],
           "items": [
             { "id": "k1", "type": "activity", "title": "Unity 기초 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "유니티 코리아" },
@@ -403,6 +497,16 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "게임 포트폴리오 완성", "items": [
+              { "id": "k6", "type": "portfolio", "title": "3D 미로 탈출 게임 제작", "month": 7, "difficulty": 4, "cost": "무료", "organizer": "개인" },
+              { "id": "k7", "type": "award", "title": "넥슨 청소년 게임 개발 대회 참가", "month": 9, "difficulty": 4, "cost": "무료", "organizer": "넥슨" }
+            ]},
+            { "goal": "C# 프로그래밍 심화", "items": [
+              { "id": "k5", "type": "activity", "title": "C# 프로그래밍 심화 학습", "month": 3, "difficulty": 3, "cost": "5만원", "organizer": "인프런" },
+              { "id": "k8", "type": "activity", "title": "게임 개발사 현장 체험", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "넥슨 코리아" }
+            ]}
+          ],
           "goals": ["게임 포트폴리오 완성", "C# 프로그래밍 심화"],
           "items": [
             { "id": "k5", "type": "activity", "title": "C# 프로그래밍 심화 학습", "month": 3, "difficulty": 3, "cost": "5만원", "organizer": "인프런" },
@@ -462,6 +566,15 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "디자인 기초 이해", "items": [
+              { "id": "l1", "type": "activity", "title": "미술 심화 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+              { "id": "l2", "type": "certification", "title": "디지털 기초 자격증 취득", "month": 4, "difficulty": 2, "cost": "1.8만원", "organizer": "한국정보통신진흥협회" }
+            ]},
+            { "goal": "드로잉 실력 향상", "items": [
+              { "id": "l3", "type": "activity", "title": "서울시립미술관 청소년 워크숍", "month": 3, "difficulty": 1, "cost": "무료~3만원", "organizer": "서울시립미술관" }
+            ]}
+          ],
           "goals": ["디자인 기초 이해", "드로잉 실력 향상"],
           "items": [
             { "id": "l1", "type": "activity", "title": "미술 심화 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
@@ -472,6 +585,16 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "Figma 기초 완성", "items": [
+              { "id": "l4", "type": "activity", "title": "Figma 프로토타이핑 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "Figma 공식" },
+              { "id": "l6", "type": "portfolio", "title": "앱 UI 리디자인 프로젝트", "month": 8, "difficulty": 3, "cost": "무료", "organizer": "개인" }
+            ]},
+            { "goal": "UX 프로세스 이해", "items": [
+              { "id": "l5", "type": "activity", "title": "사용자 리서치 역할극 실습", "month": 5, "difficulty": 2, "cost": "무료", "organizer": "학교" },
+              { "id": "l7", "type": "award", "title": "청소년 디자인 공모전 참가", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "한국디자인진흥원" }
+            ]}
+          ],
           "goals": ["Figma 기초 완성", "UX 프로세스 이해"],
           "items": [
             { "id": "l4", "type": "activity", "title": "Figma 프로토타이핑 강의 수강", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "Figma 공식" },
@@ -483,6 +606,15 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "포트폴리오 완성", "items": [
+              { "id": "l8", "type": "portfolio", "title": "UX 포트폴리오 사이트 제작", "month": 6, "difficulty": 4, "cost": "1만원", "organizer": "개인" },
+              { "id": "l9", "type": "activity", "title": "디자인 멘토링 프로그램 참가", "month": 8, "difficulty": 2, "cost": "무료", "organizer": "카카오" }
+            ]},
+            { "goal": "예술고 진학 준비", "items": [
+              { "id": "l10", "type": "award", "title": "전국 학생 디자인 대전 참가", "month": 10, "difficulty": 4, "cost": "무료", "organizer": "교육부" }
+            ]}
+          ],
           "goals": ["포트폴리오 완성", "예술고 진학 준비"],
           "items": [
             { "id": "l8", "type": "portfolio", "title": "UX 포트폴리오 사이트 제작", "month": 6, "difficulty": 4, "cost": "1만원", "organizer": "개인" },
@@ -550,6 +682,15 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "화학·생물 기초 다지기", "items": [
+              { "id": "m1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+              { "id": "m3", "type": "activity", "title": "약사 직업 체험의 날 참가", "month": 10, "difficulty": 1, "cost": "무료", "organizer": "대한약사회" }
+            ]},
+            { "goal": "약국 봉사 시작", "items": [
+              { "id": "m2", "type": "activity", "title": "지역 약국 봉사활동", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "지역 약국" }
+            ]}
+          ],
           "goals": ["화학·생물 기초 다지기", "약국 봉사 시작"],
           "items": [
             { "id": "m1", "type": "activity", "title": "과학 탐구 동아리 활동", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
@@ -560,6 +701,16 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "화학 심화 학습", "items": [
+              { "id": "m4", "type": "activity", "title": "화학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+              { "id": "m5", "type": "award", "title": "과학 탐구 발표대회 참가", "month": 6, "difficulty": 3, "cost": "무료", "organizer": "학교" },
+              { "id": "m7", "type": "activity", "title": "약학대학 탐방 프로그램", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울대 약학대학" }
+            ]},
+            { "goal": "의약품 관련 독서", "items": [
+              { "id": "m6", "type": "portfolio", "title": "의약품 성분 탐구 보고서", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+            ]}
+          ],
           "goals": ["화학 심화 학습", "의약품 관련 독서"],
           "items": [
             { "id": "m4", "type": "activity", "title": "화학 심화 스터디", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "학교" },
@@ -571,6 +722,16 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "과학고 진학 준비", "items": [
+              { "id": "m8", "type": "award", "title": "한국화학올림피아드 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "대한화학회" },
+              { "id": "m11", "type": "portfolio", "title": "진로 탐구 포트폴리오 완성", "month": 12, "difficulty": 3, "cost": "무료", "organizer": "개인" }
+            ]},
+            { "goal": "봉사 150시간 달성", "items": [
+              { "id": "m9", "type": "certification", "title": "응급처치 자격증 취득", "month": 7, "difficulty": 2, "cost": "3만원", "organizer": "대한적십자사" },
+              { "id": "m10", "type": "activity", "title": "봉사활동 150시간 달성", "month": 11, "difficulty": 2, "cost": "무료", "organizer": "지역 약국" }
+            ]}
+          ],
           "goals": ["과학고 진학 준비", "봉사 150시간 달성"],
           "items": [
             { "id": "m8", "type": "award", "title": "한국화학올림피아드 참가", "month": 4, "difficulty": 4, "cost": "무료", "organizer": "대한화학회" },
@@ -630,6 +791,15 @@
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "법률 기초 이해", "items": [
+              { "id": "n1", "type": "activity", "title": "법률 동아리 가입", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
+              { "id": "n3", "type": "activity", "title": "법원 견학", "month": 9, "difficulty": 1, "cost": "무료", "organizer": "서울중앙지방법원" }
+            ]},
+            { "goal": "독서 습관 형성", "items": [
+              { "id": "n2", "type": "activity", "title": "법률 관련 독서 5권", "month": 6, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+            ]}
+          ],
           "goals": ["법률 기초 이해", "독서 습관 형성"],
           "items": [
             { "id": "n1", "type": "activity", "title": "법률 동아리 가입", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "학교" },
@@ -640,6 +810,16 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "모의법정 참가", "items": [
+              { "id": "n4", "type": "activity", "title": "청소년 모의법정 대회 참가", "month": 4, "difficulty": 3, "cost": "무료", "organizer": "대한법률구조공단" },
+              { "id": "n6", "type": "portfolio", "title": "법률 이슈 분석 보고서", "month": 10, "difficulty": 3, "cost": "무료", "organizer": "개인" }
+            ]},
+            { "goal": "법학 경시대회 도전", "items": [
+              { "id": "n5", "type": "award", "title": "전국 법학 경시대회 참가", "month": 7, "difficulty": 4, "cost": "무료", "organizer": "한국법학교수회" },
+              { "id": "n7", "type": "activity", "title": "로스쿨 오픈캠퍼스 참가", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "서울대 로스쿨" }
+            ]}
+          ],
           "goals": ["모의법정 참가", "법학 경시대회 도전"],
           "items": [
             { "id": "n4", "type": "activity", "title": "청소년 모의법정 대회 참가", "month": 4, "difficulty": 3, "cost": "무료", "organizer": "대한법률구조공단" },
@@ -699,15 +879,43 @@
         {
           "gradeId": "mid1",
           "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "수학 기초 다지기", "items": [] },
+            { "goal": "파이썬 입문", "items": [
+              { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업", "subItems": [
+                { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": false, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
+                { "id": "o1-s2", "title": "실습 과제 완료", "done": false, "description": "강의 내 실습 과제 5개 이상" }
+              ]},
+              { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교", "subItems": [
+                { "id": "o2-s1", "title": "동아리 지원서 작성", "done": false, "url": "https://school.example/club", "description": "지원서 양식 다운로드 후 작성" },
+                { "id": "o2-s2", "title": "면담 참여", "done": false }
+              ]}
+            ]}
+          ],
           "goals": ["수학 기초 다지기", "파이썬 입문"],
           "items": [
-            { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업" },
-            { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교" }
+            { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업", "subItems": [
+              { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": false, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
+              { "id": "o1-s2", "title": "실습 과제 완료", "done": false, "description": "강의 내 실습 과제 5개 이상" }
+            ]},
+            { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교", "subItems": [
+              { "id": "o2-s1", "title": "동아리 지원서 작성", "done": false, "url": "https://school.example/club", "description": "지원서 양식 다운로드 후 작성" },
+              { "id": "o2-s2", "title": "면담 참여", "done": false }
+            ]}
           ]
         },
         {
           "gradeId": "mid2",
           "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "데이터 분석 기초", "items": [
+              { "id": "o3", "type": "activity", "title": "판다스·넘파이 학습", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "인프런" },
+              { "id": "o4", "type": "portfolio", "title": "공공데이터 분석 프로젝트", "month": 8, "difficulty": 3, "cost": "무료", "organizer": "개인" }
+            ]},
+            { "goal": "시각화 도구 학습", "items": [
+              { "id": "o5", "type": "award", "title": "청소년 데이터 분석 대회", "month": 10, "difficulty": 4, "cost": "무료", "organizer": "통계청" }
+            ]}
+          ],
           "goals": ["데이터 분석 기초", "시각화 도구 학습"],
           "items": [
             { "id": "o3", "type": "activity", "title": "판다스·넘파이 학습", "month": 3, "difficulty": 3, "cost": "무료", "organizer": "인프런" },
@@ -718,6 +926,14 @@
         {
           "gradeId": "mid3",
           "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "머신러닝 입문", "items": [
+              { "id": "o6", "type": "activity", "title": "머신러닝 기초 강의", "month": 4, "difficulty": 4, "cost": "5만원", "organizer": "패스트캠퍼스" }
+            ]},
+            { "goal": "포트폴리오 완성", "items": [
+              { "id": "o7", "type": "portfolio", "title": "AI 프로젝트 포트폴리오", "month": 9, "difficulty": 4, "cost": "무료", "organizer": "개인" }
+            ]}
+          ],
           "goals": ["머신러닝 입문", "포트폴리오 완성"],
           "items": [
             { "id": "o6", "type": "activity", "title": "머신러닝 기초 강의", "month": 4, "difficulty": 4, "cost": "5만원", "organizer": "패스트캠퍼스" },
@@ -738,6 +954,572 @@
       ],
       "groupIds": ["group-1"],
       "tags": ["AI", "데이터", "파이썬"]
+    },
+    {
+      "id": "shared-8",
+      "planId": "plan-demo-8",
+      "ownerId": "user-12",
+      "ownerName": "소율",
+      "ownerEmoji": "📸",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "초등학교 선생님의 꿈",
+      "description": "교육 봉사, 멘토링, 사범대 입시까지. 아이들과 함께 성장하는 초등교사를 꿈꾸는 따뜻한 진로 계획.",
+      "jobEmoji": "👩‍🏫",
+      "jobName": "초등학교 교사",
+      "starName": "나눔의 별",
+      "starEmoji": "📚",
+      "starColor": "#F59E0B",
+      "yearCount": 3,
+      "itemCount": 11,
+      "sharedAt": "2026-01-10T00:00:00.000Z",
+      "updatedAt": "2026-03-08T10:00:00.000Z",
+      "likes": 17,
+      "bookmarks": 8,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goalGroups": [
+            { "goal": "교육 봉사 시작하기", "items": [
+              { "id": "p1", "type": "activity", "title": "지역아동센터 학습 봉사 (주 1회)", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "지역아동센터" },
+              { "id": "p2", "type": "activity", "title": "초등학교 1일 교사 체험", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "교육청" }
+            ]},
+            { "goal": "독서·글쓰기 실력 향상", "items": [
+              { "id": "p3", "type": "portfolio", "title": "교육 관련 독서 감상문 포트폴리오", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+              { "id": "p4", "type": "activity", "title": "진로 특강: 교사의 하루", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "한국교원대학교" }
+            ]}
+          ],
+          "goals": ["교육 봉사 시작하기", "독서·글쓰기 실력 향상"],
+          "items": [
+            { "id": "p1", "type": "activity", "title": "지역아동센터 학습 봉사 (주 1회)", "month": 3, "difficulty": 1, "cost": "무료", "organizer": "지역아동센터" },
+            { "id": "p2", "type": "activity", "title": "초등학교 1일 교사 체험", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "교육청" },
+            { "id": "p3", "type": "portfolio", "title": "교육 관련 독서 감상문 포트폴리오", "month": 9, "difficulty": 2, "cost": "무료", "organizer": "개인" },
+            { "id": "p4", "type": "activity", "title": "진로 특강: 교사의 하루", "month": 11, "difficulty": 1, "cost": "무료", "organizer": "한국교원대학교" }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goalGroups": [
+            { "goal": "멘토링 활동 심화", "items": [
+              { "id": "p5", "type": "activity", "title": "초등학생 과학·수학 멘토링 (월 4회)", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "지역아동센터" },
+              { "id": "p6", "type": "award", "title": "전국 청소년 교육 에세이 대회", "month": 6, "difficulty": 3, "cost": "무료", "organizer": "교육부" }
+            ]},
+            { "goal": "심리·교육학 탐구", "items": [
+              { "id": "p7", "type": "activity", "title": "아동 심리 교육 온라인 강의", "month": 4, "difficulty": 2, "cost": "2만원", "organizer": "클래스101" },
+              { "id": "p8", "type": "portfolio", "title": "교육 실습 일지 작성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+            ]}
+          ],
+          "goals": ["멘토링 활동 심화", "심리·교육학 탐구"],
+          "items": [
+            { "id": "p5", "type": "activity", "title": "초등학생 과학·수학 멘토링 (월 4회)", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "지역아동센터" },
+            { "id": "p6", "type": "award", "title": "전국 청소년 교육 에세이 대회", "month": 6, "difficulty": 3, "cost": "무료", "organizer": "교육부" },
+            { "id": "p7", "type": "activity", "title": "아동 심리 교육 온라인 강의", "month": 4, "difficulty": 2, "cost": "2만원", "organizer": "클래스101" },
+            { "id": "p8", "type": "portfolio", "title": "교육 실습 일지 작성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "개인" }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goalGroups": [
+            { "goal": "사범대 입시 준비", "items": [
+              { "id": "p9", "type": "activity", "title": "한국교원대학교 오픈캠퍼스 참가", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "한국교원대학교" },
+              { "id": "p10", "type": "award", "title": "교육 봉사 우수상 수상 도전", "month": 9, "difficulty": 3, "cost": "무료", "organizer": "교육청" }
+            ]},
+            { "goal": "봉사 200시간 달성", "items": [
+              { "id": "p11", "type": "activity", "title": "봉사활동 200시간 달성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "지역아동센터" }
+            ]}
+          ],
+          "goals": ["사범대 입시 준비", "봉사 200시간 달성"],
+          "items": [
+            { "id": "p9", "type": "activity", "title": "한국교원대학교 오픈캠퍼스 참가", "month": 5, "difficulty": 1, "cost": "무료", "organizer": "한국교원대학교" },
+            { "id": "p10", "type": "award", "title": "교육 봉사 우수상 수상 도전", "month": 9, "difficulty": 3, "cost": "무료", "organizer": "교육청" },
+            { "id": "p11", "type": "activity", "title": "봉사활동 200시간 달성", "month": 12, "difficulty": 2, "cost": "무료", "organizer": "지역아동센터" }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-edu-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "소율이 교사 진로 계획 정말 따뜻하네요! 봉사활동 기록을 꼼꼼히 모아두면 입시에도 도움이 돼요.",
+          "createdAt": "2026-01-12T10:00:00.000Z"
+        },
+        {
+          "id": "comment-edu-1-1",
+          "parentId": "comment-edu-1",
+          "authorId": "user-12",
+          "authorName": "소율",
+          "authorEmoji": "📸",
+          "authorRole": "peer",
+          "content": "선생님 감사해요! 봉사 일지 매달 정리해 놓을게요 😊",
+          "createdAt": "2026-01-12T14:30:00.000Z"
+        },
+        {
+          "id": "comment-edu-2",
+          "authorId": "user-18",
+          "authorName": "다은",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "peer",
+          "content": "저도 선생님이 꿈인데 같이 공부해요! 멘토링 어디서 하는 거예요?",
+          "createdAt": "2026-03-08T10:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-5"],
+      "tags": ["교육", "교사", "봉사", "멘토링"]
+    },
+    {
+      "id": "shared-9",
+      "planId": "plan-demo-9",
+      "ownerId": "user-17",
+      "ownerName": "지안",
+      "ownerEmoji": "🧑‍🍳",
+      "ownerGrade": "mid2",
+      "schoolId": "school-1",
+      "shareType": "public",
+      "title": "셰프가 되는 길",
+      "description": "요리 경연 대회, 조리기능사 자격증, 호텔 현장 체험까지. 미슐랭 셰프를 꿈꾸는 도전적인 진로 로드맵.",
+      "jobEmoji": "👨‍🍳",
+      "jobName": "요리사 (셰프)",
+      "starName": "창작의 별",
+      "starEmoji": "🍳",
+      "starColor": "#EF4444",
+      "yearCount": 3,
+      "itemCount": 10,
+      "sharedAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-03-05T09:00:00.000Z",
+      "likes": 11,
+      "bookmarks": 6,
+      "years": [
+        {
+          "gradeId": "mid1",
+          "gradeLabel": "중1",
+          "goalGroups": [
+            {
+              "goal": "요리 기초 기술 익히기",
+              "items": [
+                {
+                  "id": "q1",
+                  "type": "activity",
+                  "title": "요리 동아리 창설 및 활동",
+                  "month": 3,
+                  "difficulty": 2,
+                  "cost": "무료",
+                  "organizer": "학교",
+                  "description": "학교 내 요리 동아리를 직접 창설해 매달 다양한 한식·양식 요리를 친구들과 함께 실습하고, 학기말 요리 발표회를 개최합니다.",
+                  "subItems": [
+                    { "id": "q1-s1", "title": "학교 동아리 신청서 제출", "done": false, "description": "학교 포털에서 동아리 창설 신청서 작성 후 담당 선생님께 제출" },
+                    { "id": "q1-s2", "title": "동아리 회원 5명 이상 모집", "done": false, "description": "반 친구들에게 홍보하여 요리에 관심 있는 회원 모집" },
+                    { "id": "q1-s3", "title": "월별 요리 실습 8회 이상 진행", "done": false, "description": "한식 기초(된장찌개, 비빔밥 등) → 간식류 → 발표회 메뉴 순으로 실습" },
+                    { "id": "q1-s4", "title": "학기말 요리 발표회 개최", "done": false, "description": "교내 학생·선생님 대상으로 만든 요리를 선보이는 소규모 발표회 진행" }
+                  ]
+                },
+                {
+                  "id": "q2",
+                  "type": "activity",
+                  "title": "주니어 요리 교실 수강 (월 2회)",
+                  "month": 4,
+                  "difficulty": 1,
+                  "cost": "3만원",
+                  "organizer": "서울요리학원",
+                  "url": "https://www.seoulcooking.co.kr",
+                  "description": "전문 셰프에게 배우는 청소년 전용 요리 교실. 매월 2회 참가하며 칼 기술, 불 조절, 기초 조리법을 체계적으로 학습합니다.",
+                  "subItems": [
+                    { "id": "q2-s1", "title": "수강 신청 및 첫 수업 참가", "done": false, "url": "https://www.seoulcooking.co.kr/junior", "description": "청소년 주니어반 신청 후 첫 수업 일정 확인" },
+                    { "id": "q2-s2", "title": "기초 칼 기술 및 재료 손질 실습", "done": false, "description": "채썰기, 깍둑썰기 등 기본 칼질 10가지 마스터" },
+                    { "id": "q2-s3", "title": "한식 기초 5가지 완성", "done": false, "description": "된장찌개, 불고기, 김치볶음밥, 계란말이, 잡채 직접 조리" },
+                    { "id": "q2-s4", "title": "3개월 과정 수료증 취득", "done": false, "description": "출석률 80% 이상 달성 시 수료증 발급" }
+                  ]
+                }
+              ]
+            },
+            {
+              "goal": "다양한 요리 탐구",
+              "items": [
+                {
+                  "id": "q3",
+                  "type": "portfolio",
+                  "title": "레시피 포트폴리오 제작 (월 4개 이상)",
+                  "month": 9,
+                  "difficulty": 2,
+                  "cost": "무료",
+                  "organizer": "개인",
+                  "description": "직접 만든 요리를 사진으로 기록하고, 재료·과정·팁을 정리한 나만의 레시피 포트폴리오를 제작합니다. 연말까지 40개 이상 완성 목표.",
+                  "subItems": [
+                    { "id": "q3-s1", "title": "포트폴리오 양식 제작 (Notion 또는 노트)", "done": false, "url": "https://www.notion.so", "description": "Notion에 레시피 DB 템플릿 만들기 (재료, 과정, 사진, 난이도, 소요시간 포함)" },
+                    { "id": "q3-s2", "title": "한식 레시피 20개 완성 (1~6월)", "done": false, "description": "국·찌개, 볶음, 무침, 김치류 등 한식 카테고리별 20가지 기록" },
+                    { "id": "q3-s3", "title": "양식·간식 레시피 20개 완성 (7~12월)", "done": false, "description": "파스타, 샌드위치, 쿠키, 케이크 등 다양한 장르 탐구" },
+                    { "id": "q3-s4", "title": "연말 레시피 북 디지털 PDF 완성", "done": false, "description": "40개 이상 레시피를 정리해 PDF 파일 제작 후 포트폴리오에 포함" }
+                  ]
+                },
+                {
+                  "id": "q4",
+                  "type": "activity",
+                  "title": "호텔 셰프 직업 체험 캠프",
+                  "month": 11,
+                  "difficulty": 1,
+                  "cost": "5만원",
+                  "organizer": "롯데호텔",
+                  "url": "https://www.lottehotel.com/seoul-hotel/ko/dining/junior-chef.html",
+                  "description": "롯데호텔 주관 청소년 대상 1박 2일 주니어 셰프 캠프. 실제 호텔 주방 체험, 총괄 셰프 멘토링, 코스 요리 실습까지 진행합니다.",
+                  "subItems": [
+                    { "id": "q4-s1", "title": "캠프 일정 확인 및 참가 신청", "done": false, "url": "https://www.lottehotel.com/seoul-hotel/ko/dining/junior-chef.html", "description": "롯데호텔 공식 홈페이지에서 주니어 셰프 캠프 일정 확인 후 신청" },
+                    { "id": "q4-s2", "title": "참가 서류 준비 (재학증명서 등)", "done": false, "description": "학교 행정실에서 재학증명서 발급 후 신청 서류에 첨부" },
+                    { "id": "q4-s3", "title": "1박 2일 캠프 참가 (주방 체험·멘토링)", "done": false, "description": "호텔 실제 주방 투어, 총괄 셰프와 1:1 멘토링, 코스 요리 실습 참여" },
+                    { "id": "q4-s4", "title": "체험 보고서 및 소감문 작성", "done": false, "description": "캠프에서 배운 내용, 인상 깊었던 점, 앞으로의 목표를 A4 2장 이상 작성" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "goals": ["요리 기초 기술 익히기", "다양한 요리 탐구"],
+          "items": [
+            {
+              "id": "q1",
+              "type": "activity",
+              "title": "요리 동아리 창설 및 활동",
+              "month": 3,
+              "difficulty": 2,
+              "cost": "무료",
+              "organizer": "학교",
+              "description": "학교 내 요리 동아리를 직접 창설해 매달 다양한 한식·양식 요리를 친구들과 함께 실습하고, 학기말 요리 발표회를 개최합니다.",
+              "subItems": [
+                { "id": "q1-s1", "title": "학교 동아리 신청서 제출", "done": false, "description": "학교 포털에서 동아리 창설 신청서 작성 후 담당 선생님께 제출" },
+                { "id": "q1-s2", "title": "동아리 회원 5명 이상 모집", "done": false, "description": "반 친구들에게 홍보하여 요리에 관심 있는 회원 모집" },
+                { "id": "q1-s3", "title": "월별 요리 실습 8회 이상 진행", "done": false, "description": "한식 기초(된장찌개, 비빔밥 등) → 간식류 → 발표회 메뉴 순으로 실습" },
+                { "id": "q1-s4", "title": "학기말 요리 발표회 개최", "done": false, "description": "교내 학생·선생님 대상으로 만든 요리를 선보이는 소규모 발표회 진행" }
+              ]
+            },
+            {
+              "id": "q2",
+              "type": "activity",
+              "title": "주니어 요리 교실 수강 (월 2회)",
+              "month": 4,
+              "difficulty": 1,
+              "cost": "3만원",
+              "organizer": "서울요리학원",
+              "url": "https://www.seoulcooking.co.kr",
+              "description": "전문 셰프에게 배우는 청소년 전용 요리 교실. 매월 2회 참가하며 칼 기술, 불 조절, 기초 조리법을 체계적으로 학습합니다.",
+              "subItems": [
+                { "id": "q2-s1", "title": "수강 신청 및 첫 수업 참가", "done": false, "url": "https://www.seoulcooking.co.kr/junior", "description": "청소년 주니어반 신청 후 첫 수업 일정 확인" },
+                { "id": "q2-s2", "title": "기초 칼 기술 및 재료 손질 실습", "done": false, "description": "채썰기, 깍둑썰기 등 기본 칼질 10가지 마스터" },
+                { "id": "q2-s3", "title": "한식 기초 5가지 완성", "done": false, "description": "된장찌개, 불고기, 김치볶음밥, 계란말이, 잡채 직접 조리" },
+                { "id": "q2-s4", "title": "3개월 과정 수료증 취득", "done": false, "description": "출석률 80% 이상 달성 시 수료증 발급" }
+              ]
+            },
+            {
+              "id": "q3",
+              "type": "portfolio",
+              "title": "레시피 포트폴리오 제작 (월 4개 이상)",
+              "month": 9,
+              "difficulty": 2,
+              "cost": "무료",
+              "organizer": "개인",
+              "description": "직접 만든 요리를 사진으로 기록하고, 재료·과정·팁을 정리한 나만의 레시피 포트폴리오를 제작합니다. 연말까지 40개 이상 완성 목표.",
+              "subItems": [
+                { "id": "q3-s1", "title": "포트폴리오 양식 제작 (Notion 또는 노트)", "done": false, "url": "https://www.notion.so", "description": "Notion에 레시피 DB 템플릿 만들기 (재료, 과정, 사진, 난이도, 소요시간 포함)" },
+                { "id": "q3-s2", "title": "한식 레시피 20개 완성 (1~6월)", "done": false, "description": "국·찌개, 볶음, 무침, 김치류 등 한식 카테고리별 20가지 기록" },
+                { "id": "q3-s3", "title": "양식·간식 레시피 20개 완성 (7~12월)", "done": false, "description": "파스타, 샌드위치, 쿠키, 케이크 등 다양한 장르 탐구" },
+                { "id": "q3-s4", "title": "연말 레시피 북 디지털 PDF 완성", "done": false, "description": "40개 이상 레시피를 정리해 PDF 파일 제작 후 포트폴리오에 포함" }
+              ]
+            },
+            {
+              "id": "q4",
+              "type": "activity",
+              "title": "호텔 셰프 직업 체험 캠프",
+              "month": 11,
+              "difficulty": 1,
+              "cost": "5만원",
+              "organizer": "롯데호텔",
+              "url": "https://www.lottehotel.com/seoul-hotel/ko/dining/junior-chef.html",
+              "description": "롯데호텔 주관 청소년 대상 1박 2일 주니어 셰프 캠프. 실제 호텔 주방 체험, 총괄 셰프 멘토링, 코스 요리 실습까지 진행합니다.",
+              "subItems": [
+                { "id": "q4-s1", "title": "캠프 일정 확인 및 참가 신청", "done": false, "url": "https://www.lottehotel.com/seoul-hotel/ko/dining/junior-chef.html", "description": "롯데호텔 공식 홈페이지에서 주니어 셰프 캠프 일정 확인 후 신청" },
+                { "id": "q4-s2", "title": "참가 서류 준비 (재학증명서 등)", "done": false, "description": "학교 행정실에서 재학증명서 발급 후 신청 서류에 첨부" },
+                { "id": "q4-s3", "title": "1박 2일 캠프 참가 (주방 체험·멘토링)", "done": false, "description": "호텔 실제 주방 투어, 총괄 셰프와 1:1 멘토링, 코스 요리 실습 참여" },
+                { "id": "q4-s4", "title": "체험 보고서 및 소감문 작성", "done": false, "description": "캠프에서 배운 내용, 인상 깊었던 점, 앞으로의 목표를 A4 2장 이상 작성" }
+              ]
+            }
+          ]
+        },
+        {
+          "gradeId": "mid2",
+          "gradeLabel": "중2",
+          "goalGroups": [
+            {
+              "goal": "조리기능사 자격증 도전",
+              "items": [
+                {
+                  "id": "q5",
+                  "type": "certification",
+                  "title": "한식 조리기능사 필기 준비",
+                  "month": 3,
+                  "difficulty": 3,
+                  "cost": "무료",
+                  "organizer": "한국산업인력공단",
+                  "url": "https://www.q-net.or.kr/crf005.do?id=crf00505&gSite=Q&gId=",
+                  "description": "국가기술자격 한식 조리기능사 필기시험 준비 과정. 식품위생, 조리 이론, 재료학, 안전관리를 학습하고 필기 합격을 목표로 합니다.",
+                  "subItems": [
+                    { "id": "q5-s1", "title": "큐넷 회원가입 및 시험 일정 확인", "done": false, "url": "https://www.q-net.or.kr", "description": "한국산업인력공단 큐넷(q-net.or.kr)에서 한식 조리기능사 시험 일정 및 원서접수 기간 확인" },
+                    { "id": "q5-s2", "title": "필기 교재 구매 및 학습 시작", "done": false, "description": "최신판 한식조리기능사 필기 교재 구매 후 식품위생법, 조리 이론, 재료학 순서로 학습" },
+                    { "id": "q5-s3", "title": "기출문제 10회분 이상 풀기", "done": false, "url": "https://www.q-net.or.kr/crf005.do?id=crf00505", "description": "최근 3년 기출문제를 반복하여 풀고 틀린 문제 오답 노트 작성" },
+                    { "id": "q5-s4", "title": "최종 모의고사 3회 연속 70점 이상 달성", "done": false, "description": "필기 합격 기준(60점)보다 높은 70점 이상을 목표로 마무리 점검" }
+                  ]
+                },
+                {
+                  "id": "q6",
+                  "type": "certification",
+                  "title": "한식 조리기능사 실기 취득",
+                  "month": 9,
+                  "difficulty": 4,
+                  "cost": "2.6만원",
+                  "organizer": "한국산업인력공단",
+                  "url": "https://www.q-net.or.kr/crf005.do?id=crf00505&gSite=Q&gId=",
+                  "description": "필기 합격 후 실기 시험에 도전. 20가지 한식 기초 메뉴(된장찌개, 비빔밥, 잡채 등)를 반복 연습하며 실기 합격을 목표로 합니다.",
+                  "subItems": [
+                    { "id": "q6-s1", "title": "실기 시험 원서 접수 (큐넷)", "done": false, "url": "https://www.q-net.or.kr", "description": "필기 합격 확인 후 큐넷에서 실기 시험 원서 접수, 응시 수수료 2.6만원 납부" },
+                    { "id": "q6-s2", "title": "한식 기초 20가지 메뉴 1차 완성", "done": false, "description": "된장찌개, 비빔밥, 잡채, 불고기, 생선전 등 20가지 메뉴 레시피 암기 및 1회 이상 조리" },
+                    { "id": "q6-s3", "title": "실기 학원 단기 집중 과정 등록 (1개월)", "done": false, "description": "요리학원 조리기능사 실기 특강 수강. 시간 내 완성 훈련 집중 진행" },
+                    { "id": "q6-s4", "title": "자격증 취득 및 증서 수령", "done": false, "description": "실기 합격 후 큐넷에서 자격증 발급 신청, 우편 수령 또는 직접 수령" }
+                  ]
+                }
+              ]
+            },
+            {
+              "goal": "요리 경연 대회 참가",
+              "items": [
+                {
+                  "id": "q7",
+                  "type": "award",
+                  "title": "전국 청소년 요리 경연 대회 참가",
+                  "month": 6,
+                  "difficulty": 3,
+                  "cost": "무료",
+                  "organizer": "한국조리사중앙회",
+                  "url": "https://www.ikca.or.kr",
+                  "description": "한국조리사중앙회 주관 전국 청소년 요리 경연 대회. 개인 부문 한식 경연에 참가하여 실력을 겨루고 입상을 목표로 합니다.",
+                  "subItems": [
+                    { "id": "q7-s1", "title": "대회 요강 확인 및 참가 신청", "done": false, "url": "https://www.ikca.or.kr/news/notice", "description": "한국조리사중앙회 공식 사이트에서 대회 공고 확인 후 참가 신청서 작성 및 제출" },
+                    { "id": "q7-s2", "title": "출품 메뉴 3가지 선정 및 집중 연습", "done": false, "description": "자신 있는 한식 메뉴 3가지 선정 후 1일 1회 이상 반복 조리 연습 (30일 이상)" },
+                    { "id": "q7-s3", "title": "재료 리스트 작성 및 모의 경연 리허설", "done": false, "description": "대회 당일과 동일한 재료, 도구, 시간 조건으로 최소 3회 모의 경연 진행" },
+                    { "id": "q7-s4", "title": "대회 당일 참가 및 결과 기록", "done": false, "description": "대회 참가 후 수상 여부와 관계없이 경험을 기록하고 피드백을 포트폴리오에 추가" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "goals": ["조리기능사 자격증 도전", "요리 경연 대회 참가"],
+          "items": [
+            {
+              "id": "q5",
+              "type": "certification",
+              "title": "한식 조리기능사 필기 준비",
+              "month": 3,
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "한국산업인력공단",
+              "url": "https://www.q-net.or.kr/crf005.do?id=crf00505&gSite=Q&gId=",
+              "description": "국가기술자격 한식 조리기능사 필기시험 준비 과정. 식품위생, 조리 이론, 재료학, 안전관리를 학습하고 필기 합격을 목표로 합니다.",
+              "subItems": [
+                { "id": "q5-s1", "title": "큐넷 회원가입 및 시험 일정 확인", "done": false, "url": "https://www.q-net.or.kr", "description": "한국산업인력공단 큐넷(q-net.or.kr)에서 한식 조리기능사 시험 일정 및 원서접수 기간 확인" },
+                { "id": "q5-s2", "title": "필기 교재 구매 및 학습 시작", "done": false, "description": "최신판 한식조리기능사 필기 교재 구매 후 식품위생법, 조리 이론, 재료학 순서로 학습" },
+                { "id": "q5-s3", "title": "기출문제 10회분 이상 풀기", "done": false, "url": "https://www.q-net.or.kr/crf005.do?id=crf00505", "description": "최근 3년 기출문제를 반복하여 풀고 틀린 문제 오답 노트 작성" },
+                { "id": "q5-s4", "title": "최종 모의고사 3회 연속 70점 이상 달성", "done": false, "description": "필기 합격 기준(60점)보다 높은 70점 이상을 목표로 마무리 점검" }
+              ]
+            },
+            {
+              "id": "q6",
+              "type": "certification",
+              "title": "한식 조리기능사 실기 취득",
+              "month": 9,
+              "difficulty": 4,
+              "cost": "2.6만원",
+              "organizer": "한국산업인력공단",
+              "url": "https://www.q-net.or.kr/crf005.do?id=crf00505&gSite=Q&gId=",
+              "description": "필기 합격 후 실기 시험에 도전. 20가지 한식 기초 메뉴(된장찌개, 비빔밥, 잡채 등)를 반복 연습하며 실기 합격을 목표로 합니다.",
+              "subItems": [
+                { "id": "q6-s1", "title": "실기 시험 원서 접수 (큐넷)", "done": false, "url": "https://www.q-net.or.kr", "description": "필기 합격 확인 후 큐넷에서 실기 시험 원서 접수, 응시 수수료 2.6만원 납부" },
+                { "id": "q6-s2", "title": "한식 기초 20가지 메뉴 1차 완성", "done": false, "description": "된장찌개, 비빔밥, 잡채, 불고기, 생선전 등 20가지 메뉴 레시피 암기 및 1회 이상 조리" },
+                { "id": "q6-s3", "title": "실기 학원 단기 집중 과정 등록 (1개월)", "done": false, "description": "요리학원 조리기능사 실기 특강 수강. 시간 내 완성 훈련 집중 진행" },
+                { "id": "q6-s4", "title": "자격증 취득 및 증서 수령", "done": false, "description": "실기 합격 후 큐넷에서 자격증 발급 신청, 우편 수령 또는 직접 수령" }
+              ]
+            },
+            {
+              "id": "q7",
+              "type": "award",
+              "title": "전국 청소년 요리 경연 대회 참가",
+              "month": 6,
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "한국조리사중앙회",
+              "url": "https://www.ikca.or.kr",
+              "description": "한국조리사중앙회 주관 전국 청소년 요리 경연 대회. 개인 부문 한식 경연에 참가하여 실력을 겨루고 입상을 목표로 합니다.",
+              "subItems": [
+                { "id": "q7-s1", "title": "대회 요강 확인 및 참가 신청", "done": false, "url": "https://www.ikca.or.kr/news/notice", "description": "한국조리사중앙회 공식 사이트에서 대회 공고 확인 후 참가 신청서 작성 및 제출" },
+                { "id": "q7-s2", "title": "출품 메뉴 3가지 선정 및 집중 연습", "done": false, "description": "자신 있는 한식 메뉴 3가지 선정 후 1일 1회 이상 반복 조리 연습 (30일 이상)" },
+                { "id": "q7-s3", "title": "재료 리스트 작성 및 모의 경연 리허설", "done": false, "description": "대회 당일과 동일한 재료, 도구, 시간 조건으로 최소 3회 모의 경연 진행" },
+                { "id": "q7-s4", "title": "대회 당일 참가 및 결과 기록", "done": false, "description": "대회 참가 후 수상 여부와 관계없이 경험을 기록하고 피드백을 포트폴리오에 추가" }
+              ]
+            }
+          ]
+        },
+        {
+          "gradeId": "mid3",
+          "gradeLabel": "중3",
+          "goalGroups": [
+            {
+              "goal": "특성화고 입시 준비",
+              "items": [
+                {
+                  "id": "q8",
+                  "type": "activity",
+                  "title": "한국조리과학고 오픈캠퍼스 참가",
+                  "month": 5,
+                  "difficulty": 1,
+                  "cost": "무료",
+                  "organizer": "한국조리과학고",
+                  "url": "https://www.hcook.hs.kr",
+                  "description": "한국조리과학고등학교 주관 입시 탐방 프로그램. 학교 시설·수업 견학, 재학생 멘토링, 입시 설명회 참가를 통해 진학 방향을 확인합니다.",
+                  "subItems": [
+                    { "id": "q8-s1", "title": "오픈캠퍼스 일정 확인 및 사전 신청", "done": false, "url": "https://www.hcook.hs.kr", "description": "한국조리과학고 공식 홈페이지에서 오픈캠퍼스 일정 확인 후 온라인 사전 신청" },
+                    { "id": "q8-s2", "title": "학교 시설 견학 및 수업 참관", "done": false, "description": "조리 실습실, 제빵실, 외식 경영 수업 참관으로 고교 생활 미리 체험" },
+                    { "id": "q8-s3", "title": "재학생 선배와 Q&A 멘토링 참가", "done": false, "description": "학교 생활, 입시 준비 방법, 졸업 후 진로 등을 재학생에게 직접 질문" },
+                    { "id": "q8-s4", "title": "입시 전략 노트 정리 (지원 서류·면접 준비)", "done": false, "description": "오픈캠퍼스 후 입시 요강, 합격 포인트, 자기소개서 키워드를 정리한 노트 작성" }
+                  ]
+                },
+                {
+                  "id": "q9",
+                  "type": "portfolio",
+                  "title": "푸드 스타일링 포트폴리오 완성",
+                  "month": 10,
+                  "difficulty": 3,
+                  "cost": "3만원",
+                  "organizer": "개인",
+                  "description": "요리의 플레이팅·사진 촬영·스토리텔링까지 포함한 푸드 스타일링 포트폴리오. 특성화고 입시 및 향후 대회에 활용할 완성본을 제작합니다.",
+                  "subItems": [
+                    { "id": "q9-s1", "title": "푸드 스타일링 유튜브 강의 20편 이상 시청", "done": false, "url": "https://www.youtube.com/@foodstyling", "description": "국내외 푸드 스타일리스트 유튜브 채널 구독 후 플레이팅, 색감 구성, 소품 활용법 학습" },
+                    { "id": "q9-s2", "title": "한식·양식·디저트 각 5가지 스타일링 촬영", "done": false, "description": "한식 5가지, 양식 5가지, 디저트 5가지를 직접 플레이팅하고 스마트폰으로 감성 사진 촬영" },
+                    { "id": "q9-s3", "title": "A4 30페이지 이상 포트폴리오 제본", "done": false, "description": "사진·레시피·스타일링 설명을 담은 포트폴리오를 디자인 프로그램(Canva 등)으로 편집 후 제본" },
+                    { "id": "q9-s4", "title": "디지털 포트폴리오 PDF 파일 완성", "done": false, "url": "https://www.canva.com", "description": "Canva 또는 Adobe Express를 활용해 디지털 버전 포트폴리오 PDF 제작 (입시 제출용)" }
+                  ]
+                }
+              ]
+            },
+            {
+              "goal": "서양식 요리 기초 학습",
+              "items": [
+                {
+                  "id": "q10",
+                  "type": "activity",
+                  "title": "양식 쿠킹 클래스 수강 (3개월)",
+                  "month": 3,
+                  "difficulty": 2,
+                  "cost": "12만원",
+                  "organizer": "르 꼬르동 블루 코리아",
+                  "url": "https://www.cordonbleu.edu/korea/home/ko",
+                  "description": "르 꼬르동 블루 코리아 청소년 양식 쿠킹 클래스 3개월 과정. 파스타, 스테이크, 프랑스 소스 기초를 전문 셰프에게 배웁니다.",
+                  "subItems": [
+                    { "id": "q10-s1", "title": "수강 신청 및 등록 (3개월 과정)", "done": false, "url": "https://www.cordonbleu.edu/korea/home/ko", "description": "르 꼬르동 블루 코리아 청소년 과정 홈페이지에서 3개월 쿠킹 클래스 신청 및 수강료 납부" },
+                    { "id": "q10-s2", "title": "1개월차: 파스타·리조또 기초 완성", "done": false, "description": "파스타 반죽부터 알리오올리오, 까르보나라, 토마토 리조또 등 5가지 이상 직접 조리" },
+                    { "id": "q10-s3", "title": "2개월차: 스테이크·소스 기초 완성", "done": false, "description": "미디엄 레어 굽기 조절, 베샤멜·홀란다이즈 등 기본 소스 5가지 실습" },
+                    { "id": "q10-s4", "title": "3개월차: 프랑스 요리 기초 및 수료증 취득", "done": false, "description": "크레페, 키슈, 크림 브륄레 등 프랑스 가정식 기초 완성 후 수료증 수령" }
+                  ]
+                }
+              ]
+            }
+          ],
+          "goals": ["특성화고 입시 준비", "서양식 요리 기초 학습"],
+          "items": [
+            {
+              "id": "q8",
+              "type": "activity",
+              "title": "한국조리과학고 오픈캠퍼스 참가",
+              "month": 5,
+              "difficulty": 1,
+              "cost": "무료",
+              "organizer": "한국조리과학고",
+              "url": "https://www.hcook.hs.kr",
+              "description": "한국조리과학고등학교 주관 입시 탐방 프로그램. 학교 시설·수업 견학, 재학생 멘토링, 입시 설명회 참가를 통해 진학 방향을 확인합니다.",
+              "subItems": [
+                { "id": "q8-s1", "title": "오픈캠퍼스 일정 확인 및 사전 신청", "done": false, "url": "https://www.hcook.hs.kr", "description": "한국조리과학고 공식 홈페이지에서 오픈캠퍼스 일정 확인 후 온라인 사전 신청" },
+                { "id": "q8-s2", "title": "학교 시설 견학 및 수업 참관", "done": false, "description": "조리 실습실, 제빵실, 외식 경영 수업 참관으로 고교 생활 미리 체험" },
+                { "id": "q8-s3", "title": "재학생 선배와 Q&A 멘토링 참가", "done": false, "description": "학교 생활, 입시 준비 방법, 졸업 후 진로 등을 재학생에게 직접 질문" },
+                { "id": "q8-s4", "title": "입시 전략 노트 정리 (지원 서류·면접 준비)", "done": false, "description": "오픈캠퍼스 후 입시 요강, 합격 포인트, 자기소개서 키워드를 정리한 노트 작성" }
+              ]
+            },
+            {
+              "id": "q9",
+              "type": "portfolio",
+              "title": "푸드 스타일링 포트폴리오 완성",
+              "month": 10,
+              "difficulty": 3,
+              "cost": "3만원",
+              "organizer": "개인",
+              "description": "요리의 플레이팅·사진 촬영·스토리텔링까지 포함한 푸드 스타일링 포트폴리오. 특성화고 입시 및 향후 대회에 활용할 완성본을 제작합니다.",
+              "subItems": [
+                { "id": "q9-s1", "title": "푸드 스타일링 유튜브 강의 20편 이상 시청", "done": false, "url": "https://www.youtube.com/@foodstyling", "description": "국내외 푸드 스타일리스트 유튜브 채널 구독 후 플레이팅, 색감 구성, 소품 활용법 학습" },
+                { "id": "q9-s2", "title": "한식·양식·디저트 각 5가지 스타일링 촬영", "done": false, "description": "한식 5가지, 양식 5가지, 디저트 5가지를 직접 플레이팅하고 스마트폰으로 감성 사진 촬영" },
+                { "id": "q9-s3", "title": "A4 30페이지 이상 포트폴리오 제본", "done": false, "description": "사진·레시피·스타일링 설명을 담은 포트폴리오를 디자인 프로그램(Canva 등)으로 편집 후 제본" },
+                { "id": "q9-s4", "title": "디지털 포트폴리오 PDF 파일 완성", "done": false, "url": "https://www.canva.com", "description": "Canva 또는 Adobe Express를 활용해 디지털 버전 포트폴리오 PDF 제작 (입시 제출용)" }
+              ]
+            },
+            {
+              "id": "q10",
+              "type": "activity",
+              "title": "양식 쿠킹 클래스 수강 (3개월)",
+              "month": 3,
+              "difficulty": 2,
+              "cost": "12만원",
+              "organizer": "르 꼬르동 블루 코리아",
+              "url": "https://www.cordonbleu.edu/korea/home/ko",
+              "description": "르 꼬르동 블루 코리아 청소년 양식 쿠킹 클래스 3개월 과정. 파스타, 스테이크, 프랑스 소스 기초를 전문 셰프에게 배웁니다.",
+              "subItems": [
+                { "id": "q10-s1", "title": "수강 신청 및 등록 (3개월 과정)", "done": false, "url": "https://www.cordonbleu.edu/korea/home/ko", "description": "르 꼬르동 블루 코리아 청소년 과정 홈페이지에서 3개월 쿠킹 클래스 신청 및 수강료 납부" },
+                { "id": "q10-s2", "title": "1개월차: 파스타·리조또 기초 완성", "done": false, "description": "파스타 반죽부터 알리오올리오, 까르보나라, 토마토 리조또 등 5가지 이상 직접 조리" },
+                { "id": "q10-s3", "title": "2개월차: 스테이크·소스 기초 완성", "done": false, "description": "미디엄 레어 굽기 조절, 베샤멜·홀란다이즈 등 기본 소스 5가지 실습" },
+                { "id": "q10-s4", "title": "3개월차: 프랑스 요리 기초 및 수료증 취득", "done": false, "description": "크레페, 키슈, 크림 브륄레 등 프랑스 가정식 기초 완성 후 수료증 수령" }
+              ]
+            }
+          ]
+        }
+      ],
+      "operatorComments": [
+        {
+          "id": "comment-chef-1",
+          "authorId": "teacher-1",
+          "authorName": "김진로 선생님",
+          "authorEmoji": "👩‍🏫",
+          "authorRole": "operator",
+          "content": "지안이 요리 계획 정말 알차네요! 조리기능사 합격 기원합니다 🍽️",
+          "createdAt": "2026-02-03T09:00:00.000Z"
+        },
+        {
+          "id": "comment-chef-1-1",
+          "parentId": "comment-chef-1",
+          "authorId": "user-17",
+          "authorName": "지안",
+          "authorEmoji": "🧑‍🍳",
+          "authorRole": "peer",
+          "content": "선생님 감사해요! 열심히 준비해서 꼭 합격할게요!",
+          "createdAt": "2026-02-03T12:00:00.000Z"
+        },
+        {
+          "id": "comment-chef-2",
+          "authorId": "user-10",
+          "authorName": "채원",
+          "authorEmoji": "🎨",
+          "authorRole": "peer",
+          "content": "요리도 예술이잖아요! 언젠가 나만의 레스토랑 인테리어 같이 해봐요 🎨",
+          "createdAt": "2026-03-05T09:00:00.000Z"
+        }
+      ],
+      "groupIds": ["group-5"],
+      "tags": ["요리", "셰프", "조리기능사", "푸드"]
     }
   ]
 }
