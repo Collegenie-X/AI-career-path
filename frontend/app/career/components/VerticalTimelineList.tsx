@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import {
-  Pencil, Plus, Trash2, Check,
-  ChevronDown, X,
+  Pencil, Plus, Trash2,
+  ChevronDown,
   Share2, Globe, EyeOff, Shield,
 } from 'lucide-react';
 import { GRADE_YEARS } from '../config';
@@ -71,20 +71,6 @@ function PlanAccordionCard({
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showShareSettings, setShowShareSettings] = useState(false);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [editingTitle, setEditingTitle] = useState(false);
-  const [titleDraft, setTitleDraft] = useState(plan.title);
-  const titleInputRef = useRef<HTMLInputElement>(null);
-
-  const commitTitle = () => {
-    const t = titleDraft.trim();
-    if (t && t !== plan.title) onUpdatePlan({ ...plan, title: t });
-    else setTitleDraft(plan.title);
-    setEditingTitle(false);
-  };
-
-  useEffect(() => { if (editingTitle) titleInputRef.current?.focus(); }, [editingTitle]);
-  useEffect(() => { if (!editingTitle) setTitleDraft(plan.title); }, [plan.title, editingTitle]);
 
   const handleShareConfirm = (selectedShareType: ShareType) => {
     onShare(true, selectedShareType);
@@ -127,30 +113,9 @@ function PlanAccordionCard({
         </div>
 
         <div className="flex-1 min-w-0">
-          {editingTitle ? (
-            <input
-              ref={titleInputRef}
-              value={titleDraft}
-              onChange={(e) => setTitleDraft(e.target.value)}
-              onBlur={commitTitle}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') commitTitle();
-                if (e.key === 'Escape') { setTitleDraft(plan.title); setEditingTitle(false); }
-              }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full bg-transparent text-sm font-bold text-white outline-none border-b pb-0.5"
-              style={{ borderColor: plan.starColor }}
-              autoFocus
-            />
-          ) : (
-            <div
-              className={`font-bold text-white text-sm leading-snug truncate ${isEditMode ? 'cursor-text' : ''}`}
-              onClick={isEditMode ? (e) => { e.stopPropagation(); setTitleDraft(plan.title); setEditingTitle(true); } : undefined}
-              title={isEditMode ? '클릭하여 제목 수정' : undefined}
-            >
-              {plan.title}
-            </div>
-          )}
+          <div className="font-bold text-white text-sm leading-snug truncate">
+            {plan.title}
+          </div>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             <span className="text-[10px] font-semibold" style={{ color: `${plan.starColor}cc` }}>
               {plan.starEmoji} {plan.starName}
@@ -188,26 +153,11 @@ function PlanAccordionCard({
           {/* Action bar */}
           <div className="px-4 py-3 space-y-2">
             <div className="flex gap-2">
-              {isEditMode ? (
-                <>
-                  <button onClick={() => setIsEditMode(false)}
-                    className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{ backgroundColor: `${plan.starColor}25`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
-                    <Check style={{ width: 13, height: 13 }} />수정 완료
-                  </button>
-                  <button onClick={onEdit}
-                    className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.12)' }}>
-                    <Pencil style={{ width: 13, height: 13 }} />전체 수정
-                  </button>
-                </>
-              ) : (
-                <button onClick={() => setIsEditMode(true)}
-                  className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
-                  style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
-                  <Pencil style={{ width: 13, height: 13 }} />수정하기
-                </button>
-              )}
+              <button onClick={onEdit}
+                className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
+                style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
+                <Pencil style={{ width: 13, height: 13 }} />수정하기
+              </button>
 
               <button
                 onClick={() => setShowShareSettings(true)}
@@ -294,12 +244,6 @@ function PlanAccordionCard({
           <div className="relative px-4 pb-4">
             <div className="absolute left-[38px] top-0 bottom-4 w-0.5"
               style={{ backgroundColor: `${plan.starColor}28` }} />
-            {isEditMode && (
-              <div className="mb-3 px-3 py-2 rounded-xl text-xs font-semibold"
-                style={{ border: `1px solid ${plan.starColor}30`, backgroundColor: `${plan.starColor}0a`, color: `${plan.starColor}cc` }}>
-                ✏️ 부분 수정 — 제목·목표·항목 탭하여 수정, 전체 수정은 빌더에서
-              </div>
-            )}
             <div className="space-y-0">
               {sortedYears.map((year, idx) => (
                 <YearTimelineNode
@@ -307,7 +251,7 @@ function PlanAccordionCard({
                   year={year as YearPlan & { items: PlanItemWithCheck[] }}
                   color={plan.starColor}
                   isLast={idx === sortedYears.length - 1}
-                  isEditMode={isEditMode}
+                  isEditMode={false}
                   onUpdateYear={updateYear}
                   onItemInfoClick={onItemInfoClick}
                 />

@@ -73,10 +73,6 @@ function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave, onI
         </Text>
       </TouchableOpacity>
 
-      <View style={[styles.itemIcon, { backgroundColor: (tc?.color ?? color) + '1a', borderColor: (tc?.color ?? color) + '30' }]}>
-        <Text style={{ fontSize: 16 }}>{tc?.emoji ?? '📌'}</Text>
-      </View>
-
       <View style={styles.itemContent}>
         {editing ? (
           <TextInput
@@ -455,7 +451,6 @@ interface PlanAccordionProps {
 
 function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear, onItemDetailPress }: PlanAccordionProps) {
   const [expanded, setExpanded] = useState(true);
-  const [isEditMode, setIsEditMode] = useState(false);
   const color = plan.starColor || COLORS.primary;
 
   const totalItems = plan.years.reduce(
@@ -497,8 +492,6 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear, onI
     );
   };
 
-  const toggleEditMode = () => setIsEditMode((prev) => !prev);
-
   return (
     <View style={[styles.planCard, { borderColor: color + '20' }]}>
       {/* 플랜 헤더 */}
@@ -529,45 +522,19 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear, onI
 
           {/* 액션 버튼 영역 */}
           <View style={styles.planActions}>
-            {isEditMode ? (
-              <>
-                <TouchableOpacity
-                  onPress={toggleEditMode}
-                  style={[styles.actionButton, { backgroundColor: color + '25', flex: 1 }]}
-                >
-                  <Text style={[styles.actionButtonText, { color }]}>✅ {CAREER_LABELS.timelineEditDone}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={onEdit}
-                  style={[styles.actionButton, { backgroundColor: 'rgba(255,255,255,0.06)' }]}
-                >
-                  <Text style={[styles.actionButtonText, { color: '#9CA3AF' }]}>🛠 전체 수정</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={handleDeleteConfirm}
-                  style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}
-                >
-                  <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑</Text>
-                </TouchableOpacity>
-              </>
-            ) : (
-              <TouchableOpacity
-                onPress={toggleEditMode}
-                style={[styles.actionButton, { backgroundColor: color + '18', flex: 1 }]}
-              >
-                <Text style={[styles.actionButtonText, { color }]}>✏️ {CAREER_LABELS.timelineEdit}</Text>
-              </TouchableOpacity>
-            )}
+            <TouchableOpacity
+              onPress={onEdit}
+              style={[styles.actionButton, { backgroundColor: color + '18', flex: 1 }]}
+            >
+              <Text style={[styles.actionButtonText, { color }]}>✏️ 수정하기</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={handleDeleteConfirm}
+              style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}
+            >
+              <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑</Text>
+            </TouchableOpacity>
           </View>
-
-          {/* 수정 모드 안내 배너 */}
-          {isEditMode && (
-            <View style={[styles.editModeBanner, { borderColor: color + '30', backgroundColor: color + '0a' }]}>
-              <Text style={[styles.editModeBannerText, { color: color + 'cc' }]}>
-                ✏️ {CAREER_LABELS.timelineEditMode} — 항목 제목 탭하여 수정, ✕ 버튼으로 삭제
-              </Text>
-            </View>
-          )}
 
           {/* 연도별 타임라인 */}
           {plan.years.map((year, idx) => (
@@ -576,7 +543,7 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear, onI
               year={year}
               color={color}
               isLast={idx === plan.years.length - 1}
-              isEditMode={isEditMode}
+              isEditMode={false}
               onUpdate={handleUpdateYear}
               onAddItem={() => onAddItemForYear(year.gradeId)}
               onItemDetailPress={onItemDetailPress ? (item) => onItemDetailPress(item, year.gradeLabel) : undefined}
@@ -726,14 +693,6 @@ const styles = StyleSheet.create({
   },
   actionButtonText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
 
-  editModeBanner: {
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
-    borderRadius: BORDER_RADIUS.md,
-    borderWidth: 1,
-  },
-  editModeBannerText: { fontSize: 11, fontWeight: '600' },
-
   yearNode: { flexDirection: 'row' },
   timelineTrack: { width: 38, alignItems: 'center' },
   gradeBadge: {
@@ -816,14 +775,6 @@ const styles = StyleSheet.create({
   },
   checkButton: { marginTop: 2 },
   checkboxText: { fontSize: 14 },
-  itemIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: BORDER_RADIUS.lg,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-  },
   itemContent: { flex: 1 },
   itemTitleTouch: { minHeight: 22 },
   itemTitle: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },

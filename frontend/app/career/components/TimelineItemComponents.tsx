@@ -142,11 +142,6 @@ export function ItemRow({
         {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
       </button>
 
-      <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-        style={{ backgroundColor: `${typeConf?.color ?? color}1a`, border: `1px solid ${typeConf?.color ?? color}30` }}>
-        {typeConf?.emoji ?? '📌'}
-      </div>
-
       <div
         className="flex-1 min-w-0"
         onClick={!isEditMode ? onInfoClick : undefined}
