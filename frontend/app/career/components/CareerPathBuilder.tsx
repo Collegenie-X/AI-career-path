@@ -943,7 +943,6 @@ function ActivityItemCard({
     >
       {/* 활동 헤더 행 — 클릭 시 수정 다이얼로그 */}
       <div className="flex items-center gap-2.5 px-3 py-2.5">
-        <span className="text-base flex-shrink-0">{tc.emoji}</span>
         <button
           type="button"
           onClick={() => setShowEditSheet(true)}
@@ -1424,12 +1423,12 @@ function YearPlanCard({
   const needsSemesterPick = !yearPlan.semester;
 
   const totalGoals = yearPlan.semester === 'split'
-    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.length, 0)
+    ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
     : goalGroups.length;
 
   const totalItems = yearPlan.semester === 'split'
-    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
-    : goalGroups.reduce((s, g) => s + g.items.length, 0);
+    ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
+    : goalGroups.reduce((s, g) => s + (g.items ?? []).length, 0);
 
   const handleSemesterSelect = (semester: SemesterOption) => {
     const newSemesterPlans: SemesterPlan[] = semester === 'split'
@@ -1543,7 +1542,7 @@ function YearPlanCard({
                       key={sp.semesterId}
                       semesterLabel={sp.semesterLabel}
                       semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                      goalGroups={sp.goalGroups}
+                      goalGroups={sp.goalGroups ?? []}
                       color={color}
                       starId={starId}
                       onUpdateGoalGroups={(groups) => updateSemesterPlanGoalGroups(sp.semesterId, groups)}
@@ -1622,16 +1621,17 @@ function Step3Planner({
 
   const totalGoals = yearPlans.reduce((s, y) => {
     if (y.semester === 'split') {
-      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.length, 0);
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + (sp.goalGroups ?? []).length, 0);
     }
     return s + (y.goalGroups ?? []).length;
   }, 0);
 
   const totalItems = yearPlans.reduce((s, y) => {
     if (y.semester === 'split') {
-      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0);
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) =>
+        ss + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0);
     }
-    return s + (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
+    return s + (y.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0);
   }, 0);
 
   return (
@@ -1753,8 +1753,8 @@ function Step3Planner({
 function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: string }) {
   const years = plan.years ?? [];
   const allItems = years.flatMap(y => [
-    ...y.items,
-    ...(y.groups ?? []).flatMap(g => g.items),
+    ...(y.items ?? []),
+    ...(y.groups ?? []).flatMap(g => g.items ?? []),
   ]);
 
   return (
@@ -1799,11 +1799,25 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
 /* ══════════════════════════════════════════
    Main Builder dialog
 ══════════════════════════════════════════ */
+/** localStorage 등에서 로드한 yearPlans를 빌더 형식으로 정규화 */
+function normalizeYearPlans(years: YearPlan[] | undefined): YearPlan[] {
+  if (!years?.length) return [];
+  return years.map((y) => ({
+    ...y,
+    semester: (y.semester ?? '') as SemesterOption,
+    goalGroups: y.goalGroups ?? [],
+    semesterPlans: y.semesterPlans ?? [],
+    groups: y.groups ?? [],
+    goals: y.goals ?? [],
+    items: y.items ?? [],
+  }));
+}
+
 export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }: Props) {
   const [step, setStep] = useState(initialStep ?? 1);
   const [starId, setStarId] = useState(initialPlan?.starId ?? '');
   const [jobId, setJobId] = useState(initialPlan?.jobId ?? '');
-  const [yearPlans, setYearPlans] = useState<YearPlan[]>(initialPlan?.years ?? []);
+  const [yearPlans, setYearPlans] = useState<YearPlan[]>(() => normalizeYearPlans(initialPlan?.years));
 
   const kingdom = careerMaker.kingdoms.find(k => k.id === starId);
   const job = kingdom?.representativeJobs.find(j => j.id === jobId);
@@ -1812,7 +1826,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const canProceed = () => {
     if (step === 1) return !!starId;
     if (step === 2) return !!jobId;
-    if (step === 3) return yearPlans.length > 0 && yearPlans.every(y => y.semester.length > 0);
+    if (step === 3) return yearPlans.length > 0 && yearPlans.every(y => ((y.semester ?? '') as string).length > 0);
     return true;
   };
 

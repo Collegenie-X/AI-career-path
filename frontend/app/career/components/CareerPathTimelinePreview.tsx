@@ -31,7 +31,6 @@ function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }
     >
       {/* 활동 헤더 */}
       <div className="flex items-center gap-2 px-2.5 py-2">
-        <span className="text-sm flex-shrink-0">{tc?.emoji ?? '📌'}</span>
         <div className="flex-1 min-w-0">
           <div className="text-xs font-semibold text-white line-clamp-1">{item.title}</div>
           <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
@@ -117,16 +116,16 @@ function GoalActivityGroupReadOnly({
           <Target style={{ width: 11, height: 11, color }} />
         </div>
         <span className="flex-1 text-xs font-bold text-white leading-snug">{group.goal}</span>
-        <span className="text-[10px] text-gray-500 flex-shrink-0">{group.items.length}개</span>
+        <span className="text-[10px] text-gray-500 flex-shrink-0">{(group.items ?? []).length}개</span>
         {isExpanded
           ? <ChevronUp style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
           : <ChevronDown style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />}
       </button>
 
       {/* 세부활동 목록 — ActivityItemReadOnly로 렌더링 */}
-      {isExpanded && group.items.length > 0 && (
+      {isExpanded && (group.items ?? []).length > 0 && (
         <div className="px-3 pb-2.5 space-y-1.5" style={{ borderTop: `1px solid ${color}18` }}>
-          {group.items.map((item, idx) => (
+          {(group.items ?? []).map((item, idx) => (
             <ActivityItemReadOnly key={item.id ?? idx} item={item} color={color} />
           ))}
         </div>
@@ -188,12 +187,12 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
           const semesterConf = SEMESTER_OPTIONS.find(s => s.id === year.semester);
 
           const totalGoals = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + sp.goalGroups.length, 0)
+            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
             : (year.goalGroups ?? []).length;
 
           const totalItems = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
-            : (year.goalGroups ?? []).reduce((s, g) => s + g.items.length, 0);
+            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
+            : (year.goalGroups ?? []).reduce((s, g) => s + (g.items ?? []).length, 0);
 
           return (
             <div key={year.gradeId} className="relative pl-12 pb-6">
@@ -231,7 +230,7 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                     key={sp.semesterId}
                     semesterLabel={sp.semesterLabel}
                     semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                    goalGroups={sp.goalGroups}
+                    goalGroups={sp.goalGroups ?? []}
                     color={color}
                   />
                 ))}
@@ -248,13 +247,13 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                 {/* 레거시 데이터 폴백 (goals + items) */}
                 {(!year.goalGroups || year.goalGroups.length === 0) &&
                   year.semester !== 'split' &&
-                  year.goals.length > 0 && (
+                  (year.goals ?? []).length > 0 && (
                   <div className="space-y-1">
                     <div className="flex items-center gap-1 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
                       <Target style={{ width: 11, height: 11 }} />
                       목표
                     </div>
-                    {year.goals.map((goal, gi) => (
+                    {(year.goals ?? []).map((goal, gi) => (
                       <div
                         key={gi}
                         className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"

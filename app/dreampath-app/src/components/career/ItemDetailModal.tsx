@@ -34,8 +34,8 @@ export function ItemDetailModal({ visible, item, gradeLabel, color, onClose }: I
       : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
   return (
-    <Modal visible={visible} animationType="slide" transparent>
-      <View style={styles.overlay}>
+    <Modal visible={visible} animationType="slide" transparent statusBarTranslucent>
+      <View style={[styles.overlay, { zIndex: 99999, elevation: 99999 }]}>
         <TouchableOpacity style={styles.backdrop} activeOpacity={1} onPress={onClose} />
         <View style={styles.sheet}>
           {/* Header */}
@@ -56,62 +56,66 @@ export function ItemDetailModal({ visible, item, gradeLabel, color, onClose }: I
             </View>
           </View>
 
-          {/* Content */}
+          {/* Content — 2열 그리드로 상하 공간 절약 (모바일 대응) */}
           <ScrollView style={styles.scrollContent} showsVerticalScrollIndicator={false}>
-            {/* 목표 기간 */}
-            <View style={styles.detailRow}>
-              <Text style={styles.detailIcon}>📅</Text>
-              <View style={styles.detailContent}>
-                <Text style={styles.detailLabel}>목표 기간</Text>
-                <Text style={styles.detailValue}>{monthLabel}</Text>
-                {item.months.length > 1 && (
-                  <Text style={styles.detailHint}>총 {item.months.length}개월 진행</Text>
-                )}
-              </View>
-            </View>
-
-            {/* 난이도 */}
-            {item.difficulty > 0 && (
-              <View style={styles.detailRow}>
-                <Text style={styles.detailIcon}>🔥</Text>
-                <View style={styles.detailContent}>
-                  <Text style={styles.detailLabel}>난이도</Text>
-                  <View style={styles.difficultyRow}>
-                    <Text style={styles.difficultyStars}>
-                      {'★'.repeat(item.difficulty)}
-                      {'☆'.repeat(5 - item.difficulty)}
-                    </Text>
-                    <Text style={styles.detailValue}>
-                      {DIFFICULTY_LABELS[item.difficulty] ?? '보통'}
-                    </Text>
+            <View style={styles.gridContainer}>
+              {/* Row 1: 목표 기간 | 난이도 */}
+              <View style={styles.gridRow}>
+                <View style={styles.detailCard}>
+                  <Text style={styles.detailIcon}>📅</Text>
+                  <View style={styles.detailContent}>
+                    <Text style={styles.detailLabel}>목표 기간</Text>
+                    <Text style={styles.detailValue}>{monthLabel}</Text>
+                    {item.months.length > 1 && (
+                      <Text style={styles.detailHint}>{item.months.length}개월</Text>
+                    )}
                   </View>
                 </View>
+                {item.difficulty > 0 && (
+                  <View style={styles.detailCard}>
+                    <Text style={styles.detailIcon}>🔥</Text>
+                    <View style={styles.detailContent}>
+                      <Text style={styles.detailLabel}>난이도</Text>
+                      <View style={styles.difficultyRow}>
+                        <Text style={styles.difficultyStars}>
+                          {'★'.repeat(item.difficulty)}
+                          {'☆'.repeat(5 - item.difficulty)}
+                        </Text>
+                        <Text style={styles.detailValue}>
+                          {DIFFICULTY_LABELS[item.difficulty] ?? '보통'}
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
+                )}
               </View>
-            )}
 
-            {/* 비용 */}
-            {item.cost && (
-              <View style={styles.detailRow}>
-                <Text style={styles.detailIcon}>💰</Text>
-                <View style={styles.detailContent}>
-                  <Text style={styles.detailLabel}>비용</Text>
-                  <Text style={styles.detailValue}>{item.cost}</Text>
+              {/* Row 2: 비용 | 주관/출처 */}
+              {(item.cost || item.organizer) && (
+                <View style={styles.gridRow}>
+                  {item.cost && (
+                    <View style={styles.detailCard}>
+                      <Text style={styles.detailIcon}>💰</Text>
+                      <View style={styles.detailContent}>
+                        <Text style={styles.detailLabel}>비용</Text>
+                        <Text style={styles.detailValue}>{item.cost}</Text>
+                      </View>
+                    </View>
+                  )}
+                  {item.organizer && (
+                    <View style={styles.detailCard}>
+                      <Text style={styles.detailIcon}>🏢</Text>
+                      <View style={styles.detailContent}>
+                        <Text style={styles.detailLabel}>주관/출처</Text>
+                        <Text style={styles.detailValue} numberOfLines={2}>{item.organizer}</Text>
+                      </View>
+                    </View>
+                  )}
                 </View>
-              </View>
-            )}
+              )}
+            </View>
 
-            {/* 주관/출처 */}
-            {item.organizer && (
-              <View style={styles.detailRow}>
-                <Text style={styles.detailIcon}>🏢</Text>
-                <View style={styles.detailContent}>
-                  <Text style={styles.detailLabel}>주관/출처</Text>
-                  <Text style={styles.detailValue}>{item.organizer}</Text>
-                </View>
-              </View>
-            )}
-
-            {/* URL - 항상 표시 (있으면 링크, 없으면 '정보 없음') */}
+            {/* URL — 전체 너비 */}
             <View style={styles.detailRow}>
               <Text style={styles.detailIcon}>🔗</Text>
               <View style={styles.detailContent}>
@@ -126,7 +130,7 @@ export function ItemDetailModal({ visible, item, gradeLabel, color, onClose }: I
               </View>
             </View>
 
-            {/* 설명 - 항상 표시 (있으면 내용, 없으면 '정보 없음') */}
+            {/* 설명 — 전체 너비 */}
             <View style={styles.detailRow}>
               <Text style={styles.detailIcon}>📝</Text>
               <View style={styles.detailContent}>
@@ -205,13 +209,33 @@ const styles = StyleSheet.create({
   headerTitle: { fontSize: FONT_SIZES.lg, fontWeight: '900', color: '#fff', lineHeight: 24 },
 
   scrollContent: { paddingHorizontal: SPACING.lg, paddingTop: SPACING.lg },
+  gridContainer: {
+    marginBottom: SPACING.sm,
+  },
+  gridRow: {
+    flexDirection: 'row',
+    gap: SPACING.sm,
+    marginBottom: SPACING.sm,
+  },
+  detailCard: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: SPACING.sm,
+    paddingVertical: SPACING.sm,
+    paddingHorizontal: SPACING.md,
+    borderRadius: BORDER_RADIUS.lg,
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
   detailRow: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: SPACING.md,
-    paddingVertical: SPACING.md,
+    paddingVertical: SPACING.sm,
     paddingHorizontal: SPACING.md,
-    marginBottom: SPACING.xs,
+    marginBottom: SPACING.sm,
     borderRadius: BORDER_RADIUS.lg,
     backgroundColor: 'rgba(255,255,255,0.04)',
     borderWidth: 1,
