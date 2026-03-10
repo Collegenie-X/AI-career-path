@@ -45,9 +45,10 @@ export function StepPlanner({ yearPlans, onUpdateYears, starId, color, jobName }
   const totalGoals = yearPlans.reduce((s, y) => s + y.goals.length, 0);
 
   const gradeGroups = [
-    { label: '초등', emoji: '🏫', grades: CAREER_GRADE_YEARS.filter((g) => g.id.startsWith('elem')) },
+    { label: '초등학교', emoji: '🏫', grades: CAREER_GRADE_YEARS.filter((g) => g.id.startsWith('elem')) },
     { label: '중학교', emoji: '🎒', grades: CAREER_GRADE_YEARS.filter((g) => g.id.startsWith('mid')) },
     { label: '고등학교', emoji: '🎓', grades: CAREER_GRADE_YEARS.filter((g) => g.id.startsWith('high')) },
+    { label: '일반', emoji: '👔', grades: CAREER_GRADE_YEARS.filter((g) => g.id === 'univ' || g.id === 'general') },
   ];
 
   return (

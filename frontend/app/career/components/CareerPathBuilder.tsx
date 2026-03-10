@@ -1414,6 +1414,7 @@ function Step3Planner({
               { label: '초등', emoji: '🏫', grades: GRADE_YEARS.filter(g => g.id.startsWith('elem')) },
               { label: '중학교', emoji: '🎒', grades: GRADE_YEARS.filter(g => g.id.startsWith('mid')) },
               { label: '고등학교', emoji: '🎓', grades: GRADE_YEARS.filter(g => g.id.startsWith('high')) },
+              { label: '일반', emoji: '👔', grades: GRADE_YEARS.filter(g => g.id === 'univ' || g.id === 'general') },
             ].map(group => {
               const available = group.grades.filter(g => !usedIds.includes(g.id));
               if (available.length === 0) return null;

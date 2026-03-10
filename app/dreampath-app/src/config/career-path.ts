@@ -195,14 +195,18 @@ export const CAREER_ITEM_TYPES = [
 ] as const;
 
 export const CAREER_GRADE_YEARS = [
-  { id: 'elem4', label: '초4', fullLabel: '초등 4학년', order: 1, group: '초등', groupEmoji: '🏫' },
-  { id: 'elem5', label: '초5', fullLabel: '초등 5학년', order: 2, group: '초등', groupEmoji: '🏫' },
-  { id: 'elem6', label: '초6', fullLabel: '초등 6학년', order: 3, group: '초등', groupEmoji: '🏫' },
-  { id: 'mid1', label: '중1', fullLabel: '중학교 1학년', order: 4, group: '중학교', groupEmoji: '🎒' },
-  { id: 'mid2', label: '중2', fullLabel: '중학교 2학년', order: 5, group: '중학교', groupEmoji: '🎒' },
-  { id: 'mid3', label: '중3', fullLabel: '중학교 3학년', order: 6, group: '중학교', groupEmoji: '🎒' },
-  { id: 'high1', label: '고1', fullLabel: '고등학교 1학년', order: 7, group: '고등학교', groupEmoji: '🎓' },
-  { id: 'high2', label: '고2', fullLabel: '고등학교 2학년', order: 8, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'elem3', label: '초3', fullLabel: '초등 3학년', order: 1, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem4', label: '초4', fullLabel: '초등 4학년', order: 2, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem5', label: '초5', fullLabel: '초등 5학년', order: 3, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem6', label: '초6', fullLabel: '초등 6학년', order: 4, group: '초등', groupEmoji: '🏫' },
+  { id: 'mid1', label: '중1', fullLabel: '중학교 1학년', order: 5, group: '중학교', groupEmoji: '🎒' },
+  { id: 'mid2', label: '중2', fullLabel: '중학교 2학년', order: 6, group: '중학교', groupEmoji: '🎒' },
+  { id: 'mid3', label: '중3', fullLabel: '중학교 3학년', order: 7, group: '중학교', groupEmoji: '🎒' },
+  { id: 'high1', label: '고1', fullLabel: '고등학교 1학년', order: 8, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'high2', label: '고2', fullLabel: '고등학교 2학년', order: 9, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'high3', label: '고3', fullLabel: '고등학교 3학년', order: 10, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'univ', label: '대학생', fullLabel: '대학생', order: 11, group: '일반', groupEmoji: '🎓' },
+  { id: 'general', label: '일반', fullLabel: '일반', order: 12, group: '일반', groupEmoji: '👔' },
 ] as const;
 
 export const STAR_FILTERS = [
