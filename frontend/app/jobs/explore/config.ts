@@ -154,6 +154,23 @@ export const LABELS = {
   process_phase_badge: '단계 프로세스',
   process_step_prefix: 'STEP',
 
+  // Process Quiz Game (중·고등학생용)
+  process_quiz_mode: '퀴즈로 배우기',
+  process_full_mode: '전체 보기',
+  process_quiz_welcome_title: '이 직업의 작업 과정을 퀴즈로 배워볼까요?',
+  process_quiz_welcome_subtitle: '각 단계를 맞히면서 자연스럽게 익혀보세요!',
+  process_quiz_start: '시작하기',
+  process_quiz_next: '다음 단계',
+  process_quiz_complete: '모두 완료!',
+  process_quiz_correct: '정답이에요!',
+  process_quiz_wrong: '아쉬워요, 다시 한번 확인해볼까요?',
+  process_quiz_retry: '다시 도전',
+  process_quiz_question_tool: '이 단계에서 사용하는 도구는?',
+  process_quiz_question_skill: '이 단계에서 필요한 스킬은?',
+  process_quiz_question_purpose: '이 단계의 목적은?',
+  process_quiz_score: '점',
+  process_quiz_phase_complete: '단계 완료!',
+
   timeline_key_success: '핵심 성공 지표',
   timeline_total_cost: '총 예상 비용',
 

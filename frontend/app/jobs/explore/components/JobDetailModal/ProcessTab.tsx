@@ -1,9 +1,12 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Clock, Briefcase, Zap, Brain } from 'lucide-react';
+import { Clock, Briefcase, Zap, Brain, Gamepad2, List } from 'lucide-react';
 import { LABELS, HOLLAND_CODE_LABELS } from '../../config';
+import { ProcessQuizGame } from './ProcessQuizGame';
 import type { Job, StarData, WorkPhase } from '../../types';
+
+type ProcessViewMode = 'quiz' | 'full';
 
 function parseHolland(code: string): string {
   return code
@@ -239,6 +242,7 @@ function PhaseExpandedContent({ phase, starColor }: { phase: WorkPhase; starColo
 export function ProcessTab({ job, star }: ProcessTabProps) {
   const workProcess = job.workProcess;
   const [expandedIndex, setExpandedIndex] = useState<number>(0);
+  const [viewMode, setViewMode] = useState<ProcessViewMode>('quiz');
 
   const handleToggle = useCallback((index: number) => {
     setExpandedIndex((prev) => (prev === index ? -1 : index));
@@ -259,39 +263,98 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
   const hollandLabel = parseHolland(job.holland);
 
   return (
-    <div className="px-4 pt-3 pb-6">
-      <ProcessHeader
-        title={title}
-        description={description}
-        phaseCount={phases.length}
-        starColor={star.color}
-      />
+    <div className="pt-3 pb-6">
+      <div className="px-4">
+        <ProcessHeader
+          title={title}
+          description={description}
+          phaseCount={phases.length}
+          starColor={star.color}
+        />
 
-      {/* 직무 성향 */}
-      <div
-        className="rounded-2xl px-3 py-2.5 mb-5 flex items-center gap-2.5"
-        style={{ background: `${star.color}12`, border: `1px solid ${star.color}30` }}
-      >
-        <Brain className="w-4 h-4 flex-shrink-0" style={{ color: star.color }} />
-        <div className="flex-1 min-w-0">
-          <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: star.color }}>
-            {LABELS.process_job_tendency}
-          </span>
-          <p className="text-sm font-bold text-white mt-0.5">{hollandLabel}</p>
+        {/* 직무 성향 */}
+        <div
+          className="rounded-2xl px-3 py-2.5 mb-4 flex items-center gap-2.5"
+          style={{ background: `${star.color}12`, border: `1px solid ${star.color}30` }}
+        >
+          <Brain className="w-4 h-4 flex-shrink-0" style={{ color: star.color }} />
+          <div className="flex-1 min-w-0">
+            <span className="text-[11px] font-bold uppercase tracking-wider" style={{ color: star.color }}>
+              {LABELS.process_job_tendency}
+            </span>
+            <p className="text-sm font-bold text-white mt-0.5">{hollandLabel}</p>
+          </div>
+        </div>
+
+        {/* 퀴즈 / 전체 보기 모드 전환 */}
+        <div
+          className="flex rounded-xl overflow-hidden border mb-4"
+          style={{
+            backgroundColor: 'rgba(255,255,255,0.04)',
+            borderColor: 'rgba(255,255,255,0.1)',
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setViewMode('quiz')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-colors ${
+              viewMode === 'quiz' ? 'text-white' : 'text-gray-500'
+            }`}
+            style={
+              viewMode === 'quiz'
+                ? {
+                    backgroundColor: `${star.color}25`,
+                    color: star.color,
+                  }
+                : {}
+            }
+          >
+            <Gamepad2 className="w-4 h-4" />
+            {LABELS.process_quiz_mode}
+          </button>
+          <button
+            type="button"
+            onClick={() => setViewMode('full')}
+            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-colors ${
+              viewMode === 'full' ? 'text-white' : 'text-gray-500'
+            }`}
+            style={
+              viewMode === 'full'
+                ? {
+                    backgroundColor: `${star.color}25`,
+                    color: star.color,
+                  }
+                : {}
+            }
+          >
+            <List className="w-4 h-4" />
+            {LABELS.process_full_mode}
+          </button>
         </div>
       </div>
 
-      {phases.map((phase, index) => (
-        <PhaseStepItem
-          key={phase.id}
-          phase={phase}
-          index={index}
+      {viewMode === 'quiz' ? (
+        <ProcessQuizGame
+          phases={phases}
           starColor={star.color}
-          isLast={index === phases.length - 1}
-          isExpanded={expandedIndex === index}
-          onToggle={() => handleToggle(index)}
+          jobName={job.name}
+          onViewFull={() => setViewMode('full')}
         />
-      ))}
+      ) : (
+        <div className="px-4">
+          {phases.map((phase, index) => (
+            <PhaseStepItem
+              key={phase.id}
+              phase={phase}
+              index={index}
+              starColor={star.color}
+              isLast={index === phases.length - 1}
+              isExpanded={expandedIndex === index}
+              onToggle={() => handleToggle(index)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

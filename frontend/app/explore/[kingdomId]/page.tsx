@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import kingdomsData from '@/data/kingdoms.json';
 import jobsData from '@/data/jobs.json';
 import { Kingdom, Job } from '@/lib/types';
+import { getJobDetailNav } from '@/app/jobs/explore/utils/resolveStarJob';
 import { ArrowLeft, Sparkles, Star, Zap, TrendingUp, Lock } from 'lucide-react';
 import { storage } from '@/lib/storage';
 
@@ -157,7 +158,10 @@ export default function KingdomDetailPage() {
                 job={job}
                 kingdom={kingdom}
                 index={index}
-                onClick={() => router.push(`/jobs/${job.id}`)}
+                onClick={() => {
+                  const nav = getJobDetailNav(job.id, job.kingdomId);
+                  router.push(nav.url);
+                }}
               />
             ))}
           </div>

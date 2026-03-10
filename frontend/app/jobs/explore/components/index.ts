@@ -6,4 +6,5 @@ export { IntroBanner } from './IntroBanner';
 export { StarInfoBanner } from './StarInfoBanner';
 export { CTABanner } from './CTABanner';
 export { PageHeader } from './PageHeader';
+export { StarDetailDialog } from './StarDetailDialog';
 export { JobDetailModal } from './JobDetailModal';
