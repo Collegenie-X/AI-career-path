@@ -1,10 +1,11 @@
 'use client';
 
-import { Target } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Target, ChevronDown, ChevronUp } from 'lucide-react';
 import { GRADE_YEARS } from '../config';
 import type { PlanItem, YearPlan } from './CareerPathBuilder';
 import {
-  GoalRow, ItemRow, QuickAddItem,
+  ItemRow, QuickAddItem,
   type PlanItemWithCheck,
 } from './TimelineItemComponents';
 
@@ -20,6 +21,36 @@ type Props = {
 export function YearTimelineNode({
   year, color, isEditMode, onUpdateYear, onItemInfoClick,
 }: Props) {
+  const [expandedGoalIds, setExpandedGoalIds] = useState<Set<string>>(() => {
+    const ids = year.semester === 'split'
+      ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.map(g => g.id))
+      : (year.goalGroups ?? []).map(g => g.id);
+    return new Set(ids);
+  });
+
+  const toggleGoalExpand = (goalId: string) => {
+    setExpandedGoalIds(prev => {
+      const next = new Set(prev);
+      if (next.has(goalId)) next.delete(goalId);
+      else next.add(goalId);
+      return next;
+    });
+  };
+
+  const goalGroupIdList = year.semester === 'split'
+    ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.map(g => g.id)).join(',')
+    : (year.goalGroups ?? []).map(g => g.id).join(',');
+  useEffect(() => {
+    const ids = year.semester === 'split'
+      ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.map(g => g.id))
+      : (year.goalGroups ?? []).map(g => g.id);
+    setExpandedGoalIds(prev => {
+      const next = new Set(prev);
+      ids.forEach(id => next.add(id));
+      return next;
+    });
+  }, [year.gradeId, goalGroupIdList]);
+
   const grade = GRADE_YEARS.find((g) => g.id === year.gradeId);
   const groupItems = (year.groups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
 
@@ -27,12 +58,15 @@ export function YearTimelineNode({
     ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items)) as PlanItemWithCheck[]
     : (year.goalGroups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
 
+  const idsInGoalGroups = new Set(goalGroupItems.map(it => it.id));
+  const ungroupedYearItems = year.items.filter(it => !idsInGoalGroups.has(it.id));
+
   const checkedCount = [
-    ...year.items.filter((it) => (it as PlanItemWithCheck).checked),
+    ...ungroupedYearItems.filter((it) => (it as PlanItemWithCheck).checked),
     ...groupItems.filter(it => it.checked),
     ...goalGroupItems.filter(it => it.checked),
   ].length;
-  const totalCount = year.items.length + groupItems.length + goalGroupItems.length;
+  const totalCount = ungroupedYearItems.length + groupItems.length + goalGroupItems.length;
 
   const toggleCheck = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.map((it) => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) });
@@ -46,8 +80,52 @@ export function YearTimelineNode({
     onUpdateYear({ ...year, groups });
   };
 
+  const toggleCheckInGoalGroup = (groupId: string, itemId: string) => {
+    const goalGroups = (year.goalGroups ?? []).map(g =>
+      g.id === groupId
+        ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) }
+        : g
+    );
+    onUpdateYear({ ...year, goalGroups });
+  };
+
+  const toggleCheckInSemesterPlan = (semesterId: string, groupId: string, itemId: string) => {
+    const semesterPlans = (year.semesterPlans ?? []).map(sp =>
+      sp.semesterId === semesterId
+        ? {
+            ...sp,
+            goalGroups: sp.goalGroups.map(g =>
+              g.id === groupId
+                ? { ...g, items: g.items.map(it => it.id === itemId ? { ...it, checked: !(it as PlanItemWithCheck).checked } : it) }
+                : g
+            ),
+          }
+        : sp
+    );
+    onUpdateYear({ ...year, semesterPlans });
+  };
+
   const deleteItem = (itemId: string) =>
     onUpdateYear({ ...year, items: year.items.filter((it) => it.id !== itemId) });
+
+  const updateItemSubItem = (itemId: string, subItemId: string) => {
+    const toggleSub = (item: PlanItem): PlanItem => {
+      if (item.id !== itemId) return item;
+      const subs = item.subItems ?? [];
+      return { ...item, subItems: subs.map((s) => (s.id === subItemId ? { ...s, done: !s.done } : s)) };
+    };
+    const newYear: YearPlan = {
+      ...year,
+      items: year.items.map(toggleSub),
+      groups: (year.groups ?? []).map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      goalGroups: (year.goalGroups ?? []).map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      semesterPlans: (year.semesterPlans ?? []).map((sp) => ({
+        ...sp,
+        goalGroups: sp.goalGroups.map((g) => ({ ...g, items: g.items.map(toggleSub) })),
+      })),
+    };
+    onUpdateYear(newYear);
+  };
 
   const deleteItemFromGroup = (groupId: string, itemId: string) => {
     const groups = (year.groups ?? []).map(g =>
@@ -74,14 +152,6 @@ export function YearTimelineNode({
     onUpdateYear({ ...year, items: [...year.items, newItem] });
   };
 
-  const saveGoal = (idx: number, value: string) => {
-    const goals = [...year.goals]; goals[idx] = value;
-    onUpdateYear({ ...year, goals });
-  };
-
-  const deleteGoal = (idx: number) =>
-    onUpdateYear({ ...year, goals: year.goals.filter((_, i) => i !== idx) });
-
   return (
     <div className="relative pl-14 pb-6">
       <div className="absolute left-0 top-0 w-11 h-11 rounded-full flex items-center justify-center text-sm font-black z-10 select-none"
@@ -96,7 +166,6 @@ export function YearTimelineNode({
             <div className="text-base font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
             <div className="text-xs text-gray-500 mt-0.5 flex items-center gap-2">
               {totalCount > 0 && <span>{checkedCount}/{totalCount} 완료</span>}
-              {year.goals.length > 0 && <span>{year.goals.length}개 목표</span>}
             </div>
           </div>
           {totalCount > 0 && (
@@ -108,25 +177,6 @@ export function YearTimelineNode({
             </div>
           )}
         </div>
-
-        {/* Goals (레거시 문자열 목표) */}
-        {year.goals.length > 0 && (
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400">
-                <Target style={{ width: 12, height: 12 }} />목표
-              </div>
-              {isEditMode && (
-                <button onClick={() => onUpdateYear({ ...year, goals: [...year.goals, '새 목표'] })}
-                  className="text-[10px] font-bold" style={{ color: `${color}99` }}>+ 추가</button>
-              )}
-            </div>
-            {year.goals.map((goal, idx) => (
-              <GoalRow key={idx} goal={goal} color={color} isEditMode={isEditMode}
-                onSave={(v) => saveGoal(idx, v)} onDelete={() => deleteGoal(idx)} />
-            ))}
-          </div>
-        )}
 
         {/* Groups (PlanGroup 구조) */}
         {(year.groups ?? []).length > 0 && (
@@ -152,6 +202,7 @@ export function YearTimelineNode({
                         onDelete={() => deleteItemFromGroup(group.id, item.id)}
                         onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
                         onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                        onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
                   </div>
@@ -164,33 +215,41 @@ export function YearTimelineNode({
         {/* goalGroups 구조 (semester !== 'split') */}
         {year.semester !== 'split' && (year.goalGroups ?? []).length > 0 && (
           <div className="space-y-2">
-            {(year.goalGroups ?? []).map((group) => (
+            {(year.goalGroups ?? []).map((group) => {
+              const isExpanded = expandedGoalIds.has(group.id);
+              return (
               <div key={group.id} className="rounded-2xl overflow-hidden"
                 style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                <div className="flex items-center gap-2 px-3 py-2"
-                  style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
+                <button
+                  type="button"
+                  className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                  style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                  onClick={() => toggleGoalExpand(group.id)}
+                >
                   <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
                   <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                  <span className="text-[10px] text-gray-600">{group.items.length}개</span>
-                </div>
-                {group.items.length > 0 && (
+                  {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                </button>
+                {isExpanded && group.items.length > 0 && (
                   <div className="px-3 py-2 space-y-1.5">
                     {(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
                         item={item}
                         color={color}
-                        isEditMode={false}
-                        onToggleCheck={() => {}}
+                        isEditMode={isEditMode}
+                        onToggleCheck={() => toggleCheckInGoalGroup(group.id, item.id)}
                         onDelete={() => {}}
                         onTitleSave={() => {}}
                         onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                        onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
                   </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
 
@@ -204,33 +263,41 @@ export function YearTimelineNode({
                   <span className="text-[11px] font-bold text-gray-400">{sp.semesterLabel}</span>
                   <div className="flex-1 h-px" style={{ backgroundColor: `${color}20` }} />
                 </div>
-                {sp.goalGroups.map((group) => (
+                {sp.goalGroups.map((group) => {
+                  const isExpanded = expandedGoalIds.has(group.id);
+                  return (
                   <div key={group.id} className="rounded-2xl overflow-hidden"
                     style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                    <div className="flex items-center gap-2 px-3 py-2"
-                      style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
+                    <button
+                      type="button"
+                      className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                      style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                      onClick={() => toggleGoalExpand(group.id)}
+                    >
                       <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
                       <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                      <span className="text-[10px] text-gray-600">{group.items.length}개</span>
-                    </div>
-                    {group.items.length > 0 && (
+                      {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                    </button>
+                    {isExpanded && group.items.length > 0 && (
                       <div className="px-3 py-2 space-y-1.5">
                         {(group.items as PlanItemWithCheck[]).map((item) => (
                           <ItemRow
                             key={item.id}
                             item={item}
                             color={color}
-                            isEditMode={false}
-                            onToggleCheck={() => {}}
+                            isEditMode={isEditMode}
+                            onToggleCheck={() => toggleCheckInSemesterPlan(sp.semesterId, group.id, item.id)}
                             onDelete={() => {}}
                             onTitleSave={() => {}}
                             onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                            onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                           />
                         ))}
                       </div>
                     )}
                   </div>
-                ))}
+                  );
+                })}
                 {sp.goalGroups.length === 0 && (
                   <p className="text-xs text-gray-600 pl-2">이 학기에 계획이 없어요</p>
                 )}
@@ -239,19 +306,25 @@ export function YearTimelineNode({
           </div>
         )}
 
-        {/* Ungrouped items (직접 추가 항목) */}
-        <div className="space-y-2">
-          {year.items.map((item) => (
-            <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
-              onToggleCheck={() => toggleCheck(item.id)}
-              onDelete={() => deleteItem(item.id)}
-              onTitleSave={(title) => saveItemTitle(item.id, title)}
-              onInfoClick={() => onItemInfoClick(item, year.gradeLabel)} />
-          ))}
-          {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
-        </div>
+        {/* Ungrouped items (직접 추가 항목) — goalGroups에 이미 포함된 항목 제외하여 이중 표시 방지 */}
+        {(() => {
+          if (ungroupedYearItems.length === 0 && !isEditMode) return null;
+          return (
+            <div className="space-y-2">
+              {ungroupedYearItems.map((item) => (
+                <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
+                  onToggleCheck={() => toggleCheck(item.id)}
+                  onDelete={() => deleteItem(item.id)}
+                  onTitleSave={(title) => saveItemTitle(item.id, title)}
+                  onInfoClick={() => onItemInfoClick(item, year.gradeLabel)}
+                  onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined} />
+              ))}
+              {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
+            </div>
+          );
+        })()}
 
-        {totalCount === 0 && year.goals.length === 0 && isEditMode && (
+        {totalCount === 0 && isEditMode && (
           <div className="text-center py-3 rounded-xl"
             style={{ border: `1px dashed ${color}28`, backgroundColor: `${color}05` }}>
             <p className="text-xs text-gray-500">항목을 추가해 보세요</p>

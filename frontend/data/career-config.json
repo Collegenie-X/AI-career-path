@@ -15,14 +15,18 @@
     { "value": "certification", "label": "자격증", "color": "#22C55E", "emoji": "📜" }
   ],
   "gradeYears": [
-    { "id": "elem4", "label": "초4", "fullLabel": "초등 4학년", "order": 1 },
-    { "id": "elem5", "label": "초5", "fullLabel": "초등 5학년", "order": 2 },
-    { "id": "elem6", "label": "초6", "fullLabel": "초등 6학년", "order": 3 },
-    { "id": "mid1", "label": "중1", "fullLabel": "중학교 1학년", "order": 4 },
-    { "id": "mid2", "label": "중2", "fullLabel": "중학교 2학년", "order": 5 },
-    { "id": "mid3", "label": "중3", "fullLabel": "중학교 3학년", "order": 6 },
-    { "id": "high1", "label": "고1", "fullLabel": "고등학교 1학년", "order": 7 },
-    { "id": "high2", "label": "고2", "fullLabel": "고등학교 2학년", "order": 8 }
+    { "id": "elem3", "label": "초3", "fullLabel": "초등 3학년", "order": 1 },
+    { "id": "elem4", "label": "초4", "fullLabel": "초등 4학년", "order": 2 },
+    { "id": "elem5", "label": "초5", "fullLabel": "초등 5학년", "order": 3 },
+    { "id": "elem6", "label": "초6", "fullLabel": "초등 6학년", "order": 4 },
+    { "id": "mid1", "label": "중1", "fullLabel": "중학교 1학년", "order": 5 },
+    { "id": "mid2", "label": "중2", "fullLabel": "중학교 2학년", "order": 6 },
+    { "id": "mid3", "label": "중3", "fullLabel": "중학교 3학년", "order": 7 },
+    { "id": "high1", "label": "고1", "fullLabel": "고등학교 1학년", "order": 8 },
+    { "id": "high2", "label": "고2", "fullLabel": "고등학교 2학년", "order": 9 },
+    { "id": "high3", "label": "고3", "fullLabel": "고등학교 3학년", "order": 10 },
+    { "id": "univ", "label": "대학생", "fullLabel": "대학생", "order": 11 },
+    { "id": "general", "label": "일반", "fullLabel": "일반", "order": 12 }
   ],
   "semesterOptions": [
     { "id": "both", "label": "1·2학기 통합", "emoji": "📅", "description": "학년 전체를 하나로 관리" },

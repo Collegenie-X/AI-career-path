@@ -1,0 +1,2765 @@
+[
+  {
+    "id": "tpl-teacher-001",
+    "title": "교사 커리어 패스 — 연결형",
+    "description": "교사를 목표로 한 연결 왕국 커리어 패스. 봉사활동과 교육 경험을 통해 교직 소양을 쌓습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "connect",
+    "starName": "연결 왕국",
+    "starEmoji": "🤝",
+    "starColor": "#F39C12",
+    "jobId": "teacher",
+    "jobName": "교사",
+    "jobEmoji": "📚",
+    "likes": 167,
+    "uses": 61,
+    "tags": [
+      "교사",
+      "교육",
+      "봉사",
+      "연결"
+    ],
+    "totalItems": 22,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-tc-m2-1",
+            "goal": "또래상담사 인증 및 학습 멘토링 봉사 시작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-m2-1-1",
+                "type": "certification",
+                "title": "또래상담사 인증",
+                "months": [
+                  4
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "한국청소년상담복지개발원",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "교육 신청 및 이수",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "인증 시험 응시",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-m2-1-2",
+                "type": "activity",
+                "title": "지역아동센터 학습 멘토링 봉사",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "지역 교육청",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "봉사 신청 및 오리엔테이션",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "주 1회 멘토링 진행",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "봉사 일지 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-tc-m2-2",
+            "goal": "교육 관련 독서 및 수업 설계 기초 탐구",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-m2-2-1",
+                "type": "activity",
+                "title": "교육 관련 도서 월 1권 독서",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "교육학 입문서 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "독서 후 요약 노트 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-m2-2-2",
+                "type": "portfolio",
+                "title": "미니 수업 설계 노트 작성 (월 1회)",
+                "months": [
+                  5,
+                  6,
+                  7,
+                  8
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "수업 주제 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "학습 목표 및 활동 설계",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-tc-m3-1",
+            "goal": "한국사 1급 취득 및 다문화 학생 지원 봉사",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-m3-1-1",
+                "type": "certification",
+                "title": "한국사능력검정시험 1급",
+                "months": [
+                  2
+                ],
+                "difficulty": 3,
+                "cost": "1만원",
+                "organizer": "국사편찬위원회",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "근현대사 집중 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 5회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-m3-1-2",
+                "type": "activity",
+                "title": "다문화 학생 한국어 지도 봉사",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "교육청·NGO",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "한국어 지도 기초 교육 이수",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "주 1회 수업 진행",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-tc-m3-2",
+            "goal": "응급처치 자격 취득 및 교육 프로그램 설계 경험",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-m3-2-1",
+                "type": "certification",
+                "title": "BLS (기본생명구조술)",
+                "months": [
+                  6
+                ],
+                "difficulty": 1,
+                "cost": "5만원",
+                "organizer": "대한심폐소생협회",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "교육 일정 등록",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "CPR 실습 완료",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-m3-2-2",
+                "type": "portfolio",
+                "title": "학습 설계 미니 프로젝트 (수업안 2편)",
+                "months": [
+                  9,
+                  10,
+                  11
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "교육과정 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "수업 지도안 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "모의 수업 진행",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-tc-h1-1",
+            "goal": "사범대 체험 캠프 참가 및 교육 대회 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-h1-1-1",
+                "type": "activity",
+                "title": "사범대 교육실습 체험 캠프",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "주요 사범대",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "캠프 지원서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "수업 시연 준비",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-h1-1-2",
+                "type": "award",
+                "title": "전국 독서토론대회 참가",
+                "months": [
+                  10
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "교육부·한국도서관협회",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "지정 도서 완독",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "토론 논리 구성 연습",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-tc-h1-2",
+            "goal": "수업 설계 역량 강화 및 교육 봉사 심화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-h1-2-1",
+                "type": "activity",
+                "title": "학습 설계 미니프로젝트 (수업안 제작)",
+                "months": [
+                  9
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "교육과정 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "수업 지도안 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "모의 수업 진행",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-h1-2-2",
+                "type": "activity",
+                "title": "교육 봉사 누적 50시간 달성",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "지역 교육청",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "봉사 일지 누적 관리",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "봉사 우수 사례 정리",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-tc-h2-1",
+            "goal": "TOEIC 취득 및 에듀테크 공모전 참가",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-h2-1-1",
+                "type": "certification",
+                "title": "TOEIC 800점 이상",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "5.2만원",
+                "organizer": "ETS",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "LC 집중 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "RC 문법 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s3",
+                    "title": "모의시험 3회 응시",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-h2-1-2",
+                "type": "award",
+                "title": "에듀테크 아이디어 공모전",
+                "months": [
+                  9
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "교육부·에듀테크협회",
+                "subItems": [
+                  {
+                    "id": "s4",
+                    "title": "교육 문제 정의",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "솔루션 기획서 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-tc-h2-2",
+            "goal": "멘토링 누적 100시간 달성 및 우수 사례 발표",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-tc-h2-2-1",
+                "type": "activity",
+                "title": "또래 상담 우수 사례 발표",
+                "months": [
+                  11
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "한국청소년상담복지개발원",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "사례 보고서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "발표 자료 제작",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-tc-h2-2-2",
+                "type": "portfolio",
+                "title": "교직 포트폴리오 완성 (봉사·수업안·수상 통합)",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "활동 기록 전체 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "포트폴리오 PDF 완성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-lawyer-001",
+    "title": "변호사 커리어 패스 — 질서형",
+    "description": "변호사를 목표로 한 질서 왕국 커리어 패스. 논리적 사고와 토론 역량, 법·사회 지식을 체계적으로 쌓습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "order",
+    "starName": "질서 왕국",
+    "starEmoji": "⚖️",
+    "starColor": "#8E44AD",
+    "jobId": "lawyer",
+    "jobName": "변호사",
+    "jobEmoji": "⚖️",
+    "likes": 143,
+    "uses": 48,
+    "tags": [
+      "변호사",
+      "법학",
+      "토론",
+      "질서"
+    ],
+    "totalItems": 22,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-lw-m2-1",
+            "goal": "한국사 1급 취득 및 기초 법률 지식 탐구",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-m2-1-1",
+                "type": "certification",
+                "title": "한국사능력검정시험 1급",
+                "months": [
+                  5
+                ],
+                "difficulty": 3,
+                "cost": "1만원",
+                "organizer": "국사편찬위원회",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "근현대사 집중 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 5회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-m2-1-2",
+                "type": "activity",
+                "title": "법무부 법교육 캠프",
+                "months": [
+                  7
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "법무부",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "캠프 신청",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "법교육 자료 사전 학습",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-lw-m2-2",
+            "goal": "시사 토론 습관 형성 및 논리적 글쓰기 시작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-m2-2-1",
+                "type": "activity",
+                "title": "시사 토론 스터디 운영 (주 1회)",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "스터디 멤버 모집",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "주제 선정 및 토론 진행",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-m2-2-2",
+                "type": "portfolio",
+                "title": "시사 논평 에세이 월 1편 작성",
+                "months": [
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "시사 이슈 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "논거 구성 후 에세이 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-lw-m3-1",
+            "goal": "모의재판 동아리 참가 및 토론 역량 강화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-m3-1-1",
+                "type": "activity",
+                "title": "헌법재판소 청소년 헌법교실",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "헌법재판소",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "신청서 제출",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "헌법 기초 사전 학습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-m3-1-2",
+                "type": "activity",
+                "title": "모의재판 동아리 운영",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "학교",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "동아리 창설 및 회원 모집",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "월 1회 모의재판 진행",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "판결문 작성 연습",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-lw-m3-2",
+            "goal": "전국 토론대회 참가 및 법학 기초 학습",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-m3-2-1",
+                "type": "award",
+                "title": "전국 청소년 토론대회 참가",
+                "months": [
+                  10
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "KBS·한국토론학회",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "토론 주제 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "논증 구조 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-m3-2-2",
+                "type": "portfolio",
+                "title": "법학 기초 독서 노트 (형법·민법 입문)",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "입문서 2권 완독",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "핵심 개념 정리 노트",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-lw-h1-1",
+            "goal": "TOEIC 취득 및 모의재판 대회 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-h1-1-1",
+                "type": "certification",
+                "title": "TOEIC 900점 이상",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "5.2만원",
+                "organizer": "ETS",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "LC 집중 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "RC 문법 정리",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-h1-1-2",
+                "type": "award",
+                "title": "전국 청소년 모의재판 대회",
+                "months": [
+                  9
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "법무부·대한변호사협회",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "사건 기록 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "변론 요지서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "모의 변론 연습 5회",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-lw-h1-2",
+            "goal": "형법 총론 학습 및 법학 에세이 작성",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-h1-2-1",
+                "type": "activity",
+                "title": "K-MOOC 형법 총론",
+                "months": [
+                  3
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "교육부",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "강의 전 과정 수강",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "주요 판례 정리",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-h1-2-2",
+                "type": "portfolio",
+                "title": "법학 에세이 2편 작성 (헌법·형법 주제)",
+                "months": [
+                  9,
+                  10,
+                  11
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "주제 선정 및 자료 조사",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "에세이 작성 및 첨삭",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-lw-h2-1",
+            "goal": "TOEFL 취득 및 MUN·법학 에세이 공모전 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-h2-1-1",
+                "type": "certification",
+                "title": "TOEFL iBT 100점 이상",
+                "months": [
+                  4
+                ],
+                "difficulty": 4,
+                "cost": "30만원",
+                "organizer": "ETS",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "Reading/Listening 집중",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "Writing 에세이 연습 10편",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-h2-1-2",
+                "type": "award",
+                "title": "법학 에세이 공모전",
+                "months": [
+                  9
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "각 법학전문대학원",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "주제 선정 및 자료 수집",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "에세이 초고 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "교수님 피드백 반영",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-lw-h2-2",
+            "goal": "전국 모의 유엔 참가 및 국제 감각 강화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-lw-h2-2-1",
+                "type": "award",
+                "title": "전국 모의 유엔(MUN) 대회",
+                "months": [
+                  6
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "각 대학 MUN 협회",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "담당 국가·의제 연구",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "Position Paper 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-h2-2-2",
+                "type": "activity",
+                "title": "국회·법원·대사관 견학 + 정책 브리프",
+                "months": [
+                  3
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "국회",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "견학 신청",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "정책 브리프 1페이지 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-lw-h2-2-3",
+                "type": "portfolio",
+                "title": "법학 포트폴리오 완성 (에세이·모의재판 기록)",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s10",
+                    "title": "활동 기록 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s11",
+                    "title": "포트폴리오 PDF 완성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-env-engineer-001",
+    "title": "환경공학자 커리어 패스 — 자연형",
+    "description": "환경공학자를 목표로 한 자연 왕국 커리어 패스. 생태 탐구와 환경 데이터 분석 역량을 키웁니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "nature",
+    "starName": "자연 왕국",
+    "starEmoji": "🌱",
+    "starColor": "#27AE60",
+    "jobId": "env-engineer",
+    "jobName": "환경공학자",
+    "jobEmoji": "🌍",
+    "likes": 121,
+    "uses": 39,
+    "tags": [
+      "환경",
+      "공학",
+      "자연",
+      "탐구"
+    ],
+    "totalItems": 22,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ev-m2-1",
+            "goal": "기초 자격증 취득 및 환경 봉사 시작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-m2-1-1",
+                "type": "certification",
+                "title": "컴퓨터활용능력 2급",
+                "months": [
+                  6
+                ],
+                "difficulty": 2,
+                "cost": "1.9만원",
+                "organizer": "대한상공회의소",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "엑셀 기초 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 3회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-m2-1-2",
+                "type": "activity",
+                "title": "해변 정화 봉사 (iNaturalist 기록)",
+                "months": [
+                  5
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "시민과학",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "봉사 신청",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "iNaturalist 앱 설치 및 기록",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "봉사 일지 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ev-m2-2",
+            "goal": "생태 탐구 습관 형성 및 자연 관찰 기록",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-m2-2-1",
+                "type": "activity",
+                "title": "지역 공원 생태 관찰 일지 작성 (월 2회)",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "관찰 장소 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "식물·동물 기록 및 사진 촬영",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-m2-2-2",
+                "type": "portfolio",
+                "title": "환경 탐구 보고서 작성 (학기 1편)",
+                "months": [
+                  8,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "탐구 주제 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "데이터 수집 및 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s10",
+                    "title": "보고서 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ev-m3-1",
+            "goal": "생태 캠프 참가 및 환경 공모전 첫 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-m3-1-1",
+                "type": "activity",
+                "title": "국립생태원 청소년 생태캠프",
+                "months": [
+                  7
+                ],
+                "difficulty": 2,
+                "cost": "3~5만원",
+                "organizer": "환경부·국립생태원",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "캠프 신청서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "생태 조사 보고서 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-m3-1-2",
+                "type": "award",
+                "title": "청소년 환경 포스터 공모전",
+                "months": [
+                  6
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "환경부",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "환경 이슈 조사",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "포스터 디자인 제작",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ev-m3-2",
+            "goal": "수질 모니터링 봉사 및 환경 데이터 분석 시작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-m3-2-1",
+                "type": "activity",
+                "title": "지역 하천 수질 모니터링 봉사",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "학교",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "수질 측정 방법 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "월 1회 모니터링 진행",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "데이터 기록 및 분석",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-m3-2-2",
+                "type": "portfolio",
+                "title": "수질 데이터 분석 보고서 작성",
+                "months": [
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "엑셀로 데이터 시각화",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "보고서 완성 및 발표",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ev-h1-1",
+            "goal": "Python으로 환경 데이터 분석 및 자격증 취득",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-h1-1-1",
+                "type": "certification",
+                "title": "COS Pro 2급 (Python)",
+                "months": [
+                  4
+                ],
+                "difficulty": 2,
+                "cost": "3만원",
+                "organizer": "YBM",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "Python pandas 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "환경 데이터 시각화 실습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-h1-1-2",
+                "type": "activity",
+                "title": "환경부 환경교육 캠프",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료~3만원",
+                "organizer": "환경부",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "캠프 신청서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "환경 프로젝트 발표 준비",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ev-h1-2",
+            "goal": "환경 공모전 입상 도전 및 탐구 보고서 완성",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-h1-2-1",
+                "type": "award",
+                "title": "환경부 환경보전 공모전",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "환경부",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "환경 문제 조사 및 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "해결 방안 기획서 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-h1-2-2",
+                "type": "portfolio",
+                "title": "환경 데이터 분석 포트폴리오 (Python 활용)",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "공공 환경 데이터 수집",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "pandas·matplotlib 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "GitHub 업로드",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ev-h2-1",
+            "goal": "환경기능사 취득 및 기후테크 해커톤 참가",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-h2-1-1",
+                "type": "certification",
+                "title": "환경기능사",
+                "months": [
+                  3
+                ],
+                "difficulty": 2,
+                "cost": "1.9만원",
+                "organizer": "한국산업인력공단",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "환경법규 이론 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 3회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-h2-1-2",
+                "type": "award",
+                "title": "기후테크 해커톤 참가",
+                "months": [
+                  8
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "환경부·민간",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "팀 구성 및 아이디어 기획",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "프로토타입 개발",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "발표 자료 준비",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ev-h2-2",
+            "goal": "UN 환경 공모전 도전 및 연구 포트폴리오 완성",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ev-h2-2-1",
+                "type": "award",
+                "title": "UN 환경 청소년 공모전",
+                "months": [
+                  9
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "UNEP",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "UN SDGs 관련 주제 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "영문 에세이 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ev-h2-2-2",
+                "type": "portfolio",
+                "title": "환경 연구 포트폴리오 완성",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "탐구·봉사·수상 활동 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "포트폴리오 PDF 완성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-youtuber-001",
+    "title": "유튜버/크리에이터 커리어 패스 — 소통형",
+    "description": "유튜버를 목표로 한 소통 왕국 커리어 패스. 콘텐츠 기획·제작 역량과 채널 운영 경험을 쌓습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "youtuber",
+    "jobName": "유튜버/크리에이터",
+    "jobEmoji": "🎥",
+    "likes": 189,
+    "uses": 83,
+    "tags": [
+      "유튜버",
+      "미디어",
+      "영상",
+      "소통"
+    ],
+    "totalItems": 22,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-yt-m1-1",
+            "goal": "영상 편집 기초 습득 및 교내 방송부 활동",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-m1-1-1",
+                "type": "certification",
+                "title": "DIAT 멀티미디어 제작",
+                "months": [
+                  4
+                ],
+                "difficulty": 1,
+                "cost": "1.8만원",
+                "organizer": "한국정보통신진흥협회",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "시험 접수",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "영상 편집 기초 학습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-m1-1-2",
+                "type": "activity",
+                "title": "교내 방송부 활동",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "학교",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "방송부 지원 및 합격",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "카메라·마이크 조작법 숙달",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "학교 행사 영상 제작 참여",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-yt-m1-2",
+            "goal": "콘텐츠 기획력 키우기 및 첫 영상 제작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-m1-2-1",
+                "type": "portfolio",
+                "title": "유튜브 채널 개설 및 영상 3편 업로드",
+                "months": [
+                  9,
+                  10,
+                  11
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "채널 컨셉 기획",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "영상 3편 촬영·편집",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "썸네일 제작",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-m1-2-2",
+                "type": "activity",
+                "title": "무료 영상 편집 툴 학습 (CapCut/다빈치)",
+                "months": [
+                  7,
+                  8
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s9",
+                    "title": "기초 편집 튜토리얼 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s10",
+                    "title": "컷 편집·자막 실습",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-yt-m3-1",
+            "goal": "GTQ 1급 취득 및 영상 공모전 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-m3-1-1",
+                "type": "certification",
+                "title": "GTQ 1급 (그래픽기술자격)",
+                "months": [
+                  5
+                ],
+                "difficulty": 3,
+                "cost": "2.5만원",
+                "organizer": "한국생산성본부",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "포토샵 레이어·마스크 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 5회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-m3-1-2",
+                "type": "award",
+                "title": "전국 학생 UCC 공모전 참가",
+                "months": [
+                  7
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "한국콘텐츠진흥원",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "주제 기획 및 스토리보드 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "촬영 및 편집",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "제출 및 홍보",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-yt-m3-2",
+            "goal": "채널 성장 전략 수립 및 콘텐츠 다양화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-m3-2-1",
+                "type": "activity",
+                "title": "YouTube Creator Academy 기초 수강",
+                "months": [
+                  3
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "YouTube",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "전 과정 수강 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "채널 SEO 최적화 적용",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-m3-2-2",
+                "type": "portfolio",
+                "title": "채널 구독자 100명 달성 프로젝트",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "주 1회 업로드 루틴 유지",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "댓글 소통 및 커뮤니티 관리",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-yt-h1-1",
+            "goal": "영상편집 자격 취득 및 YouTube Academy 수강",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-h1-1-1",
+                "type": "certification",
+                "title": "영상편집 자격 (프리미어/에펙)",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "3만원",
+                "organizer": "한국콘텐츠진흥원",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "프리미어 프로 기초 완성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "After Effects 모션 그래픽 학습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-h1-1-2",
+                "type": "activity",
+                "title": "YouTube Creator Academy 심화 수강",
+                "months": [
+                  3
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "YouTube",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "전 과정 수강 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "채널 SEO 최적화 적용",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-yt-h1-2",
+            "goal": "미디어 페스티벌 출품 및 채널 성장",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-h1-2-1",
+                "type": "award",
+                "title": "청소년 미디어 페스티벌 영상 출품",
+                "months": [
+                  9
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "지역",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "출품 주제 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "영상 제작 및 편집",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-h1-2-2",
+                "type": "portfolio",
+                "title": "채널 구독자 1,000명 달성 프로젝트",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "콘텐츠 A/B 테스트 진행",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "인기 영상 분석 및 전략 수정",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-yt-h2-1",
+            "goal": "Google Analytics 인증 및 데이터 기반 채널 운영",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-h2-1-1",
+                "type": "certification",
+                "title": "Google Analytics 인증",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "Google",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "GA4 공식 과정 수강",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "채널 데이터 분석 실습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-h2-1-2",
+                "type": "activity",
+                "title": "숏폼 A/B 테스트 실험 프로젝트",
+                "months": [
+                  3
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "A/B 테스트 가설 설정",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "2가지 버전 영상 제작",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "데이터 분석 및 인사이트 도출",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-yt-h2-2",
+            "goal": "KBS 공모전 도전 및 크리에이터 브랜딩 완성",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-yt-h2-2-1",
+                "type": "award",
+                "title": "KBS 청소년 영상공모전 참가",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "KBS",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "공모 주제 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "영상 제작 및 제출",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-yt-h2-2-2",
+                "type": "portfolio",
+                "title": "크리에이터 미디어 포트폴리오 완성",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "대표 영상 5편 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "포트폴리오 사이트 제작",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-entrepreneur-001",
+    "title": "창업가 커리어 패스 — 도전형",
+    "description": "스타트업 창업가를 목표로 한 도전 왕국 커리어 패스. 비즈니스 마인드와 창업 실전 경험을 쌓습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "entrepreneur",
+    "jobName": "창업가/CEO",
+    "jobEmoji": "🚀",
+    "likes": 231,
+    "uses": 97,
+    "tags": [
+      "창업",
+      "비즈니스",
+      "도전",
+      "기업가"
+    ],
+    "totalItems": 22,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-en-m2-1",
+            "goal": "경제 기초 학습 및 창업 마인드 탐색",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-m2-1-1",
+                "type": "activity",
+                "title": "한국은행 경제캠프",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "한국은행",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "캠프 신청서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "경제 기초 사전 학습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-m2-1-2",
+                "type": "activity",
+                "title": "POSTECH 영재기업인교육원",
+                "months": [
+                  3
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "포스텍",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "지원서 및 자기소개서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "비즈니스 아이디어 1개 구상",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-en-m2-2",
+            "goal": "비즈니스 기초 독서 및 아이디어 발굴 습관",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-m2-2-1",
+                "type": "activity",
+                "title": "경제·경영 도서 월 1권 독서",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "도서 선정 및 독서",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "핵심 내용 요약 노트",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-m2-2-2",
+                "type": "portfolio",
+                "title": "비즈니스 아이디어 노트 작성 (월 3개)",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 1,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "일상 속 문제 발견",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "해결 아이디어 스케치",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-en-m3-1",
+            "goal": "청소년 비즈쿨 참가 및 첫 창업 아이디어 구체화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-m3-1-1",
+                "type": "award",
+                "title": "청소년 비즈쿨 경진대회 참가",
+                "months": [
+                  9
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "중소기업부·교육부",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "비즈니스 모델 캔버스 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "발표 자료 제작",
+                    "done": false
+                  },
+                  {
+                    "id": "s3",
+                    "title": "모의 피칭 연습 3회",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-m3-1-2",
+                "type": "activity",
+                "title": "금융감독원 금융교육",
+                "months": [
+                  4
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "금융감독원",
+                "subItems": [
+                  {
+                    "id": "s4",
+                    "title": "금융 기초 교육 이수",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-en-m3-2",
+            "goal": "소상공인 봉사 및 실전 마케팅 경험",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-m3-2-1",
+                "type": "activity",
+                "title": "지역 소상공인 SNS 홍보 봉사",
+                "months": [
+                  3
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "소상공인 인터뷰 진행",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "SNS 콘텐츠 3개 제작",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-m3-2-2",
+                "type": "portfolio",
+                "title": "미니 창업 프로젝트 — 학교 내 판매 실험",
+                "months": [
+                  10,
+                  11
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "상품 기획 및 원가 계산",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "판매 결과 분석 보고서",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-en-h1-1",
+            "goal": "창업 동아리 결성 및 매경TEST 취득",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-h1-1-1",
+                "type": "certification",
+                "title": "매경TEST (우수 이상)",
+                "months": [
+                  5
+                ],
+                "difficulty": 3,
+                "cost": "3만원",
+                "organizer": "매일경제",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "경제·경영 이론 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 3회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-h1-1-2",
+                "type": "activity",
+                "title": "교육부 창업동아리 (창업캠프)",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "무료~지원금",
+                "organizer": "교육부·창업진흥원",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "동아리 창설 및 멤버 모집",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "창업 아이템 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "MVP 제작",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-en-h1-2",
+            "goal": "창업 아이디어 대회 참가 및 네트워킹",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-h1-2-1",
+                "type": "award",
+                "title": "전국 고교 창업아이디어 경진대회 참가",
+                "months": [
+                  10
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "창업진흥원",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "사업계획서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "피칭 발표 연습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-h1-2-2",
+                "type": "activity",
+                "title": "스타트업 대표 멘토링 프로그램 참가",
+                "months": [
+                  9,
+                  10,
+                  11
+                ],
+                "difficulty": 3,
+                "cost": "무료~5만원",
+                "organizer": "각 창업 지원기관",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "멘토 매칭 신청",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "월 1회 멘토링 진행",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-en-h2-1",
+            "goal": "K-Startup 인증 취득 및 창업 대회 입상 도전",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-h2-1-1",
+                "type": "certification",
+                "title": "창업능력인증 (K-Startup)",
+                "months": [
+                  3
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "창업진흥원",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "창업 교육 과정 이수",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "인증 시험 응시",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-h2-1-2",
+                "type": "certification",
+                "title": "TESAT (S등급 목표)",
+                "months": [
+                  5
+                ],
+                "difficulty": 3,
+                "cost": "3만원",
+                "organizer": "한국경제신문",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "경제 심화 이론 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "기출 3회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-h2-1-3",
+                "type": "award",
+                "title": "전국 고교 창업아이디어 경진대회 입상 도전",
+                "months": [
+                  10
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "창업진흥원",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "전년도 수상작 분석",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "사업계획서 고도화",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "투자자 피칭 연습",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-en-h2-2",
+            "goal": "MUN 참가 및 글로벌 창업 감각 강화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-en-h2-2-1",
+                "type": "activity",
+                "title": "외교부 모의 UN 회의 (MUN)",
+                "months": [
+                  6
+                ],
+                "difficulty": 4,
+                "cost": "5~30만원",
+                "organizer": "각 MUN 주최기관",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "담당 국가·의제 연구",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "Position Paper 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-en-h2-2-2",
+                "type": "portfolio",
+                "title": "창업 포트폴리오 완성 (사업계획서·MVP·수상 통합)",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s10",
+                    "title": "활동 기록 전체 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s11",
+                    "title": "포트폴리오 PDF 완성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  }
+]

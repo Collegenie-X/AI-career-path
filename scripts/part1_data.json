@@ -1,0 +1,1656 @@
+[
+  {
+    "id": "tpl-doctor-001",
+    "title": "의사 커리어 패스 — 탐구형",
+    "description": "의과대학 입시를 목표로 한 체계적인 탐구 왕국 커리어 패스. 생명과학·화학 심화와 R&E 연구 경험을 중심으로 구성했습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "doctor",
+    "jobName": "의사",
+    "jobEmoji": "🩺",
+    "likes": 342,
+    "uses": 128,
+    "tags": [
+      "의대",
+      "탐구",
+      "과학",
+      "생명"
+    ],
+    "totalItems": 24,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "split",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [
+          {
+            "semesterId": "first",
+            "semesterLabel": "1학기 (3~8월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-m2-f1",
+                "goal": "기초 자격증 취득으로 학습 기반 다지기",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m2-f1-1",
+                    "type": "certification",
+                    "title": "DIAT (디지털정보활용능력)",
+                    "months": [
+                      3
+                    ],
+                    "difficulty": 1,
+                    "cost": "1.8만원",
+                    "organizer": "한국정보통신진흥협회",
+                    "subItems": [
+                      {
+                        "id": "s1",
+                        "title": "시험 일정 확인 및 접수",
+                        "done": false
+                      },
+                      {
+                        "id": "s2",
+                        "title": "기출문제 3회 풀기",
+                        "done": false
+                      },
+                      {
+                        "id": "s3",
+                        "title": "오답 노트 정리",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m2-f1-2",
+                    "type": "certification",
+                    "title": "워드프로세서 자격증",
+                    "months": [
+                      6
+                    ],
+                    "difficulty": 2,
+                    "cost": "1.9만원",
+                    "organizer": "대한상공회의소",
+                    "subItems": [
+                      {
+                        "id": "s4",
+                        "title": "필기 시험 접수",
+                        "done": false
+                      },
+                      {
+                        "id": "s5",
+                        "title": "실기 연습 (타자 연습 포함)",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-m2-f2",
+                "goal": "과학 탐구 습관 형성 및 독서 루틴 구축",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m2-f2-1",
+                    "type": "activity",
+                    "title": "생명과학 도서 월 2권 독서",
+                    "months": [
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8
+                    ],
+                    "difficulty": 1,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s6",
+                        "title": "독서 기록장 작성",
+                        "done": false
+                      },
+                      {
+                        "id": "s7",
+                        "title": "핵심 내용 요약 정리",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m2-f2-2",
+                    "type": "portfolio",
+                    "title": "과학 탐구 일지 작성 (월 1회)",
+                    "months": [
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8
+                    ],
+                    "difficulty": 1,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s8",
+                        "title": "탐구 주제 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s9",
+                        "title": "실험 기록 및 결과 정리",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "semesterId": "second",
+            "semesterLabel": "2학기 (9~2월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-m2-s1",
+                "goal": "봉사활동 시작으로 의료인 소양 쌓기",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m2-s1-1",
+                    "type": "activity",
+                    "title": "보건실 봉사 (주 1시간)",
+                    "months": [
+                      9,
+                      10,
+                      11,
+                      12
+                    ],
+                    "difficulty": 1,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s10",
+                        "title": "담당 선생님께 신청",
+                        "done": false
+                      },
+                      {
+                        "id": "s11",
+                        "title": "봉사 일지 작성",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m2-s1-2",
+                    "type": "activity",
+                    "title": "지역 복지관 노인 돌봄 봉사",
+                    "months": [
+                      10,
+                      11,
+                      12
+                    ],
+                    "difficulty": 1,
+                    "cost": "무료",
+                    "organizer": "지역 복지관",
+                    "subItems": [
+                      {
+                        "id": "s12",
+                        "title": "봉사 신청 및 오리엔테이션",
+                        "done": false
+                      },
+                      {
+                        "id": "s13",
+                        "title": "월 2회 정기 봉사 참여",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-m2-s2",
+                "goal": "교내 과학 활동으로 탐구 역량 발휘",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m2-s2-1",
+                    "type": "award",
+                    "title": "교내 과학 탐구 발표회 참가",
+                    "months": [
+                      11
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s14",
+                        "title": "탐구 주제 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s15",
+                        "title": "실험 설계 및 수행",
+                        "done": false
+                      },
+                      {
+                        "id": "s16",
+                        "title": "발표 자료 제작",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m2-s2-2",
+                    "type": "portfolio",
+                    "title": "생명과학 탐구 일지 학기 결산 보고서",
+                    "months": [
+                      12
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s17",
+                        "title": "학기 활동 정리",
+                        "done": false
+                      },
+                      {
+                        "id": "s18",
+                        "title": "보고서 작성 및 제출",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ],
+        "goalGroups": []
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "split",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [
+          {
+            "semesterId": "first",
+            "semesterLabel": "1학기 (3~8월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-m3-f1",
+                "goal": "생명과학 심화 학습 및 응급처치 자격 취득",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m3-f1-1",
+                    "type": "certification",
+                    "title": "응급처치 자격 (BLS)",
+                    "months": [
+                      4
+                    ],
+                    "difficulty": 1,
+                    "cost": "5만원",
+                    "organizer": "대한적십자사",
+                    "subItems": [
+                      {
+                        "id": "s1",
+                        "title": "교육 일정 확인 및 등록",
+                        "done": false
+                      },
+                      {
+                        "id": "s2",
+                        "title": "CPR 실습 연습",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m3-f1-2",
+                    "type": "activity",
+                    "title": "생명과학 심화 인강 수강 (EBS)",
+                    "months": [
+                      3,
+                      4,
+                      5,
+                      6
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "EBS",
+                    "subItems": [
+                      {
+                        "id": "s3",
+                        "title": "주차별 강의 수강",
+                        "done": false
+                      },
+                      {
+                        "id": "s4",
+                        "title": "개념 정리 노트 작성",
+                        "done": false
+                      },
+                      {
+                        "id": "s5",
+                        "title": "단원별 문제 풀이",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-m3-f2",
+                "goal": "첫 대외활동으로 의료 진로 탐색",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m3-f2-1",
+                    "type": "award",
+                    "title": "교내 과학탐구대회 참가",
+                    "months": [
+                      5
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s6",
+                        "title": "탐구 주제 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s7",
+                        "title": "실험 설계 및 수행",
+                        "done": false
+                      },
+                      {
+                        "id": "s8",
+                        "title": "보고서 작성",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m3-f2-2",
+                    "type": "activity",
+                    "title": "의대 진로 체험 프로그램 참가",
+                    "months": [
+                      6
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료~5만원",
+                    "organizer": "각 대학병원",
+                    "subItems": [
+                      {
+                        "id": "s9",
+                        "title": "체험 프로그램 신청",
+                        "done": false
+                      },
+                      {
+                        "id": "s10",
+                        "title": "체험 소감문 작성",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "semesterId": "second",
+            "semesterLabel": "2학기 (9~2월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-m3-s1",
+                "goal": "의료 관련 봉사 활동 본격화",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m3-s1-1",
+                    "type": "activity",
+                    "title": "대한적십자사 RCY 캠프",
+                    "months": [
+                      7
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "대한적십자사",
+                    "subItems": [
+                      {
+                        "id": "s11",
+                        "title": "캠프 신청서 작성",
+                        "done": false
+                      },
+                      {
+                        "id": "s12",
+                        "title": "사전 교육 이수",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m3-s1-2",
+                    "type": "activity",
+                    "title": "요양원 정기 봉사 (월 2회)",
+                    "months": [
+                      9,
+                      10,
+                      11,
+                      12
+                    ],
+                    "difficulty": 1,
+                    "cost": "무료",
+                    "organizer": "지역 요양원",
+                    "subItems": [
+                      {
+                        "id": "s13",
+                        "title": "봉사 신청",
+                        "done": false
+                      },
+                      {
+                        "id": "s14",
+                        "title": "봉사 일지 작성",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-m3-s2",
+                "goal": "학업 성취 및 수상 경력 쌓기",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-m3-s2-1",
+                    "type": "award",
+                    "title": "교내 독서토론대회 참가",
+                    "months": [
+                      10
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s15",
+                        "title": "지정 도서 완독",
+                        "done": false
+                      },
+                      {
+                        "id": "s16",
+                        "title": "토론 논리 구성",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-m3-s2-2",
+                    "type": "portfolio",
+                    "title": "생명과학 탐구 보고서 작성",
+                    "months": [
+                      11,
+                      12
+                    ],
+                    "difficulty": 3,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s17",
+                        "title": "연구 주제 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s18",
+                        "title": "자료 조사 및 실험",
+                        "done": false
+                      },
+                      {
+                        "id": "s19",
+                        "title": "보고서 완성",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ],
+        "goalGroups": []
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "split",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [
+          {
+            "semesterId": "first",
+            "semesterLabel": "1학기 (3~8월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-h1-f1",
+                "goal": "KBO 예선 도전 및 컴활 2급 취득",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h1-f1-1",
+                    "type": "certification",
+                    "title": "컴퓨터활용능력 2급",
+                    "months": [
+                      3
+                    ],
+                    "difficulty": 2,
+                    "cost": "1.9만원",
+                    "organizer": "대한상공회의소",
+                    "subItems": [
+                      {
+                        "id": "s1",
+                        "title": "필기 합격 후 실기 준비",
+                        "done": false
+                      },
+                      {
+                        "id": "s2",
+                        "title": "엑셀 함수 집중 학습",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h1-f1-2",
+                    "type": "award",
+                    "title": "한국생물올림피아드 (KBO) 예선",
+                    "months": [
+                      4
+                    ],
+                    "difficulty": 4,
+                    "cost": "무료",
+                    "organizer": "한국생물과학협회",
+                    "subItems": [
+                      {
+                        "id": "s3",
+                        "title": "생물 심화 교재 완독",
+                        "done": false
+                      },
+                      {
+                        "id": "s4",
+                        "title": "기출 문제 풀이",
+                        "done": false
+                      },
+                      {
+                        "id": "s5",
+                        "title": "스터디 그룹 참여",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-h1-f2",
+                "goal": "의학 탐구 역량 강화 및 논문 읽기 시작",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h1-f2-1",
+                    "type": "activity",
+                    "title": "KAIST 과학영재캠프 (여름)",
+                    "months": [
+                      7
+                    ],
+                    "difficulty": 3,
+                    "cost": "무료~10만원",
+                    "organizer": "KAIST",
+                    "subItems": [
+                      {
+                        "id": "s6",
+                        "title": "캠프 지원서 작성",
+                        "done": false
+                      },
+                      {
+                        "id": "s7",
+                        "title": "자기소개서 준비",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h1-f2-2",
+                    "type": "portfolio",
+                    "title": "생명과학 논문 읽기 월 1편",
+                    "months": [
+                      3,
+                      4,
+                      5,
+                      6,
+                      7,
+                      8
+                    ],
+                    "difficulty": 3,
+                    "cost": "무료",
+                    "organizer": "PubMed",
+                    "subItems": [
+                      {
+                        "id": "s8",
+                        "title": "논문 검색 방법 학습",
+                        "done": false
+                      },
+                      {
+                        "id": "s9",
+                        "title": "요약 노트 작성",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "semesterId": "second",
+            "semesterLabel": "2학기 (9~2월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-h1-s1",
+                "goal": "의대 체험 및 R&E 탐색",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h1-s1-1",
+                    "type": "activity",
+                    "title": "의대 MMI 체험 프로그램",
+                    "months": [
+                      8
+                    ],
+                    "difficulty": 4,
+                    "cost": "5만원",
+                    "organizer": "주요 의대",
+                    "subItems": [
+                      {
+                        "id": "s10",
+                        "title": "MMI 형식 이해 및 준비",
+                        "done": false
+                      },
+                      {
+                        "id": "s11",
+                        "title": "모의 면접 연습",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h1-s1-2",
+                    "type": "activity",
+                    "title": "대학 R&E 프로그램 탐색 및 지원 준비",
+                    "months": [
+                      9,
+                      10
+                    ],
+                    "difficulty": 3,
+                    "cost": "무료",
+                    "organizer": "각 대학",
+                    "subItems": [
+                      {
+                        "id": "s12",
+                        "title": "R&E 프로그램 목록 조사",
+                        "done": false
+                      },
+                      {
+                        "id": "s13",
+                        "title": "지원 요건 확인",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-h1-s2",
+                "goal": "교내 수상 및 학술 활동 강화",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h1-s2-1",
+                    "type": "award",
+                    "title": "교내 학술제 발표",
+                    "months": [
+                      11
+                    ],
+                    "difficulty": 3,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s14",
+                        "title": "발표 주제 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s15",
+                        "title": "PPT 제작",
+                        "done": false
+                      },
+                      {
+                        "id": "s16",
+                        "title": "발표 리허설",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h1-s2-2",
+                    "type": "portfolio",
+                    "title": "의학 관련 독서 보고서 (학기당 2편)",
+                    "months": [
+                      9,
+                      10,
+                      11,
+                      12
+                    ],
+                    "difficulty": 2,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s17",
+                        "title": "의학 도서 선정",
+                        "done": false
+                      },
+                      {
+                        "id": "s18",
+                        "title": "독서 보고서 작성",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ],
+        "goalGroups": []
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "split",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [
+          {
+            "semesterId": "first",
+            "semesterLabel": "1학기 (3~8월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-h2-f1",
+                "goal": "대학 연계 R&E 참여 및 TOEFL 취득",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h2-f1-1",
+                    "type": "activity",
+                    "title": "대학 연계 R&E 연구",
+                    "months": [
+                      3,
+                      4,
+                      5,
+                      6
+                    ],
+                    "difficulty": 5,
+                    "cost": "무료",
+                    "organizer": "각 대학·과학고",
+                    "subItems": [
+                      {
+                        "id": "s1",
+                        "title": "연구 주제 선정 및 지도교수 섭외",
+                        "done": false
+                      },
+                      {
+                        "id": "s2",
+                        "title": "선행 논문 리뷰",
+                        "done": false
+                      },
+                      {
+                        "id": "s3",
+                        "title": "중간 보고서 작성",
+                        "done": false
+                      },
+                      {
+                        "id": "s4",
+                        "title": "최종 보고서 및 발표 준비",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h2-f1-2",
+                    "type": "certification",
+                    "title": "TOEFL iBT (100점 이상 목표)",
+                    "months": [
+                      6
+                    ],
+                    "difficulty": 4,
+                    "cost": "30만원",
+                    "organizer": "ETS",
+                    "subItems": [
+                      {
+                        "id": "s5",
+                        "title": "Reading/Listening 집중 학습",
+                        "done": false
+                      },
+                      {
+                        "id": "s6",
+                        "title": "Speaking/Writing 스터디",
+                        "done": false
+                      },
+                      {
+                        "id": "s7",
+                        "title": "모의 시험 2회 응시",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-h2-f2",
+                "goal": "KBO 본선 도전 및 의대 면접 준비",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h2-f2-1",
+                    "type": "award",
+                    "title": "한국생물올림피아드 (KBO) 본선",
+                    "months": [
+                      7
+                    ],
+                    "difficulty": 5,
+                    "cost": "무료",
+                    "organizer": "한국생물과학협회",
+                    "subItems": [
+                      {
+                        "id": "s8",
+                        "title": "심화 문제 풀이 집중",
+                        "done": false
+                      },
+                      {
+                        "id": "s9",
+                        "title": "실험 문제 대비",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h2-f2-2",
+                    "type": "activity",
+                    "title": "의대 입시 면접 스터디 운영",
+                    "months": [
+                      5,
+                      6,
+                      7,
+                      8
+                    ],
+                    "difficulty": 4,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s10",
+                        "title": "스터디 멤버 모집",
+                        "done": false
+                      },
+                      {
+                        "id": "s11",
+                        "title": "주 1회 모의 면접 진행",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "semesterId": "second",
+            "semesterLabel": "2학기 (9~2월)",
+            "goalGroups": [
+              {
+                "id": "g-doc-h2-s1",
+                "goal": "학술제 발표 및 포트폴리오 완성",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h2-s1-1",
+                    "type": "award",
+                    "title": "학술제 연구 발표",
+                    "months": [
+                      11
+                    ],
+                    "difficulty": 4,
+                    "cost": "무료",
+                    "organizer": "학교",
+                    "subItems": [
+                      {
+                        "id": "s12",
+                        "title": "발표 PPT 제작",
+                        "done": false
+                      },
+                      {
+                        "id": "s13",
+                        "title": "발표 리허설 3회",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h2-s1-2",
+                    "type": "portfolio",
+                    "title": "의학 탐구 포트폴리오 완성",
+                    "months": [
+                      9,
+                      10,
+                      11,
+                      12
+                    ],
+                    "difficulty": 4,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s14",
+                        "title": "활동 기록 정리",
+                        "done": false
+                      },
+                      {
+                        "id": "s15",
+                        "title": "포트폴리오 디자인 및 편집",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              },
+              {
+                "id": "g-doc-h2-s2",
+                "goal": "수능 대비 및 자기소개서 완성",
+                "isExpanded": true,
+                "items": [
+                  {
+                    "id": "i-doc-h2-s2-1",
+                    "type": "activity",
+                    "title": "의대 자기소개서 초안 작성",
+                    "months": [
+                      9,
+                      10
+                    ],
+                    "difficulty": 4,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s16",
+                        "title": "활동 목록 정리",
+                        "done": false
+                      },
+                      {
+                        "id": "s17",
+                        "title": "초안 작성 후 첨삭",
+                        "done": false
+                      }
+                    ]
+                  },
+                  {
+                    "id": "i-doc-h2-s2-2",
+                    "type": "activity",
+                    "title": "수능 모의고사 집중 분석 (월 2회)",
+                    "months": [
+                      9,
+                      10,
+                      11
+                    ],
+                    "difficulty": 5,
+                    "cost": "무료",
+                    "organizer": "자체",
+                    "subItems": [
+                      {
+                        "id": "s18",
+                        "title": "오답 원인 분석",
+                        "done": false
+                      },
+                      {
+                        "id": "s19",
+                        "title": "취약 단원 집중 보완",
+                        "done": false
+                      }
+                    ]
+                  }
+                ],
+                "ungroupedItems": []
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ],
+        "goalGroups": []
+      }
+    ]
+  },
+  {
+    "id": "tpl-ai-researcher-001",
+    "title": "AI 연구원 커리어 패스 — 기술형",
+    "description": "인공지능 연구원을 목표로 한 탐구 왕국 커리어 패스. 수학·코딩 역량을 중심으로 올림피아드와 해커톤 경험을 쌓습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "ai-researcher",
+    "jobName": "AI 연구원",
+    "jobEmoji": "🤖",
+    "likes": 287,
+    "uses": 95,
+    "tags": [
+      "AI",
+      "코딩",
+      "수학",
+      "연구"
+    ],
+    "totalItems": 24,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ai-m2-1",
+            "goal": "코딩 자격증 취득 및 AI 기초 학습",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-m2-1-1",
+                "type": "certification",
+                "title": "COS Pro 2급 (Python)",
+                "months": [
+                  6
+                ],
+                "difficulty": 2,
+                "cost": "3만원",
+                "organizer": "YBM",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "Python 기초 문법 완성",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출문제 3회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-m2-1-2",
+                "type": "activity",
+                "title": "이솦(EBS SW) AI 과정",
+                "months": [
+                  3
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "EBS",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "강의 수강 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "실습 과제 제출",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ai-m2-2",
+            "goal": "알고리즘 기초 다지기 및 프로젝트 시작",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-m2-2-1",
+                "type": "activity",
+                "title": "삼성 주니어 SW 아카데미",
+                "months": [
+                  7
+                ],
+                "difficulty": 3,
+                "cost": "무료",
+                "organizer": "삼성전자",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "지원서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "알고리즘 기초 선행 학습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-m2-2-2",
+                "type": "portfolio",
+                "title": "Python 미니 프로젝트 (계산기·퀴즈 앱)",
+                "months": [
+                  8,
+                  9
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s7",
+                    "title": "기획 및 설계",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "코딩 구현",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "GitHub 업로드",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ai-m3-1",
+            "goal": "KOI 예선 도전 및 정보처리기능사 취득",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-m3-1-1",
+                "type": "certification",
+                "title": "정보처리기능사",
+                "months": [
+                  3
+                ],
+                "difficulty": 2,
+                "cost": "1.9만원",
+                "organizer": "한국산업인력공단",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "필기 이론 정리",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "실기 코딩 연습",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-m3-1-2",
+                "type": "award",
+                "title": "한국정보올림피아드 (KOI) 예선",
+                "months": [
+                  6
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "과기정통부",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "알고리즘 심화 (DP, 그래프)",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "백준 온라인 저지 100문제",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "모의 대회 참가",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ai-m3-2",
+            "goal": "해외 명문 온라인 강좌 수강 및 수학 역량 강화",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-m3-2-1",
+                "type": "activity",
+                "title": "edX CS50 (하버드 온라인)",
+                "months": [
+                  1
+                ],
+                "difficulty": 3,
+                "cost": "무료 청강",
+                "organizer": "하버드 대학교",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "Week 1~4 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "Week 5~8 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "Final Project 제출",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-m3-2-2",
+                "type": "portfolio",
+                "title": "수학 경시 문제 풀이 노트 (월 20문제)",
+                "months": [
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 2,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s9",
+                    "title": "수학 올림피아드 기출 풀기",
+                    "done": false
+                  },
+                  {
+                    "id": "s10",
+                    "title": "오답 노트 정리",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ai-h1-1",
+            "goal": "KOI 본선 도전 및 COS Pro 1급 취득",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-h1-1-1",
+                "type": "certification",
+                "title": "COS Pro 1급 (Python/C)",
+                "months": [
+                  4
+                ],
+                "difficulty": 3,
+                "cost": "3만원",
+                "organizer": "YBM",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "C 언어 기초 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "기출 5회 풀기",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-h1-1-2",
+                "type": "award",
+                "title": "한국정보올림피아드 (KOI) 본선",
+                "months": [
+                  7
+                ],
+                "difficulty": 5,
+                "cost": "무료",
+                "organizer": "과기정통부",
+                "subItems": [
+                  {
+                    "id": "s3",
+                    "title": "고급 알고리즘 (세그트리, 플로우)",
+                    "done": false
+                  },
+                  {
+                    "id": "s4",
+                    "title": "코드포스 레이팅 1600+ 달성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ai-h1-2",
+            "goal": "머신러닝 학습 시작 및 AI 프로젝트 구현",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-h1-2-1",
+                "type": "activity",
+                "title": "Coursera ML Specialization (Andrew Ng)",
+                "months": [
+                  7
+                ],
+                "difficulty": 4,
+                "cost": "무료 청강",
+                "organizer": "스탠퍼드 대학교",
+                "subItems": [
+                  {
+                    "id": "s5",
+                    "title": "Course 1: 지도학습 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s6",
+                    "title": "Course 2: 비지도학습 완료",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "Course 3: 실전 프로젝트 완료",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-h1-2-2",
+                "type": "portfolio",
+                "title": "이미지 분류 AI 프로젝트 (MNIST)",
+                "months": [
+                  9,
+                  10
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s8",
+                    "title": "데이터셋 전처리",
+                    "done": false
+                  },
+                  {
+                    "id": "s9",
+                    "title": "모델 학습 및 평가",
+                    "done": false
+                  },
+                  {
+                    "id": "s10",
+                    "title": "GitHub README 작성",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "semester": "both",
+        "goals": [],
+        "items": [],
+        "semesterPlans": [],
+        "goalGroups": [
+          {
+            "id": "g-ai-h2-1",
+            "goal": "Kaggle 대회 참가 및 TOEFL 취득",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-h2-1-1",
+                "type": "award",
+                "title": "Kaggle Competition 참가",
+                "months": [
+                  1
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "Google(Kaggle)",
+                "subItems": [
+                  {
+                    "id": "s1",
+                    "title": "EDA 및 데이터 전처리",
+                    "done": false
+                  },
+                  {
+                    "id": "s2",
+                    "title": "모델 학습 및 튜닝",
+                    "done": false
+                  },
+                  {
+                    "id": "s3",
+                    "title": "앙상블 기법 적용",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-h2-1-2",
+                "type": "certification",
+                "title": "TOEFL iBT (100점 이상)",
+                "months": [
+                  5
+                ],
+                "difficulty": 4,
+                "cost": "30만원",
+                "organizer": "ETS",
+                "subItems": [
+                  {
+                    "id": "s4",
+                    "title": "Reading 집중 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s5",
+                    "title": "Speaking 스터디 참여",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          },
+          {
+            "id": "g-ai-h2-2",
+            "goal": "전국 AI 해커톤 참가 및 논문 수준 프로젝트",
+            "isExpanded": true,
+            "items": [
+              {
+                "id": "i-ai-h2-2-1",
+                "type": "award",
+                "title": "전국 AI 해커톤 참가",
+                "months": [
+                  9
+                ],
+                "difficulty": 4,
+                "cost": "무료",
+                "organizer": "과기정통부",
+                "subItems": [
+                  {
+                    "id": "s6",
+                    "title": "팀 구성 (3~4명)",
+                    "done": false
+                  },
+                  {
+                    "id": "s7",
+                    "title": "아이디어 기획서 작성",
+                    "done": false
+                  },
+                  {
+                    "id": "s8",
+                    "title": "프로토타입 개발",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-h2-2-2",
+                "type": "portfolio",
+                "title": "AI 연구 논문 수준 프로젝트 완성",
+                "months": [
+                  9,
+                  10,
+                  11,
+                  12
+                ],
+                "difficulty": 5,
+                "cost": "무료",
+                "organizer": "자체",
+                "subItems": [
+                  {
+                    "id": "s9",
+                    "title": "연구 주제 선정",
+                    "done": false
+                  },
+                  {
+                    "id": "s10",
+                    "title": "실험 설계 및 수행",
+                    "done": false
+                  },
+                  {
+                    "id": "s11",
+                    "title": "논문 형식 보고서 작성",
+                    "done": false
+                  }
+                ]
+              },
+              {
+                "id": "i-ai-h2-2-3",
+                "type": "certification",
+                "title": "컴퓨터활용능력 1급",
+                "months": [
+                  3
+                ],
+                "difficulty": 3,
+                "cost": "2.2만원",
+                "organizer": "대한상공회의소",
+                "subItems": [
+                  {
+                    "id": "s12",
+                    "title": "엑셀 VBA 학습",
+                    "done": false
+                  },
+                  {
+                    "id": "s13",
+                    "title": "기출 5회 풀기",
+                    "done": false
+                  }
+                ]
+              }
+            ],
+            "ungroupedItems": []
+          }
+        ]
+      }
+    ]
+  }
+]

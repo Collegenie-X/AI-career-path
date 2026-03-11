@@ -5,7 +5,7 @@ import {
   X, ChevronRight, ChevronLeft, Check, Plus, Trash2,
   Wand2, Pencil, Target, Lightbulb, Sparkles,
   Calendar, ArrowRight,
-  CheckCircle2, ChevronDown, ChevronUp, Flame, Info
+  CheckCircle2, ChevronDown, ChevronUp, Flame
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
@@ -25,6 +25,8 @@ export type SubItem = {
   id: string;
   title: string;
   done?: boolean;
+  url?: string;
+  description?: string;
 };
 
 export type PlanItem = {
@@ -35,6 +37,8 @@ export type PlanItem = {
   difficulty: number;
   cost: string;
   organizer: string;
+  url?: string;
+  description?: string;
   custom?: boolean;
   /** 이 활동을 구성하는 하위 실행 항목들 */
   subItems?: SubItem[];
@@ -290,6 +294,8 @@ type SuggestedItem = {
   organizer?: string;
   subtitle?: string;
   tip?: string;
+  url?: string;
+  description?: string;
 };
 
 function AddItemSheet({
@@ -305,6 +311,13 @@ function AddItemSheet({
   // Recommend mode state
   const [selectedSuggest, setSelectedSuggest] = useState<SuggestedItem | null>(null);
   const [suggestMonths, setSuggestMonths] = useState<number[]>([]);
+  // 추천 선택 시 수정 가능한 필드
+  const [editTitle, setEditTitle] = useState('');
+  const [editOrganizer, setEditOrganizer] = useState('');
+  const [editUrl, setEditUrl] = useState('');
+  const [editDescription, setEditDescription] = useState('');
+  const [editDifficulty, setEditDifficulty] = useState(2);
+  const [editCost, setEditCost] = useState('무료');
 
   // Custom mode state
   const [customType, setCustomType] = useState<ItemType>('activity');
@@ -313,6 +326,8 @@ function AddItemSheet({
   const [customDifficulty, setCustomDifficulty] = useState(2);
   const [customCost, setCustomCost] = useState('무료');
   const [customOrganizer, setCustomOrganizer] = useState('');
+  const [customUrl, setCustomUrl] = useState('');
+  const [customDescription, setCustomDescription] = useState('');
 
   const kingdom = careerMaker.kingdoms.find(k => k.id === starId);
 
@@ -325,6 +340,8 @@ function AddItemSheet({
     difficulty: it.difficulty,
     cost: it.cost,
     organizer: it.organizer,
+    url: (it as { url?: string }).url,
+    description: (it as { description?: string }).description,
   }));
 
   const portItems: SuggestedItem[] = (
@@ -339,6 +356,8 @@ function AddItemSheet({
     organizer: '개인',
     subtitle: it.subtitle,
     tip: it.tip,
+    url: (it as { url?: string }).url,
+    description: (it as { tip?: string }).tip,
   }));
 
   const allItems: SuggestedItem[] = [...careerItems, ...portItems];
@@ -347,17 +366,25 @@ function AddItemSheet({
   const handleSelectSuggest = (item: SuggestedItem) => {
     setSelectedSuggest(item);
     setSuggestMonths([...item.months].sort((a, b) => a - b));
+    setEditTitle(item.title);
+    setEditOrganizer(item.organizer ?? '');
+    setEditUrl(item.url ?? '');
+    setEditDescription(item.description ?? '');
+    setEditDifficulty(item.difficulty ?? 2);
+    setEditCost(item.cost ?? '무료');
   };
 
   const handleAddSuggest = () => {
-    if (!selectedSuggest || suggestMonths.length === 0) return;
+    if (!selectedSuggest || suggestMonths.length === 0 || !editTitle.trim()) return;
     onAdd({
       type: selectedSuggest.type as ItemType,
-      title: selectedSuggest.title,
+      title: editTitle.trim(),
       months: suggestMonths,
-      difficulty: selectedSuggest.difficulty,
-      cost: selectedSuggest.cost,
-      organizer: selectedSuggest.organizer ?? '',
+      difficulty: editDifficulty,
+      cost: editCost.trim() || '무료',
+      organizer: editOrganizer.trim() || '',
+      url: editUrl.trim() || undefined,
+      description: editDescription.trim() || undefined,
     });
     onClose();
   };
@@ -454,27 +481,89 @@ function AddItemSheet({
           {/* ── Recommend mode: month picker ── */}
           {mode === 'pick' && selectedSuggest && (
             <div className="space-y-4 pt-2">
-              {/* Selected item preview */}
-              <div className="rounded-2xl p-3.5"
+              {/* 수정 가능한 필드 */}
+              <div className="rounded-2xl p-3.5 space-y-3"
                 style={{ background: `${color}12`, border: `1px solid ${color}30` }}>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl mt-0.5">
-                    {ITEM_TYPES.find(t => t.value === selectedSuggest.type)?.emoji ?? '📌'}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <div className="font-bold text-white text-sm leading-snug">{selectedSuggest.title}</div>
-                    {selectedSuggest.subtitle && (
-                      <div className="text-xs text-gray-400 mt-0.5">{selectedSuggest.subtitle}</div>
-                    )}
-                    {selectedSuggest.tip && (
-                      <div className="flex items-start gap-1.5 mt-2 p-2 rounded-lg"
-                        style={{ backgroundColor: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.2)' }}>
-                        <Info className="w-3 h-3 text-purple-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-[10px] text-purple-300 leading-relaxed">{selectedSuggest.tip}</span>
-                      </div>
-                    )}
-                  </div>
+                <div>
+                  <div className="text-xs font-bold text-gray-400 mb-1.5">🎯 항목명</div>
+                  <input
+                    value={editTitle}
+                    onChange={e => setEditTitle(e.target.value)}
+                    placeholder="항목명"
+                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                  />
                 </div>
+                <div>
+                  <div className="text-xs font-bold text-gray-400 mb-1.5">🏢 주관/출처</div>
+                  <input
+                    value={editOrganizer}
+                    onChange={e => setEditOrganizer(e.target.value)}
+                    placeholder="주관/출처"
+                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                  />
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-gray-400 mb-1.5">💰 비용</div>
+                  <input
+                    value={editCost}
+                    onChange={e => setEditCost(e.target.value)}
+                    placeholder="비용"
+                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                  />
+                </div>
+              </div>
+
+              {/* 난이도 - 수정 가능 */}
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="text-xs font-bold text-gray-400 mb-1.5">🔥 난이도</div>
+                <div className="flex gap-1.5">
+                  {[1, 2, 3, 4, 5].map(d => (
+                    <button
+                      key={d}
+                      type="button"
+                      onClick={() => setEditDifficulty(d)}
+                      className="flex-1 py-2 rounded-lg text-xs font-bold transition-all"
+                      style={editDifficulty === d ? { backgroundColor: color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.3)' }}
+                    >
+                      {'★'.repeat(d)}
+                    </button>
+                  ))}
+                </div>
+                <div className="text-xs text-gray-400 mt-1">
+                  {editDifficulty === 1 && '매우 쉬움'}
+                  {editDifficulty === 2 && '쉬움'}
+                  {editDifficulty === 3 && '보통'}
+                  {editDifficulty === 4 && '어려움'}
+                  {editDifficulty === 5 && '매우 어려움'}
+                </div>
+              </div>
+
+              {/* URL - 수정 가능 */}
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="text-xs font-bold text-gray-400 mb-1.5">🔗 공식 사이트</div>
+                <input
+                  type="url"
+                  value={editUrl}
+                  onChange={e => setEditUrl(e.target.value)}
+                  placeholder="https://example.com"
+                  className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                />
+                {editUrl.trim() && (
+                  <a href={editUrl.trim()} target="_blank" rel="noopener noreferrer"
+                    className="text-xs text-blue-400 underline mt-1 inline-block">브라우저에서 열기</a>
+                )}
+              </div>
+
+              {/* 설명 - 수정 가능 */}
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="text-xs font-bold text-gray-400 mb-1.5">📝 상세 설명</div>
+                <textarea
+                  value={editDescription}
+                  onChange={e => setEditDescription(e.target.value)}
+                  placeholder="상세 설명 (선택)"
+                  rows={3}
+                  className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none resize-none"
+                />
               </div>
 
               {/* Month picker */}
@@ -492,15 +581,17 @@ function AddItemSheet({
               </div>
 
               <button
-                disabled={suggestMonths.length === 0}
+                disabled={suggestMonths.length === 0 || !editTitle.trim()}
                 onClick={handleAddSuggest}
                 className="w-full h-12 rounded-xl font-bold text-white transition-all disabled:opacity-40"
-                style={suggestMonths.length > 0
+                style={suggestMonths.length > 0 && editTitle.trim()
                   ? { background: `linear-gradient(135deg, ${color}, ${color}aa)`, boxShadow: `0 4px 14px ${color}44` }
                   : { backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                {suggestMonths.length > 0
+                {suggestMonths.length > 0 && editTitle.trim()
                   ? `${suggestMonths.map(m => `${m}월`).join(', ')} — 추가하기`
-                  : '월을 선택하세요'}
+                  : !editTitle.trim()
+                    ? '제목을 입력하세요'
+                    : '월을 선택하세요'}
               </button>
             </div>
           )}
@@ -575,11 +666,54 @@ function AddItemSheet({
                 </div>
               </div>
 
+              {/* Optional Section Divider */}
+              <div className="flex items-center gap-3 my-2">
+                <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
+                <span className="text-xs font-bold text-gray-500">추가 정보 (선택)</span>
+                <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.1)' }} />
+              </div>
+
+              {/* URL */}
+              <div>
+                <div className="text-xs text-gray-400 mb-2 font-semibold">🔗 URL</div>
+                <input 
+                  type="url" 
+                  value={customUrl} 
+                  onChange={e => setCustomUrl(e.target.value)} 
+                  placeholder="https://example.com"
+                  className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} 
+                />
+              </div>
+
+              {/* Description */}
+              <div>
+                <div className="text-xs text-gray-400 mb-2 font-semibold">📝 설명</div>
+                <textarea 
+                  value={customDescription} 
+                  onChange={e => setCustomDescription(e.target.value)} 
+                  placeholder="대회 소개, 참가 방법, 준비 사항 등"
+                  rows={3}
+                  className="w-full px-3 py-2 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} 
+                />
+              </div>
+
               <button
                 disabled={!customTitle.trim() || customMonths.length === 0}
                 onClick={() => {
                   if (!customTitle.trim() || customMonths.length === 0) return;
-                  onAdd({ type: customType, title: customTitle.trim(), months: customMonths, difficulty: customDifficulty, cost: customCost, organizer: customOrganizer, custom: true });
+                  onAdd({ 
+                    type: customType, 
+                    title: customTitle.trim(), 
+                    months: customMonths, 
+                    difficulty: customDifficulty, 
+                    cost: customCost, 
+                    organizer: customOrganizer, 
+                    url: customUrl.trim() || undefined,
+                    description: customDescription.trim() || undefined,
+                    custom: true 
+                  });
                   onClose();
                 }}
                 className="w-full h-12 rounded-xl font-bold text-white transition-all disabled:opacity-40"
@@ -590,6 +724,150 @@ function AddItemSheet({
               </button>
             </div>
           )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ══════════════════════════════════════════
+   EditItemSheet — 세부활동 수정 다이얼로그
+══════════════════════════════════════════ */
+function EditItemSheet({
+  item, color, onUpdate, onClose,
+}: {
+  item: PlanItem;
+  color: string;
+  onUpdate: (updated: PlanItem) => void;
+  onClose: () => void;
+}) {
+  const [editType, setEditType] = useState<ItemType>(item.type);
+  const [editTitle, setEditTitle] = useState(item.title);
+  const [editMonths, setEditMonths] = useState<number[]>(item.months.length > 0 ? [...item.months] : [3]);
+  const [editDifficulty, setEditDifficulty] = useState(item.difficulty ?? 2);
+  const [editCost, setEditCost] = useState(item.cost ?? '무료');
+  const [editOrganizer, setEditOrganizer] = useState(item.organizer ?? '');
+  const [editUrl, setEditUrl] = useState(item.url ?? '');
+  const [editDescription, setEditDescription] = useState(item.description ?? '');
+
+  const handleSave = () => {
+    if (!editTitle.trim() || editMonths.length === 0) return;
+    onUpdate({
+      ...item,
+      type: editType,
+      title: editTitle.trim(),
+      months: editMonths,
+      difficulty: editDifficulty,
+      cost: editCost.trim() || '무료',
+      organizer: editOrganizer.trim() || '',
+      url: editUrl.trim() || undefined,
+      description: editDescription.trim() || undefined,
+    });
+    onClose();
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-[70] flex flex-col justify-end"
+      style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}
+      onClick={e => { if (e.target === e.currentTarget) onClose(); }}
+    >
+      <div
+        className="w-full max-w-[430px] mx-auto rounded-t-3xl flex flex-col"
+        style={{ backgroundColor: '#0f0f23', border: '1px solid rgba(255,255,255,0.1)', maxHeight: '88vh' }}
+      >
+        <div className="flex items-center justify-between p-4 border-b border-white/8 flex-shrink-0">
+          <div className="text-base font-bold text-white">항목 수정</div>
+          <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+            <X className="w-4 h-4 text-gray-400" />
+          </button>
+        </div>
+
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold">유형</div>
+            <div className="grid grid-cols-2 gap-2">
+              {ITEM_TYPES.map(t => (
+                <button key={t.value} onClick={() => setEditType(t.value as ItemType)}
+                  className="flex items-center gap-2.5 px-3.5 py-3 rounded-xl text-sm font-bold transition-all"
+                  style={editType === t.value ? { backgroundColor: t.color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}>
+                  <span className="text-xl">{t.emoji}</span>{t.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold">이름 *</div>
+            <input type="text" value={editTitle} onChange={e => setEditTitle(e.target.value)}
+              placeholder="항목명"
+              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }} />
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold flex items-center gap-1.5">
+              <Calendar className="w-3.5 h-3.5" />
+              목표 월 <span className="text-gray-600">(다중 선택 가능)</span>
+            </div>
+            <MonthPicker selected={editMonths} onChange={setEditMonths} color={color} />
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold">난이도</div>
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5].map(d => (
+                <button key={d} onClick={() => setEditDifficulty(d)}
+                  className="flex-1 py-2.5 rounded-xl text-xs font-bold transition-all"
+                  style={editDifficulty === d ? { backgroundColor: color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.3)' }}>
+                  {'★'.repeat(d)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <div className="text-xs text-gray-400 mb-2 font-semibold">비용</div>
+              <input type="text" value={editCost} onChange={e => setEditCost(e.target.value)} placeholder="무료"
+                className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+            </div>
+            <div>
+              <div className="text-xs text-gray-400 mb-2 font-semibold">주관 / 출처</div>
+              <input type="text" value={editOrganizer} onChange={e => setEditOrganizer(e.target.value)} placeholder="예: 학교·자체"
+                className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+            </div>
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold">🔗 URL</div>
+            <input type="url" value={editUrl} onChange={e => setEditUrl(e.target.value)}
+              placeholder="https://example.com"
+              className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+          </div>
+
+          <div>
+            <div className="text-xs text-gray-400 mb-2 font-semibold">📝 설명</div>
+            <textarea value={editDescription} onChange={e => setEditDescription(e.target.value)}
+              placeholder="대회 소개, 참가 방법, 준비 사항 등"
+              rows={3}
+              className="w-full px-3 py-2 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none"
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+          </div>
+
+          <button
+            disabled={!editTitle.trim() || editMonths.length === 0}
+            onClick={handleSave}
+            className="w-full h-12 rounded-xl font-bold text-white transition-all disabled:opacity-40"
+            style={editTitle.trim() && editMonths.length > 0
+              ? { background: `linear-gradient(135deg, ${color}, ${color}aa)` }
+              : { backgroundColor: 'rgba(255,255,255,0.08)' }}>
+            저장하기
+          </button>
         </div>
       </div>
     </div>
@@ -613,6 +891,7 @@ function ActivityItemCard({
   const [subInput, setSubInput] = useState('');
   const [editingSubId, setEditingSubId] = useState<string | null>(null);
   const [editingSubText, setEditingSubText] = useState('');
+  const [showEditSheet, setShowEditSheet] = useState(false);
 
   const monthLabel =
     item.months.length === 1
@@ -664,10 +943,14 @@ function ActivityItemCard({
       className="rounded-xl overflow-hidden transition-all"
       style={{ backgroundColor: `${tc.color}0e`, border: `1px solid ${tc.color}28` }}
     >
-      {/* 활동 헤더 행 */}
+      {/* 활동 헤더 행 — 클릭 시 수정 다이얼로그 */}
       <div className="flex items-center gap-2.5 px-3 py-2.5">
-        <span className="text-base flex-shrink-0">{tc.emoji}</span>
-        <div className="flex-1 min-w-0">
+        <button
+          type="button"
+          onClick={() => setShowEditSheet(true)}
+          title="클릭하여 수정"
+          className="flex-1 min-w-0 text-left cursor-pointer rounded-lg -m-1 p-1 transition-colors hover:bg-white/5 active:bg-white/8"
+        >
           <div className="text-sm font-semibold text-white line-clamp-1">{item.title}</div>
           <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
             <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
@@ -681,7 +964,7 @@ function ActivityItemCard({
               </span>
             )}
           </div>
-        </div>
+        </button>
 
         <div className="flex items-center gap-1 flex-shrink-0">
           {/* 하위활동 토글 */}
@@ -812,6 +1095,15 @@ function ActivityItemCard({
           </motion.div>
         )}
       </AnimatePresence>
+
+      {showEditSheet && (
+        <EditItemSheet
+          item={item}
+          color={color}
+          onUpdate={(updated) => { onUpdate(updated); setShowEditSheet(false); }}
+          onClose={() => setShowEditSheet(false)}
+        />
+      )}
     </div>
   );
 }
@@ -903,7 +1195,6 @@ function GoalActivityGroupCard({
           )}
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
-            <span className="text-[10px] text-gray-500">{group.items.length}개 활동</span>
             <button
               onClick={toggleExpanded}
               className="w-6 h-6 rounded-lg flex items-center justify-center transition-all"
@@ -1133,12 +1424,12 @@ function YearPlanCard({
   const needsSemesterPick = !yearPlan.semester;
 
   const totalGoals = yearPlan.semester === 'split'
-    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.length, 0)
+    ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
     : goalGroups.length;
 
   const totalItems = yearPlan.semester === 'split'
-    ? semesterPlans.reduce((s, sp) => s + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
-    : goalGroups.reduce((s, g) => s + g.items.length, 0);
+    ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
+    : goalGroups.reduce((s, g) => s + (g.items ?? []).length, 0);
 
   const handleSemesterSelect = (semester: SemesterOption) => {
     const newSemesterPlans: SemesterPlan[] = semester === 'split'
@@ -1252,7 +1543,7 @@ function YearPlanCard({
                       key={sp.semesterId}
                       semesterLabel={sp.semesterLabel}
                       semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                      goalGroups={sp.goalGroups}
+                      goalGroups={sp.goalGroups ?? []}
                       color={color}
                       starId={starId}
                       onUpdateGoalGroups={(groups) => updateSemesterPlanGoalGroups(sp.semesterId, groups)}
@@ -1331,16 +1622,17 @@ function Step3Planner({
 
   const totalGoals = yearPlans.reduce((s, y) => {
     if (y.semester === 'split') {
-      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.length, 0);
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + (sp.goalGroups ?? []).length, 0);
     }
     return s + (y.goalGroups ?? []).length;
   }, 0);
 
   const totalItems = yearPlans.reduce((s, y) => {
     if (y.semester === 'split') {
-      return s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0);
+      return s + (y.semesterPlans ?? []).reduce((ss, sp) =>
+        ss + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0);
     }
-    return s + (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
+    return s + (y.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0);
   }, 0);
 
   return (
@@ -1414,6 +1706,7 @@ function Step3Planner({
               { label: '초등', emoji: '🏫', grades: GRADE_YEARS.filter(g => g.id.startsWith('elem')) },
               { label: '중학교', emoji: '🎒', grades: GRADE_YEARS.filter(g => g.id.startsWith('mid')) },
               { label: '고등학교', emoji: '🎓', grades: GRADE_YEARS.filter(g => g.id.startsWith('high')) },
+              { label: '일반', emoji: '👔', grades: GRADE_YEARS.filter(g => g.id === 'univ' || g.id === 'general') },
             ].map(group => {
               const available = group.grades.filter(g => !usedIds.includes(g.id));
               if (available.length === 0) return null;
@@ -1461,8 +1754,8 @@ function Step3Planner({
 function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: string }) {
   const years = plan.years ?? [];
   const allItems = years.flatMap(y => [
-    ...y.items,
-    ...(y.groups ?? []).flatMap(g => g.items),
+    ...(y.items ?? []),
+    ...(y.groups ?? []).flatMap(g => g.items ?? []),
   ]);
 
   return (
@@ -1492,8 +1785,8 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
         </span>
       </div>
 
-      {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) */}
-      <div>
+      {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) — 상하 여백 확보로 하위 상세 잘림 방지 */}
+      <div className="pb-12">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">학년별 계획</span>
           <span className="text-[11px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>
@@ -1507,11 +1800,25 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
 /* ══════════════════════════════════════════
    Main Builder dialog
 ══════════════════════════════════════════ */
+/** localStorage 등에서 로드한 yearPlans를 빌더 형식으로 정규화 */
+function normalizeYearPlans(years: YearPlan[] | undefined): YearPlan[] {
+  if (!years?.length) return [];
+  return years.map((y) => ({
+    ...y,
+    semester: (y.semester ?? '') as SemesterOption,
+    goalGroups: y.goalGroups ?? [],
+    semesterPlans: y.semesterPlans ?? [],
+    groups: y.groups ?? [],
+    goals: y.goals ?? [],
+    items: y.items ?? [],
+  }));
+}
+
 export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }: Props) {
   const [step, setStep] = useState(initialStep ?? 1);
   const [starId, setStarId] = useState(initialPlan?.starId ?? '');
   const [jobId, setJobId] = useState(initialPlan?.jobId ?? '');
-  const [yearPlans, setYearPlans] = useState<YearPlan[]>(initialPlan?.years ?? []);
+  const [yearPlans, setYearPlans] = useState<YearPlan[]>(() => normalizeYearPlans(initialPlan?.years));
 
   const kingdom = careerMaker.kingdoms.find(k => k.id === starId);
   const job = kingdom?.representativeJobs.find(j => j.id === jobId);
@@ -1520,7 +1827,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const canProceed = () => {
     if (step === 1) return !!starId;
     if (step === 2) return !!jobId;
-    if (step === 3) return yearPlans.length > 0 && yearPlans.every(y => y.semester.length > 0);
+    if (step === 3) return yearPlans.length > 0 && yearPlans.every(y => ((y.semester ?? '') as string).length > 0);
     return true;
   };
 

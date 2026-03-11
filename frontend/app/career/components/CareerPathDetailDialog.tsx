@@ -5,7 +5,8 @@ import { createPortal } from 'react-dom';
 import {
   X, Heart, Users, Calendar, Bookmark, BookmarkCheck,
   ExternalLink, Target, Sparkles, ThumbsUp, Edit2, Trash2,
-  Flag, MessageCircle, MoreVertical,
+  Flag, MessageCircle, MoreVertical, Link as LinkIcon,
+  ChevronDown, ChevronUp,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import templates from '@/data/career-path-templates.json';
@@ -198,6 +199,16 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
+
+  const toggleGoalExpand = (key: string) => {
+    setCollapsedGoalKeys(prev => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -487,110 +498,173 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                             }
                           });
                         }
+                        // 템플릿 형식(goals + items) 지원: goalGroups가 없을 때 — 모든 목표 표시, 첫 목표에 items 연결
+                        if (allGroups.length === 0) {
+                          const goals = Array.isArray(yearAny.goals) && yearAny.goals.length > 0
+                            ? yearAny.goals
+                            : ['활동 목록'];
+                          const items = Array.isArray(yearAny.items) ? yearAny.items : [];
+                          goals.forEach((goal: string, idx: number) => {
+                            allGroups.push({
+                              goal,
+                              items: idx === 0 ? items : [],
+                            });
+                          });
+                        }
                         const totalItems = allGroups.reduce((acc, g) => acc + (g.items?.length ?? 0), 0);
 
                         return (
-                          <div className="space-y-2.5 pt-1">
-                            <div>
+                          <div className="space-y-3 pt-1" key={year.gradeId}>
+                            {/* Year header */}
+                            <div className="flex items-center justify-between">
                               <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
-                              <div className="text-[11px] text-gray-500">{totalItems}개 항목</div>
                             </div>
 
-                            {allGroups.map((group, gi) => (
-                              <div key={gi} className="space-y-1.5">
-                                {/* Goal label */}
-                                <div
-                                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"
-                                  style={{
-                                    backgroundColor: `${template.starColor}12`,
-                                    border: `1px solid ${template.starColor}1e`,
-                                  }}
+                            {allGroups.map((group, gi) => {
+                              const goalKey = `${year.gradeId}-${gi}`;
+                              const isExpanded = !collapsedGoalKeys.has(goalKey);
+                              return (
+                              <div key={gi} className="rounded-xl overflow-hidden"
+                                style={{ border: `1px solid ${template.starColor}20` }}>
+
+                                {/* ── 목표 섹션 헤더 (아코디언) ── */}
+                                <button
+                                  type="button"
+                                  className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                                  style={{ backgroundColor: `${template.starColor}18` }}
+                                  onClick={() => toggleGoalExpand(goalKey)}
                                 >
-                                  <Target style={{ width: 10, height: 10, flexShrink: 0, color: template.starColor }} />
-                                  <span className="text-gray-200 font-semibold">{group.goal}</span>
-                                </div>
-
-                                {/* Items under this goal */}
-                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                {(group.items ?? []).map((item: any) => {
-                                  const typeConf = ITEM_TYPES.find(t => t.value === item.type);
-                                  const months: number[] = Array.isArray(item.months)
-                                    ? item.months
-                                    : typeof item.month === 'number' ? [item.month] : [];
-                                  const monthLabel = months.length === 0
-                                    ? '월 미정'
-                                    : months.length === 1
-                                      ? `${months[0]}월`
-                                      : `${months[0]}~${months[months.length - 1]}월`;
-
-                                  return (
+                                  <div
+                                    className="flex items-center justify-center rounded-md flex-shrink-0"
+                                    style={{
+                                      width: 20, height: 20,
+                                      backgroundColor: `${template.starColor}30`,
+                                    }}
+                                  >
+                                    <Target style={{ width: 11, height: 11, color: template.starColor }} />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
                                     <div
-                                      key={item.id ?? item.title}
-                                      className="flex items-start gap-2.5 p-2.5 rounded-xl ml-3"
-                                      style={{
-                                        backgroundColor: `${typeConf?.color ?? template.starColor}0d`,
-                                        border: `1px solid ${typeConf?.color ?? template.starColor}25`,
-                                      }}
+                                      className="text-[10px] font-bold uppercase tracking-wider mb-0.5"
+                                      style={{ color: template.starColor }}
                                     >
-                                      <div
-                                        className="rounded-xl flex items-center justify-center text-base flex-shrink-0"
-                                        style={{
-                                          width: 34, height: 34,
-                                          backgroundColor: `${typeConf?.color ?? template.starColor}18`,
-                                          border: `1px solid ${typeConf?.color ?? template.starColor}28`,
-                                        }}
-                                      >
-                                        {typeConf?.emoji ?? '📌'}
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
-                                        <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                                          <span
-                                            className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+                                      목표
+                                    </div>
+                                    <div className="text-xs font-semibold text-white leading-snug">{group.goal}</div>
+                                  </div>
+                                  {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                                </button>
+
+                                {/* ── 활동·수상·자격증 섹션 ── */}
+                                {isExpanded && (group.items ?? []).length > 0 && (
+                                  <div className="px-2 py-2 space-y-1.5"
+                                    style={{ backgroundColor: `${template.starColor}06` }}>
+                                    {/* 섹션 라벨 */}
+                                    <div className="flex items-center gap-1 px-1 mb-1">
+                                      <Sparkles style={{ width: 10, height: 10, color: '#6b7280' }} />
+                                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                                        활동 · 수상 · 자격증
+                                      </span>
+                                    </div>
+
+                                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                    {(group.items ?? []).map((item: any) => {
+                                      const typeConf = ITEM_TYPES.find(t => t.value === item.type);
+                                      const months: number[] = Array.isArray(item.months)
+                                        ? item.months
+                                        : typeof item.month === 'number' ? [item.month] : [];
+                                      const monthLabel = months.length === 0
+                                        ? '월 미정'
+                                        : months.length === 1
+                                          ? `${months[0]}월`
+                                          : `${months[0]}~${months[months.length - 1]}월`;
+
+                                      return (
+                                        <div
+                                          key={item.id ?? item.title}
+                                          className="flex items-start gap-2.5 p-2.5 rounded-lg"
+                                          style={{
+                                            backgroundColor: `${typeConf?.color ?? template.starColor}0d`,
+                                            border: `1px solid ${typeConf?.color ?? template.starColor}22`,
+                                          }}
+                                        >
+                                          <div
+                                            className="rounded-lg flex items-center justify-center text-sm flex-shrink-0"
                                             style={{
-                                              backgroundColor: `${typeConf?.color ?? template.starColor}22`,
-                                              color: typeConf?.color ?? template.starColor,
+                                              width: 32, height: 32,
+                                              backgroundColor: `${typeConf?.color ?? template.starColor}18`,
+                                              border: `1px solid ${typeConf?.color ?? template.starColor}28`,
                                             }}
                                           >
-                                            {typeConf?.label}
-                                          </span>
-                                          <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
-                                            <Calendar style={{ width: 9, height: 9 }} />
-                                            {monthLabel}
-                                          </span>
-                                          {item.cost && (
-                                            <span className="text-[10px] text-gray-600">{item.cost}</span>
-                                          )}
-                                          {item.difficulty > 0 && (
-                                            <span className="text-[10px] text-gray-600">
-                                              {'★'.repeat(item.difficulty)}{'☆'.repeat(5 - item.difficulty)}
-                                            </span>
-                                          )}
-                                        </div>
-                                        {item.organizer && (
-                                          <div className="text-[10px] text-gray-600 mt-0.5">{item.organizer}</div>
-                                        )}
-                                        {/* Sub-items preview */}
-                                        {Array.isArray(item.subItems) && item.subItems.length > 0 && (
-                                          <div className="mt-1.5 space-y-0.5">
-                                            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                            {item.subItems.slice(0, 3).map((sub: any) => (
-                                              <div key={sub.id} className="flex items-center gap-1 text-[10px] text-gray-500">
-                                                <span className="w-1 h-1 rounded-full bg-gray-600 flex-shrink-0" />
-                                                {sub.title}
+                                            {typeConf?.emoji ?? '📌'}
+                                          </div>
+                                          <div className="flex-1 min-w-0">
+                                            <div className="text-xs font-semibold text-white leading-snug">{item.title}</div>
+                                            <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+                                              <span
+                                                className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+                                                style={{
+                                                  backgroundColor: `${typeConf?.color ?? template.starColor}22`,
+                                                  color: typeConf?.color ?? template.starColor,
+                                                }}
+                                              >
+                                                {typeConf?.label}
+                                              </span>
+                                              <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
+                                                <Calendar style={{ width: 9, height: 9 }} />
+                                                {monthLabel}
+                                              </span>
+                                              {item.cost && (
+                                                <span className="text-[10px] text-gray-600">{item.cost}</span>
+                                              )}
+                                              {item.difficulty > 0 && (
+                                                <span className="text-[10px] text-gray-600">
+                                                  {'★'.repeat(item.difficulty)}{'☆'.repeat(5 - item.difficulty)}
+                                                </span>
+                                              )}
+                                            </div>
+                                            {item.organizer && (
+                                              <div className="text-[10px] text-gray-600 mt-0.5">🏢 {item.organizer}</div>
+                                            )}
+                                            {item.url && (
+                                              <a
+                                                href={item.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1 mt-1 text-[10px] text-blue-400 hover:underline"
+                                              >
+                                                <LinkIcon style={{ width: 9, height: 9 }} />
+                                                {item.url}
+                                              </a>
+                                            )}
+                                            {item.description && (
+                                              <div className="text-[10px] text-gray-500 mt-1 leading-relaxed">{item.description}</div>
+                                            )}
+                                            {/* Sub-items preview */}
+                                            {Array.isArray(item.subItems) && item.subItems.length > 0 && (
+                                              <div className="mt-1.5 pl-1 border-l-2 space-y-0.5"
+                                                style={{ borderColor: `${typeConf?.color ?? template.starColor}40` }}>
+                                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                                {item.subItems.slice(0, 3).map((sub: any) => (
+                                                  <div key={sub.id} className="flex items-center gap-1 text-[10px] text-gray-500">
+                                                    <span className="w-1 h-1 rounded-full bg-gray-600 flex-shrink-0" />
+                                                    {sub.title}
+                                                  </div>
+                                                ))}
+                                                {item.subItems.length > 3 && (
+                                                  <div className="text-[10px] text-gray-600">+{item.subItems.length - 3}개 더</div>
+                                                )}
                                               </div>
-                                            ))}
-                                            {item.subItems.length > 3 && (
-                                              <div className="text-[10px] text-gray-600">+{item.subItems.length - 3}개 더</div>
                                             )}
                                           </div>
-                                        )}
-                                      </div>
-                                    </div>
-                                  );
-                                })}
+                                        </div>
+                                      );
+                                    })}
+                                  </div>
+                                )}
                               </div>
-                            ))}
+                            );
+                            })}
                           </div>
                         );
                       })()}

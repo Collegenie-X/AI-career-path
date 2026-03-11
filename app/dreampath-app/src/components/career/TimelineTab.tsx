@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, ScrollView, TextInput, Alert,
 } from 'react-native';
@@ -8,6 +8,7 @@ import {
   type CareerPlan, type CareerYearPlan, type CareerPlanItem,
 } from '../../config/career-path';
 import { AddItemModal } from './AddItemModal';
+import { ItemDetailModal } from './ItemDetailModal';
 
 interface TimelineTabProps {
   plans: CareerPlan[];
@@ -26,9 +27,10 @@ interface ItemRowProps {
   onToggle: () => void;
   onDelete: () => void;
   onTitleSave: (title: string) => void;
+  onItemDetailPress?: () => void;
 }
 
-function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave }: ItemRowProps) {
+function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave, onItemDetailPress }: ItemRowProps) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(item.title);
   const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
@@ -46,9 +48,12 @@ function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave }: I
   };
 
   const handleTitlePress = () => {
-    if (!isEditMode) return;
-    setDraft(item.title);
-    setEditing(true);
+    if (isEditMode) {
+      setDraft(item.title);
+      setEditing(true);
+    } else {
+      onItemDetailPress?.();
+    }
   };
 
   return (
@@ -68,10 +73,6 @@ function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave }: I
         </Text>
       </TouchableOpacity>
 
-      <View style={[styles.itemIcon, { backgroundColor: (tc?.color ?? color) + '1a', borderColor: (tc?.color ?? color) + '30' }]}>
-        <Text style={{ fontSize: 16 }}>{tc?.emoji ?? '📌'}</Text>
-      </View>
-
       <View style={styles.itemContent}>
         {editing ? (
           <TextInput
@@ -84,7 +85,7 @@ function ItemRow({ item, color, isEditMode, onToggle, onDelete, onTitleSave }: I
             autoFocus
           />
         ) : (
-          <TouchableOpacity onPress={handleTitlePress} style={styles.itemTitleTouch} disabled={!isEditMode}>
+          <TouchableOpacity onPress={handleTitlePress} style={styles.itemTitleTouch}>
             <Text style={[styles.itemTitle, checked && styles.itemTitleChecked]} numberOfLines={1}>
               {item.title}
             </Text>
@@ -170,22 +171,59 @@ interface YearNodeProps {
   isEditMode: boolean;
   onUpdate: (y: CareerYearPlan) => void;
   onAddItem: () => void;
+  onItemDetailPress?: (item: CareerPlanItem) => void;
 }
 
-function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: YearNodeProps) {
+function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem, onItemDetailPress }: YearNodeProps) {
   const [expanded, setExpanded] = useState(true);
+  const [expandedGoalIds, setExpandedGoalIds] = useState<Set<string>>(() =>
+    new Set((year.goalGroups ?? []).map((g) => g.id)),
+  );
   const grade = CAREER_GRADE_YEARS.find((g) => g.id === year.gradeId);
+
+  const toggleGoalExpand = (goalId: string) => {
+    setExpandedGoalIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(goalId)) next.delete(goalId);
+      else next.add(goalId);
+      return next;
+    });
+  };
+
+  const goalGroupIdList = (year.goalGroups ?? []).map((g) => g.id).join(',');
+  useEffect(() => {
+    const groups = year.goalGroups ?? [];
+    setExpandedGoalIds((prev) => {
+      const next = new Set(prev);
+      groups.forEach((g) => next.add(g.id));
+      return next;
+    });
+  }, [year.gradeId, goalGroupIdList]);
+
   const groupItems = (year.groups ?? []).flatMap((g) => g.items);
-  const allItems = [...year.items, ...groupItems];
+  const goalGroups = year.goalGroups ?? [];
+  const goalGroupItems = goalGroups.flatMap((g) => g.items);
+  const allItems = year.items.length > 0 || groupItems.length > 0
+    ? [...year.items, ...groupItems]
+    : goalGroupItems;
   const checkedCount = allItems.filter((it) => it.checked).length;
   const totalCount = allItems.length;
   const progress = totalCount > 0 ? checkedCount / totalCount : 0;
 
   const toggleItemCheck = (itemId: string) => {
-    onUpdate({
-      ...year,
-      items: year.items.map((it) => (it.id === itemId ? { ...it, checked: !it.checked } : it)),
-    });
+    if (year.items.some((it) => it.id === itemId)) {
+      onUpdate({
+        ...year,
+        items: year.items.map((it) => (it.id === itemId ? { ...it, checked: !it.checked } : it)),
+      });
+    } else {
+      const goalGroups = (year.goalGroups ?? []).map((g) =>
+        g.items.some((it) => it.id === itemId)
+          ? { ...g, items: g.items.map((it) => (it.id === itemId ? { ...it, checked: !it.checked } : it)) }
+          : g,
+      );
+      onUpdate({ ...year, goalGroups });
+    }
   };
 
   const toggleCheckInGroup = (groupId: string, itemId: string) => {
@@ -198,7 +236,14 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: Year
   };
 
   const deleteItem = (itemId: string) => {
-    onUpdate({ ...year, items: year.items.filter((it) => it.id !== itemId) });
+    if (year.items.some((it) => it.id === itemId)) {
+      onUpdate({ ...year, items: year.items.filter((it) => it.id !== itemId) });
+    } else {
+      const goalGroups = (year.goalGroups ?? []).map((g) =>
+        ({ ...g, items: g.items.filter((it) => it.id !== itemId) }),
+      );
+      onUpdate({ ...year, goalGroups });
+    }
   };
 
   const deleteItemFromGroup = (groupId: string, itemId: string) => {
@@ -209,7 +254,16 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: Year
   };
 
   const saveItemTitle = (itemId: string, title: string) => {
-    onUpdate({ ...year, items: year.items.map((it) => (it.id === itemId ? { ...it, title } : it)) });
+    if (year.items.some((it) => it.id === itemId)) {
+      onUpdate({ ...year, items: year.items.map((it) => (it.id === itemId ? { ...it, title } : it)) });
+    } else {
+      const goalGroups = (year.goalGroups ?? []).map((g) =>
+        g.items.some((it) => it.id === itemId)
+          ? { ...g, items: g.items.map((it) => (it.id === itemId ? { ...it, title } : it)) }
+          : g,
+      );
+      onUpdate({ ...year, goalGroups });
+    }
   };
 
   const saveItemTitleInGroup = (groupId: string, itemId: string, title: string) => {
@@ -244,7 +298,11 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: Year
         <TouchableOpacity onPress={() => setExpanded(!expanded)} style={styles.yearHeader} activeOpacity={0.7}>
           <View style={styles.yearHeaderLeft}>
             <Text style={styles.yearFullLabel}>{grade?.fullLabel ?? year.gradeLabel}</Text>
-            <Text style={styles.yearItemCount}>{totalCount}개 항목</Text>
+            <Text style={styles.yearItemCount}>
+              {goalGroups.length > 0
+                ? `${goalGroups.length}개 목표 · ${totalCount}개 활동`
+                : `${totalCount}개 항목`}
+            </Text>
           </View>
           <View style={styles.yearHeaderRight}>
             {totalCount > 0 && <Text style={styles.yearProgress}>{checkedCount}/{totalCount}</Text>}
@@ -260,50 +318,101 @@ function YearNode({ year, color, isLast, isEditMode, onUpdate, onAddItem }: Year
 
         {expanded && (
           <View style={styles.yearBody}>
-            {year.goals.length > 0 && (
-              <View style={styles.goalsSection}>
+            {/* 목표-활동 그룹 구조: 목표만 있어도 항상 표시 */}
+            {goalGroups.length > 0 ? (
+              <View style={styles.goalGroupsSection}>
                 <Text style={styles.sectionLabel}>⊙ {CAREER_LABELS.goalTitle}</Text>
-                {year.goals.map((goal, i) => (
-                  <GoalRow
-                    key={i}
-                    goal={goal}
-                    color={color}
-                    isEditMode={isEditMode}
-                    onSave={(v) => saveGoal(i, v)}
-                    onDelete={() => deleteGoal(i)}
-                  />
-                ))}
+                {goalGroups.map((group) => {
+                  const isGoalExpanded = expandedGoalIds.has(group.id);
+                  return (
+                  <View key={group.id} style={[styles.goalGroupCard, { borderColor: color + '28', backgroundColor: color + '08' }]}>
+                    <TouchableOpacity
+                      style={[styles.goalGroupHeader, { borderBottomColor: group.items.length > 0 ? color + '18' : 'transparent' }]}
+                      onPress={() => toggleGoalExpand(group.id)}
+                      activeOpacity={0.7}
+                    >
+                      <View style={[styles.goalDot, { backgroundColor: color }]} />
+                      <Text style={[styles.goalGroupTitle, { color }]}>{group.goal}</Text>
+                      <Text style={styles.goalGroupChevron}>{isGoalExpanded ? '▾' : '▸'}</Text>
+                    </TouchableOpacity>
+                    {isGoalExpanded && group.items.length > 0 ? (
+                      <View style={styles.goalGroupItems}>
+                        {group.items.map((item) => (
+                          <ItemRow
+                            key={item.id}
+                            item={item}
+                            color={color}
+                            isEditMode={isEditMode}
+                            onToggle={() => toggleItemCheck(item.id)}
+                            onDelete={() => deleteItem(item.id)}
+                            onTitleSave={(title) => saveItemTitle(item.id, title)}
+                            onItemDetailPress={onItemDetailPress ? () => onItemDetailPress(item) : undefined}
+                          />
+                        ))}
+                      </View>
+                    ) : isGoalExpanded ? (
+                      <View style={[styles.goalGroupEmpty, { borderColor: color + '20' }]}>
+                        <Text style={styles.goalGroupEmptyText}>{CAREER_LABELS.goalNoActivity}</Text>
+                      </View>
+                    ) : null}
+                  </View>
+                  );
+                })}
               </View>
+            ) : (
+              <>
+                {/* 레거시: goals만 있는 구조 */}
+                {year.goals.length > 0 && (
+                  <View style={styles.goalsSection}>
+                    <Text style={styles.sectionLabel}>⊙ {CAREER_LABELS.goalTitle}</Text>
+                    {year.goals.map((goal, i) => (
+                      <GoalRow
+                        key={i}
+                        goal={goal}
+                        color={color}
+                        isEditMode={isEditMode}
+                        onSave={(v) => saveGoal(i, v)}
+                        onDelete={() => deleteGoal(i)}
+                      />
+                    ))}
+                  </View>
+                )}
+
+                {(year.items.length > 0 || (year.groups ?? []).length > 0) && (
+                  <>
+                    {(year.groups ?? []).map((group) => (
+                      <View key={group.id} style={styles.groupSection}>
+                        <Text style={[styles.groupLabel, { color }]}>{group.label}</Text>
+                        {group.items.map((item) => (
+                          <ItemRow
+                            key={item.id}
+                            item={item}
+                            color={color}
+                            isEditMode={isEditMode}
+                            onToggle={() => toggleCheckInGroup(group.id, item.id)}
+                            onDelete={() => deleteItemFromGroup(group.id, item.id)}
+                            onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
+                            onItemDetailPress={onItemDetailPress ? () => onItemDetailPress(item) : undefined}
+                          />
+                        ))}
+                      </View>
+                    ))}
+                    {year.items.map((item) => (
+                      <ItemRow
+                        key={item.id}
+                        item={item}
+                        color={color}
+                        isEditMode={isEditMode}
+                        onToggle={() => toggleItemCheck(item.id)}
+                        onDelete={() => deleteItem(item.id)}
+                        onTitleSave={(title) => saveItemTitle(item.id, title)}
+                        onItemDetailPress={onItemDetailPress ? () => onItemDetailPress(item) : undefined}
+                      />
+                    ))}
+                  </>
+                )}
+              </>
             )}
-
-            {(year.groups ?? []).map((group) => (
-              <View key={group.id} style={styles.groupSection}>
-                <Text style={[styles.groupLabel, { color }]}>{group.label}</Text>
-                {group.items.map((item) => (
-                  <ItemRow
-                    key={item.id}
-                    item={item}
-                    color={color}
-                    isEditMode={isEditMode}
-                    onToggle={() => toggleCheckInGroup(group.id, item.id)}
-                    onDelete={() => deleteItemFromGroup(group.id, item.id)}
-                    onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
-                  />
-                ))}
-              </View>
-            ))}
-
-            {year.items.map((item) => (
-              <ItemRow
-                key={item.id}
-                item={item}
-                color={color}
-                isEditMode={isEditMode}
-                onToggle={() => toggleItemCheck(item.id)}
-                onDelete={() => deleteItem(item.id)}
-                onTitleSave={(title) => saveItemTitle(item.id, title)}
-              />
-            ))}
 
             {isEditMode && (
               <TouchableOpacity onPress={onAddItem} style={[styles.addItemButton, { borderColor: color + '35' }]}>
@@ -367,22 +476,27 @@ interface PlanAccordionProps {
   onDelete: () => void;
   onEdit: () => void;
   onAddItemForYear: (gradeId: string) => void;
+  onItemDetailPress?: (item: CareerPlanItem, gradeLabel: string) => void;
 }
 
-function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: PlanAccordionProps) {
+function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear, onItemDetailPress }: PlanAccordionProps) {
   const [expanded, setExpanded] = useState(true);
-  const [isEditMode, setIsEditMode] = useState(false);
   const color = plan.starColor || COLORS.primary;
 
   const totalItems = plan.years.reduce(
-    (s, y) => s + y.items.length + (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0),
+    (s, y) =>
+      s +
+      y.items.length +
+      (y.groups ?? []).reduce((sg, g) => sg + g.items.length, 0) +
+      (y.goalGroups ?? []).reduce((sg, g) => sg + g.items.length, 0),
     0,
   );
   const checkedItems = plan.years.reduce(
     (s, y) =>
       s +
       y.items.filter((it) => it.checked).length +
-      (y.groups ?? []).reduce((sg, g) => sg + g.items.filter((it) => it.checked).length, 0),
+      (y.groups ?? []).reduce((sg, g) => sg + g.items.filter((it) => it.checked).length, 0) +
+      (y.goalGroups ?? []).reduce((sg, g) => sg + g.items.filter((it) => it.checked).length, 0),
     0,
   );
 
@@ -407,8 +521,6 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: P
       ],
     );
   };
-
-  const toggleEditMode = () => setIsEditMode((prev) => !prev);
 
   return (
     <View style={[styles.planCard, { borderColor: color + '20' }]}>
@@ -440,45 +552,19 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: P
 
           {/* 액션 버튼 영역 */}
           <View style={styles.planActions}>
-            {isEditMode ? (
-              <>
-                <TouchableOpacity
-                  onPress={toggleEditMode}
-                  style={[styles.actionButton, { backgroundColor: color + '25', flex: 1 }]}
-                >
-                  <Text style={[styles.actionButtonText, { color }]}>✅ {CAREER_LABELS.timelineEditDone}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={onEdit}
-                  style={[styles.actionButton, { backgroundColor: 'rgba(255,255,255,0.06)' }]}
-                >
-                  <Text style={[styles.actionButtonText, { color: '#9CA3AF' }]}>🛠 전체 수정</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={handleDeleteConfirm}
-                  style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}
-                >
-                  <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑</Text>
-                </TouchableOpacity>
-              </>
-            ) : (
-              <TouchableOpacity
-                onPress={toggleEditMode}
-                style={[styles.actionButton, { backgroundColor: color + '18', flex: 1 }]}
-              >
-                <Text style={[styles.actionButtonText, { color }]}>✏️ {CAREER_LABELS.timelineEdit}</Text>
-              </TouchableOpacity>
-            )}
+            <TouchableOpacity
+              onPress={onEdit}
+              style={[styles.actionButton, { backgroundColor: color + '18', flex: 1 }]}
+            >
+              <Text style={[styles.actionButtonText, { color }]}>✏️ 수정하기</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={handleDeleteConfirm}
+              style={[styles.actionButton, { backgroundColor: 'rgba(239,68,68,0.1)' }]}
+            >
+              <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>🗑</Text>
+            </TouchableOpacity>
           </View>
-
-          {/* 수정 모드 안내 배너 */}
-          {isEditMode && (
-            <View style={[styles.editModeBanner, { borderColor: color + '30', backgroundColor: color + '0a' }]}>
-              <Text style={[styles.editModeBannerText, { color: color + 'cc' }]}>
-                ✏️ {CAREER_LABELS.timelineEditMode} — 항목 제목 탭하여 수정, ✕ 버튼으로 삭제
-              </Text>
-            </View>
-          )}
 
           {/* 연도별 타임라인 */}
           {plan.years.map((year, idx) => (
@@ -487,9 +573,10 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: P
               year={year}
               color={color}
               isLast={idx === plan.years.length - 1}
-              isEditMode={isEditMode}
+              isEditMode={false}
               onUpdate={handleUpdateYear}
               onAddItem={() => onAddItemForYear(year.gradeId)}
+              onItemDetailPress={onItemDetailPress ? (item) => onItemDetailPress(item, year.gradeLabel) : undefined}
             />
           ))}
         </View>
@@ -502,6 +589,7 @@ function PlanAccordion({ plan, onUpdate, onDelete, onEdit, onAddItemForYear }: P
 
 export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onNewPlan }: TimelineTabProps) {
   const [addItemTarget, setAddItemTarget] = useState<{ planId: string; gradeId: string } | null>(null);
+  const [detailItem, setDetailItem] = useState<{ item: CareerPlanItem; gradeLabel: string; color: string } | null>(null);
 
   const targetPlan = addItemTarget ? plans.find((p) => p.id === addItemTarget.planId) : null;
 
@@ -550,6 +638,9 @@ export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onN
             onDelete={() => onDeletePlan(plan.id)}
             onEdit={() => onEditPlan(plan)}
             onAddItemForYear={(gradeId) => setAddItemTarget({ planId: plan.id, gradeId })}
+            onItemDetailPress={(item, gradeLabel) =>
+              setDetailItem({ item, gradeLabel, color: plan.starColor || COLORS.primary })
+            }
           />
         ))}
 
@@ -566,6 +657,16 @@ export function TimelineTab({ plans, onUpdatePlan, onDeletePlan, onEditPlan, onN
           color={targetPlan.starColor || COLORS.primary}
           onAdd={handleAddItem}
           onClose={() => setAddItemTarget(null)}
+        />
+      )}
+
+      {detailItem && (
+        <ItemDetailModal
+          visible={true}
+          item={detailItem.item}
+          gradeLabel={detailItem.gradeLabel}
+          color={detailItem.color}
+          onClose={() => setDetailItem(null)}
         />
       )}
     </View>
@@ -622,14 +723,6 @@ const styles = StyleSheet.create({
   },
   actionButtonText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
 
-  editModeBanner: {
-    paddingHorizontal: SPACING.md,
-    paddingVertical: SPACING.sm,
-    borderRadius: BORDER_RADIUS.md,
-    borderWidth: 1,
-  },
-  editModeBannerText: { fontSize: 11, fontWeight: '600' },
-
   yearNode: { flexDirection: 'row' },
   timelineTrack: { width: 38, alignItems: 'center' },
   gradeBadge: {
@@ -660,6 +753,30 @@ const styles = StyleSheet.create({
 
   yearBody: { gap: SPACING.md, marginTop: SPACING.xs },
   goalsSection: { gap: SPACING.sm },
+  goalGroupsSection: { gap: SPACING.md },
+  goalGroupCard: {
+    borderRadius: BORDER_RADIUS.xl,
+    borderWidth: 1.5,
+    overflow: 'hidden',
+  },
+  goalGroupHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: SPACING.sm,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderBottomWidth: 1,
+  },
+  goalGroupTitle: { fontSize: FONT_SIZES.sm, fontWeight: '700', flex: 1 },
+  goalGroupChevron: { fontSize: 14, color: '#6B7280' },
+  goalGroupItems: { paddingHorizontal: SPACING.md, paddingVertical: SPACING.sm, gap: SPACING.sm },
+  goalGroupEmpty: {
+    paddingVertical: SPACING.md,
+    paddingHorizontal: SPACING.md,
+    borderTopWidth: 1,
+    borderStyle: 'dashed',
+  },
+  goalGroupEmptyText: { fontSize: FONT_SIZES.xs, color: '#6B7280', textAlign: 'center' },
   sectionLabel: { fontSize: 11, fontWeight: '700', color: '#6B7280', letterSpacing: 0.5 },
   groupSection: { gap: SPACING.sm },
   groupLabel: { fontSize: 11, fontWeight: '700', marginBottom: SPACING.xs },
@@ -688,14 +805,6 @@ const styles = StyleSheet.create({
   },
   checkButton: { marginTop: 2 },
   checkboxText: { fontSize: 14 },
-  itemIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: BORDER_RADIUS.lg,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-  },
   itemContent: { flex: 1 },
   itemTitleTouch: { minHeight: 22 },
   itemTitle: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },

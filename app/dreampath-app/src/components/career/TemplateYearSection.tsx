@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { SPACING, FONT_SIZES, BORDER_RADIUS } from '../../config/theme';
-import { CAREER_ITEM_TYPES, CAREER_GRADE_YEARS } from '../../config/career-path';
+import { CAREER_ITEM_TYPES, CAREER_GRADE_YEARS, CAREER_LABELS } from '../../config/career-path';
 
 const BADGE_SIZE = 38;
 
@@ -13,6 +13,8 @@ interface YearItemData {
   difficulty?: number;
   cost?: string;
   organizer?: string;
+  url?: string;
+  description?: string;
 }
 
 interface YearData {
@@ -60,6 +62,7 @@ const goalS = StyleSheet.create({
 });
 
 function ActivityItem({ item, accentColor }: { item: YearItemData; accentColor: string }) {
+  const [expanded, setExpanded] = useState(false);
   const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
   const c = tc?.color ?? accentColor;
 
@@ -71,35 +74,66 @@ function ActivityItem({ item, accentColor }: { item: YearItemData; accentColor: 
         : `${item.months[0]}~${item.months[item.months.length - 1]}월`
       : '';
 
+  const hasDetails = item.url || item.description;
+
   return (
-    <View style={[itemS.container, { backgroundColor: c + '0d', borderColor: c + '25' }]}>
-      <View style={[itemS.icon, { backgroundColor: c + '18', borderColor: c + '28' }]}>
-        <Text style={itemS.iconEmoji}>{tc?.emoji ?? '📌'}</Text>
-      </View>
-      <View style={itemS.content}>
-        <Text style={itemS.title} numberOfLines={1}>{item.title}</Text>
-        <View style={itemS.meta}>
-          <View style={[itemS.typeBadge, { backgroundColor: c + '22' }]}>
-            <Text style={[itemS.typeText, { color: c }]}>{tc?.label}</Text>
+    <View style={[itemS.wrapper, { backgroundColor: c + '0d', borderColor: c + '25' }]}>
+      <TouchableOpacity 
+        style={itemS.container}
+        onPress={() => hasDetails && setExpanded(!expanded)}
+        activeOpacity={hasDetails ? 0.7 : 1}
+      >
+        <View style={[itemS.icon, { backgroundColor: c + '18', borderColor: c + '28' }]}>
+          <Text style={itemS.iconEmoji}>{tc?.emoji ?? '📌'}</Text>
+        </View>
+        <View style={itemS.content}>
+          <Text style={itemS.title} numberOfLines={expanded ? undefined : 1}>{item.title}</Text>
+          <View style={itemS.meta}>
+            <View style={[itemS.typeBadge, { backgroundColor: c + '22' }]}>
+              <Text style={[itemS.typeText, { color: c }]}>{tc?.label}</Text>
+            </View>
+            {monthLabel ? <Text style={itemS.metaGray}>📅 {monthLabel}</Text> : null}
+            {item.cost ? <Text style={itemS.metaGray}>{item.cost}</Text> : null}
+            {item.difficulty != null && item.difficulty > 0 && (
+              <DifficultyStars difficulty={item.difficulty} />
+            )}
           </View>
-          {monthLabel ? <Text style={itemS.metaGray}>📅 {monthLabel}</Text> : null}
-          {item.cost ? <Text style={itemS.metaGray}>{item.cost}</Text> : null}
-          {item.difficulty != null && item.difficulty > 0 && (
-            <DifficultyStars difficulty={item.difficulty} />
+          {item.organizer ? (
+            <Text style={itemS.organizer}>🏢 {item.organizer}</Text>
+          ) : null}
+        </View>
+        {hasDetails && (
+          <Text style={[itemS.expandIcon, { color: c }]}>{expanded ? '▲' : '▼'}</Text>
+        )}
+      </TouchableOpacity>
+
+      {expanded && hasDetails && (
+        <View style={[itemS.details, { borderTopColor: c + '20' }]}>
+          {item.url && (
+            <TouchableOpacity onPress={() => Linking.openURL(item.url!)} style={itemS.detailRow}>
+              <Text style={itemS.detailLabel}>🔗 {CAREER_LABELS.itemUrl}</Text>
+              <Text style={itemS.detailLink} numberOfLines={1}>{item.url}</Text>
+            </TouchableOpacity>
+          )}
+          {item.description && (
+            <View style={itemS.detailRow}>
+              <Text style={itemS.detailLabel}>📝 {CAREER_LABELS.itemDescription}</Text>
+              <Text style={itemS.detailText}>{item.description}</Text>
+            </View>
           )}
         </View>
-        {item.organizer ? (
-          <Text style={itemS.organizer}>{item.organizer}</Text>
-        ) : null}
-      </View>
+      )}
     </View>
   );
 }
 
 const itemS = StyleSheet.create({
+  wrapper: {
+    borderRadius: BORDER_RADIUS.md, borderWidth: 1, overflow: 'hidden',
+  },
   container: {
     flexDirection: 'row', alignItems: 'flex-start', gap: 10,
-    padding: 10, borderRadius: BORDER_RADIUS.md, borderWidth: 1,
+    padding: 10,
   },
   icon: {
     width: 34, height: 34, borderRadius: BORDER_RADIUS.md,
@@ -113,6 +147,12 @@ const itemS = StyleSheet.create({
   typeText: { fontSize: 9, fontWeight: '800' },
   metaGray: { fontSize: 9, color: '#6B7280' },
   organizer: { fontSize: 9, color: '#6B7280', marginTop: 2 },
+  expandIcon: { fontSize: 10, fontWeight: '700', marginTop: 2 },
+  details: { paddingHorizontal: 10, paddingVertical: SPACING.sm, borderTopWidth: 1, gap: SPACING.sm },
+  detailRow: { gap: 4 },
+  detailLabel: { fontSize: 9, fontWeight: '700', color: '#9CA3AF' },
+  detailLink: { fontSize: FONT_SIZES.xs, color: '#60A5FA', textDecorationLine: 'underline' },
+  detailText: { fontSize: FONT_SIZES.xs, color: '#D1D5DB', lineHeight: 16 },
 });
 
 export function TemplateYearSection({ year, accentColor }: TemplateYearSectionProps) {

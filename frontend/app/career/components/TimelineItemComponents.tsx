@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import {
   Calendar, Plus, Trash2, Check,
   CheckCircle2, Circle, X, MoreHorizontal,
+  ChevronDown, ChevronUp, ExternalLink,
 } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
@@ -110,16 +111,20 @@ export function GoalRow({ goal, color, isEditMode, onSave, onDelete }: {
   );
 }
 
-/* ─── Item row (todo-style) ─── */
+/* ─── Item row (todo-style) — 하위활동 아코디언 지원 ─── */
 export function ItemRow({
-  item, color, isEditMode, onToggleCheck, onDelete, onTitleSave, onInfoClick,
+  item, color, isEditMode, onToggleCheck, onDelete, onTitleSave, onInfoClick, onToggleSubItemDone,
 }: {
   item: PlanItemWithCheck; color: string; isEditMode: boolean;
   onToggleCheck: () => void; onDelete: () => void;
   onTitleSave: (t: string) => void; onInfoClick: () => void;
+  onToggleSubItemDone?: (itemId: string, subItemId: string) => void;
 }) {
   const typeConf = ITEM_TYPES.find((t) => t.value === item.type);
   const checked = !!item.checked;
+  const subItems = item.subItems ?? [];
+  const [subExpanded, setSubExpanded] = useState(false);
+  const doneCount = subItems.filter((s) => s.done).length;
   const monthLabel =
     item.months.length === 1 ? `${item.months[0]}월`
     : item.months.length <= 3 ? item.months.map((m) => `${m}월`).join('·')
@@ -127,64 +132,131 @@ export function ItemRow({
 
   return (
     <div
-      className="relative flex items-start gap-2.5 p-3 rounded-xl transition-all"
+      className="relative rounded-xl transition-all overflow-hidden"
       style={{
         backgroundColor: checked ? 'rgba(255,255,255,0.02)' : `${typeConf?.color ?? color}0e`,
         border: `1px solid ${checked ? 'rgba(255,255,255,0.06)' : (typeConf?.color ?? color) + '28'}`,
         opacity: checked ? 0.5 : 1,
       }}
     >
-      {/* Branch connector */}
-      <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
+      <div className="flex items-start gap-2.5 p-3">
+        {/* Branch connector */}
+        <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
 
-      <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
-        style={{ color: checked ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}>
-        {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
-      </button>
+        <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
+          style={{ color: checked ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}>
+          {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
+        </button>
 
-      <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg flex-shrink-0"
-        style={{ backgroundColor: `${typeConf?.color ?? color}1a`, border: `1px solid ${typeConf?.color ?? color}30` }}>
-        {typeConf?.emoji ?? '📌'}
-      </div>
-
-      <div
-        className="flex-1 min-w-0"
-        onClick={!isEditMode ? onInfoClick : undefined}
-        role={!isEditMode ? 'button' : undefined}
-        tabIndex={!isEditMode ? 0 : undefined}
-        onKeyDown={!isEditMode ? (e) => { if (e.key === 'Enter' || e.key === ' ') onInfoClick(); } : undefined}
-      >
-        {isEditMode ? (
-          <InlineTitle value={item.title} color={typeConf?.color ?? color} onSave={onTitleSave} />
-        ) : (
-          <span className="text-sm font-semibold text-white leading-snug cursor-pointer hover:underline decoration-dotted" title="탭하여 상세 보기">
-            {item.title}
-          </span>
-        )}
-        <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-          <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
-            style={{ backgroundColor: `${typeConf?.color ?? color}22`, color: typeConf?.color ?? color }}>
-            {typeConf?.label}
-          </span>
-          <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
-            <Calendar style={{ width: 10, height: 10 }} />{monthLabel}
-          </span>
-          {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
-            <span className="text-[10px] text-gray-600">{item.cost}</span>
+        <div
+          className="flex-1 min-w-0"
+          onClick={!isEditMode ? onInfoClick : undefined}
+          role={!isEditMode ? 'button' : undefined}
+          tabIndex={!isEditMode ? 0 : undefined}
+          onKeyDown={!isEditMode ? (e) => { if (e.key === 'Enter' || e.key === ' ') onInfoClick(); } : undefined}
+        >
+          {isEditMode ? (
+            <InlineTitle value={item.title} color={typeConf?.color ?? color} onSave={onTitleSave} />
+          ) : (
+            <span className="text-sm font-semibold text-white leading-snug cursor-pointer hover:underline decoration-dotted" title="탭하여 상세 보기">
+              {item.title}
+            </span>
           )}
+          <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              style={{ backgroundColor: `${typeConf?.color ?? color}22`, color: typeConf?.color ?? color }}>
+              {typeConf?.label}
+            </span>
+            <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
+              <Calendar style={{ width: 10, height: 10 }} />{monthLabel}
+            </span>
+            {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
+              <span className="text-[10px] text-gray-600">{item.cost}</span>
+            )}
+            {subItems.length > 0 && (
+              <button
+                type="button"
+                onClick={(e) => { e.stopPropagation(); setSubExpanded((prev) => !prev); }}
+                className="flex items-center gap-1.5 text-[10px] font-semibold transition-all rounded-lg px-2 py-1 -mx-1 hover:bg-white/5"
+                style={{ color: subExpanded ? (typeConf?.color ?? color) : 'rgba(255,255,255,0.5)' }}
+                title={subExpanded ? '하위 상세 접기' : '하위 상세 보기'}
+              >
+                {subExpanded ? <ChevronUp style={{ width: 12, height: 12 }} /> : <ChevronDown style={{ width: 12, height: 12 }} />}
+                하위 {doneCount}/{subItems.length}
+              </button>
+            )}
+          </div>
         </div>
+
+        {isEditMode && (
+          <div className="flex items-center gap-1 flex-shrink-0">
+            <button onClick={onInfoClick} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
+              style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
+              <MoreHorizontal style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.35)' }} />
+            </button>
+            <button onClick={onDelete} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
+              style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
+              <Trash2 style={{ width: 13, height: 13, color: '#ef4444' }} />
+            </button>
+          </div>
+        )}
       </div>
 
-      {isEditMode && (
-        <div className="flex items-center gap-1 flex-shrink-0">
-          <button onClick={onInfoClick} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
-            style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-            <MoreHorizontal style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.35)' }} />
-          </button>
-          <button onClick={onDelete} className="w-7 h-7 rounded-lg flex items-center justify-center transition-all active:scale-90"
-            style={{ backgroundColor: 'rgba(239,68,68,0.1)' }}>
-            <Trash2 style={{ width: 13, height: 13, color: '#ef4444' }} />
-          </button>
+      {/* 하위활동 아코디언 (뷰/수정 모드 공통) */}
+      {subExpanded && subItems.length > 0 && (
+        <div
+          className="px-3 pb-3 pt-1 space-y-1.5"
+          style={{ borderTop: `1px solid ${(typeConf?.color ?? color)}18` }}
+        >
+          {subItems.map((sub) => (
+            <div
+              key={sub.id}
+              className="flex items-start gap-2 px-2.5 py-1.5 rounded-lg"
+              style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
+            >
+              {onToggleSubItemDone ? (
+                <button
+                  type="button"
+                  onClick={() => onToggleSubItemDone(item.id, sub.id)}
+                  className="flex-shrink-0 transition-all active:scale-90 mt-0.5"
+                  style={{ color: sub.done ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}
+                >
+                  {sub.done ? <CheckCircle2 style={{ width: 14, height: 14 }} /> : <Circle style={{ width: 14, height: 14 }} />}
+                </button>
+              ) : (
+                <div className="flex-shrink-0 mt-0.5">
+                  {sub.done ? <CheckCircle2 style={{ width: 14, height: 14, color: typeConf?.color ?? color }} />
+                    : <Circle style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.2)' }} />}
+                </div>
+              )}
+              <div className="flex-1 min-w-0">
+                <span
+                  className="text-xs leading-snug"
+                  style={{
+                    color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.8)',
+                    textDecoration: sub.done ? 'line-through' : 'none',
+                  }}
+                >
+                  {sub.title}
+                </span>
+                {sub.description && (
+                  <div className="text-[10px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                )}
+                {sub.url && (
+                  <a
+                    href={sub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-0.5 text-[10px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink style={{ width: 9, height: 9 }} />
+                    {sub.url}
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

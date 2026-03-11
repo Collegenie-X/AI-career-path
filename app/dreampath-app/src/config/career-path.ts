@@ -19,6 +19,8 @@ export interface CareerPlanItem {
   difficulty: number;
   cost: string;
   organizer: string;
+  url?: string;
+  description?: string;
   custom?: boolean;
   checked?: boolean;
 }
@@ -29,12 +31,20 @@ export interface CareerPlanGroup {
   items: CareerPlanItem[];
 }
 
+export interface GoalActivityGroup {
+  id: string;
+  goal: string;
+  items: CareerPlanItem[];
+  isExpanded?: boolean;
+}
+
 export interface CareerYearPlan {
   gradeId: string;
   gradeLabel: string;
   goals: string[];
   items: CareerPlanItem[];
   groups?: CareerPlanGroup[];
+  goalGroups?: GoalActivityGroup[];
 }
 
 export interface CareerPlan {
@@ -137,6 +147,16 @@ export const CAREER_LABELS = {
   itemGroupEmpty: '이 그룹에 항목 추가',
   itemEmptyHint: '항목 추가 또는 그룹으로 묶기',
   itemAddMore: '더 추가하기',
+  itemUrl: 'URL',
+  itemDescription: '설명',
+  itemShowDetails: '상세 보기',
+  itemHideDetails: '접기',
+  itemEditUrl: 'URL 수정',
+  itemEditDescription: '설명 수정',
+  
+  goalAddActivity: '이 목표에 활동 추가',
+  goalNoActivity: '아직 세부 활동이 없어요',
+  goalActivityCount: '개 활동',
 
   addItemTitle: '항목 추가',
   addItemMonthTitle: '목표 월 설정',
@@ -160,6 +180,9 @@ export const CAREER_LABELS = {
   addItemCustomCostPlaceholder: '무료',
   addItemCustomOrganizerPlaceholder: '예: 학교·자체',
   addItemSubmit: '추가하기',
+  addItemEditTitle: '항목 수정',
+  addItemSaveEdit: '수정 완료',
+  itemClickToEdit: '탭하여 수정',
 
   summaryTitle: '커리어 패스 완성!',
   summaryTotalItems: '총 계획 항목',
@@ -195,14 +218,18 @@ export const CAREER_ITEM_TYPES = [
 ] as const;
 
 export const CAREER_GRADE_YEARS = [
-  { id: 'elem4', label: '초4', fullLabel: '초등 4학년', order: 1, group: '초등', groupEmoji: '🏫' },
-  { id: 'elem5', label: '초5', fullLabel: '초등 5학년', order: 2, group: '초등', groupEmoji: '🏫' },
-  { id: 'elem6', label: '초6', fullLabel: '초등 6학년', order: 3, group: '초등', groupEmoji: '🏫' },
-  { id: 'mid1', label: '중1', fullLabel: '중학교 1학년', order: 4, group: '중학교', groupEmoji: '🎒' },
-  { id: 'mid2', label: '중2', fullLabel: '중학교 2학년', order: 5, group: '중학교', groupEmoji: '🎒' },
-  { id: 'mid3', label: '중3', fullLabel: '중학교 3학년', order: 6, group: '중학교', groupEmoji: '🎒' },
-  { id: 'high1', label: '고1', fullLabel: '고등학교 1학년', order: 7, group: '고등학교', groupEmoji: '🎓' },
-  { id: 'high2', label: '고2', fullLabel: '고등학교 2학년', order: 8, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'elem3', label: '초3', fullLabel: '초등 3학년', order: 1, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem4', label: '초4', fullLabel: '초등 4학년', order: 2, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem5', label: '초5', fullLabel: '초등 5학년', order: 3, group: '초등', groupEmoji: '🏫' },
+  { id: 'elem6', label: '초6', fullLabel: '초등 6학년', order: 4, group: '초등', groupEmoji: '🏫' },
+  { id: 'mid1', label: '중1', fullLabel: '중학교 1학년', order: 5, group: '중학교', groupEmoji: '🎒' },
+  { id: 'mid2', label: '중2', fullLabel: '중학교 2학년', order: 6, group: '중학교', groupEmoji: '🎒' },
+  { id: 'mid3', label: '중3', fullLabel: '중학교 3학년', order: 7, group: '중학교', groupEmoji: '🎒' },
+  { id: 'high1', label: '고1', fullLabel: '고등학교 1학년', order: 8, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'high2', label: '고2', fullLabel: '고등학교 2학년', order: 9, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'high3', label: '고3', fullLabel: '고등학교 3학년', order: 10, group: '고등학교', groupEmoji: '🎓' },
+  { id: 'univ', label: '대학생', fullLabel: '대학생', order: 11, group: '일반', groupEmoji: '🎓' },
+  { id: 'general', label: '일반', fullLabel: '일반', order: 12, group: '일반', groupEmoji: '👔' },
 ] as const;
 
 export const STAR_FILTERS = [

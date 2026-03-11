@@ -20,6 +20,15 @@ export interface OperatorCommentNode extends OperatorComment {
   replies: OperatorCommentNode[];
 }
 
+/** 활동 하위의 작은 실행 단위 */
+export interface SharedPlanSubItem {
+  id: string;
+  title: string;
+  done?: boolean;
+  url?: string;
+  description?: string;
+}
+
 export interface SharedPlanItem {
   id: string;
   type: PlanItemType;
@@ -28,12 +37,26 @@ export interface SharedPlanItem {
   difficulty: number;
   cost?: string;
   organizer?: string;
+  url?: string;
+  description?: string;
+  /** 이 활동을 구성하는 하위 실행 항목들 */
+  subItems?: SharedPlanSubItem[];
+}
+
+/** 목표 하나 + 그 목표에 연결된 세부 활동 그룹 */
+export interface SharedPlanGoalGroup {
+  goal: string;
+  items: SharedPlanItem[];
 }
 
 export interface SharedPlanYear {
   gradeId: string;
   gradeLabel: string;
+  /** 목표-활동 그룹핑 (신규 구조) */
+  goalGroups?: SharedPlanGoalGroup[];
+  /** 하위 호환: 그룹핑 없는 단순 목표 목록 */
   goals: string[];
+  /** 하위 호환: 그룹핑 없는 단순 활동 목록 */
   items: SharedPlanItem[];
 }
 
@@ -47,6 +70,7 @@ export interface SharedPlan {
   schoolId: string;
   shareType: ShareType;
   title: string;
+  description?: string;
   jobEmoji: string;
   jobName: string;
   starName: string;
@@ -61,6 +85,7 @@ export interface SharedPlan {
   years: SharedPlanYear[];
   operatorComments: OperatorComment[];
   groupIds: string[];
+  tags?: string[];
 }
 
 export interface UserReactionState {
@@ -68,12 +93,15 @@ export interface UserReactionState {
   bookmarkedPlanIds: string[];
 }
 
+export type GroupMemberRole = 'creator' | 'member' | 'operator';
+
 export interface GroupMember {
   id: string;
   name: string;
   emoji: string;
   grade: string;
   joinedAt: string;
+  role?: GroupMemberRole;
 }
 
 export interface CommunityGroup {
@@ -88,6 +116,7 @@ export interface CommunityGroup {
   members: GroupMember[];
   sharedPlanCount: number;
   inviteCode?: string;
+  tags?: string[];
   createdAt: string;
   updatedAt?: string;
   isOperatorTest?: boolean;  // 운영자 UI 테스트용 그룹
@@ -102,6 +131,7 @@ export interface School {
   operatorEmoji: string;
   grades: string[];
   memberCount: number;
+  description?: string;
   createdAt: string;
   updatedAt?: string; // 학교 공간 전체 최신 활동 시각
 }

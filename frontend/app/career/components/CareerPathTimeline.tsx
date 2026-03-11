@@ -4,7 +4,7 @@ import { useState } from 'react';
 import {
   Map, Pencil, Trash2, Share2, Calendar,
   Target, ChevronDown, ChevronUp, Plus,
-  Sparkles, CheckCircle2, Circle
+  Sparkles, CheckCircle2, Circle, ExternalLink
 } from 'lucide-react';
 import { LABELS, ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
 import type { CareerPlan, YearPlan, PlanItem, GoalActivityGroup } from './CareerPathBuilder';
@@ -185,21 +185,38 @@ function ActivityItemTimelineCard({
           {subItems.map(sub => (
             <div
               key={sub.id}
-              className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg"
+              className="flex items-start gap-1.5 px-2 py-1.5 rounded-lg"
               style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
             >
               {sub.done
-                ? <CheckCircle2 style={{ width: 12, height: 12, color: tc?.color ?? planColor, flexShrink: 0 }} />
-                : <Circle style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} />}
-              <span
-                className="text-[10px] leading-snug"
-                style={{
-                  color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
-                  textDecoration: sub.done ? 'line-through' : 'none',
-                }}
-              >
-                {sub.title}
-              </span>
+                ? <CheckCircle2 style={{ width: 12, height: 12, color: tc?.color ?? planColor, flexShrink: 0, marginTop: 2 }} />
+                : <Circle style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.2)', flexShrink: 0, marginTop: 2 }} />}
+              <div className="flex-1 min-w-0">
+                <span
+                  className="text-[10px] leading-snug"
+                  style={{
+                    color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
+                    textDecoration: sub.done ? 'line-through' : 'none',
+                  }}
+                >
+                  {sub.title}
+                </span>
+                {sub.description && (
+                  <div className="text-[9px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                )}
+                {sub.url && (
+                  <a
+                    href={sub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-0.5 text-[9px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink style={{ width: 8, height: 8 }} />
+                    {sub.url}
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -235,7 +252,6 @@ function GoalActivityGroupTimelineCard({
           <Target style={{ width: 11, height: 11, color: planColor }} />
         </div>
         <span className="flex-1 text-xs font-bold text-white leading-snug">{group.goal}</span>
-        <span className="text-[10px] text-gray-500 flex-shrink-0">{group.items.length}개 활동</span>
         {isExpanded
           ? <ChevronUp className="w-3 h-3 text-gray-500 flex-shrink-0" />
           : <ChevronDown className="w-3 h-3 text-gray-500 flex-shrink-0" />}

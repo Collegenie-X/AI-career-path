@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Target, Calendar, ChevronDown, ChevronUp, CheckCircle2, Circle } from 'lucide-react';
+import { Target, Calendar, ChevronDown, ChevronUp, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
 import type { YearPlan, PlanItem, GoalActivityGroup } from './CareerPathBuilder';
 
@@ -18,20 +18,19 @@ function getMonthLabel(item: PlanItem): string {
 function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }) {
   const tc = ITEM_TYPES.find(t => t.value === item.type);
   const subItems = item.subItems ?? [];
-  const [subExpanded, setSubExpanded] = useState(false);
+  const [subExpanded, setSubExpanded] = useState(subItems.length > 0);
   const doneCount = subItems.filter(s => s.done).length;
 
   return (
     <div
-      className="rounded-lg overflow-hidden"
+      className="rounded-lg overflow-hidden my-1.5"
       style={{
         backgroundColor: `${tc?.color ?? color}0d`,
         border: `1px solid ${tc?.color ?? color}22`,
       }}
     >
       {/* 활동 헤더 */}
-      <div className="flex items-center gap-2 px-2.5 py-2">
-        <span className="text-sm flex-shrink-0">{tc?.emoji ?? '📌'}</span>
+      <div className="flex items-center gap-2 px-2.5 py-2.5">
         <div className="flex-1 min-w-0">
           <div className="text-xs font-semibold text-white line-clamp-1">{item.title}</div>
           <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
@@ -62,27 +61,44 @@ function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }
       {/* 하위활동 목록 */}
       {subExpanded && subItems.length > 0 && (
         <div
-          className="px-2.5 pb-2 space-y-1"
+          className="px-2.5 py-2.5 pb-3 space-y-1.5"
           style={{ borderTop: `1px solid ${tc?.color ?? color}18` }}
         >
           {subItems.map(sub => (
             <div
               key={sub.id}
-              className="flex items-center gap-1.5 px-2 py-1 rounded"
+              className="flex items-start gap-1.5 px-2 py-1 rounded"
               style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
             >
               {sub.done
-                ? <CheckCircle2 style={{ width: 11, height: 11, color: tc?.color ?? color, flexShrink: 0 }} />
-                : <Circle style={{ width: 11, height: 11, color: 'rgba(255,255,255,0.2)', flexShrink: 0 }} />}
-              <span
-                className="text-[10px] leading-snug"
-                style={{
-                  color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
-                  textDecoration: sub.done ? 'line-through' : 'none',
-                }}
-              >
-                {sub.title}
-              </span>
+                ? <CheckCircle2 style={{ width: 11, height: 11, color: tc?.color ?? color, flexShrink: 0, marginTop: 2 }} />
+                : <Circle style={{ width: 11, height: 11, color: 'rgba(255,255,255,0.2)', flexShrink: 0, marginTop: 2 }} />}
+              <div className="flex-1 min-w-0">
+                <span
+                  className="text-[10px] leading-snug"
+                  style={{
+                    color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
+                    textDecoration: sub.done ? 'line-through' : 'none',
+                  }}
+                >
+                  {sub.title}
+                </span>
+                {sub.description && (
+                  <div className="text-[9px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                )}
+                {sub.url && (
+                  <a
+                    href={sub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-0.5 text-[9px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ExternalLink style={{ width: 8, height: 8 }} />
+                    {sub.url}
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -117,16 +133,15 @@ function GoalActivityGroupReadOnly({
           <Target style={{ width: 11, height: 11, color }} />
         </div>
         <span className="flex-1 text-xs font-bold text-white leading-snug">{group.goal}</span>
-        <span className="text-[10px] text-gray-500 flex-shrink-0">{group.items.length}개</span>
         {isExpanded
           ? <ChevronUp style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />
           : <ChevronDown style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />}
       </button>
 
       {/* 세부활동 목록 — ActivityItemReadOnly로 렌더링 */}
-      {isExpanded && group.items.length > 0 && (
-        <div className="px-3 pb-2.5 space-y-1.5" style={{ borderTop: `1px solid ${color}18` }}>
-          {group.items.map((item, idx) => (
+      {isExpanded && (group.items ?? []).length > 0 && (
+        <div className="px-3 py-2.5 pb-4 space-y-2" style={{ borderTop: `1px solid ${color}18` }}>
+          {(group.items ?? []).map((item, idx) => (
             <ActivityItemReadOnly key={item.id ?? idx} item={item} color={color} />
           ))}
         </div>
@@ -177,7 +192,7 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
   );
 
   return (
-    <div className="relative">
+    <div className="relative py-4">
       <div
         className="absolute top-0 bottom-0 w-0.5"
         style={{ left: 19, backgroundColor: `${color}25` }}
@@ -188,15 +203,15 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
           const semesterConf = SEMESTER_OPTIONS.find(s => s.id === year.semester);
 
           const totalGoals = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + sp.goalGroups.length, 0)
+            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
             : (year.goalGroups ?? []).length;
 
           const totalItems = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
-            : (year.goalGroups ?? []).reduce((s, g) => s + g.items.length, 0);
+            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
+            : (year.goalGroups ?? []).reduce((s, g) => s + (g.items ?? []).length, 0);
 
           return (
-            <div key={year.gradeId} className="relative pl-12 pb-6">
+            <div key={year.gradeId} className="relative pl-12 pb-8">
               {/* Grade circle */}
               <div
                 className="absolute top-0 flex items-center justify-center rounded-full text-xs font-black z-10"
@@ -231,7 +246,7 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                     key={sp.semesterId}
                     semesterLabel={sp.semesterLabel}
                     semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                    goalGroups={sp.goalGroups}
+                    goalGroups={sp.goalGroups ?? []}
                     color={color}
                   />
                 ))}
@@ -248,13 +263,13 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                 {/* 레거시 데이터 폴백 (goals + items) */}
                 {(!year.goalGroups || year.goalGroups.length === 0) &&
                   year.semester !== 'split' &&
-                  year.goals.length > 0 && (
+                  (year.goals ?? []).length > 0 && (
                   <div className="space-y-1">
                     <div className="flex items-center gap-1 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
                       <Target style={{ width: 11, height: 11 }} />
                       목표
                     </div>
-                    {year.goals.map((goal, gi) => (
+                    {(year.goals ?? []).map((goal, gi) => (
                       <div
                         key={gi}
                         className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"

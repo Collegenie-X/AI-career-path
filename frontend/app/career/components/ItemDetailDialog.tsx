@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Calendar, DollarSign, Building2, Flame } from 'lucide-react';
+import { X, Calendar, DollarSign, Building2, Flame, Link as LinkIcon, FileText } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
 
@@ -23,7 +23,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center"
+      className="fixed inset-0 z-[9999] flex items-end justify-center"
       style={{
         backgroundColor: 'rgba(0,0,0,0.7)',
         backdropFilter: 'blur(8px)',
@@ -81,113 +81,149 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
           </div>
         </div>
 
-        {/* Content */}
-        <div className="p-5 space-y-4">
-          {/* 기간 */}
+        {/* Content — 2열 그리드로 상하 공간 절약 (모바일 대응) */}
+        <div className="p-5 space-y-3">
           <div
-            className="flex items-start gap-3 p-4 rounded-xl"
+            className="grid grid-cols-2 gap-2"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              borderRadius: 12,
+              padding: 12,
+            }}
+          >
+            {/* 기간 */}
+            <div className="flex items-start gap-2">
+              <Calendar
+                className="w-4 h-4 flex-shrink-0 mt-0.5"
+                style={{ color: typeConf?.color ?? color }}
+              />
+              <div className="flex-1 min-w-0">
+                <div className="text-[10px] font-bold text-gray-400 mb-0.5">목표 기간</div>
+                <div className="text-xs font-semibold text-white">{monthLabel}</div>
+                {item.months.length > 1 && (
+                  <div className="text-[10px] text-gray-500">{item.months.length}개월</div>
+                )}
+              </div>
+            </div>
+
+            {/* 난이도 */}
+            {item.difficulty > 0 && (
+              <div className="flex items-start gap-2">
+                <Flame
+                  className="w-4 h-4 flex-shrink-0 mt-0.5"
+                  style={{ color: '#f59e0b' }}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">난이도</div>
+                  <div className="flex items-center gap-1 flex-wrap">
+                    <span className="text-xs">
+                      {Array.from({ length: 5 }, (_, i) => (
+                        <span
+                          key={i}
+                          style={{
+                            color: i < item.difficulty ? '#f59e0b' : '#374151',
+                          }}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </span>
+                    <span className="text-[10px] font-semibold text-white">
+                      {item.difficulty === 1 && '매우 쉬움'}
+                      {item.difficulty === 2 && '쉬움'}
+                      {item.difficulty === 3 && '보통'}
+                      {item.difficulty === 4 && '어려움'}
+                      {item.difficulty === 5 && '매우 어려움'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* 비용 */}
+            {item.cost && (
+              <div className="flex items-start gap-2">
+                <DollarSign
+                  className="w-4 h-4 flex-shrink-0 mt-0.5"
+                  style={{ color: '#22c55e' }}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">비용</div>
+                  <div className="text-xs font-semibold text-white">{item.cost}</div>
+                </div>
+              </div>
+            )}
+
+            {/* 주관/출처 */}
+            {item.organizer && (
+              <div className="flex items-start gap-2">
+                <Building2
+                  className="w-4 h-4 flex-shrink-0 mt-0.5"
+                  style={{ color: '#8b5cf6' }}
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">주관/출처</div>
+                  <div className="text-xs font-semibold text-white line-clamp-2">
+                    {item.organizer}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* URL — 전체 너비 */}
+          <div
+            className="flex items-start gap-2 p-3 rounded-xl"
             style={{
               backgroundColor: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.08)',
             }}
           >
-            <Calendar
-              className="w-5 h-5 flex-shrink-0 mt-0.5"
-              style={{ color: typeConf?.color ?? color }}
+            <LinkIcon
+              className="w-4 h-4 flex-shrink-0 mt-0.5"
+              style={{ color: '#60a5fa' }}
             />
-            <div className="flex-1">
-              <div className="text-xs font-bold text-gray-400 mb-1">목표 기간</div>
-              <div className="text-sm font-semibold text-white">{monthLabel}</div>
-              {item.months.length > 1 && (
-                <div className="text-xs text-gray-500 mt-1">
-                  총 {item.months.length}개월 진행
-                </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[10px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
+              {item.url?.trim() ? (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs font-semibold text-blue-400 hover:text-blue-300 underline break-all"
+                >
+                  {item.url}
+                </a>
+              ) : (
+                <span className="text-xs text-gray-500 italic">정보 없음</span>
               )}
             </div>
           </div>
 
-          {/* 난이도 */}
-          {item.difficulty > 0 && (
-            <div
-              className="flex items-start gap-3 p-4 rounded-xl"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              <Flame
-                className="w-5 h-5 flex-shrink-0 mt-0.5"
-                style={{ color: '#f59e0b' }}
-              />
-              <div className="flex-1">
-                <div className="text-xs font-bold text-gray-400 mb-1">난이도</div>
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <span
-                        key={i}
-                        className="text-base"
-                        style={{
-                          color: i < item.difficulty ? '#f59e0b' : '#374151',
-                        }}
-                      >
-                        ★
-                      </span>
-                    ))}
-                  </div>
-                  <span className="text-sm font-semibold text-white">
-                    {item.difficulty === 1 && '매우 쉬움'}
-                    {item.difficulty === 2 && '쉬움'}
-                    {item.difficulty === 3 && '보통'}
-                    {item.difficulty === 4 && '어려움'}
-                    {item.difficulty === 5 && '매우 어려움'}
-                  </span>
+          {/* 설명 — 전체 너비 */}
+          <div
+            className="flex items-start gap-2 p-3 rounded-xl"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <FileText
+              className="w-4 h-4 flex-shrink-0 mt-0.5"
+              style={{ color: '#a78bfa' }}
+            />
+            <div className="flex-1 min-w-0">
+              <div className="text-[10px] font-bold text-gray-400 mb-0.5">상세 설명</div>
+              {item.description?.trim() ? (
+                <div className="text-xs text-gray-300 leading-relaxed whitespace-pre-wrap">
+                  {item.description}
                 </div>
-              </div>
+              ) : (
+                <span className="text-xs text-gray-500 italic">정보 없음</span>
+              )}
             </div>
-          )}
-
-          {/* 비용 */}
-          {item.cost && (
-            <div
-              className="flex items-start gap-3 p-4 rounded-xl"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              <DollarSign
-                className="w-5 h-5 flex-shrink-0 mt-0.5"
-                style={{ color: '#22c55e' }}
-              />
-              <div className="flex-1">
-                <div className="text-xs font-bold text-gray-400 mb-1">비용</div>
-                <div className="text-sm font-semibold text-white">{item.cost}</div>
-              </div>
-            </div>
-          )}
-
-          {/* 주관/출처 */}
-          {item.organizer && (
-            <div
-              className="flex items-start gap-3 p-4 rounded-xl"
-              style={{
-                backgroundColor: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.08)',
-              }}
-            >
-              <Building2
-                className="w-5 h-5 flex-shrink-0 mt-0.5"
-                style={{ color: '#8b5cf6' }}
-              />
-              <div className="flex-1">
-                <div className="text-xs font-bold text-gray-400 mb-1">주관/출처</div>
-                <div className="text-sm font-semibold text-white">
-                  {item.organizer}
-                </div>
-              </div>
-            </div>
-          )}
+          </div>
 
           {/* 직접 입력 뱃지 */}
           {item.custom && (
