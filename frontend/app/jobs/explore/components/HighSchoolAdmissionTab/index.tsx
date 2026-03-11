@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Brain, Zap } from 'lucide-react';
+import { Sparkles, Zap } from 'lucide-react';
 
 // ── 분리된 JSON 파일 import ──────────────────────────────────
 // 카테고리별로 파일이 나뉘어 있어 유지보수가 쉽습니다.
@@ -18,12 +18,15 @@ import meister from '@/data/high-school/meister.json';
 import business from '@/data/high-school/business.json';
 import generalElite from '@/data/high-school/general_elite.json';
 
+import identityChallengeData from '@/data/high-school/identity-challenge.json';
+import mentalChallengeData from '@/data/high-school/mental-challenge.json';
 import type { HighSchoolAdmissionV2Data, HighSchoolCategory, HighSchoolDetail } from '../../types';
+import type { IdentityChallengeData, MentalChallengeData } from '../../types';
 import { PlanetOrbitView } from './PlanetOrbitView';
 import { SchoolCategoryView } from './SchoolCategoryView';
 import { SchoolDetailModal } from './SchoolDetailModal';
-import { AptitudeCheckSection } from './AptitudeCheckSection';
-import { IdentityMentalSection } from './IdentityMentalSection';
+import { IdentityChallengeGame } from './IdentityChallengeGame';
+import { MentalChallengeGame } from './MentalChallengeGame';
 
 // 분리된 카테고리 파일을 합쳐서 기존 타입과 호환되는 데이터 구성
 const typedData: HighSchoolAdmissionV2Data = {
@@ -45,8 +48,8 @@ const typedData: HighSchoolAdmissionV2Data = {
 type AdmissionViewState =
   | { view: 'planet' }
   | { view: 'category'; category: HighSchoolCategory }
-  | { view: 'aptitude' }
-  | { view: 'identity' };
+  | { view: 'identity-challenge' }
+  | { view: 'mental-challenge' };
 
 export function HighSchoolAdmissionTab() {
   const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
@@ -89,27 +92,27 @@ export function HighSchoolAdmissionTab() {
         </div>
       )}
 
-      {/* 섹션 선택 탭 (행성 뷰에서만 표시) */}
+      {/* 섹션 선택 탭 (정체성 / 멘탈) */}
       {viewState.view === 'planet' && (
         <div
           className="flex rounded-xl p-1 gap-1"
           style={{ background: 'rgba(255,255,255,0.05)' }}
         >
           <button
-            onClick={() => setViewState({ view: 'aptitude' })}
+            onClick={() => setViewState({ view: 'identity-challenge' })}
             className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
             style={{ background: 'transparent', color: '#9ca3af' }}
           >
-            <Brain className="w-3.5 h-3.5" />
-            적성 체크
+            <Sparkles className="w-3.5 h-3.5" />
+            정체성
           </button>
           <button
-            onClick={() => setViewState({ view: 'identity' })}
+            onClick={() => setViewState({ view: 'mental-challenge' })}
             className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
             style={{ background: 'transparent', color: '#9ca3af' }}
           >
             <Zap className="w-3.5 h-3.5" />
-            정체성 & 멘탈
+            멘탈
           </button>
         </div>
       )}
@@ -136,20 +139,20 @@ export function HighSchoolAdmissionTab() {
         />
       )}
 
-      {/* 적성 체크 뷰 */}
-      {viewState.view === 'aptitude' && (
-        <AptitudeCheckSection
-          data={typedData.aptitudeCheckList}
+      {/* 정체성 뷰 */}
+      {viewState.view === 'identity-challenge' && (
+        <IdentityChallengeGame
+          data={identityChallengeData as IdentityChallengeData}
           categories={typedData.categories}
           onBack={handleBackToPlanet}
           onSelectCategory={handleSelectCategory}
         />
       )}
 
-      {/* 정체성 & 멘탈 뷰 */}
-      {viewState.view === 'identity' && (
-        <IdentityMentalSection
-          data={typedData.identityAndMentalStrength}
+      {/* 멘탈 뷰 */}
+      {viewState.view === 'mental-challenge' && (
+        <MentalChallengeGame
+          data={mentalChallengeData as MentalChallengeData}
           onBack={handleBackToPlanet}
         />
       )}

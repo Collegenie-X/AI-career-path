@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, RotateCcw } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, Target } from 'lucide-react';
 import type { HighSchoolAdmissionV2Data, HighSchoolCategory } from '../../types';
 
 type AptitudeCheckSectionProps = {
@@ -12,11 +12,16 @@ type AptitudeCheckSectionProps = {
 };
 
 type AptitudeState =
+  | { phase: 'intro' }
   | { phase: 'question'; questionIndex: number }
   | { phase: 'result'; categoryId: string | null };
 
 export function AptitudeCheckSection({ data, categories, onBack, onSelectCategory }: AptitudeCheckSectionProps) {
-  const [state, setState] = useState<AptitudeState>({ phase: 'question', questionIndex: 0 });
+  const [state, setState] = useState<AptitudeState>({ phase: 'intro' });
+
+  const handleStart = () => {
+    setState({ phase: 'question', questionIndex: 0 });
+  };
 
   const handleAnswer = (answer: 'yes' | 'no') => {
     if (state.phase !== 'question') return;
@@ -47,7 +52,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
   };
 
   const handleReset = () => {
-    setState({ phase: 'question', questionIndex: 0 });
+    setState({ phase: 'intro' });
   };
 
   const resultCategory = state.phase === 'result' && state.categoryId
@@ -59,7 +64,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
       {/* 헤더 */}
       <div className="flex items-center gap-2">
         <button
-          onClick={onBack}
+          onClick={state.phase === 'intro' ? onBack : () => setState({ phase: 'intro' })}
           className="w-8 h-8 rounded-xl flex items-center justify-center"
           style={{ background: 'rgba(255,255,255,0.08)' }}
         >
@@ -70,6 +75,38 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
           <p className="text-[11px] text-gray-400">{data.description}</p>
         </div>
       </div>
+
+      {/* 인트로 (게임 도전 느낌) */}
+      {state.phase === 'intro' && (
+        <div className="space-y-3">
+          <div
+            className="rounded-2xl p-5 text-center"
+            style={{
+              background: 'linear-gradient(135deg, rgba(32,201,151,0.2) 0%, rgba(132,94,247,0.1) 100%)',
+              border: '1px solid rgba(32,201,151,0.3)',
+            }}
+          >
+            <div className="text-4xl mb-2">🧠</div>
+            <p className="text-sm font-bold text-white mb-1">적성 체크 도전</p>
+            <p className="text-[11px] text-gray-300 leading-relaxed mb-4">{data.description}</p>
+            <p className="text-[10px] text-gray-400">7문제를 풀면 나에게 맞는 학교 유형을 찾아줘요!</p>
+          </div>
+
+          <button
+            onClick={handleStart}
+            className="w-full py-3.5 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
+            style={{
+              background: 'linear-gradient(135deg, #10b981 0%, #34d399 100%)',
+              border: '1px solid rgba(16,185,129,0.5)',
+              color: 'white',
+              boxShadow: '0 4px 14px rgba(16,185,129,0.2)',
+            }}
+          >
+            <Target className="w-4 h-4" />
+            도전 시작
+          </button>
+        </div>
+      )}
 
       {/* 질문 단계 */}
       {state.phase === 'question' && (
@@ -90,25 +127,26 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
             </span>
           </div>
 
-          {/* 질문 카드 */}
+          {/* 질문 카드 (게임 느낌) */}
           <div
-            className="rounded-2xl p-5 text-center"
+            className="rounded-2xl p-5 text-center transition-all"
             style={{
               background: 'linear-gradient(135deg, rgba(132,94,247,0.15) 0%, rgba(32,201,151,0.1) 100%)',
               border: '1px solid rgba(132,94,247,0.3)',
+              boxShadow: '0 0 20px rgba(132,94,247,0.1)',
             }}
           >
-            <div className="text-3xl mb-3">🤔</div>
+            <div className="text-3xl mb-3 animate-pulse">🤔</div>
             <p className="text-sm font-bold text-white leading-relaxed">
               {data.questions[state.questionIndex].question}
             </p>
           </div>
 
-          {/* 예/아니오 버튼 */}
+          {/* 예/아니오 버튼 (게임 선택 느낌) */}
           <div className="grid grid-cols-2 gap-2">
             <button
               onClick={() => handleAnswer('yes')}
-              className="py-3 rounded-2xl text-sm font-bold transition-all active:scale-95"
+              className="py-3 rounded-2xl text-sm font-bold transition-all active:scale-[0.96] hover:opacity-90"
               style={{
                 background: 'rgba(16,185,129,0.15)',
                 border: '1px solid rgba(16,185,129,0.4)',
@@ -119,7 +157,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
             </button>
             <button
               onClick={() => handleAnswer('no')}
-              className="py-3 rounded-2xl text-sm font-bold transition-all active:scale-95"
+              className="py-3 rounded-2xl text-sm font-bold transition-all active:scale-[0.96] hover:opacity-90"
               style={{
                 background: 'rgba(239,68,68,0.1)',
                 border: '1px solid rgba(239,68,68,0.3)',

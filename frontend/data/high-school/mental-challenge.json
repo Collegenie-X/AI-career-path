@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "title": "멘탈 도전",
+    "subtitle": "고입 멘탈 시뮬레이션",
+    "description": "고입 상황에서의 멘탈을 체험해보세요! 선택에 따라 멘탈 강도가 달라져요.",
+    "totalScenarios": 5
+  },
+  "scenarios": [
+    {
+      "id": "s1",
+      "situation": "시험 1주일 전",
+      "emoji": "🌙",
+      "question": "중간고사 1주일 전, 밤 11시에 공부가 끝났어요. 다음에 할 일은?",
+      "choices": [
+        { "text": "30분 더 풀고 자자", "mentalScore": -1, "feedback": "잠이 멘탈의 기반이에요. 과도한 야근은 다음날 피로로 이어져요." },
+        { "text": "스트레칭하고 바로 잔다", "mentalScore": 2, "feedback": "완벽해요! 수면과 회복이 장기전의 핵심이에요." },
+        { "text": "SNS를 보며 잠든다", "mentalScore": -1, "feedback": "SNS는 비교와 불안을 키울 수 있어요. 잠 직전에는 피하는 게 좋아요." },
+        { "text": "내일 할 일을 정리하고 잔다", "mentalScore": 1, "feedback": "계획 정리가 마음의 안정을 줘요. 좋은 선택이에요!" }
+      ]
+    },
+    {
+      "id": "s2",
+      "situation": "성적 하락",
+      "emoji": "📉",
+      "question": "기대했던 시험에서 성적이 많이 떨어졌어요. 첫 반응은?",
+      "choices": [
+        { "text": "왜 떨어졌는지 분석하고 다음 계획을 세운다", "mentalScore": 2, "feedback": "성장 마인드셋! 실패를 배움의 기회로 바꾸는 멘탈이에요." },
+        { "text": "친구나 선생님에게 털어놓고 이야기한다", "mentalScore": 1, "feedback": "공유하는 것도 좋은 방법이에요. 혼자만의 부담은 줄이세요." },
+        { "text": "나만의 루틴(운동·음악 등)으로 감정을 풀어낸다", "mentalScore": 2, "feedback": "자기만의 회복 방법이 있다는 건 큰 강점이에요!" },
+        { "text": "계속 생각하다가 며칠 우울해진다", "mentalScore": -2, "feedback": "한 번의 실패가 나의 가치를 결정하지 않아요. 도움을 찾아보세요." }
+      ]
+    },
+    {
+      "id": "s3",
+      "situation": "비교의 유혹",
+      "emoji": "👀",
+      "question": "친구가 나보다 더 좋은 성적을 받았다는 걸 알게 됐어요.",
+      "choices": [
+        { "text": "어제의 나와 비교한다. '나는 어제보다 성장했나?'", "mentalScore": 2, "feedback": "완벽해요! 경쟁자는 나 자신이에요. 자기 성장에 집중해요." },
+        { "text": "그 친구의 공부법을 물어보고 배운다", "mentalScore": 1, "feedback": "경쟁보다 협력! 좋은 선택이에요." },
+        { "text": "나도 더 열심히 하겠다고 다짐한다", "mentalScore": 0, "feedback": "동기부여는 좋지만, 과한 압박은 번아웃으로 이어질 수 있어요." },
+        { "text": "나는 안 된다고 생각하며 위축된다", "mentalScore": -2, "feedback": "비교는 번아웃의 지름길이에요. 나만의 속도로 가세요." }
+      ]
+    },
+    {
+      "id": "s4",
+      "situation": "목표 상실",
+      "emoji": "❓",
+      "question": "갑자기 '왜 이렇게 공부하지?'라는 생각이 들어요.",
+      "choices": [
+        { "text": "나만의 이유를 찾기 위해 스스로에게 물어본다", "mentalScore": 2, "feedback": "정체성의 핵심! '왜'를 아는 학생이 가장 오래갑니다." },
+        { "text": "선생님·부모님과 상담하며 정리한다", "mentalScore": 1, "feedback": "외부의 시각도 도움이 돼요. 함께 고민해보세요." },
+        { "text": "일단 하던 대로 계속한다", "mentalScore": 0, "feedback": "때로는 그냥 하는 것도 방법이에요. 나중에 다시 생각해보세요." },
+        { "text": "의미를 못 찾아 공부를 멈춘다", "mentalScore": -2, "feedback": "슬럼프일 수 있어요. 잠시 쉬고, 도움을 구하는 것도 용기예요." }
+      ]
+    },
+    {
+      "id": "s5",
+      "situation": "시험 당일",
+      "emoji": "📝",
+      "question": "시험장에 들어가기 직전, 심장이 빨리 뛰어요.",
+      "choices": [
+        { "text": "심호흡 3번 하고 '할 수 있어'라고 생각한다", "mentalScore": 2, "feedback": "호흡법이 멘탈의 기본! 실전에서 잘 활용했어요." },
+        { "text": "준비한 것만큼 할 수 있다고 스스로를 격려한다", "mentalScore": 2, "feedback": "자기 신뢰가 실전력을 높여요. 잘했어요!" },
+        { "text": "친구와 대화하며 긴장을 푼다", "mentalScore": 1, "feedback": "사회적 지원도 좋은 방법이에요." },
+        { "text": "더 떨려서 멍해진다", "mentalScore": -1, "feedback": "긴장은 자연스러워요. 호흡에 집중해보세요." }
+      ]
+    }
+  ],
+  "resultTiers": [
+    { "minScore": 8, "label": "멘탈 마스터", "emoji": "🏆", "message": "고입 상황에서 멘탈을 잘 관리할 준비가 되어 있어요!" },
+    { "minScore": 5, "label": "멘탈 준비됨", "emoji": "💪", "message": "잘하고 있어요. 계속 자기만의 루틴을 유지하세요." },
+    { "minScore": 0, "label": "멘탈 성장 중", "emoji": "🌱", "message": "아직 성장할 여지가 있어요. 위의 팁들을 참고해보세요." },
+    { "minScore": -999, "label": "멘탈 케어 필요", "emoji": "🤗", "message": "고입은 마라톤이에요. 멘탈 관리 팁을 꼭 읽어보세요." }
+  ]
+}

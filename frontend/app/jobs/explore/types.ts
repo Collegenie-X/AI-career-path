@@ -297,6 +297,47 @@ export type AptitudeQuestion = {
   no: string | null;
 };
 
+export type IdentityChallengeChoice = {
+  text: string;
+  categoryScores: Record<string, number>;
+  hint?: string;
+};
+
+export type IdentityChallengeQuestion = {
+  id: string;
+  theme: string;
+  themeIcon: string;
+  context?: string;
+  question: string;
+  choices: IdentityChallengeChoice[];
+};
+
+export type IdentityChallengeData = {
+  meta: { title: string; subtitle: string; description: string; totalQuestions: number };
+  questions: IdentityChallengeQuestion[];
+  resultMessages: { single: string; multiple: string; neutral: string };
+};
+
+export type MentalChallengeChoice = {
+  text: string;
+  mentalScore: number;
+  feedback: string;
+};
+
+export type MentalChallengeScenario = {
+  id: string;
+  situation: string;
+  emoji: string;
+  question: string;
+  choices: MentalChallengeChoice[];
+};
+
+export type MentalChallengeData = {
+  meta: { title: string; subtitle: string; description: string; totalScenarios: number };
+  scenarios: MentalChallengeScenario[];
+  resultTiers: { minScore: number; label: string; emoji: string; message: string }[];
+};
+
 export type HighSchoolAdmissionV2Data = {
   meta: { title: string; subtitle: string; description: string };
   categories: HighSchoolCategory[];

@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "title": "정체성 10도전",
+    "subtitle": "나의 대학 루트를 찾는 10가지 질문",
+    "description": "고입 선택이 곧 대입 루트를 결정합니다. SKY·의대, 미국 유학, 특기생 등 다양한 경로를 경험해보세요.",
+    "totalQuestions": 10,
+    "phaseLabels": {
+      "intro": "도전 시작",
+      "question": "질문",
+      "result": "적성 발견"
+    }
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "theme": "대학 루트",
+      "themeIcon": "🎓",
+      "context": "고입 선택은 3년 후 대입 루트를 결정합니다. 학교마다 강점이 다릅니다.",
+      "question": "10년 후, 나는 어떤 대학·진로를 꿈꾸고 있나요?",
+      "choices": [
+        { "text": "SKY·의대·법대 등 국내 명문대 (수시 학종 + 정시)", "categoryScores": { "autonomous_private": 2, "general_elite": 1 }, "hint": "자사고·일반고 학군지 강점" },
+        { "text": "미국 아이비리그·영국 옥스퍼드 등 해외 명문대", "categoryScores": { "international": 2, "ib": 2 }, "hint": "국제고·IB 학교 강점" },
+        { "text": "한국예술종합학교·체육대 등 예술·체육 특기 진학", "categoryScores": { "arts_sports": 3 }, "hint": "예술고·체육고 직결" },
+        { "text": "KAIST·POSTECH 등 이공계 특수대학 또는 연구자", "categoryScores": { "science_high": 3 }, "hint": "과학고·영재고 강점" },
+        { "text": "빠른 취업·선취업후진학 (기술·경영 전문가)", "categoryScores": { "meister": 2, "business": 1 }, "hint": "마이스터고·비즈니스고" }
+      ]
+    },
+    {
+      "id": "q2",
+      "theme": "학습 에너지",
+      "themeIcon": "⚡",
+      "context": "적성에 맞는 환경에서 공부할 때 효율이 2배 이상 올라갑니다.",
+      "question": "방과 후 2시간이 생겼어요. 가장 먼저 하고 싶은 것은?",
+      "choices": [
+        { "text": "수학·과학 문제를 풀거나 '왜?'를 탐구한다", "categoryScores": { "science_high": 3 } },
+        { "text": "영어·외국어로 말하고 쓰거나 국제 이슈를 탐구한다", "categoryScores": { "foreign_language": 2, "international": 1 } },
+        { "text": "그림·음악·운동 등 실기 연습을 한다", "categoryScores": { "arts_sports": 3 } },
+        { "text": "코딩·기계 등 기술을 배우고 뭔가를 만든다", "categoryScores": { "meister": 3 } },
+        { "text": "계획을 세우고 체계적으로 정리·복기한다", "categoryScores": { "autonomous_private": 2, "autonomous_public": 1 } }
+      ]
+    },
+    {
+      "id": "q3",
+      "theme": "미국·해외 대학",
+      "themeIcon": "🌏",
+      "context": "미국 대학은 학종·수능이 아닌 IB·AP·SAT·에세이로 지원합니다. 국제고·IB 학교가 최적화돼 있어요.",
+      "question": "미국 아이비리그, 영국 옥스퍼드, 홍콩대 등 해외 명문대 진학에 관심이 있나요?",
+      "choices": [
+        { "text": "매우 관심 있다. 해외 대학이 1순위 목표다", "categoryScores": { "international": 3, "ib": 2 } },
+        { "text": "관심 있다. 국내·해외 중 선택을 고민 중이다", "categoryScores": { "international": 2, "foreign_language": 1 } },
+        { "text": "국내 대학이 우선이다. 해외는 보조 옵션", "categoryScores": { "autonomous_private": 1, "general_elite": 1 } },
+        { "text": "해외 대학은 고려하지 않는다", "categoryScores": { "science_high": 1, "autonomous_public": 1 } }
+      ]
+    },
+    {
+      "id": "q4",
+      "theme": "특기생 루트",
+      "themeIcon": "🎭",
+      "context": "예술고·체육고는 실기 중심입니다. 수능 비중이 낮고, 전국 대회 입상이 핵심이에요.",
+      "question": "음악·미술·무용·연극·체육 등 예술·체육 특기가 있나요? (전국 대회 수준)",
+      "choices": [
+        { "text": "있다. 이 분야로 대학 가는 게 꿈이다", "categoryScores": { "arts_sports": 3 } },
+        { "text": "취미 수준이지만, 더 키워보고 싶다", "categoryScores": { "arts_sports": 1 } },
+        { "text": "특기는 없고, 교과 공부 중심이다", "categoryScores": { "autonomous_private": 1, "science_high": 1 } }
+      ]
+    },
+    {
+      "id": "q5",
+      "theme": "수시 vs 정시",
+      "themeIcon": "📋",
+      "context": "학종(학생부종합)은 비교과·세특이 중요하고, 정시는 수능 1등급이 핵심입니다. 학교마다 강점이 달라요.",
+      "question": "대입에서 나에게 더 맞는 전형은?",
+      "choices": [
+        { "text": "학종(학생부종합) — 활동·탐구·세특으로 승부", "categoryScores": { "science_high": 1, "international": 1, "autonomous_private": 1 } },
+        { "text": "정시(수능) — 시험 한 번에 집중", "categoryScores": { "general_elite": 2, "autonomous_private": 1 } },
+        { "text": "둘 다 병행 — 수시 6장 + 정시 백업", "categoryScores": { "autonomous_private": 2, "autonomous_public": 1 } },
+        { "text": "실기 전형 — 예술·체육 특기로", "categoryScores": { "arts_sports": 3 } }
+      ]
+    },
+    {
+      "id": "q6",
+      "theme": "경쟁 환경",
+      "themeIcon": "🏆",
+      "context": "특목고는 전국 경쟁, 일반고는 지역·학군 경쟁입니다. 나에게 맞는 강도가 있어요.",
+      "question": "어떤 경쟁 환경이 나에게 맞나요?",
+      "choices": [
+        { "text": "전국 최상위와 경쟁하며 극한까지 도전하고 싶다", "categoryScores": { "science_high": 2, "autonomous_private": 1 } },
+        { "text": "지역 내 상위권으로 안정적 성장을 원한다", "categoryScores": { "autonomous_public": 2, "general_elite": 1 } },
+        { "text": "경쟁보다 나만의 전문성(실기·기술)을 키우고 싶다", "categoryScores": { "arts_sports": 2, "meister": 1 } },
+        { "text": "글로벌 무대에서 다양한 친구들과 경쟁하고 싶다", "categoryScores": { "international": 2, "foreign_language": 1 } }
+      ]
+    },
+    {
+      "id": "q7",
+      "theme": "재정·비용",
+      "themeIcon": "💰",
+      "context": "국제고·IB·예술고는 연 1,000만원 이상 비용이 들 수 있어요. 마이스터고는 전액 국비 지원이에요.",
+      "question": "고입·대입 과정에서 재정을 어떻게 고려하나요?",
+      "choices": [
+        { "text": "유학·국제고 비용 부담이 크다. 국내 루트 선호", "categoryScores": { "autonomous_public": 1, "general_elite": 1 } },
+        { "text": "재정은 부담이 아니다. 최적의 환경을 원한다", "categoryScores": { "international": 1, "ib": 1 } },
+        { "text": "빠른 취업으로 경제적 독립을 원한다", "categoryScores": { "meister": 2, "business": 1 } },
+        { "text": "장학금·국비 지원을 활용할 계획이다", "categoryScores": { "science_high": 1, "meister": 1 } }
+      ]
+    },
+    {
+      "id": "q8",
+      "theme": "가치관",
+      "themeIcon": "💎",
+      "context": "'성공'의 정의는 사람마다 다릅니다. 나에게 중요한 가치가 고입 선택에 영향을 줘요.",
+      "question": "나에게 '성공'이란 무엇인가요?",
+      "choices": [
+        { "text": "세계 무대에서 인정받는 글로벌 리더", "categoryScores": { "international": 2, "foreign_language": 1 } },
+        { "text": "한 분야의 1인자 (연구·예술·기술)", "categoryScores": { "science_high": 2, "arts_sports": 1 } },
+        { "text": "안정적 직장·경제적 독립", "categoryScores": { "business": 2, "meister": 1 } },
+        { "text": "명문대 진학 후 전문직(의사·변호사 등)", "categoryScores": { "autonomous_private": 2, "general_elite": 1 } }
+      ]
+    },
+    {
+      "id": "q9",
+      "theme": "정체성",
+      "themeIcon": "🌟",
+      "context": "고입은 3년간의 삶을 결정합니다. '나는 어떤 사람인가'를 아는 게 선택의 기준이 돼요.",
+      "question": "나를 한 문장으로 표현한다면?",
+      "choices": [
+        { "text": "호기심이 많고, '왜?'를 끊임없이 묻는 탐구자", "categoryScores": { "science_high": 2, "ib": 1 } },
+        { "text": "다른 문화에 관심 많고, 세계와 소통하고 싶은 사람", "categoryScores": { "foreign_language": 2, "international": 1 } },
+        { "text": "나만의 표현으로 세상에 감동을 주고 싶은 예술가", "categoryScores": { "arts_sports": 3 } },
+        { "text": "목표를 세우고 꾸준히 달성하는 실행력 있는 사람", "categoryScores": { "autonomous_private": 2, "meister": 1 } }
+      ]
+    },
+    {
+      "id": "q10",
+      "theme": "종합 고민",
+      "themeIcon": "🤔",
+      "context": "고입 전 고민은 곧 방향입니다. 가장 크게 고민하는 것이 나의 관심사를 보여줘요.",
+      "question": "고입을 앞두고 가장 크게 고민하는 것은?",
+      "choices": [
+        { "text": "수학·과학을 더 깊이 배우고 싶다. 올림피아드·연구에 도전하고 싶다", "categoryScores": { "science_high": 3 } },
+        { "text": "해외 대학·유학을 고민 중이다. IB·AP 과정이 궁금하다", "categoryScores": { "international": 2, "ib": 2 } },
+        { "text": "예술·체육으로 진로를 정하고 싶다. 실기 중심 학교가 좋을까?", "categoryScores": { "arts_sports": 3 } },
+        { "text": "SKY·의대 등 명문대 진학 전략. 자사고 vs 일반고 고민이다", "categoryScores": { "autonomous_private": 2, "general_elite": 1 } },
+        { "text": "빠른 취업·기술 전문가가 되고 싶다. 마이스터고·비즈니스고?", "categoryScores": { "meister": 2, "business": 1 } }
+      ]
+    }
+  ],
+  "resultMessages": {
+    "single": "당신의 정체성과 대학 루트에 가장 잘 맞는 학교 유형이에요!",
+    "multiple": "다양한 가능성이 있어요. 아래 유형들을 탐방해보세요!",
+    "neutral": "아직 탐색이 필요한 시기예요. 행성 지도에서 여러 유형을 둘러보세요!"
+  }
+}

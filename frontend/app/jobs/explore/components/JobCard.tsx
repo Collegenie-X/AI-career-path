@@ -15,7 +15,7 @@ export function JobCard({ job, color, onClick }: JobCardProps) {
 
   return (
     <button
-      className="w-full rounded-2xl p-3 flex items-center gap-3 text-left transition-all active:scale-[0.98] group overflow-hidden relative"
+      className="w-full rounded-2xl p-3 flex items-center gap-2.5 text-left transition-all active:scale-[0.98] group overflow-hidden relative"
       style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid rgba(255,255,255,0.08)` }}
       onClick={onClick}
     >

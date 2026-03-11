@@ -18,7 +18,7 @@ import {
   StarCard,
   IntroBanner,
   PageHeader,
-  StarDetailDialog,
+  StarDetailPage,
   JobDetailModal,
 } from './components';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
@@ -139,11 +139,11 @@ function JobsExploreContent() {
         {activeTab === 'admission' && <HighSchoolAdmissionTab />}
       </div>
 
-      {!selectedJob && <TabBar />}
+      {!selectedJob && !selectedStar && <TabBar />}
 
-      {/* 별 선택 시 다이얼로그 (끊김 없는 모달 느낌) */}
+      {/* 별 선택 시 전체 페이지 (화살표로 섹션 이동) */}
       {selectedStar && !selectedJob && (
-        <StarDetailDialog
+        <StarDetailPage
           star={selectedStar}
           onClose={() => setSelectedStar(null)}
           onOpenJob={(job) => setSelectedJob(job)}

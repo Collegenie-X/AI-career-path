@@ -143,6 +143,7 @@ export const LABELS = {
   star_holland_code_label: 'Holland 코드',
   star_job_tendency_label: '직무 성향',
   star_job_tendency_hint: 'Holland 코드 기반 직무 유형',
+  star_detail_scroll_next: '다음 섹션으로',
   star_difficulty_hint: '1~5단계 도달 난이도',
   star_preparation_hint: '목표 달성까지 예상 연수',
   star_key_subjects_label: '핵심 과목',
@@ -200,6 +201,20 @@ export const HIGH_SCHOOL_LABELS = {
   decision_flow_no: '아니오',
   decision_flow_result: '추천 고교',
   decision_flow_view_detail: '상세 전략 보기',
+  school_list_section_title: '개 학교 탐방',
+  school_list_click_hint: '학교를 눌러 자세히 보세요',
+  school_difficulty_label: '난이도',
+  school_view_detail: '자세히 보기',
+  school_trait_detail_title: '이 유형의 특성 상세',
+  school_trait_detail_button: '상세 보기 + 적성 검사',
+  school_annual_admission_suffix: '명',
+  school_difficulty_levels: {
+    '1': '쉬움',
+    '2': '보통',
+    '3': '보통+',
+    '4': '어려움',
+    '5': '매우 어려움',
+  } as Record<string, string>,
 };
 
 // ─── Job Career Route Labels ──────────────────────────────────
