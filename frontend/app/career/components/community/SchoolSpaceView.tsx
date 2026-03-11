@@ -232,21 +232,57 @@ function SchoolDetailView({
 
   return (
     <div className="space-y-4">
-      {/* 뒤로 + 더보기 */}
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-sm font-bold text-gray-300 transition-all active:scale-95"
-        >
-          <ChevronRight className="w-4 h-4 rotate-180" />학교 목록
-        </button>
-        <button
-          onClick={() => setShowMoreMenu(true)}
-          className="w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-95"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
-        >
-          <MoreVertical className="w-4 h-4 text-gray-400" />
-        </button>
+      {/* Sticky header: 뒤로 + 현재 컨텍스트 + 더보기 */}
+      <div
+        className="sticky top-0 z-20 -mx-4 px-4 pt-3 pb-3"
+        style={{
+          backgroundColor: 'rgba(10,10,30,0.88)',
+          backdropFilter: 'blur(18px)',
+          borderBottom: '1px solid rgba(255,255,255,0.08)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.35)',
+        }}
+      >
+        <div className="flex items-center justify-between gap-3">
+          <div className="min-w-0 flex items-center gap-2.5">
+            <button
+              onClick={() => {
+                onBack();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2 h-10 pl-3 pr-3 rounded-xl text-sm font-black transition-all active:scale-[0.98]"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)',
+                color: 'rgba(255,255,255,0.92)',
+              }}
+              aria-label="학교 목록으로 돌아가기"
+            >
+              <ChevronRight className="w-4 h-4 rotate-180" />
+              학교 목록
+            </button>
+
+            <div className="min-w-0">
+              <div className="text-[10px] font-bold tracking-wide text-gray-500">
+                커뮤니티 · 학교 공간
+              </div>
+              <div className="text-sm font-black text-white truncate">
+                {school.name}
+              </div>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setShowMoreMenu(true)}
+            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all active:scale-[0.98]"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.12)',
+            }}
+            aria-label="학교 옵션 더보기"
+          >
+            <MoreVertical className="w-4 h-4 text-gray-300" />
+          </button>
+        </div>
       </div>
 
       {/* 학교 헤더 */}
@@ -266,7 +302,7 @@ function SchoolDetailView({
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="text-base font-bold text-white">{school.name}</span>
+              <span className="text-[11px] font-black text-white/90">학교 정보</span>
               {isJoined && (
                 <span
                   className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
@@ -276,7 +312,7 @@ function SchoolDetailView({
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-2 mt-0.5 flex-wrap text-[10px] text-gray-400">
+            <div className="flex items-center gap-2 mt-1 flex-wrap text-[10px] text-gray-400">
               <span>{school.operatorEmoji} {school.operatorName} 선생님</span>
               <span className="text-gray-600">·</span>
               <span className="flex items-center gap-0.5"><Users className="w-2.5 h-2.5" />{school.memberCount}명</span>
