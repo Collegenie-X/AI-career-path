@@ -301,13 +301,14 @@ export type IdentityChallengeChoice = {
   text: string;
   categoryScores: Record<string, number>;
   hint?: string;
+  feedback: string;
 };
 
 export type IdentityChallengeQuestion = {
   id: string;
   theme: string;
   themeIcon: string;
-  context?: string;
+  context: string;
   question: string;
   choices: IdentityChallengeChoice[];
 };
@@ -328,6 +329,7 @@ export type MentalChallengeScenario = {
   id: string;
   situation: string;
   emoji: string;
+  context: string;
   question: string;
   choices: MentalChallengeChoice[];
 };

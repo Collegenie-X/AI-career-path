@@ -21,7 +21,7 @@ export function TabBar() {
 
   return (
     <div
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-40 w-full max-w-[430px] border-t border-white/10"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-30 w-full max-w-[430px] border-t border-white/10"
       style={{ backgroundColor: 'rgba(26,26,46,0.95)', backdropFilter: 'blur(20px)' }}
     >
       <div className="flex items-center justify-around py-1.5 px-2">
