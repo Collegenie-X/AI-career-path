@@ -190,10 +190,26 @@ function CareerPageContent() {
               }));
         }
 
-        // goalGroups에 이미 포함된 항목은 year.items에 넣지 않음 (이중 표시 방지)
-        const ungroupedItems = Array.isArray(y.goalGroups) && y.goalGroups.length > 0
-          ? rawItems.map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx))
-          : []; // 템플릿(goals+items) 변환 시 모든 항목은 goalGroups에 있음
+        // goalGroups / semesterPlans에 이미 포함된 항목은 year.items에 넣지 않음 (이중 표시 방지)
+        const keyOf = (item: any) => {
+          const id = item?.id;
+          if (typeof id === 'string' && id.trim()) return `id:${id}`;
+          const type = item?.type ?? 'activity';
+          const title = item?.title ?? '';
+          return `tt:${type}::${String(title).trim()}`;
+        };
+        const keysInGoalGroups = new Set<string>(
+          (y.goalGroups ?? []).flatMap((g: any) => (g.items ?? []).map(keyOf))
+        );
+        const keysInSemesterPlans = new Set<string>(
+          (y.semesterPlans ?? []).flatMap((sp: any) => (sp.goalGroups ?? []).flatMap((g: any) => (g.items ?? []).map(keyOf)))
+        );
+        const ungroupedItems =
+          Array.isArray(rawItems) && rawItems.length > 0
+            ? rawItems
+                .filter((it: any) => !keysInGoalGroups.has(keyOf(it)) && !keysInSemesterPlans.has(keyOf(it)))
+                .map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx))
+            : [];
 
         return {
           gradeId: y.gradeId,
