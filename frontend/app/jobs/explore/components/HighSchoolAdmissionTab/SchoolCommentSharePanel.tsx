@@ -373,7 +373,26 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
                 </div>
 
                 <p className="text-[11px] text-gray-300 leading-relaxed break-words">{comment.content}</p>
-                {comment.replies.length > 0 ? <p className="text-[10px] text-gray-500 mt-1.5">답글 {comment.replies.length}개</p> : null}
+
+                {comment.replies.length > 0 ? (
+                  <div className="mt-2 space-y-1.5 pl-2 border-l border-white/10">
+                    {comment.replies.map((reply) => (
+                      <div key={reply.id} className="rounded-lg px-2 py-1.5 bg-white/5">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <span className="text-[10px] text-gray-500">{timeAgo(reply.createdAt)}</span>
+                          <button
+                            onClick={() => deleteReply(comment.id, reply.id)}
+                            className="p-1 rounded-md text-gray-500 hover:text-gray-300"
+                            aria-label="대댓글 삭제"
+                          >
+                            <Trash2 className="w-3 h-3" />
+                          </button>
+                        </div>
+                        <p className="text-[11px] text-gray-300 leading-relaxed">{reply.content}</p>
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
 
                 <div className="mt-2">
                   <button

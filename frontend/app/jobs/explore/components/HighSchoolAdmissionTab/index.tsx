@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Sparkles, Zap } from 'lucide-react';
+import { LibraryBig, Sparkles, Zap } from 'lucide-react';
 
 // ── 분리된 JSON 파일 import ──────────────────────────────────
 // 카테고리별로 파일이 나뉘어 있어 유지보수가 쉽습니다.
@@ -28,6 +28,7 @@ import { SchoolDetailModal } from './SchoolDetailModal';
 import { IdentityChallengeGame } from './IdentityChallengeGame';
 import { MentalChallengeGame } from './MentalChallengeGame';
 import { enrichHighSchoolCategories } from './school-profile-enricher';
+import { HighSchoolResourceHubSection } from './HighSchoolResourceHubSection';
 
 // 분리된 카테고리 파일을 합쳐서 기존 타입과 호환되는 데이터 구성
 const typedData: HighSchoolAdmissionV2Data = {
@@ -50,7 +51,8 @@ type AdmissionViewState =
   | { view: 'planet' }
   | { view: 'category'; category: HighSchoolCategory }
   | { view: 'identity-challenge' }
-  | { view: 'mental-challenge' };
+  | { view: 'mental-challenge' }
+  | { view: 'resource-hub' };
 
 export function HighSchoolAdmissionTab() {
   const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
@@ -108,7 +110,7 @@ export function HighSchoolAdmissionTab() {
         </div>
       )}
 
-      {/* 섹션 선택 탭 (정체성 / 멘탈) */}
+      {/* 섹션 선택 탭 (정체성 / 멘탈 / 자료실) */}
       {viewState.view === 'planet' && (
         <div
           className="flex rounded-xl p-1 gap-1"
@@ -129,6 +131,14 @@ export function HighSchoolAdmissionTab() {
           >
             <Zap className="w-3.5 h-3.5" />
             멘탈
+          </button>
+          <button
+            onClick={() => setViewState({ view: 'resource-hub' })}
+            className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
+            style={{ background: 'transparent', color: '#9ca3af' }}
+          >
+            <LibraryBig className="w-3.5 h-3.5" />
+            자료실
           </button>
         </div>
       )}
@@ -171,6 +181,11 @@ export function HighSchoolAdmissionTab() {
           data={mentalChallengeData as MentalChallengeData}
           onBack={handleBackToPlanet}
         />
+      )}
+
+      {/* 자료실 뷰 */}
+      {viewState.view === 'resource-hub' && (
+        <HighSchoolResourceHubSection onBack={handleBackToPlanet} />
       )}
 
       {/* 학교 상세 모달 */}
