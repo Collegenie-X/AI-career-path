@@ -10,6 +10,7 @@ import { GRADE_YEARS } from '../../config';
 import type { SharedPlan, OperatorComment, OperatorCommentNode, SharedPlanYear, SharedPlanItem, SharedPlanGoalGroup } from './types';
 import { ReportModal, type ReportTarget } from '../ReportModal';
 import { PlanItemRowCard, PlanItemDetailSheet } from '../PlanItemDetailSheet';
+import { buildChronologicalParentTree, type ParentTreeNode } from '@/lib/timelineTreeUtils';
 
 /* ─── Goal group (목표 + 세부활동 그룹핑) ─── */
 function GoalGroupSection({
@@ -187,26 +188,6 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
       )}
     </div>
   );
-}
-
-/** 플랫 댓글 목록 → 트리 구조로 변환 */
-function buildCommentTree(comments: OperatorComment[]): OperatorCommentNode[] {
-  const rootComments = comments.filter(c => !c.parentId);
-  const byParent = new Map<string, OperatorComment[]>();
-  comments.filter(c => c.parentId).forEach(c => {
-    const pid = c.parentId!;
-    if (!byParent.has(pid)) byParent.set(pid, []);
-    byParent.get(pid)!.push(c);
-  });
-  const toNode = (c: OperatorComment): OperatorCommentNode => {
-    const replies = (byParent.get(c.id) ?? []).sort(
-      (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-    ).map(toNode);
-    return { ...c, replies };
-  };
-  return rootComments
-    .sort((a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime())
-    .map(toNode);
 }
 
 /* ─── Comment bubble (트리 구조: 댓글 + 대댓글) ─── */
@@ -467,7 +448,14 @@ export function SharedPlanDetailDialog({
     handleSendComment(text, parentId);
   };
 
-  const commentTree = buildCommentTree(comments);
+  const mapNodeToOperatorCommentNode = (
+    node: ParentTreeNode<OperatorComment>,
+  ): OperatorCommentNode => ({
+    ...node,
+    replies: node.children.map(mapNodeToOperatorCommentNode),
+  });
+
+  const commentTree = buildChronologicalParentTree(comments).map(mapNodeToOperatorCommentNode);
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col">

@@ -5,6 +5,6 @@ import { useRouter } from 'next/navigation';
 
 export default function HistoryRedirect() {
   const router = useRouter();
-  useEffect(() => { router.replace('/launchpad'); }, [router]);
+  useEffect(() => { router.replace('/dreammate'); }, [router]);
   return null;
 }

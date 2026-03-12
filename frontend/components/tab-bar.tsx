@@ -1,14 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { Home, Briefcase, Map, Rocket } from 'lucide-react';
-
-const tabs = [
-  { id: 'home',       label: '홈',          icon: Home,     path: '/home' },
-  { id: 'jobs',       label: '직업 체험',    icon: Briefcase, path: '/jobs/explore' },
-  { id: 'career',     label: '커리어 패스',  icon: Map,      path: '/career' },
-  { id: 'launchpad',  label: '런치패드',     icon: Rocket,   path: '/launchpad' },
-];
+import { BOTTOM_NAVIGATION_TABS } from './tab-bar.config';
 
 export function TabBar() {
   const pathname = usePathname();
@@ -25,7 +18,7 @@ export function TabBar() {
       style={{ backgroundColor: 'rgba(26,26,46,0.95)', backdropFilter: 'blur(20px)' }}
     >
       <div className="flex items-center justify-around py-1.5 px-2">
-        {tabs.map(tab => {
+        {BOTTOM_NAVIGATION_TABS.map(tab => {
           const active = getIsActive(tab.path);
           const Icon = tab.icon;
           return (
