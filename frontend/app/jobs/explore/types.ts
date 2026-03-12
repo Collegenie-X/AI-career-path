@@ -235,6 +235,31 @@ export type SchoolHighlightStat = {
   color: string;
 };
 
+export type SchoolAdmissionRouteStrength = {
+  route: string;
+  strength: 'high' | 'medium' | 'low';
+  reason: string;
+  recommendedFor: string;
+};
+
+export type SchoolMajorUniversityRatio = {
+  track: string;
+  ratio: number;
+  note?: string;
+};
+
+export type SchoolSelectionProfile = {
+  profileTitle: string;
+  profileSummary: string;
+  curriculumHighlights: string[];
+  extracurricularHighlights: string[];
+  clubHighlights: string[];
+  admissionRouteStrengths: SchoolAdmissionRouteStrength[];
+  majorUniversityRatios: SchoolMajorUniversityRatio[];
+  ratioBasisNote?: string;
+  middleSchoolSelectionChecklist: string[];
+};
+
 export type HighSchoolDetail = {
   id: string;
   name: string;
@@ -262,6 +287,7 @@ export type HighSchoolDetail = {
   targetUniversities: string[];
   alumniCareers: string[];
   highlightStats?: SchoolHighlightStat[];
+  selectionProfile?: SchoolSelectionProfile;
   realTalk?: SchoolRealTalkItem[];
   dailySchedule?: SchoolDailyScheduleItem[];
   survivalTips?: SchoolSurvivalTip[];

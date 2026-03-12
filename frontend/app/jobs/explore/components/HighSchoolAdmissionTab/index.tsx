@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Sparkles, Zap } from 'lucide-react';
 
 // ── 분리된 JSON 파일 import ──────────────────────────────────
@@ -27,11 +27,12 @@ import { SchoolCategoryView } from './SchoolCategoryView';
 import { SchoolDetailModal } from './SchoolDetailModal';
 import { IdentityChallengeGame } from './IdentityChallengeGame';
 import { MentalChallengeGame } from './MentalChallengeGame';
+import { enrichHighSchoolCategories } from './school-profile-enricher';
 
 // 분리된 카테고리 파일을 합쳐서 기존 타입과 호환되는 데이터 구성
 const typedData: HighSchoolAdmissionV2Data = {
   ...(metaData as unknown as Pick<HighSchoolAdmissionV2Data, 'meta' | 'identityAndMentalStrength' | 'aptitudeCheckList'>),
-  categories: [
+  categories: enrichHighSchoolCategories([
     scienceHigh,
     foreignLanguage,
     international,
@@ -42,7 +43,7 @@ const typedData: HighSchoolAdmissionV2Data = {
     meister,
     business,
     generalElite,
-  ] as unknown as HighSchoolCategory[],
+  ] as unknown as HighSchoolCategory[]),
 };
 
 type AdmissionViewState =
@@ -55,6 +56,21 @@ export function HighSchoolAdmissionTab() {
   const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
   const [selectedSchool, setSelectedSchool] = useState<HighSchoolDetail | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<HighSchoolCategory | null>(null);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const schoolId = new URLSearchParams(window.location.search).get('school');
+    if (!schoolId) return;
+
+    for (const category of typedData.categories) {
+      const matchedSchool = category.schools.find((school) => school.id === schoolId);
+      if (!matchedSchool) continue;
+      setViewState({ view: 'category', category });
+      setSelectedCategory(category);
+      setSelectedSchool(matchedSchool);
+      return;
+    }
+  }, []);
 
   const handleSelectCategory = (category: HighSchoolCategory) => {
     setViewState({ view: 'category', category });

@@ -7,7 +7,14 @@ import rawData from '@/data/category-trait-detail.json';
 export type QuizQuestion = {
   emoji: string;
   question: string;
-  isPositive: boolean;
+  focusArea: string;
+  choices: QuizQuestionChoice[];
+};
+
+export type QuizQuestionChoice = {
+  label: string;
+  score: number;
+  feedback?: string;
 };
 
 export type CategoryTraitDetailContent = {

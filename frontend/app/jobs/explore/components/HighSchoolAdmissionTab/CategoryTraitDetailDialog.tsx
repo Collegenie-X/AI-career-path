@@ -11,10 +11,17 @@ import { TRAIT_ITEMS } from './SchoolCategoryView';
 
 type DialogTabId = 'traits' | 'quiz' | 'environment';
 
+type QuizAnswerRecord = {
+  choiceIndex: number;
+  score: number;
+  label: string;
+  feedback?: string;
+};
+
 type QuizPhase =
   | { phase: 'intro' }
-  | { phase: 'question'; index: number; answers: boolean[] }
-  | { phase: 'result'; score: number };
+  | { phase: 'question'; index: number; answers: QuizAnswerRecord[] }
+  | { phase: 'result'; totalScore: number; maxScore: number; answers: QuizAnswerRecord[] };
 
 type CategoryTraitDetailDialogProps = {
   category: HighSchoolCategory;
@@ -31,17 +38,16 @@ const DIALOG_TABS: { id: DialogTabId; label: string; emoji: string }[] = [
 
 // ── 결과 메시지 ───────────────────────────────────────────────
 
-const QUIZ_RESULT_MESSAGES: Record<number, { emoji: string; title: string; desc: string }> = {
-  5: { emoji: '🌟', title: '완벽한 적성!',    desc: '이 유형과 매우 잘 맞아요. 자신 있게 도전하세요!' },
-  4: { emoji: '✨', title: '높은 적합도!',    desc: '대부분 잘 맞아요. 부족한 부분은 준비하면 됩니다.' },
-  3: { emoji: '💡', title: '보통 적합도',     desc: '절반 정도 맞아요. 좀 더 탐색해보는 것을 추천해요.' },
-  2: { emoji: '🤔', title: '신중하게 고려',   desc: '맞지 않는 부분이 많아요. 다른 유형도 살펴보세요.' },
-  1: { emoji: '⚠️', title: '다른 유형 추천', desc: '이 유형보다 다른 유형이 더 잘 맞을 수 있어요.' },
-  0: { emoji: '🔄', title: '다른 유형 탐색', desc: '지금은 이 유형보다 다른 길이 더 맞을 것 같아요.' },
-};
+const QUIZ_RESULT_MESSAGES: { minRatio: number; emoji: string; title: string; desc: string }[] = [
+  { minRatio: 0.85, emoji: '🌟', title: '매우 높은 적합도', desc: '교과·활동·성과 준비도가 높아요. 이 유형에 강하게 도전해볼 만합니다.' },
+  { minRatio: 0.7, emoji: '✨', title: '높은 적합도', desc: '핵심 역량이 잘 갖춰졌어요. 부족한 영역만 보완하면 경쟁력이 충분합니다.' },
+  { minRatio: 0.55, emoji: '💡', title: '성장 가능 구간', desc: '기본 적성은 보입니다. 방과후 활동과 성과 기록을 더 촘촘히 채워보세요.' },
+  { minRatio: 0.4, emoji: '🤔', title: '재점검 필요', desc: '일부 강점은 있지만 준비 편차가 큽니다. 학습/활동 루틴을 먼저 안정화해보세요.' },
+  { minRatio: 0, emoji: '🔄', title: '다른 유형도 탐색', desc: '현재 준비도 기준으로는 다른 학교 유형이 더 잘 맞을 수 있어요.' },
+];
 
-function getResultMessage(score: number) {
-  return QUIZ_RESULT_MESSAGES[score] ?? QUIZ_RESULT_MESSAGES[0];
+function getResultMessage(ratio: number) {
+  return QUIZ_RESULT_MESSAGES.find((message) => ratio >= message.minRatio) ?? QUIZ_RESULT_MESSAGES[QUIZ_RESULT_MESSAGES.length - 1];
 }
 
 // ── 메인 컴포넌트 ─────────────────────────────────────────────
@@ -54,18 +60,19 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
   const content = CATEGORY_TRAIT_DETAIL[category.id] ?? getDefaultContent();
   const { color: categoryColor, bgColor: categoryBgColor } = category;
 
-  const handleQuizAnswer = (answer: boolean) => {
+  const handleQuizAnswer = (choiceIndex: number, score: number, label: string, feedback?: string) => {
     if (quizPhase.phase !== 'question') return;
     const { index, answers } = quizPhase;
-    const newAnswers = [...answers, answer];
+    const newAnswers = [...answers, { choiceIndex, score, label, feedback }];
     const nextIndex = index + 1;
 
     if (nextIndex >= content.quizQuestions.length) {
-      const score = newAnswers.filter((a, i) => {
-        const q = content.quizQuestions[i];
-        return q.isPositive ? a : !a;
-      }).length;
-      setQuizPhase({ phase: 'result', score });
+      const totalScore = newAnswers.reduce((sum, answer) => sum + answer.score, 0);
+      const maxScore = content.quizQuestions.reduce((sum, question) => {
+        const questionMaxScore = Math.max(...question.choices.map((choice) => choice.score));
+        return sum + questionMaxScore;
+      }, 0);
+      setQuizPhase({ phase: 'result', totalScore, maxScore, answers: newAnswers });
     } else {
       setQuizPhase({ phase: 'question', index: nextIndex, answers: newAnswers });
     }
@@ -255,8 +262,13 @@ type QuizTabProps = {
   categoryColor: string;
   categoryBgColor: string;
   quizPhase: QuizPhase;
-  questions: { emoji: string; question: string; isPositive: boolean }[];
-  onAnswer: (answer: boolean) => void;
+  questions: {
+    emoji: string;
+    focusArea: string;
+    question: string;
+    choices: { label: string; score: number; feedback?: string }[];
+  }[];
+  onAnswer: (choiceIndex: number, score: number, label: string, feedback?: string) => void;
   onReset: () => void;
   onStart: () => void;
 };
@@ -278,8 +290,8 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         <div className="text-center">
           <h3 className="text-lg font-bold text-white mb-2">간단 적성 검사</h3>
           <p className="text-[12px] text-gray-400 leading-relaxed">
-            5가지 질문에 솔직하게 답해보세요.<br />
-            이 유형이 나에게 얼마나 맞는지 확인할 수 있어요.
+            각 문항은 4지선다로 구성되어 있어요.<br />
+            교과·방과후·수상·실습(코딩 포함) 준비도를 점검해보세요.
           </p>
         </div>
         <div className="w-full space-y-2">
@@ -290,7 +302,12 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
               style={{ background: 'rgba(255,255,255,0.04)' }}
             >
               <span className="text-lg flex-shrink-0">{q.emoji}</span>
-              <p className="text-[11px] text-gray-400 leading-relaxed">{q.question}</p>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold mb-0.5" style={{ color: categoryColor }}>
+                  {q.focusArea}
+                </p>
+                <p className="text-[11px] text-gray-400 leading-relaxed">{q.question}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -312,7 +329,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
   if (quizPhase.phase === 'question') {
     const { index, answers } = quizPhase;
     const current = questions[index];
-    const progress = ((index) / questions.length) * 100;
+    const progress = (answers.length / questions.length) * 100;
 
     return (
       <div className="px-4 py-4 flex flex-col gap-4">
@@ -344,7 +361,11 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
                 className="flex-1 h-1 rounded-full"
                 style={{
                   background: i < answers.length
-                    ? (answers[i] ? '#22c55e' : '#ef4444')
+                    ? answers[i].score >= 2
+                      ? '#22c55e'
+                      : answers[i].score === 1
+                      ? '#f59e0b'
+                      : '#ef4444'
                     : i === index
                     ? categoryColor
                     : 'rgba(255,255,255,0.1)',
@@ -364,44 +385,54 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
           }}
         >
           <span className="text-5xl">{current.emoji}</span>
+          <span
+            className="text-[10px] font-bold px-2 py-1 rounded-full"
+            style={{ background: `${categoryColor}28`, color: categoryColor }}
+          >
+            {current.focusArea}
+          </span>
           <p className="text-[15px] font-semibold text-white leading-relaxed">{current.question}</p>
           <p className="text-[10px] text-gray-500">솔직하게 답해보세요</p>
         </div>
 
-        {/* O / X 버튼 */}
-        <div className="grid grid-cols-2 gap-3">
-          <button
-            onClick={() => onAnswer(false)}
-            className="py-4 rounded-2xl font-bold text-lg transition-all active:scale-95 flex flex-col items-center gap-1"
-            style={{
-              background: 'rgba(239,68,68,0.15)',
-              border: '2px solid rgba(239,68,68,0.4)',
-              color: '#f87171',
-            }}
-          >
-            <span className="text-3xl">✗</span>
-            <span className="text-[11px]">아니오</span>
-          </button>
-          <button
-            onClick={() => onAnswer(true)}
-            className="py-4 rounded-2xl font-bold text-lg transition-all active:scale-95 flex flex-col items-center gap-1"
-            style={{
-              background: 'rgba(34,197,94,0.15)',
-              border: '2px solid rgba(34,197,94,0.4)',
-              color: '#4ade80',
-            }}
-          >
-            <span className="text-3xl">○</span>
-            <span className="text-[11px]">예</span>
-          </button>
+        {/* 4지선다 버튼 */}
+        <div className="space-y-2.5">
+          {current.choices.map((choice, choiceIndex) => {
+            const choiceColor = choice.score >= 2 ? '#22c55e' : choice.score === 1 ? '#f59e0b' : '#ef4444';
+
+            return (
+              <button
+                key={`${current.question}-${choiceIndex}`}
+                onClick={() => onAnswer(choiceIndex, choice.score, choice.label, choice.feedback)}
+                className="w-full px-3 py-3 rounded-2xl text-left transition-all active:scale-[0.98]"
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${choiceColor}55`,
+                }}
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-[12px] font-semibold leading-relaxed text-gray-100">{choice.label}</p>
+                  <span
+                    className="text-[10px] px-2 py-0.5 rounded-full font-bold flex-shrink-0"
+                    style={{ color: choiceColor, background: `${choiceColor}22` }}
+                  >
+                    {choice.score}점
+                  </span>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </div>
     );
   }
 
   // 결과 화면
-  const { score } = quizPhase;
-  const result = getResultMessage(score);
+  const { totalScore, maxScore, answers } = quizPhase;
+  const normalizedMaxScore = Math.max(maxScore, 1);
+  const ratio = totalScore / normalizedMaxScore;
+  const result = getResultMessage(ratio);
+  const starScore = Math.max(1, Math.round(ratio * 5));
 
   return (
     <div className="px-4 py-4 flex flex-col gap-4">
@@ -426,15 +457,15 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
               key={i}
               className="w-6 h-6 transition-all"
               style={{
-                fill: i < score ? categoryColor : 'transparent',
-                color: i < score ? categoryColor : 'rgba(255,255,255,0.2)',
-                filter: i < score ? `drop-shadow(0 0 4px ${categoryColor})` : 'none',
+                fill: i < starScore ? categoryColor : 'transparent',
+                color: i < starScore ? categoryColor : 'rgba(255,255,255,0.2)',
+                filter: i < starScore ? `drop-shadow(0 0 4px ${categoryColor})` : 'none',
               }}
             />
           ))}
         </div>
         <p className="text-[11px] font-bold" style={{ color: categoryColor }}>
-          {score} / 5 매칭
+          {totalScore} / {normalizedMaxScore}점 ({Math.round(ratio * 100)}%)
         </p>
       </div>
 
@@ -445,13 +476,20 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
       >
         <p className="text-[11px] font-bold text-gray-400 mb-2">📊 문항별 결과</p>
         {questions.map((q, i) => {
-          const answered = quizPhase.phase === 'result';
-          if (!answered) return null;
-          // 결과 단계에서는 answers를 재구성해야 하므로 score 기반으로 표시
+          const answer = answers[i];
+          if (!answer) return null;
           return (
-            <div key={i} className="flex items-center gap-2">
-              <span className="text-base flex-shrink-0">{q.emoji}</span>
-              <p className="text-[11px] text-gray-300 flex-1 leading-relaxed">{q.question}</p>
+            <div key={i} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.03)' }}>
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="text-base flex-shrink-0">{q.emoji}</span>
+                <p className="text-[11px] text-gray-300 flex-1 leading-relaxed">{q.question}</p>
+              </div>
+              <p className="text-[11px] font-semibold text-gray-100">
+                선택: {answer.label} ({answer.score}점)
+              </p>
+              {answer.feedback ? (
+                <p className="text-[10px] text-gray-400 mt-0.5 leading-relaxed">{answer.feedback}</p>
+              ) : null}
             </div>
           );
         })}
@@ -596,7 +634,17 @@ function getDefaultContent() {
     selfEsteemEmphasis: '자존감이 낮으면 낮은 성적에 연쇄적으로 자신감이 떨어져 나락갈 수 있습니다. 성적과 무관한 자기만의 가치를 갖는 것이 중요해요.',
     additionalGuidance: ['학교별 특색과 입시 전략을 미리 확인하세요.'],
     quizQuestions: [
-      { emoji: '🎯', question: '이 유형의 학교에 진심으로 가고 싶다', isPositive: true },
+      {
+        emoji: '🎯',
+        focusArea: '기본 점검',
+        question: '이 유형의 학교에 도전하기 위한 준비를 실제로 하고 있나요?',
+        choices: [
+          { label: '교과·활동·성과를 함께 준비 중이다', score: 3 },
+          { label: '2개 영역 이상 꾸준히 준비 중이다', score: 2 },
+          { label: '한 영역만 간헐적으로 준비 중이다', score: 1 },
+          { label: '아직 준비하지 못했다', score: 0 }
+        ]
+      },
     ],
   };
 }

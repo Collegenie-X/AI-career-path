@@ -17,11 +17,61 @@
       "친구를 경쟁자가 아닌 평생 동료로 여기세요. 함께 연구하고 도와주는 문화가 핵심입니다."
     ],
     "quizQuestions": [
-      { "emoji": "🔬", "question": "수학 문제를 풀 때 시간 가는 줄 모를 만큼 빠져든다", "isPositive": true },
-      { "emoji": "🧪", "question": "실험 결과가 왜 이렇게 나왔는지 스스로 파고들어 궁금해한다", "isPositive": true },
-      { "emoji": "📚", "question": "교과서 외 심화 내용을 스스로 찾아 공부한 경험이 있다", "isPositive": true },
-      { "emoji": "🏆", "question": "올림피아드·경시대회에 도전해봤거나 진심으로 도전하고 싶다", "isPositive": true },
-      { "emoji": "💪", "question": "전국 최상위권과 경쟁해도 포기하지 않을 자신이 있다", "isPositive": true }
+      {
+        "emoji": "📘",
+        "focusArea": "교과 과정",
+        "question": "수학·과학 심화 교과(선행/탐구 문제)를 주 3회 이상 스스로 학습하고 있나요?",
+        "choices": [
+          { "label": "항상 한다 (학습 계획표와 오답 관리까지)", "score": 3, "feedback": "교과 기반이 매우 탄탄합니다." },
+          { "label": "자주 한다 (주 2~3회)", "score": 2, "feedback": "좋은 흐름입니다. 기록 습관을 더해보세요." },
+          { "label": "가끔 한다 (시험 기간 위주)", "score": 1, "feedback": "루틴화가 필요합니다." },
+          { "label": "거의 하지 않는다", "score": 0, "feedback": "심화 학습 기반을 먼저 만들어야 합니다." }
+        ]
+      },
+      {
+        "emoji": "🧪",
+        "focusArea": "실험·탐구 실습",
+        "question": "학교/방과후에서 실험 보고서 또는 탐구 프로젝트를 꾸준히 수행한 경험이 있나요?",
+        "choices": [
+          { "label": "정기적으로 수행하고 결과까지 정리한다", "score": 3, "feedback": "연구형 학습 태도가 강합니다." },
+          { "label": "학기마다 1~2회 참여한다", "score": 2, "feedback": "지속성을 더하면 경쟁력이 높아집니다." },
+          { "label": "체험형 참여만 해봤다", "score": 1, "feedback": "보고서 작성 경험을 늘려보세요." },
+          { "label": "참여 경험이 거의 없다", "score": 0, "feedback": "기초 실험 활동부터 시작해보세요." }
+        ]
+      },
+      {
+        "emoji": "💻",
+        "focusArea": "코딩·데이터 분석",
+        "question": "과학 탐구 과정에서 코딩(파이썬 등)이나 데이터 분석 도구를 사용해본 적이 있나요?",
+        "choices": [
+          { "label": "프로젝트 수준으로 자주 활용한다", "score": 3, "feedback": "미래 연구 역량과 잘 연결됩니다." },
+          { "label": "기초 분석/시각화 정도는 가능하다", "score": 2, "feedback": "심화 프로젝트로 확장해보세요." },
+          { "label": "입문 학습만 해봤다", "score": 1, "feedback": "작은 분석 과제부터 적용해보세요." },
+          { "label": "아직 사용해본 적 없다", "score": 0, "feedback": "기초 코딩 학습이 필요합니다." }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "수상·성과",
+        "question": "수학·과학 경시대회/탐구대회에서 수상 또는 본선 진출 등 성과를 만든 경험이 있나요?",
+        "choices": [
+          { "label": "전국·광역 단위 수상/본선 경험이 있다", "score": 3, "feedback": "강한 입학 경쟁력을 보여줍니다." },
+          { "label": "교내·지역 대회 수상 경험이 있다", "score": 2, "feedback": "좋은 출발입니다. 상위 단계로 확장해보세요." },
+          { "label": "참가 경험은 있으나 성과는 아직 없다", "score": 1, "feedback": "도전 경험은 큰 자산입니다." },
+          { "label": "참가 경험이 거의 없다", "score": 0, "feedback": "작은 대회부터 경험을 쌓아보세요." }
+        ]
+      },
+      {
+        "emoji": "🧠",
+        "focusArea": "멘탈·지속성",
+        "question": "난도 높은 문제를 오래 붙잡아야 할 때도 루틴을 유지하며 꾸준히 재도전하나요?",
+        "choices": [
+          { "label": "실패 후에도 계획을 조정해 끝까지 한다", "score": 3, "feedback": "과학고 환경에 필요한 회복력이 높습니다." },
+          { "label": "대부분 유지하지만 가끔 흔들린다", "score": 2, "feedback": "회복 루틴을 정교화하면 좋습니다." },
+          { "label": "쉽게 지치고 중단하는 편이다", "score": 1, "feedback": "짧은 루틴부터 다시 쌓아보세요." },
+          { "label": "어려우면 바로 포기하는 편이다", "score": 0, "feedback": "도전 강도 조절과 멘탈 관리가 필요합니다." }
+        ]
+      }
     ]
   },
   "foreign_language": {
@@ -42,11 +92,61 @@
       "해외 교환·모의 UN 등 프로그램을 적극 활용하세요. 실전 경험이 큰 차이를 만듭니다."
     ],
     "quizQuestions": [
-      { "emoji": "🗣️", "question": "영어로 말하거나 쓸 때 두려움보다 즐거움이 먼저 든다", "isPositive": true },
-      { "emoji": "🌍", "question": "다른 나라의 문화·역사·이슈에 자연스럽게 관심이 간다", "isPositive": true },
-      { "emoji": "📖", "question": "영어 원서나 외국어 콘텐츠를 즐겨 접한 경험이 있다", "isPositive": true },
-      { "emoji": "🎤", "question": "발표·토론 상황에서 틀려도 적극적으로 참여하는 편이다", "isPositive": true },
-      { "emoji": "✈️", "question": "외국어를 활용해 글로벌 무대에서 일하고 싶다는 꿈이 있다", "isPositive": true }
+      {
+        "emoji": "📘",
+        "focusArea": "교과 과정",
+        "question": "영어·제2외국어 교과에서 수행평가(작문·발표)를 주도적으로 준비하나요?",
+        "choices": [
+          { "label": "항상 주도적으로 준비하고 피드백 반영한다", "score": 3 },
+          { "label": "대체로 성실히 준비한다", "score": 2 },
+          { "label": "시험 기간 중심으로만 준비한다", "score": 1 },
+          { "label": "준비가 자주 부족하다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🗣️",
+        "focusArea": "방과후 활동",
+        "question": "영어 토론·외국어 동아리·모의 UN 같은 방과후 활동에 참여하고 있나요?",
+        "choices": [
+          { "label": "정기적으로 참여하며 역할도 맡는다", "score": 3 },
+          { "label": "학기마다 꾸준히 참여한다", "score": 2 },
+          { "label": "가끔 행사성으로 참여한다", "score": 1 },
+          { "label": "거의 참여하지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "수상·성과",
+        "question": "외국어 관련 발표·에세이·말하기 대회에서 성과를 낸 경험이 있나요?",
+        "choices": [
+          { "label": "교외 수상/본선 경험이 있다", "score": 3 },
+          { "label": "교내 수상 경험이 있다", "score": 2 },
+          { "label": "참가 경험만 있다", "score": 1 },
+          { "label": "경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🌍",
+        "focusArea": "글로벌 탐구",
+        "question": "해외 문화·국제 이슈를 꾸준히 조사해 발표 자료나 글로 정리해본 적이 있나요?",
+        "choices": [
+          { "label": "정기적으로 정리하고 공유한다", "score": 3 },
+          { "label": "관심 주제는 꾸준히 정리한다", "score": 2 },
+          { "label": "읽기만 하고 정리는 드물다", "score": 1 },
+          { "label": "관심/기록이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "✈️",
+        "focusArea": "진로 명확성",
+        "question": "외국어 역량을 활용한 대학·진로(외교, 통번역, 국제기구 등)를 구체적으로 설계했나요?",
+        "choices": [
+          { "label": "진로 로드맵과 준비 활동이 명확하다", "score": 3 },
+          { "label": "희망 진로는 있고 준비 중이다", "score": 2 },
+          { "label": "관심은 있으나 방향이 모호하다", "score": 1 },
+          { "label": "아직 생각해보지 않았다", "score": 0 }
+        ]
+      }
     ]
   },
   "international": {
@@ -67,11 +167,61 @@
       "해외 대학 진학을 고려한다면 에세이·추천서·활동이 성적만큼 중요합니다."
     ],
     "quizQuestions": [
-      { "emoji": "🌐", "question": "세계 뉴스나 국제 이슈를 자연스럽게 찾아보는 편이다", "isPositive": true },
-      { "emoji": "✍️", "question": "내 생각을 글로 정리하고 논리적으로 표현하는 것을 좋아한다", "isPositive": true },
-      { "emoji": "🤝", "question": "다양한 문화권 친구들과 어울리는 것이 불편하지 않다", "isPositive": true },
-      { "emoji": "📝", "question": "암기보다 이해·분석·토론 방식의 수업이 더 잘 맞는다", "isPositive": true },
-      { "emoji": "🎓", "question": "해외 대학 진학이나 글로벌 커리어에 진지하게 관심이 있다", "isPositive": true }
+      {
+        "emoji": "📝",
+        "focusArea": "교과 과정",
+        "question": "사회·영어 교과에서 에세이·서술형 과제를 꾸준히 높은 완성도로 제출하나요?",
+        "choices": [
+          { "label": "항상 논리 구조까지 잡아 완성한다", "score": 3 },
+          { "label": "대체로 성실하게 완성한다", "score": 2 },
+          { "label": "기본 분량 위주로만 작성한다", "score": 1 },
+          { "label": "서술형 과제가 가장 부담스럽다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🤝",
+        "focusArea": "토론·프로젝트 활동",
+        "question": "모의 UN, 국제 이슈 토론, 팀 프로젝트에서 역할을 맡아 끝까지 수행한 경험이 있나요?",
+        "choices": [
+          { "label": "리더/발표 역할을 자주 맡는다", "score": 3 },
+          { "label": "팀원으로 꾸준히 기여한다", "score": 2 },
+          { "label": "참여는 하지만 소극적이다", "score": 1 },
+          { "label": "팀 활동이 매우 부담스럽다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🌐",
+        "focusArea": "국제 이슈 탐구",
+        "question": "국제 뉴스·경제 이슈를 자료로 분석해 나만의 의견을 정리해본 적이 있나요?",
+        "choices": [
+          { "label": "정기적으로 분석하고 기록한다", "score": 3 },
+          { "label": "관심 주제는 스스로 분석한다", "score": 2 },
+          { "label": "읽기 위주이며 분석은 드물다", "score": 1 },
+          { "label": "관심이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "활동 성과",
+        "question": "토론·에세이·국제 활동 대회에서 발표/수상/인증 등 성과를 만든 경험이 있나요?",
+        "choices": [
+          { "label": "교외 성과(수상/인증)가 있다", "score": 3 },
+          { "label": "교내 성과가 있다", "score": 2 },
+          { "label": "참여 경험만 있다", "score": 1 },
+          { "label": "관련 경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎓",
+        "focusArea": "진로 설계",
+        "question": "해외 대학 또는 글로벌 계열 진로를 위해 과목·활동·언어 계획을 세웠나요?",
+        "choices": [
+          { "label": "연간 계획과 실행 기록이 있다", "score": 3 },
+          { "label": "기본 계획은 있고 실행 중이다", "score": 2 },
+          { "label": "막연한 관심 수준이다", "score": 1 },
+          { "label": "아직 계획이 없다", "score": 0 }
+        ]
+      }
     ]
   },
   "autonomous_public": {
@@ -92,11 +242,61 @@
       "동아리·특별과정을 적극 활용하면 대입 포트폴리오에 도움이 됩니다."
     ],
     "quizQuestions": [
-      { "emoji": "📊", "question": "전 과목 내신을 고르게 관리하는 편이다", "isPositive": true },
-      { "emoji": "🗓️", "question": "스스로 공부 계획을 세우고 지키는 편이다", "isPositive": true },
-      { "emoji": "🏫", "question": "동아리·특별 프로그램에 적극 참여하고 싶다", "isPositive": true },
-      { "emoji": "🎯", "question": "수능·수시 모두 준비하는 장기 전략을 세울 자신이 있다", "isPositive": true },
-      { "emoji": "🤸", "question": "특정 분야보다 다양한 분야를 균형 있게 탐색하고 싶다", "isPositive": true }
+      {
+        "emoji": "📚",
+        "focusArea": "교과 과정",
+        "question": "국·영·수·과·사 등 주요 교과를 균형 있게 관리하고 있나요?",
+        "choices": [
+          { "label": "전 과목 상위권을 안정적으로 유지한다", "score": 3 },
+          { "label": "대부분 과목이 안정적이다", "score": 2 },
+          { "label": "강점 과목 위주로만 관리한다", "score": 1 },
+          { "label": "편차가 크고 관리가 어렵다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🗓️",
+        "focusArea": "학습 루틴",
+        "question": "시험 기간이 아니어도 주간 계획표로 학습 루틴을 유지하나요?",
+        "choices": [
+          { "label": "항상 계획-실행-복기를 반복한다", "score": 3 },
+          { "label": "대체로 계획을 지킨다", "score": 2 },
+          { "label": "시험 기간 중심으로만 한다", "score": 1 },
+          { "label": "계획 없이 즉흥적으로 공부한다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏫",
+        "focusArea": "방과후 활동",
+        "question": "학교 동아리·진로 프로그램·봉사 등 방과후 활동을 꾸준히 기록하고 있나요?",
+        "choices": [
+          { "label": "활동 참여와 기록이 체계적이다", "score": 3 },
+          { "label": "학기별로 꾸준히 참여한다", "score": 2 },
+          { "label": "행사 중심으로만 참여한다", "score": 1 },
+          { "label": "거의 참여하지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "성과 관리",
+        "question": "교내 프로젝트·탐구·대회에서 결과물(발표, 인증, 수상)을 남기고 있나요?",
+        "choices": [
+          { "label": "매 학기 결과물을 남긴다", "score": 3 },
+          { "label": "연 1회 이상 결과물이 있다", "score": 2 },
+          { "label": "참여는 하지만 결과 정리는 부족하다", "score": 1 },
+          { "label": "성과 기록이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎯",
+        "focusArea": "대입 전략",
+        "question": "수시·정시를 함께 고려한 3년 로드맵(교과+비교과)을 갖고 있나요?",
+        "choices": [
+          { "label": "로드맵과 점검 루틴이 모두 있다", "score": 3 },
+          { "label": "기본 로드맵은 있다", "score": 2 },
+          { "label": "학년별 목표만 막연히 있다", "score": 1 },
+          { "label": "아직 전략이 없다", "score": 0 }
+        ]
+      }
     ]
   },
   "autonomous_private": {
@@ -117,11 +317,61 @@
       "에세이·면접은 중학교 때부터 연습하는 것이 유리합니다."
     ],
     "quizQuestions": [
-      { "emoji": "🏅", "question": "내신과 수능 모두 최상위권을 목표로 할 준비가 되어 있다", "isPositive": true },
-      { "emoji": "✍️", "question": "자기소개서·면접 등 서류 전형에서 나를 잘 표현할 수 있다", "isPositive": true },
-      { "emoji": "🌏", "question": "전국 단위 경쟁에서도 나만의 강점을 유지할 자신이 있다", "isPositive": true },
-      { "emoji": "📅", "question": "3년 대입 전략을 스스로 설계하고 실행할 수 있다", "isPositive": true },
-      { "emoji": "🔥", "question": "높은 기대치와 경쟁 환경이 오히려 나를 자극한다", "isPositive": true }
+      {
+        "emoji": "📘",
+        "focusArea": "교과 과정",
+        "question": "내신 상위권 유지와 수능 심화 학습을 동시에 운영할 수 있나요?",
+        "choices": [
+          { "label": "두 트랙을 꾸준히 병행한다", "score": 3 },
+          { "label": "대체로 병행하지만 시기별 편차가 있다", "score": 2 },
+          { "label": "한쪽만 집중하는 편이다", "score": 1 },
+          { "label": "병행이 거의 어렵다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "✍️",
+        "focusArea": "서류·면접 역량",
+        "question": "자소서 소재(교과·활동·수상)를 정리하고 면접 답변까지 준비하고 있나요?",
+        "choices": [
+          { "label": "소재 아카이브와 답변 초안이 있다", "score": 3 },
+          { "label": "핵심 경험 정리는 해두었다", "score": 2 },
+          { "label": "경험은 있지만 정리가 부족하다", "score": 1 },
+          { "label": "준비를 거의 시작하지 못했다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "활동·수상 실적",
+        "question": "교과 심화 활동(탐구, 토론, 연구, 대회)에서 성과를 축적하고 있나요?",
+        "choices": [
+          { "label": "교외 성과까지 꾸준히 쌓고 있다", "score": 3 },
+          { "label": "교내 성과를 안정적으로 만든다", "score": 2 },
+          { "label": "참여는 하지만 결과가 적다", "score": 1 },
+          { "label": "활동 실적이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "📅",
+        "focusArea": "장기 계획",
+        "question": "학기별 목표, 모의평가, 비교과 일정까지 포함한 3년 전략이 있나요?",
+        "choices": [
+          { "label": "분기 단위 점검까지 운영한다", "score": 3 },
+          { "label": "연간 계획은 있다", "score": 2 },
+          { "label": "단기 계획 위주다", "score": 1 },
+          { "label": "계획이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🔥",
+        "focusArea": "경쟁 적응력",
+        "question": "높은 기대치와 경쟁 속에서도 멘탈 루틴(휴식·회복)을 유지하나요?",
+        "choices": [
+          { "label": "회복 루틴이 있어 꾸준히 유지된다", "score": 3 },
+          { "label": "대체로 유지하지만 흔들릴 때가 있다", "score": 2 },
+          { "label": "스트레스가 오면 루틴이 자주 무너진다", "score": 1 },
+          { "label": "경쟁 환경에서 쉽게 번아웃된다", "score": 0 }
+        ]
+      }
     ]
   },
   "arts_sports": {
@@ -142,11 +392,61 @@
       "부상·번아웃 예방을 위해 충분한 휴식과 회복 시간을 갖으세요."
     ],
     "quizQuestions": [
-      { "emoji": "🎨", "question": "예술·체육 활동을 할 때 다른 무엇보다 행복하다", "isPositive": true },
-      { "emoji": "⏰", "question": "하루 3시간 이상 실기 연습을 꾸준히 할 수 있다", "isPositive": true },
-      { "emoji": "🏆", "question": "대회·발표에서 결과가 나빠도 다시 도전하는 편이다", "isPositive": true },
-      { "emoji": "🎯", "question": "예술·체육 분야에서 전문가로 성장하고 싶다는 목표가 뚜렷하다", "isPositive": true },
-      { "emoji": "💃", "question": "무대·경기에서 긴장보다 설렘이 더 크다", "isPositive": true }
+      {
+        "emoji": "📘",
+        "focusArea": "교과+실기 균형",
+        "question": "실기 연습과 기본 교과 학습을 함께 관리하고 있나요?",
+        "choices": [
+          { "label": "둘 다 루틴으로 안정적으로 유지한다", "score": 3 },
+          { "label": "대체로 유지하지만 시험기에 흔들린다", "score": 2 },
+          { "label": "실기 위주로만 운영된다", "score": 1 },
+          { "label": "둘 다 체계적으로 관리되지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎭",
+        "focusArea": "방과후 실습",
+        "question": "방과후 레슨·훈련·작품 제작 등 실습 시간을 꾸준히 확보하나요?",
+        "choices": [
+          { "label": "매주 고정 루틴으로 운영한다", "score": 3 },
+          { "label": "주 2~3회 꾸준히 한다", "score": 2 },
+          { "label": "대회/발표 직전에만 늘린다", "score": 1 },
+          { "label": "실습 루틴이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "대회·수상",
+        "question": "예술·체육 관련 대회/공연/전시에서 결과물이나 수상 경험이 있나요?",
+        "choices": [
+          { "label": "교외 대회 성과 또는 주요 무대 경험이 있다", "score": 3 },
+          { "label": "교내 활동 성과를 꾸준히 낸다", "score": 2 },
+          { "label": "참여 경험 위주다", "score": 1 },
+          { "label": "경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎯",
+        "focusArea": "진로 명확성",
+        "question": "전공 분야(음악·미술·체육 등)에서의 진학/직업 목표가 구체적인가요?",
+        "choices": [
+          { "label": "학교·전공·포트폴리오 계획이 명확하다", "score": 3 },
+          { "label": "희망 분야와 준비 방향이 있다", "score": 2 },
+          { "label": "관심은 있으나 구체성은 낮다", "score": 1 },
+          { "label": "아직 목표가 불명확하다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "💪",
+        "focusArea": "멘탈 회복력",
+        "question": "오디션/대회 결과가 좋지 않아도 피드백을 반영해 다시 도전하나요?",
+        "choices": [
+          { "label": "항상 복기 후 재도전한다", "score": 3 },
+          { "label": "대부분 다시 도전한다", "score": 2 },
+          { "label": "회복에 오래 걸린다", "score": 1 },
+          { "label": "실패 후 도전을 멈추는 편이다", "score": 0 }
+        ]
+      }
     ]
   },
   "meister": {
@@ -167,11 +467,61 @@
       "대학 진학을 고려한다면 교과 성적도 관리해야 합니다."
     ],
     "quizQuestions": [
-      { "emoji": "🔧", "question": "손으로 직접 만들거나 조립하는 활동이 즐겁다", "isPositive": true },
-      { "emoji": "⚙️", "question": "기계·전자·IT 등 기술 분야에 자연스럽게 관심이 간다", "isPositive": true },
-      { "emoji": "🏭", "question": "이론보다 실습·현장 경험에서 더 빨리 배운다", "isPositive": true },
-      { "emoji": "💼", "question": "고등학교 졸업 후 빠르게 취업해 전문가로 성장하고 싶다", "isPositive": true },
-      { "emoji": "🛠️", "question": "기술 자격증이나 인증을 취득하는 목표가 동기부여가 된다", "isPositive": true }
+      {
+        "emoji": "🔧",
+        "focusArea": "실습 적합성",
+        "question": "기계·전기·전자·AI 분야에서 실습 수업을 선호하고 손으로 구현하는 활동을 즐기나요?",
+        "choices": [
+          { "label": "실습형 과제가 가장 재미있다", "score": 3 },
+          { "label": "실습을 좋아하지만 이론도 필요하다", "score": 2 },
+          { "label": "이론이 더 편하고 실습은 보통이다", "score": 1 },
+          { "label": "실습 활동이 부담스럽다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "💻",
+        "focusArea": "코딩 역량",
+        "question": "코딩(파이썬/C/아두이노 등) 또는 자동화 프로젝트를 수행해본 경험이 있나요?",
+        "choices": [
+          { "label": "프로젝트 완성/대회 참여 경험이 있다", "score": 3 },
+          { "label": "기초 코딩으로 작은 결과물을 만든 적 있다", "score": 2 },
+          { "label": "입문 학습만 해봤다", "score": 1 },
+          { "label": "코딩 경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏭",
+        "focusArea": "현장 실습",
+        "question": "방과후 실습, 기업 연계 체험, 기술 캠프 같은 현장형 활동에 참여하고 있나요?",
+        "choices": [
+          { "label": "정기적으로 참여하며 기록도 남긴다", "score": 3 },
+          { "label": "학기 단위로 꾸준히 참여한다", "score": 2 },
+          { "label": "간헐적으로만 참여한다", "score": 1 },
+          { "label": "거의 참여하지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "성과·수상",
+        "question": "기술 경진대회, 기능대회, 프로젝트 발표에서 성과를 만든 경험이 있나요?",
+        "choices": [
+          { "label": "교외 수상/입상 경험이 있다", "score": 3 },
+          { "label": "교내 성과가 있다", "score": 2 },
+          { "label": "참가 경험만 있다", "score": 1 },
+          { "label": "관련 경험이 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎯",
+        "focusArea": "취업 준비도",
+        "question": "자격증 취득 계획과 희망 직무(설비, SW, 전기 등)를 구체적으로 세웠나요?",
+        "choices": [
+          { "label": "직무·자격증 로드맵이 명확하다", "score": 3 },
+          { "label": "희망 직무와 준비 계획이 있다", "score": 2 },
+          { "label": "관심 분야만 정한 상태다", "score": 1 },
+          { "label": "아직 진로 계획이 없다", "score": 0 }
+        ]
+      }
     ]
   },
   "business": {
@@ -192,11 +542,61 @@
       "대학 진학을 고려한다면 교과 성적도 관리해야 합니다."
     ],
     "quizQuestions": [
-      { "emoji": "💰", "question": "경제·비즈니스·마케팅 뉴스나 이슈에 자연스럽게 관심이 간다", "isPositive": true },
-      { "emoji": "📊", "question": "숫자와 데이터를 분석하거나 활용하는 것이 재미있다", "isPositive": true },
-      { "emoji": "🤝", "question": "팀 프로젝트에서 적극적으로 의견을 내고 협력하는 편이다", "isPositive": true },
-      { "emoji": "🚀", "question": "창업이나 비즈니스 아이디어를 생각해본 적이 있다", "isPositive": true },
-      { "emoji": "🎯", "question": "실무 자격증이나 인턴십 경험이 동기부여가 된다", "isPositive": true }
+      {
+        "emoji": "📘",
+        "focusArea": "교과 과정",
+        "question": "경제·회계·상업 교과에서 사례 분석/실무형 과제를 주도적으로 수행하나요?",
+        "choices": [
+          { "label": "과제를 확장해 추가 분석까지 한다", "score": 3 },
+          { "label": "요구 수준 이상으로 성실히 수행한다", "score": 2 },
+          { "label": "기본 제출 위주로만 한다", "score": 1 },
+          { "label": "과제 수행이 자주 어렵다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "📊",
+        "focusArea": "데이터·디지털 도구",
+        "question": "엑셀, 스프레드시트, 간단한 자동화/코딩을 활용해 데이터 정리를 해본 적이 있나요?",
+        "choices": [
+          { "label": "실무 수준으로 자주 활용한다", "score": 3 },
+          { "label": "기초 함수·분석은 가능하다", "score": 2 },
+          { "label": "입문 수준으로만 사용한다", "score": 1 },
+          { "label": "거의 사용하지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🤝",
+        "focusArea": "방과후 활동",
+        "question": "비즈니스 동아리, 모의창업, 마케팅 프로젝트 같은 방과후 활동에 참여하나요?",
+        "choices": [
+          { "label": "정기 참여하며 기획/운영까지 맡는다", "score": 3 },
+          { "label": "꾸준히 참여한다", "score": 2 },
+          { "label": "행사성으로만 참여한다", "score": 1 },
+          { "label": "참여 경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "성과·수상",
+        "question": "창업·회계·마케팅 관련 대회/발표에서 성과(수상, 인증, 결과물)를 만든 적이 있나요?",
+        "choices": [
+          { "label": "교외 성과가 있다", "score": 3 },
+          { "label": "교내 성과가 있다", "score": 2 },
+          { "label": "참여 경험만 있다", "score": 1 },
+          { "label": "관련 경험이 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🎯",
+        "focusArea": "진로 준비",
+        "question": "자격증·인턴십·취업/진학 경로를 포함한 진로 계획이 구체적인가요?",
+        "choices": [
+          { "label": "준비 일정과 포트폴리오가 있다", "score": 3 },
+          { "label": "기본 계획과 실행 중인 항목이 있다", "score": 2 },
+          { "label": "관심 직무만 정해둔 상태다", "score": 1 },
+          { "label": "아직 계획이 없다", "score": 0 }
+        ]
+      }
     ]
   },
   "general_elite": {
@@ -217,11 +617,61 @@
       "동아리·자율활동을 적극 활용하면 대입 포트폴리오에 도움이 됩니다."
     ],
     "quizQuestions": [
-      { "emoji": "📚", "question": "특정 분야보다 여러 과목을 고르게 잘하는 편이다", "isPositive": true },
-      { "emoji": "🗓️", "question": "스스로 공부 계획을 세우고 꾸준히 실천하는 편이다", "isPositive": true },
-      { "emoji": "🎯", "question": "수능·수시 모두 준비하는 장기 전략을 세울 자신이 있다", "isPositive": true },
-      { "emoji": "🏫", "question": "학교 동아리·자율활동에 적극 참여하고 싶다", "isPositive": true },
-      { "emoji": "🌱", "question": "특수목적고보다 일반고에서 나만의 페이스로 성장하고 싶다", "isPositive": true }
+      {
+        "emoji": "📚",
+        "focusArea": "교과 관리",
+        "question": "주요 교과 내신과 모의고사를 함께 관리하는 학습 루틴이 있나요?",
+        "choices": [
+          { "label": "둘 다 체계적으로 관리한다", "score": 3 },
+          { "label": "대체로 관리하지만 편차가 있다", "score": 2 },
+          { "label": "한쪽만 집중하는 경향이 있다", "score": 1 },
+          { "label": "동시 관리가 어렵다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🗓️",
+        "focusArea": "자기주도 학습",
+        "question": "학원/인강에 의존하더라도 스스로 복습·오답 루틴을 운영하나요?",
+        "choices": [
+          { "label": "자기주도 루틴이 확실하다", "score": 3 },
+          { "label": "대체로 유지한다", "score": 2 },
+          { "label": "시험 기간에만 집중한다", "score": 1 },
+          { "label": "루틴 없이 수동적으로 공부한다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏫",
+        "focusArea": "학교 활동",
+        "question": "동아리·자율활동·탐구활동 등 학교 기반 비교과를 꾸준히 수행하나요?",
+        "choices": [
+          { "label": "활동과 기록이 모두 체계적이다", "score": 3 },
+          { "label": "꾸준히 참여한다", "score": 2 },
+          { "label": "필수 활동 위주로만 한다", "score": 1 },
+          { "label": "거의 참여하지 않는다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🏆",
+        "focusArea": "성과 축적",
+        "question": "교내 경시/탐구/발표에서 수상 또는 의미 있는 결과물을 만든 경험이 있나요?",
+        "choices": [
+          { "label": "정기적으로 성과를 축적한다", "score": 3 },
+          { "label": "연 1회 이상 성과가 있다", "score": 2 },
+          { "label": "참여 중심이며 성과는 적다", "score": 1 },
+          { "label": "경험이 거의 없다", "score": 0 }
+        ]
+      },
+      {
+        "emoji": "🌱",
+        "focusArea": "지속 가능성",
+        "question": "치열한 학군 경쟁 속에서도 번아웃을 관리하며 장기전을 버틸 자신이 있나요?",
+        "choices": [
+          { "label": "회복 루틴이 있어 안정적으로 유지한다", "score": 3 },
+          { "label": "스트레스를 관리하며 유지한다", "score": 2 },
+          { "label": "흔들릴 때가 잦다", "score": 1 },
+          { "label": "장기전이 매우 부담스럽다", "score": 0 }
+        ]
+      }
     ]
   }
 }

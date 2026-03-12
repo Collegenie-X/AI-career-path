@@ -1,0 +1,408 @@
+{
+  "categoryProfiles": {
+    "science_high": {
+      "profileTitle": "연구 중심 이공계 트랙",
+      "profileSummary": "수학·과학 심화 교과와 연구 활동이 핵심인 최상위 이공계 진학형 학교입니다.",
+      "curriculumHighlights": [
+        "수학·과학 심화, 탐구 보고서, 구술형 평가 비중이 높음",
+        "R&E 기반 프로젝트, 대학 연계 실험 수업이 자주 운영됨",
+        "중학생 시기부터 문제 해결형 학습 습관이 중요"
+      ],
+      "extracurricularHighlights": [
+        "올림피아드, 과학 탐구대회, 연구 발표 활동 강세",
+        "세특에 탐구 과정·오류 수정·재실험 기록이 중요",
+        "실험실 활동, 연구 멘토링, 학술제 참여 기회가 많음"
+      ],
+      "clubHighlights": [
+        "물리·화학·생명 심화 동아리",
+        "수학 문제해결 스터디",
+        "코딩·데이터 분석 융합 동아리"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "학생부 기반 탐구·연구 활동이 강점으로 반영되기 좋음", "recommendedFor": "탐구 활동 기록이 꾸준한 학생" },
+        { "route": "정시", "strength": "medium", "reason": "기초 체력은 강하지만 학교별 내신/활동 병행 관리 필요", "recommendedFor": "수능 고난도 문제 해결력이 높은 학생" },
+        { "route": "유학", "strength": "medium", "reason": "STEM 포트폴리오가 있으면 해외 이공계 지원에 유리", "recommendedFor": "연구 에세이·프로젝트를 영어로 확장할 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "KAIST·POSTECH·GIST 등 이공특성화", "ratio": 34, "note": "학교별 편차 큼" },
+        { "track": "서울대(자연)·연세대·고려대(이공)", "ratio": 39 },
+        { "track": "의학·약학·바이오 계열", "ratio": 17 },
+        { "track": "해외 STEM 대학", "ratio": 10 }
+      ],
+      "ratioBasisNote": "최근 공개된 학교 진학 경향을 참고한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "수학·과학 심화 학습을 스스로 즐길 수 있는가",
+        "실험 실패 후 재도전하는 멘탈이 있는가",
+        "탐구 기록(보고서·발표)을 장기적으로 관리할 수 있는가",
+        "고난도 경쟁 환경에서도 루틴을 유지할 수 있는가"
+      ]
+    },
+    "foreign_language": {
+      "profileTitle": "외국어 특화 인문사회 트랙",
+      "profileSummary": "영어·제2외국어 교과와 발표·토론 활동이 강한 언어 중심 학교입니다.",
+      "curriculumHighlights": [
+        "영어·제2외국어 작문/구술 과제 비중이 높음",
+        "사회·인문 통합 수업과 시사 토론형 수업이 많음",
+        "어학 내신 관리와 발표 역량을 함께 요구"
+      ],
+      "extracurricularHighlights": [
+        "모의UN, 외국어 발표대회, 번역·에세이 활동 강세",
+        "국제 교류 프로그램, 문화 연구 활동 참여 기회",
+        "언어 관련 인증·발표 성과가 학생부 경쟁력으로 연결"
+      ],
+      "clubHighlights": [
+        "영어 토론 동아리",
+        "제2외국어 문화연구 동아리",
+        "국제 이슈 리서치 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "언어 활동·토론·세특이 학생부에서 강점으로 반영됨", "recommendedFor": "활동과 기록을 꾸준히 남기는 학생" },
+        { "route": "정시", "strength": "medium", "reason": "영어 강점은 유리하지만 수학·탐구 균형 관리가 변수", "recommendedFor": "전과목 균형 학습이 가능한 학생" },
+        { "route": "유학", "strength": "medium", "reason": "언어 기반 포트폴리오가 해외 인문사회 지원에 도움", "recommendedFor": "에세이·활동 기록을 영어로 확장할 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "연세대·고려대·성균관대 인문사회", "ratio": 36 },
+        { "track": "서울대 인문·사회 계열", "ratio": 14 },
+        { "track": "국내 국제학·통번역·외교 관련", "ratio": 34 },
+        { "track": "해외 인문사회 대학", "ratio": 16 }
+      ],
+      "ratioBasisNote": "학교 공개 자료와 최근 진학 경향을 반영한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "영어뿐 아니라 제2외국어 학습에 흥미가 있는가",
+        "발표·토론 수업에서 적극적으로 말할 수 있는가",
+        "어학 활동을 꾸준히 기록하고 정리할 수 있는가",
+        "인문사회 진로에 대한 방향성이 있는가"
+      ]
+    },
+    "international": {
+      "profileTitle": "글로벌 리더십·IB 연계 트랙",
+      "profileSummary": "영어 기반 토론·에세이·프로젝트 중심으로 글로벌 역량을 키우는 학교입니다.",
+      "curriculumHighlights": [
+        "에세이·토론·프로젝트형 평가 비중 높음",
+        "IB/AP 연계 수업 운영 학교는 과제량·자기주도 요구가 큼",
+        "시사·경제·국제정치 등 융합형 학습 필요"
+      ],
+      "extracurricularHighlights": [
+        "모의UN, 국제포럼, 글로벌 봉사 활동",
+        "국제 이슈 리서치와 영어 발표 활동",
+        "리더십 프로젝트·사회참여 기록이 중요"
+      ],
+      "clubHighlights": [
+        "모의UN/국제정치 동아리",
+        "글로벌 경제·외교 토론 동아리",
+        "영어 에세이/리서치 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "활동·에세이·리더십이 학생부와 면접에서 강하게 작동", "recommendedFor": "프로젝트형 활동이 강한 학생" },
+        { "route": "유학", "strength": "high", "reason": "IB/영어 기반 활동이 해외 대학 지원 포트폴리오로 연결", "recommendedFor": "영어 에세이와 활동 스토리를 갖춘 학생" },
+        { "route": "정시", "strength": "low", "reason": "학교 강점이 정시보다는 수시·유학 쪽에 집중", "recommendedFor": "정시 중심이면 별도 전략 보완이 필요한 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "국내 상위권 대학(수시 중심)", "ratio": 40 },
+        { "track": "국내 국제학·정치외교·경영", "ratio": 24 },
+        { "track": "해외 대학 진학", "ratio": 26 },
+        { "track": "기타 복수 진로(국내+해외 준비)", "ratio": 10 }
+      ],
+      "ratioBasisNote": "국제고 계열 진학 경향의 안내용 추정치입니다.",
+      "middleSchoolSelectionChecklist": [
+        "토론·에세이 기반 수업을 선호하는가",
+        "글로벌 이슈를 스스로 조사·발표할 수 있는가",
+        "국내/해외 대학 전략을 함께 설계할 수 있는가",
+        "과제량과 자기주도 학습을 감당할 수 있는가"
+      ]
+    },
+    "ib": {
+      "profileTitle": "IB 디플로마 심화 트랙",
+      "profileSummary": "논술·탐구·CAS 활동 중심의 국제 인증 교육과정으로 유학 연계성이 높은 트랙입니다.",
+      "curriculumHighlights": [
+        "TOK·EE·IA 등 서술형·탐구형 과제 비중 큼",
+        "암기형보다 분석·논증·에세이 역량 요구",
+        "학업과 활동(CAS) 균형 설계가 핵심"
+      ],
+      "extracurricularHighlights": [
+        "CAS 프로젝트, 사회참여, 창의활동 필수 운영",
+        "에세이 기반 연구·발표 활동 강화",
+        "해외 대학 전형용 포트폴리오 연계 가능"
+      ],
+      "clubHighlights": [
+        "IB 연구 프로젝트 클럽",
+        "영문 에세이/리서치 동아리",
+        "사회문제 해결형 프로젝트 동아리"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "유학", "strength": "high", "reason": "IB 성적과 활동 구조가 해외 대학 전형과 높은 정합성", "recommendedFor": "해외 진학을 목표로 하는 학생" },
+        { "route": "수시", "strength": "medium", "reason": "활동·서술 역량은 강점이나 국내 전형별 전략 병행 필요", "recommendedFor": "국내외 병행 전략 학생" },
+        { "route": "정시", "strength": "low", "reason": "IB 강점이 정시 대비와 직접 일치하지 않는 구간 존재", "recommendedFor": "정시 비중이 높다면 보완 학습이 필요한 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "해외 대학", "ratio": 38 },
+        { "track": "국내 상위권 수시", "ratio": 34 },
+        { "track": "국내 국제계열·융합계열", "ratio": 20 },
+        { "track": "기타", "ratio": 8 }
+      ],
+      "ratioBasisNote": "IB 운영 학교군의 진학 패턴을 참고한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "영어 독해·서술·토론에 강한가",
+        "장기 과제 관리 능력(TOK/EE/IA)이 있는가",
+        "활동(CAS)과 학업을 함께 설계할 수 있는가",
+        "유학 또는 국제전형 진로 의지가 명확한가"
+      ]
+    },
+    "autonomous_public": {
+      "profileTitle": "균형형 내신·학교활동 트랙",
+      "profileSummary": "지역 기반 공립 체계에서 내신 안정성과 학교활동 활용이 강점인 균형형 트랙입니다.",
+      "curriculumHighlights": [
+        "전과목 내신 관리와 학교 수업 충실도가 중요",
+        "교내 프로그램 참여를 통한 학생부 완성도 확보",
+        "수시·정시 병행 기반을 만들기 좋음"
+      ],
+      "extracurricularHighlights": [
+        "교내 탐구·봉사·진로 활동 참여 기회",
+        "지역 연계 프로그램으로 생활기록부 강화",
+        "지속 참여형 동아리/자율활동이 중요"
+      ],
+      "clubHighlights": [
+        "진로 탐색 동아리",
+        "봉사·리더십 동아리",
+        "교내 탐구 프로젝트 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "내신+교내활동 중심 학생부 구축에 유리", "recommendedFor": "학교 활동을 꾸준히 수행하는 학생" },
+        { "route": "정시", "strength": "medium", "reason": "기초학력 기반은 만들기 좋으나 별도 심화 전략 필요", "recommendedFor": "장기적으로 수능 체력을 쌓는 학생" },
+        { "route": "유학", "strength": "low", "reason": "유학 특화 구조는 상대적으로 약함", "recommendedFor": "유학 계획이면 별도 프로그램 탐색이 필요한 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "지역 거점·수도권 대학 수시", "ratio": 46 },
+        { "track": "수도권 중상위권 정시/수시", "ratio": 28 },
+        { "track": "전문·취업 연계 진로", "ratio": 18 },
+        { "track": "기타", "ratio": 8 }
+      ],
+      "ratioBasisNote": "자공고 계열의 일반적 진학 경향 안내 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "내신 전과목을 안정적으로 관리할 수 있는가",
+        "학교 프로그램을 적극 활용할 의지가 있는가",
+        "학군·통학·생활 리듬을 고려했는가",
+        "수시/정시 병행 전략을 세울 수 있는가"
+      ]
+    },
+    "autonomous_private": {
+      "profileTitle": "상위권 대입 집중 트랙",
+      "profileSummary": "강한 학업 경쟁 속에서 상위권 대학 진학을 목표로 내신·수능·활동을 고강도로 병행하는 트랙입니다.",
+      "curriculumHighlights": [
+        "내신과 수능 심화 학습 병행 강도 높음",
+        "학교별 특화 프로그램(리더십·토론·연구) 운영",
+        "학업량·비교강도가 높아 자기관리 중요"
+      ],
+      "extracurricularHighlights": [
+        "교내 연구·리더십·봉사 활동의 깊이가 중요",
+        "면접·자소서 대비 활동 아카이빙 필수",
+        "학교 브랜드/네트워크 기반 진학 정보 접근성 강점"
+      ],
+      "clubHighlights": [
+        "심화 학술 동아리",
+        "리더십·토론 동아리",
+        "대입 포트폴리오형 프로젝트 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "내신·활동·면접 준비가 체계화되기 쉬움", "recommendedFor": "학생부·면접형 전형 준비 학생" },
+        { "route": "정시", "strength": "high", "reason": "고강도 학습 환경으로 수능 상위권 대비가 용이", "recommendedFor": "수능 중심 고득점 목표 학생" },
+        { "route": "유학", "strength": "medium", "reason": "일부 학교는 글로벌 프로그램 강점 보유", "recommendedFor": "국내외 병행 전략 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "서울대·연세대·고려대", "ratio": 33 },
+        { "track": "의약학·상위 전문계열", "ratio": 24 },
+        { "track": "상위권 수도권 대학", "ratio": 32 },
+        { "track": "해외 대학·기타", "ratio": 11 }
+      ],
+      "ratioBasisNote": "자사고 진학 경향을 기반으로 한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "높은 경쟁 강도에서 학습 루틴을 유지할 수 있는가",
+        "내신·정시 병행 전략을 감당할 체력이 있는가",
+        "기숙사/학비/통학 조건을 현실적으로 검토했는가",
+        "성적 외에도 정체성을 지킬 회복 루틴이 있는가"
+      ]
+    },
+    "arts_sports": {
+      "profileTitle": "실기·무대 중심 특기자 트랙",
+      "profileSummary": "실기 경쟁력과 포트폴리오가 핵심인 예술·체육 특기자형 트랙입니다.",
+      "curriculumHighlights": [
+        "실기 중심 커리큘럼 + 기초 교과 병행",
+        "전공별 포트폴리오/실적 관리가 중요",
+        "대입 전형별 실기·면접 기준이 학교별로 상이"
+      ],
+      "extracurricularHighlights": [
+        "공연·전시·대회·체전 실적이 핵심 지표",
+        "교내외 발표 무대 경험이 경쟁력으로 연결",
+        "부상/번아웃 방지를 위한 회복 루틴 필요"
+      ],
+      "clubHighlights": [
+        "전공 실기 동아리",
+        "공연·전시 기획 동아리",
+        "스포츠 과학·경기분석 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "수시", "strength": "high", "reason": "실기/포트폴리오/활동 중심 전형에 적합", "recommendedFor": "실기 성과와 기록이 강한 학생" },
+        { "route": "정시", "strength": "medium", "reason": "일부 대학은 정시 실기 반영 비율이 큼", "recommendedFor": "실기 + 학과 병행 가능한 학생" },
+        { "route": "유학", "strength": "medium", "reason": "예술 포트폴리오 기반 해외 지원 가능", "recommendedFor": "작품/경기 영상 아카이빙이 있는 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "국내 예체능 특화 대학", "ratio": 48 },
+        { "track": "국내 종합대 예체능 계열", "ratio": 30 },
+        { "track": "프로/실무 진출", "ratio": 14 },
+        { "track": "해외 예체능 진학", "ratio": 8 }
+      ],
+      "ratioBasisNote": "예체능 계열의 일반적인 진학/진출 패턴을 기반으로 한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "실기 훈련을 장기적으로 유지할 수 있는가",
+        "대회·무대 경험을 지속적으로 만들 수 있는가",
+        "부상·슬럼프 관리 루틴이 있는가",
+        "진학/진출 목표(대학·프로·해외)를 명확히 했는가"
+      ]
+    },
+    "meister": {
+      "profileTitle": "취업 직결 기술 실무 트랙",
+      "profileSummary": "실습·자격증·산학연계를 중심으로 빠른 취업 경쟁력을 만드는 실무형 트랙입니다.",
+      "curriculumHighlights": [
+        "실습 비중이 높고 프로젝트형 수업 중심",
+        "자격증·코딩·현장 실무 역량을 요구",
+        "이론보다 구현·문제해결형 학습이 중요"
+      ],
+      "extracurricularHighlights": [
+        "기업 연계 프로젝트·현장실습·기능경진대회 강세",
+        "기술 포트폴리오(성과물, 코드, 인증) 관리가 중요",
+        "취업 멘토링과 직무별 준비 루트가 비교적 명확"
+      ],
+      "clubHighlights": [
+        "로봇·자동화 동아리",
+        "AI/SW 제작 동아리",
+        "기술 자격증 대비 스터디"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "취업", "strength": "high", "reason": "산학 연계와 실습 체계가 빠른 취업 경쟁력으로 직결", "recommendedFor": "실무 중심 성장 목표 학생" },
+        { "route": "수시", "strength": "medium", "reason": "특성화고 특별전형 활용 가능", "recommendedFor": "취업+대학 병행 고려 학생" },
+        { "route": "정시", "strength": "low", "reason": "정시 중심 대비 체계는 상대적으로 약할 수 있음", "recommendedFor": "정시 중심이면 별도 대비가 필요한 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "취업(대기업·중견·공기업 포함)", "ratio": 55 },
+        { "track": "특성화고 특별전형 대학 진학", "ratio": 24 },
+        { "track": "전문대 연계 진학", "ratio": 15 },
+        { "track": "기타", "ratio": 6 }
+      ],
+      "ratioBasisNote": "마이스터고 계열의 일반적 진로 패턴 안내 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "실습과 프로젝트 중심 학습이 잘 맞는가",
+        "코딩·기술 자격증 준비에 흥미가 있는가",
+        "빠른 취업 혹은 실무 중심 성장 목표가 명확한가",
+        "기업 연계 프로그램 참여 의지가 있는가"
+      ]
+    },
+    "business": {
+      "profileTitle": "경영·회계 실무 특화 트랙",
+      "profileSummary": "경영·회계·금융 실무 역량을 기반으로 취업 또는 실무형 진학을 준비하는 트랙입니다.",
+      "curriculumHighlights": [
+        "회계·세무·마케팅·실무 문서 처리 교육 강화",
+        "데이터 도구(엑셀·스프레드시트) 활용 능력 중요",
+        "자격증과 프로젝트 산출물 기반 평가 비중 존재"
+      ],
+      "extracurricularHighlights": [
+        "모의창업, 비즈니스 경진대회, 금융 프로젝트",
+        "현장 실습/인턴십 연계 활동",
+        "발표·팀프로젝트 수행 경험이 강점으로 작동"
+      ],
+      "clubHighlights": [
+        "창업 동아리",
+        "회계·재무 스터디",
+        "디지털 마케팅 프로젝트 클럽"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "취업", "strength": "high", "reason": "실무형 역량과 자격증을 활용한 조기 취업에 유리", "recommendedFor": "경제적 자립을 빠르게 원하는 학생" },
+        { "route": "수시", "strength": "medium", "reason": "특성화 전형/실무 역량 기반 지원이 가능", "recommendedFor": "실무+대학 병행 전략 학생" },
+        { "route": "정시", "strength": "low", "reason": "정시 중심 학습 구조는 별도 보완이 필요", "recommendedFor": "정시 중심이면 학업 루트 추가 설계 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "취업(사무·금융·유통 등)", "ratio": 46 },
+        { "track": "전문대·실무형 대학 진학", "ratio": 28 },
+        { "track": "4년제 경영·경제 계열", "ratio": 20 },
+        { "track": "기타", "ratio": 6 }
+      ],
+      "ratioBasisNote": "비즈니스 특성화고 일반 경향의 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "수치·데이터·문서 작업을 꾸준히 할 수 있는가",
+        "팀 프로젝트·발표에 거부감이 없는가",
+        "자격증 중심 성장 방식이 잘 맞는가",
+        "취업/진학 우선순위를 명확히 정했는가"
+      ]
+    },
+    "general_elite": {
+      "profileTitle": "학군지 수시·정시 병행 트랙",
+      "profileSummary": "학군 경쟁 환경에서 내신과 수능을 동시에 준비하는 전통적 상위권 트랙입니다.",
+      "curriculumHighlights": [
+        "내신 시험 대비 + 수능 심화 학습 동시 운영",
+        "학원/학교 병행 리듬과 자기주도 학습 중요",
+        "전과목 균형 관리와 장기 계획이 성패를 좌우"
+      ],
+      "extracurricularHighlights": [
+        "교내 탐구·동아리·자율활동의 지속 참여 필요",
+        "학군 내 경쟁에서 기록의 완성도가 중요",
+        "수시 준비와 정시 대비를 함께 설계해야 함"
+      ],
+      "clubHighlights": [
+        "학술 탐구 동아리",
+        "진로 기반 프로젝트 동아리",
+        "교과 심화 스터디"
+      ],
+      "admissionRouteStrengths": [
+        { "route": "정시", "strength": "high", "reason": "수능 중심 학습 인프라 접근성이 높음", "recommendedFor": "수능 장기전 체력이 있는 학생" },
+        { "route": "수시", "strength": "medium", "reason": "내신·활동 관리 시 충분히 경쟁력 확보 가능", "recommendedFor": "학교활동과 내신을 꾸준히 챙기는 학생" },
+        { "route": "유학", "strength": "low", "reason": "유학 특화 커리큘럼은 상대적으로 제한적", "recommendedFor": "유학 목표면 별도 준비 트랙이 필요한 학생" }
+      ],
+      "majorUniversityRatios": [
+        { "track": "서울대·연세대·고려대", "ratio": 22 },
+        { "track": "수도권 상위권 4년제", "ratio": 44 },
+        { "track": "중상위권·특성화 계열", "ratio": 26 },
+        { "track": "기타", "ratio": 8 }
+      ],
+      "ratioBasisNote": "학군지 일반고 진학 흐름을 반영한 안내용 비율입니다.",
+      "middleSchoolSelectionChecklist": [
+        "내신+정시 병행 루틴을 유지할 수 있는가",
+        "학군·통학·학원 의존도를 현실적으로 점검했는가",
+        "경쟁 환경에서 멘탈 회복 루틴이 있는가",
+        "수시/정시 우선 전략을 명확히 했는가"
+      ]
+    }
+  },
+  "schoolOverrides": {
+    "kaist_science": {
+      "majorUniversityRatios": [
+        { "track": "KAIST·POSTECH·GIST 등 이공특성화", "ratio": 44 },
+        { "track": "서울대(자연)·의약학", "ratio": 31 },
+        { "track": "해외 STEM 대학", "ratio": 15 },
+        { "track": "기타", "ratio": 10 }
+      ]
+    },
+    "seoul_international": {
+      "majorUniversityRatios": [
+        { "track": "국내 상위권 수시", "ratio": 41 },
+        { "track": "해외 대학", "ratio": 32 },
+        { "track": "국내 국제학·경영 계열", "ratio": 19 },
+        { "track": "기타", "ratio": 8 }
+      ]
+    },
+    "hana_high": {
+      "majorUniversityRatios": [
+        { "track": "서울대·연세대·고려대", "ratio": 37 },
+        { "track": "의약학·상위 전문계열", "ratio": 27 },
+        { "track": "상위권 수도권 대학", "ratio": 28 },
+        { "track": "해외·기타", "ratio": 8 }
+      ]
+    },
+    "samsung_meister": {
+      "majorUniversityRatios": [
+        { "track": "취업(대기업·중견 SW/AI)", "ratio": 58 },
+        { "track": "특성화고 특별전형 대학", "ratio": 21 },
+        { "track": "전문대 연계 진학", "ratio": 14 },
+        { "track": "기타", "ratio": 7 }
+      ]
+    }
+  }
+}

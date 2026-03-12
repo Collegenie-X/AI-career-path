@@ -8,6 +8,8 @@ import {
 } from 'lucide-react';
 import { CareerPathStyleDialog } from '../CareerPathStyleDialog';
 import type { HighSchoolDetail } from '../../types';
+import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
+import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
 
 type SchoolDetailModalProps = {
   school: HighSchoolDetail;
@@ -286,6 +288,8 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
         )}
       </SectionCard>
 
+      <SchoolSelectionInsightSection school={school} categoryColor={categoryColor} sectionMode="overview" />
+
       {/* 장단점 */}
       <div className="grid grid-cols-1 gap-2">
         <div className="p-3 rounded-2xl space-y-1.5"
@@ -417,6 +421,8 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
           <p className="text-[11px] text-gray-300 leading-relaxed">{school.mentalHealthNote}</p>
         </div>
       )}
+
+      <SchoolSelectionInsightSection school={school} categoryColor={categoryColor} sectionMode="admission" />
     </div>
   );
 }
@@ -603,6 +609,8 @@ function RealLifeTab({ school, categoryColor, categoryBgColor }: TabProps) {
 
       {/* 학교 생활 정보 */}
       <SchoolBasicLifeInfo school={school} categoryColor={categoryColor} />
+
+      <SchoolCommentSharePanel schoolId={school.id} schoolName={school.name} categoryColor={categoryColor} />
     </div>
   );
 }
