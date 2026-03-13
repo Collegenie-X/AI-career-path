@@ -8,10 +8,10 @@ import { RoadmapCard } from './RoadmapCard';
 
 type MySubTab = 'roadmaps' | 'spaces' | 'bookmarks';
 
-const MY_SUB_TABS: { id: MySubTab; label: string; icon: typeof Map }[] = [
-  { id: 'roadmaps',  label: '내 로드맵', icon: Map },
-  { id: 'spaces',    label: '스페이스',  icon: Users },
-  { id: 'bookmarks', label: '북마크',    icon: Bookmark },
+const MY_SUB_TABS: { id: MySubTab; labelKey: string; icon: typeof Map }[] = [
+  { id: 'roadmaps',  labelKey: 'mySubTabPlansLabel', icon: Map },
+  { id: 'spaces',    labelKey: 'mySubTabSpacesLabel',  icon: Users },
+  { id: 'bookmarks', labelKey: 'mySubTabBookmarksLabel',    icon: Bookmark },
 ];
 
 interface MyDreamMateTabProps {
@@ -101,7 +101,7 @@ export function MyDreamMateTab({
                 : { color: 'rgba(255,255,255,0.4)' }}
             >
               <Icon className="w-3.5 h-3.5" />
-              {tab.label}
+              {LABELS[tab.labelKey]}
             </button>
           );
         })}
@@ -111,7 +111,7 @@ export function MyDreamMateTab({
       {subTab === 'roadmaps' && (
         <div className="space-y-3">
           {myRoadmaps.length === 0 ? (
-            <EmptyState emoji="🗺️" title="아직 공유한 로드맵이 없어요" desc="로드맵을 만들어 친구들과 공유해 보세요" />
+            <EmptyState emoji="🗺️" title={LABELS.myPlanEmptyTitle} desc={LABELS.myPlanEmptyDesc} />
           ) : (
             myRoadmaps.map(rm => (
               <RoadmapCard
@@ -163,12 +163,12 @@ export function MyDreamMateTab({
       {subTab === 'bookmarks' && (
         <div className="space-y-3">
           {bookmarkedRoadmaps.length === 0 && bookmarkedResources.length === 0 ? (
-            <EmptyState emoji="⭐" title="북마크한 항목이 없어요" desc="마음에 드는 로드맵이나 자료를 북마크해 보세요" />
+            <EmptyState emoji="⭐" title={LABELS.myBookmarksEmptyTitle} desc={LABELS.myBookmarksEmptyDesc} />
           ) : (
             <>
               {bookmarkedRoadmaps.length > 0 && (
                 <>
-                  <span className="text-xs font-bold text-gray-400">로드맵 ({bookmarkedRoadmaps.length})</span>
+                  <span className="text-xs font-bold text-gray-400">{LABELS.myBookmarkedPlansSectionLabel} ({bookmarkedRoadmaps.length})</span>
                   {bookmarkedRoadmaps.map(rm => (
                     <RoadmapCard
                       key={rm.id}

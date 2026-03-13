@@ -133,7 +133,7 @@ export function RoadmapFeedTab({
         <input
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
-          placeholder="로드맵 검색"
+          placeholder={LABELS.feedSearchPlaceholder}
           className="w-full h-10 pl-10 pr-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
           style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
         />

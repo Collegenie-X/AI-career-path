@@ -186,7 +186,7 @@ function DreamMatePageContent() {
 
       {workspace.editingRoadmap && (
         <RoadmapEditorDialog
-          title="로드맵 수정하기"
+          title="실행계획 수정하기"
           submitLabel="수정 완료"
           initialValues={{
             title: workspace.editingRoadmap.title,

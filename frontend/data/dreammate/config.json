@@ -58,7 +58,7 @@
     { "id": "admission", "label": "고입 준비", "emoji": "🏫", "color": "#6C5CE7" },
     { "id": "contest", "label": "수상·공모전", "emoji": "🏆", "color": "#FBBF24" },
     { "id": "project", "label": "프로젝트", "emoji": "🚀", "color": "#EC4899" },
-    { "id": "roadmap", "label": "로드맵 사례", "emoji": "🗺️", "color": "#3B82F6" },
+    { "id": "roadmap", "label": "실행계획 사례", "emoji": "🗺️", "color": "#3B82F6" },
     { "id": "study", "label": "학습 자료", "emoji": "📚", "color": "#22C55E" },
     { "id": "portfolio", "label": "생기부·포트폴리오", "emoji": "📋", "color": "#F97316" }
   ],
@@ -69,10 +69,10 @@
     { "id": "semester", "label": "학기중", "emoji": "📖" }
   ],
   "tabs": [
-    { "id": "feed", "label": "로드맵", "emoji": "🗺️" },
-    { "id": "space", "label": "스페이스", "emoji": "🤝" },
-    { "id": "my", "label": "내 활동", "emoji": "⭐" },
-    { "id": "library", "label": "자료실", "emoji": "📚" }
+    { "id": "feed", "label": "실행 피드", "emoji": "🗓️" },
+    { "id": "space", "label": "실행 그룹", "emoji": "🤝" },
+    { "id": "my", "label": "내 기록", "emoji": "⭐" },
+    { "id": "library", "label": "실행 자료", "emoji": "📚" }
   ],
   "roadmapShareVisibilityOptions": [
     { "id": "private", "label": "비공개", "description": "내 활동에서만 보입니다.", "emoji": "🔒", "color": "#94A3B8" },
