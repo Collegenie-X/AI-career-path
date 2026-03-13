@@ -69,6 +69,19 @@ export function RoadmapCard({
     .find(periodFilter => periodFilter.id === roadmap.period);
   const periodColor = PERIOD_LABEL_COLORS[roadmap.period] ?? '#6B7280';
   const roadmapMonthSummaryLabel = useMemo(() => formatRoadmapMonthsLabel(roadmap), [roadmap]);
+  const roadmapExecutionSummary = useMemo(() => {
+    const allTodoItems = roadmap.items.flatMap(item => item.subItems ?? []);
+    const actionableTodoItems = allTodoItems.filter(todoItem => todoItem.entryType !== 'goal');
+    const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
+    const evidenceCount = allTodoItems.filter(todoItem => Boolean(todoItem.outputRef?.trim())).length;
+    const outputCriteriaCount = roadmap.items.filter(item => item.targetOutput || item.successCriteria).length;
+    return {
+      totalActionableTodoCount: actionableTodoItems.length,
+      doneActionableTodoCount,
+      evidenceCount,
+      outputCriteriaCount,
+    };
+  }, [roadmap.items]);
 
   return (
     <div
@@ -115,6 +128,17 @@ export function RoadmapCard({
       <h4 className="text-sm font-bold text-white mb-0.5">{roadmap.title}</h4>
       <p className="text-[11px] text-cyan-300 mb-2">{roadmapMonthSummaryLabel}</p>
       <p className="text-xs text-gray-400 line-clamp-2 mb-3">{roadmap.description}</p>
+      <div className="flex flex-wrap items-center gap-1.5 mb-3">
+        <span className="text-[10px] px-2 py-1 rounded-lg text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.16)' }}>
+          산출물 기준 {roadmapExecutionSummary.outputCriteriaCount}개
+        </span>
+        <span className="text-[10px] px-2 py-1 rounded-lg text-emerald-200" style={{ backgroundColor: 'rgba(16,185,129,0.16)' }}>
+          증빙 {roadmapExecutionSummary.evidenceCount}건
+        </span>
+        <span className="text-[10px] px-2 py-1 rounded-lg text-cyan-200" style={{ backgroundColor: 'rgba(6,182,212,0.16)' }}>
+          진행 {roadmapExecutionSummary.doneActionableTodoCount}/{roadmapExecutionSummary.totalActionableTodoCount}
+        </span>
+      </div>
 
       {/* Items preview */}
       <div className="flex flex-wrap gap-1.5 mb-3">

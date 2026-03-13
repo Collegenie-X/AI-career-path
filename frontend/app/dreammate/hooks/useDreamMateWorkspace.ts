@@ -48,20 +48,108 @@ function createDefaultRoadmapSubItems(itemId: string, itemTitle: string) {
   }));
 }
 
+function buildMonthWeekLabel(month: number, week: number): string {
+  return `${month}월 ${week}주차`;
+}
+
+function parseMonthWeekFromLabel(weekLabel?: string): { month?: number; week?: number } {
+  const trimmedWeekLabel = weekLabel?.trim();
+  if (!trimmedWeekLabel) return {};
+
+  const matchedMonthWeek = trimmedWeekLabel.match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (matchedMonthWeek) {
+    const parsedMonth = Number(matchedMonthWeek[1]);
+    const parsedWeek = Number(matchedMonthWeek[2]);
+    return {
+      month: Number.isFinite(parsedMonth) ? parsedMonth : undefined,
+      week: Number.isFinite(parsedWeek) ? parsedWeek : undefined,
+    };
+  }
+
+  const numberMatches = trimmedWeekLabel.match(/\d+/g);
+  if (!numberMatches || numberMatches.length === 0) return {};
+  const lastNumber = Number(numberMatches[numberMatches.length - 1]);
+  return { week: Number.isFinite(lastNumber) ? lastNumber : undefined };
+}
+
+function parseWeekNumberFromWeekLabel(weekLabel?: string): number | undefined {
+  const trimmedWeekLabel = weekLabel?.trim();
+  if (!trimmedWeekLabel) return undefined;
+
+  const matchedMonthWeek = trimmedWeekLabel.match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (matchedMonthWeek) {
+    const week = Number(matchedMonthWeek[2]);
+    if (Number.isFinite(week) && week > 0) return week;
+  }
+
+  const numberMatches = trimmedWeekLabel.match(/\d+/g);
+  if (!numberMatches || numberMatches.length === 0) return undefined;
+  const lastNumber = Number(numberMatches[numberMatches.length - 1]);
+  return Number.isFinite(lastNumber) && lastNumber > 0 ? lastNumber : undefined;
+}
+
+function normalizeTodoMonthWeekByItemMonths(
+  itemMonths: number[],
+  subItem: {
+    weekNumber?: number;
+    weekLabel?: string;
+    entryType?: 'goal' | 'task';
+  } & Record<string, unknown>,
+) {
+  const normalizedMonths = itemMonths.length > 0 ? [...itemMonths].sort((a, b) => a - b) : [3];
+  const fallbackMonth = normalizedMonths[0] ?? 3;
+  const parsedFromLabel = parseMonthWeekFromLabel(subItem.weekLabel);
+
+  // 1) weekLabel이 "N월 M주차" 형태면 우선 사용 (단, item months 범위/주차 1~5로 보정)
+  if (
+    typeof parsedFromLabel.month === 'number'
+    && parsedFromLabel.month >= 1
+    && parsedFromLabel.month <= 12
+    && typeof parsedFromLabel.week === 'number'
+    && parsedFromLabel.week >= 1
+  ) {
+    const normalizedMonth = normalizedMonths.includes(parsedFromLabel.month) ? parsedFromLabel.month : fallbackMonth;
+    const normalizedWeek = Math.min(parsedFromLabel.week, 5);
+    return {
+      ...subItem,
+      weekNumber: normalizedWeek,
+      weekLabel: buildMonthWeekLabel(normalizedMonth, normalizedWeek),
+      entryType: subItem.entryType ?? 'task',
+    };
+  }
+
+  // 2) 기존 데이터가 6,7,8주차처럼 전역 주차면 item.months 기준으로 월/주차 분해
+  const rawWeekNumber = (() => {
+    if (typeof subItem.weekNumber === 'number' && subItem.weekNumber > 0) return subItem.weekNumber;
+    if (typeof parsedFromLabel.week === 'number' && parsedFromLabel.week > 0) return parsedFromLabel.week;
+    const parsedFromWeekLabel = parseWeekNumberFromWeekLabel(subItem.weekLabel);
+    return parsedFromWeekLabel && parsedFromWeekLabel > 0 ? parsedFromWeekLabel : 1;
+  })();
+
+  const monthOffset = Math.floor((rawWeekNumber - 1) / 5);
+  const normalizedMonth = normalizedMonths[Math.min(monthOffset, normalizedMonths.length - 1)] ?? fallbackMonth;
+  const normalizedWeek = ((rawWeekNumber - 1) % 5) + 1;
+
+  return {
+    ...subItem,
+    weekNumber: normalizedWeek,
+    weekLabel: buildMonthWeekLabel(normalizedMonth, normalizedWeek),
+    entryType: subItem.entryType ?? 'task',
+  };
+}
+
 function toRoadmapItems(items: RoadmapItem[]): RoadmapItem[] {
   return items.map(item => ({
     ...item,
     id: createId('roadmap-item'),
     months: item.months.length > 0 ? [...item.months].sort((a, b) => a - b) : [3],
-    subItems: ((item.subItems ?? []).length > 0 ? (item.subItems ?? []) : createDefaultRoadmapSubItems(item.id, item.title)).map(subItem => ({
-      ...subItem,
-      id: createId('roadmap-sub-item'),
-      weekNumber: typeof subItem.weekNumber === 'number'
-        ? subItem.weekNumber
-        : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-      weekLabel: subItem.weekLabel,
-      entryType: subItem.entryType ?? 'task',
-    })),
+    subItems: ((item.subItems ?? []).length > 0 ? (item.subItems ?? []) : createDefaultRoadmapSubItems(item.id, item.title)).map(subItem => {
+      const normalized = normalizeTodoMonthWeekByItemMonths(item.months, subItem);
+      return {
+        ...normalized,
+        id: createId('roadmap-sub-item'),
+      };
+    }),
   }));
 }
 
@@ -74,13 +162,9 @@ function normalizeRoadmapStructure(roadmap: SharedRoadmap): SharedRoadmap {
     items: (roadmap.items ?? []).map(item => ({
       ...item,
       subItems: (() => {
+        const itemMonths = item.months?.length ? item.months : [3];
         const normalizedSubItems = (item.subItems ?? []).map(subItem => ({
-          ...subItem,
-          weekNumber: typeof subItem.weekNumber === 'number'
-            ? subItem.weekNumber
-            : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-          weekLabel: subItem.weekLabel,
-          entryType: subItem.entryType ?? 'task',
+          ...normalizeTodoMonthWeekByItemMonths(itemMonths, subItem),
         }));
         return normalizedSubItems.length > 0
           ? normalizedSubItems
@@ -309,19 +393,15 @@ export function useDreamMateWorkspace({
         groupIds: roadmap.groupIds ?? [],
         shareScope: roadmap.shareScope ?? 'private',
         items: payload.items.map(item => {
+          const itemMonths = [...item.months].sort((a, b) => a - b);
           const cleanedSubItems = (item.subItems ?? []).map(subItem => ({
-            ...subItem,
-            weekNumber: typeof subItem.weekNumber === 'number'
-              ? subItem.weekNumber
-              : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-            weekLabel: subItem.weekLabel,
-            entryType: subItem.entryType ?? 'task',
-            title: subItem.title.trim(),
+            ...normalizeTodoMonthWeekByItemMonths(itemMonths, subItem),
+            title: String(subItem.title ?? '').trim(),
           })).filter(subItem => subItem.title.length > 0);
 
           return {
             ...item,
-            months: [...item.months].sort((a, b) => a - b),
+            months: itemMonths,
             subItems: cleanedSubItems.length > 0
               ? cleanedSubItems
               : createDefaultRoadmapSubItems(item.id, item.title),

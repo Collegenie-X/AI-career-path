@@ -77,8 +77,14 @@ function extractWeekNumber(todoItem: RoadmapTodoItem): number {
   if (typeof todoItem.weekNumber === 'number' && todoItem.weekNumber > 0) {
     return todoItem.weekNumber;
   }
-  const parsed = Number((todoItem.weekLabel ?? '').replace(/[^0-9]/g, ''));
-  return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
+  const matchedMonthWeek = (todoItem.weekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (matchedMonthWeek) {
+    const weekFromMonthWeek = Number(matchedMonthWeek[2]);
+    if (Number.isFinite(weekFromMonthWeek) && weekFromMonthWeek > 0) return weekFromMonthWeek;
+  }
+  const numberMatches = (todoItem.weekLabel ?? '').match(/\d+/g);
+  const lastNumber = numberMatches ? Number(numberMatches[numberMatches.length - 1]) : NaN;
+  return Number.isFinite(lastNumber) && lastNumber > 0 ? lastNumber : 1;
 }
 
 function extractMonthWeek(todoItem: RoadmapTodoItem, fallbackMonth: number): { month: number; week: number } {
@@ -327,18 +333,18 @@ export function RoadmapEditorDialog({
       if (item.id !== itemId) return item;
       const currentSubItems = item.subItems ?? [];
       const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-      const normalizedGoalTitle = goalTitle.trim();
+      const rawGoalTitle = goalTitle;
       const targetWeekLabel = buildMonthWeekLabel(parsedGroup.month, parsedGroup.week);
       const existingGoal = currentSubItems.find(subItem => (
         isGoalTodoEntry(subItem)
         && getWeekGroupKeyFromTodo(subItem, parsedGroup.month) === groupKey
       ));
 
-      const nextSubItems = normalizedGoalTitle.length === 0
+      const nextSubItems = rawGoalTitle.trim().length === 0
         ? currentSubItems.filter(subItem => subItem.id !== existingGoal?.id)
         : existingGoal
           ? currentSubItems.map(subItem => (
-            subItem.id === existingGoal.id ? { ...subItem, title: normalizedGoalTitle } : subItem
+            subItem.id === existingGoal.id ? { ...subItem, title: rawGoalTitle } : subItem
           ))
           : [
             {
@@ -346,7 +352,7 @@ export function RoadmapEditorDialog({
               weekNumber: parsedGroup.week,
               weekLabel: targetWeekLabel,
               entryType: 'goal' as const,
-              title: normalizedGoalTitle,
+              title: rawGoalTitle,
               isDone: false,
             },
             ...currentSubItems,
@@ -385,7 +391,7 @@ export function RoadmapEditorDialog({
             ...subItem,
             weekNumber: typeof subItem.weekNumber === 'number'
               ? subItem.weekNumber
-              : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
+              : extractWeekNumber(subItem),
             weekLabel: subItem.weekLabel?.trim() || undefined,
             entryType: subItem.entryType ?? 'task',
             title: subItem.title.trim(),

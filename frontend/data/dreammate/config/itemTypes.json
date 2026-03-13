@@ -1,0 +1,6 @@
+[
+  { "value": "award",    "label": "수상·대회",   "color": "#FBBF24", "emoji": "🏆" },
+  { "value": "activity", "label": "활동",        "color": "#3B82F6", "emoji": "🎯" },
+  { "value": "project",  "label": "프로젝트",    "color": "#EC4899", "emoji": "🚀" },
+  { "value": "paper",    "label": "논문·보고서", "color": "#22C55E", "emoji": "📄" }
+]

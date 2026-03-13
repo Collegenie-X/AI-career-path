@@ -84,8 +84,18 @@ export function RoadmapFeedTab({
         const matchesTitle = roadmap.title.toLowerCase().includes(normalizedSearchQuery);
         const matchesOwner = roadmap.ownerName.toLowerCase().includes(normalizedSearchQuery);
         const matchesItem = roadmap.items.some(item => item.title.toLowerCase().includes(normalizedSearchQuery));
+        const matchesExecutionField = roadmap.items.some(item => {
+          const matchesItemOutput = item.targetOutput?.toLowerCase().includes(normalizedSearchQuery);
+          const matchesSuccessCriteria = item.successCriteria?.toLowerCase().includes(normalizedSearchQuery);
+          const matchesTodoRecord = (item.subItems ?? []).some(todoItem =>
+            todoItem.note?.toLowerCase().includes(normalizedSearchQuery)
+            || todoItem.outputRef?.toLowerCase().includes(normalizedSearchQuery)
+            || todoItem.reviewNote?.toLowerCase().includes(normalizedSearchQuery),
+          );
+          return Boolean(matchesItemOutput || matchesSuccessCriteria || matchesTodoRecord);
+        });
 
-        return matchesTitle || matchesOwner || matchesItem;
+        return matchesTitle || matchesOwner || matchesItem || matchesExecutionField;
       }),
     [roadmaps, periodFilter, typeFilter, normalizedSearchQuery],
   );

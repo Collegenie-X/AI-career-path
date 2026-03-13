@@ -48,11 +48,28 @@ function buildGroupedGoals(items: RoadmapItem[]): GroupedRoadmapItemsByGoal[] {
 }
 
 function getWeekLabelFromTodo(weekNumber?: number, weekLabel?: string): string {
+  if (weekLabel?.trim()) return weekLabel;
   if (typeof weekNumber === 'number' && weekNumber > 0) {
     return `${weekNumber}주차`;
   }
-  if (weekLabel?.trim()) return weekLabel;
   return '1주차';
+}
+
+function parseTodoMonthWeek(todoItem: { weekNumber?: number; weekLabel?: string }): { month: number; week: number } {
+  const matched = (todoItem.weekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (matched) {
+    const month = Number(matched[1]);
+    const week = Number(matched[2]);
+    if (Number.isInteger(month) && Number.isInteger(week)) {
+      return { month, week };
+    }
+  }
+
+  if (typeof todoItem.weekNumber === 'number' && todoItem.weekNumber > 0) {
+    return { month: 99, week: todoItem.weekNumber };
+  }
+
+  return { month: 99, week: 1 };
 }
 
 function getEarliestMonth(item: RoadmapItem): number {
@@ -70,6 +87,10 @@ function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
   const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
   if (actionableTodoItems.length === 0) return false;
   return actionableTodoItems.every(todoItem => todoItem.isDone);
+}
+
+function hasTodoExecutionRecord(todoItem: { note?: string; outputRef?: string; reviewNote?: string }): boolean {
+  return Boolean(todoItem.note?.trim() || todoItem.outputRef?.trim() || todoItem.reviewNote?.trim());
 }
 
 function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonthGroup[] {
@@ -112,9 +133,10 @@ function RoadmapTodoChecklist({
   const sortedTodoItems = useMemo(
     () =>
       [...(item.subItems ?? [])].sort((leftTodo, rightTodo) => {
-        const leftWeek = leftTodo.weekNumber ?? 999;
-        const rightWeek = rightTodo.weekNumber ?? 999;
-        if (leftWeek !== rightWeek) return leftWeek - rightWeek;
+        const leftMonthWeek = parseTodoMonthWeek(leftTodo);
+        const rightMonthWeek = parseTodoMonthWeek(rightTodo);
+        if (leftMonthWeek.month !== rightMonthWeek.month) return leftMonthWeek.month - rightMonthWeek.month;
+        if (leftMonthWeek.week !== rightMonthWeek.week) return leftMonthWeek.week - rightMonthWeek.week;
         if (leftTodo.entryType === rightTodo.entryType) return 0;
         return leftTodo.entryType === 'goal' ? -1 : 1;
       }),
@@ -194,12 +216,21 @@ function RoadmapTodoChecklist({
 
                   if (isGoalEntry) {
                     return (
-                      <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        <span className="inline-block w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
-                        <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
-                          목표
-                        </span>
-                        <span className="truncate">{todoItem.title}</span>
+                      <div key={todoItem.id} className="w-full text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                        <div className="flex items-center gap-1.5">
+                          <span className="inline-block w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+                            목표
+                          </span>
+                          <span className="truncate">{todoItem.title}</span>
+                        </div>
+                        {hasTodoExecutionRecord(todoItem) && (
+                          <div className="mt-1 ml-4 space-y-0.5 text-[9px] text-gray-500">
+                            {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
+                            {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
+                            {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
+                          </div>
+                        )}
                       </div>
                     );
                   }
@@ -222,9 +253,18 @@ function RoadmapTodoChecklist({
                       {todoItem.isDone
                         ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
                         : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
-                      <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
-                        {todoItem.title}
-                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                          {todoItem.title}
+                        </p>
+                        {hasTodoExecutionRecord(todoItem) && (
+                          <div className="mt-0.5 space-y-0.5 text-[9px] text-gray-500">
+                            {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
+                            {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
+                            {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
+                          </div>
+                        )}
+                      </div>
                     </button>
                   );
                 })}
@@ -294,6 +334,20 @@ function RoadmapItemTodoAccordionCard({
           isTitleDone={isRoadmapItemFullyCompleted(item)}
         />
       </div>
+      {(item.targetOutput || item.successCriteria) && (
+        <div className="mt-1.5 ml-3 rounded-lg px-2.5 py-2 space-y-1" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          {item.targetOutput && (
+            <p className="text-[10px] text-cyan-200 leading-snug">
+              <span className="text-cyan-300 font-semibold">산출물:</span> {item.targetOutput}
+            </p>
+          )}
+          {item.successCriteria && (
+            <p className="text-[10px] text-emerald-200 leading-snug">
+              <span className="text-emerald-300 font-semibold">완료 기준:</span> {item.successCriteria}
+            </p>
+          )}
+        </div>
+      )}
       {isTodoOpen && <RoadmapTodoChecklist item={item} isTodoListSimpleView={isTodoListSimpleView} onToggleTodoItem={onToggleTodoItem} />}
     </div>
   );

@@ -59,6 +59,19 @@ export function RoadmapDetailDialog({
     () => PERIOD_FILTERS.find(item => item.id === roadmap.period)?.label ?? roadmap.period,
     [roadmap.period],
   );
+  const executionSummary = useMemo(() => {
+    const allTodoItems = roadmap.items.flatMap(item => item.subItems ?? []);
+    const actionableTodoItems = allTodoItems.filter(todoItem => todoItem.entryType !== 'goal');
+    const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
+    const outputDefinedItemCount = roadmap.items.filter(item => item.targetOutput || item.successCriteria).length;
+    const evidenceCount = allTodoItems.filter(todoItem => Boolean(todoItem.outputRef?.trim())).length;
+    return {
+      outputDefinedItemCount,
+      evidenceCount,
+      doneActionableTodoCount,
+      totalActionableTodoCount: actionableTodoItems.length,
+    };
+  }, [roadmap.items]);
 
   useEffect(() => {
     if (!showActionMenu) return;
@@ -142,6 +155,14 @@ export function RoadmapDetailDialog({
         <div className="flex-1 min-h-0 overflow-y-auto px-4 py-3 space-y-3" style={{ paddingBottom: isOwnedByCurrentUser ? 116 : 110 }}>
           <div className="rounded-xl p-3" style={{ backgroundColor: `${roadmap.starColor}10`, border: `1px solid ${roadmap.starColor}24` }}>
             <p className="text-xs text-gray-200 leading-relaxed">{roadmap.description}</p>
+          </div>
+          <div className="rounded-xl p-3 space-y-1.5" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
+            <p className="text-[11px] font-bold text-white">실행 검증 요약</p>
+            <p className="text-[10px] text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
+            <p className="text-[10px] text-emerald-200">업무 증빙(outputRef): {executionSummary.evidenceCount}건</p>
+            <p className="text-[10px] text-cyan-200">
+              실행 진행률: {executionSummary.doneActionableTodoCount}/{executionSummary.totalActionableTodoCount}
+            </p>
           </div>
 
           <div className="space-y-2">

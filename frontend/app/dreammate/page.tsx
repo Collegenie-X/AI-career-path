@@ -4,7 +4,9 @@ import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
-import seedData from '@/data/dreammate/seed.json';
+import seedRoadmapsData from '@/data/dreammate/seed/roadmaps.json';
+import seedResourcesData from '@/data/dreammate/seed/resources.json';
+import seedSpacesData    from '@/data/dreammate/seed/spaces.json';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamResource, DreamSpace, DreamTabId, PeriodType, SharedRoadmap } from './types';
 import { RoadmapFeedTab } from './components/RoadmapFeedTab';
@@ -50,9 +52,9 @@ function DreamMatePageContent() {
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
 
-  const seedRoadmaps = seedData.sharedRoadmaps as SharedRoadmap[];
-  const resources = seedData.resources as DreamResource[];
-  const seedSpaces = seedData.spaces as DreamSpace[];
+  const seedRoadmaps = seedRoadmapsData as SharedRoadmap[];
+  const resources    = seedResourcesData as DreamResource[];
+  const seedSpaces   = seedSpacesData as DreamSpace[];
   const workspace = useDreamMateWorkspace({ seedRoadmaps, seedSpaces, resources });
 
   useEffect(() => {

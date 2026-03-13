@@ -1,0 +1,14 @@
+{
+  "likeLabel":             "좋아요",
+  "bookmarkLabel":         "북마크",
+  "editButtonLabel":       "수정하기",
+  "deleteButtonLabel":     "삭제하기",
+  "cancelButtonLabel":     "취소",
+  "deleteConfirmButtonLabel": "삭제 확인",
+  "viewDetailButton":      "자세히 보기",
+  "useRoadmapButton":      "실행계획 사용하기",
+  "shareRoadmapButtonLarge": "공유하기",
+  "periodAfterSchool":     "방과후",
+  "periodVacation":        "방학",
+  "periodSemester":        "학기중"
+}

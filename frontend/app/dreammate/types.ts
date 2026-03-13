@@ -8,6 +8,10 @@ export interface RoadmapItem {
   title: string;
   months: number[];
   difficulty: number;
+  /** 이 항목을 통해 만들어야 할 최종 산출물 (예: "탐구 보고서 PDF", "GitHub 저장소 URL") */
+  targetOutput?: string;
+  /** 완료 판단 기준 (예: "교사 제출 완료", "대회 접수 확인") */
+  successCriteria?: string;
   subItems?: RoadmapTodoItem[];
 }
 
@@ -18,6 +22,12 @@ export interface RoadmapTodoItem {
   entryType?: 'goal' | 'task';
   title: string;
   isDone?: boolean;
+  /** 실행 중 작성한 진행 메모 또는 업무 기록 */
+  note?: string;
+  /** 완료 후 산출물 링크 또는 파일명 (예: "탐구계획서_v1.pdf", "https://github.com/...") */
+  outputRef?: string;
+  /** 완료 후 회고 (잘된 점·개선점·다음 주 반영 사항) */
+  reviewNote?: string;
 }
 
 export type RoadmapShareScope = 'private' | 'public' | 'space';
