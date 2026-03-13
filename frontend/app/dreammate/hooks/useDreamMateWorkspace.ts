@@ -5,6 +5,7 @@ import type {
   DreamResource,
   DreamSpace,
   RoadmapItem,
+  RoadmapReportRecord,
   RoadmapShareScope,
   SharedRoadmap,
   SpaceParticipationApplication,
@@ -129,6 +130,7 @@ export function useDreamMateWorkspace({
     likedResourceIds: [],
     bookmarkedResourceIds: [],
   });
+  const [roadmapReports, setRoadmapReports] = useState<RoadmapReportRecord[]>([]);
 
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
   const [showCreateRoadmapDialog, setShowCreateRoadmapDialog] = useState(false);
@@ -139,9 +141,11 @@ export function useDreamMateWorkspace({
     const loadedWorkspace = loadDreamMateWorkspaceState({
       roadmaps: seedRoadmaps,
       spaces: seedSpaces,
+      roadmapReports: [],
     });
     setRoadmaps(loadedWorkspace.roadmaps.map(normalizeRoadmapStructure));
     setSpaces(loadedWorkspace.spaces.map(normalizeSpaceStructure));
+    setRoadmapReports(loadedWorkspace.roadmapReports ?? []);
     setIsWorkspaceLoaded(true);
     setJoinedSpaceIds(loadJoinedSpaceIds());
     setReactions(loadDreamReactions());
@@ -149,8 +153,8 @@ export function useDreamMateWorkspace({
 
   useEffect(() => {
     if (!isWorkspaceLoaded) return;
-    saveDreamMateWorkspaceState({ roadmaps, spaces });
-  }, [isWorkspaceLoaded, roadmaps, spaces]);
+    saveDreamMateWorkspaceState({ roadmaps, spaces, roadmapReports });
+  }, [isWorkspaceLoaded, roadmaps, spaces, roadmapReports]);
 
   const roadmapLikeCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -565,6 +569,17 @@ export function useDreamMateWorkspace({
     }
   }, []);
 
+  const handleReportRoadmap = useCallback((roadmapId: string, reasonId: string, detail: string) => {
+    setRoadmapReports(prev => [{
+      id: createId('roadmap-report'),
+      roadmapId,
+      reasonId,
+      detail: detail.trim(),
+      reportedByUserId: CURRENT_USER.id,
+      createdAt: new Date().toISOString(),
+    }, ...prev]);
+  }, []);
+
   return {
     currentUserId: CURRENT_USER.id,
     roadmaps,
@@ -586,6 +601,7 @@ export function useDreamMateWorkspace({
     setShowCreateRoadmapDialog,
     setEditingRoadmapId,
     setPendingSpaceIdFromMyTab,
+    roadmapReports,
     handleToggleRoadmapLike,
     handleToggleRoadmapBookmark,
     handleToggleLikeResource,
@@ -605,6 +621,7 @@ export function useDreamMateWorkspace({
     handleApplyToSpace,
     handleApproveSpaceApplication,
     handleAdvanceSpaceApplicationStatus,
+    handleReportRoadmap,
   };
 }
 

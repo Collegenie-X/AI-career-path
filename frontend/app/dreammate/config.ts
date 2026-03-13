@@ -86,6 +86,13 @@ export const SPACE_PROGRAM_TYPES = dreamConfig.spaceProgramTypes as readonly {
   color: string;
 }[];
 
+export const ROADMAP_REPORT_REASONS = dreamConfig.roadmapReportReasons as readonly {
+  id: string;
+  label: string;
+  description: string;
+  emoji: string;
+}[];
+
 export const PARTICIPATION_FLOW_STEPS = dreamConfig.participationFlowSteps as readonly {
   id: ParticipationApplicationStatus;
   label: string;

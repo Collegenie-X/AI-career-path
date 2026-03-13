@@ -26,6 +26,7 @@ interface MyDreamMateTabProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
+  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onGoToSpace: (spaceId: string) => void;
   onCreateRoadmap: () => void;
 }
@@ -42,6 +43,7 @@ export function MyDreamMateTab({
   onToggleLike,
   onToggleBookmark,
   onViewRoadmapDetail,
+  onReportRoadmap,
   onGoToSpace,
   onCreateRoadmap,
 }: MyDreamMateTabProps) {
@@ -124,6 +126,7 @@ export function MyDreamMateTab({
                 onToggleLike={() => onToggleLike(rm.id)}
                 onToggleBookmark={() => onToggleBookmark(rm.id)}
                 onViewDetail={() => onViewRoadmapDetail(rm)}
+                onReportRoadmap={onReportRoadmap}
               />
             ))
           )}
@@ -180,6 +183,7 @@ export function MyDreamMateTab({
                       onToggleLike={() => onToggleLike(rm.id)}
                       onToggleBookmark={() => onToggleBookmark(rm.id)}
                       onViewDetail={() => onViewRoadmapDetail(rm)}
+                      onReportRoadmap={onReportRoadmap}
                     />
                   ))}
                 </>

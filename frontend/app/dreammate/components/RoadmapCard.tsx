@@ -1,8 +1,10 @@
 'use client';
 
-import { Heart, Bookmark, MessageSquare } from 'lucide-react';
-import { DREAM_ITEM_TYPES, PERIOD_FILTERS } from '../config';
+import { useEffect, useRef, useState } from 'react';
+import { Heart, Bookmark, MessageSquare, MoreVertical, Flag } from 'lucide-react';
+import { DREAM_ITEM_TYPES, LABELS, PERIOD_FILTERS } from '../config';
 import type { SharedRoadmap } from '../types';
+import { RoadmapReportDialog } from './RoadmapReportDialog';
 
 const PERIOD_LABEL_COLORS: Record<string, string> = {
   afterschool: '#F59E0B',
@@ -31,6 +33,7 @@ interface RoadmapCardProps {
   onToggleLike: () => void;
   onToggleBookmark: () => void;
   onViewDetail: () => void;
+  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
 }
 
 export function RoadmapCard({
@@ -42,11 +45,29 @@ export function RoadmapCard({
   onToggleLike,
   onToggleBookmark,
   onViewDetail,
+  onReportRoadmap,
 }: RoadmapCardProps) {
+  const [showActionMenu, setShowActionMenu] = useState(false);
+  const [showReportDialog, setShowReportDialog] = useState(false);
+  const actionMenuRef = useRef<HTMLDivElement | null>(null);
   const periodInfo = PERIOD_FILTERS
     .filter(periodFilter => periodFilter.id !== 'all')
     .find(periodFilter => periodFilter.id === roadmap.period);
   const periodColor = PERIOD_LABEL_COLORS[roadmap.period] ?? '#6B7280';
+
+  useEffect(() => {
+    if (!showActionMenu) return;
+    const closeActionMenuWhenClickedOutside = (event: MouseEvent) => {
+      if (!actionMenuRef.current) return;
+      if (!actionMenuRef.current.contains(event.target as Node)) {
+        setShowActionMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', closeActionMenuWhenClickedOutside);
+    return () => {
+      document.removeEventListener('mousedown', closeActionMenuWhenClickedOutside);
+    };
+  }, [showActionMenu]);
 
   return (
     <div
@@ -66,7 +87,7 @@ export function RoadmapCard({
       }}
     >
       {/* Header */}
-      <div className="flex items-start gap-3 mb-3">
+      <div className="relative flex items-start gap-3 mb-3">
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center text-lg flex-shrink-0"
           style={{ backgroundColor: `${roadmap.starColor}18` }}
@@ -86,6 +107,38 @@ export function RoadmapCard({
             )}
           </div>
           <p className="text-[10px] text-gray-500">{formatTimeAgo(roadmap.sharedAt)}</p>
+        </div>
+        <div ref={actionMenuRef} className="relative flex-shrink-0">
+          <button
+            onClick={event => {
+              event.stopPropagation();
+              setShowActionMenu(prev => !prev);
+            }}
+            className="w-7 h-7 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
+            aria-label={LABELS.roadmapMoreActionLabel}
+          >
+            <MoreVertical className="w-3.5 h-3.5 text-gray-400" />
+          </button>
+          {showActionMenu && (
+            <div
+              className="absolute right-0 top-9 min-w-[112px] rounded-xl p-1 z-20"
+              style={{ backgroundColor: '#101026', border: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              <button
+                onClick={event => {
+                  event.stopPropagation();
+                  setShowActionMenu(false);
+                  setShowReportDialog(true);
+                }}
+                className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-semibold text-red-300"
+                style={{ backgroundColor: 'rgba(239,68,68,0.08)' }}
+              >
+                <Flag className="w-3.5 h-3.5" />
+                {LABELS.roadmapReportMenuLabel}
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
@@ -141,6 +194,14 @@ export function RoadmapCard({
           {roadmap.items.length}개 항목
         </span>
       </div>
+
+      {showReportDialog && (
+        <RoadmapReportDialog
+          roadmapTitle={roadmap.title}
+          onClose={() => setShowReportDialog(false)}
+          onSubmit={(reasonId, detail) => onReportRoadmap(roadmap.id, reasonId, detail)}
+        />
+      )}
     </div>
   );
 }

@@ -8,7 +8,6 @@ import {
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { RoadmapCard } from './RoadmapCard';
 import {
-  ParticipationApplicationPanel,
   ProgramProposalCards,
   SpaceNoticePanel,
 } from './SpaceParticipationPanels';
@@ -25,12 +24,10 @@ interface SpaceDetailViewProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
+  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onLeave: () => void;
   onToggleRecruitmentStatus: (spaceId: string) => void;
   onCreateNotice: (spaceId: string, title: string, content: string) => void;
-  onApplyToSpace: (spaceId: string, message: string) => void;
-  onApproveApplication: (spaceId: string, applicationId: string) => void;
-  onAdvanceApplicationStatus: (spaceId: string, applicationId: string) => void;
   onBack: () => void;
 }
 
@@ -46,24 +43,18 @@ export function SpaceDetailView({
   onToggleLike,
   onToggleBookmark,
   onViewRoadmapDetail,
+  onReportRoadmap,
   onLeave,
   onToggleRecruitmentStatus,
   onCreateNotice,
-  onApplyToSpace,
-  onApproveApplication,
-  onAdvanceApplicationStatus,
   onBack,
 }: SpaceDetailViewProps) {
   const [showMore, setShowMore] = useState(false);
   const [noticeTitleInput, setNoticeTitleInput] = useState('');
   const [noticeContentInput, setNoticeContentInput] = useState('');
-  const [applicationMessageInput, setApplicationMessageInput] = useState('');
   const inviteCode = space.inviteCode ?? space.id;
   const isSpaceOperator = currentUserId === space.creatorId;
   const recruitmentStatus = space.recruitmentStatus ?? 'open';
-  const participationApplications = space.participationApplications ?? [];
-  const currentUserApplication = participationApplications.find(application => application.applicantUserId === currentUserId) ?? null;
-  const pendingApplications = participationApplications.filter(application => application.status === 'applied');
 
   return (
     <div className="space-y-4">
@@ -132,21 +123,6 @@ export function SpaceDetailView({
         </div>
       </div>
 
-      <ParticipationApplicationPanel
-        recruitmentStatus={recruitmentStatus}
-        currentUserApplication={currentUserApplication}
-        pendingApplications={pendingApplications}
-        canManage={isSpaceOperator}
-        applyMessage={applicationMessageInput}
-        onApplyMessageChange={setApplicationMessageInput}
-        onApply={() => {
-          onApplyToSpace(space.id, applicationMessageInput.trim());
-          setApplicationMessageInput('');
-        }}
-        onApprove={(applicationId) => onApproveApplication(space.id, applicationId)}
-        onAdvanceApplicationStatus={(applicationId) => onAdvanceApplicationStatus(space.id, applicationId)}
-      />
-
       <SpaceNoticePanel
         notices={space.notices ?? []}
         canManage={isSpaceOperator}
@@ -210,6 +186,7 @@ export function SpaceDetailView({
               onToggleLike={() => onToggleLike(rm.id)}
               onToggleBookmark={() => onToggleBookmark(rm.id)}
               onViewDetail={() => onViewRoadmapDetail(rm)}
+              onReportRoadmap={onReportRoadmap}
             />
           ))
         )}

@@ -1,10 +1,11 @@
-import type { DreamSpace, SharedRoadmap } from '@/app/dreammate/types';
+import type { DreamSpace, RoadmapReportRecord, SharedRoadmap } from '@/app/dreammate/types';
 
 const WORKSPACE_STORAGE_KEY = 'dreammate_workspace_v1';
 
 export interface DreamMateWorkspaceState {
   roadmaps: SharedRoadmap[];
   spaces: DreamSpace[];
+  roadmapReports: RoadmapReportRecord[];
 }
 
 function mergeRoadmapsWithFallback(
@@ -33,6 +34,7 @@ function cloneState(state: DreamMateWorkspaceState): DreamMateWorkspaceState {
   return {
     roadmaps: structuredClone(state.roadmaps),
     spaces: structuredClone(state.spaces),
+    roadmapReports: structuredClone(state.roadmapReports),
   };
 }
 
@@ -54,6 +56,9 @@ export function loadDreamMateWorkspaceState(
         fallbackState.roadmaps,
       ),
       spaces: parsed.spaces as DreamSpace[],
+      roadmapReports: Array.isArray(parsed.roadmapReports)
+        ? (parsed.roadmapReports as RoadmapReportRecord[])
+        : fallbackState.roadmapReports,
     };
   } catch {
     return cloneState(fallbackState);

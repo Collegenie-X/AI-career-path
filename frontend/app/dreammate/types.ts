@@ -51,6 +51,15 @@ export interface RoadmapComment {
   createdAt: string;
 }
 
+export interface RoadmapReportRecord {
+  id: string;
+  roadmapId: string;
+  reasonId: string;
+  detail: string;
+  reportedByUserId: string;
+  createdAt: string;
+}
+
 export type ResourceCategoryId =
   | 'admission'
   | 'contest'

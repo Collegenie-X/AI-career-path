@@ -8,6 +8,7 @@ import {
 import { LABELS } from '../config';
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { SpaceDetailView } from './SpaceDetailView';
+import { SpaceJoinRequestDialog } from './SpaceJoinRequestDialog';
 
 function formatTimeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -168,13 +169,12 @@ interface DreamSpaceTabProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
+  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
+  onJoinSpace: (id: string) => void;
   onLeaveSpace: (id: string) => void;
   onCreateSpace: (name: string, description: string, emoji: string) => void;
   onToggleSpaceRecruitmentStatus: (spaceId: string) => void;
   onCreateSpaceNotice: (spaceId: string, title: string, content: string) => void;
-  onApplyToSpace: (spaceId: string, message: string) => void;
-  onApproveSpaceApplication: (spaceId: string, applicationId: string) => void;
-  onAdvanceSpaceApplicationStatus: (spaceId: string, applicationId: string) => void;
 }
 
 export function DreamSpaceTab({
@@ -183,16 +183,17 @@ export function DreamSpaceTab({
   initialSelectedSpaceId,
   likedIds, bookmarkedIds, likeCounts, bookmarkCounts,
   onToggleLike, onToggleBookmark, onViewRoadmapDetail,
+  onReportRoadmap,
+  onJoinSpace,
   onLeaveSpace, onCreateSpace,
   onToggleSpaceRecruitmentStatus,
   onCreateSpaceNotice,
-  onApplyToSpace,
-  onApproveSpaceApplication,
-  onAdvanceSpaceApplicationStatus,
 }: DreamSpaceTabProps) {
   const [selectedSpaceId, setSelectedSpaceId] = useState<string | null>(null);
+  const [joinTargetSpaceId, setJoinTargetSpaceId] = useState<string | null>(null);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [inviteCodeInput, setInviteCodeInput] = useState('');
+  const [inviteCodeError, setInviteCodeError] = useState<string | null>(null);
 
   useEffect(() => {
     if (initialSelectedSpaceId) {
@@ -201,6 +202,15 @@ export function DreamSpaceTab({
   }, [initialSelectedSpaceId]);
 
   const selectedSpace = spaces.find(s => s.id === selectedSpaceId) ?? null;
+  const joinTargetSpace = spaces.find(space => space.id === joinTargetSpaceId) ?? null;
+
+  const handleOpenSpace = (space: DreamSpace) => {
+    if (joinedSpaceIds.includes(space.id)) {
+      setSelectedSpaceId(space.id);
+      return;
+    }
+    setJoinTargetSpaceId(space.id);
+  };
 
   if (selectedSpace) {
     const spaceRoadmaps = roadmaps.filter(rm => rm.groupIds.includes(selectedSpace.id));
@@ -217,12 +227,10 @@ export function DreamSpaceTab({
         onToggleLike={onToggleLike}
         onToggleBookmark={onToggleBookmark}
         onViewRoadmapDetail={onViewRoadmapDetail}
+        onReportRoadmap={onReportRoadmap}
         onLeave={() => { onLeaveSpace(selectedSpace.id); setSelectedSpaceId(null); }}
         onToggleRecruitmentStatus={onToggleSpaceRecruitmentStatus}
         onCreateNotice={onCreateSpaceNotice}
-        onApplyToSpace={onApplyToSpace}
-        onApproveApplication={onApproveSpaceApplication}
-        onAdvanceApplicationStatus={onAdvanceSpaceApplicationStatus}
         onBack={() => setSelectedSpaceId(null)}
       />
     );
@@ -231,8 +239,7 @@ export function DreamSpaceTab({
   return (
     <div className="space-y-4 pb-28">
       <div className="flex items-center justify-between">
-        <div>
-          <h3 className="text-base font-bold text-white">{LABELS.spaceTitle}</h3>
+        <div>          
           <p className="text-xs text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
         </div>
         <button
@@ -249,16 +256,26 @@ export function DreamSpaceTab({
         <div className="flex items-center gap-2">
           <input
             value={inviteCodeInput}
-            onChange={event => setInviteCodeInput(event.target.value.toUpperCase())}
+            onChange={event => {
+              setInviteCodeInput(event.target.value.toUpperCase());
+              setInviteCodeError(null);
+            }}
             placeholder="예: SCI-2026"
             className="flex-1 h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-            style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.06)',
+              border: inviteCodeError ? '1px solid rgba(239,68,68,0.5)' : '1px solid rgba(255,255,255,0.1)',
+            }}
           />
           <button
             onClick={() => {
-              const matchedSpace = spaces.find(space => (space.inviteCode ?? '').toUpperCase() === inviteCodeInput.trim().toUpperCase());
-              if (!matchedSpace) return;
-              setSelectedSpaceId(matchedSpace.id);
+              const matchedSpace = spaces.find(space => (space.inviteCode ?? space.id).toUpperCase() === inviteCodeInput.trim().toUpperCase());
+              if (!matchedSpace) {
+                setInviteCodeError(LABELS.spaceJoinCodeInvalidError);
+                return;
+              }
+              setInviteCodeError(null);
+              setJoinTargetSpaceId(matchedSpace.id);
               setInviteCodeInput('');
             }}
             className="h-10 px-4 rounded-xl text-xs font-bold"
@@ -267,6 +284,7 @@ export function DreamSpaceTab({
             참여
           </button>
         </div>
+        {inviteCodeError && <p className="text-[11px] text-red-400">{inviteCodeError}</p>}
       </div>
 
       {spaces.length === 0 ? (
@@ -287,7 +305,7 @@ export function DreamSpaceTab({
               space={space}
               roadmapCount={roadmaps.filter(rm => rm.groupIds.includes(space.id)).length}
               isJoined={joinedSpaceIds.includes(space.id)}
-              onOpen={() => setSelectedSpaceId(space.id)}
+              onOpen={() => handleOpenSpace(space)}
             />
           ))}
         </div>
@@ -299,6 +317,18 @@ export function DreamSpaceTab({
           onCreate={(name, description, emoji) => {
             onCreateSpace(name, description, emoji);
             setShowCreateDialog(false);
+          }}
+        />
+      )}
+
+      {joinTargetSpace && (
+        <SpaceJoinRequestDialog
+          space={joinTargetSpace}
+          onClose={() => setJoinTargetSpaceId(null)}
+          onJoin={() => {
+            onJoinSpace(joinTargetSpace.id);
+            setSelectedSpaceId(joinTargetSpace.id);
+            setJoinTargetSpaceId(null);
           }}
         />
       )}

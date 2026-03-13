@@ -102,6 +102,7 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
+            onReportRoadmap={workspace.handleReportRoadmap}
             onViewDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('feed');
               workspace.setSelectedRoadmapId(roadmap.id);
@@ -129,17 +130,16 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
+            onReportRoadmap={workspace.handleReportRoadmap}
             onViewRoadmapDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('space');
               workspace.setSelectedRoadmapId(roadmap.id);
             }}
+            onJoinSpace={workspace.handleJoinSpace}
             onLeaveSpace={workspace.handleLeaveSpace}
             onCreateSpace={workspace.handleCreateSpace}
             onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
             onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
-            onApplyToSpace={workspace.handleApplyToSpace}
-            onApproveSpaceApplication={workspace.handleApproveSpaceApplication}
-            onAdvanceSpaceApplicationStatus={workspace.handleAdvanceSpaceApplicationStatus}
           />
         ) : activeTab === 'my' ? (
           <MyDreamMateTab
@@ -153,6 +153,7 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
+            onReportRoadmap={workspace.handleReportRoadmap}
             onViewRoadmapDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('my');
               workspace.setSelectedRoadmapId(roadmap.id);
