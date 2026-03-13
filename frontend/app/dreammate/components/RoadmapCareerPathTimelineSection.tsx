@@ -67,9 +67,9 @@ function getMonthLabel(month: number): string {
 }
 
 function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
-  const todoItems = item.subItems ?? [];
-  if (todoItems.length === 0) return false;
-  return todoItems.every(todoItem => todoItem.isDone);
+  const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
+  if (actionableTodoItems.length === 0) return false;
+  return actionableTodoItems.every(todoItem => todoItem.isDone);
 }
 
 function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonthGroup[] {
@@ -84,9 +84,11 @@ function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonth
   return [...bucketByMonth.entries()]
     .sort(([leftMonth], [rightMonth]) => leftMonth - rightMonth)
     .map(([month, monthItems]) => {
-      const totalTodoCount = monthItems.reduce((sum, item) => sum + (item.subItems?.length ?? 0), 0);
+      const totalTodoCount = monthItems.reduce((sum, item) => {
+        return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal').length;
+      }, 0);
       const doneTodoCount = monthItems.reduce((sum, item) => {
-        return sum + (item.subItems ?? []).filter(subItem => subItem.isDone).length;
+        return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal' && subItem.isDone).length;
       }, 0);
       return {
         month,
@@ -112,10 +114,27 @@ function RoadmapTodoChecklist({
       [...(item.subItems ?? [])].sort((leftTodo, rightTodo) => {
         const leftWeek = leftTodo.weekNumber ?? 999;
         const rightWeek = rightTodo.weekNumber ?? 999;
-        return leftWeek - rightWeek;
+        if (leftWeek !== rightWeek) return leftWeek - rightWeek;
+        if (leftTodo.entryType === rightTodo.entryType) return 0;
+        return leftTodo.entryType === 'goal' ? -1 : 1;
       }),
     [item.subItems],
   );
+  const groupedTodoItemsByWeek = useMemo(() => {
+    const weekBucket = new Map<string, { weekKey: string; weekLabel: string; todoItems: typeof sortedTodoItems }>();
+    sortedTodoItems.forEach(todoItem => {
+      const weekLabel = getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel);
+      const weekKey = `${todoItem.weekNumber ?? 'na'}-${todoItem.weekLabel ?? weekLabel}`;
+      const currentWeekGroup = weekBucket.get(weekKey);
+      if (currentWeekGroup) {
+        currentWeekGroup.todoItems.push(todoItem);
+        return;
+      }
+      weekBucket.set(weekKey, { weekKey, weekLabel, todoItems: [todoItem] });
+    });
+    return [...weekBucket.values()];
+  }, [sortedTodoItems]);
+  const [weekAccordionOpenMap, setWeekAccordionOpenMap] = useState<Record<string, boolean>>({});
 
   if (sortedTodoItems.length === 0) {
     return (
@@ -130,50 +149,88 @@ function RoadmapTodoChecklist({
 
   return (
     <div className="mt-1.5 ml-3 pl-3 py-1.5 space-y-1.5 rounded-lg" style={{ borderLeft: '1px dashed rgba(255,255,255,0.18)' }}>
-      {sortedTodoItems.map(todoItem => {
-        if (isTodoListSimpleView) {
-          return (
-            <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-              <span className="inline-block w-1 h-1 rounded-full bg-gray-500 flex-shrink-0" />
-              <span
-                className={`text-[10px] font-semibold flex-shrink-0 ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : 'text-gray-400'}`}
-              >
-                {getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel)}
-              </span>
-              <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
-                {todoItem.title}
-              </span>
-            </div>
-          );
-        }
-
+      {groupedTodoItemsByWeek.map(weekGroup => {
+        const isWeekOpen = weekAccordionOpenMap[weekGroup.weekKey] ?? true;
         return (
-          <button
-            key={todoItem.id}
-            onClick={(event) => {
-              event.stopPropagation();
-              onToggleTodoItem?.(item.id, todoItem.id);
-            }}
-            disabled={!onToggleTodoItem}
-            className="w-full flex items-center gap-1.5 text-[10px] text-left transition-opacity"
-            style={{ 
-              color: 'rgba(255,255,255,0.7)',
-              cursor: onToggleTodoItem ? 'pointer' : 'default',
-              opacity: onToggleTodoItem ? 1 : 0.9,
-            }}
-          >
-            {todoItem.isDone
-              ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
-              : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
-            <span
-              className={`text-[10px] font-semibold flex-shrink-0 ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : 'text-gray-400'}`}
+          <div key={weekGroup.weekKey} className="rounded-lg px-2 py-1.5" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+            <button
+              className="w-full flex items-center justify-between gap-2 text-left"
+              onClick={(event) => {
+                event.stopPropagation();
+                setWeekAccordionOpenMap(previous => ({
+                  ...previous,
+                  [weekGroup.weekKey]: !(previous[weekGroup.weekKey] ?? true),
+                }));
+              }}
             >
-              {getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel)}
-            </span>
-            <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
-              {todoItem.title}
-            </span>
-          </button>
+              <span className="text-[10px] font-semibold text-gray-300">
+                {weekGroup.weekLabel}
+              </span>
+              <span className="flex items-center gap-1 text-[10px] text-gray-500">
+                {weekGroup.todoItems.length}개
+                {isWeekOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+              </span>
+            </button>
+
+            {isWeekOpen && (
+              <div className="mt-1.5 space-y-1.5">
+                {weekGroup.todoItems.map(todoItem => {
+                  const isGoalEntry = todoItem.entryType === 'goal';
+                  if (isTodoListSimpleView) {
+                    return (
+                      <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                        <span className="inline-block w-1 h-1 rounded-full bg-gray-500 flex-shrink-0" />
+                        {isGoalEntry && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+                            목표
+                          </span>
+                        )}
+                        <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                          {todoItem.title}
+                        </span>
+                      </div>
+                    );
+                  }
+
+                  if (isGoalEntry) {
+                    return (
+                      <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                        <span className="inline-block w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
+                        <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+                          목표
+                        </span>
+                        <span className="truncate">{todoItem.title}</span>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <button
+                      key={todoItem.id}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onToggleTodoItem?.(item.id, todoItem.id);
+                      }}
+                      disabled={!onToggleTodoItem}
+                      className="w-full flex items-center gap-1.5 text-[10px] text-left transition-opacity"
+                      style={{ 
+                        color: 'rgba(255,255,255,0.7)',
+                        cursor: onToggleTodoItem ? 'pointer' : 'default',
+                        opacity: onToggleTodoItem ? 1 : 0.9,
+                      }}
+                    >
+                      {todoItem.isDone
+                        ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                        : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
+                      <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                        {todoItem.title}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         );
       })}
     </div>
@@ -210,9 +267,12 @@ function RoadmapItemTodoAccordionCard({
           onClick={() => setIsTodoOpen(previous => !previous)}
           className="text-[10px] text-gray-500 flex items-center gap-1"
         >
-          {isTodoListSimpleView
-            ? `${LABELS.todoSectionLabel} ${(item.subItems ?? []).length}개`
-            : `${LABELS.todoSectionLabel} ${(item.subItems ?? []).filter(todoItem => todoItem.isDone).length}/${(item.subItems ?? []).length}`}
+          {(() => {
+            const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
+            return isTodoListSimpleView
+              ? `${LABELS.todoSectionLabel} ${actionableTodoItems.length}개`
+              : `${LABELS.todoSectionLabel} ${actionableTodoItems.filter(todoItem => todoItem.isDone).length}/${actionableTodoItems.length}`;
+          })()}
           {isTodoOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
         </button>
       </div>
@@ -328,8 +388,8 @@ function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boole
     subItems: includeSubItems
       ? (item.subItems ?? []).map(subItem => ({
           id: subItem.id,
-          title: `${getWeekLabelFromTodo(subItem.weekNumber, subItem.weekLabel)} · ${subItem.title}`,
-          done: Boolean(subItem.isDone),
+          title: `${getWeekLabelFromTodo(subItem.weekNumber, subItem.weekLabel)} · ${subItem.entryType === 'goal' ? `[목표] ${subItem.title}` : subItem.title}`,
+          done: subItem.entryType === 'goal' ? false : Boolean(subItem.isDone),
         }))
       : [],
   };
@@ -358,11 +418,15 @@ export function RoadmapCareerPathTimelineSection({
   );
 
   const weeklyTotalCount = useMemo(
-    () => roadmap.items.reduce((sum, item) => sum + (item.subItems?.length ?? 0), 0),
+    () => roadmap.items.reduce((sum, item) => {
+      return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal').length;
+    }, 0),
     [roadmap.items],
   );
   const weeklyDoneCount = useMemo(
-    () => roadmap.items.reduce((sum, item) => sum + (item.subItems ?? []).filter(subItem => subItem.isDone).length, 0),
+    () => roadmap.items.reduce((sum, item) => {
+      return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal' && subItem.isDone).length;
+    }, 0),
     [roadmap.items],
   );
 

@@ -15,6 +15,7 @@ export interface RoadmapTodoItem {
   id: string;
   weekLabel?: string;
   weekNumber?: number;
+  entryType?: 'goal' | 'task';
   title: string;
   isDone?: boolean;
 }

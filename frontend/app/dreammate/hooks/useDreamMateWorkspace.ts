@@ -42,6 +42,7 @@ function createDefaultRoadmapSubItems(itemId: string, itemTitle: string) {
     id: `${itemId}-default-week-${weekNumber}`,
     weekNumber,
     weekLabel: undefined,
+    entryType: 'task' as const,
     title: itemTitle.trim().length > 0 ? `${itemTitle} ${weekNumber}주차` : `${weekNumber}주차 실행`,
     isDone: false,
   }));
@@ -59,6 +60,7 @@ function toRoadmapItems(items: RoadmapItem[]): RoadmapItem[] {
         ? subItem.weekNumber
         : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
       weekLabel: subItem.weekLabel,
+      entryType: subItem.entryType ?? 'task',
     })),
   }));
 }
@@ -78,6 +80,7 @@ function normalizeRoadmapStructure(roadmap: SharedRoadmap): SharedRoadmap {
             ? subItem.weekNumber
             : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
           weekLabel: subItem.weekLabel,
+          entryType: subItem.entryType ?? 'task',
         }));
         return normalizedSubItems.length > 0
           ? normalizedSubItems
@@ -312,6 +315,7 @@ export function useDreamMateWorkspace({
               ? subItem.weekNumber
               : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
             weekLabel: subItem.weekLabel,
+            entryType: subItem.entryType ?? 'task',
             title: subItem.title.trim(),
           })).filter(subItem => subItem.title.length > 0);
 
