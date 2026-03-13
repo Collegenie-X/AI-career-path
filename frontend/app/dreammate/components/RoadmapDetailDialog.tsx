@@ -14,6 +14,7 @@ import { RoadmapShareDialog } from './RoadmapShareDialog';
 interface RoadmapDetailDialogProps {
   roadmap: SharedRoadmap;
   isOwnedByCurrentUser: boolean;
+  isTodoListSimpleView?: boolean;
   availableSpaces: DreamSpace[];
   onClose: () => void;
   onUseRoadmap: () => void;
@@ -33,6 +34,7 @@ function formatDateTime(value: string): string {
 export function RoadmapDetailDialog({
   roadmap,
   isOwnedByCurrentUser,
+  isTodoListSimpleView = false,
   availableSpaces,
   onClose,
   onUseRoadmap,
@@ -94,7 +96,8 @@ export function RoadmapDetailDialog({
             <h4 className="text-sm font-bold text-white">{LABELS.timelineViewLabel}</h4>
             <RoadmapCareerPathTimelineSection
               roadmap={roadmap}
-              onToggleTodoItem={isOwnedByCurrentUser ? onToggleTodoItem : undefined}
+              isTodoListSimpleView={isTodoListSimpleView}
+              onToggleTodoItem={isOwnedByCurrentUser && !isTodoListSimpleView ? onToggleTodoItem : undefined}
             />
           </div>
 

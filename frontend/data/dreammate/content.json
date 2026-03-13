@@ -61,6 +61,7 @@
   "wbsSprintSectionTitle": "WBS + 주간 스프린트",
   "weeklyChecklistLabel": "주간 체크",
   "todoSectionLabel": "하위 활동",
+  "overallProgressLabel": "전체 진행률",
   "sprintGuideLabel": "방과후·방학·학기중 운영을 주차 기준으로 관리하세요.",
   "todoAutoCompleteHint": "자동 완성 제안",
   "myCreateRoadmapButton": "로드맵 만들기",

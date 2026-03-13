@@ -48,6 +48,7 @@ function DreamMatePageContent() {
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
+  const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
 
   const seedRoadmaps = seedData.sharedRoadmaps as SharedRoadmap[];
   const resources = seedData.resources as DreamResource[];
@@ -101,7 +102,10 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewDetail={(roadmap) => workspace.setSelectedRoadmapId(roadmap.id)}
+            onViewDetail={(roadmap) => {
+              setSelectedRoadmapOpenedFromTab('feed');
+              workspace.setSelectedRoadmapId(roadmap.id);
+            }}
             onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
           />
         ) : activeTab === 'library' ? (
@@ -125,7 +129,10 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewRoadmapDetail={(roadmap) => workspace.setSelectedRoadmapId(roadmap.id)}
+            onViewRoadmapDetail={(roadmap) => {
+              setSelectedRoadmapOpenedFromTab('space');
+              workspace.setSelectedRoadmapId(roadmap.id);
+            }}
             onLeaveSpace={workspace.handleLeaveSpace}
             onCreateSpace={workspace.handleCreateSpace}
             onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
@@ -146,7 +153,10 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewRoadmapDetail={(roadmap) => workspace.setSelectedRoadmapId(roadmap.id)}
+            onViewRoadmapDetail={(roadmap) => {
+              setSelectedRoadmapOpenedFromTab('my');
+              workspace.setSelectedRoadmapId(roadmap.id);
+            }}
             onGoToSpace={(spaceId) => {
               workspace.setPendingSpaceIdFromMyTab(spaceId);
               setActiveTab('space');
@@ -197,22 +207,29 @@ function DreamMatePageContent() {
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
           availableSpaces={workspace.joinedSpaces}
-          onClose={() => workspace.setSelectedRoadmapId(null)}
+          onClose={() => {
+            workspace.setSelectedRoadmapId(null);
+            setSelectedRoadmapOpenedFromTab(null);
+          }}
           onUseRoadmap={() => {
+            setSelectedRoadmapOpenedFromTab('my');
             workspace.handleUseRoadmap(workspace.selectedRoadmap!);
             setActiveTab('my');
           }}
           onEdit={() => {
             workspace.setEditingRoadmapId(workspace.selectedRoadmap!.id);
             workspace.setSelectedRoadmapId(null);
+            setSelectedRoadmapOpenedFromTab(null);
           }}
           onDelete={() => {
             workspace.handleDeleteRoadmap(workspace.selectedRoadmap!.id);
+            setSelectedRoadmapOpenedFromTab(null);
           }}
           onShareRoadmap={(shareScope, selectedSpaceIds) => {
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareScope, selectedSpaceIds);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
+          isTodoListSimpleView={selectedRoadmapOpenedFromTab === 'feed'}
           onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
         />
       )}

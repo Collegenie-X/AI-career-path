@@ -6,9 +6,11 @@ import { PlanItemDetailSheet, PlanItemRowCard } from '@/app/career/components/Pl
 import { GOAL_GROUP_TEMPLATES_BY_ITEM_TYPE, LABELS, PERIOD_FILTERS } from '../config';
 import type { DreamItemType, RoadmapItem, SharedRoadmap } from '../types';
 import { sortByEarliestMonth } from '@/lib/timelineTreeUtils';
+import { RoadmapTodoInlineProgressBar, RoadmapTodoProgressBarCard } from './RoadmapTodoProgressBars';
 
 interface RoadmapCareerPathTimelineSectionProps {
   roadmap: SharedRoadmap;
+  isTodoListSimpleView?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }
 
@@ -64,6 +66,12 @@ function getMonthLabel(month: number): string {
   return month === 99 ? '시기 미정' : `${month}월`;
 }
 
+function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
+  const todoItems = item.subItems ?? [];
+  if (todoItems.length === 0) return false;
+  return todoItems.every(todoItem => todoItem.isDone);
+}
+
 function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonthGroup[] {
   const bucketByMonth = new Map<number, RoadmapItem[]>();
   sortByEarliestMonth(items).forEach(item => {
@@ -92,9 +100,11 @@ function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonth
 
 function RoadmapTodoChecklist({ 
   item, 
+  isTodoListSimpleView,
   onToggleTodoItem 
 }: { 
   item: RoadmapItem;
+  isTodoListSimpleView?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
   const sortedTodoItems = useMemo(
@@ -120,30 +130,52 @@ function RoadmapTodoChecklist({
 
   return (
     <div className="mt-1.5 ml-3 pl-3 py-1.5 space-y-1.5 rounded-lg" style={{ borderLeft: '1px dashed rgba(255,255,255,0.18)' }}>
-      {sortedTodoItems.map(todoItem => (
-        <button
-          key={todoItem.id}
-          onClick={(event) => {
-            event.stopPropagation();
-            onToggleTodoItem?.(item.id, todoItem.id);
-          }}
-          disabled={!onToggleTodoItem}
-          className="w-full flex items-center gap-1.5 text-[10px] text-left transition-opacity"
-          style={{ 
-            color: 'rgba(255,255,255,0.7)',
-            cursor: onToggleTodoItem ? 'pointer' : 'default',
-            opacity: onToggleTodoItem ? 1 : 0.9,
-          }}
-        >
-          {todoItem.isDone
-            ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
-            : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
-          <span className="text-[10px] font-semibold text-gray-400 flex-shrink-0">
-            {getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel)}
-          </span>
-          <span className="truncate">{todoItem.title}</span>
-        </button>
-      ))}
+      {sortedTodoItems.map(todoItem => {
+        if (isTodoListSimpleView) {
+          return (
+            <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+              <span className="inline-block w-1 h-1 rounded-full bg-gray-500 flex-shrink-0" />
+              <span
+                className={`text-[10px] font-semibold flex-shrink-0 ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : 'text-gray-400'}`}
+              >
+                {getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel)}
+              </span>
+              <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                {todoItem.title}
+              </span>
+            </div>
+          );
+        }
+
+        return (
+          <button
+            key={todoItem.id}
+            onClick={(event) => {
+              event.stopPropagation();
+              onToggleTodoItem?.(item.id, todoItem.id);
+            }}
+            disabled={!onToggleTodoItem}
+            className="w-full flex items-center gap-1.5 text-[10px] text-left transition-opacity"
+            style={{ 
+              color: 'rgba(255,255,255,0.7)',
+              cursor: onToggleTodoItem ? 'pointer' : 'default',
+              opacity: onToggleTodoItem ? 1 : 0.9,
+            }}
+          >
+            {todoItem.isDone
+              ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+              : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
+            <span
+              className={`text-[10px] font-semibold flex-shrink-0 ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : 'text-gray-400'}`}
+            >
+              {getWeekLabelFromTodo(todoItem.weekNumber, todoItem.weekLabel)}
+            </span>
+            <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+              {todoItem.title}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -152,12 +184,14 @@ function RoadmapItemTodoAccordionCard({
   item,
   accentColor,
   goalTitleByItemType,
+  isTodoListSimpleView,
   onSelectItem,
   onToggleTodoItem,
 }: {
   item: RoadmapItem;
   accentColor: string;
   goalTitleByItemType: Record<DreamItemType, string>;
+  isTodoListSimpleView?: boolean;
   onSelectItem: (item: RoadmapItem) => void;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
@@ -176,7 +210,9 @@ function RoadmapItemTodoAccordionCard({
           onClick={() => setIsTodoOpen(previous => !previous)}
           className="text-[10px] text-gray-500 flex items-center gap-1"
         >
-          {LABELS.todoSectionLabel} {(item.subItems ?? []).filter(todoItem => todoItem.isDone).length}/{(item.subItems ?? []).length}
+          {isTodoListSimpleView
+            ? `${LABELS.todoSectionLabel} ${(item.subItems ?? []).length}개`
+            : `${LABELS.todoSectionLabel} ${(item.subItems ?? []).filter(todoItem => todoItem.isDone).length}/${(item.subItems ?? []).length}`}
           {isTodoOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
         </button>
       </div>
@@ -192,9 +228,13 @@ function RoadmapItemTodoAccordionCard({
           }
         }}
       >
-        <PlanItemRowCard item={toPlanItemDetail(item)} color={accentColor} />
+        <PlanItemRowCard
+          item={toPlanItemDetail(item, { includeSubItems: false })}
+          color={accentColor}
+          isTitleDone={isRoadmapItemFullyCompleted(item)}
+        />
       </div>
-      {isTodoOpen && <RoadmapTodoChecklist item={item} onToggleTodoItem={onToggleTodoItem} />}
+      {isTodoOpen && <RoadmapTodoChecklist item={item} isTodoListSimpleView={isTodoListSimpleView} onToggleTodoItem={onToggleTodoItem} />}
     </div>
   );
 }
@@ -204,6 +244,7 @@ function MonthTimelineNode({
   isLast,
   accentColor,
   goalTitleByItemType,
+  isTodoListSimpleView,
   onSelectItem,
   onToggleTodoItem,
 }: {
@@ -211,6 +252,7 @@ function MonthTimelineNode({
   isLast: boolean;
   accentColor: string;
   goalTitleByItemType: Record<DreamItemType, string>;
+  isTodoListSimpleView?: boolean;
   onSelectItem: (item: RoadmapItem) => void;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
@@ -230,7 +272,7 @@ function MonthTimelineNode({
 
       <div className="rounded-xl px-3 py-2.5" style={{ backgroundColor: `${accentColor}0f`, border: `1px solid ${accentColor}22` }}>
         <button onClick={() => setIsOpen(previous => !previous)} className="w-full flex items-center justify-between gap-2 text-left">
-          <div className="min-w-0">
+          <div className="flex-1 min-w-0">
             <div className="text-sm font-bold text-white flex items-center gap-1.5">
               <Clock3 className="w-3.5 h-3.5" style={{ color: accentColor }} />
               {monthGroup.monthLabel}
@@ -239,7 +281,16 @@ function MonthTimelineNode({
               계획 {monthGroup.items.length}개 · {LABELS.weeklyChecklistLabel} {monthGroup.doneTodoCount}/{monthGroup.totalTodoCount}
             </div>
           </div>
-          {isOpen ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {!isTodoListSimpleView && (
+              <RoadmapTodoInlineProgressBar
+                doneCount={monthGroup.doneTodoCount}
+                totalCount={monthGroup.totalTodoCount}
+                accentColor={accentColor}
+              />
+            )}
+            {isOpen ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
+          </div>
         </button>
 
         {isOpen && (
@@ -250,6 +301,7 @@ function MonthTimelineNode({
                 item={item}
                 accentColor={accentColor}
                 goalTitleByItemType={goalTitleByItemType}
+                isTodoListSimpleView={isTodoListSimpleView}
                 onSelectItem={onSelectItem}
                 onToggleTodoItem={onToggleTodoItem}
               />
@@ -268,20 +320,24 @@ const mapRoadmapItemTypeToCareerItemType = (itemType: DreamItemType): 'activity'
   return 'certification';
 };
 
-function toPlanItemDetail(item: RoadmapItem) {
+function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boolean }) {
+  const includeSubItems = options?.includeSubItems ?? true;
   return {
     ...item,
     type: mapRoadmapItemTypeToCareerItemType(item.type),
-    subItems: (item.subItems ?? []).map(subItem => ({
-      id: subItem.id,
-      title: `${getWeekLabelFromTodo(subItem.weekNumber, subItem.weekLabel)} · ${subItem.title}`,
-      done: Boolean(subItem.isDone),
-    })),
+    subItems: includeSubItems
+      ? (item.subItems ?? []).map(subItem => ({
+          id: subItem.id,
+          title: `${getWeekLabelFromTodo(subItem.weekNumber, subItem.weekLabel)} · ${subItem.title}`,
+          done: Boolean(subItem.isDone),
+        }))
+      : [],
   };
 }
 
 export function RoadmapCareerPathTimelineSection({
   roadmap,
+  isTodoListSimpleView = false,
   onToggleTodoItem,
 }: RoadmapCareerPathTimelineSectionProps) {
   const [selectedItem, setSelectedItem] = useState<RoadmapItem | null>(null);
@@ -334,6 +390,16 @@ export function RoadmapCareerPathTimelineSection({
         <div className="text-[10px] text-gray-500 mt-1">
           목표 {groupedGoals.length}개 · 계획 {roadmap.items.length}개 · {LABELS.weeklyChecklistLabel} {weeklyDoneCount}/{weeklyTotalCount}
         </div>
+        {!isTodoListSimpleView && (
+          <div className="mt-2 grid grid-cols-1 gap-2">
+            <RoadmapTodoProgressBarCard
+              title={LABELS.overallProgressLabel}
+              doneCount={weeklyDoneCount}
+              totalCount={weeklyTotalCount}
+              accentColor={roadmap.starColor}
+            />
+          </div>
+        )}
       </div>
 
       <div className="space-y-0">
@@ -344,6 +410,7 @@ export function RoadmapCareerPathTimelineSection({
             isLast={index === chronologicalMonthGroups.length - 1}
             accentColor={roadmap.starColor}
             goalTitleByItemType={goalTitleByItemType}
+            isTodoListSimpleView={isTodoListSimpleView}
             onSelectItem={setSelectedItem}
             onToggleTodoItem={onToggleTodoItem}
           />
@@ -352,7 +419,7 @@ export function RoadmapCareerPathTimelineSection({
 
       {selectedItem && (
         <PlanItemDetailSheet
-          item={toPlanItemDetail(selectedItem)}
+          item={toPlanItemDetail(selectedItem, { includeSubItems: true })}
           gradeLabel={periodLabel}
           color={roadmap.starColor}
           onClose={() => setSelectedItem(null)}

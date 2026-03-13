@@ -41,9 +41,11 @@ const DIFFICULTY_LABELS: Record<number, string> = {
 export function PlanItemRowCard({
   item,
   color,
+  isTitleDone = false,
 }: {
   item: PlanItemDetail;
   color: string;
+  isTitleDone?: boolean;
 }) {
   const typeConf = ITEM_TYPES.find((t) => t.value === item.type) ?? { label: item.type, color, emoji: '📌' };
   const months = item.months ?? (item.month != null ? [item.month] : []);
@@ -65,7 +67,11 @@ export function PlanItemRowCard({
     >
       <div className="flex items-start gap-2.5 p-2.5">
         <div className="flex-1 min-w-0">
-          <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
+          <div
+            className={`text-sm font-semibold leading-snug ${isTitleDone ? 'text-gray-400 line-through decoration-1 decoration-gray-500' : 'text-white'}`}
+          >
+            {item.title}
+          </div>
           <div className="flex items-center gap-1.5 mt-1 flex-wrap">
             <span
               className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
