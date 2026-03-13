@@ -103,7 +103,7 @@ export function HighSchoolAdmissionTab() {
           <div className="flex items-start gap-3">
             <div className="text-2xl">🪐</div>
             <div>
-              <h2 className="text-sm font-bold text-white">{typedData.meta.title}</h2>
+              <h2 className="text-sm font-bold text-white">{typedData.meta.subtitle}</h2>
               <p className="text-[11px] text-gray-300 mt-0.5">{typedData.meta.description}</p>
             </div>
           </div>

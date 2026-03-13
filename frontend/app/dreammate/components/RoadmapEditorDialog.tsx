@@ -32,15 +32,28 @@ interface RoadmapEditorDialogProps {
 }
 
 const COLOR_OPTIONS = ['#6C5CE7', '#3B82F6', '#EC4899', '#22C55E', '#F97316', '#EAB308'];
+const MONTH_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-function createEmptyItem(): RoadmapItem {
+function createDefaultWeeklySubItems(months: number[]): RoadmapTodoItem[] {
+  const firstMonth = months[0] ?? 3;
+  return [1, 2, 3, 4].map(weekNumber => ({
+    id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${weekNumber}`,
+    weekNumber,
+    weekLabel: `${firstMonth}월 ${weekNumber}주차`,
+    title: `${firstMonth}월 ${weekNumber}주차 활동`,
+    isDone: false,
+  }));
+}
+
+function createEmptyItem(selectedMonths: number[]): RoadmapItem {
+  const months = selectedMonths.length > 0 ? [...selectedMonths].sort((a, b) => a - b) : [3];
   return {
     id: `draft-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     type: 'activity',
     title: '',
-    months: [3],
+    months,
     difficulty: 3,
-    subItems: [],
+    subItems: createDefaultWeeklySubItems(months),
   };
 }
 
@@ -61,6 +74,57 @@ function extractWeekNumber(todoItem: RoadmapTodoItem): number {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : 1;
 }
 
+function extractMonthWeek(todoItem: RoadmapTodoItem, fallbackMonth: number): { month: number; week: number } {
+  const matched = (todoItem.weekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (matched) {
+    const month = Number(matched[1]);
+    const week = Number(matched[2]);
+    if (month >= 1 && month <= 12 && week >= 1 && week <= 5) {
+      return { month, week };
+    }
+  }
+
+  return {
+    month: fallbackMonth,
+    week: Math.min(Math.max(extractWeekNumber(todoItem), 1), 5),
+  };
+}
+
+function normalizeSubItemsToAvailableMonths(
+  subItems: RoadmapTodoItem[],
+  availableMonths: number[],
+): RoadmapTodoItem[] {
+  const normalizedMonths = availableMonths.length > 0 ? availableMonths : [3];
+  const fallbackMonth = normalizedMonths[0];
+  const usedWeeksByMonth = new Map<number, Set<number>>();
+
+  const normalized: RoadmapTodoItem[] = [];
+  subItems.forEach(subItem => {
+    const parsed = extractMonthWeek(subItem, fallbackMonth);
+    const targetMonth = normalizedMonths.includes(parsed.month) ? parsed.month : fallbackMonth;
+    const usedWeeks = usedWeeksByMonth.get(targetMonth) ?? new Set<number>();
+
+    let targetWeek = parsed.week;
+    if (usedWeeks.has(targetWeek)) {
+      const nextAvailableWeek = [1, 2, 3, 4, 5].find(week => !usedWeeks.has(week));
+      if (!nextAvailableWeek) return;
+      targetWeek = nextAvailableWeek;
+    }
+
+    usedWeeks.add(targetWeek);
+    usedWeeksByMonth.set(targetMonth, usedWeeks);
+
+    normalized.push({
+      ...subItem,
+      weekNumber: targetWeek,
+      weekLabel: `${targetMonth}월 ${targetWeek}주차`,
+      title: subItem.title?.trim().length ? subItem.title : `${targetMonth}월 ${targetWeek}주차 활동`,
+    });
+  });
+
+  return normalized;
+}
+
 export function RoadmapEditorDialog({
   title,
   submitLabel,
@@ -77,10 +141,15 @@ export function RoadmapEditorDialog({
       ? initialValues.focusItemTypes
       : DREAM_ITEM_TYPES.map(itemType => itemType.value),
   );
-  const [groupIds, setGroupIds] = useState<string[]>(initialValues.groupIds);
   const [items, setItems] = useState<RoadmapItem[]>(
-    initialValues.items.length > 0 ? initialValues.items : [createEmptyItem()],
+    initialValues.items.length > 0 ? initialValues.items : [],
   );
+  const [selectedMonths, setSelectedMonths] = useState<number[]>(() => {
+    const monthsFromItems = [...new Set(initialValues.items.flatMap(item => item.months ?? []))]
+      .filter(month => month >= 1 && month <= 12)
+      .sort((a, b) => a - b);
+    return monthsFromItems.length > 0 ? monthsFromItems : [3];
+  });
 
   const periodOptions = useMemo(
     () => PERIOD_FILTERS.filter(option => option.id !== 'all') as { id: PeriodType; label: string; emoji: string }[],
@@ -100,33 +169,90 @@ export function RoadmapEditorDialog({
     });
   };
 
+  const toggleSelectedMonth = (month: number) => {
+    setSelectedMonths(previous => {
+      const exists = previous.includes(month);
+      if (exists) {
+        const next = previous.filter(value => value !== month);
+        return next.length > 0 ? next : previous;
+      }
+      return [...previous, month].sort((a, b) => a - b);
+    });
+  };
+
+  const addRoadmapItem = () => {
+    setItems(previous => [...previous, createEmptyItem(selectedMonths)]);
+  };
+
   const updateItem = (itemId: string, patch: Partial<RoadmapItem>) => {
     setItems(prev => prev.map(item => item.id === itemId ? { ...item, ...patch } : item));
   };
 
-  const toggleMonth = (itemId: string, month: number) => {
-    setItems(prev => prev.map(item => {
+  const toggleItemMonth = (itemId: string, month: number) => {
+    setItems(previousItems => previousItems.map(item => {
       if (item.id !== itemId) return item;
-      const exists = item.months.includes(month);
-      const updatedMonths = exists ? item.months.filter(value => value !== month) : [...item.months, month];
-      return { ...item, months: updatedMonths.sort((a, b) => a - b) };
+
+      const hasMonth = item.months.includes(month);
+      const nextMonths = hasMonth
+        ? item.months.filter(value => value !== month)
+        : [...item.months, month].sort((a, b) => a - b);
+
+      if (nextMonths.length === 0) return item;
+
+      return {
+        ...item,
+        months: nextMonths,
+        subItems: normalizeSubItemsToAvailableMonths(item.subItems ?? [], nextMonths),
+      };
     }));
   };
 
   const removeItem = (itemId: string) => {
-    setItems(prev => prev.length === 1 ? prev : prev.filter(item => item.id !== itemId));
+    setItems(prev => prev.filter(item => item.id !== itemId));
   };
 
   const addSubItem = (itemId: string) => {
     setItems(prev => prev.map(item => {
       if (item.id !== itemId) return item;
       const currentSubItems = item.subItems ?? [];
-      const highestWeekNumber = currentSubItems.reduce((highest, subItem) => (
-        Math.max(highest, extractWeekNumber(subItem))
-      ), 0);
+      const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
+      const firstMonth = availableMonths[0] ?? 3;
+
+      let targetMonth = firstMonth;
+      let targetWeek = 1;
+      let hasAvailableSlot = false;
+
+      for (const month of availableMonths) {
+        const usedWeeks = new Set(
+          currentSubItems
+            .map(subItem => extractMonthWeek(subItem, month))
+            .filter(monthWeek => monthWeek.month === month)
+            .map(monthWeek => monthWeek.week),
+        );
+
+        const nextAvailableWeek = [1, 2, 3, 4, 5].find(week => !usedWeeks.has(week));
+        if (nextAvailableWeek) {
+          targetMonth = month;
+          targetWeek = nextAvailableWeek;
+          hasAvailableSlot = true;
+          break;
+        }
+      }
+
+      if (!hasAvailableSlot) {
+        return item;
+      }
+
+      const nextSubItems = [...currentSubItems, {
+        ...createEmptySubItem(),
+        weekNumber: targetWeek,
+        weekLabel: `${targetMonth}월 ${targetWeek}주차`,
+        title: `${targetMonth}월 ${targetWeek}주차 활동`,
+      }];
+
       return {
         ...item,
-        subItems: [...currentSubItems, { ...createEmptySubItem(), weekNumber: highestWeekNumber + 1 }],
+        subItems: normalizeSubItemsToAvailableMonths(nextSubItems, availableMonths),
       };
     }));
   };
@@ -154,25 +280,22 @@ export function RoadmapEditorDialog({
   };
 
   const handleSubmit = () => {
-    const normalizedItems = items
+    const validItems = items
+      .filter(item => item.title.trim().length > 0)
       .map(item => ({
         ...item,
-        title: item.title.trim(),
-        months: item.months.length > 0 ? item.months : [3],
+        months: [...item.months].sort((a, b) => a - b),
         subItems: (item.subItems ?? [])
           .map(subItem => ({
             ...subItem,
-            weekNumber: extractWeekNumber(subItem),
-            weekLabel: undefined,
+            weekNumber: typeof subItem.weekNumber === 'number'
+              ? subItem.weekNumber
+              : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
+            weekLabel: subItem.weekLabel?.trim() || undefined,
             title: subItem.title.trim(),
           }))
           .filter(subItem => subItem.title.length > 0),
-      }))
-      .filter(item => item.title.length > 1);
-
-    if (roadmapTitle.trim().length <= 1 || normalizedItems.length === 0) {
-      return;
-    }
+      }));
 
     onSubmit({
       title: roadmapTitle.trim(),
@@ -180,21 +303,16 @@ export function RoadmapEditorDialog({
       period,
       starColor,
       focusItemTypes,
-      groupIds,
-      items: normalizedItems,
+      groupIds: [],
+      items: validItems,
     });
   };
 
   const createRoadmapTitleAutoComplete = () => {
-    const categoryLabels = DREAM_ITEM_TYPES
-      .filter(itemType => focusItemTypes.includes(itemType.value))
-      .map(itemType => itemType.label);
-    const categoryText = categoryLabels.join('/');
-    const periodText = periodOptions.find(option => option.id === period)?.label ?? period;
     const template = ROADMAP_TITLE_AUTOCOMPLETE_TEMPLATES[
       Math.floor(Math.random() * Math.max(ROADMAP_TITLE_AUTOCOMPLETE_TEMPLATES.length, 1))
-    ] ?? '{period} {category} WBS 로드맵';
-    setRoadmapTitle(template.replaceAll('{period}', periodText).replaceAll('{category}', categoryText));
+    ] ?? '나만의 로드맵';
+    setRoadmapTitle(template);
   };
 
   const createRoadmapDescriptionAutoComplete = () => {
@@ -335,9 +453,9 @@ export function RoadmapEditorDialog({
 
           <section className="space-y-3">
             <div className="flex items-center justify-between">
-              <label className="text-xs font-bold text-gray-400">로드맵 항목</label>
+              <label className="text-xs font-bold text-gray-400">월 선택 (멀티)</label>
               <button
-                onClick={() => setItems(prev => [...prev, createEmptyItem()])}
+                onClick={addRoadmapItem}
                 className="flex items-center gap-1 text-xs font-bold px-2.5 py-1.5 rounded-lg"
                 style={{ backgroundColor: 'rgba(108,92,231,0.2)', color: '#c4b5fd' }}
               >
@@ -345,6 +463,28 @@ export function RoadmapEditorDialog({
                 항목 추가
               </button>
             </div>
+
+            <div className="flex flex-wrap gap-1">
+              {MONTH_OPTIONS.map(month => {
+                const selected = selectedMonths.includes(month);
+                return (
+                  <button
+                    key={month}
+                    onClick={() => toggleSelectedMonth(month)}
+                    className="px-2 py-1 rounded-md text-[10px] font-bold"
+                    style={selected
+                      ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
+                      : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)' }}
+                  >
+                    {month}월
+                  </button>
+                );
+              })}
+            </div>
+
+            <p className="text-[10px] text-gray-500">
+              선택 월: {selectedMonths.map(month => `${month}월`).join(', ')}
+            </p>
 
             {items.map(item => (
               <div
@@ -376,11 +516,12 @@ export function RoadmapEditorDialog({
                   </button>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
+                <div className="text-[10px] text-gray-500">카테고리 · 적용 월</div>
+                <div className="flex items-center gap-2">
                   <select
                     value={item.type}
                     onChange={event => updateItem(item.id, { type: event.target.value as DreamItemType })}
-                    className="h-9 px-2 rounded-lg text-xs text-white outline-none"
+                    className="flex-1 h-9 px-2 rounded-lg text-xs text-white outline-none"
                     style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
                   >
                     {DREAM_ITEM_TYPES.map(type => (
@@ -389,27 +530,23 @@ export function RoadmapEditorDialog({
                       </option>
                     ))}
                   </select>
-                  <input
-                    type="number"
-                    min={1}
-                    max={5}
-                    value={item.difficulty}
-                    onChange={event => updateItem(item.id, { difficulty: Number(event.target.value) || 1 })}
-                    className="h-9 px-3 rounded-lg text-xs text-white outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-                    placeholder="난이도(1~5)"
-                  />
+                  <div
+                    className="h-9 px-2 rounded-lg text-[10px] font-bold text-sky-200 flex items-center"
+                    style={{ backgroundColor: 'rgba(59,130,246,0.12)', border: '1px solid rgba(59,130,246,0.26)' }}
+                  >
+                    {(item.months.length > 0 ? item.months : selectedMonths).map(month => `${month}월`).join(', ')}
+                  </div>
                 </div>
 
                 <div className="flex flex-wrap gap-1">
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
-                    const selected = item.months.includes(month);
+                  {(selectedMonths.length > 0 ? selectedMonths : MONTH_OPTIONS).map(month => {
+                    const isActive = item.months.includes(month);
                     return (
                       <button
-                        key={month}
-                        onClick={() => toggleMonth(item.id, month)}
+                        key={`${item.id}-month-${month}`}
+                        onClick={() => toggleItemMonth(item.id, month)}
                         className="px-2 py-1 rounded-md text-[10px] font-bold"
-                        style={selected
+                        style={isActive
                           ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
                           : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)' }}
                       >
@@ -431,53 +568,64 @@ export function RoadmapEditorDialog({
                     </button>
                   </div>
                   {(item.subItems ?? []).length === 0 ? (
-                    <p className="text-[10px] text-gray-600">세부 Todo를 추가하면 목표-그룹-하위 구조로 보여요.</p>
+                    <p className="text-[10px] text-gray-600">세부 Todo를 추가하면 주차별로 관리할 수 있어요.</p>
                   ) : (
-                    <div className="space-y-1.5">
-                      {(item.subItems ?? []).map(subItem => (
-                        <div
-                          key={subItem.id}
-                          className="flex items-center gap-1.5 rounded-lg px-2 py-1.5"
-                          style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
-                        >
-                          <button
-                            onClick={() => updateSubItem(item.id, subItem.id, { isDone: !subItem.isDone })}
-                            className="flex-shrink-0"
-                          >
-                            {subItem.isDone
-                              ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                              : <Circle className="w-3.5 h-3.5 text-gray-500" />}
-                          </button>
-                          <div className="flex items-center gap-1">
-                            <input
-                              type="number"
-                              min={1}
-                              value={extractWeekNumber(subItem)}
-                              onChange={event => updateSubItem(item.id, subItem.id, {
-                                weekNumber: Math.max(1, Number(event.target.value) || 1),
-                              })}
-                              className="w-12 h-7 px-1.5 rounded-md text-[10px] text-white outline-none"
-                              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-                            />
-                            <span className="text-[10px] text-gray-500">{LABELS.weeklyNumberLabel}</span>
+                    <div className="space-y-2">
+                      {(item.months.length > 0 ? item.months : selectedMonths).map(month => {
+                        const groupedSubItems = (item.subItems ?? [])
+                          .filter(subItem => extractMonthWeek(subItem, month).month === month)
+                          .sort((leftSubItem, rightSubItem) => {
+                            return extractMonthWeek(leftSubItem, month).week - extractMonthWeek(rightSubItem, month).week;
+                          });
+
+                        if (groupedSubItems.length === 0) return null;
+
+                        return (
+                          <div key={`${item.id}-group-${month}`} className="space-y-1">
+                            <p className="text-[11px] font-bold text-sky-300">{month}월</p>
+                            {groupedSubItems.map(subItem => {
+                              const monthWeek = extractMonthWeek(subItem, month);
+                              return (
+                                <div
+                                  key={subItem.id}
+                                  className="flex items-center gap-1.5 rounded-lg px-2 py-1.5"
+                                  style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                                >
+                                  <button
+                                    onClick={() => updateSubItem(item.id, subItem.id, { isDone: !subItem.isDone })}
+                                    className="flex-shrink-0"
+                                  >
+                                    {subItem.isDone
+                                      ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                                      : <Circle className="w-3.5 h-3.5 text-gray-500" />}
+                                  </button>
+                                  <span
+                                    className="px-2 h-7 rounded-md text-[10px] font-bold text-sky-200 flex items-center"
+                                    style={{ backgroundColor: 'rgba(59,130,246,0.12)', border: '1px solid rgba(59,130,246,0.26)' }}
+                                  >
+                                    {monthWeek.week}주차
+                                  </span>
+                                  <input
+                                    value={subItem.title}
+                                    onChange={event => updateSubItem(item.id, subItem.id, { title: event.target.value })}
+                                    placeholder={`${month}월 ${monthWeek.week}주차 활동`}
+                                    list={`todo-autocomplete-${item.id}`}
+                                    className="flex-1 h-7 px-2 rounded-md text-[11px] text-white placeholder-gray-600 outline-none"
+                                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                                  />
+                                  <button
+                                    onClick={() => removeSubItem(item.id, subItem.id)}
+                                    className="w-7 h-7 rounded-md flex items-center justify-center"
+                                    style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
+                                  >
+                                    <Trash2 className="w-3 h-3" />
+                                  </button>
+                                </div>
+                              );
+                            })}
                           </div>
-                          <input
-                            value={subItem.title}
-                            onChange={event => updateSubItem(item.id, subItem.id, { title: event.target.value })}
-                            placeholder="예: 탐구 보고서 초안 작성"
-                            list={`todo-autocomplete-${item.id}`}
-                            className="flex-1 h-7 px-2 rounded-md text-[11px] text-white placeholder-gray-600 outline-none"
-                            style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
-                          />
-                          <button
-                            onClick={() => removeSubItem(item.id, subItem.id)}
-                            className="w-7 h-7 rounded-md flex items-center justify-center"
-                            style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
-                          >
-                            <Trash2 className="w-3 h-3" />
-                          </button>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   )}
                   <datalist id={`todo-autocomplete-${item.id}`}>
@@ -509,4 +657,3 @@ export function RoadmapEditorDialog({
 }
 
 export type { RoadmapEditorPayload };
-

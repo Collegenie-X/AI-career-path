@@ -64,7 +64,7 @@ export interface CareerPlan {
 }
 
 export const CAREER_LABELS = {
-  pageTitle: '커리어 패스',
+  pageTitle: '드림 패스',
   pageSubtitle: '나만의 진로 로드맵',
 
   tabExplore: '탐색',

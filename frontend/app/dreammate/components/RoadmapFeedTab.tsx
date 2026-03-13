@@ -6,10 +6,45 @@ import { PERIOD_FILTERS, DREAM_ITEM_TYPES, LABELS } from '../config';
 import type { SharedRoadmap, DreamItemType } from '../types';
 import { RoadmapCard } from './RoadmapCard';
 
-const TYPE_FILTERS: { id: string; label: string; emoji: string }[] = [
+type FilterOption = {
+  id: string;
+  label: string;
+  emoji: string;
+};
+
+const TYPE_FILTERS: FilterOption[] = [
   { id: 'all', label: '전체', emoji: '✨' },
   ...DREAM_ITEM_TYPES.map(t => ({ id: t.value, label: t.label, emoji: t.emoji })),
 ];
+
+const PERIOD_FILTER_OPTIONS: FilterOption[] = PERIOD_FILTERS as FilterOption[];
+
+interface FilterSelectProps {
+  label: string;
+  value: string;
+  options: FilterOption[];
+  onChange: (nextValue: string) => void;
+}
+
+function FilterSelect({ label, value, options, onChange }: FilterSelectProps) {
+  return (
+    <label className="flex items-center gap-2 px-3 h-9 rounded-xl text-xs"
+      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
+      <span className="text-gray-400 whitespace-nowrap">{label}</span>
+      <select
+        value={value}
+        onChange={event => onChange(event.target.value)}
+        className="w-full bg-transparent text-white text-xs font-semibold outline-none"
+      >
+        {options.map(option => (
+          <option key={option.id} value={option.id} className="bg-[#111827]">
+            {option.emoji} {option.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
 
 interface RoadmapFeedTabProps {
   roadmaps: SharedRoadmap[];
@@ -37,19 +72,23 @@ export function RoadmapFeedTab({
   const [periodFilter, setPeriodFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const normalizedSearchQuery = searchQuery.trim().toLowerCase();
 
-  const filtered = useMemo(() => roadmaps.filter(rm => {
-    if (periodFilter !== 'all' && rm.period !== periodFilter) return false;
-    if (typeFilter !== 'all' && !rm.items.some(it => it.type === typeFilter)) return false;
-    if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const matchesTitle = rm.title.toLowerCase().includes(q);
-      const matchesOwner = rm.ownerName.toLowerCase().includes(q);
-      const matchesItem = rm.items.some(it => it.title.toLowerCase().includes(q));
-      if (!matchesTitle && !matchesOwner && !matchesItem) return false;
-    }
-    return true;
-  }), [roadmaps, periodFilter, typeFilter, searchQuery]);
+  const filtered = useMemo(
+    () =>
+      roadmaps.filter(roadmap => {
+        if (periodFilter !== 'all' && roadmap.period !== periodFilter) return false;
+        if (typeFilter !== 'all' && !roadmap.items.some(item => item.type === typeFilter)) return false;
+        if (!normalizedSearchQuery) return true;
+
+        const matchesTitle = roadmap.title.toLowerCase().includes(normalizedSearchQuery);
+        const matchesOwner = roadmap.ownerName.toLowerCase().includes(normalizedSearchQuery);
+        const matchesItem = roadmap.items.some(item => item.title.toLowerCase().includes(normalizedSearchQuery));
+
+        return matchesTitle || matchesOwner || matchesItem;
+      }),
+    [roadmaps, periodFilter, typeFilter, normalizedSearchQuery],
+  );
 
   const sortedRoadmaps = useMemo(() => {
     const bookmarkedIdSet = new Set(bookmarkedIds);
@@ -78,16 +117,13 @@ export function RoadmapFeedTab({
     <div className="space-y-4 pb-28">
       {/* Header */}
       <div className="flex items-start justify-between gap-2">
-        <div>
-          <h3 className="text-base font-bold text-white">{LABELS.feedTitle}</h3>
-          <p className="text-xs text-gray-500 mt-0.5">{LABELS.feedSubtitle}</p>
-        </div>
+        <p className="text-xs text-gray-500 mt-0.5">{LABELS.feedSubtitle}</p>
         <button
           onClick={onCreateRoadmap}
           className="h-8 px-3 rounded-lg text-[11px] font-bold"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
-          {LABELS.createRoadmapButton}
+          + {LABELS.createRoadmapButton}
         </button>
       </div>
 
@@ -97,48 +133,16 @@ export function RoadmapFeedTab({
         <input
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
-          placeholder="로드맵 검색..."
+          placeholder="로드맵 검색"
           className="w-full h-10 pl-10 pr-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
           style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
         />
       </div>
 
-      {/* Period filter */}
-      <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
-        {PERIOD_FILTERS.map(f => {
-          const isActive = periodFilter === f.id;
-          return (
-            <button
-              key={f.id}
-              onClick={() => setPeriodFilter(f.id)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all"
-              style={isActive
-                ? { background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }
-                : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              {f.emoji} {f.label}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Type filter */}
-      <div className="flex gap-1.5 overflow-x-auto pb-1 scrollbar-hide">
-        {TYPE_FILTERS.map(f => {
-          const isActive = typeFilter === f.id;
-          return (
-            <button
-              key={f.id}
-              onClick={() => setTypeFilter(f.id)}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold whitespace-nowrap transition-all"
-              style={isActive
-                ? { background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }
-                : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              {f.emoji} {f.label}
-            </button>
-          );
-        })}
+      {/* Filters */}
+      <div className="grid grid-cols-2 gap-2">
+        <FilterSelect label="기간" value={periodFilter} options={PERIOD_FILTER_OPTIONS} onChange={setPeriodFilter} />
+        <FilterSelect label="유형" value={typeFilter} options={TYPE_FILTERS} onChange={setTypeFilter} />
       </div>
 
       {/* Roadmap list */}

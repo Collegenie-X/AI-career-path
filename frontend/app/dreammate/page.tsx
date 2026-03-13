@@ -14,6 +14,7 @@ import { MyDreamMateTab } from './components/MyDreamMateTab';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
 import { useDreamMateWorkspace } from './hooks/useDreamMateWorkspace';
+import { GroupedTabSelector } from './components/GroupedTabSelector';
 
 /* ─── Star background ─── */
 function StarField() {
@@ -79,25 +80,14 @@ function DreamMatePageContent() {
           </div>
         </div>
 
-        {/* Tab bar */}
-        <div className="flex gap-1.5 pb-3">
-          {DREAM_TABS.map(tab => {
-            const active = mounted && activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold transition-all"
-                style={active
-                  ? { background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff', boxShadow: '0 4px 16px rgba(108,92,231,0.35)' }
-                  : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.4)', border: '1px solid rgba(255,255,255,0.07)' }}
-              >
-                <span>{tab.emoji}</span>
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
+        {/* Tab group */}
+        <GroupedTabSelector
+          groupLabel={LABELS.pageTitle}
+          value={activeTab}
+          options={DREAM_TABS}
+          onChange={setActiveTab}
+          containerClassName="pb-0 mb-3"
+        />
       </div>
 
       {/* Tab content */}
@@ -205,15 +195,9 @@ function DreamMatePageContent() {
       {workspace.selectedRoadmap && (
         <RoadmapDetailDialog
           roadmap={workspace.selectedRoadmap}
-          isLiked={workspace.reactions.likedRoadmapIds.includes(workspace.selectedRoadmap.id)}
-          isBookmarked={workspace.reactions.bookmarkedRoadmapIds.includes(workspace.selectedRoadmap.id)}
-          likeCount={workspace.roadmapLikeCounts[workspace.selectedRoadmap.id] ?? workspace.selectedRoadmap.likes}
-          bookmarkCount={workspace.roadmapBookmarkCounts[workspace.selectedRoadmap.id] ?? workspace.selectedRoadmap.bookmarks}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
           availableSpaces={workspace.joinedSpaces}
           onClose={() => workspace.setSelectedRoadmapId(null)}
-          onToggleLike={() => workspace.handleToggleRoadmapLike(workspace.selectedRoadmap!.id)}
-          onToggleBookmark={() => workspace.handleToggleRoadmapBookmark(workspace.selectedRoadmap!.id)}
           onUseRoadmap={() => {
             workspace.handleUseRoadmap(workspace.selectedRoadmap!);
             setActiveTab('my');
@@ -223,13 +207,13 @@ function DreamMatePageContent() {
             workspace.setSelectedRoadmapId(null);
           }}
           onDelete={() => {
-            if (!window.confirm('정말 이 로드맵을 삭제할까요?')) return;
             workspace.handleDeleteRoadmap(workspace.selectedRoadmap!.id);
           }}
           onShareRoadmap={(shareScope, selectedSpaceIds) => {
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareScope, selectedSpaceIds);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
+          onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
         />
       )}
 

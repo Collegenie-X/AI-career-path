@@ -56,7 +56,7 @@ export const STAR_FIELD_CONFIG = {
 };
 
 export const LABELS = {
-  page_title: '직업 체험',
+  page_title: '드림 경험',
   page_subtitle: '8개 별의 직업 세계를 탐험하세요',
   star_selected_subtitle: '개 직업 프로세스 & 커리어 패스',
   intro_banner_title: '직업 세계 탐험',
@@ -175,8 +175,8 @@ export const LABELS = {
   timeline_key_success: '핵심 성공 지표',
   timeline_total_cost: '총 예상 비용',
 
-  // Explore tab navigation
-  explore_tab_star: '직업탐색',
+  // Explore tab navigations
+  explore_tab_star: '직업 탐색',
   explore_tab_admission: '고입 탐색',
 };
 

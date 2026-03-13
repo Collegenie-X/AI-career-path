@@ -36,18 +36,28 @@ function createId(prefix: string): string {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function createDefaultRoadmapSubItems(itemId: string, itemTitle: string) {
+  return [1, 2, 3, 4].map(weekNumber => ({
+    id: `${itemId}-default-week-${weekNumber}`,
+    weekNumber,
+    weekLabel: undefined,
+    title: itemTitle.trim().length > 0 ? `${itemTitle} ${weekNumber}주차` : `${weekNumber}주차 실행`,
+    isDone: false,
+  }));
+}
+
 function toRoadmapItems(items: RoadmapItem[]): RoadmapItem[] {
   return items.map(item => ({
     ...item,
     id: createId('roadmap-item'),
     months: item.months.length > 0 ? [...item.months].sort((a, b) => a - b) : [3],
-    subItems: (item.subItems ?? []).map(subItem => ({
+    subItems: ((item.subItems ?? []).length > 0 ? (item.subItems ?? []) : createDefaultRoadmapSubItems(item.id, item.title)).map(subItem => ({
       ...subItem,
       id: createId('roadmap-sub-item'),
       weekNumber: typeof subItem.weekNumber === 'number'
         ? subItem.weekNumber
         : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-      weekLabel: undefined,
+      weekLabel: subItem.weekLabel,
     })),
   }));
 }
@@ -60,13 +70,18 @@ function normalizeRoadmapStructure(roadmap: SharedRoadmap): SharedRoadmap {
     groupIds: roadmap.groupIds ?? [],
     items: (roadmap.items ?? []).map(item => ({
       ...item,
-      subItems: (item.subItems ?? []).map(subItem => ({
-        ...subItem,
-        weekNumber: typeof subItem.weekNumber === 'number'
-          ? subItem.weekNumber
-          : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-        weekLabel: undefined,
-      })),
+      subItems: (() => {
+        const normalizedSubItems = (item.subItems ?? []).map(subItem => ({
+          ...subItem,
+          weekNumber: typeof subItem.weekNumber === 'number'
+            ? subItem.weekNumber
+            : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
+          weekLabel: subItem.weekLabel,
+        }));
+        return normalizedSubItems.length > 0
+          ? normalizedSubItems
+          : createDefaultRoadmapSubItems(item.id, item.title);
+      })(),
     })),
   };
 }
@@ -286,18 +301,24 @@ export function useDreamMateWorkspace({
         focusItemTypes: payload.focusItemTypes,
         groupIds: roadmap.groupIds ?? [],
         shareScope: roadmap.shareScope ?? 'private',
-        items: payload.items.map(item => ({
-          ...item,
-          months: [...item.months].sort((a, b) => a - b),
-          subItems: (item.subItems ?? []).map(subItem => ({
+        items: payload.items.map(item => {
+          const cleanedSubItems = (item.subItems ?? []).map(subItem => ({
             ...subItem,
             weekNumber: typeof subItem.weekNumber === 'number'
               ? subItem.weekNumber
               : Number((subItem.weekLabel ?? '').replace(/[^0-9]/g, '')) || undefined,
-            weekLabel: undefined,
+            weekLabel: subItem.weekLabel,
             title: subItem.title.trim(),
-          })).filter(subItem => subItem.title.length > 0),
-        })),
+          })).filter(subItem => subItem.title.length > 0);
+
+          return {
+            ...item,
+            months: [...item.months].sort((a, b) => a - b),
+            subItems: cleanedSubItems.length > 0
+              ? cleanedSubItems
+              : createDefaultRoadmapSubItems(item.id, item.title),
+          };
+        }),
       };
     }));
     setEditingRoadmapId(null);
@@ -364,6 +385,28 @@ export function useDreamMateWorkspace({
         ...roadmap,
         shareScope,
         groupIds: shareScope === 'space' ? selectedSpaceIds : [],
+      };
+    }));
+  }, []);
+
+  const handleToggleTodoItem = useCallback((roadmapId: string, itemId: string, todoId: string) => {
+    setRoadmaps(previousRoadmaps => previousRoadmaps.map(roadmap => {
+      if (roadmap.id !== roadmapId) return roadmap;
+      return {
+        ...roadmap,
+        items: roadmap.items.map(item => {
+          if (item.id !== itemId) return item;
+          return {
+            ...item,
+            subItems: (item.subItems ?? []).map(subItem => {
+              if (subItem.id !== todoId) return subItem;
+              return {
+                ...subItem,
+                isDone: !subItem.isDone,
+              };
+            }),
+          };
+        }),
       };
     }));
   }, []);
@@ -555,6 +598,7 @@ export function useDreamMateWorkspace({
     handleUseRoadmap,
     handleCreateRoadmapComment,
     handleShareRoadmap,
+    handleToggleTodoItem,
     handleCreateSpace,
     handleToggleSpaceRecruitmentStatus,
     handleCreateSpaceNotice,
