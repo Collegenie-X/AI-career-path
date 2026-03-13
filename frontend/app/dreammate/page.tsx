@@ -102,7 +102,6 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onReportRoadmap={workspace.handleReportRoadmap}
             onViewDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('feed');
               workspace.setSelectedRoadmapId(roadmap.id);
@@ -130,7 +129,6 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onReportRoadmap={workspace.handleReportRoadmap}
             onViewRoadmapDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('space');
               workspace.setSelectedRoadmapId(roadmap.id);
@@ -153,7 +151,6 @@ function DreamMatePageContent() {
             bookmarkCounts={workspace.roadmapBookmarkCounts}
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onReportRoadmap={workspace.handleReportRoadmap}
             onViewRoadmapDetail={(roadmap) => {
               setSelectedRoadmapOpenedFromTab('my');
               workspace.setSelectedRoadmapId(roadmap.id);
@@ -228,6 +225,9 @@ function DreamMatePageContent() {
           }}
           onShareRoadmap={(shareScope, selectedSpaceIds) => {
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareScope, selectedSpaceIds);
+          }}
+          onReportRoadmap={(reasonId, detail) => {
+            workspace.handleReportRoadmap(workspace.selectedRoadmap!.id, reasonId, detail);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
           isTodoListSimpleView={selectedRoadmapOpenedFromTab === 'feed'}

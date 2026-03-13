@@ -1,10 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { Heart, Bookmark, MessageSquare, MoreVertical, Flag } from 'lucide-react';
+import { useMemo } from 'react';
+import { Heart, Bookmark, MessageSquare } from 'lucide-react';
 import { DREAM_ITEM_TYPES, LABELS, PERIOD_FILTERS } from '../config';
 import type { SharedRoadmap } from '../types';
-import { RoadmapReportDialog } from './RoadmapReportDialog';
 
 const PERIOD_LABEL_COLORS: Record<string, string> = {
   afterschool: '#F59E0B',
@@ -33,7 +32,26 @@ interface RoadmapCardProps {
   onToggleLike: () => void;
   onToggleBookmark: () => void;
   onViewDetail: () => void;
-  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
+}
+
+function formatRoadmapMonthsLabel(roadmap: SharedRoadmap): string {
+  const uniqueMonths = Array.from(
+    new Set(
+      roadmap.items
+        .flatMap(roadmapItem => roadmapItem.months)
+        .filter(month => Number.isInteger(month) && month >= 1 && month <= 12)
+    )
+  ).sort((firstMonth, secondMonth) => firstMonth - secondMonth);
+
+  if (!uniqueMonths.length) {
+    return LABELS.roadmapCardNoMonthLabel ?? '월 정보 없음';
+  }
+
+  if (uniqueMonths.length === 1) {
+    return `${uniqueMonths[0]}월`;
+  }
+
+  return `${uniqueMonths[0]}월 ~ ${uniqueMonths[uniqueMonths.length - 1]}월`;
 }
 
 export function RoadmapCard({
@@ -45,29 +63,12 @@ export function RoadmapCard({
   onToggleLike,
   onToggleBookmark,
   onViewDetail,
-  onReportRoadmap,
 }: RoadmapCardProps) {
-  const [showActionMenu, setShowActionMenu] = useState(false);
-  const [showReportDialog, setShowReportDialog] = useState(false);
-  const actionMenuRef = useRef<HTMLDivElement | null>(null);
   const periodInfo = PERIOD_FILTERS
     .filter(periodFilter => periodFilter.id !== 'all')
     .find(periodFilter => periodFilter.id === roadmap.period);
   const periodColor = PERIOD_LABEL_COLORS[roadmap.period] ?? '#6B7280';
-
-  useEffect(() => {
-    if (!showActionMenu) return;
-    const closeActionMenuWhenClickedOutside = (event: MouseEvent) => {
-      if (!actionMenuRef.current) return;
-      if (!actionMenuRef.current.contains(event.target as Node)) {
-        setShowActionMenu(false);
-      }
-    };
-    document.addEventListener('mousedown', closeActionMenuWhenClickedOutside);
-    return () => {
-      document.removeEventListener('mousedown', closeActionMenuWhenClickedOutside);
-    };
-  }, [showActionMenu]);
+  const roadmapMonthSummaryLabel = useMemo(() => formatRoadmapMonthsLabel(roadmap), [roadmap]);
 
   return (
     <div
@@ -108,42 +109,11 @@ export function RoadmapCard({
           </div>
           <p className="text-[10px] text-gray-500">{formatTimeAgo(roadmap.sharedAt)}</p>
         </div>
-        <div ref={actionMenuRef} className="relative flex-shrink-0">
-          <button
-            onClick={event => {
-              event.stopPropagation();
-              setShowActionMenu(prev => !prev);
-            }}
-            className="w-7 h-7 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
-            aria-label={LABELS.roadmapMoreActionLabel}
-          >
-            <MoreVertical className="w-3.5 h-3.5 text-gray-400" />
-          </button>
-          {showActionMenu && (
-            <div
-              className="absolute right-0 top-9 min-w-[112px] rounded-xl p-1 z-20"
-              style={{ backgroundColor: '#101026', border: '1px solid rgba(255,255,255,0.1)' }}
-            >
-              <button
-                onClick={event => {
-                  event.stopPropagation();
-                  setShowActionMenu(false);
-                  setShowReportDialog(true);
-                }}
-                className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-semibold text-red-300"
-                style={{ backgroundColor: 'rgba(239,68,68,0.08)' }}
-              >
-                <Flag className="w-3.5 h-3.5" />
-                {LABELS.roadmapReportMenuLabel}
-              </button>
-            </div>
-          )}
-        </div>
       </div>
 
-      {/* Title & Description */}
-      <h4 className="text-sm font-bold text-white mb-1">{roadmap.title}</h4>
+      {/* Title & month summary */}
+      <h4 className="text-sm font-bold text-white mb-0.5">{roadmap.title}</h4>
+      <p className="text-[11px] text-cyan-300 mb-2">{roadmapMonthSummaryLabel}</p>
       <p className="text-xs text-gray-400 line-clamp-2 mb-3">{roadmap.description}</p>
 
       {/* Items preview */}
@@ -195,13 +165,6 @@ export function RoadmapCard({
         </span>
       </div>
 
-      {showReportDialog && (
-        <RoadmapReportDialog
-          roadmapTitle={roadmap.title}
-          onClose={() => setShowReportDialog(false)}
-          onSubmit={(reasonId, detail) => onReportRoadmap(roadmap.id, reasonId, detail)}
-        />
-      )}
     </div>
   );
 }

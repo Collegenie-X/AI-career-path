@@ -55,7 +55,6 @@ interface RoadmapFeedTabProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewDetail: (roadmap: SharedRoadmap) => void;
-  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onCreateRoadmap: () => void;
 }
 
@@ -68,7 +67,6 @@ export function RoadmapFeedTab({
   onToggleLike,
   onToggleBookmark,
   onViewDetail,
-  onReportRoadmap,
   onCreateRoadmap,
 }: RoadmapFeedTabProps) {
   const [periodFilter, setPeriodFilter] = useState('all');
@@ -169,7 +167,6 @@ export function RoadmapFeedTab({
               onToggleLike={() => onToggleLike(rm.id)}
               onToggleBookmark={() => onToggleBookmark(rm.id)}
               onViewDetail={() => onViewDetail(rm)}
-              onReportRoadmap={onReportRoadmap}
             />
           ))}
         </div>

@@ -24,7 +24,6 @@ interface SpaceDetailViewProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
-  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onLeave: () => void;
   onToggleRecruitmentStatus: (spaceId: string) => void;
   onCreateNotice: (spaceId: string, title: string, content: string) => void;
@@ -43,7 +42,6 @@ export function SpaceDetailView({
   onToggleLike,
   onToggleBookmark,
   onViewRoadmapDetail,
-  onReportRoadmap,
   onLeave,
   onToggleRecruitmentStatus,
   onCreateNotice,
@@ -186,7 +184,6 @@ export function SpaceDetailView({
               onToggleLike={() => onToggleLike(rm.id)}
               onToggleBookmark={() => onToggleBookmark(rm.id)}
               onViewDetail={() => onViewRoadmapDetail(rm)}
-              onReportRoadmap={onReportRoadmap}
             />
           ))
         )}

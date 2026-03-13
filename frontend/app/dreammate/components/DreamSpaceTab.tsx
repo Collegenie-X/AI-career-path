@@ -169,7 +169,6 @@ interface DreamSpaceTabProps {
   onToggleLike: (id: string) => void;
   onToggleBookmark: (id: string) => void;
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
-  onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onJoinSpace: (id: string) => void;
   onLeaveSpace: (id: string) => void;
   onCreateSpace: (name: string, description: string, emoji: string) => void;
@@ -183,7 +182,6 @@ export function DreamSpaceTab({
   initialSelectedSpaceId,
   likedIds, bookmarkedIds, likeCounts, bookmarkCounts,
   onToggleLike, onToggleBookmark, onViewRoadmapDetail,
-  onReportRoadmap,
   onJoinSpace,
   onLeaveSpace, onCreateSpace,
   onToggleSpaceRecruitmentStatus,
@@ -227,7 +225,6 @@ export function DreamSpaceTab({
         onToggleLike={onToggleLike}
         onToggleBookmark={onToggleBookmark}
         onViewRoadmapDetail={onViewRoadmapDetail}
-        onReportRoadmap={onReportRoadmap}
         onLeave={() => { onLeaveSpace(selectedSpace.id); setSelectedSpaceId(null); }}
         onToggleRecruitmentStatus={onToggleSpaceRecruitmentStatus}
         onCreateNotice={onCreateSpaceNotice}

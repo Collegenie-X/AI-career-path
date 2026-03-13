@@ -1,7 +1,7 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { CornerDownRight, MessageSquare, Pencil, Send, Trash2, X } from 'lucide-react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { CornerDownRight, MessageSquare, MoreVertical, Pencil, Send, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareScope, SharedRoadmap } from '../types';
 import {
@@ -9,6 +9,7 @@ import {
   type ParentTreeNode,
 } from '@/lib/timelineTreeUtils';
 import { RoadmapCareerPathTimelineSection } from './RoadmapCareerPathTimelineSection';
+import { RoadmapReportDialog } from './RoadmapReportDialog';
 import { RoadmapShareDialog } from './RoadmapShareDialog';
 
 interface RoadmapDetailDialogProps {
@@ -19,6 +20,7 @@ interface RoadmapDetailDialogProps {
   onClose: () => void;
   onUseRoadmap: () => void;
   onShareRoadmap: (shareScope: RoadmapShareScope, spaceIds: string[]) => void;
+  onReportRoadmap: (reasonId: string, detail: string) => void;
   onEdit: () => void;
   onDelete: () => void;
   onCreateComment: (comment: string, parentId?: string) => void;
@@ -39,6 +41,7 @@ export function RoadmapDetailDialog({
   onClose,
   onUseRoadmap,
   onShareRoadmap,
+  onReportRoadmap,
   onEdit,
   onDelete,
   onCreateComment,
@@ -49,10 +52,27 @@ export function RoadmapDetailDialog({
   const [commentSortOrder, setCommentSortOrder] = useState<'oldest' | 'latest'>('oldest');
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [showDeleteConfirmationActions, setShowDeleteConfirmationActions] = useState(false);
+  const [showActionMenu, setShowActionMenu] = useState(false);
+  const [showReportDialog, setShowReportDialog] = useState(false);
+  const actionMenuRef = useRef<HTMLDivElement | null>(null);
   const periodLabel = useMemo(
     () => PERIOD_FILTERS.find(item => item.id === roadmap.period)?.label ?? roadmap.period,
     [roadmap.period],
   );
+
+  useEffect(() => {
+    if (!showActionMenu) return;
+    const closeActionMenuWhenClickedOutside = (event: MouseEvent) => {
+      if (!actionMenuRef.current) return;
+      if (!actionMenuRef.current.contains(event.target as Node)) {
+        setShowActionMenu(false);
+      }
+    };
+    document.addEventListener('mousedown', closeActionMenuWhenClickedOutside);
+    return () => {
+      document.removeEventListener('mousedown', closeActionMenuWhenClickedOutside);
+    };
+  }, [showActionMenu]);
 
   const commentTree = useMemo(() => {
     const chronologicalTree = buildChronologicalParentTree(roadmap.comments);
@@ -77,9 +97,41 @@ export function RoadmapDetailDialog({
               </span>
               <span className="text-[11px] text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
-            <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-              <X className="w-4 h-4 text-gray-300" />
-            </button>
+            <div className="flex items-center gap-2">
+              {!isOwnedByCurrentUser && (
+                <div ref={actionMenuRef} className="relative">
+                  <button
+                    onClick={() => setShowActionMenu(previousState => !previousState)}
+                    className="w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                    aria-label={LABELS.roadmapMoreActionLabel}
+                  >
+                    <MoreVertical className="w-4 h-4 text-gray-300" />
+                  </button>
+                  {showActionMenu && (
+                    <div
+                      className="absolute right-0 top-10 min-w-[120px] rounded-xl p-1 z-20"
+                      style={{ backgroundColor: '#101026', border: '1px solid rgba(255,255,255,0.1)' }}
+                    >
+                      <button
+                        onClick={() => {
+                          setShowActionMenu(false);
+                          setShowReportDialog(true);
+                        }}
+                        className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-semibold text-red-300"
+                        style={{ backgroundColor: 'rgba(239,68,68,0.08)' }}
+                      >
+                        <Flag className="w-3.5 h-3.5" />
+                        {LABELS.roadmapReportMenuLabel}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+              <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+                <X className="w-4 h-4 text-gray-300" />
+              </button>
+            </div>
           </div>
           <div className="min-w-0">
             <h3 className="text-xl font-black text-white leading-tight tracking-tight">{roadmap.title}</h3>
@@ -242,6 +294,14 @@ export function RoadmapDetailDialog({
             onShareRoadmap(shareScope, selectedSpaceIds);
             setShowShareDialog(false);
           }}
+        />
+      )}
+
+      {showReportDialog && !isOwnedByCurrentUser && (
+        <RoadmapReportDialog
+          roadmapTitle={roadmap.title}
+          onClose={() => setShowReportDialog(false)}
+          onSubmit={(reasonId, detail) => onReportRoadmap(reasonId, detail)}
         />
       )}
     </div>
