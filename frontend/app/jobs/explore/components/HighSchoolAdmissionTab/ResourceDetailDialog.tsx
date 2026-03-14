@@ -123,7 +123,7 @@ export function ResourceDetailDialog({
         >
           <div className="min-w-0">
             <p className="text-sm font-bold text-white truncate">{item.title}</p>
-            <p className="text-[11px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
+            <p className="text-[12px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
           </div>
           <div className="flex items-center gap-1">
             {userFileForActions ? (
@@ -155,13 +155,13 @@ export function ResourceDetailDialog({
               <input
                 value={draft.name}
                 onChange={(event) => setDraft((prev) => ({ ...prev, name: event.target.value }))}
-                className="w-full rounded-lg px-2.5 py-2 text-[11px] bg-white/5 text-gray-100 border border-white/10"
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
                 placeholder="자료명"
               />
               <select
                 value={draft.categoryId}
                 onChange={(event) => setDraft((prev) => ({ ...prev, categoryId: event.target.value as ResourceCategoryId }))}
-                className="w-full rounded-lg px-2.5 py-2 text-[11px] bg-white/5 text-gray-100 border border-white/10"
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
               >
                 {RESOURCE_CATEGORIES.map((category) => (
                   <option key={category.id} value={category.id}>
@@ -172,23 +172,23 @@ export function ResourceDetailDialog({
               <input
                 value={draft.summary}
                 onChange={(event) => setDraft((prev) => ({ ...prev, summary: event.target.value }))}
-                className="w-full rounded-lg px-2.5 py-2 text-[11px] bg-white/5 text-gray-100 border border-white/10"
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
                 placeholder="요약"
               />
               {canEditUserMarkdown ? (
                 <div className="space-y-1.5">
-                  <p className="text-[10px] text-gray-400">본문 작성</p>
+                  <p className="text-[12px] text-gray-400">본문 작성</p>
                   <textarea
                     value={draft.content}
                     onChange={(event) => setDraft((prev) => ({ ...prev, content: event.target.value }))}
-                    className="w-full h-[52vh] sm:h-[58vh] rounded-lg px-2.5 py-2 text-[11px] leading-relaxed bg-white/5 text-gray-100 border border-white/10"
+                    className="w-full h-[52vh] sm:h-[58vh] rounded-lg px-2.5 py-2 text-[12px] leading-relaxed bg-white/5 text-gray-100 border border-white/10"
                   />
                 </div>
               ) : (
-                <p className="text-[11px] text-gray-400">PDF 파일은 메타 정보만 수정할 수 있습니다.</p>
+                <p className="text-[12px] text-gray-400">PDF 파일은 메타 정보만 수정할 수 있습니다.</p>
               )}
               <div className="flex justify-end">
-                <button onClick={() => setIsEditing(false)} className="px-2.5 py-1.5 rounded-lg text-[11px] text-gray-300 bg-white/5">
+                <button onClick={() => setIsEditing(false)} className="px-2.5 py-1.5 rounded-lg text-[12px] text-gray-300 bg-white/5">
                   편집 닫기
                 </button>
               </div>
@@ -197,7 +197,7 @@ export function ResourceDetailDialog({
             <>
               {item.fileType === 'md' ? (
                 isLoading ? (
-                  <p className="text-[11px] text-gray-400">문서를 불러오는 중...</p>
+                  <p className="text-[12px] text-gray-400">문서를 불러오는 중...</p>
                 ) : (
                   <ResourceMarkdownViewer markdownText={item.source === 'library' ? libraryMarkdown : item.content ?? ''} />
                 )

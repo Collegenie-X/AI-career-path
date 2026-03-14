@@ -225,12 +225,12 @@ export function ProcessQuizGame({ phases, starColor, jobName, onViewFull }: Proc
           {phase.icon}
         </div>
         <div>
-          <div className="text-[10px] font-bold text-gray-500">
+          <div className="text-[11px] font-bold text-gray-500">
             {LABELS.process_step_prefix} {phaseIndex + 1} · {phase.phase}
           </div>
           <div className="text-base font-extrabold text-white">{phase.title}</div>
           <div
-            className="text-[10px] font-bold mt-0.5"
+            className="text-[12px] font-bold mt-0.5"
             style={{ color: starColor }}
           >
             {phase.duration}

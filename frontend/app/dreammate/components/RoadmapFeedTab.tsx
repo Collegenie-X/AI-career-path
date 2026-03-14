@@ -141,7 +141,7 @@ export function RoadmapFeedTab({
         <p className="text-xs text-gray-500 mt-0.5">{LABELS.feedSubtitle}</p>
         <button
           onClick={onCreateRoadmap}
-          className="h-8 px-3 rounded-lg text-[11px] font-bold"
+          className="h-8 px-3 rounded-lg text-xs font-bold"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
           + {LABELS.createRoadmapButton}

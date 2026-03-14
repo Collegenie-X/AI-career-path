@@ -81,9 +81,9 @@ export function RoadmapShareDialog({
                     }}
                 >
                   <p className="text-xs font-bold text-white">{option.label}</p>
-                  <p className="text-[10px] text-gray-400 mt-0.5">{option.description}</p>
+                  <p className="text-xs text-gray-400 mt-0.5">{option.description}</p>
                   {isPublicWithoutResult && (
-                    <p className="text-[10px] text-amber-300 mt-1">
+                    <p className="text-xs text-amber-300 mt-1">
                       {LABELS.sharePublicRequiresResultHint ?? '최종 결과물 URL 또는 이미지 URL을 등록하면 전체 공유할 수 있어요.'}
                     </p>
                   )}
@@ -94,9 +94,9 @@ export function RoadmapShareDialog({
 
           {shareScope === 'space' && (
             <div className="space-y-2">
-              <p className="text-[11px] font-bold text-gray-300">{LABELS.shareSpaceSelectLabel}</p>
+              <p className="text-sm font-bold text-gray-300">{LABELS.shareSpaceSelectLabel}</p>
               {spaces.length === 0 ? (
-                <p className="text-[11px] text-gray-500">공유 가능한 스페이스가 없습니다.</p>
+                <p className="text-sm text-gray-500">공유 가능한 스페이스가 없습니다.</p>
               ) : (
                 <div className="grid grid-cols-2 gap-2">
                   {spaces.map(space => {
@@ -105,7 +105,7 @@ export function RoadmapShareDialog({
                       <button
                         key={space.id}
                         onClick={() => toggleSpaceSelection(space.id)}
-                        className="h-10 px-2.5 rounded-lg flex items-center justify-between text-[11px]"
+                        className="h-10 px-2.5 rounded-lg flex items-center justify-between text-sm"
                         style={isSelected
                           ? { backgroundColor: `${space.color}20`, color: '#fff', border: `1px solid ${space.color}66` }
                           : { backgroundColor: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.08)' }}

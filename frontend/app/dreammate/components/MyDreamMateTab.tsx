@@ -57,7 +57,7 @@ export function MyDreamMateTab({
         </div>
         <button
           onClick={onCreateRoadmap}
-          className="h-8 px-3 rounded-lg text-[11px] font-bold flex-shrink-0"
+          className="h-8 px-3 rounded-lg text-sm font-bold flex-shrink-0"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
           {LABELS.myCreateRoadmapButton}
@@ -78,7 +78,7 @@ export function MyDreamMateTab({
           >
             <span className="text-2xl">{card.emoji}</span>
             <span className="text-lg font-black text-white">{card.count}</span>
-            <span className="text-[10px] text-gray-400">{card.label}</span>
+            <span className="text-xs text-gray-400">{card.label}</span>
           </div>
         ))}
       </div>
@@ -150,8 +150,8 @@ export function MyDreamMateTab({
                 </div>
                 <div className="flex-1 min-w-0">
                   <span className="text-sm font-bold text-white">{space.name}</span>
-                  <p className="text-[11px] text-gray-400 line-clamp-1">{space.description}</p>
-                  <span className="text-[10px] text-gray-500">{space.memberCount}명 참여 중</span>
+                  <p className="text-sm text-gray-400 line-clamp-1">{space.description}</p>
+                  <span className="text-xs text-gray-500">{space.memberCount}명 참여 중</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0" />
               </button>
@@ -198,7 +198,7 @@ export function MyDreamMateTab({
                         <span className="text-lg">{cat?.emoji}</span>
                         <div className="flex-1 min-w-0">
                           <p className="text-xs font-bold text-white truncate">{res.title}</p>
-                          <p className="text-[10px] text-gray-500">{cat?.label} · {res.authorName}</p>
+                          <p className="text-xs text-gray-500">{cat?.label} · {res.authorName}</p>
                         </div>
                         <Bookmark className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#FBBF24' }} fill="#FBBF24" />
                       </div>

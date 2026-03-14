@@ -199,7 +199,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
           <Map className="w-4 h-4" />
           {resourceLibrarySource.header.title}
         </p>
-        <p className="text-[11px] text-gray-300 leading-relaxed">{resourceLibrarySource.header.shortDescription}</p>
+        <p className="text-[12px] text-gray-300 leading-relaxed">{resourceLibrarySource.header.shortDescription}</p>
         <button
           onClick={() => setIsGuideDialogOpen(true)}
           className="mt-2 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold text-cyan-200 bg-cyan-500/15 inline-flex items-center gap-1"
@@ -216,7 +216,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
           <select
             value={uploadCategoryId}
             onChange={(event) => setUploadCategoryId(event.target.value as ResourceCategoryId)}
-            className="rounded-lg px-2.5 py-2 text-[11px] bg-white/5 text-gray-100 border border-white/10"
+            className="rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
           >
             {RESOURCE_CATEGORIES.map((category) => (
               <option key={category.id} value={category.id}>
@@ -244,7 +244,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setCategoryFilter('all')}
-            className="px-2 py-1 rounded-lg text-[10px] font-semibold"
+            className="px-2 py-1 rounded-lg text-[11px] font-semibold"
             style={{ background: categoryFilter === 'all' ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}
           >
             전체
@@ -253,7 +253,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
             <button
               key={category.id}
               onClick={() => setCategoryFilter(category.id)}
-              className="px-2 py-1 rounded-lg text-[10px] font-semibold"
+              className="px-2 py-1 rounded-lg text-[11px] font-semibold"
               style={{ background: categoryFilter === category.id ? `${category.color}33` : 'rgba(255,255,255,0.06)', color: category.color }}
             >
               {category.label}
@@ -270,11 +270,11 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                 <div className="flex items-center justify-between gap-2">
                   <div className="min-w-0">
                     <p className="text-[12px] font-semibold text-white truncate">{resourceItem.title}</p>
-                    <p className="text-[10px] mt-0.5" style={{ color: categoryMeta.color }}>
+                    <p className="text-[12px] mt-0.5" style={{ color: categoryMeta.color }}>
                       {categoryMeta.label}
                     </p>
-                    <p className="text-[10px] text-gray-400 mt-1 line-clamp-1">{resourceItem.summary}</p>
-                    <p className="text-[10px] text-gray-500 mt-0.5">
+                    <p className="text-[12px] text-gray-400 mt-1 line-clamp-1">{resourceItem.summary}</p>
+                    <p className="text-[12px] text-gray-500 mt-0.5">
                       {resourceItem.fileType.toUpperCase()} {isUserItem ? `· ${formatFileSize(resourceItem.size)} · ${formatUploadedDate(resourceItem.uploadedAt)}` : '· 기본 문서'}
                     </p>
                   </div>
@@ -289,12 +289,12 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                             // optional clipboard support
                           }
                         }}
-                        className="px-2 py-1 rounded-md text-[10px] text-cyan-200 bg-cyan-500/15"
+                        className="px-2 py-1 rounded-md text-[11px] text-cyan-200 bg-cyan-500/15"
                       >
                         링크복사
                       </button>
                     ) : null}
-                    <button onClick={() => setSelectedResourceId(resourceItem.id)} className="px-2 py-1 rounded-md text-[10px] font-semibold text-violet-200 bg-violet-500/20">
+                    <button onClick={() => setSelectedResourceId(resourceItem.id)} className="px-2 py-1 rounded-md text-[11px] font-semibold text-violet-200 bg-violet-500/20">
                       상세보기
                     </button>
                   </div>
@@ -303,7 +303,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
             );
           })}
           {filteredResources.length === 0 ? (
-            <p className="text-[11px] text-gray-500">선택한 카테고리에 자료가 없습니다.</p>
+            <p className="text-[12px] text-gray-500">선택한 카테고리에 자료가 없습니다.</p>
           ) : null}
         </div>
       </div>

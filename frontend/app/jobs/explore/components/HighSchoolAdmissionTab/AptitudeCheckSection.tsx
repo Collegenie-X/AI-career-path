@@ -72,7 +72,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
         </button>
         <div>
           <h3 className="text-sm font-bold text-white">{data.title}</h3>
-          <p className="text-[11px] text-gray-400">{data.description}</p>
+          <p className="text-[12px] text-gray-400">{data.description}</p>
         </div>
       </div>
 
@@ -88,8 +88,8 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
           >
             <div className="text-4xl mb-2">🧠</div>
             <p className="text-sm font-bold text-white mb-1">적성 체크 도전</p>
-            <p className="text-[11px] text-gray-300 leading-relaxed mb-4">{data.description}</p>
-            <p className="text-[10px] text-gray-400">7문제를 풀면 나에게 맞는 학교 유형을 찾아줘요!</p>
+            <p className="text-[12px] text-gray-300 leading-relaxed mb-4">{data.description}</p>
+            <p className="text-[12px] text-gray-400">7문제를 풀면 나에게 맞는 학교 유형을 찾아줘요!</p>
           </div>
 
           <button
@@ -122,7 +122,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
                 }}
               />
             </div>
-            <span className="text-[10px] text-gray-400 flex-shrink-0">
+            <span className="text-[12px] text-gray-400 flex-shrink-0">
               {state.questionIndex + 1} / {data.questions.length}
             </span>
           </div>
@@ -183,7 +183,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
                 }}
               >
                 <div className="text-4xl mb-2">{resultCategory.emoji}</div>
-                <p className="text-[11px] text-gray-400 mb-1">추천 학교 유형</p>
+                <p className="text-[12px] text-gray-400 mb-1">추천 학교 유형</p>
                 <h3 className="text-base font-bold text-white mb-1">{resultCategory.name}</h3>
                 <p className="text-[12px] text-gray-300 leading-relaxed">{resultCategory.description}</p>
               </div>
@@ -195,7 +195,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
               >
                 <p className="text-[11px] font-bold text-gray-400">이 유형의 핵심 특성</p>
                 <p className="text-[12px] text-gray-200 leading-relaxed">{resultCategory.categoryTraits.aptitude}</p>
-                <p className="text-[11px] text-gray-400 leading-relaxed">{resultCategory.categoryTraits.identity}</p>
+                <p className="text-[12px] text-gray-400 leading-relaxed">{resultCategory.categoryTraits.identity}</p>
               </div>
 
               <button
@@ -218,13 +218,13 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
             >
               <div className="text-3xl mb-2">🌟</div>
               <p className="text-sm font-bold text-white mb-1">다양한 유형이 맞을 수 있어요</p>
-              <p className="text-[11px] text-gray-400">행성 지도에서 직접 탐방해보세요!</p>
+              <p className="text-[12px] text-gray-400">행성 지도에서 직접 탐방해보세요!</p>
             </div>
           )}
 
           <button
             onClick={handleReset}
-            className="w-full py-2.5 rounded-2xl text-[12px] font-semibold flex items-center justify-center gap-2 transition-all"
+            className="w-full py-2.5 rounded-2xl text-[11px] font-semibold flex items-center justify-center gap-2 transition-all"
             style={{ background: 'rgba(255,255,255,0.06)', color: '#9ca3af' }}
           >
             <RotateCcw className="w-3.5 h-3.5" />

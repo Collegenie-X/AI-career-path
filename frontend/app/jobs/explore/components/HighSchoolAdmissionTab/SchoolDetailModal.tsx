@@ -58,13 +58,13 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
               <div className="flex items-center gap-1.5 flex-wrap">
                 <h2 className="text-base font-bold text-white break-words">{school.name}</h2>
                 {school.ibCertified && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                  <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(16,185,129,0.25)', color: '#10b981' }}>
                     🌐 IB인증
                   </span>
                 )}
                 {school.dormitory && (
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+                  <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
                     🏠 기숙사
                   </span>
@@ -72,7 +72,7 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
               </div>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <MapPin className="w-3 h-3 text-gray-400" />
-                <span className="text-[11px] text-gray-400">{school.location}</span>
+                <span className="text-[12px] text-gray-400">{school.location}</span>
               </div>
               <div className="flex items-center gap-2 mt-1">
                 <div className="flex items-center gap-0.5">
@@ -85,10 +85,10 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
                     />
                   ))}
                 </div>
-                <span className="text-[10px] text-gray-400">입학 난이도</span>
-                <span className="text-[10px] text-gray-600">|</span>
+                <span className="text-[12px] text-gray-400">입학 난이도</span>
+                <span className="text-[12px] text-gray-600">|</span>
                 <Users className="w-3 h-3 text-gray-400" />
-                <span className="text-[10px] text-gray-400">연 {school.annualAdmission}명</span>
+                <span className="text-[12px] text-gray-400">연 {school.annualAdmission}명</span>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
               }}
             >
               <span className="text-base">{tab.emoji}</span>
-              <span className="leading-tight text-center text-[10px]">{tab.label}</span>
+              <span className="leading-tight text-center text-[12px]">{tab.label}</span>
             </button>
           ))}
         </div>
@@ -161,7 +161,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
           className="rounded-2xl p-3"
           style={{ background: categoryBgColor, border: `1px solid ${categoryColor}30` }}
         >
-          <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">핵심 수치</p>
+          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">핵심 수치</p>
           <div className="grid grid-cols-2 gap-2">
             {school.highlightStats.map((stat) => (
               <div
@@ -170,8 +170,8 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
                 style={{ background: 'rgba(255,255,255,0.06)' }}
               >
                 <span className="text-xl">{stat.emoji}</span>
-                <span className="text-[11px] font-bold text-white text-center leading-tight">{stat.value}</span>
-                <span className="text-[9px] text-gray-400 text-center leading-tight">{stat.label}</span>
+                <span className="text-[12px] font-bold text-white text-center leading-tight">{stat.value}</span>
+                <span className="text-[12px] text-gray-400 text-center leading-tight">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -198,8 +198,8 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
           >
             <Target className="w-3.5 h-3.5 flex-shrink-0" style={{ color: categoryColor }} />
             <div>
-              <span className="text-[10px] font-bold" style={{ color: categoryColor }}>경쟁 수준: </span>
-              <span className="text-[11px] text-gray-300">{school.competitionLevel}</span>
+              <span className="text-[12px] font-bold" style={{ color: categoryColor }}>경쟁 수준: </span>
+              <span className="text-[12px] text-gray-300">{school.competitionLevel}</span>
             </div>
           </div>
         )}
@@ -210,8 +210,8 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
           >
             <Clock className="w-3.5 h-3.5 flex-shrink-0" style={{ color: categoryColor }} />
             <div>
-              <span className="text-[10px] font-bold" style={{ color: categoryColor }}>하루 공부 시간: </span>
-              <span className="text-[11px] text-gray-300">{school.studyHoursPerDay}</span>
+              <span className="text-[12px] font-bold" style={{ color: categoryColor }}>하루 공부 시간: </span>
+              <span className="text-[12px] text-gray-300">{school.studyHoursPerDay}</span>
             </div>
           </div>
         )}
@@ -222,8 +222,8 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
           >
             <BookOpen className="w-3.5 h-3.5 flex-shrink-0" style={{ color: categoryColor }} />
             <div>
-              <span className="text-[10px] font-bold" style={{ color: categoryColor }}>자기주도 비율: </span>
-              <span className="text-[11px] text-gray-300">{school.selfStudyRatio}</span>
+              <span className="text-[12px] font-bold" style={{ color: categoryColor }}>자기주도 비율: </span>
+              <span className="text-[12px] text-gray-300">{school.selfStudyRatio}</span>
             </div>
           </div>
         )}
@@ -243,13 +243,13 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
                   <span className="text-base">{prog.emoji}</span>
                   <span className="text-[12px] font-bold text-white">{prog.name}</span>
                 </div>
-                <p className="text-[11px] text-gray-300 leading-relaxed">{prog.description}</p>
+                <p className="text-[12px] text-gray-300 leading-relaxed">{prog.description}</p>
                 <div
                   className="mt-1.5 flex items-center gap-1.5 px-2 py-1 rounded-lg"
                   style={{ background: `${categoryColor}15` }}
                 >
                   <Zap className="w-3 h-3 flex-shrink-0" style={{ color: categoryColor }} />
-                  <span className="text-[10px] font-semibold" style={{ color: categoryColor }}>{prog.benefit}</span>
+                  <span className="text-[12px] font-semibold" style={{ color: categoryColor }}>{prog.benefit}</span>
                 </div>
               </div>
             ))}
@@ -262,7 +262,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
               <div key={prog} className="flex items-center gap-2 p-2 rounded-xl"
                 style={{ background: 'rgba(255,255,255,0.04)' }}>
                 <span
-                  className="text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                  className="text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: `${categoryColor}30`, color: categoryColor }}
                 >
                   {i + 1}
@@ -283,7 +283,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
             style={{ background: `${categoryColor}10` }}
           >
             <Coffee className="w-3.5 h-3.5 flex-shrink-0 mt-0.5" style={{ color: categoryColor }} />
-            <p className="text-[11px] text-gray-300 leading-relaxed">{school.socialLife}</p>
+            <p className="text-[12px] text-gray-300 leading-relaxed">{school.socialLife}</p>
           </div>
         )}
       </SectionCard>
@@ -294,25 +294,25 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
       <div className="grid grid-cols-1 gap-2">
         <div className="p-3 rounded-2xl space-y-1.5"
           style={{ background: 'rgba(16,185,129,0.08)', border: '1px solid rgba(16,185,129,0.2)' }}>
-          <p className="text-[10px] font-bold text-emerald-400 flex items-center gap-1">
+          <p className="text-[12px] font-bold text-emerald-400 flex items-center gap-1">
             <CheckCircle className="w-3 h-3" /> 이런 점이 좋아요
           </p>
           {school.pros.map((pro) => (
             <div key={pro} className="flex items-start gap-1">
-              <span className="text-emerald-400 text-[11px] flex-shrink-0 mt-0.5">✓</span>
-              <p className="text-[10px] text-gray-300 leading-relaxed">{pro}</p>
+              <span className="text-emerald-400 text-[12px] flex-shrink-0 mt-0.5">✓</span>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{pro}</p>
             </div>
           ))}
         </div>
         <div className="p-3 rounded-2xl space-y-1.5"
           style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}>
-          <p className="text-[10px] font-bold text-red-400 flex items-center gap-1">
+          <p className="text-[12px] font-bold text-red-400 flex items-center gap-1">
             <XCircle className="w-3 h-3" /> 이런 점은 힘들어요
           </p>
           {school.cons.map((con) => (
             <div key={con} className="flex items-start gap-1">
-              <span className="text-red-400 text-[11px] flex-shrink-0 mt-0.5">!</span>
-              <p className="text-[10px] text-gray-300 leading-relaxed">{con}</p>
+              <span className="text-red-400 text-[12px] flex-shrink-0 mt-0.5">!</span>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{con}</p>
             </div>
           ))}
         </div>
@@ -330,7 +330,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
         </div>
         <div className="flex flex-wrap gap-1">
           {school.alumniCareers.map((career) => (
-            <span key={career} className="text-[10px] px-2 py-0.5 rounded-full text-gray-300"
+            <span key={career} className="text-[11px] px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.08)' }}>
               {career}
             </span>
@@ -368,7 +368,7 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
               </div>
               <div className="flex-1">
                 <p className="text-[12px] font-bold text-white">{step.title}</p>
-                <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed">{step.detail}</p>
+                <p className="text-[12px] text-gray-400 mt-0.5 leading-relaxed">{step.detail}</p>
               </div>
             </div>
           ))}
@@ -391,7 +391,7 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
         className="p-3 rounded-2xl space-y-2"
         style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}25` }}
       >
-        <p className="text-[11px] font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
+        <p className="text-[12px] font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
           <TrendingUp className="w-3.5 h-3.5" /> 중학교 내신 전략
         </p>
         <div className="space-y-1.5">
@@ -402,8 +402,8 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-2">
               <span className="text-base flex-shrink-0">{item.emoji}</span>
-              <span className="text-[10px] font-bold text-gray-400 w-16 flex-shrink-0">{item.label}</span>
-              <span className="text-[11px] text-gray-200">{item.value}</span>
+              <span className="text-[11px] font-bold text-gray-400 w-16 flex-shrink-0">{item.label}</span>
+              <span className="text-[12px] text-gray-200">{item.value}</span>
             </div>
           ))}
         </div>
@@ -415,10 +415,10 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
           className="p-3 rounded-2xl"
           style={{ background: 'rgba(167,139,250,0.1)', border: '1px solid rgba(167,139,250,0.25)' }}
         >
-          <p className="text-[11px] font-bold text-purple-400 mb-1.5 flex items-center gap-1.5">
+          <p className="text-[12px] font-bold text-purple-400 mb-1.5 flex items-center gap-1.5">
             <Heart className="w-3.5 h-3.5" /> 멘탈 건강 체크
           </p>
-          <p className="text-[11px] text-gray-300 leading-relaxed">{school.mentalHealthNote}</p>
+          <p className="text-[12px] text-gray-300 leading-relaxed">{school.mentalHealthNote}</p>
         </div>
       )}
 
@@ -448,7 +448,7 @@ function CareerPathTab({ school, categoryColor, categoryBgColor }: TabProps) {
         <p className="text-[12px] font-bold mb-1" style={{ color: categoryColor }}>
           🗓️ {school.name} 합격을 위한 3년 로드맵
         </p>
-        <p className="text-[11px] text-gray-300 leading-relaxed">
+        <p className="text-[12px] text-gray-300 leading-relaxed">
           중학교 3년 동안 무엇을 어떻게 준비해야 하는지 단계별로 알려드려요.
           지금 몇 학년인지 확인하고 시작하세요!
         </p>
@@ -483,16 +483,16 @@ function CareerPathTab({ school, categoryColor, categoryBgColor }: TabProps) {
                 <div className="px-3 py-2.5 space-y-1.5" style={{ background: 'rgba(255,255,255,0.03)' }}>
                   {step.tasks.map((task) => (
                     <div key={task} className="flex items-start gap-2">
-                      <span className="text-[11px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
-                      <p className="text-[11px] text-gray-200 leading-relaxed">{task}</p>
+                      <span className="text-[12px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
+                      <p className="text-[12px] text-gray-200 leading-relaxed">{task}</p>
                     </div>
                   ))}
                   <div
                     className="mt-2 p-2 rounded-xl"
                     style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
                   >
-                    <p className="text-[10px] font-bold text-yellow-400 mb-0.5">💡 이 시기의 핵심</p>
-                    <p className="text-[11px] text-gray-300 leading-relaxed">{step.keyPoint}</p>
+                    <p className="text-[12px] font-bold text-yellow-400 mb-0.5">💡 이 시기의 핵심</p>
+                    <p className="text-[12px] text-gray-300 leading-relaxed">{step.keyPoint}</p>
                   </div>
                 </div>
               </div>
@@ -518,7 +518,7 @@ function CareerPathTab({ school, categoryColor, categoryBgColor }: TabProps) {
                 className="flex-1 p-2.5 rounded-xl mb-2"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
               >
-                <p className="text-[11px] font-bold mb-1" style={{ color: categoryColor }}>{step.period}</p>
+                <p className="text-[12px] font-bold mb-1" style={{ color: categoryColor }}>{step.period}</p>
                 <p className="text-[12px] text-gray-200 leading-relaxed">{step.content}</p>
               </div>
             </div>
@@ -538,12 +538,12 @@ function CareerPathTab({ school, categoryColor, categoryBgColor }: TabProps) {
               >
                 <span className="text-base flex-shrink-0">{item.emoji}</span>
                 <span
-                  className="text-[10px] font-bold flex-shrink-0 w-10"
+                  className="text-[12px] font-bold flex-shrink-0 w-10"
                   style={{ color: categoryColor }}
                 >
                   {item.time}
                 </span>
-                <span className="text-[11px] text-gray-300">{item.activity}</span>
+                <span className="text-[12px] text-gray-300">{item.activity}</span>
               </div>
             ))}
           </div>
@@ -565,7 +565,7 @@ function RealLifeTab({ school, categoryColor, categoryBgColor }: TabProps) {
         >
           <div className="text-3xl mb-2">💬</div>
           <p className="text-sm font-bold text-white mb-1">솔직 후기 준비 중</p>
-          <p className="text-[11px] text-gray-400">이 학교의 상세 후기를 준비 중이에요.</p>
+          <p className="text-[12px] text-gray-400">이 학교의 상세 후기를 준비 중이에요.</p>
         </div>
         <SchoolBasicLifeInfo school={school} categoryColor={categoryColor} />
       </div>
@@ -579,10 +579,10 @@ function RealLifeTab({ school, categoryColor, categoryBgColor }: TabProps) {
         className="p-3 rounded-2xl"
         style={{ background: categoryBgColor, border: `1px solid ${categoryColor}30` }}
       >
-        <p className="text-[11px] font-bold mb-1" style={{ color: categoryColor }}>
+        <p className="text-[12px] font-bold mb-1" style={{ color: categoryColor }}>
           💬 중학생 눈높이 솔직 후기
         </p>
-        <p className="text-[11px] text-gray-300 leading-relaxed">
+        <p className="text-[12px] text-gray-300 leading-relaxed">
           이 학교에 대한 솔직한 이야기를 들어보세요. 좋은 점, 힘든 점, 어떤 학생에게 맞는지 알려드려요.
         </p>
       </div>
@@ -629,8 +629,8 @@ function SchoolBasicLifeInfo({ school, categoryColor }: { school: HighSchoolDeta
       ].map((item) => (
         <div key={item.label} className="flex items-start gap-2">
           <span className="text-base flex-shrink-0">{item.emoji}</span>
-          <span className="text-[10px] font-bold text-gray-400 flex-shrink-0 w-12 mt-0.5">{item.label}</span>
-          <span className="text-[11px] text-gray-300 leading-relaxed">{item.value}</span>
+          <span className="text-[11px] font-bold text-gray-400 flex-shrink-0 w-12 mt-0.5">{item.label}</span>
+          <span className="text-[12px] text-gray-300 leading-relaxed">{item.value}</span>
         </div>
       ))}
     </div>
@@ -650,7 +650,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
         <p className="text-[12px] font-bold mb-1" style={{ color: categoryColor }}>
           🛡️ 이 학교에서 살아남는 법
         </p>
-        <p className="text-[11px] text-gray-300 leading-relaxed">
+        <p className="text-[12px] text-gray-300 leading-relaxed">
           엘리트 환경에서 성적만큼 중요한 것이 멘탈 관리예요. 선배들이 알려주는 생존 팁을 확인하세요!
         </p>
       </div>
@@ -682,7 +682,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
           className="p-4 rounded-2xl text-center"
           style={{ background: 'rgba(255,255,255,0.04)' }}
         >
-          <p className="text-[11px] text-gray-400">생존 팁을 준비 중이에요.</p>
+          <p className="text-[12px] text-gray-400">생존 팁을 준비 중이에요.</p>
         </div>
       )}
 
@@ -699,7 +699,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
             className="p-2.5 rounded-xl"
             style={{ background: 'rgba(255,255,255,0.05)' }}
           >
-            <p className="text-[11px] text-gray-300 leading-relaxed">{school.mentalHealthNote}</p>
+            <p className="text-[12px] text-gray-300 leading-relaxed">{school.mentalHealthNote}</p>
           </div>
         )}
         <div className="space-y-2">
@@ -710,7 +710,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
           ].map((item) => (
             <div key={item.tip} className="flex items-start gap-2">
               <span className="text-base flex-shrink-0">{item.emoji}</span>
-              <p className="text-[11px] text-gray-300 leading-relaxed">{item.tip}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{item.tip}</p>
             </div>
           ))}
         </div>
@@ -721,7 +721,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
         className="p-3 rounded-2xl"
         style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}25` }}
       >
-        <p className="text-[11px] font-bold mb-2" style={{ color: categoryColor }}>
+        <p className="text-[12px] font-bold mb-2" style={{ color: categoryColor }}>
           <MessageCircle className="w-3.5 h-3.5 inline mr-1" />
           이 학교가 맞는 학생 체크리스트
         </p>
@@ -734,7 +734,7 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
           ].map((check) => (
             <div key={check} className="flex items-start gap-2">
               <Shield className="w-3 h-3 flex-shrink-0 mt-0.5" style={{ color: categoryColor }} />
-              <p className="text-[11px] text-gray-300 leading-relaxed">{check}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{check}</p>
             </div>
           ))}
         </div>
@@ -752,8 +752,8 @@ function SurvivalTab({ school, categoryColor, categoryBgColor }: TabProps) {
               >
                 <span className="text-sm">{item.emoji}</span>
                 <div>
-                  <p className="text-[9px] font-bold" style={{ color: categoryColor }}>{item.time}</p>
-                  <p className="text-[10px] text-gray-300 leading-tight">{item.activity}</p>
+                  <p className="text-[12px] font-bold" style={{ color: categoryColor }}>{item.time}</p>
+                  <p className="text-[12px] text-gray-300 leading-tight">{item.activity}</p>
                 </div>
               </div>
             ))}
@@ -788,7 +788,7 @@ function SectionCard({
       className="rounded-2xl p-3 space-y-2"
       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      <p className="text-[11px] font-bold flex items-center gap-1.5" style={{ color }}>
+      <p className="text-[12px] font-bold flex items-center gap-1.5" style={{ color }}>
         <span>{icon}</span>
         {title}
       </p>
@@ -800,7 +800,7 @@ function SectionCard({
 function InfoBadge({ label, color }: { label: string; color: string }) {
   return (
     <span
-      className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
+      className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
       style={{ background: `${color}20`, color }}
     >
       {label}

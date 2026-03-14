@@ -22,7 +22,7 @@ export function IdentityMentalSection({ data, onBack }: IdentityMentalSectionPro
         </button>
         <div>
           <h3 className="text-sm font-bold text-white">{data.title}</h3>
-          <p className="text-[11px] text-gray-400">{data.description}</p>
+          <p className="text-[12px] text-gray-400">{data.description}</p>
         </div>
       </div>
 
@@ -37,7 +37,7 @@ export function IdentityMentalSection({ data, onBack }: IdentityMentalSectionPro
         <div className="text-center">
           <div className="text-3xl mb-2">🧘</div>
           <p className="text-sm font-bold text-white mb-1">공부 직진 속 나를 잃지 않는 법</p>
-          <p className="text-[11px] text-gray-300 leading-relaxed">
+          <p className="text-[12px] text-gray-300 leading-relaxed">
             엘리트 환경에서 살아남는 것은 성적만이 아닙니다.
             <br />
             정체성과 멘탈 강도가 장기적 성공의 핵심입니다.
@@ -68,7 +68,7 @@ export function IdentityMentalSection({ data, onBack }: IdentityMentalSectionPro
               </div>
               <div>
                 <p className="text-[13px] font-bold text-white mb-1">{tip.title}</p>
-                <p className="text-[11px] text-gray-300 leading-relaxed">{tip.detail}</p>
+                <p className="text-[12px] text-gray-300 leading-relaxed">{tip.detail}</p>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function IdentityMentalSection({ data, onBack }: IdentityMentalSectionPro
         className="rounded-2xl p-4"
         style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
       >
-        <p className="text-[11px] font-bold text-yellow-400 mb-2">💡 기억하세요</p>
+        <p className="text-[12px] font-bold text-yellow-400 mb-2">💡 기억하세요</p>
         <div className="space-y-2">
           {[
             '성적은 수단이지 목적이 아닙니다.',
@@ -90,7 +90,7 @@ export function IdentityMentalSection({ data, onBack }: IdentityMentalSectionPro
           ].map((msg) => (
             <div key={msg} className="flex items-start gap-2">
               <span className="text-yellow-400 mt-0.5 flex-shrink-0">•</span>
-              <p className="text-[11px] text-gray-300 leading-relaxed">{msg}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{msg}</p>
             </div>
           ))}
         </div>

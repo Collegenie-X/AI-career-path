@@ -12,7 +12,7 @@ const resourceStrategyCards = [
 export function ResourceStrategyPathCards() {
   return (
     <div className="space-y-2">
-      <p className="text-[11px] font-bold text-cyan-300 flex items-center gap-1.5">
+      <p className="text-[12px] font-bold text-cyan-300 flex items-center gap-1.5">
         <Route className="w-3.5 h-3.5" />
         고입 전략 커리어 패스 구조
       </p>
@@ -26,7 +26,7 @@ export function ResourceStrategyPathCards() {
             <p className="text-[12px] font-bold text-white mb-1">
               {card.icon} {card.title}
             </p>
-            <p className="text-[11px] text-gray-300 leading-relaxed">{card.description}</p>
+            <p className="text-[12px] text-gray-300 leading-relaxed">{card.description}</p>
           </div>
         ))}
       </div>

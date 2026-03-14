@@ -34,15 +34,15 @@ function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }
         <div className="flex-1 min-w-0">
           <div className="text-xs font-semibold text-white line-clamp-1">{item.title}</div>
           <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-            <span className="text-[10px] font-bold" style={{ color: tc?.color ?? color }}>
+            <span className="text-[12px] font-bold" style={{ color: tc?.color ?? color }}>
               {tc?.label}
             </span>
-            <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
+            <span className="text-[12px] text-gray-500 flex items-center gap-0.5">
               <Calendar style={{ width: 9, height: 9 }} />
               {getMonthLabel(item)}
             </span>
             {subItems.length > 0 && (
-              <span className="text-[10px] text-gray-500">{doneCount}/{subItems.length} 완료</span>
+              <span className="text-[12px] text-gray-500">{doneCount}/{subItems.length} 완료</span>
             )}
           </div>
         </div>
@@ -75,7 +75,7 @@ function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }
                 : <Circle style={{ width: 11, height: 11, color: 'rgba(255,255,255,0.2)', flexShrink: 0, marginTop: 2 }} />}
               <div className="flex-1 min-w-0">
                 <span
-                  className="text-[10px] leading-snug"
+                  className="text-[12px] leading-snug"
                   style={{
                     color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
                     textDecoration: sub.done ? 'line-through' : 'none',
@@ -84,14 +84,14 @@ function ActivityItemReadOnly({ item, color }: { item: PlanItem; color: string }
                   {sub.title}
                 </span>
                 {sub.description && (
-                  <div className="text-[9px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                  <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
                 )}
                 {sub.url && (
                   <a
                     href={sub.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[9px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink style={{ width: 8, height: 8 }} />
@@ -165,7 +165,7 @@ function SemesterSectionReadOnly({
       {semesterLabel && (
         <div className="flex items-center gap-1.5">
           <span className="text-xs">{semesterEmoji}</span>
-          <span className="text-[11px] font-bold text-gray-400">{semesterLabel}</span>
+          <span className="text-[12px] font-bold text-gray-400">{semesterLabel}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: `${color}20` }} />
         </div>
       )}
@@ -219,7 +219,7 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                   left: 0, width: 38, height: 38,
                   backgroundColor: color, color: '#fff',
                   boxShadow: `0 0 0 3px #08081a, 0 0 10px ${color}55`,
-                  fontSize: 11,
+                  fontSize: 12,
                 }}
               >
                 {year.gradeLabel}
@@ -230,11 +230,11 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                   <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
                   <div className="flex items-center gap-2 mt-0.5">
                     {semesterConf && (
-                      <span className="text-[10px]" style={{ color: `${color}99` }}>
+                      <span className="text-[12px]" style={{ color: `${color}99` }}>
                         {semesterConf.emoji} {semesterConf.label}
                       </span>
                     )}
-                    <span className="text-[11px] text-gray-500">
+                    <span className="text-[12px] text-gray-500">
                       {totalGoals}개 목표 · {totalItems}개 활동
                     </span>
                   </div>
@@ -265,7 +265,7 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                   year.semester !== 'split' &&
                   (year.goals ?? []).length > 0 && (
                   <div className="space-y-1">
-                    <div className="flex items-center gap-1 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                    <div className="flex items-center gap-1 text-[12px] font-bold text-gray-500 uppercase tracking-wider">
                       <Target style={{ width: 11, height: 11 }} />
                       목표
                     </div>

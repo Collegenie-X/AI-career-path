@@ -31,19 +31,25 @@ function SchoolCard({
       ? { bg: 'rgba(34,197,94,0.15)', color: '#22C55E', label: '참여 중', icon: <Star className="w-2.5 h-2.5" /> }
       : null;
 
+  const schoolColor = '#6C5CE7';
   return (
     <button
       onClick={onSelect}
-      className="w-full text-left rounded-2xl p-4 transition-all active:scale-[0.98]"
+      className="group w-full text-left rounded-2xl transition-all duration-200 active:scale-[0.99] hover:brightness-110"
       style={{
-        backgroundColor: badge ? 'rgba(108,92,231,0.08)' : 'rgba(255,255,255,0.03)',
-        border: badge ? '1px solid rgba(108,92,231,0.25)' : '1px solid rgba(255,255,255,0.07)',
+        border: `2px solid ${badge ? `${schoolColor}35` : `${schoolColor}25`}`,
+        background: `linear-gradient(135deg, ${schoolColor}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${schoolColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-4 px-5 py-4">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-          style={{ backgroundColor: 'rgba(108,92,231,0.15)', border: '1px solid rgba(108,92,231,0.2)' }}
+          className="w-12 h-12 rounded-full flex items-center justify-center text-xl flex-shrink-0"
+          style={{
+            background: `linear-gradient(135deg, ${schoolColor}35, ${schoolColor}12)`,
+            border: `2px solid ${schoolColor}40`,
+            boxShadow: `0 0 20px ${schoolColor}25`,
+          }}
         >
           🏫
         </div>
@@ -51,33 +57,34 @@ function SchoolCard({
           <div className="flex items-center gap-2 mb-0.5">
             <span className="text-sm font-bold text-white truncate">{school.name}</span>
             {badgeStyle && (
-              <span
-                className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                style={{ backgroundColor: badgeStyle.bg, color: badgeStyle.color }}
-              >
+              <span className="flex items-center gap-0.5 text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: badgeStyle.bg, color: badgeStyle.color }}>
                 {badgeStyle.icon}
                 {badgeStyle.label}
               </span>
             )}
           </div>
-          <div className="flex items-center gap-2 text-[10px] text-gray-500">
+          <div className="flex items-center gap-2 text-[12px] text-gray-500">
             <span>{school.operatorEmoji} {school.operatorName} 선생님</span>
             <span>·</span>
-            <span className="flex items-center gap-0.5">
-              <Users className="w-2.5 h-2.5" />{school.memberCount}명
-            </span>
+            <span className="flex items-center gap-0.5"><Users className="w-2.5 h-2.5" />{school.memberCount}명</span>
             {(school.updatedAt ?? school.createdAt) && (
               <>
                 <span>·</span>
-                <span className="flex items-center gap-0.5">
-                  <Clock className="w-2.5 h-2.5" />
-                  {formatTimeAgo(school.updatedAt ?? school.createdAt)}
-                </span>
+                <span className="flex items-center gap-0.5"><Clock className="w-2.5 h-2.5" />{formatTimeAgo(school.updatedAt ?? school.createdAt)}</span>
               </>
             )}
           </div>
         </div>
-        <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0" />
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
+          style={{
+            background: `linear-gradient(135deg, ${schoolColor}60, ${schoolColor}35)`,
+            border: `2px solid ${schoolColor}70`,
+            boxShadow: `0 0 20px ${schoolColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+          }}
+        >
+          <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+        </div>
       </div>
     </button>
   );
@@ -118,7 +125,7 @@ function SchoolMoreMenu({
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold text-white truncate">{school.name}</p>
-              <p className="text-[10px] text-gray-500 mt-0.5">{school.operatorEmoji} {school.operatorName} 선생님</p>
+              <p className="text-[12px] text-gray-500 mt-0.5">{school.operatorEmoji} {school.operatorName} 선생님</p>
             </div>
           </div>
           <button
@@ -262,7 +269,7 @@ function SchoolDetailView({
             </button>
 
             <div className="min-w-0">
-              <div className="text-[10px] font-bold tracking-wide text-gray-500">
+              <div className="text-[12px] font-bold tracking-wide text-gray-500">
                 커뮤니티 · 학교 공간
               </div>
               <div className="text-sm font-black text-white truncate">
@@ -302,17 +309,17 @@ function SchoolDetailView({
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
-              <span className="text-[11px] font-black text-white/90">학교 정보</span>
+              <span className="text-[12px] font-black text-white/90">학교 정보</span>
               {isJoined && (
                 <span
-                  className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+                  className="flex items-center gap-0.5 text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
                   style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
                 >
                   <Star className="w-2 h-2" />참여 중
                 </span>
               )}
             </div>
-            <div className="flex items-center gap-2 mt-1 flex-wrap text-[10px] text-gray-400">
+            <div className="flex items-center gap-2 mt-1 flex-wrap text-[12px] text-gray-400">
               <span>{school.operatorEmoji} {school.operatorName} 선생님</span>
               <span className="text-gray-600">·</span>
               <span className="flex items-center gap-0.5"><Users className="w-2.5 h-2.5" />{school.memberCount}명</span>
@@ -352,7 +359,7 @@ function SchoolDetailView({
             <button
               key={f.id}
               onClick={() => setShareTypeFilter(f.id)}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition-all"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-[12px] font-semibold transition-all"
               style={shareTypeFilter === f.id
                 ? { backgroundColor: 'rgba(108,92,231,0.2)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.35)' }
                 : { backgroundColor: 'rgba(255,255,255,0.03)', color: 'rgba(255,255,255,0.35)', border: '1px solid rgba(255,255,255,0.06)' }}
@@ -369,7 +376,7 @@ function SchoolDetailView({
               <button
                 key={opt.id}
                 onClick={() => setSortBy(opt.id)}
-                className="flex items-center gap-0.5 px-2 py-1.5 rounded-lg text-[10px] font-semibold transition-all"
+                className="flex items-center gap-0.5 px-2 py-1.5 rounded-lg text-[12px] font-semibold transition-all"
                 style={isActive
                   ? { backgroundColor: 'rgba(108,92,231,0.15)', color: '#a78bfa', border: '1px solid rgba(108,92,231,0.3)' }
                   : { color: 'rgba(255,255,255,0.3)' }}
@@ -388,7 +395,7 @@ function SchoolDetailView({
           <p className="text-sm text-gray-500">조건에 맞는 공유 패스가 없어요</p>
         </div>
       ) : (
-        <div className="space-y-2">
+        <div className="space-y-3">
           {filteredPlans.map(plan => (
             <SharedPlanCardWithReactions
               key={plan.id}
@@ -561,7 +568,8 @@ export function SchoolSpaceView({
           <p className="text-sm text-gray-500">검색 결과가 없어요</p>
         </div>
       ) : (
-        sortedSchools.map(school => {
+        <div className="space-y-3">
+        {sortedSchools.map(school => {
           const badge =
             school.id === operatorSchoolId ? 'operator'
             : joinedSchoolIds.includes(school.id) ? 'joined'
@@ -574,7 +582,8 @@ export function SchoolSpaceView({
               onSelect={() => handleSchoolCardClick(school)}
             />
           );
-        })
+        })}
+        </div>
       )}
 
       {/* 코드로 참여하기 */}

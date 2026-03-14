@@ -188,7 +188,7 @@ export function YearTimelineNode({
                   style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
                   <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
                   <span className="flex-1 text-xs font-bold" style={{ color }}>{group.label}</span>
-                  <span className="text-[10px] text-gray-600">{group.items.length}개</span>
+                  <span className="text-[12px] text-gray-600">{group.items.length}개</span>
                 </div>
                 {group.items.length > 0 && (
                   <div className="px-3 py-2 space-y-1.5">
@@ -260,7 +260,7 @@ export function YearTimelineNode({
               <div key={sp.semesterId} className="space-y-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">{sp.semesterId === 'first' ? '🌸' : '🍂'}</span>
-                  <span className="text-[11px] font-bold text-gray-400">{sp.semesterLabel}</span>
+                  <span className="text-[12px] font-bold text-gray-400">{sp.semesterLabel}</span>
                   <div className="flex-1 h-px" style={{ backgroundColor: `${color}20` }} />
                 </div>
                 {sp.goalGroups.map((group) => {

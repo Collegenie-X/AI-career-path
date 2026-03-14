@@ -51,7 +51,7 @@ export function DecisionFlowCard({ questions, schoolTypes, onSelectSchool }: Dec
         {(history.length > 0 || resultSchoolId) && (
           <button
             onClick={handleReset}
-            className="flex items-center gap-1 text-[11px] text-gray-400 hover:text-white transition-colors"
+            className="flex items-center gap-1 text-[12px] text-gray-400 hover:text-white transition-colors"
           >
             <RotateCcw className="w-3 h-3" />
             {HIGH_SCHOOL_LABELS.decision_flow_reset}
@@ -107,7 +107,7 @@ export function DecisionFlowCard({ questions, schoolTypes, onSelectSchool }: Dec
             <p className="text-base font-bold" style={{ color: resultSchool.color }}>
               {resultSchool.name}
             </p>
-            <p className="text-[11px] text-gray-300 mt-1">{resultSchool.admissionTip}</p>
+            <p className="text-[12px] text-gray-300 mt-1">{resultSchool.admissionTip}</p>
           </div>
           <button
             onClick={() => onSelectSchool(resultSchool.id)}

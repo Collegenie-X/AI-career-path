@@ -26,7 +26,7 @@ export function QuizProgressBar({ current, total, accentColor = '#845ef7' }: Qui
           />
         ))}
       </div>
-      <span className="text-[10px] font-bold flex-shrink-0" style={{ color: accentColor }}>
+      <span className="text-[12px] font-bold flex-shrink-0" style={{ color: accentColor }}>
         {current + 1}/{total}
       </span>
     </div>

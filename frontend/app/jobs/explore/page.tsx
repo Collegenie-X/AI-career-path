@@ -127,7 +127,7 @@ function JobsExploreContent() {
                     style={{ background: 'rgba(255,255,255,0.02)', border: '2px dashed rgba(255,255,255,0.08)' }}
                   >
                     <div className="text-xl opacity-20">🌟</div>
-                    <div className="text-[10px] text-gray-700 font-semibold">{LABELS.coming_soon}</div>
+                    <div className="text-[11px] text-gray-700 font-semibold">{LABELS.coming_soon}</div>
                   </div>
                 ))}
               </div>

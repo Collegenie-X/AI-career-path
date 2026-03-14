@@ -124,7 +124,7 @@ function RoadmapTodoChecklist({
         className="mt-1.5 ml-3 pl-3 py-1.5 rounded-lg"
         style={{ borderLeft: '1px dashed rgba(255,255,255,0.18)', backgroundColor: 'rgba(255,255,255,0.02)' }}
       >
-        <p className="text-[10px] text-gray-500">등록된 할 일이 없어요.</p>
+        <p className="text-xs text-gray-500">등록된 할 일이 없어요.</p>
       </div>
     );
   }
@@ -145,10 +145,10 @@ function RoadmapTodoChecklist({
                 }));
               }}
             >
-              <span className="text-[10px] font-semibold text-gray-300">
+              <span className="text-xs font-semibold text-gray-300">
                 {weekGroup.weekLabel}
               </span>
-              <span className="flex items-center gap-1 text-[10px] text-gray-500">
+              <span className="flex items-center gap-1 text-xs text-gray-500">
                 {weekGroup.todoItems.length}개
                 {isWeekOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
               </span>
@@ -160,16 +160,16 @@ function RoadmapTodoChecklist({
                   const isGoalEntry = todoItem.entryType === 'goal';
                   if (isGoalEntry) {
                     return (
-                      <div key={todoItem.id} className="w-full text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                      <div key={todoItem.id} className="w-full text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>
                         <div className="flex items-center gap-1.5">
                           <span className="inline-block w-1 h-1 rounded-full bg-violet-400 flex-shrink-0" />
-                          <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+                          <span className="text-xs px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
                             목표
                           </span>
                           <span className="truncate">{todoItem.title}</span>
                         </div>
                         {hasTodoExecutionRecord(todoItem) && (
-                          <div className="mt-1 ml-4 space-y-0.5 text-[9px] text-gray-500">
+                          <div className="mt-1 ml-4 space-y-0.5 text-xs text-gray-500">
                             {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
                             {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
                             {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
@@ -187,7 +187,7 @@ function RoadmapTodoChecklist({
                         onToggleTodoItem?.(item.id, todoItem.id);
                       }}
                       disabled={!onToggleTodoItem}
-                      className="w-full flex items-center gap-1.5 text-[10px] text-left transition-opacity"
+                      className="w-full flex items-center gap-1.5 text-xs text-left transition-opacity"
                       style={{ 
                         color: 'rgba(255,255,255,0.7)',
                         cursor: onToggleTodoItem ? 'pointer' : 'default',
@@ -202,7 +202,7 @@ function RoadmapTodoChecklist({
                           {todoItem.title}
                         </p>
                         {hasTodoExecutionRecord(todoItem) && (
-                          <div className="mt-0.5 space-y-0.5 text-[9px] text-gray-500">
+                          <div className="mt-0.5 space-y-0.5 text-xs text-gray-500">
                             {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
                             {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
                             {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
@@ -246,12 +246,12 @@ function RoadmapItemTodoAccordionCard({
       style={{ backgroundColor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
     >
       <div className="flex items-center justify-between gap-2 mb-1.5">
-        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: `${accentColor}1a`, color: accentColor }}>
+        <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: `${accentColor}1a`, color: accentColor }}>
           {goalTitleByItemType[item.type] ?? item.type}
         </span>
         <button
           onClick={() => setIsTodoOpen(previous => !previous)}
-          className="text-[10px] text-gray-500 flex items-center gap-1"
+          className="text-xs text-gray-500 flex items-center gap-1"
         >
           {LABELS.todoSectionLabel} {doneActionableTodoCount}/{actionableTodoItems.length}
           {showProgressBars && (
@@ -278,7 +278,7 @@ function RoadmapItemTodoAccordionCard({
           }
         }}
       >
-        <p className="text-[10px] text-gray-500 mb-1.5 ml-0.5">
+        <p className="text-xs text-gray-500 mb-1.5 ml-0.5">
           실행 기간: {formatRoadmapItemMonthLabel(item)}
         </p>
         <PlanItemRowCard
@@ -290,12 +290,12 @@ function RoadmapItemTodoAccordionCard({
       {(item.targetOutput || item.successCriteria) && (
         <div className="mt-1.5 ml-3 rounded-lg px-2.5 py-2 space-y-1" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
           {item.targetOutput && (
-            <p className="text-[10px] text-cyan-200 leading-snug">
+            <p className="text-xs text-cyan-200 leading-snug">
               <span className="text-cyan-300 font-semibold">산출물:</span> {item.targetOutput}
             </p>
           )}
           {item.successCriteria && (
-            <p className="text-[10px] text-emerald-200 leading-snug">
+            <p className="text-xs text-emerald-200 leading-snug">
               <span className="text-emerald-300 font-semibold">완료 기준:</span> {item.successCriteria}
             </p>
           )}
@@ -379,12 +379,12 @@ export function RoadmapCareerPathTimelineSection({
       >
         <div className="flex items-center justify-between gap-2">
           <div className="text-sm font-bold text-white">{LABELS.wbsSprintSectionTitle}</div>
-          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
+          <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
             {periodLabel}
           </span>
         </div>
-        <div className="text-[10px] text-gray-400 mt-1">{LABELS.sprintGuideLabel}</div>
-        <div className="text-[10px] text-gray-500 mt-1">
+        <div className="text-xs text-gray-400 mt-1">{LABELS.sprintGuideLabel}</div>
+        <div className="text-xs text-gray-500 mt-1">
           목표 {groupedGoals.length}개 · 계획 {roadmap.items.length}개 · {LABELS.weeklyChecklistLabel} {weeklyDoneCount}/{weeklyTotalCount}
         </div>
         {showProgressBars && (

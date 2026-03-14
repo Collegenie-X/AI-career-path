@@ -52,7 +52,7 @@ export function QuizChoiceButton({
           {text}
         </span>
         {hint && (
-          <p className="text-[10px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[12px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
             {hint}
           </p>
         )}

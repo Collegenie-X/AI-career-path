@@ -163,21 +163,21 @@ export function ItemRow({
             </span>
           )}
           <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+            <span className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
               style={{ backgroundColor: `${typeConf?.color ?? color}22`, color: typeConf?.color ?? color }}>
               {typeConf?.label}
             </span>
-            <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
+            <span className="text-[12px] text-gray-500 flex items-center gap-0.5">
               <Calendar style={{ width: 10, height: 10 }} />{monthLabel}
             </span>
             {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
-              <span className="text-[10px] text-gray-600">{item.cost}</span>
+              <span className="text-[12px] text-gray-600">{item.cost}</span>
             )}
             {subItems.length > 0 && (
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); setSubExpanded((prev) => !prev); }}
-                className="flex items-center gap-1.5 text-[10px] font-semibold transition-all rounded-lg px-2 py-1 -mx-1 hover:bg-white/5"
+                className="flex items-center gap-1.5 text-[12px] font-semibold transition-all rounded-lg px-2 py-1 -mx-1 hover:bg-white/5"
                 style={{ color: subExpanded ? (typeConf?.color ?? color) : 'rgba(255,255,255,0.5)' }}
                 title={subExpanded ? '하위 상세 접기' : '하위 상세 보기'}
               >
@@ -240,14 +240,14 @@ export function ItemRow({
                   {sub.title}
                 </span>
                 {sub.description && (
-                  <div className="text-[10px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                  <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
                 )}
                 {sub.url && (
                   <a
                     href={sub.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[10px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink style={{ width: 9, height: 9 }} />
@@ -293,7 +293,7 @@ export function QuickAddItem({ color, onAdd }: {
       <div className="flex gap-1.5">
         {ITEM_TYPES.map((t) => (
           <button key={t.value} onClick={() => setType(t.value)}
-            className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg text-[10px] font-bold transition-all"
+            className="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg text-[12px] font-bold transition-all"
             style={type === t.value ? { backgroundColor: t.color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.4)' }}>
             {t.emoji} {t.label}
           </button>

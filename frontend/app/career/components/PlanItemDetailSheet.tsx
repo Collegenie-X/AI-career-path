@@ -74,19 +74,19 @@ export function PlanItemRowCard({
           </div>
           <div className="flex items-center gap-1.5 mt-1 flex-wrap">
             <span
-              className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
               style={{ backgroundColor: `${typeConf.color}22`, color: typeConf.color }}
             >
               {typeConf.label}
             </span>
-            <span className="flex items-center gap-0.5 text-[10px] text-gray-500">
+            <span className="flex items-center gap-0.5 text-[12px] text-gray-500">
               <Calendar style={{ width: 9, height: 9 }} />{monthLabel}
             </span>
             {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
-              <span className="text-[10px] text-gray-600">{item.cost}</span>
+              <span className="text-[12px] text-gray-600">{item.cost}</span>
             )}
             {(item.difficulty ?? 0) > 0 && (
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[12px] text-gray-500">
                 {'★'.repeat(item.difficulty!)}{'☆'.repeat(5 - item.difficulty!)}
               </span>
             )}
@@ -94,7 +94,7 @@ export function PlanItemRowCard({
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); setSubExpanded((prev) => !prev); }}
-                className="flex items-center gap-1.5 text-[10px] font-semibold transition-all rounded-lg px-2 py-0.5 -mx-1 hover:bg-white/5"
+                className="flex items-center gap-1.5 text-[12px] font-semibold transition-all rounded-lg px-2 py-0.5 -mx-1 hover:bg-white/5"
                 style={{ color: subExpanded ? typeConf.color : 'rgba(255,255,255,0.5)' }}
                 title={subExpanded ? '하위 상세 접기' : '하위 상세 보기'}
               >
@@ -104,7 +104,7 @@ export function PlanItemRowCard({
             )}
           </div>
           {item.organizer && (
-            <div className="text-[10px] text-gray-600 mt-0.5">{item.organizer}</div>
+            <div className="text-[12px] text-gray-600 mt-0.5">{item.organizer}</div>
           )}
         </div>
       </div>
@@ -123,18 +123,18 @@ export function PlanItemRowCard({
               style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
             >
               <div className="flex-1 min-w-0">
-                <span className="text-[11px] leading-snug text-white/80">
+                <span className="text-[12px] leading-snug text-white/80">
                   {sub.title}
                 </span>
                 {sub.description && (
-                  <div className="text-[10px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                  <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
                 )}
                 {sub.url && (
                   <a
                     href={sub.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[10px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink style={{ width: 9, height: 9 }} />
@@ -228,10 +228,10 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
             <div className="flex items-start gap-2">
               <Calendar className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: accentColor }} />
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-bold text-gray-400 mb-0.5">목표 기간</div>
+                <div className="text-[12px] font-bold text-gray-400 mb-0.5">목표 기간</div>
                 <div className="text-xs font-semibold text-white">{monthLabel}</div>
                 {months.length > 1 && (
-                  <div className="text-[10px] text-gray-500">{months.length}개월</div>
+                  <div className="text-[12px] text-gray-500">{months.length}개월</div>
                 )}
               </div>
             </div>
@@ -241,14 +241,14 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
               <div className="flex items-start gap-2">
                 <Flame className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#f59e0b' }} />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">난이도</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">난이도</div>
                   <div className="flex items-center gap-1 flex-wrap">
                     <span className="text-xs">
                       {Array.from({ length: 5 }, (_, i) => (
                         <span key={i} style={{ color: i < item.difficulty! ? '#f59e0b' : '#374151' }}>★</span>
                       ))}
                     </span>
-                    <span className="text-[10px] font-semibold text-white">
+                    <span className="text-[12px] font-semibold text-white">
                       {DIFFICULTY_LABELS[item.difficulty!] ?? '보통'}
                     </span>
                   </div>
@@ -261,7 +261,7 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
               <div className="flex items-start gap-2">
                 <DollarSign className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#22c55e' }} />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">비용</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">비용</div>
                   <div className="text-xs font-semibold text-white">{item.cost}</div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
               <div className="flex items-start gap-2">
                 <Building2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8b5cf6' }} />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">주관/출처</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">주관/출처</div>
                   <div className="text-xs font-semibold text-white line-clamp-2">{item.organizer}</div>
                 </div>
               </div>
@@ -286,7 +286,7 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
           >
             <LinkIcon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#60a5fa' }} />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
+              <div className="text-[12px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
               {item.url?.trim() ? (
                 <a
                   href={item.url}
@@ -309,7 +309,7 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
           >
             <FileText className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#a78bfa' }} />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-gray-400 mb-0.5">상세 설명</div>
+              <div className="text-[12px] font-bold text-gray-400 mb-0.5">상세 설명</div>
               {item.description?.trim() ? (
                 <div className="text-xs text-gray-300 leading-relaxed whitespace-pre-wrap">
                   {item.description}

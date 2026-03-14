@@ -31,18 +31,20 @@ function GroupCard({
   return (
     <button
       onClick={onOpen}
-      className="w-full rounded-2xl p-4 text-left transition-all active:scale-[0.99]"
+      className="group w-full rounded-2xl text-left transition-all duration-200 active:scale-[0.99] hover:brightness-110"
       style={{
-        backgroundColor: isJoined ? `${group.color}12` : `${group.color}06`,
-        border: `1px solid ${isJoined ? `${group.color}35` : `${group.color}18`}`,
+        border: `2px solid ${isJoined ? `${group.color}35` : `${group.color}25`}`,
+        background: `linear-gradient(135deg, ${group.color}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${group.color}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-center gap-4 px-5 py-4">
         <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${group.color}28, ${group.color}10)`,
-            border: `1px solid ${group.color}30`,
+            background: `linear-gradient(135deg, ${group.color}35, ${group.color}12)`,
+            border: `2px solid ${group.color}40`,
+            boxShadow: `0 0 20px ${group.color}25`,
           }}
         >
           {group.emoji}
@@ -52,63 +54,50 @@ function GroupCard({
           <div className="flex items-center gap-2 mb-0.5">
             <span className="text-sm font-bold text-white">{group.name}</span>
             {isJoined && (
-              <span
-                className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
-              >
-                <Star className="w-2 h-2" />
-                참여 중
+              <span className="flex items-center gap-0.5 text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>
+                <Star className="w-2 h-2" />참여 중
               </span>
             )}
           </div>
-          <p className="text-[11px] text-gray-400 line-clamp-1 mb-2">{group.description}</p>
-
+          <p className="text-[12px] text-gray-400 line-clamp-1 mb-1">{group.description}</p>
           {(group.updatedAt ?? group.createdAt) && (
-            <div className="flex items-center gap-1 mb-2">
+            <div className="flex items-center gap-1 mb-1">
               <Clock className="w-2.5 h-2.5 text-gray-500" />
-              <span className="text-[10px] text-gray-500">
-                {formatTimeAgo(group.updatedAt ?? group.createdAt)}
-              </span>
+              <span className="text-[12px] text-gray-500">{formatTimeAgo(group.updatedAt ?? group.createdAt)}</span>
               {isRecentlyUpdated(group.updatedAt ?? group.createdAt) && (
-                <span
-                  className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
-                  style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
-                >
-                  NEW
-                </span>
+                <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>NEW</span>
               )}
             </div>
           )}
-
           <div className="flex items-center gap-2">
             <div className="flex -space-x-1.5">
               {group.members.slice(0, 4).map(m => (
-                <div
-                  key={m.id}
-                  className="w-6 h-6 rounded-full flex items-center justify-center text-xs border-2"
-                  style={{ borderColor: '#12122a', backgroundColor: `${group.color}20` }}
-                >
+                <div key={m.id} className="w-6 h-6 rounded-full flex items-center justify-center text-xs border-2" style={{ borderColor: '#12122a', backgroundColor: `${group.color}20` }}>
                   {m.emoji}
                 </div>
               ))}
               {group.members.length > 4 && (
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold border-2"
-                  style={{ borderColor: '#12122a', backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}
-                >
+                <div className="w-6 h-6 rounded-full flex items-center justify-center text-[12px] font-bold border-2" style={{ borderColor: '#12122a', backgroundColor: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.5)' }}>
                   +{group.members.length - 4}
                 </div>
               )}
             </div>
-            <span className="text-[10px] text-gray-500">{group.memberCount}명</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="flex items-center gap-0.5 text-[10px] text-gray-500">
-              <MessageSquare className="w-2.5 h-2.5" />{sharedPlansInGroup.length}개 패스
-            </span>
+            <span className="text-[12px] text-gray-500">{group.memberCount}명</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="flex items-center gap-0.5 text-[12px] text-gray-500"><MessageSquare className="w-2.5 h-2.5" />{sharedPlansInGroup.length}개 패스</span>
           </div>
         </div>
 
-        <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0 mt-3" />
+        <div
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
+          style={{
+            background: `linear-gradient(135deg, ${group.color}60, ${group.color}35)`,
+            border: `2px solid ${group.color}70`,
+            boxShadow: `0 0 20px ${group.color}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+          }}
+        >
+          <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+        </div>
       </div>
     </button>
   );
@@ -151,7 +140,7 @@ function GroupMoreMenu({
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold text-white truncate">{group.name}</p>
-              <p className="text-[10px] text-gray-500 mt-0.5">{group.memberCount}명 참여 중</p>
+              <p className="text-[12px] text-gray-500 mt-0.5">{group.memberCount}명 참여 중</p>
             </div>
           </div>
           <button
@@ -270,7 +259,7 @@ function GroupDetailView({
               <h3 className="text-lg font-black text-white">{group.name}</h3>
               {isJoined && (
                 <span
-                  className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+                  className="flex items-center gap-0.5 text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
                   style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
                 >
                   <Star className="w-2 h-2" />참여 중
@@ -318,7 +307,7 @@ function GroupDetailView({
                     <span className="text-xs font-bold text-white truncate">{member.name}</span>
                     {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
                   </div>
-                  <span className="text-[10px] text-gray-500">{gradeInfo?.label ?? member.grade}</span>
+                  <span className="text-[12px] text-gray-500">{gradeInfo?.label ?? member.grade}</span>
                 </div>
               </div>
             );
@@ -327,7 +316,7 @@ function GroupDetailView({
       </div>
 
       {/* 공유된 패스 */}
-      <div className="space-y-2">
+      <div className="space-y-3">
         <span className="text-xs font-bold text-gray-400">공유된 패스 ({sharedPlans.length})</span>
         {sharedPlans.length === 0 ? (
           <div
@@ -337,7 +326,8 @@ function GroupDetailView({
             <p className="text-xs text-gray-500">아직 공유된 패스가 없어요</p>
           </div>
         ) : (
-          sharedPlans.map(plan => (
+          <div className="space-y-3">
+          {sharedPlans.map(plan => (
             <SharedPlanCardWithReactions
               key={plan.id}
               plan={plan}
@@ -350,7 +340,8 @@ function GroupDetailView({
               onToggleBookmark={() => onToggleBookmark(plan.id)}
               onViewDetail={() => onViewPlanDetail(plan)}
             />
-          ))
+          ))}
+          </div>
         )}
       </div>
 
@@ -604,7 +595,7 @@ export function GroupListView({
           </div>
         </div>
       ) : (
-        <div className="space-y-2">
+        <div className="space-y-3">
           {groups.map(group => {
             const groupPlans = sharedPlans.filter(p => p.groupIds.includes(group.id));
             return (

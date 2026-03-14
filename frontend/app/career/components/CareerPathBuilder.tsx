@@ -155,17 +155,17 @@ function MonthPicker({
       {/* Quick presets from suggested item */}
       {presetMonths && presetMonths.length > 0 && (
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-gray-500">추천:</span>
+          <span className="text-[12px] text-gray-500">추천:</span>
           <button
             onClick={() => onChange([...presetMonths].sort((a, b) => a - b))}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all"
+            className="flex items-center gap-1 px-2.5 py-1 rounded-lg text-[12px] font-bold transition-all"
             style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}40` }}
           >
             {presetMonths.map(m => `${m}월`).join(', ')} 선택
           </button>
           <button
             onClick={() => onChange([])}
-            className="text-[10px] text-gray-600 underline"
+            className="text-[12px] text-gray-600 underline"
           >
             초기화
           </button>
@@ -200,7 +200,7 @@ function MonthPicker({
       </div>
 
       {selected.length > 0 && (
-        <div className="text-[10px] text-gray-400 flex items-center gap-1.5">
+        <div className="text-[12px] text-gray-400 flex items-center gap-1.5">
           <CheckCircle2 className="w-3 h-3 text-green-400" />
           선택된 월: <span className="font-bold text-white">{selected.map(m => `${m}월`).join(', ')}</span>
         </div>
@@ -231,7 +231,7 @@ function Step1Kingdom({ selectedId, onSelect }: { selectedId: string; onSelect: 
             <span className="text-3xl">{k.emoji}</span>
             <div className="text-center">
               <div className="text-sm font-bold" style={{ color: selectedId === k.id ? k.color : 'rgba(255,255,255,0.8)' }}>{k.name}</div>
-              <div className="text-[10px] text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">{k.description.slice(0, 22)}</div>
+              <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">{k.description.slice(0, 22)}</div>
             </div>
           </button>
         ))}
@@ -458,16 +458,16 @@ function AddItemSheet({
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
                       {(item as SuggestedItem).subtitle && (
-                        <div className="text-[10px] text-gray-500 mt-0.5 line-clamp-1">{(item as SuggestedItem).subtitle}</div>
+                        <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-1">{(item as SuggestedItem).subtitle}</div>
                       )}
                       <div className="flex items-center gap-2 mt-1 flex-wrap">
-                        <span className="text-[10px] font-bold" style={{ color: tc?.color ?? color }}>{tc?.label}</span>
-                        <span className="text-[10px] text-gray-500">
+                        <span className="text-[12px] font-bold" style={{ color: tc?.color ?? color }}>{tc?.label}</span>
+                        <span className="text-[12px] text-gray-500">
                           {item.months.slice(0, 3).map(m => `${m}월`).join('·')}
                           {item.months.length > 3 ? ' 외' : ''}
                         </span>
                         {'organizer' in item && item.organizer && item.organizer !== '개인' && (
-                          <span className="text-[10px] text-gray-600">{item.organizer}</span>
+                          <span className="text-[12px] text-gray-600">{item.organizer}</span>
                         )}
                       </div>
                     </div>
@@ -953,13 +953,13 @@ function ActivityItemCard({
         >
           <div className="text-sm font-semibold text-white line-clamp-1">{item.title}</div>
           <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
-            <span className="text-[10px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
-            <span className="text-[10px] text-gray-500">📅 {monthLabel}</span>
+            <span className="text-[12px] font-bold" style={{ color: tc.color }}>{tc.label}</span>
+            <span className="text-[12px] text-gray-500">📅 {monthLabel}</span>
             {item.cost !== '무료' && item.cost !== '자체 제작' && (
-              <span className="text-[10px] text-gray-600">{item.cost}</span>
+              <span className="text-[12px] text-gray-600">{item.cost}</span>
             )}
             {subItems.length > 0 && (
-              <span className="text-[10px] text-gray-500">
+              <span className="text-[12px] text-gray-500">
                 {doneCount}/{subItems.length} 완료
               </span>
             )}
@@ -970,7 +970,7 @@ function ActivityItemCard({
           {/* 하위활동 토글 */}
           <button
             onClick={() => setSubExpanded(e => !e)}
-            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg text-[10px] font-bold transition-all"
+            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg text-[12px] font-bold transition-all"
             style={{
               backgroundColor: subExpanded ? `${tc.color}22` : 'rgba(255,255,255,0.06)',
               color: subExpanded ? tc.color : 'rgba(255,255,255,0.4)',
@@ -1332,7 +1332,7 @@ function SemesterSection({
           <span className="text-sm">{semesterEmoji}</span>
           <span className="text-xs font-bold text-white">{semesterLabel}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: `${color}25` }} />
-          <span className="text-[10px] text-gray-500">{goalGroups.length}개 목표</span>
+          <span className="text-[12px] text-gray-500">{goalGroups.length}개 목표</span>
         </div>
       )}
 
@@ -1470,21 +1470,21 @@ function YearPlanCard({
           </div>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             {needsSemesterPick && (
-              <span className="text-[10px]" style={{ color: `${color}bb` }}>학기 구성을 선택하세요</span>
+              <span className="text-[12px]" style={{ color: `${color}bb` }}>학기 구성을 선택하세요</span>
             )}
             {semesterConf && !needsSemesterPick && (
-              <span className="text-[10px]" style={{ color: `${color}99` }}>
+              <span className="text-[12px]" style={{ color: `${color}99` }}>
                 {semesterConf.emoji} {semesterConf.label}
               </span>
             )}
             {!needsSemesterPick && totalGoals > 0 && (
-              <span className="text-[10px] text-gray-400">🎯 {totalGoals}개 목표</span>
+              <span className="text-[12px] text-gray-400">🎯 {totalGoals}개 목표</span>
             )}
             {!needsSemesterPick && totalItems > 0 && (
-              <span className="text-[10px] text-gray-400">📌 {totalItems}개 활동</span>
+              <span className="text-[12px] text-gray-400">📌 {totalItems}개 활동</span>
             )}
             {!needsSemesterPick && totalGoals === 0 && totalItems === 0 && (
-              <span className="text-[10px] text-gray-600">목표를 추가해보세요</span>
+              <span className="text-[12px] text-gray-600">목표를 추가해보세요</span>
             )}
           </div>
         </div>
@@ -1515,7 +1515,7 @@ function YearPlanCard({
                   >
                     <span className="text-xl">{opt.emoji}</span>
                     <span className="text-xs font-bold text-white">{opt.label}</span>
-                    <span className="text-[10px] text-gray-500 leading-relaxed">{opt.description}</span>
+                    <span className="text-[12px] text-gray-500 leading-relaxed">{opt.description}</span>
                   </button>
                 ))}
               </div>
@@ -1525,12 +1525,12 @@ function YearPlanCard({
             <div className="pt-3 space-y-4">
               {/* 학기 변경 버튼 (작게) */}
               <div className="flex items-center justify-between">
-                <span className="text-[10px] text-gray-500 flex items-center gap-1">
+                <span className="text-[12px] text-gray-500 flex items-center gap-1">
                   {semesterConf?.emoji} {semesterConf?.label}
                 </span>
                 <button
                   onClick={() => onUpdate({ ...yearPlan, semester: undefined as unknown as SemesterOption, goalGroups: [], semesterPlans: [] })}
-                  className="text-[10px] text-gray-600 hover:text-gray-400 transition-colors underline"
+                  className="text-[12px] text-gray-600 hover:text-gray-400 transition-colors underline"
                 >
                   학기 변경
                 </button>
@@ -1712,7 +1712,7 @@ function Step3Planner({
               if (available.length === 0) return null;
               return (
                 <div key={group.label}>
-                  <div className="text-[10px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
+                  <div className="text-[12px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
                   <div className="flex gap-2 flex-wrap">
                     {available.map(g => (
                       <button key={g.id} onClick={() => handleGradeSelect(g.id)}
@@ -1738,7 +1738,7 @@ function Step3Planner({
             <div className="text-xs font-bold text-green-300">
               {yearPlans.length}개 학년 · {totalGoals}개 목표 · {totalItems}개 활동
             </div>
-            <div className="text-[10px] text-green-500 mt-0.5">완성 버튼을 눌러 저장하세요!</div>
+            <div className="text-[12px] text-green-500 mt-0.5">완성 버튼을 눌러 저장하세요!</div>
           </div>
         </div>
       )}
@@ -1789,7 +1789,7 @@ function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: strin
       <div className="pb-12">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">학년별 계획</span>
-          <span className="text-[11px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>
+          <span className="text-[12px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>
         </div>
         <CareerPathTimelinePreview years={years} color={color} />
       </div>

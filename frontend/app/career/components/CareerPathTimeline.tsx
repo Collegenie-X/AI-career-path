@@ -20,7 +20,7 @@ function ItemTypeBadge({ type }: { type: string }) {
   if (!conf) return null;
   return (
     <span
-      className="text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+      className="text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
       style={{ backgroundColor: `${conf.color}22`, color: conf.color }}
     >
       {conf.emoji} {conf.label}
@@ -32,7 +32,7 @@ function DifficultyStars({ difficulty }: { difficulty: number }) {
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: 5 }, (_, i) => (
-        <span key={i} className="text-[10px]" style={{ opacity: i < difficulty ? 1 : 0.2 }}>★</span>
+        <span key={i} className="text-[12px]" style={{ opacity: i < difficulty ? 1 : 0.2 }}>★</span>
       ))}
     </div>
   );
@@ -76,7 +76,7 @@ function ItemCard({
         </div>
         <div className="flex items-center gap-2 mt-1 flex-wrap">
           <ItemTypeBadge type={item.type} />
-          <span className="text-[10px] text-gray-500 flex items-center gap-1">
+          <span className="text-[12px] text-gray-500 flex items-center gap-1">
             <Calendar className="w-2.5 h-2.5" />
             {Array.isArray(item.months) && item.months.length > 0
               ? item.months.length === 1
@@ -86,14 +86,14 @@ function ItemCard({
                 : `${item.months[0]}~${item.months[item.months.length - 1]}월`
               : '월 미정'}
           </span>
-          <span className="text-[10px] text-gray-500">{item.cost}</span>
+          <span className="text-[12px] text-gray-500">{item.cost}</span>
           {item.difficulty > 0 && <DifficultyStars difficulty={item.difficulty} />}
           {item.custom && (
-            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/8 text-gray-500">직접입력</span>
+            <span className="text-[12px] px-1.5 py-0.5 rounded-full bg-white/8 text-gray-500">직접입력</span>
           )}
         </div>
         {item.organizer && (
-          <div className="text-[10px] text-gray-600 mt-0.5">{item.organizer}</div>
+          <div className="text-[12px] text-gray-600 mt-0.5">{item.organizer}</div>
         )}
       </div>
       <button
@@ -142,7 +142,7 @@ function ActivityItemTimelineCard({
           </div>
           <div className="flex items-center gap-2 mt-1 flex-wrap">
             <ItemTypeBadge type={item.type} />
-            <span className="text-[10px] text-gray-500 flex items-center gap-1">
+            <span className="text-[12px] text-gray-500 flex items-center gap-1">
               <Calendar className="w-2.5 h-2.5" />
               {Array.isArray(item.months) && item.months.length > 0
                 ? item.months.length === 1
@@ -153,12 +153,12 @@ function ActivityItemTimelineCard({
                 : '월 미정'}
             </span>
             {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
-              <span className="text-[10px] text-gray-500">{item.cost}</span>
+              <span className="text-[12px] text-gray-500">{item.cost}</span>
             )}
             {subItems.length > 0 && (
               <button
                 onClick={() => setSubExpanded(e => !e)}
-                className="flex items-center gap-0.5 text-[10px] transition-all"
+                className="flex items-center gap-0.5 text-[12px] transition-all"
                 style={{ color: subExpanded ? (tc?.color ?? planColor) : 'rgba(255,255,255,0.35)' }}
               >
                 {subExpanded ? <ChevronUp className="w-2.5 h-2.5" /> : <ChevronDown className="w-2.5 h-2.5" />}
@@ -193,7 +193,7 @@ function ActivityItemTimelineCard({
                 : <Circle style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.2)', flexShrink: 0, marginTop: 2 }} />}
               <div className="flex-1 min-w-0">
                 <span
-                  className="text-[10px] leading-snug"
+                  className="text-[12px] leading-snug"
                   style={{
                     color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.7)',
                     textDecoration: sub.done ? 'line-through' : 'none',
@@ -202,14 +202,14 @@ function ActivityItemTimelineCard({
                   {sub.title}
                 </span>
                 {sub.description && (
-                  <div className="text-[9px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                  <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
                 )}
                 {sub.url && (
                   <a
                     href={sub.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[9px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                    className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <ExternalLink style={{ width: 8, height: 8 }} />
@@ -330,14 +330,14 @@ function YearCard({
             <div className="font-bold text-white text-sm">{grade?.fullLabel ?? yearPlan.gradeLabel}</div>
             <div className="flex items-center gap-2 mt-0.5 flex-wrap">
               {semesterConf && (
-                <span className="text-[10px]" style={{ color: `${planColor}99` }}>
+                <span className="text-[12px]" style={{ color: `${planColor}99` }}>
                   {semesterConf.emoji} {semesterConf.label}
                 </span>
               )}
-              {totalGoals > 0 && <span className="text-[10px] text-gray-400">🎯 {totalGoals}개 목표</span>}
-              {totalItems > 0 && <span className="text-[10px] text-gray-400">📌 {totalItems}개 활동</span>}
+              {totalGoals > 0 && <span className="text-[12px] text-gray-400">🎯 {totalGoals}개 목표</span>}
+              {totalItems > 0 && <span className="text-[12px] text-gray-400">📌 {totalItems}개 활동</span>}
               {totalGoals === 0 && totalItems === 0 && (
-                <span className="text-[10px] text-gray-500">계획 없음</span>
+                <span className="text-[12px] text-gray-500">계획 없음</span>
               )}
             </div>
           </div>
@@ -357,7 +357,7 @@ function YearCard({
               <div key={sp.semesterId} className="space-y-2">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs">{sp.semesterId === 'first' ? '🌸' : '🍂'}</span>
-                  <span className="text-[11px] font-bold text-gray-400">{sp.semesterLabel}</span>
+                  <span className="text-[12px] font-bold text-gray-400">{sp.semesterLabel}</span>
                   <div className="flex-1 h-px" style={{ backgroundColor: `${planColor}20` }} />
                 </div>
                 {sp.goalGroups.map(group => (
@@ -393,7 +393,7 @@ function YearCard({
               yearPlan.semester !== 'split' &&
               yearPlan.goals.length > 0 && (
               <div className="space-y-1.5">
-                <div className="text-[10px] text-gray-500 uppercase tracking-wider font-semibold flex items-center gap-1">
+                <div className="text-[12px] text-gray-500 uppercase tracking-wider font-semibold flex items-center gap-1">
                   <Target className="w-3 h-3" />
                   목표
                 </div>
@@ -453,7 +453,7 @@ function WBSChart({ plan }: { plan: CareerPlan }) {
           <div className="flex mb-2">
             <div className="w-10 flex-shrink-0" />
             {months.map(m => (
-              <div key={m} className="flex-1 text-center text-[9px] text-gray-600 font-semibold">
+              <div key={m} className="flex-1 text-center text-[12px] text-gray-600 font-semibold">
                 {m}
               </div>
             ))}
@@ -473,7 +473,7 @@ function WBSChart({ plan }: { plan: CareerPlan }) {
             return (
               <div key={year.gradeId} className="flex items-center mb-1.5">
                 <div
-                  className="w-10 flex-shrink-0 text-[10px] font-bold text-right pr-1.5"
+                  className="w-10 flex-shrink-0 text-[12px] font-bold text-right pr-1.5"
                   style={{ color: plan.starColor }}
                 >
                   {year.gradeLabel}
@@ -510,8 +510,8 @@ function WBSChart({ plan }: { plan: CareerPlan }) {
           <div className="flex items-center gap-3 mt-2 pt-2 border-t border-white/6">
             {ITEM_TYPES.map(t => (
               <div key={t.value} className="flex items-center gap-1">
-                <span className="text-[10px]">{t.emoji}</span>
-                <span className="text-[9px] text-gray-500">{t.label}</span>
+                <span className="text-[12px]">{t.emoji}</span>
+                <span className="text-[12px] text-gray-500">{t.label}</span>
               </div>
             ))}
           </div>

@@ -41,10 +41,10 @@ export function JobCard({ job, color, onClick }: JobCardProps) {
         <div className="font-bold text-white text-sm mb-0.5">{job.name}</div>
         <div className="text-xs text-gray-400 line-clamp-1 mb-1.5">{job.shortDesc}</div>
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full font-semibold" style={{ backgroundColor: `${color}22`, color }}>
+          <span className="text-[11px] px-1.5 py-0.5 rounded-full font-semibold" style={{ backgroundColor: `${color}22`, color }}>
             {job.holland}
           </span>
-          <span className="text-[10px] text-gray-500">💰 {job.salaryRange.split('~')[0]}~</span>
+          <span className="text-[12px] text-gray-500">💰 {job.salaryRange.split('~')[0]}~</span>
           <div className="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-2.5 h-2.5" style={{ color: i < job.futureGrowth ? '#FBBF24' : '#333', fill: i < job.futureGrowth ? '#FBBF24' : 'none' }} />

@@ -50,7 +50,7 @@ function ProcessHeader({
         <div className="flex-1">
           <h3 className="font-extrabold text-white text-base">{title}</h3>
           <span
-            className="inline-block mt-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
+            className="inline-block mt-1 px-2 py-0.5 rounded-full text-[11px] font-bold"
             style={{ backgroundColor: `${starColor}18`, color: starColor }}
           >
             {phaseCount}
@@ -92,7 +92,7 @@ function PhaseStepItem({
             }}
           >
             <span
-              className="text-[11px] font-extrabold"
+              className="text-[12px] font-extrabold"
               style={{ color: isExpanded ? starColor : `${starColor}90` }}
             >
               {index + 1}
@@ -132,7 +132,7 @@ function PhaseStepItem({
               <span className="text-lg">{phase.icon}</span>
             </div>
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-gray-500">
+              <div className="text-[11px] font-bold text-gray-500">
                 {LABELS.process_step_prefix} {index + 1} · {phase.phase}
               </div>
               <div
@@ -142,7 +142,7 @@ function PhaseStepItem({
               </div>
             </div>
             <div
-              className="px-2 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0"
+              className="px-2 py-0.5 rounded-full text-[11px] font-bold flex-shrink-0"
               style={{ backgroundColor: `${starColor}18`, color: starColor }}
             >
               {phase.duration}

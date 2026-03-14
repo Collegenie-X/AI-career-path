@@ -70,7 +70,7 @@ export function SpaceJoinRequestDialog({
         <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-white/10">
           <div>
             <h3 className="text-base font-black text-white">{LABELS.spaceJoinDialogTitle}</h3>
-            <p className="text-[11px] text-gray-500 mt-0.5">{space.name}</p>
+            <p className="text-sm text-gray-500 mt-0.5">{space.name}</p>
           </div>
           <button
             onClick={onClose}
@@ -123,7 +123,7 @@ export function SpaceJoinRequestDialog({
 
             <div className="flex items-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
-              <span className="text-[10px] text-gray-600 font-bold">{LABELS.spaceJoinDividerLabel}</span>
+              <span className="text-xs text-gray-600 font-bold">{LABELS.spaceJoinDividerLabel}</span>
               <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
             </div>
 

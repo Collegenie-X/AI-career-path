@@ -52,18 +52,18 @@ function SpaceCard({
           <div className="flex items-center gap-2 mb-0.5">
             <span className="text-sm font-bold text-white">{space.name}</span>
             {isJoined && (
-              <span className="flex items-center gap-0.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>
+              <span className="flex items-center gap-0.5 text-xs font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>
                 <Star className="w-2 h-2" /> 참여 중
               </span>
             )}
           </div>
-          <p className="text-[11px] text-gray-400 line-clamp-1 mb-2">{space.description}</p>
+          <p className="text-sm text-gray-400 line-clamp-1 mb-2">{space.description}</p>
           {(space.updatedAt ?? space.createdAt) && (
             <div className="flex items-center gap-1 mb-2">
               <Clock className="w-2.5 h-2.5 text-gray-500" />
-              <span className="text-[10px] text-gray-500">{formatTimeAgo(space.updatedAt ?? space.createdAt)}</span>
+              <span className="text-xs text-gray-500">{formatTimeAgo(space.updatedAt ?? space.createdAt)}</span>
               {isRecentlyUpdated(space.updatedAt ?? space.createdAt) && (
-                <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>NEW</span>
+                <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>NEW</span>
               )}
             </div>
           )}
@@ -75,14 +75,19 @@ function SpaceCard({
                 </div>
               ))}
             </div>
-            <span className="text-[10px] text-gray-500">{space.memberCount}명</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="flex items-center gap-0.5 text-[10px] text-gray-500">
+            <span className="text-xs text-gray-500">{space.memberCount}명</span>
+            <span className="text-xs text-gray-600">·</span>
+            <span className="flex items-center gap-0.5 text-xs text-gray-500">
               <MessageSquare className="w-2.5 h-2.5" />{roadmapCount}개 로드맵
             </span>
           </div>
         </div>
-        <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0 mt-3" />
+        <div
+          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+          style={{ backgroundColor: `${space.color}25`, border: `1px solid ${space.color}45` }}
+        >
+          <ChevronRight className="w-4 h-4" style={{ color: space.color }} />
+        </div>
       </div>
     </button>
   );
@@ -249,7 +254,7 @@ export function DreamSpaceTab({
       </div>
 
       <div className="rounded-2xl p-3 space-y-2" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-        <p className="text-[11px] font-bold text-gray-300">{LABELS.joinByCodeButton}</p>
+        <p className="text-sm font-bold text-gray-300">{LABELS.joinByCodeButton}</p>
         <div className="flex items-center gap-2">
           <input
             value={inviteCodeInput}
@@ -281,7 +286,7 @@ export function DreamSpaceTab({
             참여
           </button>
         </div>
-        {inviteCodeError && <p className="text-[11px] text-red-400">{inviteCodeError}</p>}
+        {inviteCodeError && <p className="text-sm text-red-400">{inviteCodeError}</p>}
       </div>
 
       {spaces.length === 0 ? (

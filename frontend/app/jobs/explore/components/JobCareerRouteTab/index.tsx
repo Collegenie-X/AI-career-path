@@ -39,7 +39,7 @@ export function JobCareerRouteTab() {
           <div className="text-2xl">🗺️</div>
           <div>
             <h2 className="text-sm font-bold text-white">{typedRoutesData.meta.title}</h2>
-            <p className="text-[11px] text-gray-300 mt-0.5">{typedRoutesData.meta.description}</p>
+            <p className="text-[12px] text-gray-300 mt-0.5">{typedRoutesData.meta.description}</p>
           </div>
         </div>
       </div>

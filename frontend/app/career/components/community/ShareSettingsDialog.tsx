@@ -78,7 +78,7 @@ export function ShareSettingsDialog({
         <div className="mx-5 mb-4 flex items-start gap-2.5 px-3.5 py-3 rounded-xl"
           style={{ backgroundColor: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}>
           <Lock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#FBBF24' }} />
-          <p className="text-[11px] text-gray-300 leading-relaxed">
+          <p className="text-[12px] text-gray-300 leading-relaxed">
             나의 커리어 패스는 <span className="font-bold text-white">프라이버시</span>가 중요해요.
             공유 범위를 직접 선택할 수 있습니다.
           </p>

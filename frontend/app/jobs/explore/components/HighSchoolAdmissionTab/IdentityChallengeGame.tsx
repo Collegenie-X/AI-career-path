@@ -137,7 +137,7 @@ export function IdentityChallengeGame({
           </button>
           <div>
             <h3 className="text-sm font-bold text-white">{data.meta.title}</h3>
-            <p className="text-[11px] text-gray-400">{data.meta.subtitle}</p>
+            <p className="text-[12px] text-gray-400">{data.meta.subtitle}</p>
           </div>
         </div>
 
@@ -150,12 +150,12 @@ export function IdentityChallengeGame({
         >
           <div className="text-4xl mb-2">🧭</div>
           <p className="text-sm font-bold text-white mb-2">{data.meta.title}</p>
-          <p className="text-[11px] text-gray-300 leading-relaxed mb-3">{data.meta.description}</p>
+          <p className="text-[12px] text-gray-300 leading-relaxed mb-3">{data.meta.description}</p>
           <div className="grid grid-cols-3 gap-1.5">
             {data.questions.map((q) => (
               <span
                 key={q.id}
-                className="text-[9px] py-1 px-1.5 rounded-md text-center"
+                className="text-[11px] py-1 px-1.5 rounded-md text-center"
                 style={{ background: `${getThemeColor(q.theme)}18`, color: getThemeColor(q.theme) }}
               >
                 {q.themeIcon} {q.theme}
@@ -195,7 +195,7 @@ export function IdentityChallengeGame({
           </button>
           <div>
             <h3 className="text-sm font-bold text-white">나의 고입 루트 발견!</h3>
-            <p className="text-[11px] text-gray-400">{data.resultMessages.multiple}</p>
+            <p className="text-[12px] text-gray-400">{data.resultMessages.multiple}</p>
           </div>
         </div>
 
@@ -226,13 +226,13 @@ export function IdentityChallengeGame({
               <div className="flex items-center gap-3 mb-2">
                 <span className="text-2xl">{cat.emoji}</span>
                 <div>
-                  <p className="text-[10px] text-gray-400">
+                  <p className="text-[12px] text-gray-400">
                     {rank === 0 ? '🥇 1순위 추천' : rank === 1 ? '🥈 2순위 추천' : '🥉 3순위 추천'}
                   </p>
                   <p className="text-sm font-bold text-white">{cat.name}</p>
                 </div>
               </div>
-              <p className="text-[11px] text-gray-300 leading-relaxed mb-3">{cat.description}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed mb-3">{cat.description}</p>
               <button
                 onClick={() => onSelectCategory(cat)}
                 className="w-full py-2.5 rounded-xl text-[12px] font-medium flex items-center justify-center gap-2"
@@ -262,7 +262,7 @@ export function IdentityChallengeGame({
             {feedbackHistory.map((item, i) => (
               <div key={i} className="flex items-start gap-2">
                 <span
-                  className="text-[9px] font-bold flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded"
+                  className="text-[11px] font-bold flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded"
                   style={{
                     background: `${getThemeColor(item.theme)}18`,
                     color: getThemeColor(item.theme),
@@ -272,7 +272,7 @@ export function IdentityChallengeGame({
                 >
                   {item.theme}
                 </span>
-                <p className="text-[10px] text-gray-400 leading-relaxed">{item.feedback}</p>
+                <p className="text-[12px] text-gray-400 leading-relaxed">{item.feedback}</p>
               </div>
             ))}
           </div>
@@ -322,7 +322,7 @@ export function IdentityChallengeGame({
             border: `1px solid ${accentColor}25`,
           }}
         >
-          <p className="text-[11px] leading-relaxed" style={{ color: `${accentColor}cc` }}>
+          <p className="text-[12px] leading-relaxed" style={{ color: `${accentColor}cc` }}>
             💡 {currentQuestion.context}
           </p>
         </div>
@@ -341,7 +341,7 @@ export function IdentityChallengeGame({
           />
           <div className="flex items-center gap-2 mb-2">
             <span className="text-base">{currentQuestion.themeIcon}</span>
-            <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: accentColor }}>
+            <span className="text-[11px] font-bold uppercase tracking-widest" style={{ color: accentColor }}>
               {currentQuestion.theme}
             </span>
           </div>

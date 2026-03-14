@@ -123,10 +123,10 @@ export function RoadmapDetailDialog({
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
               <span className="text-base">{roadmap.ownerEmoji}</span>
-              <span className="text-[11px] font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
+              <span className="text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
                 {periodLabel}
               </span>
-              <span className="text-[11px] text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
+              <span className="text-xs text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
             <div className="flex items-center gap-2">
               {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
@@ -166,7 +166,7 @@ export function RoadmapDetailDialog({
           </div>
           <div className="min-w-0">
             <h3 className="text-xl font-black text-white leading-tight tracking-tight">{roadmap.title}</h3>
-            <p className="text-[11px] text-gray-400 truncate">{roadmap.ownerName}</p>
+            <p className="text-xs text-gray-400 truncate">{roadmap.ownerName}</p>
           </div>
         </div>
 
@@ -178,10 +178,10 @@ export function RoadmapDetailDialog({
             <p className="text-xs text-gray-200 leading-relaxed">{roadmap.description}</p>
           </div>
           <div className="rounded-xl p-3 space-y-1.5" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <p className="text-[11px] font-bold text-white">실행 검증 요약</p>
-            <p className="text-[10px] text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
-            <p className="text-[10px] text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
-            <p className="text-[10px] text-cyan-200">
+            <p className="text-sm font-bold text-white">실행 검증 요약</p>
+            <p className="text-xs text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
+            <p className="text-xs text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
+            <p className="text-xs text-cyan-200">
               실행 진행률: {executionSummary.doneActionableTodoCount}/{executionSummary.totalActionableTodoCount}
             </p>
           </div>
@@ -200,12 +200,12 @@ export function RoadmapDetailDialog({
                 <div className="flex items-center gap-2.5">
                   <span className="text-base">🏁</span>
                   <div>
-                    <p className="text-xs font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
-                    <p className="text-[10px] text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
+                    <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
+                    <p className="text-xs text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
                     {(roadmap.milestoneResults ?? []).length}
                   </span>
                   {isMilestoneResultsOpen ? (
@@ -238,23 +238,23 @@ export function RoadmapDetailDialog({
                         >
                           <div className="flex items-center gap-2 min-w-0">
                             <span
-                              className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
+                              className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
                               style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}
                             >
                               {index + 1}
                             </span>
-                            <span className="text-xs font-semibold text-white truncate">
+                            <span className="text-sm font-semibold text-white truncate">
                               {result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
                             </span>
                             {result.monthWeekLabel && (
-                              <span className="text-[10px] text-sky-400/60 whitespace-nowrap flex-shrink-0">
+                              <span className="text-xs text-sky-400/60 whitespace-nowrap flex-shrink-0">
                                 {result.monthWeekLabel}
                               </span>
                             )}
                           </div>
                           <div className="flex items-center gap-1.5 flex-shrink-0">
-                            {result.imageUrl && <span className="text-[10px]">🖼️</span>}
-                            {result.resultUrl && <span className="text-[10px]">🔗</span>}
+                            {result.imageUrl && <span className="text-xs">🖼️</span>}
+                            {result.resultUrl && <span className="text-xs">🔗</span>}
                             {isExpanded ? (
                               <ChevronUp className="w-3.5 h-3.5 text-gray-400" />
                             ) : (
@@ -266,7 +266,7 @@ export function RoadmapDetailDialog({
                         {isExpanded && (
                           <div className="px-3 pb-3 space-y-2 border-t" style={{ borderColor: 'rgba(56,189,248,0.08)' }}>
                             {result.description && (
-                              <p className="pt-2 text-[11px] text-gray-300 leading-relaxed whitespace-pre-line">{result.description}</p>
+                              <p className="pt-2 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{result.description}</p>
                             )}
                             {result.imageUrl && (
                               <img
@@ -280,9 +280,9 @@ export function RoadmapDetailDialog({
                                 href={result.resultUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex items-center gap-1.5 text-[11px] font-semibold text-cyan-300 hover:text-cyan-200 break-all"
+                                className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200 break-all"
                               >
-                                <ExternalLink className="w-3 h-3 flex-shrink-0" />
+                                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
                                 <span className="underline underline-offset-2 truncate">{result.resultUrl}</span>
                               </a>
                             )}
@@ -310,9 +310,9 @@ export function RoadmapDetailDialog({
                 <div className="flex items-center gap-2.5">
                   <span className="text-base">🏆</span>
                   <div>
-                    <p className="text-xs font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
+                    <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
                     {roadmap.finalResultTitle && (
-                      <p className="text-[10px] text-emerald-400/70 mt-0.5 truncate max-w-[200px]">{roadmap.finalResultTitle}</p>
+                      <p className="text-xs text-emerald-400/70 mt-0.5 truncate max-w-[200px]">{roadmap.finalResultTitle}</p>
                     )}
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export function RoadmapDetailDialog({
               {isFinalResultOpen && (
                 <div className="px-4 pb-4 space-y-2.5 border-t" style={{ borderColor: 'rgba(16,185,129,0.12)' }}>
                   {roadmap.finalResultDescription && (
-                    <p className="pt-2 text-[11px] text-gray-300 leading-relaxed whitespace-pre-line">{roadmap.finalResultDescription}</p>
+                    <p className="pt-2 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{roadmap.finalResultDescription}</p>
                   )}
                   {roadmap.finalResultImageUrl && (
                     <img
@@ -345,9 +345,9 @@ export function RoadmapDetailDialog({
                       href={roadmap.finalResultUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-1.5 text-[11px] font-semibold text-cyan-300 hover:text-cyan-200"
+                      className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200"
                     >
-                      <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                      <ExternalLink className="w-4 h-4 flex-shrink-0" />
                       <span className="underline underline-offset-2 break-all">{roadmap.finalResultUrl}</span>
                     </a>
                   )}
@@ -374,7 +374,7 @@ export function RoadmapDetailDialog({
               <h4 className="text-sm font-bold text-white">{LABELS.commentViewLabel} {roadmap.comments.length}</h4>
               <button
                 onClick={() => setCommentSortOrder(previous => previous === 'oldest' ? 'latest' : 'oldest')}
-                className="h-7 px-2.5 rounded-lg text-[10px] font-bold"
+                className="h-8 px-3 rounded-lg text-xs font-bold"
                 style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
                 {LABELS.chronologicalSortLabel} · {commentSortOrder === 'oldest' ? LABELS.oldestFirstLabel : LABELS.latestFirstLabel}
@@ -559,16 +559,16 @@ function CommentTreeNode({
         className="rounded-xl p-3"
         style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
       >
-        <p className="text-xs text-white">
+        <p className="text-sm text-white">
           <span className="mr-1">{node.authorEmoji}</span>
           <span className="font-semibold">{node.authorName}</span>
         </p>
-        <p className="text-xs text-gray-300 mt-1">{node.content}</p>
+        <p className="text-sm text-gray-300 mt-1">{node.content}</p>
         <div className="mt-1 flex items-center gap-2">
-          <p className="text-[10px] text-gray-500">{formatDateTime(node.createdAt)}</p>
+          <p className="text-xs text-gray-500">{formatDateTime(node.createdAt)}</p>
           <button
             onClick={() => onReply(node.id)}
-            className="text-[10px] font-semibold text-gray-400 flex items-center gap-1"
+            className="text-xs font-semibold text-gray-400 flex items-center gap-1"
           >
             <MessageSquare className="w-3 h-3" />
             답글
@@ -593,7 +593,7 @@ function CommentTreeNode({
               setReplyText('');
               onReplyCancel();
             }}
-            className="text-[10px] px-2 py-1 rounded-lg"
+            className="text-xs px-2.5 py-1.5 rounded-lg"
             style={{ backgroundColor: 'rgba(108,92,231,0.22)', color: '#ddd6fe' }}
           >
             등록

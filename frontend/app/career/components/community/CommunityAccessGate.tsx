@@ -169,7 +169,7 @@ export function CommunityAccessGate({ onAccessGranted, onBack }: Props) {
 
           <div className="flex items-center gap-3">
             <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
-            <span className="text-[10px] text-gray-500">또는</span>
+            <span className="text-[12px] text-gray-500">또는</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
           </div>
 

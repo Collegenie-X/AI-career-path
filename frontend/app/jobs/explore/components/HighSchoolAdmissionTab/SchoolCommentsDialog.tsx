@@ -72,7 +72,7 @@ export function SchoolCommentsDialog({
 
         <div className="flex-1 overflow-y-auto p-3 space-y-2.5">
           {comments.length === 0 ? (
-            <p className="text-[11px] text-gray-500 py-4 text-center">표시할 댓글이 없습니다.</p>
+            <p className="text-[12px] text-gray-500 py-4 text-center">표시할 댓글이 없습니다.</p>
           ) : (
             comments.map((comment) => {
               const meta = categoryMeta[comment.category];
@@ -87,17 +87,17 @@ export function SchoolCommentsDialog({
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <div className="flex items-center gap-1.5">
                       <span
-                        className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                        className="text-[11px] font-bold px-2 py-0.5 rounded-full"
                         style={{ color: meta.color, background: `${meta.color}20` }}
                       >
                         {meta.label}
                       </span>
                       {comment.source === 'dummy' ? (
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full text-violet-300 bg-violet-400/15">
+                        <span className="text-[11px] font-semibold px-1.5 py-0.5 rounded-full text-violet-300 bg-violet-400/15">
                           더미
                         </span>
                       ) : null}
-                      <span className="text-[10px] text-gray-500">{formatRelativeTime(comment.createdAt)}</span>
+                      <span className="text-[12px] text-gray-500">{formatRelativeTime(comment.createdAt)}</span>
                     </div>
                     {comment.source !== 'dummy' ? (
                       <button
@@ -110,14 +110,14 @@ export function SchoolCommentsDialog({
                     ) : null}
                   </div>
 
-                  <p className="text-[11px] text-gray-300 leading-relaxed break-words">{comment.content}</p>
+                  <p className="text-[12px] text-gray-300 leading-relaxed break-words">{comment.content}</p>
 
                   {comment.replies.length > 0 ? (
                     <div className="mt-2 space-y-1.5 pl-2 border-l border-white/10">
                       {comment.replies.map((reply) => (
                         <div key={reply.id} className="rounded-lg px-2 py-1.5 bg-white/5">
                           <div className="flex items-center justify-between gap-2 mb-0.5">
-                            <span className="text-[10px] text-gray-500">{formatRelativeTime(reply.createdAt)}</span>
+                            <span className="text-[12px] text-gray-500">{formatRelativeTime(reply.createdAt)}</span>
                             {comment.source !== 'dummy' ? (
                               <button
                                 onClick={() => onDeleteReply(comment.id, reply.id)}
@@ -128,7 +128,7 @@ export function SchoolCommentsDialog({
                               </button>
                             ) : null}
                           </div>
-                          <p className="text-[11px] text-gray-300 leading-relaxed">{reply.content}</p>
+                          <p className="text-[12px] text-gray-300 leading-relaxed">{reply.content}</p>
                         </div>
                       ))}
                     </div>
@@ -138,7 +138,7 @@ export function SchoolCommentsDialog({
                     <div className="mt-2.5">
                       <button
                         onClick={() => setOpenedReplyComposerCommentId(isReplyComposerOpen ? null : comment.id)}
-                        className="text-[10px] font-semibold px-2 py-1 rounded-full"
+                        className="text-[11px] font-semibold px-2 py-1 rounded-full"
                         style={{ background: `${categoryColor}20`, color: categoryColor }}
                       >
                         {isReplyComposerOpen ? '답글 닫기' : '답글 달기'}
@@ -160,7 +160,7 @@ export function SchoolCommentsDialog({
                               }
                             }}
                             placeholder="답글을 입력하세요"
-                            className="flex-1 rounded-lg px-2.5 py-2 text-[11px] bg-white/5 border border-white/10 text-gray-100 outline-none"
+                            className="flex-1 rounded-lg px-2.5 py-2 text-[12px] bg-white/5 border border-white/10 text-gray-100 outline-none"
                           />
                           <button
                             onClick={() => {

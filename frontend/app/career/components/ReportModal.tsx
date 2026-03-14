@@ -180,7 +180,7 @@ export function ReportModal({ target, accentColor = '#6C5CE7', onClose }: Props)
                     border: '1px solid rgba(255,255,255,0.1)',
                   }}
                 />
-                <div className="text-right text-[10px] text-gray-600 mt-1">
+                <div className="text-right text-[12px] text-gray-600 mt-1">
                   {detail.length}/300
                 </div>
               </div>
@@ -190,7 +190,7 @@ export function ReportModal({ target, accentColor = '#6C5CE7', onClose }: Props)
                 style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
               >
                 <p className="text-xs font-bold text-gray-400">신고 처리 안내</p>
-                <p className="text-[11px] text-gray-600 leading-relaxed">
+                <p className="text-[12px] text-gray-600 leading-relaxed">
                   • 신고 접수 후 운영팀이 검토합니다 (영업일 1~3일)<br />
                   • 허위 신고 반복 시 이용이 제한될 수 있습니다<br />
                   • 긴급한 경우 고객센터로 직접 문의해 주세요

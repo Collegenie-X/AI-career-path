@@ -15,7 +15,7 @@ export function RouteOverviewCard({ overview }: RouteOverviewCardProps) {
       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
       <h3 className="text-sm font-bold text-white mb-1">{overview.title}</h3>
-      <p className="text-[11px] text-gray-400 mb-3">{overview.description}</p>
+      <p className="text-[12px] text-gray-400 mb-3">{overview.description}</p>
 
       <div className="space-y-2">
         {overview.pathways.map((pathway) => (
@@ -27,7 +27,7 @@ export function RouteOverviewCard({ overview }: RouteOverviewCardProps) {
             {/* High School */}
             <div className="flex items-center gap-2 mb-2">
               <span
-                className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                className="text-[11px] font-bold px-2 py-0.5 rounded-full"
                 style={{ background: pathway.color, color: '#fff' }}
               >
                 {pathway.highSchool}
@@ -40,7 +40,7 @@ export function RouteOverviewCard({ overview }: RouteOverviewCardProps) {
                 {pathway.universities.map((uni) => (
                   <span
                     key={uni}
-                    className="text-[10px] px-1.5 py-0.5 rounded text-gray-300"
+                    className="text-[11px] px-1.5 py-0.5 rounded text-gray-300"
                     style={{ background: 'rgba(255,255,255,0.06)' }}
                   >
                     {uni}
@@ -52,7 +52,7 @@ export function RouteOverviewCard({ overview }: RouteOverviewCardProps) {
                 {pathway.jobs.map((job) => (
                   <span
                     key={job}
-                    className="text-[10px] px-1.5 py-0.5 rounded font-medium"
+                    className="text-[11px] px-1.5 py-0.5 rounded font-medium"
                     style={{ background: `${pathway.color}20`, color: pathway.color }}
                   >
                     {job}

@@ -7,10 +7,7 @@ import {
 } from 'lucide-react';
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { RoadmapCard } from './RoadmapCard';
-import {
-  ProgramProposalCards,
-  SpaceNoticePanel,
-} from './SpaceParticipationPanels';
+import { SpaceNoticePanel } from './SpaceParticipationPanels';
 import { LABELS } from '../config';
 
 interface SpaceDetailViewProps {
@@ -94,7 +91,7 @@ export function SpaceDetailView({
             >
               <LogOut className="w-4 h-4" /> 그룹 탈퇴하기
             </button>
-          )}123ㅊ
+          )}
           {isSpaceOperator && (
             <button
               onClick={() => {
@@ -144,8 +141,6 @@ export function SpaceDetailView({
         }}
       />
 
-      <ProgramProposalCards proposals={space.programProposals ?? []} />
-
       {/* Members */}
       <div className="space-y-2">
         <span className="text-xs font-bold text-gray-400">멤버 ({space.members.length})</span>
@@ -166,7 +161,7 @@ export function SpaceDetailView({
                     <span className="text-xs font-bold text-white truncate">{member.name}</span>
                     {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
                   </div>
-                  <span className="text-[10px] text-gray-500">{member.grade}</span>
+                  <span className="text-xs text-gray-500">{member.grade}</span>
                 </div>
               </div>
             );

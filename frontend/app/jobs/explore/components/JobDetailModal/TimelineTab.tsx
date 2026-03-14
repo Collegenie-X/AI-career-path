@@ -146,7 +146,7 @@ function TimelineStepRow({
                 border: '1px solid rgba(108,92,231,0.25)',
               }}
             >
-              <div className="text-[9px] font-bold text-purple-400 mb-0.5 uppercase tracking-wider">
+              <div className="text-[11px] font-bold text-purple-400 mb-0.5 uppercase tracking-wider">
                 {LABELS.timeline_setak_label}
               </div>
               <p className="text-xs text-gray-300 leading-relaxed">{milestone.setak}</p>

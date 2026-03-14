@@ -37,7 +37,7 @@ function SectionCard({
       className="rounded-2xl p-3 space-y-2"
       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      <p className="text-[11px] font-bold flex items-center gap-1.5" style={{ color }}>
+      <p className="text-[12px] font-bold flex items-center gap-1.5" style={{ color }}>
         {icon}
         {title}
       </p>
@@ -60,35 +60,35 @@ function HighSchoolOverviewInsight({
     <SectionCard title="학교 특수성 요약" icon={<Compass className="w-3.5 h-3.5" />} color={categoryColor}>
       <div className="space-y-2">
         <p className="text-[12px] font-bold text-white">{selectionProfile.profileTitle}</p>
-        <p className="text-[11px] text-gray-300 leading-relaxed">{selectionProfile.profileSummary}</p>
+        <p className="text-[12px] text-gray-300 leading-relaxed">{selectionProfile.profileSummary}</p>
       </div>
 
       <div className="space-y-1.5">
-        <p className="text-[10px] font-bold text-gray-400">📘 교과 특성</p>
+        <p className="text-[11px] font-bold text-gray-400">📘 교과 특성</p>
         {selectionProfile.curriculumHighlights.map((item) => (
           <div key={item} className="flex items-start gap-2">
-            <span className="text-[11px] mt-0.5" style={{ color: categoryColor }}>▸</span>
-            <p className="text-[11px] text-gray-200 leading-relaxed">{item}</p>
+            <span className="text-[12px] mt-0.5" style={{ color: categoryColor }}>▸</span>
+            <p className="text-[12px] text-gray-200 leading-relaxed">{item}</p>
           </div>
         ))}
       </div>
 
       <div className="grid grid-cols-1 gap-2">
         <div className="p-2.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)' }}>
-          <p className="text-[10px] font-bold text-gray-400 mb-1">🏃 특별활동 포인트</p>
+          <p className="text-[11px] font-bold text-gray-400 mb-1">🏃 특별활동 포인트</p>
           {selectionProfile.extracurricularHighlights.slice(0, 2).map((item) => (
-            <p key={item} className="text-[11px] text-gray-300 leading-relaxed">
+            <p key={item} className="text-[12px] text-gray-300 leading-relaxed">
               - {item}
             </p>
           ))}
         </div>
         <div className="p-2.5 rounded-xl" style={{ background: 'rgba(255,255,255,0.03)' }}>
-          <p className="text-[10px] font-bold text-gray-400 mb-1">👥 대표 동아리 결</p>
+          <p className="text-[11px] font-bold text-gray-400 mb-1">👥 대표 동아리 결</p>
           <div className="flex flex-wrap gap-1.5">
             {selectionProfile.clubHighlights.map((club) => (
               <span
                 key={club}
-                className="text-[10px] px-2 py-0.5 rounded-full"
+                className="text-[11px] px-2 py-0.5 rounded-full"
                 style={{ background: `${categoryColor}20`, color: categoryColor }}
               >
                 {club}
@@ -127,16 +127,16 @@ function HighSchoolAdmissionInsight({
                 style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}
               >
                 <div className="flex items-center justify-between gap-2 mb-1">
-                  <p className="text-[11px] font-bold text-white">{routeStrength.route}</p>
+                  <p className="text-[12px] font-bold text-white">{routeStrength.route}</p>
                   <span
-                    className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                    className="text-[11px] font-bold px-2 py-0.5 rounded-full"
                     style={{ color: strengthColor, background: `${strengthColor}20` }}
                   >
                     {ADMISSION_ROUTE_STRENGTH_LABELS[routeStrength.strength]}
                   </span>
                 </div>
-                <p className="text-[11px] text-gray-300 leading-relaxed">{routeStrength.reason}</p>
-                <p className="text-[10px] text-gray-400 mt-1">추천: {routeStrength.recommendedFor}</p>
+                <p className="text-[12px] text-gray-300 leading-relaxed">{routeStrength.reason}</p>
+                <p className="text-[12px] text-gray-400 mt-1">추천: {routeStrength.recommendedFor}</p>
               </div>
             );
           })}
@@ -150,8 +150,8 @@ function HighSchoolAdmissionInsight({
             return (
               <div key={ratioItem.track} className="space-y-1">
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-[11px] text-gray-200">{ratioItem.track}</p>
-                  <p className="text-[10px] font-bold" style={{ color: categoryColor }}>{ratioItem.ratio}%</p>
+                  <p className="text-[12px] text-gray-200">{ratioItem.track}</p>
+                  <p className="text-[12px] font-bold" style={{ color: categoryColor }}>{ratioItem.ratio}%</p>
                 </div>
                 <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
                   <div
@@ -159,12 +159,12 @@ function HighSchoolAdmissionInsight({
                     style={{ width: `${normalizedRatio}%`, background: `linear-gradient(90deg, ${categoryColor}, ${categoryColor}99)` }}
                   />
                 </div>
-                {ratioItem.note ? <p className="text-[10px] text-gray-500">{ratioItem.note}</p> : null}
+                {ratioItem.note ? <p className="text-[12px] text-gray-500">{ratioItem.note}</p> : null}
               </div>
             );
           })}
           {selectionProfile.ratioBasisNote ? (
-            <p className="text-[10px] text-gray-500 leading-relaxed mt-1">{selectionProfile.ratioBasisNote}</p>
+            <p className="text-[12px] text-gray-500 leading-relaxed mt-1">{selectionProfile.ratioBasisNote}</p>
           ) : null}
         </div>
       </SectionCard>
@@ -174,7 +174,7 @@ function HighSchoolAdmissionInsight({
           {selectionProfile.middleSchoolSelectionChecklist.map((item) => (
             <div key={item} className="flex items-start gap-2">
               <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: categoryColor }} />
-              <p className="text-[11px] text-gray-300 leading-relaxed">{item}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{item}</p>
             </div>
           ))}
         </div>

@@ -99,10 +99,10 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
                 style={{ color: typeConf?.color ?? color }}
               />
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-bold text-gray-400 mb-0.5">목표 기간</div>
+                <div className="text-[12px] font-bold text-gray-400 mb-0.5">목표 기간</div>
                 <div className="text-xs font-semibold text-white">{monthLabel}</div>
                 {item.months.length > 1 && (
-                  <div className="text-[10px] text-gray-500">{item.months.length}개월</div>
+                  <div className="text-[12px] text-gray-500">{item.months.length}개월</div>
                 )}
               </div>
             </div>
@@ -115,7 +115,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
                   style={{ color: '#f59e0b' }}
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">난이도</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">난이도</div>
                   <div className="flex items-center gap-1 flex-wrap">
                     <span className="text-xs">
                       {Array.from({ length: 5 }, (_, i) => (
@@ -129,7 +129,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
                         </span>
                       ))}
                     </span>
-                    <span className="text-[10px] font-semibold text-white">
+                    <span className="text-[12px] font-semibold text-white">
                       {item.difficulty === 1 && '매우 쉬움'}
                       {item.difficulty === 2 && '쉬움'}
                       {item.difficulty === 3 && '보통'}
@@ -149,7 +149,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
                   style={{ color: '#22c55e' }}
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">비용</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">비용</div>
                   <div className="text-xs font-semibold text-white">{item.cost}</div>
                 </div>
               </div>
@@ -163,7 +163,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
                   style={{ color: '#8b5cf6' }}
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="text-[10px] font-bold text-gray-400 mb-0.5">주관/출처</div>
+                  <div className="text-[12px] font-bold text-gray-400 mb-0.5">주관/출처</div>
                   <div className="text-xs font-semibold text-white line-clamp-2">
                     {item.organizer}
                   </div>
@@ -185,7 +185,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
               style={{ color: '#60a5fa' }}
             />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
+              <div className="text-[12px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
               {item.url?.trim() ? (
                 <a
                   href={item.url}
@@ -214,7 +214,7 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
               style={{ color: '#a78bfa' }}
             />
             <div className="flex-1 min-w-0">
-              <div className="text-[10px] font-bold text-gray-400 mb-0.5">상세 설명</div>
+              <div className="text-[12px] font-bold text-gray-400 mb-0.5">상세 설명</div>
               {item.description?.trim() ? (
                 <div className="text-xs text-gray-300 leading-relaxed whitespace-pre-wrap">
                   {item.description}

@@ -54,7 +54,7 @@ export function RoadmapReportDialog({
               <Flag className="w-4 h-4 text-red-400" />
               {LABELS.roadmapReportDialogTitle}
             </h3>
-            <p className="text-[11px] text-gray-500 mt-0.5 truncate">{roadmapTitle}</p>
+            <p className="text-sm text-gray-500 mt-0.5 truncate">{roadmapTitle}</p>
           </div>
           <button
             onClick={onClose}
@@ -92,7 +92,7 @@ export function RoadmapReportDialog({
                       }}
                     >
                       <p className="text-xs font-bold text-white">{reason.emoji} {reason.label}</p>
-                      <p className="text-[11px] text-gray-400 mt-0.5">{reason.description}</p>
+                      <p className="text-sm text-gray-400 mt-0.5">{reason.description}</p>
                     </button>
                   );
                 })}

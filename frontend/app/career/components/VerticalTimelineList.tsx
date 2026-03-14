@@ -154,15 +154,15 @@ function PlanAccordionCard({
             </div>
           )}
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] font-semibold" style={{ color: `${plan.starColor}cc` }}>
+            <span className="text-[12px] font-semibold" style={{ color: `${plan.starColor}cc` }}>
               {plan.starEmoji} {plan.starName}
             </span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{plan.years.length}개 학년</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{plan.years.length}개 학년</span>
             {totalItems > 0 && (
               <>
-                <span className="text-[10px] text-gray-600">·</span>
-                <span className="text-[10px] text-gray-500">{checkedItems}/{totalItems} 완료</span>
+                <span className="text-[12px] text-gray-600">·</span>
+                <span className="text-[12px] text-gray-500">{checkedItems}/{totalItems} 완료</span>
               </>
             )}
           </div>
@@ -250,7 +250,7 @@ function PlanAccordionCard({
                   <div className="text-xs font-bold text-white">
                     {plan.shareType === 'operator' ? '운영자에게 공유됨' : '커뮤니티에 공개됨'}
                   </div>
-                  <div className="text-[10px] text-gray-400">
+                  <div className="text-[12px] text-gray-400">
                     {plan.shareType === 'operator'
                       ? '진로 선생님이 확인하고 코멘트를 남길 수 있어요'
                       : '같은 학교 친구들이 보고 코멘트를 남길 수 있어요'
@@ -259,7 +259,7 @@ function PlanAccordionCard({
                 </div>
                 <button
                   onClick={handleMakePrivate}
-                  className="flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-bold flex-shrink-0 transition-all active:scale-95"
+                  className="flex items-center gap-1 px-2 py-1 rounded-lg text-[12px] font-bold flex-shrink-0 transition-all active:scale-95"
                   style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}>
                   <EyeOff style={{ width: 11, height: 11 }} />비공개
                 </button>

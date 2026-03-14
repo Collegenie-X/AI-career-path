@@ -31,11 +31,11 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-sm font-bold text-white">{job.name}</p>
-          <p className="text-[10px] text-gray-400 truncate">{job.company}</p>
+          <p className="text-[12px] text-gray-400 truncate">{job.company}</p>
         </div>
         <div className="flex flex-col items-end gap-1 flex-shrink-0">
           <span
-            className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+            className="text-[11px] font-bold px-2 py-0.5 rounded-full"
             style={{ background: `${categoryColor}20`, color: categoryColor }}
           >
             {job.salaryRange}
@@ -54,7 +54,7 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
           {job.recommendedHighSchoolNames.map((name) => (
             <span
               key={name}
-              className="text-[10px] px-2 py-0.5 rounded-full text-gray-300"
+              className="text-[11px] px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.06)' }}
             >
               {name}
@@ -92,11 +92,11 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
                     <div className="flex-1 pb-1">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-xs font-bold text-white">{stage.stage}</span>
-                        <span className="text-[10px] text-gray-400">{stage.period}</span>
+                        <span className="text-[12px] text-gray-400">{stage.period}</span>
                       </div>
                       <ul className="space-y-0.5">
                         {stage.tasks.map((task) => (
-                          <li key={task} className="text-[11px] text-gray-300 flex items-start gap-1">
+                          <li key={task} className="text-[12px] text-gray-300 flex items-start gap-1">
                             <span className="text-gray-500 mt-0.5">•</span>
                             {task}
                           </li>
@@ -122,14 +122,14 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
                   style={{ background: 'rgba(255,255,255,0.04)' }}
                 >
                   <div>
-                    <p className="text-[11px] font-semibold text-white">{uni.name}</p>
-                    <p className="text-[10px] text-gray-400">{uni.admissionType}</p>
+                    <p className="text-[12px] font-semibold text-white">{uni.name}</p>
+                    <p className="text-[12px] text-gray-400">{uni.admissionType}</p>
                   </div>
                   <div className="flex">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <span
                         key={i}
-                        className="text-[8px]"
+                        className="text-[12px]"
                         style={{ color: i < uni.difficulty ? categoryColor : 'rgba(255,255,255,0.15)' }}
                       >
                         ★
@@ -150,7 +150,7 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
               {job.keyPreparation.map((item) => (
                 <span
                   key={item}
-                  className="text-[10px] px-2.5 py-1 rounded-full font-medium"
+                  className="text-[11px] px-2.5 py-1 rounded-full font-medium"
                   style={{ background: `${categoryColor}15`, color: categoryColor }}
                 >
                   {item}
@@ -166,8 +166,8 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
           >
             <TrendingUp className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-[10px] font-bold text-emerald-400 mb-0.5">{JOB_ROUTE_LABELS.future_outlook}</p>
-              <p className="text-[11px] text-gray-300 leading-relaxed">{job.futureOutlook}</p>
+              <p className="text-[12px] font-bold text-emerald-400 mb-0.5">{JOB_ROUTE_LABELS.future_outlook}</p>
+              <p className="text-[12px] text-gray-300 leading-relaxed">{job.futureOutlook}</p>
             </div>
           </div>
         </div>

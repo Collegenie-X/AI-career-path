@@ -110,7 +110,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
               </div>
               <div>
                 <h2 className="text-base font-bold text-white">{category.name}</h2>
-                <p className="text-[10px] text-gray-500 mt-0.5">{category.description}</p>
+                <p className="text-[12px] text-gray-500 mt-0.5">{category.description}</p>
               </div>
             </div>
             <button
@@ -139,7 +139,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
                 }}
               >
                 <span className="text-base">{tab.emoji}</span>
-                <span className="text-[10px] leading-tight">{tab.label}</span>
+                <span className="text-[12px] leading-tight">{tab.label}</span>
               </button>
             ))}
           </div>
@@ -216,11 +216,11 @@ function TraitsTab({
             >
               <div className="flex items-center gap-1.5">
                 <span className="text-xl">{item.emoji}</span>
-                <span className="text-[10px] font-bold" style={{ color: categoryColor }}>
+                <span className="text-[12px] font-bold" style={{ color: categoryColor }}>
                   {item.label.replace(/^[^ ]+ /, '')}
                 </span>
               </div>
-              <p className="text-[11px] text-gray-300 leading-relaxed">
+              <p className="text-[12px] text-gray-300 leading-relaxed">
                 {category.categoryTraits[item.key]}
               </p>
             </div>
@@ -244,7 +244,7 @@ function TraitsTab({
           {['성적 하락', '자신감 상실', '악순환 주의'].map((tag) => (
             <span
               key={tag}
-              className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+              className="text-[11px] font-bold px-2 py-0.5 rounded-full"
               style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171' }}
             >
               ⚠️ {tag}
@@ -303,10 +303,10 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             >
               <span className="text-lg flex-shrink-0">{q.emoji}</span>
               <div className="min-w-0">
-                <p className="text-[10px] font-bold mb-0.5" style={{ color: categoryColor }}>
+                <p className="text-[12px] font-bold mb-0.5" style={{ color: categoryColor }}>
                   {q.focusArea}
                 </p>
-                <p className="text-[11px] text-gray-400 leading-relaxed">{q.question}</p>
+                <p className="text-[12px] text-gray-400 leading-relaxed">{q.question}</p>
               </div>
             </div>
           ))}
@@ -336,10 +336,10 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         {/* 진행 바 */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-[10px] font-bold text-gray-400">
+            <span className="text-[11px] font-bold text-gray-400">
               {index + 1} / {questions.length}
             </span>
-            <span className="text-[10px] text-gray-500">
+            <span className="text-[12px] text-gray-500">
               {Math.round(progress)}% 완료
             </span>
           </div>
@@ -386,13 +386,13 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         >
           <span className="text-5xl">{current.emoji}</span>
           <span
-            className="text-[10px] font-bold px-2 py-1 rounded-full"
+            className="text-[11px] font-bold px-2 py-1 rounded-full"
             style={{ background: `${categoryColor}28`, color: categoryColor }}
           >
             {current.focusArea}
           </span>
           <p className="text-[15px] font-semibold text-white leading-relaxed">{current.question}</p>
-          <p className="text-[10px] text-gray-500">솔직하게 답해보세요</p>
+          <p className="text-[12px] text-gray-500">솔직하게 답해보세요</p>
         </div>
 
         {/* 4지선다 버튼 */}
@@ -413,7 +413,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-[12px] font-semibold leading-relaxed text-gray-100">{choice.label}</p>
                   <span
-                    className="text-[10px] px-2 py-0.5 rounded-full font-bold flex-shrink-0"
+                    className="text-[11px] px-2 py-0.5 rounded-full font-bold flex-shrink-0"
                     style={{ color: choiceColor, background: `${choiceColor}22` }}
                   >
                     {choice.score}점
@@ -464,7 +464,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             />
           ))}
         </div>
-        <p className="text-[11px] font-bold" style={{ color: categoryColor }}>
+        <p className="text-[12px] font-bold" style={{ color: categoryColor }}>
           {totalScore} / {normalizedMaxScore}점 ({Math.round(ratio * 100)}%)
         </p>
       </div>
@@ -482,13 +482,13 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             <div key={i} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.03)' }}>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-base flex-shrink-0">{q.emoji}</span>
-                <p className="text-[11px] text-gray-300 flex-1 leading-relaxed">{q.question}</p>
+                <p className="text-[12px] text-gray-300 flex-1 leading-relaxed">{q.question}</p>
               </div>
-              <p className="text-[11px] font-semibold text-gray-100">
+              <p className="text-[12px] font-semibold text-gray-100">
                 선택: {answer.label} ({answer.score}점)
               </p>
               {answer.feedback ? (
-                <p className="text-[10px] text-gray-400 mt-0.5 leading-relaxed">{answer.feedback}</p>
+                <p className="text-[12px] text-gray-400 mt-0.5 leading-relaxed">{answer.feedback}</p>
               ) : null}
             </div>
           );
@@ -541,11 +541,11 @@ function EnvironmentTab({
           className="px-3 py-2.5 flex items-center justify-between"
           style={{ background: `${categoryColor}15` }}
         >
-          <p className="text-[11px] font-bold" style={{ color: categoryColor }}>
+          <p className="text-[12px] font-bold" style={{ color: categoryColor }}>
             👥 엘리트 환경 적응 체크리스트
           </p>
           <span
-            className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+            className="text-[11px] font-bold px-2 py-0.5 rounded-full"
             style={{ background: `${categoryColor}30`, color: categoryColor }}
           >
             {checkedCount} / {total}
@@ -616,7 +616,7 @@ function EnvironmentTab({
         <p className="text-[11px] font-bold text-gray-400">💡 추가로 알아두면 좋아요</p>
         {additionalGuidance.map((g, i) => (
           <div key={i} className="flex items-start gap-2">
-            <span className="text-[11px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
+            <span className="text-[12px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
             <p className="text-[12px] text-gray-300 leading-relaxed">{g}</p>
           </div>
         ))}

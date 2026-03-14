@@ -139,10 +139,10 @@ function TraitRow({
         className="flex items-center gap-1 flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded-lg"
         style={{ background: `${color}15` }}
       >
-        <span className="text-[11px]">{emoji}</span>
-        <span className="text-[10px] font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
+        <span className="text-[12px]">{emoji}</span>
+        <span className="text-[12px] font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
       </div>
-      <p className="text-[11px] text-gray-300 leading-relaxed">{value}</p>
+      <p className="text-[12px] text-gray-300 leading-relaxed">{value}</p>
     </div>
   );
 }
@@ -198,30 +198,30 @@ function SchoolListCard({
           <div className="flex items-center gap-1.5 mb-0.5">
             <span className="text-sm font-bold text-white truncate">{school.name}</span>
             {school.ibCertified && (
-              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981' }}>
+              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981' }}>
                 IB
               </span>
             )}
             {school.dormitory && (
-              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
+              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
                 🏠
               </span>
             )}
           </div>
-          <p className="text-[11px] text-gray-400 line-clamp-1 mb-1">{shortDesc}</p>
+          <p className="text-[12px] text-gray-400 line-clamp-1 mb-1">{shortDesc}</p>
           
           {/* 하단: 지역·난이도·정원 */}
           <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3 flex-shrink-0 text-gray-500" />
-              <span className="text-[10px] text-gray-500">{school.location}</span>
+              <span className="text-[12px] text-gray-500">{school.location}</span>
             </div>
             <div className="flex items-center gap-1">
               <DifficultyDots level={school.difficulty} color={categoryColor} />
-              <span className="text-[10px] text-gray-500">{difficultyText}</span>
+              <span className="text-[12px] text-gray-500">{difficultyText}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-[10px] text-gray-500">👥 {school.annualAdmission}명</span>
+              <span className="text-[12px] text-gray-500">👥 {school.annualAdmission}명</span>
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@ function SchoolListCard({
           {school.famousPrograms.slice(0, 3).map((prog, idx) => (
             <span
               key={idx}
-              className="text-[10px] px-2 py-0.5 rounded-full text-gray-300"
+              className="text-[11px] px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.06)' }}
             >
               {prog}

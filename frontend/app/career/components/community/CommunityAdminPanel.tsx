@@ -53,7 +53,7 @@ export function CommunityAdminPanel({ onApprove }: Props) {
           {LABELS.title}
           {requests.length > 0 && (
             <span
-              className="text-[10px] px-1.5 py-0.5 rounded-full"
+              className="text-[12px] px-1.5 py-0.5 rounded-full"
               style={{ backgroundColor: 'rgba(251,191,36,0.2)', color: '#FBBF24' }}
             >
               {requests.length}
@@ -76,13 +76,13 @@ export function CommunityAdminPanel({ onApprove }: Props) {
               >
                 <p className="text-sm text-gray-200 whitespace-pre-wrap">{req.message}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] text-gray-500">
+                  <span className="text-[12px] text-gray-500">
                     {new Date(req.createdAt).toLocaleString('ko-KR', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                   </span>
                   <div className="flex gap-2">
                     <button
                       onClick={() => handleDeny(req.id)}
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all active:scale-95"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[12px] font-bold transition-all active:scale-95"
                       style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#EF4444', border: '1px solid rgba(239,68,68,0.25)' }}
                     >
                       <X className="w-3 h-3" />
@@ -90,7 +90,7 @@ export function CommunityAdminPanel({ onApprove }: Props) {
                     </button>
                     <button
                       onClick={() => handleApprove(req.id)}
-                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-bold transition-all active:scale-95"
+                      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-[12px] font-bold transition-all active:scale-95"
                       style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.25)' }}
                     >
                       <Check className="w-3 h-3" />

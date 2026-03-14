@@ -282,7 +282,7 @@ function CareerPageContent() {
               }}
             >
               <span className="text-base">{selectedPlan.jobEmoji}</span>
-              <span className="text-[11px] font-bold" style={{ color: selectedPlan.starColor }}>
+              <span className="text-[12px] font-bold" style={{ color: selectedPlan.starColor }}>
                 {selectedPlan.jobName}
               </span>
             </div>

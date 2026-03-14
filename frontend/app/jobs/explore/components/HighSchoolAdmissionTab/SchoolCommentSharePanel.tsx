@@ -313,11 +313,11 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
   return (
     <div className="rounded-2xl p-3 space-y-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="flex items-center justify-between gap-2">
-        <p className="text-[11px] font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
+        <p className="text-[12px] font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
           <MessageSquare className="w-3.5 h-3.5" />
           내용 공유 댓글
         </p>
-        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${categoryColor}20`, color: categoryColor }}>
+        <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ background: `${categoryColor}20`, color: categoryColor }}>
           {allComments.length}개
         </span>
       </div>
@@ -329,7 +329,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
             <button
               key={item.id}
               onClick={() => setActiveFilter(item.id as CommentFilter)}
-              className="text-[10px] px-2.5 py-1 rounded-full font-semibold"
+              className="text-[11px] px-2.5 py-1 rounded-full font-semibold"
               style={{
                 background: isActive ? `${categoryColor}22` : 'rgba(255,255,255,0.06)',
                 color: isActive ? categoryColor : '#9ca3af',
@@ -343,7 +343,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
       </div>
 
       {filteredComments.length === 0 ? (
-        <p className="text-[11px] text-gray-500 py-2 text-center">아직 댓글이 없습니다. 첫 댓글을 남겨보세요!</p>
+        <p className="text-[12px] text-gray-500 py-2 text-center">아직 댓글이 없습니다. 첫 댓글을 남겨보세요!</p>
       ) : (
         <div className="space-y-2">
           {previewComments.map((comment) => {
@@ -355,15 +355,15 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
               <div key={comment.id} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)' }}>
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ color: meta.color, background: `${meta.color}20` }}>
+                    <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ color: meta.color, background: `${meta.color}20` }}>
                       {meta.label}
                     </span>
                     {comment.source === 'dummy' ? (
-                      <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full text-violet-300 bg-violet-400/15">
+                      <span className="text-[11px] font-semibold px-1.5 py-0.5 rounded-full text-violet-300 bg-violet-400/15">
                         더미
                       </span>
                     ) : null}
-                    <span className="text-[10px] text-gray-500">{timeAgo(comment.createdAt)}</span>
+                    <span className="text-[12px] text-gray-500">{timeAgo(comment.createdAt)}</span>
                   </div>
                   {comment.source !== 'dummy' ? (
                     <button onClick={() => deleteComment(comment.id)} className="p-1 rounded-md text-gray-500 hover:text-gray-300" aria-label="댓글 삭제">
@@ -372,14 +372,14 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
                   ) : null}
                 </div>
 
-                <p className="text-[11px] text-gray-300 leading-relaxed break-words">{comment.content}</p>
+                <p className="text-[12px] text-gray-300 leading-relaxed break-words">{comment.content}</p>
 
                 {comment.replies.length > 0 ? (
                   <div className="mt-2 space-y-1.5 pl-2 border-l border-white/10">
                     {comment.replies.map((reply) => (
                       <div key={reply.id} className="rounded-lg px-2 py-1.5 bg-white/5">
                         <div className="flex items-center justify-between gap-2 mb-0.5">
-                          <span className="text-[10px] text-gray-500">{timeAgo(reply.createdAt)}</span>
+                          <span className="text-[12px] text-gray-500">{timeAgo(reply.createdAt)}</span>
                           <button
                             onClick={() => deleteReply(comment.id, reply.id)}
                             className="p-1 rounded-md text-gray-500 hover:text-gray-300"
@@ -388,7 +388,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
                             <Trash2 className="w-3 h-3" />
                           </button>
                         </div>
-                        <p className="text-[11px] text-gray-300 leading-relaxed">{reply.content}</p>
+                        <p className="text-[12px] text-gray-300 leading-relaxed">{reply.content}</p>
                       </div>
                     ))}
                   </div>
@@ -397,7 +397,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
                 <div className="mt-2">
                   <button
                     onClick={() => setReplyComposerCommentId(isReplyComposerOpen ? null : comment.id)}
-                    className="text-[10px] font-semibold px-2 py-1 rounded-full"
+                    className="text-[11px] font-semibold px-2 py-1 rounded-full"
                     style={{ background: `${categoryColor}20`, color: categoryColor }}
                   >
                     {isReplyComposerOpen ? '답글 닫기' : '댓글 달기'}
@@ -416,7 +416,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
                         }
                       }}
                       placeholder="답글을 입력하세요"
-                      className="flex-1 rounded-lg px-2.5 py-2 text-[11px] bg-white/5 border border-white/10 text-gray-100 outline-none"
+                      className="flex-1 rounded-lg px-2.5 py-2 text-[12px] bg-white/5 border border-white/10 text-gray-100 outline-none"
                     />
                     <button
                       onClick={() => submitInlineReply(comment.id)}
@@ -448,7 +448,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
       ) : null}
 
       <div className="rounded-xl p-2.5 space-y-2" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-        <p className="text-[10px] text-gray-500">댓글 작성 (하단 영역)</p>
+        <p className="text-[11px] text-gray-500">댓글 작성 (하단 영역)</p>
         <div className="flex flex-wrap gap-1.5">
           {Object.entries(COMMENT_CATEGORY_META).map(([categoryId, meta]) => {
             const isSelected = selectedCategory === categoryId;
@@ -456,7 +456,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
               <button
                 key={categoryId}
                 onClick={() => setSelectedCategory(categoryId as CommentCategory)}
-                className="text-[10px] px-2.5 py-1 rounded-full font-semibold"
+                className="text-[11px] px-2.5 py-1 rounded-full font-semibold"
                 style={{
                   background: isSelected ? `${meta.color}20` : 'rgba(255,255,255,0.06)',
                   color: isSelected ? meta.color : '#9ca3af',
@@ -480,7 +480,7 @@ export function SchoolCommentSharePanel({ schoolId, schoolName, categoryColor }:
               }
             }}
             placeholder="학교 선택 팁이나 후기를 댓글로 공유해보세요"
-            className="flex-1 rounded-lg px-2.5 py-2 text-[11px] bg-white/5 border border-white/10 text-gray-100 outline-none"
+            className="flex-1 rounded-lg px-2.5 py-2 text-[12px] bg-white/5 border border-white/10 text-gray-100 outline-none"
           />
           <button
             onClick={addComment}

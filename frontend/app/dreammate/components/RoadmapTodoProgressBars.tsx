@@ -32,7 +32,7 @@ export function RoadmapTodoProgressBarCard({
       className="rounded-lg px-2.5 py-2"
       style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      <div className="flex items-center justify-between gap-2 text-[10px]">
+      <div className="flex items-center justify-between gap-2 text-xs">
         <span className="text-gray-300 font-semibold">{title}</span>
         <div className="flex items-center gap-1.5 text-gray-400">
           <span>{doneCount}/{totalCount}</span>
@@ -62,7 +62,7 @@ export function RoadmapTodoInlineProgressBar({
 
   return (
     <div className="min-w-[110px]">
-      <div className="flex items-center justify-between gap-1 text-[9px] text-gray-400">
+      <div className="flex items-center justify-between gap-1 text-xs text-gray-400">
         <span>{doneCount}/{totalCount}</span>
         <span>{progressPercent}%</span>
       </div>

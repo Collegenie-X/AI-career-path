@@ -70,16 +70,21 @@ function TemplateRow({
 
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer"
-      style={{ border: `1px solid ${template.starColor}18`, backgroundColor: 'rgba(255,255,255,0.03)' }}
+      className="group rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-[0.99] hover:brightness-110"
+      style={{
+        border: `2px solid ${template.starColor}30`,
+        background: `linear-gradient(135deg, ${template.starColor}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${template.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
+      }}
       onClick={onShowDetail}
     >
-      <div className="w-full flex items-center gap-3 px-4 py-3.5">
+      <div className="w-full flex items-center gap-4 px-5 py-4">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${template.starColor}28, ${template.starColor}10)`,
-            border: `1px solid ${template.starColor}30`,
+            background: `linear-gradient(135deg, ${template.starColor}35, ${template.starColor}12)`,
+            border: `2px solid ${template.starColor}40`,
+            boxShadow: `0 0 20px ${template.starColor}25`,
           }}
         >
           {template.jobEmoji}
@@ -87,27 +92,27 @@ function TemplateRow({
 
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
-          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] text-gray-400">{template.starEmoji} {template.starName}</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{template.totalItems}개</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{template.years.length}학년</span>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{template.totalItems}개</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{template.years.length}학년</span>
             {template.authorType === 'official' && (
-              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
                 style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
             )}
           </div>
         </div>
 
-        <div className="flex items-center gap-1 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={handleLike}
-            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all"
+            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
             style={liked ? { color: '#FF6477' } : { color: '#555570' }}
           >
             <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
-            <span className="text-[10px] font-semibold">{localLikes}</span>
+            <span className="text-[12px] font-semibold">{localLikes}</span>
           </button>
           <button
             onClick={onToggleBookmark}
@@ -119,7 +124,16 @@ function TemplateRow({
               ? <BookmarkCheck className="w-3.5 h-3.5" />
               : <Bookmark className="w-3.5 h-3.5" />}
           </button>
-          <ChevronRight className="w-4 h-4 text-gray-500" />
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110 group-hover:shadow-lg"
+            style={{
+              background: `linear-gradient(135deg, ${template.starColor}60, ${template.starColor}35)`,
+              border: `2px solid ${template.starColor}70`,
+              boxShadow: `0 0 20px ${template.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+            }}
+          >
+            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+          </div>
         </div>
       </div>
     </div>
@@ -138,45 +152,56 @@ function MyPublicPlanCard({ plan, onClick }: { plan: CareerPlan; onClick: () => 
 
   return (
     <div
-      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99]"
+      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
       style={{
-        border: `1px solid ${plan.starColor}30`,
-        background: `linear-gradient(135deg, ${plan.starColor}12, ${plan.starColor}06)`,
+        border: `2px solid ${plan.starColor}35`,
+        background: `linear-gradient(135deg, ${plan.starColor}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
       onClick={onClick}
     >
-      <div className="flex items-center gap-3 px-4 py-3.5">
+      <div className="flex items-center gap-4 px-5 py-4">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
-            border: `1px solid ${plan.starColor}30`,
+            background: `linear-gradient(135deg, ${plan.starColor}35, ${plan.starColor}12)`,
+            border: `2px solid ${plan.starColor}40`,
+            boxShadow: `0 0 20px ${plan.starColor}25`,
           }}
         >
           {plan.jobEmoji}
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
-          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] text-gray-400">{plan.starEmoji} {plan.starName}</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{plan.years.length}학년 · {totalItems}개</span>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="text-[12px] text-gray-400">{plan.starEmoji} {plan.starName}</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{plan.years.length}학년 · {totalItems}개</span>
             {sharedDate && (
               <>
-                <span className="text-[10px] text-gray-600">·</span>
-                <span className="text-[10px] text-gray-500">{sharedDate} 공개</span>
+                <span className="text-[12px] text-gray-600">·</span>
+                <span className="text-[12px] text-gray-500">{sharedDate} 공개</span>
               </>
             )}
           </div>
         </div>
-        <div className="flex items-center gap-1.5 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <span
-            className="flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full"
+            className="flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full"
             style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.25)' }}
           >
             <Globe style={{ width: 9, height: 9 }} />공개중
           </span>
-          <ChevronRight className="w-4 h-4 text-gray-500" />
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
+            style={{
+              background: `linear-gradient(135deg, ${plan.starColor}60, ${plan.starColor}35)`,
+              border: `2px solid ${plan.starColor}70`,
+              boxShadow: `0 0 20px ${plan.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+            }}
+          >
+            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+          </div>
         </div>
       </div>
     </div>
@@ -195,40 +220,57 @@ function BookmarkedTemplateCard({
 }) {
   return (
     <div
-      className="rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99]"
-      style={{ border: `1px solid ${template.starColor}28`, backgroundColor: 'rgba(255,255,255,0.03)' }}
+      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
+      style={{
+        border: `2px solid ${template.starColor}30`,
+        background: `linear-gradient(135deg, ${template.starColor}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${template.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
+      }}
       onClick={onShowDetail}
     >
-      <div className="flex items-center gap-3 px-4 py-3.5">
+      <div className="flex items-center gap-4 px-5 py-4">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${template.starColor}28, ${template.starColor}10)`,
-            border: `1px solid ${template.starColor}30`,
+            background: `linear-gradient(135deg, ${template.starColor}35, ${template.starColor}12)`,
+            border: `2px solid ${template.starColor}40`,
+            boxShadow: `0 0 20px ${template.starColor}25`,
           }}
         >
           {template.jobEmoji}
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
-          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] text-gray-400">{template.starEmoji} {template.starName}</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{template.totalItems}개 · {template.years.length}학년</span>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{template.totalItems}개 · {template.years.length}학년</span>
             {template.authorType === 'official' && (
-              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full"
+              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
                 style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
             )}
           </div>
         </div>
-        <button
-          onClick={onRemoveBookmark}
-          className="p-1.5 rounded-lg transition-all active:scale-95 flex-shrink-0"
-          style={{ color: '#FBBF24' }}
-          title="즐겨찾기 해제"
-        >
-          <BookmarkCheck className="w-4 h-4" />
-        </button>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button
+            onClick={onRemoveBookmark}
+            className="p-1.5 rounded-lg transition-all active:scale-95 flex-shrink-0"
+            style={{ color: '#FBBF24' }}
+            title="즐겨찾기 해제"
+          >
+            <BookmarkCheck className="w-4 h-4" />
+          </button>
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
+            style={{
+              background: `linear-gradient(135deg, ${template.starColor}60, ${template.starColor}35)`,
+              border: `2px solid ${template.starColor}70`,
+              boxShadow: `0 0 20px ${template.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+            }}
+          >
+            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -254,47 +296,62 @@ function BookmarkedCommunityCard({
 
   return (
     <div
-      className="rounded-2xl overflow-hidden"
-      style={{ border: `1px solid ${plan.starColor}22`, backgroundColor: 'rgba(255,255,255,0.03)' }}
+      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
+      style={{
+        border: `2px solid ${plan.starColor}30`,
+        background: `linear-gradient(135deg, ${plan.starColor}12, rgba(255,255,255,0.04))`,
+        boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
+      }}
     >
-      <div className="flex items-center gap-3 px-4 py-3.5">
+      <div className="flex items-center gap-4 px-5 py-4">
         <div
-          className="w-11 h-11 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
           style={{
-            background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
-            border: `1px solid ${plan.starColor}30`,
+            background: `linear-gradient(135deg, ${plan.starColor}35, ${plan.starColor}12)`,
+            border: `2px solid ${plan.starColor}40`,
+            boxShadow: `0 0 20px ${plan.starColor}25`,
           }}
         >
           {plan.jobEmoji}
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
-          <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span className="text-[10px] text-gray-400">{plan.ownerEmoji} {plan.ownerName}</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{plan.jobEmoji} {plan.jobName}</span>
-            <span className="text-[10px] text-gray-600">·</span>
-            <span className="text-[10px] text-gray-500">{sharedDate}</span>
+          <div className="flex items-center gap-2 mt-1 flex-wrap">
+            <span className="text-[12px] text-gray-400">{plan.ownerEmoji} {plan.ownerName}</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{plan.jobEmoji} {plan.jobName}</span>
+            <span className="text-[12px] text-gray-600">·</span>
+            <span className="text-[12px] text-gray-500">{sharedDate}</span>
           </div>
         </div>
-        <div className="flex items-center gap-1 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0">
           <button
             onClick={e => { e.stopPropagation(); onToggleLike(); }}
-            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg transition-all"
+            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
             style={isLiked ? { color: '#FF6477' } : { color: '#555570' }}
           >
             <Heart className="w-3.5 h-3.5" fill={isLiked ? '#FF6477' : 'none'} />
-            <span className="text-[10px] font-semibold">{likeCount}</span>
+            <span className="text-[12px] font-semibold">{likeCount}</span>
           </button>
           <button
             onClick={e => { e.stopPropagation(); onToggleBookmark(); }}
-            className="flex items-center gap-0.5 px-1.5 py-1 rounded-lg transition-all"
+            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
             style={{ color: '#FBBF24' }}
             title="즐겨찾기 해제"
           >
             <BookmarkCheck className="w-3.5 h-3.5" />
-            <span className="text-[10px] font-semibold">{bookmarkCount}</span>
+            <span className="text-[12px] font-semibold">{bookmarkCount}</span>
           </button>
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
+            style={{
+              background: `linear-gradient(135deg, ${plan.starColor}60, ${plan.starColor}35)`,
+              border: `2px solid ${plan.starColor}70`,
+              boxShadow: `0 0 20px ${plan.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
+            }}
+          >
+            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+          </div>
         </div>
       </div>
     </div>
@@ -455,7 +512,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 </div>
                 <div>
                   <div className="text-sm font-black text-white">{templates.length}</div>
-                  <div className="text-[9px] text-gray-500 -mt-0.5">커리어 패스</div>
+                  <div className="text-[12px] text-gray-500 -mt-0.5">커리어 패스</div>
                 </div>
               </div>
               <div className="w-px h-6 bg-white/10" />
@@ -466,7 +523,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 </div>
                 <div>
                   <div className="text-sm font-black text-white">8</div>
-                  <div className="text-[9px] text-gray-500 -mt-0.5">왕국</div>
+                  <div className="text-[12px] text-gray-500 -mt-0.5">왕국</div>
                 </div>
               </div>
               <div className="w-px h-6 bg-white/10" />
@@ -479,7 +536,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                   <div className="text-sm font-black text-white">
                     {templates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
                   </div>
-                  <div className="text-[9px] text-gray-500 -mt-0.5">총 사용</div>
+                  <div className="text-[12px] text-gray-500 -mt-0.5">총 사용</div>
                 </div>
               </div>
             </div>
@@ -488,11 +545,11 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
 
         {/* ── 즐겨찾기 섹션 (템플릿 + 커뮤니티 통합) ── */}
         {totalBookmarkCount > 0 && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
               <span className="text-xs font-bold text-white">즐겨찾기</span>
-              <span className="text-[10px] text-gray-500">{totalBookmarkCount}개 저장됨</span>
+              <span className="text-[12px] text-gray-500">{totalBookmarkCount}개 저장됨</span>
             </div>
 
             {/* 템플릿 즐겨찾기 */}
@@ -524,11 +581,11 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
 
         {/* ── 내가 공유한 패스 섹션 ── */}
         {(myPublicPlans ?? []).length > 0 && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             <div className="flex items-center gap-2">
               <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
               <span className="text-xs font-bold text-white">내가 공유한 패스</span>
-              <span className="text-[10px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
+              <span className="text-[12px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
             </div>
             {(myPublicPlans ?? []).map(plan => (
               <MyPublicPlanCard
@@ -560,7 +617,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
         {/* ── Count line ── */}
         <div className="flex items-center justify-between px-0.5">
           <span className="text-xs font-semibold text-gray-400">{filtered.length}개 커리어 패스</span>
-          <span className="text-[10px] text-gray-600">탭해서 상세보기</span>
+          <span className="text-[12px] text-gray-600">탭해서 상세보기</span>
         </div>
 
         {/* ── Template list ── */}
@@ -570,7 +627,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
             <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
           </div>
         ) : (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {filtered.map(template => (
               <TemplateRow
                 key={template.id}

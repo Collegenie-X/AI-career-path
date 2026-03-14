@@ -73,7 +73,7 @@ function CommentItem({
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <span className="text-sm font-semibold text-white">{comment.userName}</span>
-            <span className="text-[11px] text-gray-500">{comment.timestamp}</span>
+            <span className="text-[12px] text-gray-500">{comment.timestamp}</span>
           </div>
           <div className="flex items-center gap-0.5 flex-shrink-0">
             {isOwn ? (
@@ -349,7 +349,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                 <span className="text-xs text-gray-500">{template.totalItems}개 항목</span>
                 {template.authorType === 'official' && (
                   <span
-                    className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                    className="text-[12px] font-bold px-2 py-0.5 rounded-full"
                     style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}
                   >
                     ✓ 공식
@@ -482,7 +482,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                           backgroundColor: template.starColor,
                           color: '#fff',
                           boxShadow: `0 0 0 3px #0d0d24, 0 0 10px ${template.starColor}55`,
-                          fontSize: 11,
+                          fontSize: 12,
                         }}
                       >
                         {year.gradeLabel}
@@ -551,7 +551,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                   </div>
                                   <div className="flex-1 min-w-0">
                                     <div
-                                      className="text-[10px] font-bold uppercase tracking-wider mb-0.5"
+                                      className="text-[12px] font-bold uppercase tracking-wider mb-0.5"
                                       style={{ color: template.starColor }}
                                     >
                                       목표
@@ -568,7 +568,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                     {/* 섹션 라벨 */}
                                     <div className="flex items-center gap-1 px-1 mb-1">
                                       <Sparkles style={{ width: 10, height: 10, color: '#6b7280' }} />
-                                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+                                      <span className="text-[12px] font-bold text-gray-500 uppercase tracking-wider">
                                         활동 · 수상 · 자격증
                                       </span>
                                     </div>
@@ -608,7 +608,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                             <div className="text-xs font-semibold text-white leading-snug">{item.title}</div>
                                             <div className="flex items-center gap-1.5 mt-1 flex-wrap">
                                               <span
-                                                className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+                                                className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
                                                 style={{
                                                   backgroundColor: `${typeConf?.color ?? template.starColor}22`,
                                                   color: typeConf?.color ?? template.starColor,
@@ -616,35 +616,35 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                               >
                                                 {typeConf?.label}
                                               </span>
-                                              <span className="text-[10px] text-gray-500 flex items-center gap-0.5">
+                                              <span className="text-[12px] text-gray-500 flex items-center gap-0.5">
                                                 <Calendar style={{ width: 9, height: 9 }} />
                                                 {monthLabel}
                                               </span>
                                               {item.cost && (
-                                                <span className="text-[10px] text-gray-600">{item.cost}</span>
+                                                <span className="text-[12px] text-gray-600">{item.cost}</span>
                                               )}
                                               {item.difficulty > 0 && (
-                                                <span className="text-[10px] text-gray-600">
+                                                <span className="text-[12px] text-gray-600">
                                                   {'★'.repeat(item.difficulty)}{'☆'.repeat(5 - item.difficulty)}
                                                 </span>
                                               )}
                                             </div>
                                             {item.organizer && (
-                                              <div className="text-[10px] text-gray-600 mt-0.5">🏢 {item.organizer}</div>
+                                              <div className="text-[12px] text-gray-600 mt-0.5">🏢 {item.organizer}</div>
                                             )}
                                             {item.url && (
                                               <a
                                                 href={item.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="flex items-center gap-1 mt-1 text-[10px] text-blue-400 hover:underline"
+                                                className="flex items-center gap-1 mt-1 text-[12px] text-blue-400 hover:underline"
                                               >
                                                 <LinkIcon style={{ width: 9, height: 9 }} />
                                                 {item.url}
                                               </a>
                                             )}
                                             {item.description && (
-                                              <div className="text-[10px] text-gray-500 mt-1 leading-relaxed">{item.description}</div>
+                                              <div className="text-[12px] text-gray-500 mt-1 leading-relaxed">{item.description}</div>
                                             )}
                                             {/* Sub-items preview */}
                                             {Array.isArray(item.subItems) && item.subItems.length > 0 && (
@@ -652,13 +652,13 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                                 style={{ borderColor: `${typeConf?.color ?? template.starColor}40` }}>
                                                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                                 {item.subItems.slice(0, 3).map((sub: any) => (
-                                                  <div key={sub.id} className="flex items-center gap-1 text-[10px] text-gray-500">
+                                                  <div key={sub.id} className="flex items-center gap-1 text-[12px] text-gray-500">
                                                     <span className="w-1 h-1 rounded-full bg-gray-600 flex-shrink-0" />
                                                     {sub.title}
                                                   </div>
                                                 ))}
                                                 {item.subItems.length > 3 && (
-                                                  <div className="text-[10px] text-gray-600">+{item.subItems.length - 3}개 더</div>
+                                                  <div className="text-[12px] text-gray-600">+{item.subItems.length - 3}개 더</div>
                                                 )}
                                               </div>
                                             )}

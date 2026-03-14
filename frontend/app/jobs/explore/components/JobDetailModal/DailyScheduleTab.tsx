@@ -76,7 +76,7 @@ export function DailyScheduleTab({ job, star }: DailyScheduleTabProps) {
                   <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <span className="text-white text-sm font-semibold leading-tight">{item.activity}</span>
                     <span
-                      className="text-[10px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+                      className="text-[11px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
                       style={{ background: `${typeColor}22`, color: typeColor, border: `1px solid ${typeColor}44` }}
                     >
                       {SCHEDULE_TYPE_LABELS[item.type]}

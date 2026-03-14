@@ -78,7 +78,7 @@ export function StarInfoBanner({ star, onOpenDetail, compact }: StarInfoBannerPr
                   <User className="w-4 h-4" style={{ color: star.color }} />
                 </div>
                 <div className="flex-1 text-left min-w-0">
-                  <span className="text-[10px] text-gray-500 block">{LABELS.star_job_tendency_label}</span>
+                  <span className="text-[12px] text-gray-500 block">{LABELS.star_job_tendency_label}</span>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span
                       className="text-xs font-bold px-2 py-0.5 rounded-full inline-block"
@@ -86,7 +86,7 @@ export function StarInfoBanner({ star, onOpenDetail, compact }: StarInfoBannerPr
                     >
                       {hollandCode}
                     </span>
-                    <span className="text-[10px] text-gray-600">{LABELS.star_job_tendency_hint}</span>
+                    <span className="text-[12px] text-gray-600">{LABELS.star_job_tendency_hint}</span>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export function StarInfoBanner({ star, onOpenDetail, compact }: StarInfoBannerPr
                   <BarChart2 className="w-4 h-4" style={{ color: star.color }} />
                 </div>
                 <div className="flex-1 text-left min-w-0">
-                  <span className="text-[10px] text-gray-500 block">{LABELS.star_difficulty_label}</span>
+                  <span className="text-[12px] text-gray-500 block">{LABELS.star_difficulty_label}</span>
                   <div className="flex items-center gap-2 flex-wrap">
                     <DifficultyDots level={difficultyLevel} color={star.color} />
                     <span className="text-xs font-bold" style={{ color: star.color }}>
@@ -120,13 +120,13 @@ export function StarInfoBanner({ star, onOpenDetail, compact }: StarInfoBannerPr
                   <Clock className="w-4 h-4" style={{ color: star.color }} />
                 </div>
                 <div className="flex-1 text-left min-w-0">
-                  <span className="text-[10px] text-gray-500 block">{LABELS.star_preparation_label}</span>
+                  <span className="text-[12px] text-gray-500 block">{LABELS.star_preparation_label}</span>
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-sm font-bold" style={{ color: star.color }}>
                       {LABELS.star_preparation_years_prefix} {avgYears}
                       {LABELS.star_preparation_unit}
                     </span>
-                    <span className="text-[10px] text-gray-600">{LABELS.star_preparation_hint}</span>
+                    <span className="text-[12px] text-gray-600">{LABELS.star_preparation_hint}</span>
                   </div>
                 </div>
               </div>
