@@ -4,7 +4,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { COLORS } from '../config/theme';
 import { storage } from '../lib/storage';
-import { getLevelForXP, getXPProgress } from '../lib/xp';
+import { getLevelForXP } from '../lib/xp';
 import { FloatingParticles } from '../components/FloatingParticles';
 import { HeroSection } from '../components/home/HeroSection';
 import { CareerPathSection } from '../components/home/CareerPathSection';
@@ -52,7 +52,6 @@ export function HomeScreen() {
   if (!userData) return null;
 
   const currentLevel = getLevelForXP(currentXP);
-  const progress = getXPProgress(currentXP);
 
   const handleJobClick = (starId: string, jobId?: string) => {
     Alert.alert('직업 탐험', `${starId ? `별: ${starId}` : '전체'} ${jobId ? `직업: ${jobId}` : ''}`, [
@@ -71,8 +70,6 @@ export function HomeScreen() {
       <HeroSection
         nickname={userData.nickname}
         level={currentLevel}
-        progress={progress}
-        currentXP={currentXP}
         onSettings={() => Alert.alert('설정', '설정 화면은 추후 구현됩니다.')}
       />
 

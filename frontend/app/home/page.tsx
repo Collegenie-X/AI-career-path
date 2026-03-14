@@ -7,7 +7,7 @@ import { TabBar } from '@/components/tab-bar';
 import { BadgeToastManager } from '@/components/badge-toast';
 import { WhyTabStructureSection } from './components/why-tab-structure-section';
 import { useBadgeChecker } from '@/hooks/use-badge-checker';
-import { getLevelForXP, getXPProgress } from '@/lib/xp';
+import { getLevelForXP } from '@/lib/xp';
 import exploreStar from '@/data/stars/explore-star.json';
 import createStar from '@/data/stars/create-star.json';
 import techStar from '@/data/stars/tech-star.json';
@@ -106,13 +106,10 @@ function FloatingParticles() {
 
 /* ─── Hero Section ─── */
 function HeroSection({
-  nickname, level, progress, currentXP,
-  onSettings,
+  nickname, level, onSettings,
 }: {
   nickname: string;
   level: { level: number; name: string };
-  progress: { current: number; max: number; percentage: number };
-  currentXP: number;
   onSettings: () => void;
 }) {
   const greetings = ['안녕하세요', '오늘도 파이팅', '어서오세요'];
@@ -156,52 +153,6 @@ function HeroSection({
         >
           <Settings className="w-4.5 h-4.5 text-gray-300" />
         </button>
-      </div>
-
-      {/* XP Bar card */}
-      <div
-        className="rounded-2xl p-4 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, rgba(108,92,231,0.25) 0%, rgba(168,85,247,0.15) 100%)',
-          border: '1px solid rgba(108,92,231,0.4)',
-        }}
-      >
-        <div className="absolute -right-4 -top-4 opacity-10">
-          <Star className="w-20 h-20 text-yellow-400" style={{ animation: 'sparkle-spin 8s linear infinite' }} />
-        </div>
-        <div className="flex items-center justify-between mb-2.5">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg flex items-center justify-center"
-              style={{ background: 'rgba(251,191,36,0.2)' }}>
-              <Zap className="w-3.5 h-3.5 text-yellow-400" />
-            </div>
-            <span className="text-sm font-bold text-white">경험치</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-black text-yellow-400">{progress.current}</span>
-            <span className="text-xs text-gray-500">/</span>
-            <span className="text-xs text-gray-400">{progress.max} XP</span>
-          </div>
-        </div>
-        <div className="h-3.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
-          <div
-            className="h-full rounded-full relative"
-            style={{
-              width: `${progress.percentage}%`,
-              background: 'linear-gradient(90deg, #6C5CE7, #A855F7, #EC4899)',
-              backgroundSize: '200% 100%',
-              animation: 'shimmer 2s ease-in-out infinite',
-              transition: 'width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
-              boxShadow: '0 0 12px rgba(168,85,247,0.6)',
-            }}
-          >
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.9)]" />
-          </div>
-        </div>
-        <div className="flex justify-between mt-1.5">
-          <span className="text-[10px] text-gray-500">다음 레벨까지</span>
-          <span className="text-[10px] text-purple-400 font-bold">{progress.max - progress.current} XP 남음</span>
-        </div>
       </div>
     </div>
   );
@@ -815,7 +766,6 @@ export default function HomePage() {
   const xpLog = storage.xp.get();
   const currentXP = xpLog?.totalXP ?? 0;
   const currentLevel = getLevelForXP(currentXP);
-  const progress = getXPProgress(currentXP);
 
   const handleJobClick = (starId: string, jobId?: string) => {
     if (starId && jobId) {
@@ -833,8 +783,6 @@ export default function HomePage() {
       <HeroSection
         nickname={userData.nickname}
         level={currentLevel}
-        progress={progress}
-        currentXP={currentXP}
         onSettings={() => router.push('/settings')}
       />
 
