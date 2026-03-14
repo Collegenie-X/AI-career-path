@@ -485,12 +485,9 @@ export function GroupListView({
   const [joinTargetGroupId, setJoinTargetGroupId] = useState<string | null>(null);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [showJoinByCodeDialog, setShowJoinByCodeDialog] = useState(false);
-  const [hasAccess, setHasAccess] = useState(false);
-  const [accessKey, setAccessKey] = useState(0);
+  const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
 
-  useEffect(() => {
-    setHasAccess(hasCommunityAccess());
-  }, [accessKey]);
+  const refreshAccess = () => setHasAccess(hasCommunityAccess());
 
   const selectedGroup = groups.find(g => g.id === selectedGroupId) ?? null;
   const joinTargetGroup = groups.find(g => g.id === joinTargetGroupId) ?? null;
@@ -524,7 +521,7 @@ export function GroupListView({
     if (!hasAccess) {
       return (
         <CommunityAccessGate
-          onAccessGranted={() => { setAccessKey(k => k + 1); }}
+          onAccessGranted={refreshAccess}
           onBack={() => setSelectedGroupId(null)}
         />
       );

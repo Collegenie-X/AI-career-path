@@ -32,13 +32,9 @@ const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
 export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
   const [subTab, setSubTab] = useState<SubTab>('school');
   const [selectedPlan, setSelectedPlan] = useState<SharedPlan | null>(null);
-  const [hasAccess, setHasAccess] = useState(false);
+  const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
   const [joinedSchoolIds, setJoinedSchoolIds] = useState<string[]>(() => loadJoinedSchoolIds());
   const [joinedGroupIds, setJoinedGroupIds] = useState<string[]>(() => loadJoinedGroupIds());
-
-  useEffect(() => {
-    setHasAccess(hasCommunityAccess());
-  }, []);
 
   const refreshJoinedIds = useCallback(() => {
     setJoinedSchoolIds(loadJoinedSchoolIds());

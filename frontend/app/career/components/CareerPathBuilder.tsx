@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
+import type { ShareType, ShareChannel } from './community/types';
 import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
@@ -90,8 +91,11 @@ export type CareerPlan = {
   years: YearPlan[];
   createdAt: string;
   title: string;
+  description?: string;
   isPublic?: boolean;
-  shareType?: string;
+  shareType?: ShareType;
+  shareChannels?: ShareChannel[];
+  shareGroupIds?: string[];
   sharedAt?: string;
 };
 

@@ -62,34 +62,46 @@ function TemplateRow({
       onPress={onShowDetail}
       activeOpacity={0.7}
     >
+      {/* 큰 아이콘: 전체 좌측 고정 */}
       <View style={[styles.templateEmoji, { backgroundColor: template.starColor + '28', borderColor: template.starColor + '30' }]}>
-        <Text style={{ fontSize: 22 }}>{template.jobEmoji}</Text>
+        <Text style={{ fontSize: 24 }}>{template.jobEmoji}</Text>
       </View>
-      <View style={styles.templateInfo}>
-        <Text style={styles.templateTitle} numberOfLines={1}>{template.title}</Text>
-        <View style={styles.templateMeta}>
-          <Text style={styles.templateMetaText}>{template.starEmoji} {template.starName}</Text>
-          <Text style={styles.templateMetaDot}>·</Text>
-          <Text style={styles.templateMetaText}>{template.totalItems}개</Text>
-          <Text style={styles.templateMetaDot}>·</Text>
-          <Text style={styles.templateMetaText}>{template.years.length}학년</Text>
-          {template.authorType === 'official' && (
-            <View style={styles.officialBadge}>
-              <Text style={styles.officialBadgeText}>{CAREER_LABELS.exploreOfficial}</Text>
+
+      {/* 우측: 제목 + 메타 + 액션 + 화살표(2줄 옆 우측, 수직 중앙 정렬) */}
+      <View style={styles.templateRight}>
+        <View style={styles.templateContent}>
+          <Text style={styles.templateTitle} numberOfLines={2}>{template.title}</Text>
+          {template.description ? (
+            <Text style={styles.templateDescription} numberOfLines={1}>{template.description}</Text>
+          ) : null}
+          <View style={styles.templateBottomRow}>
+            <View style={styles.templateMeta}>
+              <Text style={styles.templateMetaText}>{template.starEmoji} {template.starName}</Text>
+              <Text style={styles.templateMetaDot}>·</Text>
+              <Text style={styles.templateMetaText}>{template.totalItems}개</Text>
+              <Text style={styles.templateMetaDot}>·</Text>
+              <Text style={styles.templateMetaText}>{template.years.length}학년</Text>
+              {template.authorType === 'official' && (
+                <View style={styles.officialBadge}>
+                  <Text style={styles.officialBadgeText}>{CAREER_LABELS.exploreOfficial}</Text>
+                </View>
+              )}
             </View>
-          )}
+            <TouchableOpacity
+              onPress={onToggleLike}
+              style={styles.likeButton}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <Text style={{ color: liked ? '#FF6477' : '#555570', fontSize: 12 }}>
+                {liked ? '❤️' : '🤍'} {localLikes}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View style={[styles.chevronWrapper, { backgroundColor: template.starColor + '50', borderColor: template.starColor + '70' }]}>
+          <Text style={styles.chevron}>›</Text>
         </View>
       </View>
-      <TouchableOpacity
-        onPress={onToggleLike}
-        style={styles.likeButton}
-        hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-      >
-        <Text style={{ color: liked ? '#FF6477' : '#555570', fontSize: 12 }}>
-          {liked ? '❤️' : '🤍'} {localLikes}
-        </Text>
-      </TouchableOpacity>
-      <Text style={styles.chevron}>›</Text>
     </TouchableOpacity>
   );
 }
@@ -234,18 +246,27 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.03)',
   },
   templateEmoji: {
-    width: 44, height: 44, borderRadius: BORDER_RADIUS.lg,
+    width: 56, height: 56, borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center', alignItems: 'center', borderWidth: 1,
   },
-  templateInfo: { flex: 1 },
+  templateRight: { flex: 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: SPACING.md },
+  templateContent: { flex: 1, minWidth: 0, justifyContent: 'center', gap: 4 },
+  templateBottomRow: {
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.sm,
+  },
+  templateMeta: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, flexWrap: 'wrap', flex: 1 },
   templateTitle: { fontSize: FONT_SIZES.md, fontWeight: '700', color: '#fff' },
-  templateMeta: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, marginTop: 2, flexWrap: 'wrap' },
+  templateDescription: { fontSize: 11, color: '#9CA3AF', lineHeight: 16, marginTop: 2 },
+  chevronWrapper: {
+    width: 36, height: 36, borderRadius: 18,
+    justifyContent: 'center', alignItems: 'center', borderWidth: 1.5,
+  },
   templateMetaText: { fontSize: 10, color: '#9CA3AF' },
   templateMetaDot: { fontSize: 10, color: '#4B5563' },
   officialBadge: { backgroundColor: '#6C5CE720', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 99 },
   officialBadgeText: { fontSize: 9, fontWeight: '700', color: '#a78bfa' },
   likeButton: { paddingHorizontal: SPACING.sm },
-  chevron: { fontSize: 18, color: '#6B7280' },
+  chevron: { fontSize: 18, fontWeight: '700', color: '#fff' },
   emptyState: { alignItems: 'center', paddingVertical: 48 },
   emptyIcon: { fontSize: 32, marginBottom: SPACING.md },
   emptyText: { fontSize: FONT_SIZES.md, color: '#6B7280' },

@@ -78,9 +78,10 @@ function TemplateRow({
       }}
       onClick={onShowDetail}
     >
-      <div className="w-full flex items-center gap-4 px-5 py-4">
+      <div className="w-full flex items-stretch gap-4 px-5 py-4">
+        {/* 큰 아이콘: 전체 좌측 고정 */}
         <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
+          className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
           style={{
             background: `linear-gradient(135deg, ${template.starColor}35, ${template.starColor}12)`,
             border: `2px solid ${template.starColor}40`,
@@ -90,49 +91,58 @@ function TemplateRow({
           {template.jobEmoji}
         </div>
 
-        <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
-          <div className="flex items-center gap-2 mt-1 flex-wrap">
-            <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{template.totalItems}개</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{template.years.length}학년</span>
-            {template.authorType === 'official' && (
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
-                style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
+        {/* 우측: 제목 + 메타 + 액션 */}
+        <div className="flex-1 min-w-0 flex items-center gap-3">
+          <div className="flex-1 min-w-0 flex flex-col gap-1">
+            <div className="font-bold text-white text-sm leading-snug line-clamp-2">
+              {template.title}
+            </div>
+            {template.description && (
+              <div className="text-[12px] text-gray-500 leading-snug line-clamp-1">
+                {template.description}
+              </div>
             )}
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
+              <span className="text-[12px] text-gray-600">·</span>
+              <span className="text-[12px] text-gray-500">{template.totalItems}개</span>
+              <span className="text-[12px] text-gray-600">·</span>
+              <span className="text-[12px] text-gray-500">{template.years.length}학년</span>
+              {template.authorType === 'official' && (
+                <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
+                  style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
+              )}
+              <span className="flex-1" />
+              <button
+                onClick={handleLike}
+                className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
+                style={liked ? { color: '#FF6477' } : { color: '#555570' }}
+              >
+                <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
+                <span className="text-[12px] font-semibold">{localLikes}</span>
+              </button>
+              <button
+                onClick={onToggleBookmark}
+                className="p-1.5 rounded-lg transition-all active:scale-95"
+                style={isBookmarked ? { color: '#FBBF24' } : { color: '#555570' }}
+                title={isBookmarked ? '즐겨찾기 해제' : '즐겨찾기'}
+              >
+                {isBookmarked
+                  ? <BookmarkCheck className="w-3.5 h-3.5" />
+                  : <Bookmark className="w-3.5 h-3.5" />}
+              </button>
+            </div>
           </div>
-        </div>
-
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <button
-            onClick={handleLike}
-            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
-            style={liked ? { color: '#FF6477' } : { color: '#555570' }}
-          >
-            <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
-            <span className="text-[12px] font-semibold">{localLikes}</span>
-          </button>
-          <button
-            onClick={onToggleBookmark}
-            className="p-1.5 rounded-lg transition-all active:scale-95"
-            style={isBookmarked ? { color: '#FBBF24' } : { color: '#555570' }}
-            title={isBookmarked ? '즐겨찾기 해제' : '즐겨찾기'}
-          >
-            {isBookmarked
-              ? <BookmarkCheck className="w-3.5 h-3.5" />
-              : <Bookmark className="w-3.5 h-3.5" />}
-          </button>
+          {/* 화살표: 2줄 옆 우측, 수직 중앙 정렬 */}
           <div
-            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110 group-hover:shadow-lg"
+            className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 self-center transition-all duration-200 active:scale-95 group-hover:scale-110 group-hover:shadow-lg"
             style={{
               background: `linear-gradient(135deg, ${template.starColor}60, ${template.starColor}35)`,
               border: `2px solid ${template.starColor}70`,
               boxShadow: `0 0 20px ${template.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
             }}
           >
-            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
+            <ChevronRight className="w-4 h-4 text-white drop-shadow-md" strokeWidth={2.5} />
           </div>
         </div>
       </div>

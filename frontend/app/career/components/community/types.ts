@@ -1,4 +1,27 @@
-export type ShareType = 'public' | 'operator';
+/** 단일 공유 채널 단위 */
+export type ShareChannel = 'public' | 'school' | 'group';
+
+/**
+ * 공유 상태 전체를 표현하는 타입.
+ * - private: 비공개 (channels 없음)
+ * - channels: 전체/학교/그룹 중 하나 이상 멀티 선택
+ */
+export type ShareType = 'private' | 'public' | 'school' | 'group';
+
+/** 하위 호환: 기존 'operator' 값을 'school'로 정규화 */
+export function normalizeShareType(raw: string): ShareType {
+  if (raw === 'operator') return 'school';
+  if (raw === 'private' || raw === 'public' || raw === 'school' || raw === 'group') return raw;
+  return 'public';
+}
+
+/** 선택된 채널 목록으로 대표 ShareType 결정 (하위 호환용) */
+export function channelsToShareType(channels: ShareChannel[]): ShareType {
+  if (channels.length === 0) return 'private';
+  if (channels.includes('public')) return 'public';
+  if (channels.includes('school')) return 'school';
+  return 'group';
+}
 
 export type CommentAuthorRole = 'operator' | 'peer';
 
