@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Calendar, CheckCircle2, ChevronDown, ChevronUp, Circle, Clock3 } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp, Circle } from 'lucide-react';
 import { PlanItemDetailSheet, PlanItemRowCard } from '@/app/career/components/PlanItemDetailSheet';
 import { GOAL_GROUP_TEMPLATES_BY_ITEM_TYPE, LABELS, PERIOD_FILTERS } from '../config';
 import type { DreamItemType, RoadmapItem, SharedRoadmap } from '../types';
@@ -10,7 +10,7 @@ import { RoadmapTodoInlineProgressBar, RoadmapTodoProgressBarCard } from './Road
 
 interface RoadmapCareerPathTimelineSectionProps {
   roadmap: SharedRoadmap;
-  isTodoListSimpleView?: boolean;
+  showProgressBars?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }
 
@@ -18,14 +18,6 @@ type GroupedRoadmapItemsByGoal = {
   goalId: DreamItemType;
   goalTitle: string;
   items: RoadmapItem[];
-};
-
-type ChronologicalMonthGroup = {
-  month: number;
-  monthLabel: string;
-  items: RoadmapItem[];
-  totalTodoCount: number;
-  doneTodoCount: number;
 };
 
 function getPeriodLabel(periodId: SharedRoadmap['period']): string {
@@ -72,17 +64,6 @@ function parseTodoMonthWeek(todoItem: { weekNumber?: number; weekLabel?: string 
   return { month: 99, week: 1 };
 }
 
-function getEarliestMonth(item: RoadmapItem): number {
-  if ((item.months ?? []).length === 0) return 99;
-  const validMonths = item.months.filter(month => month >= 1 && month <= 12);
-  if (validMonths.length === 0) return 99;
-  return Math.min(...validMonths);
-}
-
-function getMonthLabel(month: number): string {
-  return month === 99 ? '시기 미정' : `${month}월`;
-}
-
 function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
   const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
   if (actionableTodoItems.length === 0) return false;
@@ -93,41 +74,20 @@ function hasTodoExecutionRecord(todoItem: { note?: string; outputRef?: string; r
   return Boolean(todoItem.note?.trim() || todoItem.outputRef?.trim() || todoItem.reviewNote?.trim());
 }
 
-function buildChronologicalMonthGroups(items: RoadmapItem[]): ChronologicalMonthGroup[] {
-  const bucketByMonth = new Map<number, RoadmapItem[]>();
-  sortByEarliestMonth(items).forEach(item => {
-    const month = getEarliestMonth(item);
-    const bucket = bucketByMonth.get(month) ?? [];
-    bucket.push(item);
-    bucketByMonth.set(month, bucket);
-  });
-
-  return [...bucketByMonth.entries()]
-    .sort(([leftMonth], [rightMonth]) => leftMonth - rightMonth)
-    .map(([month, monthItems]) => {
-      const totalTodoCount = monthItems.reduce((sum, item) => {
-        return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal').length;
-      }, 0);
-      const doneTodoCount = monthItems.reduce((sum, item) => {
-        return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal' && subItem.isDone).length;
-      }, 0);
-      return {
-        month,
-        monthLabel: getMonthLabel(month),
-        items: monthItems,
-        totalTodoCount,
-        doneTodoCount,
-      };
-    });
+function formatRoadmapItemMonthLabel(item: RoadmapItem): string {
+  const sortedMonths = (item.months ?? [])
+    .filter(month => month >= 1 && month <= 12)
+    .sort((leftMonth, rightMonth) => leftMonth - rightMonth);
+  if (sortedMonths.length === 0) return '시기 미정';
+  if (sortedMonths.length === 1) return `${sortedMonths[0]}월`;
+  return `${sortedMonths[0]}월~${sortedMonths[sortedMonths.length - 1]}월`;
 }
 
 function RoadmapTodoChecklist({ 
   item, 
-  isTodoListSimpleView,
   onToggleTodoItem 
 }: { 
   item: RoadmapItem;
-  isTodoListSimpleView?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
   const sortedTodoItems = useMemo(
@@ -198,22 +158,6 @@ function RoadmapTodoChecklist({
               <div className="mt-1.5 space-y-1.5">
                 {weekGroup.todoItems.map(todoItem => {
                   const isGoalEntry = todoItem.entryType === 'goal';
-                  if (isTodoListSimpleView) {
-                    return (
-                      <div key={todoItem.id} className="w-full flex items-center gap-1.5 text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
-                        <span className="inline-block w-1 h-1 rounded-full bg-gray-500 flex-shrink-0" />
-                        {isGoalEntry && (
-                          <span className="text-[9px] px-1.5 py-0.5 rounded-md font-bold text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
-                            목표
-                          </span>
-                        )}
-                        <span className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
-                          {todoItem.title}
-                        </span>
-                      </div>
-                    );
-                  }
-
                   if (isGoalEntry) {
                     return (
                       <div key={todoItem.id} className="w-full text-[10px]" style={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -281,18 +225,20 @@ function RoadmapItemTodoAccordionCard({
   item,
   accentColor,
   goalTitleByItemType,
-  isTodoListSimpleView,
+  showProgressBars,
   onSelectItem,
   onToggleTodoItem,
 }: {
   item: RoadmapItem;
   accentColor: string;
   goalTitleByItemType: Record<DreamItemType, string>;
-  isTodoListSimpleView?: boolean;
+  showProgressBars?: boolean;
   onSelectItem: (item: RoadmapItem) => void;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
   const [isTodoOpen, setIsTodoOpen] = useState(true);
+  const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
+  const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
 
   return (
     <div
@@ -307,12 +253,16 @@ function RoadmapItemTodoAccordionCard({
           onClick={() => setIsTodoOpen(previous => !previous)}
           className="text-[10px] text-gray-500 flex items-center gap-1"
         >
-          {(() => {
-            const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
-            return isTodoListSimpleView
-              ? `${LABELS.todoSectionLabel} ${actionableTodoItems.length}개`
-              : `${LABELS.todoSectionLabel} ${actionableTodoItems.filter(todoItem => todoItem.isDone).length}/${actionableTodoItems.length}`;
-          })()}
+          {LABELS.todoSectionLabel} {doneActionableTodoCount}/{actionableTodoItems.length}
+          {showProgressBars && (
+            <span className="inline-flex ml-1">
+              <RoadmapTodoInlineProgressBar
+                doneCount={doneActionableTodoCount}
+                totalCount={actionableTodoItems.length}
+                accentColor={accentColor}
+              />
+            </span>
+          )}
           {isTodoOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
         </button>
       </div>
@@ -328,6 +278,9 @@ function RoadmapItemTodoAccordionCard({
           }
         }}
       >
+        <p className="text-[10px] text-gray-500 mb-1.5 ml-0.5">
+          실행 기간: {formatRoadmapItemMonthLabel(item)}
+        </p>
         <PlanItemRowCard
           item={toPlanItemDetail(item, { includeSubItems: false })}
           color={accentColor}
@@ -348,81 +301,7 @@ function RoadmapItemTodoAccordionCard({
           )}
         </div>
       )}
-      {isTodoOpen && <RoadmapTodoChecklist item={item} isTodoListSimpleView={isTodoListSimpleView} onToggleTodoItem={onToggleTodoItem} />}
-    </div>
-  );
-}
-
-function MonthTimelineNode({
-  monthGroup,
-  isLast,
-  accentColor,
-  goalTitleByItemType,
-  isTodoListSimpleView,
-  onSelectItem,
-  onToggleTodoItem,
-}: {
-  monthGroup: ChronologicalMonthGroup;
-  isLast: boolean;
-  accentColor: string;
-  goalTitleByItemType: Record<DreamItemType, string>;
-  isTodoListSimpleView?: boolean;
-  onSelectItem: (item: RoadmapItem) => void;
-  onToggleTodoItem?: (itemId: string, todoId: string) => void;
-}) {
-  const [isOpen, setIsOpen] = useState(true);
-
-  return (
-    <div className="relative pl-10 pb-4">
-      <div
-        className="absolute left-0 top-0 w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-black z-10"
-        style={{ backgroundColor: accentColor, color: '#fff', boxShadow: `0 0 0 3px #0f1025, 0 0 12px ${accentColor}66` }}
-      >
-        <Calendar className="w-4 h-4" />
-      </div>
-      {!isLast && (
-        <div className="absolute left-[15px] top-8 bottom-0 w-0.5" style={{ backgroundColor: `${accentColor}2a` }} />
-      )}
-
-      <div className="rounded-xl px-3 py-2.5" style={{ backgroundColor: `${accentColor}0f`, border: `1px solid ${accentColor}22` }}>
-        <button onClick={() => setIsOpen(previous => !previous)} className="w-full flex items-center justify-between gap-2 text-left">
-          <div className="flex-1 min-w-0">
-            <div className="text-sm font-bold text-white flex items-center gap-1.5">
-              <Clock3 className="w-3.5 h-3.5" style={{ color: accentColor }} />
-              {monthGroup.monthLabel}
-            </div>
-            <div className="text-[10px] text-gray-500 mt-0.5">
-              계획 {monthGroup.items.length}개 · {LABELS.weeklyChecklistLabel} {monthGroup.doneTodoCount}/{monthGroup.totalTodoCount}
-            </div>
-          </div>
-          <div className="flex items-center gap-2 flex-shrink-0">
-            {!isTodoListSimpleView && (
-              <RoadmapTodoInlineProgressBar
-                doneCount={monthGroup.doneTodoCount}
-                totalCount={monthGroup.totalTodoCount}
-                accentColor={accentColor}
-              />
-            )}
-            {isOpen ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
-          </div>
-        </button>
-
-        {isOpen && (
-          <div className="mt-2.5 space-y-2">
-            {monthGroup.items.map(item => (
-              <RoadmapItemTodoAccordionCard
-                key={item.id}
-                item={item}
-                accentColor={accentColor}
-                goalTitleByItemType={goalTitleByItemType}
-                isTodoListSimpleView={isTodoListSimpleView}
-                onSelectItem={onSelectItem}
-                onToggleTodoItem={onToggleTodoItem}
-              />
-            ))}
-          </div>
-        )}
-      </div>
+      {isTodoOpen && <RoadmapTodoChecklist item={item} onToggleTodoItem={onToggleTodoItem} />}
     </div>
   );
 }
@@ -451,14 +330,14 @@ function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boole
 
 export function RoadmapCareerPathTimelineSection({
   roadmap,
-  isTodoListSimpleView = false,
+  showProgressBars = true,
   onToggleTodoItem,
 }: RoadmapCareerPathTimelineSectionProps) {
   const [selectedItem, setSelectedItem] = useState<RoadmapItem | null>(null);
   const periodLabel = useMemo(() => getPeriodLabel(roadmap.period), [roadmap.period]);
   const groupedGoals = useMemo(() => buildGroupedGoals(roadmap.items), [roadmap.items]);
-  const chronologicalMonthGroups = useMemo(
-    () => buildChronologicalMonthGroups(roadmap.items),
+  const sortedRoadmapItems = useMemo(
+    () => sortByEarliestMonth(roadmap.items),
     [roadmap.items],
   );
 
@@ -484,7 +363,7 @@ export function RoadmapCareerPathTimelineSection({
     [roadmap.items],
   );
 
-  if (chronologicalMonthGroups.length === 0) {
+  if (sortedRoadmapItems.length === 0) {
     return (
       <div className="py-10 text-center rounded-xl" style={{ border: '1px dashed rgba(255,255,255,0.1)' }}>
         <p className="text-xs text-gray-500">로드맵 항목이 아직 없어요.</p>
@@ -508,7 +387,7 @@ export function RoadmapCareerPathTimelineSection({
         <div className="text-[10px] text-gray-500 mt-1">
           목표 {groupedGoals.length}개 · 계획 {roadmap.items.length}개 · {LABELS.weeklyChecklistLabel} {weeklyDoneCount}/{weeklyTotalCount}
         </div>
-        {!isTodoListSimpleView && (
+        {showProgressBars && (
           <div className="mt-2 grid grid-cols-1 gap-2">
             <RoadmapTodoProgressBarCard
               title={LABELS.overallProgressLabel}
@@ -520,15 +399,14 @@ export function RoadmapCareerPathTimelineSection({
         )}
       </div>
 
-      <div className="space-y-0">
-        {chronologicalMonthGroups.map((monthGroup, index) => (
-          <MonthTimelineNode
-            key={`${monthGroup.month}-${index}`}
-            monthGroup={monthGroup}
-            isLast={index === chronologicalMonthGroups.length - 1}
+      <div className="space-y-2">
+        {sortedRoadmapItems.map(item => (
+          <RoadmapItemTodoAccordionCard
+            key={item.id}
+            item={item}
             accentColor={roadmap.starColor}
             goalTitleByItemType={goalTitleByItemType}
-            isTodoListSimpleView={isTodoListSimpleView}
+            showProgressBars={showProgressBars}
             onSelectItem={setSelectedItem}
             onToggleTodoItem={onToggleTodoItem}
           />

@@ -31,6 +31,18 @@
         "createdAt": "2026-02-12T14:00:00.000Z"
       }
     ],
+    "milestoneResults": [
+      {
+        "id": "ms-001-1",
+        "title": "탐구 주제 확정 및 실험 설계",
+        "description": "광합성 실험 주제로 확정, 변인 통제 계획서 작성 완료",
+        "monthWeekLabel": "7월 2주차",
+        "resultUrl": "https://example.com/experiment-plan",
+        "recordedAt": "2026-02-08T10:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "교내 과학탐구대회 2등",
+    "finalResultDescription": "광합성 효율 측정 실험으로 대회 입상. 재현성·창의성 항목에서 높은 평가를 받았습니다.",
     "items": [
       {
         "id": "rm001-i1",

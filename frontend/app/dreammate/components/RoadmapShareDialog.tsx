@@ -9,6 +9,7 @@ interface RoadmapShareDialogProps {
   currentScope: RoadmapShareScope;
   currentSpaceIds: string[];
   spaces: DreamSpace[];
+  canSharePublicly?: boolean;
   onClose: () => void;
   onSave: (scope: RoadmapShareScope, spaceIds: string[]) => void;
 }
@@ -17,6 +18,7 @@ export function RoadmapShareDialog({
   currentScope,
   currentSpaceIds,
   spaces,
+  canSharePublicly = true,
   onClose,
   onSave,
 }: RoadmapShareDialogProps) {
@@ -24,8 +26,10 @@ export function RoadmapShareDialog({
   const [selectedSpaceIds, setSelectedSpaceIds] = useState<string[]>(currentSpaceIds);
 
   const isSaveDisabled = useMemo(
-    () => shareScope === 'space' && selectedSpaceIds.length === 0,
-    [selectedSpaceIds.length, shareScope],
+    () =>
+      (shareScope === 'space' && selectedSpaceIds.length === 0)
+      || (shareScope === 'public' && !canSharePublicly),
+    [canSharePublicly, selectedSpaceIds.length, shareScope],
   );
 
   const toggleSpaceSelection = (spaceId: string) => {
@@ -57,19 +61,35 @@ export function RoadmapShareDialog({
 
         <div className="px-5 pb-4 space-y-4">
           <div className="space-y-2">
-            {ROADMAP_SHARE_VISIBILITY_OPTIONS.map(option => (
-              <button
-                key={option.id}
-                onClick={() => setShareScope(option.id)}
-                className="w-full text-left rounded-xl px-3 py-2.5"
-                style={shareScope === option.id
-                  ? { backgroundColor: 'rgba(108,92,231,0.22)', border: '1px solid rgba(168,85,247,0.55)' }
-                  : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <p className="text-xs font-bold text-white">{option.label}</p>
-                <p className="text-[10px] text-gray-400 mt-0.5">{option.description}</p>
-              </button>
-            ))}
+            {ROADMAP_SHARE_VISIBILITY_OPTIONS.map(option => {
+              const isPublicWithoutResult = option.id === 'public' && !canSharePublicly;
+              return (
+                <button
+                  key={option.id}
+                  onClick={() => {
+                    if (isPublicWithoutResult) return;
+                    setShareScope(option.id);
+                  }}
+                  disabled={isPublicWithoutResult}
+                  className="w-full text-left rounded-xl px-3 py-2.5"
+                  style={shareScope === option.id && !isPublicWithoutResult
+                    ? { backgroundColor: 'rgba(108,92,231,0.22)', border: '1px solid rgba(168,85,247,0.55)' }
+                    : {
+                      backgroundColor: isPublicWithoutResult ? 'rgba(148,163,184,0.06)' : 'rgba(255,255,255,0.04)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                      opacity: isPublicWithoutResult ? 0.55 : 1,
+                    }}
+                >
+                  <p className="text-xs font-bold text-white">{option.label}</p>
+                  <p className="text-[10px] text-gray-400 mt-0.5">{option.description}</p>
+                  {isPublicWithoutResult && (
+                    <p className="text-[10px] text-amber-300 mt-1">
+                      {LABELS.sharePublicRequiresResultHint ?? '최종 결과물 URL 또는 이미지 URL을 등록하면 전체 공유할 수 있어요.'}
+                    </p>
+                  )}
+                </button>
+              );
+            })}
           </div>
 
           {shareScope === 'space' && (

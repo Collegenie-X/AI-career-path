@@ -11,6 +11,7 @@ import {
   ProgramProposalCards,
   SpaceNoticePanel,
 } from './SpaceParticipationPanels';
+import { LABELS } from '../config';
 
 interface SpaceDetailViewProps {
   currentUserId: string;
@@ -53,6 +54,14 @@ export function SpaceDetailView({
   const inviteCode = space.inviteCode ?? space.id;
   const isSpaceOperator = currentUserId === space.creatorId;
   const recruitmentStatus = space.recruitmentStatus ?? 'open';
+  const handleLeaveGroupWithConfirmation = () => {
+    const isLeaveConfirmed = window.confirm(
+      `${LABELS.spaceLeaveConfirmTitle}\n\n${LABELS.spaceLeaveConfirmDescription}`,
+    );
+    if (!isLeaveConfirmed) return;
+    onLeave();
+    setShowMore(false);
+  };
 
   return (
     <div className="space-y-4">
@@ -79,13 +88,13 @@ export function SpaceDetailView({
           </button>
           {isJoined && (
             <button
-              onClick={() => { onLeave(); setShowMore(false); }}
+              onClick={handleLeaveGroupWithConfirmation}
               className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold transition-all active:scale-[0.98]"
               style={{ color: '#EF4444' }}
             >
-              <LogOut className="w-4 h-4" /> 스페이스 나가기
+              <LogOut className="w-4 h-4" /> 그룹 탈퇴하기
             </button>
-          )}
+          )}123ㅊ
           {isSpaceOperator && (
             <button
               onClick={() => {

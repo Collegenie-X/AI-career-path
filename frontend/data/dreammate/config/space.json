@@ -2,7 +2,7 @@
   "shareVisibilityOptions": [
     { "id": "private", "label": "비공개",      "description": "내 활동에서만 보입니다.",                  "emoji": "🔒", "color": "#94A3B8" },
     { "id": "public",  "label": "전체 공유",   "description": "로드맵 피드 전체에 공개됩니다.",           "emoji": "🌐", "color": "#22C55E" },
-    { "id": "space",   "label": "스페이스 공유", "description": "선택한 스페이스 멤버에게만 공개됩니다.", "emoji": "🤝", "color": "#60A5FA" }
+    { "id": "space",   "label": "그룹 공유", "description": "선택한 그룹 멤버에게만 공개됩니다.", "emoji": "🤝", "color": "#60A5FA" }
   ],
   "recruitmentStatuses": [
     { "id": "open",   "label": "모집중",   "color": "#22C55E" },

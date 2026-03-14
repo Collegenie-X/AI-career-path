@@ -32,6 +32,17 @@ export interface RoadmapTodoItem {
 
 export type RoadmapShareScope = 'private' | 'public' | 'space';
 
+export interface RoadmapMilestoneResult {
+  id: string;
+  title: string;
+  description?: string;
+  monthWeekLabel?: string;
+  timeLog?: string;
+  resultUrl?: string;
+  imageUrl?: string;
+  recordedAt?: string;
+}
+
 export interface SharedRoadmap {
   id: string;
   ownerId: string;
@@ -45,6 +56,11 @@ export interface SharedRoadmap {
   focusItemTypes?: DreamItemType[];
   shareScope?: RoadmapShareScope;
   items: RoadmapItem[];
+  finalResultTitle?: string;
+  finalResultDescription?: string;
+  finalResultUrl?: string;
+  finalResultImageUrl?: string;
+  milestoneResults?: RoadmapMilestoneResult[];
   groupIds: string[];
   likes: number;
   bookmarks: number;

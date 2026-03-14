@@ -176,6 +176,11 @@ function DreamMatePageContent() {
             period: 'semester' as PeriodType,
             starColor: '#6C5CE7',
             focusItemTypes: ['award', 'activity', 'project', 'paper'],
+            milestoneResults: [],
+            finalResultTitle: '',
+            finalResultDescription: '',
+            finalResultUrl: '',
+            finalResultImageUrl: '',
             groupIds: [],
             items: [],
           }}
@@ -194,6 +199,11 @@ function DreamMatePageContent() {
             period: workspace.editingRoadmap.period,
             starColor: workspace.editingRoadmap.starColor,
             focusItemTypes: workspace.editingRoadmap.focusItemTypes ?? ['award', 'activity', 'project', 'paper'],
+            milestoneResults: workspace.editingRoadmap.milestoneResults ?? [],
+            finalResultTitle: workspace.editingRoadmap.finalResultTitle ?? '',
+            finalResultDescription: workspace.editingRoadmap.finalResultDescription ?? '',
+            finalResultUrl: workspace.editingRoadmap.finalResultUrl ?? '',
+            finalResultImageUrl: workspace.editingRoadmap.finalResultImageUrl ?? '',
             groupIds: workspace.editingRoadmap.groupIds,
             items: workspace.editingRoadmap.items,
           }}
@@ -206,6 +216,7 @@ function DreamMatePageContent() {
         <RoadmapDetailDialog
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
+          isReferenceViewOnlyMode={selectedRoadmapOpenedFromTab === 'space'}
           availableSpaces={workspace.joinedSpaces}
           onClose={() => {
             workspace.setSelectedRoadmapId(null);
@@ -232,7 +243,7 @@ function DreamMatePageContent() {
             workspace.handleReportRoadmap(workspace.selectedRoadmap!.id, reasonId, detail);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
-          isTodoListSimpleView={selectedRoadmapOpenedFromTab === 'feed'}
+          showTimelineProgressBars={selectedRoadmapOpenedFromTab !== 'feed'}
           onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
         />
       )}

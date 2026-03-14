@@ -1,8 +1,8 @@
 {
-  "pageTitle":              "드림 실행 노트",
+  "pageTitle":              "드림 실행",
   "pageSubtitle":           "수상·활동·논문·프로젝트를 실행 계획서 및 체크리스트로 관리하기",
-  "feedTitle":              "주간 실행 피드",
-  "feedSubtitle":           "방과후·방학 실행계획을 살펴보고 주차별 진행을 참고해요",
+  "feedTitle":              "주간 실행",
+  "feedSubtitle":           "다른 사람들의 실행계획을 살펴보고 주차별 진행을 참고해요",
   "feedEmpty":              "아직 공유된 실행계획이 없어요",
   "feedEmptyDesc":          "첫 번째 주간 실행계획을 공유해 보세요!",
   "feedSearchPlaceholder":  "실행계획 검색",

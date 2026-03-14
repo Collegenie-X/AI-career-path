@@ -13,19 +13,18 @@ function mergeRoadmapsWithFallback(
   fallbackRoadmaps: SharedRoadmap[],
 ): SharedRoadmap[] {
   const roadmapById = new Map<string, SharedRoadmap>();
+
+  // 저장된 로드맵을 먼저 등록 (사용자가 직접 만든 private 로드맵 등)
   storedRoadmaps.forEach(roadmap => {
     roadmapById.set(roadmap.id, roadmap);
   });
 
-  const hasPublicRoadmapInStored = storedRoadmaps.some(
-    roadmap => (roadmap.shareScope ?? 'private') === 'public',
-  );
-  if (!hasPublicRoadmapInStored) {
-    fallbackRoadmaps.forEach(roadmap => {
-      if ((roadmap.shareScope ?? 'private') !== 'public') return;
-      roadmapById.set(roadmap.id, roadmap);
-    });
-  }
+  // 시드의 공개 로드맵은 항상 최신 시드 데이터로 덮어씀
+  // (milestoneResults, finalResult 등 시드 업데이트가 반영되도록)
+  fallbackRoadmaps.forEach(roadmap => {
+    if ((roadmap.shareScope ?? 'private') !== 'public') return;
+    roadmapById.set(roadmap.id, roadmap);
+  });
 
   return Array.from(roadmapById.values());
 }

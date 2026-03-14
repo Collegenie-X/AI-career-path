@@ -1,6 +1,6 @@
 [
   { "id": "feed",    "label": "피드",   "emoji": "🗓️" },
-  { "id": "space",   "label": "그룹",   "emoji": "🤝" },
+  { "id": "space",   "label": "커뮤니티",   "emoji": "🤝" },
   { "id": "my",      "label": "내 기록", "emoji": "⭐" },
   { "id": "library", "label": "자료실", "emoji": "📚" }
 ]

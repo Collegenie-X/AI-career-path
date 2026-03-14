@@ -82,6 +82,20 @@ export function RoadmapCard({
       outputCriteriaCount,
     };
   }, [roadmap.items]);
+  const milestoneResultCount = roadmap.milestoneResults?.length ?? 0;
+  const latestMilestoneResult = useMemo(
+    () => (roadmap.milestoneResults ?? []).slice().sort((left, right) => {
+      const leftTime = new Date(left.recordedAt ?? 0).getTime();
+      const rightTime = new Date(right.recordedAt ?? 0).getTime();
+      return rightTime - leftTime;
+    })[0],
+    [roadmap.milestoneResults],
+  );
+  const hasSharedResultAsset = Boolean(
+    roadmap.finalResultUrl?.trim()
+    || roadmap.finalResultImageUrl?.trim()
+    || (roadmap.milestoneResults ?? []).some(result => Boolean(result.resultUrl?.trim() || result.imageUrl?.trim())),
+  );
 
   return (
     <div
@@ -138,7 +152,39 @@ export function RoadmapCard({
         <span className="text-[10px] px-2 py-1 rounded-lg text-cyan-200" style={{ backgroundColor: 'rgba(6,182,212,0.16)' }}>
           진행 {roadmapExecutionSummary.doneActionableTodoCount}/{roadmapExecutionSummary.totalActionableTodoCount}
         </span>
+        {milestoneResultCount > 0 && (
+          <span className="text-[10px] px-2 py-1 rounded-lg text-sky-200" style={{ backgroundColor: 'rgba(56,189,248,0.18)' }}>
+            중간 결과물 {milestoneResultCount}개
+          </span>
+        )}
+        {hasSharedResultAsset && (
+          <span className="text-[10px] px-2 py-1 rounded-lg text-amber-200" style={{ backgroundColor: 'rgba(245,158,11,0.18)' }}>
+            결과물 공유됨
+          </span>
+        )}
       </div>
+
+      {(latestMilestoneResult || roadmap.finalResultTitle || roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
+        <div className="space-y-2 mb-3">
+          {latestMilestoneResult && (
+            <div className="rounded-lg px-2.5 py-2" style={{ backgroundColor: 'rgba(56,189,248,0.12)', border: '1px solid rgba(56,189,248,0.25)' }}>
+              <p className="text-[10px] font-bold text-sky-200">중간 결과물</p>
+              <p className="text-[11px] text-white truncate mt-0.5">{latestMilestoneResult.title}</p>
+              {(latestMilestoneResult.monthWeekLabel || latestMilestoneResult.timeLog) && (
+                <p className="text-[10px] text-sky-300/90 mt-0.5 truncate">
+                  {latestMilestoneResult.monthWeekLabel ?? '-'} {latestMilestoneResult.timeLog ? `· ${latestMilestoneResult.timeLog}` : ''}
+                </p>
+              )}
+            </div>
+          )}
+          {(roadmap.finalResultTitle || roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
+            <div className="rounded-lg px-2.5 py-2" style={{ backgroundColor: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.25)' }}>
+              <p className="text-[10px] font-bold text-emerald-200">최종 결과물</p>
+              {roadmap.finalResultTitle && <p className="text-[11px] text-white truncate mt-0.5">{roadmap.finalResultTitle}</p>}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Items preview */}
       <div className="flex flex-wrap gap-1.5 mb-3">

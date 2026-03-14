@@ -84,6 +84,17 @@ export function RoadmapFeedTab({
         const matchesTitle = roadmap.title.toLowerCase().includes(normalizedSearchQuery);
         const matchesOwner = roadmap.ownerName.toLowerCase().includes(normalizedSearchQuery);
         const matchesItem = roadmap.items.some(item => item.title.toLowerCase().includes(normalizedSearchQuery));
+        const matchesRoadmapFinalResult = Boolean(
+          roadmap.finalResultTitle?.toLowerCase().includes(normalizedSearchQuery)
+          || roadmap.finalResultDescription?.toLowerCase().includes(normalizedSearchQuery)
+          || roadmap.finalResultUrl?.toLowerCase().includes(normalizedSearchQuery),
+        );
+        const matchesRoadmapMilestoneResult = (roadmap.milestoneResults ?? []).some(result =>
+          result.title.toLowerCase().includes(normalizedSearchQuery)
+          || result.description?.toLowerCase().includes(normalizedSearchQuery)
+          || result.monthWeekLabel?.toLowerCase().includes(normalizedSearchQuery)
+          || result.resultUrl?.toLowerCase().includes(normalizedSearchQuery),
+        );
         const matchesExecutionField = roadmap.items.some(item => {
           const matchesItemOutput = item.targetOutput?.toLowerCase().includes(normalizedSearchQuery);
           const matchesSuccessCriteria = item.successCriteria?.toLowerCase().includes(normalizedSearchQuery);
@@ -95,7 +106,7 @@ export function RoadmapFeedTab({
           return Boolean(matchesItemOutput || matchesSuccessCriteria || matchesTodoRecord);
         });
 
-        return matchesTitle || matchesOwner || matchesItem || matchesExecutionField;
+        return matchesTitle || matchesOwner || matchesItem || matchesRoadmapFinalResult || matchesRoadmapMilestoneResult || matchesExecutionField;
       }),
     [roadmaps, periodFilter, typeFilter, normalizedSearchQuery],
   );
