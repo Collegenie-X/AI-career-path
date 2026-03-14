@@ -64,6 +64,7 @@ export function RoadmapDetailDialog({
   const [showDeleteConfirmationActions, setShowDeleteConfirmationActions] = useState(false);
   const [showActionMenu, setShowActionMenu] = useState(false);
   const [showReportDialog, setShowReportDialog] = useState(false);
+  const [showUseRoadmapCustomizeDialog, setShowUseRoadmapCustomizeDialog] = useState(false);
   const [isMilestoneResultsOpen, setIsMilestoneResultsOpen] = useState(true);
   const [isFinalResultOpen, setIsFinalResultOpen] = useState(true);
   const [expandedMilestoneIds, setExpandedMilestoneIds] = useState<Set<string>>(() => {
@@ -433,7 +434,7 @@ export function RoadmapDetailDialog({
             }}
           >
             <button
-              onClick={onUseRoadmap}
+              onClick={() => setShowUseRoadmapCustomizeDialog(true)}
               className="w-full h-12 rounded-2xl text-sm font-black text-white"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)' }}
             >
@@ -518,6 +519,16 @@ export function RoadmapDetailDialog({
           roadmapTitle={roadmap.title}
           onClose={() => setShowReportDialog(false)}
           onSubmit={(reasonId, detail) => onReportRoadmap(reasonId, detail)}
+        />
+      )}
+
+      {showUseRoadmapCustomizeDialog && (
+        <RoadmapUseCustomizeDialog
+          onClose={() => setShowUseRoadmapCustomizeDialog(false)}
+          onConfirm={() => {
+            setShowUseRoadmapCustomizeDialog(false);
+            onUseRoadmap();
+          }}
         />
       )}
     </div>
@@ -616,5 +627,50 @@ function reverseCommentTreeChronology<T extends RoadmapComment>(
     ...node,
     children: node.children.slice().reverse().map(child => reverseCommentTreeChronology(child as ParentTreeNode<T>)),
   };
+}
+
+function RoadmapUseCustomizeDialog({
+  onClose,
+  onConfirm,
+}: {
+  onClose: () => void;
+  onConfirm: () => void;
+}) {
+  return (
+    <div className="fixed inset-0 z-[60] flex items-end justify-center">
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+      <div
+        className="relative w-full max-w-[430px] rounded-t-3xl px-5 pt-6 pb-6"
+        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
+      >
+        <div className="flex flex-col items-center text-center gap-3 mb-5">
+          <span className="text-4xl">✏️</span>
+          <h3 className="text-base font-black text-white leading-snug">
+            {LABELS.useRoadmapCustomizeDialogTitle}
+          </h3>
+          <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-line">
+            {LABELS.useRoadmapCustomizeDialogMessage}
+          </p>
+        </div>
+
+        <div className="space-y-2.5">
+          <button
+            onClick={onConfirm}
+            className="w-full h-12 rounded-2xl text-sm font-black text-white transition-all active:scale-[0.98]"
+            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
+          >
+            {LABELS.useRoadmapCustomizeConfirmButton}
+          </button>
+          <button
+            onClick={onClose}
+            className="w-full h-11 rounded-2xl text-sm font-bold"
+            style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.1)' }}
+          >
+            {LABELS.useRoadmapCustomizeCancelButton}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 

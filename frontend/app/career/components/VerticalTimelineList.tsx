@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Pencil, Plus, Trash2,
   ChevronDown,
@@ -13,6 +13,7 @@ import { ShareSettingsDialog } from './community/ShareSettingsDialog';
 import type { ShareType } from './community/types';
 import { YearTimelineNode } from './YearTimelineNode';
 import type { PlanItemWithCheck } from './TimelineItemComponents';
+import { LABELS } from '../config';
 
 /* ─── Types ─── */
 type Props = {
@@ -71,6 +72,11 @@ function PlanAccordionCard({
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showShareSettings, setShowShareSettings] = useState(false);
+  const [editablePlanTitle, setEditablePlanTitle] = useState(plan.title);
+
+  useEffect(() => {
+    setEditablePlanTitle(plan.title);
+  }, [plan.title]);
 
   const handleShareConfirm = (selectedShareType: ShareType) => {
     onShare(true, selectedShareType);
@@ -80,6 +86,16 @@ function PlanAccordionCard({
   const handleMakePrivate = () => {
     onShare(false, undefined);
     setShowShareSettings(false);
+  };
+
+  const savePlanTitle = () => {
+    const trimmedTitle = editablePlanTitle.trim();
+    if (!trimmedTitle) {
+      setEditablePlanTitle(plan.title);
+      return;
+    }
+    if (trimmedTitle === plan.title) return;
+    onUpdatePlan({ ...plan, title: trimmedTitle });
   };
 
   return (
@@ -113,9 +129,30 @@ function PlanAccordionCard({
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug truncate">
-            {plan.title}
-          </div>
+          {isOpen ? (
+            <input
+              value={editablePlanTitle}
+              onChange={(event) => setEditablePlanTitle(event.target.value)}
+              onBlur={savePlanTitle}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter') {
+                  savePlanTitle();
+                  (event.target as HTMLInputElement).blur();
+                }
+                if (event.key === 'Escape') {
+                  setEditablePlanTitle(plan.title);
+                  (event.target as HTMLInputElement).blur();
+                }
+              }}
+              placeholder={(LABELS.explore_use_path_dialog_title_placeholder as string) ?? '나만의 패스 제목 입력'}
+              className="w-full h-8 px-2 rounded-lg font-bold text-white text-sm leading-snug outline-none"
+              style={{ backgroundColor: 'rgba(255,255,255,0.07)', border: `1px solid ${plan.starColor}55` }}
+            />
+          ) : (
+            <div className="font-bold text-white text-sm leading-snug truncate">
+              {plan.title}
+            </div>
+          )}
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             <span className="text-[10px] font-semibold" style={{ color: `${plan.starColor}cc` }}>
               {plan.starEmoji} {plan.starName}

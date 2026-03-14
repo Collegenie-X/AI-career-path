@@ -8,7 +8,7 @@ import {
   Flag, MessageCircle, MoreVertical, Link as LinkIcon,
   ChevronDown, ChevronUp,
 } from 'lucide-react';
-import { ITEM_TYPES, GRADE_YEARS } from '../config';
+import { ITEM_TYPES, GRADE_YEARS, LABELS } from '../config';
 import templates from '@/data/career-path-templates.json';
 import { ReportModal, type ReportTarget } from './ReportModal';
 
@@ -28,7 +28,7 @@ type Comment = {
 type Props = {
   template: Template;
   onClose: () => void;
-  onUseTemplate: () => void;
+  onUseTemplate: (customTitle: string) => void;
 };
 
 /* ─── Comment item ─── */
@@ -198,8 +198,14 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   const [editingText, setEditingText] = useState('');
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
+  const [showUseTemplateDialog, setShowUseTemplateDialog] = useState(false);
+  const [copiedPlanTitle, setCopiedPlanTitle] = useState(template.title);
   const [mounted, setMounted] = useState(false);
   const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    setCopiedPlanTitle(template.title);
+  }, [template.title]);
 
   const toggleGoalExpand = (key: string) => {
     setCollapsedGoalKeys(prev => {
@@ -773,7 +779,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}
         >
           <button
-            onClick={onUseTemplate}
+            onClick={() => setShowUseTemplateDialog(true)}
             className="w-full h-13 rounded-2xl font-bold text-sm text-white flex items-center justify-center gap-2 transition-all active:scale-[0.98]"
             style={{
               height: 52,
@@ -794,6 +800,70 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
           accentColor={template.starColor}
           onClose={() => setReportTarget(null)}
         />
+      )}
+
+      {showUseTemplateDialog && (
+        <div
+          className="fixed inset-0 z-[10020] flex items-end justify-center"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <div
+            className="absolute inset-0 bg-black/65 backdrop-blur-sm"
+            onClick={(event) => {
+              event.stopPropagation();
+              setShowUseTemplateDialog(false);
+            }}
+          />
+          <div
+            className="relative w-full max-w-[430px] rounded-t-3xl p-5 space-y-4"
+            style={{ backgroundColor: '#0d0d24', border: '1px solid rgba(255,255,255,0.1)' }}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="space-y-1.5">
+              <h3 className="text-base font-black text-white">
+                {(LABELS.explore_use_path_dialog_title as string) ?? '나만의 패스로 바로 적용할까요?'}
+              </h3>
+              <p className="text-sm text-gray-300 leading-relaxed">
+                {(LABELS.explore_use_path_dialog_notice as string) ?? '원본을 그대로 복사하기보다, 내 목표와 일정에 맞게 수정해서 사용하는 것을 추천해요.'}
+              </p>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-gray-400">
+                {(LABELS.explore_use_path_dialog_title_label as string) ?? '카피 제목'}
+              </label>
+              <input
+                value={copiedPlanTitle}
+                onChange={(event) => setCopiedPlanTitle(event.target.value)}
+                placeholder={(LABELS.explore_use_path_dialog_title_placeholder as string) ?? '예: 나의 AI 연구원 커리어 패스'}
+                className="w-full h-11 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${template.starColor}45` }}
+                autoFocus
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                onClick={() => setShowUseTemplateDialog(false)}
+                className="h-11 rounded-xl text-sm font-bold text-white/75"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+              >
+                {(LABELS.explore_use_path_dialog_cancel as string) ?? '취소'}
+              </button>
+              <button
+                onClick={() => {
+                  const trimmedTitle = copiedPlanTitle.trim();
+                  onUseTemplate(trimmedTitle.length > 0 ? trimmedTitle : template.title);
+                  setShowUseTemplateDialog(false);
+                }}
+                className="h-11 rounded-xl text-sm font-black text-white"
+                style={{ background: `linear-gradient(135deg, ${template.starColor}, ${template.starColor}cc)` }}
+              >
+                {(LABELS.explore_use_path_dialog_confirm as string) ?? '나만의 패스로 적용하기'}
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>,
     document.body

@@ -14,7 +14,7 @@ import type { SharedPlan, UserReactionState } from './community/types';
 type Template = typeof templates[0];
 
 type CareerPathListProps = {
-  onUseTemplate: (template: Template) => void;
+  onUseTemplate: (template: Template, customTitle: string) => void;
   onNewPath: () => void;
   myPublicPlans?: CareerPlan[];
   onViewMyPlan?: (plan: CareerPlan) => void;
@@ -404,9 +404,9 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
     return activeFilter === 'all' ? templates : templates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
 
-  const handleUseTemplate = () => {
+  const handleUseTemplate = (customTitle: string) => {
     if (selectedTemplate) {
-      onUseTemplate(selectedTemplate);
+      onUseTemplate(selectedTemplate, customTitle);
       setSelectedTemplate(null);
     }
   };

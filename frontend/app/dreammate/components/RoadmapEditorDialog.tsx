@@ -40,18 +40,6 @@ const COLOR_OPTIONS = ['#6C5CE7', '#3B82F6', '#EC4899', '#22C55E', '#F97316', '#
 const MONTH_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const WEEK_OPTIONS = [1, 2, 3, 4, 5];
 
-function createDefaultWeeklySubItems(months: number[]): RoadmapTodoItem[] {
-  const firstMonth = months[0] ?? 3;
-  return [1, 2, 3, 4].map(weekNumber => ({
-    id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${weekNumber}`,
-    weekNumber,
-    weekLabel: buildMonthWeekLabel(firstMonth, weekNumber),
-    entryType: 'task',
-    title: `${firstMonth}월 ${weekNumber}주차 활동`,
-    isDone: false,
-  }));
-}
-
 function createEmptyItem(selectedMonths: number[]): RoadmapItem {
   const months = selectedMonths.length > 0 ? [...selectedMonths].sort((a, b) => a - b) : [3];
   return {
@@ -60,16 +48,28 @@ function createEmptyItem(selectedMonths: number[]): RoadmapItem {
     title: '',
     months,
     difficulty: 3,
-    subItems: createDefaultWeeklySubItems(months),
+    subItems: [],
   };
 }
 
-function createEmptySubItem(): RoadmapTodoItem {
+function createWeeklyTaskSubItem(month: number, week: number): RoadmapTodoItem {
   return {
     id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    weekNumber: 1,
+    weekNumber: week,
+    weekLabel: buildMonthWeekLabel(month, week),
     entryType: 'task',
-    title: '',
+    title: `${month}월 ${week}주차 항목`,
+    isDone: false,
+  };
+}
+
+function createWeeklyGoalSubItem(month: number, week: number, title = ''): RoadmapTodoItem {
+  return {
+    id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    weekNumber: week,
+    weekLabel: buildMonthWeekLabel(month, week),
+    entryType: 'goal',
+    title,
     isDone: false,
   };
 }
@@ -188,6 +188,41 @@ function getWeekGroupKeyFromTodo(todoItem: RoadmapTodoItem, fallbackMonth: numbe
   return getWeekGroupKey(monthWeek.month, monthWeek.week);
 }
 
+interface WeekGroupViewModel {
+  groupKey: string;
+  month: number;
+  week: number;
+  goal?: RoadmapTodoItem;
+  tasks: RoadmapTodoItem[];
+}
+
+function buildSortedWeekGroups(subItems: RoadmapTodoItem[], fallbackMonth: number): WeekGroupViewModel[] {
+  const weekGroups = new Map<string, WeekGroupViewModel>();
+
+  subItems.forEach(subItem => {
+    const monthWeek = extractMonthWeek(subItem, fallbackMonth);
+    const groupKey = getWeekGroupKey(monthWeek.month, monthWeek.week);
+    const currentGroup = weekGroups.get(groupKey) ?? {
+      groupKey,
+      month: monthWeek.month,
+      week: monthWeek.week,
+      goal: undefined,
+      tasks: [],
+    };
+    if (isGoalTodoEntry(subItem)) {
+      currentGroup.goal = subItem;
+    } else {
+      currentGroup.tasks.push(subItem);
+    }
+    weekGroups.set(groupKey, currentGroup);
+  });
+
+  return [...weekGroups.values()].sort((left, right) => {
+    if (left.month !== right.month) return left.month - right.month;
+    return left.week - right.week;
+  });
+}
+
 export function RoadmapEditorDialog({
   title,
   submitLabel,
@@ -245,7 +280,20 @@ export function RoadmapEditorDialog({
     [],
   );
 
-  const isSubmitEnabled = roadmapTitle.trim().length > 1 && items.some(item => item.title.trim().length > 1);
+  const hasMissingRequiredWeekGoal = useMemo(() => {
+    return items
+      .filter(item => item.title.trim().length > 0)
+      .some(item => {
+        const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
+        const fallbackMonth = availableMonths[0] ?? 3;
+        return buildSortedWeekGroups(item.subItems ?? [], fallbackMonth)
+          .some(group => (group.goal?.title.trim().length ?? 0) === 0);
+      });
+  }, [items, selectedMonths]);
+
+  const isSubmitEnabled = roadmapTitle.trim().length > 1
+    && items.some(item => item.title.trim().length > 1)
+    && !hasMissingRequiredWeekGoal;
 
   const toggleFocusItemType = (itemType: DreamItemType) => {
     setFocusItemTypes(previous => {
@@ -416,13 +464,7 @@ export function RoadmapEditorDialog({
       const targetWeek = hasEmptyGroupSlot ? nextWeek : fallbackWeek;
       const nextSubItems: RoadmapTodoItem[] = [
         ...currentSubItems,
-        {
-          ...createEmptySubItem(),
-          weekNumber: targetWeek,
-          weekLabel: buildMonthWeekLabel(nextMonth, targetWeek),
-          entryType: 'task',
-          title: `${nextMonth}월 ${targetWeek}주차 활동`,
-        },
+        createWeeklyGoalSubItem(nextMonth, targetWeek),
       ];
 
       return {
@@ -440,13 +482,7 @@ export function RoadmapEditorDialog({
       const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
       const nextSubItems: RoadmapTodoItem[] = [
         ...(item.subItems ?? []),
-        {
-          ...createEmptySubItem(),
-          weekNumber: parsedGroup.week,
-          weekLabel: buildMonthWeekLabel(parsedGroup.month, parsedGroup.week),
-          entryType: 'task',
-          title: `${parsedGroup.month}월 ${parsedGroup.week}주차 활동`,
-        },
+        createWeeklyTaskSubItem(parsedGroup.month, parsedGroup.week),
       ];
       return {
         ...item,
@@ -469,23 +505,17 @@ export function RoadmapEditorDialog({
         && getWeekGroupKeyFromTodo(subItem, parsedGroup.month) === groupKey
       ));
 
-      const nextSubItems = rawGoalTitle.trim().length === 0
-        ? currentSubItems.filter(subItem => subItem.id !== existingGoal?.id)
-        : existingGoal
-          ? currentSubItems.map(subItem => (
-            subItem.id === existingGoal.id ? { ...subItem, title: rawGoalTitle } : subItem
-          ))
-          : [
-            {
-              id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-              weekNumber: parsedGroup.week,
-              weekLabel: targetWeekLabel,
-              entryType: 'goal' as const,
-              title: rawGoalTitle,
-              isDone: false,
-            },
-            ...currentSubItems,
-          ];
+      const nextSubItems = existingGoal
+        ? currentSubItems.map(subItem => (
+          subItem.id === existingGoal.id ? { ...subItem, title: rawGoalTitle } : subItem
+        ))
+        : [
+          {
+            ...createWeeklyGoalSubItem(parsedGroup.month, parsedGroup.week, rawGoalTitle),
+            weekLabel: targetWeekLabel,
+          },
+          ...currentSubItems,
+        ];
 
       return {
         ...item,
@@ -584,10 +614,10 @@ export function RoadmapEditorDialog({
     <div className="fixed inset-0 z-50 flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto"
+        className="relative w-full max-w-[430px] rounded-t-3xl overflow-hidden flex flex-col"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 72px)', marginBottom: 72 }}
       >
-        <div className="flex items-center justify-between px-5 pt-5 pb-3">
+        <div className="flex items-center justify-between px-5 pt-5 pb-3 flex-shrink-0">
           <h3 className="text-lg font-black text-white">{title}</h3>
           <button
             onClick={onClose}
@@ -598,7 +628,7 @@ export function RoadmapEditorDialog({
           </button>
         </div>
 
-        <div className="px-5 pb-10 space-y-5">
+        <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-4 space-y-5">
           <section className="space-y-2">
             <div className="flex items-center justify-between">
               <label className="text-xs font-bold text-gray-400">{LABELS.roadmapEditorTitleLabel ?? '로드맵 제목'}</label>
@@ -1027,6 +1057,9 @@ export function RoadmapEditorDialog({
             {items.map(item => {
               const isItemOpen = itemAccordionOpenMap[item.id] ?? true;
               const itemMonths = item.months.length > 0 ? item.months : selectedMonths;
+              const fallbackMonth = itemMonths[0] ?? 3;
+              const sortedWeekGroups = buildSortedWeekGroups(item.subItems ?? [], fallbackMonth);
+              const hasMissingGoalInItem = sortedWeekGroups.some(group => (group.goal?.title.trim().length ?? 0) === 0);
               return (
                 <div
                   key={item.id}
@@ -1125,39 +1158,10 @@ export function RoadmapEditorDialog({
                         ) : (
                           <div className="space-y-2">
                             {(() => {
-                              const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-                              const fallbackMonth = availableMonths[0] ?? 3;
-                              const weekGroups = new Map<string, { month: number; week: number; goal?: RoadmapTodoItem; tasks: RoadmapTodoItem[] }>();
-
-                              (item.subItems ?? []).forEach(subItem => {
-                                const monthWeek = extractMonthWeek(subItem, fallbackMonth);
-                                const groupKey = getWeekGroupKey(monthWeek.month, monthWeek.week);
-                                const currentGroup = weekGroups.get(groupKey) ?? {
-                                  month: monthWeek.month,
-                                  week: monthWeek.week,
-                                  goal: undefined,
-                                  tasks: [],
-                                };
-                                if (isGoalTodoEntry(subItem)) {
-                                  currentGroup.goal = subItem;
-                                } else {
-                                  currentGroup.tasks.push(subItem);
-                                }
-                                weekGroups.set(groupKey, currentGroup);
-                              });
-
-                              const sortedWeekGroups = [...weekGroups.entries()]
-                                .sort((leftEntry, rightEntry) => {
-                                  const left = leftEntry[1];
-                                  const right = rightEntry[1];
-                                  if (left.month !== right.month) return left.month - right.month;
-                                  return left.week - right.week;
-                                });
-
                               const monthGroups = new Map<number, Array<{ groupKey: string; group: { month: number; week: number; goal?: RoadmapTodoItem; tasks: RoadmapTodoItem[] } }>>();
-                              sortedWeekGroups.forEach(([groupKey, group]) => {
+                              sortedWeekGroups.forEach(group => {
                                 const monthGroupItems = monthGroups.get(group.month) ?? [];
-                                monthGroupItems.push({ groupKey, group });
+                                monthGroupItems.push({ groupKey: group.groupKey, group });
                                 monthGroups.set(group.month, monthGroupItems);
                               });
 
@@ -1186,8 +1190,15 @@ export function RoadmapEditorDialog({
                                           {monthGroupItems.map(({ groupKey, group }) => {
                                             const weekAccordionKey = `${item.id}-${groupKey}`;
                                             const isWeekOpen = weekAccordionOpenMap[weekAccordionKey] ?? true;
+                                            const hasGoal = (group.goal?.title.trim().length ?? 0) > 0;
                                             return (
-                                              <div key={weekAccordionKey} className="rounded-md p-2" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                                              <div
+                                                key={weekAccordionKey}
+                                                className="rounded-md p-2"
+                                                style={hasGoal
+                                                  ? { backgroundColor: 'rgba(255,255,255,0.02)' }
+                                                  : { backgroundColor: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}
+                                              >
                                                 <div className="flex items-center justify-between gap-2">
                                                   <button
                                                     onClick={() => setWeekAccordionOpenMap(previous => ({
@@ -1222,12 +1233,19 @@ export function RoadmapEditorDialog({
                                                     <input
                                                       value={group.goal?.title ?? ''}
                                                       onChange={event => upsertWeekGoal(item.id, groupKey, event.target.value)}
-                                                      placeholder={(LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (선택)')
+                                                      placeholder={(LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)')
                                                         .replaceAll('{month}', String(group.month))
                                                         .replaceAll('{week}', String(group.week))}
                                                       className="w-full h-7 px-2 rounded-md text-[11px] text-white placeholder-gray-600 outline-none"
-                                                      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)' }}
+                                                      style={hasGoal
+                                                        ? { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)' }
+                                                        : { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(239,68,68,0.35)' }}
                                                     />
+                                                    {!hasGoal && (
+                                                      <p className="text-[10px] text-red-300">
+                                                        {LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.'}
+                                                      </p>
+                                                    )}
 
                                                     {group.tasks.map(subItem => (
                                                       <div
@@ -1267,6 +1285,11 @@ export function RoadmapEditorDialog({
                             })()}
                           </div>
                         )}
+                        {hasMissingGoalInItem && (
+                          <p className="text-[10px] text-red-300">
+                            {LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.'}
+                          </p>
+                        )}
                         <datalist id={`todo-autocomplete-${item.id}`}>
                           {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? [])
                             .map(suggestion => (
@@ -1284,6 +1307,16 @@ export function RoadmapEditorDialog({
             })}
           </section>
 
+        </div>
+
+        <div
+          className="flex-shrink-0 px-5 pt-3"
+          style={{
+            background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
+            paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+            borderTop: '1px solid rgba(255,255,255,0.08)',
+          }}
+        >
           <button
             onClick={handleSubmit}
             disabled={!isSubmitEnabled}

@@ -127,7 +127,7 @@ function CareerPageContent() {
     setBuilderInitialStep(undefined);
   };
 
-  const handleUseTemplate = (template: typeof templates[0]) => {
+  const handleUseTemplate = (template: typeof templates[0], customTitle: string) => {
     const user = storage.user.get();
     if (!user?.onboardingCompleted) {
       setShowSignupDialog(true);
@@ -156,7 +156,7 @@ function CareerPageContent() {
       jobId: template.jobId,
       jobName: template.jobName,
       jobEmoji: template.jobEmoji,
-      title: template.title,
+      title: customTitle.trim().length > 0 ? customTitle.trim() : template.title,
       createdAt: new Date().toISOString(),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       years: (template.years as any[]).map((y: any, yIdx: number) => {
@@ -229,9 +229,13 @@ function CareerPageContent() {
         };
       }),
     };
-    setEditingPlan(planFromTemplate);
-    setBuilderInitialStep(3);
-    setBuilderOpen(true);
+    const updatedPlans = [...plans, planFromTemplate];
+    savePlans(updatedPlans);
+    setSelectedPlanId(planFromTemplate.id);
+    setActiveTab('timeline');
+    setBuilderOpen(false);
+    setEditingPlan(null);
+    setBuilderInitialStep(undefined);
   };
 
   const selectedPlan = mounted ? (plans.find(p => p.id === selectedPlanId) ?? null) : null;

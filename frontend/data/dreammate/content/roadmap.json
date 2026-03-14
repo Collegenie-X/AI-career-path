@@ -43,5 +43,10 @@
   "roadmapMilestoneResultWeekLabel": "주차",
   "roadmapMilestoneResultUrlPlaceholder": "중간 결과물 URL (예: https://...)",
   "roadmapMilestoneResultImageUrlPlaceholder": "중간 결과물 이미지 URL (예: https://...)",
-  "sharePublicRequiresResultHint":   "최종 또는 중간 결과물 URL/이미지를 등록하면 전체 공유할 수 있어요."
+  "sharePublicRequiresResultHint":   "최종 또는 중간 결과물 URL/이미지를 등록하면 전체 공유할 수 있어요.",
+  "useRoadmapButton":                "사용하기",
+  "useRoadmapCustomizeDialogTitle":  "직접 사용하기",
+  "useRoadmapCustomizeDialogMessage": "이 로드맵을 그대로 사용하는 것보다는,나의 현실에 맞게 수정하여 사용하는 것을 추천해요. 참고하면서, 나만의 실행 계획을 완성해 보세요!",
+  "useRoadmapCustomizeConfirmButton": "확인하기",
+  "useRoadmapCustomizeCancelButton":  "취소하기"
 }
