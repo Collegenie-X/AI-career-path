@@ -4,6 +4,58 @@
 
 ---
 
+## 공통 URL·기사 레퍼런스 표 (자동완성 연동용)
+
+### 📣 소통 왕국
+
+| 분류 | 기관/프로그램 | 공식 URL | 관련 기사/리포트 | 활용 메모 |
+|---|---|---|---|---|
+| 크리에이터 | YouTube Creator Academy | https://creatoracademy.youtube.com | https://search.naver.com/search.naver?where=news&query=YouTube+Creator+Academy | 채널 운영 학습 근거 |
+| 방송 | KBS 미디어 | https://www.kbs.co.kr | https://search.naver.com/search.naver?where=news&query=KBS+%EB%AF%B8%EB%94%94%EC%96%B4+%EC%B2%B4%ED%97%98%EA%B4%80 | 방송 체험 활동 증빙 |
+| 콘텐츠 | 한국콘텐츠진흥원(KOCCA) | https://www.kocca.kr | https://www.kocca.kr/kocca/bbs/list/B0000137.do | 콘텐츠 산업 리포트 |
+| 마케팅 | Google Digital Garage | https://learndigital.withgoogle.com/digitalgarage | https://search.naver.com/search.naver?where=news&query=Google+Digital+Marketing+student | 디지털마케팅 학습 경로 |
+| 마케팅 | Meta Blueprint | https://www.facebook.com/business/learn | https://search.naver.com/search.naver?where=news&query=Meta+Blueprint+marketing | SNS 광고 실습 근거 |
+| 게임 | Global Game Jam | https://globalgamejam.org | https://search.naver.com/search.naver?where=news&query=Global+Game+Jam+Korea | 게임기획 실전 레퍼런스 |
+| 영화 | 부산국제영화제(BIFF) | https://www.biff.kr | https://search.naver.com/search.naver?where=news&query=BIFF+%EC%B2%AD%EC%86%8C%EB%85%84 | 영화/영상 진로 기사 |
+
+### 🚀 도전 왕국
+
+| 분류 | 기관/프로그램 | 공식 URL | 관련 기사/리포트 | 활용 메모 |
+|---|---|---|---|---|
+| 창업 | 창업진흥원(K-Startup) | https://www.k-startup.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%B0%BD%EC%97%85%EC%A7%84%ED%9D%A5%EC%9B%90+%EC%B2%AD%EC%86%8C%EB%85%84 | 창업 경진대회/지원사업 |
+| 창업교육 | 중소벤처기업부 | https://www.mss.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%A4%91%EC%86%8C%EB%B2%A4%EC%B2%98%EA%B8%B0%EC%97%85%EB%B6%80+%EC%B2%AD%EC%86%8C%EB%85%84+%EC%B0%BD%EC%97%85 | 정부 창업정책 기사 |
+| 투자 | 한국거래소(KRX) | https://www.krx.co.kr | https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EA%B1%B0%EB%9E%98%EC%86%8C+%EC%B2%AD%EC%86%8C%EB%85%84+%EA%B8%88%EC%9C%B5 | 금융/투자 체험 연계 |
+| 투자교육 | 미래에셋박현주재단 | https://foundation.miraeasset.com | https://search.naver.com/search.naver?where=news&query=%EB%AF%B8%EB%9E%98%EC%97%90%EC%85%8B+%EC%B2%AD%EC%86%8C%EB%85%84+%EA%B8%88%EC%9C%B5%EA%B5%90%EC%9C%A1 | 금융교육 자료 |
+| 취업 | 원티드 | https://www.wanted.co.kr | https://search.naver.com/search.naver?where=news&query=%EC%9B%90%ED%8B%B0%EB%93%9C+%EC%9D%B8%ED%84%B4%EC%8B%AD | 인턴 공고 추적용 |
+| 취업 | 로켓펀치 | https://www.rocketpunch.com | https://search.naver.com/search.naver?where=news&query=%EB%A1%9C%EC%BC%93%ED%8E%80%EC%B9%98+%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85+%EC%9D%B8%ED%84%B4 | 스타트업 인턴 경로 |
+| 안전 | 소방청 | https://www.nfa.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%86%8C%EB%B0%A9%EC%B2%AD+%EC%B2%AD%EC%86%8C%EB%85%84+%EC%B2%B4%ED%97%98 | 안전/재난 진로 활동 |
+| 군사/항공 | 공군사관학교 | https://www.afa.ac.kr | https://search.naver.com/search.naver?where=news&query=%EA%B3%B5%EA%B5%B0%EC%82%AC%EA%B4%80%ED%95%99%EA%B5%90+%EC%B2%AD%EC%86%8C%EB%85%84+%EC%BA%A0%ED%94%84 | 항공/군사 체험 레퍼런스 |
+
+### 📊 전체 종합 비교 연동 리소스
+
+| 구분 | 공식 URL | 관련 기사/리포트 | 자동완성 키 |
+|---|---|---|---|
+| 정부 공공데이터 | https://www.data.go.kr | https://www.data.go.kr/tcs/dss/selectDataSetList.do | `공공데이터`, `프로젝트`, `데이터근거` |
+| 통계청 KOSIS | https://kosis.kr | https://search.naver.com/search.naver?where=news&query=KOSIS+%EC%B2%AD%EC%86%8C%EB%85%84+%ED%86%B5%EA%B3%84 | `통계`, `근거자료`, `분석` |
+| 국가평생교육진흥원(K-MOOC) | https://www.kmooc.kr | https://search.naver.com/search.naver?where=news&query=K-MOOC+%EC%B2%AD%EC%86%8C%EB%85%84 | `온라인강의`, `수료증`, `심화학습` |
+| 커리어넷 | https://www.career.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%BB%A4%EB%A6%AC%EC%96%B4%EB%84%B7+%EC%A7%84%EB%A1%9C%ED%83%90%EC%83%89 | `진로탐색`, `직업정보`, `로드맵` |
+| 워크넷 | https://www.work.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%9B%8C%ED%81%AC%EB%84%B7+%EC%B2%AD%EC%86%8C%EB%85%84+%EC%A7%84%EB%A1%9C | `채용`, `직무`, `취업동향` |
+
+### 🧩 대회·자격증 URL/기사 매핑 (하편 공통)
+
+| 항목유형 | 항목명 | 공식 URL | 관련 기사/리포트 | 자동완성 키워드 |
+|---|---|---|---|---|
+| Awards | 대한민국 학생 창업대회 | https://www.k-startup.go.kr | https://search.naver.com/search.naver?where=news&query=%ED%95%99%EC%83%9D+%EC%B0%BD%EC%97%85%EB%8C%80%ED%9A%8C | `창업`, `피치덱`, `사업계획` |
+| Awards | Diamond Challenge | https://diamondchallenge.org | https://search.naver.com/search.naver?where=news&query=Diamond+Challenge+student | `국제창업`, `팀프로젝트` |
+| Awards | Global Startup Weekend | https://www.techstars.com/startup-weekend | https://search.naver.com/search.naver?where=news&query=Global+Startup+Weekend | `해커톤`, `창업실전` |
+| Awards | Global Game Jam | https://globalgamejam.org | https://search.naver.com/search.naver?where=news&query=Global+Game+Jam | `게임기획`, `콘텐츠제작` |
+| Certification | 매경TEST | https://exam.mk.co.kr | https://search.naver.com/search.naver?where=news&query=%EB%A7%A4%EA%B2%BDTEST | `경제이해`, `경영기초` |
+| Certification | TESAT | https://www.tesat.or.kr | https://search.naver.com/search.naver?where=news&query=TESAT+%EC%8B%9C%ED%97%98 | `시사경제`, `분석력` |
+| Certification | Google 디지털 마케팅 | https://learndigital.withgoogle.com/digitalgarage | https://search.naver.com/search.naver?where=news&query=Google+Digital+Garage | `마케팅`, `디지털광고` |
+| Certification | COS Pro | https://www.ybmit.com | https://search.naver.com/search.naver?where=news&query=COS+Pro+%EC%9E%90%EA%B2%A9 | `파이썬`, `코딩역량` |
+
+---
+
 # 📣 소통 왕국 — Activities · Awards · 자격증
 
 > **소속 직업**: 유튜버·크리에이터(13) · 디지털마케터(14) · 방송PD·작가(29) · 게임기획자(30)
@@ -14,20 +66,20 @@
 
 ### 초·중·고별 + 난이도별 Activities
 
-| # | 프로그램명 | 대상 | 난이도 | 유형 | 주관 | 온/오프 | 비용 |
-|---|---------|------|-------|------|------|--------|------|
-| 1 | YouTube Creator Academy | 전 연령 | ★★☆☆☆ | 온라인 | YouTube | 온라인 | 무료 |
-| 2 | KBS 미디어 체험관 | 중·고 | ★★☆☆☆ | 체험 | KBS | 오프라인 | 3만원 |
-| 3 | Adobe Creative Camp | 중·고 | ★★☆☆☆ | 캠프 | Adobe | 오프라인 | 무료 |
-| 4 | 한국콘텐츠진흥원 콘텐츠 캠프 | 중·고 | ★★★☆☆ | 캠프 | 한국콘텐츠진흥원 | 오프라인 | 무료~5만원 |
-| 5 | 부산국제영화제 청소년 프로그램 | 중·고 | ★★★☆☆ | 체험 | BIFF | 오프라인 | 5만원 |
-| 6 | Google 디지털 마케팅 무료 강좌 | 고 | ★★★☆☆ | 온라인 | Google | 온라인 | 무료 |
-| 7 | Meta Blueprint (SNS 광고) | 고 | ★★★☆☆ | 온라인 | Meta | 온라인 | 무료 |
-| 8 | Unity 청소년 개발자 캠프 | 중·고 | ★★★☆☆ | 캠프 | Unity Korea | 오프/온 | 무료~5만원 |
-| 9 | 네이버 커넥트재단 부스트캠프 | 고·대 | ★★★★☆ | 부트캠프 | 네이버 | 오프라인 | 무료 |
-| 10 | K-MOOC "미디어 커뮤니케이션" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 |
-| 11 | K-MOOC "게임 디자인 입문" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 |
-| 12 | Coursera "Marketing Analytics" | 고2 | ★★★★☆ | 온라인 | 버지니아대 | 온라인 | 무료 청강 |
+| # | 프로그램명 | 대상 | 난이도 | 유형 | 주관 | 온/오프 | 비용 | URL |
+|---|---------|------|-------|------|------|--------|------|-----|
+| 1 | YouTube Creator Academy | 전 연령 | ★★☆☆☆ | 온라인 | YouTube | 온라인 | 무료 | [YouTube Creator Academy](https://creatoracademy.youtube.com) |
+| 2 | KBS 미디어 체험관 | 중·고 | ★★☆☆☆ | 체험 | KBS | 오프라인 | 3만원 | [KBS](https://www.kbs.co.kr) |
+| 3 | Adobe Creative Camp | 중·고 | ★★☆☆☆ | 캠프 | Adobe | 오프라인 | 무료 | [Adobe Education](https://www.adobe.com/education.html) |
+| 4 | 한국콘텐츠진흥원 콘텐츠 캠프 | 중·고 | ★★★☆☆ | 캠프 | 한국콘텐츠진흥원 | 오프라인 | 무료~5만원 | [KOCCA](https://www.kocca.kr) |
+| 5 | 부산국제영화제 청소년 프로그램 | 중·고 | ★★★☆☆ | 체험 | BIFF | 오프라인 | 5만원 | [BIFF](https://www.biff.kr) |
+| 6 | Google 디지털 마케팅 무료 강좌 | 고 | ★★★☆☆ | 온라인 | Google | 온라인 | 무료 | [Google Digital Garage](https://learndigital.withgoogle.com/digitalgarage) |
+| 7 | Meta Blueprint (SNS 광고) | 고 | ★★★☆☆ | 온라인 | Meta | 온라인 | 무료 | [Meta Blueprint](https://www.facebook.com/business/learn) |
+| 8 | Unity 청소년 개발자 캠프 | 중·고 | ★★★☆☆ | 캠프 | Unity Korea | 오프/온 | 무료~5만원 | [Unity Learn](https://learn.unity.com) |
+| 9 | 네이버 커넥트재단 부스트캠프 | 고·대 | ★★★★☆ | 부트캠프 | 네이버 | 오프라인 | 무료 | [부스트캠프](https://boostcamp.connect.or.kr) |
+| 10 | K-MOOC "미디어 커뮤니케이션" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 | [K-MOOC](https://www.kmooc.kr) |
+| 11 | K-MOOC "게임 디자인 입문" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 | [K-MOOC](https://www.kmooc.kr) |
+| 12 | Coursera "Marketing Analytics" | 고2 | ★★★★☆ | 온라인 | 버지니아대 | 온라인 | 무료 청강 | [Coursera](https://www.coursera.org) |
 
 ### 월별 Activities 캘린더
 
@@ -90,6 +142,15 @@
 
 ## 📣-2. Awards (대회 · 공모전)
 
+### URL·기사 확장표 (📣 Awards)
+
+| 대회명 | 공식 URL | 관련 기사/리포트 | 자동완성 키 |
+|---|---|---|---|
+| 청소년 UCC 공모전 | https://www.mogef.go.kr | https://search.naver.com/search.naver?where=news&query=%EC%B2%AD%EC%86%8C%EB%85%84+UCC+%EA%B3%B5%EB%AA%A8%EC%A0%84 | `영상제작`, `콘텐츠기획` |
+| 한국언론진흥재단 청소년 미디어 대상 | https://www.kpf.or.kr | https://search.naver.com/search.naver?where=news&query=%ED%95%9C%EA%B5%AD%EC%96%B8%EB%A1%A0%EC%A7%84%ED%9D%A5%EC%9E%AC%EB%8B%A8+%EC%B2%AD%EC%86%8C%EB%85%84+%EB%AF%B8%EB%94%94%EC%96%B4 | `미디어리터러시`, `기획력` |
+| Global Game Jam | https://globalgamejam.org | https://search.naver.com/search.naver?where=news&query=Global+Game+Jam+Korea | `게임잼`, `프로토타입` |
+| Cannes Lions Young Lions | https://www.canneslions.com/competitions/young-lions-competitions | https://search.naver.com/search.naver?where=news&query=Cannes+Lions+Young+Lions | `광고전략`, `국제콘텐츠` |
+
 ### 교내 수상 전략 (학기당 1개)
 
 | 학기 | 추천 교내 대회 | 난이도 | 적합 직업 |
@@ -101,8 +162,8 @@
 
 ### 교외 대회 — 국내
 
-| # | 대회명 | 주관 | 대상 | 시기 | 난이도 | 온/오프 | 적합 직업 |
-|---|-------|------|------|------|-------|--------|---------|
+| # | 대회명 | 주관 | 대상 | 시기 | 난이도 | 온/오프 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---|-------|------|------|------|-------|--------|---------|---------|-------------------|
 | 1 | **전국 청소년 영상공모전** | 한국콘텐츠진흥원 | 중·고 | 연중 | ★★★☆☆ | 온라인 | 유튜버·방송PD |
 | 2 | **KBS 청소년 영상 공모전** | KBS | 중·고 | 6~10월 | ★★★☆☆ | 온라인 | 방송PD·유튜버 |
 | 3 | **전국 학생 UCC 공모전** | 한국콘텐츠진흥원 | 중·고 | 연중 | ★★☆☆☆ | 온라인 | 유튜버·방송PD |
@@ -115,8 +176,8 @@
 
 ### 교외 대회 — 해외 / 국제
 
-| # | 대회명 | 주관 | 대상 | 시기 | 온/오프 | 언어 | 난이도 | 적합 직업 |
-|---|-------|------|------|------|--------|------|-------|---------|
+| # | 대회명 | 주관 | 대상 | 시기 | 온/오프 | 언어 | 난이도 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---|-------|------|------|------|--------|------|-------|---------|---------|-------------------|
 | 1 | **Global Game Jam** | IGDA | 전 연령 | 1월 | 오프라인(글로벌) | 영어 | ★★★★☆ | 게임기획자 |
 | 2 | **Ludum Dare** | 온라인 커뮤니티 | 전 연령 | 연 3회 | 온라인 | 영어 | ★★★☆☆ | 게임기획자 |
 | 3 | **YouTube NextUp** | YouTube | 크리에이터 | 연중 | 온/오프 | 영어 | ★★★★☆ | 유튜버 |
@@ -137,10 +198,19 @@
 
 ## 📣-3. 자격증 (Certification)
 
+### URL·기사 확장표 (📣 자격증)
+
+| 자격증명 | 공식 URL | 관련 기사/리포트 | 자동완성 키 |
+|---|---|---|---|
+| GTQ/GTQi | https://license.kpc.or.kr | https://search.naver.com/search.naver?where=news&query=GTQ+GTQi | `그래픽툴`, `콘텐츠디자인` |
+| Google 디지털 마케팅 수료 | https://learndigital.withgoogle.com/digitalgarage | https://search.naver.com/search.naver?where=news&query=Google+Digital+Garage | `마케팅`, `광고분석` |
+| Meta Blueprint | https://www.facebook.com/business/learn | https://search.naver.com/search.naver?where=news&query=Meta+Blueprint | `SNS광고`, `퍼포먼스` |
+| 컴활 | https://license.korcham.net | https://search.naver.com/search.naver?where=news&query=%EC%BB%B4%ED%99%9C | `문서/데이터`, `기초업무` |
+
 ### 초·중·고별 + 난이도별 자격증
 
-| 취득 시기 | 자격증명 | 주관 | 난이도 | 비용 | 온/오프 | 적합 직업 |
-|---------|--------|------|-------|------|--------|---------|
+| 취득 시기 | 자격증명 | 주관 | 난이도 | 비용 | 온/오프 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---------|--------|------|-------|------|--------|---------|---------|-------------------|
 | **중2~고1** | DIAT 멀티미디어 제작 | 한국정보통신진흥협회 | ★☆☆☆☆ | 1.8만원 | 오프라인 | 4직업 공통 |
 | **중3~고1** | 컴퓨터활용능력 2급 | 대한상공회의소 | ★★☆☆☆ | 1.9만원 | 오프라인 | 4직업 공통 |
 | **중3~고1** | GTQ 1급 (그래픽기술) | 한국생산성본부 | ★★★☆☆ | 2.5만원 | 오프라인 | 유튜버·마케터·PD |
@@ -193,20 +263,20 @@
 
 ### 초·중·고별 + 난이도별 Activities
 
-| # | 프로그램명 | 대상 | 난이도 | 유형 | 주관 | 온/오프 | 비용 |
-|---|---------|------|-------|------|------|--------|------|
-| 1 | POSTECH 영재기업인교육원 | 중·고 | ★★★★☆ | 연중교육 | 포스텍 | 오프라인 | 무료 |
-| 2 | 한국은행 경제캠프 | 중·고 | ★★★☆☆ | 캠프 | 한국은행 | 오프라인 | 무료 |
-| 3 | 금융감독원 금융교육 | 중·고 | ★★☆☆☆ | 교육 | 금융감독원 | 오프/온 | 무료 |
-| 4 | 중소벤처기업부 청소년 창업캠프 | 중·고 | ★★★☆☆ | 캠프 | 중소벤처기업부 | 오프라인 | 무료 |
-| 5 | 한국창업보육협회 창업 멘토링 | 고 | ★★★★☆ | 멘토링 | 한국창업보육협회 | 오프/온 | 무료 |
-| 6 | 증권사 청소년 모의투자 프로그램 | 중·고 | ★★☆☆☆ | 실습 | 주요 증권사 | 온라인 | 무료 |
-| 7 | McKinsey Solve 사전 체험 | 고2~대 | ★★★★★ | 체험 | McKinsey | 온라인 | 무료 |
-| 8 | Google for Startups | 고·대 | ★★★★☆ | 교육 | Google | 온라인 | 무료 |
-| 9 | K-MOOC "경영학원론" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 |
-| 10 | K-MOOC "투자론 입문" | 고2 | ★★★★☆ | 온라인 | 교육부 | 온라인 | 무료 |
-| 11 | Coursera "Financial Markets" (예일대) | 고2 | ★★★★☆ | 온라인 | 예일대 | 온라인 | 무료 청강 |
-| 12 | Coursera "Product Management" | 고2 | ★★★★☆ | 온라인 | 버지니아대 | 온라인 | 무료 청강 |
+| # | 프로그램명 | 대상 | 난이도 | 유형 | 주관 | 온/오프 | 비용 | URL |
+|---|---------|------|-------|------|------|--------|------|-----|
+| 1 | POSTECH 영재기업인교육원 | 중·고 | ★★★★☆ | 연중교육 | 포스텍 | 오프라인 | 무료 | [POSTECH 영재기업인](https://gifted.postech.ac.kr) |
+| 2 | 한국은행 경제캠프 | 중·고 | ★★★☆☆ | 캠프 | 한국은행 | 오프라인 | 무료 | [한국은행](https://www.bok.or.kr) |
+| 3 | 금융감독원 금융교육 | 중·고 | ★★☆☆☆ | 교육 | 금융감독원 | 오프/온 | 무료 | [금융감독원](https://www.fss.or.kr) |
+| 4 | 중소벤처기업부 청소년 창업캠프 | 중·고 | ★★★☆☆ | 캠프 | 중소벤처기업부 | 오프라인 | 무료 | [중소벤처기업부](https://www.mss.go.kr) |
+| 5 | 한국창업보육협회 창업 멘토링 | 고 | ★★★★☆ | 멘토링 | 한국창업보육협회 | 오프/온 | 무료 | [한국창업보육협회](https://www.kobia.or.kr) |
+| 6 | 증권사 청소년 모의투자 프로그램 | 중·고 | ★★☆☆☆ | 실습 | 주요 증권사 | 온라인 | 무료 | 각 증권사 모의투자 홈페이지 |
+| 7 | McKinsey Solve 사전 체험 | 고2~대 | ★★★★★ | 체험 | McKinsey | 온라인 | 무료 | [McKinsey Solve](https://www.mckinsey.com/careers/interviewing) |
+| 8 | Google for Startups | 고·대 | ★★★★☆ | 교육 | Google | 온라인 | 무료 | [Google for Startups](https://startup.google.com) |
+| 9 | K-MOOC "경영학원론" | 고1~2 | ★★★☆☆ | 온라인 | 교육부 | 온라인 | 무료 | [K-MOOC](https://www.kmooc.kr) |
+| 10 | K-MOOC "투자론 입문" | 고2 | ★★★★☆ | 온라인 | 교육부 | 온라인 | 무료 | [K-MOOC](https://www.kmooc.kr) |
+| 11 | Coursera "Financial Markets" (예일대) | 고2 | ★★★★☆ | 온라인 | 예일대 | 온라인 | 무료 청강 | [Coursera Financial Markets](https://www.coursera.org/learn/financial-markets-global) |
+| 12 | Coursera "Product Management" | 고2 | ★★★★☆ | 온라인 | 버지니아대 | 온라인 | 무료 청강 | [Coursera Product Management](https://www.coursera.org) |
 
 ### 월별 Activities 캘린더
 
@@ -268,6 +338,16 @@
 
 ## 🚀-2. Awards (대회 · 공모전)
 
+### URL·기사 확장표 (🚀 Awards)
+
+| 대회명 | 공식 URL | 관련 기사/리포트 | 자동완성 키 |
+|---|---|---|---|
+| 대한민국 학생 창업대회 | https://www.k-startup.go.kr | https://search.naver.com/search.naver?where=news&query=%ED%95%99%EC%83%9D+%EC%B0%BD%EC%97%85%EB%8C%80%ED%9A%8C | `창업`, `사업계획` |
+| 청소년 비즈쿨 창업대회 | https://www.bizcool.or.kr | https://search.naver.com/search.naver?where=news&query=%EB%B9%84%EC%A6%88%EC%BF%A8+%EC%B0%BD%EC%97%85%EB%8C%80%ED%9A%8C | `비즈니스모델`, `피치` |
+| Diamond Challenge | https://diamondchallenge.org | https://search.naver.com/search.naver?where=news&query=Diamond+Challenge | `국제창업`, `팀프로젝트` |
+| Global Startup Weekend | https://www.techstars.com/startup-weekend | https://search.naver.com/search.naver?where=news&query=Global+Startup+Weekend | `해커톤`, `창업실전` |
+| CFA Institute Research Challenge | https://www.cfainstitute.org/en/societies/challenge | https://search.naver.com/search.naver?where=news&query=CFA+Research+Challenge+high+school | `투자리서치`, `재무분석` |
+
 ### 교내 수상 전략 (학기당 1개)
 
 | 학기 | 추천 교내 대회 | 난이도 | 적합 직업 |
@@ -279,8 +359,8 @@
 
 ### 교외 대회 — 국내
 
-| # | 대회명 | 주관 | 대상 | 시기 | 난이도 | 온/오프 | 적합 직업 |
-|---|-------|------|------|------|-------|--------|---------|
+| # | 대회명 | 주관 | 대상 | 시기 | 난이도 | 온/오프 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---|-------|------|------|------|-------|--------|---------|---------|-------------------|
 | 1 | **대한민국 학생 창업대회** | 중소벤처기업부 | 중·고 | 6~11월 | ★★★★☆ | 오프라인 | 창업가·PM |
 | 2 | **청소년 비즈쿨 창업대회** | 중소벤처기업부 | 중·고 | 연중 | ★★★☆☆ | 오프/온 | 창업가 |
 | 3 | **금융감독원 금융교육 공모전** | 금융감독원 | 중·고 | 6~10월 | ★★★☆☆ | 온/오프 | 투자분석가 |
@@ -295,8 +375,8 @@
 
 ### 교외 대회 — 해외 / 국제
 
-| # | 대회명 | 주관 | 대상 | 시기 | 온/오프 | 언어 | 난이도 | 적합 직업 |
-|---|-------|------|------|------|--------|------|-------|---------|
+| # | 대회명 | 주관 | 대상 | 시기 | 온/오프 | 언어 | 난이도 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---|-------|------|------|------|--------|------|-------|---------|---------|-------------------|
 | 1 | **Diamond Challenge** | 델라웨어대학 | 고 | 1~5월 | 온라인→오프 | 영어 | ★★★★☆ | 창업가 |
 | 2 | **CFA Institute Research Challenge** (고교부) | CFA Institute | 고 | 연중 | 온/오프 | 영어 | ★★★★★ | 투자분석가 |
 | 3 | **DECA (Distributive Education Clubs)** | DECA Inc | 고 | 연중 | 온/오프 | 영어 | ★★★★☆ | 마케터·컨설턴트 |
@@ -317,10 +397,20 @@
 
 ## 🚀-3. 자격증 (Certification)
 
+### URL·기사 확장표 (🚀 자격증)
+
+| 자격증명 | 공식 URL | 관련 기사/리포트 | 자동완성 키 |
+|---|---|---|---|
+| 매경TEST | https://exam.mk.co.kr | https://search.naver.com/search.naver?where=news&query=%EB%A7%A4%EA%B2%BDTEST | `경제기초`, `시사분석` |
+| TESAT | https://www.tesat.or.kr | https://search.naver.com/search.naver?where=news&query=TESAT | `경제논리`, `금융이해` |
+| Google 디지털 마케팅 | https://learndigital.withgoogle.com/digitalgarage | https://search.naver.com/search.naver?where=news&query=Google+Digital+Garage | `그로스`, `마케팅실무` |
+| COS Pro | https://www.ybmit.com | https://search.naver.com/search.naver?where=news&query=COS+Pro | `코딩기초`, `자동화` |
+| TOEFL iBT | https://www.ets.org/toefl | https://search.naver.com/search.naver?where=news&query=TOEFL+iBT | `영문피치`, `국제대회` |
+
 ### 초·중·고별 + 난이도별 자격증
 
-| 취득 시기 | 자격증명 | 주관 | 난이도 | 비용 | 온/오프 | 적합 직업 |
-|---------|--------|------|-------|------|--------|---------|
+| 취득 시기 | 자격증명 | 주관 | 난이도 | 비용 | 온/오프 | 적합 직업 | 공식 URL | 관련 기사/리포트 |
+|---------|--------|------|-------|------|--------|---------|---------|-------------------|
 | **중3~고1** | 한국사능력검정시험 1급 | 국사편찬위원회 | ★★★☆☆ | 1만원 | 오프라인 | 컨설턴트 |
 | **중3~고1** | 정보처리기능사 | 한국산업인력공단 | ★★☆☆☆ | 1.9만원 | 오프라인 | PM |
 | **고1** | 컴퓨터활용능력 1급 | 대한상공회의소 | ★★★☆☆ | 2.2만원 | 오프라인 | 4직업 공통 |
@@ -470,4 +560,342 @@ flowchart LR
 
 ---
 
-*작성일: 2026년 2월 | 8개 왕국별 Activities·Awards·자격증 종합 가이드 (하) v1.0*
+# 📣 소통 왕국 — 심화 가이드
+
+## 📣-A. 인턴십·현장실습 가이드
+
+### 소통 왕국 인턴십 목록
+
+| # | 기관명 | 분야 | 대상 | 기간 | 급여 | 지원 방법 |
+|---|-------|------|------|------|------|---------|
+| 1 | 유튜브 채널 직접 운영 | 콘텐츠 | 중·고 | 상시 | 수익 창출 가능 | 직접 개설 |
+| 2 | 마케팅 대행사 인턴 (소규모) | 마케팅 | 고2~대학생 | 방학 2~4주 | 없음~소정 | 직접 이메일 지원 |
+| 3 | KBS·MBC·SBS 방송국 인턴십 | 방송 | 대학생 | 방학 8주 | 유급 | 각 방송국 채용 포털 |
+| 4 | 넥슨·넷마블·크래프톤 인턴십 | 게임 | 대학생 | 방학 8주 | 유급 | 각 게임사 채용 포털 |
+| 5 | 한국콘텐츠진흥원 청소년 콘텐츠 제작 | 콘텐츠 | 고1~고3 | 방학 1~2주 | 없음 | KOCCA 홈페이지 |
+| 6 | 지역 신문사 청소년 기자 | 저널리즘 | 중·고 | 연중 | 없음 | 지역 신문사 직접 연락 |
+| 7 | 학교 방송부 활동 | 방송 | 중·고 | 연중 | 없음 | 학교 방송부 |
+| 8 | 팟캐스트·인터넷 라디오 운영 | 미디어 | 중·고 | 상시 | 없음 | 직접 개설 |
+
+**소통 왕국 인턴십 지원 전략**:
+
+소통 왕국에서 가장 강력한 포트폴리오는 "직접 만든 콘텐츠"입니다. 유튜브 채널, 블로그, 팟캐스트를 운영하면서 구독자·조회수·참여율 데이터를 수집하세요. 이 데이터가 마케팅 대행사 인턴 지원 시 가장 강력한 증빙이 됩니다.
+
+게임 기획 인턴을 목표로 한다면 직접 게임 기획서를 작성해서 포트폴리오로 제출하세요. "이 게임의 문제점을 분석하고, 개선 방안을 제시한 10쪽 기획서"가 자기소개서보다 효과적입니다.
+
+```mermaid
+flowchart LR
+    content["콘텐츠 제작 시작"] --> data["데이터 수집<br>조회수·구독자·참여율"]
+    data --> analyze["데이터 분석"]
+    analyze --> improve["콘텐츠 개선"]
+    improve --> portfolio["포트폴리오 정리"]
+    portfolio --> apply["인턴십 지원"]
+    apply --> seteuk["세특 연결<br>미디어·국어·사회"]
+```
+
+---
+
+## 📣-B. 논문·연구 참여 가이드
+
+### 소통 왕국 논문 읽기 방법
+
+**추천 논문 데이터베이스**:
+- **RISS** (riss.kr): 미디어·커뮤니케이션·마케팅 논문
+- **DBpia** (dbpia.co.kr): 한국 언론학·광고학 학술지
+- **한국언론진흥재단** (kpf.or.kr): 미디어 연구 보고서 (무료)
+- **한국콘텐츠진흥원** (kocca.kr): 콘텐츠 산업 연구 보고서 (무료)
+- **Nielsen Korea** (nielsen.com/kr): 미디어 소비 트렌드 보고서
+
+**콘텐츠 분석 보고서 작성법**:
+
+소통 왕국에서 가장 강력한 탐구 방법은 콘텐츠 분석입니다.
+
+| 단계 | 내용 | 예시 |
+|------|------|------|
+| 1단계 | 분석 대상 선정 | 유튜브 채널 10개, SNS 캠페인 5개 |
+| 2단계 | 분석 기준 설정 | 조회수, 댓글 수, 공유 수, 감성 분석 |
+| 3단계 | 데이터 수집 | 1개월간 데이터 수집 |
+| 4단계 | 패턴 분석 | 성공 콘텐츠의 공통점 도출 |
+| 5단계 | 보고서 작성 | 분석 결과 + 전략 제안 |
+
+---
+
+## 📣-C. 해외 프로그램·국제 대회
+
+### 소통 왕국 국제 대회 상세 정보
+
+| # | 대회명 | 분야 | 대상 | 일정 | 준비 기간 | 언어 |
+|---|------|------|------|------|---------|------|
+| 1 | Cannes Lions Young Lions | 광고·마케팅 | 대학생 | 매년 6월 | 3~6개월 | 영어 |
+| 2 | Google Digital Marketing Challenge | 디지털 마케팅 | 대학생 | 매년 상반기 | 3개월 | 영어 |
+| 3 | 부산국제단편영화제 (BISFF) 학생 부문 | 영화·영상 | 중·고·대 | 매년 4~5월 | 3~6개월 | 한국어 |
+| 4 | 아시아 청소년 방송 대회 | 방송·미디어 | 고·대 | 매년 상반기 | 3~6개월 | 영어 |
+| 5 | 국제 게임 잼 (Global Game Jam) | 게임 | 전 연령 | 매년 1월 | 48시간 | 영어 |
+| 6 | 한국 게임 잼 (Korea Game Jam) | 게임 | 전 연령 | 매년 상반기 | 48시간 | 한국어 |
+
+**Global Game Jam 참가 전략**:
+
+Global Game Jam은 48시간 안에 게임을 만드는 세계 최대 게임 잼입니다. 매년 1월 전 세계 동시에 개최되며, 한국에도 여러 개최지가 있습니다.
+
+준비 단계:
+1. 팀 구성: 기획자 1명 + 개발자 1~2명 + 아티스트 1명
+2. 게임 엔진 학습: Unity 또는 Godot 기초
+3. 48시간 게임 제작: 주제 발표 후 즉시 시작
+4. 결과물 제출: itch.io에 게임 업로드
+5. 세특 연결: "게임 기획 과정에서 스토리텔링 원리를 탐구했다"
+
+---
+
+## 📣-D. 수상 대회 심화 가이드
+
+### 콘텐츠 공모전 준비 전략
+
+**주요 콘텐츠 공모전 목록**:
+
+| # | 대회명 | 주관 | 대상 | 일정 | 형식 |
+|---|------|------|------|------|------|
+| 1 | 청소년 UCC 공모전 (여성가족부) | 여성가족부 | 중·고 | 매년 상반기 | 영상 |
+| 2 | 교육부 청소년 영상 공모전 | 교육부 | 중·고 | 매년 상반기 | 영상 |
+| 3 | 한국언론진흥재단 청소년 미디어 대상 | 한국언론진흥재단 | 중·고 | 매년 상반기 | 영상·글 |
+| 4 | 넥슨 청소년 게임 기획 공모전 | 넥슨 | 중·고 | 매년 상반기 | 기획서 |
+| 5 | 카카오 청소년 앱 아이디어 공모전 | 카카오 | 중·고 | 매년 상반기 | 기획서 |
+| 6 | 전국 학생 광고 공모전 | 한국광고학회 | 고·대 | 매년 상반기 | 광고 기획서 |
+
+**청소년 UCC 공모전 준비 전략**:
+
+| 단계 | 내용 | 기간 |
+|------|------|------|
+| 주제 선정 | 사회 문제 + 창의적 해결책 | 2개월 전 |
+| 기획 | 스토리보드 작성 (10컷 이상) | 1~2개월 전 |
+| 촬영 | 스마트폰 또는 카메라로 촬영 | 1개월 전 |
+| 편집 | 자막, 음악, 효과 추가 | 2~3주 전 |
+| 제출 | 지정 플랫폼에 업로드 | 마감 1주 전 |
+
+---
+
+# 🚀 도전 왕국 — 심화 가이드
+
+## 🚀-A. 인턴십·현장실습 가이드
+
+### 도전 왕국 인턴십 목록
+
+| # | 기관명 | 분야 | 대상 | 기간 | 급여 | 지원 방법 |
+|---|-------|------|------|------|------|---------|
+| 1 | 스타트업 인턴 (원티드·로켓펀치) | 창업·경영 | 고3~대학생 | 방학 4~8주 | 유급 | 원티드·로켓펀치 |
+| 2 | 중소벤처기업부 청소년 창업 캠프 | 창업 | 중·고 | 방학 1~2주 | 없음 | 창업진흥원 홈페이지 |
+| 3 | 한국거래소 청소년 증권 체험 | 금융·투자 | 고1~고3 | 1일 | 없음 | 한국거래소 홈페이지 |
+| 4 | 미래에셋 청소년 금융 교육 | 금융 | 중·고 | 1일 | 없음 | 미래에셋 홈페이지 |
+| 5 | 맥킨지·BCG·베인 인턴십 | 컨설팅 | 대학생 | 방학 8~12주 | 유급 | 각 기업 채용 포털 |
+| 6 | 삼성전자 DX 인턴십 | 경영·기획 | 대학생 | 방학 8주 | 유급 | 삼성 채용 포털 |
+| 7 | 소방서 안전 체험 | 소방·안전 | 중·고 | 1일 | 없음 | 지역 소방서 직접 연락 |
+| 8 | 공군 사관학교 체험 캠프 | 군사·항공 | 고1~고3 | 방학 1~3일 | 없음 | 공군 사관학교 홈페이지 |
+
+**도전 왕국 인턴십 지원 전략**:
+
+도전 왕국은 "실행력"이 가장 중요합니다. 창업 인턴을 지원할 때 "창업에 관심이 있다"보다 "이미 소규모 사업을 시도해봤고, 이런 문제를 발견했다"처럼 실행 경험을 제시하세요.
+
+스타트업 인턴은 원티드(wanted.co.kr)나 로켓펀치(rocketpunch.com)에서 "고등학생 인턴" 또는 "인턴십"으로 검색하면 찾을 수 있습니다. 소규모 스타트업은 고등학생 인턴에 열려 있는 경우가 많습니다.
+
+---
+
+## 🚀-B. 논문·연구 참여 가이드
+
+### 도전 왕국 논문 읽기 방법
+
+**추천 논문 데이터베이스**:
+- **RISS** (riss.kr): 경영학·경제학·스포츠과학 논문
+- **DBpia** (dbpia.co.kr): 한국 경영학·체육학 학술지
+- **한국개발연구원 KDI** (kdi.re.kr): 경제·경영 연구 보고서 (무료)
+- **스타트업 얼라이언스** (startupall.kr): 스타트업 생태계 보고서 (무료)
+- **중소벤처기업부** (mss.go.kr): 창업 정책 보고서 (무료)
+
+**스포츠 과학 논문 읽기**:
+도전 왕국에서 스포츠·군사 분야를 목표로 한다면 스포츠 과학 논문이 강력한 탐구 소재입니다.
+
+| 단계 | 내용 | 예시 |
+|------|------|------|
+| 1단계 | 주제 선정 | "고강도 훈련이 회복 속도에 미치는 영향" |
+| 2단계 | 논문 검색 | PubMed에서 "HIIT recovery" 검색 |
+| 3단계 | 논문 요약 | 3편 읽고 핵심 내용 정리 |
+| 4단계 | 직접 실험 | 본인 훈련 데이터 수집 + 분석 |
+| 5단계 | 보고서 작성 | 논문 형식으로 결과 기록 |
+
+---
+
+## 🚀-C. 해외 프로그램·국제 대회
+
+### 도전 왕국 국제 프로그램
+
+| # | 프로그램명 | 분야 | 대상 | 기간 | 비용 | 언어 |
+|---|---------|------|------|------|------|------|
+| 1 | 국제 청소년 창업 대회 (GSVC) | 창업 | 대학생 | 매년 상반기 | 무료 | 영어 |
+| 2 | 아시아 청소년 기업가 정신 포럼 | 창업·경영 | 고·대 | 매년 상반기 | 50~200만원 | 영어 |
+| 3 | 국제 스포츠 과학 올림피아드 | 스포츠 과학 | 고·대 | 매년 상반기 | 100~300만원 | 영어 |
+| 4 | 공군 사관학교 국제 교류 | 항공·군사 | 고2~고3 | 방학 1~2주 | 무료~50만원 | 영어 |
+| 5 | 청소년 기업가 정신 세계 정상회의 (YES) | 창업 | 고·대 | 매년 상반기 | 100~300만원 | 영어 |
+
+**국제 창업 대회 준비 전략**:
+
+창업 분야 국제 대회는 "실제 문제를 해결하는 비즈니스 모델"이 핵심입니다.
+
+준비 단계:
+1. 문제 발견: 일상에서 불편한 점 10가지 목록 작성
+2. 시장 조사: 해당 문제를 겪는 사람이 얼마나 많은지 조사
+3. 솔루션 설계: 기술 또는 서비스로 문제 해결 방법 설계
+4. 비즈니스 모델 수립: 수익 창출 방법 설계
+5. 피치덱 작성: 10장 내외 영어 발표 자료
+
+---
+
+## 🚀-D. 수상 대회 심화 가이드
+
+### 창업·경영 대회 준비 전략
+
+**주요 대회 목록**:
+
+| # | 대회명 | 주관 | 대상 | 일정 | 형식 |
+|---|------|------|------|------|------|
+| 1 | 전국 청소년 창업 경진대회 | 중소벤처기업부 | 중·고 | 매년 상반기 | 사업 계획서 |
+| 2 | 삼성 드림클래스 창업 대회 | 삼성전자 | 중·고 | 매년 상반기 | 사업 계획서 |
+| 3 | 전국 학생 경제 논술 대회 | 한국경제학회 | 고 | 매년 상반기 | 경제 논술 |
+| 4 | 전국 학생 주식 투자 대회 | 한국거래소 | 고·대 | 매년 상반기 | 모의 투자 |
+| 5 | 전국 고교생 경영 전략 대회 | 한국경영학회 | 고 | 매년 상반기 | 경영 전략 발표 |
+| 6 | 소방 안전 아이디어 공모전 | 소방청 | 중·고 | 매년 상반기 | 아이디어 제안서 |
+
+**전국 청소년 창업 경진대회 준비 전략**:
+
+| 단계 | 내용 | 기간 |
+|------|------|------|
+| 아이디어 발굴 | 사회 문제 + 기술 솔루션 | 3개월 전 |
+| 시장 조사 | 경쟁사 분석 + 고객 인터뷰 10명 | 2개월 전 |
+| 사업 계획서 작성 | 10~15쪽 사업 계획서 | 1~2개월 전 |
+| 발표 준비 | 5분 피치 + 5분 Q&A | 2주 전 |
+| 모의 발표 | 실전과 동일한 환경에서 연습 | 1주 전 |
+
+---
+
+# 📊 8개 왕국 전체 종합 비교 — 심화 가이드
+
+## 인턴십 왕국별 비교표
+
+| 왕국 | 추천 인턴십 | 대상 | 난이도 | 세특 연결 과목 |
+|------|---------|------|------|------------|
+| 🔬 탐구 | 병원 봉사, 연구소 체험 | 고1~고3 | 중 | 생명과학, 화학, 물리 |
+| 🎨 창작 | 건축사무소, 디자인 스튜디오 | 고2~대 | 중 | 미술, 기술·가정 |
+| 💻 기술 | 스타트업 개발 인턴, 오픈소스 기여 | 고1~대 | 중~상 | 정보, 수학 |
+| 🌱 자연 | 동물병원 봉사, 환경부 체험 | 고1~고3 | 하~중 | 생명과학, 지구과학 |
+| 🤝 연결 | 지역 아동센터, 복지관 봉사 | 중~고 | 하 | 사회, 도덕, 생명과학 |
+| 🏛️ 질서 | 법원 모의재판, 외교부 아카데미 | 중~고 | 중 | 사회, 법과 정치, 경제 |
+| 📣 소통 | 유튜브 채널 운영, 마케팅 인턴 | 중~고 | 하~중 | 국어, 사회, 정보 |
+| 🚀 도전 | 스타트업 인턴, 창업 캠프 | 고2~대 | 중~상 | 경제, 사회, 수학 |
+
+## 논문·연구 왕국별 비교표
+
+| 왕국 | 핵심 논문 DB | 탐구 방법 | 난이도 | 결과물 |
+|------|-----------|---------|------|------|
+| 🔬 탐구 | PubMed, arXiv, RISS | 실험·관찰 | 상 | 실험 보고서, R&E |
+| 🎨 창작 | RISS, JSTOR | 작품 분석, 제작 | 중 | 포트폴리오, 분석 보고서 |
+| 💻 기술 | arXiv, Papers With Code | 코딩, 오픈소스 | 상 | GitHub 프로젝트, 논문 |
+| 🌱 자연 | PubMed, RISS, NIER 보고서 | 생태 조사, 실험 | 중 | 생태 조사 보고서 |
+| 🤝 연결 | RISS, DBpia | 사례 연구, 봉사 | 중 | 사례 연구 보고서 |
+| 🏛️ 질서 | RISS, KDI, 법제연구원 | 모의재판, 논술 | 중 | 모의재판 보고서, 논술 |
+| 📣 소통 | RISS, 언론진흥재단 | 콘텐츠 분석 | 중 | 콘텐츠 분석 보고서 |
+| 🚀 도전 | RISS, KDI, 스타트업얼라이언스 | 시장 조사, 창업 | 중~상 | 사업 계획서, 투자 분석 |
+
+## 해외 프로그램 왕국별 비교표
+
+| 왕국 | 핵심 국제 대회 | 난이도 | 비용 | 준비 기간 |
+|------|------------|------|------|---------|
+| 🔬 탐구 | Intel ISEF, IBO, IChO | 상 | 100~500만원 | 12~24개월 |
+| 🎨 창작 | Red Dot, Adobe Awards | 중~상 | 50~200만원 | 3~6개월 |
+| 💻 기술 | IOI, Google Code Jam, Kaggle | 상 | 무료~300만원 | 6~24개월 |
+| 🌱 자연 | SYWP, IBO, 국제환경올림피아드 | 상 | 100~300만원 | 12~24개월 |
+| 🤝 연결 | 유네스코 봉사, WHO 포럼 | 중 | 50~200만원 | 3~6개월 |
+| 🏛️ 질서 | HMUN, NMUN, 국제 모의재판 | 중~상 | 200~500만원 | 6~12개월 |
+| 📣 소통 | Cannes Lions, Global Game Jam | 중~상 | 무료~200만원 | 3~6개월 |
+| 🚀 도전 | GSVC, 청소년 기업가 정신 포럼 | 중~상 | 50~300만원 | 3~6개월 |
+
+## 수상 준비 기간 비교표
+
+| 왕국 | 핵심 국내 대회 | 준비 기간 | 제출 형식 | 세특 연결 |
+|------|------------|---------|---------|---------|
+| 🔬 탐구 | KMO, KBO, KChO | 12주 | 필기 시험 | 수학, 생물, 화학 |
+| 🎨 창작 | 전국학생미술대전, 건축모형대회 | 8~12주 | 작품 제출 | 미술, 기술·가정 |
+| 💻 기술 | KOI, CTF 대회, 앱 공모전 | 12주 | 코딩 시험·제출 | 정보, 수학 |
+| 🌱 자연 | 전국환경탐구대회, 과학발명품 | 8~12주 | 보고서·발명품 | 생명과학, 지구과학 |
+| 🤝 연결 | 또래상담 경진대회, 봉사 대회 | 4~8주 | 발표·보고서 | 사회, 도덕 |
+| 🏛️ 질서 | 전국토론대회, 모의재판 대회 | 8~12주 | 발표·논술 | 사회, 법과 정치 |
+| 📣 소통 | 청소년 UCC 공모전, 게임 잼 | 4~8주 | 영상·기획서 | 국어, 사회, 정보 |
+| 🚀 도전 | 청소년 창업 대회, 경제 논술 | 8~12주 | 사업 계획서·논술 | 경제, 사회, 수학 |
+
+## 중학생도 시작 가능한 활동 목록
+
+중학생은 고등학교 입시를 준비하면서 아래 활동부터 시작할 수 있습니다.
+
+| 왕국 | 중학생 추천 활동 | 난이도 | 효과 |
+|------|------------|------|------|
+| 🔬 탐구 | 과학 탐구 보고서 작성, KMO 준비 | 중 | 과학고·영재고 준비 |
+| 🎨 창작 | 미술 대회 참가, 포트폴리오 제작 | 하~중 | 예술고·자사고 준비 |
+| 💻 기술 | 코딩 학습 (Python), 앱 만들기 | 중 | 과학고·일반고 IT 준비 |
+| 🌱 자연 | 생태 조사, 동물병원 봉사 | 하 | 수의대·환경공학 준비 |
+| 🤝 연결 | 또래 상담, 지역 봉사 | 하 | 교육·사회복지 준비 |
+| 🏛️ 질서 | 모의재판 체험, 독서 토론 | 하~중 | 법학·외교 준비 |
+| 📣 소통 | 유튜브 채널 운영, 학교 방송부 | 하 | 미디어·마케팅 준비 |
+| 🚀 도전 | 창업 아이디어 공모전, 경제 탐구 | 하~중 | 경영·창업 준비 |
+
+```mermaid
+mindmap
+  root((8개 왕국<br>심화 활동))
+    탐구왕국
+      병원봉사·연구소체험
+      KMO·KBO·KChO
+      Intel ISEF·IBO
+      PubMed·arXiv 논문
+    창작왕국
+      건축사무소·디자인인턴
+      미술대전·건축모형대회
+      Red Dot·Adobe Awards
+      RISS·JSTOR 논문
+    기술왕국
+      스타트업개발인턴
+      KOI·CTF대회
+      IOI·Kaggle
+      arXiv·오픈소스기여
+    자연왕국
+      동물병원봉사·환경부체험
+      환경탐구대회·과학발명품
+      SYWP·국제환경올림피아드
+      PubMed·생태조사
+    연결왕국
+      아동센터·복지관봉사
+      또래상담·봉사대회
+      유네스코봉사·WHO포럼
+      RISS·사례연구
+    질서왕국
+      법원모의재판·외교아카데미
+      토론대회·모의재판대회
+      HMUN·NMUN
+      RISS·KDI논문
+    소통왕국
+      유튜브채널·마케팅인턴
+      UCC공모전·게임잼
+      Cannes Lions·Global Game Jam
+      언론진흥재단보고서
+    도전왕국
+      스타트업인턴·창업캠프
+      창업대회·경제논술
+      GSVC·기업가정신포럼
+      KDI·스타트업얼라이언스
+```
+
+---
+
+> **핵심 메시지 (업데이트)**
+> - 8개 왕국 모두 **활동(Activity) → 수상(Awards) → 자격증(Certification) → 세특(기록)**의 순환 구조를 따릅니다.
+> - 왕국마다 강조점이 다를 뿐, **꾸준한 프로젝트 완성 + 전략적 세특 기록 + 면접 스토리**라는 3가지 공식은 동일합니다.
+> - 자격증과 교외 활동은 학생부에 직접 기재되지 않지만, 면접·포트폴리오·SW특기자 전형에서 강력한 무기가 됩니다.
+> - **인턴십·논문·해외 프로그램은 고등학교 때 시작해도 늦지 않지만, 중학교 때부터 관심 분야를 탐색하고 작은 활동부터 시작하는 것이 가장 강력한 전략입니다.**
+
+---
+
+*작성일: 2026년 2월 | 8개 왕국별 Activities·Awards·자격증 종합 가이드 (하) v2.0*
