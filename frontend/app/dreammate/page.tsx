@@ -1,22 +1,21 @@
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { TabBar } from '@/components/tab-bar';
-import seedRoadmapsData from '@/data/dreammate/seed/roadmaps.json';
-import seedResourcesData from '@/data/dreammate/seed/resources.json';
-import seedSpacesData    from '@/data/dreammate/seed/spaces.json';
 import { DREAM_TABS, LABELS } from './config';
-import type { DreamResource, DreamSpace, DreamTabId, PeriodType, SharedRoadmap } from './types';
+import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
 import { RoadmapFeedTab } from './components/RoadmapFeedTab';
 import { DreamLibraryTab } from './components/DreamLibraryTab';
 import { DreamSpaceTab } from './components/DreamSpaceTab';
 import { MyDreamMateTab } from './components/MyDreamMateTab';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
-import { useDreamMateWorkspace } from './hooks/useDreamMateWorkspace';
+import { RoadmapShareDialog } from './components/RoadmapShareDialog';
+import { useDreamMateWorkspaceContext } from './DreamMateWorkspaceProvider';
 import { GroupedTabSelector } from './components/GroupedTabSelector';
+import { getShareChannelsFromRoadmap } from './types';
 
 /* ─── Star background ─── */
 function StarField() {
@@ -47,22 +46,26 @@ function StarField() {
 
 /* ─── Main page content ─── */
 function DreamMatePageContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
+  const [showShareDialog, setShowShareDialog] = useState(false);
 
-  const seedRoadmaps = seedRoadmapsData as SharedRoadmap[];
-  const resources    = seedResourcesData as DreamResource[];
-  const seedSpaces   = seedSpacesData as DreamSpace[];
-  const workspace = useDreamMateWorkspace({ seedRoadmaps, seedSpaces, resources });
+  const workspace = useDreamMateWorkspaceContext();
 
   useEffect(() => {
     setMounted(true);
     const tabParam = searchParams.get('tab') as DreamTabId | null;
+    const editParam = searchParams.get('edit');
     if (tabParam && DREAM_TABS.some(t => t.id === tabParam)) {
       setActiveTab(tabParam);
     }
+    if (editParam && typeof editParam === 'string' && editParam.trim()) {
+      workspace.setEditingRoadmapId(editParam.trim());
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- workspace.setEditingRoadmapId is stable
   }, [searchParams]);
 
   return (
@@ -153,8 +156,7 @@ function DreamMatePageContent() {
             onToggleLike={workspace.handleToggleRoadmapLike}
             onToggleBookmark={workspace.handleToggleRoadmapBookmark}
             onViewRoadmapDetail={(roadmap) => {
-              setSelectedRoadmapOpenedFromTab('my');
-              workspace.setSelectedRoadmapId(roadmap.id);
+              router.push(`/dreammate/roadmap/${roadmap.id}`);
             }}
             onGoToSpace={(spaceId) => {
               workspace.setPendingSpaceIdFromMyTab(spaceId);
@@ -232,6 +234,9 @@ function DreamMatePageContent() {
             workspace.setSelectedRoadmapId(null);
             setSelectedRoadmapOpenedFromTab(null);
           }}
+          onShare={() => {
+            setShowShareDialog(true);
+          }}
           onDelete={() => {
             workspace.handleDeleteRoadmap(workspace.selectedRoadmap!.id);
             setSelectedRoadmapOpenedFromTab(null);
@@ -245,6 +250,27 @@ function DreamMatePageContent() {
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
           showTimelineProgressBars={selectedRoadmapOpenedFromTab !== 'feed'}
           onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
+        />
+      )}
+
+      {showShareDialog && workspace.selectedRoadmap && (
+        <RoadmapShareDialog
+          currentShareChannels={getShareChannelsFromRoadmap(workspace.selectedRoadmap)}
+          currentSpaceIds={workspace.selectedRoadmap.groupIds ?? []}
+          spaces={workspace.joinedSpaces}
+          canSharePublicly={(() => {
+            const roadmap = workspace.selectedRoadmap;
+            const hasFinalResultAsset = Boolean(roadmap.finalResultUrl?.trim() || roadmap.finalResultImageUrl?.trim());
+            const hasMilestoneAsset = (roadmap.milestoneResults ?? []).some(result =>
+              Boolean(result.resultUrl?.trim() || result.imageUrl?.trim()),
+            );
+            return hasFinalResultAsset || hasMilestoneAsset;
+          })()}
+          onClose={() => setShowShareDialog(false)}
+          onSave={(shareChannels, selectedSpaceIds) => {
+            workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareChannels, selectedSpaceIds);
+            setShowShareDialog(false);
+          }}
         />
       )}
 

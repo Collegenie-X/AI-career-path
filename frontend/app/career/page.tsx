@@ -9,6 +9,10 @@ import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
+import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
+import type { ShareChannel, CommunityGroup } from './components/community/types';
+import { channelsToShareType } from './components/community/types';
+import communityData from '@/data/share-community.json';
 import templates from '@/data/career-path-templates.json';
 
 type TabId = 'explore' | 'timeline' | 'community';
@@ -61,6 +65,7 @@ function CareerPageContent() {
   const [builderOpen, setBuilderOpen] = useState(false);
   const [builderInitialStep, setBuilderInitialStep] = useState<number | undefined>(undefined);
   const [mounted, setMounted] = useState(false);
+  const [sharingPlan, setSharingPlan] = useState<CareerPlan | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -352,6 +357,7 @@ function CareerPageContent() {
             onDeletePlan={deletePlan}
             onNewPlan={openNew}
             onSharePlan={handleSharePlan}
+            onOpenShareDialog={(plan) => setSharingPlan(plan)}
           />
         ) : activeTab === 'community' ? (
           <CommunityTab onNewPlan={openNew} />
@@ -412,6 +418,34 @@ function CareerPageContent() {
           initialStep={builderInitialStep}
           onSave={savePlan}
           onClose={closeBuilder}
+        />
+      )}
+
+      {sharingPlan && (
+        <ShareSettingsDialog
+          planTitle={sharingPlan.title}
+          currentDescription={sharingPlan.description}
+          currentChannels={sharingPlan.shareChannels}
+          currentGroupIds={sharingPlan.shareGroupIds}
+          availableGroups={(communityData.groups ?? []) as CommunityGroup[]}
+          isCurrentlyShared={sharingPlan.isPublic}
+          onConfirm={(channels: ShareChannel[], description: string, groupIds: string[]) => {
+            const isPublic = channels.length > 0;
+            const shareType = isPublic ? channelsToShareType(channels) : undefined;
+            const updated: CareerPlan = {
+              ...sharingPlan,
+              description: description || sharingPlan.description,
+              isPublic,
+              shareChannels: isPublic ? channels : undefined,
+              shareType,
+              shareGroupIds: channels.includes('group') ? groupIds : undefined,
+              sharedAt: isPublic ? new Date().toISOString() : undefined,
+            };
+            updatePlanInline(updated);
+            handleSharePlan(updated, isPublic, shareType);
+            setSharingPlan(null);
+          }}
+          onClose={() => setSharingPlan(null)}
         />
       )}
     </div>

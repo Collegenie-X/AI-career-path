@@ -1,6 +1,6 @@
 'use client';
 
-import { X, Calendar, DollarSign, Building2, Flame, Link as LinkIcon, FileText } from 'lucide-react';
+import { ChevronLeft, X, Calendar, DollarSign, Building2, Flame, Link as LinkIcon, FileText } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
 
@@ -49,15 +49,26 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
             borderBottom: `1px solid ${typeConf?.color ?? color}33`,
           }}
         >
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-90"
-            style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
-          >
-            <X className="w-4 h-4 text-gray-300" />
-          </button>
+          <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+            <button
+              onClick={onClose}
+              className="w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-90"
+              style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
+              aria-label="뒤로 가기"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-300" />
+            </button>
+            <button
+              onClick={onClose}
+              className="w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-90"
+              style={{ backgroundColor: 'rgba(0,0,0,0.3)' }}
+              aria-label="닫기"
+            >
+              <X className="w-4 h-4 text-gray-300" />
+            </button>
+          </div>
 
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-3 pt-10">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
               style={{

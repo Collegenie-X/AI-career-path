@@ -9,10 +9,8 @@ import {
 import { GRADE_YEARS } from '../config';
 import type { CareerPlan, PlanItem, YearPlan } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
-import { ShareSettingsDialog } from './community/ShareSettingsDialog';
-import type { ShareType, ShareChannel, CommunityGroup } from './community/types';
-import { normalizeShareType, channelsToShareType } from './community/types';
-import communityData from '@/data/share-community.json';
+import type { ShareType, ShareChannel } from './community/types';
+import { channelsToShareType } from './community/types';
 import { YearTimelineNode } from './YearTimelineNode';
 import type { PlanItemWithCheck } from './TimelineItemComponents';
 import { LABELS } from '../config';
@@ -25,6 +23,7 @@ type Props = {
   onDeletePlan: (planId: string) => void;
   onNewPlan: () => void;
   onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
+  onOpenShareDialog?: (plan: CareerPlan) => void;
 };
 
 /* ─── Share type helpers ─── */
@@ -66,8 +65,7 @@ function ShareTypeIcon({ shareType }: { shareType: ShareType }) {
 
 /* ─── Single plan accordion card ─── */
 function PlanAccordionCard({
-  plan, isOpen, onToggle, onEdit, onDelete, onUpdatePlan, onItemInfoClick, onShare,
-  availableGroups,
+  plan, isOpen, onToggle, onEdit, onDelete, onUpdatePlan, onItemInfoClick, onOpenShareDialog,
 }: {
   plan: CareerPlan; isOpen: boolean;
   onToggle: () => void;
@@ -75,8 +73,7 @@ function PlanAccordionCard({
   onDelete: () => void;
   onUpdatePlan: (p: CareerPlan) => void;
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
-  onShare: (channels: ShareChannel[], description: string, groupIds: string[]) => void;
-  availableGroups: CommunityGroup[];
+  onOpenShareDialog: () => void;
 }) {
   const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
   const sortedYears = [...plan.years].sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
@@ -112,17 +109,11 @@ function PlanAccordionCard({
     onUpdatePlan({ ...plan, years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y) });
 
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [showShareSettings, setShowShareSettings] = useState(false);
   const [editablePlanTitle, setEditablePlanTitle] = useState(plan.title);
 
   useEffect(() => {
     setEditablePlanTitle(plan.title);
   }, [plan.title]);
-
-  const handleShareConfirm = (channels: ShareChannel[], description: string, groupIds: string[]) => {
-    onShare(channels, description, groupIds);
-    setShowShareSettings(false);
-  };
 
   const savePlanTitle = () => {
     const trimmedTitle = editablePlanTitle.trim();
@@ -240,7 +231,7 @@ function PlanAccordionCard({
                   : 'private';
                 return (
                   <button
-                    onClick={() => setShowShareSettings(true)}
+                    onClick={onOpenShareDialog}
                     className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
                     style={{
                       backgroundColor: hasChannels ? SHARE_TYPE_BG[primarySt] : 'rgba(255,255,255,0.07)',
@@ -297,28 +288,9 @@ function PlanAccordionCard({
                     <div className="text-xs font-bold text-white">{channelLabels}</div>
                     <div className="text-[12px] text-gray-400">공유된 채널에서 볼 수 있어요</div>
                   </div>
-                  <button
-                    onClick={() => handleShareConfirm([], plan.description ?? '', [])}
-                    className="flex items-center gap-1 px-2 py-1 rounded-lg text-[12px] font-bold flex-shrink-0 transition-all active:scale-95"
-                    style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.25)' }}>
-                    <EyeOff style={{ width: 11, height: 11 }} />비공개
-                  </button>
                 </div>
               );
             })()}
-
-            {showShareSettings && (
-              <ShareSettingsDialog
-                planTitle={plan.title}
-                currentDescription={plan.description}
-                currentChannels={plan.shareChannels}
-                currentGroupIds={plan.shareGroupIds}
-                availableGroups={availableGroups}
-                isCurrentlyShared={plan.isPublic}
-                onConfirm={handleShareConfirm}
-                onClose={() => setShowShareSettings(false)}
-              />
-            )}
           </div>
 
           {/* Vertical timeline */}
@@ -346,10 +318,9 @@ function PlanAccordionCard({
 }
 
 /* ─── Main export ─── */
-export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeletePlan, onNewPlan, onSharePlan }: Props) {
+export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeletePlan, onNewPlan, onOpenShareDialog }: Props) {
   const [openPlanId, setOpenPlanId] = useState<string | null>(allPlans[0]?.id ?? null);
   const [detailItem, setDetailItem] = useState<{ item: PlanItem; gradeLabel: string } | null>(null);
-  const availableGroups = (communityData.groups ?? []) as CommunityGroup[];
 
   const toggle = (planId: string) =>
     setOpenPlanId((prev) => (prev === planId ? null : planId));
@@ -409,22 +380,7 @@ export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeleteP
           onDelete={() => { onDeletePlan(plan.id); if (openPlanId === plan.id) setOpenPlanId(null); }}
           onUpdatePlan={onUpdatePlan}
           onItemInfoClick={(item, gradeLabel) => setDetailItem({ item, gradeLabel })}
-          availableGroups={availableGroups}
-          onShare={(channels, description, groupIds) => {
-            const isPublic = channels.length > 0;
-            const shareType = isPublic ? channelsToShareType(channels) : undefined;
-            const updated: CareerPlan = {
-              ...plan,
-              description: description || plan.description,
-              isPublic,
-              shareChannels: isPublic ? channels : undefined,
-              shareType,
-              shareGroupIds: channels.includes('group') ? groupIds : undefined,
-              sharedAt: isPublic ? new Date().toISOString() : undefined,
-            };
-            onUpdatePlan(updated);
-            onSharePlan?.(updated, isPublic, shareType);
-          }}
+          onOpenShareDialog={() => onOpenShareDialog?.(plan)}
         />
       ))}
 

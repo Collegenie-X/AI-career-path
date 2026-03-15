@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Trash2, X, Flag } from 'lucide-react';
-import { LABELS, PERIOD_FILTERS } from '../config';
+import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Trash2, X, Flag } from 'lucide-react';
+import { LABELS, PERIOD_FILTERS, ROADMAP_SHARE_VISIBILITY_OPTIONS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { getShareChannelsFromRoadmap } from '../types';
 import {
@@ -12,7 +12,6 @@ import {
 import { RoadmapCareerPathTimelineSection } from './RoadmapCareerPathTimelineSection';
 import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
-import { RoadmapShareDialog } from './RoadmapShareDialog';
 
 interface RoadmapDetailDialogProps {
   roadmap: SharedRoadmap;
@@ -21,11 +20,13 @@ interface RoadmapDetailDialogProps {
   isReferenceViewOnlyMode?: boolean;
   isFeedDetailView?: boolean;
   availableSpaces: DreamSpace[];
+  variant?: 'dialog' | 'page';
   onClose: () => void;
   onUseRoadmap: () => void;
   onShareRoadmap: (shareChannels: RoadmapShareChannel[], spaceIds: string[]) => void;
   onReportRoadmap: (reasonId: string, detail: string) => void;
   onEdit: () => void;
+  onShare: () => void;
   onDelete: () => void;
   onCreateComment: (comment: string, parentId?: string) => void;
   onToggleTodoItem: (itemId: string, todoId: string) => void;
@@ -52,11 +53,13 @@ export function RoadmapDetailDialog({
   isReferenceViewOnlyMode = false,
   isFeedDetailView = false,
   availableSpaces,
+  variant = 'dialog',
   onClose,
   onUseRoadmap,
   onShareRoadmap,
   onReportRoadmap,
   onEdit,
+  onShare,
   onDelete,
   onCreateComment,
   onToggleTodoItem,
@@ -64,7 +67,6 @@ export function RoadmapDetailDialog({
   const [commentInput, setCommentInput] = useState('');
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
   const [commentSortOrder, setCommentSortOrder] = useState<'oldest' | 'latest'>('oldest');
-  const [showShareDialog, setShowShareDialog] = useState(false);
   const [showDeleteConfirmationActions, setShowDeleteConfirmationActions] = useState(false);
   const [showActionMenu, setShowActionMenu] = useState(false);
   const [showReportDialog, setShowReportDialog] = useState(false);
@@ -114,20 +116,63 @@ export function RoadmapDetailDialog({
       : chronologicalTree.slice().reverse().map(reverseCommentTreeChronology);
   }, [commentSortOrder, roadmap.comments]);
   const canSharePublicly = hasRoadmapShareableResult(roadmap);
+  const isPageVariant = variant === 'page';
+
+  const shareChannels = getShareChannelsFromRoadmap(roadmap);
+  const shareBadgeLabel = (() => {
+    const privateOpt = ROADMAP_SHARE_VISIBILITY_OPTIONS.find((o) => o.id === 'private');
+    const publicOpt = ROADMAP_SHARE_VISIBILITY_OPTIONS.find((o) => o.id === 'public');
+    const spaceOpt = ROADMAP_SHARE_VISIBILITY_OPTIONS.find((o) => o.id === 'space');
+    if (shareChannels.length === 0) {
+      return { label: privateOpt?.label ?? '비공개', emoji: privateOpt?.emoji ?? '🔒', color: privateOpt?.color ?? '#94A3B8' };
+    }
+    const labels: string[] = [];
+    if (shareChannels.includes('public')) labels.push(publicOpt?.label ?? '전체 공유');
+    if (shareChannels.includes('space')) {
+      const groupCount = (roadmap.groupIds ?? []).length;
+      labels.push(groupCount > 0 ? `그룹 ${groupCount}개` : (spaceOpt?.label ?? '그룹 공유'));
+    }
+    return {
+      label: labels.join(' · '),
+      emoji: shareChannels.includes('public') ? (publicOpt?.emoji ?? '🌐') : (spaceOpt?.emoji ?? '🤝'),
+      color: shareChannels.includes('public') ? (publicOpt?.color ?? '#22C55E') : (spaceOpt?.color ?? '#60A5FA'),
+    };
+  })();
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
+    <div className={isPageVariant ? 'min-h-screen w-full max-w-[430px] mx-auto flex flex-col' : 'fixed inset-0 z-50 flex items-end justify-center'}>
+      {!isPageVariant && (
+        <>
+          <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
+        </>
+      )}
       <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-hidden flex flex-col"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 56px)', marginBottom: 56 }}
+        className={`relative w-full flex flex-col ${isPageVariant ? 'min-h-screen' : 'max-w-[430px] rounded-t-3xl overflow-hidden'}`}
+        style={isPageVariant ? { backgroundColor: '#12122a' } : { backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 56px)', marginBottom: 56 }}
       >
         <div className="sticky top-0 z-10 px-4 pt-4 pb-3 space-y-2" style={{ backgroundColor: '#12122a', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
+              {isPageVariant ? (
+                <button
+                  onClick={onClose}
+                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all active:scale-90"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                  aria-label="뒤로 가기"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-300" />
+                </button>
+              ) : null}
               <span className="text-base">{roadmap.ownerEmoji}</span>
               <span className="text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
                 {periodLabel}
+              </span>
+              <span
+                className="text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap flex items-center gap-1"
+                style={{ backgroundColor: `${shareBadgeLabel.color}22`, color: shareBadgeLabel.color }}
+              >
+                <span>{shareBadgeLabel.emoji}</span>
+                {shareBadgeLabel.label}
               </span>
               <span className="text-xs text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
@@ -162,9 +207,11 @@ export function RoadmapDetailDialog({
                   )}
                 </div>
               )}
-              <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                <X className="w-4 h-4 text-gray-300" />
-              </button>
+              {!isPageVariant && (
+                <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+                  <X className="w-4 h-4 text-gray-300" />
+                </button>
+              )}
             </div>
           </div>
           <div className="min-w-0">
@@ -430,7 +477,7 @@ export function RoadmapDetailDialog({
 
         {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
           <div
-            className="absolute left-0 right-0 bottom-0 px-4 pt-2"
+            className="fixed left-1/2 -translate-x-1/2 bottom-[56px] z-20 w-full max-w-[430px] px-4 pt-2"
             style={{
               background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
               paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
@@ -449,7 +496,7 @@ export function RoadmapDetailDialog({
 
         {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
           <div
-            className="absolute left-0 right-0 bottom-0 px-4 pt-2"
+            className="fixed left-1/2 -translate-x-1/2 bottom-[56px] z-20 w-full max-w-[430px] px-4 pt-2"
             style={{
               background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
               paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
@@ -467,7 +514,7 @@ export function RoadmapDetailDialog({
                   {LABELS.editButtonLabel}
                 </button>
                 <button
-                  onClick={() => setShowShareDialog(true)}
+                  onClick={onShare}
                   className="h-11 rounded-2xl text-sm font-bold text-white/80"
                   style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
                 >
@@ -503,20 +550,6 @@ export function RoadmapDetailDialog({
           </div>
         )}
       </div>
-
-      {showShareDialog && (
-        <RoadmapShareDialog
-          currentShareChannels={getShareChannelsFromRoadmap(roadmap)}
-          currentSpaceIds={roadmap.groupIds ?? []}
-          spaces={availableSpaces}
-          canSharePublicly={canSharePublicly}
-          onClose={() => setShowShareDialog(false)}
-          onSave={(shareChannels, selectedSpaceIds) => {
-            onShareRoadmap(shareChannels, selectedSpaceIds);
-            setShowShareDialog(false);
-          }}
-        />
-      )}
 
       {showReportDialog && !isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
         <RoadmapReportDialog
