@@ -1075,22 +1075,23 @@ function ActivityItemCard({
                 </div>
               )}
 
-              {/* 하위활동 입력 */}
-              <div className="flex gap-1.5 pt-1">
+              {/* 하위활동 입력 — min-w-0으로 작은 모바일에서 플러스 버튼 항상 노출 */}
+              <div className="flex gap-1.5 pt-1 min-w-0">
                 <input
                   type="text"
                   value={subInput}
                   onChange={e => setSubInput(e.target.value)}
                   onKeyDown={e => { if (e.key === 'Enter') addSubItem(); }}
-                  placeholder="하위 활동 추가 (예: 스케치북 구매, 유튜브 강의 수강...)"
-                  className="flex-1 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
+                  placeholder="하위 활동 추가"
+                  className="flex-1 min-w-0 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
                   style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${tc.color}25` }}
                 />
                 <button
                   onClick={addSubItem}
                   disabled={!subInput.trim()}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 disabled:opacity-30 transition-all"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 shrink-0 disabled:opacity-30 transition-all"
                   style={{ backgroundColor: `${tc.color}22`, color: tc.color }}
+                  aria-label="하위 항목 추가"
                 >
                   <Plus className="w-3.5 h-3.5" />
                 </button>
@@ -1356,16 +1357,16 @@ function SemesterSection({
         </div>
       )}
 
-      {/* 목표 추가 입력 */}
+      {/* 목표 추가 입력 — min-w-0으로 작은 모바일에서 버튼 항상 노출 */}
       <div className="space-y-2">
-        <div className="flex gap-2">
+        <div className="flex gap-2 min-w-0">
           <input
             type="text"
             value={goalInput}
             onChange={e => setGoalInput(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') addGoalGroup(goalInput); }}
-            placeholder="목표를 입력하면 세부활동을 연결할 수 있어요"
-            className="flex-1 h-10 px-3.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+            placeholder="목표 입력 후 세부활동 연결"
+            className="flex-1 min-w-0 h-10 px-3.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
           />
           <motion.button

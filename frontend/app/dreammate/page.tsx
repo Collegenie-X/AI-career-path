@@ -216,6 +216,7 @@ function DreamMatePageContent() {
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
           isReferenceViewOnlyMode={selectedRoadmapOpenedFromTab === 'space'}
+          isFeedDetailView={selectedRoadmapOpenedFromTab === 'feed'}
           availableSpaces={workspace.joinedSpaces}
           onClose={() => {
             workspace.setSelectedRoadmapId(null);

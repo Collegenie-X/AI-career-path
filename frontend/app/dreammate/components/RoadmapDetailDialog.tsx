@@ -19,6 +19,7 @@ interface RoadmapDetailDialogProps {
   isOwnedByCurrentUser: boolean;
   showTimelineProgressBars?: boolean;
   isReferenceViewOnlyMode?: boolean;
+  isFeedDetailView?: boolean;
   availableSpaces: DreamSpace[];
   onClose: () => void;
   onUseRoadmap: () => void;
@@ -49,6 +50,7 @@ export function RoadmapDetailDialog({
   isOwnedByCurrentUser,
   showTimelineProgressBars = true,
   isReferenceViewOnlyMode = false,
+  isFeedDetailView = false,
   availableSpaces,
   onClose,
   onUseRoadmap,
@@ -362,8 +364,9 @@ export function RoadmapDetailDialog({
             <RoadmapCareerPathTimelineSection
               roadmap={roadmap}
               showProgressBars={showTimelineProgressBars}
+              showTodoCheckboxes={!isFeedDetailView}
               onToggleTodoItem={
-                isReferenceViewOnlyMode
+                isReferenceViewOnlyMode || isFeedDetailView
                   ? undefined
                   : (isOwnedByCurrentUser ? onToggleTodoItem : undefined)
               }

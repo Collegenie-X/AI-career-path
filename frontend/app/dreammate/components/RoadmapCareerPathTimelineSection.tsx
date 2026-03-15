@@ -12,6 +12,7 @@ import { RoadmapTodoInlineProgressBar, RoadmapTodoProgressBarCard } from './Road
 interface RoadmapCareerPathTimelineSectionProps {
   roadmap: SharedRoadmap;
   showProgressBars?: boolean;
+  showTodoCheckboxes?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }
 
@@ -93,9 +94,11 @@ function formatRoadmapItemMonthLabel(item: RoadmapItem): string {
 
 function RoadmapTodoChecklist({ 
   item, 
+  showTodoCheckboxes = true,
   onToggleTodoItem 
 }: { 
   item: RoadmapItem;
+  showTodoCheckboxes?: boolean;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
   const sortedTodoItems = useMemo(
@@ -175,6 +178,17 @@ function RoadmapTodoChecklist({
                   const actionableCountInWeek = weekGroup.todoItems.filter(t => t.entryType !== 'goal').length;
                   const shouldShowGoalAsCheckable = isGoalEntry && actionableCountInWeek === 0;
 
+                  const TodoItemContent = ({ children }: { children: React.ReactNode }) => (
+                    <div className="flex items-center gap-1.5 min-w-0 flex-1">
+                      {showTodoCheckboxes && (
+                        todoItem.isDone
+                          ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                          : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />
+                      )}
+                      {children}
+                    </div>
+                  );
+
                   if (isGoalEntry && !shouldShowGoalAsCheckable) {
                     return (
                       <div key={todoItem.id} className="w-full text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>
@@ -195,60 +209,56 @@ function RoadmapTodoChecklist({
                   }
 
                   if (isGoalEntry && shouldShowGoalAsCheckable) {
+                    const Wrapper = showTodoCheckboxes && onToggleTodoItem ? 'button' : 'div';
                     return (
-                      <button
+                      <Wrapper
                         key={todoItem.id}
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          onToggleTodoItem?.(item.id, todoItem.id);
-                        }}
-                        disabled={!onToggleTodoItem}
-                        className="w-full flex items-center gap-1.5 text-xs text-left transition-opacity"
-                        style={{
-                          color: 'rgba(255,255,255,0.7)',
-                          cursor: onToggleTodoItem ? 'pointer' : 'default',
-                          opacity: onToggleTodoItem ? 1 : 0.9,
-                        }}
+                        {...(Wrapper === 'button' ? {
+                          onClick: (event: React.MouseEvent) => {
+                            event.stopPropagation();
+                            onToggleTodoItem?.(item.id, todoItem.id);
+                          },
+                          className: 'w-full flex items-center gap-1.5 text-xs text-left transition-opacity',
+                          style: { color: 'rgba(255,255,255,0.7)', cursor: 'pointer' },
+                        } : {
+                          className: 'w-full flex items-center gap-1.5 text-xs text-left',
+                          style: { color: 'rgba(255,255,255,0.7)' },
+                        })}
                       >
-                        {todoItem.isDone
-                          ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
-                          : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
-                        <div className="flex items-center gap-1.5 min-w-0 flex-1">
+                        <TodoItemContent>
                           <span className="text-xs px-1.5 py-0.5 rounded-md font-bold text-violet-200 flex-shrink-0" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
                             목표
                           </span>
                           <p className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
                             {todoItem.title}
                           </p>
-                        </div>
-                      </button>
+                        </TodoItemContent>
+                      </Wrapper>
                     );
                   }
 
+                  const Wrapper = showTodoCheckboxes && onToggleTodoItem ? 'button' : 'div';
                   return (
-                    <button
+                    <Wrapper
                       key={todoItem.id}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        onToggleTodoItem?.(item.id, todoItem.id);
-                      }}
-                      disabled={!onToggleTodoItem}
-                      className="w-full flex items-center gap-1.5 text-xs text-left transition-opacity"
-                      style={{ 
-                        color: 'rgba(255,255,255,0.7)',
-                        cursor: onToggleTodoItem ? 'pointer' : 'default',
-                        opacity: onToggleTodoItem ? 1 : 0.9,
-                      }}
+                      {...(Wrapper === 'button' ? {
+                        onClick: (event: React.MouseEvent) => {
+                          event.stopPropagation();
+                          onToggleTodoItem?.(item.id, todoItem.id);
+                        },
+                        className: 'w-full flex items-center gap-1.5 text-xs text-left transition-opacity',
+                        style: { color: 'rgba(255,255,255,0.7)', cursor: 'pointer' },
+                      } : {
+                        className: 'w-full flex items-center gap-1.5 text-xs text-left',
+                        style: { color: 'rgba(255,255,255,0.7)' },
+                      })}
                     >
-                      {todoItem.isDone
-                        ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
-                        : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
-                      <div className="min-w-0 flex-1">
-                        <p className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                      <TodoItemContent>
+                        <p className={`truncate min-w-0 flex-1 ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
                           {todoItem.title}
                         </p>
-                      </div>
-                    </button>
+                      </TodoItemContent>
+                    </Wrapper>
                   );
                 })}
               </div>
@@ -265,6 +275,7 @@ function RoadmapItemTodoAccordionCard({
   accentColor,
   goalTitleByItemType,
   showProgressBars,
+  showTodoCheckboxes = true,
   onSelectItem,
   onToggleTodoItem,
 }: {
@@ -272,6 +283,7 @@ function RoadmapItemTodoAccordionCard({
   accentColor: string;
   goalTitleByItemType: Record<DreamItemType, string>;
   showProgressBars?: boolean;
+  showTodoCheckboxes?: boolean;
   onSelectItem: (item: RoadmapItem) => void;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
@@ -338,7 +350,7 @@ function RoadmapItemTodoAccordionCard({
           )}
         </div>
       )}
-      {isTodoOpen && <RoadmapTodoChecklist item={item} onToggleTodoItem={onToggleTodoItem} />}
+      {isTodoOpen && <RoadmapTodoChecklist item={item} showTodoCheckboxes={showTodoCheckboxes} onToggleTodoItem={onToggleTodoItem} />}
     </div>
   );
 }
@@ -371,6 +383,7 @@ function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boole
 export function RoadmapCareerPathTimelineSection({
   roadmap,
   showProgressBars = true,
+  showTodoCheckboxes = true,
   onToggleTodoItem,
 }: RoadmapCareerPathTimelineSectionProps) {
   const [selectedItem, setSelectedItem] = useState<RoadmapItem | null>(null);
@@ -443,6 +456,7 @@ export function RoadmapCareerPathTimelineSection({
             accentColor={roadmap.starColor}
             goalTitleByItemType={goalTitleByItemType}
             showProgressBars={showProgressBars}
+            showTodoCheckboxes={showTodoCheckboxes}
             onSelectItem={setSelectedItem}
             onToggleTodoItem={onToggleTodoItem}
           />

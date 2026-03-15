@@ -238,9 +238,6 @@ function PlanAccordionCard({
                 const primarySt: ShareType = hasChannels
                   ? channelsToShareType(channels)
                   : 'private';
-                const shareLabel = hasChannels
-                  ? channels.map(c => SHARE_TYPE_LABEL[c as ShareType]).join('·')
-                  : '공유';
                 return (
                   <button
                     onClick={() => setShowShareSettings(true)}
@@ -252,7 +249,7 @@ function PlanAccordionCard({
                     }}
                   >
                     {hasChannels
-                      ? <><ShareTypeIcon shareType={primarySt} />{shareLabel}</>
+                      ? <><ShareTypeIcon shareType={primarySt} />공유</>
                       : <><Share2 style={{ width: 13, height: 13 }} />공유</>
                     }
                   </button>

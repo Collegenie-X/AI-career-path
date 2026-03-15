@@ -8,6 +8,6 @@
   "feedSearchPlaceholder":  "실행계획 검색",
   "feedFilterMySharedLabel": "내 공유",
   "feedFilterBookmarkLabel": "북마크",
-  "createRoadmapButton":    "실행계획",
-  "myCreateRoadmapButton":  "+ 실행계획"
+  "createRoadmapButton":    "실행",
+  "myCreateRoadmapButton":  "+ 실행"
 }
