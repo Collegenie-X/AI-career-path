@@ -1,7 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Globe, Bookmark } from 'lucide-react';
+import { AccordionSection } from '@/components/accordion';
 import { PERIOD_FILTERS, DREAM_ITEM_TYPES, LABELS } from '../config';
 import type { SharedRoadmap, DreamItemType } from '../types';
 import { RoadmapCard } from './RoadmapCard';
@@ -48,6 +49,7 @@ function FilterSelect({ label, value, options, onChange }: FilterSelectProps) {
 
 interface RoadmapFeedTabProps {
   roadmaps: SharedRoadmap[];
+  currentUserId: string;
   likedIds: string[];
   bookmarkedIds: string[];
   likeCounts: Record<string, number>;
@@ -60,6 +62,7 @@ interface RoadmapFeedTabProps {
 
 export function RoadmapFeedTab({
   roadmaps,
+  currentUserId,
   likedIds,
   bookmarkedIds,
   likeCounts,
@@ -73,6 +76,16 @@ export function RoadmapFeedTab({
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const normalizedSearchQuery = searchQuery.trim().toLowerCase();
+
+  const mySharedRoadmaps = useMemo(
+    () => roadmaps.filter(rm => rm.ownerId === currentUserId),
+    [roadmaps, currentUserId],
+  );
+
+  const bookmarkedRoadmaps = useMemo(
+    () => roadmaps.filter(rm => bookmarkedIds.includes(rm.id)),
+    [roadmaps, bookmarkedIds],
+  );
 
   const filtered = useMemo(
     () =>
@@ -148,50 +161,120 @@ export function RoadmapFeedTab({
         </button>
       </div>
 
-      {/* Search */}
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-        <input
-          value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
-          placeholder={LABELS.feedSearchPlaceholder}
-          className="w-full h-10 pl-10 pr-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-        />
-      </div>
-
-      {/* Filters */}
-      <div className="grid grid-cols-2 gap-2">
-        <FilterSelect label="기간" value={periodFilter} options={PERIOD_FILTER_OPTIONS} onChange={setPeriodFilter} />
-        <FilterSelect label="유형" value={typeFilter} options={TYPE_FILTERS} onChange={setTypeFilter} />
-      </div>
-
-      {/* Roadmap list */}
-      {sortedRoadmaps.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-16 text-center gap-3">
-          <span className="text-4xl">🗺️</span>
-          <div>
-            <p className="text-sm font-bold text-white">{LABELS.feedEmpty}</p>
-            <p className="text-xs text-gray-400 mt-1">{LABELS.feedEmptyDesc}</p>
+      {/* 북마크 섹션 — 아코디언 */}
+      {bookmarkedRoadmaps.length > 0 && (
+        <AccordionSection
+          defaultOpen={true}
+          header={
+            <div className="flex items-center gap-2">
+              <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
+              <span className="text-xs font-bold text-white">{LABELS.feedFilterBookmarkLabel ?? '북마크'}</span>
+              <span className="text-[12px] text-gray-500">{bookmarkedRoadmaps.length}개 저장됨</span>
+            </div>
+          }
+        >
+          <div className="space-y-2">
+            {bookmarkedRoadmaps.map(rm => (
+              <RoadmapCard
+                key={rm.id}
+                roadmap={rm}
+                isLiked={likedIds.includes(rm.id)}
+                isBookmarked={true}
+                likeCount={likeCounts[rm.id] ?? rm.likes}
+                bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
+                onToggleLike={() => onToggleLike(rm.id)}
+                onToggleBookmark={() => onToggleBookmark(rm.id)}
+                onViewDetail={() => onViewDetail(rm)}
+              />
+            ))}
           </div>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {sortedRoadmaps.map(rm => (
-            <RoadmapCard
-              key={rm.id}
-              roadmap={rm}
-              isLiked={likedIds.includes(rm.id)}
-              isBookmarked={bookmarkedIds.includes(rm.id)}
-              likeCount={likeCounts[rm.id] ?? rm.likes}
-              bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
-              onToggleLike={() => onToggleLike(rm.id)}
-              onToggleBookmark={() => onToggleBookmark(rm.id)}
-              onViewDetail={() => onViewDetail(rm)}
-            />
-          ))}
-        </div>
+          <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+        </AccordionSection>
       )}
+
+      {/* 내 공유 섹션 — 아코디언 */}
+      {mySharedRoadmaps.length > 0 && (
+        <AccordionSection
+          defaultOpen={true}
+          header={
+            <div className="flex items-center gap-2">
+              <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
+              <span className="text-xs font-bold text-white">{LABELS.feedFilterMySharedLabel ?? '내 공유'}</span>
+              <span className="text-[12px] text-gray-500">{mySharedRoadmaps.length}개 공개중</span>
+            </div>
+          }
+        >
+          <div className="space-y-2">
+            {mySharedRoadmaps.map(rm => (
+              <RoadmapCard
+                key={rm.id}
+                roadmap={rm}
+                isLiked={likedIds.includes(rm.id)}
+                isBookmarked={bookmarkedIds.includes(rm.id)}
+                likeCount={likeCounts[rm.id] ?? rm.likes}
+                bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
+                onToggleLike={() => onToggleLike(rm.id)}
+                onToggleBookmark={() => onToggleBookmark(rm.id)}
+                onViewDetail={() => onViewDetail(rm)}
+              />
+            ))}
+          </div>
+          <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+        </AccordionSection>
+      )}
+
+      {/* 전체 실행계획 — 아코디언 */}
+      <AccordionSection
+        defaultOpen={true}
+        header={
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-bold text-white">전체 실행계획</span>
+            <span className="text-[12px] text-gray-500">{sortedRoadmaps.length}개</span>
+          </div>
+        }
+      >
+        <div className="space-y-3">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <input
+              value={searchQuery}
+              onChange={e => setSearchQuery(e.target.value)}
+              placeholder={LABELS.feedSearchPlaceholder}
+              className="w-full h-10 pl-10 pr-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <FilterSelect label="기간" value={periodFilter} options={PERIOD_FILTER_OPTIONS} onChange={setPeriodFilter} />
+            <FilterSelect label="유형" value={typeFilter} options={TYPE_FILTERS} onChange={setTypeFilter} />
+          </div>
+          {sortedRoadmaps.length === 0 ? (
+            <div className="flex flex-col items-center justify-center py-16 text-center gap-3">
+              <span className="text-4xl">🗺️</span>
+              <div>
+                <p className="text-sm font-bold text-white">{LABELS.feedEmpty}</p>
+                <p className="text-xs text-gray-400 mt-1">{LABELS.feedEmptyDesc}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {sortedRoadmaps.map(rm => (
+                <RoadmapCard
+                  key={rm.id}
+                  roadmap={rm}
+                  isLiked={likedIds.includes(rm.id)}
+                  isBookmarked={bookmarkedIds.includes(rm.id)}
+                  likeCount={likeCounts[rm.id] ?? rm.likes}
+                  bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
+                  onToggleLike={() => onToggleLike(rm.id)}
+                  onToggleBookmark={() => onToggleBookmark(rm.id)}
+                  onViewDetail={() => onViewDetail(rm)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </AccordionSection>
     </div>
   );
 }

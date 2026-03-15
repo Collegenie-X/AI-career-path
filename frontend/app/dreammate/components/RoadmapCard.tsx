@@ -4,6 +4,7 @@ import { useMemo } from 'react';
 import { Heart, Bookmark, MessageSquare } from 'lucide-react';
 import { DREAM_ITEM_TYPES, LABELS, PERIOD_FILTERS } from '../config';
 import type { SharedRoadmap } from '../types';
+import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 
 const PERIOD_LABEL_COLORS: Record<string, string> = {
   afterschool: '#F59E0B',
@@ -71,12 +72,11 @@ export function RoadmapCard({
   const roadmapMonthSummaryLabel = useMemo(() => formatRoadmapMonthsLabel(roadmap), [roadmap]);
   const roadmapExecutionSummary = useMemo(() => {
     const allTodoItems = roadmap.items.flatMap(item => item.subItems ?? []);
-    const actionableTodoItems = allTodoItems.filter(todoItem => todoItem.entryType !== 'goal');
-    const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
+    const { total: totalActionableTodoCount, done: doneActionableTodoCount } = getRoadmapEffectiveTodoCounts(roadmap.items);
     const evidenceCount = allTodoItems.filter(todoItem => Boolean(todoItem.outputRef?.trim())).length;
     const outputCriteriaCount = roadmap.items.filter(item => item.targetOutput || item.successCriteria).length;
     return {
-      totalActionableTodoCount: actionableTodoItems.length,
+      totalActionableTodoCount,
       doneActionableTodoCount,
       evidenceCount,
       outputCriteriaCount,

@@ -22,7 +22,8 @@ function mergeRoadmapsWithFallback(
   // 시드의 공개 로드맵은 항상 최신 시드 데이터로 덮어씀
   // (milestoneResults, finalResult 등 시드 업데이트가 반영되도록)
   fallbackRoadmaps.forEach(roadmap => {
-    if ((roadmap.shareScope ?? 'private') !== 'public') return;
+    const isPublic = roadmap.shareChannels?.includes('public') ?? (roadmap.shareScope ?? 'private') === 'public';
+    if (!isPublic) return;
     roadmapById.set(roadmap.id, roadmap);
   });
 

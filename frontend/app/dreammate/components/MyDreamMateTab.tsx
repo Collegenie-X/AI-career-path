@@ -1,24 +1,21 @@
 'use client';
 
 import { useState } from 'react';
-import { Map, Users, Bookmark, ChevronRight } from 'lucide-react';
-import { LABELS, RESOURCE_CATEGORIES } from '../config';
-import type { SharedRoadmap, DreamResource, DreamSpace } from '../types';
+import { Map, Users, ChevronRight } from 'lucide-react';
+import { LABELS } from '../config';
+import type { SharedRoadmap, DreamSpace } from '../types';
 import { RoadmapCard } from './RoadmapCard';
 
-type MySubTab = 'roadmaps' | 'spaces' | 'bookmarks';
+type MySubTab = 'roadmaps' | 'spaces';
 
 const MY_SUB_TABS: { id: MySubTab; labelKey: string; icon: typeof Map }[] = [
-  { id: 'roadmaps',  labelKey: 'mySubTabPlansLabel', icon: Map },
-  { id: 'spaces',    labelKey: 'mySubTabSpacesLabel',  icon: Users },
-  { id: 'bookmarks', labelKey: 'mySubTabBookmarksLabel',    icon: Bookmark },
+  { id: 'roadmaps', labelKey: 'mySubTabPlansLabel', icon: Map },
+  { id: 'spaces', labelKey: 'mySubTabSpacesLabel', icon: Users },
 ];
 
 interface MyDreamMateTabProps {
   myRoadmaps: SharedRoadmap[];
   joinedSpaces: DreamSpace[];
-  bookmarkedRoadmaps: SharedRoadmap[];
-  bookmarkedResources: DreamResource[];
   likedIds: string[];
   bookmarkedIds: string[];
   likeCounts: Record<string, number>;
@@ -33,8 +30,6 @@ interface MyDreamMateTabProps {
 export function MyDreamMateTab({
   myRoadmaps,
   joinedSpaces,
-  bookmarkedRoadmaps,
-  bookmarkedResources,
   likedIds,
   bookmarkedIds,
   likeCounts,
@@ -65,11 +60,10 @@ export function MyDreamMateTab({
       </div>
 
       {/* Summary cards */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 gap-2">
         {[
           { label: LABELS.myRoadmapsLabel, count: myRoadmaps.length, emoji: '🗺️', color: '#6C5CE7' },
           { label: LABELS.myGroupsLabel, count: joinedSpaces.length, emoji: '🤝', color: '#3B82F6' },
-          { label: LABELS.myBookmarksLabel, count: bookmarkedRoadmaps.length + bookmarkedResources.length, emoji: '⭐', color: '#FBBF24' },
         ].map(card => (
           <div
             key={card.label}
@@ -156,57 +150,6 @@ export function MyDreamMateTab({
                 <ChevronRight className="w-4 h-4 text-gray-600 flex-shrink-0" />
               </button>
             ))
-          )}
-        </div>
-      )}
-
-      {subTab === 'bookmarks' && (
-        <div className="space-y-3">
-          {bookmarkedRoadmaps.length === 0 && bookmarkedResources.length === 0 ? (
-            <EmptyState emoji="⭐" title={LABELS.myBookmarksEmptyTitle} desc={LABELS.myBookmarksEmptyDesc} />
-          ) : (
-            <>
-              {bookmarkedRoadmaps.length > 0 && (
-                <>
-                  <span className="text-xs font-bold text-gray-400">{LABELS.myBookmarkedPlansSectionLabel} ({bookmarkedRoadmaps.length})</span>
-                  {bookmarkedRoadmaps.map(rm => (
-                    <RoadmapCard
-                      key={rm.id}
-                      roadmap={rm}
-                      isLiked={likedIds.includes(rm.id)}
-                      isBookmarked={true}
-                      likeCount={likeCounts[rm.id] ?? rm.likes}
-                      bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
-                      onToggleLike={() => onToggleLike(rm.id)}
-                      onToggleBookmark={() => onToggleBookmark(rm.id)}
-                      onViewDetail={() => onViewRoadmapDetail(rm)}
-                    />
-                  ))}
-                </>
-              )}
-              {bookmarkedResources.length > 0 && (
-                <>
-                  <span className="text-xs font-bold text-gray-400 mt-2 block">자료 ({bookmarkedResources.length})</span>
-                  {bookmarkedResources.map(res => {
-                    const cat = RESOURCE_CATEGORIES.find(c => c.id === res.category);
-                    return (
-                      <div
-                        key={res.id}
-                        className="flex items-center gap-3 p-3 rounded-xl"
-                        style={{ backgroundColor: `${cat?.color ?? '#6C5CE7'}06`, border: `1px solid ${cat?.color ?? '#6C5CE7'}15` }}
-                      >
-                        <span className="text-lg">{cat?.emoji}</span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-xs font-bold text-white truncate">{res.title}</p>
-                          <p className="text-xs text-gray-500">{cat?.label} · {res.authorName}</p>
-                        </div>
-                        <Bookmark className="w-3.5 h-3.5 flex-shrink-0" style={{ color: '#FBBF24' }} fill="#FBBF24" />
-                      </div>
-                    );
-                  })}
-                </>
-              )}
-            </>
           )}
         </div>
       )}

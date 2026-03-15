@@ -6,6 +6,8 @@
   "feedEmpty":              "아직 공유된 실행계획이 없어요",
   "feedEmptyDesc":          "첫 번째 주간 실행계획을 공유해 보세요!",
   "feedSearchPlaceholder":  "실행계획 검색",
+  "feedFilterMySharedLabel": "내 공유",
+  "feedFilterBookmarkLabel": "북마크",
   "createRoadmapButton":    "실행계획",
   "myCreateRoadmapButton":  "+ 실행계획"
 }

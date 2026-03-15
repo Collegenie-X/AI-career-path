@@ -6,7 +6,7 @@ import type {
   DreamSpace,
   RoadmapItem,
   RoadmapReportRecord,
-  RoadmapShareScope,
+  RoadmapShareChannel,
   SharedRoadmap,
   SpaceParticipationApplication,
 } from '../types';
@@ -157,6 +157,7 @@ function normalizeRoadmapStructure(roadmap: SharedRoadmap): SharedRoadmap {
   return {
     ...roadmap,
     shareScope: roadmap.shareScope ?? 'private',
+    shareChannels: roadmap.shareChannels ?? (roadmap.shareScope === 'public' ? ['public'] : roadmap.shareScope === 'space' ? ['space'] : []),
     focusItemTypes: roadmap.focusItemTypes ?? ['award', 'activity', 'project', 'paper'],
     groupIds: roadmap.groupIds ?? [],
     items: (roadmap.items ?? []).map(item => ({
@@ -386,6 +387,7 @@ export function useDreamMateWorkspace({
       finalResultUrl: payload.finalResultUrl,
       finalResultImageUrl: payload.finalResultImageUrl,
       shareScope: 'private',
+      shareChannels: [],
       items: toRoadmapItems(payload.items),
       groupIds: [],
       likes: 0,
@@ -466,6 +468,7 @@ export function useDreamMateWorkspace({
       finalResultUrl: undefined,
       finalResultImageUrl: undefined,
       shareScope: 'private',
+      shareChannels: [],
       groupIds: [],
       likes: 0,
       bookmarks: 0,
@@ -494,13 +497,16 @@ export function useDreamMateWorkspace({
     }));
   }, []);
 
-  const handleShareRoadmap = useCallback((roadmapId: string, shareScope: RoadmapShareScope, selectedSpaceIds: string[]) => {
+  const handleShareRoadmap = useCallback((roadmapId: string, shareChannels: RoadmapShareChannel[], selectedSpaceIds: string[]) => {
     setRoadmaps(previousRoadmaps => previousRoadmaps.map(roadmap => {
       if (roadmap.id !== roadmapId) return roadmap;
+      const isPrivate = shareChannels.length === 0;
+      const shareScope = isPrivate ? 'private' : shareChannels.includes('public') ? 'public' : 'space';
       return {
         ...roadmap,
+        shareChannels,
         shareScope,
-        groupIds: shareScope === 'space' ? selectedSpaceIds : [],
+        groupIds: shareChannels.includes('space') ? selectedSpaceIds : [],
       };
     }));
   }, []);
@@ -529,8 +535,8 @@ export function useDreamMateWorkspace({
 
   const visibleRoadmaps = useMemo(
     () => roadmaps.filter(roadmap => {
-      const scope = roadmap.shareScope ?? 'private';
-      return scope === 'public';
+      const channels = roadmap.shareChannels ?? (roadmap.shareScope === 'public' ? ['public'] : roadmap.shareScope === 'space' ? ['space'] : []);
+      return channels.includes('public');
     }),
     [roadmaps],
   );

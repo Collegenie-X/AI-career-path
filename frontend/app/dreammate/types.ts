@@ -32,6 +32,9 @@ export interface RoadmapTodoItem {
 
 export type RoadmapShareScope = 'private' | 'public' | 'space';
 
+/** 공유 채널 (전체 공유, 그룹 공유). 비공개 시 빈 배열. */
+export type RoadmapShareChannel = 'public' | 'space';
+
 export interface RoadmapMilestoneResult {
   id: string;
   title: string;
@@ -55,6 +58,8 @@ export interface SharedRoadmap {
   starColor: string;
   focusItemTypes?: DreamItemType[];
   shareScope?: RoadmapShareScope;
+  /** 멀티 선택: ['public','space'] 가능. 빈 배열 = 비공개. */
+  shareChannels?: RoadmapShareChannel[];
   items: RoadmapItem[];
   finalResultTitle?: string;
   finalResultDescription?: string;
@@ -66,6 +71,15 @@ export interface SharedRoadmap {
   bookmarks: number;
   sharedAt: string;
   comments: RoadmapComment[];
+}
+
+/** shareChannels가 있으면 사용, 없으면 shareScope에서 변환 (하위 호환) */
+export function getShareChannelsFromRoadmap(roadmap: SharedRoadmap): RoadmapShareChannel[] {
+  if (roadmap.shareChannels && roadmap.shareChannels.length > 0) return roadmap.shareChannels;
+  const scope = roadmap.shareScope ?? 'private';
+  if (scope === 'public') return ['public'];
+  if (scope === 'space') return ['space'];
+  return [];
 }
 
 export interface RoadmapComment {

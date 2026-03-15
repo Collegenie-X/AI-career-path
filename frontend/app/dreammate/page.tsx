@@ -98,6 +98,7 @@ function DreamMatePageContent() {
         {!mounted ? null : activeTab === 'feed' ? (
           <RoadmapFeedTab
             roadmaps={workspace.visibleRoadmaps}
+            currentUserId={workspace.currentUserId}
             likedIds={workspace.reactions.likedRoadmapIds}
             bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
             likeCounts={workspace.roadmapLikeCounts}
@@ -145,8 +146,6 @@ function DreamMatePageContent() {
           <MyDreamMateTab
             myRoadmaps={workspace.myRoadmaps}
             joinedSpaces={workspace.joinedSpaces}
-            bookmarkedRoadmaps={workspace.bookmarkedRoadmaps}
-            bookmarkedResources={workspace.bookmarkedResources}
             likedIds={workspace.reactions.likedRoadmapIds}
             bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
             likeCounts={workspace.roadmapLikeCounts}
@@ -236,8 +235,8 @@ function DreamMatePageContent() {
             workspace.handleDeleteRoadmap(workspace.selectedRoadmap!.id);
             setSelectedRoadmapOpenedFromTab(null);
           }}
-          onShareRoadmap={(shareScope, selectedSpaceIds) => {
-            workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareScope, selectedSpaceIds);
+          onShareRoadmap={(shareChannels, selectedSpaceIds) => {
+            workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareChannels, selectedSpaceIds);
           }}
           onReportRoadmap={(reasonId, detail) => {
             workspace.handleReportRoadmap(workspace.selectedRoadmap!.id, reasonId, detail);

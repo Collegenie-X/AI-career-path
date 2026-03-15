@@ -3,12 +3,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ChevronDown, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS } from '../config';
-import type { DreamSpace, RoadmapComment, RoadmapShareScope, SharedRoadmap } from '../types';
+import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
+import { getShareChannelsFromRoadmap } from '../types';
 import {
   buildChronologicalParentTree,
   type ParentTreeNode,
 } from '@/lib/timelineTreeUtils';
 import { RoadmapCareerPathTimelineSection } from './RoadmapCareerPathTimelineSection';
+import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
 import { RoadmapShareDialog } from './RoadmapShareDialog';
 
@@ -20,7 +22,7 @@ interface RoadmapDetailDialogProps {
   availableSpaces: DreamSpace[];
   onClose: () => void;
   onUseRoadmap: () => void;
-  onShareRoadmap: (shareScope: RoadmapShareScope, spaceIds: string[]) => void;
+  onShareRoadmap: (shareChannels: RoadmapShareChannel[], spaceIds: string[]) => void;
   onReportRoadmap: (reasonId: string, detail: string) => void;
   onEdit: () => void;
   onDelete: () => void;
@@ -78,15 +80,14 @@ export function RoadmapDetailDialog({
   );
   const executionSummary = useMemo(() => {
     const allTodoItems = roadmap.items.flatMap(item => item.subItems ?? []);
-    const actionableTodoItems = allTodoItems.filter(todoItem => todoItem.entryType !== 'goal');
-    const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
+    const { total: totalActionableTodoCount, done: doneActionableTodoCount } = getRoadmapEffectiveTodoCounts(roadmap.items);
     const outputDefinedItemCount = roadmap.items.filter(item => item.targetOutput || item.successCriteria).length;
     const evidenceCount = allTodoItems.filter(todoItem => Boolean(todoItem.outputRef?.trim())).length;
     return {
       outputDefinedItemCount,
       evidenceCount,
       doneActionableTodoCount,
-      totalActionableTodoCount: actionableTodoItems.length,
+      totalActionableTodoCount,
     };
   }, [roadmap.items]);
 
@@ -502,13 +503,13 @@ export function RoadmapDetailDialog({
 
       {showShareDialog && (
         <RoadmapShareDialog
-          currentScope={roadmap.shareScope ?? 'private'}
-          currentSpaceIds={roadmap.groupIds}
+          currentShareChannels={getShareChannelsFromRoadmap(roadmap)}
+          currentSpaceIds={roadmap.groupIds ?? []}
           spaces={availableSpaces}
           canSharePublicly={canSharePublicly}
           onClose={() => setShowShareDialog(false)}
-          onSave={(shareScope, selectedSpaceIds) => {
-            onShareRoadmap(shareScope, selectedSpaceIds);
+          onSave={(shareChannels, selectedSpaceIds) => {
+            onShareRoadmap(shareChannels, selectedSpaceIds);
             setShowShareDialog(false);
           }}
         />

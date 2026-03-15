@@ -5,6 +5,7 @@ import {
   Heart, Users, ChevronRight,
   Sparkles, BookOpen, Star, Globe, Bookmark, BookmarkCheck,
 } from 'lucide-react';
+import { AccordionSection } from '@/components/accordion';
 import templates from '@/data/career-path-templates.json';
 import communityData from '@/data/share-community.json';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
@@ -553,16 +554,18 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
           </div>
         </div>
 
-        {/* ── 즐겨찾기 섹션 (템플릿 + 커뮤니티 통합) ── */}
+        {/* ── 즐겨찾기 섹션 (아코디언) ── */}
         {totalBookmarkCount > 0 && (
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
-              <span className="text-xs font-bold text-white">즐겨찾기</span>
-              <span className="text-[12px] text-gray-500">{totalBookmarkCount}개 저장됨</span>
-            </div>
-
-            {/* 템플릿 즐겨찾기 */}
+          <AccordionSection
+            defaultOpen={true}
+            header={
+              <div className="flex items-center gap-2">
+                <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
+                <span className="text-xs font-bold text-white">즐겨찾기</span>
+                <span className="text-[12px] text-gray-500">{totalBookmarkCount}개 저장됨</span>
+              </div>
+            }
+          >
             {bookmarkedTemplates.map(template => (
               <BookmarkedTemplateCard
                 key={template.id}
@@ -571,8 +574,6 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 onRemoveBookmark={e => handleToggleTemplateBookmark(template.id, e)}
               />
             ))}
-
-            {/* 커뮤니티 공유 패스 즐겨찾기 */}
             {bookmarkedCommunityPlans.map(plan => (
               <BookmarkedCommunityCard
                 key={plan.id}
@@ -584,19 +585,22 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 onToggleBookmark={() => handleToggleCommunityBookmark(plan.id)}
               />
             ))}
-
-            <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
-          </div>
+            <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+          </AccordionSection>
         )}
 
-        {/* ── 내가 공유한 패스 섹션 ── */}
+        {/* ── 내가 공유한 패스 섹션 (아코디언) ── */}
         {(myPublicPlans ?? []).length > 0 && (
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
-              <span className="text-xs font-bold text-white">내가 공유한 패스</span>
-              <span className="text-[12px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
-            </div>
+          <AccordionSection
+            defaultOpen={true}
+            header={
+              <div className="flex items-center gap-2">
+                <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
+                <span className="text-xs font-bold text-white">내가 공유한 패스</span>
+                <span className="text-[12px] text-gray-500">{(myPublicPlans ?? []).length}개 공개중</span>
+              </div>
+            }
+          >
             {(myPublicPlans ?? []).map(plan => (
               <MyPublicPlanCard
                 key={plan.id}
@@ -604,51 +608,54 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 onClick={() => onViewMyPlan?.(plan)}
               />
             ))}
-            <div className="h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
-          </div>
+            <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+          </AccordionSection>
         )}
 
-        {/* ── Kingdom filter chips ── */}
-        <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide">
-          {STAR_FILTERS.map(f => (
-            <button
-              key={f.id}
-              onClick={() => setActiveFilter(f.id)}
-              className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
-              style={activeFilter === f.id
-                ? { backgroundColor: '#6C5CE7', color: '#fff', boxShadow: '0 0 10px #6C5CE755' }
-                : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              {f.emoji} {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* ── Count line ── */}
-        <div className="flex items-center justify-between px-0.5">
-          <span className="text-xs font-semibold text-gray-400">{filtered.length}개 커리어 패스</span>
-          <span className="text-[12px] text-gray-600">탭해서 상세보기</span>
-        </div>
-
-        {/* ── Template list ── */}
-        {filtered.length === 0 ? (
-          <div className="py-12 text-center">
-            <Sparkles className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-            <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
-          </div>
-        ) : (
-          <div className="space-y-3">
-            {filtered.map(template => (
-              <TemplateRow
-                key={template.id}
-                template={template}
-                isBookmarked={templateBookmarkIds.includes(template.id)}
-                onShowDetail={() => setSelectedTemplate(template)}
-                onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
-              />
+        {/* ── 커리어 패스 목록 (아코디언) ── */}
+        <AccordionSection
+          defaultOpen={true}
+          header={
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5" style={{ color: '#a78bfa' }} />
+              <span className="text-xs font-bold text-white">커리어 패스</span>
+              <span className="text-[12px] text-gray-500">{filtered.length}개</span>
+            </div>
+          }
+        >
+          <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide mb-3">
+            {STAR_FILTERS.map(f => (
+              <button
+                key={f.id}
+                onClick={() => setActiveFilter(f.id)}
+                className="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
+                style={activeFilter === f.id
+                  ? { backgroundColor: '#6C5CE7', color: '#fff', boxShadow: '0 0 10px #6C5CE755' }
+                  : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)', border: '1px solid rgba(255,255,255,0.08)' }}
+              >
+                {f.emoji} {f.label}
+              </button>
             ))}
           </div>
-        )}
+          {filtered.length === 0 ? (
+            <div className="py-12 text-center">
+              <Sparkles className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+              <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
+            </div>
+          ) : (
+            <div className="space-y-3">
+              {filtered.map(template => (
+                <TemplateRow
+                  key={template.id}
+                  template={template}
+                  isBookmarked={templateBookmarkIds.includes(template.id)}
+                  onShowDetail={() => setSelectedTemplate(template)}
+                  onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
+                />
+              ))}
+            </div>
+          )}
+        </AccordionSection>
       </div>
 
       {/* Detail dialog — onClose re-syncs bookmark state */}

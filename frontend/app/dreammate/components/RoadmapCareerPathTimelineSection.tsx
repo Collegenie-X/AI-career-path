@@ -5,6 +5,7 @@ import { CheckCircle2, ChevronDown, ChevronUp, Circle } from 'lucide-react';
 import { PlanItemDetailSheet, PlanItemRowCard } from '@/app/career/components/PlanItemDetailSheet';
 import { GOAL_GROUP_TEMPLATES_BY_ITEM_TYPE, LABELS, PERIOD_FILTERS } from '../config';
 import type { DreamItemType, RoadmapItem, SharedRoadmap } from '../types';
+import { getEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { sortByEarliestMonth } from '@/lib/timelineTreeUtils';
 import { RoadmapTodoInlineProgressBar, RoadmapTodoProgressBarCard } from './RoadmapTodoProgressBars';
 
@@ -64,14 +65,21 @@ function parseTodoMonthWeek(todoItem: { weekNumber?: number; weekLabel?: string 
   return { month: 99, week: 1 };
 }
 
-function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
-  const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
-  if (actionableTodoItems.length === 0) return false;
-  return actionableTodoItems.every(todoItem => todoItem.isDone);
+function getActionableTodoItems(item: RoadmapItem) {
+  return (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
 }
 
-function hasTodoExecutionRecord(todoItem: { note?: string; outputRef?: string; reviewNote?: string }): boolean {
-  return Boolean(todoItem.note?.trim() || todoItem.outputRef?.trim() || todoItem.reviewNote?.trim());
+function getGoalTodoItems(item: RoadmapItem) {
+  return (item.subItems ?? []).filter(todoItem => todoItem.entryType === 'goal');
+}
+
+function isRoadmapItemFullyCompleted(item: RoadmapItem): boolean {
+  const { total, done } = getEffectiveTodoCounts(item);
+  return total > 0 && done === total;
+}
+
+function hasTodoExecutionRecord(todoItem: { outputRef?: string }): boolean {
+  return Boolean(todoItem.outputRef?.trim());
 }
 
 function formatRoadmapItemMonthLabel(item: RoadmapItem): string {
@@ -148,8 +156,14 @@ function RoadmapTodoChecklist({
               <span className="text-xs font-semibold text-gray-300">
                 {weekGroup.weekLabel}
               </span>
-              <span className="flex items-center gap-1 text-xs text-gray-500">
-                {weekGroup.todoItems.length}개
+              <span className="flex items-center gap-1 text-gray-500" style={{ fontSize: 10 }}>
+                {(() => {
+                  const subItemCount = weekGroup.todoItems.filter(t => t.entryType !== 'goal').length;
+                  const goalCount = weekGroup.todoItems.filter(t => t.entryType === 'goal').length;
+                  if (subItemCount > 0) return `${subItemCount}개`;
+                  if (goalCount > 0) return '목표';
+                  return null;
+                })()}
                 {isWeekOpen ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
               </span>
             </button>
@@ -158,7 +172,10 @@ function RoadmapTodoChecklist({
               <div className="mt-1.5 space-y-1.5">
                 {weekGroup.todoItems.map(todoItem => {
                   const isGoalEntry = todoItem.entryType === 'goal';
-                  if (isGoalEntry) {
+                  const actionableCountInWeek = weekGroup.todoItems.filter(t => t.entryType !== 'goal').length;
+                  const shouldShowGoalAsCheckable = isGoalEntry && actionableCountInWeek === 0;
+
+                  if (isGoalEntry && !shouldShowGoalAsCheckable) {
                     return (
                       <div key={todoItem.id} className="w-full text-xs" style={{ color: 'rgba(255,255,255,0.7)' }}>
                         <div className="flex items-center gap-1.5">
@@ -169,13 +186,42 @@ function RoadmapTodoChecklist({
                           <span className="truncate">{todoItem.title}</span>
                         </div>
                         {hasTodoExecutionRecord(todoItem) && (
-                          <div className="mt-1 ml-4 space-y-0.5 text-xs text-gray-500">
-                            {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
-                            {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
-                            {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
+                          <div className="mt-1 ml-4 space-y-0.5 text-gray-500" style={{ fontSize: 10 }}>
+                            <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>
                           </div>
                         )}
                       </div>
+                    );
+                  }
+
+                  if (isGoalEntry && shouldShowGoalAsCheckable) {
+                    return (
+                      <button
+                        key={todoItem.id}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          onToggleTodoItem?.(item.id, todoItem.id);
+                        }}
+                        disabled={!onToggleTodoItem}
+                        className="w-full flex items-center gap-1.5 text-xs text-left transition-opacity"
+                        style={{
+                          color: 'rgba(255,255,255,0.7)',
+                          cursor: onToggleTodoItem ? 'pointer' : 'default',
+                          opacity: onToggleTodoItem ? 1 : 0.9,
+                        }}
+                      >
+                        {todoItem.isDone
+                          ? <CheckCircle2 className="w-3 h-3 text-emerald-400 flex-shrink-0" />
+                          : <Circle className="w-3 h-3 text-gray-500 flex-shrink-0" />}
+                        <div className="flex items-center gap-1.5 min-w-0 flex-1">
+                          <span className="text-xs px-1.5 py-0.5 rounded-md font-bold text-violet-200 flex-shrink-0" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+                            목표
+                          </span>
+                          <p className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
+                            {todoItem.title}
+                          </p>
+                        </div>
+                      </button>
                     );
                   }
 
@@ -201,13 +247,6 @@ function RoadmapTodoChecklist({
                         <p className={`truncate ${todoItem.isDone ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : ''}`}>
                           {todoItem.title}
                         </p>
-                        {hasTodoExecutionRecord(todoItem) && (
-                          <div className="mt-0.5 space-y-0.5 text-xs text-gray-500">
-                            {todoItem.note?.trim() && <p className="line-clamp-1">기록: {todoItem.note}</p>}
-                            {todoItem.outputRef?.trim() && <p className="line-clamp-1">산출물: {todoItem.outputRef}</p>}
-                            {todoItem.reviewNote?.trim() && <p className="line-clamp-1">회고: {todoItem.reviewNote}</p>}
-                          </div>
-                        )}
                       </div>
                     </button>
                   );
@@ -237,8 +276,7 @@ function RoadmapItemTodoAccordionCard({
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }) {
   const [isTodoOpen, setIsTodoOpen] = useState(true);
-  const actionableTodoItems = (item.subItems ?? []).filter(todoItem => todoItem.entryType !== 'goal');
-  const doneActionableTodoCount = actionableTodoItems.filter(todoItem => todoItem.isDone).length;
+  const { total: effectiveTotal, done: effectiveDone } = getEffectiveTodoCounts(item);
 
   return (
     <div
@@ -253,12 +291,11 @@ function RoadmapItemTodoAccordionCard({
           onClick={() => setIsTodoOpen(previous => !previous)}
           className="text-xs text-gray-500 flex items-center gap-1"
         >
-          {LABELS.todoSectionLabel} {doneActionableTodoCount}/{actionableTodoItems.length}
-          {showProgressBars && (
+          {showProgressBars && effectiveTotal > 0 && (
             <span className="inline-flex ml-1">
               <RoadmapTodoInlineProgressBar
-                doneCount={doneActionableTodoCount}
-                totalCount={actionableTodoItems.length}
+                doneCount={effectiveDone}
+                totalCount={effectiveTotal}
                 accentColor={accentColor}
               />
             </span>
@@ -315,6 +352,7 @@ const mapRoadmapItemTypeToCareerItemType = (itemType: DreamItemType): 'activity'
 
 function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boolean }) {
   const includeSubItems = options?.includeSubItems ?? true;
+  const hasOnlyGoals = getActionableTodoItems(item).length === 0 && getGoalTodoItems(item).length > 0;
   return {
     ...item,
     type: mapRoadmapItemTypeToCareerItemType(item.type),
@@ -322,7 +360,9 @@ function toPlanItemDetail(item: RoadmapItem, options?: { includeSubItems?: boole
       ? (item.subItems ?? []).map(subItem => ({
           id: subItem.id,
           title: `${getWeekLabelFromTodo(subItem.weekNumber, subItem.weekLabel)} · ${subItem.entryType === 'goal' ? `[목표] ${subItem.title}` : subItem.title}`,
-          done: subItem.entryType === 'goal' ? false : Boolean(subItem.isDone),
+          done: subItem.entryType === 'goal'
+            ? (hasOnlyGoals ? Boolean(subItem.isDone) : false)
+            : Boolean(subItem.isDone),
         }))
       : [],
   };
@@ -351,15 +391,11 @@ export function RoadmapCareerPathTimelineSection({
   );
 
   const weeklyTotalCount = useMemo(
-    () => roadmap.items.reduce((sum, item) => {
-      return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal').length;
-    }, 0),
+    () => roadmap.items.reduce((sum, item) => sum + getEffectiveTodoCounts(item).total, 0),
     [roadmap.items],
   );
   const weeklyDoneCount = useMemo(
-    () => roadmap.items.reduce((sum, item) => {
-      return sum + (item.subItems ?? []).filter(subItem => subItem.entryType !== 'goal' && subItem.isDone).length;
-    }, 0),
+    () => roadmap.items.reduce((sum, item) => sum + getEffectiveTodoCounts(item).done, 0),
     [roadmap.items],
   );
 

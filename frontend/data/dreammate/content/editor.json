@@ -14,6 +14,7 @@
   "roadmapEditorAddItemButtonLabel":        "추가",
   "roadmapEditorAddWeekGroupButtonLabel":   "주 추가",
   "roadmapEditorAddWeekTaskButtonLabel":    "추가",
+  "roadmapEditorAddSubItemButtonLabel":     "하위 항목 추가",
   "roadmapEditorWeekGoalLabel":             "주차 목표",
   "roadmapEditorWeekGoalPlaceholder":       "{month}월 {week}주차 목표 (선택)",
   "roadmapEditorWeekTaskPlaceholder":       "{month}월 {week}주차 항목",
