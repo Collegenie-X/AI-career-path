@@ -3,8 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TabBar } from '@/components/tab-bar';
-import { Sparkles, Plus, X, UserPlus } from 'lucide-react';
-import { storage } from '@/lib/storage';
+import { Sparkles, Plus } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
@@ -56,7 +55,6 @@ function StarField() {
 function CareerPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [showSignupDialog, setShowSignupDialog] = useState(false);
 
   const [activeTab, setActiveTab] = useState<TabId>('explore');
   const [plans, setPlans] = useState<CareerPlan[]>([]);
@@ -110,11 +108,6 @@ function CareerPageContent() {
   };
 
   const openNew = () => {
-    const user = storage.user.get();
-    if (!user?.onboardingCompleted) {
-      setShowSignupDialog(true);
-      return;
-    }
     setEditingPlan(null);
     setBuilderInitialStep(1);
     setBuilderOpen(true);
@@ -133,11 +126,6 @@ function CareerPageContent() {
   };
 
   const handleUseTemplate = (template: typeof templates[0], customTitle: string) => {
-    const user = storage.user.get();
-    if (!user?.onboardingCompleted) {
-      setShowSignupDialog(true);
-      return;
-    }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const mapItem = (item: any, prefix: string, iIdx: number) => ({
       id: item.id ?? `${prefix}-${iIdx}-${Date.now()}`,
@@ -367,51 +355,6 @@ function CareerPageContent() {
       <TabBar />
 
       {/* Builder dialog — full-screen overlay */}
-      {/* 커리어 패스 만들기 시 로그인 유도 다이얼로그 */}
-      {showSignupDialog && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-6">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowSignupDialog(false)} />
-          <div
-            className="relative w-full max-w-[360px] rounded-2xl p-6 space-y-5"
-            style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
-          >
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold text-white">커리어 패스 만들기</h3>
-              <button
-                onClick={() => setShowSignupDialog(false)}
-                className="w-8 h-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-              >
-                <X className="w-4 h-4 text-gray-400" />
-              </button>
-            </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              커리어 패스를 만들려면 회원가입 또는 로그인이 필요해요.
-            </p>
-            <div className="flex gap-2">
-              <button
-                onClick={() => setShowSignupDialog(false)}
-                className="flex-1 h-12 rounded-xl font-semibold text-sm text-white/70"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-              >
-                취소
-              </button>
-              <button
-                onClick={() => {
-                  setShowSignupDialog(false);
-                  router.push('/signup?redirect=' + encodeURIComponent('/career'));
-                }}
-                className="flex-1 h-12 rounded-xl font-bold text-sm text-white flex items-center justify-center gap-2"
-                style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
-              >
-                <UserPlus className="w-4 h-4" />
-                회원가입
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {builderOpen && (
         <CareerPathBuilder
           initialPlan={editingPlan}
