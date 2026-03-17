@@ -1850,15 +1850,32 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   };
 
   const handleSave = () => {
-    if (!kingdom || !job) return;
     const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
+    const sortedYears = yearPlans.sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
+    const star = kingdom ?? {
+      id: initialPlan?.starId ?? '',
+      name: initialPlan?.starName ?? '',
+      emoji: initialPlan?.starEmoji ?? '⭐',
+      color: initialPlan?.starColor ?? '#6C5CE7',
+    };
+    const jobInfo = job ?? {
+      id: initialPlan?.jobId ?? '',
+      name: initialPlan?.jobName ?? '',
+      icon: initialPlan?.jobEmoji ?? '📌',
+    };
+    if (!star.id || !jobInfo.id) return;
     const plan: CareerPlan = {
       id: initialPlan?.id ?? `plan-${Date.now()}`,
-      starId: kingdom.id, starName: kingdom.name, starEmoji: kingdom.emoji, starColor: kingdom.color,
-      jobId: job.id, jobName: job.name, jobEmoji: job.icon,
-      years: yearPlans.sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0)),
+      starId: star.id,
+      starName: star.name,
+      starEmoji: star.emoji,
+      starColor: typeof star.color === 'string' ? star.color : '#6C5CE7',
+      jobId: jobInfo.id,
+      jobName: jobInfo.name,
+      jobEmoji: jobInfo.icon,
+      years: sortedYears,
       createdAt: initialPlan?.createdAt ?? new Date().toISOString(),
-      title: `${job.name} 커리어 패스`,
+      title: `${jobInfo.name} 커리어 패스`,
     };
     onSave(plan);
   };

@@ -54,6 +54,21 @@ export function YearTimelineNode({
   const grade = GRADE_YEARS.find((g) => g.id === year.gradeId);
   const groupItems = (year.groups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
 
+  /** ID·내용 기준 중복 제거 (같은 항목 반복 표시 방지) */
+  const dedupeItems = (items: PlanItemWithCheck[]): PlanItemWithCheck[] => {
+    const seenIds = new Set<string>();
+    const seenContent = new Set<string>();
+    return items.filter(it => {
+      if (seenIds.has(it.id)) return false;
+      const months = Array.isArray(it.months) ? it.months : [];
+      const contentKey = `${it.type ?? 'activity'}::${(it.title ?? '').trim()}::${months.join(',')}`;
+      if (seenContent.has(contentKey)) return false;
+      seenIds.add(it.id);
+      seenContent.add(contentKey);
+      return true;
+    });
+  };
+
   const goalGroupItems: PlanItemWithCheck[] = year.semester === 'split'
     ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items)) as PlanItemWithCheck[]
     : (year.goalGroups ?? []).flatMap(g => g.items) as PlanItemWithCheck[];
@@ -192,7 +207,7 @@ export function YearTimelineNode({
                 </div>
                 {group.items.length > 0 && (
                   <div className="px-3 py-2 space-y-1.5">
-                    {(group.items as PlanItemWithCheck[]).map((item) => (
+                    {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
                         item={item}
@@ -213,9 +228,9 @@ export function YearTimelineNode({
         )}
 
         {/* goalGroups 구조 (semester !== 'split') */}
-        {year.semester !== 'split' && (year.goalGroups ?? []).length > 0 && (
+        {year.semester !== 'split' && (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length > 0 && (
           <div className="space-y-2">
-            {(year.goalGroups ?? []).map((group) => {
+            {(year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).map((group) => {
               const isExpanded = expandedGoalIds.has(group.id);
               return (
               <div key={group.id} className="rounded-2xl overflow-hidden"
@@ -232,7 +247,7 @@ export function YearTimelineNode({
                 </button>
                 {isExpanded && group.items.length > 0 && (
                   <div className="px-3 py-2 space-y-1.5">
-                    {(group.items as PlanItemWithCheck[]).map((item) => (
+                    {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
                         item={item}
@@ -263,7 +278,7 @@ export function YearTimelineNode({
                   <span className="text-[12px] font-bold text-gray-400">{sp.semesterLabel}</span>
                   <div className="flex-1 h-px" style={{ backgroundColor: `${color}20` }} />
                 </div>
-                {sp.goalGroups.map((group) => {
+                {sp.goalGroups.filter(g => (g.items ?? []).length > 0).map((group) => {
                   const isExpanded = expandedGoalIds.has(group.id);
                   return (
                   <div key={group.id} className="rounded-2xl overflow-hidden"
@@ -280,7 +295,7 @@ export function YearTimelineNode({
                     </button>
                     {isExpanded && group.items.length > 0 && (
                       <div className="px-3 py-2 space-y-1.5">
-                        {(group.items as PlanItemWithCheck[]).map((item) => (
+                        {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                           <ItemRow
                             key={item.id}
                             item={item}
@@ -298,7 +313,7 @@ export function YearTimelineNode({
                   </div>
                   );
                 })}
-                {sp.goalGroups.length === 0 && (
+                {sp.goalGroups.filter(g => (g.items ?? []).length > 0).length === 0 && (
                   <p className="text-xs text-gray-600 pl-2">이 학기에 계획이 없어요</p>
                 )}
               </div>
