@@ -16,6 +16,7 @@ export type PlanItemDetail = {
   cost?: string;
   organizer?: string;
   url?: string;
+  links?: Array<{ title: string; url: string; kind?: string }>;
   description?: string;
   custom?: boolean;
   subItems?: PlanItemSubDetail[];
@@ -154,6 +155,9 @@ export function PlanItemRowCard({
 export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props) {
   const typeConf = ITEM_TYPES.find((t) => t.value === item.type) ?? { label: item.type, color, emoji: '📌' };
   const accentColor = typeConf.color ?? color;
+  const primaryLink = item.links?.[0];
+  const primaryUrl = item.url?.trim() || primaryLink?.url;
+  const primaryLinkLabel = primaryLink?.title || primaryUrl;
 
   const months = item.months ?? (item.month != null ? [item.month] : []);
   const monthLabel =
@@ -287,14 +291,14 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
             <LinkIcon className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#60a5fa' }} />
             <div className="flex-1 min-w-0">
               <div className="text-[12px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
-              {item.url?.trim() ? (
+              {primaryUrl ? (
                 <a
-                  href={item.url}
+                  href={primaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-semibold text-blue-400 hover:text-blue-300 underline break-all"
                 >
-                  {item.url}
+                  {primaryLinkLabel}
                 </a>
               ) : (
                 <span className="text-xs text-gray-500 italic">정보 없음</span>

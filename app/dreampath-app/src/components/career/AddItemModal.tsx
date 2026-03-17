@@ -6,6 +6,7 @@ import { SPACING, FONT_SIZES, BORDER_RADIUS } from '../../config/theme';
 import { CAREER_LABELS, CAREER_ITEM_TYPES, type CareerItemType, type CareerPlanItem } from '../../config/career-path';
 import careerMaker from '../../data/career-maker.json';
 import portfolioItems from '../../data/portfolio-items.json';
+import { buildStructuredCareerItem } from '../../data/career-item-structure';
 
 interface SuggestedItem {
   id: string; type: string; title: string; months: number[];
@@ -103,7 +104,8 @@ export function AddItemModal({ starId, color, onAdd, onClose, initialItem, onSav
   const handleSaveEdit = () => {
     if (!initialItem || !onSave || !editTitle.trim() || suggestMonths.length === 0) return;
     onSave({
-      ...initialItem,
+      ...buildStructuredCareerItem({
+        ...initialItem,
       type: editType,
       title: editTitle.trim(),
       months: suggestMonths,
@@ -112,6 +114,8 @@ export function AddItemModal({ starId, color, onAdd, onClose, initialItem, onSav
       organizer: editOrganizer.trim() || '',
       url: editUrl.trim() || undefined,
       description: editDescription.trim() || undefined,
+      }),
+      id: initialItem.id,
     });
     onClose();
   };
@@ -129,7 +133,7 @@ export function AddItemModal({ starId, color, onAdd, onClose, initialItem, onSav
 
   const handleAddSuggest = () => {
     if (!selectedSuggest || suggestMonths.length === 0 || !editTitle.trim()) return;
-    onAdd({
+    onAdd(buildStructuredCareerItem({
       type: selectedSuggest.type as CareerItemType,
       title: editTitle.trim(),
       months: suggestMonths,
@@ -138,19 +142,19 @@ export function AddItemModal({ starId, color, onAdd, onClose, initialItem, onSav
       organizer: editOrganizer.trim() || '',
       url: editUrl.trim() || undefined,
       description: editDescription.trim() || undefined,
-    });
+    }));
     onClose();
   };
 
   const handleAddCustom = () => {
     if (!customTitle.trim() || customMonths.length === 0) return;
-    onAdd({
+    onAdd(buildStructuredCareerItem({
       type: customType, title: customTitle.trim(), months: customMonths,
       difficulty: customDifficulty, cost: customCost, organizer: customOrganizer,
       url: customUrl.trim() || undefined,
       description: customDescription.trim() || undefined,
       custom: true,
-    });
+    }));
     onClose();
   };
 

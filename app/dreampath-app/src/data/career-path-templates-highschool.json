@@ -1,0 +1,695 @@
+[
+  {
+    "id": "tpl-highschool-science-001",
+    "title": "과학고·영재고 합격 커리어 패스",
+    "description": "한국과학영재학교(KSA)·과학고 합격을 위한 중1~중3 로드맵. 합격 선배 후기와 전략을 담았습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "highschool-science",
+    "jobName": "과학고·영재고",
+    "jobEmoji": "🔬",
+    "category": "highschool",
+    "schoolType": "science_high",
+    "schoolTypeName": "과학고·영재고",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "한국과학영재학교",
+        "quote": "KMO 2차 입상이 합격의 핵심이었어요. 중2부터 올림피아드 준비했고, 영재교육원 수료도 서류에서 중요했습니다.",
+        "strategy": "중1 수학 선행, 중2 KMO 1차, 중3 KMO 2차 + 영재교육원. R&E 기초 보고서.",
+        "tips": [
+          "KMO 2차 이상 목표",
+          "영재교육원 수료",
+          "수학·과학 원리 이해 중심"
+        ]
+      },
+      {
+        "year": "2024",
+        "schoolName": "서울과학고",
+        "quote": "전 과목 A + KPhO 예선 통과 + 영재교육원 수료로 합격. 내신과 올림피아드 둘 다 중요해요.",
+        "strategy": "중1~중3 내신 A 유지. KPhO 또는 KMO 선택 집중. 영재교육원 필수.",
+        "tips": [
+          "내신 전 과목 A",
+          "올림피아드 1차 이상",
+          "영재교육원 수료"
+        ]
+      }
+    ],
+    "likes": 312,
+    "uses": 156,
+    "tags": [
+      "과학고",
+      "영재고",
+      "KSA",
+      "고입",
+      "올림피아드"
+    ],
+    "totalItems": 12,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1",
+        "goals": [
+          "수학 선행 (고1 수준)",
+          "과학 심화",
+          "올림피아드 기초"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수학 선행: 수학1·수학2 기초",
+            "months": [
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원",
+            "organizer": "자체·학원",
+            "description": "고1 수준 완성 목표. KMO 입문.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "과학 탐구 일지 쓰기",
+            "months": [
+              4
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'왜?' 질문 습관. 영재교육원 지원 준비.",
+            "categoryTags": [
+              "paper",
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          },
+          {
+            "type": "activity",
+            "title": "영재교육원 지원 준비",
+            "months": [
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "시·도 교육청",
+            "description": "영재교육원 수료는 서류 평가 핵심.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "KMO 1차 도전",
+          "KPhO/KChO 예선",
+          "영재교육원 수료"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "KMO(수학올림피아드) 1차",
+            "months": [
+              5
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "한국수학올림피아드",
+            "description": "과학고·영재고 핵심. 2차 진출 목표.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "award",
+            "title": "KPhO 또는 KChO 예선",
+            "months": [
+              5
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "한국물리학회·화학회",
+            "description": "과학고 선택. 물리 또는 화학 집중.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "시·도 영재교육원 수료",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "교육청",
+            "description": "서류 평가에서 매우 중요.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          },
+          {
+            "type": "activity",
+            "title": "R&E 기초 보고서 작성",
+            "months": [
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "간단한 실험 보고서. 연구 경험.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "KMO 2차 입상",
+          "자소서 준비",
+          "영재성 검사 대비"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "KMO 2차 입상 목표",
+            "months": [
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "한국수학올림피아드",
+            "description": "KSA·과학고 사실상 필수.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "과학고·영재고 자소서 작성",
+            "months": [
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'왜 과학인가' 탐구 경험 서술.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "영재성 검사 기출 분석",
+            "months": [
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "수학·과학 창의적 문제해결 연습.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "구술 면접 연습",
+            "months": [
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "연구 과정 설명 능력. 3인 교수진 대비.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-highschool-foreign-001",
+    "title": "외국어고 합격 커리어 패스",
+    "description": "대원외고·민족사관외고 등 외국어고 합격을 위한 중1~중3 로드맵. 합격 선배 후기와 전략을 담았습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "highschool-foreign",
+    "jobName": "외국어고",
+    "jobEmoji": "🌍",
+    "category": "highschool",
+    "schoolType": "foreign_language",
+    "schoolTypeName": "외국어고",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "대원외국어고",
+        "quote": "영어 내신 A + TOEIC 900 + 모의UN 경험이 합격의 핵심이었어요. 제2외국어는 중1부터 시작하는 게 좋습니다.",
+        "strategy": "중1 영어 A 필수. 중2 TOEIC·모의UN. 중3 영어 구술 면접 집중.",
+        "tips": [
+          "영어 내신 A 절대 기준",
+          "TOEIC 900+ 또는 TEPS",
+          "모의UN·토론 경험"
+        ]
+      },
+      {
+        "year": "2024",
+        "schoolName": "민족사관외고",
+        "quote": "전 과목 A + 영어 구술 준비가 핵심. '왜 이 외국어를 배우고 싶은가' 자소서가 중요해요.",
+        "strategy": "내신 A 유지. 영어 구술 시사 문제 답변 연습. 자소서 동기 명확히.",
+        "tips": [
+          "전 과목 A",
+          "영어 구술 연습",
+          "자소서 외국어 동기"
+        ]
+      }
+    ],
+    "likes": 267,
+    "uses": 134,
+    "tags": [
+      "외고",
+      "고입",
+      "영어",
+      "모의UN"
+    ],
+    "totalItems": 10,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1",
+        "goals": [
+          "영어 내신 A 유지",
+          "제2외국어 선택",
+          "기초 어학"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "영어 내신 최상위 유지",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료~학원",
+            "organizer": "학교",
+            "description": "외고 절대 기준. 전 과목 A 권장.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "제2외국어 선택 및 기초",
+            "months": [
+              5
+            ],
+            "difficulty": 2,
+            "cost": "무료~학원",
+            "organizer": "자체",
+            "description": "일본어·중국어·프랑스어 등. 지원 전공어 결정.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "TOEIC/TEPS 준비",
+          "모의UN·토론",
+          "외국어 경시"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TOEIC 900+ 또는 TEPS",
+            "months": [
+              6
+            ],
+            "difficulty": 4,
+            "cost": "5.2만원",
+            "organizer": "ETS",
+            "description": "영어 실력 공식 인증. 서류 평가.",
+            "categoryTags": []
+          },
+          {
+            "type": "activity",
+            "title": "모의UN 또는 영어 토론",
+            "months": [
+              4
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "동아리·대회",
+            "description": "외고 핵심 스펙. 대입에도 유리.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "award",
+            "title": "외국어 경시대회 참가",
+            "months": [
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "각 교육청",
+            "description": "전공어 실력 인증.",
+            "categoryTags": [
+              "award"
+            ]
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "영어 구술 면접",
+          "자소서 완성",
+          "해외 경험 정리"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "영어 구술 면접 연습",
+            "months": [
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "시사 문제 영어 답변. 원어민 회화.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "자소서: 외국어 학습 동기",
+            "months": [
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'왜 이 외국어를 배우고 싶은가' 핵심.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "해외 경험 정리 (있을 경우)",
+            "months": [
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "교환학생·캠프 등. 자소서 소재.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-highschool-autonomous-001",
+    "title": "자사고·특목고 합격 커리어 패스",
+    "description": "자율형사립고·일반 특목고 합격을 위한 중1~중3 로드맵. 합격 선배 후기와 전략을 담았습니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "highschool-autonomous",
+    "jobName": "자사고·특목고",
+    "jobEmoji": "🏫",
+    "category": "highschool",
+    "schoolType": "autonomous_private",
+    "schoolTypeName": "자율형사립고",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "민족사관고",
+        "quote": "전 과목 A + 독서·토론 경험이 합격의 핵심이었어요. 자기주도 학습 능력을 보여주는 게 중요합니다.",
+        "strategy": "중1~중3 내신 A. 독서토론대회·논술 대비. 자소서 '나의 학습법'.",
+        "tips": [
+          "전 과목 내신 A",
+          "독서·토론 활동",
+          "자기주도 학습 증명"
+        ]
+      },
+      {
+        "year": "2024",
+        "schoolName": "상산고",
+        "quote": "내신 1~2등급 + 비교과 활동이 핵심. 수능·대입 준비에 유리한 학교라 경쟁이 치열해요.",
+        "strategy": "내신 최상위 유지. R&E·올림피아드·독서 등 비교과. 면접 대비.",
+        "tips": [
+          "내신 1~2등급",
+          "비교과 활동",
+          "면접 연습"
+        ]
+      }
+    ],
+    "likes": 234,
+    "uses": 98,
+    "tags": [
+      "자사고",
+      "특목고",
+      "고입",
+      "내신"
+    ],
+    "totalItems": 11,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1",
+        "goals": [
+          "전 과목 내신 A",
+          "독서 습관",
+          "기초 비교과"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "전 과목 내신 A 유지",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "자사고·특목고 절대 기준.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "독서 일기·독서 토론",
+            "months": [
+              4
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·동아리",
+            "description": "인문계 자사고 핵심. 학생부 기재.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "비교과 활동 확대",
+          "R&E 또는 올림피아드",
+          "토론 대회"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "R&E 또는 올림피아드 탐색",
+            "months": [
+              5
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "교육청·학교",
+            "description": "이공계: R&E·올림피아드. 인문계: 토론·논술.",
+            "categoryTags": [
+              "award",
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "전국 독서토론대회 참가",
+            "months": [
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "교육부·도서관협회",
+            "description": "인문계 자사고 핵심 스펙.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "영재교육원 또는 동아리",
+            "months": [
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "교육청·학교",
+            "description": "탐구·비교과 경험.",
+            "categoryTags": [
+              "paper",
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "자소서 완성",
+          "면접 대비",
+          "전형별 전략"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "자소서: 자기주도 학습·성장",
+            "months": [
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'나의 학습법' '성장 경험' 핵심.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접 연습 (구술·토론)",
+            "months": [
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "시사·독서·탐구 주제. 토론 형식.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "학교별 전형 분석",
+            "months": [
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "내신 비중·비교과·면접 비율 확인.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  }
+]

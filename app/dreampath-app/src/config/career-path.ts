@@ -1,4 +1,12 @@
 export type CareerItemType = 'activity' | 'award' | 'portfolio' | 'certification';
+export type CareerItemCategoryTag = 'project' | 'award' | 'paper' | 'intern' | 'volunteer' | 'camp' | 'activity';
+export type CareerActivitySubtype = 'project' | 'intern' | 'volunteer' | 'camp' | 'research' | 'paper' | 'general';
+
+export interface CareerItemLink {
+  title: string;
+  url: string;
+  kind?: 'official' | 'application' | 'reference' | 'portfolio' | 'result';
+}
 
 export interface CareerPathComment {
   id: string;
@@ -20,7 +28,10 @@ export interface CareerPlanItem {
   cost: string;
   organizer: string;
   url?: string;
+  links?: CareerItemLink[];
   description?: string;
+  categoryTags?: CareerItemCategoryTag[];
+  activitySubtype?: CareerActivitySubtype;
   custom?: boolean;
   checked?: boolean;
 }
@@ -195,6 +206,18 @@ export const CAREER_LABELS = {
   detailYears: '학년',
   detailItems: '개',
   detailTimelineSectionTitle: '학년별 상세',
+  detailRichInfoTitle: '합격 준비 상세 가이드',
+  detailRichInfoSubtitle: '프로젝트·수상·논문·인턴·봉사·캠프를 학년 전체에서 요약했어요.',
+  detailRichLinksTitle: '참고 URL · 공식 링크',
+  detailRichLinksEmpty: '등록된 참고 URL이 아직 없어요',
+  detailRichProject: '프로젝트',
+  detailRichAward: '수상',
+  detailRichPaper: '논문·연구',
+  detailRichIntern: '인턴',
+  detailRichVolunteer: '봉사활동',
+  detailRichCamp: '캠프',
+  detailRichActivity: '활동',
+  detailRichExamplesSuffix: '개 예시',
 
   commentSectionTitle: '댓글',
   commentPlaceholder: '댓글 추가...',
@@ -234,6 +257,8 @@ export const CAREER_GRADE_YEARS = [
 
 export const STAR_FILTERS = [
   { id: 'all', label: '전체', emoji: '✨' },
+  { id: 'highschool', label: '고입', emoji: '🏫' },
+  { id: 'admission', label: '대입', emoji: '🎓' },
   { id: 'explore', label: '탐구', emoji: '🔬' },
   { id: 'create', label: '창작', emoji: '🎨' },
   { id: 'tech', label: '기술', emoji: '💻' },

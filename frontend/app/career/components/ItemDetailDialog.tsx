@@ -13,6 +13,9 @@ type Props = {
 
 export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
   const typeConf = ITEM_TYPES.find((t) => t.value === item.type);
+  const primaryLink = item.links?.[0];
+  const primaryUrl = item.url?.trim() || primaryLink?.url;
+  const primaryLinkLabel = primaryLink?.title || primaryUrl;
 
   const monthLabel =
     item.months.length === 1
@@ -197,14 +200,14 @@ export function ItemDetailDialog({ item, gradeLabel, color, onClose }: Props) {
             />
             <div className="flex-1 min-w-0">
               <div className="text-[12px] font-bold text-gray-400 mb-0.5">공식 사이트</div>
-              {item.url?.trim() ? (
+              {primaryUrl ? (
                 <a
-                  href={item.url}
+                  href={primaryUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-semibold text-blue-400 hover:text-blue-300 underline break-all"
                 >
-                  {item.url}
+                  {primaryLinkLabel}
                 </a>
               ) : (
                 <span className="text-xs text-gray-500 italic">정보 없음</span>

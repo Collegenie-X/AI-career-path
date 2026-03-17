@@ -26,6 +26,9 @@ export function ItemDetailModal({ visible, item, gradeLabel, color, onClose }: I
 
   const tc = CAREER_ITEM_TYPES.find((t) => t.value === item.type);
   const accentColor = tc?.color ?? color;
+  const primaryLink = item.links?.[0];
+  const primaryUrl = item.url ?? primaryLink?.url;
+  const primaryLinkLabel = primaryLink?.title ?? primaryUrl;
   const monthLabel =
     item.months.length === 1
       ? `${item.months[0]}월`
@@ -120,9 +123,9 @@ export function ItemDetailModal({ visible, item, gradeLabel, color, onClose }: I
               <Text style={styles.detailIcon}>🔗</Text>
               <View style={styles.detailContent}>
                 <Text style={styles.detailLabel}>{CAREER_LABELS.itemUrl}</Text>
-                {item.url && item.url.trim() ? (
-                  <TouchableOpacity onPress={() => Linking.openURL(item.url!)} activeOpacity={0.7}>
-                    <Text style={styles.urlLink} numberOfLines={2}>{item.url}</Text>
+                {primaryUrl && primaryUrl.trim() ? (
+                  <TouchableOpacity onPress={() => Linking.openURL(primaryUrl)} activeOpacity={0.7}>
+                    <Text style={styles.urlLink} numberOfLines={2}>{primaryLinkLabel}</Text>
                   </TouchableOpacity>
                 ) : (
                   <Text style={styles.emptyHint}>정보 없음</Text>

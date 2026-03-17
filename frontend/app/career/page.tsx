@@ -12,7 +12,8 @@ import { ShareSettingsDialog } from './components/community/ShareSettingsDialog'
 import type { ShareChannel, CommunityGroup } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
 import communityData from '@/data/share-community.json';
-import templates from '@/data/career-path-templates.json';
+import careerPathTemplates from '@/data/career-path-templates-index';
+import { buildStructuredCareerItem } from '@/data/career-item-structure';
 
 type TabId = 'explore' | 'timeline' | 'community';
 
@@ -125,9 +126,9 @@ function CareerPageContent() {
     setBuilderInitialStep(undefined);
   };
 
-  const handleUseTemplate = (template: typeof templates[0], customTitle: string) => {
+  const handleUseTemplate = (template: typeof careerPathTemplates[0], customTitle: string) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const mapItem = (item: any, prefix: string, iIdx: number) => ({
+    const mapItem = (item: any, prefix: string, iIdx: number) => buildStructuredCareerItem({
       id: item.id ?? `${prefix}-${iIdx}-${Date.now()}`,
       type: item.type ?? 'activity',
       title: item.title ?? '',
@@ -137,6 +138,9 @@ function CareerPageContent() {
       organizer: item.organizer ?? '',
       url: item.url,
       description: item.description,
+      links: item.links,
+      categoryTags: item.categoryTags,
+      activitySubtype: item.activitySubtype,
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

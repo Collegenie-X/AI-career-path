@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Modal, ScrollView,
 } from 'react-native';
@@ -8,13 +8,34 @@ import goalTemplatesData from '../../data/goal-templates.json';
 
 type CategoryKey = keyof typeof goalTemplatesData;
 
+/** 템플릿 항목: 문자열 또는 { label, icon?, description? } */
+type TemplateItem = string | { label: string; icon?: string; description?: string };
+
+function normalizeTemplate(t: TemplateItem): { label: string; icon: string; description: string } {
+  if (typeof t === 'string') {
+    return { label: t, icon: '•', description: '' };
+  }
+  return {
+    label: t.label,
+    icon: t.icon ?? '•',
+    description: t.description ?? '',
+  };
+}
+
 interface GoalTemplateSelectorProps {
   onSelect: (goal: string) => void;
   onClose: () => void;
   color: string;
+  /** 이미 선택된 목표 목록 (상단에 우선 표시) */
+  previouslySelected?: string[];
 }
 
-export function GoalTemplateSelector({ onSelect, onClose, color }: GoalTemplateSelectorProps) {
+export function GoalTemplateSelector({
+  onSelect,
+  onClose,
+  color,
+  previouslySelected = [],
+}: GoalTemplateSelectorProps) {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(null);
 
   const categories = Object.entries(goalTemplatesData).map(([key, data]) => ({
@@ -22,8 +43,18 @@ export function GoalTemplateSelector({ onSelect, onClose, color }: GoalTemplateS
     label: (data as { label: string }).label,
     emoji: (data as { emoji: string }).emoji,
     color: (data as { color: string }).color,
-    templates: (data as { templates: string[] }).templates,
+    templates: (data as { templates: TemplateItem[] }).templates,
   }));
+
+  /** 현재 카테고리에서 이전 선택된 항목만 필터 */
+  const prevInCategory = useMemo(() => {
+    if (!selectedCategory || previouslySelected.length === 0) return [];
+    const cat = goalTemplatesData[selectedCategory];
+    const labels = new Set(
+      (cat.templates as TemplateItem[]).map((t) => normalizeTemplate(t).label)
+    );
+    return previouslySelected.filter((g) => labels.has(g));
+  }, [selectedCategory, previouslySelected]);
 
   const handleSelectGoal = (goal: string) => {
     onSelect(goal);
@@ -54,6 +85,25 @@ export function GoalTemplateSelector({ onSelect, onClose, color }: GoalTemplateS
           <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
             {!selectedCategory ? (
               <View style={styles.categoryList}>
+                {/* 이전 선택된 목표 */}
+                {previouslySelected.length > 0 && (
+                  <View style={styles.prevSection}>
+                    <Text style={[styles.prevLabel, { color }]}>✓ 이미 선택한 목표</Text>
+                    <View style={styles.prevChips}>
+                      {previouslySelected.map((goal) => (
+                        <TouchableOpacity
+                          key={goal}
+                          onPress={() => handleSelectGoal(goal)}
+                          style={[styles.prevChip, { backgroundColor: color + '18', borderColor: color + '40' }]}
+                          activeOpacity={0.7}
+                        >
+                          <Text style={styles.prevChipText}>{goal}</Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  </View>
+                )}
+
                 {categories.map((cat) => (
                   <TouchableOpacity
                     key={cat.key}
@@ -74,20 +124,50 @@ export function GoalTemplateSelector({ onSelect, onClose, color }: GoalTemplateS
               </View>
             ) : (
               <View style={styles.templateList}>
-                {currentCategory?.templates.map((template, idx) => (
-                  <TouchableOpacity
-                    key={idx}
-                    onPress={() => handleSelectGoal(template)}
-                    style={styles.templateRow}
-                    activeOpacity={0.7}
-                  >
-                    <View style={[styles.templateDot, { backgroundColor: color }]} />
-                    <Text style={styles.templateText}>{template}</Text>
-                    <View style={[styles.selectBadge, { backgroundColor: color + '25' }]}>
-                      <Text style={[styles.selectBadgeText, { color }]}>선택</Text>
+                {/* 이전 선택 — 카테고리 내 */}
+                {prevInCategory.length > 0 && (
+                  <View style={styles.prevSection}>
+                    <Text style={[styles.prevLabel, { color }]}>✓ 이미 선택한 목표</Text>
+                    <View style={styles.prevChips}>
+                      {prevInCategory.map((goal) => (
+                        <TouchableOpacity
+                          key={goal}
+                          onPress={() => handleSelectGoal(goal)}
+                          style={[styles.prevChip, { backgroundColor: color + '18', borderColor: color + '40' }]}
+                          activeOpacity={0.7}
+                        >
+                          <Text style={styles.prevChipText}>{goal}</Text>
+                        </TouchableOpacity>
+                      ))}
                     </View>
-                  </TouchableOpacity>
-                ))}
+                  </View>
+                )}
+
+                {/* 템플릿 목록 — 아이콘 + 제목 + 설명 */}
+                {currentCategory?.templates.map((t, idx) => {
+                  const { label, icon, description } = normalizeTemplate(t);
+                  return (
+                    <TouchableOpacity
+                      key={idx}
+                      onPress={() => handleSelectGoal(label)}
+                      style={styles.templateRow}
+                      activeOpacity={0.7}
+                    >
+                      <View style={[styles.templateIconBox, { backgroundColor: color + '18', borderColor: color + '30' }]}>
+                        <Text style={styles.templateIcon}>{icon}</Text>
+                      </View>
+                      <View style={styles.templateContent}>
+                        <Text style={styles.templateText}>{label}</Text>
+                        {description ? (
+                          <Text style={styles.templateDesc} numberOfLines={2}>{description}</Text>
+                        ) : null}
+                      </View>
+                      <View style={[styles.selectBadge, { backgroundColor: color + '25' }]}>
+                        <Text style={[styles.selectBadgeText, { color }]}>선택</Text>
+                      </View>
+                    </TouchableOpacity>
+                  );
+                })}
               </View>
             )}
             <View style={{ height: 40 }} />
@@ -135,6 +215,17 @@ const styles = StyleSheet.create({
 
   content: { maxHeight: 400 },
   categoryList: { padding: SPACING.lg, gap: SPACING.sm },
+  prevSection: { marginBottom: SPACING.md },
+  prevLabel: { fontSize: FONT_SIZES.xs, fontWeight: '700', marginBottom: SPACING.sm },
+  prevChips: { flexDirection: 'row', flexWrap: 'wrap', gap: SPACING.sm },
+  prevChip: {
+    paddingHorizontal: SPACING.md,
+    paddingVertical: SPACING.sm,
+    borderRadius: BORDER_RADIUS.lg,
+    borderWidth: 1,
+  },
+  prevChipText: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },
+
   categoryCard: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -167,8 +258,18 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)',
   },
-  templateDot: { width: 8, height: 8, borderRadius: 4 },
-  templateText: { flex: 1, fontSize: FONT_SIZES.sm, fontWeight: '500', color: '#fff' },
+  templateIconBox: {
+    width: 40,
+    height: 40,
+    borderRadius: BORDER_RADIUS.lg,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+  },
+  templateIcon: { fontSize: 20 },
+  templateContent: { flex: 1 },
+  templateText: { fontSize: FONT_SIZES.sm, fontWeight: '600', color: '#fff' },
+  templateDesc: { fontSize: FONT_SIZES.xs, color: '#9CA3AF', marginTop: 2 },
   selectBadge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: BORDER_RADIUS.full },
   selectBadgeText: { fontSize: FONT_SIZES.xs, fontWeight: '700' },
 });

@@ -9,10 +9,11 @@ import {
   ChevronDown, ChevronUp,
 } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS, LABELS } from '../config';
-import templates from '@/data/career-path-templates.json';
+import type { CareerPathTemplate } from '@/data/career-path-templates-index';
 import { ReportModal, type ReportTarget } from './ReportModal';
+import { DetailRichInfoSection } from './DetailRichInfoSection';
 
-type Template = typeof templates[0];
+type Template = CareerPathTemplate;
 
 type Comment = {
   id: string;
@@ -463,6 +464,66 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             {/* Description */}
             <p className="text-sm text-gray-400 leading-relaxed">{template.description}</p>
 
+            <DetailRichInfoSection template={template} />
+
+            {/* 수시·정시·유학 전략 (대입 템플릿) */}
+            {(template as { admissionTypeStrategies?: Record<string, string> }).admissionTypeStrategies && (
+              <div className="rounded-2xl overflow-hidden space-y-2"
+                style={{ border: `1px solid ${template.starColor}30`, backgroundColor: `${template.starColor}0c` }}>
+                <div className="px-4 py-2.5 font-bold text-sm text-white whitespace-nowrap"
+                  style={{ backgroundColor: `${template.starColor}20` }}>
+                  수시 · 정시 · 유학 전략
+                </div>
+                <div className="px-4 pb-4 space-y-2">
+                  {Object.entries((template as { admissionTypeStrategies: Record<string, string> }).admissionTypeStrategies).map(([type, strategy]) => (
+                    strategy && (
+                      <div key={type} className="flex gap-2">
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0"
+                          style={{ backgroundColor: `${template.starColor}30`, color: template.starColor }}>
+                          {type}
+                        </span>
+                        <span className="text-xs text-gray-300 leading-relaxed">{strategy}</span>
+                      </div>
+                    )
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 합격 후기 */}
+            {(template as { successStories?: Array<{ year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }> }).successStories?.length ? (
+              <div className="rounded-2xl overflow-hidden space-y-2"
+                style={{ border: '1px solid rgba(251,191,36,0.3)', backgroundColor: 'rgba(251,191,36,0.06)' }}>
+                <div className="px-4 py-2.5 font-bold text-sm text-white flex items-center gap-2"
+                  style={{ backgroundColor: 'rgba(251,191,36,0.15)' }}>
+                  <ThumbsUp style={{ width: 14, height: 14, color: '#FBBF24' }} />
+                  합격 후기
+                </div>
+                <div className="px-4 pb-4 space-y-4">
+                  {(template as { successStories: Array<{ year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }> }).successStories.map((s, i) => (
+                    <div key={i} className="rounded-xl p-3 space-y-2"
+                      style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[11px] font-bold text-amber-400">{s.year}</span>
+                        {(s.admissionType || s.schoolName) && (
+                          <span className="text-[11px] text-gray-500">
+                            {s.admissionType ?? s.schoolName}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-amber-100/90 italic leading-relaxed">&ldquo;{s.quote}&rdquo;</p>
+                      <p className="text-xs text-gray-400 leading-relaxed">{s.strategy}</p>
+                      {s.tips?.length ? (
+                        <ul className="text-[11px] text-gray-500 space-y-0.5 list-disc list-inside">
+                          {s.tips.map((tip, j) => <li key={j}>{tip}</li>)}
+                        </ul>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             {/* Timeline */}
             <div className="relative">
               <div
@@ -632,15 +693,15 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                             {item.organizer && (
                                               <div className="text-[12px] text-gray-600 mt-0.5">🏢 {item.organizer}</div>
                                             )}
-                                            {item.url && (
+                                            {(item.url || item.links?.[0]?.url) && (
                                               <a
-                                                href={item.url}
+                                                href={item.url ?? item.links?.[0]?.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="flex items-center gap-1 mt-1 text-[12px] text-blue-400 hover:underline"
                                               >
                                                 <LinkIcon style={{ width: 9, height: 9 }} />
-                                                {item.url}
+                                                {item.links?.[0]?.title ?? item.url ?? item.links?.[0]?.url}
                                               </a>
                                             )}
                                             {item.description && (

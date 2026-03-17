@@ -7,9 +7,10 @@ import { CAREER_LABELS, CAREER_GRADE_YEARS } from '../../config/career-path';
 import { storage } from '../../lib/storage';
 import { TemplateYearSection } from './TemplateYearSection';
 import { CommentSection } from './CommentSection';
-import templates from '../../data/career-path-templates.json';
+import { TemplateRichInfoSection } from './TemplateRichInfoSection';
+import type { CareerPathTemplate } from '../../data/career-path-templates-index';
 
-type Template = (typeof templates)[0];
+type Template = CareerPathTemplate;
 
 interface TemplateDetailModalProps {
   template: Template;
@@ -156,6 +157,25 @@ const tagS = StyleSheet.create({
   chipText: { fontSize: FONT_SIZES.xs, fontWeight: '600' },
 });
 
+const stratS = StyleSheet.create({
+  container: { padding: SPACING.lg, borderRadius: BORDER_RADIUS.xl, borderWidth: 1, marginBottom: SPACING.lg },
+  header: { fontSize: FONT_SIZES.sm, fontWeight: '700', marginBottom: SPACING.md },
+  row: { flexDirection: 'row', gap: SPACING.sm, marginBottom: SPACING.sm },
+  badge: { paddingHorizontal: 8, paddingVertical: 2, borderRadius: 99, fontSize: 10, fontWeight: '700', overflow: 'hidden' },
+  text: { flex: 1, fontSize: FONT_SIZES.xs, color: '#9CA3AF', lineHeight: 18 },
+});
+
+const storyS = StyleSheet.create({
+  container: { padding: SPACING.lg, borderRadius: BORDER_RADIUS.xl, borderWidth: 1, marginBottom: SPACING.lg },
+  header: { fontSize: FONT_SIZES.sm, fontWeight: '700', color: '#FBBF24', marginBottom: SPACING.md },
+  card: { padding: SPACING.md, borderRadius: BORDER_RADIUS.lg, backgroundColor: 'rgba(255,255,255,0.04)', marginBottom: SPACING.sm, borderWidth: 1, borderColor: 'rgba(255,255,255,0.06)' },
+  meta: { fontSize: 10, fontWeight: '700', color: '#FBBF24', marginBottom: 4 },
+  quote: { fontSize: FONT_SIZES.xs, color: 'rgba(251,191,36,0.95)', fontStyle: 'italic', lineHeight: 18, marginBottom: 4 },
+  strategy: { fontSize: FONT_SIZES.xs, color: '#9CA3AF', lineHeight: 18, marginBottom: 4 },
+  tips: { marginTop: 4 },
+  tip: { fontSize: 10, color: '#6B7280', lineHeight: 16, marginBottom: 2 },
+});
+
 /* ─── Stats cards ─── */
 function StatsCards({ totalItems, totalYears, accentColor }: {
   totalItems: number; totalYears: number; accentColor: string;
@@ -257,6 +277,45 @@ export function TemplateDetailModal({ template, onClose, onUseTemplate }: Templa
             contentContainerStyle={mainS.scrollContent}
           >
             <Text style={mainS.description}>{template.description}</Text>
+
+            <TemplateRichInfoSection template={template} />
+
+            {(template as { admissionTypeStrategies?: Record<string, string> }).admissionTypeStrategies ? (
+              <View style={[stratS.container, { borderColor: color + '40', backgroundColor: color + '0c' }]}>
+                <Text style={[stratS.header, { color }]} numberOfLines={1}>
+                  수시 · 정시 · 유학 전략
+                </Text>
+                {Object.entries((template as { admissionTypeStrategies: Record<string, string> }).admissionTypeStrategies).map(
+                  ([type, strategy]) =>
+                    strategy ? (
+                      <View key={type} style={stratS.row}>
+                        <Text style={[stratS.badge, { backgroundColor: color + '30', color }]}>{type}</Text>
+                        <Text style={stratS.text}>{strategy}</Text>
+                      </View>
+                    ) : null
+                )}
+              </View>
+            ) : null}
+
+            {(template as { successStories?: Array<{ year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }> }).successStories?.length ? (
+              <View style={[storyS.container, { borderColor: '#FBBF2440', backgroundColor: '#FBBF2408' }]}>
+                <Text style={storyS.header}>👍 합격 후기</Text>
+                {((template as { successStories: Array<{ year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }> }).successStories).map((s, i) => (
+                  <View key={i} style={storyS.card}>
+                    <Text style={storyS.meta}>{s.year} {s.admissionType ?? s.schoolName ?? ''}</Text>
+                    <Text style={storyS.quote}>&ldquo;{s.quote}&rdquo;</Text>
+                    <Text style={storyS.strategy}>{s.strategy}</Text>
+                    {s.tips?.length ? (
+                      <View style={storyS.tips}>
+                        {s.tips.map((tip, j) => (
+                          <Text key={j} style={storyS.tip}>• {tip}</Text>
+                        ))}
+                      </View>
+                    ) : null}
+                  </View>
+                ))}
+              </View>
+            ) : null}
 
             <TagsRow tags={template.tags} accentColor={color} />
 

@@ -6,13 +6,13 @@ import {
   Sparkles, BookOpen, Star, Globe, Bookmark, BookmarkCheck,
 } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
-import templates from '@/data/career-path-templates.json';
+import careerPathTemplates from '@/data/career-path-templates-index';
 import communityData from '@/data/share-community.json';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan, UserReactionState } from './community/types';
 
-type Template = typeof templates[0];
+type Template = typeof careerPathTemplates[0];
 
 type CareerPathListProps = {
   onUseTemplate: (template: Template, customTitle: string) => void;
@@ -23,6 +23,8 @@ type CareerPathListProps = {
 
 const STAR_FILTERS = [
   { id: 'all',         label: '전체', emoji: '✨' },
+  { id: 'highschool',  label: '고입', emoji: '🏫' },
+  { id: 'admission',   label: '대입', emoji: '🎓' },
   { id: 'explore',     label: '탐구', emoji: '🔬' },
   { id: 'create',      label: '창작', emoji: '🎨' },
   { id: 'tech',        label: '기술', emoji: '💻' },
@@ -464,12 +466,19 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
 
   /* Derived data */
   const allSharedPlans = communityData.sharedPlans as SharedPlan[];
-  const bookmarkedTemplates = templates.filter(t => templateBookmarkIds.includes(t.id));
+  const bookmarkedTemplates = careerPathTemplates.filter(t => templateBookmarkIds.includes(t.id));
   const bookmarkedCommunityPlans = allSharedPlans.filter(p => reactions.bookmarkedPlanIds.includes(p.id));
   const totalBookmarkCount = bookmarkedTemplates.length + bookmarkedCommunityPlans.length;
 
   const filtered = useMemo(() => {
-    return activeFilter === 'all' ? templates : templates.filter(t => t.starId === activeFilter);
+    if (activeFilter === 'all') return careerPathTemplates;
+    if (activeFilter === 'highschool') {
+      return careerPathTemplates.filter(t => (t as { category?: string }).category === 'highschool');
+    }
+    if (activeFilter === 'admission') {
+      return careerPathTemplates.filter(t => (t as { category?: string }).category === 'admission');
+    }
+    return careerPathTemplates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
 
   const handleUseTemplate = (customTitle: string) => {
@@ -522,7 +531,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                   <BookOpen className="w-3.5 h-3.5" style={{ color: '#a78bfa' }} />
                 </div>
                 <div>
-                  <div className="text-sm font-black text-white">{templates.length}</div>
+                  <div className="text-sm font-black text-white">{careerPathTemplates.length}</div>
                   <div className="text-[12px] text-gray-500 -mt-0.5">커리어 패스</div>
                 </div>
               </div>
@@ -545,7 +554,7 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                 </div>
                 <div>
                   <div className="text-sm font-black text-white">
-                    {templates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
+                    {careerPathTemplates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
                   </div>
                   <div className="text-[12px] text-gray-500 -mt-0.5">총 사용</div>
                 </div>

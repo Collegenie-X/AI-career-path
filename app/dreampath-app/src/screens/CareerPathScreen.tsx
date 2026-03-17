@@ -9,6 +9,7 @@ import { BuilderTab } from '../components/career/BuilderTab';
 import { TimelineTab } from '../components/career/TimelineTab';
 import { BuilderWizard } from '../components/career/BuilderWizard';
 import { StarryBackground } from '../components/jobs/StarryBackground';
+import { buildStructuredCareerItem } from '../data/career-item-structure';
 
 type TabKey = 'explore' | 'builder' | 'timeline';
 
@@ -33,7 +34,7 @@ function convertTemplateToCareerPlan(template: any): CareerPlan {
     years: (template.years ?? []).map((y: any) => {
       const goals = y.goals ?? [];
       const rawItems = y.items ?? [];
-      const items: CareerPlanItem[] = rawItems.map((it: any): CareerPlanItem => ({
+      const items: CareerPlanItem[] = rawItems.map((it: any): CareerPlanItem => buildStructuredCareerItem({
         id: `item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
         type: it.type ?? 'activity',
         title: it.title ?? '',
@@ -43,6 +44,9 @@ function convertTemplateToCareerPlan(template: any): CareerPlan {
         organizer: it.organizer ?? '',
         url: it.url,
         description: it.description,
+        links: it.links,
+        categoryTags: it.categoryTags,
+        activitySubtype: it.activitySubtype,
       }));
 
       // YearPlanCard는 goalGroups[].items만 렌더링함. goals+items → goalGroups로 변환

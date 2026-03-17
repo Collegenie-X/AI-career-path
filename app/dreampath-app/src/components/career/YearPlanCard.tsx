@@ -147,7 +147,10 @@ export function YearPlanCard({
         : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
     const isExpanded = expandedItemId === item.id;
-    const hasDetails = item.url || item.description;
+    const primaryLink = item.links?.[0];
+    const primaryUrl = item.url ?? primaryLink?.url;
+    const primaryLinkLabel = primaryLink?.title ?? primaryUrl;
+    const hasDetails = primaryUrl || item.description;
 
     return (
       <View key={item.id} style={[s.itemContainer, { backgroundColor: (tc?.color ?? color) + '10', borderColor: (tc?.color ?? color) + '22' }]}>
@@ -181,10 +184,10 @@ export function YearPlanCard({
         
         {isExpanded && hasDetails && (
           <View style={[s.itemDetails, { borderTopColor: (tc?.color ?? color) + '20' }]}>
-            {item.url && (
-              <TouchableOpacity onPress={() => Linking.openURL(item.url!)} style={s.itemDetailRow}>
+            {primaryUrl && (
+              <TouchableOpacity onPress={() => Linking.openURL(primaryUrl)} style={s.itemDetailRow}>
                 <Text style={s.itemDetailLabel}>🔗 {CAREER_LABELS.itemUrl}</Text>
-                <Text style={s.itemDetailLink} numberOfLines={1}>{item.url}</Text>
+                <Text style={s.itemDetailLink} numberOfLines={1}>{primaryLinkLabel}</Text>
               </TouchableOpacity>
             )}
             {item.description && (
@@ -335,7 +338,12 @@ export function YearPlanCard({
       </View>
 
       {showGoalTemplates && (
-        <GoalTemplateSelector onSelect={selectGoalTemplate} onClose={() => setShowGoalTemplates(false)} color={GOAL_COLOR} />
+        <GoalTemplateSelector
+          onSelect={selectGoalTemplate}
+          onClose={() => setShowGoalTemplates(false)}
+          color={GOAL_COLOR}
+          previouslySelected={goalGroups.map((g) => g.goal)}
+        />
       )}
 
       {showAddItem && selectedGoalId && (

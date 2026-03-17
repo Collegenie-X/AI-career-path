@@ -8,10 +8,10 @@ import {
   type CareerPlan,
 } from '../../config/career-path';
 import { storage } from '../../lib/storage';
-import templates from '../../data/career-path-templates.json';
+import careerPathTemplates from '../../data/career-path-templates-index';
 import { TemplateDetailModal } from './TemplateDetailModal';
 
-type Template = (typeof templates)[0];
+type Template = (typeof careerPathTemplates)[0];
 
 interface ExploreTabProps {
   onUseTemplate: (template: Template) => void;
@@ -25,13 +25,13 @@ function HeroBanner() {
       <Text style={styles.heroTitle}>{CAREER_LABELS.exploreHeroTitle}</Text>
       <Text style={styles.heroDescription}>{CAREER_LABELS.exploreHeroDescription}</Text>
       <View style={styles.statsRow}>
-        <StatItem icon="📖" value={templates.length.toString()} label="커리어 패스" />
+        <StatItem icon="📖" value={careerPathTemplates.length.toString()} label="커리어 패스" />
         <View style={styles.statDivider} />
         <StatItem icon="⭐" value="8" label="왕국" />
         <View style={styles.statDivider} />
         <StatItem
           icon="👥"
-          value={templates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
+          value={careerPathTemplates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
           label="총 사용"
         />
       </View>
@@ -51,57 +51,66 @@ function StatItem({ icon, value, label }: { icon: string; value: string; label: 
   );
 }
 
-function TemplateRow({
+function GameTemplateCard({
   template, liked, onShowDetail, onToggleLike,
 }: { template: Template; liked: boolean; onShowDetail: () => void; onToggleLike: () => void }) {
   const localLikes = liked ? template.likes + 1 : template.likes;
 
   return (
     <TouchableOpacity
-      style={[styles.templateRow, { borderColor: template.starColor + '18' }]}
+      style={[styles.gameCard, { 
+        backgroundColor: template.starColor + '12',
+        borderColor: template.starColor + '35',
+        shadowColor: template.starColor,
+      }]}
       onPress={onShowDetail}
-      activeOpacity={0.7}
+      activeOpacity={0.8}
     >
-      {/* 큰 아이콘: 전체 좌측 고정 */}
-      <View style={[styles.templateEmoji, { backgroundColor: template.starColor + '28', borderColor: template.starColor + '30' }]}>
-        <Text style={{ fontSize: 24 }}>{template.jobEmoji}</Text>
+      {/* 상단: 큰 이모지 + 왕국 뱃지 */}
+      <View style={styles.cardHeader}>
+        <View style={[styles.largeEmojiCircle, { 
+          backgroundColor: template.starColor + '25',
+          borderColor: template.starColor + '45',
+        }]}>
+          <Text style={styles.largeEmoji}>{template.jobEmoji}</Text>
+        </View>
+        <View style={[styles.kingdomBadge, { backgroundColor: template.starColor }]}>
+          <Text style={styles.kingdomEmoji}>{template.starEmoji}</Text>
+          <Text style={styles.kingdomName}>{template.starName}</Text>
+        </View>
       </View>
 
-      {/* 우측: 제목 + 메타 + 액션 + 화살표(2줄 옆 우측, 수직 중앙 정렬) */}
-      <View style={styles.templateRight}>
-        <View style={styles.templateContent}>
-          <Text style={styles.templateTitle} numberOfLines={2}>{template.title}</Text>
-          {template.description ? (
-            <Text style={styles.templateDescription} numberOfLines={1}>{template.description}</Text>
-          ) : null}
-          <View style={styles.templateBottomRow}>
-            <View style={styles.templateMeta}>
-              <Text style={styles.templateMetaText}>{template.starEmoji} {template.starName}</Text>
-              <Text style={styles.templateMetaDot}>·</Text>
-              <Text style={styles.templateMetaText}>{template.totalItems}개</Text>
-              <Text style={styles.templateMetaDot}>·</Text>
-              <Text style={styles.templateMetaText}>{template.years.length}학년</Text>
-              {template.authorType === 'official' && (
-                <View style={styles.officialBadge}>
-                  <Text style={styles.officialBadgeText}>{CAREER_LABELS.exploreOfficial}</Text>
-                </View>
-              )}
-            </View>
-            <TouchableOpacity
-              onPress={onToggleLike}
-              style={styles.likeButton}
-              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-            >
-              <Text style={{ color: liked ? '#FF6477' : '#555570', fontSize: 12 }}>
-                {liked ? '❤️' : '🤍'} {localLikes}
-              </Text>
-            </TouchableOpacity>
+      {/* 중앙: 제목 */}
+      <Text style={styles.cardTitle} numberOfLines={2}>{template.title}</Text>
+
+      {/* 하단: 통계 + 좋아요 */}
+      <View style={styles.cardFooter}>
+        <View style={styles.statsRow}>
+          <View style={styles.statBubble}>
+            <Text style={styles.statIcon}>📚</Text>
+            <Text style={styles.statText}>{template.totalItems}</Text>
+          </View>
+          <View style={styles.statBubble}>
+            <Text style={styles.statIcon}>📅</Text>
+            <Text style={styles.statText}>{template.years.length}년</Text>
           </View>
         </View>
-        <View style={[styles.chevronWrapper, { backgroundColor: template.starColor + '50', borderColor: template.starColor + '70' }]}>
-          <Text style={styles.chevron}>›</Text>
-        </View>
+        <TouchableOpacity
+          onPress={onToggleLike}
+          style={[styles.likeCircle, liked && styles.likeCircleActive]}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        >
+          <Text style={styles.likeIcon}>{liked ? '❤️' : '🤍'}</Text>
+          <Text style={[styles.likeCount, liked && styles.likeCountActive]}>{localLikes}</Text>
+        </TouchableOpacity>
       </View>
+
+      {/* 공식 뱃지 */}
+      {template.authorType === 'official' && (
+        <View style={styles.officialCornerBadge}>
+          <Text style={styles.officialCornerText}>✓</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 }
@@ -121,9 +130,14 @@ export function ExploreTab({ onUseTemplate, onNewPath }: ExploreTabProps) {
   };
 
   const filtered = useMemo(() => {
-    return activeFilter === 'all'
-      ? templates
-      : templates.filter((t) => t.starId === activeFilter);
+    if (activeFilter === 'all') return careerPathTemplates;
+    if (activeFilter === 'highschool') {
+      return careerPathTemplates.filter((t) => (t as { category?: string }).category === 'highschool');
+    }
+    if (activeFilter === 'admission') {
+      return careerPathTemplates.filter((t) => (t as { category?: string }).category === 'admission');
+    }
+    return careerPathTemplates.filter((t) => t.starId === activeFilter);
   }, [activeFilter]);
 
   const handleUseTemplate = () => {
@@ -174,9 +188,9 @@ export function ExploreTab({ onUseTemplate, onNewPath }: ExploreTabProps) {
             <Text style={styles.emptyText}>{CAREER_LABELS.exploreEmpty}</Text>
           </View>
         ) : (
-          <View style={styles.templateList}>
+          <View style={styles.gameCardGrid}>
             {filtered.map((template) => (
-              <TemplateRow
+              <GameTemplateCard
                 key={template.id}
                 template={template}
                 liked={likedTemplateIds.includes(template.id)}
@@ -238,35 +252,140 @@ const styles = StyleSheet.create({
   countRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: SPACING.md, paddingHorizontal: 2 },
   countText: { fontSize: FONT_SIZES.xs, fontWeight: '600', color: '#9CA3AF' },
   countHint: { fontSize: 10, color: '#4B5563' },
-  templateList: { gap: SPACING.sm },
-  templateRow: {
-    flexDirection: 'row', alignItems: 'center', gap: SPACING.md,
-    paddingHorizontal: SPACING.lg, paddingVertical: 14,
-    borderRadius: BORDER_RADIUS.lg, borderWidth: 1,
-    backgroundColor: 'rgba(255,255,255,0.03)',
+  
+  // 게임 카드 그리드
+  gameCardGrid: { 
+    gap: SPACING.lg,
   },
-  templateEmoji: {
-    width: 56, height: 56, borderRadius: BORDER_RADIUS.xl,
-    justifyContent: 'center', alignItems: 'center', borderWidth: 1,
+  gameCard: {
+    borderRadius: BORDER_RADIUS.xl,
+    padding: SPACING.lg,
+    borderWidth: 2,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 16,
+    elevation: 8,
+    position: 'relative',
   },
-  templateRight: { flex: 1, minWidth: 0, flexDirection: 'row', alignItems: 'center', gap: SPACING.md },
-  templateContent: { flex: 1, minWidth: 0, justifyContent: 'center', gap: 4 },
-  templateBottomRow: {
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: SPACING.sm,
+  
+  // 카드 헤더 (이모지 + 왕국)
+  cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: SPACING.md,
   },
-  templateMeta: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm, flexWrap: 'wrap', flex: 1 },
-  templateTitle: { fontSize: FONT_SIZES.md, fontWeight: '700', color: '#fff' },
-  templateDescription: { fontSize: 11, color: '#9CA3AF', lineHeight: 16, marginTop: 2 },
-  chevronWrapper: {
-    width: 36, height: 36, borderRadius: 18,
-    justifyContent: 'center', alignItems: 'center', borderWidth: 1.5,
+  largeEmojiCircle: {
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 3,
   },
-  templateMetaText: { fontSize: 10, color: '#9CA3AF' },
-  templateMetaDot: { fontSize: 10, color: '#4B5563' },
-  officialBadge: { backgroundColor: '#6C5CE720', paddingHorizontal: 6, paddingVertical: 2, borderRadius: 99 },
-  officialBadgeText: { fontSize: 9, fontWeight: '700', color: '#a78bfa' },
-  likeButton: { paddingHorizontal: SPACING.sm },
-  chevron: { fontSize: 18, fontWeight: '700', color: '#fff' },
+  largeEmoji: {
+    fontSize: 40,
+  },
+  kingdomBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 8,
+    borderRadius: BORDER_RADIUS.full,
+  },
+  kingdomEmoji: {
+    fontSize: 16,
+  },
+  kingdomName: {
+    fontSize: FONT_SIZES.xs,
+    fontWeight: '800',
+    color: '#fff',
+  },
+  
+  // 카드 제목
+  cardTitle: {
+    fontSize: FONT_SIZES.lg,
+    fontWeight: '900',
+    color: '#fff',
+    lineHeight: 24,
+    marginBottom: SPACING.md,
+    minHeight: 48,
+  },
+  
+  // 카드 하단 (통계 + 좋아요)
+  cardFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  statsRow: {
+    flexDirection: 'row',
+    gap: SPACING.sm,
+  },
+  statBubble: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    paddingHorizontal: SPACING.sm,
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.full,
+  },
+  statIcon: {
+    fontSize: 14,
+  },
+  statText: {
+    fontSize: FONT_SIZES.xs,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  likeCircle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    paddingHorizontal: SPACING.md,
+    paddingVertical: 6,
+    borderRadius: BORDER_RADIUS.full,
+  },
+  likeCircleActive: {
+    backgroundColor: 'rgba(255,100,119,0.2)',
+  },
+  likeIcon: {
+    fontSize: 16,
+  },
+  likeCount: {
+    fontSize: FONT_SIZES.xs,
+    fontWeight: '700',
+    color: '#9CA3AF',
+  },
+  likeCountActive: {
+    color: '#FF6477',
+  },
+  
+  // 공식 뱃지 (우측 상단 코너)
+  officialCornerBadge: {
+    position: 'absolute',
+    top: SPACING.md,
+    right: SPACING.md,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#6C5CE7',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#6C5CE7',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  officialCornerText: {
+    fontSize: 14,
+    color: '#fff',
+  },
+  
   emptyState: { alignItems: 'center', paddingVertical: 48 },
   emptyIcon: { fontSize: 32, marginBottom: SPACING.md },
   emptyText: { fontSize: FONT_SIZES.md, color: '#6B7280' },

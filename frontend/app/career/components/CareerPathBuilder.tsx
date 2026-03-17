@@ -14,6 +14,7 @@ import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
 import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
+import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActivitySubtype, type CareerItemLink } from '@/data/career-item-structure';
 
 /* ─── Types ─── */
 export type ItemType = 'activity' | 'award' | 'portfolio' | 'certification';
@@ -39,7 +40,10 @@ export type PlanItem = {
   cost: string;
   organizer: string;
   url?: string;
+  links?: CareerItemLink[];
   description?: string;
+  categoryTags?: CareerItemCategoryTag[];
+  activitySubtype?: CareerActivitySubtype;
   custom?: boolean;
   /** 이 활동을 구성하는 하위 실행 항목들 */
   subItems?: SubItem[];
@@ -380,7 +384,7 @@ function AddItemSheet({
 
   const handleAddSuggest = () => {
     if (!selectedSuggest || suggestMonths.length === 0 || !editTitle.trim()) return;
-    onAdd({
+    onAdd(buildStructuredCareerItem({
       type: selectedSuggest.type as ItemType,
       title: editTitle.trim(),
       months: suggestMonths,
@@ -389,7 +393,7 @@ function AddItemSheet({
       organizer: editOrganizer.trim() || '',
       url: editUrl.trim() || undefined,
       description: editDescription.trim() || undefined,
-    });
+    }));
     onClose();
   };
 
@@ -707,7 +711,7 @@ function AddItemSheet({
                 disabled={!customTitle.trim() || customMonths.length === 0}
                 onClick={() => {
                   if (!customTitle.trim() || customMonths.length === 0) return;
-                  onAdd({ 
+                  onAdd(buildStructuredCareerItem({ 
                     type: customType, 
                     title: customTitle.trim(), 
                     months: customMonths, 
@@ -717,7 +721,7 @@ function AddItemSheet({
                     url: customUrl.trim() || undefined,
                     description: customDescription.trim() || undefined,
                     custom: true 
-                  });
+                  }));
                   onClose();
                 }}
                 className="w-full h-12 rounded-xl font-bold text-white transition-all disabled:opacity-40"
@@ -756,7 +760,7 @@ function EditItemSheet({
 
   const handleSave = () => {
     if (!editTitle.trim() || editMonths.length === 0) return;
-    onUpdate({
+    onUpdate(buildStructuredCareerItem({
       ...item,
       type: editType,
       title: editTitle.trim(),
@@ -766,7 +770,7 @@ function EditItemSheet({
       organizer: editOrganizer.trim() || '',
       url: editUrl.trim() || undefined,
       description: editDescription.trim() || undefined,
-    });
+    }));
     onClose();
   };
 
@@ -1407,6 +1411,7 @@ function SemesterSection({
           onSelect={(goal) => { addGoalGroup(goal); setShowGoalTemplates(false); }}
           onClose={() => setShowGoalTemplates(false)}
           color={color}
+          previouslySelected={goalGroups.map((g) => g.goal)}
         />
       )}
     </div>

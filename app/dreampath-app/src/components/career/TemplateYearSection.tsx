@@ -14,7 +14,10 @@ interface YearItemData {
   cost?: string;
   organizer?: string;
   url?: string;
+  links?: Array<{ title: string; url: string; kind?: string }>;
   description?: string;
+  categoryTags?: string[];
+  activitySubtype?: string;
 }
 
 interface YearData {
@@ -74,7 +77,10 @@ function ActivityItem({ item, accentColor }: { item: YearItemData; accentColor: 
         : `${item.months[0]}~${item.months[item.months.length - 1]}월`
       : '';
 
-  const hasDetails = item.url || item.description;
+  const primaryLink = item.links?.[0];
+  const primaryUrl = item.url ?? primaryLink?.url;
+  const primaryLinkLabel = primaryLink?.title ?? primaryUrl;
+  const hasDetails = primaryUrl || item.description;
 
   return (
     <View style={[itemS.wrapper, { backgroundColor: c + '0d', borderColor: c + '25' }]}>
@@ -109,10 +115,10 @@ function ActivityItem({ item, accentColor }: { item: YearItemData; accentColor: 
 
       {expanded && hasDetails && (
         <View style={[itemS.details, { borderTopColor: c + '20' }]}>
-          {item.url && (
-            <TouchableOpacity onPress={() => Linking.openURL(item.url!)} style={itemS.detailRow}>
+          {primaryUrl && (
+            <TouchableOpacity onPress={() => Linking.openURL(primaryUrl)} style={itemS.detailRow}>
               <Text style={itemS.detailLabel}>🔗 {CAREER_LABELS.itemUrl}</Text>
-              <Text style={itemS.detailLink} numberOfLines={1}>{item.url}</Text>
+              <Text style={itemS.detailLink} numberOfLines={1}>{primaryLinkLabel}</Text>
             </TouchableOpacity>
           )}
           {item.description && (
