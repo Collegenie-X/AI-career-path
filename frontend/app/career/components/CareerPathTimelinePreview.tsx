@@ -202,9 +202,10 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
           const grade = GRADE_YEARS.find(g => g.id === year.gradeId);
           const semesterConf = SEMESTER_OPTIONS.find(s => s.id === year.semester);
 
+          const groupsWithItems = (g: { items?: unknown[] }) => ((g.items ?? []).length > 0);
           const totalGoals = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
-            : (year.goalGroups ?? []).length;
+            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).filter(groupsWithItems).length, 0)
+            : (year.goalGroups ?? []).filter(groupsWithItems).length;
 
           const totalItems = year.semester === 'split'
             ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
@@ -246,15 +247,15 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                     key={sp.semesterId}
                     semesterLabel={sp.semesterLabel}
                     semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                    goalGroups={sp.goalGroups ?? []}
+                    goalGroups={(sp.goalGroups ?? []).filter(g => (g.items ?? []).length > 0)}
                     color={color}
                   />
                 ))}
 
                 {/* 목표-활동 그룹 (통합/단일 학기) */}
-                {year.semester !== 'split' && (year.goalGroups ?? []).length > 0 && (
+                {year.semester !== 'split' && (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length > 0 && (
                   <div className="space-y-2">
-                    {(year.goalGroups ?? []).map(group => (
+                    {(year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).map(group => (
                       <GoalActivityGroupReadOnly key={group.id} group={group} color={color} />
                     ))}
                   </div>

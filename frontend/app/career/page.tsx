@@ -343,7 +343,11 @@ function CareerPageContent() {
           </>
         ) : activeTab === 'timeline' ? (
           <VerticalTimelineList
-            allPlans={plans}
+            allPlans={[...plans].sort((a, b) => {
+              const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+              const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+              return timeB - timeA;
+            })}
             onEdit={openEdit}
             onUpdatePlan={updatePlanInline}
             onDeletePlan={deletePlan}

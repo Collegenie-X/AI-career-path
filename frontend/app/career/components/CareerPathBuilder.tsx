@@ -1047,7 +1047,10 @@ function ActivityItemCard({
                             value={editingSubText}
                             onChange={e => setEditingSubText(e.target.value)}
                             onKeyDown={e => {
-                              if (e.key === 'Enter') saveEditSub(sub.id);
+                              if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
+                                e.preventDefault();
+                                saveEditSub(sub.id);
+                              }
                               if (e.key === 'Escape') setEditingSubId(null);
                             }}
                             onBlur={() => saveEditSub(sub.id)}
@@ -1085,7 +1088,12 @@ function ActivityItemCard({
                   type="text"
                   value={subInput}
                   onChange={e => setSubInput(e.target.value)}
-                  onKeyDown={e => { if (e.key === 'Enter') addSubItem(); }}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
+                      e.preventDefault();
+                      addSubItem();
+                    }
+                  }}
                   placeholder="하위 활동 추가"
                   className="flex-1 min-w-0 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
                   style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${tc.color}25` }}

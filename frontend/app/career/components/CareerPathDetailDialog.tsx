@@ -587,7 +587,9 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                               <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
                             </div>
 
-                            {allGroups.map((group, gi) => {
+                            {allGroups
+                              .filter((group) => (group.items ?? []).length > 0)
+                              .map((group, gi) => {
                               const goalKey = `${year.gradeId}-${gi}`;
                               const isExpanded = !collapsedGoalKeys.has(goalKey);
                               return (
@@ -635,7 +637,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                     </div>
 
                                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                    {(group.items ?? []).map((item: any) => {
+                                    {(group.items ?? []).map((item: any, itemIndex) => {
                                       const typeConf = ITEM_TYPES.find(t => t.value === item.type);
                                       const months: number[] = Array.isArray(item.months)
                                         ? item.months
@@ -648,7 +650,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
 
                                       return (
                                         <div
-                                          key={item.id ?? item.title}
+                                          key={item.id ?? `${goalKey}-${itemIndex}`}
                                           className="flex items-start gap-2.5 p-2.5 rounded-lg"
                                           style={{
                                             backgroundColor: `${typeConf?.color ?? template.starColor}0d`,
