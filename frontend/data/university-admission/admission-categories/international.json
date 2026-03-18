@@ -1,0 +1,67 @@
+{
+  "category": {
+    "id": "international",
+    "name": "국제전형",
+    "shortName": "국제",
+    "emoji": "🌍",
+    "color": "#8b5cf6",
+    "bgColor": "rgba(139,92,246,0.15)",
+    "description": "해외 학력·특기자 전형",
+    "planet": {
+      "size": "medium",
+      "orbitRadius": 90,
+      "orbitSpeed": 30,
+      "glowColor": "#8b5cf6"
+    },
+    "keyFeatures": [
+      "외국 고등학교 졸업(예정)자 지원 가능",
+      "IB, AP, A-level 등 국제 교육과정 인정",
+      "영어 능력 증빙 필수 (TOEFL, IELTS 등)",
+      "글로벌 역량 중시"
+    ],
+    "targetStudents": [
+      "해외 체류 경험이 있는 학생",
+      "국제학교 재학생",
+      "다문화 배경 학생",
+      "글로벌 진로를 꿈꾸는 학생"
+    ],
+    "preparationGuide": {
+      "essential": [
+        {
+          "title": "영어 능력 증빙",
+          "description": "TOEFL, IELTS 등 공인 영어 시험 준비",
+          "timeline": "고2~고3",
+          "actions": [
+            "목표 점수 설정",
+            "시험 전략 수립",
+            "정기적 응시",
+            "대학별 요구 점수 확인"
+          ]
+        },
+        {
+          "title": "국제 교육과정 이수",
+          "description": "IB, AP, A-level 등 체계적 이수",
+          "timeline": "고1~고3",
+          "actions": [
+            "주요 과목 고득점",
+            "전공 관련 과목 우선",
+            "성적 관리 철저",
+            "추천서 관리"
+          ]
+        }
+      ]
+    },
+    "cautions": [
+      "해외 체류 기간 자격 요건 확인",
+      "서류 인증 절차 복잡",
+      "전형 일정이 일반전형과 다를 수 있음",
+      "모집 인원 소수"
+    ],
+    "universities": [
+      "서울대(국제전형)",
+      "연세대(국제인재)",
+      "고려대(국제인재)",
+      "KAIST(국제전형)"
+    ]
+  }
+}

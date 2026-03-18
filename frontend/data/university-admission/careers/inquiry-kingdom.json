@@ -1,0 +1,58 @@
+{
+  "careers": [
+    {
+      "id": "doctor",
+      "name": "의사",
+      "emoji": "⚕️",
+      "kingdom": "🔬 탐구",
+      "targetMajor": "의예과",
+      "admissionType": "학종+정시",
+      "keySubjects": ["생명과학Ⅱ", "화학Ⅱ", "보건", "심리학"],
+      "setakExamples": [
+        {
+          "subject": "생명과학Ⅱ",
+          "topic": "지역사회 건강 불평등 데이터 분석",
+          "description": "공공데이터를 활용한 건강 격차 연구"
+        },
+        {
+          "subject": "화학Ⅱ",
+          "topic": "약물 상호작용의 화학적 메커니즘 분석",
+          "description": "약물동역학과 화학 반응 속도 연계"
+        }
+      ],
+      "projectIdeas": [
+        "mRNA 백신의 면역 반응 메커니즘 탐구",
+        "CRISPR 유전자 편집의 의학적 적용 연구",
+        "AI 보조 진단 시스템의 가능성과 한계"
+      ],
+      "universities": ["서울대(의예)", "연세대(의예)", "고려대(의과)", "성균관대(의예)"]
+    },
+    {
+      "id": "ai-researcher",
+      "name": "AI연구원",
+      "emoji": "🤖",
+      "kingdom": "🔬 탐구",
+      "targetMajor": "컴퓨터공학·인공지능학",
+      "admissionType": "학종+SW특기자",
+      "keySubjects": ["미적분", "확률과통계", "인공지능수학", "정보"],
+      "setakExamples": [
+        {
+          "subject": "수학(미적분)",
+          "topic": "Transformer 모델의 수학적 원리 탐구",
+          "description": "경사하강법과 Self-Attention 메커니즘 분석"
+        },
+        {
+          "subject": "정보",
+          "topic": "CNN 이미지 분류 모델 구현 및 최적화",
+          "description": "PyTorch로 CIFAR-10 데이터셋 학습"
+        }
+      ],
+      "projectIdeas": [
+        "자연어 처리 모델의 편향성 분석",
+        "강화학습 기반 게임 AI 개발",
+        "생성형 AI의 창작물 저작권 문제 탐구"
+      ],
+      "universities": ["서울대(컴공)", "KAIST(AI)", "포항공대(컴공)", "성균관대(소프트웨어)"]
+    }
+  ]
+}

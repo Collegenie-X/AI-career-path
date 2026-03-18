@@ -178,6 +178,7 @@ export const LABELS = {
   // Explore tab navigations
   explore_tab_star: '직업 탐색',
   explore_tab_admission: '고입 탐색',
+  explore_tab_university: '대입 탐색',
 };
 
 // ─── High School Admission Labels ─────────────────────────────

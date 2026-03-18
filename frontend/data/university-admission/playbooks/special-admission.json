@@ -1,0 +1,70 @@
+{
+  "categoryId": "special-admission",
+  "coreMessage": "특별전형은 자격요건 충족이 최우선입니다. 좋은 활동보다 '요건 누락 0건'이 먼저입니다.",
+  "weeklyActions": [
+    "증빙서류 체크리스트 주 1회 점검",
+    "자격 관련 변경 공지 모니터링",
+    "요건 증빙 문서 유효기간 관리",
+    "상담기록/문의 내역 보관"
+  ],
+  "gradeRoadmap": [
+    {
+      "grade": "고1",
+      "goal": "지원 가능 전형군 파악",
+      "missionChecklist": [
+        "자격요건 해당 여부 초기 점검",
+        "필수 증빙 목록 작성",
+        "연도별 변동 항목 표시"
+      ],
+      "outputExamples": [
+        "개인 전형 적합도 표",
+        "증빙서류 준비 목록"
+      ]
+    },
+    {
+      "grade": "고2",
+      "goal": "증빙 안정성 확보",
+      "missionChecklist": [
+        "누락 문서 사전 보완",
+        "지원 대학별 제출 형식 정리",
+        "상담 채널 통한 해석 이슈 확인"
+      ],
+      "outputExamples": [
+        "대학별 제출 규격표",
+        "문의/답변 기록 아카이브"
+      ]
+    },
+    {
+      "grade": "고3",
+      "goal": "원서 단계 리스크 제로화",
+      "missionChecklist": [
+        "자격요건 최종 점검 2회 이상",
+        "서류 제출 마감 역산 일정 운영",
+        "대체서류 플랜B 준비"
+      ],
+      "outputExamples": [
+        "제출 완료 체크리스트",
+        "리스크 대응표"
+      ]
+    }
+  ],
+  "k2028Strategy": [
+    {
+      "change": "전형별 세부 요건 고도화",
+      "studentAction": "모집요강 원문 기준으로 자격 문구를 그대로 대조",
+      "deadline": "원서 2개월 전"
+    }
+  ],
+  "practicalExamples": {
+    "setakSentenceTemplates": [
+      "주어진 제약 조건 속에서 OO 문제 해결안을 기획하고 실행해 책임감을 보임."
+    ],
+    "interviewQuestions": [
+      "해당 전형을 선택한 이유와 대학 생활 목표를 설명해보세요."
+    ],
+    "makerAndResearchExamples": [
+      "지역사회 문제 해결형 미니 프로젝트",
+      "실생활 개선 아이디어를 검증한 리포트"
+    ]
+  }
+}

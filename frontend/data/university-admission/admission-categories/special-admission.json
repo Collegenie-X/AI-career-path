@@ -1,0 +1,53 @@
+{
+  "category": {
+    "id": "special-admission",
+    "name": "특별전형",
+    "shortName": "특별",
+    "emoji": "⚡",
+    "color": "#ec4899",
+    "bgColor": "rgba(236,72,153,0.15)",
+    "description": "특성화고·기회균형 등 사회배려 전형",
+    "planet": {
+      "size": "medium",
+      "orbitRadius": 100,
+      "orbitSpeed": 28,
+      "glowColor": "#ec4899"
+    },
+    "keyFeatures": [
+      "농어촌학생, 특성화고졸업자 등",
+      "저소득층 지원 전형",
+      "장애인 등 기회균형 선발",
+      "사회통합 목적"
+    ],
+    "targetStudents": [
+      "특성화고 졸업(예정)자",
+      "농어촌 지역 학생",
+      "기초생활수급자",
+      "장애인 학생"
+    ],
+    "preparationGuide": {
+      "essential": [
+        {
+          "title": "자격 요건 확인",
+          "description": "지원 자격 철저히 검토",
+          "timeline": "지원 전",
+          "actions": [
+            "거주 기간 증명",
+            "학력 증명",
+            "소득 증빙",
+            "관련 서류 준비"
+          ]
+        }
+      ]
+    },
+    "cautions": [
+      "자격 요건 미충족 시 합격 취소",
+      "서류 제출 기한 엄수",
+      "허위 기재 시 불이익"
+    ],
+    "universities": [
+      "대부분 대학에서 운영",
+      "SKY 포함 주요대 모두 선발"
+    ]
+  }
+}

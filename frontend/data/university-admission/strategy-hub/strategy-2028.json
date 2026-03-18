@@ -1,0 +1,159 @@
+{
+  "id": "strategy2028",
+  "label": "2028 대입 전략",
+  "emoji": "⚡",
+  "title": "2028 개편 핵심 대응",
+  "summary": "등급체계 변화와 전형 해석 변화에 맞춘 실행형 전략",
+  "grades": [
+    {
+      "id": "grade1",
+      "label": "고1",
+      "objective": "변화된 입시 구조를 빠르게 이해하고 기본 기록 루틴을 고정합니다.",
+      "practicalExamples": [
+        "3개 대학 모집요강에서 평가요소를 추출해 비교표를 만든 뒤 담임 상담 시간에 검증받습니다.",
+        "선택과목 신청 전, 진로 키워드와 과목 선택 이유를 1페이지로 정리해 학기 말 회고에 재사용합니다.",
+        "월 1회 요강 변경 사항을 체크해 반영비율 변화만 별도 노트로 관리합니다."
+      ],
+      "detailChecklist": [
+        "요강 원문 PDF 확인 날짜를 기록했는가",
+        "전형별 평가 항목과 본인 증거를 1:1로 매칭했는가",
+        "학기 말에 과목 선택 판단 근거를 업데이트했는가"
+      ],
+      "cards": [
+        {
+          "title": "전형 구조 지도 만들기",
+          "description": "5개 주요 전형의 평가요소와 본인 강약점을 1장 표로 정리합니다.",
+          "actionSteps": [
+            "희망 대학 3곳의 모집요강에서 평가항목 추출",
+            "교과·비교과·면접 준비 항목을 주간 계획으로 연결",
+            "월 1회 업데이트하며 누락 영역 점검"
+          ],
+          "recommendedTiming": "1학기 초~중간고사 전",
+          "relatedCategoryIds": ["student-record-comprehensive", "student-record-academic"]
+        },
+        {
+          "title": "과목 선택 근거 남기기",
+          "description": "선택과목 선택 이유를 진로와 연결해 기록해 두면 향후 자기소개 근거가 됩니다.",
+          "actionSteps": [
+            "과목별 선택 이유를 진로 키워드와 함께 3문장 작성",
+            "학기 종료 시 실제 성취와 차이 분석",
+            "다음 학기 과목 선택 기준으로 재사용"
+          ],
+          "recommendedTiming": "수강신청 전후 2주",
+          "relatedCategoryIds": ["student-record-comprehensive"]
+        },
+        {
+          "title": "요강 원문 읽기 습관",
+          "description": "요약본이 아닌 원문을 읽고 반영비율을 직접 체크하는 습관을 만듭니다.",
+          "actionSteps": [
+            "분기마다 대학별 전형요강 PDF 확인",
+            "반영비율 변경 사항만 별도 메모",
+            "담임·진로상담 시 질문 리스트로 활용"
+          ],
+          "recommendedTiming": "학기별 1회",
+          "relatedCategoryIds": ["regular-admission", "special-admission"]
+        }
+      ]
+    },
+    {
+      "id": "grade2",
+      "label": "고2",
+      "objective": "탐구 심화와 성과 증거를 연결해 전형별 경쟁력을 끌어올립니다.",
+      "practicalExamples": [
+        "전형별 KPI(예: 탐구 보고서 수, 모의 성적 지표)를 설정하고 월말에 달성률을 시각화합니다.",
+        "수시 서류 준비 트랙과 정시 점수관리 트랙을 주간 캘린더로 분리 운영합니다.",
+        "활동 결과물을 전공 키워드 폴더로 정리해 면접 질문 대비 자료로 전환합니다."
+      ],
+      "detailChecklist": [
+        "전형별 KPI를 월 단위로 수치화했는가",
+        "두 트랙의 시간 배분을 주간 기준으로 점검했는가",
+        "활동별 문제-실행-결과를 3줄로 요약했는가"
+      ],
+      "cards": [
+        {
+          "title": "전형별 성과 지표 설정",
+          "description": "교과·활동·모의고사 지표를 전형별로 분리해 관리하면 전략이 명확해집니다.",
+          "actionSteps": [
+            "전형별 핵심 KPI 2개씩 설정",
+            "월별 달성률 기록표 운영",
+            "부진 지표는 보완 액션 즉시 추가"
+          ],
+          "recommendedTiming": "2학년 1학기 시작",
+          "relatedCategoryIds": ["regular-admission", "student-record-academic"]
+        },
+        {
+          "title": "수시/정시 이중 트랙",
+          "description": "수시 서류 준비와 정시 점수 관리를 분리 운영해 리스크를 낮춥니다.",
+          "actionSteps": [
+            "주중은 교과·탐구, 주말은 수능형 학습으로 분할",
+            "월말에 두 트랙 성과를 각각 리뷰",
+            "한쪽 약화 시 즉시 주간 시간 재배치"
+          ],
+          "recommendedTiming": "연중 상시",
+          "relatedCategoryIds": ["regular-admission"]
+        },
+        {
+          "title": "전공 적합성 증거 묶기",
+          "description": "활동 단위를 흩어두지 않고 전공 키워드 중심으로 묶어 스토리를 만듭니다.",
+          "actionSteps": [
+            "활동 결과물을 전공 키워드별 폴더로 정리",
+            "각 활동의 문제-실행-결과 3줄 요약 작성",
+            "분기마다 면접 예상 질문으로 전환"
+          ],
+          "recommendedTiming": "학기 말 정리 주간",
+          "relatedCategoryIds": ["student-record-comprehensive", "special-admission"]
+        }
+      ]
+    },
+    {
+      "id": "grade3",
+      "label": "고3",
+      "objective": "지원 전략을 최적화하고 제출·면접 완성도를 높여 합격 확률을 끌어올립니다.",
+      "practicalExamples": [
+        "지원 대학을 안정·적정·상향 3단으로 나눠 A/B 시나리오를 만들고 상담으로 최종 확정합니다.",
+        "면접 문항 20개를 활동 근거와 연결해 60초 답변으로 반복 연습합니다.",
+        "제출 체크리스트를 D-7, D-3, D-1 세 번 점검해 누락 리스크를 제거합니다."
+      ],
+      "detailChecklist": [
+        "지원 조합별 리스크와 대체안이 문서화되어 있는가",
+        "면접 답변에 수치/근거 사례가 포함되어 있는가",
+        "제출 완료 증빙을 파일로 보관했는가"
+      ],
+      "cards": [
+        {
+          "title": "지원 조합 A/B안 설계",
+          "description": "안정·적정·상향 조합을 A/B 시나리오로 준비해 변수 대응력을 확보합니다.",
+          "actionSteps": [
+            "모집군/전형별 지원 가능 조합 2안 작성",
+            "각 안의 리스크와 대체 플랜 정리",
+            "원서 직전 모의 선택으로 최종안 확정"
+          ],
+          "recommendedTiming": "원서접수 1~2개월 전",
+          "relatedCategoryIds": ["regular-admission", "international"]
+        },
+        {
+          "title": "면접 답변 데이터베이스",
+          "description": "활동·성취·실패 경험을 문항 유형별로 정리하면 면접 대응 속도가 올라갑니다.",
+          "actionSteps": [
+            "기본 문항 20개에 대한 1분 답변 작성",
+            "답변마다 근거 활동 1개 이상 연결",
+            "주 1회 모의면접 후 보완 로그 기록"
+          ],
+          "recommendedTiming": "여름방학~수시 면접 기간",
+          "relatedCategoryIds": ["student-record-comprehensive", "special-admission"]
+        },
+        {
+          "title": "제출 서류 누락 제로 체크",
+          "description": "마감 직전 실수를 막기 위해 서류·증빙·일정 체크리스트를 운영합니다.",
+          "actionSteps": [
+            "대학별 제출 항목 체크리스트 생성",
+            "마감 D-7, D-3, D-1 3회 점검",
+            "제출 완료 증빙 캡처 보관"
+          ],
+          "recommendedTiming": "원서접수 및 제출 기간",
+          "relatedCategoryIds": ["international", "special-admission", "regular-admission"]
+        }
+      ]
+    }
+  ]
+}

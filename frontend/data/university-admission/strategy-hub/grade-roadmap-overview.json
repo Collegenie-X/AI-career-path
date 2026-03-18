@@ -1,0 +1,159 @@
+{
+  "id": "gradeRoadmap",
+  "label": "학년별 종합 로드맵",
+  "emoji": "📅",
+  "title": "고1~고3 전체 준비 로드맵",
+  "summary": "학년별 목표가 연결되는 실전 준비 순서",
+  "grades": [
+    {
+      "id": "grade1",
+      "label": "고1",
+      "objective": "탐색 중심 학년으로 진로 키워드와 학습 루틴의 기반을 잡습니다.",
+      "practicalExamples": [
+        "진로 키워드 2개를 정한 뒤 과목/활동 선택 근거를 주간 기록으로 남깁니다.",
+        "월 1회 교과 탐구 결과를 1페이지 보고서로 작성해 피드백을 받습니다.",
+        "학기 말 대표 활동 3건을 선정해 다음 학년 계획에 연결합니다."
+      ],
+      "detailChecklist": [
+        "진로 키워드가 활동과 과목 선택에 실제 반영되었는가",
+        "교과 탐구 루틴이 월 단위로 지속되었는가",
+        "활동 기록이 증빙 파일과 함께 정리되어 있는가"
+      ],
+      "cards": [
+        {
+          "title": "진로 키워드 2개 확정",
+          "description": "관심 분야를 넓게 탐색한 뒤 핵심 키워드 2개로 압축합니다.",
+          "actionSteps": [
+            "직업/학과 탐색 자료를 주 1회 정리",
+            "관심 이유와 강점 연결 문장 작성",
+            "학기 말에 키워드 유지/변경 판단"
+          ],
+          "recommendedTiming": "1학년 1학기",
+          "relatedCategoryIds": ["student-record-comprehensive"]
+        },
+        {
+          "title": "교과 기반 탐구 루틴",
+          "description": "수업 내용을 확장한 탐구 활동을 짧은 주기로 반복합니다.",
+          "actionSteps": [
+            "과목별 미니 탐구 주제 월 1개 선정",
+            "탐구 결과를 1페이지로 요약",
+            "교사 피드백 반영 후 재정리"
+          ],
+          "recommendedTiming": "학기 중 상시",
+          "relatedCategoryIds": ["student-record-academic", "student-record-comprehensive"]
+        },
+        {
+          "title": "활동 기록 시스템 구축",
+          "description": "활동을 날짜·목표·성과 중심으로 기록해 누적 자산을 만듭니다.",
+          "actionSteps": [
+            "활동 기록 템플릿 고정",
+            "월말에 증빙 파일 정리",
+            "학기별 대표 활동 3건 선정"
+          ],
+          "recommendedTiming": "연중 상시",
+          "relatedCategoryIds": ["student-record-comprehensive"]
+        }
+      ]
+    },
+    {
+      "id": "grade2",
+      "label": "고2",
+      "objective": "심화 활동과 성과 지표를 통해 전공 적합성 증거를 강화합니다.",
+      "practicalExamples": [
+        "심화 주제 2개를 연간 운영하며 중간 점검으로 난이도를 조정합니다.",
+        "팀 프로젝트에서 리딩 역할을 맡아 역할-성과-개선 내역을 문서화합니다.",
+        "활동 전후 지표를 수치화해 성장 근거를 발표 자료에 반영합니다."
+      ],
+      "detailChecklist": [
+        "심화 주제별 월간 목표가 관리되고 있는가",
+        "본인 리딩 경험이 객관 근거와 함께 기록되어 있는가",
+        "전후 비교 지표가 실제 성과로 연결되었는가"
+      ],
+      "cards": [
+        {
+          "title": "심화 주제 2개 운영",
+          "description": "관심 분야의 세부 주제를 정해 지속적으로 탐구합니다.",
+          "actionSteps": [
+            "주제별 월간 목표 수립",
+            "중간 점검으로 난이도 조정",
+            "성과물(보고서/발표/제작물)로 마무리"
+          ],
+          "recommendedTiming": "2학년 연간",
+          "relatedCategoryIds": ["student-record-academic", "special-admission"]
+        },
+        {
+          "title": "프로젝트 리딩 경험 확보",
+          "description": "팀 활동에서 리더 또는 핵심 역할을 맡아 협업 역량을 보여줍니다.",
+          "actionSteps": [
+            "역할·책임·성과를 분리 기록",
+            "팀 피드백을 개선안으로 전환",
+            "성과 지표를 발표 자료에 반영"
+          ],
+          "recommendedTiming": "학기당 1회 이상",
+          "relatedCategoryIds": ["student-record-comprehensive", "international"]
+        },
+        {
+          "title": "전후 비교 증거 확보",
+          "description": "활동 전후 데이터를 남겨 성장과 문제 해결 능력을 수치화합니다.",
+          "actionSteps": [
+            "초기 상태와 목표치 문서화",
+            "중간/최종 지표 측정",
+            "개선 요인을 3개 이상 정리"
+          ],
+          "recommendedTiming": "프로젝트 종료 시점",
+          "relatedCategoryIds": ["regular-admission", "student-record-comprehensive"]
+        }
+      ]
+    },
+    {
+      "id": "grade3",
+      "label": "고3",
+      "objective": "지원 전략과 제출 완성도를 최적화해 실전 합격 가능성을 높입니다.",
+      "practicalExamples": [
+        "지원 대학을 안정·적정·상향으로 분류해 최종 포트폴리오를 시뮬레이션합니다.",
+        "서류 핵심 문장을 면접 답변으로 전환해 일관성을 점검합니다.",
+        "제출 마감 체크리스트를 단계별로 운영해 누락 없는 접수를 완료합니다."
+      ],
+      "detailChecklist": [
+        "전형별 지원 전략이 문서로 확정되어 있는가",
+        "면접 답변과 서류 메시지가 동일한가",
+        "D-7/D-3/D-1 제출 점검이 완료되었는가"
+      ],
+      "cards": [
+        {
+          "title": "전형별 지원 전략 확정",
+          "description": "수시/정시 전략을 현실적으로 조합해 지원 효율을 높입니다.",
+          "actionSteps": [
+            "안정·적정·상향 포트폴리오 구성",
+            "대학별 전형요소 매칭 점검",
+            "최종안 확정 전 모의 시뮬레이션"
+          ],
+          "recommendedTiming": "원서접수 1~2개월 전",
+          "relatedCategoryIds": ["regular-admission", "international", "special-admission"]
+        },
+        {
+          "title": "면접·서류 동시 완성",
+          "description": "서류 내용과 면접 답변의 일관성을 맞춰 신뢰도를 강화합니다.",
+          "actionSteps": [
+            "서류 핵심 문장을 면접 답변으로 전환",
+            "예상 질문별 근거 활동 연결",
+            "모의면접 후 표현 보정"
+          ],
+          "recommendedTiming": "여름방학~면접 직전",
+          "relatedCategoryIds": ["student-record-comprehensive", "special-admission"]
+        },
+        {
+          "title": "마감 운영 체크리스트",
+          "description": "제출 일정·필수 서류·증빙을 체크리스트로 관리해 실수를 방지합니다.",
+          "actionSteps": [
+            "대학별 체크리스트 작성",
+            "D-7/D-3/D-1 단계별 점검",
+            "제출 후 확인 내역 보관"
+          ],
+          "recommendedTiming": "원서/서류 제출 기간",
+          "relatedCategoryIds": ["regular-admission", "international"]
+        }
+      ]
+    }
+  ]
+}

@@ -475,7 +475,7 @@ interface PlanAccordionProps {
   onUpdate: (p: CareerPlan) => void;
   onDelete: () => void;
   onEdit: () => void;
-  onAddItemForYear: (gradeId: string) => void;0ppㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅣㅏㅏㅏㅣㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅣkㅏㅏk
+  onAddItemForYear: (gradeId: string) => void;
   onItemDetailPress?: (item: CareerPlanItem, gradeLabel: string) => void;
 }
 

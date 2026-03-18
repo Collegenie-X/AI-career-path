@@ -1,0 +1,58 @@
+{
+  "careers": [
+    {
+      "id": "ux-designer",
+      "name": "UX디자이너",
+      "emoji": "🎨",
+      "kingdom": "🎨 창작",
+      "targetMajor": "시각디자인·UX디자인",
+      "admissionType": "학종+실기",
+      "keySubjects": ["미술창작", "디자인", "정보", "심리학"],
+      "setakExamples": [
+        {
+          "subject": "미술",
+          "topic": "학교 급식 주문 앱 UX 리디자인 프로젝트",
+          "description": "사용자 인터뷰와 Figma 프로토타입"
+        },
+        {
+          "subject": "정보",
+          "topic": "웹 접근성(WCAG) 준수 웹사이트 제작",
+          "description": "장애인 사용성 테스트 진행"
+        }
+      ],
+      "projectIdeas": [
+        "교내 도서관 앱 사용성 개선 제안",
+        "색각 이상자를 위한 UI 디자인 연구",
+        "Design Thinking 워크샵 진행"
+      ],
+      "universities": ["홍익대(디자인)", "서울대(디자인)", "이화여대(디자인)", "국민대(시각디자인)"]
+    },
+    {
+      "id": "architect",
+      "name": "건축가",
+      "emoji": "🏛️",
+      "kingdom": "🎨 창작",
+      "targetMajor": "건축학",
+      "admissionType": "학종+실기",
+      "keySubjects": ["물리학Ⅱ", "미적분", "미술창작", "기술·가정"],
+      "setakExamples": [
+        {
+          "subject": "물리학Ⅰ",
+          "topic": "학교 리모델링 설계 — BIM 3D 모델링 프로젝트",
+          "description": "아치와 트러스 구조의 역학적 특성 비교"
+        },
+        {
+          "subject": "미술",
+          "topic": "지속가능한 건축 디자인 연구",
+          "description": "패시브하우스 원리와 에너지 효율"
+        }
+      ],
+      "projectIdeas": [
+        "학교 체육관 지붕 구조 하중 분석",
+        "SketchUp으로 친환경 주택 설계",
+        "건축 답사 후 구조 분석 보고서"
+      ],
+      "universities": ["서울대(건축학)", "연세대(건축공학)", "한양대(건축학)", "홍익대(건축학)"]
+    }
+  ]
+}

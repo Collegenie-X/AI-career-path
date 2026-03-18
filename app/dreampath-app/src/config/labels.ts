@@ -17,6 +17,7 @@ export const TAB_LABELS = {
   home: '홈',
   jobs: '드림 경험',
   career: '드림 패스',
+  admission: '대입 탐색',
   launchpad: '드림 메이트',
 } as const;
 
@@ -122,3 +123,59 @@ export const DAILY_MISSIONS = [
   { icon: '🔭', text: '직업 1개 탐험하기', xp: 15 },
   { icon: '📋', text: '커리어 패스 확인하기', xp: 5 },
 ];
+
+import universityAdmissionExploreConfig from '../data/university-admission-explore-config.json';
+
+export const UNIVERSITY_ADMISSION_EXPLORE_LABELS = universityAdmissionExploreConfig.labels as {
+  pageTitle: string;
+  pageSubtitle: string;
+  introBannerTitle: string;
+  introBannerDescription: string;
+  introBannerSubDescription: string;
+  categorySelectTitle: string;
+  institutionSelectTitle: string;
+  methodCountUnit: string;
+  methodCountSuffix: string;
+  institutionCountUnit: string;
+  institutionCountSuffix: string;
+  detailView: string;
+  careerPathStart: string;
+  careerPathMake: string;
+  careerPathDescription: string;
+  difficultyLabel: string;
+  difficultyLevels: Record<number, string>;
+  preparationLabel: string;
+  preparationUnit: string;
+  targetStudentsLabel: string;
+  keyFeaturesLabel: string;
+  majorUniversitiesLabel: string;
+  preparationTimelineLabel: string;
+  admissionInfoLabel: string;
+  totalCapacityLabel: string;
+  susiRatioLabel: string;
+  jeongsiRatioLabel: string;
+  competitionRateLabel: string;
+  rankingLabel: string;
+  domesticRankingLabel: string;
+  qsRankingLabel: string;
+  majorDepartmentsLabel: string;
+  cutlineLabel: string;
+  scholarshipsLabel: string;
+  careerPathTemplatesLabel: string;
+  tabs: {
+    methods: string;
+    institutions: string;
+    careerPaths: string;
+  };
+  methodCategories: {
+    susi: string;
+    jeongsi: string;
+    abroad: string;
+  };
+  institutionCategories: {
+    '24gyeongsan': string;
+    graduate: string;
+    special: string;
+    abroad: string;
+  };
+};

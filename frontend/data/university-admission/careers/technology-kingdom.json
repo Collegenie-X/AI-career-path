@@ -1,0 +1,85 @@
+{
+  "careers": [
+    {
+      "id": "app-developer",
+      "name": "앱개발자",
+      "emoji": "📱",
+      "kingdom": "💻 기술",
+      "targetMajor": "소프트웨어학·컴퓨터공학",
+      "admissionType": "학종+SW특기자",
+      "keySubjects": ["정보", "프로그래밍", "미적분", "데이터과학"],
+      "setakExamples": [
+        {
+          "subject": "정보",
+          "topic": "Flask로 구현한 학교 Q&A 챗봇",
+          "description": "RESTful API 설계 및 프론트엔드 구현"
+        },
+        {
+          "subject": "수학",
+          "topic": "추천 알고리즘의 수학적 원리",
+          "description": "협업 필터링과 코사인 유사도"
+        }
+      ],
+      "projectIdeas": [
+        "학교 급식 주문 앱 UX 리디자인",
+        "실시간 채팅 앱 WebSocket 구현",
+        "GitHub 오픈소스 기여 경험"
+      ],
+      "universities": ["성균관대(소프트웨어)", "한양대(컴공)", "숭실대(SW특기자)", "세종대(SW)"]
+    },
+    {
+      "id": "data-scientist",
+      "name": "데이터사이언티스트",
+      "emoji": "📊",
+      "kingdom": "💻 기술",
+      "targetMajor": "통계학·데이터사이언스",
+      "admissionType": "학종+정시",
+      "keySubjects": ["확률과통계", "미적분", "정보", "경제수학"],
+      "setakExamples": [
+        {
+          "subject": "확률과통계",
+          "topic": "공공데이터로 분석한 우리 지역 미세먼지 패턴",
+          "description": "Python pandas로 10년간 데이터 분석"
+        },
+        {
+          "subject": "정보",
+          "topic": "머신러닝 기반 학생 성적 예측 모델",
+          "description": "회귀분석과 의사결정나무 비교"
+        }
+      ],
+      "projectIdeas": [
+        "교내 설문조사 데이터 시각화 프로젝트",
+        "A/B 테스트 통계적 유의성 검증",
+        "Kaggle 대회 참여 경험"
+      ],
+      "universities": ["서울대(통계)", "고려대(데이터과학)", "연세대(응용통계)", "성균관대(통계)"]
+    },
+    {
+      "id": "security-specialist",
+      "name": "정보보안전문가",
+      "emoji": "🔒",
+      "kingdom": "💻 기술",
+      "targetMajor": "정보보호학·사이버보안",
+      "admissionType": "학종+SW특기자",
+      "keySubjects": ["정보", "프로그래밍", "미적분", "확률과통계"],
+      "setakExamples": [
+        {
+          "subject": "수학Ⅱ",
+          "topic": "학교 네트워크 취약점 분석 및 보안 정책 제안",
+          "description": "RSA 암호화 알고리즘의 수학적 원리"
+        },
+        {
+          "subject": "정보",
+          "topic": "SQL Injection 공격 시뮬레이션 및 방어",
+          "description": "웹 보안 취약점 분석 프로젝트"
+        }
+      ],
+      "projectIdeas": [
+        "포스트양자암호(PQC)의 수학적 원리 탐구",
+        "교내 Wi-Fi 보안 강화 제안서",
+        "해킹 대회(CTF) 참여 경험"
+      ],
+      "universities": ["고려대(정보보호)", "성균관대(소프트웨어)", "국민대(정보보안)", "숭실대(정보보호)"]
+    }
+  ]
+}

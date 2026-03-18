@@ -1,0 +1,159 @@
+{
+  "id": "aiProject",
+  "label": "AI 프로젝트 학습",
+  "emoji": "🚀",
+  "title": "프로젝트 기반 학습 루프",
+  "summary": "문제정의→실행→검증→개선까지 보이는 학습",
+  "grades": [
+    {
+      "id": "grade1",
+      "label": "고1",
+      "objective": "작은 문제를 빠르게 해결하는 미니 프로젝트 습관을 만듭니다.",
+      "practicalExamples": [
+        "수학 오답 정리 자동화 시트를 AI로 초안 생성 후 직접 검증해 주간 루틴으로 사용합니다.",
+        "같은 질문을 3개 프롬프트로 실험해 결과 차이를 비교표로 작성합니다.",
+        "프로젝트 종료 시 정확도/시간 절감 등 전후 지표를 한 페이지로 정리합니다."
+      ],
+      "detailChecklist": [
+        "문제 정의 문장이 측정 가능한 목표로 작성되어 있는가",
+        "AI 생성 결과와 본인 검증 내용이 구분되어 있는가",
+        "프로젝트 종료 후 개선 포인트를 다음 주제에 반영했는가"
+      ],
+      "cards": [
+        {
+          "title": "교과 연계 미니 프로젝트",
+          "description": "국·영·수·과 중 한 과목의 실제 불편을 주제로 2주 단위 프로젝트를 수행합니다.",
+          "actionSteps": [
+            "문제 정의 문장 1개와 성공 기준 2개 작성",
+            "AI 도구를 사용해 초안 생성 후 직접 수정",
+            "완료 후 전후 비교 결과 3줄 기록"
+          ],
+          "recommendedTiming": "학기 중 월 1회",
+          "relatedCategoryIds": ["student-record-comprehensive"]
+        },
+        {
+          "title": "프롬프트 실험 노트",
+          "description": "같은 질문을 다른 프롬프트로 실험해 결과 차이를 기록하면 탐구 깊이가 생깁니다.",
+          "actionSteps": [
+            "프롬프트 3종 설계 후 결과 비교",
+            "정확도·설명력·재현성 기준으로 평가",
+            "가장 효과적인 패턴을 템플릿화"
+          ],
+          "recommendedTiming": "주 1회 30분",
+          "relatedCategoryIds": ["student-record-academic"]
+        },
+        {
+          "title": "검증 중심 산출물 작성",
+          "description": "AI 출력보다 검증 과정을 중심으로 보고서를 작성하면 신뢰도가 높아집니다.",
+          "actionSteps": [
+            "검증 데이터 출처 2개 이상 명시",
+            "오류 사례와 수정 과정 기록",
+            "최종 보고서에 한계·개선점 포함"
+          ],
+          "recommendedTiming": "프로젝트 종료 주간",
+          "relatedCategoryIds": ["student-record-comprehensive", "special-admission"]
+        }
+      ]
+    },
+    {
+      "id": "grade2",
+      "label": "고2",
+      "objective": "팀 프로젝트를 통해 문제 해결력과 협업 증거를 동시에 확보합니다.",
+      "practicalExamples": [
+        "학교 행사 안내 챗봇을 팀으로 제작하고 사용자 테스트 피드백을 2회 반영합니다.",
+        "기준 모델 대비 개선 모델의 성능 차이를 그래프로 제시해 발표 자료에 넣습니다.",
+        "스프린트 회고 문서를 작성해 협업 문제와 개선 결과를 증빙으로 남깁니다."
+      ],
+      "detailChecklist": [
+        "팀 역할 분담과 본인 기여도가 명확히 기록되어 있는가",
+        "성능 개선 지표가 수치로 제시되어 있는가",
+        "사용자 피드백 기반 개선 기록이 남아 있는가"
+      ],
+      "cards": [
+        {
+          "title": "팀 기반 AI 문제 해결",
+          "description": "학교 생활 데이터나 지역 이슈를 주제로 팀 프로젝트를 설계합니다.",
+          "actionSteps": [
+            "역할 분담표(기획·개발·검증) 작성",
+            "주간 스프린트 목표와 회고 운영",
+            "중간 발표로 피드백 반영"
+          ],
+          "recommendedTiming": "학기당 1개 프로젝트",
+          "relatedCategoryIds": ["student-record-comprehensive", "special-admission"]
+        },
+        {
+          "title": "모델 성능 개선 실험",
+          "description": "단순 구현에서 벗어나 성능 개선 과정을 수치로 남겨 차별점을 만듭니다.",
+          "actionSteps": [
+            "기준 모델과 개선 모델 비교",
+            "정확도/속도/오류율 지표 기록",
+            "개선 근거를 시각화해 보고서 반영"
+          ],
+          "recommendedTiming": "프로젝트 중반~마무리",
+          "relatedCategoryIds": ["student-record-academic", "regular-admission"]
+        },
+        {
+          "title": "사용자 피드백 루프",
+          "description": "교사·친구 사용자 테스트를 통해 실제 개선 사이클을 돌립니다.",
+          "actionSteps": [
+            "테스트 질문지 5개 설계",
+            "피드백 우선순위 매트릭스 작성",
+            "개선 전후 사용성 결과 기록"
+          ],
+          "recommendedTiming": "배포 직전 1~2주",
+          "relatedCategoryIds": ["regular-admission", "international"]
+        }
+      ]
+    },
+    {
+      "id": "grade3",
+      "label": "고3",
+      "objective": "완성도 높은 대표 프로젝트를 지원 전형 문서와 면접 답변으로 연결합니다.",
+      "practicalExamples": [
+        "대표 프로젝트를 문제-방법-성과-의미 1페이지로 요약해 서류 핵심 문장에 반영합니다.",
+        "면접에서 3분 시연 흐름을 정해 핵심 기능과 한계를 동시에 설명합니다.",
+        "데이터 출처/윤리 항목을 체크해 평가 리스크를 사전에 제거합니다."
+      ],
+      "detailChecklist": [
+        "대표 프로젝트의 핵심 지표가 요약본에 포함되어 있는가",
+        "면접 시연 스크립트와 예상 질문 답변이 준비되어 있는가",
+        "출처/윤리/저작권 항목이 검증 완료되었는가"
+      ],
+      "cards": [
+        {
+          "title": "대표 프로젝트 포트폴리오화",
+          "description": "핵심 프로젝트 1~2개를 전형 제출 관점으로 재정리합니다.",
+          "actionSteps": [
+            "문제-방법-결과-의미 순서로 1페이지 정리",
+            "핵심 화면/코드/지표 스냅샷 첨부",
+            "전공 연계성과 사회적 의미를 명시"
+          ],
+          "recommendedTiming": "원서 준비 2개월 전",
+          "relatedCategoryIds": ["student-record-comprehensive", "international"]
+        },
+        {
+          "title": "면접 시연 시나리오 제작",
+          "description": "프로젝트 시연과 질의응답 흐름을 사전에 설계해 전달력을 높입니다.",
+          "actionSteps": [
+            "3분 시연 스크립트 작성",
+            "예상 질문 15개와 답변 준비",
+            "실패 사례와 개선 경험 포함"
+          ],
+          "recommendedTiming": "면접 3~4주 전",
+          "relatedCategoryIds": ["special-admission", "international"]
+        },
+        {
+          "title": "윤리·출처 검증 정리",
+          "description": "AI 사용 윤리와 데이터 출처를 명확히 정리해 평가 리스크를 줄입니다.",
+          "actionSteps": [
+            "데이터 수집·사용 범위 명시",
+            "저작권/인용 기준 체크",
+            "윤리적 한계와 보완 계획 정리"
+          ],
+          "recommendedTiming": "서류 제출 직전",
+          "relatedCategoryIds": ["student-record-comprehensive", "regular-admission"]
+        }
+      ]
+    }
+  ]
+}

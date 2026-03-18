@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeScreen } from '../screens/HomeScreen';
 import { JobsExploreScreen } from '../screens/JobsExploreScreen';
 import { CareerPathScreen } from '../screens/CareerPathScreen';
+import { UniversityAdmissionExploreScreen } from '../screens/UniversityAdmissionExploreScreen';
 import { LaunchpadScreen } from '../screens/LaunchpadScreen';
 import { CustomTabBar } from '../components/TabBar';
 
@@ -17,6 +18,7 @@ export function MainTabNavigator() {
       <Tab.Screen name="HomeTab" component={HomeScreen} />
       <Tab.Screen name="JobsTab" component={JobsExploreScreen} />
       <Tab.Screen name="CareerTab" component={CareerPathScreen} />
+      <Tab.Screen name="AdmissionTab" component={UniversityAdmissionExploreScreen} />
       <Tab.Screen name="LaunchpadTab" component={LaunchpadScreen} />
     </Tab.Navigator>
   );

@@ -24,7 +24,7 @@ function HeroBanner() {
       <Text style={styles.heroLabel}>✨ {CAREER_LABELS.exploreHeroLabel}</Text>
       <Text style={styles.heroTitle}>{CAREER_LABELS.exploreHeroTitle}</Text>
       <Text style={styles.heroDescription}>{CAREER_LABELS.exploreHeroDescription}</Text>
-      <View style={styles.statsRow}>
+      <View style={styles.heroStatsRow}>
         <StatItem icon="📖" value={careerPathTemplates.length.toString()} label="커리어 패스" />
         <View style={styles.statDivider} />
         <StatItem icon="⭐" value="8" label="왕국" />
@@ -42,7 +42,7 @@ function HeroBanner() {
 function StatItem({ icon, value, label }: { icon: string; value: string; label: string }) {
   return (
     <View style={styles.statItem}>
-      <Text style={styles.statIcon}>{icon}</Text>
+      <Text style={styles.heroStatIcon}>{icon}</Text>
       <View>
         <Text style={styles.statValue}>{value}</Text>
         <Text style={styles.statLabel}>{label}</Text>
@@ -235,9 +235,9 @@ const styles = StyleSheet.create({
   heroLabel: { fontSize: FONT_SIZES.xs, fontWeight: '700', color: '#a78bfa', marginBottom: SPACING.sm },
   heroTitle: { fontSize: FONT_SIZES.xxl, fontWeight: '900', color: '#fff', lineHeight: 30, marginBottom: SPACING.sm },
   heroDescription: { fontSize: FONT_SIZES.xs, color: '#9CA3AF', lineHeight: 18, marginBottom: SPACING.lg },
-  statsRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.lg },
+  heroStatsRow: { flexDirection: 'row', alignItems: 'center', gap: SPACING.lg },
   statItem: { flexDirection: 'row', alignItems: 'center', gap: SPACING.sm },
-  statIcon: { fontSize: 16 },
+  heroStatIcon: { fontSize: 16 },
   statValue: { fontSize: FONT_SIZES.md, fontWeight: '900', color: '#fff' },
   statLabel: { fontSize: 9, color: '#6B7280', marginTop: -2 },
   statDivider: { width: 1, height: 24, backgroundColor: 'rgba(255,255,255,0.1)' },
