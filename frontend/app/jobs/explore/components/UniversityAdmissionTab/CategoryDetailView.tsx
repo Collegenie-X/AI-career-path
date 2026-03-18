@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Target, CalendarDays, Zap, FlaskConical } from 'lucide-react';
+import { X, Target, CalendarDays, Zap } from 'lucide-react';
+import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
   id: string;
@@ -38,6 +39,15 @@ type CategoryPlaybook = {
     interviewQuestions: string[];
     makerAndResearchExamples: string[];
   };
+  deepQaByEvidenceArea?: Array<{
+    areaId: string;
+    areaTitle: string;
+    areaSummary: string;
+    qaItems: Array<{
+      question: string;
+      answer: string;
+    }>;
+  }>;
 };
 
 type CategoryDetailViewProps = {
@@ -127,7 +137,9 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
         {activeTab === 'core' && <CoreStrategyTab category={category} playbook={playbook} />}
         {activeTab === 'grade' && <GradeRoadmapTab category={category} playbook={playbook} />}
         {activeTab === 'strategy2028' && <Strategy2028Tab category={category} playbook={playbook} />}
-        {activeTab === 'practical' && <PracticalExamplesTab category={category} playbook={playbook} />}
+        {activeTab === 'practical' && (
+          <CategoryPracticalExamplesPanel category={category} playbook={playbook} />
+        )}
       </div>
     </div>
   );
@@ -249,57 +261,6 @@ function Strategy2028Tab({ category, playbook }: { category: AdmissionCategory; 
             </span>
           ))}
         </div>
-      </div>
-    </div>
-  );
-}
-
-function PracticalExamplesTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
-  return (
-    <div className="space-y-3">
-      <div
-        className="rounded-xl p-3"
-        style={{
-          background: 'linear-gradient(135deg, rgba(139,92,246,0.22) 0%, rgba(45,212,191,0.18) 100%)',
-          border: '1px solid rgba(139,92,246,0.4)',
-        }}
-      >
-        <div className="flex items-center gap-2 mb-2">
-          <FlaskConical className="w-4 h-4 text-violet-300" />
-          <h3 className="text-sm font-bold text-white">세특 문장 템플릿</h3>
-        </div>
-        {playbook.practicalExamples.setakSentenceTemplates.map((template, index) => (
-          <p key={index} className="text-xs text-white/90 mb-1.5">
-            {index + 1}. {template}
-          </p>
-        ))}
-      </div>
-
-      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <h3 className="text-sm font-bold text-white mb-2">면접 질문 실전</h3>
-        {playbook.practicalExamples.interviewQuestions.map((question, index) => (
-          <p key={index} className="text-xs text-white/85 mb-1.5">
-            Q{index + 1}. {question}
-          </p>
-        ))}
-      </div>
-
-      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <h3 className="text-sm font-bold text-white mb-2">AI 시대 논문·메이커 활동 예시</h3>
-        {playbook.practicalExamples.makerAndResearchExamples.map((example, index) => (
-          <p key={index} className="text-xs text-white/85 mb-1.5">
-            • {example}
-          </p>
-        ))}
-      </div>
-
-      <div className="rounded-xl p-3 bg-red-500/10 border border-red-500/30">
-        <h3 className="text-sm font-bold text-white mb-2">실수 방지 체크</h3>
-        {category.cautions.map((caution, index) => (
-          <p key={index} className="text-xs text-red-200 mb-1">
-            - {caution}
-          </p>
-        ))}
       </div>
     </div>
   );

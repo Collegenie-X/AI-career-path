@@ -128,18 +128,9 @@ export function UniversityAdmissionTab() {
             }}
           >
             <div className="flex items-start gap-3">
-              <div
-                className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-                style={{
-                  background: 'rgba(132,94,247,0.2)',
-                  border: '2px solid rgba(132,94,247,0.5)',
-                }}
-              >
-                {metaData.meta.emoji}
-              </div>
+      
               <div className="flex-1 min-w-0">
-                <h2 className="text-base font-bold text-white mb-1">{metaData.intro.title}</h2>
-                <p className="text-xs text-white/70 mb-2">{metaData.intro.description}</p>
+                <h2 className="text-base font-bold text-white mb-3">{metaData.intro.title}</h2>
                 <div className="flex flex-wrap gap-1.5">
                   {metaData.intro.highlights.map((highlight, index) => (
                     <span
