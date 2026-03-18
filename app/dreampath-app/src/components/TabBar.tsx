@@ -30,11 +30,6 @@ const TAB_CONFIG: Record<string, TabConfig> = {
     iconActive: 'map',
     iconInactive: 'map-outline',
   },
-  AdmissionTab: {
-    label: TAB_LABELS.admission,
-    iconActive: 'school',
-    iconInactive: 'school-outline',
-  },
   LaunchpadTab: {
     label: TAB_LABELS.launchpad,
     iconActive: 'rocket',
