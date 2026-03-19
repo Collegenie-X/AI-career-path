@@ -209,6 +209,10 @@ export function DreamLibraryResourceFormDialog({
                 setValidationMessage(LABELS.libraryUploadValidationRequired);
                 return;
               }
+              if (!resourceUrl.trim() && !attachmentMarkdownContent?.trim() && !attachmentDataUrl?.trim()) {
+                setValidationMessage(LABELS.libraryUploadValidationResourceSourceRequired);
+                return;
+              }
               setValidationMessage(null);
               onSubmit({
                 category: selectedCategory,

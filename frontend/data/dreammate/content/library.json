@@ -20,6 +20,7 @@
   "libraryUploadFileReading": "파일 읽는 중...",
   "libraryUploadAttachedFilePrefix": "첨부됨",
   "libraryUploadValidationRequired": "제목과 세부 상황은 필수입니다.",
+  "libraryUploadValidationResourceSourceRequired": "URL 또는 .md/.pdf 파일 중 하나는 반드시 등록해 주세요.",
   "libraryUploadValidationFileType": ".md 또는 .pdf 파일만 업로드할 수 있습니다.",
   "libraryUploadValidationFileReadFailed": "파일을 읽지 못했습니다. 다시 시도해 주세요.",
   "libraryDetailDialogTitle": "자료 상세",

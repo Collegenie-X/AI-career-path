@@ -10,6 +10,13 @@ import {
 } from './DreamLibraryResourceFormDialog';
 import { DreamLibraryResourceDetailDialog } from './DreamLibraryResourceDetailDialog';
 
+function hasDisplayableResourceSource(resource: DreamResource): boolean {
+  const hasValidUrl = Boolean(resource.resourceUrl?.trim());
+  const hasMarkdownAttachment = Boolean(resource.attachmentMarkdownContent?.trim());
+  const hasPdfAttachmentData = Boolean(resource.attachmentDataUrl?.trim());
+  return hasValidUrl || hasMarkdownAttachment || hasPdfAttachmentData;
+}
+
 function formatTimeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
   const minutes = Math.floor(diff / 60000);
@@ -168,7 +175,9 @@ export function DreamLibraryTab({
     ...RESOURCE_CATEGORIES,
   ];
 
-  const filtered = resources.filter(res => {
+  const resourcesWithSource = resources.filter(hasDisplayableResourceSource);
+
+  const filtered = resourcesWithSource.filter(res => {
     if (selectedCategory !== 'all' && res.category !== selectedCategory) return false;
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -182,11 +191,11 @@ export function DreamLibraryTab({
 
   const categoryCounts = RESOURCE_CATEGORIES.map(cat => ({
     ...cat,
-    count: resources.filter(r => r.category === cat.id).length,
+    count: resourcesWithSource.filter(r => r.category === cat.id).length,
   }));
 
-  const selectedResource = resources.find(resource => resource.id === selectedResourceId) ?? null;
-  const editingResource = resources.find(resource => resource.id === editingResourceId) ?? null;
+  const selectedResource = resourcesWithSource.find(resource => resource.id === selectedResourceId) ?? null;
+  const editingResource = resourcesWithSource.find(resource => resource.id === editingResourceId) ?? null;
 
   return (
     <div className="space-y-4 pb-28">
@@ -222,7 +231,7 @@ export function DreamLibraryTab({
       <div className="grid grid-cols-3 gap-2">
         {allCategories.map(cat => {
           const isActive = selectedCategory === cat.id;
-          const count = cat.id === 'all' ? resources.length : categoryCounts.find(c => c.id === cat.id)?.count ?? 0;
+          const count = cat.id === 'all' ? resourcesWithSource.length : categoryCounts.find(c => c.id === cat.id)?.count ?? 0;
           return (
             <button
               key={cat.id}
