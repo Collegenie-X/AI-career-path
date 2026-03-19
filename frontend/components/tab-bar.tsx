@@ -47,8 +47,10 @@ export function TabBar() {
                   />
                 )}
               </div>
-              <span className="text-[10px] font-semibold">{tab.label}</span>
+              <span className="text-[14px] font-semibold">{tab.label}</span>
             </button>
+          );
+        })}
           );
         })}
       </div>

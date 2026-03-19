@@ -2,13 +2,25 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Rocket, Home, Info, Briefcase, Map, Users } from 'lucide-react';
+import { Rocket, Info } from 'lucide-react';
+import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
 
-const NAV_ITEMS = [
-  { label: '소개', href: '/home', icon: Home },
-  { label: '드림 경험', href: '/jobs/explore', icon: Briefcase },
-  { label: '드림 패스', href: '/career', icon: Map },
-  { label: '드림 실행', href: '/dreammate', icon: Users },
+type HeaderNavigationItem = {
+  readonly label: string;
+  readonly href: string;
+  readonly icon: (typeof BOTTOM_NAVIGATION_TABS)[number]['icon'];
+  readonly step?: string;
+  readonly color?: string;
+};
+
+const HEADER_NAVIGATION_ITEMS: readonly HeaderNavigationItem[] = [
+  ...BOTTOM_NAVIGATION_TABS.map((tab) => ({
+    label: tab.label,
+    href: tab.path,
+    icon: tab.icon,
+    step: tab.step,
+    color: tab.color,
+  })),
   { label: 'About', href: '/about', icon: Info },
 ] as const;
 
@@ -17,6 +29,7 @@ export function WebHeader() {
 
   const getIsActive = (path: string) => {
     if (path === '/home') return pathname === '/home';
+    if (path === '/quiz/intro') return pathname?.startsWith('/quiz');
     return pathname?.startsWith(path);
   };
 
@@ -44,7 +57,7 @@ export function WebHeader() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
-            {NAV_ITEMS.map((item) => {
+            {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
               const Icon = item.icon;
               return (
@@ -56,6 +69,7 @@ export function WebHeader() {
                       ? 'text-white bg-white/10'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
+                  style={active && item.step ? { color: item.color } : undefined}
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {item.label}
@@ -66,7 +80,7 @@ export function WebHeader() {
 
           {/* Mobile Nav - 아이콘만 */}
           <div className="flex md:hidden items-center gap-1">
-            {NAV_ITEMS.map((item) => {
+            {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
               const Icon = item.icon;
               return (
@@ -77,6 +91,7 @@ export function WebHeader() {
                   className={`p-2 rounded-lg transition-all ${
                     active ? 'text-white bg-white/10' : 'text-white/50 hover:text-white'
                   }`}
+                  style={active && item.step ? { color: item.color } : undefined}
                 >
                   <Icon className="w-4 h-4" />
                 </Link>

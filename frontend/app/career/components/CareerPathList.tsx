@@ -1,24 +1,31 @@
 'use client';
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import {
-  Heart, Users, ChevronRight,
-  Sparkles, BookOpen, Star, Globe, Bookmark, BookmarkCheck,
-} from 'lucide-react';
+import { Globe, Sparkles } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import communityData from '@/data/share-community.json';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan, UserReactionState } from './community/types';
+import {
+  TemplateRow,
+  MyPublicPlanCard,
+  BookmarkedTemplateCard,
+  BookmarkedCommunityCard,
+} from './CareerPathListCards';
 
 type Template = typeof careerPathTemplates[0];
 
 type CareerPathListProps = {
   onUseTemplate: (template: Template, customTitle: string) => void;
-  onNewPath: () => void;
+  onNewPath?: () => void;
   myPublicPlans?: CareerPlan[];
   onViewMyPlan?: (plan: CareerPlan) => void;
+  /** 현재 선택된 템플릿 ID (controlled — 부모에서 관리) */
+  selectedTemplateId?: string | null;
+  /** 템플릿 선택 콜백 (controlled — 부모에서 관리) */
+  onSelectTemplate?: (template: Template | null) => void;
 };
 
 const STAR_FILTERS = [
@@ -50,331 +57,30 @@ function saveTemplateBookmarkIds(ids: string[]): void {
   try { localStorage.setItem(TEMPLATE_BOOKMARKS_KEY, JSON.stringify(ids)); } catch {}
 }
 
-/* ─── Template row card ─── */
-function TemplateRow({
-  template,
-  isBookmarked,
-  onShowDetail,
-  onToggleBookmark,
-}: {
-  template: Template;
-  isBookmarked: boolean;
-  onShowDetail: () => void;
-  onToggleBookmark: (e: React.MouseEvent) => void;
-}) {
-  const [liked, setLiked] = useState(false);
-  const [localLikes, setLocalLikes] = useState(template.likes);
-
-  const handleLike = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    setLiked(l => !l);
-    setLocalLikes(n => liked ? n - 1 : n + 1);
-  };
-
-  return (
-    <div
-      className="group rounded-2xl overflow-hidden transition-all duration-200 cursor-pointer active:scale-[0.99] hover:brightness-110"
-      style={{
-        border: `2px solid ${template.starColor}30`,
-        background: `linear-gradient(135deg, ${template.starColor}12, rgba(255,255,255,0.04))`,
-        boxShadow: `0 4px 16px ${template.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
-      }}
-      onClick={onShowDetail}
-    >
-      <div className="w-full flex items-stretch gap-4 px-5 py-4">
-        {/* 큰 아이콘: 전체 좌측 고정 */}
-        <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
-          style={{
-            background: `linear-gradient(135deg, ${template.starColor}35, ${template.starColor}12)`,
-            border: `2px solid ${template.starColor}40`,
-            boxShadow: `0 0 20px ${template.starColor}25`,
-          }}
-        >
-          {template.jobEmoji}
-        </div>
-
-        {/* 우측: 제목 + 메타 + 액션 */}
-        <div className="flex-1 min-w-0 flex items-center gap-3">
-          <div className="flex-1 min-w-0 flex flex-col gap-1">
-            <div className="font-bold text-white text-sm leading-snug line-clamp-2">
-              {template.title}
-            </div>
-            {template.description && (
-              <div className="text-[12px] text-gray-500 leading-snug line-clamp-1">
-                {template.description}
-              </div>
-            )}
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
-              <span className="text-[12px] text-gray-600">·</span>
-              <span className="text-[12px] text-gray-500">{template.totalItems}개</span>
-              <span className="text-[12px] text-gray-600">·</span>
-              <span className="text-[12px] text-gray-500">{template.years.length}학년</span>
-              {template.authorType === 'official' && (
-                <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
-                  style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
-              )}
-              <span className="flex-1" />
-              <button
-                onClick={handleLike}
-                className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
-                style={liked ? { color: '#FF6477' } : { color: '#555570' }}
-              >
-                <Heart className="w-3.5 h-3.5" fill={liked ? '#FF6477' : 'none'} />
-                <span className="text-[12px] font-semibold">{localLikes}</span>
-              </button>
-              <button
-                onClick={onToggleBookmark}
-                className="p-1.5 rounded-lg transition-all active:scale-95"
-                style={isBookmarked ? { color: '#FBBF24' } : { color: '#555570' }}
-                title={isBookmarked ? '즐겨찾기 해제' : '즐겨찾기'}
-              >
-                {isBookmarked
-                  ? <BookmarkCheck className="w-3.5 h-3.5" />
-                  : <Bookmark className="w-3.5 h-3.5" />}
-              </button>
-            </div>
-          </div>
-          {/* 화살표: 2줄 옆 우측, 수직 중앙 정렬 */}
-          <div
-            className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 self-center transition-all duration-200 active:scale-95 group-hover:scale-110 group-hover:shadow-lg"
-            style={{
-              background: `linear-gradient(135deg, ${template.starColor}60, ${template.starColor}35)`,
-              border: `2px solid ${template.starColor}70`,
-              boxShadow: `0 0 20px ${template.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
-            }}
-          >
-            <ChevronRight className="w-4 h-4 text-white drop-shadow-md" strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── My public plan card ─── */
-function MyPublicPlanCard({ plan, onClick }: { plan: CareerPlan; onClick: () => void }) {
-  const totalItems = plan.years.reduce(
-    (s, y) => s + y.items.length + (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0),
-    0,
-  );
-  const sharedDate = plan.sharedAt
-    ? new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })
-    : null;
-
-  return (
-    <div
-      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
-      style={{
-        border: `2px solid ${plan.starColor}35`,
-        background: `linear-gradient(135deg, ${plan.starColor}12, rgba(255,255,255,0.04))`,
-        boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
-      }}
-      onClick={onClick}
-    >
-      <div className="flex items-center gap-4 px-5 py-4">
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
-          style={{
-            background: `linear-gradient(135deg, ${plan.starColor}35, ${plan.starColor}12)`,
-            border: `2px solid ${plan.starColor}40`,
-            boxShadow: `0 0 20px ${plan.starColor}25`,
-          }}
-        >
-          {plan.jobEmoji}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
-          <div className="flex items-center gap-2 mt-1 flex-wrap">
-            <span className="text-[12px] text-gray-400">{plan.starEmoji} {plan.starName}</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{plan.years.length}학년 · {totalItems}개</span>
-            {sharedDate && (
-              <>
-                <span className="text-[12px] text-gray-600">·</span>
-                <span className="text-[12px] text-gray-500">{sharedDate} 공개</span>
-              </>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <span
-            className="flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 rounded-full"
-            style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.25)' }}
-          >
-            <Globe style={{ width: 9, height: 9 }} />공개중
-          </span>
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
-            style={{
-              background: `linear-gradient(135deg, ${plan.starColor}60, ${plan.starColor}35)`,
-              border: `2px solid ${plan.starColor}70`,
-              boxShadow: `0 0 20px ${plan.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
-            }}
-          >
-            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Bookmarked template card (탐색 즐겨찾기) ─── */
-function BookmarkedTemplateCard({
-  template,
-  onShowDetail,
-  onRemoveBookmark,
-}: {
-  template: Template;
-  onShowDetail: () => void;
-  onRemoveBookmark: (e: React.MouseEvent) => void;
-}) {
-  return (
-    <div
-      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
-      style={{
-        border: `2px solid ${template.starColor}30`,
-        background: `linear-gradient(135deg, ${template.starColor}12, rgba(255,255,255,0.04))`,
-        boxShadow: `0 4px 16px ${template.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
-      }}
-      onClick={onShowDetail}
-    >
-      <div className="flex items-center gap-4 px-5 py-4">
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
-          style={{
-            background: `linear-gradient(135deg, ${template.starColor}35, ${template.starColor}12)`,
-            border: `2px solid ${template.starColor}40`,
-            boxShadow: `0 0 20px ${template.starColor}25`,
-          }}
-        >
-          {template.jobEmoji}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{template.title}</div>
-          <div className="flex items-center gap-2 mt-1 flex-wrap">
-            <span className="text-[12px] text-gray-400">{template.starEmoji} {template.starName}</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{template.totalItems}개 · {template.years.length}학년</span>
-            {template.authorType === 'official' && (
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
-                style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}>공식</span>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <button
-            onClick={onRemoveBookmark}
-            className="p-1.5 rounded-lg transition-all active:scale-95 flex-shrink-0"
-            style={{ color: '#FBBF24' }}
-            title="즐겨찾기 해제"
-          >
-            <BookmarkCheck className="w-4 h-4" />
-          </button>
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
-            style={{
-              background: `linear-gradient(135deg, ${template.starColor}60, ${template.starColor}35)`,
-              border: `2px solid ${template.starColor}70`,
-              boxShadow: `0 0 20px ${template.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
-            }}
-          >
-            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Bookmarked community plan card ─── */
-function BookmarkedCommunityCard({
-  plan,
-  isLiked,
-  likeCount,
-  bookmarkCount,
-  onToggleLike,
-  onToggleBookmark,
-}: {
-  plan: SharedPlan;
-  isLiked: boolean;
-  likeCount: number;
-  bookmarkCount: number;
-  onToggleLike: () => void;
-  onToggleBookmark: () => void;
-}) {
-  const sharedDate = new Date(plan.sharedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' });
-
-  return (
-    <div
-      className="group rounded-2xl overflow-hidden cursor-pointer transition-all duration-200 active:scale-[0.99] hover:brightness-110"
-      style={{
-        border: `2px solid ${plan.starColor}30`,
-        background: `linear-gradient(135deg, ${plan.starColor}12, rgba(255,255,255,0.04))`,
-        boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
-      }}
-    >
-      <div className="flex items-center gap-4 px-5 py-4">
-        <div
-          className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
-          style={{
-            background: `linear-gradient(135deg, ${plan.starColor}35, ${plan.starColor}12)`,
-            border: `2px solid ${plan.starColor}40`,
-            boxShadow: `0 0 20px ${plan.starColor}25`,
-          }}
-        >
-          {plan.jobEmoji}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="font-bold text-white text-sm leading-snug line-clamp-1">{plan.title}</div>
-          <div className="flex items-center gap-2 mt-1 flex-wrap">
-            <span className="text-[12px] text-gray-400">{plan.ownerEmoji} {plan.ownerName}</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{plan.jobEmoji} {plan.jobName}</span>
-            <span className="text-[12px] text-gray-600">·</span>
-            <span className="text-[12px] text-gray-500">{sharedDate}</span>
-          </div>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          <button
-            onClick={e => { e.stopPropagation(); onToggleLike(); }}
-            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
-            style={isLiked ? { color: '#FF6477' } : { color: '#555570' }}
-          >
-            <Heart className="w-3.5 h-3.5" fill={isLiked ? '#FF6477' : 'none'} />
-            <span className="text-[12px] font-semibold">{likeCount}</span>
-          </button>
-          <button
-            onClick={e => { e.stopPropagation(); onToggleBookmark(); }}
-            className="flex items-center gap-1 px-2 py-1 rounded-lg transition-all active:scale-95"
-            style={{ color: '#FBBF24' }}
-            title="즐겨찾기 해제"
-          >
-            <BookmarkCheck className="w-3.5 h-3.5" />
-            <span className="text-[12px] font-semibold">{bookmarkCount}</span>
-          </button>
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 active:scale-95 group-hover:scale-110"
-            style={{
-              background: `linear-gradient(135deg, ${plan.starColor}60, ${plan.starColor}35)`,
-              border: `2px solid ${plan.starColor}70`,
-              boxShadow: `0 0 20px ${plan.starColor}40, inset 0 1px 0 rgba(255,255,255,0.2)`,
-            }}
-          >
-            <ChevronRight className="w-5 h-5 text-white drop-shadow-md" strokeWidth={2.5} />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Main list ─── */
-export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onViewMyPlan }: CareerPathListProps) {
+export function CareerPathList({
+  onUseTemplate,
+  onNewPath,
+  myPublicPlans,
+  onViewMyPlan,
+  selectedTemplateId,
+  onSelectTemplate,
+}: CareerPathListProps) {
   const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
+  const [internalSelectedTemplate, setInternalSelectedTemplate] = useState<Template | null>(null);
+
+  const isControlled = onSelectTemplate !== undefined;
+  const selectedTemplate = isControlled
+    ? (careerPathTemplates.find(t => t.id === selectedTemplateId) ?? null)
+    : internalSelectedTemplate;
+
+  const handleSelectTemplate = (template: Template | null) => {
+    if (isControlled) {
+      onSelectTemplate?.(template);
+    } else {
+      setInternalSelectedTemplate(template);
+    }
+  };
 
   /* ─── Template bookmarks ─── */
   const [templateBookmarkIds, setTemplateBookmarkIds] = useState<string[]>([]);
@@ -484,84 +190,20 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
   const handleUseTemplate = (customTitle: string) => {
     if (selectedTemplate) {
       onUseTemplate(selectedTemplate, customTitle);
-      setSelectedTemplate(null);
+      handleSelectTemplate(null);
     }
   };
 
   /* When detail dialog closes, re-sync template bookmarks (dialog also writes to localStorage) */
   const handleDetailClose = useCallback(() => {
     setTemplateBookmarkIds(loadTemplateBookmarkIds());
-    setSelectedTemplate(null);
-  }, []);
+    handleSelectTemplate(null);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isControlled, onSelectTemplate]);
 
   return (
     <>
-      <div className="space-y-4 pb-24">
-
-        {/* ── Hero header ── */}
-        <div
-          className="relative rounded-3xl overflow-hidden px-5 py-6"
-          style={{
-            background: 'linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)',
-            border: '1.5px solid rgba(108,92,231,0.35)',
-          }}
-        >
-          <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full opacity-20 pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }} />
-          <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-full opacity-15 pointer-events-none"
-            style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }} />
-          <div className="relative">
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-4 h-4" style={{ color: '#a78bfa' }} />
-              <span className="text-xs font-bold" style={{ color: '#a78bfa' }}>커리어 패스 탐색</span>
-            </div>
-            <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
-              나의 진로 로드맵,<br />
-              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-                여기서 찾아보세요
-              </span>
-            </h2>
-            <p className="text-xs text-gray-400 leading-relaxed mb-4">
-              다양한 직업의 커리어 패스를 참고하거나<br />나만의 패스를 직접 만들어 보세요.
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-1.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(108,92,231,0.25)' }}>
-                  <BookOpen className="w-3.5 h-3.5" style={{ color: '#a78bfa' }} />
-                </div>
-                <div>
-                  <div className="text-sm font-black text-white">{careerPathTemplates.length}</div>
-                  <div className="text-[12px] text-gray-500 -mt-0.5">커리어 패스</div>
-                </div>
-              </div>
-              <div className="w-px h-6 bg-white/10" />
-              <div className="flex items-center gap-1.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(59,130,246,0.2)' }}>
-                  <Star className="w-3.5 h-3.5 text-blue-400" />
-                </div>
-                <div>
-                  <div className="text-sm font-black text-white">8</div>
-                  <div className="text-[12px] text-gray-500 -mt-0.5">왕국</div>
-                </div>
-              </div>
-              <div className="w-px h-6 bg-white/10" />
-              <div className="flex items-center gap-1.5">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center"
-                  style={{ backgroundColor: 'rgba(34,197,94,0.18)' }}>
-                  <Users className="w-3.5 h-3.5 text-green-400" />
-                </div>
-                <div>
-                  <div className="text-sm font-black text-white">
-                    {careerPathTemplates.reduce((s, t) => s + t.uses, 0).toLocaleString()}
-                  </div>
-                  <div className="text-[12px] text-gray-500 -mt-0.5">총 사용</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="space-y-4 pb-4">
 
         {/* ── 즐겨찾기 섹션 (아코디언) ── */}
         {totalBookmarkCount > 0 && (
@@ -579,7 +221,8 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
               <BookmarkedTemplateCard
                 key={template.id}
                 template={template}
-                onShowDetail={() => setSelectedTemplate(template)}
+                isSelected={selectedTemplate?.id === template.id}
+                onShowDetail={() => handleSelectTemplate(template)}
                 onRemoveBookmark={e => handleToggleTemplateBookmark(template.id, e)}
               />
             ))}
@@ -658,7 +301,8 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
                   key={template.id}
                   template={template}
                   isBookmarked={templateBookmarkIds.includes(template.id)}
-                  onShowDetail={() => setSelectedTemplate(template)}
+                  isSelected={selectedTemplate?.id === template.id}
+                  onShowDetail={() => handleSelectTemplate(template)}
                   onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
                 />
               ))}
@@ -667,8 +311,8 @@ export function CareerPathList({ onUseTemplate, onNewPath, myPublicPlans, onView
         </AccordionSection>
       </div>
 
-      {/* Detail dialog — onClose re-syncs bookmark state */}
-      {selectedTemplate && (
+      {/* Detail dialog — controlled 모드에서는 부모가 패널로 렌더링하므로 Dialog 숨김 */}
+      {!isControlled && selectedTemplate && (
         <CareerPathDetailDialog
           template={selectedTemplate}
           onClose={handleDetailClose}

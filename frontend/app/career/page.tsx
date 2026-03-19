@@ -2,27 +2,35 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Sparkles, Plus } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
 import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
+import { CareerPageHeader } from './components/CareerPageHeader';
+import { CareerPathDetailPanel } from './components/CareerPathDetailPanel';
+import { TimelineDetailPanel } from './components/TimelineDetailPanel';
+import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { ShareChannel, CommunityGroup } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
+import { CAREER_PAGE_TABS, type CareerPageTabId } from './config';
 import communityData from '@/data/share-community.json';
 import careerPathTemplates from '@/data/career-path-templates-index';
-import { buildStructuredCareerItem } from '@/data/career-item-structure';
+import { buildPlanFromTemplate } from './utils/buildPlanFromTemplate';
+import { useCommunityReactions } from './hooks/useCommunityReactions';
 
-type TabId = 'explore' | 'timeline' | 'community';
-
-const TABS: { id: TabId; label: string; emoji: string }[] = [
-  { id: 'explore',   label: '탐색',     emoji: '🔍' },
-  { id: 'community', label: '커뮤니티', emoji: '👥' },
-  { id: 'timeline',  label: '내 패스',  emoji: '🗺️' },
-];
+type Template = typeof careerPathTemplates[0];
 
 const STORAGE_KEY = 'career_plans_v3';
+const DEFAULT_TAB_ID: CareerPageTabId = 'explore';
+
+const isCareerPageTabId = (value: string | null): value is CareerPageTabId => {
+  if (!value) return false;
+  return CAREER_PAGE_TABS.some((tab) => tab.id === value);
+};
 
 /* ─── Star background ─── */
 function StarField() {
@@ -56,7 +64,7 @@ function CareerPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [activeTab, setActiveTab] = useState<TabId>('explore');
+  const [activeTab, setActiveTab] = useState<CareerPageTabId>(DEFAULT_TAB_ID);
   const [plans, setPlans] = useState<CareerPlan[]>([]);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
@@ -65,12 +73,14 @@ function CareerPageContent() {
   const [mounted, setMounted] = useState(false);
   const [sharingPlan, setSharingPlan] = useState<CareerPlan | null>(null);
 
+  /* ── 2-컬럼 패널용 선택 상태 ── */
+  const [selectedExploreTemplate, setSelectedExploreTemplate] = useState<Template | null>(null);
+  const [selectedCommunityPlan, setSelectedCommunityPlan] = useState<SharedPlan | null>(null);
+
   useEffect(() => {
     setMounted(true);
-    const tabParam = searchParams.get('tab') as TabId | null;
-    if (tabParam && ['explore', 'timeline', 'community'].includes(tabParam)) {
-      setActiveTab(tabParam);
-    }
+    const tabParam = searchParams.get('tab');
+    if (isCareerPageTabId(tabParam)) setActiveTab(tabParam);
     try {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (raw) {
@@ -82,9 +92,22 @@ function CareerPageContent() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const tabParam = searchParams.get('tab');
+    if (isCareerPageTabId(tabParam) && tabParam !== activeTab) setActiveTab(tabParam);
+  }, [activeTab, searchParams]);
+
   const savePlans = (updatedPlans: CareerPlan[]) => {
     setPlans(updatedPlans);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  };
+
+  const handleTabChange = (nextTabId: CareerPageTabId) => {
+    if (nextTabId === activeTab) return;
+    setActiveTab(nextTabId);
+    const nextSearchParams = new URLSearchParams(searchParams.toString());
+    nextSearchParams.set('tab', nextTabId);
+    router.replace(`/career?${nextSearchParams.toString()}`, { scroll: false });
   };
 
   const savePlan = (plan: CareerPlan) => {
@@ -96,145 +119,33 @@ function CareerPageContent() {
     setSelectedPlanId(plan.id);
     setBuilderOpen(false);
     setEditingPlan(null);
-    setActiveTab('timeline');
+    handleTabChange('timeline');
   };
 
   const deletePlan = (planId: string) => {
     const updatedPlans = plans.filter(p => p.id !== planId);
     savePlans(updatedPlans);
     if (selectedPlanId === planId) {
-      setSelectedPlanId(updatedPlans.length > 0 ? updatedPlans[0].id : null);
+      const nextId = updatedPlans.length > 0 ? updatedPlans[0].id : null;
+      setSelectedPlanId(nextId);
     }
   };
 
-  const openNew = () => {
-    setEditingPlan(null);
-    setBuilderInitialStep(1);
-    setBuilderOpen(true);
-  };
+  const openNew = () => { setEditingPlan(null); setBuilderInitialStep(1); setBuilderOpen(true); };
+  const openEdit = (plan: CareerPlan) => { setEditingPlan(plan); setBuilderInitialStep(3); setBuilderOpen(true); };
+  const closeBuilder = () => { setBuilderOpen(false); setEditingPlan(null); setBuilderInitialStep(undefined); };
 
-  const openEdit = (plan: CareerPlan) => {
-    setEditingPlan(plan);
-    setBuilderInitialStep(3);
-    setBuilderOpen(true);
-  };
-
-  const closeBuilder = () => {
-    setBuilderOpen(false);
-    setEditingPlan(null);
-    setBuilderInitialStep(undefined);
-  };
-
-  const handleUseTemplate = (template: typeof careerPathTemplates[0], customTitle: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const mapItem = (item: any, prefix: string, iIdx: number) => buildStructuredCareerItem({
-      id: item.id ?? `${prefix}-${iIdx}-${Date.now()}`,
-      type: item.type ?? 'activity',
-      title: item.title ?? '',
-      months: Array.isArray(item.months) ? item.months : (typeof item.month === 'number' ? [item.month] : [3]),
-      difficulty: item.difficulty ?? 2,
-      cost: item.cost ?? '무료',
-      organizer: item.organizer ?? '',
-      url: item.url,
-      description: item.description,
-      links: item.links,
-      categoryTags: item.categoryTags,
-      activitySubtype: item.activitySubtype,
-    });
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const planFromTemplate: CareerPlan = {
-      id: `from-template-${Date.now()}`,
-      starId: template.starId,
-      starName: template.starName,
-      starEmoji: template.starEmoji,
-      starColor: template.starColor,
-      jobId: template.jobId,
-      jobName: template.jobName,
-      jobEmoji: template.jobEmoji,
-      title: customTitle.trim().length > 0 ? customTitle.trim() : template.title,
-      createdAt: new Date().toISOString(),
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      years: (template.years as any[]).map((y: any, yIdx: number) => {
-        const goals = y.goals ?? [];
-        const rawItems = y.items ?? [];
-
-        // goalGroups가 있으면 사용, 없으면 템플릿 형식(goals+items) → goalGroups 변환
-        let goalGroups: { id: string; goal: string; items: ReturnType<typeof mapItem>[] }[];
-        if (Array.isArray(y.goalGroups) && y.goalGroups.length > 0) {
-          goalGroups = y.goalGroups.map((g: any, gi: number) => ({
-            id: g.id ?? `tpl-g-${yIdx}-${gi}-${Date.now()}`,
-            goal: g.goal ?? '',
-            items: (g.items ?? []).map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}-g${gi}`, iIdx)),
-          }));
-        } else {
-          const items = rawItems.map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx));
-          const firstGoal = goals.length > 0 ? goals[0] : '활동 목록';
-          goalGroups = items.length > 0
-            ? [
-                { id: `goal-${y.gradeId}-0`, goal: firstGoal, items },
-                ...goals.slice(1).map((g: string, idx: number) => ({
-                  id: `goal-${y.gradeId}-${idx + 1}`,
-                  goal: g,
-                  items: [] as ReturnType<typeof mapItem>[],
-                })),
-              ]
-            : goals.map((g: string, idx: number) => ({
-                id: `goal-${y.gradeId}-${idx}`,
-                goal: g,
-                items: [] as ReturnType<typeof mapItem>[],
-              }));
-        }
-
-        // goalGroups / semesterPlans에 이미 포함된 항목은 year.items에 넣지 않음 (이중 표시 방지)
-        const keyOf = (item: any) => {
-          const id = item?.id;
-          if (typeof id === 'string' && id.trim()) return `id:${id}`;
-          const type = item?.type ?? 'activity';
-          const title = item?.title ?? '';
-          return `tt:${type}::${String(title).trim()}`;
-        };
-        const keysInGoalGroups = new Set<string>(
-          (y.goalGroups ?? []).flatMap((g: any) => (g.items ?? []).map(keyOf))
-        );
-        const keysInSemesterPlans = new Set<string>(
-          (y.semesterPlans ?? []).flatMap((sp: any) => (sp.goalGroups ?? []).flatMap((g: any) => (g.items ?? []).map(keyOf)))
-        );
-        const ungroupedItems =
-          Array.isArray(rawItems) && rawItems.length > 0
-            ? rawItems
-                .filter((it: any) => !keysInGoalGroups.has(keyOf(it)) && !keysInSemesterPlans.has(keyOf(it)))
-                .map((item: any, iIdx: number) => mapItem(item, `tpl-${y.gradeId}`, iIdx))
-            : [];
-
-        return {
-          gradeId: y.gradeId,
-          gradeLabel: y.gradeLabel,
-          semester: y.semester ?? 'both',
-          goals,
-          items: ungroupedItems,
-          goalGroups,
-          semesterPlans: (y.semesterPlans ?? []).map((sp: any) => ({
-            ...sp,
-            goalGroups: (sp.goalGroups ?? []).map((g: any, gi: number) => ({
-              ...g,
-              id: g.id ?? `tpl-sp-${yIdx}-${gi}`,
-              items: (g.items ?? []).map((item: any, iIdx: number) => mapItem(item, `tpl-sp-${y.gradeId}`, iIdx)),
-            })),
-          })),
-        };
-      }),
-    };
+  const handleUseTemplate = (template: Template, customTitle: string) => {
+    const planFromTemplate = buildPlanFromTemplate(template, customTitle);
     const updatedPlans = [...plans, planFromTemplate];
     savePlans(updatedPlans);
     setSelectedPlanId(planFromTemplate.id);
-    setActiveTab('timeline');
+    setSelectedExploreTemplate(null);
+    handleTabChange('timeline');
     setBuilderOpen(false);
     setEditingPlan(null);
     setBuilderInitialStep(undefined);
   };
-
-  const selectedPlan = mounted ? (plans.find(p => p.id === selectedPlanId) ?? null) : null;
 
   const updatePlanInline = (updatedPlan: CareerPlan) => {
     const updatedPlans = plans.map(p => p.id === updatedPlan.id ? updatedPlan : p);
@@ -242,128 +153,173 @@ function CareerPageContent() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
   };
 
-  const handleSharePlan = (plan: CareerPlan, isPublic: boolean, shareType?: string) => {
-    if (isPublic) setActiveTab('community');
+  const handleSharePlan = (plan: CareerPlan, isPublic: boolean) => {
+    if (isPublic) handleTabChange('community');
   };
+
+  const selectedPlan = mounted ? (plans.find(p => p.id === selectedPlanId) ?? null) : null;
+  const sortedPlans = [...plans].sort((a, b) => {
+    const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+    const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+    return timeB - timeA;
+  });
+  const totalTemplateCount = careerPathTemplates.length;
+  const totalTemplateUses = careerPathTemplates.reduce((sum, template) => sum + template.uses, 0);
+  const totalCommunitySharedPlans = ((communityData as { sharedPlans?: unknown[] }).sharedPlans ?? []).length;
+  const totalCommunityGroups = ((communityData as { groups?: unknown[] }).groups ?? []).length;
+  const totalMyPublicPlans = plans.filter((plan) => plan.isPublic).length;
+
+  /* ── 커뮤니티 패널용 reactions 상태 (CommunityDetailPanel에 전달) ── */
+  const {
+    reactions: communityReactions,
+    handleToggleLike: handleCommunityToggleLike,
+    handleToggleBookmark: handleCommunityToggleBookmark,
+  } = useCommunityReactions();
 
   return (
     <div
-      className="min-h-screen pb-12 relative overflow-hidden"
+      className="min-h-screen pb-12 relative"
       style={{ backgroundColor: '#0a0a1e' }}
     >
       <StarField />
+      <CareerPageHeader
+        activeTab={activeTab}
+        onTabChange={handleTabChange}
+        selectedJobBadge={
+          mounted && selectedPlan
+            ? { jobEmoji: selectedPlan.jobEmoji, jobName: selectedPlan.jobName, starColor: selectedPlan.starColor }
+            : null
+        }
+      />
 
-      {/* Page header */}
-      <div
-        className="sticky top-0 z-20 px-4"
-        style={{
-          backgroundColor: 'rgba(10,10,30,0.92)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
-        }}
-      >
-        <div className="flex items-center justify-between py-3">
-          <div>
-            <h1 className="text-xl font-black bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent">
-              드림 패스
-            </h1>
-            <p className="text-xs text-gray-500">나만의 진로 로드맵</p>
-          </div>
-          {mounted && selectedPlan && (
-            <div
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl"
-              style={{
-                backgroundColor: `${selectedPlan.starColor}18`,
-                border: `1px solid ${selectedPlan.starColor}33`,
-              }}
-            >
-              <span className="text-base">{selectedPlan.jobEmoji}</span>
-              <span className="text-[12px] font-bold" style={{ color: selectedPlan.starColor }}>
-                {selectedPlan.jobName}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Tab bar */}
-        <div className="flex gap-1.5 pb-3">
-          {TABS.map(tab => {
-            const active = mounted && activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold transition-all"
-                style={active
-                  ? {
-                      background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                      color: '#fff',
-                      boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
-                    }
-                  : {
-                      backgroundColor: 'rgba(255,255,255,0.05)',
-                      color: 'rgba(255,255,255,0.4)',
-                      border: '1px solid rgba(255,255,255,0.07)',
-                    }}
-              >
-                <span>{tab.emoji}</span>
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Tab content */}
-      <div className="relative z-10 px-4 pt-4">
+      {/* ── Tab content ── */}
+      <div className="web-container relative z-10 py-4 md:py-6">
+        <ExploreHeroBanner
+          activeTab={activeTab}
+          onNewPath={openNew}
+          totalTemplateCount={totalTemplateCount}
+          totalUses={totalTemplateUses}
+          totalCommunitySharedPlans={totalCommunitySharedPlans}
+          totalCommunityGroups={totalCommunityGroups}
+          totalMyPlans={plans.length}
+          totalMyPublicPlans={totalMyPublicPlans}
+        />
         {!mounted ? null : activeTab === 'explore' ? (
           <>
-            <CareerPathList
-              onUseTemplate={handleUseTemplate}
-              onNewPath={openNew}
-              myPublicPlans={plans.filter(p => p.isPublic)}
-              onViewMyPlan={(plan) => {
-                setSelectedPlanId(plan.id);
-                setActiveTab('timeline');
-              }}
-            />
-            {!builderOpen && (
-              <div className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto">
-                <button
-                  onClick={openNew}
-                  className="w-full h-14 rounded-2xl font-black text-base text-white flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]"
+            <TwoColumnPanelLayout
+              hasSelection={selectedExploreTemplate !== null}
+              onClearSelection={() => setSelectedExploreTemplate(null)}
+              emptyPlaceholderText="커리어 패스를 선택하세요"
+              emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
+              listSlot={
+                <div
+                  className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
                   style={{
-                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                    boxShadow: '0 8px 28px rgba(108,92,231,0.55)',
+                    borderColor: 'rgba(255,255,255,0.12)',
+                    background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+                    boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
                   }}
                 >
-                  <Plus className="w-5 h-5" />
-                  커리어 패스 만들기
-                </button>
-              </div>
-            )}
+                  <CareerPathList
+                    onUseTemplate={handleUseTemplate}
+                    myPublicPlans={plans.filter(p => p.isPublic)}
+                    onViewMyPlan={(plan) => { setSelectedPlanId(plan.id); handleTabChange('timeline'); }}
+                    selectedTemplateId={selectedExploreTemplate?.id ?? null}
+                    onSelectTemplate={setSelectedExploreTemplate}
+                  />
+                </div>
+              }
+              detailSlot={
+                selectedExploreTemplate ? (
+                  <CareerPathDetailPanel
+                    template={selectedExploreTemplate}
+                    onClose={() => setSelectedExploreTemplate(null)}
+                    onUseTemplate={(customTitle) => handleUseTemplate(selectedExploreTemplate, customTitle)}
+                  />
+                ) : null
+              }
+            />
           </>
         ) : activeTab === 'timeline' ? (
-          <VerticalTimelineList
-            allPlans={[...plans].sort((a, b) => {
-              const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
-              const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
-              return timeB - timeA;
-            })}
-            preferredOpenPlanId={selectedPlanId}
-            onEdit={openEdit}
-            onUpdatePlan={updatePlanInline}
-            onDeletePlan={deletePlan}
-            onNewPlan={openNew}
-            onSharePlan={handleSharePlan}
-            onOpenShareDialog={(plan) => setSharingPlan(plan)}
+          <TwoColumnPanelLayout
+            hasSelection={selectedPlanId !== null && selectedPlan !== null}
+            onClearSelection={() => setSelectedPlanId(null)}
+            emptyPlaceholderText="패스를 선택하세요"
+            emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 타임라인이 여기에 표시됩니다"
+            listSlot={
+              <div
+                className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
+                style={{
+                  borderColor: 'rgba(255,255,255,0.12)',
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+                  boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+                }}
+              >
+                <VerticalTimelineList
+                  allPlans={sortedPlans}
+                  preferredOpenPlanId={selectedPlanId}
+                  selectedPlanId={selectedPlanId}
+                  onSelectPlan={setSelectedPlanId}
+                  onNewPlan={openNew}
+                />
+              </div>
+            }
+            detailSlot={
+              selectedPlan ? (
+                <TimelineDetailPanel
+                  plan={selectedPlan}
+                  onClose={() => setSelectedPlanId(null)}
+                  onEdit={openEdit}
+                  onUpdatePlan={updatePlanInline}
+                  onDeletePlan={deletePlan}
+                  onSharePlan={handleSharePlan}
+                  onOpenShareDialog={(plan) => setSharingPlan(plan)}
+                />
+              ) : null
+            }
           />
         ) : activeTab === 'community' ? (
-          <CommunityTab onNewPlan={openNew} />
+          <TwoColumnPanelLayout
+            hasSelection={selectedCommunityPlan !== null}
+            onClearSelection={() => setSelectedCommunityPlan(null)}
+            emptyPlaceholderText="공유 패스를 선택하세요"
+            emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
+            listSlot={
+              <div
+                className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
+                style={{
+                  borderColor: 'rgba(255,255,255,0.12)',
+                  background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+                  boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+                }}
+              >
+                <CommunityTab
+                  onNewPlan={openNew}
+                  selectedPlanId={selectedCommunityPlan?.id ?? null}
+                  onSelectPlan={setSelectedCommunityPlan}
+                />
+              </div>
+            }
+            detailSlot={
+              selectedCommunityPlan ? (
+                <CommunityDetailPanel
+                  plan={selectedCommunityPlan}
+                  isLiked={communityReactions.likedPlanIds.includes(selectedCommunityPlan.id)}
+                  isBookmarked={communityReactions.bookmarkedPlanIds.includes(selectedCommunityPlan.id)}
+                  likeCount={communityReactions.likeCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.likes}
+                  bookmarkCount={communityReactions.bookmarkCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.bookmarks}
+                  onToggleLike={() => handleCommunityToggleLike(selectedCommunityPlan.id)}
+                  onToggleBookmark={() => handleCommunityToggleBookmark(selectedCommunityPlan.id)}
+                  onClose={() => setSelectedCommunityPlan(null)}
+                  onAddComment={() => {}}
+                />
+              ) : null
+            }
+          />
         ) : null}
       </div>
 
-      {/* Builder dialog — full-screen overlay */}
+      {/* Builder dialog */}
       {builderOpen && (
         <CareerPathBuilder
           initialPlan={editingPlan}
@@ -394,7 +350,7 @@ function CareerPageContent() {
               sharedAt: isPublic ? new Date().toISOString() : undefined,
             };
             updatePlanInline(updated);
-            handleSharePlan(updated, isPublic, shareType);
+            handleSharePlan(updated, isPublic);
             setSharingPlan(null);
           }}
           onClose={() => setSharingPlan(null)}
@@ -408,10 +364,7 @@ export default function CareerPage() {
   return (
     <Suspense
       fallback={
-        <div
-          className="min-h-screen flex items-center justify-center"
-          style={{ backgroundColor: '#0a0a1e' }}
-        >
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
           <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
         </div>
       }

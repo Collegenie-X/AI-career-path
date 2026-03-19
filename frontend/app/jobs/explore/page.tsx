@@ -22,7 +22,7 @@ import {
 } from './components';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
 import { UniversityAdmissionTab } from './components/UniversityAdmissionTab';
-import { LABELS } from './config';
+import { LABELS, EXPLORE_PAGE_LAYOUT_CLASS } from './config';
 import type { StarData, Job } from './types';
 
 type ExploreTabId = 'star' | 'admission' | 'university';
@@ -74,73 +74,73 @@ function JobsExploreContent() {
   };
 
   return (
-    <div
-      className="min-h-screen relative overflow-hidden"
-      style={{ paddingBottom: '1rem' }}
-    >
+    <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot}>
       <StarField />
+      <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentShell}>
+        <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentFrame}>
+          <PageHeader selectedStar={selectedStar} onBack={() => setSelectedStar(null)} />
 
-      <PageHeader selectedStar={selectedStar} onBack={() => setSelectedStar(null)} />
-
-      {/* Top Tab Navigation */}
-      <div className="relative z-10 px-3 pt-3">
-        <div
-          className="flex rounded-2xl p-1"
-          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          {EXPLORE_TABS.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => handleTabChange(tab.id)}
-              className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-              style={{
-                background: activeTab === tab.id
-                  ? 'rgba(132,94,247,0.35)'
-                  : 'transparent',
-                color: activeTab === tab.id ? '#c084fc' : '#9ca3af',
-                boxShadow: activeTab === tab.id ? '0 2px 8px rgba(132,94,247,0.3)' : 'none',
-              }}
+          {/* Top Tab Navigation */}
+          <div className={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationArea}>
+            <div
+              className="flex rounded-2xl p-1"
+              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
             >
-              {tab.icon}
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="relative z-10 px-3 py-3 space-y-3">
-        {/* ── 직업탐색 탭 ── */}
-        {activeTab === 'star' && (
-          <>
-            <IntroBanner />
-            <div>
-              <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" /> {LABELS.star_grid_title}
-              </h2>
-              <div className="grid grid-cols-2 gap-3">
-                {stars.map((s, i) => (
-                  <StarCard key={s.id} star={s} index={i} onClick={() => setSelectedStar(s)} />
-                ))}
-                {[...Array(8 - stars.length)].map((_, i) => (
-                  <div
-                    key={`ph-${i}`}
-                    className="rounded-3xl h-32 flex flex-col items-center justify-center gap-1"
-                    style={{ background: 'rgba(255,255,255,0.02)', border: '2px dashed rgba(255,255,255,0.08)' }}
-                  >
-                    <div className="text-xl opacity-20">🌟</div>
-                    <div className="text-[11px] text-gray-700 font-semibold">{LABELS.coming_soon}</div>
-                  </div>
-                ))}
-              </div>
+              {EXPLORE_TABS.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id)}
+                  className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
+                  style={{
+                    background: activeTab === tab.id
+                      ? 'rgba(132,94,247,0.35)'
+                      : 'transparent',
+                    color: activeTab === tab.id ? '#c084fc' : '#9ca3af',
+                    boxShadow: activeTab === tab.id ? '0 2px 8px rgba(132,94,247,0.3)' : 'none',
+                  }}
+                >
+                  {tab.icon}
+                  {tab.label}
+                </button>
+              ))}
             </div>
-          </>
-        )}
+          </div>
 
-        {/* ── 고입 탐색 탭 ── */}
-        {activeTab === 'admission' && <HighSchoolAdmissionTab />}
+          <div className={EXPLORE_PAGE_LAYOUT_CLASS.bodyContentArea}>
+            {/* ── 직업탐색 탭 ── */}
+            {activeTab === 'star' && (
+              <>
+                <IntroBanner />
+                <div>
+                  <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" /> {LABELS.star_grid_title}
+                  </h2>
+                  <div className={EXPLORE_PAGE_LAYOUT_CLASS.starGrid}>
+                    {stars.map((s, i) => (
+                      <StarCard key={s.id} star={s} index={i} onClick={() => setSelectedStar(s)} />
+                    ))}
+                    {[...Array(8 - stars.length)].map((_, i) => (
+                      <div
+                        key={`ph-${i}`}
+                        className="rounded-3xl h-32 flex flex-col items-center justify-center gap-1"
+                        style={{ background: 'rgba(255,255,255,0.02)', border: '2px dashed rgba(255,255,255,0.08)' }}
+                      >
+                        <div className="text-xl opacity-20">🌟</div>
+                        <div className="text-[11px] text-gray-700 font-semibold">{LABELS.coming_soon}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
 
-        {/* ── 대입 탐색 탭 ── */}
-        {activeTab === 'university' && <UniversityAdmissionTab />}
+            {/* ── 고입 탐색 탭 ── */}
+            {activeTab === 'admission' && <HighSchoolAdmissionTab />}
+
+            {/* ── 대입 탐색 탭 ── */}
+            {activeTab === 'university' && <UniversityAdmissionTab />}
+          </div>
+        </div>
       </div>
 
       {/* 별 선택 시 전체 페이지 (화살표로 섹션 이동) */}
@@ -175,7 +175,9 @@ export default function JobsExplorePage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen relative overflow-hidden flex items-center justify-center">
-        <div className="text-gray-400">Loading...</div>
+        <div className="rounded-2xl border border-white/15 bg-[rgba(14,20,40,0.82)] px-6 py-4 text-gray-300">
+          Loading...
+        </div>
       </div>
     }>
       <JobsExploreContent />

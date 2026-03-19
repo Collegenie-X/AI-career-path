@@ -228,3 +228,14 @@ export const JOB_ROUTE_LABELS = {
   hide_overview: '전체 연결도 닫기',
   job_count_suffix: '개 직업',
 };
+
+// ─── Explore Page Layout (Responsive) ──────────────────────────
+export const EXPLORE_PAGE_LAYOUT_CLASS = {
+  pageRoot: 'min-h-screen relative overflow-hidden pb-4 md:pb-8',
+  contentShell: 'relative z-10 mx-auto w-full max-w-[1240px] px-3 md:px-6 lg:px-8',
+  contentFrame:
+    'md:mt-6 md:rounded-[28px] md:border md:border-white/15 md:bg-[rgba(14,20,40,0.82)] md:backdrop-blur-xl md:shadow-[0_24px_70px_rgba(5,8,20,0.55)] md:overflow-hidden',
+  tabNavigationArea: 'relative z-10 px-3 pt-3 md:px-6 md:pt-5',
+  bodyContentArea: 'relative z-10 px-3 py-3 space-y-3 md:px-6 md:py-6 md:space-y-5',
+  starGrid: 'grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4',
+} as const;

@@ -20,11 +20,15 @@ export function FeedbackOverlay({
   
   return (
     <div
-      className="fixed inset-0 z-50 flex items-end justify-center p-4"
-      style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(6px)' }}
+      className="fixed inset-0 z-50 flex items-end justify-center p-4 md:p-6"
+      style={{ backgroundColor: 'rgba(3,6,18,0.26)' }}
     >
       <div
-        className="w-full max-w-[430px] rounded-3xl p-6 relative overflow-hidden"
+        className="absolute inset-x-0 bottom-0 h-40 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, rgba(5,8,24,0.55) 0%, rgba(5,8,24,0.08) 100%)' }}
+      />
+      <div
+        className="w-[calc(100%-2rem)] md:w-[calc(100%-3rem)] max-w-5xl rounded-3xl p-5 md:p-6 relative overflow-hidden"
         style={{
           background: `linear-gradient(135deg, #1A1A2E 0%, ${color}22 100%)`,
           border: `1.5px solid ${color}55`,

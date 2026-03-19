@@ -28,8 +28,16 @@ const SUB_TABS: { id: SubTab; label: string; icon: typeof SchoolIcon }[] = [
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
 const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
 
+type CommunityTabProps = {
+  onNewPlan: () => void;
+  /** 현재 선택된 플랜 ID (controlled — 부모에서 관리) */
+  selectedPlanId?: string | null;
+  /** 플랜 선택 콜백 (controlled — 부모에서 관리) */
+  onSelectPlan?: (plan: SharedPlan | null) => void;
+};
+
 /* ─── Main export ─── */
-export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
+export function CommunityTab({ onNewPlan, selectedPlanId, onSelectPlan }: CommunityTabProps) {
   const [subTab, setSubTab] = useState<SubTab>('school');
   const [selectedPlan, setSelectedPlan] = useState<SharedPlan | null>(null);
   const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
@@ -72,9 +80,15 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
     }
   });
 
+  const isControlled = onSelectPlan !== undefined;
+
   /* 상세 조회 시 해당 패스를 '확인함'으로 기록 */
   const handleViewPlanDetail = useCallback((plan: SharedPlan | null) => {
-    setSelectedPlan(plan);
+    if (isControlled) {
+      onSelectPlan?.(plan);
+    } else {
+      setSelectedPlan(plan);
+    }
     if (plan) {
       const checkedAt = new Date().toISOString();
       setCheckedPlans(prev => {
@@ -83,7 +97,8 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
         return next;
       });
     }
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isControlled, onSelectPlan]);
 
   /* Load persisted reactions + checked plans once on mount */
   useEffect(() => {
@@ -264,8 +279,8 @@ export function CommunityTab({ onNewPlan }: { onNewPlan: () => void }) {
         </button>
       </div>
 
-      {/* Dialogs */}
-      {selectedPlan && (
+      {/* Dialogs — controlled 모드에서는 부모가 패널로 렌더링하므로 Dialog 숨김 */}
+      {!isControlled && selectedPlan && (
         <SharedPlanDetailDialog
           plan={selectedPlan}
           isLiked={reactions.likedPlanIds.includes(selectedPlan.id)}

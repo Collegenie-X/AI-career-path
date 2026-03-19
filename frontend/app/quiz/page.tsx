@@ -127,34 +127,43 @@ export default function QuizPage() {
     >
       <BackgroundEffects color={color} />
 
-      <QuizHeader
-        question={q}
-        currentIndex={currentIndex}
-        totalQuestions={questions.length}
-        questions={questions}
-        answers={answers}
-        onBack={goBack}
-      />
+      {/* 웹 스타일 컨테이너 */}
+      <div className="web-container relative z-10 flex-1 flex flex-col py-6 md:py-8">
+        <div className="max-w-5xl mx-auto w-full flex flex-col flex-1">
+          <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-4 py-4 md:px-8 md:py-6">
+          <QuizHeader
+            question={q}
+            currentIndex={currentIndex}
+            totalQuestions={questions.length}
+            questions={questions}
+            answers={answers}
+            onBack={goBack}
+          />
 
-      <QuestionCard question={q} />
+          <div className="flex-1 flex flex-col justify-center">
+            <QuestionCard question={q} />
 
-      <XpPopup visible={xpPopVisible} />
+            <XpPopup visible={xpPopVisible} />
 
-      <ChoicesList
-        question={q}
-        currentIndex={currentIndex}
-        answers={answers}
-        choicesVisible={choicesVisible}
-        animating={animating}
-        pendingFeedback={!!pendingFeedback}
-        onPickAnswer={pickAnswer}
-      />
+            <ChoicesList
+              question={q}
+              currentIndex={currentIndex}
+              answers={answers}
+              choicesVisible={choicesVisible}
+              animating={animating}
+              pendingFeedback={!!pendingFeedback}
+              onPickAnswer={pickAnswer}
+            />
+          </div>
 
-      <QuizStatus
-        answeredCount={answeredCount}
-        totalQuestions={questions.length}
-        currentZoneColor={color}
-      />
+          <QuizStatus
+            answeredCount={answeredCount}
+            totalQuestions={questions.length}
+            currentZoneColor={color}
+          />
+          </section>
+        </div>
+      </div>
 
       {pendingFeedback && (
         <FeedbackOverlay

@@ -63,3 +63,59 @@ export const ROUTES = careerConfig.routes as {
   readonly explore: string;
   readonly community: string;
 };
+
+export type CareerPageTabId = 'explore' | 'timeline' | 'community';
+
+export type CareerPageTabItem = {
+  readonly id: CareerPageTabId;
+  readonly label: string;
+  readonly emoji: string;
+};
+
+export type CareerHeaderContent = {
+  readonly title: string;
+  readonly subtitle: string;
+};
+
+export type CareerTabHeroContent = {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly highlightText: string;
+  readonly description: string;
+  readonly ctaLabel: string;
+};
+
+export const CAREER_PAGE_TABS: readonly CareerPageTabItem[] = [
+  { id: 'explore', label: String(LABELS.tab_explore ?? '탐색'), emoji: '🔍' },
+  { id: 'community', label: String(LABELS.tab_community ?? '커뮤니티'), emoji: '👥' },
+  { id: 'timeline', label: String(LABELS.tab_timeline ?? '내 패스'), emoji: '🗺️' },
+] as const;
+
+export const CAREER_PAGE_HEADER_CONTENT: CareerHeaderContent = {
+  title: String(LABELS.page_title ?? '드림 패스'),
+  subtitle: String(LABELS.page_subtitle ?? '나만의 진로 로드맵'),
+};
+
+export const CAREER_TAB_HERO_CONTENT: Record<CareerPageTabId, CareerTabHeroContent> = {
+  explore: {
+    eyebrow: String(LABELS.hero_explore_eyebrow ?? '커리어 패스 탐색'),
+    title: String(LABELS.hero_explore_title ?? '나의 진로 로드맵,'),
+    highlightText: String(LABELS.hero_explore_highlight ?? '여기서 찾아보세요'),
+    description: String(LABELS.hero_explore_description ?? '다양한 직업의 커리어 패스를 참고하거나 나만의 패스를 직접 만들어 보세요.'),
+    ctaLabel: String(LABELS.hero_explore_cta ?? '패스 만들기'),
+  },
+  community: {
+    eyebrow: String(LABELS.hero_community_eyebrow ?? '커뮤니티 네트워크'),
+    title: String(LABELS.hero_community_title ?? '같은 목표 친구들과'),
+    highlightText: String(LABELS.hero_community_highlight ?? '로드맵을 나눠보세요'),
+    description: String(LABELS.hero_community_description ?? '공유된 패스를 둘러보고 좋아요와 북마크로 동기부여를 이어가세요.'),
+    ctaLabel: String(LABELS.hero_community_cta ?? '패스 만들기'),
+  },
+  timeline: {
+    eyebrow: String(LABELS.hero_timeline_eyebrow ?? '나의 실행 타임라인'),
+    title: String(LABELS.hero_timeline_title ?? '내 목표를 학년별로'),
+    highlightText: String(LABELS.hero_timeline_highlight ?? '차근차근 완성해요'),
+    description: String(LABELS.hero_timeline_description ?? '현재 패스를 점검하고 수정하면서 나만의 진로 계획을 꾸준히 업데이트하세요.'),
+    ctaLabel: String(LABELS.hero_timeline_cta ?? '새 패스 추가'),
+  },
+};

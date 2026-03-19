@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { getRecommendedJobs } from '@/lib/recommendations';
@@ -8,6 +8,7 @@ import kingdomsData from '@/data/kingdoms.json';
 import jobsData from '@/data/jobs.json';
 import * as LucideIcons from 'lucide-react';
 import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase } from 'lucide-react';
+import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
 import type { RIASECResult, Job, Kingdom } from '@/lib/types';
 
 function getJobIcon(iconName: string) {
@@ -32,7 +33,6 @@ export default function QuizResultsPage() {
   const [mounted, setMounted] = useState(false);
   const [riasec, setRiasec] = useState<RIASECResult | null>(null);
   const [phase, setPhase] = useState<'analyzing' | 'reveal' | 'done'>('analyzing');
-  const [revealStep, setRevealStep] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -43,13 +43,9 @@ export default function QuizResultsPage() {
     }
     setRiasec(riasecResult);
 
-    // Analyzing animation sequence
     const t1 = setTimeout(() => setPhase('reveal'), 2200);
-    const t2 = setTimeout(() => setRevealStep(1), 2600);
-    const t3 = setTimeout(() => setRevealStep(2), 3200);
-    const t4 = setTimeout(() => setRevealStep(3), 3800);
-    const t5 = setTimeout(() => setPhase('done'), 4400);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
+    const t2 = setTimeout(() => setPhase('done'), 3000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [router]);
 
   if (!mounted || !riasec) return null;
@@ -71,351 +67,338 @@ export default function QuizResultsPage() {
     router.push('/home');
   };
 
-  // === ANALYZING PHASE ===
   if (phase === 'analyzing') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden spaceship-bg">
-        {/* Star field */}
-        {Array.from({ length: 40 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: 1 + Math.random() * 2.5,
-              height: 1 + Math.random() * 2.5,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              backgroundColor: '#fff',
-              opacity: 0.1 + Math.random() * 0.5,
-              animation: `float ${2 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          />
-        ))}
+      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
+        <StarfieldCanvas count={150} />
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none" />
 
-        {/* Central analyzing orb */}
-        <div className="relative">
-          <div
-            className="w-32 h-32 rounded-full flex items-center justify-center animate-pulse-glow"
-            style={{
-              background: `radial-gradient(circle, ${topMeta.color}40 0%, ${topMeta.color}10 60%, transparent 70%)`,
-            }}
-          >
-            <Orbit className="w-16 h-16 text-white animate-sparkle-spin" style={{ animationDuration: '3s' }} />
-          </div>
-          {/* Orbiting particles */}
-          {[0, 1, 2].map((i) => (
-            <div key={i} className="absolute inset-0 flex items-center justify-center">
-              <div className="animate-orbit" style={{ animationDuration: `${3 + i * 1.5}s`, animationDelay: `${i * 0.5}s` }}>
-                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: topMeta.color, boxShadow: `0 0 8px ${topMeta.color}` }} />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-white/60 text-lg font-semibold mt-8 animate-pulse">
-          우주 적성 데이터 분석 중...
-        </p>
-        <div className="flex gap-1.5 mt-4">
-          {[0, 1, 2, 3, 4].map((i) => (
+        <div className="relative z-10 flex flex-col items-center">
+          <div className="relative mb-8">
             <div
-              key={i}
-              className="w-2 h-2 rounded-full bg-primary"
+              className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center animate-pulse-glow"
               style={{
-                animation: 'float 1s ease-in-out infinite',
-                animationDelay: `${i * 0.15}s`,
+                background: `radial-gradient(circle, ${topMeta.color}40 0%, ${topMeta.color}10 60%, transparent 70%)`,
               }}
-            />
-          ))}
+            >
+              <Orbit className="w-20 h-20 md:w-24 md:h-24 text-white animate-sparkle-spin" style={{ animationDuration: '3s' }} />
+            </div>
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="absolute inset-0 flex items-center justify-center">
+                <div className="animate-orbit" style={{ animationDuration: `${3 + i * 1.5}s`, animationDelay: `${i * 0.5}s` }}>
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: topMeta.color, boxShadow: `0 0 12px ${topMeta.color}` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-white/60 text-lg md:text-xl font-semibold animate-pulse">
+            적성 데이터 분석 중...
+          </p>
+          <div className="flex gap-2 mt-5">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className="w-2.5 h-2.5 rounded-full"
+                style={{
+                  backgroundColor: topMeta.color,
+                  animation: 'float 1s ease-in-out infinite',
+                  animationDelay: `${i * 0.15}s`,
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );
   }
 
-  // === REVEAL / DONE PHASE ===
   return (
-    <div className="min-h-screen pb-8 relative overflow-hidden spaceship-bg">
-      {/* Background star field */}
-      {Array.from({ length: 50 }).map((_, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            width: 1 + Math.random() * 2,
-            height: 1 + Math.random() * 2,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            backgroundColor: '#fff',
-            opacity: 0.05 + Math.random() * 0.3,
-            animation: `float ${3 + Math.random() * 5}s ease-in-out infinite`,
-            animationDelay: `${Math.random() * 3}s`,
-          }}
-        />
-      ))}
+    <div className="min-h-screen pb-16 relative overflow-hidden bg-black">
+      <StarfieldCanvas count={100} />
+      
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/8 to-transparent pointer-events-none" />
 
-      {/* Radial glow behind top section */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
           background: `radial-gradient(circle, ${topMeta.color}15 0%, transparent 70%)`,
         }}
       />
 
-      <div className="relative z-10 px-5 pt-8 space-y-6">
-        {/* Header Badge */}
-        <div className="text-center animate-scale-bounce">
+      <div className="web-container relative z-10 py-12 md:py-16">
+        <section className="max-w-5xl mx-auto space-y-8 md:space-y-10 rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-8 md:px-10 md:py-12">
+
+          {/* Header Badge */}
+          <div className="text-center animate-scale-bounce">
+            <div
+              className="inline-flex items-center gap-2 px-5 py-2 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-bold"
+              style={{ backgroundColor: `${topMeta.color}20`, color: topMeta.color, border: `1px solid ${topMeta.color}30` }}
+            >
+              <Star className="w-4 h-4 md:w-5 md:h-5" />
+              적성 분석 완료
+            </div>
+          </div>
+
+          {/* Main Type Reveal */}
+          <div className="text-center space-y-3 md:space-y-4 animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <p className="text-white/50 text-base md:text-lg">당신의 적성 유형은</p>
+            <div className="relative inline-block">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black" style={{ color: topMeta.color }}>
+                {topType}
+              </h1>
+              <div className="absolute -inset-6 md:-inset-8 rounded-full animate-pulse-glow" style={{ opacity: 0.3 }} />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">{topMeta.label}</h2>
+            <p className="text-white/50 text-base md:text-lg">{topMeta.desc} 유형</p>
+          </div>
+
+          {/* RIASEC Score Bars */}
           <div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold"
-            style={{ backgroundColor: `${topMeta.color}20`, color: topMeta.color, border: `1px solid ${topMeta.color}30` }}
-          >
-            <Star className="w-4 h-4" />
-            적성 분석 완료
-          </div>
-        </div>
-
-        {/* Main Type Reveal */}
-        <div className="text-center space-y-2 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          <p className="text-white/50 text-sm">당신의 적성 유형은</p>
-          <div className="relative inline-block">
-            <h1 className="text-5xl font-black" style={{ color: topMeta.color }}>
-              {topType}
-            </h1>
-            <div className="absolute -inset-4 rounded-full animate-pulse-glow" style={{ opacity: 0.3 }} />
-          </div>
-          <h2 className="text-2xl font-bold text-white">{topMeta.label}</h2>
-          <p className="text-white/50 text-sm">{topMeta.desc} 유형</p>
-        </div>
-
-        {/* RIASEC Score Bars - Space radar style */}
-        <div
-          className="rounded-2xl p-5 space-y-3 animate-slide-up"
-          style={{
-            backgroundColor: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            animationDelay: '0.2s',
-          }}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <Orbit className="w-4 h-4 text-white/40" />
-            <span className="text-sm font-semibold text-white/60">RIASEC 스펙트럼</span>
-          </div>
-          {sortedTypes.map((type, index) => {
-            const meta = RIASEC_META[type];
-            const score = riasec.scores[type];
-            const pct = Math.round(score * 100);
-            const isTop = index === 0;
-            return (
-              <div key={type} className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div
-                      className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black text-white"
-                      style={{ backgroundColor: meta.color }}
-                    >
-                      {type}
-                    </div>
-                    <span className="text-sm font-medium text-white/80">{meta.label}</span>
-                    {isTop && (
-                      <span
-                        className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                        style={{ backgroundColor: `${meta.color}25`, color: meta.color }}
-                      >
-                        TOP
-                      </span>
-                    )}
-                  </div>
-                  <span className="text-sm font-bold" style={{ color: isTop ? meta.color : 'rgba(255,255,255,0.5)' }}>
-                    {pct}%
-                  </span>
-                </div>
-                <div className="h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
-                  <div
-                    className="h-full rounded-full transition-all duration-1000 ease-out"
-                    style={{
-                      width: phase === 'done' ? `${pct}%` : '0%',
-                      background: isTop
-                        ? `linear-gradient(90deg, ${meta.color}, ${meta.color}99)`
-                        : `${meta.color}60`,
-                      boxShadow: isTop ? `0 0 12px ${meta.color}50` : 'none',
-                      animation: 'progress-fill 1.2s ease-out',
-                      animationDelay: `${index * 0.15}s`,
-                    }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Matching Star */}
-        {topStar && (
-          <div
-            className="rounded-2xl p-5 animate-slide-up relative overflow-hidden"
+            className="rounded-2xl md:rounded-3xl p-6 md:p-8 space-y-4 md:space-y-5 animate-slide-up"
             style={{
-              background: `linear-gradient(135deg, ${topStar.color}15 0%, ${topStar.color}05 100%)`,
-              border: `1px solid ${topStar.color}30`,
-              animationDelay: '0.3s',
+              backgroundColor: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              animationDelay: '0.2s',
             }}
           >
-            {/* Mini star particles */}
-            {Array.from({ length: 6 }).map((_, i) => (
+            <div className="flex items-center gap-2.5 mb-2">
+              <Orbit className="w-5 h-5 md:w-6 md:h-6 text-white/40" />
+              <span className="text-base md:text-lg font-semibold text-white/60">RIASEC 스펙트럼</span>
+            </div>
+            {sortedTypes.map((type, index) => {
+              const meta = RIASEC_META[type];
+              const score = riasec.scores[type];
+              const pct = Math.round(score * 100);
+              const isTop = index === 0;
+              return (
+                <div key={type} className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-9 h-9 md:w-10 md:h-10 rounded-lg md:rounded-xl flex items-center justify-center text-sm md:text-base font-black text-white transition-transform hover:scale-110"
+                        style={{ backgroundColor: meta.color }}
+                      >
+                        {type}
+                      </div>
+                      <span className="text-sm md:text-base font-medium text-white/80">{meta.label}</span>
+                      {isTop && (
+                        <span
+                          className="text-[10px] md:text-xs font-bold px-2.5 py-1 rounded-full"
+                          style={{ backgroundColor: `${meta.color}25`, color: meta.color }}
+                        >
+                          TOP
+                        </span>
+                      )}
+                    </div>
+                    <span className="text-sm md:text-base font-bold" style={{ color: isTop ? meta.color : 'rgba(255,255,255,0.5)' }}>
+                      {pct}%
+                    </span>
+                  </div>
+                  <div className="h-2.5 md:h-3 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}>
+                    <div
+                      className="h-full rounded-full transition-all duration-1000 ease-out"
+                      style={{
+                        width: phase === 'done' ? `${pct}%` : '0%',
+                        background: isTop
+                          ? `linear-gradient(90deg, ${meta.color}, ${meta.color}99)`
+                          : `${meta.color}60`,
+                        boxShadow: isTop ? `0 0 16px ${meta.color}50` : 'none',
+                        animation: 'progress-fill 1.2s ease-out',
+                        animationDelay: `${index * 0.15}s`,
+                      }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Matching Star */}
+          {topStar && (
+            <div
+              className="rounded-2xl md:rounded-3xl p-6 md:p-8 animate-slide-up relative overflow-hidden transition-all hover:scale-[1.01]"
+              style={{
+                background: `linear-gradient(135deg, ${topStar.color}15 0%, ${topStar.color}05 100%)`,
+                border: `1px solid ${topStar.color}30`,
+                animationDelay: '0.3s',
+              }}
+            >
               <div
-                key={i}
-                className="absolute rounded-full pointer-events-none animate-float"
-                style={{
-                  width: 2,
-                  height: 2,
-                  backgroundColor: topStar.color,
-                  opacity: 0.3,
-                  left: `${15 + Math.random() * 70}%`,
-                  top: `${15 + Math.random() * 70}%`,
-                  animationDuration: `${2 + Math.random() * 3}s`,
-                  animationDelay: `${Math.random() * 2}s`,
-                }}
+                className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ boxShadow: `0 0 50px ${topStar.color}20` }}
               />
-            ))}
-
-            <div className="flex items-center gap-2 mb-3">
-              <Star className="w-4 h-4" style={{ color: topStar.color }} />
-              <span className="text-sm font-bold" style={{ color: topStar.color }}>추천 별</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center relative"
-                style={{
-                  background: `linear-gradient(135deg, ${topStar.color} 0%, ${topStar.color}80 100%)`,
-                  boxShadow: `0 0 30px ${topStar.color}30`,
-                }}
-              >
-                <Sparkles className="w-8 h-8 text-white" />
-                {/* Orbiting dot */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="animate-orbit" style={{ animationDuration: '5s' }}>
-                    <div className="w-1.5 h-1.5 rounded-full bg-white" style={{ boxShadow: `0 0 6px ${topStar.color}` }} />
-                  </div>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-lg text-white">{topStar.name}</h3>
-                <p className="text-sm text-white/50 mt-0.5 leading-relaxed">{topStar.description}</p>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* Recommended Jobs - 게임 스타일 */}
-        <div
-          className="rounded-2xl p-5 space-y-4 animate-slide-up"
-          style={{
-            backgroundColor: 'rgba(255,255,255,0.03)',
-            border: '1px solid rgba(255,255,255,0.08)',
-            animationDelay: '0.4s',
-          }}
-        >
-          <div className="flex items-center gap-2 mb-1">
-            <Trophy className="w-4 h-4 text-yellow-400" />
-            <span className="text-sm font-semibold text-white/60">추천 직업 TOP 5</span>
-          </div>
-          {recommendedJobs.map((item, index) => {
-            const job = item.job;
-            const star = kingdoms.find((k) => k.id === job.kingdomId);
-            const JobIcon = getJobIcon(job.icon);
-            const rankColors = ['#FBBF24', '#9CA3AF', '#CD7C2F', '#6B7280', '#4B5563'];
-            const rankColor = rankColors[index] ?? rankColors[4];
-            return (
-              <div
-                key={job.id}
-                className="flex items-center gap-4 p-3 rounded-xl transition-all active:scale-[0.99]"
-                style={{
-                  backgroundColor: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
-                  boxShadow: index === 0 ? `0 0 20px ${topMeta.color}15` : 'none',
-                }}
-              >
-                {/* 큰 아이콘 + 상단 오른쪽 순위 뱃지 */}
-                <div className="relative flex-shrink-0">
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center"
-                    style={{
-                      background: `linear-gradient(135deg, ${star?.color ?? topMeta.color}35, ${star?.color ?? topMeta.color}15)`,
-                      border: `1.5px solid ${star?.color ?? topMeta.color}50`,
-                      boxShadow: `0 4px 16px ${star?.color ?? topMeta.color}25`,
-                    }}
-                  >
-                    <JobIcon className="w-7 h-7 text-white" style={{ opacity: 0.95 }} />
-                  </div>
-                  <div
-                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg"
-                    style={{
-                      backgroundColor: rankColor,
-                      border: '2px solid rgba(11,11,22,0.9)',
-                      boxShadow: `0 2px 8px ${rankColor}60`,
-                    }}
-                  >
-                    {index + 1}
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-bold text-white text-sm">{job.name}</div>
-                  <div className="text-xs text-white/50 mt-0.5" style={{ color: star?.color ?? topMeta.color }}>
-                    {star?.name}
-                  </div>
-                  {(job.shortDescription ?? job.description) && (
-                    <p className="text-xs text-white/45 mt-1.5 line-clamp-2 leading-relaxed">
-                      {job.shortDescription ?? (typeof job.description === 'string' ? job.description : '')}
-                    </p>
-                  )}
-                </div>
+              
+              {Array.from({ length: 8 }).map((_, i) => (
                 <div
-                  className="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0"
+                  key={i}
+                  className="absolute rounded-full pointer-events-none animate-float"
                   style={{
-                    backgroundColor: `${topMeta.color}20`,
-                    color: topMeta.color,
-                    border: `1px solid ${topMeta.color}40`,
+                    width: 2,
+                    height: 2,
+                    backgroundColor: topStar.color,
+                    opacity: 0.3,
+                    left: `${15 + Math.random() * 70}%`,
+                    top: `${15 + Math.random() * 70}%`,
+                    animationDuration: `${2 + Math.random() * 3}s`,
+                    animationDelay: `${Math.random() * 2}s`,
+                  }}
+                />
+              ))}
+
+              <div className="relative flex items-center gap-3 mb-4">
+                <Star className="w-5 h-5 md:w-6 md:h-6" style={{ color: topStar.color }} />
+                <span className="text-base md:text-lg font-bold" style={{ color: topStar.color }}>추천 별</span>
+              </div>
+              <div className="relative flex items-center gap-5 md:gap-6">
+                <div
+                  className="w-20 h-20 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center relative shrink-0"
+                  style={{
+                    background: `linear-gradient(135deg, ${topStar.color} 0%, ${topStar.color}80 100%)`,
+                    boxShadow: `0 0 40px ${topStar.color}30`,
                   }}
                 >
-                  {item.score}%
+                  <Sparkles className="w-10 h-10 md:w-12 md:h-12 text-white" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="animate-orbit" style={{ animationDuration: '5s' }}>
+                      <div className="w-2 h-2 rounded-full bg-white" style={{ boxShadow: `0 0 8px ${topStar.color}` }} />
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-bold text-xl md:text-2xl text-white mb-1">{topStar.name}</h3>
+                  <p className="text-sm md:text-base text-white/50 leading-relaxed">{topStar.description}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          )}
 
-        {/* XP Earned Banner */}
-        <div
-          className="rounded-2xl p-4 flex items-center gap-3 animate-slide-up"
-          style={{
-            background: 'linear-gradient(135deg, rgba(108,92,231,0.15) 0%, rgba(108,92,231,0.05) 100%)',
-            border: '1px solid rgba(108,92,231,0.25)',
-            animationDelay: '0.5s',
-          }}
-        >
-          <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-primary" />
+          {/* Recommended Jobs */}
+          <div
+            className="rounded-2xl md:rounded-3xl p-6 md:p-8 space-y-4 md:space-y-5 animate-slide-up"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.03)',
+              border: '1px solid rgba(255,255,255,0.08)',
+              animationDelay: '0.4s',
+            }}
+          >
+            <div className="flex items-center gap-2.5 mb-2">
+              <Trophy className="w-5 h-5 md:w-6 md:h-6 text-yellow-400" />
+              <span className="text-base md:text-lg font-semibold text-white/60">추천 직업 TOP 5</span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {recommendedJobs.map((item, index) => {
+                const job = item.job;
+                const star = kingdoms.find((k) => k.id === job.kingdomId);
+                const JobIcon = getJobIcon(job.icon);
+                const rankColors = ['#FBBF24', '#9CA3AF', '#CD7C2F', '#6B7280', '#4B5563'];
+                const rankColor = rankColors[index] ?? rankColors[4];
+                return (
+                  <div
+                    key={job.id}
+                    className="group relative flex items-start gap-4 p-4 md:p-5 rounded-xl md:rounded-2xl transition-all hover:-translate-y-1 cursor-default"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.03)',
+                      border: '1px solid rgba(255,255,255,0.06)',
+                      boxShadow: index === 0 ? `0 0 30px ${topMeta.color}15` : 'none',
+                    }}
+                  >
+                    <div
+                      className="absolute inset-0 rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                      style={{ boxShadow: `0 0 30px ${star?.color ?? topMeta.color}20` }}
+                    />
+                    <div className="relative flex-shrink-0">
+                      <div
+                        className="w-16 h-16 md:w-18 md:h-18 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
+                        style={{
+                          background: `linear-gradient(135deg, ${star?.color ?? topMeta.color}35, ${star?.color ?? topMeta.color}15)`,
+                          border: `1.5px solid ${star?.color ?? topMeta.color}50`,
+                          boxShadow: `0 4px 20px ${star?.color ?? topMeta.color}25`,
+                        }}
+                      >
+                        <JobIcon className="w-8 h-8 md:w-9 md:h-9 text-white" style={{ opacity: 0.95 }} />
+                      </div>
+                      <div
+                        className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white shadow-lg"
+                        style={{
+                          backgroundColor: rankColor,
+                          border: '2px solid rgba(11,11,22,0.9)',
+                          boxShadow: `0 2px 10px ${rankColor}60`,
+                        }}
+                      >
+                        {index + 1}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-bold text-white text-base md:text-lg mb-1">{job.name}</div>
+                      <div className="text-xs md:text-sm text-white/50 mb-2" style={{ color: star?.color ?? topMeta.color }}>
+                        {star?.name}
+                      </div>
+                      {(job.shortDescription ?? job.description) && (
+                        <p className="text-xs md:text-sm text-white/45 line-clamp-2 leading-relaxed">
+                          {job.shortDescription ?? (typeof job.description === 'string' ? job.description : '')}
+                        </p>
+                      )}
+                      <div
+                        className="inline-block text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mt-3"
+                        style={{
+                          backgroundColor: `${topMeta.color}20`,
+                          color: topMeta.color,
+                          border: `1px solid ${topMeta.color}40`,
+                        }}
+                      >
+                        매칭도 {item.score}%
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="flex-1">
-            <p className="text-sm font-bold text-white">적성 검사 보상</p>
-            <p className="text-xs text-white/40">첫 퀘스트 완료!</p>
-          </div>
-          <div className="text-xl font-black text-primary">+100 XP</div>
-        </div>
 
-        {/* CTA Button */}
-        <button
-          className="w-full h-14 rounded-2xl text-base font-bold text-white relative overflow-hidden transition-transform active:scale-[0.97] mb-4"
-          style={{
-            background: `linear-gradient(135deg, ${topMeta.color} 0%, #6C5CE7 100%)`,
-            boxShadow: `0 8px 24px ${topMeta.color}30`,
-          }}
-          onClick={handleStart}
-        >
-          <span className="absolute inset-0 animate-shimmer" />
-          <span className="relative flex items-center justify-center gap-2">
-            <Rocket className="w-5 h-5" />
-            우주 탐험 시작하기
-            <ArrowRight className="w-5 h-5" />
-          </span>
-        </button>
+          {/* XP Earned Banner */}
+          <div
+            className="rounded-2xl md:rounded-3xl p-5 md:p-6 flex items-center gap-4 animate-slide-up"
+            style={{
+              background: 'linear-gradient(135deg, rgba(108,92,231,0.15) 0%, rgba(108,92,231,0.05) 100%)',
+              border: '1px solid rgba(108,92,231,0.25)',
+              animationDelay: '0.5s',
+            }}
+          >
+            <div 
+              className="w-14 h-14 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center"
+              style={{ backgroundColor: 'rgba(108,92,231,0.2)' }}
+            >
+              <Sparkles className="w-7 h-7 md:w-8 md:h-8 text-[#a29bfe]" />
+            </div>
+            <div className="flex-1">
+              <p className="text-base md:text-lg font-bold text-white">적성 검사 보상</p>
+              <p className="text-xs md:text-sm text-white/40">첫 퀘스트 완료!</p>
+            </div>
+            <div className="text-2xl md:text-3xl font-black text-[#a29bfe]">+100 XP</div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="w-full">
+            <button
+              className="w-full h-14 md:h-16 rounded-2xl text-base md:text-lg font-bold text-white relative overflow-hidden transition-all hover:scale-105 active:scale-95 group"
+              style={{
+                background: `linear-gradient(135deg, ${topMeta.color} 0%, #6C5CE7 100%)`,
+                boxShadow: `0 8px 40px ${topMeta.color}30`,
+              }}
+              onClick={handleStart}
+            >
+              <span className="absolute inset-0 animate-shimmer" />
+              <span className="relative flex items-center justify-center gap-2.5">
+                <Rocket className="w-5 h-5 md:w-6 md:h-6" />
+                드림 경험 탐색 시작하기
+                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
+              </span>
+            </button>
+          </div>
+
+        </section>
       </div>
     </div>
   );
