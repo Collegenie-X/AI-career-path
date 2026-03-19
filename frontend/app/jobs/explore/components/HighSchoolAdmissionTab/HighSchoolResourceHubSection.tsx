@@ -1,9 +1,10 @@
 'use client';
 
-import { useEffect, useMemo, useState, type ChangeEvent } from 'react';
-import { FilePlus2, GraduationCap, Info, Map, PlusCircle } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import { ArrowLeft, ChevronRight, Plus } from 'lucide-react';
 import librarySource from '@/data/high-school/resource-hub-library.json';
 import { ResourceDetailDialog } from './ResourceDetailDialog';
+import { HighSchoolResourceFormDialog } from './HighSchoolResourceFormDialog';
 import { ResourceStrategyPathCards } from './ResourceStrategyPathCards';
 import { formatFileSize, formatUploadedDate, loadStoredFiles, saveStoredFiles } from './resource-hub-storage';
 import { RESOURCE_CATEGORIES, type ResourceCategoryId, type ResourceFile, type ResourceLibraryDocument } from './resource-hub-types';
@@ -34,10 +35,6 @@ function getShareUrl(resourceId: string): string {
   const url = new URL(window.location.href);
   url.searchParams.set('resource', resourceId);
   return url.toString();
-}
-
-function getDefaultMarkdownTemplate(): string {
-  return ['# 새 고입 자료', '', '## 핵심 요약', '- 준비중', '', '## 세부 내용', '작성해 주세요.'].join('\n');
 }
 
 function normalizeLibraryItems(): ResourceListItem[] {
@@ -72,12 +69,12 @@ function mapUserFilesToListItems(userFiles: ResourceFile[]): ResourceListItem[] 
 
 export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSectionProps) {
   const [userFiles, setUserFiles] = useState<ResourceFile[]>([]);
-  const [isUploading, setIsUploading] = useState(false);
   const [uploadCategoryId, setUploadCategoryId] = useState<ResourceCategoryId>('admission_strategy');
   const [categoryFilter, setCategoryFilter] = useState<'all' | ResourceCategoryId>('all');
   const [selectedResourceId, setSelectedResourceId] = useState<string | null>(null);
   const [startInEditModeResourceId, setStartInEditModeResourceId] = useState<string | null>(null);
   const [isGuideDialogOpen, setIsGuideDialogOpen] = useState(false);
+  const [isResourceFormDialogOpen, setIsResourceFormDialogOpen] = useState(false);
 
   const libraryItems = useMemo(() => normalizeLibraryItems(), []);
   const userItems = useMemo(() => mapUserFilesToListItems(userFiles), [userFiles]);
@@ -103,56 +100,6 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
     () => resourceList.find((item) => item.id === selectedResourceId) ?? null,
     [resourceList, selectedResourceId]
   );
-
-  const handleFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
-    const pickedFile = event.target.files?.[0];
-    if (!pickedFile) return;
-    setIsUploading(true);
-    try {
-      const isMarkdownFile = pickedFile.name.toLowerCase().endsWith('.md');
-      const isPdfFile = pickedFile.type === 'application/pdf' || pickedFile.name.toLowerCase().endsWith('.pdf');
-      if (!isMarkdownFile && !isPdfFile) return;
-      const content = await new Promise<string>((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(String(reader.result ?? ''));
-        reader.onerror = () => reject(new Error('read-error'));
-        if (isMarkdownFile) reader.readAsText(pickedFile, 'utf-8');
-        if (isPdfFile) reader.readAsDataURL(pickedFile);
-      });
-      const newFile: ResourceFile = {
-        id: `user-resource-${Date.now()}`,
-        name: pickedFile.name,
-        fileType: isMarkdownFile ? 'md' : 'pdf',
-        categoryId: uploadCategoryId,
-        summary: '사용자 업로드 자료',
-        size: pickedFile.size,
-        uploadedAt: new Date().toISOString(),
-        content,
-      };
-      setUserFiles((previous) => [newFile, ...previous]);
-      setSelectedResourceId(newFile.id);
-    } finally {
-      setIsUploading(false);
-      event.target.value = '';
-    }
-  };
-
-  const handleCreateMarkdown = () => {
-    const resourceId = `user-resource-${Date.now()}`;
-    const newFile: ResourceFile = {
-      id: resourceId,
-      name: `새-자료-${new Date().toISOString().slice(0, 10)}.md`,
-      fileType: 'md',
-      categoryId: uploadCategoryId,
-      summary: '직접 작성하는 새 자료',
-      size: 0,
-      uploadedAt: new Date().toISOString(),
-      content: getDefaultMarkdownTemplate(),
-    };
-    setUserFiles((previous) => [newFile, ...previous]);
-    setSelectedResourceId(resourceId);
-    setStartInEditModeResourceId(resourceId);
-  };
 
   const handleDownloadUserFile = (file: ResourceFile) => {
     const anchor = document.createElement('a');
@@ -194,25 +141,22 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
 
   return (
     <div className="space-y-3">
-      <div className="rounded-2xl p-3" style={{ background: 'rgba(56,189,248,0.12)', border: '1px solid rgba(56,189,248,0.25)' }}>
-        <p className="text-sm font-bold text-cyan-300 mb-1 flex items-center gap-1.5">
-          <Map className="w-4 h-4" />
-          {resourceLibrarySource.header.title}
-        </p>
-        <p className="text-[12px] text-gray-300 leading-relaxed">{resourceLibrarySource.header.shortDescription}</p>
+      <div className="flex items-center gap-2">
         <button
-          onClick={() => setIsGuideDialogOpen(true)}
-          className="mt-2 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold text-cyan-200 bg-cyan-500/15 inline-flex items-center gap-1"
+          onClick={onBack}
+          className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-200"
+          aria-label="고입 탐색으로 뒤로가기"
+          title="뒤로가기"
         >
-          <Info className="w-3.5 h-3.5" />
-          자세히 보기
+          <ArrowLeft className="w-4 h-4" />
         </button>
+        <p className="text-sm font-bold text-white">고입 자료실</p>
       </div>
 
-      <ResourceStrategyPathCards />
+
 
       <div className="rounded-2xl p-3 space-y-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
           <select
             value={uploadCategoryId}
             onChange={(event) => setUploadCategoryId(event.target.value as ResourceCategoryId)}
@@ -224,21 +168,14 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
               </option>
             ))}
           </select>
-          <div className="flex items-center gap-2">
-            <label className="flex-1 px-2.5 py-2 rounded-lg text-[11px] font-semibold cursor-pointer text-center" style={{ background: 'rgba(139,92,246,0.2)', color: '#c4b5fd' }}>
-              <input type="file" className="hidden" accept=".md,.pdf,text/markdown,application/pdf" onChange={handleFileUpload} />
-              <span className="inline-flex items-center gap-1.5">
-                <FilePlus2 className="w-3.5 h-3.5" />
-                {isUploading ? '업로드 중...' : '파일 업로드'}
-              </span>
-            </label>
-            <button onClick={handleCreateMarkdown} className="px-2.5 py-2 rounded-lg text-[11px] font-semibold text-emerald-200 bg-emerald-500/15">
-              <span className="inline-flex items-center gap-1">
-                <PlusCircle className="w-3.5 h-3.5" />
-                새 MD
-              </span>
-            </button>
-          </div>
+          <button
+            onClick={() => setIsResourceFormDialogOpen(true)}
+            className="h-10 px-3 rounded-lg text-[12px] font-semibold inline-flex items-center justify-center gap-1.5"
+            style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.35), rgba(139,92,246,0.35))', color: '#ddd6fe', border: '1px solid rgba(196,181,253,0.4)' }}
+          >
+            <Plus className="w-4 h-4" />
+            자료 추가
+          </button>
         </div>
 
         <div className="flex flex-wrap gap-1.5">
@@ -261,24 +198,32 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
           ))}
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-2.5">
           {filteredResources.map((resourceItem) => {
             const categoryMeta = getCategoryMeta(resourceItem.categoryId);
             const isUserItem = resourceItem.source === 'user';
             return (
-              <div key={resourceItem.id} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="flex items-center justify-between gap-2">
+              <div
+                key={resourceItem.id}
+                className="rounded-2xl p-3 transition-all"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
+                }}
+              >
+                <div className="flex items-center justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="text-[12px] font-semibold text-white truncate">{resourceItem.title}</p>
-                    <p className="text-[12px] mt-0.5" style={{ color: categoryMeta.color }}>
+                    <p className="text-[13px] font-bold text-white truncate">{resourceItem.title}</p>
+                    <p className="text-[11px] mt-1 font-semibold" style={{ color: categoryMeta.color }}>
                       {categoryMeta.label}
                     </p>
-                    <p className="text-[12px] text-gray-400 mt-1 line-clamp-1">{resourceItem.summary}</p>
-                    <p className="text-[12px] text-gray-500 mt-0.5">
+                    <p className="text-[12px] text-gray-300 mt-1.5 line-clamp-1">{resourceItem.summary}</p>
+                    <p className="text-[11px] text-gray-500 mt-1">
                       {resourceItem.fileType.toUpperCase()} {isUserItem ? `· ${formatFileSize(resourceItem.size)} · ${formatUploadedDate(resourceItem.uploadedAt)}` : '· 기본 문서'}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     {isUserItem ? (
                       <button
                         onClick={async () => {
@@ -294,8 +239,18 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                         링크복사
                       </button>
                     ) : null}
-                    <button onClick={() => setSelectedResourceId(resourceItem.id)} className="px-2 py-1 rounded-md text-[11px] font-semibold text-violet-200 bg-violet-500/20">
-                      상세보기
+                    <button
+                      onClick={() => setSelectedResourceId(resourceItem.id)}
+                      className="w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-95"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(139,92,246,0.45), rgba(99,102,241,0.45))',
+                        border: '1px solid rgba(196,181,253,0.45)',
+                        boxShadow: '0 0 12px rgba(139,92,246,0.25)',
+                      }}
+                      aria-label={`${resourceItem.title} 상세 보기`}
+                      title="상세 보기"
+                    >
+                      <ChevronRight className="w-4 h-4 text-white" />
                     </button>
                   </div>
                 </div>
@@ -344,6 +299,33 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
         onDeleteUserFile={handleDeleteUserFile}
         onUpdateUserFile={handleUpdateUserFile}
       />
+
+      {isResourceFormDialogOpen && (
+        <HighSchoolResourceFormDialog
+          defaultCategoryId={uploadCategoryId}
+          onClose={() => setIsResourceFormDialogOpen(false)}
+          onSubmit={(payload) => {
+            const resourceId = `user-resource-${Date.now()}`;
+            const newFile: ResourceFile = {
+              id: resourceId,
+              name: payload.fileName.trim() || payload.title.trim(),
+              fileType: payload.fileType,
+              categoryId: payload.categoryId,
+              summary: payload.summary.trim(),
+              size: payload.size,
+              uploadedAt: new Date().toISOString(),
+              content: payload.content,
+            };
+            setUploadCategoryId(payload.categoryId);
+            setUserFiles((previous) => [newFile, ...previous]);
+            setSelectedResourceId(resourceId);
+            if (payload.fileType === 'md' && payload.size === 0) {
+              setStartInEditModeResourceId(resourceId);
+            }
+            setIsResourceFormDialogOpen(false);
+          }}
+        />
+      )}
     </div>
   );
 }

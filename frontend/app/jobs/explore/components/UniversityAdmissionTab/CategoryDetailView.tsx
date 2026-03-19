@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Target, CalendarDays, Zap } from 'lucide-react';
+import { ChevronDown, ChevronRight, X, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
@@ -67,7 +67,7 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
     { id: 'core', label: '핵심전략', emoji: '🎯' },
     { id: 'grade', label: '학년별', emoji: '📅' },
     { id: 'strategy2028', label: '2028대응', emoji: '⚡' },
-    { id: 'practical', label: '실전예시', emoji: '🧪' },
+    { id: 'practical', label: '실전예시(합격)', emoji: '🏆' },
   ];
 
   const modalContent = (
@@ -113,6 +113,39 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
             >
               <X className="w-4 h-4 text-white" />
             </button>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 mt-3">
+            <div
+              className="rounded-lg px-2 py-1.5"
+              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
+            >
+              <p className="text-[10px] text-white/60">전략카드</p>
+              <p className="text-xs text-white font-semibold flex items-center gap-1">
+                <Sparkles className="w-3 h-3" />
+                4개 모드
+              </p>
+            </div>
+            <div
+              className="rounded-lg px-2 py-1.5"
+              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
+            >
+              <p className="text-[10px] text-white/60">합격훈련</p>
+              <p className="text-xs text-white font-semibold flex items-center gap-1">
+                <Trophy className="w-3 h-3" />
+                실전예시
+              </p>
+            </div>
+            <div
+              className="rounded-lg px-2 py-1.5"
+              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
+            >
+              <p className="text-[10px] text-white/60">리스크관리</p>
+              <p className="text-xs text-white font-semibold flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3" />
+                누락방지
+              </p>
+            </div>
           </div>
         </div>
 
@@ -192,35 +225,88 @@ function CoreStrategyTab({ category, playbook }: { category: AdmissionCategory; 
 }
 
 function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
+  const [expandedGrades, setExpandedGrades] = useState<Record<string, boolean>>(() =>
+    playbook.gradeRoadmap.reduce<Record<string, boolean>>((acc, g) => {
+      acc[g.grade] = true;
+      return acc;
+    }, {})
+  );
+
+  const toggleGrade = (grade: string) => {
+    setExpandedGrades((prev) => ({ ...prev, [grade]: !prev[grade] }));
+  };
+
   return (
-    <div className="space-y-3">
-      {playbook.gradeRoadmap.map((gradePlan) => (
-        <div
-          key={gradePlan.grade}
-          className="rounded-xl p-3"
-          style={{ background: category.bgColor, border: `1px solid ${category.color}44` }}
-        >
-          <div className="flex items-center gap-2 mb-2">
-            <CalendarDays className="w-4 h-4" style={{ color: category.color }} />
-            <h3 className="text-sm font-bold text-white">{gradePlan.grade} 핵심 목표</h3>
+    <div className="space-y-1">
+      <p className="text-[11px] text-white/60 mb-2 px-1">학년별 트리 — 탭하여 펼치기/접기</p>
+      {playbook.gradeRoadmap.map((gradePlan) => {
+        const isOpen = expandedGrades[gradePlan.grade] ?? true;
+        return (
+          <div
+            key={gradePlan.grade}
+            className="rounded-xl overflow-hidden"
+            style={{ border: `1px solid ${category.color}40` }}
+          >
+            {/* 학년 헤더 (트리 루트) */}
+            <button
+              onClick={() => toggleGrade(gradePlan.grade)}
+              className="w-full flex items-center gap-2 px-3 py-2.5 text-left"
+              style={{ background: category.bgColor }}
+            >
+              {isOpen ? (
+                <ChevronDown className="w-4 h-4 flex-shrink-0" style={{ color: category.color }} />
+              ) : (
+                <ChevronRight className="w-4 h-4 flex-shrink-0" style={{ color: category.color }} />
+              )}
+              <CalendarDays className="w-4 h-4 flex-shrink-0" style={{ color: category.color }} />
+              <span className="text-sm font-bold text-white">{gradePlan.grade}</span>
+            </button>
+
+            {/* 하위 노드 (목표 → 미션 → 결과물) */}
+            {isOpen && (
+              <div className="space-y-0" style={{ background: 'rgba(15,23,42,0.45)' }}>
+                {/* 1단계: 핵심 목표 */}
+                <div className="px-4 py-2 pl-8 border-t border-white/5">
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
+                    핵심 목표
+                  </p>
+                  <p className="text-xs text-white/90">{gradePlan.goal}</p>
+                </div>
+
+                {/* 2단계: 미션 체크리스트 */}
+                <div className="px-4 py-2 pl-8 border-t border-white/5">
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                    미션 체크리스트
+                  </p>
+                  <ul className="space-y-1">
+                    {gradePlan.missionChecklist.map((mission, idx) => (
+                      <li key={idx} className="text-xs text-white/85 flex items-start gap-2">
+                        <span className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0" style={{ background: category.color }} />
+                        <span>{mission}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* 3단계: 실전 결과물 예시 */}
+                <div className="px-4 py-2 pl-8 border-t border-white/5">
+                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                    실전 결과물 예시
+                  </p>
+                  <ul className="space-y-1">
+                    {gradePlan.outputExamples.map((item, idx) => (
+                      <li key={idx} className="text-xs text-white/80 flex items-start gap-2">
+                        <span className="text-[10px] opacity-70">▸</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
-          <p className="text-sm text-white/85 mb-3">{gradePlan.goal}</p>
-
-          <p className="text-xs font-bold text-white/90 mb-1.5">미션 체크리스트</p>
-          {gradePlan.missionChecklist.map((mission, idx) => (
-            <p key={idx} className="text-xs text-white/85 mb-1">
-              - {mission}
-            </p>
-          ))}
-
-          <p className="text-xs font-bold text-white/90 mt-3 mb-1.5">실전 결과물 예시</p>
-          {gradePlan.outputExamples.map((item, idx) => (
-            <p key={idx} className="text-xs text-white/80 mb-1">
-              • {item}
-            </p>
-          ))}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

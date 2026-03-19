@@ -5,6 +5,7 @@ export type ResourceCategoryId =
   | 'school_comparison'
   | 'study_material'
   | 'interview_prep'
+  | 'special_institutions'
   | 'other';
 
 export type ResourceCategory = {
@@ -38,6 +39,7 @@ export const RESOURCE_CATEGORIES: ResourceCategory[] = [
   { id: 'school_comparison', label: '학교비교', color: '#a78bfa' },
   { id: 'study_material', label: '학습자료', color: '#34d399' },
   { id: 'interview_prep', label: '면접준비', color: '#f59e0b' },
+  { id: 'special_institutions', label: '특수기관', color: '#f97316' },
   { id: 'other', label: '기타', color: '#9ca3af' },
 ];
 

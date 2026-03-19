@@ -1,0 +1,53 @@
+{
+  "category": {
+    "id": "ib-direct-admission",
+    "name": "IB 국내연계",
+    "shortName": "IB직결",
+    "emoji": "🎓",
+    "color": "#06b6d4",
+    "bgColor": "rgba(6,182,212,0.16)",
+    "description": "IB 디플로마 기반 국내 대학 직결 전형",
+    "planet": {
+      "size": "medium",
+      "orbitRadius": 112,
+      "orbitSpeed": 26,
+      "glowColor": "#06b6d4"
+    },
+    "keyFeatures": [
+      "IB 36~40+ 점수로 국내 상위권 지원",
+      "EE/TOK/CAS를 학생부·면접 근거로 활용",
+      "수능 비중이 낮거나 없는 경로 설계 가능",
+      "전공 연계 HL 과목 선택이 핵심"
+    ],
+    "targetStudents": [
+      "IB 인증학교 재학생",
+      "수능보다 탐구·에세이 강점 학생",
+      "국내 상위권 + 해외 동시지원 고려 학생"
+    ],
+    "preparationGuide": {
+      "essential": [
+        {
+          "title": "IB 점수 목표 설정",
+          "description": "지원 대학별 최소/안정 점수 역산",
+          "timeline": "고1~고3",
+          "actions": [
+            "목표 대학 IB 기준표 작성",
+            "HL 3과목 전공 정합성 점검",
+            "EE 주제 전공 연계"
+          ]
+        }
+      ]
+    },
+    "cautions": [
+      "대학별 IB 환산 방식이 다름",
+      "IB 점수 미달 시 백업 루트 필요",
+      "영어면접 요구 대학 존재"
+    ],
+    "universities": [
+      "서울대(일부 전형)",
+      "연세대 국제학부",
+      "고려대 국제학부",
+      "성균관대 글로벌계열"
+    ]
+  }
+}
