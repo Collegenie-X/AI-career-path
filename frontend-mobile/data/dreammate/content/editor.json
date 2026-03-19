@@ -1,0 +1,23 @@
+{
+  "timelineViewLabel":                      "WBS 스프린트",
+  "weeklyChecklistLabel":                   "주간 체크",
+  "todoSectionLabel":                       "하위 활동",
+  "overallProgressLabel":                   "전체 진행률",
+  "sprintGuideLabel":                       "방과후·방학·학기중 운영을 주차 기준으로 관리하세요.",
+  "todoAutoCompleteHint":                   "자동 완성 제안",
+  "autoCompleteButton":                     "자동 완성",
+  "weeklyNumberLabel":                      "주차",
+  "wbsSprintSectionTitle":                  "WBS + 주간 스프린트",
+  "roadmapEditorTitleLabel":                "로드맵 제목",
+  "roadmapEditorMonthSectionLabel":         "월 선택 (멀티)",
+  "roadmapEditorItemTitlePlaceholder":      "항목명 입력",
+  "roadmapEditorAddItemButtonLabel":        "추가",
+  "roadmapEditorAddWeekGroupButtonLabel":   "주 추가",
+  "roadmapEditorAddWeekTaskButtonLabel":    "추가",
+  "roadmapEditorAddSubItemButtonLabel":     "하위 항목 추가",
+  "roadmapEditorWeekGoalLabel":             "주차 목표",
+  "roadmapEditorWeekGoalPlaceholder":       "{month}월 {week}주차 목표 (선택)",
+  "roadmapEditorWeekTaskPlaceholder":       "{month}월 {week}주차 항목",
+  "roadmapEditorNoWeekGroupHint":           "주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.",
+  "roadmapEditorDeleteWeekGroupButtonLabel": "삭제"
+}

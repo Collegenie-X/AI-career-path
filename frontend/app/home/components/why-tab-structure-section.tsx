@@ -1,7 +1,10 @@
 'use client';
 
 import { Home, Briefcase, Map, Rocket, ChevronDown, type LucideIcon } from 'lucide-react';
-import { WHY_STRUCTURE, type WhyStructureItem } from '../config';
+import homeContent from '@/data/home-content.json';
+
+const WHY_STRUCTURE = homeContent.whyThisStructure;
+type WhyStructureItem = (typeof WHY_STRUCTURE.items)[number];
 
 const ICON_MAP: Record<string, LucideIcon> = {
   home: Home,

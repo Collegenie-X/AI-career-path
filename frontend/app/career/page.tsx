@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { TabBar } from '@/components/tab-bar';
 import { Sparkles, Plus } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
@@ -249,7 +248,7 @@ function CareerPageContent() {
 
   return (
     <div
-      className="min-h-screen pb-24 relative overflow-hidden"
+      className="min-h-screen pb-12 relative overflow-hidden"
       style={{ backgroundColor: '#0a0a1e' }}
     >
       <StarField />
@@ -363,8 +362,6 @@ function CareerPageContent() {
           <CommunityTab onNewPlan={openNew} />
         ) : null}
       </div>
-
-      <TabBar />
 
       {/* Builder dialog — full-screen overlay */}
       {builderOpen && (

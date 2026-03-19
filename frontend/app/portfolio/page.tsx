@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { TabBar } from '@/components/tab-bar';
 import { BadgesGalaxy } from '@/components/badges-galaxy';
 import { storage } from '@/lib/storage';
 import { getLevelForXP } from '@/lib/xp';
@@ -556,7 +555,6 @@ export default function PortfolioPage() {
         )}
       </div>
 
-      <TabBar />
     </div>
   );
 }

@@ -6,7 +6,6 @@ import { RoadmapEditorDialog } from '../../components/RoadmapEditorDialog';
 import { RoadmapShareDialog } from '../../components/RoadmapShareDialog';
 import { useDreamMateWorkspaceContext } from '../../DreamMateWorkspaceProvider';
 import { getShareChannelsFromRoadmap } from '../../types';
-import { TabBar } from '@/components/tab-bar';
 import { useState } from 'react';
 
 export default function RoadmapDetailPage() {
@@ -127,7 +126,6 @@ export default function RoadmapDetailPage() {
         />
       )}
 
-      <TabBar />
     </div>
   );
 }

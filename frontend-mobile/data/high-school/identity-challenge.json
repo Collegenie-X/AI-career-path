@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "title": "나의 고입 루트 찾기",
+    "subtitle": "15문항으로 찾는 나의 고입 → 대학 루트",
+    "description": "과목 적성, 성격, 스트레스 내성, 성적 전략, 자율학습, 유학, 수시·정시, IB 토론 등 15가지 영역을 점검합니다. 각 선택마다 바로 피드백이 나와요!",
+    "totalQuestions": 15
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "theme": "과목 적성",
+      "themeIcon": "📐",
+      "context": "수학·과학이 강하면 과학고·영재고, 어학이 강하면 외고·국제고가 유리합니다. 과목 적성이 고입의 출발점이에요.",
+      "question": "가장 자신 있고 시간 가는 줄 모르는 과목은?",
+      "choices": [
+        { "text": "수학·과학 — 문제 풀 때 몰입하고 '왜?'를 파고든다", "categoryScores": { "science_high": 3 }, "feedback": "수학·과학 몰입형이에요. 과학고·영재고에서 R&E 연구와 올림피아드로 KAIST·서울대 이공계 루트가 열려요." },
+        { "text": "영어·외국어 — 원서 읽기, 영어 토론이 자연스럽다", "categoryScores": { "foreign_language": 2, "international": 1 }, "feedback": "어학 강점이에요. 외고에서 어학 심화 → SKY 인문계열, 국제고에서 IB → 해외 명문대 루트가 가능해요." },
+        { "text": "국어·사회 — 글쓰기, 토론, 역사·경제에 관심이 많다", "categoryScores": { "autonomous_private": 1, "ib": 1, "general_elite": 1 }, "feedback": "인문·사회 적성이에요. 자사고에서 세특 강화 → SKY 학종, IB 학교에서 에세이·토론 → 해외 대학 루트도 좋아요." },
+        { "text": "예체능 — 음악·미술·체육 실기가 가장 자신 있다", "categoryScores": { "arts_sports": 3 }, "feedback": "예체능 특기형이에요. 예술고·체육고에서 실기 집중 → 한예종·체육대·해외 예술대 루트가 직결돼요." },
+        { "text": "기술·실습 — 코딩, 기계, 만들기가 재미있다", "categoryScores": { "meister": 3 }, "feedback": "기술 실무형이에요. 마이스터고에서 기술 전문가 → 대기업 취업, 선취업 후 대학 진학도 가능해요." }
+      ]
+    },
+    {
+      "id": "q2",
+      "theme": "성격 유형",
+      "themeIcon": "🧠",
+      "context": "내향형은 자기주도 학습이 강한 과학고·일반고, 외향형은 토론·활동 중심의 IB·국제고가 잘 맞아요.",
+      "question": "새 학기 첫날, 나는 어떤 편인가요?",
+      "choices": [
+        { "text": "혼자 조용히 관찰하며 적응한다. 깊이 생각하는 편이다", "categoryScores": { "science_high": 2, "general_elite": 1 }, "feedback": "내향·분석형이에요. 자기주도 학습이 핵심인 과학고, 수능 집중형 일반고(학군지)가 잘 맞아요." },
+        { "text": "먼저 다가가 친구를 사귀고, 토론·발표를 즐긴다", "categoryScores": { "international": 2, "ib": 1 }, "feedback": "외향·소통형이에요. 토론·프로젝트 중심의 국제고·IB 학교, 활동이 풍부한 자사고가 잘 맞아요." },
+        { "text": "소수의 친한 친구와 깊은 관계를 맺는다", "categoryScores": { "autonomous_private": 1, "autonomous_public": 1 }, "feedback": "관계 중심형이에요. 소규모 환경의 자사고, 지역 거점 자공고에서 안정적으로 성장할 수 있어요." },
+        { "text": "무대·경기장에서 빛나는 타입이다. 표현하는 게 좋다", "categoryScores": { "arts_sports": 3 }, "feedback": "표현·퍼포먼스형이에요. 예술고·체육고에서 무대 경험을 쌓으며 실기 전문성을 키울 수 있어요." }
+      ]
+    },
+    {
+      "id": "q3",
+      "theme": "스트레스 내성",
+      "themeIcon": "🧘",
+      "context": "과학고·자사고는 전국 최상위 경쟁이라 번아웃 위험이 높아요. 나의 스트레스 내성이 학교 선택에 영향을 줘요.",
+      "question": "시험에서 기대보다 훨씬 낮은 성적을 받았어요. 첫 반응은?",
+      "choices": [
+        { "text": "바로 오답 분석하고 다음 계획을 세운다. 흔들리지 않는다", "categoryScores": { "science_high": 2, "autonomous_private": 1 }, "feedback": "높은 회복력이에요. 전국 최상위 경쟁인 과학고·자사고에서도 멘탈을 유지할 수 있어요." },
+        { "text": "잠시 쉬고 운동·음악 등으로 감정을 풀어낸 뒤 다시 시작한다", "categoryScores": { "autonomous_public": 1, "arts_sports": 1 }, "feedback": "건강한 회복 패턴이에요. 적당한 경쟁 강도의 자공고, 실기 중심 예술고에서 균형 잡힌 성장이 가능해요." },
+        { "text": "친구·선생님에게 털어놓고 함께 해결 방법을 찾는다", "categoryScores": { "international": 1, "ib": 1 }, "feedback": "사회적 지원형이에요. 토론·협력 문화가 강한 국제고·IB 학교에서 함께 성장하는 환경이 맞아요." },
+        { "text": "솔직히 며칠 우울해진다. 비교하며 자존감이 흔들린다", "categoryScores": { "autonomous_public": 2 }, "feedback": "과도한 경쟁은 번아웃으로 이어질 수 있어요. 내신 관리가 유리한 자공고·일반고에서 안정적으로 성장하는 게 좋아요." }
+      ]
+    },
+    {
+      "id": "q4",
+      "theme": "성적 전략",
+      "themeIcon": "📊",
+      "context": "내신 1등급이 목표라면 일반고·자공고가 유리하고, 수능 최상위가 목표라면 자사고·학군지가 강해요.",
+      "question": "현재 나의 성적 수준과 목표는?",
+      "choices": [
+        { "text": "전 과목 최상위(A등급). 수학·과학 올림피아드 도전 중이다", "categoryScores": { "science_high": 3 }, "feedback": "최상위 학업 역량이에요. 과학고·영재고에서 R&E 연구 → KAIST·서울대 이공계 루트가 최적이에요." },
+        { "text": "전 과목 상위권. 내신 1등급을 안정적으로 유지하고 싶다", "categoryScores": { "autonomous_public": 2, "general_elite": 1 }, "feedback": "내신 안정형이에요. 자공고·일반고에서 내신 1등급 유지 → 교과전형으로 SKY 진학이 현실적이에요." },
+        { "text": "영어·외국어가 특히 강하다. 어학 역량으로 승부하고 싶다", "categoryScores": { "foreign_language": 2, "international": 1 }, "feedback": "어학 특화형이에요. 외고에서 어학 심화 → SKY 인문계열, 국제고에서 IB → 해외 대학 루트가 열려요." },
+        { "text": "실기·기술이 강하다. 교과 성적보다 전문성으로 승부한다", "categoryScores": { "arts_sports": 2, "meister": 1 }, "feedback": "전문성 특화형이에요. 예술고·마이스터고에서 실기·기술 집중 → 해당 분야 대학·취업 직결이에요." }
+      ]
+    },
+    {
+      "id": "q5",
+      "theme": "자율학습",
+      "themeIcon": "📚",
+      "context": "자기주도 학습 능력이 강하면 자사고·과학고가 유리하고, 구조화된 환경이 필요하면 마이스터고·자공고가 맞아요.",
+      "question": "혼자 공부할 때 나는 어떤 편인가요?",
+      "choices": [
+        { "text": "스스로 계획 세우고 실행한다. 누가 시키지 않아도 공부한다", "categoryScores": { "science_high": 1, "autonomous_private": 2 }, "feedback": "자기주도형이에요. 자사고·과학고처럼 자율성이 높은 환경에서 최대 역량을 발휘해요." },
+        { "text": "학원·인강 등 체계적 시스템이 있어야 효율이 올라간다", "categoryScores": { "general_elite": 2 }, "feedback": "시스템 활용형이에요. 학군지 일반고 + 학원 시스템으로 수능·내신 병행 전략이 효과적이에요." },
+        { "text": "친구들과 함께 토론하며 배울 때 가장 잘 이해된다", "categoryScores": { "international": 1, "ib": 2 }, "feedback": "협력 학습형이에요. IB 학교의 토론·프로젝트 기반 수업, 국제고의 모의UN 등이 잘 맞아요." },
+        { "text": "실습·체험으로 직접 해봐야 배운다. 앉아서 공부는 힘들다", "categoryScores": { "meister": 2, "arts_sports": 1 }, "feedback": "체험 학습형이에요. 마이스터고의 현장 실습, 예술고의 실기 중심 수업이 학습 효율을 높여요." }
+      ]
+    },
+    {
+      "id": "q6",
+      "theme": "유학·해외 대학",
+      "themeIcon": "🌏",
+      "context": "미국 대학은 IB·AP·SAT·에세이로 지원합니다. 국제고·IB 학교가 해외 대학 진학에 최적화돼 있어요.",
+      "question": "미국 아이비리그, 영국 옥스퍼드 등 해외 명문대에 관심이 있나요?",
+      "choices": [
+        { "text": "1순위 목표다. 해외 대학 진학을 확실히 원한다", "categoryScores": { "international": 3, "ib": 2 }, "feedback": "해외 대학 확정형이에요. 국제고·IB 학교에서 IB 디플로마 38점 이상 → 아이비리그·옥스퍼드 직접 지원이 가능해요." },
+        { "text": "관심은 있다. 국내·해외 중 고민 중이다", "categoryScores": { "international": 2, "foreign_language": 1 }, "feedback": "국내·해외 병행형이에요. 국제고에서 IB + 국내 학종 병행, 외고에서 어학 심화 + 해외 대학 옵션을 열어둘 수 있어요." },
+        { "text": "국내 대학이 우선이다. 해외는 나중에 대학원으로", "categoryScores": { "autonomous_private": 1, "science_high": 1 }, "feedback": "국내 우선형이에요. 자사고·과학고에서 국내 명문대 진학 후, 대학원 유학으로 글로벌 경험을 쌓는 전략이에요." },
+        { "text": "해외 대학은 고려하지 않는다", "categoryScores": { "general_elite": 1, "autonomous_public": 1 }, "feedback": "국내 집중형이에요. 일반고·자공고에서 내신+수능에 집중하는 전략이 가장 효율적이에요." }
+      ]
+    },
+    {
+      "id": "q7",
+      "theme": "정시 vs 수시",
+      "themeIcon": "📋",
+      "context": "정시는 수능 한 번에 승부, 수시 학종은 3년간의 활동·세특이 핵심이에요. 학교마다 유리한 전형이 달라요.",
+      "question": "대입에서 나에게 더 맞는 전형은?",
+      "choices": [
+        { "text": "정시(수능) — 시험 한 번에 집중하는 게 맞다", "categoryScores": { "general_elite": 2, "autonomous_private": 1 }, "feedback": "정시 집중형이에요. 학군지 일반고에서 수능 집중 + 자사고에서 수시·정시 병행 전략이 효과적이에요." },
+        { "text": "수시 학종 — 활동·탐구·세특으로 나를 보여주고 싶다", "categoryScores": { "science_high": 1, "autonomous_private": 1, "international": 1 }, "feedback": "학종 적합형이에요. 과학고 R&E, 자사고 세특, 국제고 IB 활동 등이 학종에서 강력한 무기가 돼요." },
+        { "text": "수시 6장 + 정시 백업 — 둘 다 준비하고 싶다", "categoryScores": { "autonomous_private": 2, "autonomous_public": 1 }, "feedback": "병행 전략형이에요. 자사고에서 수시 60% + 정시 40% 병행, 자공고에서 교과전형 + 정시 병행이 현실적이에요." },
+        { "text": "실기 전형 — 예술·체육 특기로 대학 간다", "categoryScores": { "arts_sports": 3 }, "feedback": "실기 전형 직결형이에요. 예술고·체육고에서 실기 집중 → 한예종·체육대·해외 예술대 실기 전형이에요." }
+      ]
+    },
+    {
+      "id": "q8",
+      "theme": "IB·토론 적성",
+      "themeIcon": "💬",
+      "context": "IB(국제 바칼로레아)는 암기가 아닌 에세이·토론·프로젝트 중심이에요. 자유로운 사고를 좋아하면 IB·자사고가 맞아요.",
+      "question": "수업 시간에 선생님이 '자유 토론'을 시작했어요. 나는?",
+      "choices": [
+        { "text": "적극적으로 의견을 말하고, 반론도 즐긴다. 토론이 재밌다", "categoryScores": { "ib": 3, "international": 1 }, "feedback": "토론·비판적 사고형이에요. IB 학교의 TOK(지식론)·에세이 수업, 국제고의 모의UN이 딱 맞아요." },
+        { "text": "듣다가 핵심적인 한마디를 한다. 깊이 생각한 뒤 말한다", "categoryScores": { "science_high": 1, "autonomous_private": 1 }, "feedback": "분석·심화형이에요. 과학고의 연구 발표, 자사고의 세특 심화 탐구에서 깊이 있는 사고가 빛나요." },
+        { "text": "토론보다 글로 표현하는 게 편하다. 에세이·보고서가 낫다", "categoryScores": { "ib": 2, "foreign_language": 1 }, "feedback": "글쓰기 표현형이에요. IB의 EE(소논문)·에세이 과제, 외고의 영어 에세이 수업이 잘 맞아요." },
+        { "text": "솔직히 토론은 부담스럽다. 정해진 커리큘럼이 편하다", "categoryScores": { "general_elite": 2, "autonomous_public": 1 }, "feedback": "구조화 선호형이에요. 일반고·자공고의 체계적 수업 + 수능 중심 커리큘럼이 안정적이에요." }
+      ]
+    },
+    {
+      "id": "q9",
+      "theme": "활동·경험 욕구",
+      "themeIcon": "🎪",
+      "context": "자사고·IB·국제고는 비교과 활동(동아리·봉사·연구·해외교류)이 풍부해요. 활동을 좋아하면 이런 학교가 맞아요.",
+      "question": "고등학교에서 공부 외에 가장 하고 싶은 것은?",
+      "choices": [
+        { "text": "동아리·봉사·해외교류 등 다양한 활동을 많이 하고 싶다", "categoryScores": { "autonomous_private": 2, "ib": 1, "international": 1 }, "feedback": "활동 욕구가 높아요. 자사고·IB·국제고에서 풍부한 비교과 활동 → 학종에서 강력한 스펙이 돼요." },
+        { "text": "연구·올림피아드 등 학술 활동에 집중하고 싶다", "categoryScores": { "science_high": 3 }, "feedback": "학술 집중형이에요. 과학고에서 R&E 연구·올림피아드 → 서울대·KAIST 학종 최강 스펙이에요." },
+        { "text": "실기·공연·대회 등 전문 분야 활동에 올인하고 싶다", "categoryScores": { "arts_sports": 2, "meister": 1 }, "feedback": "전문 분야 올인형이에요. 예술고·마이스터고에서 해당 분야 집중 → 대학·취업 직결이에요." },
+        { "text": "공부에 집중하고 싶다. 활동은 최소한으로", "categoryScores": { "general_elite": 2 }, "feedback": "학업 집중형이에요. 일반고(학군지)에서 수능·내신에 올인 → 정시로 SKY·의대 도전이 효율적이에요." }
+      ]
+    },
+    {
+      "id": "q10",
+      "theme": "경쟁 강도",
+      "themeIcon": "🏆",
+      "context": "과학고·자사고는 전국 상위 0.1%가 모여요. 일반고는 지역 경쟁이라 내신 관리가 유리해요.",
+      "question": "어떤 경쟁 환경이 나를 성장시킬까요?",
+      "choices": [
+        { "text": "전국 최상위와 경쟁해야 동기부여가 된다", "categoryScores": { "science_high": 2, "autonomous_private": 1 }, "feedback": "극한 경쟁형이에요. 과학고·자사고에서 전국 최상위와 경쟁하며 폭발적으로 성장할 수 있어요." },
+        { "text": "적당한 경쟁 속에서 꾸준히 성장하는 게 맞다", "categoryScores": { "autonomous_public": 2, "general_elite": 1 }, "feedback": "안정 성장형이에요. 자공고·일반고에서 내신 상위권 유지 → 교과전형으로 안정적 대학 진학이에요." },
+        { "text": "글로벌 다양성 속에서 시야를 넓히고 싶다", "categoryScores": { "international": 2, "ib": 1 }, "feedback": "글로벌 경쟁형이에요. 국제고·IB 학교에서 다양한 배경의 학생들과 함께 글로벌 역량을 키울 수 있어요." },
+        { "text": "경쟁보다 나만의 전문성을 키우는 게 중요하다", "categoryScores": { "arts_sports": 1, "meister": 2 }, "feedback": "전문성 집중형이에요. 마이스터고·예술고에서 경쟁보다 기술·실기 전문성에 집중하는 환경이에요." }
+      ]
+    },
+    {
+      "id": "q11",
+      "theme": "직무 적성",
+      "themeIcon": "💼",
+      "context": "고입 → 대학 → 직업으로 이어지는 루트가 있어요. 꿈꾸는 직업이 고입 선택의 기준이 될 수 있어요.",
+      "question": "미래에 가장 끌리는 직업 분야는?",
+      "choices": [
+        { "text": "연구원·과학자·의사·엔지니어 (이공계)", "categoryScores": { "science_high": 2, "autonomous_private": 1 }, "feedback": "이공계 루트에요. 과학고 → KAIST·서울대 이공계, 자사고 → SKY 의대·공대 루트가 최적이에요." },
+        { "text": "외교관·국제기구·글로벌 기업 (국제·인문)", "categoryScores": { "international": 2, "foreign_language": 1 }, "feedback": "글로벌 인문 루트에요. 국제고·외고 → 연세대 국제학부, 해외 명문대 → 글로벌 커리어가 열려요." },
+        { "text": "예술가·디자이너·운동선수·감독 (예체능)", "categoryScores": { "arts_sports": 3 }, "feedback": "예체능 루트에요. 예술고·체육고 → 한예종·체육대 → 전문 예술가·선수 루트가 직결돼요." },
+        { "text": "CEO·창업가·경영인·금융인 (비즈니스)", "categoryScores": { "business": 2, "autonomous_private": 1 }, "feedback": "비즈니스 루트에요. 비즈니스고 → 선취업 후 경영학, 자사고 → SKY 경영학 → 대기업·창업 루트에요." },
+        { "text": "기술 전문가·AI 엔지니어·제조 명장 (기술)", "categoryScores": { "meister": 3 }, "feedback": "기술 전문가 루트에요. 마이스터고 → 삼성·현대 등 대기업 기술직 취업, 선취업 후 대학 진학도 가능해요." }
+      ]
+    },
+    {
+      "id": "q12",
+      "theme": "재정·비용",
+      "themeIcon": "💰",
+      "context": "국제고·IB는 연 1,000만원+, 자사고는 연 500~1,000만원, 마이스터고는 전액 국비 지원이에요.",
+      "question": "고등학교 교육비를 어떻게 고려하나요?",
+      "choices": [
+        { "text": "최적의 교육 환경이 우선이다. 비용은 감당할 수 있다", "categoryScores": { "international": 1, "ib": 1, "autonomous_private": 1 }, "feedback": "교육 투자형이에요. 국제고·IB·자사고에서 최고의 환경을 경험하고, 대학·직업에서 투자를 회수하는 전략이에요." },
+        { "text": "공립·국비 지원 학교를 선호한다", "categoryScores": { "autonomous_public": 2, "science_high": 1 }, "feedback": "효율 추구형이에요. 자공고(공립), 과학고(국비 지원)에서 비용 부담 없이 우수한 교육을 받을 수 있어요." },
+        { "text": "빠른 취업으로 경제적 독립을 원한다", "categoryScores": { "meister": 2, "business": 1 }, "feedback": "경제적 독립형이에요. 마이스터고(전액 국비) → 대기업 취업, 비즈니스고 → 선취업 후 진학이에요." },
+        { "text": "장학금을 받을 수 있는 학교를 찾고 있다", "categoryScores": { "science_high": 1, "meister": 1, "autonomous_public": 1 }, "feedback": "장학금 활용형이에요. 과학고·마이스터고는 국비 지원, 자공고는 공립이라 비용 부담이 적어요." }
+      ]
+    },
+    {
+      "id": "q13",
+      "theme": "대학 루트",
+      "themeIcon": "🎓",
+      "context": "고입 선택이 곧 대입 루트를 결정해요. SKY 학종, 정시, IB 해외 대학, 실기 전형 등 루트가 달라요.",
+      "question": "가장 끌리는 대학 진학 루트는?",
+      "choices": [
+        { "text": "SKY·의대 학종 — 3년간 활동·세특으로 합격하고 싶다", "categoryScores": { "autonomous_private": 2, "science_high": 1 }, "feedback": "학종 루트에요. 자사고·과학고에서 풍부한 비교과 + 세특 → SKY·의대 학종 합격률이 높아요." },
+        { "text": "수능 정시 — 수능 한 번으로 SKY·의대에 가고 싶다", "categoryScores": { "general_elite": 2, "autonomous_private": 1 }, "feedback": "정시 루트에요. 학군지 일반고에서 수능 집중, 자사고에서 수시+정시 병행이 효과적이에요." },
+        { "text": "IB → 해외 명문대 — 아이비리그·옥스퍼드를 목표로", "categoryScores": { "ib": 3, "international": 2 }, "feedback": "해외 대학 루트에요. IB 학교에서 디플로마 38점+ → 아이비리그·옥스퍼드 직접 지원이 가능해요." },
+        { "text": "실기·기술 전형 — 전문 분야로 대학·취업 직결", "categoryScores": { "arts_sports": 2, "meister": 1 }, "feedback": "전문 전형 루트에요. 예술고 → 한예종 실기 전형, 마이스터고 → 대기업 취업 후 대학 진학이에요." }
+      ]
+    },
+    {
+      "id": "q14",
+      "theme": "정체성",
+      "themeIcon": "🌟",
+      "context": "고입은 3년간의 삶을 결정해요. '나는 어떤 사람인가'를 아는 것이 가장 중요한 선택 기준이에요.",
+      "question": "나를 한 문장으로 표현한다면?",
+      "choices": [
+        { "text": "호기심이 많고, '왜?'를 끊임없이 묻는 탐구자", "categoryScores": { "science_high": 2, "ib": 1 }, "feedback": "탐구자 정체성이에요. 과학고의 연구 환경, IB의 비판적 사고 수업에서 '왜?'를 깊이 파고들 수 있어요." },
+        { "text": "세계와 소통하고, 다양한 문화를 경험하고 싶은 사람", "categoryScores": { "international": 2, "foreign_language": 1 }, "feedback": "글로벌 시민 정체성이에요. 국제고·외고에서 글로벌 네트워크를 쌓고 세계 무대로 나갈 수 있어요." },
+        { "text": "나만의 표현으로 세상에 감동을 주고 싶은 예술가", "categoryScores": { "arts_sports": 3 }, "feedback": "예술가 정체성이에요. 예술고에서 전문 예술 교육을 받으며 나만의 예술 세계를 구축할 수 있어요." },
+        { "text": "목표를 세우고 꾸준히 달성하는 실행력 있는 사람", "categoryScores": { "autonomous_private": 2, "meister": 1 }, "feedback": "실행가 정체성이에요. 자사고에서 명문대 목표 달성, 마이스터고에서 기술 전문가 목표 달성이 맞아요." }
+      ]
+    },
+    {
+      "id": "q15",
+      "theme": "종합 판단",
+      "themeIcon": "🧭",
+      "context": "마지막 질문이에요. 지금까지의 답변을 종합해서, 가장 끌리는 고입 방향을 선택해보세요.",
+      "question": "고입을 앞두고, 지금 가장 끌리는 방향은?",
+      "choices": [
+        { "text": "수학·과학 심화 → 올림피아드·연구 → KAIST·서울대 이공계", "categoryScores": { "science_high": 3 }, "feedback": "과학고·영재고 루트에요. 전국 최상위 이공계 인재들과 함께 연구하며 KAIST·서울대로 가는 길이에요." },
+        { "text": "IB·토론·에세이 → 해외 명문대 or SKY 학종", "categoryScores": { "ib": 2, "international": 2, "autonomous_private": 1 }, "feedback": "IB·국제고·자사고 루트에요. 다양한 활동과 깊이 있는 사고로 해외 대학과 국내 학종 모두 열려요." },
+        { "text": "내신+수능 집중 → 정시·교과전형 → SKY·의대", "categoryScores": { "general_elite": 2, "autonomous_public": 1 }, "feedback": "일반고·자공고 루트에요. 내신 관리가 유리하고, 수능 집중으로 정시 SKY·의대 도전이 현실적이에요." },
+        { "text": "예술·체육 실기 집중 → 한예종·체육대·해외 예술대", "categoryScores": { "arts_sports": 3 }, "feedback": "예술고·체육고 루트에요. 실기 전문성을 키워 한예종·체육대·해외 예술대로 직결되는 길이에요." },
+        { "text": "기술·경영 전문가 → 대기업 취업·선취업 후 대학", "categoryScores": { "meister": 2, "business": 1 }, "feedback": "마이스터고·비즈니스고 루트에요. 빠른 취업과 경제적 독립, 이후 대학 진학도 가능한 실용적 루트에요." }
+      ]
+    }
+  ],
+  "resultMessages": {
+    "single": "당신의 정체성과 대학 루트에 가장 잘 맞는 학교 유형이에요!",
+    "multiple": "다양한 가능성이 있어요. 아래 유형들을 탐방해보세요!",
+    "neutral": "아직 탐색이 필요한 시기예요. 행성 지도에서 여러 유형을 둘러보세요!"
+  }
+}

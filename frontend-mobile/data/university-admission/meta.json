@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "title": "대입 탐색",
+    "subtitle": "당신의 꿈을 향한 여정을 시작하세요",
+    "description": "2028 대입제도에 맞춘 전략적 준비 가이드",
+    "emoji": "🎓"
+  },
+  "intro": {
+    "title": "🎓 2028 대입 탐색: AI 시대의 프로젝트 기반 준비",
+    "description": "행성을 선택해서 대입 준비를 시작해 보자. 각 행성은 다른 대입 전형과 준비 방법을 알려 준다.",
+    "highlights": [
+      "🎯 전형별 맞춤 준비",
+      "📚 2028 대입제도 대응",
+      "🚀 AI 프로젝트 기반 학습",
+      "💡 직업(과)별 연계 준비"
+    ],
+    "warning": "⚠️ 수능·내신은 기본! 여기서는 그 외 준비과정을 다룬다."
+  },
+  "labels": {
+    "categories": "전형 유형",
+    "preparation": "준비 가이드",
+    "timeline": "준비 타임라인",
+    "tips": "핵심 팁",
+    "caution": "주의사항",
+    "majors": "주요 학과",
+    "backToPlanet": "행성으로 돌아가기",
+    "detail": "자세히 보기",
+    "startYear": "시작 시기",
+    "difficulty": "난이도",
+    "success": "성공 전략"
+  },
+  "planets": {
+    "centerStar": {
+      "emoji": "⭐",
+      "label": "대입의 중심"
+    }
+  }
+}

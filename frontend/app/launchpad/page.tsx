@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { Rocket, Plus, Zap } from 'lucide-react';
-import { TabBar } from '@/components/tab-bar';
 import { SessionDetail } from './components/SessionDetail';
 import { SessionForm } from './components/SessionForm';
 import { QuickCreator } from './components/QuickCreator';
@@ -243,7 +242,6 @@ export default function LaunchpadPage() {
       {showForm && <SessionForm onSubmit={handleCreate} onClose={() => setShowForm(false)} />}
       {editTarget && <SessionForm initial={editTarget} onSubmit={handleUpdate} onClose={() => setEditTarget(null)} />}
 
-      <TabBar />
     </div>
   );
 }

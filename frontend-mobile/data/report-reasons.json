@@ -1,0 +1,66 @@
+{
+  "content": [
+    {
+      "id": "copyright",
+      "label": "저작권 침해",
+      "description": "허가 없이 타인의 콘텐츠를 도용했습니다",
+      "emoji": "©️"
+    },
+    {
+      "id": "false_info",
+      "label": "허위·과장 정보",
+      "description": "사실과 다른 정보가 포함되어 있습니다",
+      "emoji": "⚠️"
+    },
+    {
+      "id": "spam",
+      "label": "스팸·광고",
+      "description": "홍보 목적의 불필요한 콘텐츠입니다",
+      "emoji": "📢"
+    },
+    {
+      "id": "inappropriate",
+      "label": "부적절한 내용",
+      "description": "학습과 무관하거나 유해한 내용이 포함되어 있습니다",
+      "emoji": "🚫"
+    },
+    {
+      "id": "other",
+      "label": "기타",
+      "description": "위 항목에 해당하지 않는 다른 문제가 있습니다",
+      "emoji": "💬"
+    }
+  ],
+  "comment": [
+    {
+      "id": "abuse",
+      "label": "욕설·비방",
+      "description": "모욕적이거나 공격적인 표현이 포함되어 있습니다",
+      "emoji": "🤬"
+    },
+    {
+      "id": "spam",
+      "label": "스팸·광고",
+      "description": "홍보 목적의 불필요한 댓글입니다",
+      "emoji": "📢"
+    },
+    {
+      "id": "false_info",
+      "label": "허위 정보",
+      "description": "사실과 다른 잘못된 정보를 퍼뜨리고 있습니다",
+      "emoji": "⚠️"
+    },
+    {
+      "id": "privacy",
+      "label": "개인정보 침해",
+      "description": "타인의 개인정보가 무단으로 포함되어 있습니다",
+      "emoji": "🔒"
+    },
+    {
+      "id": "other",
+      "label": "기타",
+      "description": "위 항목에 해당하지 않는 다른 문제가 있습니다",
+      "emoji": "💬"
+    }
+  ]
+}

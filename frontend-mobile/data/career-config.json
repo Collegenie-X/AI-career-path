@@ -1,0 +1,55 @@
+{
+  "colors": {
+    "primary": "#6C5CE7",
+    "activity": "#3B82F6",
+    "award": "#FBBF24",
+    "certification": "#22C55E",
+    "portfolio": "#EC4899",
+    "goal": "#A78BFA",
+    "background": "rgba(26,26,46,0.95)"
+  },
+  "itemTypes": [
+    { "value": "activity", "label": "활동", "color": "#3B82F6", "emoji": "🎯" },
+    { "value": "award", "label": "수상·대회", "color": "#FBBF24", "emoji": "🏆" },
+    { "value": "portfolio", "label": "작품", "color": "#EC4899", "emoji": "🖼️" },
+    { "value": "certification", "label": "자격증", "color": "#22C55E", "emoji": "📜" }
+  ],
+  "gradeYears": [
+    { "id": "elem3", "label": "초3", "fullLabel": "초등 3학년", "order": 1 },
+    { "id": "elem4", "label": "초4", "fullLabel": "초등 4학년", "order": 2 },
+    { "id": "elem5", "label": "초5", "fullLabel": "초등 5학년", "order": 3 },
+    { "id": "elem6", "label": "초6", "fullLabel": "초등 6학년", "order": 4 },
+    { "id": "mid1", "label": "중1", "fullLabel": "중학교 1학년", "order": 5 },
+    { "id": "mid2", "label": "중2", "fullLabel": "중학교 2학년", "order": 6 },
+    { "id": "mid3", "label": "중3", "fullLabel": "중학교 3학년", "order": 7 },
+    { "id": "high1", "label": "고1", "fullLabel": "고등학교 1학년", "order": 8 },
+    { "id": "high2", "label": "고2", "fullLabel": "고등학교 2학년", "order": 9 },
+    { "id": "high3", "label": "고3", "fullLabel": "고등학교 3학년", "order": 10 },
+    { "id": "univ", "label": "대학생", "fullLabel": "대학생", "order": 11 },
+    { "id": "general", "label": "일반", "fullLabel": "일반", "order": 12 }
+  ],
+  "semesterOptions": [
+    { "id": "both", "label": "1·2학기 통합", "emoji": "📅", "description": "학년 전체를 하나로 관리" },
+    { "id": "first", "label": "1학기만", "emoji": "🌸", "description": "3월 ~ 8월" },
+    { "id": "second", "label": "2학기만", "emoji": "🍂", "description": "9월 ~ 2월" },
+    { "id": "split", "label": "1·2학기 분리", "emoji": "✂️", "description": "학기별로 따로 계획" }
+  ],
+  "starFilters": [
+    { "id": "all", "label": "전체", "emoji": "✨" },
+    { "id": "explore", "label": "탐구", "emoji": "🔬" },
+    { "id": "create", "label": "창작", "emoji": "🎨" },
+    { "id": "tech", "label": "기술", "emoji": "💻" },
+    { "id": "nature", "label": "자연", "emoji": "🌱" },
+    { "id": "connect", "label": "연결", "emoji": "🤝" },
+    { "id": "order", "label": "질서", "emoji": "⚖️" },
+    { "id": "communicate", "label": "소통", "emoji": "📡" },
+    { "id": "challenge", "label": "도전", "emoji": "🚀" }
+  ],
+  "routes": {
+    "career": "/career",
+    "builder": "/career?tab=builder",
+    "timeline": "/career?tab=timeline",
+    "explore": "/career?tab=explore",
+    "community": "/career?tab=community"
+  }
+}

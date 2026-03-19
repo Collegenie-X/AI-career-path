@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { TabBar } from '@/components/tab-bar';
 import { XPBar } from '@/components/xp-bar';
 import kingdomsData from '@/data/kingdoms.json';
 import { Kingdom } from '@/lib/types';
@@ -115,7 +114,6 @@ export default function ExplorePage() {
         </div>
       </div>
 
-      <TabBar />
     </div>
   );
 }

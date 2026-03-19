@@ -1,0 +1,7 @@
+[
+  { "id": "false_info",    "label": "허위·과장 정보",  "description": "사실과 다른 정보가 포함되어 있습니다",    "emoji": "⚠️" },
+  { "id": "copyright",     "label": "저작권 침해",     "description": "타인의 콘텐츠를 무단으로 도용했습니다",  "emoji": "©️" },
+  { "id": "spam",          "label": "스팸·광고",       "description": "홍보성 또는 반복 게시물입니다",          "emoji": "📢" },
+  { "id": "inappropriate", "label": "부적절한 내용",   "description": "학습과 무관하거나 유해한 내용입니다",    "emoji": "🚫" },
+  { "id": "other",         "label": "기타",            "description": "위 항목에 해당하지 않는 문제입니다",     "emoji": "💬" }
+]

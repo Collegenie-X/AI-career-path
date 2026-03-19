@@ -3,7 +3,6 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
-import { TabBar } from '@/components/tab-bar';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
 import { RoadmapFeedTab } from './components/RoadmapFeedTab';
@@ -281,7 +280,6 @@ function DreamMatePageContent() {
         />
       )}
 
-      <TabBar />
     </div>
   );
 }

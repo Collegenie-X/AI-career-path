@@ -1,0 +1,89 @@
+{
+  "header": {
+    "title": "고입 자료실",
+    "shortDescription": "카테고리별 핵심 자료를 빠르게 찾고, 클릭해서 상세 다이얼로그로 확인하세요.",
+    "detailDescription": "이 자료실은 한국 캐리어패스 일반 루트/특수 루트 문서를 바탕으로 구성되었습니다. 목록에서는 핵심 요약만 보여주고, 상세 내용(표/체크리스트/Mermaid)은 다이얼로그에서 확인하도록 분리했습니다."
+  },
+  "documents": [
+    {
+      "id": "admission-strategy-general-route-map",
+      "categoryId": "admission_strategy",
+      "title": "일반 루트 입시 전략 맵",
+      "summary": "루트 A~D(정시/학종/투트랙/지방국립) 핵심 전략 요약",
+      "markdownPath": "/resource-hub/admission_strategy_general_route_map.md",
+      "tags": ["일반루트", "정시", "학종", "투트랙"]
+    },
+    {
+      "id": "admission-strategy-special-route-map",
+      "categoryId": "admission_strategy",
+      "title": "특수 루트 입시 전략 맵",
+      "summary": "루트 E~K(과학고/사관/경찰대/로스쿨/행시/해외/의대) 정리",
+      "markdownPath": "/resource-hub/admission_strategy_special_route_map.md",
+      "tags": ["특수루트", "과학고", "사관학교", "의대"]
+    },
+    {
+      "id": "school-comparison-general-vs-special",
+      "categoryId": "school_comparison",
+      "title": "일반고 vs 특목·자사 비교",
+      "summary": "선발 구조, 학습 강도, 리스크를 한 표로 비교",
+      "markdownPath": "/resource-hub/school_comparison_general_vs_special.md",
+      "tags": ["학교비교", "일반고", "특목고", "자사고"]
+    },
+    {
+      "id": "school-comparison-route-difficulty-reward",
+      "categoryId": "school_comparison",
+      "title": "루트별 난이도·보상 비교",
+      "summary": "주요 루트별 준비 난이도와 10년차 보상 수준 요약",
+      "markdownPath": "/resource-hub/school_comparison_route_difficulty_reward.md",
+      "tags": ["난이도", "보상", "커리어", "비교표"]
+    },
+    {
+      "id": "study-material-middle-school-checklist",
+      "categoryId": "study_material",
+      "title": "중학생 고입 준비 체크리스트",
+      "summary": "중1~중3 학기별 점검 항목과 필수 준비물",
+      "markdownPath": "/resource-hub/study_material_middle_school_checklist.md",
+      "tags": ["체크리스트", "중학생", "준비"]
+    },
+    {
+      "id": "study-material-grade-timeline",
+      "categoryId": "study_material",
+      "title": "학년별 실행 타임라인",
+      "summary": "중학교~고3까지 루트 공통 실행 타임라인",
+      "markdownPath": "/resource-hub/study_material_grade_timeline.md",
+      "tags": ["타임라인", "학년전략", "실행계획"]
+    },
+    {
+      "id": "interview-prep-special-school",
+      "categoryId": "interview_prep",
+      "title": "특수학교 면접 대비 질문집",
+      "summary": "사관학교/경찰대/영재고 면접 공통 질문과 답변 프레임",
+      "markdownPath": "/resource-hub/interview_prep_special_school_questions.md",
+      "tags": ["면접", "사관학교", "경찰대", "영재고"]
+    },
+    {
+      "id": "interview-prep-self-intro-template",
+      "categoryId": "interview_prep",
+      "title": "자기소개·포트폴리오 템플릿",
+      "summary": "학종/해외대/특수전형 공통 자기소개 구조",
+      "markdownPath": "/resource-hub/interview_prep_self_intro_template.md",
+      "tags": ["자기소개", "포트폴리오", "템플릿"]
+    },
+    {
+      "id": "other-special-situation-routes",
+      "categoryId": "other",
+      "title": "특수 상황 루트 가이드",
+      "summary": "재수/N수, 검정고시, 기회균형, 장애인 특별전형 대응 전략",
+      "markdownPath": "/resource-hub/other_special_situation_routes.md",
+      "tags": ["재수", "검정고시", "기회균형", "특별전형"]
+    },
+    {
+      "id": "other-faq-core-questions",
+      "categoryId": "other",
+      "title": "자주 묻는 질문 핵심 10선",
+      "summary": "입시 재도전/장학금/지원조건 중심으로 빠른 답변",
+      "markdownPath": "/resource-hub/other_faq_core_questions.md",
+      "tags": ["FAQ", "질문답변", "핵심정리"]
+    }
+  ]
+}

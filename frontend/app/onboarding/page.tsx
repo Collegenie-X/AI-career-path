@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Sparkles, ChevronRight } from 'lucide-react';
+import { Sparkles, ChevronRight, ChevronLeft } from 'lucide-react';
 
 import onboardingData from '@/data/onboarding.json';
 import { LABELS, ROUTES } from './config';
@@ -20,6 +20,7 @@ import {
  * 온보딩: 앱 소개 슬라이드만 표시.
  * 프로필(닉네임·학교·학년)은 회원가입 이후 설정 페이지에서 입력.
  * 마지막 슬라이드 완료 시 최소 프로필 생성 후 퀴즈로 이동.
+ * Web: 키보드 방향키 지원, 반응형 레이아웃 (980→720→390)
  */
 export default function OnboardingPage() {
   const router = useRouter();
@@ -51,6 +52,25 @@ export default function OnboardingPage() {
   const goPrev = () => {
     if (current > 0) setCurrent((c) => c - 1);
   };
+
+  const goNextRef = useRef(goNext);
+  const goPrevRef = useRef(goPrev);
+  goNextRef.current = goNext;
+  goPrevRef.current = goPrev;
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goNextRef.current();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goPrevRef.current();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleSkip = () => {
     storage.user.set({

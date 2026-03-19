@@ -3,7 +3,6 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Star, GraduationCap, School } from 'lucide-react';
-import { TabBar } from '@/components/tab-bar';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import exploreStar from '@/data/stars/explore-star.json';
 import createStar from '@/data/stars/create-star.json';
@@ -77,7 +76,7 @@ function JobsExploreContent() {
   return (
     <div
       className="min-h-screen relative overflow-hidden"
-      style={{ paddingBottom: 'calc(65px + env(safe-area-inset-bottom, 0px))' }}
+      style={{ paddingBottom: '1rem' }}
     >
       <StarField />
 
@@ -143,8 +142,6 @@ function JobsExploreContent() {
         {/* ── 대입 탐색 탭 ── */}
         {activeTab === 'university' && <UniversityAdmissionTab />}
       </div>
-
-      {!selectedJob && !selectedStar && <TabBar />}
 
       {/* 별 선택 시 전체 페이지 (화살표로 섹션 이동) */}
       {selectedStar && !selectedJob && (

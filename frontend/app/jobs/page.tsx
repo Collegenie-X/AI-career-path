@@ -1,6 +1,5 @@
 'use client';
 
-import { TabBar } from '@/components/tab-bar';
 import jobsContentData from '@/data/jobs-content.json';
 import {
   HeroSection,
@@ -20,7 +19,7 @@ export default function JobsPage() {
       className="min-h-screen relative overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #12122a 0%, #0d0d1a 100%)',
-        paddingBottom: 'calc(65px + env(safe-area-inset-bottom, 0px))',
+        paddingBottom: '2rem',
       }}
     >
       {/* Background Effects */}
@@ -70,8 +69,6 @@ export default function JobsPage() {
         <CTASection data={jobsContent.cta} />
       </div>
 
-      {/* Tab Bar */}
-      <TabBar />
     </div>
   );
 }

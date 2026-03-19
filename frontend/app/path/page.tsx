@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { TabBar } from '@/components/tab-bar';
 import { XPBar } from '@/components/xp-bar';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -300,7 +299,6 @@ export default function PathPage() {
         </div>
       </div>
 
-      <TabBar />
     </div>
   );
 }
