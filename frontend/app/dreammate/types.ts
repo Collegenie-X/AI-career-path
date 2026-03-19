@@ -114,12 +114,37 @@ export interface DreamResource {
   category: ResourceCategoryId;
   title: string;
   description: string;
+  authorId?: string;
+  resourceUrl?: string;
+  attachmentFileName?: string;
+  attachmentFileType?: 'md' | 'pdf';
+  attachmentMarkdownContent?: string;
+  attachmentDataUrl?: string;
   authorName: string;
   authorEmoji: string;
   authorGrade: string;
   tags: string[];
   likes: number;
   bookmarks: number;
+  createdAt: string;
+}
+
+export interface DreamResourceComment {
+  id: string;
+  resourceId: string;
+  authorId: string;
+  authorName: string;
+  authorEmoji: string;
+  content: string;
+  createdAt: string;
+}
+
+export interface DreamResourceReportRecord {
+  id: string;
+  resourceId: string;
+  reasonId: string;
+  detail: string;
+  reportedByUserId: string;
   createdAt: string;
 }
 

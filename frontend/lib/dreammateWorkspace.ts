@@ -1,9 +1,19 @@
-import type { DreamSpace, RoadmapReportRecord, SharedRoadmap } from '@/app/dreammate/types';
+import type {
+  DreamResource,
+  DreamResourceComment,
+  DreamResourceReportRecord,
+  DreamSpace,
+  RoadmapReportRecord,
+  SharedRoadmap,
+} from '@/app/dreammate/types';
 
 const WORKSPACE_STORAGE_KEY = 'dreammate_workspace_v1';
 
 export interface DreamMateWorkspaceState {
   roadmaps: SharedRoadmap[];
+  resources: DreamResource[];
+  resourceComments: DreamResourceComment[];
+  resourceReports: DreamResourceReportRecord[];
   spaces: DreamSpace[];
   roadmapReports: RoadmapReportRecord[];
 }
@@ -33,9 +43,28 @@ function mergeRoadmapsWithFallback(
 function cloneState(state: DreamMateWorkspaceState): DreamMateWorkspaceState {
   return {
     roadmaps: structuredClone(state.roadmaps),
+    resources: structuredClone(state.resources),
+    resourceComments: structuredClone(state.resourceComments),
+    resourceReports: structuredClone(state.resourceReports),
     spaces: structuredClone(state.spaces),
     roadmapReports: structuredClone(state.roadmapReports),
   };
+}
+
+function mergeResourcesWithFallback(
+  storedResources: DreamResource[],
+  fallbackResources: DreamResource[],
+): DreamResource[] {
+  const resourceById = new Map<string, DreamResource>();
+  storedResources.forEach(resource => {
+    resourceById.set(resource.id, resource);
+  });
+  fallbackResources.forEach(resource => {
+    if (!resourceById.has(resource.id)) {
+      resourceById.set(resource.id, resource);
+    }
+  });
+  return Array.from(resourceById.values());
 }
 
 export function loadDreamMateWorkspaceState(
@@ -55,6 +84,15 @@ export function loadDreamMateWorkspaceState(
         parsed.roadmaps as SharedRoadmap[],
         fallbackState.roadmaps,
       ),
+      resources: Array.isArray(parsed.resources)
+        ? mergeResourcesWithFallback(parsed.resources as DreamResource[], fallbackState.resources)
+        : fallbackState.resources,
+      resourceComments: Array.isArray(parsed.resourceComments)
+        ? (parsed.resourceComments as DreamResourceComment[])
+        : fallbackState.resourceComments,
+      resourceReports: Array.isArray(parsed.resourceReports)
+        ? (parsed.resourceReports as DreamResourceReportRecord[])
+        : fallbackState.resourceReports,
       spaces: parsed.spaces as DreamSpace[],
       roadmapReports: Array.isArray(parsed.roadmapReports)
         ? (parsed.roadmapReports as RoadmapReportRecord[])

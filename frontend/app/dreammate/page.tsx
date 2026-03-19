@@ -116,11 +116,18 @@ function DreamMatePageContent() {
           />
         ) : activeTab === 'library' ? (
           <DreamLibraryTab
-            resources={resources}
+            currentUserId={workspace.currentUserId}
+            resources={workspace.resources}
+            resourceCommentsByResourceId={workspace.resourceCommentsByResourceId}
             likedResourceIds={workspace.reactions.likedResourceIds}
             bookmarkedResourceIds={workspace.reactions.bookmarkedResourceIds}
             onToggleLikeResource={workspace.handleToggleLikeResource}
             onToggleBookmarkResource={workspace.handleToggleBookmarkResource}
+            onCreateResource={workspace.handleCreateResource}
+            onUpdateResource={workspace.handleUpdateResource}
+            onDeleteResource={workspace.handleDeleteResource}
+            onCreateResourceComment={workspace.handleCreateResourceComment}
+            onReportResource={workspace.handleReportResource}
           />
         ) : activeTab === 'space' ? (
           <DreamSpaceTab

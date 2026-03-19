@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type {
   DreamResource,
+  DreamResourceComment,
+  DreamResourceReportRecord,
   DreamSpace,
   RoadmapItem,
   RoadmapReportRecord,
@@ -194,6 +196,30 @@ interface UseDreamMateWorkspaceOptions {
   resources: DreamResource[];
 }
 
+interface CreateDreamResourcePayload {
+  category: DreamResource['category'];
+  title: string;
+  description: string;
+  resourceUrl?: string;
+  tags: string[];
+  attachmentFileName?: string;
+  attachmentFileType?: 'md' | 'pdf';
+  attachmentMarkdownContent?: string;
+  attachmentDataUrl?: string;
+}
+
+interface UpdateDreamResourcePayload {
+  category: DreamResource['category'];
+  title: string;
+  description: string;
+  resourceUrl?: string;
+  tags: string[];
+  attachmentFileName?: string;
+  attachmentFileType?: 'md' | 'pdf';
+  attachmentMarkdownContent?: string;
+  attachmentDataUrl?: string;
+}
+
 function normalizeSpaceStructure(space: DreamSpace): DreamSpace {
   return {
     ...space,
@@ -219,10 +245,13 @@ function updateSpaceById(
 export function useDreamMateWorkspace({
   seedRoadmaps,
   seedSpaces,
-  resources,
+  resources: seedResources,
 }: UseDreamMateWorkspaceOptions) {
   const [isWorkspaceLoaded, setIsWorkspaceLoaded] = useState(false);
   const [roadmaps, setRoadmaps] = useState<SharedRoadmap[]>(seedRoadmaps.map(normalizeRoadmapStructure));
+  const [resources, setResources] = useState<DreamResource[]>(seedResources);
+  const [resourceComments, setResourceComments] = useState<DreamResourceComment[]>([]);
+  const [resourceReports, setResourceReports] = useState<DreamResourceReportRecord[]>([]);
   const [spaces, setSpaces] = useState<DreamSpace[]>(seedSpaces);
   const [joinedSpaceIds, setJoinedSpaceIds] = useState<string[]>([]);
   const [reactions, setReactions] = useState<DreamReactions>({
@@ -241,21 +270,27 @@ export function useDreamMateWorkspace({
   useEffect(() => {
     const loadedWorkspace = loadDreamMateWorkspaceState({
       roadmaps: seedRoadmaps,
+      resources: seedResources,
+      resourceComments: [],
+      resourceReports: [],
       spaces: seedSpaces,
       roadmapReports: [],
     });
     setRoadmaps(loadedWorkspace.roadmaps.map(normalizeRoadmapStructure));
+    setResources(loadedWorkspace.resources);
+    setResourceComments(loadedWorkspace.resourceComments ?? []);
+    setResourceReports(loadedWorkspace.resourceReports ?? []);
     setSpaces(loadedWorkspace.spaces.map(normalizeSpaceStructure));
     setRoadmapReports(loadedWorkspace.roadmapReports ?? []);
     setIsWorkspaceLoaded(true);
     setJoinedSpaceIds(loadJoinedSpaceIds());
     setReactions(loadDreamReactions());
-  }, [seedRoadmaps, seedSpaces]);
+  }, [seedRoadmaps, seedResources, seedSpaces]);
 
   useEffect(() => {
     if (!isWorkspaceLoaded) return;
-    saveDreamMateWorkspaceState({ roadmaps, spaces, roadmapReports });
-  }, [isWorkspaceLoaded, roadmaps, spaces, roadmapReports]);
+    saveDreamMateWorkspaceState({ roadmaps, resources, resourceComments, resourceReports, spaces, roadmapReports });
+  }, [isWorkspaceLoaded, roadmaps, resources, resourceComments, resourceReports, spaces, roadmapReports]);
 
   const roadmapLikeCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -302,6 +337,17 @@ export function useDreamMateWorkspace({
     () => resources.filter(resource => reactions.bookmarkedResourceIds.includes(resource.id)),
     [resources, reactions.bookmarkedResourceIds],
   );
+
+  const resourceCommentsByResourceId = useMemo(() => {
+    const groupedComments: Record<string, DreamResourceComment[]> = {};
+    resourceComments.forEach(comment => {
+      if (!groupedComments[comment.resourceId]) {
+        groupedComments[comment.resourceId] = [];
+      }
+      groupedComments[comment.resourceId].push(comment);
+    });
+    return groupedComments;
+  }, [resourceComments]);
 
   const handleToggleRoadmapLike = useCallback((roadmapId: string) => {
     setReactions(prev => {
@@ -357,6 +403,89 @@ export function useDreamMateWorkspace({
       saveDreamReactions(updated);
       return updated;
     });
+  }, []);
+
+  const handleCreateResource = useCallback((payload: CreateDreamResourcePayload) => {
+    const normalizedUrl = payload.resourceUrl?.trim() ?? '';
+    const newResource: DreamResource = {
+      id: createId('resource'),
+      category: payload.category,
+      title: payload.title.trim(),
+      description: payload.description.trim(),
+      authorId: CURRENT_USER.id,
+      resourceUrl: normalizedUrl.length > 0 ? normalizedUrl : undefined,
+      attachmentFileName: payload.attachmentFileName,
+      attachmentFileType: payload.attachmentFileType,
+      attachmentMarkdownContent: payload.attachmentMarkdownContent,
+      attachmentDataUrl: payload.attachmentDataUrl,
+      authorName: CURRENT_USER.name,
+      authorEmoji: CURRENT_USER.emoji,
+      authorGrade: CURRENT_USER.grade,
+      tags: payload.tags.filter(tag => tag.trim().length > 0).map(tag => tag.trim()),
+      likes: 0,
+      bookmarks: 0,
+      createdAt: new Date().toISOString(),
+    };
+    setResources(prev => [newResource, ...prev]);
+  }, []);
+
+  const handleUpdateResource = useCallback((resourceId: string, payload: UpdateDreamResourcePayload) => {
+    const normalizedUrl = payload.resourceUrl?.trim() ?? '';
+    setResources(prev => prev.map(resource => {
+      if (resource.id !== resourceId) return resource;
+      return {
+        ...resource,
+        category: payload.category,
+        title: payload.title.trim(),
+        description: payload.description.trim(),
+        resourceUrl: normalizedUrl.length > 0 ? normalizedUrl : undefined,
+        tags: payload.tags.filter(tag => tag.trim().length > 0).map(tag => tag.trim()),
+        attachmentFileName: payload.attachmentFileName,
+        attachmentFileType: payload.attachmentFileType,
+        attachmentMarkdownContent: payload.attachmentMarkdownContent,
+        attachmentDataUrl: payload.attachmentDataUrl,
+      };
+    }));
+  }, []);
+
+  const handleDeleteResource = useCallback((resourceId: string) => {
+    setResources(prev => prev.filter(resource => resource.id !== resourceId));
+    setReactions(prev => {
+      const updated: DreamReactions = {
+        ...prev,
+        likedResourceIds: prev.likedResourceIds.filter(id => id !== resourceId),
+        bookmarkedResourceIds: prev.bookmarkedResourceIds.filter(id => id !== resourceId),
+      };
+      saveDreamReactions(updated);
+      return updated;
+    });
+    setResourceComments(prev => prev.filter(comment => comment.resourceId !== resourceId));
+    setResourceReports(prev => prev.filter(report => report.resourceId !== resourceId));
+  }, []);
+
+  const handleCreateResourceComment = useCallback((resourceId: string, content: string) => {
+    const trimmedContent = content.trim();
+    if (!trimmedContent) return;
+    setResourceComments(prev => [{
+      id: createId('resource-comment'),
+      resourceId,
+      authorId: CURRENT_USER.id,
+      authorName: CURRENT_USER.name,
+      authorEmoji: CURRENT_USER.emoji,
+      content: trimmedContent,
+      createdAt: new Date().toISOString(),
+    }, ...prev]);
+  }, []);
+
+  const handleReportResource = useCallback((resourceId: string, reasonId: string, detail: string) => {
+    setResourceReports(prev => [{
+      id: createId('resource-report'),
+      resourceId,
+      reasonId,
+      detail: detail.trim(),
+      reportedByUserId: CURRENT_USER.id,
+      createdAt: new Date().toISOString(),
+    }, ...prev]);
   }, []);
 
   const handleJoinSpace = useCallback((spaceId: string) => {
@@ -700,11 +829,15 @@ export function useDreamMateWorkspace({
 
   return {
     currentUserId: CURRENT_USER.id,
+    resources,
     roadmaps,
     visibleRoadmaps,
     spaces,
     joinedSpaceIds,
     reactions,
+    resourceComments,
+    resourceCommentsByResourceId,
+    resourceReports,
     roadmapLikeCounts,
     roadmapBookmarkCounts,
     selectedRoadmap,
@@ -724,6 +857,11 @@ export function useDreamMateWorkspace({
     handleToggleRoadmapBookmark,
     handleToggleLikeResource,
     handleToggleBookmarkResource,
+    handleCreateResource,
+    handleUpdateResource,
+    handleDeleteResource,
+    handleCreateResourceComment,
+    handleReportResource,
     handleJoinSpace,
     handleLeaveSpace,
     handleCreateRoadmap,
