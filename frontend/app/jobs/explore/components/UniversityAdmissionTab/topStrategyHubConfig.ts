@@ -15,4 +15,23 @@ export const TOP_STRATEGY_HUB_CONFIG = {
     cards: '실전 실행 카드',
     qa: '심화 Q&A 20 (면접·서류 대응)',
   },
+  sectionIcons: {
+    strategy2028: 'Zap',
+    aiProject: 'Rocket',
+    paperMaker: 'FlaskConical',
+    gradeRoadmap: 'Calendar',
+  },
+  gradeIcons: {
+    grade1: '🌱',
+    grade2: '🌿',
+    grade3: '🌳',
+  },
+  detailSectionIcons: {
+    necessity: '💡',
+    advantage: '✨',
+    evidence: '📝',
+    checklist: '✅',
+    cards: 'CheckCircle2',
+    qa: 'Lightbulb',
+  },
 } as const;

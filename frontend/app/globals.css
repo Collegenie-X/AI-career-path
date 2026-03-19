@@ -169,6 +169,13 @@
     border-top: none;
     border-bottom-right-radius: 8px;
   }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ========== Game-style Keyframes ========== */
