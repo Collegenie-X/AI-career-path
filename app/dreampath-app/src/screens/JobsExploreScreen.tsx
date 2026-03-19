@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SPACING, FONT_SIZES, BORDER_RADIUS } from '../config/theme';
 import { JOBS_EXPLORE_LABELS } from '../config/labels';
 import { ALL_STARS } from '../data/stars';
@@ -15,9 +16,17 @@ import { StarryBackground } from '../components/jobs/StarryBackground';
 import type { StarData, StarJob } from '../lib/types';
 
 type ScreenView = 'starSelect' | 'starDetail';
+type ExploreTabId = 'star' | 'admission' | 'university';
+
+const EXPLORE_TABS: { id: ExploreTabId; label: string; icon: keyof typeof Ionicons.glyphMap }[] = [
+  { id: 'star', label: JOBS_EXPLORE_LABELS.exploreTabStar ?? '직업 탐색', icon: 'star' },
+  { id: 'admission', label: JOBS_EXPLORE_LABELS.exploreTabAdmission ?? '고입 탐색', icon: 'school' },
+  { id: 'university', label: JOBS_EXPLORE_LABELS.exploreTabUniversity ?? '대입 탐색', icon: 'business' },
+];
 
 export function JobsExploreScreen() {
   const insets = useSafeAreaInsets();
+  const [activeTab, setActiveTab] = useState<ExploreTabId>('star');
   const [currentView, setCurrentView] = useState<ScreenView>('starSelect');
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
   const [selectedJob, setSelectedJob] = useState<StarJob | null>(null);
@@ -44,17 +53,33 @@ export function JobsExploreScreen() {
     setSelectedJob(null);
   }, []);
 
+  const handleTabPress = useCallback((tabId: ExploreTabId) => {
+    setActiveTab(tabId);
+    if (tabId !== 'star') {
+      setCurrentView('starSelect');
+      setSelectedStar(null);
+      setSelectedJob(null);
+    }
+  }, []);
+
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <StarryBackground />
-      {currentView === 'starSelect' ? (
-        <StarSelectView onStarPress={handleStarPress} />
+      <ExploreTabBar activeTab={activeTab} onTabPress={handleTabPress} />
+      {activeTab === 'star' ? (
+        <>
+          {currentView === 'starSelect' ? (
+            <StarSelectView onStarPress={handleStarPress} />
+          ) : (
+            <StarDetailView
+              star={selectedStar!}
+              onBack={handleBackToStarSelect}
+              onJobPress={handleJobPress}
+            />
+          )}
+        </>
       ) : (
-        <StarDetailView
-          star={selectedStar!}
-          onBack={handleBackToStarSelect}
-          onJobPress={handleJobPress}
-        />
+        <ComingSoonTab />
       )}
 
       <JobDetailModal
@@ -63,6 +88,56 @@ export function JobsExploreScreen() {
         star={selectedStar}
         onClose={handleCloseJobModal}
       />
+    </View>
+  );
+}
+
+function ExploreTabBar({
+  activeTab,
+  onTabPress,
+}: {
+  activeTab: ExploreTabId;
+  onTabPress: (id: ExploreTabId) => void;
+}) {
+  return (
+    <View style={styles.tabBar}>
+      {EXPLORE_TABS.map((tab) => {
+        const isActive = activeTab === tab.id;
+        return (
+          <TouchableOpacity
+            key={tab.id}
+            style={[styles.tabItem, isActive && styles.tabItemActive]}
+            onPress={() => onTabPress(tab.id)}
+            activeOpacity={0.7}
+          >
+            <Ionicons
+              name={tab.icon}
+              size={14}
+              color={isActive ? COLORS.white : COLORS.textSecondary}
+            />
+            <Text
+              style={[
+                styles.tabLabel,
+                isActive && styles.tabLabelActive,
+              ]}
+            >
+              {tab.label}
+            </Text>
+          </TouchableOpacity>
+        );
+      })}
+    </View>
+  );
+}
+
+function ComingSoonTab() {
+  const comingSoon = JOBS_EXPLORE_LABELS.comingSoon ?? '준비 중';
+  const comingSoonDesc = JOBS_EXPLORE_LABELS.comingSoonDescription ?? '곧 만나보실 수 있어요!';
+  return (
+    <View style={styles.comingSoonContainer}>
+      <Text style={styles.comingSoonEmoji}>🚧</Text>
+      <Text style={styles.comingSoonTitle}>{comingSoon}</Text>
+      <Text style={styles.comingSoonDescription}>{comingSoonDesc}</Text>
     </View>
   );
 }
@@ -198,6 +273,59 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingBottom: 100,
+  },
+
+  tabBar: {
+    flexDirection: 'row',
+    marginHorizontal: SPACING.md,
+    marginTop: SPACING.sm,
+    marginBottom: SPACING.sm,
+    padding: 4,
+    borderRadius: BORDER_RADIUS.xl,
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+  },
+  tabItem: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: SPACING.sm,
+    borderRadius: BORDER_RADIUS.lg,
+  },
+  tabItemActive: {
+    backgroundColor: 'rgba(132,94,247,0.35)',
+  },
+  tabLabel: {
+    fontSize: FONT_SIZES.xs,
+    fontWeight: '600',
+    color: COLORS.textSecondary,
+  },
+  tabLabelActive: {
+    color: COLORS.white,
+  },
+
+  comingSoonContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: SPACING.xl,
+  },
+  comingSoonEmoji: {
+    fontSize: 48,
+    marginBottom: SPACING.lg,
+  },
+  comingSoonTitle: {
+    fontSize: FONT_SIZES.lg,
+    fontWeight: '900',
+    color: COLORS.white,
+    marginBottom: SPACING.sm,
+  },
+  comingSoonDescription: {
+    fontSize: FONT_SIZES.sm,
+    color: COLORS.textSecondary,
   },
 
   pageHeader: {

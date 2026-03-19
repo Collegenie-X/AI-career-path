@@ -9,6 +9,8 @@ interface RecommendedJobsCardProps {
   topTypeColor: string;
 }
 
+const RANK_COLORS = ['#FBBF24', '#9CA3AF', '#CD7C2F', '#6B7280', '#4B5563'];
+
 export function RecommendedJobsCard({ jobs, topTypeColor }: RecommendedJobsCardProps) {
   return (
     <View style={styles.card}>
@@ -19,7 +21,7 @@ export function RecommendedJobsCard({ jobs, topTypeColor }: RecommendedJobsCardP
       {jobs.map((item, index) => (
         <RecommendedJobRow
           key={item.job.id}
-          job={item}
+          item={item}
           index={index}
           topTypeColor={topTypeColor}
         />
@@ -29,40 +31,53 @@ export function RecommendedJobsCard({ jobs, topTypeColor }: RecommendedJobsCardP
 }
 
 interface RecommendedJobRowProps {
-  job: RecommendedJob;
+  item: RecommendedJob;
   index: number;
   topTypeColor: string;
 }
 
-function RecommendedJobRow({ job, index, topTypeColor }: RecommendedJobRowProps) {
+function RecommendedJobRow({ item, index, topTypeColor }: RecommendedJobRowProps) {
+  const { job, starName, starColor, score } = item;
   const isFirst = index === 0;
+  const rankColor = RANK_COLORS[index] ?? RANK_COLORS[4];
 
   return (
-    <View style={styles.jobRow}>
-      <View
-        style={[
-          styles.rankBadge,
-          {
-            backgroundColor: isFirst ? `${topTypeColor}25` : 'rgba(255,255,255,0.05)',
-          },
-        ]}
-      >
-        <Text
+    <View
+      style={[
+        styles.jobRow,
+        isFirst && {
+          borderColor: `${topTypeColor}30`,
+          backgroundColor: `${topTypeColor}08`,
+        },
+      ]}
+    >
+      {/* 큰 아이콘 + 상단 오른쪽 순위 뱃지 */}
+      <View style={styles.iconWrapper}>
+        <View
           style={[
-            styles.rankText,
-            { color: isFirst ? topTypeColor : 'rgba(255,255,255,0.4)' },
+            styles.iconBox,
+            {
+              backgroundColor: `${starColor}25`,
+              borderColor: `${starColor}50`,
+            },
           ]}
         >
-          {index + 1}
-        </Text>
+          <Text style={styles.iconEmoji}>{job.icon}</Text>
+        </View>
+        <View style={[styles.rankBadge, { backgroundColor: rankColor }]}>
+          <Text style={styles.rankText}>{index + 1}</Text>
+        </View>
       </View>
       <View style={styles.jobInfo}>
-        <Text style={styles.jobName}>{job.job.name}</Text>
-        <Text style={styles.jobStar}>{job.starName}</Text>
+        <Text style={styles.jobName}>{job.name}</Text>
+        <Text style={[styles.jobStar, { color: starColor }]}>{starName}</Text>
+        {job.shortDesc ? (
+          <Text style={styles.jobDesc} numberOfLines={2}>
+            {job.shortDesc}
+          </Text>
+        ) : null}
       </View>
-      <View style={[styles.scoreBadge, { backgroundColor: `${topTypeColor}15` }]}>
-        <Text style={[styles.scoreText, { color: topTypeColor }]}>{job.score}%</Text>
-      </View>
+      <Text style={[styles.scoreText, { color: COLORS.textSecondary }]}>{score}%</Text>
     </View>
   );
 }
@@ -74,7 +89,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.08)',
     padding: SPACING.xl,
-    gap: SPACING.md,
+    gap: SPACING.lg,
   },
   headerRow: {
     flexDirection: 'row',
@@ -94,45 +109,65 @@ const styles = StyleSheet.create({
   jobRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: SPACING.md,
-    padding: SPACING.md,
-    borderRadius: BORDER_RADIUS.lg,
+    gap: SPACING.lg,
+    padding: SPACING.lg,
+    borderRadius: BORDER_RADIUS.xl,
     backgroundColor: 'rgba(255,255,255,0.03)',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.05)',
+    borderColor: 'rgba(255,255,255,0.06)',
   },
-  rankBadge: {
-    width: 36,
-    height: 36,
-    borderRadius: BORDER_RADIUS.sm,
+  iconWrapper: {
+    position: 'relative',
+  },
+  iconBox: {
+    width: 56,
+    height: 56,
+    borderRadius: BORDER_RADIUS.xl,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1.5,
+  },
+  iconEmoji: {
+    fontSize: 28,
+  },
+  rankBadge: {
+    position: 'absolute',
+    top: -4,
+    right: -4,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: COLORS.background,
   },
   rankText: {
-    fontSize: FONT_SIZES.sm,
+    fontSize: 10,
     fontWeight: '900',
+    color: COLORS.white,
   },
   jobInfo: {
     flex: 1,
     minWidth: 0,
   },
   jobName: {
-    fontSize: FONT_SIZES.sm,
-    fontWeight: '700',
+    fontSize: FONT_SIZES.md,
+    fontWeight: '800',
     color: COLORS.white,
   },
   jobStar: {
     fontSize: FONT_SIZES.xs,
-    color: 'rgba(255,255,255,0.35)',
     marginTop: 2,
   },
-  scoreBadge: {
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: BORDER_RADIUS.full,
+  jobDesc: {
+    fontSize: FONT_SIZES.xs,
+    color: COLORS.textMuted,
+    marginTop: 4,
+    lineHeight: 16,
   },
   scoreText: {
-    fontSize: FONT_SIZES.xs,
-    fontWeight: '800',
+    fontSize: FONT_SIZES.sm,
+    fontWeight: '700',
   },
 });

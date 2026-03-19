@@ -456,73 +456,125 @@ function CareerPathTab({ school, categoryColor, categoryBgColor }: TabProps) {
 
       {/* 상세 로드맵 (있을 경우) */}
       {hasDetails && school.careerPathDetails ? (
-        <div className="space-y-3">
-          {school.careerPathDetails.map((step, i) => (
-            <div key={step.grade} className="flex items-start gap-3">
-              <div className="flex flex-col items-center">
-                <div
-                  className="w-10 h-10 rounded-2xl flex items-center justify-center text-xl flex-shrink-0"
-                  style={{ background: categoryBgColor, border: `2px solid ${categoryColor}` }}
-                >
-                  {step.icon}
-                </div>
-                {i < school.careerPathDetails!.length - 1 && (
-                  <div className="w-0.5 mt-1" style={{ background: `${categoryColor}30`, minHeight: 24 }} />
-                )}
-              </div>
-              <div
-                className="flex-1 rounded-2xl overflow-hidden mb-3"
-                style={{ border: `1px solid ${categoryColor}25` }}
-              >
-                <div
-                  className="px-3 py-2"
-                  style={{ background: `${categoryColor}15` }}
-                >
-                  <p className="text-[12px] font-bold" style={{ color: categoryColor }}>{step.grade}</p>
-                </div>
-                <div className="px-3 py-2.5 space-y-1.5" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                  {step.tasks.map((task) => (
-                    <div key={task} className="flex items-start gap-2">
-                      <span className="text-[12px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
-                      <p className="text-[12px] text-gray-200 leading-relaxed">{task}</p>
-                    </div>
-                  ))}
+        <div className="relative pl-0.5">
+          {/* Glowing vertical line */}
+          <div
+            className="absolute left-[22px] top-5 bottom-0 w-0.5 -translate-x-1/2"
+            style={{
+              backgroundColor: categoryColor,
+              opacity: 0.5,
+              boxShadow: `0 0 8px ${categoryColor}50`,
+            }}
+            aria-hidden
+          />
+          <div className="relative space-y-0">
+            {school.careerPathDetails.map((step, i) => (
+              <div key={step.grade} className="relative flex gap-4">
+                {/* Left: icon on timeline */}
+                <div className="flex flex-col items-center flex-shrink-0">
                   <div
-                    className="mt-2 p-2 rounded-xl"
-                    style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
+                    className="w-11 h-11 rounded-full flex items-center justify-center text-xl border-2 z-10"
+                    style={{
+                      background: `${categoryColor}20`,
+                      borderColor: categoryColor,
+                      boxShadow: `0 0 12px ${categoryColor}50`,
+                    }}
                   >
-                    <p className="text-[12px] font-bold text-yellow-400 mb-0.5">💡 이 시기의 핵심</p>
-                    <p className="text-[12px] text-gray-300 leading-relaxed">{step.keyPoint}</p>
+                    {step.icon}
+                  </div>
+                  {i < school.careerPathDetails!.length - 1 && (
+                    <div
+                      className="flex-1 w-0.5 min-h-8 mt-1"
+                      style={{ backgroundColor: categoryColor, opacity: 0.4 }}
+                    />
+                  )}
+                </div>
+
+                {/* Right: content */}
+                <div className="flex-1 min-w-0 pb-8">
+                  <span
+                    className="inline-block px-3 py-1.5 rounded-full text-xs font-extrabold mb-2"
+                    style={{
+                      backgroundColor: `${categoryColor}15`,
+                      color: categoryColor,
+                      border: `1px solid ${categoryColor}40`,
+                    }}
+                  >
+                    {step.grade}
+                  </span>
+
+                  <ul className="space-y-1 mb-3">
+                    {step.tasks.map((task) => (
+                      <li key={task} className="text-sm text-gray-300 leading-relaxed flex items-start gap-2">
+                        <span className="text-gray-500 flex-shrink-0 mt-0.5">•</span>
+                        <span>{task}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div
+                    className="p-3 rounded-xl"
+                    style={{
+                      background: 'rgba(251,191,36,0.1)',
+                      border: '1px solid rgba(251,191,36,0.3)',
+                    }}
+                  >
+                    <p className="text-xs font-bold text-yellow-400 mb-1">💡 이 시기의 핵심</p>
+                    <p className="text-sm text-gray-200 leading-relaxed">{step.keyPoint}</p>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
-        <div className="space-y-2">
-          {basicSteps.map((step, i) => (
-            <div key={step.period} className="flex items-start gap-3">
-              <div className="flex flex-col items-center">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0"
-                  style={{ background: categoryBgColor, border: `2px solid ${categoryColor}` }}
-                >
-                  {step.icon}
+        <div className="relative pl-0.5">
+          {/* Glowing vertical line */}
+          <div
+            className="absolute left-[18px] top-4 bottom-0 w-0.5 -translate-x-1/2"
+            style={{
+              backgroundColor: categoryColor,
+              opacity: 0.5,
+              boxShadow: `0 0 8px ${categoryColor}50`,
+            }}
+            aria-hidden
+          />
+          <div className="relative space-y-0">
+            {basicSteps.map((step, i) => (
+              <div key={step.period} className="relative flex gap-4">
+                {/* Left: icon */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-base border-2 z-10"
+                    style={{
+                      background: `${categoryColor}20`,
+                      borderColor: categoryColor,
+                      boxShadow: `0 0 10px ${categoryColor}40`,
+                    }}
+                  >
+                    {step.icon}
+                  </div>
+                  {i < basicSteps.length - 1 && (
+                    <div
+                      className="flex-1 w-0.5 min-h-6 mt-1"
+                      style={{ backgroundColor: categoryColor, opacity: 0.4 }}
+                    />
+                  )}
                 </div>
-                {i < basicSteps.length - 1 && (
-                  <div className="w-0.5 flex-1 mt-1" style={{ background: `${categoryColor}30`, minHeight: 20 }} />
-                )}
+
+                {/* Right: content */}
+                <div className="flex-1 min-w-0 pb-6">
+                  <p
+                    className="text-sm font-extrabold mb-2"
+                    style={{ color: categoryColor }}
+                  >
+                    {step.period}
+                  </p>
+                  <p className="text-sm text-gray-200 leading-relaxed">{step.content}</p>
+                </div>
               </div>
-              <div
-                className="flex-1 p-2.5 rounded-xl mb-2"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-              >
-                <p className="text-[12px] font-bold mb-1" style={{ color: categoryColor }}>{step.period}</p>
-                <p className="text-[12px] text-gray-200 leading-relaxed">{step.content}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
 

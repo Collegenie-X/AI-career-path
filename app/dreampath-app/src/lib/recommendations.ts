@@ -11,6 +11,7 @@ const ALL_STARS: StarData[] = [connectStar, exploreStar, createStar, techStar] a
 export interface RecommendedJob {
   job: StarJob;
   starName: string;
+  starColor: string;
   score: number;
 }
 
@@ -32,24 +33,26 @@ export function getRecommendedJobsFromStars(
   userScores: RIASECScores,
   limit: number = 5
 ): RecommendedJob[] {
-  const allJobs: { job: StarJob; starName: string; profile: RIASECScores }[] = [];
+  const allJobs: { job: StarJob; starName: string; starColor: string; profile: RIASECScores }[] = [];
 
   for (const star of ALL_STARS) {
     for (const job of star.jobs) {
       allJobs.push({
         job,
         starName: star.name,
+        starColor: star.color ?? '#6C5CE7',
         profile: buildJobRiasecProfile(job.holland),
       });
     }
   }
 
   const scored = allJobs
-    .map(({ job, starName, profile }) => {
+    .map(({ job, starName, starColor, profile }) => {
       const similarity = calculateCosineSimilarity(userScores, profile);
       return {
         job,
         starName,
+        starColor,
         score: Math.round(similarity * 100),
       };
     })

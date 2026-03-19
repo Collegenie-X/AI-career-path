@@ -68,37 +68,54 @@ export function JobRouteCard({ job, categoryColor, isExpanded, onToggle }: JobRo
         <div className="px-4 pb-4 space-y-4 border-t border-white/5 pt-3">
           {/* Career Path Timeline */}
           <div>
-            <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+            <h4 className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">
               {JOB_ROUTE_LABELS.career_path}
             </h4>
-            <div className="relative">
-              {/* Vertical line */}
+            <div className="relative pl-0.5">
+              {/* Glowing vertical line */}
               <div
-                className="absolute left-4 top-4 bottom-4 w-px"
-                style={{ background: `linear-gradient(to bottom, ${categoryColor}, transparent)` }}
+                className="absolute left-[18px] top-4 bottom-0 w-0.5 -translate-x-1/2"
+                style={{
+                  backgroundColor: categoryColor,
+                  opacity: 0.5,
+                  boxShadow: `0 0 8px ${categoryColor}50`,
+                }}
+                aria-hidden
               />
-              <div className="space-y-3">
+              <div className="relative space-y-0">
                 {job.careerPath.map((stage, index) => (
-                  <div key={stage.stage} className="flex gap-3">
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center text-sm flex-shrink-0 z-10"
-                      style={{
-                        background: index === 0 ? categoryColor : 'rgba(255,255,255,0.08)',
-                        border: `2px solid ${index === 0 ? categoryColor : 'rgba(255,255,255,0.1)'}`,
-                      }}
-                    >
-                      {stage.icon}
-                    </div>
-                    <div className="flex-1 pb-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-bold text-white">{stage.stage}</span>
-                        <span className="text-[12px] text-gray-400">{stage.period}</span>
+                  <div key={stage.stage} className="relative flex gap-4">
+                    {/* Left: icon on timeline */}
+                    <div className="flex flex-col items-center flex-shrink-0">
+                      <div
+                        className="w-9 h-9 rounded-full flex items-center justify-center text-base border-2 z-10"
+                        style={{
+                          background: `${categoryColor}20`,
+                          borderColor: categoryColor,
+                          boxShadow: `0 0 10px ${categoryColor}40`,
+                        }}
+                      >
+                        {stage.icon}
                       </div>
-                      <ul className="space-y-0.5">
+                      {index < job.careerPath.length - 1 && (
+                        <div
+                          className="flex-1 w-0.5 min-h-6 mt-1"
+                          style={{ backgroundColor: categoryColor, opacity: 0.4 }}
+                        />
+                      )}
+                    </div>
+
+                    {/* Right: content */}
+                    <div className="flex-1 min-w-0 pb-6">
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-sm font-extrabold text-white">{stage.stage}</span>
+                        <span className="text-xs text-gray-400">{stage.period}</span>
+                      </div>
+                      <ul className="space-y-1">
                         {stage.tasks.map((task) => (
-                          <li key={task} className="text-[12px] text-gray-300 flex items-start gap-1">
-                            <span className="text-gray-500 mt-0.5">•</span>
-                            {task}
+                          <li key={task} className="text-sm text-gray-300 leading-relaxed flex items-start gap-2">
+                            <span className="text-gray-500 flex-shrink-0 mt-0.5">•</span>
+                            <span>{task}</span>
                           </li>
                         ))}
                       </ul>

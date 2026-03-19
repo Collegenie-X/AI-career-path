@@ -6,8 +6,14 @@ import { storage } from '@/lib/storage';
 import { getRecommendedJobs } from '@/lib/recommendations';
 import kingdomsData from '@/data/kingdoms.json';
 import jobsData from '@/data/jobs.json';
-import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase } from 'lucide-react';
 import type { RIASECResult, Job, Kingdom } from '@/lib/types';
+
+function getJobIcon(iconName: string) {
+  const Icon = (LucideIcons as Record<string, React.ComponentType<{ className?: string; size?: number }>>)[iconName];
+  return Icon ?? Briefcase;
+}
 
 const kingdoms = kingdomsData as unknown as Kingdom[];
 const jobs = jobsData as unknown as Job[];
@@ -68,7 +74,7 @@ export default function QuizResultsPage() {
   // === ANALYZING PHASE ===
   if (phase === 'analyzing') {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden spaceship-bg">
         {/* Star field */}
         {Array.from({ length: 40 }).map((_, i) => (
           <div
@@ -128,7 +134,7 @@ export default function QuizResultsPage() {
 
   // === REVEAL / DONE PHASE ===
   return (
-    <div className="min-h-screen pb-8 relative overflow-hidden">
+    <div className="min-h-screen pb-8 relative overflow-hidden spaceship-bg">
       {/* Background star field */}
       {Array.from({ length: 50 }).map((_, i) => (
         <div
@@ -297,9 +303,9 @@ export default function QuizResultsPage() {
           </div>
         )}
 
-        {/* Recommended Jobs */}
+        {/* Recommended Jobs - 게임 스타일 */}
         <div
-          className="rounded-2xl p-5 space-y-3 animate-slide-up"
+          className="rounded-2xl p-5 space-y-4 animate-slide-up"
           style={{
             backgroundColor: 'rgba(255,255,255,0.03)',
             border: '1px solid rgba(255,255,255,0.08)',
@@ -313,35 +319,59 @@ export default function QuizResultsPage() {
           {recommendedJobs.map((item, index) => {
             const job = item.job;
             const star = kingdoms.find((k) => k.id === job.kingdomId);
+            const JobIcon = getJobIcon(job.icon);
+            const rankColors = ['#FBBF24', '#9CA3AF', '#CD7C2F', '#6B7280', '#4B5563'];
+            const rankColor = rankColors[index] ?? rankColors[4];
             return (
               <div
                 key={job.id}
-                className="flex items-center gap-3 p-3 rounded-xl transition-colors"
+                className="flex items-center gap-4 p-3 rounded-xl transition-all active:scale-[0.99]"
                 style={{
                   backgroundColor: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.05)',
+                  border: '1px solid rgba(255,255,255,0.06)',
+                  boxShadow: index === 0 ? `0 0 20px ${topMeta.color}15` : 'none',
                 }}
               >
-                <div
-                  className="w-9 h-9 rounded-lg flex items-center justify-center font-black text-sm"
-                  style={{
-                    backgroundColor: index === 0 ? `${topMeta.color}25` : 'rgba(255,255,255,0.05)',
-                    color: index === 0 ? topMeta.color : 'rgba(255,255,255,0.4)',
-                  }}
-                >
-                  {index + 1}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-white text-sm">{job.name}</div>
-                  <div className="text-xs text-white/35 mt-0.5">
-                    {star?.name}
+                {/* 큰 아이콘 + 상단 오른쪽 순위 뱃지 */}
+                <div className="relative flex-shrink-0">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                    style={{
+                      background: `linear-gradient(135deg, ${star?.color ?? topMeta.color}35, ${star?.color ?? topMeta.color}15)`,
+                      border: `1.5px solid ${star?.color ?? topMeta.color}50`,
+                      boxShadow: `0 4px 16px ${star?.color ?? topMeta.color}25`,
+                    }}
+                  >
+                    <JobIcon className="w-7 h-7 text-white" style={{ opacity: 0.95 }} />
+                  </div>
+                  <div
+                    className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black text-white shadow-lg"
+                    style={{
+                      backgroundColor: rankColor,
+                      border: '2px solid rgba(11,11,22,0.9)',
+                      boxShadow: `0 2px 8px ${rankColor}60`,
+                    }}
+                  >
+                    {index + 1}
                   </div>
                 </div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-bold text-white text-sm">{job.name}</div>
+                  <div className="text-xs text-white/50 mt-0.5" style={{ color: star?.color ?? topMeta.color }}>
+                    {star?.name}
+                  </div>
+                  {(job.shortDescription ?? job.description) && (
+                    <p className="text-xs text-white/45 mt-1.5 line-clamp-2 leading-relaxed">
+                      {job.shortDescription ?? (typeof job.description === 'string' ? job.description : '')}
+                    </p>
+                  )}
+                </div>
                 <div
-                  className="text-xs font-bold px-2.5 py-1 rounded-full"
+                  className="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0"
                   style={{
-                    backgroundColor: `${topMeta.color}15`,
+                    backgroundColor: `${topMeta.color}20`,
                     color: topMeta.color,
+                    border: `1px solid ${topMeta.color}40`,
                   }}
                 >
                   {item.score}%

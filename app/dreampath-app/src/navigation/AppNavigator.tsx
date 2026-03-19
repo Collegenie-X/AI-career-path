@@ -74,7 +74,6 @@ export function AppNavigator() {
             <QuizIntroScreen
               {...props}
               onStart={() => props.navigation.navigate('Quiz')}
-              onBack={() => props.navigation.goBack()}
             />
           )}
         </Stack.Screen>

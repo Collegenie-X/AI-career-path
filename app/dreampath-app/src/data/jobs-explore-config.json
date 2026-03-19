@@ -1,6 +1,11 @@
 {
   "labels": {
     "pageTitle": "드림 경험",
+    "exploreTabStar": "직업 탐색",
+    "exploreTabAdmission": "고입 탐색",
+    "exploreTabUniversity": "대입 탐색",
+    "comingSoon": "준비 중",
+    "comingSoonDescription": "곧 만나보실 수 있어요!",
     "pageSubtitle": "8개 별의 직업 세계를 탐험하세요",
     "introBannerTitle": "직업 세계 탐험",
     "introBannerDescription": "별을 선택하고 직업을 체험하세요",

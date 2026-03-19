@@ -21,10 +21,9 @@ const CARD_WIDTH = (SCREEN_WIDTH - SPACING.xl * 2 - SPACING.md) / 2;
 
 interface QuizIntroScreenProps {
   onStart: () => void;
-  onBack: () => void;
 }
 
-export function QuizIntroScreen({ onStart, onBack }: QuizIntroScreenProps) {
+export function QuizIntroScreen({ onStart }: QuizIntroScreenProps) {
   const insets = useSafeAreaInsets();
 
   const heroAnim = useRef(new Animated.Value(0)).current;
@@ -62,15 +61,6 @@ export function QuizIntroScreen({ onStart, onBack }: QuizIntroScreenProps) {
         leftColors={['#6C5CE7', '#22C55E', '#3B82F6']}
         rightColors={['#EF4444', '#FBBF24', '#EC4899']}
       />
-
-      {/* 뒤로가기 */}
-      <TouchableOpacity
-        style={[styles.backBtn, { top: insets.top + 10 }]}
-        onPress={onBack}
-        hitSlop={{ top: 12, bottom: 12, left: 12, right: 12 }}
-      >
-        <Text style={styles.backBtnText}>‹</Text>
-      </TouchableOpacity>
 
       <ScrollView
         style={styles.scrollView}
@@ -174,24 +164,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0E0E1C',
-  },
-  backBtn: {
-    position: 'absolute',
-    left: SPACING.lg,
-    zIndex: 10,
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backBtnText: {
-    fontSize: 26,
-    color: COLORS.white,
-    lineHeight: 30,
-    fontWeight: '300',
-    marginTop: -2,
   },
   scrollView: {
     flex: 1,

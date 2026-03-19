@@ -4,25 +4,25 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* DreamPath Dark Mode Theme - #1A1A2E base */
-  --background: 26 26 46; /* #1A1A2E */
+  /* DreamPath Dark Mode Theme - 어두운 검정 계열 */
+  --background: 11 11 22; /* #0B0B16 - dark black */
   --foreground: 255 255 255;
-  --card: 34 34 54; /* Slightly lighter than background */
+  --card: 18 18 32; /* Slightly lighter than background */
   --card-foreground: 255 255 255;
-  --popover: 34 34 54;
+  --popover: 18 18 32;
   --popover-foreground: 255 255 255;
   --primary: 108 92 231; /* #6C5CE7 - Main purple */
   --primary-foreground: 255 255 255;
-  --secondary: 46 46 70;
+  --secondary: 22 22 40;
   --secondary-foreground: 255 255 255;
-  --muted: 46 46 70;
+  --muted: 22 22 40;
   --muted-foreground: 168 168 192;
   --accent: 108 92 231; /* Purple accent */
   --accent-foreground: 255 255 255;
   --destructive: 239 68 68;
   --destructive-foreground: 255 255 255;
-  --border: 46 46 70;
-  --input: 46 46 70;
+  --border: 30 30 50;
+  --input: 30 30 50;
   --ring: 108 92 231;
   
   /* Stage Colors */
@@ -42,24 +42,24 @@
 }
 
 .dark {
-  --background: 26 26 46;
+  --background: 11 11 22;
   --foreground: 255 255 255;
-  --card: 34 34 54;
+  --card: 18 18 32;
   --card-foreground: 255 255 255;
-  --popover: 34 34 54;
+  --popover: 18 18 32;
   --popover-foreground: 255 255 255;
   --primary: 108 92 231;
   --primary-foreground: 255 255 255;
-  --secondary: 46 46 70;
+  --secondary: 22 22 40;
   --secondary-foreground: 255 255 255;
-  --muted: 46 46 70;
+  --muted: 22 22 40;
   --muted-foreground: 168 168 192;
   --accent: 108 92 231;
   --accent-foreground: 255 255 255;
   --destructive: 239 68 68;
   --destructive-foreground: 255 255 255;
-  --border: 46 46 70;
-  --input: 46 46 70;
+  --border: 30 30 50;
+  --input: 30 30 50;
   --ring: 108 92 231;
 }
 
@@ -129,9 +129,9 @@
   }
   .spaceship-bg {
     background: 
-      radial-gradient(ellipse at 20% 30%, rgba(108,92,231,0.15) 0%, transparent 40%),
-      radial-gradient(ellipse at 80% 70%, rgba(59,130,246,0.1) 0%, transparent 40%),
-      linear-gradient(180deg, rgb(26,26,46) 0%, rgb(18,18,35) 100%);
+      radial-gradient(ellipse at 20% 30%, rgba(108,92,231,0.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 80% 70%, rgba(59,130,246,0.08) 0%, transparent 40%),
+      linear-gradient(180deg, rgb(11,11,22) 0%, rgb(8,8,18) 100%);
   }
   .cockpit-panel {
     background: linear-gradient(135deg, rgba(108,92,231,0.08) 0%, rgba(59,130,246,0.04) 100%);

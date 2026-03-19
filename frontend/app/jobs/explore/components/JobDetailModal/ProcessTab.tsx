@@ -21,7 +21,7 @@ interface ProcessTabProps {
   star: StarData;
 }
 
-function ProcessHeader({
+function ProcessHeaderCard({
   title,
   description,
   phaseCount,
@@ -36,8 +36,8 @@ function ProcessHeader({
     <div
       className="rounded-2xl p-4 mb-5 border"
       style={{
-        backgroundColor: 'rgba(255,255,255,0.04)',
-        borderColor: `${starColor}25`,
+        backgroundColor: 'rgba(255,255,255,0.03)',
+        borderColor: `${starColor}30`,
       }}
     >
       <div className="flex items-center gap-3 mb-2">
@@ -59,98 +59,134 @@ function ProcessHeader({
         </div>
       </div>
       {description && (
-        <p className="text-sm text-gray-400 leading-relaxed">{description}</p>
+        <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
       )}
     </div>
   );
 }
 
-function PhaseStepItem({
+function ProcessTreeNode({
   phase,
   index,
   starColor,
   isLast,
-  isExpanded,
-  onToggle,
 }: {
   phase: WorkPhase;
   index: number;
   starColor: string;
   isLast: boolean;
-  isExpanded: boolean;
-  onToggle: () => void;
 }) {
-  return (
-    <div className="mb-3">
-      <div className="flex gap-2">
-        <div className="w-9 flex flex-col items-center">
-          <div
-            className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 border-2 z-10"
-            style={{
-              backgroundColor: isExpanded ? `${starColor}30` : `${starColor}15`,
-              borderColor: isExpanded ? starColor : `${starColor}40`,
-            }}
-          >
-            <span
-              className="text-[12px] font-extrabold"
-              style={{ color: isExpanded ? starColor : `${starColor}90` }}
-            >
-              {index + 1}
-            </span>
-          </div>
-          {!isLast && (
-            <div
-              className="flex-1 w-0.5 min-h-4 mt-0.5"
-              style={{
-                backgroundColor: isExpanded ? `${starColor}25` : 'rgba(255,255,255,0.08)',
-              }}
-            />
-          )}
-        </div>
+  const tools = phase.tools ?? [];
+  const skills = phase.skills ?? [];
 
+  return (
+    <div className="relative flex gap-4">
+      {/* Left: icon on timeline */}
+      <div className="flex flex-col items-center flex-shrink-0">
         <div
-          className="flex-1 rounded-xl border overflow-hidden"
+          className="w-12 h-12 rounded-full flex items-center justify-center border-2 z-10"
           style={{
-            backgroundColor: 'rgba(255,255,255,0.03)',
-            borderColor: 'rgba(255,255,255,0.07)',
+            background: `${starColor}20`,
+            borderColor: starColor,
+            boxShadow: `0 0 12px ${starColor}50`,
           }}
         >
-          <button
-            type="button"
-            onClick={onToggle}
-            className="w-full flex items-center gap-2 p-3 text-left transition-colors"
+          <span className="text-xl">{phase.icon}</span>
+        </div>
+        {!isLast && (
+          <div
+            className="flex-1 w-0.5 min-h-8 mt-1"
+            style={{ backgroundColor: starColor, opacity: 0.4 }}
+          />
+        )}
+      </div>
+
+      {/* Right: content */}
+      <div className="flex-1 min-w-0 pb-8">
+        <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
+          <span
+            className="px-3 py-1.5 rounded-full text-xs font-extrabold"
             style={{
-              backgroundColor: isExpanded ? 'rgba(255,255,255,0.05)' : 'transparent',
+              backgroundColor: `${starColor}15`,
+              color: starColor,
+              border: `1px solid ${starColor}40`,
             }}
           >
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-              style={{
-                backgroundColor: isExpanded ? `${starColor}20` : 'rgba(255,255,255,0.06)',
-              }}
-            >
-              <span className="text-lg">{phase.icon}</span>
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-[11px] font-bold text-gray-500">
-                {LABELS.process_step_prefix} {index + 1} · {phase.phase}
-              </div>
-              <div
-                className={`text-sm font-extrabold ${isExpanded ? 'text-white' : 'text-gray-400'}`}
-              >
-                {phase.title}
-              </div>
-            </div>
-            <div
-              className="px-2 py-0.5 rounded-full text-[11px] font-bold flex-shrink-0"
-              style={{ backgroundColor: `${starColor}18`, color: starColor }}
-            >
-              {phase.duration}
-            </div>
-          </button>
+            STEP {index + 1} · {phase.phase}
+          </span>
+          <span className="text-xs font-semibold" style={{ color: starColor }}>
+            {phase.duration}
+          </span>
+        </div>
 
-          {isExpanded && (
-            <PhaseExpandedContent phase={phase} starColor={starColor} />
+        <h4 className="font-extrabold text-white text-base mb-2 leading-snug">{phase.title}</h4>
+
+        <p className="text-sm text-gray-300 leading-relaxed mb-3">{phase.description}</p>
+
+        {phase.example && (
+          <div
+            className="p-3 rounded-xl mb-3"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.04)',
+              border: `1px solid ${starColor}30`,
+            }}
+          >
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <span className="text-base">💡</span>
+              <span className="text-xs font-extrabold" style={{ color: starColor }}>
+                실제 예시
+              </span>
+            </div>
+            <p className="text-sm text-gray-200 leading-relaxed">{phase.example}</p>
+          </div>
+        )}
+
+        <div className="space-y-2.5">
+          {tools.length > 0 && (
+            <div>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <Briefcase className="w-3.5 h-3.5 text-gray-400" />
+                <span className="text-xs font-bold text-gray-400">사용 도구</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="px-2.5 py-1 rounded-lg text-xs font-semibold"
+                    style={{
+                      backgroundColor: 'rgba(255,255,255,0.06)',
+                      color: 'rgba(255,255,255,0.8)',
+                      border: '1px solid rgba(255,255,255,0.12)',
+                    }}
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {skills.length > 0 && (
+            <div>
+              <div className="flex items-center gap-1.5 mb-1.5">
+                <Zap className="w-3.5 h-3.5 text-yellow-400" />
+                <span className="text-xs font-bold text-gray-400">필요 스킬</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 rounded-lg text-xs font-bold"
+                    style={{
+                      backgroundColor: 'rgba(251,191,36,0.12)',
+                      color: '#fbbf24',
+                    }}
+                  >
+                    ⚡ {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -158,82 +194,31 @@ function PhaseStepItem({
   );
 }
 
-function PhaseExpandedContent({ phase, starColor }: { phase: WorkPhase; starColor: string }) {
-  const tools = phase.tools ?? [];
-  const skills = phase.skills ?? [];
+function ProcessTree({ phases, starColor }: { phases: WorkPhase[]; starColor: string }) {
+  if (phases.length === 0) return null;
 
   return (
-    <div
-      className="p-3 border-t space-y-3"
-      style={{ borderColor: 'rgba(255,255,255,0.06)' }}
-    >
-      <p className="text-sm text-gray-400 leading-relaxed">{phase.description}</p>
-
-      {phase.example && (
-        <div
-          className="rounded-xl p-3 border-l-4"
-          style={{
-            backgroundColor: 'rgba(255,255,255,0.04)',
-            borderLeftColor: starColor,
-          }}
-        >
-          <div className="flex items-center gap-1.5 mb-1.5">
-            <span className="text-base">💡</span>
-            <span className="text-xs font-extrabold" style={{ color: starColor }}>
-              {LABELS.modal_example}
-            </span>
-          </div>
-          <p className="text-sm text-gray-300 leading-relaxed">{phase.example}</p>
-        </div>
-      )}
-
-      <div className="space-y-2">
-        {tools.length > 0 && (
-          <div>
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <Briefcase className="w-3 h-3 text-gray-500" />
-              <span className="text-xs font-bold text-gray-500">{LABELS.modal_tools}</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {tools.map((tool) => (
-                <span
-                  key={tool}
-                  className="px-2 py-1 rounded-lg text-xs font-semibold"
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.06)',
-                    color: 'rgba(255,255,255,0.8)',
-                    border: '1px solid rgba(255,255,255,0.12)',
-                  }}
-                >
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {skills.length > 0 && (
-          <div>
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <Zap className="w-3 h-3 text-gray-500" />
-              <span className="text-xs font-bold text-gray-500">{LABELS.modal_skills}</span>
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2 py-1 rounded-lg text-xs font-bold"
-                  style={{
-                    backgroundColor: 'rgba(108,92,231,0.12)',
-                    color: '#A29BFE',
-                  }}
-                >
-                  ⚡ {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
+    <div className="relative pl-0.5">
+      {/* Glowing vertical line */}
+      <div
+        className="absolute left-[24px] top-6 bottom-0 w-0.5 -translate-x-1/2"
+        style={{
+          backgroundColor: starColor,
+          opacity: 0.5,
+          boxShadow: `0 0 8px ${starColor}50`,
+        }}
+        aria-hidden
+      />
+      <div className="relative space-y-0">
+        {phases.map((phase, index) => (
+          <ProcessTreeNode
+            key={phase.id}
+            phase={phase}
+            index={index}
+            starColor={starColor}
+            isLast={index === phases.length - 1}
+          />
+        ))}
       </div>
     </div>
   );
@@ -241,12 +226,7 @@ function PhaseExpandedContent({ phase, starColor }: { phase: WorkPhase; starColo
 
 export function ProcessTab({ job, star }: ProcessTabProps) {
   const workProcess = job.workProcess;
-  const [expandedIndex, setExpandedIndex] = useState<number>(0);
-  const [viewMode, setViewMode] = useState<ProcessViewMode>('quiz');
-
-  const handleToggle = useCallback((index: number) => {
-    setExpandedIndex((prev) => (prev === index ? -1 : index));
-  }, []);
+  const [viewMode, setViewMode] = useState<ProcessViewMode>('full');
 
   if (!workProcess?.phases?.length) {
     return (
@@ -265,7 +245,7 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
   return (
     <div className="pt-3 pb-6">
       <div className="px-4">
-        <ProcessHeader
+        <ProcessHeaderCard
           title={title}
           description={description}
           phaseCount={phases.length}
@@ -342,17 +322,7 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
         />
       ) : (
         <div className="px-4">
-          {phases.map((phase, index) => (
-            <PhaseStepItem
-              key={phase.id}
-              phase={phase}
-              index={index}
-              starColor={star.color}
-              isLast={index === phases.length - 1}
-              isExpanded={expandedIndex === index}
-              onToggle={() => handleToggle(index)}
-            />
-          ))}
+          <ProcessTree phases={phases} starColor={star.color} />
         </div>
       )}
     </div>

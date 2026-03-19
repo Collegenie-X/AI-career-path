@@ -11,6 +11,7 @@ import { CareerPathSection } from '../components/home/CareerPathSection';
 import { AptitudeSection } from '../components/home/AptitudeSection';
 import { RecommendedJobsSection } from '../components/home/RecommendedJobsSection';
 import { DailyMissionSection } from '../components/home/DailyMissionSection';
+import { WhyTabStructureSection } from '../components/home/WhyTabStructureSection';
 import { RiasecReportModal } from '../components/home/RiasecReportModal';
 import type { UserProfile, RIASECResult } from '../lib/types';
 import type { CareerPlan } from '../config/career-path';
@@ -95,6 +96,8 @@ export function HomeScreen() {
       <DailyMissionSection
         onQuiz={() => Alert.alert('미션', '미션 기능은 추후 구현됩니다.')}
       />
+
+      <WhyTabStructureSection />
 
       {riasec && (
         <RiasecReportModal
