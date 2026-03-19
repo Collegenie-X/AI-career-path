@@ -14,12 +14,13 @@ type Props = {
   color: string;
   isLast: boolean;
   isEditMode: boolean;
+  showCheckboxes?: boolean;
   onUpdateYear: (y: YearPlan) => void;
   onItemInfoClick: (item: PlanItem, gradeLabel: string) => void;
 };
 
 export function YearTimelineNode({
-  year, color, isEditMode, onUpdateYear, onItemInfoClick,
+  year, color, isEditMode, showCheckboxes = true, onUpdateYear, onItemInfoClick,
 }: Props) {
   const [expandedGoalIds, setExpandedGoalIds] = useState<Set<string>>(() => {
     const ids = year.semester === 'split'
@@ -213,6 +214,7 @@ export function YearTimelineNode({
                         item={item}
                         color={color}
                         isEditMode={isEditMode}
+                        showCheckbox={showCheckboxes}
                         onToggleCheck={() => toggleCheckInGroup(group.id, item.id)}
                         onDelete={() => deleteItemFromGroup(group.id, item.id)}
                         onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
@@ -253,6 +255,7 @@ export function YearTimelineNode({
                         item={item}
                         color={color}
                         isEditMode={isEditMode}
+                        showCheckbox={showCheckboxes}
                         onToggleCheck={() => toggleCheckInGoalGroup(group.id, item.id)}
                         onDelete={() => {}}
                         onTitleSave={() => {}}
@@ -301,6 +304,7 @@ export function YearTimelineNode({
                             item={item}
                             color={color}
                             isEditMode={isEditMode}
+                            showCheckbox={showCheckboxes}
                             onToggleCheck={() => toggleCheckInSemesterPlan(sp.semesterId, group.id, item.id)}
                             onDelete={() => {}}
                             onTitleSave={() => {}}
@@ -328,6 +332,7 @@ export function YearTimelineNode({
             <div className="space-y-2">
               {ungroupedYearItems.map((item) => (
                 <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
+                  showCheckbox={showCheckboxes}
                   onToggleCheck={() => toggleCheck(item.id)}
                   onDelete={() => deleteItem(item.id)}
                   onTitleSave={(title) => saveItemTitle(item.id, title)}

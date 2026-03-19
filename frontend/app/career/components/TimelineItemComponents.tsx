@@ -113,9 +113,9 @@ export function GoalRow({ goal, color, isEditMode, onSave, onDelete }: {
 
 /* ─── Item row (todo-style) — 하위활동 아코디언 지원 ─── */
 export function ItemRow({
-  item, color, isEditMode, onToggleCheck, onDelete, onTitleSave, onInfoClick, onToggleSubItemDone,
+  item, color, isEditMode, showCheckbox = true, onToggleCheck, onDelete, onTitleSave, onInfoClick, onToggleSubItemDone,
 }: {
-  item: PlanItemWithCheck; color: string; isEditMode: boolean;
+  item: PlanItemWithCheck; color: string; isEditMode: boolean; showCheckbox?: boolean;
   onToggleCheck: () => void; onDelete: () => void;
   onTitleSave: (t: string) => void; onInfoClick: () => void;
   onToggleSubItemDone?: (itemId: string, subItemId: string) => void;
@@ -143,10 +143,12 @@ export function ItemRow({
         {/* Branch connector */}
         <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
 
-        <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
-          style={{ color: checked ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}>
-          {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
-        </button>
+        {showCheckbox && (
+          <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
+            style={{ color: checked ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}>
+            {checked ? <CheckCircle2 style={{ width: 18, height: 18 }} /> : <Circle style={{ width: 18, height: 18 }} />}
+          </button>
+        )}
 
         <div
           className="flex-1 min-w-0"

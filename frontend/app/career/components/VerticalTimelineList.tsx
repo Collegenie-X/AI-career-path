@@ -1,19 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  Pencil, Plus, Trash2,
-  ChevronDown,
-  Share2, Globe, EyeOff, School, Users,
-} from 'lucide-react';
-import { GRADE_YEARS } from '../config';
+import { Plus, ChevronDown } from 'lucide-react';
+import { GRADE_YEARS, LABELS } from '../config';
 import type { CareerPlan, PlanItem, YearPlan } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
-import type { ShareType, ShareChannel } from './community/types';
-import { channelsToShareType } from './community/types';
+import type { ShareType } from './community/types';
 import { YearTimelineNode } from './YearTimelineNode';
 import type { PlanItemWithCheck } from './TimelineItemComponents';
-import { LABELS } from '../config';
+import { PlanActionBar } from './PlanActionBar';
+import { calculateYearStatistics } from '../utils/planStatisticsCalculator';
 
 /* ─── Types ─── */
 type Props = {
@@ -26,43 +22,6 @@ type Props = {
   onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   onOpenShareDialog?: (plan: CareerPlan) => void;
 };
-
-/* ─── Share type helpers ─── */
-const SHARE_TYPE_LABEL: Record<ShareType, string> = {
-  private: '비공개',
-  public: '전체 공유',
-  school: '학교 공유',
-  group: '그룹 공유',
-};
-
-const SHARE_TYPE_COLOR: Record<ShareType, string> = {
-  private: 'rgba(255,255,255,0.5)',
-  public: '#22C55E',
-  school: '#3B82F6',
-  group: '#A855F7',
-};
-
-const SHARE_TYPE_BG: Record<ShareType, string> = {
-  private: 'rgba(255,255,255,0.07)',
-  public: 'rgba(34,197,94,0.18)',
-  school: 'rgba(59,130,246,0.18)',
-  group: 'rgba(168,85,247,0.18)',
-};
-
-const SHARE_TYPE_BORDER: Record<ShareType, string> = {
-  private: 'rgba(255,255,255,0.12)',
-  public: 'rgba(34,197,94,0.4)',
-  school: 'rgba(59,130,246,0.4)',
-  group: 'rgba(168,85,247,0.4)',
-};
-
-function ShareTypeIcon({ shareType }: { shareType: ShareType }) {
-  const size = { width: 13, height: 13 };
-  if (shareType === 'public') return <Globe style={size} />;
-  if (shareType === 'school') return <School style={size} />;
-  if (shareType === 'group') return <Users style={size} />;
-  return <Share2 style={size} />;
-}
 
 /* ─── Single plan accordion card ─── */
 function PlanAccordionCard({
@@ -79,38 +38,22 @@ function PlanAccordionCard({
   const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
   const sortedYears = [...plan.years].sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
 
-  const totalItems = plan.years.reduce((s, y) => {
-    const goalGroupItemIds = new Set(
-      y.semester === 'split'
-        ? (y.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items.map(it => it.id)))
-        : (y.goalGroups ?? []).flatMap(g => g.items.map(it => it.id))
-    );
-    const ungroupedDirectItems = y.items.filter(it => !goalGroupItemIds.has(it.id)).length;
-    const groupItems = (y.groups ?? []).reduce((gs, g) => gs + g.items.length, 0);
-    const goalGroupItems = y.semester === 'split'
-      ? (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
-      : (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
-    return s + ungroupedDirectItems + groupItems + goalGroupItems;
-  }, 0);
-  const checkedItems = plan.years.reduce((s, y) => {
-    const goalGroupItemIds = new Set(
-      y.semester === 'split'
-        ? (y.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items.map(it => it.id)))
-        : (y.goalGroups ?? []).flatMap(g => g.items.map(it => it.id))
-    );
-    const directChecked = y.items.filter((it) => !goalGroupItemIds.has(it.id) && (it as PlanItemWithCheck).checked).length;
-    const groupChecked = (y.groups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
-    const goalGroupChecked = y.semester === 'split'
-      ? (y.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0), 0)
-      : (y.goalGroups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
-    return s + directChecked + groupChecked + goalGroupChecked;
-  }, 0);
+  const { totalItems, checkedItems } = plan.years.reduce(
+    (acc, year) => {
+      const stats = calculateYearStatistics(year);
+      return {
+        totalItems: acc.totalItems + stats.total,
+        checkedItems: acc.checkedItems + stats.checked,
+      };
+    },
+    { totalItems: 0, checkedItems: 0 }
+  );
 
   const updateYear = (updatedYear: YearPlan) =>
     onUpdatePlan({ ...plan, years: plan.years.map((y) => y.gradeId === updatedYear.gradeId ? updatedYear : y) });
 
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [editablePlanTitle, setEditablePlanTitle] = useState(plan.title);
+  const [showChecklistView, setShowChecklistView] = useState(false);
 
   useEffect(() => {
     setEditablePlanTitle(plan.title);
@@ -215,86 +158,15 @@ function PlanAccordionCard({
       {/* Expanded body */}
       {isOpen && (
         <div style={{ borderTop: `1px solid ${plan.starColor}22` }}>
-          {/* Action bar */}
-          <div className="px-4 py-3 space-y-2">
-            <div className="flex gap-2">
-              <button onClick={onEdit}
-                className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-xs font-bold transition-all active:scale-95"
-                style={{ backgroundColor: `${plan.starColor}22`, color: plan.starColor, border: `1px solid ${plan.starColor}44` }}>
-                <Pencil style={{ width: 13, height: 13 }} />수정하기
-              </button>
+          <PlanActionBar
+            plan={plan}
+            showChecklistView={showChecklistView}
+            onEdit={onEdit}
+            onDelete={onDelete}
+            onOpenShareDialog={onOpenShareDialog}
+            onToggleChecklistView={() => setShowChecklistView(!showChecklistView)}
+          />
 
-              {(() => {
-                const channels = plan.shareChannels ?? [];
-                const hasChannels = plan.isPublic && channels.length > 0;
-                const primarySt: ShareType = hasChannels
-                  ? channelsToShareType(channels)
-                  : 'private';
-                return (
-                  <button
-                    onClick={onOpenShareDialog}
-                    className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
-                    style={{
-                      backgroundColor: hasChannels ? SHARE_TYPE_BG[primarySt] : 'rgba(255,255,255,0.07)',
-                      color: hasChannels ? SHARE_TYPE_COLOR[primarySt] : 'rgba(255,255,255,0.5)',
-                      border: `1px solid ${hasChannels ? SHARE_TYPE_BORDER[primarySt] : 'rgba(255,255,255,0.12)'}`,
-                    }}
-                  >
-                    {hasChannels
-                      ? <><ShareTypeIcon shareType={primarySt} />공유</>
-                      : <><Share2 style={{ width: 13, height: 13 }} />공유</>
-                    }
-                  </button>
-                );
-              })()}
-
-              {!showDeleteConfirm ? (
-                <button onClick={() => setShowDeleteConfirm(true)}
-                  className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-xs font-bold transition-all active:scale-95"
-                  style={{ backgroundColor: 'rgba(239,68,68,0.12)', color: '#ef4444', border: '1px solid rgba(239,68,68,0.28)' }}>
-                  <Trash2 style={{ width: 13, height: 13 }} />삭제
-                </button>
-              ) : (
-                <div className="flex gap-1.5">
-                  <button onClick={() => setShowDeleteConfirm(false)}
-                    className="h-9 px-3 rounded-xl text-xs font-semibold"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}>
-                    취소
-                  </button>
-                  <button onClick={onDelete}
-                    className="h-9 px-3 rounded-xl text-xs font-bold"
-                    style={{ backgroundColor: '#ef4444', color: '#fff' }}>
-                    삭제 확인
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {plan.isPublic && (plan.shareChannels ?? []).length > 0 && (() => {
-              const channels = plan.shareChannels ?? [];
-              const channelLabels = channels.map(c => {
-                if (c === 'public') return '전체 공개';
-                if (c === 'school') return '학교 공유';
-                return `그룹 ${plan.shareGroupIds?.length ?? 0}개`;
-              }).join(' · ');
-              const primarySt = channelsToShareType(channels);
-              return (
-                <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl"
-                  style={{
-                    backgroundColor: `${SHARE_TYPE_COLOR[primarySt]}12`,
-                    border: `1px solid ${SHARE_TYPE_COLOR[primarySt]}30`,
-                  }}>
-                  <ShareTypeIcon shareType={primarySt} />
-                  <div className="flex-1 min-w-0">
-                    <div className="text-xs font-bold text-white">{channelLabels}</div>
-                    <div className="text-[12px] text-gray-400">공유된 채널에서 볼 수 있어요</div>
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-
-          {/* Vertical timeline */}
           <div className="relative px-4 pb-4">
             <div className="absolute left-[38px] top-0 bottom-4 w-0.5"
               style={{ backgroundColor: `${plan.starColor}28` }} />
@@ -306,6 +178,7 @@ function PlanAccordionCard({
                   color={plan.starColor}
                   isLast={idx === sortedYears.length - 1}
                   isEditMode={false}
+                  showCheckboxes={showChecklistView}
                   onUpdateYear={updateYear}
                   onItemInfoClick={onItemInfoClick}
                 />
