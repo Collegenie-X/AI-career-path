@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronRight, X, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles } from 'lucide-react';
+import { ChevronDown, ChevronRight, X, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles, Lightbulb } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
@@ -63,11 +63,11 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const tabs: Array<{ id: TabId; label: string; emoji: string }> = [
-    { id: 'core', label: '핵심전략', emoji: '🎯' },
-    { id: 'grade', label: '학년별', emoji: '📅' },
-    { id: 'strategy2028', label: '2028대응', emoji: '⚡' },
-    { id: 'practical', label: '실전예시(합격)', emoji: '🏆' },
+  const tabs: Array<{ id: TabId; label: string; icon: any }> = [
+    { id: 'core', label: '핵심전략', icon: Target },
+    { id: 'grade', label: '학년별', icon: CalendarDays },
+    { id: 'strategy2028', label: '2028대응', icon: Zap },
+    { id: 'practical', label: '실전예시', icon: Trophy },
   ];
 
   const modalContent = (
@@ -115,56 +115,57 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
             </button>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 mt-3">
+          <div className="grid grid-cols-4 gap-1.5 mt-3">
             <div
-              className="rounded-lg px-2 py-1.5"
+              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
               style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
             >
-              <p className="text-[10px] text-white/60">전략카드</p>
-              <p className="text-xs text-white font-semibold flex items-center gap-1">
-                <Sparkles className="w-3 h-3" />
-                4개 모드
-              </p>
+              <Target className="w-4 h-4 mb-1" style={{ color: category.color }} />
+              <p className="text-[10px] text-white/90 font-medium text-center">핵심전략</p>
             </div>
             <div
-              className="rounded-lg px-2 py-1.5"
+              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
               style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
             >
-              <p className="text-[10px] text-white/60">합격훈련</p>
-              <p className="text-xs text-white font-semibold flex items-center gap-1">
-                <Trophy className="w-3 h-3" />
-                실전예시
-              </p>
+              <CalendarDays className="w-4 h-4 mb-1" style={{ color: category.color }} />
+              <p className="text-[10px] text-white/90 font-medium text-center">학년별</p>
             </div>
             <div
-              className="rounded-lg px-2 py-1.5"
+              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
               style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
             >
-              <p className="text-[10px] text-white/60">리스크관리</p>
-              <p className="text-xs text-white font-semibold flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3" />
-                누락방지
-              </p>
+              <Zap className="w-4 h-4 mb-1" style={{ color: category.color }} />
+              <p className="text-[10px] text-white/90 font-medium text-center">2028대응</p>
+            </div>
+            <div
+              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
+              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
+            >
+              <Trophy className="w-4 h-4 mb-1" style={{ color: category.color }} />
+              <p className="text-[10px] text-white/90 font-medium text-center">실전예시</p>
             </div>
           </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className="flex items-center justify-center gap-1.5 px-2.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all"
-              style={{
-                background: activeTab === tab.id ? category.bgColor : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${activeTab === tab.id ? category.color : 'rgba(255,255,255,0.12)'}`,
-                color: activeTab === tab.id ? category.color : 'rgba(255,255,255,0.75)',
-              }}
-            >
-              <span>{tab.emoji}</span>
-              <span>{tab.label}</span>
-            </button>
-          ))}
+          {tabs.map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className="flex flex-col items-center justify-center gap-1 px-2.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all hover:scale-105 active:scale-95"
+                style={{
+                  background: activeTab === tab.id ? category.bgColor : 'rgba(255,255,255,0.05)',
+                  border: `1px solid ${activeTab === tab.id ? category.color : 'rgba(255,255,255,0.12)'}`,
+                  color: activeTab === tab.id ? category.color : 'rgba(255,255,255,0.75)',
+                }}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-xs">{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
 
         {activeTab === 'core' && <CoreStrategyTab category={category} playbook={playbook} />}

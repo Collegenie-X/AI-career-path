@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Briefcase, BookOpen, Target, Lightbulb, GraduationCap, X } from 'lucide-react';
+import { Briefcase, BookOpen, Target, Lightbulb, GraduationCap, X, FileText, Rocket, HelpCircle, ChevronDown, Trophy, Calendar, TrendingUp, Award, Users, Clock } from 'lucide-react';
 import careerDetailGuidanceData from '@/data/university-admission/career-detail-guidance.json';
 type Career = {
   id: string;
@@ -19,6 +19,26 @@ type Career = {
   }>;
   projectIdeas: string[];
   universities: string[];
+  successStories?: Array<{
+    profile: string;
+    admissionType: string;
+    keyActivities: string[];
+    result: string;
+  }>;
+  universityDetails?: Array<{
+    university: string;
+    department: string;
+    admissionTypes: Array<{
+      type: string;
+      competition: string;
+      keyRequirements: string[];
+    }>;
+  }>;
+  monthlyPreparation?: Array<{
+    period: string;
+    goal: string;
+    tasks: string[];
+  }>;
 };
 
 type CareerMajorConnectionViewProps = {
@@ -111,22 +131,46 @@ export function CareerMajorConnectionView({ careers }: CareerMajorConnectionView
             className="w-full text-left rounded-xl p-3 transition-all hover:scale-[1.02] active:scale-[0.98] bg-white/5 border border-white/10 hover:border-emerald-500/30"
           >
             <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center text-xl bg-white/10">
+              <div 
+                className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl transition-transform hover:scale-110"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.3) 100%)',
+                  border: '2px solid rgba(16,185,129,0.4)',
+                  boxShadow: '0 0 20px rgba(16,185,129,0.2)'
+                }}
+              >
                 {career.emoji}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
                   <h4 className="text-sm font-bold text-white">{career.name}</h4>
-                  <span className="text-xs text-white/50">{career.kingdom}</span>
+                  <span className="text-[10px] text-white/50">{career.kingdom}</span>
+                  {(career.successStories && career.successStories.length > 0) && (
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30">
+                      실전사례
+                    </span>
+                  )}
                 </div>
-                <p className="text-xs text-white/70 mb-1">{career.targetMajor}</p>
-                <div className="flex flex-wrap gap-1">
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300">
+                <p className="text-xs text-emerald-400 mb-1.5">{career.targetMajor}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                     {career.admissionType}
                   </span>
+                  {career.keySubjects.slice(0, 2).map((subject, idx) => (
+                    <span key={idx} className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/70">
+                      {subject}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <span className="text-white/40">→</span>
+              <div className="flex-shrink-0 flex flex-col items-center gap-1">
+                <span className="text-white/40">→</span>
+                {career.universityDetails && career.universityDetails.length > 0 && (
+                  <span className="text-[9px] text-blue-400">
+                    {career.universityDetails.length}개교
+                  </span>
+                )}
+              </div>
             </div>
           </button>
         ))}
@@ -140,8 +184,12 @@ export function CareerMajorConnectionView({ careers }: CareerMajorConnectionView
 }
 
 function CareerDetailModal({ career, onClose }: { career: Career; onClose: () => void }) {
-  const [activeTab, setActiveTab] = useState<'setak' | 'projects' | 'universities' | 'strategy' | 'qa'>('setak');
+  const [activeTab, setActiveTab] = useState<'setak' | 'strategy' | 'universities' | 'qa'>('setak');
   const [mounted, setMounted] = useState(false);
+  const [expandedQaIndex, setExpandedQaIndex] = useState<number | null>(null);
+  const [expandedSuccessIndex, setExpandedSuccessIndex] = useState<number | null>(null);
+  const [expandedUnivIndex, setExpandedUnivIndex] = useState<number | null>(null);
+  const [expandedMonthIndex, setExpandedMonthIndex] = useState<number | null>(null);
   useEffect(() => setMounted(true), []);
   const normalizedKingdomLabel = extractNormalizedKingdomLabel(career.kingdom);
   const selectedKingdomGuidance = careerDetailGuidance.kingdomGuidance?.[normalizedKingdomLabel];
@@ -197,7 +245,28 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
             <div className="flex-1 min-w-0 break-words">
               <h2 className="text-lg font-bold text-white mb-1">{career.name}</h2>
               <p className="text-xs text-white/70 mb-1">{career.kingdom}</p>
-              <p className="text-xs text-emerald-400">{career.targetMajor}</p>
+              <p className="text-xs text-emerald-400 mb-2">{career.targetMajor}</p>
+              
+              <div className="flex flex-wrap gap-1.5">
+                {career.successStories && career.successStories.length > 0 && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30 flex items-center gap-1">
+                    <Trophy className="w-2.5 h-2.5" />
+                    합격사례 {career.successStories.length}개
+                  </span>
+                )}
+                {career.universityDetails && career.universityDetails.length > 0 && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-400/20 text-blue-300 border border-blue-400/30 flex items-center gap-1">
+                    <GraduationCap className="w-2.5 h-2.5" />
+                    대학정보 {career.universityDetails.length}개교
+                  </span>
+                )}
+                {career.monthlyPreparation && career.monthlyPreparation.length > 0 && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-400/20 text-purple-300 border border-purple-400/30 flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5" />
+                    준비일정 {career.monthlyPreparation.length}단계
+                  </span>
+                )}
+              </div>
             </div>
             <button
               onClick={onClose}
@@ -208,28 +277,30 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
             </button>
           </div>
 
-          <div className="flex gap-2 overflow-x-auto">
+          <div className="grid grid-cols-4 gap-2">
             {[
-              { id: 'setak' as const, label: '세특 예시', emoji: '📝' },
-              { id: 'projects' as const, label: '프로젝트', emoji: '💡' },
-              { id: 'universities' as const, label: '대학', emoji: '🎓' },
-              { id: 'strategy' as const, label: '입시전략', emoji: '🧭' },
-              { id: 'qa' as const, label: '심층Q&A', emoji: '🎤' },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all"
-                style={{
-                  background: activeTab === tab.id ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.05)',
-                  border: `1px solid ${activeTab === tab.id ? 'rgba(16,185,129,0.5)' : 'rgba(255,255,255,0.1)'}`,
-                  color: activeTab === tab.id ? 'white' : 'rgba(255,255,255,0.6)',
-                }}
-              >
-                <span>{tab.emoji}</span>
-                <span>{tab.label}</span>
-              </button>
-            ))}
+              { id: 'setak' as const, label: '세특예시', icon: FileText },
+              { id: 'strategy' as const, label: '입시전략', icon: Target },
+              { id: 'universities' as const, label: '대학', icon: GraduationCap },
+              { id: 'qa' as const, label: '심층Q&A', icon: HelpCircle },
+            ].map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className="flex flex-col items-center justify-center gap-1 px-2 py-2 rounded-lg text-xs font-medium transition-all hover:scale-105 active:scale-95"
+                  style={{
+                    background: activeTab === tab.id ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.05)',
+                    border: `1px solid ${activeTab === tab.id ? 'rgba(16,185,129,0.5)' : 'rgba(255,255,255,0.1)'}`,
+                    color: activeTab === tab.id ? 'white' : 'rgba(255,255,255,0.6)',
+                  }}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="text-[10px]">{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -255,7 +326,7 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
 
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <Target className="w-4 h-4 text-emerald-400" />
+                  <FileText className="w-4 h-4 text-emerald-400" />
                   <h4 className="text-sm font-bold text-white">세특 작성 예시</h4>
                 </div>
                 {career.setakExamples.map((example, index) => (
@@ -277,52 +348,158 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
                   </div>
                 ))}
               </div>
+
+              <div className="rounded-lg p-3 bg-white/5 border border-white/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <Lightbulb className="w-4 h-4 text-yellow-400" />
+                  <h4 className="text-sm font-bold text-white">프로젝트 아이디어</h4>
+                </div>
+                <div className="space-y-2">
+                  {career.projectIdeas.map((idea, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 text-xs text-white/80 p-2 rounded-lg bg-white/5"
+                    >
+                      <Lightbulb className="w-3.5 h-3.5 mt-0.5 text-yellow-400 flex-shrink-0" />
+                      <span>{idea}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </>
-          )}
-
-          {activeTab === 'projects' && (
-            <div className="rounded-lg p-3 bg-white/5 border border-white/10">
-              <div className="flex items-center gap-2 mb-2">
-                <Lightbulb className="w-4 h-4 text-yellow-400" />
-                <h4 className="text-sm font-bold text-white">프로젝트 아이디어</h4>
-              </div>
-              <div className="space-y-2">
-                {career.projectIdeas.map((idea, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-2 text-sm text-white/80 p-2 rounded-lg bg-white/5"
-                  >
-                    <span className="text-yellow-400">💡</span>
-                    <span>{idea}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'universities' && (
-            <div className="rounded-lg p-3 bg-white/5 border border-white/10">
-              <div className="flex items-center gap-2 mb-2">
-                <GraduationCap className="w-4 h-4 text-blue-400" />
-                <h4 className="text-sm font-bold text-white">주요 대학 및 학과</h4>
-              </div>
-              <div className="space-y-2">
-                {career.universities.map((uni, index) => (
-                  <div
-                    key={index}
-                    className="text-sm px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30 text-white"
-                  >
-                    {uni}
-                  </div>
-                ))}
-              </div>
-            </div>
           )}
 
           {activeTab === 'strategy' && (
             <div className="space-y-3">
+              {/* 실전 합격 사례 */}
+              {career.successStories && career.successStories.length > 0 && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(245,158,11,0.2) 100%)',
+                    border: '1px solid rgba(251,191,36,0.35)',
+                  }}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <Trophy className="w-4 h-4 text-yellow-300" />
+                    <h4 className="text-sm font-bold text-white">실전 합격 사례</h4>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-yellow-400/20 text-yellow-200 border border-yellow-300/40">
+                      REAL CASE
+                    </span>
+                  </div>
+                  <p className="text-xs text-white/70 mb-3">실제 합격생들의 구체적인 준비 과정</p>
+
+                  <div className="space-y-2">
+                    {career.successStories.map((story, index) => {
+                      const isOpen = expandedSuccessIndex === index;
+                      return (
+                        <div
+                          key={index}
+                          className="rounded-lg overflow-hidden"
+                          style={{ border: '1px solid rgba(251,191,36,0.3)' }}
+                        >
+                          <button
+                            onClick={() => setExpandedSuccessIndex(isOpen ? null : index)}
+                            className="w-full flex items-center justify-between gap-2 p-3 text-left transition-all hover:bg-white/5"
+                            style={{ background: 'rgba(251,191,36,0.1)' }}
+                          >
+                            <div className="flex items-start gap-2 flex-1 min-w-0">
+                              <Award className="w-4 h-4 mt-0.5 text-yellow-300 flex-shrink-0" />
+                              <div className="min-w-0">
+                                <p className="text-xs font-semibold text-yellow-200">{story.profile}</p>
+                                <p className="text-[10px] text-white/60 mt-0.5">{story.admissionType} 합격</p>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`w-4 h-4 text-yellow-300 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                            />
+                          </button>
+
+                          {isOpen && (
+                            <div className="p-3 space-y-2" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                              <div>
+                                <p className="text-[10px] font-bold uppercase tracking-wider text-yellow-300 mb-1.5">
+                                  핵심 활동
+                                </p>
+                                <div className="space-y-1">
+                                  {story.keyActivities.map((activity, idx) => (
+                                    <div key={idx} className="flex items-start gap-2 text-xs text-white/85">
+                                      <TrendingUp className="w-3 h-3 mt-0.5 flex-shrink-0 text-yellow-300" />
+                                      <span>{activity}</span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                              <div className="rounded-md p-2 bg-yellow-500/10 border border-yellow-500/30">
+                                <p className="text-[10px] font-bold text-yellow-200 mb-1">합격 결과</p>
+                                <p className="text-xs text-white/90">{story.result}</p>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* 월별 준비 타임라인 */}
+              {career.monthlyPreparation && career.monthlyPreparation.length > 0 && (
+                <div className="rounded-xl p-3 bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Calendar className="w-4 h-4 text-blue-400" />
+                    <h4 className="text-sm font-bold text-white">월별 준비 타임라인</h4>
+                  </div>
+                  <p className="text-xs text-white/60 mb-3">학년별 구체적인 실행 계획</p>
+
+                  <div className="space-y-1.5">
+                    {career.monthlyPreparation.map((prep, index) => {
+                      const isOpen = expandedMonthIndex === index;
+                      return (
+                        <div
+                          key={index}
+                          className="rounded-lg overflow-hidden"
+                          style={{ border: '1px solid rgba(59,130,246,0.3)' }}
+                        >
+                          <button
+                            onClick={() => setExpandedMonthIndex(isOpen ? null : index)}
+                            className="w-full flex items-center justify-between gap-2 p-2.5 text-left transition-all hover:bg-white/5"
+                            style={{ background: 'rgba(59,130,246,0.1)' }}
+                          >
+                            <div className="flex items-center gap-2 flex-1">
+                              <Clock className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+                              <div>
+                                <p className="text-xs font-semibold text-blue-200">{prep.period}</p>
+                                <p className="text-[10px] text-white/60">{prep.goal}</p>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`w-4 h-4 text-blue-400 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                            />
+                          </button>
+
+                          {isOpen && (
+                            <div className="p-2.5 space-y-1" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                              {prep.tasks.map((task, idx) => (
+                                <div key={idx} className="flex items-start gap-2 text-xs text-white/85">
+                                  <span className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-blue-400" />
+                                  <span>{task}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               <div className="rounded-lg p-3 bg-violet-500/10 border border-violet-500/35">
-                <h4 className="text-sm font-bold text-violet-200 mb-2">대입에서 중요한 점</h4>
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-4 h-4 text-violet-300" />
+                  <h4 className="text-sm font-bold text-violet-200">대입에서 중요한 점</h4>
+                </div>
                 {(selectedKingdomGuidance?.importantPoints ?? careerDetailGuidance.importantPoints).map((point, index) => (
                   <p key={index} className="text-xs text-violet-100 mb-1.5">
                     • {point}
@@ -331,7 +508,10 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
               </div>
 
               <div className="rounded-lg p-3 bg-amber-500/10 border border-amber-500/35">
-                <h4 className="text-sm font-bold text-amber-200 mb-2">유의할 점</h4>
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-4 h-4 text-amber-300" />
+                  <h4 className="text-sm font-bold text-amber-200">유의할 점</h4>
+                </div>
                 {(selectedKingdomGuidance?.cautions ?? careerDetailGuidance.cautions).map((caution, index) => (
                   <p key={index} className="text-xs text-amber-100 mb-1.5">
                     - {caution}
@@ -340,7 +520,10 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
               </div>
 
               <div className="rounded-lg p-3 bg-cyan-500/10 border border-cyan-500/35">
-                <h4 className="text-sm font-bold text-cyan-200 mb-2">입학사정관이 보는 시야</h4>
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-4 h-4 text-cyan-300" />
+                  <h4 className="text-sm font-bold text-cyan-200">입학사정관이 보는 시야</h4>
+                </div>
                 {(selectedKingdomGuidance?.admissionsOfficerView ?? careerDetailGuidance.admissionsOfficerView).map((viewpoint, index) => (
                   <p key={index} className="text-xs text-cyan-100 mb-1.5">
                     • {viewpoint}
@@ -349,7 +532,10 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
               </div>
 
               <div className="space-y-2">
-                <h4 className="text-sm font-bold text-white">전형별 실전 전략: {career.admissionType}</h4>
+                <div className="flex items-center gap-2">
+                  <Rocket className="w-4 h-4 text-emerald-400" />
+                  <h4 className="text-sm font-bold text-white">전형별 실전 전략: {career.admissionType}</h4>
+                </div>
                 {admissionTypeStrategyCards.map((strategyCard) => (
                   <div key={strategyCard.typeLabel} className="rounded-lg p-3 bg-white/5 border border-white/10">
                     <p className="text-xs font-bold text-emerald-300 mb-2">{strategyCard.typeLabel} 전략</p>
@@ -377,22 +563,174 @@ function CareerDetailModal({ career, onClose }: { career: Career; onClose: () =>
             </div>
           )}
 
+          {activeTab === 'universities' && (
+            <div className="space-y-3">
+              {/* 대학별 상세 정보 */}
+              {career.universityDetails && career.universityDetails.length > 0 ? (
+                <>
+                  <div
+                    className="rounded-xl p-3"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(99,102,241,0.2) 100%)',
+                      border: '1px solid rgba(59,130,246,0.35)',
+                    }}
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <GraduationCap className="w-4 h-4 text-blue-300" />
+                      <h4 className="text-sm font-bold text-white">대학별 전형 정보</h4>
+                    </div>
+                    <p className="text-xs text-white/70">주요 대학의 전형 유형, 경쟁률, 필수 요건</p>
+                  </div>
+
+                  <div className="space-y-2">
+                    {career.universityDetails.map((univDetail, index) => {
+                      const isOpen = expandedUnivIndex === index;
+                      return (
+                        <div
+                          key={index}
+                          className="rounded-lg overflow-hidden"
+                          style={{ border: '1px solid rgba(59,130,246,0.3)' }}
+                        >
+                          <button
+                            onClick={() => setExpandedUnivIndex(isOpen ? null : index)}
+                            className="w-full flex items-center justify-between gap-2 p-3 text-left transition-all hover:bg-white/5"
+                            style={{ background: 'rgba(59,130,246,0.1)' }}
+                          >
+                            <div className="flex items-start gap-2 flex-1 min-w-0">
+                              <GraduationCap className="w-4 h-4 mt-0.5 text-blue-400 flex-shrink-0" />
+                              <div className="min-w-0">
+                                <p className="text-sm font-bold text-white">{univDetail.university}</p>
+                                <p className="text-xs text-blue-200 mt-0.5">{univDetail.department}</p>
+                              </div>
+                            </div>
+                            <ChevronDown
+                              className={`w-4 h-4 text-blue-400 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                            />
+                          </button>
+
+                          {isOpen && (
+                            <div className="p-3 space-y-2" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                              {univDetail.admissionTypes.map((admType, idx) => (
+                                <div
+                                  key={idx}
+                                  className="rounded-lg p-2.5"
+                                  style={{ background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.2)' }}
+                                >
+                                  <div className="flex items-center justify-between mb-2">
+                                    <p className="text-xs font-bold text-blue-200">{admType.type}</p>
+                                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-400/20 text-blue-200">
+                                      {admType.competition}
+                                    </span>
+                                  </div>
+                                  <div className="space-y-1">
+                                    <p className="text-[10px] text-white/60 font-semibold">필수 요건</p>
+                                    {admType.keyRequirements.map((req, reqIdx) => (
+                                      <div key={reqIdx} className="flex items-start gap-2 text-xs text-white/85">
+                                        <span className="inline-block w-1 h-1 rounded-full mt-1.5 flex-shrink-0 bg-blue-400" />
+                                        <span>{req}</span>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              ) : (
+                <div className="rounded-lg p-3 bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-2 mb-2">
+                    <GraduationCap className="w-4 h-4 text-blue-400" />
+                    <h4 className="text-sm font-bold text-white">주요 대학 및 학과</h4>
+                  </div>
+                  <div className="space-y-2">
+                    {career.universities.map((uni, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-500/10 border border-blue-500/30"
+                      >
+                        <GraduationCap className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />
+                        <span className="text-sm text-white">{uni}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* 지원 팁 */}
+              <div className="rounded-lg p-3 bg-purple-500/10 border border-purple-500/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <Users className="w-4 h-4 text-purple-300" />
+                  <h4 className="text-xs font-bold text-purple-200">지원 전략 팁</h4>
+                </div>
+                <div className="space-y-1.5">
+                  <p className="text-xs text-purple-100">
+                    • 상향 1개, 적정 2개, 안정 1개로 포트폴리오 구성
+                  </p>
+                  <p className="text-xs text-purple-100">
+                    • 학과별 인재상과 본인의 활동 연계성 확인
+                  </p>
+                  <p className="text-xs text-purple-100">
+                    • 전년도 입결과 올해 모집인원 변동 체크
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {activeTab === 'qa' && (
             <div className="space-y-2">
-              <div className="rounded-lg p-3 bg-indigo-500/12 border border-indigo-500/35">
-                <h4 className="text-sm font-bold text-indigo-200 mb-1">{normalizedKingdomLabel} 맞춤 심층 Q&A 20문항</h4>
+              <div
+                className="rounded-lg p-3"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.2) 100%)',
+                  border: '1px solid rgba(99,102,241,0.35)',
+                }}
+              >
+                <div className="flex items-center gap-2 mb-1">
+                  <HelpCircle className="w-4 h-4 text-indigo-300" />
+                  <h4 className="text-sm font-bold text-indigo-200">{normalizedKingdomLabel} 맞춤 심층 Q&A</h4>
+                </div>
                 <p className="text-xs text-indigo-100/85">
                   면접/서류/전략 점검에 바로 사용할 수 있는 실전 질문과 답변입니다.
                 </p>
               </div>
-              {mergedDeepQa.map((item, index) => (
-                <div key={index} className="rounded-lg p-3 bg-white/5 border border-white/10">
-                  <p className="text-xs font-semibold text-white mb-1">
-                    Q{index + 1}. {item.question}
-                  </p>
-                  <p className="text-xs text-slate-200 leading-relaxed">A. {item.answer}</p>
-                </div>
-              ))}
+              {mergedDeepQa.map((item, index) => {
+                const isOpen = expandedQaIndex === index;
+                return (
+                  <div
+                    key={index}
+                    className="rounded-lg overflow-hidden"
+                    style={{ border: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    <button
+                      onClick={() => setExpandedQaIndex(isOpen ? null : index)}
+                      className="w-full flex items-center justify-between gap-2 p-3 text-left transition-all"
+                      style={{ background: 'rgba(255,255,255,0.05)' }}
+                    >
+                      <div className="flex items-start gap-2 flex-1 min-w-0">
+                        <HelpCircle className="w-4 h-4 mt-0.5 text-indigo-300 flex-shrink-0" />
+                        <div className="min-w-0">
+                          <p className="text-[10px] text-indigo-200 font-semibold">Q{index + 1}</p>
+                          <p className="text-xs text-white font-medium">{item.question}</p>
+                        </div>
+                      </div>
+                      <ChevronDown
+                        className={`w-4 h-4 text-white/60 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                      />
+                    </button>
+
+                    {isOpen && (
+                      <div className="p-3" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                        <p className="text-xs text-slate-200 leading-relaxed">{item.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
