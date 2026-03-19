@@ -323,7 +323,10 @@ function CareerPageContent() {
               onUseTemplate={handleUseTemplate}
               onNewPath={openNew}
               myPublicPlans={plans.filter(p => p.isPublic)}
-              onViewMyPlan={() => {}}
+              onViewMyPlan={(plan) => {
+                setSelectedPlanId(plan.id);
+                setActiveTab('timeline');
+              }}
             />
             {!builderOpen && (
               <div className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto">
@@ -348,6 +351,7 @@ function CareerPageContent() {
               const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
               return timeB - timeA;
             })}
+            preferredOpenPlanId={selectedPlanId}
             onEdit={openEdit}
             onUpdatePlan={updatePlanInline}
             onDeletePlan={deletePlan}

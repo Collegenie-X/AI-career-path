@@ -22,6 +22,7 @@ type Props = {
   onUpdatePlan: (plan: CareerPlan) => void;
   onDeletePlan: (planId: string) => void;
   onNewPlan: () => void;
+  preferredOpenPlanId?: string | null;
   onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   onOpenShareDialog?: (plan: CareerPlan) => void;
 };
@@ -318,9 +319,25 @@ function PlanAccordionCard({
 }
 
 /* ─── Main export ─── */
-export function VerticalTimelineList({ allPlans, onEdit, onUpdatePlan, onDeletePlan, onNewPlan, onOpenShareDialog }: Props) {
+export function VerticalTimelineList({
+  allPlans,
+  onEdit,
+  onUpdatePlan,
+  onDeletePlan,
+  onNewPlan,
+  preferredOpenPlanId,
+  onOpenShareDialog,
+}: Props) {
   const [openPlanId, setOpenPlanId] = useState<string | null>(allPlans[0]?.id ?? null);
   const [detailItem, setDetailItem] = useState<{ item: PlanItem; gradeLabel: string } | null>(null);
+
+  useEffect(() => {
+    if (!preferredOpenPlanId) return;
+    const hasPreferredPlan = allPlans.some(plan => plan.id === preferredOpenPlanId);
+    if (hasPreferredPlan) {
+      setOpenPlanId(preferredOpenPlanId);
+    }
+  }, [allPlans, preferredOpenPlanId]);
 
   const toggle = (planId: string) =>
     setOpenPlanId((prev) => (prev === planId ? null : planId));

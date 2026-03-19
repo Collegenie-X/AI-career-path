@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Download, PencilLine, Save, Trash2, X } from 'lucide-react';
+import { ArrowLeft, Download, PencilLine, Save, Trash2, X } from 'lucide-react';
 import { ResourceMarkdownViewer } from './ResourceMarkdownViewer';
 import { RESOURCE_CATEGORIES, type ResourceCategoryId, type ResourceFile } from './resource-hub-types';
 import type { ResourceListItem } from './resource-hub-view-model';
@@ -112,18 +112,30 @@ export function ResourceDetailDialog({
     <div
       className="fixed inset-0 z-[9999] flex items-end sm:items-center justify-center bg-black/80 p-0 sm:p-3"
       style={{ zIndex: 2147483647 }}
+      onClick={onClose}
     >
       <div
         className="w-full h-[100dvh] sm:h-auto sm:max-h-[92vh] max-w-3xl rounded-none sm:rounded-2xl overflow-hidden flex flex-col"
         style={{ background: '#0b1020', border: '1px solid rgba(255,255,255,0.12)' }}
+        onClick={(event) => event.stopPropagation()}
       >
         <div
           className="px-4 pt-[max(12px,env(safe-area-inset-top))] pb-3 flex items-center justify-between"
           style={{ background: 'rgba(99,102,241,0.15)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
         >
-          <div className="min-w-0">
-            <p className="text-sm font-bold text-white truncate">{item.title}</p>
-            <p className="text-[12px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
+          <div className="min-w-0 flex items-center gap-2">
+            <button
+              onClick={onClose}
+              className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-200 flex-shrink-0"
+              aria-label="뒤로가기"
+              title="뒤로가기"
+            >
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+            <div className="min-w-0">
+              <p className="text-sm font-bold text-white truncate">{item.title}</p>
+              <p className="text-[12px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
+            </div>
           </div>
           <div className="flex items-center gap-1">
             {userFileForActions ? (
