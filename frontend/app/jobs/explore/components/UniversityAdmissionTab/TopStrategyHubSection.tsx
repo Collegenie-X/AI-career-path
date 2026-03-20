@@ -9,6 +9,11 @@ import type { StrategyHubSection } from './TopStrategyHubTypes';
 
 type TopStrategyHubSectionProps = {
   sections: StrategyHubSection[];
+  /**
+   * 설정 시 「상세 가이드 열기」는 모달 대신 부모(오른쪽 패널)에서 표시합니다.
+   * 고입 탐색과 동일한 2컬럼(왼쪽 허브 / 오른쪽 상세) 패턴용.
+   */
+  onRequestOpenDetail?: (payload: { sectionId: string; gradeId: string }) => void;
 };
 
 const SECTION_ICON_MAP: Record<string, React.ReactNode> = {
@@ -24,7 +29,7 @@ const GRADE_ICON_MAP: Record<string, string> = {
   grade3: '🌳',
 };
 
-export function TopStrategyHubSection({ sections }: TopStrategyHubSectionProps) {
+export function TopStrategyHubSection({ sections, onRequestOpenDetail }: TopStrategyHubSectionProps) {
   const [activeId, setActiveId] = useState(sections[0]?.id ?? '');
   const [activeGradeId, setActiveGradeId] = useState(sections[0]?.grades[0]?.id ?? '');
   const [isDetailDialogOpen, setIsDetailDialogOpen] = useState(false);
@@ -189,7 +194,13 @@ export function TopStrategyHubSection({ sections }: TopStrategyHubSectionProps) 
           </div>
 
           <button
-            onClick={() => setIsDetailDialogOpen(true)}
+            onClick={() => {
+              if (onRequestOpenDetail) {
+                onRequestOpenDetail({ sectionId: activeSection.id, gradeId: activeGrade.id });
+                return;
+              }
+              setIsDetailDialogOpen(true);
+            }}
             className="relative w-full rounded-xl px-4 py-3 flex items-center justify-center gap-2 text-sm font-bold transition-all hover:scale-[1.02] active:scale-[0.98] overflow-hidden group"
             style={{
               background: 'linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%)',
@@ -205,7 +216,7 @@ export function TopStrategyHubSection({ sections }: TopStrategyHubSectionProps) 
         </div>
       </div>
 
-      {isDetailDialogOpen && (
+      {isDetailDialogOpen && !onRequestOpenDetail && (
         <TopStrategyHubDetailDialog
           sections={sections}
           initialSectionId={activeSection.id}

@@ -54,11 +54,13 @@ type CategoryDetailViewProps = {
   category: AdmissionCategory;
   playbook: CategoryPlaybook;
   onClose: () => void;
+  /** inline: 오른쪽 패널에 삽입 (모달 없음) — jobs/explore 대입 탐색 2컬럼용 */
+  variant?: 'modal' | 'inline';
 };
 
 type TabId = 'core' | 'grade' | 'strategy2028' | 'practical';
 
-export function CategoryDetailView({ category, playbook, onClose }: CategoryDetailViewProps) {
+export function CategoryDetailView({ category, playbook, onClose, variant = 'modal' }: CategoryDetailViewProps) {
   const [activeTab, setActiveTab] = useState<TabId>('core');
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -70,14 +72,14 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
     { id: 'practical', label: '실전예시', icon: Trophy },
   ];
 
-  const modalContent = (
-    <div
-      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-0 md:p-4"
-      style={{ background: 'rgba(2,6,23,0.88)' }}
-      onClick={onClose}
-    >
+  const panelScrollClass =
+    variant === 'inline'
+      ? 'w-full min-w-0 max-w-full h-[min(92dvh,900px)] md:max-h-[min(92dvh,900px)] overflow-y-auto overflow-x-hidden rounded-2xl p-3 sm:p-4 space-y-3'
+      : 'w-full min-w-0 max-w-full md:max-w-[28rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4';
+
+  const panelInner = (
       <div
-        className="w-full min-w-0 max-w-full md:max-w-[28rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4"
+        className={panelScrollClass}
         style={{
           background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
           border: `1px solid ${category.color}55`,
@@ -175,11 +177,24 @@ export function CategoryDetailView({ category, playbook, onClose }: CategoryDeta
           <CategoryPracticalExamplesPanel category={category} playbook={playbook} />
         )}
       </div>
-    </div>
   );
 
   if (!mounted) return null;
-  return createPortal(modalContent, document.body);
+
+  if (variant === 'inline') {
+    return panelInner;
+  }
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-0 md:p-4"
+      style={{ background: 'rgba(2,6,23,0.88)' }}
+      onClick={onClose}
+    >
+      {panelInner}
+    </div>,
+    document.body
+  );
 }
 
 function CoreStrategyTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {

@@ -10,12 +10,12 @@ import { CommunityTab } from './components/community/CommunityTab';
 import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
 import { CareerPageHeader } from './components/CareerPageHeader';
 import { CareerTabBar } from './components/CareerTabBar';
-import { CareerPathDetailPanel } from './components/CareerPathDetailPanel';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
+import { UniversityAdmissionTab } from '@/app/jobs/explore/components/UniversityAdmissionTab';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
-import type { ShareChannel, CommunityGroup } from './components/community/types';
+import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
 import { CAREER_PAGE_TABS, type CareerPageTabId } from './config';
 import communityData from '@/data/share-community.json';
@@ -75,7 +75,6 @@ function CareerPageContent() {
   const [sharingPlan, setSharingPlan] = useState<CareerPlan | null>(null);
 
   /* ── 2-컬럼 패널용 선택 상태 ── */
-  const [selectedExploreTemplate, setSelectedExploreTemplate] = useState<Template | null>(null);
   const [selectedCommunityPlan, setSelectedCommunityPlan] = useState<SharedPlan | null>(null);
 
   useEffect(() => {
@@ -141,7 +140,6 @@ function CareerPageContent() {
     const updatedPlans = [...plans, planFromTemplate];
     savePlans(updatedPlans);
     setSelectedPlanId(planFromTemplate.id);
-    setSelectedExploreTemplate(null);
     handleTabChange('timeline');
     setBuilderOpen(false);
     setEditingPlan(null);
@@ -211,54 +209,22 @@ function CareerPageContent() {
               embeddedInCareerShell
             />
           </div>
-          <ExploreHeroBanner
-            activeTab={activeTab}
-            onNewPath={openNew}
-            embeddedInCareerShell
-            totalTemplateCount={totalTemplateCount}
-            totalUses={totalTemplateUses}
-            totalCommunitySharedPlans={totalCommunitySharedPlans}
-            totalCommunityGroups={totalCommunityGroups}
-            totalMyPlans={plans.length}
-            totalMyPublicPlans={totalMyPublicPlans}
-          />
+          {activeTab !== 'explore' && (
+            <ExploreHeroBanner
+              activeTab={activeTab}
+              onNewPath={openNew}
+              embeddedInCareerShell
+              totalTemplateCount={totalTemplateCount}
+              totalUses={totalTemplateUses}
+              totalCommunitySharedPlans={totalCommunitySharedPlans}
+              totalCommunityGroups={totalCommunityGroups}
+              totalMyPlans={plans.length}
+              totalMyPublicPlans={totalMyPublicPlans}
+            />
+          )}
           <div className="px-4 pb-4 md:px-5 md:pb-5">
             {!mounted ? null : activeTab === 'explore' ? (
-          <>
-            <TwoColumnPanelLayout
-              hasSelection={selectedExploreTemplate !== null}
-              onClearSelection={() => setSelectedExploreTemplate(null)}
-              emptyPlaceholderText="커리어 패스를 선택하세요"
-              emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
-              listSlot={
-                <div
-                  className="rounded-none border px-4 py-4 md:px-5 md:py-5"
-                  style={{
-                    borderColor: 'rgba(255,255,255,0.12)',
-                    background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-                    boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
-                  }}
-                >
-                  <CareerPathList
-                    onUseTemplate={handleUseTemplate}
-                    myPublicPlans={plans.filter(p => p.isPublic)}
-                    onViewMyPlan={(plan) => { setSelectedPlanId(plan.id); handleTabChange('timeline'); }}
-                    selectedTemplateId={selectedExploreTemplate?.id ?? null}
-                    onSelectTemplate={setSelectedExploreTemplate}
-                  />
-                </div>
-              }
-              detailSlot={
-                selectedExploreTemplate ? (
-                  <CareerPathDetailPanel
-                    template={selectedExploreTemplate}
-                    onClose={() => setSelectedExploreTemplate(null)}
-                    onUseTemplate={(customTitle) => handleUseTemplate(selectedExploreTemplate, customTitle)}
-                  />
-                ) : null
-              }
-            />
-          </>
+          <UniversityAdmissionTab />
         ) : activeTab === 'timeline' ? (
           <TwoColumnPanelLayout
             hasSelection={selectedPlanId !== null && selectedPlan !== null}

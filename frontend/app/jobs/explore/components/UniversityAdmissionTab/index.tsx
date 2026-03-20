@@ -33,11 +33,14 @@ import aiProjectLearningData from '@/data/university-admission/strategy-hub/ai-p
 import paperMakerActivitiesData from '@/data/university-admission/strategy-hub/paper-maker-activities.json';
 import gradeRoadmapOverviewData from '@/data/university-admission/strategy-hub/grade-roadmap-overview.json';
 
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
 import { PlanetOrbitView } from './PlanetOrbitView';
 import { CategoryDetailView } from './CategoryDetailView';
 import { DevEducationInstitutionsView } from './DevEducationInstitutionsView';
 import { CareerMajorConnectionView } from './CareerMajorConnectionView';
 import { TopStrategyHubSection } from './TopStrategyHubSection';
+import { TopStrategyHubDetailDialog } from './TopStrategyHubDetailDialog';
 
 type AdmissionCategory = {
   id: string;
@@ -90,6 +93,9 @@ function InnovativeInstitutionsHeader() {
 export function UniversityAdmissionTab() {
   const [viewState, setViewState] = useState<ViewState>({ view: 'planet' });
   const [selectedCategory, setSelectedCategory] = useState<AdmissionCategory | null>(null);
+  const [strategyHubDetailOpen, setStrategyHubDetailOpen] = useState(false);
+  const [strategyHubSectionId, setStrategyHubSectionId] = useState('');
+  const [strategyHubGradeId, setStrategyHubGradeId] = useState('');
 
   const categories = [
     studentRecordComprehensiveCategory.category,
@@ -135,79 +141,109 @@ export function UniversityAdmissionTab() {
     gradeRoadmapOverviewData,
   ];
 
+  const hasRightPanelDetail = selectedCategory !== null || strategyHubDetailOpen;
+
+  const handleClearRightPanelSelection = () => {
+    if (selectedCategory) {
+      setSelectedCategory(null);
+      return;
+    }
+    setStrategyHubDetailOpen(false);
+  };
+
   const handleSelectCategory = (category: AdmissionCategory) => {
+    setStrategyHubDetailOpen(false);
     setSelectedCategory(category);
+  };
+
+  const handleRequestStrategyHubDetailOpen = (payload: { sectionId: string; gradeId: string }) => {
+    setSelectedCategory(null);
+    setStrategyHubSectionId(payload.sectionId);
+    setStrategyHubGradeId(payload.gradeId);
+    setStrategyHubDetailOpen(true);
   };
 
   const handleBackToPlanet = () => {
     setViewState({ view: 'planet' });
     setSelectedCategory(null);
+    setStrategyHubDetailOpen(false);
   };
 
   const handleShowDevInstitutions = () => {
+    setSelectedCategory(null);
+    setStrategyHubDetailOpen(false);
     setViewState({ view: 'dev-institutions' });
   };
 
   const handleShowInnovativeInstitutions = () => {
+    setSelectedCategory(null);
+    setStrategyHubDetailOpen(false);
     setViewState({ view: 'innovative-institutions' });
   };
 
   const handleShowCareerMajor = () => {
+    setSelectedCategory(null);
+    setStrategyHubDetailOpen(false);
     setViewState({ view: 'career-major' });
   };
 
   return (
     <div className="space-y-3">
-      {/* 인트로 배너 (행성 뷰에서만 표시) */}
+      {/* 행성(대입 탐색 홈): 고입 탐색과 동일 — 왼쪽 허브 / 오른쪽 상세 가이드 */}
       {viewState.view === 'planet' && (
-        <>
-          <div
-            className="rounded-2xl p-3"
-            style={{
-              background: 'linear-gradient(135deg, rgba(132,94,247,0.2) 0%, rgba(32,201,151,0.1) 100%)',
-              border: '1px solid rgba(132,94,247,0.3)',
-            }}
-          >
-            <div className="flex items-start gap-3">
-      
-              <div className="flex-1 min-w-0">
-                <h2 className="text-base font-bold text-white mb-3">{metaData.intro.title}</h2>
-                <div className="flex flex-wrap gap-1.5">
-                  {metaData.intro.highlights.map((highlight, index) => (
-                    <span
-                      key={index}
-                      className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/80"
-                    >
-                      {highlight}
-                    </span>
-                  ))}
+        <TwoColumnPanelLayout
+          hasSelection={hasRightPanelDetail}
+          onClearSelection={handleClearRightPanelSelection}
+          emptyPlaceholderText="상세 가이드를 선택하세요"
+          emptyPlaceholderSubText="왼쪽에서 「상세 가이드 열기」를 누르거나 행성(전형)을 선택하면 여기에 표시됩니다"
+          listSlot={
+            <div
+              className={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}
+              style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
+            >
+              <div className="space-y-3">
+                <div
+                  className="rounded-2xl p-3"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(132,94,247,0.2) 0%, rgba(32,201,151,0.1) 100%)',
+                    border: '1px solid rgba(132,94,247,0.3)',
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex-1 min-w-0">
+                      <h2 className="text-base font-bold text-white mb-3">{metaData.intro.title}</h2>
+                      <div className="flex flex-wrap gap-1.5">
+                        {metaData.intro.highlights.map((highlight, index) => (
+                          <span
+                            key={index}
+                            className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/80"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
 
-          {/* 주의사항 배너 */}
-          <div
-            className="rounded-xl p-3"
-            style={{
-              background: 'rgba(239,68,68,0.15)',
-              border: '1px solid rgba(239,68,68,0.3)',
-            }}
-          >
-            <p className="text-sm text-red-300 font-medium">{metaData.intro.warning}</p>
-          </div>
+                <div
+                  className="rounded-xl p-3"
+                  style={{
+                    background: 'rgba(239,68,68,0.15)',
+                    border: '1px solid rgba(239,68,68,0.3)',
+                  }}
+                >
+                  <p className="text-sm text-red-300 font-medium">{metaData.intro.warning}</p>
+                </div>
 
-          <TopStrategyHubSection sections={topStrategySections} />
-        </>
-      )}
+                <TopStrategyHubSection
+                  sections={topStrategySections}
+                  onRequestOpenDetail={handleRequestStrategyHubDetailOpen}
+                />
 
-      {/* 뷰 전환 */}
-      {viewState.view === 'planet' && (
-        <>
-          <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />
+                <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />
 
-          {/* 바로가기 버튼들 */}
-          <div className="space-y-2">
+                <div className="space-y-2">
             {/* 직업(과) 연계 준비 */}
             <button
               onClick={handleShowCareerMajor}
@@ -294,8 +330,29 @@ export function UniversityAdmissionTab() {
                 <span className="text-white/40">→</span>
               </div>
             </button>
-          </div>
-        </>
+                </div>
+              </div>
+            </div>
+          }
+          detailSlot={
+            selectedCategory ? (
+              <CategoryDetailView
+                variant="inline"
+                category={selectedCategory}
+                playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
+                onClose={() => setSelectedCategory(null)}
+              />
+            ) : strategyHubDetailOpen ? (
+              <TopStrategyHubDetailDialog
+                variant="inline"
+                sections={topStrategySections}
+                initialSectionId={strategyHubSectionId || topStrategySections[0]?.id || ''}
+                initialGradeId={strategyHubGradeId || topStrategySections[0]?.grades[0]?.id || ''}
+                onClose={() => setStrategyHubDetailOpen(false)}
+              />
+            ) : null
+          }
+        />
       )}
 
       {viewState.view === 'dev-institutions' && (
@@ -338,13 +395,6 @@ export function UniversityAdmissionTab() {
         </div>
       )}
 
-      {viewState.view === 'planet' && selectedCategory && (
-        <CategoryDetailView
-          category={selectedCategory}
-          playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
-          onClose={() => setSelectedCategory(null)}
-        />
-      )}
     </div>
   );
 }

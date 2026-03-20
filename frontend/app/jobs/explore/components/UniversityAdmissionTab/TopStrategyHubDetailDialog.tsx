@@ -15,6 +15,8 @@ type TopStrategyHubDetailDialogProps = {
   initialSectionId: string;
   initialGradeId: string;
   onClose: () => void;
+  /** inline: jobs/explore 대입 탐색 오른쪽 패널용 (모달 없이 스크롤 영역만) */
+  variant?: 'modal' | 'inline';
 };
 
 type DetailContentTabId = 'core' | 'actionCards' | 'deepQa';
@@ -37,6 +39,7 @@ export function TopStrategyHubDetailDialog({
   initialSectionId,
   initialGradeId,
   onClose,
+  variant = 'modal',
 }: TopStrategyHubDetailDialogProps) {
   const [mounted, setMounted] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState(initialSectionId);
@@ -86,14 +89,16 @@ export function TopStrategyHubDetailDialog({
 
   if (!mounted || !activeSection || !activeGrade) return null;
 
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4"
-      style={{ background: 'rgba(2,6,23,0.86)' }}
-      onClick={onClose}
-    >
+  const inlineWrapperClass =
+    'w-full max-w-none md:max-w-none h-[min(92dvh,900px)] md:h-auto md:max-h-[min(92dvh,900px)] overflow-y-auto rounded-2xl';
+
+  const panelInner = (
       <div
-        className="w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto rounded-2xl"
+        className={
+          variant === 'inline'
+            ? inlineWrapperClass
+            : 'w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto rounded-2xl'
+        }
         style={{
           background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
           border: '1px solid rgba(129,140,248,0.35)',
@@ -395,6 +400,19 @@ export function TopStrategyHubDetailDialog({
           )}
         </div>
       </div>
+  );
+
+  if (variant === 'inline') {
+    return panelInner;
+  }
+
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4"
+      style={{ background: 'rgba(2,6,23,0.86)' }}
+      onClick={onClose}
+    >
+      {panelInner}
     </div>,
     document.body
   );
