@@ -271,6 +271,43 @@
   0%, 100% { opacity: 0.2; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.5); }
 }
+/* 빌더 전용 — 집중력 고려해 더 약한 반짝임 */
+@keyframes twinkle-subtle {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.15); }
+}
+/* 커리어 빌더 왕국 카드 — 호버 시 왕국 색 하이라이트 (집중력 고려해 약하게) */
+@keyframes kingdom-glint-sweep {
+  0% { transform: translateX(-35%) skewX(-14deg); opacity: 0.15; }
+  40% { opacity: 0.45; }
+  100% { transform: translateX(220%) skewX(-14deg); opacity: 0.15; }
+}
+.kingdom-choice-card {
+  --kingdom-accent: #a78bfa;
+}
+.kingdom-choice-card .kingdom-card-glint-stripe {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.kingdom-choice-card:hover .kingdom-card-glint-stripe {
+  opacity: 0.7;
+  animation: kingdom-glint-sweep 1.8s ease-in-out infinite;
+}
+.kingdom-card-emoji-wrap {
+  transition: filter 0.35s ease, transform 0.35s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+.kingdom-choice-card:hover .kingdom-card-emoji-wrap {
+  filter: drop-shadow(0 0 4px var(--kingdom-accent)) drop-shadow(0 0 10px var(--kingdom-accent));
+}
+/* 입력 필드 강조 — 빈 상태일 때 아이콘 깜빡임 */
+@keyframes input-hint-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+.input-hint-icon-empty {
+  animation: input-hint-pulse 2.2s ease-in-out infinite;
+}
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }

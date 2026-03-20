@@ -1,14 +1,16 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, type CSSProperties } from 'react';
 import {
   X, ChevronRight, ChevronLeft, Check, Plus, Trash2,
   Wand2, Pencil, Target, Lightbulb, Sparkles,
   Calendar, ArrowRight,
-  CheckCircle2, ChevronDown, ChevronUp, Flame
+  CheckCircle2, ChevronDown, ChevronUp, Flame,
+  FileText, DollarSign, Building2
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
+import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS, CAREER_PATH_BUILDER_DIALOG, GOAL_TEMPLATE_SELECTOR_DIALOG, LABELS } from '../config';
+import { CareerPathBuilderDawnSky } from './CareerPathBuilderDawnSky';
 import type { ShareType, ShareChannel } from './community/types';
 import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
@@ -224,25 +226,95 @@ function Step1Kingdom({ selectedId, onSelect }: { selectedId: string; onSelect: 
   return (
     <div className="space-y-5">
       <TipBox text="8개의 별은 각각 다른 직업 세계예요. 나의 관심사와 가장 잘 맞는 왕국을 선택해 보세요!" />
-      <div className="grid grid-cols-2 gap-2.5">
-        {careerMaker.kingdoms.map(k => (
-          <button key={k.id} onClick={() => onSelect(k.id)}
-            className="relative flex flex-col items-center gap-2.5 p-4 rounded-2xl transition-all duration-200 active:scale-[0.97]"
-            style={selectedId === k.id
-              ? { background: `linear-gradient(135deg, ${k.color}33, ${k.color}18)`, border: `2px solid ${k.color}`, boxShadow: `0 0 20px ${k.color}30` }
-              : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1.5px solid rgba(255,255,255,0.08)' }}>
-            {selectedId === k.id && (
-              <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full flex items-center justify-center" style={{ backgroundColor: k.color }}>
-                <Check className="w-3 h-3 text-white" />
+      <div className="grid grid-cols-2 gap-3">
+        {careerMaker.kingdoms.map((k, kingdomIndex) => {
+          const isKingdomSelected = selectedId === k.id;
+          const kingdomHoverGlow = `0 0 22px ${k.color}77, 0 0 52px ${k.color}44, 0 10px 36px rgba(0,0,0,0.45), inset 0 0 24px ${k.color}22`;
+          const kingdomSelectedHoverGlow = `0 0 36px ${k.color}77, 0 0 64px ${k.color}55, 0 0 2px ${k.color}, inset 0 1px 0 rgba(255,255,255,0.14)`;
+          return (
+            <motion.button
+              key={k.id}
+              type="button"
+              onClick={() => onSelect(k.id)}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: kingdomIndex * 0.045,
+                type: 'spring',
+                stiffness: 420,
+                damping: 24,
+              }}
+              whileHover={
+                isKingdomSelected
+                  ? { scale: 1.025, y: -2, boxShadow: kingdomSelectedHoverGlow }
+                  : { scale: 1.045, y: -5, boxShadow: kingdomHoverGlow, border: `2px solid ${k.color}` }
+              }
+              whileTap={{ scale: 0.97 }}
+              className="kingdom-choice-card relative flex flex-col items-center gap-2.5 p-4 rounded-2xl overflow-hidden transition-[box-shadow,border-color] duration-300"
+              style={
+                {
+                  ['--kingdom-accent' as string]: k.color,
+                  ...(isKingdomSelected
+                    ? {
+                        background: `linear-gradient(145deg, ${k.color}50, ${k.color}24)`,
+                        border: `2px solid ${k.color}`,
+                        boxShadow: `0 0 28px ${k.color}55, 0 0 2px ${k.color}, inset 0 1px 0 rgba(255,255,255,0.12)`,
+                      }
+                    : {
+                        backgroundColor: 'rgba(255,255,255,0.06)',
+                        border: '1.5px solid rgba(255,255,255,0.12)',
+                        boxShadow: `0 4px 20px rgba(0,0,0,0.25), 0 0 0 1px ${k.color}22`,
+                      }),
+                } as CSSProperties
+              }
+            >
+              <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-2xl" aria-hidden>
+                <div
+                  className="kingdom-card-glint-stripe absolute left-0 top-0 h-full w-[55%]"
+                  style={{
+                    background: `linear-gradient(90deg, transparent 0%, ${k.color}00 18%, ${k.color}aa 48%, ${k.color}ff 52%, ${k.color}aa 58%, ${k.color}00 85%, transparent 100%)`,
+                  }}
+                />
               </div>
-            )}
-            <span className="text-3xl">{k.emoji}</span>
-            <div className="text-center">
-              <div className="text-sm font-bold" style={{ color: selectedId === k.id ? k.color : 'rgba(255,255,255,0.8)' }}>{k.name}</div>
-              <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">{k.description.slice(0, 22)}</div>
-            </div>
-          </button>
-        ))}
+              <AnimatePresence>
+                {isKingdomSelected && (
+                  <motion.div
+                    key={`kingdom-check-${k.id}`}
+                    initial={{ scale: 0, rotate: -50 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    transition={{ type: 'spring', stiffness: 520, damping: 22 }}
+                    className="absolute top-2.5 right-2.5 z-20 w-6 h-6 rounded-full flex items-center justify-center ring-2 ring-white/90"
+                    style={{
+                      backgroundColor: k.color,
+                      boxShadow: `0 0 16px ${k.color}, 0 0 28px ${k.color}99`,
+                    }}
+                  >
+                    <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+              <motion.span
+                className="kingdom-card-emoji-wrap relative z-10 text-3xl"
+                animate={isKingdomSelected ? { scale: [1, 1.12, 1], rotate: [0, -4, 4, 0] } : {}}
+                transition={{ duration: 0.55, ease: 'easeOut' }}
+              >
+                {k.emoji}
+              </motion.span>
+              <div className="text-center relative z-10">
+                <div
+                  className="text-sm font-bold"
+                  style={{ color: isKingdomSelected ? k.color : 'rgba(255,255,255,0.88)' }}
+                >
+                  {k.name}
+                </div>
+                <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2 leading-relaxed">
+                  {k.description.slice(0, 22)}
+                </div>
+              </div>
+            </motion.button>
+          );
+        })}
       </div>
     </div>
   );
@@ -307,14 +379,18 @@ type SuggestedItem = {
 };
 
 function AddItemSheet({
-  starId, color, onAdd, onClose,
+  starId, color, onAdd, onClose, linkedGoalText,
 }: {
   starId: string; color: string;
   onAdd: (item: Omit<PlanItem, 'id'>) => void;
   onClose: () => void;
+  /** 목표-활동 그룹에서 열 때: 추천 항목이 어떤 목표에 붙는지 표시 */
+  linkedGoalText?: string;
 }) {
   const [mode, setMode] = useState<'pick' | 'custom'>('pick');
   const [filterType, setFilterType] = useState('all');
+  /** 추천 목록: 아코디언으로 상세 노출 후 버튼으로 확정 (호버 대신) */
+  const [expandedSuggestItemId, setExpandedSuggestItemId] = useState<string | null>(null);
 
   // Recommend mode state
   const [selectedSuggest, setSelectedSuggest] = useState<SuggestedItem | null>(null);
@@ -397,18 +473,38 @@ function AddItemSheet({
     onClose();
   };
 
+  const addItemDialogTheme = GOAL_TEMPLATE_SELECTOR_DIALOG;
+
   return (
     <div
       className="fixed inset-0 z-[70] flex flex-col justify-end"
-      style={{ backgroundColor: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(4px)' }}
+      style={{
+        backgroundColor: `rgba(0,0,0,${addItemDialogTheme.backdropOverlayOpacity})`,
+        backdropFilter: `blur(${addItemDialogTheme.backdropBlurPx}px)`,
+        WebkitBackdropFilter: `blur(${addItemDialogTheme.backdropBlurPx}px)`,
+      }}
       onClick={e => { if (e.target === e.currentTarget) onClose(); }}
     >
       <div
-        className="w-full max-w-[430px] mx-auto rounded-t-3xl flex flex-col"
-        style={{ backgroundColor: '#0f0f23', border: '1px solid rgba(255,255,255,0.1)', maxHeight: '88vh' }}
+        className="w-full mx-auto rounded-t-3xl flex flex-col"
+        style={{
+          maxWidth: `min(100%, ${addItemDialogTheme.maxWidthPx}px)`,
+          maxHeight: '88vh',
+          background: `linear-gradient(180deg, ${addItemDialogTheme.skyGradientTop} 0%, ${addItemDialogTheme.skyGradientBottom} 100%)`,
+          border: `1px solid ${addItemDialogTheme.panelBorderGlow}`,
+          boxShadow: `0 0 0 1px rgba(255,255,255,0.05), 0 0 60px rgba(124,77,255,0.12), 0 20px 50px rgba(0,0,0,0.5)`,
+        }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-white/8 flex-shrink-0">
+        <div
+          className="flex items-center justify-between p-4 border-b flex-shrink-0"
+          style={{
+            borderColor: 'rgba(255,255,255,0.1)',
+            backgroundColor: 'rgba(12, 6, 32, 0.75)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+        >
           <div className="text-base font-bold text-white">
             {selectedSuggest && mode === 'pick' ? '📅 목표 월 설정' : '항목 추가'}
           </div>
@@ -425,9 +521,9 @@ function AddItemSheet({
         </div>
 
         {/* Mode toggle */}
-        <div className="flex gap-2 px-4 pt-3 pb-2 flex-shrink-0">
+        <div className="flex gap-2 px-5 pt-3 pb-2 flex-shrink-0">
           {(['pick', 'custom'] as const).map(m => (
-            <button key={m} onClick={() => { setMode(m); setSelectedSuggest(null); }}
+            <button key={m} onClick={() => { setMode(m); setSelectedSuggest(null); setExpandedSuggestItemId(null); }}
               className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all"
               style={mode === m ? { backgroundColor: color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.45)' }}>
               {m === 'pick' ? <><Wand2 className="w-4 h-4" />추천 선택</> : <><Pencil className="w-4 h-4" />직접 입력</>}
@@ -435,19 +531,56 @@ function AddItemSheet({
           ))}
         </div>
 
+        {/* 연결 목표 — 추천 항목과 계획 맥락 연결 */}
+        {linkedGoalText?.trim() && (
+          <div
+            className="mx-5 mb-2 flex-shrink-0 rounded-2xl px-3.5 py-3"
+            style={{
+              background: `linear-gradient(135deg, ${color}28 0%, ${color}10 55%, rgba(12,8,32,0.92) 100%)`,
+              border: `1.5px solid ${color}55`,
+              boxShadow: `0 0 24px ${color}22, inset 0 1px 0 rgba(255,255,255,0.06)`,
+            }}
+          >
+            <div className="flex items-start gap-3">
+              <div
+                className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ backgroundColor: `${color}35`, border: `1px solid ${color}50` }}
+              >
+                <Target className="w-4 h-4" style={{ color: '#fff' }} />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider mb-0.5" style={{ color: `${color}dd` }}>
+                  {LABELS.builder_add_item_linked_goal_eyebrow}
+                </p>
+                <p className="text-sm font-bold text-white leading-snug break-words">
+                  {linkedGoalText.trim()}
+                </p>
+                <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed">
+                  {LABELS.builder_add_item_linked_goal_hint}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Content */}
-        <div className="flex-1 overflow-y-auto px-4 pb-5">
+        <div className="flex-1 overflow-y-auto px-5 pb-5">
           {/* ── Recommend mode ── */}
           {mode === 'pick' && !selectedSuggest && (
             <div className="space-y-2.5 pt-1">
               {/* Type filter */}
               <div className="flex gap-1.5 overflow-x-auto pb-1">
                 {[{ value: 'all', label: '전체', emoji: '✨' }, ...ITEM_TYPES.map(t => ({ value: t.value, label: t.label, emoji: t.emoji }))].map(t => (
-                  <button key={t.value} onClick={() => setFilterType(t.value)}
+                  <motion.button
+                    key={t.value}
+                    onClick={() => { setFilterType(t.value); setExpandedSuggestItemId(null); }}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
                     className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all"
-                    style={filterType === t.value ? { backgroundColor: color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}>
+                    style={filterType === t.value ? { backgroundColor: color, color: '#fff' } : { backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.5)' }}
+                  >
                     {t.emoji} {t.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
 
@@ -455,32 +588,182 @@ function AddItemSheet({
                 <div className="py-10 text-center text-sm text-gray-500">항목이 없어요</div>
               )}
 
-              {filtered.map(item => {
+              {filtered.map((item, idx) => {
                 const tc = ITEM_TYPES.find(t => t.value === item.type)!;
+                const itemColor = tc?.color ?? color;
+                const diffLabel = item.difficulty === 1 ? '매우 쉬움' : item.difficulty === 2 ? '쉬움' : item.difficulty === 3 ? '보통' : item.difficulty === 4 ? '어려움' : '매우 어려움';
+                const isSuggestAccordionExpanded = expandedSuggestItemId === item.id;
+                const detailBodyId = `add-item-suggest-detail-${item.id}`;
+                const periodText =
+                  `${item.months.slice(0, 3).map(m => `${m}월`).join(', ')}${item.months.length > 3 ? ' 외' : ''}`;
+                const detailText = item.description || (item as SuggestedItem).tip || '';
+
                 return (
-                  <button key={item.id} onClick={() => handleSelectSuggest(item)}
-                    className="w-full flex items-start gap-3 p-3.5 rounded-2xl text-left transition-all active:scale-[0.99]"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                    <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 mt-0.5"
-                      style={{ backgroundColor: `${tc?.color ?? color}18` }}>{tc?.emoji ?? '📌'}</div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
-                      {(item as SuggestedItem).subtitle && (
-                        <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-1">{(item as SuggestedItem).subtitle}</div>
-                      )}
-                      <div className="flex items-center gap-2 mt-1 flex-wrap">
-                        <span className="text-[12px] font-bold" style={{ color: tc?.color ?? color }}>{tc?.label}</span>
-                        <span className="text-[12px] text-gray-500">
-                          {item.months.slice(0, 3).map(m => `${m}월`).join('·')}
-                          {item.months.length > 3 ? ' 외' : ''}
-                        </span>
-                        {'organizer' in item && item.organizer && item.organizer !== '개인' && (
-                          <span className="text-[12px] text-gray-600">{item.organizer}</span>
-                        )}
+                  <motion.div
+                    key={item.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.02, type: 'spring', stiffness: 400, damping: 24 }}
+                    className="rounded-2xl overflow-hidden"
+                    style={{
+                      border: `1.5px solid ${isSuggestAccordionExpanded ? itemColor : 'rgba(255,255,255,0.08)'}`,
+                      backgroundColor: isSuggestAccordionExpanded ? `${itemColor}12` : 'rgba(255,255,255,0.03)',
+                      boxShadow: isSuggestAccordionExpanded ? `0 0 24px ${itemColor}28` : undefined,
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpandedSuggestItemId(prev => (prev === item.id ? null : item.id))
+                      }
+                      className="w-full flex items-center gap-3 p-3.5 text-left transition-colors active:scale-[0.99]"
+                      aria-expanded={isSuggestAccordionExpanded}
+                      aria-controls={detailBodyId}
+                    >
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                        style={{ backgroundColor: `${itemColor}18`, border: `1px solid ${itemColor}30` }}
+                        aria-hidden
+                      >
+                        {tc?.emoji ?? '📌'}
                       </div>
-                    </div>
-                    <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0 mt-1" />
-                  </button>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-sm font-semibold text-white leading-snug">{item.title}</div>
+                        {(item as SuggestedItem).subtitle && (
+                          <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-1">{(item as SuggestedItem).subtitle}</div>
+                        )}
+                        <div className="flex items-center gap-2 mt-1 flex-wrap">
+                          <span className="text-[12px] font-bold" style={{ color: itemColor }}>{tc?.label}</span>
+                          <span className="text-[12px] text-gray-500">
+                            {item.months.slice(0, 3).map(m => `${m}월`).join('·')}
+                            {item.months.length > 3 ? ' 외' : ''}
+                          </span>
+                          {'organizer' in item && item.organizer && item.organizer !== '개인' && (
+                            <span className="text-[12px] text-gray-600">{item.organizer}</span>
+                          )}
+                        </div>
+                      </div>
+                      <span
+                        className="flex-shrink-0 w-7 h-7 rounded-lg flex items-center justify-center self-center"
+                        style={{
+                          backgroundColor: isSuggestAccordionExpanded ? `${itemColor}35` : 'rgba(255,255,255,0.06)',
+                          border: `1px solid ${isSuggestAccordionExpanded ? `${itemColor}55` : 'rgba(255,255,255,0.1)'}`,
+                        }}
+                        aria-hidden
+                      >
+                        {isSuggestAccordionExpanded ? (
+                          <ChevronUp className="w-3.5 h-3.5 text-white" strokeWidth={2.25} />
+                        ) : (
+                          <ChevronDown className="w-3.5 h-3.5 text-gray-400" strokeWidth={2.25} />
+                        )}
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isSuggestAccordionExpanded && (
+                        <motion.div
+                          id={detailBodyId}
+                          role="region"
+                          aria-label={item.title}
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22, ease: [0.4, 0, 0.2, 1] }}
+                          className="overflow-hidden"
+                        >
+                          <div
+                            className="px-3.5 pb-3.5 pt-1 space-y-3 border-t"
+                            style={{ borderColor: `${itemColor}35` }}
+                          >
+                            {/* 메타: 가로 배치 아이콘 + 텍스트 칩 */}
+                            <div className="flex flex-row flex-wrap gap-2">
+                              {[
+                                {
+                                  icon: <Calendar className="w-4 h-4 flex-shrink-0" style={{ color: itemColor }} />,
+                                  label: LABELS.builder_add_item_meta_period,
+                                  value: periodText,
+                                },
+                                {
+                                  icon: <Flame className="w-4 h-4 flex-shrink-0" style={{ color: '#f59e0b' }} />,
+                                  label: LABELS.builder_add_item_meta_difficulty,
+                                  value: `${'★'.repeat(item.difficulty)} ${diffLabel}`,
+                                },
+                                {
+                                  icon: <DollarSign className="w-4 h-4 flex-shrink-0" style={{ color: '#22c55e' }} />,
+                                  label: LABELS.builder_add_item_meta_cost,
+                                  value: item.cost ?? '',
+                                },
+                                {
+                                  icon: <Building2 className="w-4 h-4 flex-shrink-0" style={{ color: '#a78bfa' }} />,
+                                  label: LABELS.builder_add_item_meta_organizer,
+                                  value: item.organizer?.trim() || LABELS.builder_add_item_meta_unknown,
+                                },
+                              ].map((chip, chipIdx) => (
+                                <div
+                                  key={`${item.id}-meta-${chipIdx}`}
+                                  className="flex items-center gap-2 min-w-0 rounded-xl px-2.5 py-2 flex-1 basis-[calc(50%-0.25rem)] sm:basis-[calc(25%-0.25rem)] sm:flex-initial sm:min-w-[140px]"
+                                  style={{
+                                    backgroundColor: `${itemColor}18`,
+                                    border: `1px solid ${itemColor}40`,
+                                  }}
+                                >
+                                  {chip.icon}
+                                  <div className="min-w-0 flex-1">
+                                    <div className="text-[10px] font-bold text-gray-500 uppercase tracking-wide">
+                                      {chip.label}
+                                    </div>
+                                    <div className="text-[11px] font-semibold text-white leading-snug break-words">
+                                      {chip.value}
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+
+                            {detailText.trim() && (
+                              <div
+                                className="rounded-xl p-3 space-y-1.5"
+                                style={{
+                                  background: `linear-gradient(180deg, ${itemColor}22 0%, rgba(0,0,0,0.35) 100%)`,
+                                  border: `1.5px solid ${itemColor}55`,
+                                  boxShadow: `inset 0 1px 0 rgba(255,255,255,0.06)`,
+                                }}
+                              >
+                                <div
+                                  className="flex flex-row items-center gap-2 text-xs font-bold"
+                                  style={{ color: itemColor }}
+                                >
+                                  <FileText className="w-4 h-4 flex-shrink-0" style={{ color: itemColor }} />
+                                  {LABELS.builder_add_item_detail_section_label}
+                                </div>
+                                <p className="text-xs text-white/95 leading-relaxed font-medium whitespace-pre-wrap">
+                                  {detailText}
+                                </p>
+                              </div>
+                            )}
+
+                            <button
+                              type="button"
+                              onClick={() => {
+                                handleSelectSuggest(item);
+                                setExpandedSuggestItemId(null);
+                              }}
+                              className="w-full py-3 rounded-xl text-sm font-bold text-white transition-all active:scale-[0.98]"
+                              style={{
+                                background: `linear-gradient(135deg, ${itemColor}, ${itemColor}cc)`,
+                                boxShadow: `0 6px 24px ${itemColor}44`,
+                              }}
+                            >
+                              {LABELS.builder_add_item_select_this}
+                            </button>
+                            <p className="text-center text-[10px] text-gray-500 px-1">
+                              {LABELS.builder_add_item_select_hint}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 );
               })}
             </div>
@@ -490,33 +773,41 @@ function AddItemSheet({
           {mode === 'pick' && selectedSuggest && (
             <div className="space-y-4 pt-2">
               {/* 수정 가능한 필드 */}
-              <div className="rounded-2xl p-3.5 space-y-3"
+              <div className="rounded-2xl p-4 space-y-4"
                 style={{ background: `${color}12`, border: `1px solid ${color}30` }}>
-                <div>
-                  <div className="text-xs font-bold text-gray-400 mb-1.5">🎯 항목명</div>
+                <div className="relative rounded-xl transition-all">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-bold text-gray-400">🎯 항목명</span>
+                    {!editTitle.trim() && (
+                      <Pencil className="w-3.5 h-3.5 input-hint-icon-empty" style={{ color }} />
+                    )}
+                  </div>
                   <input
                     value={editTitle}
                     onChange={e => setEditTitle(e.target.value)}
-                    placeholder="항목명"
-                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                    placeholder="항목명을 입력하세요"
+                    className="w-full h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 bg-white/8 border border-white/15 outline-none focus:border-2 focus:border-opacity-60 transition-colors"
+                    style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                   />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-gray-400 mb-1.5">🏢 주관/출처</div>
+                  <div className="text-xs font-bold text-gray-400 mb-2">🏢 주관/출처</div>
                   <input
                     value={editOrganizer}
                     onChange={e => setEditOrganizer(e.target.value)}
                     placeholder="주관/출처"
-                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                    className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 bg-white/8 border border-white/15 outline-none focus:border-2 transition-colors"
+                    style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                   />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-gray-400 mb-1.5">💰 비용</div>
+                  <div className="text-xs font-bold text-gray-400 mb-2">💰 비용</div>
                   <input
                     value={editCost}
                     onChange={e => setEditCost(e.target.value)}
                     placeholder="비용"
-                    className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                    className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 bg-white/8 border border-white/15 outline-none focus:border-2 transition-colors"
+                    style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                   />
                 </div>
               </div>
@@ -547,14 +838,15 @@ function AddItemSheet({
               </div>
 
               {/* URL - 수정 가능 */}
-              <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="text-xs font-bold text-gray-400 mb-1.5">🔗 공식 사이트</div>
+              <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="text-xs font-bold text-gray-400 mb-2">🔗 공식 사이트</div>
                 <input
                   type="url"
                   value={editUrl}
                   onChange={e => setEditUrl(e.target.value)}
                   placeholder="https://example.com"
-                  className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none"
+                  className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 bg-white/8 border border-white/15 outline-none focus:border-2 transition-colors"
+                  style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                 />
                 {editUrl.trim() && (
                   <a href={editUrl.trim()} target="_blank" rel="noopener noreferrer"
@@ -563,14 +855,15 @@ function AddItemSheet({
               </div>
 
               {/* 설명 - 수정 가능 */}
-              <div className="p-3 rounded-lg" style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-                <div className="text-xs font-bold text-gray-400 mb-1.5">📝 상세 설명</div>
+              <div className="p-4 rounded-xl" style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                <div className="text-xs font-bold text-gray-400 mb-2">📝 상세 설명</div>
                 <textarea
                   value={editDescription}
                   onChange={e => setEditDescription(e.target.value)}
                   placeholder="상세 설명 (선택)"
-                  rows={3}
-                  className="w-full px-3 py-2 rounded-xl text-sm text-white bg-white/6 border border-white/12 outline-none resize-none"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-500 bg-white/8 border border-white/15 outline-none resize-none focus:border-2 transition-colors"
+                  style={{ borderColor: 'rgba(255,255,255,0.15)' }}
                 />
               </div>
 
@@ -623,7 +916,12 @@ function AddItemSheet({
 
               {/* Title */}
               <div>
-                <div className="text-xs text-gray-400 mb-2 font-semibold">이름 *</div>
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-semibold text-gray-400">이름 *</span>
+                  {!customTitle.trim() && (
+                    <Pencil className="w-3.5 h-3.5 input-hint-icon-empty" style={{ color }} />
+                  )}
+                </div>
                 <input type="text" value={customTitle} onChange={e => setCustomTitle(e.target.value)}
                   placeholder={
                     customType === 'activity' ? '예: 전국 AI 해커톤 참가' :
@@ -631,8 +929,8 @@ function AddItemSheet({
                     customType === 'portfolio' ? '예: 기후변화 탐구 보고서' :
                     '예: 컴퓨터활용능력 1급'
                   }
-                  className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }} />
+                  className="w-full h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
               </div>
 
               {/* Months */}
@@ -663,14 +961,14 @@ function AddItemSheet({
                 <div>
                   <div className="text-xs text-gray-400 mb-2 font-semibold">비용</div>
                   <input type="text" value={customCost} onChange={e => setCustomCost(e.target.value)} placeholder="무료"
-                    className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+                    className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
                 </div>
                 <div>
                   <div className="text-xs text-gray-400 mb-2 font-semibold">주관 / 출처</div>
                   <input type="text" value={customOrganizer} onChange={e => setCustomOrganizer(e.target.value)} placeholder="예: 학교·자체"
-                    className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+                    className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
                 </div>
               </div>
 
@@ -684,26 +982,26 @@ function AddItemSheet({
               {/* URL */}
               <div>
                 <div className="text-xs text-gray-400 mb-2 font-semibold">🔗 URL</div>
-                <input 
-                  type="url" 
-                  value={customUrl} 
-                  onChange={e => setCustomUrl(e.target.value)} 
+                <input
+                  type="url"
+                  value={customUrl}
+                  onChange={e => setCustomUrl(e.target.value)}
                   placeholder="https://example.com"
-                  className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} 
+                  className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }}
                 />
               </div>
 
               {/* Description */}
               <div>
                 <div className="text-xs text-gray-400 mb-2 font-semibold">📝 설명</div>
-                <textarea 
-                  value={customDescription} 
-                  onChange={e => setCustomDescription(e.target.value)} 
+                <textarea
+                  value={customDescription}
+                  onChange={e => setCustomDescription(e.target.value)}
                   placeholder="대회 소개, 참가 방법, 준비 사항 등"
-                  rows={3}
-                  className="w-full px-3 py-2 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} 
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-500 outline-none resize-none focus:border-2 transition-colors"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }}
                 />
               </div>
 
@@ -807,11 +1105,16 @@ function EditItemSheet({
           </div>
 
           <div>
-            <div className="text-xs text-gray-400 mb-2 font-semibold">이름 *</div>
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-semibold text-gray-400">이름 *</span>
+              {!editTitle.trim() && (
+                <Pencil className="w-3.5 h-3.5 input-hint-icon-empty" style={{ color }} />
+              )}
+            </div>
             <input type="text" value={editTitle} onChange={e => setEditTitle(e.target.value)}
-              placeholder="항목명"
-              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }} />
+              placeholder="항목명을 입력하세요"
+              className="w-full h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
           </div>
 
           <div>
@@ -839,14 +1142,14 @@ function EditItemSheet({
             <div>
               <div className="text-xs text-gray-400 mb-2 font-semibold">비용</div>
               <input type="text" value={editCost} onChange={e => setEditCost(e.target.value)} placeholder="무료"
-                className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+                className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
             </div>
             <div>
               <div className="text-xs text-gray-400 mb-2 font-semibold">주관 / 출처</div>
               <input type="text" value={editOrganizer} onChange={e => setEditOrganizer(e.target.value)} placeholder="예: 학교·자체"
-                className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+                className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
             </div>
           </div>
 
@@ -854,17 +1157,17 @@ function EditItemSheet({
             <div className="text-xs text-gray-400 mb-2 font-semibold">🔗 URL</div>
             <input type="url" value={editUrl} onChange={e => setEditUrl(e.target.value)}
               placeholder="https://example.com"
-              className="w-full h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
           </div>
 
           <div>
             <div className="text-xs text-gray-400 mb-2 font-semibold">📝 설명</div>
             <textarea value={editDescription} onChange={e => setEditDescription(e.target.value)}
               placeholder="대회 소개, 참가 방법, 준비 사항 등"
-              rows={3}
-              className="w-full px-3 py-2 rounded-xl text-sm text-white placeholder-gray-600 outline-none resize-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+              rows={4}
+              className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-500 outline-none resize-none focus:border-2 transition-colors"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1.5px solid rgba(255,255,255,0.15)' }} />
           </div>
 
           <button
@@ -1083,29 +1386,36 @@ function ActivityItemCard({
               )}
 
               {/* 하위활동 입력 — min-w-0으로 작은 모바일에서 플러스 버튼 항상 노출 */}
-              <div className="flex gap-1.5 pt-1 min-w-0">
-                <input
-                  type="text"
-                  value={subInput}
-                  onChange={e => setSubInput(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
-                      e.preventDefault();
-                      addSubItem();
-                    }
-                  }}
-                  placeholder="하위 활동 추가"
-                  className="flex-1 min-w-0 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: `1px solid ${tc.color}25` }}
-                />
+              <div className="flex gap-2 pt-1.5 min-w-0">
+                <div className="relative flex-1 min-w-0">
+                  <input
+                    type="text"
+                    value={subInput}
+                    onChange={e => setSubInput(e.target.value)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
+                        e.preventDefault();
+                        addSubItem();
+                      }
+                    }}
+                    placeholder="하위 활동을 입력하세요"
+                    className="w-full h-9 px-3 pr-9 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-2 transition-colors"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: `1.5px solid ${tc.color}30` }}
+                  />
+                  {!subInput.trim() && (
+                    <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none">
+                      <Pencil className="w-3.5 h-3.5 input-hint-icon-empty" style={{ color: tc.color }} />
+                    </div>
+                  )}
+                </div>
                 <button
                   onClick={addSubItem}
                   disabled={!subInput.trim()}
-                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 shrink-0 disabled:opacity-30 transition-all"
-                  style={{ backgroundColor: `${tc.color}22`, color: tc.color }}
+                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 shrink-0 disabled:opacity-30 transition-all"
+                  style={{ backgroundColor: `${tc.color}25`, color: tc.color }}
                   aria-label="하위 항목 추가"
                 >
-                  <Plus className="w-3.5 h-3.5" />
+                  <Plus className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -1296,6 +1606,7 @@ function GoalActivityGroupCard({
         <AddItemSheet
           starId={starId}
           color={color}
+          linkedGoalText={group.goal}
           onAdd={handleAddItem}
           onClose={() => setShowAddItem(false)}
         />
@@ -1320,25 +1631,39 @@ function SemesterSection({
 }) {
   const [goalInput, setGoalInput] = useState('');
   const [showGoalTemplates, setShowGoalTemplates] = useState(false);
+  const linkedGoalGroups = goalGroups.slice(0, 1);
+  const linkedGoalGroup = linkedGoalGroups[0];
 
   const addGoalGroup = (goalText: string) => {
-    if (!goalText.trim()) return;
+    const trimmedGoalText = goalText.trim();
+    if (!trimmedGoalText) return;
+
+    if (linkedGoalGroup) {
+      onUpdateGoalGroups([{ ...linkedGoalGroup, goal: trimmedGoalText, isExpanded: true }]);
+      setGoalInput('');
+      return;
+    }
+
     const newGroup: GoalActivityGroup = {
       id: `goal-${Date.now()}-${Math.random().toString(36).slice(2)}`,
-      goal: goalText.trim(),
+      goal: trimmedGoalText,
       items: [],
       isExpanded: true,
     };
-    onUpdateGoalGroups([...goalGroups, newGroup]);
+    onUpdateGoalGroups([newGroup]);
     setGoalInput('');
   };
 
   const updateGoalGroup = (updated: GoalActivityGroup) => {
-    onUpdateGoalGroups(goalGroups.map(g => g.id === updated.id ? updated : g));
+    onUpdateGoalGroups([updated]);
   };
 
   const removeGoalGroup = (groupId: string) => {
-    onUpdateGoalGroups(goalGroups.filter(g => g.id !== groupId));
+    if (linkedGoalGroup?.id === groupId) {
+      onUpdateGoalGroups([]);
+      return;
+    }
+    onUpdateGoalGroups(linkedGoalGroups);
   };
 
   return (
@@ -1349,61 +1674,88 @@ function SemesterSection({
           <span className="text-sm">{semesterEmoji}</span>
           <span className="text-xs font-bold text-white">{semesterLabel}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: `${color}25` }} />
-          <span className="text-[12px] text-gray-500">{goalGroups.length}개 목표</span>
+          <span className="text-[12px] text-gray-500">{linkedGoalGroups.length}개 목표</span>
+        </div>
+      )}
+
+      {linkedGoalGroup && (
+        <div
+          className="rounded-xl px-3.5 py-2.5 flex items-center gap-2.5"
+          style={{ backgroundColor: `${color}0d`, border: `1px solid ${color}30` }}
+        >
+          <span className="text-[11px] font-bold" style={{ color: `${color}d9` }}>현재 목표</span>
+          <span className="text-xs font-semibold text-white truncate">{linkedGoalGroup.goal}</span>
+          <ArrowRight className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+          <span className="text-[11px] text-gray-400 flex-shrink-0">
+            세부활동 {linkedGoalGroup.items.length}개 연계
+          </span>
         </div>
       )}
 
       {/* 목표-활동 그룹 목록 */}
-      {goalGroups.length > 0 && (
+      {linkedGoalGroups.length > 0 && (
         <div className="space-y-2">
-          {goalGroups.map(group => (
-            <GoalActivityGroupCard
-              key={group.id}
-              group={group}
-              color={color}
-              starId={starId}
-              onUpdate={updateGoalGroup}
-              onRemove={() => removeGoalGroup(group.id)}
-            />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {linkedGoalGroups.map((group) => (
+              <motion.div
+                key={group.id}
+                layout
+                initial={{ opacity: 0, y: 14, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -16, scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 25 }}
+              >
+                <GoalActivityGroupCard
+                  group={group}
+                  color={color}
+                  starId={starId}
+                  onUpdate={updateGoalGroup}
+                  onRemove={() => removeGoalGroup(group.id)}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       )}
 
       {/* 목표 추가 입력 — min-w-0으로 작은 모바일에서 버튼 항상 노출 */}
       <div className="space-y-2">
-        <div className="flex gap-2 min-w-0">
+        <div className="flex gap-2.5 min-w-0">
           <input
             type="text"
             value={goalInput}
             onChange={e => setGoalInput(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter') addGoalGroup(goalInput); }}
-            placeholder="목표 입력 후 세부활동 연결"
-            className="flex-1 min-w-0 h-10 px-3.5 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-            style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+            placeholder={linkedGoalGroup ? '목표를 변경하려면 새 목표를 입력하세요' : '목표를 입력하거나 템플릿에서 선택하세요'}
+            className="flex-1 min-w-0 h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none transition-all focus:border-2"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.08)',
+              border: '1.5px solid rgba(255,255,255,0.12)',
+            }}
           />
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setShowGoalTemplates(true)}
-            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: `${color}15`, border: `1px solid ${color}33`, color }}
+            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: `${color}20`, border: `1.5px solid ${color}44`, color }}
             title="목표 템플릿"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-5 h-5" />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => addGoalGroup(goalInput)}
             disabled={!goalInput.trim()}
-            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
-            style={{ backgroundColor: `${color}25`, border: `1px solid ${color}44`, color }}
+            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
+            style={{ backgroundColor: `${color}25`, border: `1.5px solid ${color}44`, color }}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="w-5 h-5" />
           </motion.button>
         </div>
 
-        {goalGroups.length === 0 && (
+        {linkedGoalGroups.length === 0 && (
           <div
             className="rounded-xl py-4 flex flex-col items-center gap-1.5"
             style={{ border: `1.5px dashed ${color}25`, backgroundColor: `${color}05` }}
@@ -1419,7 +1771,7 @@ function SemesterSection({
           onSelect={(goal) => { addGoalGroup(goal); setShowGoalTemplates(false); }}
           onClose={() => setShowGoalTemplates(false)}
           color={color}
-          previouslySelected={goalGroups.map((g) => g.goal)}
+          previouslySelected={linkedGoalGroups.map((group) => group.goal)}
         />
       )}
     </div>
@@ -1521,20 +1873,32 @@ function YearPlanCard({
                 이 학년을 어떻게 계획할까요?
               </div>
               <div className="grid grid-cols-2 gap-2">
-                {SEMESTER_OPTIONS.map(opt => (
-                  <button
+                {SEMESTER_OPTIONS.map((opt, optIdx) => (
+                  <motion.button
                     key={opt.id}
                     onClick={() => handleSemesterSelect(opt.id as SemesterOption)}
-                    className="flex flex-col items-start gap-1 p-3 rounded-xl text-left transition-all active:scale-[0.97]"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: optIdx * 0.06, type: 'spring', stiffness: 400, damping: 24 }}
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="relative flex flex-col items-start gap-1 p-3 rounded-xl text-left overflow-hidden"
                     style={{
-                      backgroundColor: 'rgba(255,255,255,0.05)',
-                      border: `1.5px solid ${color}35`,
+                      backgroundColor: 'rgba(255,255,255,0.06)',
+                      border: `1.5px solid ${color}40`,
+                      boxShadow: `0 2px 12px rgba(0,0,0,0.2)`,
                     }}
                   >
-                    <span className="text-xl">{opt.emoji}</span>
+                    <motion.span
+                      className="text-xl"
+                      whileHover={{ scale: 1.15, rotate: 5 }}
+                      transition={{ type: 'spring', stiffness: 400 }}
+                    >
+                      {opt.emoji}
+                    </motion.span>
                     <span className="text-xs font-bold text-white">{opt.label}</span>
                     <span className="text-[12px] text-gray-500 leading-relaxed">{opt.description}</span>
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </div>
@@ -1606,26 +1970,32 @@ function Step3Planner({
     yearPlans.length > 0 ? yearPlans[yearPlans.length - 1].gradeId : null
   );
   const [showGradePicker, setShowGradePicker] = useState(yearPlans.length === 0);
+  const [pendingGradeId, setPendingGradeId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   const usedIds = yearPlans.map(y => y.gradeId);
 
-  /** 학년 선택 즉시 카드 생성 — semester는 미설정 상태로 시작 */
+  /** 학년 선택 — 짧은 게임 피드백 후 카드 생성 */
   const handleGradeSelect = (gradeId: string) => {
-    const grade = GRADE_YEARS.find(g => g.id === gradeId)!;
-    const newYear: YearPlan = {
-      gradeId,
-      gradeLabel: grade.label,
-      semester: '',   // 카드 내부에서 선택
-      goals: [],
-      items: [],
-      goalGroups: [],
-      semesterPlans: [],
-    };
-    onUpdateYears([...yearPlans, newYear]);
-    setExpandedId(gradeId);
-    setShowGradePicker(false);
-    setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }), 100);
+    if (pendingGradeId) return;
+    setPendingGradeId(gradeId);
+    setTimeout(() => {
+      const grade = GRADE_YEARS.find(g => g.id === gradeId)!;
+      const newYear: YearPlan = {
+        gradeId,
+        gradeLabel: grade.label,
+        semester: '',
+        goals: [],
+        items: [],
+        goalGroups: [],
+        semesterPlans: [],
+      };
+      onUpdateYears([...yearPlans, newYear]);
+      setExpandedId(gradeId);
+      setShowGradePicker(false);
+      setPendingGradeId(null);
+      setTimeout(() => bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }), 120);
+    }, 320);
   };
 
   const updateYear = (updated: YearPlan) => {
@@ -1669,23 +2039,33 @@ function Step3Planner({
       {/* Stacked grade cards */}
       {yearPlans.length > 0 && (
         <div className="space-y-0">
-          {yearPlans.map((year, idx) => (
-            <div key={year.gradeId} className="relative">
-              {idx < yearPlans.length - 1 && (
-                <div className="absolute left-[21px] top-full z-10"
-                  style={{ width: 2, height: 12, backgroundColor: `${color}40` }} />
-              )}
-              <div className={idx > 0 ? 'mt-3' : ''}>
-                <YearPlanCard
-                  yearPlan={year} color={color} starId={starId}
-                  isExpanded={expandedId === year.gradeId}
-                  onToggle={() => setExpandedId(expandedId === year.gradeId ? null : year.gradeId)}
-                  onUpdate={updateYear}
-                  onRemove={() => removeYear(year.gradeId)}
-                />
-              </div>
-            </div>
-          ))}
+          <AnimatePresence mode="popLayout">
+            {yearPlans.map((year, idx) => (
+              <motion.div
+                key={year.gradeId}
+                layout
+                initial={{ opacity: 0, y: 24, scale: 0.94 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -24, scale: 0.92 }}
+                transition={{ type: 'spring', stiffness: 380, damping: 26 }}
+                className="relative"
+              >
+                {idx < yearPlans.length - 1 && (
+                  <div className="absolute left-[21px] top-full z-10"
+                    style={{ width: 2, height: 12, backgroundColor: `${color}40` }} />
+                )}
+                <div className={idx > 0 ? 'mt-3' : ''}>
+                  <YearPlanCard
+                    yearPlan={year} color={color} starId={starId}
+                    isExpanded={expandedId === year.gradeId}
+                    onToggle={() => setExpandedId(expandedId === year.gradeId ? null : year.gradeId)}
+                    onUpdate={updateYear}
+                    onRemove={() => removeYear(year.gradeId)}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       )}
 
@@ -1732,13 +2112,45 @@ function Step3Planner({
                 <div key={group.label}>
                   <div className="text-[12px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
                   <div className="flex gap-2 flex-wrap">
-                    {available.map(g => (
-                      <button key={g.id} onClick={() => handleGradeSelect(g.id)}
-                        className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-black transition-all active:scale-95"
-                        style={{ background: `linear-gradient(135deg, ${color}30, ${color}18)`, border: `1.5px solid ${color}50`, color }}>
-                        {g.label}
-                      </button>
-                    ))}
+                    {available.map(g => {
+                      const isPending = pendingGradeId === g.id;
+                      return (
+                        <motion.button
+                          key={g.id}
+                          onClick={() => handleGradeSelect(g.id)}
+                          disabled={!!pendingGradeId}
+                          initial={false}
+                          animate={{
+                            scale: isPending ? [1, 1.08, 1.02] : 1,
+                            boxShadow: isPending
+                              ? `0 0 20px ${color}66, 0 0 40px ${color}33`
+                              : `0 0 0 transparent`,
+                          }}
+                          transition={{ duration: 0.32, ease: 'easeOut' }}
+                          className="relative flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-black transition-colors disabled:opacity-90"
+                          style={{
+                            background: isPending
+                              ? `linear-gradient(135deg, ${color}55, ${color}35)`
+                              : `linear-gradient(135deg, ${color}30, ${color}18)`,
+                            border: `1.5px solid ${isPending ? color : `${color}50`}`,
+                            color: '#fff',
+                          }}
+                        >
+                          {isPending && (
+                            <motion.span
+                              initial={{ scale: 0, rotate: -30 }}
+                              animate={{ scale: 1, rotate: 0 }}
+                              transition={{ type: 'spring', stiffness: 500, damping: 22 }}
+                              className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center"
+                              style={{ backgroundColor: color, boxShadow: `0 0 8px ${color}` }}
+                            >
+                              <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+                            </motion.span>
+                          )}
+                          {g.label}
+                        </motion.button>
+                      );
+                    })}
                   </div>
                 </div>
               );
@@ -1888,11 +2300,44 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   };
 
   const stepConf = STEPS[step - 1];
+  const careerPathBuilderDialogTheme = CAREER_PATH_BUILDER_DIALOG;
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col" style={{ backgroundColor: '#08081a', maxWidth: 430, margin: '0 auto' }}>
+    <div className="fixed inset-0 z-50 flex items-stretch md:items-center justify-center p-0 md:p-4">
+      <div
+        className="absolute inset-0"
+        aria-hidden
+        style={{
+          backgroundColor: `rgba(0,0,0,${careerPathBuilderDialogTheme.backdropOverlayOpacity})`,
+          backdropFilter: `blur(${careerPathBuilderDialogTheme.backdropBlurPx}px)`,
+          WebkitBackdropFilter: `blur(${careerPathBuilderDialogTheme.backdropBlurPx}px)`,
+        }}
+      />
+      <div
+        className="relative z-10 flex flex-col w-full h-full md:h-auto md:rounded-[28px] overflow-hidden min-h-0"
+        style={{
+          width: '100%',
+          maxWidth: `min(100%, ${careerPathBuilderDialogTheme.maxWidthPx}px)`,
+          maxHeight: `min(${careerPathBuilderDialogTheme.panelMaxHeightDvh}dvh, ${careerPathBuilderDialogTheme.panelMaxHeightPx}px)`,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          border: `1px solid ${careerPathBuilderDialogTheme.panelBorderGlow}`,
+          boxShadow:
+            '0 0 0 1px rgba(255,255,255,0.07), 0 0 100px rgba(124,77,255,0.16), 0 28px 72px rgba(0,0,0,0.58)',
+        }}
+      >
+        <CareerPathBuilderDawnSky />
+        <div className="relative z-10 flex flex-col flex-1 min-h-0">
       {/* Header */}
-      <div className="flex-shrink-0" style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', backgroundColor: 'rgba(8,8,26,0.95)', backdropFilter: 'blur(20px)' }}>
+      <div
+        className="flex-shrink-0"
+        style={{
+          borderBottom: '1px solid rgba(255,255,255,0.1)',
+          backgroundColor: careerPathBuilderDialogTheme.chromeTint,
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      >
         <div className="flex items-center justify-between px-4 py-3.5">
           <button onClick={step === 1 ? onClose : () => setStep(s => s - 1)}
             className="w-9 h-9 rounded-xl flex items-center justify-center active:scale-90"
@@ -1914,7 +2359,8 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
       <div className="flex-shrink-0 px-5 pt-5 pb-4">
         <h2 className="text-xl font-black text-white leading-snug">{headings[step].title}</h2>
         <p className="text-sm text-gray-400 mt-1">{headings[step].desc}</p>
-        {step >= 2 && kingdom && (
+        {/* Step 4는 Step4Summary에 왕국→직업 표시하므로 여기서는 생략 */}
+        {step >= 2 && step !== 4 && kingdom && (
           <div className="flex items-center gap-2 mt-3 flex-wrap">
             <span className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold"
               style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}>
@@ -1942,8 +2388,17 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
       </div>
 
       {/* Footer */}
-      <div className="flex-shrink-0 px-5 space-y-2"
-        style={{ paddingBottom: 'max(20px, env(safe-area-inset-bottom))', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 16, backgroundColor: 'rgba(8,8,26,0.95)' }}>
+      <div
+        className="flex-shrink-0 px-5 space-y-2"
+        style={{
+          paddingBottom: 'max(20px, env(safe-area-inset-bottom))',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          paddingTop: 16,
+          backgroundColor: careerPathBuilderDialogTheme.chromeTint,
+          backdropFilter: 'blur(18px)',
+          WebkitBackdropFilter: 'blur(18px)',
+        }}
+      >
         <button
           onClick={step === 4 ? handleSave : () => setStep(s => s + 1)}
           disabled={!canProceed()}
@@ -1962,6 +2417,8 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
         {step === 3 && (
           <p className="text-center text-xs text-gray-600">학년을 1개 이상 추가해야 다음으로 넘어갈 수 있어요</p>
         )}
+      </div>
+        </div>
       </div>
     </div>
   );

@@ -175,7 +175,7 @@ export function ItemRow({
             {item.cost && item.cost !== '무료' && item.cost !== '자체 제작' && (
               <span className="text-[12px] text-gray-600">{item.cost}</span>
             )}
-            {subItems.length > 0 && (
+            {subItems.length > 0 && showCheckbox && (
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); setSubExpanded((prev) => !prev); }}
@@ -204,8 +204,8 @@ export function ItemRow({
         )}
       </div>
 
-      {/* 하위활동 아코디언 (뷰/수정 모드 공통) */}
-      {subExpanded && subItems.length > 0 && (
+      {/* 하위활동 아코디언 — 체크 모드일 때만 표시 */}
+      {showCheckbox && subExpanded && subItems.length > 0 && (
         <div
           className="px-3 pb-3 pt-1 space-y-1.5"
           style={{ borderTop: `1px solid ${(typeConf?.color ?? color)}18` }}

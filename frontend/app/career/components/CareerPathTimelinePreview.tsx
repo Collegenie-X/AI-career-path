@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Target, Calendar, ChevronDown, ChevronUp, CheckCircle2, Circle, ExternalLink } from 'lucide-react';
-import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS } from '../config';
+import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS, LABELS } from '../config';
 import type { YearPlan, PlanItem, GoalActivityGroup } from './CareerPathBuilder';
 
 function getMonthLabel(item: PlanItem): string {
@@ -12,6 +12,13 @@ function getMonthLabel(item: PlanItem): string {
     return `${months[0]}~${months[months.length - 1]}월`;
   }
   return '월 미정';
+}
+
+/** 미리보기에 노출할 목표 그룹: 목표 문구만 있어도 표시 (세부활동 0개여도 OK) */
+function shouldShowGoalGroupInPreview(group: GoalActivityGroup): boolean {
+  const hasGoalText = Boolean((group.goal ?? '').trim());
+  const hasItems = (group.items ?? []).length > 0;
+  return hasGoalText || hasItems;
 }
 
 /** 세부활동 하나 + 하위활동 아코디언 (읽기 전용) */
@@ -138,12 +145,18 @@ function GoalActivityGroupReadOnly({
           : <ChevronDown style={{ width: 12, height: 12, color: 'rgba(255,255,255,0.3)', flexShrink: 0 }} />}
       </button>
 
-      {/* 세부활동 목록 — ActivityItemReadOnly로 렌더링 */}
-      {isExpanded && (group.items ?? []).length > 0 && (
+      {/* 세부활동 목록 — 없으면 안내 문구만 */}
+      {isExpanded && (
         <div className="px-3 py-2.5 pb-4 space-y-2" style={{ borderTop: `1px solid ${color}18` }}>
-          {(group.items ?? []).map((item, idx) => (
-            <ActivityItemReadOnly key={item.id ?? idx} item={item} color={color} />
-          ))}
+          {(group.items ?? []).length > 0 ? (
+            (group.items ?? []).map((item, idx) => (
+              <ActivityItemReadOnly key={item.id ?? idx} item={item} color={color} />
+            ))
+          ) : (
+            <p className="text-[11px] text-gray-500 px-0.5 py-1">
+              {String(LABELS.builder_preview_no_sub_activities ?? '아직 세부활동이 없습니다')}
+            </p>
+          )}
         </div>
       )}
     </div>
@@ -202,10 +215,12 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
           const grade = GRADE_YEARS.find(g => g.id === year.gradeId);
           const semesterConf = SEMESTER_OPTIONS.find(s => s.id === year.semester);
 
-          const groupsWithItems = (g: { items?: unknown[] }) => ((g.items ?? []).length > 0);
           const totalGoals = year.semester === 'split'
-            ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).filter(groupsWithItems).length, 0)
-            : (year.goalGroups ?? []).filter(groupsWithItems).length;
+            ? (year.semesterPlans ?? []).reduce(
+                (s, sp) => s + (sp.goalGroups ?? []).filter(shouldShowGoalGroupInPreview).length,
+                0,
+              )
+            : (year.goalGroups ?? []).filter(shouldShowGoalGroupInPreview).length;
 
           const totalItems = year.semester === 'split'
             ? (year.semesterPlans ?? []).reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
@@ -247,15 +262,15 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                     key={sp.semesterId}
                     semesterLabel={sp.semesterLabel}
                     semesterEmoji={sp.semesterId === 'first' ? '🌸' : '🍂'}
-                    goalGroups={(sp.goalGroups ?? []).filter(g => (g.items ?? []).length > 0)}
+                    goalGroups={(sp.goalGroups ?? []).filter(shouldShowGoalGroupInPreview)}
                     color={color}
                   />
                 ))}
 
-                {/* 목표-활동 그룹 (통합/단일 학기) */}
-                {year.semester !== 'split' && (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length > 0 && (
+                {/* 목표-활동 그룹 (통합/단일 학기) — 목표만 있어도 표시 */}
+                {year.semester !== 'split' && (year.goalGroups ?? []).filter(shouldShowGoalGroupInPreview).length > 0 && (
                   <div className="space-y-2">
-                    {(year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).map(group => (
+                    {(year.goalGroups ?? []).filter(shouldShowGoalGroupInPreview).map(group => (
                       <GoalActivityGroupReadOnly key={group.id} group={group} color={color} />
                     ))}
                   </div>

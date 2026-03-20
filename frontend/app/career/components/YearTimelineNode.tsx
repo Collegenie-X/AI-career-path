@@ -234,20 +234,32 @@ export function YearTimelineNode({
           <div className="space-y-2">
             {(year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).map((group) => {
               const isExpanded = expandedGoalIds.has(group.id);
+              const goalCount = (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length;
+              const showAccordionIcon = goalCount > 1;
               return (
               <div key={group.id} className="rounded-2xl overflow-hidden"
                 style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                <button
-                  type="button"
-                  className="w-full flex items-center gap-2 px-3 py-2 text-left"
-                  style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                  onClick={() => toggleGoalExpand(group.id)}
-                >
-                  <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                  <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                  {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
-                </button>
-                {isExpanded && group.items.length > 0 && (
+                {showAccordionIcon ? (
+                  <button
+                    type="button"
+                    className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                    style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                    onClick={() => toggleGoalExpand(group.id)}
+                  >
+                    <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
+                    <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
+                    {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                  </button>
+                ) : (
+                  <div
+                    className="w-full flex items-center gap-2 px-3 py-2"
+                    style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                  >
+                    <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
+                    <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
+                  </div>
+                )}
+                {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
                   <div className="px-3 py-2 space-y-1.5">
                     {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
@@ -283,20 +295,32 @@ export function YearTimelineNode({
                 </div>
                 {sp.goalGroups.filter(g => (g.items ?? []).length > 0).map((group) => {
                   const isExpanded = expandedGoalIds.has(group.id);
+                  const goalCountInSemester = sp.goalGroups.filter(g => (g.items ?? []).length > 0).length;
+                  const showAccordionIcon = goalCountInSemester > 1;
                   return (
                   <div key={group.id} className="rounded-2xl overflow-hidden"
                     style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                    <button
-                      type="button"
-                      className="w-full flex items-center gap-2 px-3 py-2 text-left"
-                      style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                      onClick={() => toggleGoalExpand(group.id)}
-                    >
-                      <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                      <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                      {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
-                    </button>
-                    {isExpanded && group.items.length > 0 && (
+                    {showAccordionIcon ? (
+                      <button
+                        type="button"
+                        className="w-full flex items-center gap-2 px-3 py-2 text-left"
+                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                        onClick={() => toggleGoalExpand(group.id)}
+                      >
+                        <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
+                        <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
+                        {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
+                      </button>
+                    ) : (
+                      <div
+                        className="w-full flex items-center gap-2 px-3 py-2"
+                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
+                      >
+                        <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
+                        <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
+                      </div>
+                    )}
+                    {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
                       <div className="px-3 py-2 space-y-1.5">
                         {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                           <ItemRow

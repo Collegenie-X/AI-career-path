@@ -64,6 +64,40 @@ export const ROUTES = careerConfig.routes as {
   readonly community: string;
 };
 
+/** 커리어 패스 빌더(모달) 시각 설정 — career-config.json */
+export type CareerPathBuilderDialogTheme = {
+  readonly baseWidthPx: number;
+  readonly widthScale: number;
+  readonly maxWidthPx: number;
+  readonly panelMaxHeightDvh: number;
+  readonly panelMaxHeightPx: number;
+  readonly backdropBlurPx: number;
+  readonly backdropOverlayOpacity: number;
+  readonly panelBorderGlow: string;
+  readonly skyGradientTop: string;
+  readonly skyGradientMid: string;
+  readonly skyGradientBottom: string;
+  readonly nebulaGlowA: string;
+  readonly nebulaGlowB: string;
+  readonly nebulaGlowC: string;
+  readonly starCount: number;
+  readonly chromeTint: string;
+};
+
+export const CAREER_PATH_BUILDER_DIALOG = careerConfig.careerPathBuilderDialog as CareerPathBuilderDialogTheme;
+
+/** 목표 템플릿 선택 다이얼로그 시각 설정 */
+export type GoalTemplateSelectorDialogTheme = {
+  readonly maxWidthPx: number;
+  readonly backdropBlurPx: number;
+  readonly backdropOverlayOpacity: number;
+  readonly panelBorderGlow: string;
+  readonly skyGradientTop: string;
+  readonly skyGradientBottom: string;
+};
+
+export const GOAL_TEMPLATE_SELECTOR_DIALOG = careerConfig.goalTemplateSelectorDialog as GoalTemplateSelectorDialogTheme;
+
 export type CareerPageTabId = 'explore' | 'timeline' | 'community';
 
 export type CareerPageTabItem = {

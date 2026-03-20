@@ -51,5 +51,31 @@
     "timeline": "/career?tab=timeline",
     "explore": "/career?tab=explore",
     "community": "/career?tab=community"
+  },
+  "careerPathBuilderDialog": {
+    "baseWidthPx": 430,
+    "widthScale": 1.5,
+    "maxWidthPx": 560,
+    "panelMaxHeightDvh": 98,
+    "panelMaxHeightPx": 1000,
+    "backdropBlurPx": 16,
+    "backdropOverlayOpacity": 0.48,
+    "panelBorderGlow": "rgba(124, 77, 255, 0.38)",
+    "skyGradientTop": "#3a2878",
+    "skyGradientMid": "#150a28",
+    "skyGradientBottom": "#04020c",
+    "nebulaGlowA": "rgba(150, 90, 255, 0.12)",
+    "nebulaGlowB": "rgba(255, 100, 180, 0.06)",
+    "nebulaGlowC": "rgba(70, 160, 255, 0.08)",
+    "starCount": 24,
+    "chromeTint": "rgba(12, 6, 32, 0.78)"
+  },
+  "goalTemplateSelectorDialog": {
+    "maxWidthPx": 560,
+    "backdropBlurPx": 14,
+    "backdropOverlayOpacity": 0.52,
+    "panelBorderGlow": "rgba(124, 77, 255, 0.28)",
+    "skyGradientTop": "#1e1538",
+    "skyGradientBottom": "#0d0820"
   }
 }
