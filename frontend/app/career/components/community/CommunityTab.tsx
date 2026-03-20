@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { School as SchoolIcon, Users, Plus } from 'lucide-react';
+import { School as SchoolIcon, Users } from 'lucide-react';
 import communityData from '@/data/share-community.json';
 import type { SharedPlan, CommunityGroup, School, OperatorComment, UserReactionState } from './types';
 import { SchoolSpaceView } from './SchoolSpaceView';
@@ -29,7 +29,6 @@ const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
 const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
 
 type CommunityTabProps = {
-  onNewPlan: () => void;
   /** 현재 선택된 플랜 ID (controlled — 부모에서 관리) */
   selectedPlanId?: string | null;
   /** 플랜 선택 콜백 (controlled — 부모에서 관리) */
@@ -37,7 +36,7 @@ type CommunityTabProps = {
 };
 
 /* ─── Main export ─── */
-export function CommunityTab({ onNewPlan, selectedPlanId, onSelectPlan }: CommunityTabProps) {
+export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps) {
   const [subTab, setSubTab] = useState<SubTab>('school');
   const [selectedPlan, setSelectedPlan] = useState<SharedPlan | null>(null);
   const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
@@ -263,21 +262,6 @@ export function CommunityTab({ onNewPlan, selectedPlanId, onSelectPlan }: Commun
           onRefreshJoined={refreshJoinedIds}
         />
       )}
-
-      {/* 커리어 패스 만들기 fixed button */}
-      <div className="fixed bottom-20 left-0 right-0 z-30 px-5 max-w-[430px] mx-auto">
-        <button
-          onClick={onNewPlan}
-          className="w-full h-14 rounded-2xl font-black text-base text-white flex items-center justify-center gap-2.5 transition-all active:scale-[0.98]"
-          style={{
-            background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-            boxShadow: '0 8px 28px rgba(108,92,231,0.55)',
-          }}
-        >
-          <Plus className="w-5 h-5" />
-          커리어 패스 만들기
-        </button>
-      </div>
 
       {/* Dialogs — controlled 모드에서는 부모가 패널로 렌더링하므로 Dialog 숨김 */}
       {!isControlled && selectedPlan && (

@@ -7,23 +7,48 @@ interface StarCardProps {
   star: StarData;
   onClick: () => void;
   index: number;
+  /** 현재 선택된 별인지 (웹 2컬럼 레이아웃에서 우측 패널과 연결) */
+  isSelected?: boolean;
 }
 
-export function StarCard({ star, onClick, index }: StarCardProps) {
+export function StarCard({ star, onClick, index, isSelected = false }: StarCardProps) {
   return (
     <button
-      className="relative rounded-3xl overflow-hidden text-left w-full transition-all duration-300 active:scale-95 group"
+      className="relative rounded-3xl overflow-hidden text-left w-full transition-all duration-300 active:scale-95 hover:scale-[1.02] group"
       style={{
         background: `linear-gradient(135deg, ${star.bgColor}ee 0%, ${star.bgColor}aa 100%)`,
-        border: `2px solid ${star.color}44`,
-        boxShadow: `0 8px 32px ${star.color}33`,
+        border: isSelected ? `2px solid ${star.color}cc` : `2px solid ${star.color}44`,
+        boxShadow: isSelected
+          ? `0 0 0 3px ${star.color}44, 0 8px 32px ${star.color}55`
+          : `0 8px 32px ${star.color}33`,
         animation: `slide-up 0.5s ease-out ${index * 0.08}s both`,
       }}
       onClick={onClick}
     >
+      {/* 호버 글로우 확산 */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background: `radial-gradient(circle at 50% 50%, ${star.color}33, transparent 70%)` }}
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500"
+        style={{
+          background: `radial-gradient(circle at 50% 50%, ${star.color}44, transparent 70%)`,
+          animation: 'hover-glow-expand 0.6s ease-out forwards',
+        }}
+      />
+      {/* 반짝이는 파티클 효과 */}
+      <div
+        className="absolute top-2 right-2 w-1 h-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+        style={{
+          backgroundColor: star.color,
+          boxShadow: `0 0 8px ${star.color}`,
+          animation: 'twinkle 1.5s ease-in-out infinite',
+        }}
+      />
+      <div
+        className="absolute bottom-3 left-3 w-1 h-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+        style={{
+          backgroundColor: star.color,
+          boxShadow: `0 0 8px ${star.color}`,
+          animation: 'twinkle 1.8s ease-in-out 0.3s infinite',
+        }}
       />
       <div className="relative p-2 h-48 flex flex-col">
         <div className="flex items-start justify-between mb-auto">

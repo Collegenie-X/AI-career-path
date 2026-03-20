@@ -427,3 +427,19 @@ body::before {
   0% { opacity: 0.4; }
   100% { opacity: 1; }
 }
+/* 게임스러운 바텀시트 등장 — 바운스 효과 */
+@keyframes slide-up-bounce {
+  0% { transform: translateY(100%); opacity: 0; }
+  60% { transform: translateY(-10px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+/* 카드 호버 시 글로우 확산 */
+@keyframes hover-glow-expand {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+/* 패널 등장 — 우측에서 슬라이드 */
+@keyframes panel-slide-in {
+  0% { transform: translateX(30px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}

@@ -1,5 +1,6 @@
 // ─── Configuration ───────────────────────────────────────────────
 
+import type React from 'react';
 import type { DailyScheduleItem } from './types';
 
 // ─── 일과 타입 색상 ────────────────────────────────────────────
@@ -63,6 +64,8 @@ export const LABELS = {
   intro_banner_subtitle: '별을 선택하고 직업을 체험하세요',
   intro_banner_description: '실제 직무 프로세스와 커리어 패스를 게임처럼 경험해보세요!',
   star_grid_title: '8개 별 선택',
+  /** 별 그리드 패널: 패스·커리어와 동일한 그룹 테두리 느낌 */
+  star_grid_panel_caption: '8개 직업 세계가 한 여정으로 이어져 있어요',
   jobs_title: '개 직업 체험',
   cta_title: '커리어 패스 만들기',
   cta_description: '이 별 직업의 활동·수상 계획 세우기',
@@ -229,13 +232,45 @@ export const JOB_ROUTE_LABELS = {
   job_count_suffix: '개 직업',
 };
 
-// ─── Explore Page Layout (Responsive) ──────────────────────────
+// ─── Explore Page Layout (Responsive — web-first, career 셸 정렬) ──────────────
 export const EXPLORE_PAGE_LAYOUT_CLASS = {
-  pageRoot: 'min-h-screen relative overflow-hidden pb-4 md:pb-8',
-  contentShell: 'relative z-10 mx-auto w-full max-w-[1240px] px-3 md:px-6 lg:px-8',
+  /** 페이지 루트: career 페이지와 동일한 배경 */
+  pageRoot: 'min-h-screen relative overflow-hidden pb-12',
+  /** career 페이지의 web-container + py-4 md:py-6 와 동일 */
+  contentShell: 'web-container relative z-10 py-4 md:py-6',
+  /**
+   * career 셸과 동일한 통합 border 패널
+   * (탭 네비게이션 + 히어로 배너 + 본문이 한 덩어리로 이어짐)
+   */
   contentFrame:
-    'md:mt-6 md:rounded-[28px] md:border md:border-white/15 md:bg-[rgba(14,20,40,0.82)] md:backdrop-blur-xl md:shadow-[0_24px_70px_rgba(5,8,20,0.55)] md:overflow-hidden',
-  tabNavigationArea: 'relative z-10 px-3 pt-3 md:px-6 md:pt-5',
-  bodyContentArea: 'relative z-10 px-3 py-3 space-y-3 md:px-6 md:py-6 md:space-y-5',
-  starGrid: 'grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4',
+    'rounded-none border border-t-0 border-x border-b overflow-hidden',
+  contentFrameStyle: {
+    borderColor: 'rgba(255,255,255,0.12)',
+    background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
+    boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
+  } as React.CSSProperties,
+  /** 탭 네비게이션 영역 — career 셸 헤더와 동일 */
+  tabNavigationArea:
+    'border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5',
+  tabNavigationAreaStyle: { backgroundColor: 'rgba(255,255,255,0.02)' } as React.CSSProperties,
+  /** 히어로 배너 바로 아래 본문 패딩 */
+  bodyContentArea: 'px-4 pb-4 md:px-5 md:pb-5',
+  /** 직업 탐색 탭 — 좌측 그리드 패널 */
+  starGridListPanel:
+    'rounded-none border px-4 py-4 md:px-5 md:py-5',
+  starGridListPanelStyle: {
+    borderColor: 'rgba(255,255,255,0.12)',
+    background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+    boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+  } as React.CSSProperties,
+  /** 별 그리드: 2열 → 3열 → 4열 반응형 */
+  /** 좌측 리스트 패널(~520px) 기준: 모바일 2열 → 태블릿 이상 3열 고정 */
+  starGrid: 'grid grid-cols-2 gap-3 sm:grid-cols-3',
+  /** StarGridGroupedPanel — path `glass-card` + primary 테두리와 정렬 */
+  starGridPanelRoot:
+    'relative overflow-hidden rounded-2xl md:rounded-[26px] glass-card border-2 border-primary/30 shadow-[0_18px_50px_rgba(0,0,0,0.38)]',
+  starGridPanelGlow: 'pointer-events-none absolute -top-8 -right-8 h-40 w-40 rounded-full bg-primary/10 blur-3xl',
+  starGridPanelHeader:
+    'relative border-b border-white/10 bg-white/[0.03] px-3 py-3 md:px-5 md:py-3.5',
+  starGridPanelBody: 'relative p-3 md:p-4 lg:p-5',
 } as const;

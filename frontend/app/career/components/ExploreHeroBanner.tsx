@@ -13,6 +13,10 @@ type ExploreHeroBannerProps = {
   readonly totalCommunityGroups: number;
   readonly totalMyPlans: number;
   readonly totalMyPublicPlans: number;
+  /**
+   * true: 커리어 셸(탭+콘텐츠) 안에 붙임 — 상단 테두리·둥근 모서리 제거로 탭 영역과 한 줄로 이어짐
+   */
+  readonly embeddedInCareerShell?: boolean;
 };
 
 type HeroVisualStyle = {
@@ -150,6 +154,7 @@ export function ExploreHeroBanner({
   totalCommunityGroups,
   totalMyPlans,
   totalMyPublicPlans,
+  embeddedInCareerShell = false,
 }: ExploreHeroBannerProps) {
   const heroContent = CAREER_TAB_HERO_CONTENT[activeTab];
   const visualStyle = HERO_VISUAL_STYLES[activeTab];
@@ -163,14 +168,19 @@ export function ExploreHeroBanner({
     totalMyPublicPlans,
   });
 
-  return (
-    <div
-      className="relative rounded-3xl overflow-hidden px-6 py-6 mb-5"
-      style={{
+  const heroSurfaceClassName = embeddedInCareerShell
+    ? 'relative overflow-hidden px-4 py-5 md:px-5 md:py-6 mb-4 md:mb-5 rounded-none'
+    : 'relative rounded-3xl overflow-hidden px-6 py-6 mb-5';
+
+  const heroSurfaceStyle = embeddedInCareerShell
+    ? { background: visualStyle.background }
+    : {
         background: visualStyle.background,
         border: visualStyle.border,
-      }}
-    >
+      };
+
+  return (
+    <div className={heroSurfaceClassName} style={heroSurfaceStyle}>
       <div
         className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-20 pointer-events-none"
         style={{ background: `radial-gradient(circle, ${visualStyle.glowTopColor}, transparent)` }}

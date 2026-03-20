@@ -1,5 +1,7 @@
 export { StarField } from './StarField';
 export { StarCard } from './StarCard';
+export { StarGridGroupedPanel } from './StarGridGroupedPanel';
+export { StarDetailPanel } from './StarDetailPanel';
 export { JobCard } from './JobCard';
 export { PhaseIllustration } from './PhaseIllustration';
 export { IntroBanner } from './IntroBanner';

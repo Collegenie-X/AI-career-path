@@ -2,8 +2,9 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Star, GraduationCap, School } from 'lucide-react';
+import { Star, GraduationCap, School, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import exploreStar from '@/data/stars/explore-star.json';
 import createStar from '@/data/stars/create-star.json';
 import techStar from '@/data/stars/tech-star.json';
@@ -15,9 +16,9 @@ import challengeStar from '@/data/stars/challenge-star.json';
 import {
   StarField,
   StarCard,
+  StarGridGroupedPanel,
+  StarDetailPanel,
   IntroBanner,
-  PageHeader,
-  StarDetailPage,
   JobDetailModal,
 } from './components';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
@@ -28,10 +29,140 @@ import type { StarData, Job } from './types';
 type ExploreTabId = 'star' | 'admission' | 'university';
 
 const EXPLORE_TABS: { id: ExploreTabId; label: string; icon: React.ReactNode }[] = [
-  { id: 'star', label: LABELS.explore_tab_star, icon: <Star className="w-3.5 h-3.5" /> },
-  { id: 'admission', label: LABELS.explore_tab_admission, icon: <GraduationCap className="w-3.5 h-3.5" /> },
-  { id: 'university', label: LABELS.explore_tab_university, icon: <School className="w-3.5 h-3.5" /> },
+  { id: 'star',       label: LABELS.explore_tab_star,        icon: <Star className="w-3.5 h-3.5" /> },
+  { id: 'admission',  label: LABELS.explore_tab_admission,   icon: <GraduationCap className="w-3.5 h-3.5" /> },
+  { id: 'university', label: LABELS.explore_tab_university,  icon: <School className="w-3.5 h-3.5" /> },
 ];
+
+/* ── 상단 헤더 (career 페이지의 CareerPageHeader 와 동일 패턴) ── */
+function ExplorePageHeader() {
+  return (
+    <div
+      className="sticky top-0 z-20 px-4"
+      style={{ backgroundColor: 'rgba(10,10,30,0.92)', backdropFilter: 'blur(20px)' }}
+    >
+      <div className="web-container py-4">
+        <div className="flex items-center justify-between gap-4 mb-3 w-full">
+          <div>
+            <h1 className="text-2xl md:text-[30px] font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(139,92,246,0.35)]">
+              {LABELS.page_title}
+            </h1>
+            <p className="mt-1 inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold text-indigo-200 border border-indigo-400/30 bg-indigo-500/10">
+              {LABELS.page_subtitle}
+            </p>
+          </div>
+          <div
+            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-2xl border"
+            style={{
+              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
+              borderColor: 'rgba(108,92,231,0.4)',
+            }}
+          >
+            <Sparkles className="w-4 h-4 text-purple-400" />
+            <span className="text-[13px] font-bold text-purple-300">8개 별의 직업 세계</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── 탭 네비게이션 (career 셸 내부 탭바와 동일 패턴) ── */
+function ExploreTabBar({
+  activeTab,
+  onTabChange,
+}: {
+  activeTab: ExploreTabId;
+  onTabChange: (id: ExploreTabId) => void;
+}) {
+  return (
+    <div
+      className="grid gap-1.5 p-1"
+      style={{
+        gridTemplateColumns: `repeat(${EXPLORE_TABS.length}, 1fr)`,
+        backgroundColor: 'rgba(255,255,255,0.06)',
+      }}
+    >
+      {EXPLORE_TABS.map((tab) => {
+        const isActive = activeTab === tab.id;
+        return (
+          <button
+            key={tab.id}
+            onClick={() => onTabChange(tab.id)}
+            className="flex items-center justify-center gap-1.5 py-2.5 rounded-none text-xs font-bold transition-all"
+            style={
+              isActive
+                ? {
+                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                    color: '#fff',
+                    boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
+                  }
+                : {
+                    backgroundColor: 'rgba(255,255,255,0.04)',
+                    color: 'rgba(255,255,255,0.65)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                  }
+            }
+            role="tab"
+            aria-selected={isActive}
+          >
+            {tab.icon}
+            <span>{tab.label}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ── 히어로 배너 (직업 탐색 탭 전용) ── */
+function StarTabHeroBanner() {
+  return (
+    <div
+      className="relative overflow-hidden px-4 py-5 md:px-5 md:py-6 mb-4 md:mb-5"
+      style={{
+        background: 'linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)',
+      }}
+    >
+      <div
+        className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-20 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }}
+      />
+      <div
+        className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full opacity-15 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }}
+      />
+      <div className="relative flex items-center justify-between gap-4">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 mb-2">
+            <Sparkles className="w-4 h-4 flex-shrink-0 text-purple-300" />
+            <span className="text-[13px] font-bold text-purple-300">{LABELS.intro_banner_title}</span>
+          </div>
+          <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
+            {LABELS.intro_banner_subtitle}{' '}
+            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+              직업 체험
+            </span>
+          </h2>
+          <p className="text-[13px] text-gray-400 leading-relaxed">
+            {LABELS.intro_banner_description}
+          </p>
+        </div>
+        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+          <div className="text-center">
+            <div className="text-2xl font-black text-white">8</div>
+            <div className="text-[11px] text-gray-500">직업 세계</div>
+          </div>
+          <div className="w-px h-8 bg-white/10" />
+          <div className="text-center">
+            <div className="text-2xl font-black text-white">25+</div>
+            <div className="text-[11px] text-gray-500">직업 체험</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function JobsExploreContent() {
   const searchParams = useSearchParams();
@@ -53,7 +184,7 @@ function JobsExploreContent() {
 
   useEffect(() => {
     const starId = searchParams.get('starId');
-    const jobId = searchParams.get('jobId');
+    const jobId  = searchParams.get('jobId');
     if (starId && jobId) {
       const star = stars.find(s => s.id === starId);
       if (star) {
@@ -67,98 +198,112 @@ function JobsExploreContent() {
 
   const handleTabChange = (tabId: ExploreTabId) => {
     setActiveTab(tabId);
-    if (tabId === 'admission' || tabId === 'university') {
+    if (tabId !== 'star') {
       setSelectedStar(null);
       setSelectedJob(null);
     }
   };
 
   return (
-    <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot}>
+    <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot} style={{ backgroundColor: '#0a0a1e' }}>
       <StarField />
-      <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentShell}>
-        <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentFrame}>
-          <PageHeader selectedStar={selectedStar} onBack={() => setSelectedStar(null)} />
 
-          {/* Top Tab Navigation */}
-          <div className={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationArea}>
-            <div
-              className="flex rounded-2xl p-1"
-              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-            >
-              {EXPLORE_TABS.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabChange(tab.id)}
-                  className="flex-1 py-2 rounded-xl text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
-                  style={{
-                    background: activeTab === tab.id
-                      ? 'rgba(132,94,247,0.35)'
-                      : 'transparent',
-                    color: activeTab === tab.id ? '#c084fc' : '#9ca3af',
-                    boxShadow: activeTab === tab.id ? '0 2px 8px rgba(132,94,247,0.3)' : 'none',
-                  }}
-                >
-                  {tab.icon}
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+      {/* ── 상단 헤더 ── */}
+      <ExplorePageHeader />
+
+      {/* ── Tab + Content 통합 border 컨테이너 (career 셸과 동일) ── */}
+      <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentShell}>
+        <div
+          className={EXPLORE_PAGE_LAYOUT_CLASS.contentFrame}
+          style={EXPLORE_PAGE_LAYOUT_CLASS.contentFrameStyle}
+        >
+          {/* 탭 바 */}
+          <div
+            className={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationArea}
+            style={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationAreaStyle}
+          >
+            <ExploreTabBar activeTab={activeTab} onTabChange={handleTabChange} />
           </div>
 
+          {/* 히어로 배너 (직업 탐색 탭만) */}
+          {activeTab === 'star' && <StarTabHeroBanner />}
+
+          {/* ── 본문 ── */}
           <div className={EXPLORE_PAGE_LAYOUT_CLASS.bodyContentArea}>
-            {/* ── 직업탐색 탭 ── */}
+
+            {/* 직업 탐색 탭 — 2컬럼 마스터-디테일 */}
             {activeTab === 'star' && (
-              <>
-                <IntroBanner />
-                <div>
-                  <h2 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Star className="w-3.5 h-3.5 text-yellow-400 fill-yellow-400" /> {LABELS.star_grid_title}
-                  </h2>
-                  <div className={EXPLORE_PAGE_LAYOUT_CLASS.starGrid}>
-                    {stars.map((s, i) => (
-                      <StarCard key={s.id} star={s} index={i} onClick={() => setSelectedStar(s)} />
-                    ))}
-                    {[...Array(8 - stars.length)].map((_, i) => (
-                      <div
-                        key={`ph-${i}`}
-                        className="rounded-3xl h-32 flex flex-col items-center justify-center gap-1"
-                        style={{ background: 'rgba(255,255,255,0.02)', border: '2px dashed rgba(255,255,255,0.08)' }}
-                      >
-                        <div className="text-xl opacity-20">🌟</div>
-                        <div className="text-[11px] text-gray-700 font-semibold">{LABELS.coming_soon}</div>
+              <TwoColumnPanelLayout
+                hasSelection={selectedStar !== null}
+                onClearSelection={() => setSelectedStar(null)}
+                emptyPlaceholderText="별을 선택하세요"
+                emptyPlaceholderSubText="왼쪽에서 별을 클릭하면 직업 목록이 여기에 표시됩니다"
+                listSlot={
+                  <div
+                    className={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}
+                    style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
+                  >
+                    <IntroBanner />
+                    <StarGridGroupedPanel
+                      headerSlot={
+                        <h2 className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                          <Star className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                          {LABELS.star_grid_title}
+                        </h2>
+                      }
+                    >
+                      <div className={EXPLORE_PAGE_LAYOUT_CLASS.starGrid}>
+                        {stars.map((s, i) => (
+                          <StarCard
+                            key={s.id}
+                            star={s}
+                            index={i}
+                            isSelected={selectedStar?.id === s.id}
+                            onClick={() => setSelectedStar(prev => prev?.id === s.id ? null : s)}
+                          />
+                        ))}
+                        {[...Array(8 - stars.length)].map((_, i) => (
+                          <div
+                            key={`ph-${i}`}
+                            className="flex h-32 flex-col items-center justify-center gap-1 rounded-3xl"
+                            style={{ background: 'rgba(255,255,255,0.02)', border: '2px dashed rgba(255,255,255,0.08)' }}
+                          >
+                            <div className="text-xl opacity-20">🌟</div>
+                            <div className="text-[11px] font-semibold text-gray-700">{LABELS.coming_soon}</div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    </StarGridGroupedPanel>
                   </div>
-                </div>
-              </>
+                }
+                detailSlot={
+                  selectedStar ? (
+                    <StarDetailPanel
+                      star={selectedStar}
+                      onClose={() => setSelectedStar(null)}
+                      onOpenJob={(job) => setSelectedJob(job)}
+                    />
+                  ) : null
+                }
+              />
             )}
 
-            {/* ── 고입 탐색 탭 ── */}
+            {/* 고입 탐색 탭 */}
             {activeTab === 'admission' && <HighSchoolAdmissionTab />}
 
-            {/* ── 대입 탐색 탭 ── */}
+            {/* 대입 탐색 탭 */}
             {activeTab === 'university' && <UniversityAdmissionTab />}
           </div>
         </div>
       </div>
 
-      {/* 별 선택 시 전체 페이지 (화살표로 섹션 이동) */}
-      {selectedStar && !selectedJob && (
-        <StarDetailPage
-          star={selectedStar}
-          onClose={() => setSelectedStar(null)}
-          onOpenJob={(job) => setSelectedJob(job)}
-          onOpenDetail={
-            'starProfile' in selectedStar && selectedStar.starProfile
-              ? () => setShowStarProfile(true)
-              : undefined
-          }
-        />
-      )}
-
+      {/* 직업 상세 모달 (2컬럼 위에 오버레이) */}
       {selectedJob && selectedStar && (
-        <JobDetailModal job={selectedJob} star={selectedStar} onClose={() => setSelectedJob(null)} />
+        <JobDetailModal
+          job={selectedJob}
+          star={selectedStar}
+          onClose={() => setSelectedJob(null)}
+        />
       )}
 
       {showStarProfile && selectedStar && 'starProfile' in selectedStar && selectedStar.starProfile && (
@@ -174,10 +319,8 @@ function JobsExploreContent() {
 export default function JobsExplorePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen relative overflow-hidden flex items-center justify-center">
-        <div className="rounded-2xl border border-white/15 bg-[rgba(14,20,40,0.82)] px-6 py-4 text-gray-300">
-          Loading...
-        </div>
+      <div className="min-h-screen relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
+        <Sparkles className="w-6 h-6 animate-pulse text-purple-400" />
       </div>
     }>
       <JobsExploreContent />

@@ -9,6 +9,7 @@ import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
 import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
 import { CareerPageHeader } from './components/CareerPageHeader';
+import { CareerTabBar } from './components/CareerTabBar';
 import { CareerPathDetailPanel } from './components/CareerPathDetailPanel';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
@@ -183,8 +184,6 @@ function CareerPageContent() {
     >
       <StarField />
       <CareerPageHeader
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
         selectedJobBadge={
           mounted && selectedPlan
             ? { jobEmoji: selectedPlan.jobEmoji, jobName: selectedPlan.jobName, starColor: selectedPlan.starColor }
@@ -192,19 +191,39 @@ function CareerPageContent() {
         }
       />
 
-      {/* ── Tab content ── */}
-      <div className="web-container relative z-10 py-4 md:py-6">
-        <ExploreHeroBanner
-          activeTab={activeTab}
-          onNewPath={openNew}
-          totalTemplateCount={totalTemplateCount}
-          totalUses={totalTemplateUses}
-          totalCommunitySharedPlans={totalCommunitySharedPlans}
-          totalCommunityGroups={totalCommunityGroups}
-          totalMyPlans={plans.length}
-          totalMyPublicPlans={totalMyPublicPlans}
-        />
-        {!mounted ? null : activeTab === 'explore' ? (
+      {/* ── Tab + Content (통합 테두리 컨테이너) ── */}
+      <div className="web-container relative z-10 py-4 md:py-6 rounded-3xl">
+        <div
+          className="rounded-none border border-t-0 border-x border-b overflow-hidden"
+          style={{
+            borderColor: 'rgba(255,255,255,0.12)',
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
+            boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
+          }}
+        >
+          <div
+            className="border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5"
+            style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
+          >
+            <CareerTabBar
+              activeTab={activeTab}
+              onTabChange={handleTabChange}
+              embeddedInCareerShell
+            />
+          </div>
+          <ExploreHeroBanner
+            activeTab={activeTab}
+            onNewPath={openNew}
+            embeddedInCareerShell
+            totalTemplateCount={totalTemplateCount}
+            totalUses={totalTemplateUses}
+            totalCommunitySharedPlans={totalCommunitySharedPlans}
+            totalCommunityGroups={totalCommunityGroups}
+            totalMyPlans={plans.length}
+            totalMyPublicPlans={totalMyPublicPlans}
+          />
+          <div className="px-4 pb-4 md:px-5 md:pb-5">
+            {!mounted ? null : activeTab === 'explore' ? (
           <>
             <TwoColumnPanelLayout
               hasSelection={selectedExploreTemplate !== null}
@@ -213,7 +232,7 @@ function CareerPageContent() {
               emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
               listSlot={
                 <div
-                  className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
+                  className="rounded-none border px-4 py-4 md:px-5 md:py-5"
                   style={{
                     borderColor: 'rgba(255,255,255,0.12)',
                     background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
@@ -248,7 +267,7 @@ function CareerPageContent() {
             emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 타임라인이 여기에 표시됩니다"
             listSlot={
               <div
-                className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
+                className="rounded-none border px-4 py-4 md:px-5 md:py-5"
                 style={{
                   borderColor: 'rgba(255,255,255,0.12)',
                   background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
@@ -286,7 +305,7 @@ function CareerPageContent() {
             emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
             listSlot={
               <div
-                className="rounded-3xl border px-4 py-4 md:px-5 md:py-5"
+                className="rounded-none border px-4 py-4 md:px-5 md:py-5"
                 style={{
                   borderColor: 'rgba(255,255,255,0.12)',
                   background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
@@ -294,7 +313,6 @@ function CareerPageContent() {
                 }}
               >
                 <CommunityTab
-                  onNewPlan={openNew}
                   selectedPlanId={selectedCommunityPlan?.id ?? null}
                   onSelectPlan={setSelectedCommunityPlan}
                 />
@@ -316,7 +334,9 @@ function CareerPageContent() {
               ) : null
             }
           />
-        ) : null}
+            ) : null}
+          </div>
+        </div>
       </div>
 
       {/* Builder dialog */}
