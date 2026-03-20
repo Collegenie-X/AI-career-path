@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Trash2, X, Flag } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS, ROADMAP_SHARE_VISIBILITY_OPTIONS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { getShareChannelsFromRoadmap } from '../types';
@@ -234,6 +234,66 @@ export function RoadmapDetailDialog({
             <h3 className="text-xl font-black text-white leading-tight tracking-tight">{roadmap.title}</h3>
             <p className="text-sm text-gray-400 truncate">{roadmap.ownerName}</p>
           </div>
+
+          {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
+            <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8 mt-3">
+              <button
+                onClick={onEdit}
+                className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
+                style={{
+                  backgroundColor: `${roadmap.starColor}22`,
+                  color: roadmap.starColor,
+                  border: `1px solid ${roadmap.starColor}44`,
+                }}
+              >
+                <Pencil className="w-3.5 h-3.5" />
+                {LABELS.roadmapEditButtonLabel ?? LABELS.editButtonLabel ?? '수정하기'}
+              </button>
+              <button
+                onClick={onShare}
+                className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
+                style={{
+                  backgroundColor: shareChannels.length > 0 ? `${shareBadgeLabel.color}18` : 'rgba(255,255,255,0.07)',
+                  color: shareChannels.length > 0 ? shareBadgeLabel.color : 'rgba(255,255,255,0.5)',
+                  border: shareChannels.length > 0 ? `1px solid ${shareBadgeLabel.color}40` : '1px solid rgba(255,255,255,0.12)',
+                }}
+              >
+                <Share2 className="w-3.5 h-3.5" />
+                {LABELS.shareRoadmapButtonLarge ?? '공유'}
+              </button>
+              {!showDeleteConfirmationActions ? (
+                <button
+                  onClick={() => setShowDeleteConfirmationActions(true)}
+                  className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
+                  style={{
+                    backgroundColor: 'rgba(239,68,68,0.12)',
+                    color: '#ef4444',
+                    border: '1px solid rgba(239,68,68,0.28)',
+                  }}
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  {LABELS.deleteButtonLabel ?? '삭제'}
+                </button>
+              ) : (
+                <div className="flex gap-1.5">
+                  <button
+                    onClick={() => setShowDeleteConfirmationActions(false)}
+                    className="h-9 px-3 rounded-xl text-sm font-semibold"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}
+                  >
+                    {LABELS.cancelButtonLabel ?? '취소'}
+                  </button>
+                  <button
+                    onClick={onDelete}
+                    className="h-9 px-3 rounded-xl text-sm font-bold text-white"
+                    style={{ backgroundColor: '#ef4444' }}
+                  >
+                    {LABELS.deleteConfirmButtonLabel ?? '삭제 확인'}
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         <div
@@ -510,61 +570,6 @@ export function RoadmapDetailDialog({
           </div>
         )}
 
-        {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
-          <div
-            className="w-full px-4 pt-3 pb-4 shrink-0"
-            style={{
-              backgroundColor: '#12122a',
-              borderTop: '1px solid rgba(255,255,255,0.08)',
-              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
-            }}
-          >
-            {!showDeleteConfirmationActions ? (
-              <div className="grid grid-cols-3 gap-2">
-                <button
-                  onClick={onEdit}
-                  className="h-11 rounded-2xl text-sm font-black text-white flex items-center justify-center gap-1.5"
-                  style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', boxShadow: '0 8px 18px rgba(108,92,231,0.35)' }}
-                >
-                  <Pencil className="w-4 h-4" />
-                  {LABELS.editButtonLabel}
-                </button>
-                <button
-                  onClick={onShare}
-                  className="h-11 rounded-2xl text-sm font-bold text-white/80"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)' }}
-                >
-                  {LABELS.shareRoadmapButtonLarge}
-                </button>
-                <button
-                  onClick={() => setShowDeleteConfirmationActions(true)}
-                  className="h-11 rounded-2xl text-sm font-bold flex items-center justify-center gap-1.5"
-                  style={{ backgroundColor: 'rgba(239,68,68,0.18)', color: '#f87171', border: '1px solid rgba(239,68,68,0.35)' }}
-                >
-                  <Trash2 className="w-4 h-4" />
-                  {LABELS.deleteButtonLabel}
-                </button>
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  onClick={() => setShowDeleteConfirmationActions(false)}
-                  className="h-11 rounded-2xl text-sm font-bold"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.75)' }}
-                >
-                  {LABELS.cancelButtonLabel}
-                </button>
-                <button
-                  onClick={onDelete}
-                  className="h-11 rounded-2xl text-sm font-black text-white"
-                  style={{ backgroundColor: '#ef4444' }}
-                >
-                  {LABELS.deleteConfirmButtonLabel}
-                </button>
-              </div>
-            )}
-          </div>
-        )}
       </div>
 
       {showReportDialog && !isOwnedByCurrentUser && !isReferenceViewOnlyMode && (

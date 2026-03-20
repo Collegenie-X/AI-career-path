@@ -59,9 +59,13 @@ export const STAR_FIELD_CONFIG = {
 export const LABELS = {
   page_title: '드림 경험',
   page_subtitle: '8개 별의 직업 세계를 탐험하세요',
+  /** 상단 우측 pill (데스크톱) — 패스·실행 헤더와 동일 톤 */
+  page_header_trailing_badge: '8개 별의 직업 세계',
   star_selected_subtitle: '개 직업 프로세스 & 커리어 패스',
   intro_banner_title: '직업 세계 탐험',
   intro_banner_subtitle: '별을 선택하고 직업을 체험하세요',
+  /** 히어로 제목 그라데이션 강조 구문 */
+  intro_banner_highlight: '직업 체험',
   intro_banner_description: '실제 직무 프로세스와 커리어 패스를 게임처럼 경험해보세요!',
   star_grid_title: '8개 별 선택',
   /** 별 그리드 패널: 패스·커리어와 동일한 그룹 테두리 느낌 */
@@ -244,12 +248,13 @@ export const EXPLORE_PAGE_LAYOUT_CLASS = {
    */
   contentFrame:
     'rounded-none border border-t-0 border-x border-b overflow-hidden',
+  /** section-shell-layout.constants SECTION_SHELL_FRAME_STYLE 과 동일 */
   contentFrameStyle: {
     borderColor: 'rgba(255,255,255,0.12)',
     background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
     boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
   } as React.CSSProperties,
-  /** 탭 네비게이션 영역 — career 셸 헤더와 동일 */
+  /** 탭 네비게이션 영역 — 패스·실행과 동일 */
   tabNavigationArea:
     'border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5',
   tabNavigationAreaStyle: { backgroundColor: 'rgba(255,255,255,0.02)' } as React.CSSProperties,
@@ -259,9 +264,9 @@ export const EXPLORE_PAGE_LAYOUT_CLASS = {
   starGridListPanel:
     'rounded-none border px-4 py-4 md:px-5 md:py-5',
   starGridListPanelStyle: {
-    borderColor: 'rgba(255,255,255,0.12)',
-    background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-    boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+    borderColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: 'rgb(var(--background))',
+    boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)',
   } as React.CSSProperties,
   /** 별 그리드: 2열 → 3열 → 4열 반응형 */
   /** 좌측 리스트 패널(~520px) 기준: 모바일 2열 → 태블릿 이상 3열 고정 */

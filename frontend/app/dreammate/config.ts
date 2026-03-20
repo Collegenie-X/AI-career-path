@@ -5,7 +5,8 @@ import filters        from '@/data/dreammate/config/filters.json';
 import tabs           from '@/data/dreammate/config/tabs.json';
 import spaceConfig    from '@/data/dreammate/config/space.json';
 import reportReasons  from '@/data/dreammate/config/report.json';
-import heroConfig       from '@/data/dreammate/config/hero.json';
+import heroConfig     from '@/data/dreammate/config/hero.json';
+import paginationConfig from '@/data/dreammate/config/pagination.json';
 
 import contentCommon  from '@/data/dreammate/content/common.json';
 import contentFeed    from '@/data/dreammate/content/feed.json';
@@ -112,6 +113,8 @@ export const ROADMAP_REPORT_REASONS = reportReasons as readonly {
   description: string;
   emoji:       string;
 }[];
+
+export const DREAM_LIST_ITEMS_PER_PAGE = (paginationConfig as { itemsPerPage: number }).itemsPerPage;
 
 export const HERO_CONFIG = heroConfig as {
   readonly copyByTab: Record<string, {

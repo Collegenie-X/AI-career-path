@@ -117,7 +117,7 @@ export function StarProfilePanel({
       <div
         className="w-full max-w-[430px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
         style={{
-          backgroundColor: '#0d0d24',
+          backgroundColor: 'rgb(var(--background))',
           border: '1px solid rgba(255,255,255,0.08)',
           borderBottom: 'none',
           maxHeight: 'calc(100vh - 56px)',

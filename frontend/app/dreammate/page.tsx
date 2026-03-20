@@ -14,8 +14,10 @@ import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
 import { RoadmapShareDialog } from './components/RoadmapShareDialog';
 import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
 import { useDreamMateWorkspaceContext } from './DreamMateWorkspaceProvider';
-import { GroupedTabSelector } from './components/GroupedTabSelector';
 import { getShareChannelsFromRoadmap } from './types';
+import { StickySectionPageHeader } from '@/components/section-shell/StickySectionPageHeader';
+import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
+import { SECTION_SHELL_FRAME_STYLE, SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME, SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE } from '@/components/section-shell/section-shell-layout.constants';
 
 /* ─── Star background ─── */
 function StarField() {
@@ -68,44 +70,41 @@ function DreamMatePageContent() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen pb-24 relative overflow-hidden w-full" style={{ backgroundColor: '#0a0a1e' }}>
+    <div className="min-h-screen pb-24 relative overflow-hidden w-full" style={{ backgroundColor: 'rgb(var(--background))' }}>
       <StarField />
 
-      {/* Page header — career와 동일 web-container */}
-      <div
-        className="sticky top-0 z-20"
-        style={{ backgroundColor: 'rgba(10,10,30,0.92)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        <div className="web-container py-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-xl md:text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent">
-                {LABELS.pageTitle}
-              </h1>
-              <p className="text-sm text-gray-500">{LABELS.pageSubtitle}</p>
-            </div>
+      <StickySectionPageHeader
+        title={LABELS.pageTitle}
+        subtitlePill={LABELS.pageSubtitle}
+        rightSlot={
+          <div
+            className="hidden items-center gap-2 rounded-2xl border px-4 py-2 md:flex"
+            style={{
+              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
+              borderColor: 'rgba(108,92,231,0.4)',
+            }}
+          >
+            <Sparkles className="h-4 w-4 text-purple-400" />
+            <span className="text-[13px] font-bold text-purple-300">{LABELS.pageHeaderTrailingBadge}</span>
           </div>
+        }
+      />
 
-          <GroupedTabSelector
-            groupLabel={LABELS.pageTitle}
-            value={activeTab}
-            options={DREAM_TABS}
-            onChange={setActiveTab}
-            containerClassName="pb-0 mb-3"
-          />
-        </div>
-      </div>
-
-      {/* Tab content — career와 동일 web-container + border 프레임 */}
+      {/* Tab + 히어로 + 본문 — 경험·패스와 동일 셸 */}
       <div className="web-container relative z-10 py-4 md:py-6">
-        <div
-          className="rounded-none border border-t-0 border-x border-b overflow-hidden"
-          style={{
-            borderColor: 'rgba(255,255,255,0.12)',
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
-            boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
-          }}
-        >
+        <div className="rounded-none border border-t-0 border-x border-b overflow-hidden" style={SECTION_SHELL_FRAME_STYLE}>
+          <div
+            className={SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME}
+            style={SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE}
+          >
+            <GradientSegmentedTabBar
+              tabs={DREAM_TABS.map((tab) => ({ id: tab.id, label: tab.label, emoji: tab.emoji }))}
+              activeTab={activeTab}
+              onTabChange={setActiveTab}
+              embeddedInSectionShell
+              ariaLabel="드림 실행 탭 전환"
+            />
+          </div>
           <DreamMateHeroBanner
             activeTab={activeTab}
             onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
@@ -288,7 +287,7 @@ function DreamMatePageContent() {
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
           isReferenceViewOnlyMode={selectedRoadmapOpenedFromTab === 'space'}
-          isFeedDetailView={selectedRoadmapOpenedFromTab === 'feed'}
+          isFeedDetailView={false}
           availableSpaces={workspace.joinedSpaces}
           onClose={() => {
             workspace.setSelectedRoadmapId(null);
@@ -318,7 +317,7 @@ function DreamMatePageContent() {
             workspace.handleReportRoadmap(workspace.selectedRoadmap!.id, reasonId, detail);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
-          showTimelineProgressBars={selectedRoadmapOpenedFromTab !== 'feed'}
+          showTimelineProgressBars
           onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
         />
       )}
@@ -362,7 +361,7 @@ export default function DreamMatePage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
+        <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: 'rgb(var(--background))' }}>
           <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
         </div>
       }

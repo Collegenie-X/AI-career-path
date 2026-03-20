@@ -60,16 +60,26 @@ export function WebHeader() {
             {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
               const Icon = item.icon;
+              const glowColor = item.color ?? '#6C5CE7';
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     active
-                      ? 'text-white bg-white/10'
+                      ? 'text-white'
                       : 'text-white/60 hover:text-white hover:bg-white/5'
                   }`}
-                  style={active && item.step ? { color: item.color } : undefined}
+                  style={
+                    active
+                      ? {
+                          color: '#ffffff',
+                          backgroundColor: `${glowColor}28`,
+                          boxShadow: `0 0 32px ${glowColor}80, 0 0 16px ${glowColor}60, inset 0 0 20px ${glowColor}25`,
+                          border: `1px solid ${glowColor}`,
+                        }
+                      : undefined
+                  }
                 >
                   <Icon className="w-3.5 h-3.5" />
                   {item.label}
@@ -83,15 +93,25 @@ export function WebHeader() {
             {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
               const Icon = item.icon;
+              const glowColor = item.color ?? '#6C5CE7';
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   title={item.label}
                   className={`p-2 rounded-lg transition-all ${
-                    active ? 'text-white bg-white/10' : 'text-white/50 hover:text-white'
+                    active ? 'text-white' : 'text-white/50 hover:text-white'
                   }`}
-                  style={active && item.step ? { color: item.color } : undefined}
+                  style={
+                    active
+                      ? {
+                          color: '#ffffff',
+                          backgroundColor: `${glowColor}28`,
+                          boxShadow: `0 0 24px ${glowColor}80, 0 0 12px ${glowColor}60, inset 0 0 16px ${glowColor}25`,
+                          border: `1px solid ${glowColor}`,
+                        }
+                      : undefined
+                  }
                 >
                   <Icon className="w-4 h-4" />
                 </Link>

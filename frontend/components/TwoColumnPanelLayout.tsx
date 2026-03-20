@@ -1,6 +1,34 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
 import { Map, Sparkles } from 'lucide-react';
+
+/** 선택 변경 시 상단으로 스크롤하는 디테일 패널 스크롤 컨테이너 */
+export function DetailPanelScrollContainer({
+  children,
+  scrollKey,
+}: {
+  readonly children: React.ReactNode;
+  /** 이 값이 변경될 때마다 스크롤을 상단으로 이동 */
+  readonly scrollKey: string | null;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollKey) {
+      scrollRef.current?.scrollTo({ top: 0, behavior: 'auto' });
+    }
+  }, [scrollKey]);
+
+  return (
+    <div
+      ref={scrollRef}
+      className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden"
+    >
+      {children}
+    </div>
+  );
+}
 
 type EmptyIllustrationVariant = 'map' | 'sparkles';
 
@@ -103,9 +131,9 @@ export function TwoColumnPanelLayout({
         <div
           className={`border overflow-visible ${detailPanelClassName}`}
           style={{
-            borderColor: 'rgba(255,255,255,0.12)',
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-            boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+            borderColor: 'rgba(255,255,255,0.1)',
+            backgroundColor: 'rgb(var(--background))',
+            boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)',
             backdropFilter: 'blur(10px)',
           }}
         >

@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
+import { DREAM_LIST_ITEMS_PER_PAGE } from '../config';
+import { ListPagination } from './ListPagination';
 import {
   Users, Plus, ChevronRight, MessageSquare,
   X, Clock, Star,
 } from 'lucide-react';
-import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
 import { LABELS } from '../config';
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { SpaceDetailView } from './SpaceDetailView';
@@ -208,6 +210,7 @@ export function DreamSpaceTab({
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [inviteCodeInput, setInviteCodeInput] = useState('');
   const [inviteCodeError, setInviteCodeError] = useState<string | null>(null);
+  const [spacesPage, setSpacesPage] = useState(1);
 
   useEffect(() => {
     if (initialSelectedSpaceId) {
@@ -300,18 +303,30 @@ export function DreamSpaceTab({
           </div>
         </div>
       ) : (
-        <div className="space-y-2">
-          {spaces.map(space => (
-            <SpaceCard
-              key={space.id}
-              space={space}
-              roadmapCount={roadmaps.filter(rm => rm.groupIds.includes(space.id)).length}
-              isJoined={joinedSpaceIds.includes(space.id)}
-              isSelected={hasDetailSelection && selectedSpaceId === space.id}
-              onOpen={() => handleOpenSpace(space)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-2">
+            {spaces
+              .slice(
+                (spacesPage - 1) * DREAM_LIST_ITEMS_PER_PAGE,
+                spacesPage * DREAM_LIST_ITEMS_PER_PAGE,
+              )
+              .map(space => (
+                <SpaceCard
+                  key={space.id}
+                  space={space}
+                  roadmapCount={roadmaps.filter(rm => rm.groupIds.includes(space.id)).length}
+                  isJoined={joinedSpaceIds.includes(space.id)}
+                  isSelected={hasDetailSelection && selectedSpaceId === space.id}
+                  onOpen={() => handleOpenSpace(space)}
+                />
+              ))}
+          </div>
+          <ListPagination
+            totalItems={spaces.length}
+            currentPage={spacesPage}
+            onPageChange={setSpacesPage}
+          />
+        </>
       )}
     </div>
   );
@@ -344,7 +359,7 @@ export function DreamSpaceTab({
         }
         detailSlot={
           hasDetailSelection && selectedSpace ? (
-            <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+            <DetailPanelScrollContainer scrollKey={selectedSpaceId}>
               <SpaceDetailView
                 layoutVariant="sidePanel"
                 currentUserId={currentUserId}
@@ -366,7 +381,7 @@ export function DreamSpaceTab({
                 onCreateNotice={onCreateSpaceNotice}
                 onBack={() => setSelectedSpaceId(null)}
               />
-            </div>
+            </DetailPanelScrollContainer>
           ) : null
         }
       />

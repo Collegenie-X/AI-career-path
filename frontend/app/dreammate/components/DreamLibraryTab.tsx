@@ -1,8 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Search, Heart, Bookmark, Plus } from 'lucide-react';
-import { RESOURCE_CATEGORIES, LABELS } from '../config';
+import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
+import { RESOURCE_CATEGORIES, DREAM_LIST_ITEMS_PER_PAGE, LABELS } from '../config';
+import { ListPagination } from './ListPagination';
 import type { DreamResource, DreamResourceComment, ResourceCategoryId } from '../types';
 import {
   DreamLibraryResourceFormDialog,
@@ -34,6 +36,7 @@ function ResourceCard({
   resource,
   isLiked,
   isBookmarked,
+  isSelected,
   onOpen,
   onToggleLike,
   onToggleBookmark,
@@ -41,6 +44,7 @@ function ResourceCard({
   resource: DreamResource;
   isLiked: boolean;
   isBookmarked: boolean;
+  isSelected?: boolean;
   onOpen: () => void;
   onToggleLike: () => void;
   onToggleBookmark: () => void;
@@ -60,8 +64,9 @@ function ResourceCard({
       tabIndex={0}
       className="rounded-2xl p-4 transition-all"
       style={{
-        backgroundColor: `${cat?.color ?? '#6C5CE7'}06`,
-        border: `1px solid ${cat?.color ?? '#6C5CE7'}18`,
+        backgroundColor: isSelected ? `${cat?.color ?? '#6C5CE7'}18` : `${cat?.color ?? '#6C5CE7'}06`,
+        border: `1px solid ${isSelected ? `${cat?.color ?? '#6C5CE7'}45` : `${cat?.color ?? '#6C5CE7'}18`}`,
+        boxShadow: isSelected ? `inset 3px 0 0 0 ${cat?.color ?? '#6C5CE7'}` : undefined,
       }}
     >
       <div className="flex items-start gap-3">
@@ -169,6 +174,11 @@ export function DreamLibraryTab({
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [selectedResourceId, setSelectedResourceId] = useState<string | null>(null);
   const [editingResourceId, setEditingResourceId] = useState<string | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, searchQuery]);
 
   const allCategories: { id: ResourceCategoryId | 'all'; label: string; emoji: string; color: string }[] = [
     { id: 'all', label: '전체', emoji: '✨', color: '#6C5CE7' },
@@ -197,25 +207,28 @@ export function DreamLibraryTab({
   const selectedResource = resourcesWithSource.find(resource => resource.id === selectedResourceId) ?? null;
   const editingResource = resourcesWithSource.find(resource => resource.id === editingResourceId) ?? null;
 
-  return (
-    <div className="space-y-4 pb-28">
-      {/* Header */}
-      <div>
-        <h3 className="text-base font-bold text-white">{LABELS.libraryTitle}</h3>
-        <div className="flex items-center justify-between gap-3 mt-1">
-          <p className="text-sm text-gray-500">{LABELS.librarySubtitle}</p>
-          <button
-            onClick={() => setIsCreateDialogOpen(true)}
-            className="h-8 px-3 rounded-lg text-sm font-bold flex items-center gap-1.5"
-            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
-          >
-            <Plus className="w-3.5 h-3.5" />
-            {LABELS.uploadResourceButton}
-          </button>
+  const paginatedFiltered = filtered.slice(
+    (currentPage - 1) * DREAM_LIST_ITEMS_PER_PAGE,
+    currentPage * DREAM_LIST_ITEMS_PER_PAGE,
+  );
+
+  const listColumnInner = (
+    <div className="space-y-4 pb-4">
+      <div className="flex items-start justify-between gap-2">
+        <div>
+          <h3 className="text-base font-bold text-white">{LABELS.libraryTitle}</h3>
+          <p className="text-sm text-gray-500 mt-0.5">{LABELS.librarySubtitle}</p>
         </div>
+        <button
+          onClick={() => setIsCreateDialogOpen(true)}
+          className="h-8 px-3 rounded-lg text-sm font-bold flex items-center gap-1.5 flex-shrink-0"
+          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
+        >
+          <Plus className="w-3.5 h-3.5" />
+          {LABELS.uploadResourceButton}
+        </button>
       </div>
 
-      {/* Search */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
         <input
@@ -227,7 +240,6 @@ export function DreamLibraryTab({
         />
       </div>
 
-      {/* Category grid */}
       <div className="grid grid-cols-3 gap-2">
         {allCategories.map(cat => {
           const isActive = selectedCategory === cat.id;
@@ -251,7 +263,6 @@ export function DreamLibraryTab({
         })}
       </div>
 
-      {/* Resource list */}
       {filtered.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 text-center gap-3">
           <span className="text-4xl">📚</span>
@@ -261,20 +272,84 @@ export function DreamLibraryTab({
           </div>
         </div>
       ) : (
-        <div className="space-y-3">
-          {filtered.map(res => (
-            <ResourceCard
-              key={res.id}
-              resource={res}
-              isLiked={likedResourceIds.includes(res.id)}
-              isBookmarked={bookmarkedResourceIds.includes(res.id)}
-              onOpen={() => setSelectedResourceId(res.id)}
-              onToggleLike={() => onToggleLikeResource(res.id)}
-              onToggleBookmark={() => onToggleBookmarkResource(res.id)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-3">
+            {paginatedFiltered.map(res => (
+              <ResourceCard
+                key={res.id}
+                resource={res}
+                isLiked={likedResourceIds.includes(res.id)}
+                isBookmarked={bookmarkedResourceIds.includes(res.id)}
+                isSelected={selectedResourceId === res.id}
+                onOpen={() => setSelectedResourceId(res.id)}
+                onToggleLike={() => onToggleLikeResource(res.id)}
+                onToggleBookmark={() => onToggleBookmarkResource(res.id)}
+              />
+            ))}
+          </div>
+          <ListPagination
+            totalItems={filtered.length}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
+        </>
       )}
+    </div>
+  );
+
+  const emptyDetailTitle = String(LABELS.libraryDetailEmptyTitle ?? '자료를 선택하세요');
+  const emptyDetailSub = String(LABELS.libraryDetailEmptySub ?? '왼쪽 목록에서 자료를 클릭하면 상세 내용이 여기에 표시됩니다');
+
+  return (
+    <div className="pb-28 md:pb-8">
+      <TwoColumnPanelLayout
+        hasSelection={selectedResource !== null}
+        onClearSelection={() => setSelectedResourceId(null)}
+        emptyPlaceholderText={emptyDetailTitle}
+        emptyPlaceholderSubText={emptyDetailSub}
+        emptyPlaceholderIllustration="sparkles"
+        detailPanelClassName="rounded-none"
+        listSlot={
+          <div
+            className="rounded-none border px-4 py-4 md:px-5 md:py-5"
+            style={{
+              borderColor: 'rgba(255,255,255,0.12)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+              boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+            }}
+          >
+            {listColumnInner}
+          </div>
+        }
+        detailSlot={
+          selectedResource ? (
+            <DetailPanelScrollContainer scrollKey={selectedResourceId}>
+              <DreamLibraryResourceDetailDialog
+                variant="inline"
+                resource={selectedResource}
+                comments={resourceCommentsByResourceId[selectedResource.id] ?? []}
+                isLiked={likedResourceIds.includes(selectedResource.id)}
+                isBookmarked={bookmarkedResourceIds.includes(selectedResource.id)}
+                canManage={selectedResource.authorId === currentUserId}
+                onClose={() => setSelectedResourceId(null)}
+                onToggleLike={() => onToggleLikeResource(selectedResource.id)}
+                onToggleBookmark={() => onToggleBookmarkResource(selectedResource.id)}
+                onDelete={() => {
+                  if (!window.confirm(LABELS.libraryDeleteConfirm)) return;
+                  onDeleteResource(selectedResource.id);
+                  setSelectedResourceId(null);
+                }}
+                onEditRequest={() => {
+                  setEditingResourceId(selectedResource.id);
+                  setSelectedResourceId(null);
+                }}
+                onCreateComment={(content) => onCreateResourceComment(selectedResource.id, content)}
+                onReport={(reasonId, detail) => onReportResource(selectedResource.id, reasonId, detail)}
+              />
+            </DetailPanelScrollContainer>
+          ) : null
+        }
+      />
 
       {isCreateDialogOpen && (
         <DreamLibraryResourceFormDialog
@@ -285,30 +360,6 @@ export function DreamLibraryTab({
             onCreateResource(payload);
             setIsCreateDialogOpen(false);
           }}
-        />
-      )}
-
-      {selectedResource && (
-        <DreamLibraryResourceDetailDialog
-          resource={selectedResource}
-          comments={resourceCommentsByResourceId[selectedResource.id] ?? []}
-          isLiked={likedResourceIds.includes(selectedResource.id)}
-          isBookmarked={bookmarkedResourceIds.includes(selectedResource.id)}
-          canManage={selectedResource.authorId === currentUserId}
-          onClose={() => setSelectedResourceId(null)}
-          onToggleLike={() => onToggleLikeResource(selectedResource.id)}
-          onToggleBookmark={() => onToggleBookmarkResource(selectedResource.id)}
-          onDelete={() => {
-            if (!window.confirm(LABELS.libraryDeleteConfirm)) return;
-            onDeleteResource(selectedResource.id);
-            setSelectedResourceId(null);
-          }}
-          onEditRequest={() => {
-            setEditingResourceId(selectedResource.id);
-            setSelectedResourceId(null);
-          }}
-          onCreateComment={(content) => onCreateResourceComment(selectedResource.id, content)}
-          onReport={(reasonId, detail) => onReportResource(selectedResource.id, reasonId, detail)}
         />
       )}
 

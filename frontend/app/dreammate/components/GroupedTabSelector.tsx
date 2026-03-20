@@ -27,7 +27,7 @@ export function GroupedTabSelector<TValue extends string>({
 
   return (
     <fieldset
-      className={`flex items-center gap-1.5 rounded-2xl p-1 ${containerClassName}`.trim()}
+      className={`flex items-center gap-1.5 rounded-none p-1 ${containerClassName}`.trim()}
       style={{
         backgroundColor: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.08)',
@@ -42,7 +42,7 @@ export function GroupedTabSelector<TValue extends string>({
             key={option.id}
             role="tab"
             aria-selected={isActive}
-            className="flex-1 h-10 px-2 rounded-xl text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all"
+            className="flex-1 h-10 px-2 rounded-none text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all"
             style={isActive
               ? {
                   background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',

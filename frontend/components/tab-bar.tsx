@@ -51,8 +51,6 @@ export function TabBar() {
             </button>
           );
         })}
-          );
-        })}
       </div>
       <div className="h-[env(safe-area-inset-bottom)]" />
     </div>

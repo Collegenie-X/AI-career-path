@@ -1,0 +1,9 @@
+{
+  "itemsPerPage": 10,
+  "labels": {
+    "prevButton": "이전",
+    "nextButton": "다음",
+    "pageInfo": "{{current}} / {{total}} 페이지",
+    "itemsInfo": "{{start}}-{{end}} / {{total}}개"
+  }
+}

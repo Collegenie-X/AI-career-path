@@ -1,5 +1,6 @@
 'use client';
 
+import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
 import { CAREER_PAGE_TABS, type CareerPageTabId } from '../config';
 
 type CareerTabBarProps = {
@@ -16,51 +17,13 @@ export function CareerTabBar({
   onTabChange,
   embeddedInCareerShell = false,
 }: CareerTabBarProps) {
-  const tabListShellClassName = embeddedInCareerShell
-    ? 'grid grid-cols-3 gap-1.5 p-1 rounded-none'
-    : 'grid grid-cols-3 gap-2 p-1.5 rounded-none border border-white/10';
-
-  const tabListShellStyle = embeddedInCareerShell
-    ? { backgroundColor: 'rgba(255,255,255,0.06)' }
-    : { backgroundColor: 'rgba(255,255,255,0.03)' };
-
   return (
-    <div
-      className={tabListShellClassName}
-      style={tabListShellStyle}
-      role="tablist"
-      aria-label="커리어 탭 전환"
-    >
-      {CAREER_PAGE_TABS.map((tab) => {
-        const isActive = activeTab === tab.id;
-
-        return (
-          <button
-            key={tab.id}
-            onClick={() => onTabChange(tab.id)}
-            className="flex items-center justify-center gap-1.5 py-2.5 rounded-none text-xs font-bold transition-all"
-            style={
-              isActive
-                ? {
-                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                    color: '#fff',
-                    boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
-                  }
-                : {
-                    backgroundColor: 'rgba(255,255,255,0.04)',
-                    color: 'rgba(255,255,255,0.65)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }
-            }
-            role="tab"
-            aria-selected={isActive}
-            aria-current={isActive ? 'page' : undefined}
-          >
-            <span>{tab.emoji}</span>
-            <span>{tab.label}</span>
-          </button>
-        );
-      })}
-    </div>
+    <GradientSegmentedTabBar
+      tabs={CAREER_PAGE_TABS.map((tab) => ({ id: tab.id, label: tab.label, emoji: tab.emoji }))}
+      activeTab={activeTab}
+      onTabChange={onTabChange}
+      embeddedInSectionShell={embeddedInCareerShell}
+      ariaLabel="커리어 탭 전환"
+    />
   );
 }

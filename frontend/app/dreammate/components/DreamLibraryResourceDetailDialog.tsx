@@ -7,12 +7,15 @@ import type { DreamResource, DreamResourceComment } from '../types';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
 import { DreamLibraryMarkdownViewer } from './DreamLibraryMarkdownViewer';
 
+type DreamLibraryResourceDetailVariant = 'dialog' | 'inline';
+
 interface DreamLibraryResourceDetailDialogProps {
   resource: DreamResource;
   comments: DreamResourceComment[];
   isLiked: boolean;
   isBookmarked: boolean;
   canManage: boolean;
+  variant?: DreamLibraryResourceDetailVariant;
   onClose: () => void;
   onToggleLike: () => void;
   onToggleBookmark: () => void;
@@ -34,6 +37,7 @@ export function DreamLibraryResourceDetailDialog({
   isLiked,
   isBookmarked,
   canManage,
+  variant = 'dialog',
   onClose,
   onToggleLike,
   onToggleBookmark,
@@ -66,14 +70,29 @@ export function DreamLibraryResourceDetailDialog({
     };
   }, [showActionMenu]);
 
+  const isInlineVariant = variant === 'inline';
+
+  const wrapperClass = isInlineVariant
+    ? 'w-full flex flex-col min-h-0'
+    : 'fixed inset-0 z-50 flex items-end justify-center';
+
+  const innerClass = isInlineVariant
+    ? 'relative w-full flex flex-col min-h-0 overflow-y-auto'
+    : 'relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto';
+
+  const innerStyle = isInlineVariant
+    ? { backgroundColor: 'transparent' }
+    : { backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 70px)', marginBottom: 80 };
+
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
-      <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 70px)', marginBottom: 80 }}
-      >
-        <div className="sticky top-0 z-10 px-5 pt-5 pb-4" style={{ backgroundColor: 'rgba(18,18,42,0.92)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+    <div className={wrapperClass}>
+      {!isInlineVariant && (
+        <>
+          <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
+        </>
+      )}
+      <div className={innerClass} style={innerStyle}>
+        <div className="sticky top-0 z-10 px-5 pt-5 pb-4" style={{ backgroundColor: isInlineVariant ? 'transparent' : 'rgba(18,18,42,0.92)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <span
@@ -116,9 +135,11 @@ export function DreamLibraryResourceDetailDialog({
                   )}
                 </div>
               )}
-              <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                <X className="w-4 h-4 text-gray-400" />
-              </button>
+              {!isInlineVariant && (
+                <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+                  <X className="w-4 h-4 text-gray-400" />
+                </button>
+              )}
             </div>
           </div>
         </div>

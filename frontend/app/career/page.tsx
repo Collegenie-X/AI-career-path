@@ -13,6 +13,7 @@ import { CareerTabBar } from './components/CareerTabBar';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { SECTION_SHELL_FRAME_STYLE } from '@/components/section-shell/section-shell-layout.constants';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
@@ -177,7 +178,7 @@ function CareerPageContent() {
   return (
     <div
       className="min-h-screen pb-12 relative"
-      style={{ backgroundColor: '#0a0a1e' }}
+      style={{ backgroundColor: 'rgb(var(--background))' }}
     >
       <StarField />
       <CareerPageHeader
@@ -192,11 +193,7 @@ function CareerPageContent() {
       <div className="web-container relative z-10 py-4 md:py-6 rounded-3xl">
         <div
           className="rounded-none border border-t-0 border-x border-b overflow-hidden"
-          style={{
-            borderColor: 'rgba(255,255,255,0.12)',
-            background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
-            boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
-          }}
+          style={SECTION_SHELL_FRAME_STYLE}
         >
           <div
             className="border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5"
@@ -355,7 +352,7 @@ export default function CareerPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'rgb(var(--background))' }}>
           <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
         </div>
       }

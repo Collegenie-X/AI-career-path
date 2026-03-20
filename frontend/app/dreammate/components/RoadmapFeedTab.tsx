@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Search, Globe, Bookmark } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
-import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
-import { PERIOD_FILTERS, DREAM_ITEM_TYPES, LABELS } from '../config';
+import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
+import { PERIOD_FILTERS, DREAM_ITEM_TYPES, DREAM_LIST_ITEMS_PER_PAGE, LABELS } from '../config';
+import { ListPagination } from './ListPagination';
 import type { SharedRoadmap, DreamSpace, RoadmapShareChannel } from '../types';
 import { RoadmapListRow } from './RoadmapListRow';
 import { RoadmapDetailDialog } from './RoadmapDetailDialog';
@@ -85,7 +86,14 @@ export function RoadmapFeedTab({
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
+  const [bookmarkedPage, setBookmarkedPage] = useState(1);
+  const [mySharedPage, setMySharedPage] = useState(1);
+  const [feedListPage, setFeedListPage] = useState(1);
   const normalizedSearchQuery = searchQuery.trim().toLowerCase();
+
+  useEffect(() => {
+    setFeedListPage(1);
+  }, [periodFilter, typeFilter, searchQuery]);
 
   const selectedRoadmap = useMemo(
     () => roadmaps.find(rm => rm.id === selectedRoadmapId) ?? null,
@@ -162,6 +170,21 @@ export function RoadmapFeedTab({
     });
   }, [filtered, bookmarkedIds]);
 
+  const paginatedBookmarked = useMemo(() => {
+    const start = (bookmarkedPage - 1) * DREAM_LIST_ITEMS_PER_PAGE;
+    return bookmarkedRoadmaps.slice(start, start + DREAM_LIST_ITEMS_PER_PAGE);
+  }, [bookmarkedRoadmaps, bookmarkedPage]);
+
+  const paginatedMyShared = useMemo(() => {
+    const start = (mySharedPage - 1) * DREAM_LIST_ITEMS_PER_PAGE;
+    return mySharedRoadmaps.slice(start, start + DREAM_LIST_ITEMS_PER_PAGE);
+  }, [mySharedRoadmaps, mySharedPage]);
+
+  const paginatedFeedList = useMemo(() => {
+    const start = (feedListPage - 1) * DREAM_LIST_ITEMS_PER_PAGE;
+    return sortedRoadmaps.slice(start, start + DREAM_LIST_ITEMS_PER_PAGE);
+  }, [sortedRoadmaps, feedListPage]);
+
   const listColumnInner = (
     <div className="space-y-4 pb-4">
       <div className="flex items-start justify-between gap-2">
@@ -188,7 +211,7 @@ export function RoadmapFeedTab({
           }
         >
           <div className="space-y-2">
-            {bookmarkedRoadmaps.map(rm => (
+            {paginatedBookmarked.map(rm => (
               <RoadmapListRow
                 key={rm.id}
                 roadmap={rm}
@@ -197,6 +220,11 @@ export function RoadmapFeedTab({
               />
             ))}
           </div>
+          <ListPagination
+            totalItems={bookmarkedRoadmaps.length}
+            currentPage={bookmarkedPage}
+            onPageChange={setBookmarkedPage}
+          />
           <div className="mt-3 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
         </AccordionSection>
       )}
@@ -213,7 +241,7 @@ export function RoadmapFeedTab({
           }
         >
           <div className="space-y-2">
-            {mySharedRoadmaps.map(rm => (
+            {paginatedMyShared.map(rm => (
               <RoadmapListRow
                 key={rm.id}
                 roadmap={rm}
@@ -222,6 +250,11 @@ export function RoadmapFeedTab({
               />
             ))}
           </div>
+          <ListPagination
+            totalItems={mySharedRoadmaps.length}
+            currentPage={mySharedPage}
+            onPageChange={setMySharedPage}
+          />
           <div className="mt-3 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
         </AccordionSection>
       )}
@@ -262,16 +295,23 @@ export function RoadmapFeedTab({
               </div>
             </div>
           ) : (
-            <div className="space-y-2">
-              {sortedRoadmaps.map(rm => (
-                <RoadmapListRow
-                  key={rm.id}
-                  roadmap={rm}
-                  isSelected={selectedRoadmapId === rm.id}
-                  onSelect={() => setSelectedRoadmapId(rm.id)}
-                />
-              ))}
-            </div>
+            <>
+              <div className="space-y-2">
+                {paginatedFeedList.map(rm => (
+                  <RoadmapListRow
+                    key={rm.id}
+                    roadmap={rm}
+                    isSelected={selectedRoadmapId === rm.id}
+                    onSelect={() => setSelectedRoadmapId(rm.id)}
+                  />
+                ))}
+              </div>
+              <ListPagination
+                totalItems={sortedRoadmaps.length}
+                currentPage={feedListPage}
+                onPageChange={setFeedListPage}
+              />
+            </>
           )}
         </div>
       </AccordionSection>
@@ -305,7 +345,7 @@ export function RoadmapFeedTab({
       }
       detailSlot={
         selectedRoadmap ? (
-          <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+          <DetailPanelScrollContainer scrollKey={selectedRoadmapId}>
             <RoadmapDetailDialog
               variant="inline"
               roadmap={selectedRoadmap}
@@ -333,7 +373,7 @@ export function RoadmapFeedTab({
               onCreateComment={(comment, parentId) => detailCallbacks.onCreateComment(selectedRoadmap, comment, parentId)}
               onToggleTodoItem={(itemId, todoId) => detailCallbacks.onToggleTodoItem(selectedRoadmap, itemId, todoId)}
             />
-          </div>
+          </DetailPanelScrollContainer>
         ) : null
       }
     />

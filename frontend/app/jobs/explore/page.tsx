@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import { Star, GraduationCap, School, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { StickySectionPageHeader } from '@/components/section-shell/StickySectionPageHeader';
+import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
+import type { GradientSegmentedTabItem } from '@/components/section-shell/GradientSegmentedTabBar';
 import exploreStar from '@/data/stars/explore-star.json';
 import createStar from '@/data/stars/create-star.json';
 import techStar from '@/data/stars/tech-star.json';
@@ -29,142 +32,68 @@ import type { StarData, Job } from './types';
 
 type ExploreTabId = 'star' | 'admission' | 'university';
 
-const EXPLORE_TABS: { id: ExploreTabId; label: string; icon: React.ReactNode }[] = [
-  { id: 'star',       label: LABELS.explore_tab_star,        icon: <Star className="w-3.5 h-3.5" /> },
-  { id: 'admission',  label: LABELS.explore_tab_admission,   icon: <GraduationCap className="w-3.5 h-3.5" /> },
-  { id: 'university', label: LABELS.explore_tab_university,  icon: <School className="w-3.5 h-3.5" /> },
+const EXPLORE_SEGMENT_TABS: readonly GradientSegmentedTabItem<ExploreTabId>[] = [
+  { id: 'star', label: LABELS.explore_tab_star, icon: <Star className="h-3.5 w-3.5" /> },
+  { id: 'admission', label: LABELS.explore_tab_admission, icon: <GraduationCap className="h-3.5 w-3.5" /> },
+  { id: 'university', label: LABELS.explore_tab_university, icon: <School className="h-3.5 w-3.5" /> },
 ];
 
-/* ── 상단 헤더 (career 페이지의 CareerPageHeader 와 동일 패턴) ── */
-function ExplorePageHeader() {
-  return (
-    <div
-      className="sticky top-0 z-20 px-4"
-      style={{ backgroundColor: 'rgba(10,10,30,0.92)', backdropFilter: 'blur(20px)' }}
-    >
-      <div className="web-container py-4">
-        <div className="flex items-center justify-between gap-4 mb-3 w-full">
-          <div>
-            <h1 className="text-2xl md:text-[30px] font-black tracking-tight bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent drop-shadow-[0_0_18px_rgba(139,92,246,0.35)]">
-              {LABELS.page_title}
-            </h1>
-            <p className="mt-1 inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold text-indigo-200 border border-indigo-400/30 bg-indigo-500/10">
-              {LABELS.page_subtitle}
-            </p>
-          </div>
-          <div
-            className="hidden md:flex items-center gap-2 px-4 py-2 rounded-2xl border"
-            style={{
-              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
-              borderColor: 'rgba(108,92,231,0.4)',
-            }}
-          >
-            <Sparkles className="w-4 h-4 text-purple-400" />
-            <span className="text-[13px] font-bold text-purple-300">8개 별의 직업 세계</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ── 탭 네비게이션 (career 셸 내부 탭바와 동일 패턴) ── */
-function ExploreTabBar({
-  activeTab,
-  onTabChange,
-}: {
-  activeTab: ExploreTabId;
-  onTabChange: (id: ExploreTabId) => void;
-}) {
-  return (
-    <div
-      className="grid gap-1.5 p-1"
-      style={{
-        gridTemplateColumns: `repeat(${EXPLORE_TABS.length}, 1fr)`,
-        backgroundColor: 'rgba(255,255,255,0.06)',
-        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
-      }}
-    >
-      {EXPLORE_TABS.map((tab) => {
-        const isActive = activeTab === tab.id;
-        return (
-          <button
-            key={tab.id}
-            type="button"
-            onClick={() => onTabChange(tab.id)}
-            className="relative flex items-center justify-center gap-1.5 overflow-hidden py-2.5 rounded-md text-xs font-bold"
-            style={{
-              backgroundColor: isActive ? 'transparent' : 'rgba(255,255,255,0.04)',
-              color: isActive ? '#fff' : 'rgba(255,255,255,0.65)',
-              border: isActive ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
-            }}
-            role="tab"
-            aria-selected={isActive}
-          >
-            {isActive && (
-              <motion.div
-                layoutId="jobs-explore-tab-active-pill"
-                className="absolute inset-0 rounded-md"
-                style={{
-                  background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                  boxShadow: '0 4px 20px rgba(108,92,231,0.45), inset 0 1px 0 rgba(255,255,255,0.15)',
-                }}
-                transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-              />
-            )}
-            <span className="relative z-[1] flex items-center justify-center gap-1.5">
-              {tab.icon}
-              <span>{tab.label}</span>
-            </span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-/* ── 히어로 배너 (직업 탐색 탭 전용) ── */
+/* ── 히어로 배너 (직업 탐색 탭 전용) — 패스·실행 히어로와 동일 레이아웃 ── */
 function StarTabHeroBanner() {
+  const accent = '#c4b5fd';
+  const glowTop = '#a855f7';
+  const glowBottom = '#3b82f6';
   return (
     <div
-      className="relative overflow-hidden px-4 py-5 md:px-5 md:py-6 mb-4 md:mb-5"
+      className="relative mb-4 overflow-hidden border-t-0 px-4 py-5 md:mb-5 md:px-5 md:py-6"
       style={{
         background: 'linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)',
+        border: '1.5px solid rgba(108,92,231,0.35)',
       }}
     >
       <div
-        className="absolute -top-8 -right-8 w-40 h-40 rounded-full opacity-20 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }}
+        className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 opacity-20"
+        style={{ background: `radial-gradient(circle, ${glowTop}, transparent)` }}
       />
       <div
-        className="absolute -bottom-6 -left-6 w-28 h-28 rounded-full opacity-15 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }}
+        className="pointer-events-none absolute -bottom-6 -left-6 h-28 w-28 opacity-15"
+        style={{ background: `radial-gradient(circle, ${glowBottom}, transparent)` }}
       />
-      <div className="relative flex items-center justify-between gap-4">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 flex-shrink-0 text-purple-300" />
-            <span className="text-[13px] font-bold text-purple-300">{LABELS.intro_banner_title}</span>
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        <div className="flex min-w-0 flex-1 gap-4">
+          <div
+            className="flex h-14 w-14 flex-shrink-0 items-center justify-center md:h-16 md:w-16"
+            style={{
+              background: 'rgba(0,0,0,0.25)',
+              border: `1px solid ${accent}55`,
+              borderRadius: '0.75rem',
+            }}
+            aria-hidden
+          >
+            <Sparkles className="h-7 w-7 md:h-8 md:w-8" style={{ color: accent }} />
           </div>
-          <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
-            {LABELS.intro_banner_subtitle}{' '}
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-              직업 체험
-            </span>
-          </h2>
-          <p className="text-[13px] text-gray-400 leading-relaxed">
-            {LABELS.intro_banner_description}
-          </p>
+          <div className="min-w-0 flex-1">
+            <p className="mb-1.5 text-[13px] font-bold uppercase tracking-wider" style={{ color: accent }}>
+              {LABELS.intro_banner_title}
+            </p>
+            <h2 className="mb-2 text-xl font-black leading-tight text-white md:text-2xl">
+              {LABELS.intro_banner_subtitle}{' '}
+              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+                {LABELS.intro_banner_highlight}
+              </span>
+            </h2>
+            <p className="max-w-2xl text-[13px] leading-relaxed text-gray-300">{LABELS.intro_banner_description}</p>
+          </div>
         </div>
-        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+        <div className="flex flex-shrink-0 flex-wrap items-center gap-3 sm:gap-4 lg:justify-end">
           <div className="text-center">
-            <div className="text-2xl font-black text-white">8</div>
-            <div className="text-[11px] text-gray-500">직업 세계</div>
+            <div className="text-[15px] font-black text-white">8</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500">직업 세계</div>
           </div>
-          <div className="w-px h-8 bg-white/10" />
+          <div className="hidden h-7 w-px bg-white/10 sm:block" />
           <div className="text-center">
-            <div className="text-2xl font-black text-white">25+</div>
-            <div className="text-[11px] text-gray-500">직업 체험</div>
+            <div className="text-[15px] font-black text-white">25+</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500">직업 체험</div>
           </div>
         </div>
       </div>
@@ -213,24 +142,43 @@ function JobsExploreContent() {
   };
 
   return (
-    <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot} style={{ backgroundColor: '#0a0a1e' }}>
+    <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot} style={{ backgroundColor: 'rgb(var(--background))' }}>
       <StarField />
 
-      {/* ── 상단 헤더 ── */}
-      <ExplorePageHeader />
+      <StickySectionPageHeader
+        title={LABELS.page_title}
+        subtitlePill={LABELS.page_subtitle}
+        rightSlot={
+          <div
+            className="hidden items-center gap-2 rounded-2xl border px-4 py-2 md:flex"
+            style={{
+              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
+              borderColor: 'rgba(108,92,231,0.4)',
+            }}
+          >
+            <Sparkles className="h-4 w-4 text-purple-400" />
+            <span className="text-[13px] font-bold text-purple-300">{LABELS.page_header_trailing_badge}</span>
+          </div>
+        }
+      />
 
-      {/* ── Tab + Content 통합 border 컨테이너 (career 셸과 동일) ── */}
+      {/* ── Tab + Content 통합 border 컨테이너 (career·실행과 동일) ── */}
       <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentShell}>
         <div
           className={EXPLORE_PAGE_LAYOUT_CLASS.contentFrame}
           style={EXPLORE_PAGE_LAYOUT_CLASS.contentFrameStyle}
         >
-          {/* 탭 바 */}
           <div
             className={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationArea}
             style={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationAreaStyle}
           >
-            <ExploreTabBar activeTab={activeTab} onTabChange={handleTabChange} />
+            <GradientSegmentedTabBar
+              tabs={EXPLORE_SEGMENT_TABS}
+              activeTab={activeTab}
+              onTabChange={handleTabChange}
+              embeddedInSectionShell
+              ariaLabel="드림 경험 탭 전환"
+            />
           </div>
 
           {/* 히어로 배너 (직업 탐색 탭만) */}
@@ -333,7 +281,7 @@ function JobsExploreContent() {
 export default function JobsExplorePage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
+      <div className="min-h-screen relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: 'rgb(var(--background))' }}>
         <Sparkles className="w-6 h-6 animate-pulse text-purple-400" />
       </div>
     }>

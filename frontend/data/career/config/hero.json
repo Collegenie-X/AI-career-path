@@ -1,4 +1,9 @@
 {
+  "headlineIcons": {
+    "explore": "BookOpen",
+    "community": "Users",
+    "timeline": "ListChecks"
+  },
   "visualStyles": {
     "explore": {
       "background": "linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)",

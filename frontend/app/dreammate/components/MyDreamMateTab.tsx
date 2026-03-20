@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { useRouter } from 'next/navigation';
 import { Map, Users } from 'lucide-react';
-import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
-import { LABELS } from '../config';
+import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
+import { DREAM_LIST_ITEMS_PER_PAGE, LABELS } from '../config';
+import { ListPagination } from './ListPagination';
 import type { DreamSpace, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { RoadmapListRow } from './RoadmapListRow';
 import { RoadmapDetailDialog } from './RoadmapDetailDialog';
@@ -80,10 +81,14 @@ export function MyDreamMateTab({
   const [subTab, setSubTab] = useState<MySubTab>('roadmaps');
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
   const [selectedSpaceId, setSelectedSpaceId] = useState<string | null>(null);
+  const [roadmapsPage, setRoadmapsPage] = useState(1);
+  const [spacesPage, setSpacesPage] = useState(1);
 
   useEffect(() => {
     setSelectedRoadmapId(null);
     setSelectedSpaceId(null);
+    setRoadmapsPage(1);
+    setSpacesPage(1);
   }, [subTab]);
 
   const selectedRoadmap = useMemo(
@@ -176,22 +181,47 @@ export function MyDreamMateTab({
     </>
   );
 
+  const paginatedMyRoadmaps = useMemo(
+    () =>
+      myRoadmaps.slice(
+        (roadmapsPage - 1) * DREAM_LIST_ITEMS_PER_PAGE,
+        roadmapsPage * DREAM_LIST_ITEMS_PER_PAGE,
+      ),
+    [myRoadmaps, roadmapsPage],
+  );
+
+  const paginatedJoinedSpaces = useMemo(
+    () =>
+      joinedSpaces.slice(
+        (spacesPage - 1) * DREAM_LIST_ITEMS_PER_PAGE,
+        spacesPage * DREAM_LIST_ITEMS_PER_PAGE,
+      ),
+    [joinedSpaces, spacesPage],
+  );
+
   const roadmapsListInner = (
     <div className="space-y-4 pb-4">
       {headerBlock}
       {myRoadmaps.length === 0 ? (
         <EmptyState emoji="🗺️" title={LABELS.myPlanEmptyTitle} desc={LABELS.myPlanEmptyDesc} />
       ) : (
-        <div className="space-y-2">
-          {myRoadmaps.map((rm) => (
-            <RoadmapListRow
-              key={rm.id}
-              roadmap={rm}
-              isSelected={selectedRoadmapId === rm.id}
-              onSelect={() => setSelectedRoadmapId(rm.id)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-2">
+            {paginatedMyRoadmaps.map((rm) => (
+              <RoadmapListRow
+                key={rm.id}
+                roadmap={rm}
+                isSelected={selectedRoadmapId === rm.id}
+                onSelect={() => setSelectedRoadmapId(rm.id)}
+              />
+            ))}
+          </div>
+          <ListPagination
+            totalItems={myRoadmaps.length}
+            currentPage={roadmapsPage}
+            onPageChange={setRoadmapsPage}
+          />
+        </>
       )}
     </div>
   );
@@ -202,18 +232,25 @@ export function MyDreamMateTab({
       {joinedSpaces.length === 0 ? (
         <EmptyState emoji="🤝" title="참여 중인 스페이스가 없어요" desc="스페이스 탭에서 참여해 보세요" />
       ) : (
-        <div className="space-y-2">
-          {joinedSpaces.map((space) => (
-            <SpaceCard
-              key={space.id}
-              space={space}
-              roadmapCount={allRoadmaps.filter((rm) => (rm.groupIds ?? []).includes(space.id)).length}
-              isJoined
-              isSelected={selectedSpaceId === space.id}
-              onOpen={() => setSelectedSpaceId(space.id)}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-2">
+            {paginatedJoinedSpaces.map((space) => (
+              <SpaceCard
+                key={space.id}
+                space={space}
+                roadmapCount={allRoadmaps.filter((rm) => (rm.groupIds ?? []).includes(space.id)).length}
+                isJoined
+                isSelected={selectedSpaceId === space.id}
+                onOpen={() => setSelectedSpaceId(space.id)}
+              />
+            ))}
+          </div>
+          <ListPagination
+            totalItems={joinedSpaces.length}
+            currentPage={spacesPage}
+            onPageChange={setSpacesPage}
+          />
+        </>
       )}
     </div>
   );
@@ -231,7 +268,7 @@ export function MyDreamMateTab({
           listSlot={<div className={listColumnShellClass} style={listColumnShellStyle}>{roadmapsListInner}</div>}
           detailSlot={
             selectedRoadmap ? (
-              <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+              <DetailPanelScrollContainer scrollKey={selectedRoadmapId}>
                 <RoadmapDetailDialog
                   variant="inline"
                   roadmap={selectedRoadmap}
@@ -258,7 +295,7 @@ export function MyDreamMateTab({
                   }
                   onToggleTodoItem={(itemId, todoId) => onToggleTodoItem(selectedRoadmap.id, itemId, todoId)}
                 />
-              </div>
+              </DetailPanelScrollContainer>
             ) : null
           }
         />
@@ -273,7 +310,7 @@ export function MyDreamMateTab({
           listSlot={<div className={listColumnShellClass} style={listColumnShellStyle}>{spacesListInner}</div>}
           detailSlot={
             selectedSpace ? (
-              <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+              <DetailPanelScrollContainer scrollKey={selectedSpaceId}>
                 <SpaceDetailView
                   layoutVariant="sidePanel"
                   currentUserId={currentUserId}
@@ -304,7 +341,7 @@ export function MyDreamMateTab({
                   onCreateNotice={onCreateSpaceNotice}
                   onBack={() => setSelectedSpaceId(null)}
                 />
-              </div>
+              </DetailPanelScrollContainer>
             ) : null
           }
         />

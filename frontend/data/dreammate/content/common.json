@@ -1,7 +1,12 @@
 {
+  "paginationPrevLabel":  "이전",
+  "paginationNextLabel":  "다음",
+  "paginationPageInfo":  "{{current}} / {{total}} 페이지",
+  "paginationItemsInfo": "{{start}}-{{end}} / {{total}}개",
   "likeLabel":             "좋아요",
   "bookmarkLabel":         "북마크",
   "editButtonLabel":       "수정",
+  "roadmapEditButtonLabel": "수정하기",
   "deleteButtonLabel":     "삭제",
   "cancelButtonLabel":     "취소",
   "deleteConfirmButtonLabel": "삭제 확인",

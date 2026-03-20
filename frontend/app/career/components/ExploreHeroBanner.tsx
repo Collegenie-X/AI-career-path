@@ -34,6 +34,17 @@ const ICON_MAP: Record<string, ComponentType<{ className?: string; style?: CSSPr
   Share2,
   Star,
   ListChecks,
+  Sparkles,
+};
+
+const HEADLINE_ICON_MAP: Record<string, ComponentType<{ className?: string; style?: CSSProperties }>> = {
+  BookOpen,
+  Users,
+  ListChecks,
+  Sparkles,
+  Compass,
+  Share2,
+  Star,
 };
 
 function getHeroStatItems({
@@ -46,7 +57,7 @@ function getHeroStatItems({
   totalMyPublicPlans,
 }: Omit<ExploreHeroBannerProps, 'onNewPath' | 'embeddedInCareerShell'>): readonly HeroStatItem[] {
   const statConfig = HERO_CONFIG.statIcons[activeTab] ?? [];
-  
+
   const valueMap: Record<string, number> = {
     totalTemplateCount,
     totalUses,
@@ -90,14 +101,18 @@ export function ExploreHeroBanner({
 
   if (!visualStyle) return null;
 
+  const headlineIconName = HERO_CONFIG.headlineIcons[activeTab] ?? 'Sparkles';
+  const HeadlineIcon = HEADLINE_ICON_MAP[headlineIconName] ?? Sparkles;
+
   const heroSurfaceClassName = embeddedInCareerShell
     ? 'relative overflow-hidden px-4 py-5 md:px-5 md:py-6 mb-4 md:mb-5'
     : 'relative overflow-hidden px-6 py-6 mb-5';
 
   const heroSurfaceStyle = embeddedInCareerShell
-    ? { 
+    ? {
         background: visualStyle.background,
         borderRadius: HERO_CONFIG.borderRadius.container,
+        border: visualStyle.border,
       }
     : {
         background: visualStyle.background,
@@ -108,76 +123,88 @@ export function ExploreHeroBanner({
   return (
     <div className={heroSurfaceClassName} style={heroSurfaceStyle}>
       <div
-        className="absolute -top-8 -right-8 w-40 h-40 opacity-20 pointer-events-none"
-        style={{ 
+        className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 opacity-20"
+        style={{
           background: `radial-gradient(circle, ${visualStyle.glowTopColor}, transparent)`,
           borderRadius: HERO_CONFIG.borderRadius.glowCircle,
         }}
       />
       <div
-        className="absolute -bottom-6 -left-6 w-28 h-28 opacity-15 pointer-events-none"
-        style={{ 
+        className="pointer-events-none absolute -bottom-6 -left-6 h-28 w-28 opacity-15"
+        style={{
           background: `radial-gradient(circle, ${visualStyle.glowBottomColor}, transparent)`,
           borderRadius: HERO_CONFIG.borderRadius.glowCircle,
         }}
       />
 
-      <div className="relative flex items-center justify-between gap-6">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-2">
-            <Sparkles className="w-4 h-4 flex-shrink-0" style={{ color: visualStyle.accentColor }} />
-            <span className="text-[13px] font-bold" style={{ color: visualStyle.accentColor }}>
-              {heroContent.eyebrow}
-            </span>
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        <div className="flex min-w-0 flex-1 gap-4">
+          <div
+            className="flex h-14 w-14 flex-shrink-0 items-center justify-center md:h-16 md:w-16"
+            style={{
+              background: 'rgba(0,0,0,0.25)',
+              border: `1px solid ${visualStyle.accentColor}55`,
+              borderRadius: '0.75rem',
+            }}
+            aria-hidden
+          >
+            <HeadlineIcon className="h-7 w-7 md:h-8 md:w-8" style={{ color: visualStyle.accentColor }} />
           </div>
-          <h2 className="text-2xl font-black text-white leading-tight mb-1.5">
-            {heroContent.title}{' '}
-            <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-              {heroContent.highlightText}
-            </span>
-          </h2>
-          <p className="text-[13px] text-gray-400 leading-relaxed">
-            {heroContent.description}
-          </p>
+          <div className="min-w-0 flex-1">
+            <p
+              className="mb-1.5 text-[13px] font-bold uppercase tracking-wider"
+              style={{ color: visualStyle.accentColor }}
+            >
+              {heroContent.eyebrow}
+            </p>
+            <h2 className="mb-2 text-xl font-black leading-tight text-white md:text-2xl">
+              {heroContent.title}{' '}
+              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+                {heroContent.highlightText}
+              </span>
+            </h2>
+            <p className="max-w-2xl text-[13px] leading-relaxed text-gray-300">{heroContent.description}</p>
+          </div>
         </div>
 
-        <div className="flex flex-col items-end gap-4 flex-shrink-0">
+        <div className="flex flex-col gap-4 lg:flex-shrink-0 lg:items-end">
           <button
+            type="button"
             onClick={onNewPath}
-            className="flex items-center gap-2 px-4 py-2.5 font-bold text-[13px] text-white transition-all active:scale-95 hover:scale-105"
+            className="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 text-[13px] font-bold text-white transition-all active:scale-[0.99] sm:w-auto lg:justify-end"
             style={{
               background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
               boxShadow: '0 4px 16px rgba(108,92,231,0.55)',
               borderRadius: HERO_CONFIG.borderRadius.ctaButton,
             }}
           >
-            <Plus className="w-4 h-4" />
+            <Plus className="h-4 w-4" />
             {heroContent.ctaLabel}
           </button>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:justify-end">
             {heroStats.map((heroStat, heroStatIndex) => {
               const IconComponent = heroStat.icon;
               const isLast = heroStatIndex === heroStats.length - 1;
 
               return (
-                <div key={`${heroStat.label}-${heroStatIndex}`} className="flex items-center gap-4">
+                <div key={`${heroStat.label}-${heroStatIndex}`} className="flex items-center gap-3 sm:gap-4">
                   <div className="flex items-center gap-1.5">
                     <div
-                      className="w-8 h-8 flex items-center justify-center"
-                      style={{ 
+                      className="flex h-8 w-8 items-center justify-center"
+                      style={{
                         backgroundColor: heroStat.iconBackground,
                         borderRadius: HERO_CONFIG.borderRadius.statIcon,
                       }}
                     >
-                      <IconComponent className="w-4 h-4" style={{ color: heroStat.iconColor }} />
+                      <IconComponent className="h-4 w-4" style={{ color: heroStat.iconColor }} />
                     </div>
                     <div>
                       <div className="text-[15px] font-black text-white">{heroStat.value}</div>
-                      <div className="text-[12px] text-gray-500 -mt-0.5">{heroStat.label}</div>
+                      <div className="-mt-0.5 text-[13px] text-gray-500">{heroStat.label}</div>
                     </div>
                   </div>
-                  {!isLast ? <div className="w-px h-7 bg-white/10" /> : null}
+                  {!isLast ? <div className="hidden h-7 w-px bg-white/10 sm:block" /> : null}
                 </div>
               );
             })}

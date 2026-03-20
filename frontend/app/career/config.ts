@@ -157,6 +157,7 @@ export const CAREER_TAB_HERO_CONTENT: Record<CareerPageTabId, CareerTabHeroConte
 };
 
 export const HERO_CONFIG = heroConfig as {
+  readonly headlineIcons: Record<string, string>;
   readonly visualStyles: Record<string, {
     background: string;
     border: string;
