@@ -3,6 +3,8 @@
   "spaceSubtitle":                     "프로젝트팀·스터디 그룹 생성하고, 함께 만들어 봐요.",
   "spaceEmpty":                        "아직 참여한 그룹이 없어요",
   "spaceEmptyDesc":                    "새 그룹을  만들거나 초대 코드로 참여하세요",
+  "spaceDetailEmptyTitle":             "그룹을 선택하세요",
+  "spaceDetailEmptySub":               "왼쪽 목록에서 참여 중인 그룹을 클릭하면 상세가 여기에 표시됩니다",
   "createSpaceButton":                 "새 그룹",
   "joinByCodeButton":                  "코드로 참여하기",
   "spaceNoticeTitle":                  "운영 공지",

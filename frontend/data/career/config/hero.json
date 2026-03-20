@@ -1,0 +1,102 @@
+{
+  "visualStyles": {
+    "explore": {
+      "background": "linear-gradient(135deg, rgba(108,92,231,0.28) 0%, rgba(168,85,247,0.18) 50%, rgba(59,130,246,0.12) 100%)",
+      "border": "1.5px solid rgba(108,92,231,0.35)",
+      "glowTopColor": "#a855f7",
+      "glowBottomColor": "#3b82f6",
+      "accentColor": "#a78bfa"
+    },
+    "community": {
+      "background": "linear-gradient(135deg, rgba(34,197,94,0.20) 0%, rgba(20,184,166,0.16) 55%, rgba(59,130,246,0.12) 100%)",
+      "border": "1.5px solid rgba(45,212,191,0.35)",
+      "glowTopColor": "#14b8a6",
+      "glowBottomColor": "#22c55e",
+      "accentColor": "#5eead4"
+    },
+    "timeline": {
+      "background": "linear-gradient(135deg, rgba(59,130,246,0.22) 0%, rgba(14,165,233,0.16) 50%, rgba(108,92,231,0.15) 100%)",
+      "border": "1.5px solid rgba(59,130,246,0.35)",
+      "glowTopColor": "#0ea5e9",
+      "glowBottomColor": "#6c5ce7",
+      "accentColor": "#7dd3fc"
+    }
+  },
+  "statIcons": {
+    "explore": [
+      {
+        "icon": "BookOpen",
+        "valueKey": "totalTemplateCount",
+        "label": "커리어 패스",
+        "iconBackground": "rgba(108,92,231,0.25)",
+        "iconColor": "#a78bfa"
+      },
+      {
+        "icon": "Compass",
+        "value": "8",
+        "label": "왕국",
+        "iconBackground": "rgba(59,130,246,0.2)",
+        "iconColor": "#60a5fa"
+      },
+      {
+        "icon": "Users",
+        "valueKey": "totalUses",
+        "label": "총 사용",
+        "iconBackground": "rgba(34,197,94,0.18)",
+        "iconColor": "#4ade80"
+      }
+    ],
+    "community": [
+      {
+        "icon": "Share2",
+        "valueKey": "totalCommunitySharedPlans",
+        "label": "공유 패스",
+        "iconBackground": "rgba(20,184,166,0.2)",
+        "iconColor": "#5eead4"
+      },
+      {
+        "icon": "Users",
+        "valueKey": "totalCommunityGroups",
+        "label": "그룹",
+        "iconBackground": "rgba(34,197,94,0.2)",
+        "iconColor": "#86efac"
+      },
+      {
+        "icon": "Star",
+        "valueKey": "totalMyPublicPlans",
+        "label": "내 공개",
+        "iconBackground": "rgba(59,130,246,0.2)",
+        "iconColor": "#93c5fd"
+      }
+    ],
+    "timeline": [
+      {
+        "icon": "ListChecks",
+        "valueKey": "totalMyPlans",
+        "label": "내 패스",
+        "iconBackground": "rgba(59,130,246,0.2)",
+        "iconColor": "#93c5fd"
+      },
+      {
+        "icon": "Share2",
+        "valueKey": "totalMyPublicPlans",
+        "label": "공개중",
+        "iconBackground": "rgba(108,92,231,0.25)",
+        "iconColor": "#c4b5fd"
+      },
+      {
+        "icon": "BookOpen",
+        "valueKey": "totalTemplateCount",
+        "label": "참고 템플릿",
+        "iconBackground": "rgba(14,165,233,0.2)",
+        "iconColor": "#7dd3fc"
+      }
+    ]
+  },
+  "borderRadius": {
+    "container": "0px",
+    "statIcon": "0.5rem",
+    "ctaButton": "0.75rem",
+    "glowCircle": "9999px"
+  }
+}

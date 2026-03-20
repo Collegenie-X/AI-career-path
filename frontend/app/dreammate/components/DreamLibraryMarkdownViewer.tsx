@@ -58,7 +58,7 @@ function MermaidBlock({ chartDefinition }: MermaidBlockProps) {
   }, [chartDefinition, mermaidChartId]);
 
   if (renderErrorMessage) {
-    return <p className="text-xs text-red-300">{renderErrorMessage}</p>;
+    return <p className="text-sm text-red-300">{renderErrorMessage}</p>;
   }
 
   return (
@@ -75,7 +75,7 @@ interface DreamLibraryMarkdownViewerProps {
 
 export function DreamLibraryMarkdownViewer({ markdownContent }: DreamLibraryMarkdownViewerProps) {
   return (
-    <div className="prose prose-invert prose-sm max-w-none prose-p:text-gray-200 prose-strong:text-white prose-headings:text-white prose-code:text-indigo-200 prose-pre:bg-black/40 prose-a:text-violet-300">
+    <div className="prose prose-invert prose-base max-w-none prose-p:text-gray-200 prose-strong:text-white prose-headings:text-white prose-code:text-indigo-200 prose-pre:bg-black/40 prose-a:text-violet-300">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{

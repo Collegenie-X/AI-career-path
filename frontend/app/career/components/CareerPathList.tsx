@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
-import { Globe, Sparkles } from 'lucide-react';
+import { Bookmark, Globe, Sparkles } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import communityData from '@/data/share-community.json';
-import { CareerPathDetailDialog } from './CareerPathDetailDialog';
+import { LABELS } from '../config';
+import { CareerPathDetailPanel } from './CareerPathDetailPanel';
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan, UserReactionState } from './community/types';
 import {
@@ -194,16 +196,15 @@ export function CareerPathList({
     }
   };
 
-  /* When detail dialog closes, re-sync template bookmarks (dialog also writes to localStorage) */
+  /* 상세 패널 닫기 — 북마크 동기화 (패널과 동일 localStorage 키) */
   const handleDetailClose = useCallback(() => {
     setTemplateBookmarkIds(loadTemplateBookmarkIds());
     handleSelectTemplate(null);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isControlled, onSelectTemplate]);
 
-  return (
-    <>
-      <div className="space-y-4 pb-4">
+  const exploreListColumn = (
+    <div className="space-y-4 pb-4">
 
         {/* ── 즐겨찾기 섹션 (아코디언) ── */}
         {totalBookmarkCount > 0 && (
@@ -309,16 +310,37 @@ export function CareerPathList({
             </div>
           )}
         </AccordionSection>
-      </div>
+    </div>
+  );
 
-      {/* Detail dialog — controlled 모드에서는 부모가 패널로 렌더링하므로 Dialog 숨김 */}
-      {!isControlled && selectedTemplate && (
-        <CareerPathDetailDialog
-          template={selectedTemplate}
-          onClose={handleDetailClose}
-          onUseTemplate={handleUseTemplate}
-        />
-      )}
-    </>
+  /* controlled: 부모가 오른쪽 패널을 렌더링 — 여기서는 목록만 */
+  if (isControlled) {
+    return exploreListColumn;
+  }
+
+  const emptyDetailTitle = String(LABELS.explore_detail_empty_title ?? '커리어 패스를 선택하세요');
+  const emptyDetailSub = String(
+    LABELS.explore_detail_empty_sub ?? '왼쪽 목록에서 패스를 누르면 상세 설명이 여기에 표시됩니다',
+  );
+
+  return (
+    <TwoColumnPanelLayout
+      hasSelection={selectedTemplate !== null}
+      onClearSelection={handleDetailClose}
+      emptyPlaceholderText={emptyDetailTitle}
+      emptyPlaceholderSubText={emptyDetailSub}
+      listSlot={exploreListColumn}
+      detailSlot={
+        selectedTemplate ? (
+          <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+            <CareerPathDetailPanel
+              template={selectedTemplate}
+              onClose={handleDetailClose}
+              onUseTemplate={handleUseTemplate}
+            />
+          </div>
+        ) : null
+      }
+    />
   );
 }

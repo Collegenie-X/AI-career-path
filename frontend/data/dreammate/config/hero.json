@@ -1,0 +1,167 @@
+{
+  "copyByTab": {
+    "feed": {
+      "headlineIcon": "Calendar",
+      "eyebrow": "주간 실행 피드",
+      "title": "다른 사람들의 실행을",
+      "highlight": "참고하고 동기부여 받으세요",
+      "description": "공유된 실행계획을 살펴보고 주차별 진행 과정을 확인하세요. 북마크와 좋아요로 응원하고 댓글로 피드백을 나눠요.",
+      "cta": "실행계획 만들기"
+    },
+    "my": {
+      "headlineIcon": "ClipboardList",
+      "eyebrow": "내 실행 대시보드",
+      "title": "내 실행계획을",
+      "highlight": "체계적으로 관리하세요",
+      "description": "내가 만든 실행계획과 참여 중인 그룹을 한눈에 확인하고, 주차별 진행 상황을 점검하세요.",
+      "cta": "새 실행계획"
+    },
+    "space": {
+      "headlineIcon": "Users",
+      "eyebrow": "드림 스페이스",
+      "title": "함께 실행하는",
+      "highlight": "그룹 공간",
+      "description": "프로젝트팀·스터디 그룹을 만들고 함께 실행계획을 공유하세요. 초대 코드로 멤버를 초대하고 공동 목표를 달성해요.",
+      "cta": "새 그룹 만들기"
+    },
+    "library": {
+      "headlineIcon": "BookOpen",
+      "eyebrow": "드림 라이브러리",
+      "title": "학습 자료를",
+      "highlight": "함께 만들어요",
+      "description": "탐구 보고서·프로젝트 템플릿·학습 가이드를 공유하고, 댓글로 피드백을 주고받으세요.",
+      "cta": "자료 올리기"
+    }
+  },
+  "visualStyles": {
+    "feed": {
+      "background": "linear-gradient(135deg, rgba(168,85,247,0.28) 0%, rgba(139,92,246,0.18) 50%, rgba(99,102,241,0.12) 100%)",
+      "border": "1.5px solid rgba(139,92,246,0.35)",
+      "glowTopColor": "#a855f7",
+      "glowBottomColor": "#6366f1",
+      "accentColor": "#c4b5fd"
+    },
+    "my": {
+      "background": "linear-gradient(135deg, rgba(59,130,246,0.22) 0%, rgba(14,165,233,0.16) 50%, rgba(108,92,231,0.15) 100%)",
+      "border": "1.5px solid rgba(59,130,246,0.35)",
+      "glowTopColor": "#0ea5e9",
+      "glowBottomColor": "#6c5ce7",
+      "accentColor": "#7dd3fc"
+    },
+    "space": {
+      "background": "linear-gradient(135deg, rgba(34,197,94,0.20) 0%, rgba(20,184,166,0.16) 55%, rgba(59,130,246,0.12) 100%)",
+      "border": "1.5px solid rgba(45,212,191,0.35)",
+      "glowTopColor": "#14b8a6",
+      "glowBottomColor": "#22c55e",
+      "accentColor": "#5eead4"
+    },
+    "library": {
+      "background": "linear-gradient(135deg, rgba(245,158,11,0.22) 0%, rgba(251,191,36,0.16) 50%, rgba(234,179,8,0.12) 100%)",
+      "border": "1.5px solid rgba(251,191,36,0.35)",
+      "glowTopColor": "#fbbf24",
+      "glowBottomColor": "#eab308",
+      "accentColor": "#fde047"
+    }
+  },
+  "statIcons": {
+    "feed": [
+      {
+        "icon": "Share2",
+        "valueKey": "totalRoadmaps",
+        "label": "공유 실행",
+        "iconBackground": "rgba(139,92,246,0.25)",
+        "iconColor": "#c4b5fd"
+      },
+      {
+        "icon": "Bookmark",
+        "valueKey": "totalBookmarkedRoadmaps",
+        "label": "북마크",
+        "iconBackground": "rgba(251,191,36,0.2)",
+        "iconColor": "#fde047"
+      },
+      {
+        "icon": "Target",
+        "valueKey": "totalMySharedRoadmaps",
+        "label": "내 공유",
+        "iconBackground": "rgba(34,197,94,0.2)",
+        "iconColor": "#86efac"
+      }
+    ],
+    "my": [
+      {
+        "icon": "ListChecks",
+        "valueKey": "totalMyRoadmaps",
+        "label": "내 실행",
+        "iconBackground": "rgba(59,130,246,0.2)",
+        "iconColor": "#93c5fd"
+      },
+      {
+        "icon": "Share2",
+        "valueKey": "totalMySharedRoadmaps",
+        "label": "공개중",
+        "iconBackground": "rgba(108,92,231,0.25)",
+        "iconColor": "#c4b5fd"
+      },
+      {
+        "icon": "Users",
+        "valueKey": "totalJoinedSpaces",
+        "label": "참여 그룹",
+        "iconBackground": "rgba(20,184,166,0.2)",
+        "iconColor": "#5eead4"
+      }
+    ],
+    "space": [
+      {
+        "icon": "Users",
+        "valueKey": "totalSpaces",
+        "label": "전체 그룹",
+        "iconBackground": "rgba(20,184,166,0.2)",
+        "iconColor": "#5eead4"
+      },
+      {
+        "icon": "Target",
+        "valueKey": "totalJoinedSpaces",
+        "label": "참여중",
+        "iconBackground": "rgba(34,197,94,0.2)",
+        "iconColor": "#86efac"
+      },
+      {
+        "icon": "Share2",
+        "valueKey": "totalRoadmaps",
+        "label": "공유 실행",
+        "iconBackground": "rgba(59,130,246,0.2)",
+        "iconColor": "#93c5fd"
+      }
+    ],
+    "library": [
+      {
+        "icon": "FileText",
+        "valueKey": "totalResources",
+        "label": "자료",
+        "iconBackground": "rgba(251,191,36,0.25)",
+        "iconColor": "#fde047"
+      },
+      {
+        "icon": "Users",
+        "value": "공동",
+        "label": "협업 공간",
+        "iconBackground": "rgba(245,158,11,0.2)",
+        "iconColor": "#fbbf24"
+      },
+      {
+        "icon": "BookOpen",
+        "value": "성장",
+        "label": "함께 학습",
+        "iconBackground": "rgba(234,179,8,0.2)",
+        "iconColor": "#facc15"
+      }
+    ]
+  },
+  "borderRadius": {
+    "container": "0px",
+    "statIcon": "0px",
+    "ctaButton": "0px",
+    "headlineIcon": "0px",
+    "glowBlob": "0px"
+  }
+}

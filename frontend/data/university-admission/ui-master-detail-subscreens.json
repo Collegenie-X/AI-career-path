@@ -1,0 +1,46 @@
+{
+  "backToAdmissionExploreMain": {
+    "label": "대입 탐색",
+    "ariaLabel": "대입 탐색 메인 화면으로 돌아가기"
+  },
+  "planetEntranceButtons": {
+    "strategyHub": {
+      "title": "전략 실행 허브",
+      "subtitle": "학년별 입시 전략·AI 프로젝트·로드맵 가이드"
+    },
+    "careerMajor": {
+      "title": "직업(과)별 대입 준비",
+      "subtitle": "32개 직업별 학과 연계 및 세특 작성 전략"
+    },
+    "developerInstitutions": {
+      "title": "개발자 교육기관",
+      "subtitle": "42서울, SSAFY 등 실전 개발자 양성 교육기관"
+    },
+    "innovativeInstitutions": {
+      "title": "혁신 교육기관",
+      "subtitle": "미네르바 대학·태재대·42 경산 등 新대학 모델"
+    }
+  },
+  "strategyHub": {
+    "listIntroEmoji": "🎯",
+    "listIntroTitle": "전략 실행 허브",
+    "listIntroDescription": "학년별 입시 전략·AI 프로젝트 학습·논문형 활동·로드맵 가이드를 한곳에서 확인하세요. 왼쪽에서 섹션과 학년을 선택하면 상세 실행 가이드가 오른쪽에 표시됩니다.",
+    "emptyDetailTitle": "가이드를 선택하세요",
+    "emptyDetailSubText": "왼쪽 목록에서 섹션과 학년을 선택하면 상세 실행 가이드가 여기에 표시됩니다"
+  },
+  "developerInstitutions": {
+    "emptyDetailTitle": "교육기관을 선택하세요",
+    "emptyDetailSubText": "왼쪽 목록에서 기관을 누르면 상세 정보·커리큘럼·준비 전략이 여기에 표시됩니다"
+  },
+  "innovativeInstitutions": {
+    "listIntroEmoji": "🌐",
+    "listIntroTitle": "혁신 교육기관",
+    "listIntroDescription": "대학 대신, 또는 대학과 함께 선택할 수 있는 새로운 교육 모델입니다. 미네르바 대학·태재대학교·42 경산·POSTECH·KAIST 특수 트랙 — 수능 없이 입학 가능한 경로를 포함합니다.",
+    "emptyDetailTitle": "기관을 선택하세요",
+    "emptyDetailSubText": "왼쪽에서 혁신 교육기관을 선택하면 소개와 진학·진로 정보를 확인할 수 있습니다"
+  },
+  "careerMajor": {
+    "emptyDetailTitle": "직업을 선택하세요",
+    "emptyDetailSubText": "왼쪽에서 직업을 선택하면 세특 예시·입시 전략·대학 정보가 여기에 표시됩니다"
+  }
+}

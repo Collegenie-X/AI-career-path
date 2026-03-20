@@ -74,22 +74,22 @@ function ResourceCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <span
-              className="text-xs font-bold px-1.5 py-0.5 rounded-full"
+              className="text-sm font-bold px-1.5 py-0.5 rounded-full"
               style={{ backgroundColor: `${cat?.color ?? '#6C5CE7'}18`, color: cat?.color ?? '#6C5CE7' }}
             >
               {cat?.label}
             </span>
-            <span className="text-xs text-gray-500">{formatTimeAgo(resource.createdAt)}</span>
+            <span className="text-sm text-gray-500">{formatTimeAgo(resource.createdAt)}</span>
           </div>
           <h4 className="text-sm font-bold text-white mb-1 line-clamp-2">{resource.title}</h4>
-          <p className="text-xs text-gray-400 line-clamp-2 mb-2">{resource.description}</p>
+          <p className="text-sm text-gray-400 line-clamp-2 mb-2">{resource.description}</p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-1 mb-2">
             {resource.tags.slice(0, 4).map(tag => (
               <span
                 key={tag}
-                className="text-xs px-1.5 py-0.5 rounded-md"
+                className="text-sm px-1.5 py-0.5 rounded-md"
                 style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.4)' }}
               >
                 #{tag}
@@ -100,8 +100,8 @@ function ResourceCard({
           {/* Author & actions */}
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
-              <span className="text-xs">{resource.authorEmoji}</span>
-              <span className="text-xs text-gray-400">{resource.authorName}</span>
+              <span className="text-sm">{resource.authorEmoji}</span>
+              <span className="text-sm text-gray-400">{resource.authorName}</span>
             </div>
             <div className="flex items-center gap-3">
               <button
@@ -203,10 +203,10 @@ export function DreamLibraryTab({
       <div>
         <h3 className="text-base font-bold text-white">{LABELS.libraryTitle}</h3>
         <div className="flex items-center justify-between gap-3 mt-1">
-          <p className="text-xs text-gray-500">{LABELS.librarySubtitle}</p>
+          <p className="text-sm text-gray-500">{LABELS.librarySubtitle}</p>
           <button
             onClick={() => setIsCreateDialogOpen(true)}
-            className="h-8 px-3 rounded-lg text-xs font-bold flex items-center gap-1.5"
+            className="h-8 px-3 rounded-lg text-sm font-bold flex items-center gap-1.5"
             style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
           >
             <Plus className="w-3.5 h-3.5" />
@@ -242,10 +242,10 @@ export function DreamLibraryTab({
                 : { backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
             >
               <span className="text-lg">{cat.emoji}</span>
-              <span className="text-xs font-bold" style={{ color: isActive ? cat.color : 'rgba(255,255,255,0.5)' }}>
+              <span className="text-sm font-bold" style={{ color: isActive ? cat.color : 'rgba(255,255,255,0.5)' }}>
                 {cat.label}
               </span>
-              <span className="text-xs text-gray-500">{count}건</span>
+              <span className="text-sm text-gray-500">{count}건</span>
             </button>
           );
         })}
@@ -257,7 +257,7 @@ export function DreamLibraryTab({
           <span className="text-4xl">📚</span>
           <div>
             <p className="text-sm font-bold text-white">{LABELS.libraryEmpty}</p>
-            <p className="text-xs text-gray-400 mt-1">{LABELS.libraryEmptyDesc}</p>
+            <p className="text-sm text-gray-400 mt-1">{LABELS.libraryEmptyDesc}</p>
           </div>
         </div>
       ) : (

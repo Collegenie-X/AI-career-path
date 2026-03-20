@@ -73,7 +73,7 @@ export function RoadmapShareDialog({
     <div className="fixed inset-0 z-[70] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-hidden"
+        className="relative w-full max-w-[645px] rounded-t-3xl overflow-hidden"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)', marginBottom: 56 }}
       >
         <div className="px-5 pt-5 pb-3 flex items-center justify-between">
@@ -106,12 +106,12 @@ export function RoadmapShareDialog({
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <p className="text-xs font-bold text-white">
+                <p className="text-sm font-bold text-white">
                   {ROADMAP_SHARE_VISIBILITY_OPTIONS.find(o => o.id === 'private')?.label ?? '비공개'}
                 </p>
                 {isPrivate && <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />}
               </div>
-              <p className="text-xs text-gray-400 mt-0.5">
+              <p className="text-sm text-gray-400 mt-0.5">
                 {ROADMAP_SHARE_VISIBILITY_OPTIONS.find(o => o.id === 'private')?.description ??
                   '내 활동에서만 보입니다.'}
               </p>
@@ -121,7 +121,7 @@ export function RoadmapShareDialog({
           {/* 구분선 */}
           <div className="flex items-center gap-2 py-1">
             <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
-            <span className="text-[11px] text-gray-600">또는 공유 채널 선택 (복수 가능)</span>
+            <span className="text-[13px] text-gray-600">또는 공유 채널 선택 (복수 가능)</span>
             <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
           </div>
 
@@ -157,14 +157,14 @@ export function RoadmapShareDialog({
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                      <p className="text-xs font-bold text-white">{option.label}</p>
+                      <p className="text-sm font-bold text-white">{option.label}</p>
                       {isActive && !isPublicWithoutResult && (
                         <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />
                       )}
                     </div>
-                    <p className="text-xs text-gray-400 mt-0.5">{option.description}</p>
+                    <p className="text-sm text-gray-400 mt-0.5">{option.description}</p>
                     {isPublicWithoutResult && (
-                      <p className="text-xs text-amber-300 mt-1">
+                      <p className="text-sm text-amber-300 mt-1">
                         {LABELS.sharePublicRequiresResultHint ??
                           '최종 결과물 URL 또는 이미지 URL을 등록하면 전체 공유할 수 있어요.'}
                       </p>

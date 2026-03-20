@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
@@ -12,6 +12,7 @@ import { MyDreamMateTab } from './components/MyDreamMateTab';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
 import { RoadmapShareDialog } from './components/RoadmapShareDialog';
+import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
 import { useDreamMateWorkspaceContext } from './DreamMateWorkspaceProvider';
 import { GroupedTabSelector } from './components/GroupedTabSelector';
 import { getShareChannelsFromRoadmap } from './types';
@@ -45,7 +46,6 @@ function StarField() {
 
 /* ─── Main page content ─── */
 function DreamMatePageContent() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
@@ -68,109 +68,173 @@ function DreamMatePageContent() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen pb-24 relative overflow-hidden w-full max-w-[430px] mx-auto" style={{ backgroundColor: '#0a0a1e' }}>
+    <div className="min-h-screen pb-24 relative overflow-hidden w-full" style={{ backgroundColor: '#0a0a1e' }}>
       <StarField />
 
-      {/* Page header */}
+      {/* Page header — career와 동일 web-container */}
       <div
-        className="sticky top-0 z-20 px-4"
+        className="sticky top-0 z-20"
         style={{ backgroundColor: 'rgba(10,10,30,0.92)', backdropFilter: 'blur(20px)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <div className="flex items-center justify-between py-3">
-          <div>
-            <h1 className="text-xl font-black bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent">
-              {LABELS.pageTitle}
-            </h1>
-            <p className="text-xs text-gray-500">{LABELS.pageSubtitle}</p>
+        <div className="web-container py-4">
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-xl md:text-2xl font-black bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent">
+                {LABELS.pageTitle}
+              </h1>
+              <p className="text-sm text-gray-500">{LABELS.pageSubtitle}</p>
+            </div>
           </div>
-        </div>
 
-        {/* Tab group */}
-        <GroupedTabSelector
-          groupLabel={LABELS.pageTitle}
-          value={activeTab}
-          options={DREAM_TABS}
-          onChange={setActiveTab}
-          containerClassName="pb-0 mb-3"
-        />
+          <GroupedTabSelector
+            groupLabel={LABELS.pageTitle}
+            value={activeTab}
+            options={DREAM_TABS}
+            onChange={setActiveTab}
+            containerClassName="pb-0 mb-3"
+          />
+        </div>
       </div>
 
-      {/* Tab content */}
-      <div className="relative z-10 px-4 pt-4">
-        {!mounted ? null : activeTab === 'feed' ? (
-          <RoadmapFeedTab
-            roadmaps={workspace.visibleRoadmaps}
-            currentUserId={workspace.currentUserId}
-            likedIds={workspace.reactions.likedRoadmapIds}
-            bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
-            likeCounts={workspace.roadmapLikeCounts}
-            bookmarkCounts={workspace.roadmapBookmarkCounts}
-            onToggleLike={workspace.handleToggleRoadmapLike}
-            onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewDetail={(roadmap) => {
-              setSelectedRoadmapOpenedFromTab('feed');
-              workspace.setSelectedRoadmapId(roadmap.id);
-            }}
+      {/* Tab content — career와 동일 web-container + border 프레임 */}
+      <div className="web-container relative z-10 py-4 md:py-6">
+        <div
+          className="rounded-none border border-t-0 border-x border-b overflow-hidden"
+          style={{
+            borderColor: 'rgba(255,255,255,0.12)',
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
+            boxShadow: '0 18px 50px rgba(0,0,0,0.4)',
+          }}
+        >
+          <DreamMateHeroBanner
+            activeTab={activeTab}
             onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
+            onCreateSpace={() => {}}
+            onUploadResource={() => {}}
+            totalRoadmaps={workspace.visibleRoadmaps.length}
+            totalMyRoadmaps={workspace.myRoadmaps.length}
+            totalMySharedRoadmaps={workspace.myRoadmaps.filter((rm) => (rm.shareChannels ?? []).length > 0).length}
+            totalBookmarkedRoadmaps={workspace.visibleRoadmaps.filter((rm) => workspace.reactions.bookmarkedRoadmapIds.includes(rm.id)).length}
+            totalSpaces={workspace.spaces.length}
+            totalJoinedSpaces={workspace.joinedSpaces.length}
+            totalResources={workspace.resources.length}
           />
-        ) : activeTab === 'library' ? (
-          <DreamLibraryTab
-            currentUserId={workspace.currentUserId}
-            resources={workspace.resources}
-            resourceCommentsByResourceId={workspace.resourceCommentsByResourceId}
-            likedResourceIds={workspace.reactions.likedResourceIds}
-            bookmarkedResourceIds={workspace.reactions.bookmarkedResourceIds}
-            onToggleLikeResource={workspace.handleToggleLikeResource}
-            onToggleBookmarkResource={workspace.handleToggleBookmarkResource}
-            onCreateResource={workspace.handleCreateResource}
-            onUpdateResource={workspace.handleUpdateResource}
-            onDeleteResource={workspace.handleDeleteResource}
-            onCreateResourceComment={workspace.handleCreateResourceComment}
-            onReportResource={workspace.handleReportResource}
-          />
-        ) : activeTab === 'space' ? (
-          <DreamSpaceTab
-            currentUserId={workspace.currentUserId}
-            spaces={workspace.spaces}
-            roadmaps={workspace.roadmaps}
-            joinedSpaceIds={workspace.joinedSpaceIds}
-            initialSelectedSpaceId={workspace.pendingSpaceIdFromMyTab}
-            likedIds={workspace.reactions.likedRoadmapIds}
-            bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
-            likeCounts={workspace.roadmapLikeCounts}
-            bookmarkCounts={workspace.roadmapBookmarkCounts}
-            onToggleLike={workspace.handleToggleRoadmapLike}
-            onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewRoadmapDetail={(roadmap) => {
-              setSelectedRoadmapOpenedFromTab('space');
-              workspace.setSelectedRoadmapId(roadmap.id);
-            }}
-            onJoinSpace={workspace.handleJoinSpace}
-            onLeaveSpace={workspace.handleLeaveSpace}
-            onCreateSpace={workspace.handleCreateSpace}
-            onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
-            onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
-          />
-        ) : activeTab === 'my' ? (
-          <MyDreamMateTab
-            myRoadmaps={workspace.myRoadmaps}
-            joinedSpaces={workspace.joinedSpaces}
-            likedIds={workspace.reactions.likedRoadmapIds}
-            bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
-            likeCounts={workspace.roadmapLikeCounts}
-            bookmarkCounts={workspace.roadmapBookmarkCounts}
-            onToggleLike={workspace.handleToggleRoadmapLike}
-            onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-            onViewRoadmapDetail={(roadmap) => {
-              router.push(`/dreammate/roadmap/${roadmap.id}`);
-            }}
-            onGoToSpace={(spaceId) => {
-              workspace.setPendingSpaceIdFromMyTab(spaceId);
-              setActiveTab('space');
-            }}
-            onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
-          />
-        ) : null}
+          <div className="px-4 pb-4 md:px-5 md:pb-5">
+            {!mounted ? null : activeTab === 'feed' ? (
+              <RoadmapFeedTab
+                roadmaps={workspace.visibleRoadmaps}
+                currentUserId={workspace.currentUserId}
+                bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
+                onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
+                availableSpaces={workspace.joinedSpaces}
+                detailCallbacks={{
+                  onUseRoadmap: (roadmap) => {
+                    workspace.handleUseRoadmap(roadmap);
+                    setActiveTab('my');
+                  },
+                  onEdit: (roadmap) => {
+                    workspace.setEditingRoadmapId(roadmap.id);
+                  },
+                  onShare: (roadmap) => {
+                    workspace.setSelectedRoadmapId(roadmap.id);
+                    setShowShareDialog(true);
+                  },
+                  onDelete: (roadmap) => {
+                    workspace.handleDeleteRoadmap(roadmap.id);
+                  },
+                  onShareRoadmap: (roadmap, channels, spaceIds) => {
+                    workspace.handleShareRoadmap(roadmap.id, channels, spaceIds);
+                  },
+                  onReportRoadmap: (roadmap, reasonId, detail) => {
+                    workspace.handleReportRoadmap(roadmap.id, reasonId, detail);
+                  },
+                  onCreateComment: (roadmap, comment, parentId) => {
+                    workspace.handleCreateRoadmapComment(roadmap.id, comment, parentId);
+                  },
+                  onToggleTodoItem: (roadmap, itemId, todoId) => {
+                    workspace.handleToggleTodoItem(roadmap.id, itemId, todoId);
+                  },
+                }}
+                onTabChange={(tabId) => setActiveTab(tabId as DreamTabId)}
+              />
+            ) : activeTab === 'library' ? (
+              <DreamLibraryTab
+                currentUserId={workspace.currentUserId}
+                resources={workspace.resources}
+                resourceCommentsByResourceId={workspace.resourceCommentsByResourceId}
+                likedResourceIds={workspace.reactions.likedResourceIds}
+                bookmarkedResourceIds={workspace.reactions.bookmarkedResourceIds}
+                onToggleLikeResource={workspace.handleToggleLikeResource}
+                onToggleBookmarkResource={workspace.handleToggleBookmarkResource}
+                onCreateResource={workspace.handleCreateResource}
+                onUpdateResource={workspace.handleUpdateResource}
+                onDeleteResource={workspace.handleDeleteResource}
+                onCreateResourceComment={workspace.handleCreateResourceComment}
+                onReportResource={workspace.handleReportResource}
+              />
+            ) : activeTab === 'space' ? (
+              <DreamSpaceTab
+                currentUserId={workspace.currentUserId}
+                spaces={workspace.spaces}
+                roadmaps={workspace.roadmaps}
+                joinedSpaceIds={workspace.joinedSpaceIds}
+                initialSelectedSpaceId={workspace.pendingSpaceIdFromMyTab}
+                likedIds={workspace.reactions.likedRoadmapIds}
+                bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
+                likeCounts={workspace.roadmapLikeCounts}
+                bookmarkCounts={workspace.roadmapBookmarkCounts}
+                onToggleLike={workspace.handleToggleRoadmapLike}
+                onToggleBookmark={workspace.handleToggleRoadmapBookmark}
+                onViewRoadmapDetail={(roadmap) => {
+                  setSelectedRoadmapOpenedFromTab('space');
+                  workspace.setSelectedRoadmapId(roadmap.id);
+                }}
+                onJoinSpace={workspace.handleJoinSpace}
+                onLeaveSpace={workspace.handleLeaveSpace}
+                onCreateSpace={workspace.handleCreateSpace}
+                onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
+                onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
+              />
+            ) : activeTab === 'my' ? (
+              <MyDreamMateTab
+                myRoadmaps={workspace.myRoadmaps}
+                allRoadmaps={workspace.roadmaps}
+                joinedSpaces={workspace.joinedSpaces}
+                currentUserId={workspace.currentUserId}
+                availableSpaces={workspace.joinedSpaces}
+                likedIds={workspace.reactions.likedRoadmapIds}
+                bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
+                likeCounts={workspace.roadmapLikeCounts}
+                bookmarkCounts={workspace.roadmapBookmarkCounts}
+                onToggleLike={workspace.handleToggleRoadmapLike}
+                onToggleBookmark={workspace.handleToggleRoadmapBookmark}
+                onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
+                onEditRoadmap={(roadmapId) => workspace.setEditingRoadmapId(roadmapId)}
+                onDeleteRoadmap={(roadmapId) => workspace.handleDeleteRoadmap(roadmapId)}
+                onRequestShareRoadmap={(roadmap) => {
+                  setSelectedRoadmapOpenedFromTab('my');
+                  workspace.setSelectedRoadmapId(roadmap.id);
+                  setShowShareDialog(true);
+                }}
+                onShareRoadmap={(roadmapId, channels, spaceIds) =>
+                  workspace.handleShareRoadmap(roadmapId, channels, spaceIds)
+                }
+                onReportRoadmap={(roadmapId, reasonId, detail) =>
+                  workspace.handleReportRoadmap(roadmapId, reasonId, detail)
+                }
+                onCreateRoadmapComment={(roadmapId, comment, parentId) =>
+                  workspace.handleCreateRoadmapComment(roadmapId, comment, parentId)
+                }
+                onToggleTodoItem={(roadmapId, itemId, todoId) =>
+                  workspace.handleToggleTodoItem(roadmapId, itemId, todoId)
+                }
+                onLeaveSpace={workspace.handleLeaveSpace}
+                onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
+                onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
+              />
+            ) : null}
+          </div>
+        </div>
       </div>
 
       {workspace.showCreateRoadmapDialog && (
@@ -219,7 +283,7 @@ function DreamMatePageContent() {
         />
       )}
 
-      {workspace.selectedRoadmap && (
+      {workspace.selectedRoadmap && !showShareDialog && selectedRoadmapOpenedFromTab !== 'feed' && selectedRoadmapOpenedFromTab !== 'my' && (
         <RoadmapDetailDialog
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
@@ -272,10 +336,20 @@ function DreamMatePageContent() {
             );
             return hasFinalResultAsset || hasMilestoneAsset;
           })()}
-          onClose={() => setShowShareDialog(false)}
+          onClose={() => {
+            setShowShareDialog(false);
+            if (selectedRoadmapOpenedFromTab === 'my') {
+              workspace.setSelectedRoadmapId(null);
+              setSelectedRoadmapOpenedFromTab(null);
+            }
+          }}
           onSave={(shareChannels, selectedSpaceIds) => {
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareChannels, selectedSpaceIds);
             setShowShareDialog(false);
+            if (selectedRoadmapOpenedFromTab === 'my') {
+              workspace.setSelectedRoadmapId(null);
+              setSelectedRoadmapOpenedFromTab(null);
+            }
           }}
         />
       )}
@@ -288,7 +362,7 @@ export default function DreamMatePage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen w-full max-w-[430px] mx-auto flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
+        <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: '#0a0a1e' }}>
           <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
         </div>
       }

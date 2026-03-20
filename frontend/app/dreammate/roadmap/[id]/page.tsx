@@ -23,7 +23,7 @@ export default function RoadmapDetailPage() {
   if (!roadmapId || !roadmap) {
     return (
       <div
-        className="min-h-screen w-full max-w-[430px] mx-auto flex flex-col items-center justify-center px-4"
+        className="min-h-screen w-full max-w-[645px] mx-auto flex flex-col items-center justify-center px-4"
         style={{ backgroundColor: '#0a0a1e' }}
       >
         <p className="text-gray-400 text-sm">로드맵을 찾을 수 없어요</p>
@@ -42,7 +42,7 @@ export default function RoadmapDetailPage() {
 
   return (
     <div
-      className="min-h-screen pb-24 w-full max-w-[430px] mx-auto"
+      className="min-h-screen pb-24 w-full max-w-[645px] mx-auto"
       style={{ backgroundColor: '#0a0a1e' }}
     >
       <RoadmapDetailDialog

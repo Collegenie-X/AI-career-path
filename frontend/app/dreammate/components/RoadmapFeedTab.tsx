@@ -3,9 +3,11 @@
 import { useMemo, useState } from 'react';
 import { Search, Globe, Bookmark } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { PERIOD_FILTERS, DREAM_ITEM_TYPES, LABELS } from '../config';
-import type { SharedRoadmap, DreamItemType } from '../types';
-import { RoadmapCard } from './RoadmapCard';
+import type { SharedRoadmap, DreamSpace, RoadmapShareChannel } from '../types';
+import { RoadmapListRow } from './RoadmapListRow';
+import { RoadmapDetailDialog } from './RoadmapDetailDialog';
 
 type FilterOption = {
   id: string;
@@ -29,13 +31,15 @@ interface FilterSelectProps {
 
 function FilterSelect({ label, value, options, onChange }: FilterSelectProps) {
   return (
-    <label className="flex items-center gap-2 px-3 h-9 rounded-xl text-xs"
-      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}>
-      <span className="text-gray-400 whitespace-nowrap">{label}</span>
+    <label
+      className="flex h-9 items-center gap-2 rounded-xl px-3 text-sm"
+      style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+    >
+      <span className="whitespace-nowrap text-gray-400">{label}</span>
       <select
         value={value}
         onChange={event => onChange(event.target.value)}
-        className="w-full bg-transparent text-white text-xs font-semibold outline-none"
+        className="w-full bg-transparent text-sm font-semibold text-white outline-none"
       >
         {options.map(option => (
           <option key={option.id} value={option.id} className="bg-[#111827]">
@@ -47,35 +51,46 @@ function FilterSelect({ label, value, options, onChange }: FilterSelectProps) {
   );
 }
 
+export type RoadmapFeedDetailCallbacks = {
+  onUseRoadmap: (roadmap: SharedRoadmap) => void;
+  onEdit: (roadmap: SharedRoadmap) => void;
+  onShare: (roadmap: SharedRoadmap) => void;
+  onDelete: (roadmap: SharedRoadmap) => void;
+  onShareRoadmap: (roadmap: SharedRoadmap, shareChannels: RoadmapShareChannel[], spaceIds: string[]) => void;
+  onReportRoadmap: (roadmap: SharedRoadmap, reasonId: string, detail: string) => void;
+  onCreateComment: (roadmap: SharedRoadmap, comment: string, parentId?: string) => void;
+  onToggleTodoItem: (roadmap: SharedRoadmap, itemId: string, todoId: string) => void;
+};
+
 interface RoadmapFeedTabProps {
   roadmaps: SharedRoadmap[];
   currentUserId: string;
-  likedIds: string[];
   bookmarkedIds: string[];
-  likeCounts: Record<string, number>;
-  bookmarkCounts: Record<string, number>;
-  onToggleLike: (id: string) => void;
-  onToggleBookmark: (id: string) => void;
-  onViewDetail: (roadmap: SharedRoadmap) => void;
   onCreateRoadmap: () => void;
+  availableSpaces: DreamSpace[];
+  detailCallbacks: RoadmapFeedDetailCallbacks;
+  onTabChange?: (tabId: string) => void;
 }
 
 export function RoadmapFeedTab({
   roadmaps,
   currentUserId,
-  likedIds,
   bookmarkedIds,
-  likeCounts,
-  bookmarkCounts,
-  onToggleLike,
-  onToggleBookmark,
-  onViewDetail,
   onCreateRoadmap,
+  availableSpaces,
+  detailCallbacks,
+  onTabChange,
 }: RoadmapFeedTabProps) {
   const [periodFilter, setPeriodFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
   const normalizedSearchQuery = searchQuery.trim().toLowerCase();
+
+  const selectedRoadmap = useMemo(
+    () => roadmaps.find(rm => rm.id === selectedRoadmapId) ?? null,
+    [roadmaps, selectedRoadmapId],
+  );
 
   const mySharedRoadmaps = useMemo(
     () => roadmaps.filter(rm => rm.ownerId === currentUserId),
@@ -147,100 +162,90 @@ export function RoadmapFeedTab({
     });
   }, [filtered, bookmarkedIds]);
 
-  return (
-    <div className="space-y-4 pb-28">
-      {/* Header */}
+  const listColumnInner = (
+    <div className="space-y-4 pb-4">
       <div className="flex items-start justify-between gap-2">
-        <p className="text-xs text-gray-500 mt-0.5">{LABELS.feedSubtitle}</p>
+        <p className="mt-0.5 text-sm text-gray-500">{LABELS.feedSubtitle}</p>
         <button
+          type="button"
           onClick={onCreateRoadmap}
-          className="h-8 px-3 rounded-lg text-xs font-bold"
+          className="h-8 rounded-lg px-3 text-sm font-bold"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
           + {LABELS.createRoadmapButton}
         </button>
       </div>
 
-      {/* 북마크 섹션 — 아코디언 */}
       {bookmarkedRoadmaps.length > 0 && (
         <AccordionSection
           defaultOpen={true}
           header={
             <div className="flex items-center gap-2">
               <Bookmark className="w-3.5 h-3.5" style={{ color: '#FBBF24' }} />
-              <span className="text-xs font-bold text-white">{LABELS.feedFilterBookmarkLabel ?? '북마크'}</span>
-              <span className="text-[12px] text-gray-500">{bookmarkedRoadmaps.length}개 저장됨</span>
+              <span className="text-sm font-bold text-white">{LABELS.feedFilterBookmarkLabel ?? '북마크'}</span>
+              <span className="text-[13px] text-gray-500">{bookmarkedRoadmaps.length}개 저장됨</span>
             </div>
           }
         >
           <div className="space-y-2">
             {bookmarkedRoadmaps.map(rm => (
-              <RoadmapCard
+              <RoadmapListRow
                 key={rm.id}
                 roadmap={rm}
-                isLiked={likedIds.includes(rm.id)}
-                isBookmarked={true}
-                likeCount={likeCounts[rm.id] ?? rm.likes}
-                bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
-                onToggleLike={() => onToggleLike(rm.id)}
-                onToggleBookmark={() => onToggleBookmark(rm.id)}
-                onViewDetail={() => onViewDetail(rm)}
+                isSelected={selectedRoadmapId === rm.id}
+                onSelect={() => setSelectedRoadmapId(rm.id)}
               />
             ))}
           </div>
-          <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+          <div className="mt-3 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
         </AccordionSection>
       )}
 
-      {/* 내 공유 섹션 — 아코디언 */}
       {mySharedRoadmaps.length > 0 && (
         <AccordionSection
           defaultOpen={true}
           header={
             <div className="flex items-center gap-2">
               <Globe className="w-3.5 h-3.5" style={{ color: '#22C55E' }} />
-              <span className="text-xs font-bold text-white">{LABELS.feedFilterMySharedLabel ?? '내 공유'}</span>
-              <span className="text-[12px] text-gray-500">{mySharedRoadmaps.length}개 공개중</span>
+              <span className="text-sm font-bold text-white">{LABELS.feedFilterMySharedLabel ?? '내 공유'}</span>
+              <span className="text-[13px] text-gray-500">{mySharedRoadmaps.length}개 공개중</span>
             </div>
           }
         >
           <div className="space-y-2">
             {mySharedRoadmaps.map(rm => (
-              <RoadmapCard
+              <RoadmapListRow
                 key={rm.id}
                 roadmap={rm}
-                isLiked={likedIds.includes(rm.id)}
-                isBookmarked={bookmarkedIds.includes(rm.id)}
-                likeCount={likeCounts[rm.id] ?? rm.likes}
-                bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
-                onToggleLike={() => onToggleLike(rm.id)}
-                onToggleBookmark={() => onToggleBookmark(rm.id)}
-                onViewDetail={() => onViewDetail(rm)}
+                isSelected={selectedRoadmapId === rm.id}
+                onSelect={() => setSelectedRoadmapId(rm.id)}
               />
             ))}
           </div>
-          <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
+          <div className="mt-3 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
         </AccordionSection>
       )}
 
-      {/* 전체 실행계획 — 아코디언 */}
       <AccordionSection
         defaultOpen={true}
         header={
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-white">전체 실행계획</span>
-            <span className="text-[12px] text-gray-500">{sortedRoadmaps.length}개</span>
+            <span className="text-sm font-bold text-white">{LABELS.feedListLabel ?? '피드 목록'}</span>
+            <span className="text-[13px] text-gray-500">
+              {sortedRoadmaps.length}
+              {LABELS.feedListCountSuffix ?? '개'}
+            </span>
           </div>
         }
       >
         <div className="space-y-3">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
             <input
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder={LABELS.feedSearchPlaceholder}
-              className="w-full h-10 pl-10 pr-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+              className="h-10 w-full rounded-xl pl-10 pr-4 text-sm text-white placeholder-gray-600 outline-none"
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
             />
           </div>
@@ -249,26 +254,21 @@ export function RoadmapFeedTab({
             <FilterSelect label="유형" value={typeFilter} options={TYPE_FILTERS} onChange={setTypeFilter} />
           </div>
           {sortedRoadmaps.length === 0 ? (
-            <div className="flex flex-col items-center justify-center py-16 text-center gap-3">
+            <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
               <span className="text-4xl">🗺️</span>
               <div>
                 <p className="text-sm font-bold text-white">{LABELS.feedEmpty}</p>
-                <p className="text-xs text-gray-400 mt-1">{LABELS.feedEmptyDesc}</p>
+                <p className="mt-1 text-sm text-gray-400">{LABELS.feedEmptyDesc}</p>
               </div>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="space-y-2">
               {sortedRoadmaps.map(rm => (
-                <RoadmapCard
+                <RoadmapListRow
                   key={rm.id}
                   roadmap={rm}
-                  isLiked={likedIds.includes(rm.id)}
-                  isBookmarked={bookmarkedIds.includes(rm.id)}
-                  likeCount={likeCounts[rm.id] ?? rm.likes}
-                  bookmarkCount={bookmarkCounts[rm.id] ?? rm.bookmarks}
-                  onToggleLike={() => onToggleLike(rm.id)}
-                  onToggleBookmark={() => onToggleBookmark(rm.id)}
-                  onViewDetail={() => onViewDetail(rm)}
+                  isSelected={selectedRoadmapId === rm.id}
+                  onSelect={() => setSelectedRoadmapId(rm.id)}
                 />
               ))}
             </div>
@@ -276,5 +276,66 @@ export function RoadmapFeedTab({
         </div>
       </AccordionSection>
     </div>
+  );
+
+  const emptyDetailTitle = String(LABELS.feedDetailEmptyTitle ?? '실행계획을 선택하세요');
+  const emptyDetailSub = String(
+    LABELS.feedDetailEmptySub ?? '왼쪽 목록에서 실행계획을 클릭하면 상세 내용이 여기에 표시됩니다',
+  );
+
+  return (
+    <TwoColumnPanelLayout
+      hasSelection={selectedRoadmap !== null}
+      onClearSelection={() => setSelectedRoadmapId(null)}
+      emptyPlaceholderText={emptyDetailTitle}
+      emptyPlaceholderSubText={emptyDetailSub}
+      emptyPlaceholderIllustration="sparkles"
+      detailPanelClassName="rounded-none"
+      listSlot={
+        <div
+          className="rounded-none border px-4 py-4 md:px-5 md:py-5"
+          style={{
+            borderColor: 'rgba(255,255,255,0.12)',
+            background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+            boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+          }}
+        >
+          {listColumnInner}
+        </div>
+      }
+      detailSlot={
+        selectedRoadmap ? (
+          <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+            <RoadmapDetailDialog
+              variant="inline"
+              roadmap={selectedRoadmap}
+              isOwnedByCurrentUser={selectedRoadmap.ownerId === currentUserId}
+              showTimelineProgressBars={false}
+              isReferenceViewOnlyMode={false}
+              isFeedDetailView={true}
+              availableSpaces={availableSpaces}
+              onClose={() => setSelectedRoadmapId(null)}
+              onUseRoadmap={() => {
+                detailCallbacks.onUseRoadmap(selectedRoadmap);
+                onTabChange?.('my');
+              }}
+              onShare={() => detailCallbacks.onShare(selectedRoadmap)}
+              onEdit={() => {
+                detailCallbacks.onEdit(selectedRoadmap);
+                setSelectedRoadmapId(null);
+              }}
+              onDelete={() => {
+                detailCallbacks.onDelete(selectedRoadmap);
+                setSelectedRoadmapId(null);
+              }}
+              onShareRoadmap={(channels, spaceIds) => detailCallbacks.onShareRoadmap(selectedRoadmap, channels, spaceIds)}
+              onReportRoadmap={(reasonId, detail) => detailCallbacks.onReportRoadmap(selectedRoadmap, reasonId, detail)}
+              onCreateComment={(comment, parentId) => detailCallbacks.onCreateComment(selectedRoadmap, comment, parentId)}
+              onToggleTodoItem={(itemId, todoId) => detailCallbacks.onToggleTodoItem(selectedRoadmap, itemId, todoId)}
+            />
+          </div>
+        ) : null
+      }
+    />
   );
 }

@@ -443,3 +443,25 @@ body::before {
   0% { transform: translateX(30px); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
+
+/* ── 고입·대입 탐색 — 궤도 / 행성 게임 연출 ── */
+@keyframes admission-orbit-dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+.admission-orbit-ellipse {
+  animation: admission-orbit-dash-flow 9s linear infinite;
+}
+@keyframes admission-callout-blink {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.admission-orbit-callout {
+  animation: admission-callout-blink 2.2s ease-in-out infinite;
+}

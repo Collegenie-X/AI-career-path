@@ -35,7 +35,7 @@ function ParticipationFlowTracker({ status }: ParticipationFlowTrackerProps) {
               border: `1px solid ${isComplete ? `${step.color}55` : 'rgba(148,163,184,0.2)'}`,
             }}
           >
-            <p className="text-xs font-bold" style={{ color: isComplete ? step.color : '#94A3B8' }}>
+            <p className="text-sm font-bold" style={{ color: isComplete ? step.color : '#94A3B8' }}>
               {step.label}
             </p>
           </div>
@@ -68,7 +68,7 @@ export function SpaceNoticePanel({
     <section className="space-y-2">
       <div className="flex items-center gap-2">
         <Megaphone className="w-4 h-4 text-purple-300" />
-        <span className="text-xs font-bold text-gray-300">{LABELS.spaceNoticeTitle}</span>
+        <span className="text-sm font-bold text-gray-300">{LABELS.spaceNoticeTitle}</span>
       </div>
       {canManage && (
         <div
@@ -79,20 +79,20 @@ export function SpaceNoticePanel({
             value={noticeTitle}
             onChange={event => onNoticeTitleChange(event.target.value)}
             placeholder="공지 제목"
-            className="w-full h-10 px-3 rounded-lg text-xs text-white placeholder-gray-500 outline-none"
+            className="w-full h-10 px-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none"
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
           />
           <textarea
             value={noticeContent}
             onChange={event => onNoticeContentChange(event.target.value)}
             placeholder="공지 내용을 입력하세요"
-            className="w-full min-h-[72px] px-3 py-2 rounded-lg text-xs text-white placeholder-gray-500 outline-none resize-none"
+            className="w-full min-h-[72px] px-3 py-2 rounded-lg text-sm text-white placeholder-gray-500 outline-none resize-none"
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
           />
           <button
             onClick={onCreateNotice}
             disabled={!noticeTitle.trim() || !noticeContent.trim()}
-            className="h-9 px-3 rounded-lg text-xs font-bold text-white disabled:opacity-40"
+            className="h-9 px-3 rounded-lg text-sm font-bold text-white disabled:opacity-40"
             style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
           >
             {LABELS.spaceNoticeCreateButton}
@@ -101,7 +101,7 @@ export function SpaceNoticePanel({
       )}
       {notices.length === 0 ? (
         <div className="rounded-xl p-4 text-center" style={{ border: '1px dashed rgba(255,255,255,0.15)' }}>
-          <p className="text-xs text-gray-500">{LABELS.spaceNoticeEmpty}</p>
+          <p className="text-sm text-gray-500">{LABELS.spaceNoticeEmpty}</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -111,9 +111,9 @@ export function SpaceNoticePanel({
               className="rounded-xl p-3"
               style={{ backgroundColor: 'rgba(139,92,246,0.08)', border: '1px solid rgba(139,92,246,0.22)' }}
             >
-              <p className="text-xs font-bold text-white">{notice.title}</p>
+              <p className="text-sm font-bold text-white">{notice.title}</p>
               <p className="text-sm text-gray-300 mt-1 whitespace-pre-line">{notice.content}</p>
-              <p className="text-xs text-gray-500 mt-2">{notice.createdByName}</p>
+              <p className="text-sm text-gray-500 mt-2">{notice.createdByName}</p>
             </article>
           ))}
         </div>
@@ -131,11 +131,11 @@ export function ProgramProposalCards({ proposals }: ProgramProposalCardsProps) {
     <section className="space-y-2">
       <div className="flex items-center gap-2">
         <ClipboardList className="w-4 h-4 text-pink-300" />
-        <span className="text-xs font-bold text-gray-300">{LABELS.spaceProgramProposalTitle}</span>
+        <span className="text-sm font-bold text-gray-300">{LABELS.spaceProgramProposalTitle}</span>
       </div>
       {proposals.length === 0 ? (
         <div className="rounded-xl p-4 text-center" style={{ border: '1px dashed rgba(255,255,255,0.15)' }}>
-          <p className="text-xs text-gray-500">{LABELS.spaceProgramProposalEmpty}</p>
+          <p className="text-sm text-gray-500">{LABELS.spaceProgramProposalEmpty}</p>
         </div>
       ) : (
         <div className="space-y-2">
@@ -151,9 +151,9 @@ export function ProgramProposalCards({ proposals }: ProgramProposalCardsProps) {
                 }}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <p className="text-xs font-bold text-white">{proposal.title}</p>
+                  <p className="text-sm font-bold text-white">{proposal.title}</p>
                   <span
-                    className="text-xs font-bold px-2 py-1 rounded-full"
+                    className="text-sm font-bold px-2 py-1 rounded-full"
                     style={{
                       backgroundColor: `${proposalType?.color ?? '#6C5CE7'}25`,
                       color: proposalType?.color ?? '#ddd6fe',
@@ -172,7 +172,7 @@ export function ProgramProposalCards({ proposals }: ProgramProposalCardsProps) {
                 </div>
                 <div className="mt-2 space-y-1">
                   {proposal.template.weeklyDeliverables.map(weekly => (
-                    <p key={`${proposal.id}-${weekly.weekLabel}`} className="text-xs text-gray-400">
+                    <p key={`${proposal.id}-${weekly.weekLabel}`} className="text-sm text-gray-400">
                       {weekly.weekLabel}: {weekly.deliverable}
                     </p>
                   ))}
@@ -189,7 +189,7 @@ export function ProgramProposalCards({ proposals }: ProgramProposalCardsProps) {
 function InfoCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg px-2 py-2" style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}>
-      <p className="text-xs text-gray-500">{label}</p>
+      <p className="text-sm text-gray-500">{label}</p>
       <p className="text-sm text-gray-200 mt-0.5">{value}</p>
     </div>
   );
@@ -234,9 +234,9 @@ export function ParticipationApplicationPanel({
     <section className="space-y-2">
       <div className="flex items-center gap-2">
         <Users className="w-4 h-4 text-green-300" />
-        <span className="text-xs font-bold text-gray-300">{LABELS.spaceApplicationFlowTitle}</span>
+        <span className="text-sm font-bold text-gray-300">{LABELS.spaceApplicationFlowTitle}</span>
         <span
-          className="text-xs font-bold px-2 py-0.5 rounded-full"
+          className="text-sm font-bold px-2 py-0.5 rounded-full"
           style={{
             backgroundColor: `${recruitmentMeta?.color ?? '#64748B'}22`,
             color: recruitmentMeta?.color ?? '#94A3B8',
@@ -251,12 +251,12 @@ export function ParticipationApplicationPanel({
           className="rounded-xl p-3 space-y-2"
           style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
         >
-          <p className="text-xs font-bold text-white">내 신청 상태</p>
+          <p className="text-sm font-bold text-white">내 신청 상태</p>
           <ParticipationFlowTracker status={currentUserApplication.status} />
           {nextActionLabel && (
             <button
               onClick={() => onAdvanceApplicationStatus(currentUserApplication.id)}
-              className="h-9 px-3 rounded-lg text-xs font-bold text-white"
+              className="h-9 px-3 rounded-lg text-sm font-bold text-white"
               style={{ backgroundColor: 'rgba(108,92,231,0.3)' }}
             >
               {nextActionLabel}
@@ -272,14 +272,14 @@ export function ParticipationApplicationPanel({
             value={applyMessage}
             onChange={event => onApplyMessageChange(event.target.value)}
             placeholder={LABELS.spaceApplyMessagePlaceholder}
-            className="w-full min-h-[72px] px-3 py-2 rounded-lg text-xs text-white placeholder-gray-500 outline-none resize-none"
+            className="w-full min-h-[72px] px-3 py-2 rounded-lg text-sm text-white placeholder-gray-500 outline-none resize-none"
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
             disabled={recruitmentStatus === 'closed'}
           />
           <button
             onClick={onApply}
             disabled={recruitmentStatus === 'closed' || !applyMessage.trim()}
-            className="h-9 px-3 rounded-lg text-xs font-bold text-white disabled:opacity-40"
+            className="h-9 px-3 rounded-lg text-sm font-bold text-white disabled:opacity-40"
             style={{ backgroundColor: 'rgba(34,197,94,0.28)' }}
           >
             {LABELS.spaceJoinApplyButton}
@@ -292,7 +292,7 @@ export function ParticipationApplicationPanel({
           className="rounded-xl p-3 space-y-2"
           style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
         >
-          <p className="text-xs font-bold text-white">{LABELS.spacePendingApplicationsTitle} ({pendingApplications.length})</p>
+          <p className="text-sm font-bold text-white">{LABELS.spacePendingApplicationsTitle} ({pendingApplications.length})</p>
           {pendingApplications.length === 0 ? (
             <p className="text-sm text-gray-500">대기 중인 신청이 없습니다.</p>
           ) : (
@@ -306,11 +306,11 @@ export function ParticipationApplicationPanel({
                   <p className="text-sm text-white truncate">
                     {application.applicantEmoji} {application.applicantName} · {application.applicantGrade}
                   </p>
-                  <p className="text-xs text-gray-500 line-clamp-1">{application.message}</p>
+                  <p className="text-sm text-gray-500 line-clamp-1">{application.message}</p>
                 </div>
                 <button
                   onClick={() => onApprove(application.id)}
-                  className="h-7 px-2 rounded-md text-xs font-bold text-white flex items-center gap-1"
+                  className="h-7 px-2 rounded-md text-sm font-bold text-white flex items-center gap-1"
                   style={{ backgroundColor: 'rgba(59,130,246,0.35)' }}
                 >
                   <Check className="w-3 h-3" /> 승인

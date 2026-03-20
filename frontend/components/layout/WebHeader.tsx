@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Rocket, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
 
 type HeaderNavigationItem = {
@@ -98,20 +98,6 @@ export function WebHeader() {
               );
             })}
           </div>
-
-          {/* CTA */}
-          <Link
-            href="/quiz/intro"
-            className="flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-lg font-bold text-sm text-white transition-all hover:scale-105 active:scale-95 shrink-0"
-            style={{
-              background: 'linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%)',
-              boxShadow: '0 0 20px rgba(108,92,231,0.4)',
-            }}
-          >
-            <Rocket className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">시작하기</span>
-            <span className="sm:hidden">시작</span>
-          </Link>
         </nav>
       </div>
     </header>

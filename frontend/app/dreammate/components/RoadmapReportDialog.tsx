@@ -69,12 +69,12 @@ export function RoadmapReportDialog({
           <div className="flex flex-col items-center justify-center gap-3 py-10">
             <CheckCircle2 className="w-12 h-12 text-green-400" />
             <p className="text-sm font-bold text-white">{LABELS.roadmapReportSuccessTitle}</p>
-            <p className="text-xs text-gray-400">{LABELS.roadmapReportSuccessDescription}</p>
+            <p className="text-sm text-gray-400">{LABELS.roadmapReportSuccessDescription}</p>
           </div>
         ) : (
           <div className="px-5 py-4 space-y-4">
             <div>
-              <p className="text-xs font-bold text-gray-300 mb-2">{LABELS.roadmapReportReasonSectionTitle}</p>
+              <p className="text-sm font-bold text-gray-300 mb-2">{LABELS.roadmapReportReasonSectionTitle}</p>
               <div className="space-y-2">
                 {ROADMAP_REPORT_REASONS.map((reason) => {
                   const isSelected = selectedReasonId === reason.id;
@@ -91,17 +91,17 @@ export function RoadmapReportDialog({
                         border: `1px solid ${isSelected ? 'rgba(108,92,231,0.6)' : 'rgba(255,255,255,0.08)'}`,
                       }}
                     >
-                      <p className="text-xs font-bold text-white">{reason.emoji} {reason.label}</p>
+                      <p className="text-sm font-bold text-white">{reason.emoji} {reason.label}</p>
                       <p className="text-sm text-gray-400 mt-0.5">{reason.description}</p>
                     </button>
                   );
                 })}
               </div>
-              {reasonError && <p className="text-xs text-red-400 mt-2">{reasonError}</p>}
+              {reasonError && <p className="text-sm text-red-400 mt-2">{reasonError}</p>}
             </div>
 
             <div>
-              <p className="text-xs font-bold text-gray-300 mb-2">{LABELS.roadmapReportDetailSectionTitle}</p>
+              <p className="text-sm font-bold text-gray-300 mb-2">{LABELS.roadmapReportDetailSectionTitle}</p>
               <textarea
                 value={detailInput}
                 onChange={(event) => setDetailInput(event.target.value)}

@@ -89,8 +89,9 @@ export function TopStrategyHubDetailDialog({
 
   if (!mounted || !activeSection || !activeGrade) return null;
 
+  /** 인라인(오른쪽 패널): 높이·max-height 제한 없음 → 페이지 전체 스크롤로 길게 이어짐 */
   const inlineWrapperClass =
-    'w-full max-w-none md:max-w-none h-[min(92dvh,900px)] md:h-auto md:max-h-[min(92dvh,900px)] overflow-y-auto rounded-2xl';
+    'w-full max-w-none min-w-0 rounded-2xl';
 
   const panelInner = (
       <div

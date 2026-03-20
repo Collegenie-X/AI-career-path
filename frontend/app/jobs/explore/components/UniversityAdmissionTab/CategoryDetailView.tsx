@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronRight, X, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles, Lightbulb } from 'lucide-react';
+import { ChevronDown, ChevronRight, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles, Lightbulb } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
@@ -74,7 +74,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
 
   const panelScrollClass =
     variant === 'inline'
-      ? 'w-full min-w-0 max-w-full h-[min(92dvh,900px)] md:max-h-[min(92dvh,900px)] overflow-y-auto overflow-x-hidden rounded-2xl p-3 sm:p-4 space-y-3'
+      ? 'w-full min-w-0 max-w-full overflow-x-hidden rounded-2xl p-3 sm:p-4 space-y-3'
       : 'w-full min-w-0 max-w-full md:max-w-[28rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4';
 
   const panelInner = (
@@ -107,14 +107,6 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
               <p className="text-sm text-white/80">{category.description}</p>
               <p className="text-xs text-white/70 mt-2 leading-relaxed">{playbook.coreMessage}</p>
             </div>
-            <button
-              onClick={onClose}
-              className="w-9 h-9 rounded-xl flex items-center justify-center transition-all"
-              style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.2)' }}
-              aria-label="상세 닫기"
-            >
-              <X className="w-4 h-4 text-white" />
-            </button>
           </div>
 
           <div className="grid grid-cols-4 gap-1.5 mt-3">

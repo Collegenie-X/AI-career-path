@@ -1,10 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Users, Plus, ChevronRight, MessageSquare,
-  X, UserPlus, Clock, Star,
+  X, Clock, Star,
 } from 'lucide-react';
+import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { LABELS } from '../config';
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { SpaceDetailView } from './SpaceDetailView';
@@ -26,19 +27,29 @@ function isRecentlyUpdated(dateStr: string): boolean {
   return Date.now() - new Date(dateStr).getTime() < 7 * 24 * 60 * 60 * 1000;
 }
 
-/* ─── Space Card ─── */
-function SpaceCard({
-  space, roadmapCount, isJoined, onOpen,
+/* ─── Space Card (내 기록 등 마스터-디테일에서도 재사용) ─── */
+export function SpaceCard({
+  space, roadmapCount, isJoined, isSelected, onOpen,
 }: {
-  space: DreamSpace; roadmapCount: number; isJoined: boolean; onOpen: () => void;
+  space: DreamSpace;
+  roadmapCount: number;
+  isJoined: boolean;
+  isSelected?: boolean;
+  onOpen: () => void;
 }) {
   return (
     <button
+      type="button"
       onClick={onOpen}
-      className="w-full rounded-2xl p-4 text-left transition-all active:scale-[0.99]"
+      className="w-full rounded-none border p-4 text-left transition-all active:scale-[0.99]"
       style={{
-        backgroundColor: isJoined ? `${space.color}12` : `${space.color}06`,
-        border: `1px solid ${isJoined ? `${space.color}35` : `${space.color}18`}`,
+        backgroundColor: isSelected
+          ? `${space.color}18`
+          : isJoined
+            ? `${space.color}10`
+            : `${space.color}06`,
+        border: `1px solid ${isSelected ? `${space.color}55` : `${space.color}22`}`,
+        boxShadow: isSelected ? `inset 3px 0 0 0 ${space.color}` : undefined,
       }}
     >
       <div className="flex items-start gap-3">
@@ -52,7 +63,7 @@ function SpaceCard({
           <div className="flex items-center gap-2 mb-0.5">
             <span className="text-sm font-bold text-white">{space.name}</span>
             {isJoined && (
-              <span className="flex items-center gap-0.5 text-xs font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>
+              <span className="flex items-center gap-0.5 text-sm font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>
                 <Star className="w-2 h-2" /> 참여 중
               </span>
             )}
@@ -61,23 +72,23 @@ function SpaceCard({
           {(space.updatedAt ?? space.createdAt) && (
             <div className="flex items-center gap-1 mb-2">
               <Clock className="w-2.5 h-2.5 text-gray-500" />
-              <span className="text-xs text-gray-500">{formatTimeAgo(space.updatedAt ?? space.createdAt)}</span>
+              <span className="text-sm text-gray-500">{formatTimeAgo(space.updatedAt ?? space.createdAt)}</span>
               {isRecentlyUpdated(space.updatedAt ?? space.createdAt) && (
-                <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>NEW</span>
+                <span className="text-sm font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}>NEW</span>
               )}
             </div>
           )}
           <div className="flex items-center gap-2">
             <div className="flex -space-x-1.5">
               {space.members.slice(0, 4).map(m => (
-                <div key={m.id} className="w-6 h-6 rounded-full flex items-center justify-center text-xs border-2" style={{ borderColor: '#0a0a1e', backgroundColor: `${space.color}20` }}>
+                <div key={m.id} className="w-6 h-6 rounded-full flex items-center justify-center text-sm border-2" style={{ borderColor: '#0a0a1e', backgroundColor: `${space.color}20` }}>
                   {m.emoji}
                 </div>
               ))}
             </div>
-            <span className="text-xs text-gray-500">{space.memberCount}명</span>
-            <span className="text-xs text-gray-600">·</span>
-            <span className="flex items-center gap-0.5 text-xs text-gray-500">
+            <span className="text-sm text-gray-500">{space.memberCount}명</span>
+            <span className="text-sm text-gray-600">·</span>
+            <span className="flex items-center gap-0.5 text-sm text-gray-500">
               <MessageSquare className="w-2.5 h-2.5" />{roadmapCount}개 로드맵
             </span>
           </div>
@@ -118,7 +129,7 @@ function CreateSpaceDialog({ onClose, onCreate }: {
         </div>
         <div className="px-5 space-y-4 pb-10">
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-2 block">아이콘</label>
+            <label className="text-sm font-bold text-gray-400 mb-2 block">아이콘</label>
             <div className="flex gap-2 flex-wrap">
               {EMOJI_OPTIONS.map(e => (
                 <button
@@ -135,13 +146,13 @@ function CreateSpaceDialog({ onClose, onCreate }: {
             </div>
           </div>
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">스페이스 이름</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">스페이스 이름</label>
             <input value={name} onChange={e => setName(e.target.value)} placeholder="예: 과학고 준비반"
               className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
           </div>
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">설명</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">설명</label>
             <input value={description} onChange={e => setDescription(e.target.value)} placeholder="어떤 스페이스인지 간단히 설명해 주세요"
               className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
@@ -204,8 +215,20 @@ export function DreamSpaceTab({
     }
   }, [initialSelectedSpaceId]);
 
-  const selectedSpace = spaces.find(s => s.id === selectedSpaceId) ?? null;
+  const selectedSpace = useMemo(
+    () => spaces.find(s => s.id === selectedSpaceId) ?? null,
+    [spaces, selectedSpaceId],
+  );
   const joinTargetSpace = spaces.find(space => space.id === joinTargetSpaceId) ?? null;
+
+  const hasDetailSelection = Boolean(
+    selectedSpaceId && selectedSpace && joinedSpaceIds.includes(selectedSpaceId),
+  );
+
+  const spaceRoadmapsForSelected = useMemo(() => {
+    if (!selectedSpace) return [];
+    return roadmaps.filter(rm => rm.groupIds.includes(selectedSpace.id));
+  }, [roadmaps, selectedSpace]);
 
   const handleOpenSpace = (space: DreamSpace) => {
     if (joinedSpaceIds.includes(space.id)) {
@@ -215,38 +238,15 @@ export function DreamSpaceTab({
     setJoinTargetSpaceId(space.id);
   };
 
-  if (selectedSpace) {
-    const spaceRoadmaps = roadmaps.filter(rm => rm.groupIds.includes(selectedSpace.id));
-    return (
-      <SpaceDetailView
-        currentUserId={currentUserId}
-        space={selectedSpace}
-        roadmaps={spaceRoadmaps}
-        isJoined={joinedSpaceIds.includes(selectedSpace.id)}
-        likedIds={likedIds}
-        bookmarkedIds={bookmarkedIds}
-        likeCounts={likeCounts}
-        bookmarkCounts={bookmarkCounts}
-        onToggleLike={onToggleLike}
-        onToggleBookmark={onToggleBookmark}
-        onViewRoadmapDetail={onViewRoadmapDetail}
-        onLeave={() => { onLeaveSpace(selectedSpace.id); setSelectedSpaceId(null); }}
-        onToggleRecruitmentStatus={onToggleSpaceRecruitmentStatus}
-        onCreateNotice={onCreateSpaceNotice}
-        onBack={() => setSelectedSpaceId(null)}
-      />
-    );
-  }
-
-  return (
-    <div className="space-y-4 pb-28">
+  const listColumn = (
+    <div className="space-y-4 pb-2">
       <div className="flex items-center justify-between">
         <div>          
-          <p className="text-xs text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
+          <p className="text-sm text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
         </div>
         <button
           onClick={() => setShowCreateDialog(true)}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold transition-all active:scale-95"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
           <Plus className="w-3.5 h-3.5" />{LABELS.createSpaceButton}
@@ -280,7 +280,7 @@ export function DreamSpaceTab({
               setJoinTargetSpaceId(matchedSpace.id);
               setInviteCodeInput('');
             }}
-            className="h-10 px-4 rounded-xl text-xs font-bold"
+            className="h-10 px-4 rounded-xl text-sm font-bold"
             style={{ backgroundColor: 'rgba(108,92,231,0.25)', color: '#ddd6fe' }}
           >
             참여
@@ -296,7 +296,7 @@ export function DreamSpaceTab({
           </div>
           <div>
             <p className="text-sm font-bold text-white">{LABELS.spaceEmpty}</p>
-            <p className="text-xs text-gray-400 mt-1">{LABELS.spaceEmptyDesc}</p>
+            <p className="text-sm text-gray-400 mt-1">{LABELS.spaceEmptyDesc}</p>
           </div>
         </div>
       ) : (
@@ -307,11 +307,69 @@ export function DreamSpaceTab({
               space={space}
               roadmapCount={roadmaps.filter(rm => rm.groupIds.includes(space.id)).length}
               isJoined={joinedSpaceIds.includes(space.id)}
+              isSelected={hasDetailSelection && selectedSpaceId === space.id}
               onOpen={() => handleOpenSpace(space)}
             />
           ))}
         </div>
       )}
+    </div>
+  );
+
+  const emptyDetailTitle = String(LABELS.spaceDetailEmptyTitle ?? '그룹을 선택하세요');
+  const emptyDetailSub = String(
+    LABELS.spaceDetailEmptySub ?? '왼쪽 목록에서 참여 중인 그룹을 클릭하면 상세가 여기에 표시됩니다',
+  );
+
+  return (
+    <div className="pb-24 md:pb-8">
+      <TwoColumnPanelLayout
+        hasSelection={hasDetailSelection}
+        onClearSelection={() => setSelectedSpaceId(null)}
+        emptyPlaceholderText={emptyDetailTitle}
+        emptyPlaceholderSubText={emptyDetailSub}
+        emptyPlaceholderIllustration="sparkles"
+        detailPanelClassName="rounded-none"
+        listSlot={
+          <div
+            className="rounded-none border px-4 py-4 md:px-5 md:py-5"
+            style={{
+              borderColor: 'rgba(255,255,255,0.12)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+              boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+            }}
+          >
+            {listColumn}
+          </div>
+        }
+        detailSlot={
+          hasDetailSelection && selectedSpace ? (
+            <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
+              <SpaceDetailView
+                layoutVariant="sidePanel"
+                currentUserId={currentUserId}
+                space={selectedSpace}
+                roadmaps={spaceRoadmapsForSelected}
+                isJoined={joinedSpaceIds.includes(selectedSpace.id)}
+                likedIds={likedIds}
+                bookmarkedIds={bookmarkedIds}
+                likeCounts={likeCounts}
+                bookmarkCounts={bookmarkCounts}
+                onToggleLike={onToggleLike}
+                onToggleBookmark={onToggleBookmark}
+                onViewRoadmapDetail={onViewRoadmapDetail}
+                onLeave={() => {
+                  onLeaveSpace(selectedSpace.id);
+                  setSelectedSpaceId(null);
+                }}
+                onToggleRecruitmentStatus={onToggleSpaceRecruitmentStatus}
+                onCreateNotice={onCreateSpaceNotice}
+                onBack={() => setSelectedSpaceId(null)}
+              />
+            </div>
+          ) : null
+        }
+      />
 
       {showCreateDialog && (
         <CreateSpaceDialog

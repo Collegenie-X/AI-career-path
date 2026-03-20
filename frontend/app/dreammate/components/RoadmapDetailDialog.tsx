@@ -9,7 +9,7 @@ import {
   buildChronologicalParentTree,
   type ParentTreeNode,
 } from '@/lib/timelineTreeUtils';
-import { RoadmapCareerPathTimelineSection } from './RoadmapCareerPathTimelineSection';
+import { RoadmapTreeView } from './RoadmapTreeView';
 import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
 
@@ -20,7 +20,7 @@ interface RoadmapDetailDialogProps {
   isReferenceViewOnlyMode?: boolean;
   isFeedDetailView?: boolean;
   availableSpaces: DreamSpace[];
-  variant?: 'dialog' | 'page';
+  variant?: 'dialog' | 'page' | 'inline';
   onClose: () => void;
   onUseRoadmap: () => void;
   onShareRoadmap: (shareChannels: RoadmapShareChannel[], spaceIds: string[]) => void;
@@ -117,6 +117,7 @@ export function RoadmapDetailDialog({
   }, [commentSortOrder, roadmap.comments]);
   const canSharePublicly = hasRoadmapShareableResult(roadmap);
   const isPageVariant = variant === 'page';
+  const isInlineVariant = variant === 'inline';
 
   const shareChannels = getShareChannelsFromRoadmap(roadmap);
   const shareBadgeLabel = (() => {
@@ -139,17 +140,32 @@ export function RoadmapDetailDialog({
     };
   })();
 
+  const wrapperClass = isInlineVariant
+    ? 'w-full flex flex-col min-h-0'
+    : isPageVariant
+      ? 'min-h-screen w-full max-w-[645px] mx-auto flex flex-col'
+      : 'fixed inset-0 z-50 flex items-end justify-center';
+
+  const innerClass = isInlineVariant
+    ? 'relative w-full flex flex-col min-h-0 overflow-y-auto'
+    : isPageVariant
+      ? 'relative w-full flex flex-col min-h-screen'
+      : 'relative w-full flex flex-col max-w-[645px] rounded-t-3xl overflow-hidden';
+
+  const innerStyle = isInlineVariant
+    ? { backgroundColor: 'transparent' }
+    : isPageVariant
+      ? { backgroundColor: '#12122a' }
+      : { backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 56px)', marginBottom: 56 };
+
   return (
-    <div className={isPageVariant ? 'min-h-screen w-full max-w-[430px] mx-auto flex flex-col' : 'fixed inset-0 z-50 flex items-end justify-center'}>
-      {!isPageVariant && (
+    <div className={wrapperClass}>
+      {!isPageVariant && !isInlineVariant && (
         <>
           <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
         </>
       )}
-      <div
-        className={`relative w-full flex flex-col ${isPageVariant ? 'min-h-screen' : 'max-w-[430px] rounded-t-3xl overflow-hidden'}`}
-        style={isPageVariant ? { backgroundColor: '#12122a' } : { backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 56px)', marginBottom: 56 }}
-      >
+      <div className={innerClass} style={innerStyle}>
         <div className="sticky top-0 z-10 px-4 pt-4 pb-3 space-y-2" style={{ backgroundColor: '#12122a', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
@@ -164,17 +180,17 @@ export function RoadmapDetailDialog({
                 </button>
               ) : null}
               <span className="text-base">{roadmap.ownerEmoji}</span>
-              <span className="text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
+              <span className="text-sm font-semibold px-2 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}>
                 {periodLabel}
               </span>
               <span
-                className="text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap flex items-center gap-1"
+                className="text-sm font-semibold px-2 py-1 rounded-full whitespace-nowrap flex items-center gap-1"
                 style={{ backgroundColor: `${shareBadgeLabel.color}22`, color: shareBadgeLabel.color }}
               >
                 <span>{shareBadgeLabel.emoji}</span>
                 {shareBadgeLabel.label}
               </span>
-              <span className="text-xs text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
+              <span className="text-sm text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
             <div className="flex items-center gap-2">
               {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
@@ -197,7 +213,7 @@ export function RoadmapDetailDialog({
                           setShowActionMenu(false);
                           setShowReportDialog(true);
                         }}
-                        className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-xs font-semibold text-red-300"
+                        className="w-full flex items-center gap-2 px-2.5 py-2 rounded-lg text-sm font-semibold text-red-300"
                         style={{ backgroundColor: 'rgba(239,68,68,0.08)' }}
                       >
                         <Flag className="w-3.5 h-3.5" />
@@ -207,8 +223,8 @@ export function RoadmapDetailDialog({
                   )}
                 </div>
               )}
-              {!isPageVariant && (
-                <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
+              {!isPageVariant && !isInlineVariant && (
+                <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} aria-label="닫기">
                   <X className="w-4 h-4 text-gray-300" />
                 </button>
               )}
@@ -216,22 +232,22 @@ export function RoadmapDetailDialog({
           </div>
           <div className="min-w-0">
             <h3 className="text-xl font-black text-white leading-tight tracking-tight">{roadmap.title}</h3>
-            <p className="text-xs text-gray-400 truncate">{roadmap.ownerName}</p>
+            <p className="text-sm text-gray-400 truncate">{roadmap.ownerName}</p>
           </div>
         </div>
 
         <div
           className="flex-1 min-h-0 overflow-y-auto px-4 py-3 space-y-3"
-          style={{ paddingBottom: isReferenceViewOnlyMode ? 16 : (isOwnedByCurrentUser ? 116 : 110) }}
+          style={{ paddingBottom: isReferenceViewOnlyMode ? 16 : 12 }}
         >
           <div className="rounded-xl p-3" style={{ backgroundColor: `${roadmap.starColor}10`, border: `1px solid ${roadmap.starColor}24` }}>
-            <p className="text-xs text-gray-200 leading-relaxed">{roadmap.description}</p>
+            <p className="text-sm text-gray-200 leading-relaxed">{roadmap.description}</p>
           </div>
           <div className="rounded-xl p-3 space-y-1.5" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
             <p className="text-sm font-bold text-white">실행 검증 요약</p>
-            <p className="text-xs text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
-            <p className="text-xs text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
-            <p className="text-xs text-cyan-200">
+            <p className="text-sm text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
+            <p className="text-sm text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
+            <p className="text-sm text-cyan-200">
               실행 진행률: {executionSummary.doneActionableTodoCount}/{executionSummary.totalActionableTodoCount}
             </p>
           </div>
@@ -251,11 +267,11 @@ export function RoadmapDetailDialog({
                   <span className="text-base">🏁</span>
                   <div>
                     <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
-                    <p className="text-xs text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
+                    <p className="text-sm text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
+                  <span className="text-sm font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
                     {(roadmap.milestoneResults ?? []).length}
                   </span>
                   {isMilestoneResultsOpen ? (
@@ -288,7 +304,7 @@ export function RoadmapDetailDialog({
                         >
                           <div className="flex items-center gap-2 min-w-0">
                             <span
-                              className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
+                              className="w-5 h-5 rounded-full flex items-center justify-center text-sm font-black flex-shrink-0"
                               style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}
                             >
                               {index + 1}
@@ -297,14 +313,14 @@ export function RoadmapDetailDialog({
                               {result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
                             </span>
                             {result.monthWeekLabel && (
-                              <span className="text-xs text-sky-400/60 whitespace-nowrap flex-shrink-0">
+                              <span className="text-sm text-sky-400/60 whitespace-nowrap flex-shrink-0">
                                 {result.monthWeekLabel}
                               </span>
                             )}
                           </div>
                           <div className="flex items-center gap-1.5 flex-shrink-0">
-                            {result.imageUrl && <span className="text-xs">🖼️</span>}
-                            {result.resultUrl && <span className="text-xs">🔗</span>}
+                            {result.imageUrl && <span className="text-sm">🖼️</span>}
+                            {result.resultUrl && <span className="text-sm">🔗</span>}
                             {isExpanded ? (
                               <ChevronUp className="w-3.5 h-3.5 text-gray-400" />
                             ) : (
@@ -362,7 +378,7 @@ export function RoadmapDetailDialog({
                   <div>
                     <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
                     {roadmap.finalResultTitle && (
-                      <p className="text-xs text-emerald-400/70 mt-0.5 truncate max-w-[200px]">{roadmap.finalResultTitle}</p>
+                      <p className="text-sm text-emerald-400/70 mt-0.5 truncate max-w-[200px]">{roadmap.finalResultTitle}</p>
                     )}
                   </div>
                 </div>
@@ -408,7 +424,7 @@ export function RoadmapDetailDialog({
 
           <div className="space-y-2">
             <h4 className="text-sm font-bold text-white">{LABELS.timelineViewLabel}</h4>
-            <RoadmapCareerPathTimelineSection
+            <RoadmapTreeView
               roadmap={roadmap}
               showProgressBars={showTimelineProgressBars}
               showTodoCheckboxes={!isFeedDetailView}
@@ -425,7 +441,7 @@ export function RoadmapDetailDialog({
               <h4 className="text-sm font-bold text-white">{LABELS.commentViewLabel} {roadmap.comments.length}</h4>
               <button
                 onClick={() => setCommentSortOrder(previous => previous === 'oldest' ? 'latest' : 'oldest')}
-                className="h-8 px-3 rounded-lg text-xs font-bold"
+                className="h-8 px-3 rounded-lg text-sm font-bold"
                 style={{ backgroundColor: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.1)' }}
               >
                 {LABELS.chronologicalSortLabel} · {commentSortOrder === 'oldest' ? LABELS.oldestFirstLabel : LABELS.latestFirstLabel}
@@ -477,16 +493,16 @@ export function RoadmapDetailDialog({
 
         {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
           <div
-            className="fixed left-1/2 -translate-x-1/2 bottom-[56px] z-20 w-full max-w-[430px] px-4 pt-2"
+            className="w-full px-4 pt-3 pb-4 shrink-0"
             style={{
-              background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
-              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+              backgroundColor: '#12122a',
               borderTop: '1px solid rgba(255,255,255,0.08)',
+              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
             }}
           >
             <button
               onClick={() => setShowUseRoadmapCustomizeDialog(true)}
-              className="w-full h-12 rounded-2xl text-sm font-black text-white"
+              className="w-full h-12 rounded-none text-sm font-black text-white"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)' }}
             >
               {LABELS.useRoadmapButton}
@@ -496,11 +512,11 @@ export function RoadmapDetailDialog({
 
         {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
           <div
-            className="fixed left-1/2 -translate-x-1/2 bottom-[56px] z-20 w-full max-w-[430px] px-4 pt-2"
+            className="w-full px-4 pt-3 pb-4 shrink-0"
             style={{
-              background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
-              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
+              backgroundColor: '#12122a',
               borderTop: '1px solid rgba(255,255,255,0.08)',
+              paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
             }}
           >
             {!showDeleteConfirmationActions ? (
@@ -602,10 +618,10 @@ function CommentTreeNode({
         </p>
         <p className="text-sm text-gray-300 mt-1">{node.content}</p>
         <div className="mt-1 flex items-center gap-2">
-          <p className="text-xs text-gray-500">{formatDateTime(node.createdAt)}</p>
+          <p className="text-sm text-gray-500">{formatDateTime(node.createdAt)}</p>
           <button
             onClick={() => onReply(node.id)}
-            className="text-xs font-semibold text-gray-400 flex items-center gap-1"
+            className="text-sm font-semibold text-gray-400 flex items-center gap-1"
           >
             <MessageSquare className="w-3 h-3" />
             답글
@@ -620,7 +636,7 @@ function CommentTreeNode({
             value={replyText}
             onChange={event => setReplyText(event.target.value)}
             placeholder={LABELS.replyInputPlaceholder}
-            className="flex-1 h-8 px-2.5 rounded-lg text-xs text-white placeholder-gray-600 outline-none"
+            className="flex-1 h-8 px-2.5 rounded-lg text-sm text-white placeholder-gray-600 outline-none"
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
           />
           <button
@@ -630,7 +646,7 @@ function CommentTreeNode({
               setReplyText('');
               onReplyCancel();
             }}
-            className="text-xs px-2.5 py-1.5 rounded-lg"
+            className="text-sm px-2.5 py-1.5 rounded-lg"
             style={{ backgroundColor: 'rgba(108,92,231,0.22)', color: '#ddd6fe' }}
           >
             등록
@@ -677,7 +693,7 @@ function RoadmapUseCustomizeDialog({
     <div className="fixed inset-0 z-[60] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[430px] rounded-t-3xl px-5 pt-6 pb-6"
+        className="relative w-full max-w-[645px] rounded-t-3xl px-5 pt-6 pb-6"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
       >
         <div className="flex flex-col items-center text-center gap-3 mb-5">

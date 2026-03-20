@@ -173,7 +173,7 @@ export function PlanItemDetailSheet({ item, gradeLabel, color, onClose }: Props)
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[430px] rounded-t-3xl overflow-hidden"
+        className="w-full max-w-[645px] rounded-t-3xl overflow-hidden"
         style={{
           backgroundColor: '#0f0f23',
           border: '1px solid rgba(255,255,255,0.1)',

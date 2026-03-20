@@ -5,6 +5,7 @@
 
 import careerContent from '@/data/career-content.json';
 import careerConfig from '@/data/career-config.json';
+import heroConfig from '@/data/career/config/hero.json';
 
 export type PlanItemType = 'activity' | 'award' | 'portfolio' | 'certification';
 
@@ -130,6 +131,7 @@ export const CAREER_PAGE_HEADER_CONTENT: CareerHeaderContent = {
   subtitle: String(LABELS.page_subtitle ?? '나만의 진로 로드맵'),
 };
 
+/** 탐색 탭 히어로: 전체 진로 로드맵 탐색(고입·대입·탐구 등 포함). 대입 전용 정보가 아님. */
 export const CAREER_TAB_HERO_CONTENT: Record<CareerPageTabId, CareerTabHeroContent> = {
   explore: {
     eyebrow: String(LABELS.hero_explore_eyebrow ?? '커리어 패스 탐색'),
@@ -152,4 +154,28 @@ export const CAREER_TAB_HERO_CONTENT: Record<CareerPageTabId, CareerTabHeroConte
     description: String(LABELS.hero_timeline_description ?? '현재 패스를 점검하고 수정하면서 나만의 진로 계획을 꾸준히 업데이트하세요.'),
     ctaLabel: String(LABELS.hero_timeline_cta ?? '새 패스 추가'),
   },
+};
+
+export const HERO_CONFIG = heroConfig as {
+  readonly visualStyles: Record<string, {
+    background: string;
+    border: string;
+    glowTopColor: string;
+    glowBottomColor: string;
+    accentColor: string;
+  }>;
+  readonly statIcons: Record<string, readonly {
+    icon: string;
+    valueKey?: string;
+    value?: string;
+    label: string;
+    iconBackground: string;
+    iconColor: string;
+  }[]>;
+  readonly borderRadius: {
+    container: string;
+    statIcon: string;
+    ctaButton: string;
+    glowCircle: string;
+  };
 };

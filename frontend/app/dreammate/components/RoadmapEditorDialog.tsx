@@ -614,7 +614,7 @@ export function RoadmapEditorDialog({
     <div className="fixed inset-0 z-50 flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-hidden flex flex-col"
+        className="relative w-full max-w-[645px] rounded-t-3xl overflow-hidden flex flex-col"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 72px)', marginBottom: 72 }}
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-3 flex-shrink-0">
@@ -650,7 +650,7 @@ export function RoadmapEditorDialog({
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
             />
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-gray-500">로드맵 설명</span>
+              <span className="text-sm font-bold text-gray-500">로드맵 설명</span>
               <button
                 onClick={createRoadmapDescriptionAutoComplete}
                 title={LABELS.autoCompleteButton}
@@ -685,7 +685,7 @@ export function RoadmapEditorDialog({
                 <span className="text-base">🏁</span>
                 <div>
                   <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
-                  <p className="text-xs text-sky-400/70 mt-0.5">
+                  <p className="text-sm text-sky-400/70 mt-0.5">
                     {milestoneResults.length > 0
                       ? `${milestoneResults.length}개 기록됨`
                       : '진행 중 만든 결과물을 기록해보세요'}
@@ -694,7 +694,7 @@ export function RoadmapEditorDialog({
               </div>
               <div className="flex items-center gap-2">
                 {milestoneResults.length > 0 && (
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
+                  <span className="text-sm font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
                     {milestoneResults.length}
                   </span>
                 )}
@@ -715,7 +715,7 @@ export function RoadmapEditorDialog({
                   >
                     <p className="text-2xl">📸</p>
                     <p className="text-sm font-semibold text-sky-300/80">아직 기록된 중간 결과물이 없어요</p>
-                    <p className="text-xs text-gray-500 leading-relaxed">
+                    <p className="text-sm text-gray-500 leading-relaxed">
                       데모, 발표자료, 프로토타입 등<br />작은 성과도 기록해두면 동기부여가 됩니다
                     </p>
                   </div>
@@ -845,7 +845,7 @@ export function RoadmapEditorDialog({
                                   type="file"
                                   accept="image/*"
                                   onChange={event => { void handleMilestoneResultImageFileUpload(result.id, event); }}
-                                  className="w-full text-xs text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-sky-500/20 file:text-sky-200"
+                                  className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-500/20 file:text-sky-200"
                                 />
                                 {result.imageUrl && (
                                   <img
@@ -890,7 +890,7 @@ export function RoadmapEditorDialog({
                 <span className="text-base">🏆</span>
                 <div>
                   <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
-                  <p className="text-xs text-emerald-400/70 mt-0.5">
+                  <p className="text-sm text-emerald-400/70 mt-0.5">
                     {finalResultTitle.trim().length > 0
                       ? finalResultTitle
                       : '완성된 결과물을 자랑해보세요'}
@@ -944,7 +944,7 @@ export function RoadmapEditorDialog({
                     type="file"
                     accept="image/*"
                     onChange={event => { void handleFinalResultImageFileUpload(event); }}
-                    className="w-full text-xs text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-emerald-500/20 file:text-emerald-200"
+                    className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/20 file:text-emerald-200"
                   />
                   {finalResultImageUrl && (
                     <img
@@ -1018,7 +1018,7 @@ export function RoadmapEditorDialog({
                 );
               })}
             </div>
-            <p className="text-xs text-gray-500">{LABELS.roadmapCategoryHint}</p>
+            <p className="text-sm text-gray-500">{LABELS.roadmapCategoryHint}</p>
           </section>
 
           <section className="space-y-3">
@@ -1041,7 +1041,7 @@ export function RoadmapEditorDialog({
                   <button
                     key={month}
                     onClick={() => toggleSelectedMonth(month)}
-                    className="px-2.5 py-1.5 rounded-md text-xs font-bold"
+                    className="px-2.5 py-1.5 rounded-md text-sm font-bold"
                     style={selected
                       ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
                       : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)' }}
@@ -1052,7 +1052,7 @@ export function RoadmapEditorDialog({
               })}
             </div>
 
-            <p className="text-xs text-gray-500">
+            <p className="text-sm text-gray-500">
               선택 월: {selectedMonths.map(month => `${month}월`).join(', ')}
             </p>
 
@@ -1103,7 +1103,7 @@ export function RoadmapEditorDialog({
 
                   {isItemOpen && (
                     <div className="space-y-2">
-                      <div className="text-xs text-gray-500">카테고리 · 적용 월</div>
+                      <div className="text-sm text-gray-500">카테고리 · 적용 월</div>
                       <div className="flex flex-wrap gap-1.5">
                         {DREAM_ITEM_TYPES.map(type => {
                           const isActiveType = item.type === type.value;
@@ -1111,7 +1111,7 @@ export function RoadmapEditorDialog({
                             <button
                               key={`${item.id}-type-${type.value}`}
                               onClick={() => updateItem(item.id, { type: type.value })}
-                              className="px-2.5 py-1.5 rounded-md text-xs font-bold"
+                              className="px-2.5 py-1.5 rounded-md text-sm font-bold"
                               style={isActiveType
                                 ? { backgroundColor: `${type.color}26`, color: type.color }
                                 : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.55)' }}
@@ -1129,7 +1129,7 @@ export function RoadmapEditorDialog({
                             <button
                               key={`${item.id}-month-${month}`}
                               onClick={() => toggleItemMonth(item.id, month)}
-                              className="px-2.5 py-1.5 rounded-md text-xs font-bold"
+                              className="px-2.5 py-1.5 rounded-md text-sm font-bold"
                               style={isActive
                                 ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
                                 : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)' }}
@@ -1140,23 +1140,23 @@ export function RoadmapEditorDialog({
                         })}
                       </div>
 
-                      <p className="text-xs text-gray-500">
+                      <p className="text-sm text-gray-500">
                         적용 월: {itemMonths.map(month => `${month}월`).join(', ')}
                       </p>
 
                       <div className="space-y-1.5 pt-1">
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-400">{LABELS.todoSectionLabel} · {LABELS.weeklyChecklistLabel}</span>
+                          <span className="text-sm font-bold text-gray-400">{LABELS.todoSectionLabel} · {LABELS.weeklyChecklistLabel}</span>
                           <button
                             onClick={() => addWeekGroup(item.id)}
-                            className="text-xs font-bold px-2.5 py-1.5 rounded-md"
+                            className="text-sm font-bold px-2.5 py-1.5 rounded-md"
                             style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
                           >
                             + {LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주차 그룹 추가'}
                           </button>
                         </div>
                         {(item.subItems ?? []).length === 0 ? (
-                          <p className="text-xs text-gray-600">{LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.'}</p>
+                          <p className="text-sm text-gray-600">{LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.'}</p>
                         ) : (
                           <div className="space-y-2">
                             {(() => {
@@ -1215,7 +1215,7 @@ export function RoadmapEditorDialog({
                                                   <div className="flex items-center gap-1">
                                                     <button
                                                       onClick={() => removeWeekGroup(item.id, groupKey)}
-                                                      className="text-xs font-bold px-2.5 py-1.5 rounded-md"
+                                                      className="text-sm font-bold px-2.5 py-1.5 rounded-md"
                                                       style={{ backgroundColor: 'rgba(239,68,68,0.18)', color: '#fca5a5' }}
                                                     >
                                                       {LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '주차 삭제'}
@@ -1230,7 +1230,7 @@ export function RoadmapEditorDialog({
                                                       className="rounded-md p-2"
                                                       style={{ backgroundColor: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.2)' }}
                                                     >
-                                                      <label className="text-[10px] text-gray-500 block mb-0.5">목표</label>
+                                                      <label className="text-[13px] text-gray-500 block mb-0.5">목표</label>
                                                       <input
                                                         value={group.goal?.title ?? ''}
                                                         onChange={event => upsertWeekGoal(item.id, groupKey, event.target.value)}
@@ -1250,7 +1250,7 @@ export function RoadmapEditorDialog({
 
                                                       {group.goal && (
                                                       <div className="mt-1.5">
-                                                        <label className="text-[10px] text-gray-500 block mb-0.5">산출물 (URL 또는 파일명) — 주당 1개</label>
+                                                        <label className="text-[13px] text-gray-500 block mb-0.5">산출물 (URL 또는 파일명) — 주당 1개</label>
                                                         <input
                                                           value={group.goal.outputRef ?? ''}
                                                           onChange={e => updateSubItem(item.id, group.goal!.id, { outputRef: e.target.value })}
@@ -1264,10 +1264,10 @@ export function RoadmapEditorDialog({
 
                                                     {/* 하위 항목 추가 버튼 + 하위 항목 목록 (주당 산출물 1개만, 목표에 연결) */}
                                                     <div className="flex items-center justify-between mt-2 mb-1">
-                                                      <span className="text-[10px] text-gray-500 font-semibold">하위 항목</span>
+                                                      <span className="text-[13px] text-gray-500 font-semibold">하위 항목</span>
                                                       <button
                                                         onClick={() => addWeekTask(item.id, groupKey)}
-                                                        className="text-[10px] font-bold px-2 py-1 rounded-md"
+                                                        className="text-[13px] font-bold px-2 py-1 rounded-md"
                                                         style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
                                                       >
                                                         + {LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가'}
@@ -1314,7 +1314,7 @@ export function RoadmapEditorDialog({
                           </div>
                         )}
                         {hasMissingGoalInItem && (
-                          <p className="text-xs text-red-300">
+                          <p className="text-sm text-red-300">
                             {LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.'}
                           </p>
                         )}
@@ -1324,7 +1324,7 @@ export function RoadmapEditorDialog({
                               <option key={suggestion} value={suggestion} />
                             ))}
                         </datalist>
-                        <div className="text-xs text-gray-600">
+                        <div className="text-sm text-gray-600">
                           {LABELS.todoAutoCompleteHint}: {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []).join(' · ')}
                         </div>
                       </div>

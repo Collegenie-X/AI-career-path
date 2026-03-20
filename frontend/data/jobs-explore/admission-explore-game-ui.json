@@ -1,0 +1,16 @@
+{
+  "highSchool": {
+    "hudBadge": "STAGE · 고입",
+    "hudTitle": "고입 갤럭시 맵",
+    "hudSubtitle": "궤도를 도는 행성을 탭하면 학교 유형 스테이지가 열려요.",
+    "questHint": "퀘스트: 마음에 드는 행성을 정복하고 학교 리스트를 확인하세요!",
+    "orbitCallout": "🎮 행성을 터치해 학교 유형 맵으로 입장"
+  },
+  "university": {
+    "hudBadge": "STAGE · 대입",
+    "hudTitle": "대입 오빗 존",
+    "hudSubtitle": "전형별 행성과 전략 허브를 연결해 나만의 입시 로드맵을 완성해요.",
+    "questHint": "퀘스트: 전형 행성을 선택해 상세 가이드를 해금하세요!",
+    "orbitCallout": "🎮 전형 행성을 터치해 가이드 해금"
+  }
+}

@@ -85,12 +85,12 @@ export function SpaceJoinRequestDialog({
           <div className="flex flex-col items-center justify-center py-10 gap-3">
             <CheckCircle className="w-12 h-12" style={{ color: '#22C55E' }} />
             <p className="text-sm font-bold text-white">{LABELS.spaceJoinAutoAcceptedTitle}</p>
-            <p className="text-xs text-gray-400">{LABELS.spaceJoinAutoAcceptedDescription}</p>
+            <p className="text-sm text-gray-400">{LABELS.spaceJoinAutoAcceptedDescription}</p>
           </div>
         ) : (
           <div className="px-5 py-4 space-y-5">
             <div>
-              <label className="flex items-center gap-1.5 text-xs font-bold text-gray-300 mb-2">
+              <label className="flex items-center gap-1.5 text-sm font-bold text-gray-300 mb-2">
                 <KeyRound className="w-3.5 h-3.5" />
                 {LABELS.spaceJoinByCodeSectionLabel}
               </label>
@@ -118,17 +118,17 @@ export function SpaceJoinRequestDialog({
                   {LABELS.spaceJoinByCodeButton}
                 </button>
               </div>
-              {inviteCodeError && <p className="text-xs text-red-400 mt-1.5">{inviteCodeError}</p>}
+              {inviteCodeError && <p className="text-sm text-red-400 mt-1.5">{inviteCodeError}</p>}
             </div>
 
             <div className="flex items-center gap-3">
               <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
-              <span className="text-xs text-gray-600 font-bold">{LABELS.spaceJoinDividerLabel}</span>
+              <span className="text-sm text-gray-600 font-bold">{LABELS.spaceJoinDividerLabel}</span>
               <div className="flex-1 h-px" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} />
             </div>
 
             <div>
-              <label className="flex items-center gap-1.5 text-xs font-bold text-gray-300 mb-2">
+              <label className="flex items-center gap-1.5 text-sm font-bold text-gray-300 mb-2">
                 <MessageSquare className="w-3.5 h-3.5" />
                 {LABELS.spaceJoinByRequestSectionLabel}
               </label>
@@ -147,7 +147,7 @@ export function SpaceJoinRequestDialog({
                   color: '#fff',
                 }}
               />
-              {requestMessageError && <p className="text-xs text-red-400 mt-1.5">{requestMessageError}</p>}
+              {requestMessageError && <p className="text-sm text-red-400 mt-1.5">{requestMessageError}</p>}
               <button
                 onClick={handleJoinByRequest}
                 disabled={!requestMessageInput.trim()}

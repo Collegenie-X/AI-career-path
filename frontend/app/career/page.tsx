@@ -12,7 +12,6 @@ import { CareerPageHeader } from './components/CareerPageHeader';
 import { CareerTabBar } from './components/CareerTabBar';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
-import { UniversityAdmissionTab } from '@/app/jobs/explore/components/UniversityAdmissionTab';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
@@ -209,23 +208,29 @@ function CareerPageContent() {
               embeddedInCareerShell
             />
           </div>
-          {activeTab !== 'explore' && (
-            <ExploreHeroBanner
-              activeTab={activeTab}
-              onNewPath={openNew}
-              embeddedInCareerShell
-              totalTemplateCount={totalTemplateCount}
-              totalUses={totalTemplateUses}
-              totalCommunitySharedPlans={totalCommunitySharedPlans}
-              totalCommunityGroups={totalCommunityGroups}
-              totalMyPlans={plans.length}
-              totalMyPublicPlans={totalMyPublicPlans}
-            />
-          )}
+          <ExploreHeroBanner
+            activeTab={activeTab}
+            onNewPath={openNew}
+            embeddedInCareerShell
+            totalTemplateCount={totalTemplateCount}
+            totalUses={totalTemplateUses}
+            totalCommunitySharedPlans={totalCommunitySharedPlans}
+            totalCommunityGroups={totalCommunityGroups}
+            totalMyPlans={plans.length}
+            totalMyPublicPlans={totalMyPublicPlans}
+          />
           <div className="px-4 pb-4 md:px-5 md:pb-5">
             {!mounted ? null : activeTab === 'explore' ? (
-          <UniversityAdmissionTab />
-        ) : activeTab === 'timeline' ? (
+              <CareerPathList
+                onUseTemplate={handleUseTemplate}
+                onNewPath={openNew}
+                myPublicPlans={plans.filter((plan) => plan.isPublic)}
+                onViewMyPlan={(plan) => {
+                  setSelectedPlanId(plan.id);
+                  handleTabChange('timeline');
+                }}
+              />
+            ) : activeTab === 'timeline' ? (
           <TwoColumnPanelLayout
             hasSelection={selectedPlanId !== null && selectedPlan !== null}
             onClearSelection={() => setSelectedPlanId(null)}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 type AdmissionCategory = {
   id: string;
@@ -93,6 +94,7 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
             return (
               <ellipse
                 key={`orbit-${cat.id}`}
+                className="admission-orbit-ellipse"
                 cx={CENTER_X}
                 cy={CENTER_Y}
                 rx={orbitR}
@@ -101,31 +103,48 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
                 stroke={cat.color}
                 strokeWidth="0.5"
                 strokeDasharray="4 6"
-                opacity="0.2"
+                strokeDashoffset={0}
+                opacity="0.28"
               />
             );
           })}
         </svg>
 
-        {/* 중심 별 */}
-        <div
+        {/* 중심 별 — 보스 존 느낌 펄스 */}
+        <motion.div
           className="absolute flex items-center justify-center rounded-full"
           style={{
             left: CENTER_X - 28,
             top: CENTER_Y - 28,
             width: 56,
             height: 56,
-            background: 'radial-gradient(circle, rgba(251,191,36,0.4) 0%, rgba(251,191,36,0.1) 70%)',
-            border: '2px solid rgba(251,191,36,0.5)',
-            boxShadow: '0 0 24px rgba(251,191,36,0.4)',
+            background: 'radial-gradient(circle, rgba(251,191,36,0.45) 0%, rgba(251,191,36,0.08) 72%)',
+            border: '2px solid rgba(251,191,36,0.55)',
+            boxShadow: '0 0 28px rgba(251,191,36,0.45)',
             zIndex: 10,
           }}
+          animate={{
+            scale: [1, 1.09, 1],
+            boxShadow: [
+              '0 0 22px rgba(251,191,36,0.35)',
+              '0 0 36px rgba(251,191,36,0.55)',
+              '0 0 22px rgba(251,191,36,0.35)',
+            ],
+          }}
+          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <span className="text-2xl">⭐</span>
-        </div>
+          <motion.span
+            className="text-2xl"
+            animate={{ rotate: [0, 14, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ display: 'block' }}
+          >
+            ⭐
+          </motion.span>
+        </motion.div>
 
         {/* 행성들 */}
-        {categories.map((cat) => {
+        {categories.map((cat, planetIndex) => {
           const angle = angles[cat.id] ?? 0;
           const pos = getPlanetPosition(cat, angle);
           const size = PLANET_SIZES[cat.planet?.size ?? 'medium'] ?? 50;
@@ -134,9 +153,10 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
           const top = Number.isFinite(pos.y) ? pos.y - size / 2 : CENTER_Y - size / 2;
 
           return (
-            <button
+            <motion.button
               key={cat.id}
-              className="absolute flex flex-col items-center justify-center rounded-full transition-transform"
+              type="button"
+              className="absolute flex flex-col items-center justify-center rounded-full cursor-pointer"
               style={{
                 left,
                 top,
@@ -147,27 +167,40 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
                 boxShadow: isHovered
                   ? `0 0 20px ${cat.planet?.glowColor ?? cat.color}80, 0 0 40px ${cat.planet?.glowColor ?? cat.color}40`
                   : `0 0 10px ${cat.planet?.glowColor ?? cat.color}40`,
-                transform: isHovered ? 'scale(1.2)' : 'scale(1)',
                 zIndex: isHovered ? 20 : 5,
-                cursor: 'pointer',
               }}
               onMouseEnter={() => setHoveredId(cat.id)}
               onMouseLeave={() => setHoveredId(null)}
               onTouchStart={() => setHoveredId(cat.id)}
               onClick={() => onSelectCategory(cat)}
+              whileHover={{ scale: 1.16 }}
+              whileTap={{ scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 420, damping: 22 }}
             >
-              <span style={{ fontSize: size * 0.38 }}>{cat.emoji}</span>
-            </button>
+              <motion.span
+                style={{ fontSize: size * 0.38 }}
+                animate={{ y: [0, -2, 0] }}
+                transition={{
+                  duration: 2.2 + (planetIndex % 4) * 0.15,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: planetIndex * 0.08,
+                }}
+              >
+                {cat.emoji}
+              </motion.span>
+            </motion.button>
           );
         })}
       </div>
 
       {/* 행성 범례 */}
       <div className="w-full mt-2 grid grid-cols-2 gap-1.5 px-1">
-        {categories.map((cat) => (
-          <button
+        {categories.map((cat, legendIndex) => (
+          <motion.button
             key={`legend-${cat.id}`}
-            className="flex items-center gap-2 px-2.5 py-2 rounded-xl text-left transition-all"
+            type="button"
+            className="flex items-center gap-2 px-2.5 py-2 rounded-xl text-left"
             style={{
               background: hoveredId === cat.id ? cat.bgColor : 'rgba(255,255,255,0.04)',
               border: `1px solid ${hoveredId === cat.id ? cat.color : 'rgba(255,255,255,0.08)'}`,
@@ -175,6 +208,11 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
             onMouseEnter={() => setHoveredId(cat.id)}
             onMouseLeave={() => setHoveredId(null)}
             onClick={() => onSelectCategory(cat)}
+            initial={{ opacity: 0, x: -8 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: legendIndex * 0.04, type: 'spring', stiffness: 380, damping: 28 }}
+            whileHover={{ scale: 1.02, x: 3 }}
+            whileTap={{ scale: 0.97 }}
           >
             <span className="text-base">{cat.emoji}</span>
             <div className="min-w-0">
@@ -183,7 +221,7 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
                 {cat.shortName}
               </p>
             </div>
-          </button>
+          </motion.button>
         ))}
       </div>
     </div>

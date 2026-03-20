@@ -42,7 +42,7 @@ export function GroupedTabSelector<TValue extends string>({
             key={option.id}
             role="tab"
             aria-selected={isActive}
-            className="flex-1 h-10 px-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all"
+            className="flex-1 h-10 px-2 rounded-xl text-sm font-bold flex items-center justify-center gap-1.5 cursor-pointer transition-all"
             style={isActive
               ? {
                   background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',

@@ -5,6 +5,7 @@ import filters        from '@/data/dreammate/config/filters.json';
 import tabs           from '@/data/dreammate/config/tabs.json';
 import spaceConfig    from '@/data/dreammate/config/space.json';
 import reportReasons  from '@/data/dreammate/config/report.json';
+import heroConfig       from '@/data/dreammate/config/hero.json';
 
 import contentCommon  from '@/data/dreammate/content/common.json';
 import contentFeed    from '@/data/dreammate/content/feed.json';
@@ -111,6 +112,39 @@ export const ROADMAP_REPORT_REASONS = reportReasons as readonly {
   description: string;
   emoji:       string;
 }[];
+
+export const HERO_CONFIG = heroConfig as {
+  readonly copyByTab: Record<string, {
+    readonly headlineIcon: string;
+    readonly eyebrow: string;
+    readonly title: string;
+    readonly highlight: string;
+    readonly description: string;
+    readonly cta: string;
+  }>;
+  readonly visualStyles: Record<string, {
+    background: string;
+    border: string;
+    glowTopColor: string;
+    glowBottomColor: string;
+    accentColor: string;
+  }>;
+  readonly statIcons: Record<string, readonly {
+    icon: string;
+    valueKey?: string;
+    value?: string;
+    label: string;
+    iconBackground: string;
+    iconColor: string;
+  }[]>;
+  readonly borderRadius: {
+    container: string;
+    statIcon: string;
+    ctaButton: string;
+    headlineIcon: string;
+    glowBlob: string;
+  };
+};
 
 export const LABELS: { readonly [key: string]: string } = {
   ...contentCommon,

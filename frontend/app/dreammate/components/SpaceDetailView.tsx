@@ -26,6 +26,8 @@ interface SpaceDetailViewProps {
   onToggleRecruitmentStatus: (spaceId: string) => void;
   onCreateNotice: (spaceId: string, title: string, content: string) => void;
   onBack: () => void;
+  /** 좌우 2열 레이아웃 오른쪽 패널 — 상단 「목록」 숨김(마스터-디테일에서 처리) */
+  layoutVariant?: 'standalone' | 'sidePanel';
 }
 
 export function SpaceDetailView({
@@ -44,6 +46,7 @@ export function SpaceDetailView({
   onToggleRecruitmentStatus,
   onCreateNotice,
   onBack,
+  layoutVariant = 'standalone',
 }: SpaceDetailViewProps) {
   const [showMore, setShowMore] = useState(false);
   const [noticeTitleInput, setNoticeTitleInput] = useState('');
@@ -60,16 +63,21 @@ export function SpaceDetailView({
     setShowMore(false);
   };
 
+  const isSidePanel = layoutVariant === 'sidePanel';
+
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-gray-300 transition-all active:scale-95">
-          <ChevronRight className="w-4 h-4 rotate-180" />목록
-        </button>
+      <div className={`flex items-center gap-2 ${isSidePanel ? 'justify-end' : 'justify-between'}`}>
+        {!isSidePanel ? (
+          <button onClick={onBack} className="flex items-center gap-2 text-sm font-bold text-gray-300 transition-all active:scale-95">
+            <ChevronRight className="w-4 h-4 rotate-180" />목록
+          </button>
+        ) : null}
         <button
           onClick={() => setShowMore(!showMore)}
           className="w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-95"
           style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
+          aria-label="더보기"
         >
           <MoreVertical className="w-4 h-4 text-gray-400" />
         </button>
@@ -122,7 +130,7 @@ export function SpaceDetailView({
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="text-lg font-black text-white">{space.name}</h3>
-            <p className="text-xs text-gray-400 mt-0.5">{space.description}</p>
+            <p className="text-sm text-gray-400 mt-0.5">{space.description}</p>
           </div>
         </div>
       </div>
@@ -143,7 +151,7 @@ export function SpaceDetailView({
 
       {/* Members */}
       <div className="space-y-2">
-        <span className="text-xs font-bold text-gray-400">멤버 ({space.members.length})</span>
+        <span className="text-sm font-bold text-gray-400">멤버 ({space.members.length})</span>
         <div className="grid grid-cols-2 gap-2">
           {space.members.map(member => {
             const isCreator = member.id === space.creatorId;
@@ -158,10 +166,10 @@ export function SpaceDetailView({
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-1">
-                    <span className="text-xs font-bold text-white truncate">{member.name}</span>
+                    <span className="text-sm font-bold text-white truncate">{member.name}</span>
                     {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
                   </div>
-                  <span className="text-xs text-gray-500">{member.grade}</span>
+                  <span className="text-sm text-gray-500">{member.grade}</span>
                 </div>
               </div>
             );
@@ -171,10 +179,10 @@ export function SpaceDetailView({
 
       {/* Shared roadmaps */}
       <div className="space-y-2">
-        <span className="text-xs font-bold text-gray-400">공유된 로드맵 ({roadmaps.length})</span>
+        <span className="text-sm font-bold text-gray-400">공유된 로드맵 ({roadmaps.length})</span>
         {roadmaps.length === 0 ? (
           <div className="py-8 text-center rounded-xl" style={{ border: '1px dashed rgba(255,255,255,0.1)' }}>
-            <p className="text-xs text-gray-500">아직 공유된 로드맵이 없어요</p>
+            <p className="text-sm text-gray-500">아직 공유된 로드맵이 없어요</p>
           </div>
         ) : (
           roadmaps.map(rm => (

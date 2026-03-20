@@ -127,38 +127,38 @@ export function RoadmapCard({
             <span className="text-sm font-bold text-white truncate">{roadmap.ownerName}</span>
             {periodInfo && (
               <span
-                className="text-xs font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+                className="text-sm font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
                 style={{ backgroundColor: `${periodColor}18`, color: periodColor }}
               >
                 {periodInfo.label}
               </span>
             )}
           </div>
-          <p className="text-xs text-gray-500">{formatTimeAgo(roadmap.sharedAt)}</p>
+          <p className="text-sm text-gray-500">{formatTimeAgo(roadmap.sharedAt)}</p>
         </div>
       </div>
 
       {/* Title & month summary */}
       <h4 className="text-sm font-bold text-white mb-0.5">{roadmap.title}</h4>
       <p className="text-sm text-cyan-300 mb-2">{roadmapMonthSummaryLabel}</p>
-      <p className="text-xs text-gray-400 line-clamp-2 mb-3">{roadmap.description}</p>
+      <p className="text-sm text-gray-400 line-clamp-2 mb-3">{roadmap.description}</p>
       <div className="flex flex-wrap items-center gap-1.5 mb-3">
-        <span className="text-xs px-2 py-1 rounded-lg text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.16)' }}>
+        <span className="text-sm px-2 py-1 rounded-lg text-violet-200" style={{ backgroundColor: 'rgba(139,92,246,0.16)' }}>
           산출물 기준 {roadmapExecutionSummary.outputCriteriaCount}개
         </span>
-        <span className="text-xs px-2 py-1 rounded-lg text-emerald-200" style={{ backgroundColor: 'rgba(16,185,129,0.16)' }}>
+        <span className="text-sm px-2 py-1 rounded-lg text-emerald-200" style={{ backgroundColor: 'rgba(16,185,129,0.16)' }}>
           증빙 {roadmapExecutionSummary.evidenceCount}건
         </span>
-        <span className="text-xs px-2 py-1 rounded-lg text-cyan-200" style={{ backgroundColor: 'rgba(6,182,212,0.16)' }}>
+        <span className="text-sm px-2 py-1 rounded-lg text-cyan-200" style={{ backgroundColor: 'rgba(6,182,212,0.16)' }}>
           진행 {roadmapExecutionSummary.doneActionableTodoCount}/{roadmapExecutionSummary.totalActionableTodoCount}
         </span>
         {milestoneResultCount > 0 && (
-          <span className="text-xs px-2 py-1 rounded-lg text-sky-200" style={{ backgroundColor: 'rgba(56,189,248,0.18)' }}>
+          <span className="text-sm px-2 py-1 rounded-lg text-sky-200" style={{ backgroundColor: 'rgba(56,189,248,0.18)' }}>
             중간 결과물 {milestoneResultCount}개
           </span>
         )}
         {hasSharedResultAsset && (
-          <span className="text-xs px-2 py-1 rounded-lg text-amber-200" style={{ backgroundColor: 'rgba(245,158,11,0.18)' }}>
+          <span className="text-sm px-2 py-1 rounded-lg text-amber-200" style={{ backgroundColor: 'rgba(245,158,11,0.18)' }}>
             결과물 공유됨
           </span>
         )}
@@ -168,10 +168,10 @@ export function RoadmapCard({
         <div className="space-y-2 mb-3">
           {latestMilestoneResult && (
             <div className="rounded-lg px-2.5 py-2" style={{ backgroundColor: 'rgba(56,189,248,0.12)', border: '1px solid rgba(56,189,248,0.25)' }}>
-              <p className="text-xs font-bold text-sky-200">중간 결과물</p>
+              <p className="text-sm font-bold text-sky-200">중간 결과물</p>
               <p className="text-sm text-white truncate mt-0.5">{latestMilestoneResult.title}</p>
               {(latestMilestoneResult.monthWeekLabel || latestMilestoneResult.timeLog) && (
-                <p className="text-xs text-sky-300/90 mt-0.5 truncate">
+                <p className="text-sm text-sky-300/90 mt-0.5 truncate">
                   {latestMilestoneResult.monthWeekLabel ?? '-'} {latestMilestoneResult.timeLog ? `· ${latestMilestoneResult.timeLog}` : ''}
                 </p>
               )}
@@ -179,7 +179,7 @@ export function RoadmapCard({
           )}
           {(roadmap.finalResultTitle || roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
             <div className="rounded-lg px-2.5 py-2" style={{ backgroundColor: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.25)' }}>
-              <p className="text-xs font-bold text-emerald-200">최종 결과물</p>
+              <p className="text-sm font-bold text-emerald-200">최종 결과물</p>
               {roadmap.finalResultTitle && <p className="text-sm text-white truncate mt-0.5">{roadmap.finalResultTitle}</p>}
             </div>
           )}
@@ -193,7 +193,7 @@ export function RoadmapCard({
           return (
             <span
               key={item.id}
-              className="flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-lg"
+              className="flex items-center gap-1 text-sm font-semibold px-2 py-1 rounded-lg"
               style={{
                 backgroundColor: `${typeInfo?.color ?? '#6B7280'}12`,
                 color: typeInfo?.color ?? '#6B7280',
@@ -204,7 +204,7 @@ export function RoadmapCard({
           );
         })}
         {roadmap.items.length > 4 && (
-          <span className="text-xs text-gray-500 px-2 py-1">+{roadmap.items.length - 4}</span>
+          <span className="text-sm text-gray-500 px-2 py-1">+{roadmap.items.length - 4}</span>
         )}
       </div>
 
@@ -230,7 +230,7 @@ export function RoadmapCard({
           <MessageSquare className="w-3.5 h-3.5" />
           {roadmap.comments.length}
         </span>
-        <span className="ml-auto text-xs text-gray-500">
+        <span className="ml-auto text-sm text-gray-500">
           {roadmap.items.length}개 항목
         </span>
       </div>

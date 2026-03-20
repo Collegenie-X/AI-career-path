@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { Star, GraduationCap, School, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
@@ -81,6 +82,7 @@ function ExploreTabBar({
       style={{
         gridTemplateColumns: `repeat(${EXPLORE_TABS.length}, 1fr)`,
         backgroundColor: 'rgba(255,255,255,0.06)',
+        boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
       }}
     >
       {EXPLORE_TABS.map((tab) => {
@@ -88,26 +90,32 @@ function ExploreTabBar({
         return (
           <button
             key={tab.id}
+            type="button"
             onClick={() => onTabChange(tab.id)}
-            className="flex items-center justify-center gap-1.5 py-2.5 rounded-none text-xs font-bold transition-all"
-            style={
-              isActive
-                ? {
-                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                    color: '#fff',
-                    boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
-                  }
-                : {
-                    backgroundColor: 'rgba(255,255,255,0.04)',
-                    color: 'rgba(255,255,255,0.65)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }
-            }
+            className="relative flex items-center justify-center gap-1.5 overflow-hidden py-2.5 rounded-md text-xs font-bold"
+            style={{
+              backgroundColor: isActive ? 'transparent' : 'rgba(255,255,255,0.04)',
+              color: isActive ? '#fff' : 'rgba(255,255,255,0.65)',
+              border: isActive ? '1px solid transparent' : '1px solid rgba(255,255,255,0.08)',
+            }}
             role="tab"
             aria-selected={isActive}
           >
-            {tab.icon}
-            <span>{tab.label}</span>
+            {isActive && (
+              <motion.div
+                layoutId="jobs-explore-tab-active-pill"
+                className="absolute inset-0 rounded-md"
+                style={{
+                  background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                  boxShadow: '0 4px 20px rgba(108,92,231,0.45), inset 0 1px 0 rgba(255,255,255,0.15)',
+                }}
+                transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+              />
+            )}
+            <span className="relative z-[1] flex items-center justify-center gap-1.5">
+              {tab.icon}
+              <span>{tab.label}</span>
+            </span>
           </button>
         );
       })}
@@ -228,8 +236,14 @@ function JobsExploreContent() {
           {/* 히어로 배너 (직업 탐색 탭만) */}
           {activeTab === 'star' && <StarTabHeroBanner />}
 
-          {/* ── 본문 ── */}
-          <div className={EXPLORE_PAGE_LAYOUT_CLASS.bodyContentArea}>
+          {/* ── 본문 — 탭 전환 시 가벼운 RPG 스테이지 전환 ── */}
+          <motion.div
+            key={activeTab}
+            className={EXPLORE_PAGE_LAYOUT_CLASS.bodyContentArea}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+          >
 
             {/* 직업 탐색 탭 — 2컬럼 마스터-디테일 */}
             {activeTab === 'star' && (
@@ -293,7 +307,7 @@ function JobsExploreContent() {
 
             {/* 대입 탐색 탭 */}
             {activeTab === 'university' && <UniversityAdmissionTab />}
-          </div>
+          </motion.div>
         </div>
       </div>
 

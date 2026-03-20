@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { LibraryBig, Sparkles, Zap } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import metaData from '@/data/high-school/meta.json';
 import scienceHigh from '@/data/high-school/science_high.json';
@@ -26,6 +27,11 @@ import { MentalChallengeGame } from './MentalChallengeGame';
 import { enrichHighSchoolCategories } from './school-profile-enricher';
 import { HighSchoolResourceHubSection } from './HighSchoolResourceHubSection';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
+import {
+  AdmissionExploreCosmicBackdrop,
+  AdmissionGameHudBanner,
+  admissionExploreOrbitCallout,
+} from '../AdmissionExploreGameChrome';
 
 // 분리된 카테고리 파일을 합쳐서 기존 타입과 호환되는 데이터 구성
 const typedData: HighSchoolAdmissionV2Data = {
@@ -95,66 +101,78 @@ export function HighSchoolAdmissionTab() {
         <div className="space-y-3">
           {/* 인트로 배너 */}
           {viewState.view === 'planet' && (
-            <div
-              className="rounded-2xl p-3"
-              style={{
-                background: 'linear-gradient(135deg, rgba(132,94,247,0.2) 0%, rgba(32,201,151,0.1) 100%)',
-                border: '1px solid rgba(132,94,247,0.3)',
-              }}
-            >
-              <div className="flex items-start gap-3">
-                <div className="text-2xl">🪐</div>
-                <div>
-                  <h2 className="text-sm font-bold text-white">{typedData.meta.subtitle}</h2>
-                  <p className="text-[12px] text-gray-300 mt-0.5">{typedData.meta.description}</p>
+            <div className="relative overflow-hidden rounded-2xl">
+              <AdmissionExploreCosmicBackdrop variant="highSchool" />
+              <div className="relative z-[1] space-y-3">
+                <AdmissionGameHudBanner variant="highSchool" />
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.08, type: 'spring', stiffness: 320, damping: 26 }}
+                  className="rounded-2xl p-3"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(132,94,247,0.22) 0%, rgba(32,201,151,0.12) 100%)',
+                    border: '1px solid rgba(132,94,247,0.35)',
+                    boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <motion.div
+                      className="text-2xl"
+                      animate={{ rotate: [0, -6, 6, 0], y: [0, -3, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                      🪐
+                    </motion.div>
+                    <div>
+                      <h2 className="text-sm font-bold text-white">{typedData.meta.subtitle}</h2>
+                      <p className="text-[12px] text-gray-300 mt-0.5">{typedData.meta.description}</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 섹션 선택 탭 (정체성 / 멘탈 / 자료실) — 스킬 바 느낌 */}
+                <div
+                  className="flex rounded-xl p-1 gap-1"
+                  style={{
+                    background: 'rgba(15,23,42,0.65)',
+                    border: '1px solid rgba(139,92,246,0.25)',
+                    boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
+                  }}
+                >
+                  {(
+                    [
+                      { view: 'identity-challenge' as const, icon: Sparkles, label: '정체성 퀘스트' },
+                      { view: 'mental-challenge' as const, icon: Zap, label: '멘탈 던전' },
+                      { view: 'resource-hub' as const, icon: LibraryBig, label: '자료 상점' },
+                    ] as const
+                  ).map(({ view, icon: Icon, label }) => (
+                    <motion.button
+                      key={view}
+                      type="button"
+                      onClick={() => setViewState({ view })}
+                      className="flex-1 py-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 text-gray-400 hover:text-white"
+                      style={{ background: 'transparent' }}
+                      whileHover={{ scale: 1.03, backgroundColor: 'rgba(139,92,246,0.15)' }}
+                      whileTap={{ scale: 0.96 }}
+                    >
+                      <Icon className="w-3.5 h-3.5" />
+                      {label}
+                    </motion.button>
+                  ))}
+                </div>
+
+                {/* 행성 궤도 뷰 */}
+                <div className="space-y-2">
+                  <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
+                    {admissionExploreOrbitCallout('highSchool')}
+                  </p>
+                  <PlanetOrbitView
+                    categories={typedData.categories}
+                    onSelectCategory={handleSelectCategory}
+                  />
                 </div>
               </div>
-            </div>
-          )}
-
-          {/* 섹션 선택 탭 (정체성 / 멘탈 / 자료실) */}
-          {viewState.view === 'planet' && (
-            <div
-              className="flex rounded-xl p-1 gap-1"
-              style={{ background: 'rgba(255,255,255,0.05)' }}
-            >
-              <button
-                onClick={() => setViewState({ view: 'identity-challenge' })}
-                className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
-                style={{ background: 'transparent', color: '#9ca3af' }}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-                정체성
-              </button>
-              <button
-                onClick={() => setViewState({ view: 'mental-challenge' })}
-                className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
-                style={{ background: 'transparent', color: '#9ca3af' }}
-              >
-                <Zap className="w-3.5 h-3.5" />
-                멘탈
-              </button>
-              <button
-                onClick={() => setViewState({ view: 'resource-hub' })}
-                className="flex-1 py-2 rounded-lg text-[11px] font-semibold transition-all flex items-center justify-center gap-1.5"
-                style={{ background: 'transparent', color: '#9ca3af' }}
-              >
-                <LibraryBig className="w-3.5 h-3.5" />
-                자료실
-              </button>
-            </div>
-          )}
-
-          {/* 행성 궤도 뷰 */}
-          {viewState.view === 'planet' && (
-            <div className="space-y-2">
-              <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider text-center">
-                🪐 행성을 눌러 학교 유형을 탐방하세요
-              </p>
-              <PlanetOrbitView
-                categories={typedData.categories}
-                onSelectCategory={handleSelectCategory}
-              />
             </div>
           )}
 

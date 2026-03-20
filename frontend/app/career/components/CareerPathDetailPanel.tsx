@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import {
-  X, Heart, Users, Bookmark, BookmarkCheck,
+  Heart, Users, Bookmark, BookmarkCheck,
   ExternalLink, Flag, MessageCircle, MoreVertical,
 } from 'lucide-react';
 import type { CareerPathTemplate } from '@/data/career-path-templates-index';
@@ -170,14 +170,6 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate }: Care
               )}
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 md:hidden"
-            style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
-            title="닫기"
-          >
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
         </div>
       </div>
 

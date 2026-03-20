@@ -119,13 +119,13 @@ export function DreamLibraryResourceFormDialog({
 
         <div className="px-5 pb-10 space-y-4">
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadCategoryLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadCategoryLabel}</label>
             <div className="grid grid-cols-3 gap-2">
               {RESOURCE_CATEGORIES.map(category => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className="rounded-xl py-2 text-xs font-bold transition-all"
+                  className="rounded-xl py-2 text-sm font-bold transition-all"
                   style={selectedCategory === category.id
                     ? { background: `linear-gradient(135deg, ${category.color}30, ${category.color}12)`, border: `1px solid ${category.color}55`, color: category.color }
                     : { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}
@@ -137,7 +137,7 @@ export function DreamLibraryResourceFormDialog({
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadTitleLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadTitleLabel}</label>
             <input
               value={resourceTitle}
               onChange={event => setResourceTitle(event.target.value)}
@@ -148,7 +148,7 @@ export function DreamLibraryResourceFormDialog({
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadDescriptionLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadDescriptionLabel}</label>
             <textarea
               value={resourceDescription}
               onChange={event => setResourceDescription(event.target.value)}
@@ -159,7 +159,7 @@ export function DreamLibraryResourceFormDialog({
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadUrlLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadUrlLabel}</label>
             <input
               value={resourceUrl}
               onChange={event => setResourceUrl(event.target.value)}
@@ -170,7 +170,7 @@ export function DreamLibraryResourceFormDialog({
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadTagsLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadTagsLabel}</label>
             <input
               value={resourceTagsInput}
               onChange={event => setResourceTagsInput(event.target.value)}
@@ -181,7 +181,7 @@ export function DreamLibraryResourceFormDialog({
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadAttachmentLabel}</label>
+            <label className="text-sm font-bold text-gray-400 mb-1.5 block">{LABELS.libraryUploadAttachmentLabel}</label>
             <label className="w-full h-12 rounded-xl border border-dashed border-indigo-400/40 flex items-center justify-center gap-2 text-sm text-indigo-200 cursor-pointer">
               <Upload className="w-4 h-4" />
               {isUploadingFile ? LABELS.libraryUploadFileReading : LABELS.libraryUploadAttachmentButton}
@@ -195,13 +195,13 @@ export function DreamLibraryResourceFormDialog({
               />
             </label>
             {attachmentFileName && (
-              <p className="text-xs text-gray-400 mt-2">
+              <p className="text-sm text-gray-400 mt-2">
                 {LABELS.libraryUploadAttachedFilePrefix}: {attachmentFileName}
               </p>
             )}
           </div>
 
-          {validationMessage && <p className="text-xs text-red-400">{validationMessage}</p>}
+          {validationMessage && <p className="text-sm text-red-400">{validationMessage}</p>}
 
           <button
             onClick={() => {
