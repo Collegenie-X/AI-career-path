@@ -1,13 +1,13 @@
 {
   "hero": {
     "badge": {
-      "emoji": "🔓",
+      "emoji": "✦",
       "text": "정보 민주화 · 공익형 진로 플랫폼"
     },
     "heading": {
-      "line1": "300만원짜리 컨설팅 정보",
-      "line2": "모두에게 무료로",
-      "icons": { "line1": ["💰", "💰"], "line2": ["🌟", "🚀"] }
+      "line1": "소수만 알던 진로 정보",
+      "line2": "모두에게 열린 길로",
+      "icons": { "line1": [], "line2": [] }
     },
     "description": "적성검사 → 커리어 경험 → 커리어 패스 → 커리어 실행, 4단계 여정을 무료로",
     "rotatingDescriptions": [
@@ -22,20 +22,16 @@
       "secondary": { "label": "우리의 이야기", "href": "/about" }
     },
     "statBadges": [
-      { "emoji": "💸", "value": "300만원", "sub": "→ 무료", "color": "#EF4444" },
       { "emoji": "🗺️", "value": "200개", "sub": "커리어 패스", "color": "#6C5CE7" },
       { "emoji": "🌏", "value": "전국", "sub": "어디서나", "color": "#22C55E" },
-      { "emoji": "🆓", "value": "광고 기반", "sub": "구독료 없음", "color": "#FBBF24" }
+      { "emoji": "🆓", "value": "광고 기반", "sub": "구독료 없음", "color": "#FBBF24" },
+      { "emoji": "🔓", "value": "완전", "sub": "무료 이용", "color": "#3B82F6" }
     ],
     "floatingIcons": [
-      { "emoji": "🔭", "top": "12%", "left": "8%", "delay": "0s", "size": "text-3xl" },
-      { "emoji": "⭐", "top": "20%", "right": "10%", "delay": "0.8s", "size": "text-2xl" },
-      { "emoji": "🚀", "top": "65%", "left": "5%", "delay": "1.5s", "size": "text-3xl" },
-      { "emoji": "🌙", "top": "75%", "right": "8%", "delay": "0.4s", "size": "text-2xl" },
-      { "emoji": "💫", "top": "40%", "left": "3%", "delay": "2s", "size": "text-xl" },
-      { "emoji": "🪐", "top": "30%", "right": "4%", "delay": "1.2s", "size": "text-3xl" },
-      { "emoji": "✨", "top": "85%", "left": "15%", "delay": "0.6s", "size": "text-xl" },
-      { "emoji": "🌟", "top": "10%", "right": "25%", "delay": "1.8s", "size": "text-xl" }
+      { "emoji": "🔭", "top": "15%", "left": "7%", "delay": "0s", "size": "text-2xl" },
+      { "emoji": "🪐", "top": "28%", "right": "6%", "delay": "1.2s", "size": "text-2xl" },
+      { "emoji": "🌙", "top": "70%", "right": "9%", "delay": "0.4s", "size": "text-xl" },
+      { "emoji": "💫", "top": "72%", "left": "6%", "delay": "2s", "size": "text-xl" }
     ],
     "scrollLabel": "scroll"
   },
@@ -53,11 +49,11 @@
         "color": "#6C5CE7",
         "colorBg": "rgba(108,92,231,0.1)",
         "colorBorder": "rgba(108,92,231,0.3)",
-        "short": "300만원 → 무료",
+        "short": "비공개 정보 → 공개",
         "title": "정보는 잠겨 있으면 안 됩니다",
-        "description": "대치동 입시 컨설턴트만 알고 있던 커리어 패스 정보. 300만원을 낼 수 있는 컨설팅 정보를 접근할 수 있었습니다. CareerPath는 이 정보를 AI와 함께 무료로 공개합니다.",
+        "description": "일부 컨설팅 업체만 알고 있던 커리어 패스 정보. 비용과 지역의 장벽 뒤에 숨어 있던 정보를 CareerPath는 AI와 함께 누구에게나 무료로 공개합니다.",
         "quote": "돈이 많아서가 아니라, 꾸준히 노력하는 학생이 꿈을 이뤄야 합니다.",
-        "icons": ["💸", "🔑", "✨"]
+        "icons": ["🔑", "✨"]
       },
       {
         "emoji": "👥",
@@ -138,7 +134,7 @@
         "avatar": "👦",
         "xp": 340,
         "maxXp": 500,
-        "tags": ["생기부 고민", "컨설팅 300만원", "의대 목표"],
+        "tags": ["생기부 고민", "컨설팅 비용 부담", "의대 목표"],
         "pain": "\"생기부에 뭘 넣어야 해? 컨설팅은 너무 비싸...\"",
         "goal": "체계적인 커리어 패스 + 생기부 완성",
         "careerpath": "커리어 패스 열람 → AI 멘토링 → 프로젝트 실행",
@@ -160,8 +156,8 @@
         "avatar": "👩",
         "xp": 420,
         "maxXp": 500,
-        "tags": ["해외 대학", "유학원 1000만원", "부산 거주"],
-        "pain": "\"유학원 견적이 1,000만원... 혼자 준비할 수 없을까?\"",
+        "tags": ["해외 대학", "유학원 비용 부담", "부산 거주"],
+        "pain": "\"유학원 비용이 너무 부담돼... 혼자 준비할 수 없을까?\"",
         "goal": "유학원 없이 해외 대학 준비",
         "careerpath": "해외 커리어 패스 → AI 에세이 멘토 → 포트폴리오",
         "color": "#22C55E",
@@ -182,7 +178,7 @@
         "avatar": "👩‍👧‍👦",
         "xp": 480,
         "maxXp": 500,
-        "tags": ["사교육비 월 200만원", "맘카페 정보 수집", "잔소리 줄이고 싶음"],
+        "tags": ["사교육비 부담", "맘카페 정보 수집", "잔소리 줄이고 싶음"],
         "pain": "\"진로를 알아서 정하면 좋겠는데... 컨설팅은 비싸고.\"",
         "goal": "아이가 스스로 진로를 찾고 실행하길",
         "careerpath": "아이에게 앱 추천 → 실행 현황 확인 → 갈등 감소",
@@ -201,7 +197,7 @@
     "header": {
       "badge": "Why CareerPath",
       "title": "기존 서비스는 한 조각만 해결합니다",
-      "subtitle": "검사만, 기록만, 학교에서만, 300만원짜리만. 찾다 → 세우다 → 실행 → 완성, 전체를 무료로 해결하는 곳은 CareerPath뿐입니다."
+      "subtitle": "검사만, 기록만, 학교에서만, 고비용 컨설팅만. 찾다 → 세우다 → 실행 → 완성, 전체를 무료로 해결하는 곳은 CareerPath뿐입니다."
     },
     "groups": [
       {
@@ -238,7 +234,7 @@
         "id": "consult",
         "emoji": "💰",
         "label": "오프라인 컨설팅",
-        "desc": "설계~실행 가능하지만 300만원, 서울 한정",
+        "desc": "설계~실행 가능하지만 고비용, 서울 한정",
         "color": "#EF4444",
         "colorBg": "rgba(239,68,68,0.1)",
         "tag": "고비용",

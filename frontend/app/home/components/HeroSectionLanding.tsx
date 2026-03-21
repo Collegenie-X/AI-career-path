@@ -35,7 +35,7 @@ export function HeroSectionLanding() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-      <StarfieldCanvas count={150} />
+      <StarfieldCanvas count={90} />
 
       {/* Floating decorative icons */}
       {hero.floatingIcons.map((icon, i) => (
@@ -58,32 +58,36 @@ export function HeroSectionLanding() {
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border"
-            style={{ background: 'rgba(108,92,231,0.12)', borderColor: 'rgba(108,92,231,0.35)' }}>
-            <span className="text-base">{hero.badge.emoji}</span>
-            <span className="text-sm font-bold text-purple-300">{hero.badge.text}</span>
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border"
+            style={{
+              background: 'rgba(167,139,250,0.08)',
+              borderColor: 'rgba(167,139,250,0.25)',
+            }}
+          >
+            <span
+              className="text-sm font-bold"
+              style={{ color: '#a78bfa' }}
+            >
+              {hero.badge.emoji}
+            </span>
+            <span className="text-sm font-medium text-white/60">{hero.badge.text}</span>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#a78bfa' }} />
           </div>
 
           {/* Main heading */}
           <div className="mb-4">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <span className="text-4xl md:text-5xl animate-icon-float" style={{ animationDelay: '0.3s' }}>{hero.heading.icons.line1[0]}</span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight">
-                {hero.heading.line1}
-              </h1>
-              <span className="text-4xl md:text-5xl animate-icon-float" style={{ animationDelay: '0.8s' }}>{hero.heading.icons.line1[1]}</span>
-            </div>
-            <div className="flex items-center justify-center gap-3">
-              <span className="text-4xl md:text-5xl animate-icon-float" style={{ animationDelay: '1.2s' }}>{hero.heading.icons.line2[0]}</span>
-              <h1
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent leading-[1.05] tracking-tight"
-                style={{ backgroundImage: 'linear-gradient(135deg, #a29bfe 0%, #6C5CE7 45%, #74b9ff 100%)' }}
-              >
-                {hero.heading.line2}
-              </h1>
-              <span className="text-4xl md:text-5xl animate-icon-float" style={{ animationDelay: '0.5s' }}>{hero.heading.icons.line2[1]}</span>
-            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-2">
+              {hero.heading.line1}
+            </h1>
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-clip-text text-transparent leading-[1.1] tracking-tight"
+              style={{
+                backgroundImage: 'linear-gradient(110deg, #c4b5fd 0%, #a78bfa 25%, #818cf8 50%, #60a5fa 75%, #93c5fd 100%)',
+              }}
+            >
+              {hero.heading.line2}
+            </h1>
           </div>
 
           {/* Short description — rotates from JSON for a more dynamic hero */}

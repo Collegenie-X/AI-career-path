@@ -11,10 +11,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black">
       <HeroSectionLanding />
-      <DreamSchedulePreviewSection />
-      <JourneyStepsSection />
-      <ManifestoSection />
       <PersonaSection />
+      <JourneyStepsSection />
+      <DreamSchedulePreviewSection />
+      <ManifestoSection />
       <CompetitorTableSection />
       <FeaturesSection />
       <CTASection />
