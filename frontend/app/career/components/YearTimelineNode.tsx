@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 import { GRADE_YEARS } from '../config';
 import {
-  DreamPathGoalHeaderButton,
-  DreamPathNestedRail,
-  DreamPathPlanGroupHeader,
-} from './timeline-dream-path/CareerTimelineDreamPathChrome';
+  CareerPathGoalHeaderButton,
+  CareerPathNestedRail,
+  CareerPathPlanGroupHeader,
+} from './timeline-dream-path/CareerTimelineCareerPathChrome';
 import type { PlanItem, YearPlan } from './CareerPathBuilder';
 import {
   ItemRow, QuickAddItem,
@@ -198,18 +198,18 @@ export function YearTimelineNode({
           )}
         </div>
 
-        {/* Groups (PlanGroup) — 드림 패스 상세와 동일: 이중 박스 테두리 없이 헤더 + 세로 레일 */}
+        {/* Groups (PlanGroup) — 커리어 패스 상세와 동일: 이중 박스 테두리 없이 헤더 + 세로 레일 */}
         {(year.groups ?? []).length > 0 && (
           <div className="space-y-3">
             {(year.groups ?? []).map((group) => (
               <div key={group.id} className="space-y-1">
-                <DreamPathPlanGroupHeader
+                <CareerPathPlanGroupHeader
                   accentColor={color}
                   label={group.label}
                   itemCount={group.items.length}
                 />
                 {group.items.length > 0 && (
-                  <DreamPathNestedRail accentColor={color}>
+                  <CareerPathNestedRail accentColor={color}>
                     {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
@@ -225,7 +225,7 @@ export function YearTimelineNode({
                         onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
-                  </DreamPathNestedRail>
+                  </CareerPathNestedRail>
                 )}
               </div>
             ))}
@@ -242,7 +242,7 @@ export function YearTimelineNode({
               return (
               <div key={group.id} className="space-y-1">
                 {showAccordionIcon ? (
-                  <DreamPathGoalHeaderButton
+                  <CareerPathGoalHeaderButton
                     accentColor={color}
                     title={group.goal}
                     itemCount={group.items.length}
@@ -252,7 +252,7 @@ export function YearTimelineNode({
                     variant="accordion"
                   />
                 ) : (
-                  <DreamPathGoalHeaderButton
+                  <CareerPathGoalHeaderButton
                     accentColor={color}
                     title={group.goal}
                     itemCount={group.items.length}
@@ -260,7 +260,7 @@ export function YearTimelineNode({
                   />
                 )}
                 {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
-                  <DreamPathNestedRail accentColor={color}>
+                  <CareerPathNestedRail accentColor={color}>
                     {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
@@ -276,7 +276,7 @@ export function YearTimelineNode({
                         onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
-                  </DreamPathNestedRail>
+                  </CareerPathNestedRail>
                 )}
               </div>
               );
@@ -301,7 +301,7 @@ export function YearTimelineNode({
                   return (
                   <div key={group.id} className="space-y-1">
                     {showAccordionIcon ? (
-                      <DreamPathGoalHeaderButton
+                      <CareerPathGoalHeaderButton
                         accentColor={color}
                         title={group.goal}
                         itemCount={group.items.length}
@@ -311,7 +311,7 @@ export function YearTimelineNode({
                         variant="accordion"
                       />
                     ) : (
-                      <DreamPathGoalHeaderButton
+                      <CareerPathGoalHeaderButton
                         accentColor={color}
                         title={group.goal}
                         itemCount={group.items.length}
@@ -319,7 +319,7 @@ export function YearTimelineNode({
                       />
                     )}
                     {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
-                      <DreamPathNestedRail accentColor={color}>
+                      <CareerPathNestedRail accentColor={color}>
                         {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                           <ItemRow
                             key={item.id}
@@ -335,7 +335,7 @@ export function YearTimelineNode({
                             onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                           />
                         ))}
-                      </DreamPathNestedRail>
+                      </CareerPathNestedRail>
                     )}
                   </div>
                   );
@@ -352,7 +352,7 @@ export function YearTimelineNode({
         {(() => {
           if (ungroupedYearItems.length === 0 && !isEditMode) return null;
           return (
-            <DreamPathNestedRail accentColor={color}>
+            <CareerPathNestedRail accentColor={color}>
               {ungroupedYearItems.map((item) => (
                 <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
                   showCheckbox={showCheckboxes}
@@ -364,7 +364,7 @@ export function YearTimelineNode({
                   onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined} />
               ))}
               {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
-            </DreamPathNestedRail>
+            </CareerPathNestedRail>
           );
         })()}
 

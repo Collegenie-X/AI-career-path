@@ -9,7 +9,7 @@ type StarGridGroupedPanelProps = {
 };
 
 /**
- * 드림 경험 직업 탐색 — 8개 별 카드를 패스/커리어와 같은 glass + primary 테두리로 묶어
+ * 커리어 경험 직업 탐색 — 8개 별 카드를 패스/커리어와 같은 glass + primary 테두리로 묶어
  * 한 여정처럼 보이게 합니다.
  */
 export function StarGridGroupedPanel({ headerSlot, children }: StarGridGroupedPanelProps) {

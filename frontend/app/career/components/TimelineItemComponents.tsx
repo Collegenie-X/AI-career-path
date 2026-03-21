@@ -9,9 +9,9 @@ import {
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
 import {
-  DreamPathSubItemNest,
-  dreamPathSubActivitiesLabel,
-} from './timeline-dream-path/CareerTimelineDreamPathChrome';
+  CareerPathSubItemNest,
+  careerPathSubActivitiesLabel,
+} from './timeline-dream-path/CareerTimelineCareerPathChrome';
 
 export type PlanItemWithCheck = PlanItem & { checked?: boolean };
 
@@ -137,25 +137,25 @@ export function ItemRow({
     : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
   const borderColor = useLightBorder ? '12' : '28';
-  const isDreamPathFlat = useLightBorder;
+  const isCareerPathFlat = useLightBorder;
   return (
     <div
-      className={`relative transition-all overflow-hidden ${isDreamPathFlat ? 'rounded-lg' : 'rounded-xl'}`}
+      className={`relative transition-all overflow-hidden ${isCareerPathFlat ? 'rounded-lg' : 'rounded-xl'}`}
       style={{
         backgroundColor: checked
           ? 'rgba(255,255,255,0.02)'
-          : isDreamPathFlat
+          : isCareerPathFlat
             ? `${typeConf?.color ?? color}08`
             : `${typeConf?.color ?? color}0e`,
-        border: isDreamPathFlat
+        border: isCareerPathFlat
           ? 'none'
           : `1px solid ${checked ? 'rgba(255,255,255,0.04)' : (typeConf?.color ?? color) + borderColor}`,
         opacity: checked ? 0.5 : 1,
       }}
     >
-      <div className={`flex items-start gap-2.5 ${isDreamPathFlat ? 'p-2' : 'p-3'}`}>
-        {/* Branch connector — 플랫(드림 패스) 모드에서는 세로선 레일과 중복되므로 숨김 */}
-        {!isDreamPathFlat ? (
+      <div className={`flex items-start gap-2.5 ${isCareerPathFlat ? 'p-2' : 'p-3'}`}>
+        {/* Branch connector — 플랫(커리어 패스) 모드에서는 세로선 레일과 중복되므로 숨김 */}
+        {!isCareerPathFlat ? (
           <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
         ) : null}
 
@@ -222,11 +222,11 @@ export function ItemRow({
 
       {/* 하위활동 — 플랫 모드에서는 상단 구분선 대신 들여쓰기 레일로 계층 표시 */}
       {showCheckbox && subExpanded && subItems.length > 0 && (
-        <div className={`${isDreamPathFlat ? 'px-2 pb-2 pt-0' : 'px-3 pb-3 pt-1 space-y-1.5'}`}>
-          {isDreamPathFlat ? (
-            <DreamPathSubItemNest>
+        <div className={`${isCareerPathFlat ? 'px-2 pb-2 pt-0' : 'px-3 pb-3 pt-1 space-y-1.5'}`}>
+          {isCareerPathFlat ? (
+            <CareerPathSubItemNest>
               <p className="text-[10px] font-bold uppercase tracking-wide text-gray-600 px-1 pb-1">
-                {dreamPathSubActivitiesLabel()}
+                {careerPathSubActivitiesLabel()}
               </p>
               {subItems.map((sub) => (
                 <div
@@ -277,7 +277,7 @@ export function ItemRow({
                   </div>
                 </div>
               ))}
-            </DreamPathSubItemNest>
+            </CareerPathSubItemNest>
           ) : (
             <div
               className="px-3 pb-3 pt-1 space-y-1.5"

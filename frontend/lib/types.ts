@@ -1,5 +1,5 @@
 // ============================
-// DreamPath - Core TypeScript Types
+// CareerPath - Core TypeScript Types
 // ============================
 
 // --- RIASEC Types ---

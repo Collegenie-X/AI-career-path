@@ -43,7 +43,7 @@ export function TopNavBar() {
             className="text-base min-[720px]:text-lg font-bold hidden min-[720px]:inline"
             style={{ background: 'linear-gradient(135deg, #fff 30%, #a29bfe 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
           >
-            DreamPath
+            CareerPath
           </span>
         </Link>
 

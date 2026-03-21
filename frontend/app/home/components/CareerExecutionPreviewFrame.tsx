@@ -1,13 +1,13 @@
 'use client';
 
-import type { DreamExecutionProject } from '@/types/home-schedule-preview';
+import type { CareerExecutionProject } from '@/types/home-schedule-preview';
 
-type DreamExecutionPreviewFrameProps = {
+type CareerExecutionPreviewFrameProps = {
   frameLabel: string;
-  project: DreamExecutionProject;
+  project: CareerExecutionProject;
 };
 
-export function DreamExecutionPreviewFrame({ frameLabel, project }: DreamExecutionPreviewFrameProps) {
+export function CareerExecutionPreviewFrame({ frameLabel, project }: CareerExecutionPreviewFrameProps) {
   return (
     <div className="relative w-full" aria-hidden>
       {/* Window chrome */}

@@ -18,7 +18,7 @@
     },
     "space": {
       "headlineIcon": "Users",
-      "eyebrow": "드림 스페이스",
+      "eyebrow": "커리어 스페이스",
       "title": "함께 실행하는",
       "highlight": "그룹 공간",
       "description": "프로젝트팀·스터디 그룹을 만들고 함께 실행계획을 공유하세요. 초대 코드로 멤버를 초대하고 공동 목표를 달성해요.",
@@ -26,7 +26,7 @@
     },
     "library": {
       "headlineIcon": "BookOpen",
-      "eyebrow": "드림 라이브러리",
+      "eyebrow": "커리어 라이브러리",
       "title": "학습 자료를",
       "highlight": "함께 만들어요",
       "description": "탐구 보고서·프로젝트 템플릿·학습 가이드를 공유하고, 댓글로 피드백을 주고받으세요.",

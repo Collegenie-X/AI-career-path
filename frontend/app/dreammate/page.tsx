@@ -104,7 +104,7 @@ function DreamMatePageContent() {
               activeTab={activeTab}
               onTabChange={setActiveTab}
               embeddedInSectionShell
-              ariaLabel="드림 실행 탭 전환"
+              ariaLabel="커리어 실행 탭 전환"
             />
           </div>
           <DreamMateHeroBanner

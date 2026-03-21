@@ -51,7 +51,7 @@ export function WebHeader() {
               </svg>
             </div>
             <span className="text-lg md:text-xl font-bold text-white tracking-tight">
-              DreamPath
+              CareerPath
             </span>
           </Link>
 

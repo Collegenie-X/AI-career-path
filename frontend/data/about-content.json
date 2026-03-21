@@ -1,0 +1,317 @@
+{
+  "creator": {
+    "badge": "Who Made This",
+    "title": "만든 사람",
+    "subtitle": "김종필 + AI Agent",
+    "description": "CareerPath는 한 사람의 경험과 AI의 능력이 결합되어 탄생했습니다.",
+    "team": [
+      {
+        "id": "human",
+        "name": "김종필",
+        "role": "기획자 & 개발자",
+        "avatar": "김",
+        "description": "평범한 환경에서 자라며 진로 정보 부족으로 많은 시행착오를 겪었습니다. 각종 프로젝트와 수상 경험을 통해 '체계적인 기획과 계획'의 중요성을 깨달았고, 많은 고등학생들을 멘토링하며 이들도 같은 문제를 겪고 있음을 발견했습니다."
+      },
+      {
+        "id": "ai",
+        "name": "AI Agent",
+        "role": "개발 파트너 & 멘토",
+        "avatar": "AI",
+        "description": "코드 작성, 디자인 구현, 데이터 구조화 등 실제 '만드는 작업'을 담당합니다. 하지만 무엇을 만들지, 왜 만들지, 어떻게 만들지는 김종필이 기획하고 계획합니다. AI는 도구이지, 기획자가 아닙니다."
+      }
+    ]
+  },
+  "philosophy": {
+    "badge": "Our Philosophy",
+    "title": "왜 기획과 계획이 중요한가",
+    "subtitle": "AI 시대, 결과보다 과정이 중요한 이유",
+    "principles": [
+      {
+        "id": "ai-era",
+        "title": "AI가 만드는 시대",
+        "content": "이제 코드를 작성하고, 디자인을 구현하고, 콘텐츠를 생성하는 것은 AI가 합니다. ChatGPT, Claude, GitHub Copilot... 누구나 AI와 함께 무언가를 만들 수 있는 시대입니다.",
+        "highlight": false
+      },
+      {
+        "id": "planning-matters",
+        "title": "하지만 기획은 사람이 합니다",
+        "content": "무엇을 만들 것인가? 왜 만들어야 하는가? 누구를 위한 것인가? 어떤 문제를 해결하는가? 이런 질문에 답하는 것은 여전히 사람의 영역입니다. AI는 당신의 기획을 실현하는 도구일 뿐입니다.",
+        "highlight": true
+      },
+      {
+        "id": "process-over-result",
+        "title": "과정이 곧 경쟁력입니다",
+        "content": "결과물은 AI가 만들 수 있지만, 그 과정에서의 사고, 판단, 기획은 복제할 수 없습니다. CareerPath는 학생들이 '무엇을 배울지, 어떤 프로젝트를 할지, 어떻게 성장할지' 기획하고 계획하는 능력을 키우도록 돕습니다.",
+        "highlight": false
+      },
+      {
+        "id": "career-planning",
+        "title": "커리어 패스도 마찬가지입니다",
+        "content": "진로는 가벼운 문제가 아닙니다. 하지만 체계적으로 기획하고 계획한다면, 실행 과정은 즐거울 수 있습니다. CareerPath는 진지한 진로 설계를 게임처럼 즐겁게 실행할 수 있도록 설계되었습니다.",
+        "highlight": false
+      }
+    ]
+  },
+  "workStyle": {
+    "badge": "How I Work",
+    "title": "일하는 방식",
+    "items": [
+      {
+        "id": "plan-first",
+        "icon": "lightbulb",
+        "title": "기획 우선",
+        "description": "코드를 작성하기 전에 먼저 생각합니다. 왜 이것이 필요한가? 누가 사용할 것인가? 어떤 문제를 해결하는가?"
+      },
+      {
+        "id": "iterate-fast",
+        "icon": "refresh-cw",
+        "title": "빠른 반복",
+        "description": "완벽한 계획보다 빠른 실행과 개선을 선호합니다. AI와 함께라면 아이디어를 빠르게 프로토타입으로 만들 수 있습니다."
+      },
+      {
+        "id": "user-centered",
+        "icon": "users",
+        "title": "사용자 중심",
+        "description": "실제 학생들의 피드백을 듣고, 그들이 겪는 문제를 해결하는 데 집중합니다. 기술은 수단이지 목적이 아닙니다."
+      },
+      {
+        "id": "document-everything",
+        "icon": "file-text",
+        "title": "모든 것을 기록",
+        "description": "기획 의도, 설계 결정, 실패 경험까지 모두 문서화합니다. 과정이 곧 자산이기 때문입니다."
+      }
+    ]
+  },
+  "mission": {
+    "badge": "Our Mission",
+    "title": "우리의 미션",
+    "values": [
+      {
+        "id": "mission",
+        "icon": "target",
+        "title": "미션",
+        "description": "모든 학생이 자신의 진로를 체계적으로 기획하고 계획할 수 있도록 돕습니다. 300만원짜리 입시 컨설팅의 정보를 무료로 민주화합니다.",
+        "color": "#6C5CE7"
+      },
+      {
+        "id": "vision",
+        "icon": "eye",
+        "title": "비전",
+        "description": "기획과 계획의 중요성을 알고, AI를 도구로 활용할 수 있는 세대를 만듭니다. 결과보다 과정, 실행보다 사고를 중시하는 문화를 만듭니다.",
+        "color": "#3B82F6"
+      },
+      {
+        "id": "values",
+        "icon": "heart",
+        "title": "핵심 가치",
+        "description": "정보 민주화, 과정 중심, AI 협업, 커뮤니티 공유. 이 네 가지 가치로 모든 학생에게 공평한 기회를 제공합니다.",
+        "color": "#A855F7"
+      }
+    ]
+  },
+  "problemSolution": {
+    "badge": "The Problem",
+    "title": "학생들이 겪는 진로 설계의 어려움",
+    "problems": [
+      {
+        "id": "no-career-path",
+        "icon": "map-off",
+        "title": "커리어 패스 정보 부족",
+        "description": "적성검사를 해도 그 다음 무엇을 해야 할지 모릅니다. 중학교, 고등학교, 대학교에서 어떤 활동을 준비해야 하는지 구체적인 가이드가 없습니다.",
+        "color": "#EF4444"
+      },
+      {
+        "id": "no-plan",
+        "icon": "calendar-x",
+        "title": "기획과 계획의 부재",
+        "description": "대부분의 학생들이 체계적인 계획 없이 학교를 다닙니다. 입시와 취업 준비도 막연하게 진행되어 시행착오가 반복됩니다.",
+        "color": "#F59E0B"
+      },
+      {
+        "id": "information-gap",
+        "icon": "lock",
+        "title": "정보 접근성 문제",
+        "description": "입시 컨설팅은 300만원, 유학원은 1,000만원이 넘습니다. 정보는 소수에게만 독점되어 있고, 대부분의 학생들은 접근조차 어렵습니다.",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": "no-execution",
+        "icon": "alert-circle",
+        "title": "실행 지원 부족",
+        "description": "계획을 세워도 혼자서는 실행하기 어렵습니다. 지속적인 멘토링과 피드백 없이는 프로젝트를 완성하고 포트폴리오로 정리하기 힘듭니다.",
+        "color": "#06B6D4"
+      }
+    ],
+    "solution": {
+      "title": "CareerPath의 해결책",
+      "features": [
+        {
+          "id": "career-path-db",
+          "icon": "database",
+          "title": "200개 직업 커리어 패스",
+          "description": "각 직업별로 중학교부터 대학교까지 단계별 활동, 공모전, 프로젝트를 체계적으로 안내합니다."
+        },
+        {
+          "id": "ai-mentoring",
+          "icon": "bot",
+          "title": "AI 기획 파트너",
+          "description": "24시간 AI와 함께 진로를 기획하고 계획합니다. 실행은 AI가 도와주지만, 방향은 당신이 정합니다."
+        },
+        {
+          "id": "guide-culture",
+          "icon": "users",
+          "title": "선배 경험 공유",
+          "description": "합격한 선배들의 실제 기획과 실행 과정을 공유하여 모두가 참고할 수 있는 집단 지성을 만듭니다."
+        },
+        {
+          "id": "auto-portfolio",
+          "icon": "file-text",
+          "title": "과정 기반 포트폴리오",
+          "description": "기획과 실행 과정이 자동으로 기록되어 입시 포트폴리오로 완성됩니다. 과정이 곧 결과물입니다."
+        }
+      ]
+    }
+  },
+  "differentiators": {
+    "badge": "Why CareerPath",
+    "title": "CareerPath의 차별점",
+    "subtitle": "기존 서비스와의 근본적인 차이",
+    "items": [
+      {
+        "id": "full-coverage",
+        "title": "전체 여정 커버",
+        "icon": "gamepad-2",
+        "description": "적성검사 → 직업 탐색 → 커리어 패스 기획 → AI 멘토링 → 실행 → 포트폴리오 완성까지 한 플랫폼에서 모두 해결합니다.",
+        "competitors": "기존 서비스는 검사만, 기록만, 세특만 제공합니다."
+      },
+      {
+        "id": "career-path-db",
+        "title": "200개 직업 커리어 패스 DB",
+        "icon": "book-open",
+        "description": "시장에 존재하지 않는 데이터입니다. 각 직업별로 중학교부터 대학교까지 구체적인 준비 방법을 체계적으로 제공합니다.",
+        "competitors": "다른 서비스는 학과 연결만, 시뮬레이션만 제공합니다."
+      },
+      {
+        "id": "free-access",
+        "title": "무료 접근 (광고 기반)",
+        "icon": "coins",
+        "description": "입시 컨설팅 300만원, 유학원 1,000만원의 정보를 무료로 제공합니다. 광고와 학교 B2B 수익으로 운영됩니다.",
+        "competitors": "입시 컨설턴트는 300만원, 유학원은 1,000만원이 필요합니다."
+      },
+      {
+        "id": "process-focused",
+        "title": "과정 중심 설계",
+        "icon": "store",
+        "description": "결과물이 아닌 기획과 실행 과정을 기록합니다. AI 시대에 중요한 것은 '무엇을 만들었는가'가 아니라 '어떻게 기획하고 계획했는가'입니다.",
+        "competitors": "기존 서비스는 결과물(세특, 포트폴리오)만 중시합니다."
+      }
+    ]
+  },
+  "impact": {
+    "badge": "Our Impact",
+    "title": "우리가 만드는 변화",
+    "stats": [
+      {
+        "id": "target-students",
+        "value": "151만명",
+        "label": "타겟 학생 (중2~고2)",
+        "description": "자유학기제 진로 탐색부터 입시 준비까지"
+      },
+      {
+        "id": "cost-reduction",
+        "value": "300만원 → 무료",
+        "label": "입시 컨설팅 비용 절감",
+        "description": "광고 기반 무료 서비스로 정보 민주화"
+      },
+      {
+        "id": "career-paths",
+        "value": "200개",
+        "label": "직업별 커리어 패스",
+        "description": "의사부터 개발자까지 상세한 준비 가이드"
+      },
+      {
+        "id": "ai-mentoring",
+        "value": "24/7",
+        "label": "AI 기획 파트너",
+        "description": "언제든지 함께 기획하고 계획할 수 있음"
+      }
+    ]
+  },
+  "technology": {
+    "badge": "Technology",
+    "title": "기술 스택",
+    "subtitle": "최신 기술로 빠르고 안정적인 서비스를 제공합니다",
+    "stack": [
+      {
+        "name": "Next.js",
+        "category": "프론트엔드",
+        "color": "#ffffff"
+      },
+      {
+        "name": "React Native",
+        "category": "모바일",
+        "color": "#61DAFB"
+      },
+      {
+        "name": "TypeScript",
+        "category": "언어",
+        "color": "#3178C6"
+      },
+      {
+        "name": "Tailwind CSS",
+        "category": "스타일링",
+        "color": "#38BDF8"
+      },
+      {
+        "name": "OpenAI API",
+        "category": "AI",
+        "color": "#10A37F"
+      },
+      {
+        "name": "Claude API",
+        "category": "AI",
+        "color": "#6C5CE7"
+      },
+      {
+        "name": "Supabase",
+        "category": "백엔드",
+        "color": "#3ECF8E"
+      },
+      {
+        "name": "PostgreSQL",
+        "category": "데이터베이스",
+        "color": "#336791"
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "문의하기",
+    "items": [
+      {
+        "label": "이메일",
+        "value": "support@careerpath.com",
+        "href": "mailto:support@careerpath.com",
+        "clickable": true
+      },
+      {
+        "label": "대표번호",
+        "value": "02-1234-5678",
+        "href": "tel:02-1234-5678",
+        "clickable": true
+      },
+      {
+        "label": "주소",
+        "value": "서울특별시 강남구 테헤란로 123, 4층 401호",
+        "href": "#",
+        "clickable": false
+      },
+      {
+        "label": "상담시간",
+        "value": "평일 09:00~18:00 (점심 12:30~13:30)",
+        "href": "#",
+        "clickable": false
+      }
+    ]
+  }
+}

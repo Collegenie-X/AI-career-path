@@ -89,7 +89,7 @@ export default function PortfolioPage() {
           <div>
             <h1 className="text-2xl font-bold flex items-center gap-2">
               <Sparkles className="w-6 h-6 text-primary animate-pulse-glow" />
-              드림 북
+              커리어 북
             </h1>
             <p className="text-xs text-muted-foreground mt-0.5">나의 우주 항해 일지</p>
           </div>

@@ -1,4 +1,4 @@
-export type DreamPathActivity = {
+export type CareerPathActivity = {
   icon: string;
   title: string;
   type: string;
@@ -9,64 +9,64 @@ export type DreamPathActivity = {
   desc: string;
 };
 
-export type DreamPathGroup = {
+export type CareerPathGroup = {
   icon: string;
   title: string;
   count: number;
-  activities: DreamPathActivity[];
+  activities: CareerPathActivity[];
 };
 
-export type DreamPathGradeSection = {
+export type CareerPathGradeSection = {
   grade: string;
   gradeColor: string;
-  groups: DreamPathGroup[];
+  groups: CareerPathGroup[];
 };
 
-export type DreamPathPreviewData = {
+export type CareerPathPreviewData = {
   tabLabel: string;
   title: string;
   lead: string;
   bullets: string[];
   link: { label: string; href: string };
   frameLabel: string;
-  gradeSection: DreamPathGradeSection;
+  gradeSection: CareerPathGradeSection;
 };
 
-export type DreamExecutionTask = {
+export type CareerExecutionTask = {
   text: string;
   done: boolean;
 };
 
-export type DreamExecutionGoal = {
+export type CareerExecutionGoal = {
   text: string;
   done: boolean;
-  tasks: DreamExecutionTask[];
+  tasks: CareerExecutionTask[];
 };
 
-export type DreamExecutionWeek = {
+export type CareerExecutionWeek = {
   label: string;
   count: number;
-  goals: DreamExecutionGoal[];
+  goals: CareerExecutionGoal[];
 };
 
-export type DreamExecutionProject = {
+export type CareerExecutionProject = {
   categoryEmoji: string;
   categoryLabel: string;
   period: string;
   title: string;
   outputTag: string;
   criteriaTag: string;
-  weeks: DreamExecutionWeek[];
+  weeks: CareerExecutionWeek[];
 };
 
-export type DreamExecutionPreviewData = {
+export type CareerExecutionPreviewData = {
   tabLabel: string;
   title: string;
   lead: string;
   bullets: string[];
   link: { label: string; href: string };
   frameLabel: string;
-  project: DreamExecutionProject;
+  project: CareerExecutionProject;
 };
 
 export type HomeSchedulePreviewContent = {
@@ -75,6 +75,6 @@ export type HomeSchedulePreviewContent = {
     title: string;
     subtitle: string;
   };
-  dreamPath: DreamPathPreviewData;
-  dreamExecution: DreamExecutionPreviewData;
+  careerPath: CareerPathPreviewData;
+  careerExecution: CareerExecutionPreviewData;
 };

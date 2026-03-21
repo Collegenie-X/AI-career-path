@@ -11,7 +11,7 @@ type StickySectionPageHeaderProps = {
 };
 
 /**
- * 드림 경험 / 커리어 패스 / 드림 실행 상단 제목 영역 — 동일 타이포·여백
+ * 커리어 경험 / 커리어 패스 / 커리어 실행 상단 제목 영역 — 동일 타이포·여백
  */
 export function StickySectionPageHeader({
   title,

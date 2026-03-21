@@ -6,7 +6,7 @@ import { CAREER_TIMELINE_DREAM_PATH_CHROME } from '../../config/timeline-dream-p
 
 const CHROME = CAREER_TIMELINE_DREAM_PATH_CHROME;
 
-type DreamPathGoalHeaderButtonProps = {
+type CareerPathGoalHeaderButtonProps = {
   accentColor: string;
   title: string;
   itemCount: number;
@@ -18,9 +18,9 @@ type DreamPathGoalHeaderButtonProps = {
 };
 
 /**
- * 드림 패스 상세(CareerPathDetailPanelTimeline)와 동일 톤: 굵은 카드 테두리 없이 배경만.
+ * 커리어 패스 상세(CareerPathDetailPanelTimeline)와 동일 톤: 굵은 카드 테두리 없이 배경만.
  */
-export function DreamPathGoalHeaderButton({
+export function CareerPathGoalHeaderButton({
   accentColor,
   title,
   itemCount,
@@ -28,7 +28,7 @@ export function DreamPathGoalHeaderButton({
   showChevron = true,
   onToggle,
   variant = 'accordion',
-}: DreamPathGoalHeaderButtonProps) {
+}: CareerPathGoalHeaderButtonProps) {
   const inner = (
     <>
       <div className="flex items-center gap-2 min-w-0">
@@ -71,14 +71,14 @@ export function DreamPathGoalHeaderButton({
   );
 }
 
-type DreamPathNestedRailProps = {
+type CareerPathNestedRailProps = {
   accentColor: string;
   children: ReactNode;
   className?: string;
 };
 
 /** 목표·그룹 아래 활동들 — 왼쪽 세로선으로만 하위 구분 (박스 테두리 최소화) */
-export function DreamPathNestedRail({ accentColor, children, className = '' }: DreamPathNestedRailProps) {
+export function CareerPathNestedRail({ accentColor, children, className = '' }: CareerPathNestedRailProps) {
   return (
     <div
       className={`${CHROME.nestedRail.className} ${className}`}
@@ -89,21 +89,21 @@ export function DreamPathNestedRail({ accentColor, children, className = '' }: D
   );
 }
 
-type DreamPathSubItemNestProps = {
+type CareerPathSubItemNestProps = {
   children: ReactNode;
 };
 
 /** 활동 카드 안 하위 할 일 — 한 단 더 들여쓰기 + 연한 세로선 */
-export function DreamPathSubItemNest({ children }: DreamPathSubItemNestProps) {
+export function CareerPathSubItemNest({ children }: CareerPathSubItemNestProps) {
   return <div className={`${CHROME.subItemNest.className} space-y-1.5`}>{children}</div>;
 }
 
-export function dreamPathSubActivitiesLabel(): string {
+export function careerPathSubActivitiesLabel(): string {
   return CHROME.labels.subActivitiesSection;
 }
 
 /** 계획 그룹(하위 폴더) — 목표 아이콘 대신 점·라벨로 구분 */
-export function DreamPathPlanGroupHeader({
+export function CareerPathPlanGroupHeader({
   accentColor,
   label,
   itemCount,

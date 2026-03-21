@@ -4,9 +4,9 @@ import { Calendar, Link as LinkIcon } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import type { CareerPathTemplate } from '@/data/career-path-templates-index';
 import {
-  DreamPathGoalHeaderButton,
-  DreamPathNestedRail,
-} from './timeline-dream-path/CareerTimelineDreamPathChrome';
+  CareerPathGoalHeaderButton,
+  CareerPathNestedRail,
+} from './timeline-dream-path/CareerTimelineCareerPathChrome';
 
 type CareerPathDetailPanelTimelineProps = {
   readonly template: CareerPathTemplate;
@@ -84,7 +84,7 @@ export function CareerPathDetailPanelTimeline({
                     const isExpanded = !collapsedGoalKeys.has(goalKey);
                     return (
                       <div key={gi} className="space-y-1">
-                        <DreamPathGoalHeaderButton
+                        <CareerPathGoalHeaderButton
                           accentColor={template.starColor}
                           title={group.goal}
                           itemCount={(group.items ?? []).length}
@@ -95,7 +95,7 @@ export function CareerPathDetailPanelTimeline({
                         />
 
                         {isExpanded && (group.items ?? []).length > 0 && (
-                          <DreamPathNestedRail accentColor={template.starColor}>
+                          <CareerPathNestedRail accentColor={template.starColor}>
                             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                             {(group.items ?? []).map((item: any, itemIndex: number) => {
                               const typeConf = ITEM_TYPES.find(t => t.value === item.type);
@@ -171,7 +171,7 @@ export function CareerPathDetailPanelTimeline({
                                 </div>
                               );
                             })}
-                          </DreamPathNestedRail>
+                          </CareerPathNestedRail>
                         )}
                       </div>
                     );

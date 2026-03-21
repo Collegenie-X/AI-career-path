@@ -1,6 +1,6 @@
 'use client';
 
-import type { DreamPathGradeSection } from '@/types/home-schedule-preview';
+import type { CareerPathGradeSection } from '@/types/home-schedule-preview';
 
 const MAX_STARS = 5;
 
@@ -16,12 +16,12 @@ function StarRating({ stars }: { stars: number }) {
   );
 }
 
-type DreamPathPreviewFrameProps = {
+type CareerPathPreviewFrameProps = {
   frameLabel: string;
-  gradeSection: DreamPathGradeSection;
+  gradeSection: CareerPathGradeSection;
 };
 
-export function DreamPathPreviewFrame({ frameLabel, gradeSection }: DreamPathPreviewFrameProps) {
+export function CareerPathPreviewFrame({ frameLabel, gradeSection }: CareerPathPreviewFrameProps) {
   return (
     <div className="relative w-full" aria-hidden>
       {/* Window chrome */}

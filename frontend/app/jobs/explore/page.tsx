@@ -178,7 +178,7 @@ function JobsExploreContent() {
               activeTab={activeTab}
               onTabChange={handleTabChange}
               embeddedInSectionShell
-              ariaLabel="드림 경험 탭 전환"
+              ariaLabel="커리어 경험 탭 전환"
             />
           </div>
 

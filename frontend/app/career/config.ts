@@ -112,7 +112,7 @@ export type CareerHeaderContent = {
   readonly subtitle: string;
 };
 
-/** 드림 패스 상단 우측 배지 — 특정 학교·트랙명 대신 포괄 메시지 (career-content.json) */
+/** 커리어 패스 상단 우측 배지 — 특정 학교·트랙명 대신 포괄 메시지 (career-content.json) */
 export type CareerPageHeaderRightBadgeContent = {
   readonly eyebrow: string;
   readonly title: string;
@@ -140,7 +140,7 @@ export const CAREER_PAGE_TABS: readonly CareerPageTabItem[] = [
 ] as const;
 
 export const CAREER_PAGE_HEADER_CONTENT: CareerHeaderContent = {
-  title: String(LABELS.page_title ?? '드림 패스'),
+  title: String(LABELS.page_title ?? '커리어 패스'),
   subtitle: String(LABELS.page_subtitle ?? '나만의 진로 로드맵'),
 };
 

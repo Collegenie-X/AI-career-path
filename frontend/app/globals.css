@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* DreamPath Dark Mode Theme - 어두운 검정 계열 (통일된 톤) */
+  /* CareerPath Dark Mode Theme - 어두운 검정 계열 (통일된 톤) */
   --background: 11 11 22; /* #0B0B16 - base */
   --foreground: 255 255 255;
   --card: 14 14 26; /* #0E0E1A - panel (background와 거의 동일) */
@@ -464,4 +464,16 @@ body::before {
 }
 .admission-orbit-callout {
   animation: admission-callout-blink 2.2s ease-in-out infinite;
+}
+
+/* ── About 페이지 게임스러운 애니메이션 ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

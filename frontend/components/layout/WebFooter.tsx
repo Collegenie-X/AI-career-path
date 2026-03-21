@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const FOOTER_SECTIONS = [
   {
-    title: 'DreamPath',
+    title: 'CareerPath',
     links: [
       { label: '대표자: 김종필', href: '#' },
       { label: '사업자번호: 123-45-67890', href: '#' },
@@ -20,7 +20,7 @@ const FOOTER_SECTIONS = [
       { label: '평일 09:00~18:00', href: '#' },
       { label: '(점심시간 12:30~13:30)', href: '#' },
       { label: '02-1234-5678', href: '#' },
-      { label: 'support@dreampath.com', href: 'mailto:support@dreampath.com' },
+      { label: 'support@careerpath.com', href: 'mailto:support@careerpath.com' },
     ],
   },
   {
@@ -68,7 +68,7 @@ export function WebFooter() {
         {/* Copyright */}
         <div className="border-t border-white/5 px-4 min-[720px]:px-8 py-6">
           <p className="text-sm text-white/40 leading-relaxed">
-            © {currentYear} DreamPath. All rights reserved.
+            © {currentYear} CareerPath. All rights reserved.
           </p>
           <p className="text-xs text-white/30 mt-2 leading-relaxed">
             본 웹사이트에 게시된 이메일 주소가 전자우편 수집 프로그램이나 그 밖의 기술적 장치를 이용하여 무단으로 수집되는 것을 거부하며, 

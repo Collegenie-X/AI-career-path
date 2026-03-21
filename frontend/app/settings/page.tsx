@@ -82,7 +82,7 @@ export default function SettingsPage() {
     const url = URL.createObjectURL(dataBlob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `dreampath-backup-${Date.now()}.json`;
+    link.download = `careerpath-backup-${Date.now()}.json`;
     link.click();
     URL.revokeObjectURL(url);
   };
@@ -284,9 +284,9 @@ export default function SettingsPage() {
 
         {/* App Info */}
         <div className="text-center pt-8 pb-4 space-y-1 text-muted-foreground">
-          <p className="text-sm font-mono">DreamPath v1.0.0</p>
+          <p className="text-sm font-mono">CareerPath v1.0.0</p>
           <p className="text-xs">나만의 커리어 RPG 우주선</p>
-          <p className="text-xs opacity-50">Made with ❤️ by DreamPath Team</p>
+          <p className="text-xs opacity-50">Made with ❤️ by CareerPath Team</p>
         </div>
       </div>
     </div>

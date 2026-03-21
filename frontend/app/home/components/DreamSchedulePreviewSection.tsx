@@ -6,12 +6,12 @@ import { ArrowRight } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
 import schedulePreviewContent from '@/data/home-schedule-preview.json';
 import type { HomeSchedulePreviewContent } from '@/types/home-schedule-preview';
-import { DreamPathPreviewFrame } from './DreamPathPreviewFrame';
-import { DreamExecutionPreviewFrame } from './DreamExecutionPreviewFrame';
+import { CareerPathPreviewFrame } from './CareerPathPreviewFrame';
+import { CareerExecutionPreviewFrame } from './CareerExecutionPreviewFrame';
 
 const content = schedulePreviewContent as HomeSchedulePreviewContent;
 
-type TabId = 'dreamPath' | 'dreamExecution';
+type TabId = 'careerPath' | 'careerExecution';
 
 type DescriptionColumnProps = {
   title: string;
@@ -45,12 +45,12 @@ function DescriptionColumn({ title, lead, bullets, link }: DescriptionColumnProp
 }
 
 export function DreamSchedulePreviewSection() {
-  const { sectionHeader, dreamPath, dreamExecution } = content;
-  const [activeTab, setActiveTab] = useState<TabId>('dreamPath');
+  const { sectionHeader, careerPath, careerExecution } = content;
+  const [activeTab, setActiveTab] = useState<TabId>('careerPath');
 
   const tabs: { id: TabId; label: string }[] = [
-    { id: 'dreamPath', label: dreamPath.tabLabel },
-    { id: 'dreamExecution', label: dreamExecution.tabLabel },
+    { id: 'careerPath', label: careerPath.tabLabel },
+    { id: 'careerExecution', label: careerExecution.tabLabel },
   ];
 
   return (
@@ -89,31 +89,31 @@ export function DreamSchedulePreviewSection() {
 
         {/* Tab content */}
         <div className="min-h-[380px]">
-          {activeTab === 'dreamPath' && (
+          {activeTab === 'careerPath' && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               <DescriptionColumn
-                title={dreamPath.title}
-                lead={dreamPath.lead}
-                bullets={dreamPath.bullets}
-                link={dreamPath.link}
+                title={careerPath.title}
+                lead={careerPath.lead}
+                bullets={careerPath.bullets}
+                link={careerPath.link}
               />
-              <DreamPathPreviewFrame
-                frameLabel={dreamPath.frameLabel}
-                gradeSection={dreamPath.gradeSection}
+              <CareerPathPreviewFrame
+                frameLabel={careerPath.frameLabel}
+                gradeSection={careerPath.gradeSection}
               />
             </div>
           )}
-          {activeTab === 'dreamExecution' && (
+          {activeTab === 'careerExecution' && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               <DescriptionColumn
-                title={dreamExecution.title}
-                lead={dreamExecution.lead}
-                bullets={dreamExecution.bullets}
-                link={dreamExecution.link}
+                title={careerExecution.title}
+                lead={careerExecution.lead}
+                bullets={careerExecution.bullets}
+                link={careerExecution.link}
               />
-              <DreamExecutionPreviewFrame
-                frameLabel={dreamExecution.frameLabel}
-                project={dreamExecution.project}
+              <CareerExecutionPreviewFrame
+                frameLabel={careerExecution.frameLabel}
+                project={careerExecution.project}
               />
             </div>
           )}

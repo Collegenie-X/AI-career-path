@@ -392,7 +392,7 @@ export default function QuizResultsPage() {
               <span className="absolute inset-0 animate-shimmer" />
               <span className="relative flex items-center justify-center gap-2.5">
                 <Rocket className="w-5 h-5 md:w-6 md:h-6" />
-                드림 경험 탐색 시작하기
+                커리어 경험 탐색 시작하기
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
               </span>
             </button>
