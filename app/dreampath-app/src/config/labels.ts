@@ -15,9 +15,9 @@ export const TYPE_CONFIG: Record<string, { label: string; color: string; emoji: 
 
 export const TAB_LABELS = {
   home: '홈',
-  jobs: '드림 경험',
-  career: '드림 패스',
-  launchpad: '드림 실행',
+  jobs: '커리어 경험',
+  career: '커리어 패스',
+  launchpad: '커리어 실행',
 } as const;
 
 export const HOME_LABELS = {
