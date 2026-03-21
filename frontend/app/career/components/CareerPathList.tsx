@@ -332,13 +332,11 @@ export function CareerPathList({
       listSlot={exploreListColumn}
       detailSlot={
         selectedTemplate ? (
-          <div className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden">
-            <CareerPathDetailPanel
-              template={selectedTemplate}
-              onClose={handleDetailClose}
-              onUseTemplate={handleUseTemplate}
-            />
-          </div>
+          <CareerPathDetailPanel
+            template={selectedTemplate}
+            onClose={handleDetailClose}
+            onUseTemplate={handleUseTemplate}
+          />
         ) : null
       }
     />

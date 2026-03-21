@@ -158,3 +158,10 @@ export const LABELS: { readonly [key: string]: string } = {
   ...contentRoadmap,
   ...contentEditor,
 };
+
+export {
+  ROADMAP_TIMELINE_DISPLAY,
+  getRoadmapTreeTodoRowVisualModeFromDetailMode,
+  getShowTimelineProgressBarsFromDetailMode,
+} from './config/roadmap-timeline-display.config';
+export type { RoadmapTimelineDetailMode, RoadmapTreeTodoRowVisualMode } from './config/roadmap-timeline-display.config';

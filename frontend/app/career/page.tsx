@@ -182,9 +182,9 @@ function CareerPageContent() {
     >
       <StarField />
       <CareerPageHeader
-        selectedJobBadge={
+        selectedPlanAccent={
           mounted && selectedPlan
-            ? { jobEmoji: selectedPlan.jobEmoji, jobName: selectedPlan.jobName, starColor: selectedPlan.starColor }
+            ? { jobEmoji: selectedPlan.jobEmoji, starColor: selectedPlan.starColor }
             : null
         }
       />

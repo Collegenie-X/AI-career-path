@@ -9,6 +9,11 @@ import { PlanItemDetailSheet } from '@/app/career/components/PlanItemDetailSheet
 import { RoadmapTodoProgressBarCard } from './RoadmapTodoProgressBars';
 import { toPlanItemDetail } from './RoadmapCareerPathTimelineSection';
 import { TreeItemNode } from './RoadmapTreeViewNodes';
+import {
+  getRoadmapTreeTodoRowVisualModeFromDetailMode,
+  getShowTimelineProgressBarsFromDetailMode,
+  type RoadmapTimelineDetailMode,
+} from '../config/roadmap-timeline-display.config';
 
 function getPeriodLabel(periodId: SharedRoadmap['period']): string {
   return PERIOD_FILTERS.find(period => period.id === periodId)?.label ?? periodId;
@@ -16,17 +21,20 @@ function getPeriodLabel(periodId: SharedRoadmap['period']): string {
 
 interface RoadmapTreeViewProps {
   roadmap: SharedRoadmap;
-  showProgressBars?: boolean;
-  showTodoCheckboxes?: boolean;
+  /** 피드(뷰만) / 커뮤니티·내기록 패널(상태만) / 전용 페이지(체크) */
+  timelineDetailMode: RoadmapTimelineDetailMode;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }
 
 export function RoadmapTreeView({
   roadmap,
-  showProgressBars = true,
-  showTodoCheckboxes = true,
+  timelineDetailMode,
   onToggleTodoItem,
 }: RoadmapTreeViewProps) {
+  const showProgressBars = getShowTimelineProgressBarsFromDetailMode(timelineDetailMode);
+  const todoRowVisualMode = getRoadmapTreeTodoRowVisualModeFromDetailMode(timelineDetailMode);
+  const effectiveToggleTodoItem =
+    timelineDetailMode === 'interactive' ? onToggleTodoItem : undefined;
   const [selectedItem, setSelectedItem] = useState<RoadmapItem | null>(null);
   const periodLabel = useMemo(() => getPeriodLabel(roadmap.period), [roadmap.period]);
   const sortedItems = useMemo(() => sortByEarliestMonth(roadmap.items), [roadmap.items]);
@@ -93,8 +101,8 @@ export function RoadmapTreeView({
               typeLabel={typeInfo.label}
               typeEmoji={typeInfo.emoji}
               showProgressBars={showProgressBars}
-              showTodoCheckboxes={showTodoCheckboxes}
-              onToggleTodoItem={onToggleTodoItem}
+              todoRowVisualMode={todoRowVisualMode}
+              onToggleTodoItem={effectiveToggleTodoItem}
               onSelectItem={setSelectedItem}
             />
           );

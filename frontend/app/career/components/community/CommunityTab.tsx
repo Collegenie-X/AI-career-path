@@ -17,12 +17,14 @@ import {
   leaveGroup,
   leaveSchool,
 } from '@/lib/careerCommunity';
+import { LABELS } from '../../config';
 
 type SubTab = 'school' | 'groups';
 
+/** 그룹 | 학교 공간 — 순서: 그룹 먼저, 학교 공간 나중 (위치 스왑 유지) */
 const SUB_TABS: { id: SubTab; label: string; icon: typeof SchoolIcon }[] = [
-  { id: 'school', label: '학교 공간', icon: SchoolIcon },
-  { id: 'groups', label: '그룹',     icon: Users },
+  { id: 'groups', label: String(LABELS.community_groups_tab ?? '그룹'), icon: Users },
+  { id: 'school', label: String(LABELS.community_school_tab ?? '학교 공간'), icon: SchoolIcon },
 ];
 
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
@@ -37,7 +39,7 @@ type CommunityTabProps = {
 
 /* ─── Main export ─── */
 export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps) {
-  const [subTab, setSubTab] = useState<SubTab>('school');
+  const [subTab, setSubTab] = useState<SubTab>('groups');
   const [selectedPlan, setSelectedPlan] = useState<SharedPlan | null>(null);
   const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
   const [joinedSchoolIds, setJoinedSchoolIds] = useState<string[]>(() => loadJoinedSchoolIds());

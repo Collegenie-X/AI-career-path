@@ -12,13 +12,14 @@ import {
 import { RoadmapTreeView } from './RoadmapTreeView';
 import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
+import type { RoadmapTimelineDetailMode } from '../config/roadmap-timeline-display.config';
 
 interface RoadmapDetailDialogProps {
   roadmap: SharedRoadmap;
   isOwnedByCurrentUser: boolean;
-  showTimelineProgressBars?: boolean;
+  /** 타임라인 우측: 피드 뷰만 / 커뮤니티·내기록 상태 표시 / 전용 페이지 체크 */
+  timelineDetailMode: RoadmapTimelineDetailMode;
   isReferenceViewOnlyMode?: boolean;
-  isFeedDetailView?: boolean;
   availableSpaces: DreamSpace[];
   variant?: 'dialog' | 'page' | 'inline';
   onClose: () => void;
@@ -29,7 +30,8 @@ interface RoadmapDetailDialogProps {
   onShare: () => void;
   onDelete: () => void;
   onCreateComment: (comment: string, parentId?: string) => void;
-  onToggleTodoItem: (itemId: string, todoId: string) => void;
+  /** `timelineDetailMode === 'interactive'` 이고 본인 소유일 때만 사용 */
+  onToggleTodoItem?: (itemId: string, todoId: string) => void;
 }
 
 function formatDateTime(value: string): string {
@@ -49,9 +51,8 @@ function hasRoadmapShareableResult(roadmap: SharedRoadmap): boolean {
 export function RoadmapDetailDialog({
   roadmap,
   isOwnedByCurrentUser,
-  showTimelineProgressBars = true,
+  timelineDetailMode,
   isReferenceViewOnlyMode = false,
-  isFeedDetailView = false,
   availableSpaces,
   variant = 'dialog',
   onClose,
@@ -486,12 +487,11 @@ export function RoadmapDetailDialog({
             <h4 className="text-sm font-bold text-white">{LABELS.timelineViewLabel}</h4>
             <RoadmapTreeView
               roadmap={roadmap}
-              showProgressBars={showTimelineProgressBars}
-              showTodoCheckboxes={!isFeedDetailView}
+              timelineDetailMode={timelineDetailMode}
               onToggleTodoItem={
-                isReferenceViewOnlyMode || isFeedDetailView
-                  ? undefined
-                  : (isOwnedByCurrentUser ? onToggleTodoItem : undefined)
+                timelineDetailMode === 'interactive' && isOwnedByCurrentUser && !isReferenceViewOnlyMode
+                  ? onToggleTodoItem
+                  : undefined
               }
             />
           </div>

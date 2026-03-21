@@ -1,8 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Target, ChevronDown, ChevronUp } from 'lucide-react';
 import { GRADE_YEARS } from '../config';
+import {
+  DreamPathGoalHeaderButton,
+  DreamPathNestedRail,
+  DreamPathPlanGroupHeader,
+} from './timeline-dream-path/CareerTimelineDreamPathChrome';
 import type { PlanItem, YearPlan } from './CareerPathBuilder';
 import {
   ItemRow, QuickAddItem,
@@ -194,20 +198,18 @@ export function YearTimelineNode({
           )}
         </div>
 
-        {/* Groups (PlanGroup 구조) */}
+        {/* Groups (PlanGroup) — 드림 패스 상세와 동일: 이중 박스 테두리 없이 헤더 + 세로 레일 */}
         {(year.groups ?? []).length > 0 && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {(year.groups ?? []).map((group) => (
-              <div key={group.id} className="rounded-2xl overflow-hidden"
-                style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
-                <div className="flex items-center gap-2 px-3 py-2"
-                  style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}>
-                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: color }} />
-                  <span className="flex-1 text-xs font-bold" style={{ color }}>{group.label}</span>
-                  <span className="text-[12px] text-gray-600">{group.items.length}개</span>
-                </div>
+              <div key={group.id} className="space-y-1">
+                <DreamPathPlanGroupHeader
+                  accentColor={color}
+                  label={group.label}
+                  itemCount={group.items.length}
+                />
                 {group.items.length > 0 && (
-                  <div className="px-3 py-2 space-y-1.5">
+                  <DreamPathNestedRail accentColor={color}>
                     {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
@@ -215,6 +217,7 @@ export function YearTimelineNode({
                         color={color}
                         isEditMode={isEditMode}
                         showCheckbox={showCheckboxes}
+                        useLightBorder
                         onToggleCheck={() => toggleCheckInGroup(group.id, item.id)}
                         onDelete={() => deleteItemFromGroup(group.id, item.id)}
                         onTitleSave={(title) => saveItemTitleInGroup(group.id, item.id, title)}
@@ -222,45 +225,42 @@ export function YearTimelineNode({
                         onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
-                  </div>
+                  </DreamPathNestedRail>
                 )}
               </div>
             ))}
           </div>
         )}
 
-        {/* goalGroups 구조 (semester !== 'split') */}
+        {/* goalGroups 구조 (semester !== 'split') — 트리 선 연결, 테두리 연하게 */}
         {year.semester !== 'split' && (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length > 0 && (
-          <div className="space-y-2">
+          <div className="space-y-3">
             {(year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).map((group) => {
               const isExpanded = expandedGoalIds.has(group.id);
               const goalCount = (year.goalGroups ?? []).filter(g => (g.items ?? []).length > 0).length;
               const showAccordionIcon = goalCount > 1;
               return (
-              <div key={group.id} className="rounded-2xl overflow-hidden"
-                style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
+              <div key={group.id} className="space-y-1">
                 {showAccordionIcon ? (
-                  <button
-                    type="button"
-                    className="w-full flex items-center gap-2 px-3 py-2 text-left"
-                    style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                    onClick={() => toggleGoalExpand(group.id)}
-                  >
-                    <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                    <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                    {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
-                  </button>
+                  <DreamPathGoalHeaderButton
+                    accentColor={color}
+                    title={group.goal}
+                    itemCount={group.items.length}
+                    isExpanded={isExpanded}
+                    showChevron
+                    onToggle={() => toggleGoalExpand(group.id)}
+                    variant="accordion"
+                  />
                 ) : (
-                  <div
-                    className="w-full flex items-center gap-2 px-3 py-2"
-                    style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                  >
-                    <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                    <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                  </div>
+                  <DreamPathGoalHeaderButton
+                    accentColor={color}
+                    title={group.goal}
+                    itemCount={group.items.length}
+                    variant="static"
+                  />
                 )}
                 {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
-                  <div className="px-3 py-2 space-y-1.5">
+                  <DreamPathNestedRail accentColor={color}>
                     {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                       <ItemRow
                         key={item.id}
@@ -268,6 +268,7 @@ export function YearTimelineNode({
                         color={color}
                         isEditMode={isEditMode}
                         showCheckbox={showCheckboxes}
+                        useLightBorder
                         onToggleCheck={() => toggleCheckInGoalGroup(group.id, item.id)}
                         onDelete={() => {}}
                         onTitleSave={() => {}}
@@ -275,7 +276,7 @@ export function YearTimelineNode({
                         onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                       />
                     ))}
-                  </div>
+                  </DreamPathNestedRail>
                 )}
               </div>
               );
@@ -283,7 +284,7 @@ export function YearTimelineNode({
           </div>
         )}
 
-        {/* semesterPlans 구조 (semester === 'split') */}
+        {/* semesterPlans 구조 (semester === 'split') — 트리 선 연결, 테두리 연하게 */}
         {year.semester === 'split' && (year.semesterPlans ?? []).length > 0 && (
           <div className="space-y-3">
             {(year.semesterPlans ?? []).map((sp) => (
@@ -298,30 +299,27 @@ export function YearTimelineNode({
                   const goalCountInSemester = sp.goalGroups.filter(g => (g.items ?? []).length > 0).length;
                   const showAccordionIcon = goalCountInSemester > 1;
                   return (
-                  <div key={group.id} className="rounded-2xl overflow-hidden"
-                    style={{ border: `1px solid ${color}28`, backgroundColor: `${color}06` }}>
+                  <div key={group.id} className="space-y-1">
                     {showAccordionIcon ? (
-                      <button
-                        type="button"
-                        className="w-full flex items-center gap-2 px-3 py-2 text-left"
-                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                        onClick={() => toggleGoalExpand(group.id)}
-                      >
-                        <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                        <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                        {isExpanded ? <ChevronUp style={{ width: 14, height: 14, color: '#6B7280' }} /> : <ChevronDown style={{ width: 14, height: 14, color: '#6B7280' }} />}
-                      </button>
+                      <DreamPathGoalHeaderButton
+                        accentColor={color}
+                        title={group.goal}
+                        itemCount={group.items.length}
+                        isExpanded={isExpanded}
+                        showChevron
+                        onToggle={() => toggleGoalExpand(group.id)}
+                        variant="accordion"
+                      />
                     ) : (
-                      <div
-                        className="w-full flex items-center gap-2 px-3 py-2"
-                        style={{ borderBottom: group.items.length > 0 ? `1px solid ${color}18` : 'none' }}
-                      >
-                        <Target style={{ width: 11, height: 11, color, flexShrink: 0 }} />
-                        <span className="flex-1 text-xs font-bold" style={{ color }}>{group.goal}</span>
-                      </div>
+                      <DreamPathGoalHeaderButton
+                        accentColor={color}
+                        title={group.goal}
+                        itemCount={group.items.length}
+                        variant="static"
+                      />
                     )}
                     {(showAccordionIcon ? isExpanded : true) && group.items.length > 0 && (
-                      <div className="px-3 py-2 space-y-1.5">
+                      <DreamPathNestedRail accentColor={color}>
                         {dedupeItems(group.items as PlanItemWithCheck[]).map((item) => (
                           <ItemRow
                             key={item.id}
@@ -329,6 +327,7 @@ export function YearTimelineNode({
                             color={color}
                             isEditMode={isEditMode}
                             showCheckbox={showCheckboxes}
+                            useLightBorder
                             onToggleCheck={() => toggleCheckInSemesterPlan(sp.semesterId, group.id, item.id)}
                             onDelete={() => {}}
                             onTitleSave={() => {}}
@@ -336,7 +335,7 @@ export function YearTimelineNode({
                             onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined}
                           />
                         ))}
-                      </div>
+                      </DreamPathNestedRail>
                     )}
                   </div>
                   );
@@ -349,14 +348,15 @@ export function YearTimelineNode({
           </div>
         )}
 
-        {/* Ungrouped items (직접 추가 항목) — goalGroups에 이미 포함된 항목 제외하여 이중 표시 방지 */}
+        {/* Ungrouped items (직접 추가 항목) — 트리 선 연결, 테두리 연하게 */}
         {(() => {
           if (ungroupedYearItems.length === 0 && !isEditMode) return null;
           return (
-            <div className="space-y-2">
+            <DreamPathNestedRail accentColor={color}>
               {ungroupedYearItems.map((item) => (
                 <ItemRow key={item.id} item={item} color={color} isEditMode={isEditMode}
                   showCheckbox={showCheckboxes}
+                  useLightBorder
                   onToggleCheck={() => toggleCheck(item.id)}
                   onDelete={() => deleteItem(item.id)}
                   onTitleSave={(title) => saveItemTitle(item.id, title)}
@@ -364,7 +364,7 @@ export function YearTimelineNode({
                   onToggleSubItemDone={!isEditMode ? (_, subId) => updateItemSubItem(item.id, subId) : undefined} />
               ))}
               {isEditMode && <QuickAddItem color={color} onAdd={addItem} />}
-            </div>
+            </DreamPathNestedRail>
           );
         })()}
 

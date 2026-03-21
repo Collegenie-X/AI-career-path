@@ -57,7 +57,7 @@ export const STAR_FIELD_CONFIG = {
 };
 
 export const LABELS = {
-  page_title: '드림 경험',
+  page_title: '드림 탐색',
   page_subtitle: '8개 별의 직업 세계를 탐험하세요',
   /** 상단 우측 pill (데스크톱) — 패스·실행 헤더와 동일 톤 */
   page_header_trailing_badge: '8개 별의 직업 세계',

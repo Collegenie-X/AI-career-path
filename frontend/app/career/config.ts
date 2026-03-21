@@ -112,6 +112,19 @@ export type CareerHeaderContent = {
   readonly subtitle: string;
 };
 
+/** 드림 패스 상단 우측 배지 — 특정 학교·트랙명 대신 포괄 메시지 (career-content.json) */
+export type CareerPageHeaderRightBadgeContent = {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly defaultEmoji: string;
+};
+
+export const CAREER_PAGE_HEADER_RIGHT_BADGE: CareerPageHeaderRightBadgeContent = {
+  eyebrow: String(LABELS.page_header_right_eyebrow ?? '진로 로드맵'),
+  title: String(LABELS.page_header_right_title ?? '목표 직업부터 학년별 활동까지 한곳에서'),
+  defaultEmoji: String(LABELS.page_header_right_emoji ?? '🗺️'),
+};
+
 export type CareerTabHeroContent = {
   readonly eyebrow: string;
   readonly title: string;

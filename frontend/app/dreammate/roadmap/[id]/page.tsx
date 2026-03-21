@@ -48,9 +48,8 @@ export default function RoadmapDetailPage() {
       <RoadmapDetailDialog
         roadmap={roadmap}
         isOwnedByCurrentUser={isOwnedByCurrentUser}
-        showTimelineProgressBars={true}
+        timelineDetailMode={isOwnedByCurrentUser ? 'interactive' : 'status_readonly'}
         isReferenceViewOnlyMode={false}
-        isFeedDetailView={false}
         availableSpaces={workspace.joinedSpaces}
         variant="page"
         onClose={() => router.push('/dreammate?tab=my')}

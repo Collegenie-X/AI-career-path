@@ -1,0 +1,14 @@
+{
+  "goalHeaderButton": {
+    "className": "w-full flex items-center justify-between gap-2 px-2.5 py-2 rounded-lg text-left transition-all hover:bg-white/[0.03]"
+  },
+  "nestedRail": {
+    "className": "pl-4 space-y-1.5 ml-2 border-l"
+  },
+  "subItemNest": {
+    "className": "pl-3 ml-1 border-l border-white/8 space-y-1.5"
+  },
+  "labels": {
+    "subActivitiesSection": "하위 활동"
+  }
+}

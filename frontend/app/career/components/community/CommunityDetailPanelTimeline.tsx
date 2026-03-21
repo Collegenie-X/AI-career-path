@@ -6,7 +6,44 @@ import { GRADE_YEARS } from '../../config';
 import type { SharedPlanYear, SharedPlanItem, SharedPlanGoalGroup } from './types';
 import { PlanItemRowCard, PlanItemDetailSheet } from '../PlanItemDetailSheet';
 
-/* ─── GoalGroupSection ─── */
+/* ─── Compact progress bar (학년 헤더용 — 진행률 바만) ─── */
+function CompactProgressBar({
+  doneCount,
+  totalCount,
+  color,
+}: {
+  doneCount: number;
+  totalCount: number;
+  color: string;
+}) {
+  const percent = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
+  return (
+    <div
+      className="h-1 rounded-full overflow-hidden flex-shrink-0"
+      style={{ width: 48, backgroundColor: 'rgba(255,255,255,0.08)' }}
+    >
+      <div
+        className="h-full rounded-full transition-all duration-300"
+        style={{ width: `${percent}%`, backgroundColor: color }}
+      />
+    </div>
+  );
+}
+
+/* ─── 학년별 subItems 진행률 계산 ─── */
+function computeYearProgress(year: SharedPlanYear): { doneCount: number; totalCount: number } {
+  const items = year.goalGroups?.flatMap((g) => g.items) ?? year.items;
+  let doneCount = 0;
+  let totalCount = 0;
+  for (const item of items) {
+    const subs = item.subItems ?? [];
+    totalCount += subs.length;
+    doneCount += subs.filter((s) => s.done).length;
+  }
+  return { doneCount, totalCount };
+}
+
+/* ─── GoalGroupSection (테두리 최소화, 트리 하위 항목으로 연결) ─── */
 function GoalGroupSection({
   group,
   starColor,
@@ -22,33 +59,33 @@ function GoalGroupSection({
   const itemCount = group.items.length;
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1">
       <button
         onClick={() => setOpen(o => !o)}
-        className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-left transition-all"
-        style={{ backgroundColor: `${starColor}10`, border: `1px solid ${starColor}1e` }}
+        className="w-full flex items-center justify-between gap-2 px-2.5 py-2 rounded-lg text-left transition-all hover:bg-white/[0.03]"
+        style={{ backgroundColor: `${starColor}08` }}
       >
         <div className="flex items-center gap-2 min-w-0">
-          <Target className="w-4 h-4 flex-shrink-0" style={{ color: starColor }} />
+          <Target className="w-3.5 h-3.5 flex-shrink-0 opacity-80" style={{ color: starColor }} />
           <span className="text-sm font-semibold text-white truncate">{group.goal}</span>
         </div>
-        <span className="text-[12px] font-bold text-gray-500 flex-shrink-0">{itemCount}개</span>
+        <span className="text-[11px] font-bold text-gray-500 flex-shrink-0">{itemCount}개</span>
         {open
           ? <ChevronUp className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
           : <ChevronDown className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />}
       </button>
       {open && itemCount > 0 && (
-        <div className="pl-6 space-y-1">
+        <div className="pl-4 space-y-1 ml-2 border-l-2" style={{ borderColor: `${starColor}25` }}>
           {group.items.map(item => (
             <div
               key={item.id}
               role="button"
               tabIndex={0}
-              className="w-full text-left transition-all active:scale-[0.98] cursor-pointer"
+              className="w-full text-left transition-all active:scale-[0.99] cursor-pointer py-0.5"
               onClick={() => onItemSelect(item)}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onItemSelect(item); } }}
             >
-              <PlanItemRowCard item={item} color={starColor} />
+              <PlanItemRowCard item={item} color={starColor} variant="minimal" showTodoReadOnly />
             </div>
           ))}
         </div>
@@ -57,47 +94,67 @@ function GoalGroupSection({
   );
 }
 
-/* ─── YearSection ─── */
+/* ─── YearSection (상하 연속 트리: 단일 세로선으로 학년 연결) ─── */
 export function CommunityDetailPanelYearSection({
   year,
   starColor,
+  isLast,
 }: {
   readonly year: SharedPlanYear;
   readonly starColor: string;
+  readonly isLast?: boolean;
 }) {
   const [open, setOpen] = useState(true);
   const [selectedItem, setSelectedItem] = useState<SharedPlanItem | null>(null);
   const gradeInfo = GRADE_YEARS.find(g => g.id === year.gradeId);
 
   const goalGroups = year.goalGroups ?? [];
-  const goalCount = goalGroups.length || year.goals.length;
-  const itemCount = goalGroups.length > 0
-    ? goalGroups.reduce((acc, g) => acc + g.items.length, 0)
-    : year.items.length;
+  const { doneCount: yearDoneCount, totalCount: yearTotalCount } = computeYearProgress(year);
 
   return (
-    <div className="relative pl-12">
+    <div className="relative pl-11">
+      {/* 트리 노드: 학년 원형 */}
       <div
-        className="absolute left-0 top-0 w-9 h-9 rounded-full flex items-center justify-center text-[12px] font-black z-10"
-        style={{ backgroundColor: starColor, color: '#fff', boxShadow: `0 0 0 3px #0e0e24, 0 0 10px ${starColor}55` }}
+        className="absolute left-0 top-0 w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-black z-10"
+        style={{
+          backgroundColor: starColor,
+          color: '#fff',
+          boxShadow: `0 0 0 2px rgb(var(--background)), 0 0 8px ${starColor}40`,
+        }}
       >
         {year.gradeLabel}
       </div>
-      <div className="absolute left-[17px] top-9 bottom-0 w-0.5" style={{ backgroundColor: `${starColor}20` }} />
+      {/* 상하 연결선 (마지막 학년이 아닐 때만, 다음 학년 노드까지 연장) */}
+      {!isLast && (
+        <div
+          className="absolute left-[15px] top-8 w-0.5"
+          style={{
+            backgroundColor: `${starColor}25`,
+            bottom: '-1.5rem',
+          }}
+        />
+      )}
 
-      <div className="pb-6">
-        <button onClick={() => setOpen(o => !o)} className="w-full flex items-center justify-between pt-1 pb-2">
-          <div>
-            <div className="text-sm font-bold text-white text-left">{gradeInfo?.fullLabel ?? year.gradeLabel}</div>
-            <div className="text-[12px] text-gray-500 text-left">목표 {goalCount}개 · 계획 {itemCount}개</div>
+      <div className="pb-5">
+        <button
+          onClick={() => setOpen(o => !o)}
+          className="w-full flex items-center justify-between gap-2 pt-0.5 pb-2 text-left"
+        >
+          <div className="text-sm font-bold text-white">{gradeInfo?.fullLabel ?? year.gradeLabel}</div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <CompactProgressBar
+              doneCount={yearDoneCount}
+              totalCount={Math.max(yearTotalCount, 1)}
+              color={starColor}
+            />
+            {open
+              ? <ChevronUp className="w-4 h-4 text-gray-500" />
+              : <ChevronDown className="w-4 h-4 text-gray-500" />}
           </div>
-          {open
-            ? <ChevronUp className="w-4 h-4 text-gray-600 flex-shrink-0" />
-            : <ChevronDown className="w-4 h-4 text-gray-600 flex-shrink-0" />}
         </button>
 
         {open && (
-          <div className="space-y-3">
+          <div className="space-y-2.5">
             {goalGroups.length > 0 ? (
               goalGroups.map((group, gi) => (
                 <GoalGroupSection
@@ -111,13 +168,16 @@ export function CommunityDetailPanelYearSection({
             ) : (
               <>
                 {year.goals.length > 0 && (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-1 text-[12px] font-bold text-gray-500 uppercase tracking-wider">
-                      <Target style={{ width: 10, height: 10 }} />목표
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                      <Target style={{ width: 9, height: 9 }} />목표
                     </div>
                     {year.goals.map((goal, gi) => (
-                      <div key={gi} className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs"
-                        style={{ backgroundColor: `${starColor}10`, border: `1px solid ${starColor}1e` }}>
+                      <div
+                        key={gi}
+                        className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs"
+                        style={{ backgroundColor: `${starColor}08` }}
+                      >
                         <div className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: starColor }} />
                         <span className="text-gray-200">{goal}</span>
                       </div>
@@ -125,16 +185,20 @@ export function CommunityDetailPanelYearSection({
                   </div>
                 )}
                 {year.items.length > 0 && (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-1 text-[12px] font-bold text-gray-500 uppercase tracking-wider">
-                      <Calendar style={{ width: 10, height: 10 }} />활동·수상·자격증
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-1 text-[11px] font-bold text-gray-500 uppercase tracking-wider">
+                      <Calendar style={{ width: 9, height: 9 }} />활동·수상·자격증
                     </div>
                     {year.items.map(item => (
-                      <div key={item.id} role="button" tabIndex={0}
-                        className="w-full text-left transition-all active:scale-[0.98] cursor-pointer"
+                      <div
+                        key={item.id}
+                        role="button"
+                        tabIndex={0}
+                        className="w-full text-left transition-all active:scale-[0.99] cursor-pointer"
                         onClick={() => setSelectedItem(item)}
-                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedItem(item); } }}>
-                        <PlanItemRowCard item={item} color={starColor} />
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedItem(item); } }}
+                      >
+                        <PlanItemRowCard item={item} color={starColor} variant="minimal" showTodoReadOnly />
                       </div>
                     ))}
                   </div>

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { DREAM_LIST_ITEMS_PER_PAGE } from '../config';
 import { ListPagination } from './ListPagination';
 import {
-  Users, Plus, ChevronRight, MessageSquare,
+  Users, ChevronRight, MessageSquare,
   X, Clock, Star,
 } from 'lucide-react';
 import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
@@ -243,17 +243,8 @@ export function DreamSpaceTab({
 
   const listColumn = (
     <div className="space-y-4 pb-2">
-      <div className="flex items-center justify-between">
-        <div>          
-          <p className="text-sm text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
-        </div>
-        <button
-          onClick={() => setShowCreateDialog(true)}
-          className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-bold transition-all active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
-        >
-          <Plus className="w-3.5 h-3.5" />{LABELS.createSpaceButton}
-        </button>
+      <div>
+        <p className="text-sm text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
       </div>
 
       <div className="rounded-2xl p-3 space-y-2" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>

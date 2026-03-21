@@ -883,7 +883,7 @@
             { "goal": "수학 기초 다지기", "items": [] },
             { "goal": "파이썬 입문", "items": [
               { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업", "subItems": [
-                { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": false, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
+                { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": true, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
                 { "id": "o1-s2", "title": "실습 과제 완료", "done": false, "description": "강의 내 실습 과제 5개 이상" }
               ]},
               { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교", "subItems": [
@@ -895,7 +895,7 @@
           "goals": ["수학 기초 다지기", "파이썬 입문"],
           "items": [
             { "id": "o1", "type": "activity", "title": "파이썬 기초 온라인 강의", "month": 3, "difficulty": 2, "cost": "무료", "organizer": "코드업", "subItems": [
-              { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": false, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
+              { "id": "o1-s1", "title": "기초 문법 강의 수강", "done": true, "url": "https://codeup.kr", "description": "코드업 기초 문법 강의" },
               { "id": "o1-s2", "title": "실습 과제 완료", "done": false, "description": "강의 내 실습 과제 5개 이상" }
             ]},
             { "id": "o2", "type": "activity", "title": "데이터 동아리 가입", "month": 4, "difficulty": 1, "cost": "무료", "organizer": "학교", "subItems": [

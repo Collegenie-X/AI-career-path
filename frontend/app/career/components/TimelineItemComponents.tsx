@@ -8,6 +8,10 @@ import {
 } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
+import {
+  DreamPathSubItemNest,
+  dreamPathSubActivitiesLabel,
+} from './timeline-dream-path/CareerTimelineDreamPathChrome';
 
 export type PlanItemWithCheck = PlanItem & { checked?: boolean };
 
@@ -113,9 +117,11 @@ export function GoalRow({ goal, color, isEditMode, onSave, onDelete }: {
 
 /* ─── Item row (todo-style) — 하위활동 아코디언 지원 ─── */
 export function ItemRow({
-  item, color, isEditMode, showCheckbox = true, onToggleCheck, onDelete, onTitleSave, onInfoClick, onToggleSubItemDone,
+  item, color, isEditMode, showCheckbox = true, useLightBorder = false, onToggleCheck, onDelete, onTitleSave, onInfoClick, onToggleSubItemDone,
 }: {
   item: PlanItemWithCheck; color: string; isEditMode: boolean; showCheckbox?: boolean;
+  /** true: 내 패스 타임라인 — 테두리 아주 연하게 */
+  useLightBorder?: boolean;
   onToggleCheck: () => void; onDelete: () => void;
   onTitleSave: (t: string) => void; onInfoClick: () => void;
   onToggleSubItemDone?: (itemId: string, subItemId: string) => void;
@@ -130,18 +136,28 @@ export function ItemRow({
     : item.months.length <= 3 ? item.months.map((m) => `${m}월`).join('·')
     : `${item.months[0]}~${item.months[item.months.length - 1]}월`;
 
+  const borderColor = useLightBorder ? '12' : '28';
+  const isDreamPathFlat = useLightBorder;
   return (
     <div
-      className="relative rounded-xl transition-all overflow-hidden"
+      className={`relative transition-all overflow-hidden ${isDreamPathFlat ? 'rounded-lg' : 'rounded-xl'}`}
       style={{
-        backgroundColor: checked ? 'rgba(255,255,255,0.02)' : `${typeConf?.color ?? color}0e`,
-        border: `1px solid ${checked ? 'rgba(255,255,255,0.06)' : (typeConf?.color ?? color) + '28'}`,
+        backgroundColor: checked
+          ? 'rgba(255,255,255,0.02)'
+          : isDreamPathFlat
+            ? `${typeConf?.color ?? color}08`
+            : `${typeConf?.color ?? color}0e`,
+        border: isDreamPathFlat
+          ? 'none'
+          : `1px solid ${checked ? 'rgba(255,255,255,0.04)' : (typeConf?.color ?? color) + borderColor}`,
         opacity: checked ? 0.5 : 1,
       }}
     >
-      <div className="flex items-start gap-2.5 p-3">
-        {/* Branch connector */}
-        <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
+      <div className={`flex items-start gap-2.5 ${isDreamPathFlat ? 'p-2' : 'p-3'}`}>
+        {/* Branch connector — 플랫(드림 패스) 모드에서는 세로선 레일과 중복되므로 숨김 */}
+        {!isDreamPathFlat ? (
+          <div className="absolute -left-[42px] top-5 w-[42px] h-0.5" style={{ backgroundColor: `${color}28` }} />
+        ) : null}
 
         {showCheckbox && (
           <button onClick={onToggleCheck} className="flex-shrink-0 mt-0.5 transition-all active:scale-90"
@@ -204,61 +220,120 @@ export function ItemRow({
         )}
       </div>
 
-      {/* 하위활동 아코디언 — 체크 모드일 때만 표시 */}
+      {/* 하위활동 — 플랫 모드에서는 상단 구분선 대신 들여쓰기 레일로 계층 표시 */}
       {showCheckbox && subExpanded && subItems.length > 0 && (
-        <div
-          className="px-3 pb-3 pt-1 space-y-1.5"
-          style={{ borderTop: `1px solid ${(typeConf?.color ?? color)}18` }}
-        >
-          {subItems.map((sub) => (
-            <div
-              key={sub.id}
-              className="flex items-start gap-2 px-2.5 py-1.5 rounded-lg"
-              style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
-            >
-              {onToggleSubItemDone ? (
-                <button
-                  type="button"
-                  onClick={() => onToggleSubItemDone(item.id, sub.id)}
-                  className="flex-shrink-0 transition-all active:scale-90 mt-0.5"
-                  style={{ color: sub.done ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}
+        <div className={`${isDreamPathFlat ? 'px-2 pb-2 pt-0' : 'px-3 pb-3 pt-1 space-y-1.5'}`}>
+          {isDreamPathFlat ? (
+            <DreamPathSubItemNest>
+              <p className="text-[10px] font-bold uppercase tracking-wide text-gray-600 px-1 pb-1">
+                {dreamPathSubActivitiesLabel()}
+              </p>
+              {subItems.map((sub) => (
+                <div
+                  key={sub.id}
+                  className="flex items-start gap-2 px-2 py-1.5 rounded-md"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
                 >
-                  {sub.done ? <CheckCircle2 style={{ width: 14, height: 14 }} /> : <Circle style={{ width: 14, height: 14 }} />}
-                </button>
-              ) : (
-                <div className="flex-shrink-0 mt-0.5">
-                  {sub.done ? <CheckCircle2 style={{ width: 14, height: 14, color: typeConf?.color ?? color }} />
-                    : <Circle style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.2)' }} />}
+                  {onToggleSubItemDone ? (
+                    <button
+                      type="button"
+                      onClick={() => onToggleSubItemDone(item.id, sub.id)}
+                      className="flex-shrink-0 transition-all active:scale-90 mt-0.5"
+                      style={{ color: sub.done ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}
+                    >
+                      {sub.done ? <CheckCircle2 style={{ width: 14, height: 14 }} /> : <Circle style={{ width: 14, height: 14 }} />}
+                    </button>
+                  ) : (
+                    <div className="flex-shrink-0 mt-0.5">
+                      {sub.done ? <CheckCircle2 style={{ width: 14, height: 14, color: typeConf?.color ?? color }} />
+                        : <Circle style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.2)' }} />}
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <span
+                      className="text-xs leading-snug"
+                      style={{
+                        color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.85)',
+                        textDecoration: sub.done ? 'line-through' : 'none',
+                      }}
+                    >
+                      {sub.title}
+                    </span>
+                    {sub.description && (
+                      <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                    )}
+                    {sub.url && (
+                      <a
+                        href={sub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink style={{ width: 9, height: 9 }} />
+                        {sub.url}
+                      </a>
+                    )}
+                  </div>
                 </div>
-              )}
-              <div className="flex-1 min-w-0">
-                <span
-                  className="text-xs leading-snug"
-                  style={{
-                    color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.8)',
-                    textDecoration: sub.done ? 'line-through' : 'none',
-                  }}
+              ))}
+            </DreamPathSubItemNest>
+          ) : (
+            <div
+              className="px-3 pb-3 pt-1 space-y-1.5"
+              style={{ borderTop: `1px solid ${(typeConf?.color ?? color)}18` }}
+            >
+              {subItems.map((sub) => (
+                <div
+                  key={sub.id}
+                  className="flex items-start gap-2 px-2.5 py-1.5 rounded-lg"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
                 >
-                  {sub.title}
-                </span>
-                {sub.description && (
-                  <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
-                )}
-                {sub.url && (
-                  <a
-                    href={sub.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink style={{ width: 9, height: 9 }} />
-                    {sub.url}
-                  </a>
-                )}
-              </div>
+                  {onToggleSubItemDone ? (
+                    <button
+                      type="button"
+                      onClick={() => onToggleSubItemDone(item.id, sub.id)}
+                      className="flex-shrink-0 transition-all active:scale-90 mt-0.5"
+                      style={{ color: sub.done ? typeConf?.color ?? color : 'rgba(255,255,255,0.2)' }}
+                    >
+                      {sub.done ? <CheckCircle2 style={{ width: 14, height: 14 }} /> : <Circle style={{ width: 14, height: 14 }} />}
+                    </button>
+                  ) : (
+                    <div className="flex-shrink-0 mt-0.5">
+                      {sub.done ? <CheckCircle2 style={{ width: 14, height: 14, color: typeConf?.color ?? color }} />
+                        : <Circle style={{ width: 14, height: 14, color: 'rgba(255,255,255,0.2)' }} />}
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <span
+                      className="text-xs leading-snug"
+                      style={{
+                        color: sub.done ? 'rgba(255,255,255,0.35)' : 'rgba(255,255,255,0.8)',
+                        textDecoration: sub.done ? 'line-through' : 'none',
+                      }}
+                    >
+                      {sub.title}
+                    </span>
+                    {sub.description && (
+                      <div className="text-[12px] text-gray-500 mt-0.5 line-clamp-2">{sub.description}</div>
+                    )}
+                    {sub.url && (
+                      <a
+                        href={sub.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-0.5 text-[12px] text-blue-400 hover:text-blue-300 mt-0.5 break-all"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <ExternalLink style={{ width: 9, height: 9 }} />
+                        {sub.url}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       )}
     </div>

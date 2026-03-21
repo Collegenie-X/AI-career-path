@@ -6,7 +6,6 @@ import {
   Sparkles,
   BookOpen,
   Target,
-  Plus,
   Share2,
   Bookmark,
   ListChecks,
@@ -116,16 +115,6 @@ export function DreamMateHeroBanner({
     totalResources,
   });
 
-  const handleCtaClick = () => {
-    if (activeTab === 'space' && onCreateSpace) {
-      onCreateSpace();
-    } else if (activeTab === 'library' && onUploadResource) {
-      onUploadResource();
-    } else {
-      onCreateRoadmap();
-    }
-  };
-
   if (!visualStyle || !copy) return null;
 
   const HeadlineIcon = HEADLINE_ICON_MAP[copy.headlineIcon] ?? Sparkles;
@@ -185,20 +174,6 @@ export function DreamMateHeroBanner({
         </div>
 
         <div className="flex flex-col gap-4 lg:items-end lg:flex-shrink-0">
-          <button
-            type="button"
-            onClick={handleCtaClick}
-            className="inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 text-[13px] font-bold text-white transition-all active:scale-[0.99] sm:w-auto lg:justify-end"
-            style={{
-              background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-              boxShadow: '0 4px 16px rgba(108,92,231,0.45)',
-              borderRadius: radii.ctaButton,
-            }}
-          >
-            <Plus className="h-4 w-4" />
-            {copy.cta}
-          </button>
-
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:justify-end">
             {heroStats.map((heroStat, heroStatIndex) => {
               const IconComponent = heroStat.icon;

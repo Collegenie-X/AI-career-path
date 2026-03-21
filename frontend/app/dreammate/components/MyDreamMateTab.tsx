@@ -39,7 +39,6 @@ interface MyDreamMateTabProps {
   onShareRoadmap: (roadmapId: string, channels: RoadmapShareChannel[], spaceIds: string[]) => void;
   onReportRoadmap: (roadmapId: string, reasonId: string, detail: string) => void;
   onCreateRoadmapComment: (roadmapId: string, comment: string, parentId?: string) => void;
-  onToggleTodoItem: (roadmapId: string, itemId: string, todoId: string) => void;
   onLeaveSpace: (spaceId: string) => void;
   onToggleSpaceRecruitmentStatus: (spaceId: string) => void;
   onCreateSpaceNotice: (spaceId: string, title: string, content: string) => void;
@@ -72,7 +71,6 @@ export function MyDreamMateTab({
   onShareRoadmap,
   onReportRoadmap,
   onCreateRoadmapComment,
-  onToggleTodoItem,
   onLeaveSpace,
   onToggleSpaceRecruitmentStatus,
   onCreateSpaceNotice,
@@ -117,19 +115,9 @@ export function MyDreamMateTab({
 
   const headerBlock = (
     <>
-      <div className="flex items-start justify-between gap-2">
-        <div>
-          <h3 className="text-base font-bold text-white">{LABELS.myTitle}</h3>
-          <p className="text-sm text-gray-500 mt-0.5">{LABELS.mySubtitle}</p>
-        </div>
-        <button
-          type="button"
-          onClick={onCreateRoadmap}
-          className="h-8 px-3 rounded-lg text-sm font-bold flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
-        >
-          {LABELS.myCreateRoadmapButton}
-        </button>
+      <div>
+        <h3 className="text-base font-bold text-white">{LABELS.myTitle}</h3>
+        <p className="text-sm text-gray-500 mt-0.5">{LABELS.mySubtitle}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-2">
@@ -273,9 +261,8 @@ export function MyDreamMateTab({
                   variant="inline"
                   roadmap={selectedRoadmap}
                   isOwnedByCurrentUser
-                  showTimelineProgressBars
+                  timelineDetailMode="status_readonly"
                   isReferenceViewOnlyMode={false}
-                  isFeedDetailView={false}
                   availableSpaces={availableSpaces}
                   onClose={() => setSelectedRoadmapId(null)}
                   onUseRoadmap={() => {}}
@@ -293,7 +280,6 @@ export function MyDreamMateTab({
                   onCreateComment={(comment, parentId) =>
                     onCreateRoadmapComment(selectedRoadmap.id, comment, parentId)
                   }
-                  onToggleTodoItem={(itemId, todoId) => onToggleTodoItem(selectedRoadmap.id, itemId, todoId)}
                 />
               </DetailPanelScrollContainer>
             ) : null

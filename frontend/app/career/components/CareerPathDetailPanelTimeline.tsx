@@ -1,8 +1,12 @@
 'use client';
 
-import { Calendar, Target, Sparkles, Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
+import { Calendar, Link as LinkIcon } from 'lucide-react';
 import { ITEM_TYPES, GRADE_YEARS } from '../config';
 import type { CareerPathTemplate } from '@/data/career-path-templates-index';
+import {
+  DreamPathGoalHeaderButton,
+  DreamPathNestedRail,
+} from './timeline-dream-path/CareerTimelineDreamPathChrome';
 
 type CareerPathDetailPanelTimelineProps = {
   readonly template: CareerPathTemplate;
@@ -79,41 +83,19 @@ export function CareerPathDetailPanelTimeline({
                     const goalKey = `${year.gradeId}-${gi}`;
                     const isExpanded = !collapsedGoalKeys.has(goalKey);
                     return (
-                      <div key={gi} className="rounded-xl overflow-hidden"
-                        style={{ border: `1px solid ${template.starColor}20` }}>
-                        <button
-                          type="button"
-                          className="w-full flex items-center gap-2 px-3 py-2.5 text-left"
-                          style={{ backgroundColor: `${template.starColor}18` }}
-                          onClick={() => onToggleGoalExpand(goalKey)}
-                        >
-                          <div
-                            className="flex items-center justify-center rounded-md flex-shrink-0"
-                            style={{ width: 22, height: 22, backgroundColor: `${template.starColor}30` }}
-                          >
-                            <Target style={{ width: 12, height: 12, color: template.starColor }} />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-[11px] font-bold uppercase tracking-wider mb-0.5"
-                              style={{ color: template.starColor }}>
-                              목표
-                            </div>
-                            <div className="text-[13px] font-semibold text-white leading-snug">{group.goal}</div>
-                          </div>
-                          {isExpanded
-                            ? <ChevronUp style={{ width: 15, height: 15, color: '#6B7280' }} />
-                            : <ChevronDown style={{ width: 15, height: 15, color: '#6B7280' }} />}
-                        </button>
+                      <div key={gi} className="space-y-1">
+                        <DreamPathGoalHeaderButton
+                          accentColor={template.starColor}
+                          title={group.goal}
+                          itemCount={(group.items ?? []).length}
+                          isExpanded={isExpanded}
+                          showChevron
+                          onToggle={() => onToggleGoalExpand(goalKey)}
+                          variant="accordion"
+                        />
 
                         {isExpanded && (group.items ?? []).length > 0 && (
-                          <div className="px-2 py-2 space-y-2"
-                            style={{ backgroundColor: `${template.starColor}06` }}>
-                            <div className="flex items-center gap-1 px-1 mb-1">
-                              <Sparkles style={{ width: 11, height: 11, color: '#6b7280' }} />
-                              <span className="text-[12px] font-bold text-gray-500 uppercase tracking-wider">
-                                활동 · 수상 · 자격증
-                              </span>
-                            </div>
+                          <DreamPathNestedRail accentColor={template.starColor}>
                             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                             {(group.items ?? []).map((item: any, itemIndex: number) => {
                               const typeConf = ITEM_TYPES.find(t => t.value === item.type);
@@ -129,18 +111,16 @@ export function CareerPathDetailPanelTimeline({
                               return (
                                 <div
                                   key={item.id ?? `${goalKey}-${itemIndex}`}
-                                  className="flex items-start gap-2.5 p-3 rounded-lg"
+                                  className="flex items-start gap-2.5 p-2 rounded-lg transition-colors hover:bg-white/[0.04]"
                                   style={{
-                                    backgroundColor: `${typeConf?.color ?? template.starColor}0d`,
-                                    border: `1px solid ${typeConf?.color ?? template.starColor}22`,
+                                    backgroundColor: `${typeConf?.color ?? template.starColor}06`,
                                   }}
                                 >
                                   <div
                                     className="rounded-lg flex items-center justify-center text-base flex-shrink-0"
                                     style={{
-                                      width: 34, height: 34,
-                                      backgroundColor: `${typeConf?.color ?? template.starColor}18`,
-                                      border: `1px solid ${typeConf?.color ?? template.starColor}28`,
+                                      width: 32, height: 32,
+                                      backgroundColor: `${typeConf?.color ?? template.starColor}12`,
                                     }}
                                   >
                                     {typeConf?.emoji ?? '📌'}
@@ -191,7 +171,7 @@ export function CareerPathDetailPanelTimeline({
                                 </div>
                               );
                             })}
-                          </div>
+                          </DreamPathNestedRail>
                         )}
                       </div>
                     );

@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import type { SharedPlan, School } from './types';
 import communityData from '@/data/share-community.json';
-import { SharedPlanCardWithReactions } from './SharedPlanCardWithReactions';
+import { SharedPlanListSection } from './SharedPlanListSection';
 import { JoinRequestDialog } from './JoinRequestDialog';
 import { formatTimeAgo } from './formatTime';
 import { leaveSchool } from '@/lib/careerCommunity';
@@ -389,29 +389,21 @@ function SchoolDetailView({
       </div>
 
       {/* 패스 목록 */}
-      <div className="text-xs text-gray-500">{filteredPlans.length}개</div>
-      {filteredPlans.length === 0 ? (
-        <div className="py-10 text-center">
-          <p className="text-sm text-gray-500">조건에 맞는 공유 패스가 없어요</p>
-        </div>
-      ) : (
-        <div className="space-y-3">
-          {filteredPlans.map(plan => (
-            <SharedPlanCardWithReactions
-              key={plan.id}
-              plan={plan}
-              isLiked={likedPlanIds.includes(plan.id)}
-              isBookmarked={bookmarkedPlanIds.includes(plan.id)}
-              likeCount={likeCounts[plan.id] ?? plan.likes}
-              bookmarkCount={bookmarkCounts[plan.id] ?? plan.bookmarks}
-              checkedAt={checkedPlans[plan.id]}
-              onToggleLike={() => onToggleLike(plan.id)}
-              onToggleBookmark={() => onToggleBookmark(plan.id)}
-              onViewDetail={() => onViewPlanDetail(plan)}
-            />
-          ))}
-        </div>
-      )}
+      <div className="space-y-3">
+        <div className="text-xs text-gray-500">{filteredPlans.length}개</div>
+        <SharedPlanListSection
+          plans={filteredPlans}
+          emptyMessage="조건에 맞는 공유 패스가 없어요"
+          likedPlanIds={likedPlanIds}
+          bookmarkedPlanIds={bookmarkedPlanIds}
+          likeCounts={likeCounts}
+          bookmarkCounts={bookmarkCounts}
+          checkedPlans={checkedPlans}
+          onToggleLike={onToggleLike}
+          onToggleBookmark={onToggleBookmark}
+          onViewDetail={onViewPlanDetail}
+        />
+      </div>
 
       {/* 더보기 메뉴 */}
       {showMoreMenu && (

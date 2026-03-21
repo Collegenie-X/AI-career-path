@@ -65,6 +65,42 @@ function GoalGroupSection({
   );
 }
 
+/* ─── Compact progress bar (학년 헤더용) ─── */
+function CompactProgressBar({
+  doneCount,
+  totalCount,
+  color,
+}: {
+  doneCount: number;
+  totalCount: number;
+  color: string;
+}) {
+  const percent = totalCount > 0 ? Math.round((doneCount / totalCount) * 100) : 0;
+  return (
+    <div
+      className="h-1 rounded-full overflow-hidden flex-shrink-0"
+      style={{ width: 48, backgroundColor: 'rgba(255,255,255,0.08)' }}
+    >
+      <div
+        className="h-full rounded-full transition-all duration-300"
+        style={{ width: `${percent}%`, backgroundColor: color }}
+      />
+    </div>
+  );
+}
+
+function computeYearProgress(year: SharedPlanYear): { doneCount: number; totalCount: number } {
+  const items = year.goalGroups?.flatMap((g) => g.items) ?? year.items;
+  let doneCount = 0;
+  let totalCount = 0;
+  for (const item of items) {
+    const subs = item.subItems ?? [];
+    totalCount += subs.length;
+    doneCount += subs.filter((s) => s.done).length;
+  }
+  return { doneCount, totalCount };
+}
+
 /* ─── Year section (accordion) ─── */
 function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: string }) {
   const [open, setOpen] = useState(true);
@@ -72,10 +108,7 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
   const gradeInfo = GRADE_YEARS.find(g => g.id === year.gradeId);
 
   const goalGroups = year.goalGroups ?? [];
-  const goalCount = goalGroups.length || year.goals.length;
-  const itemCount = goalGroups.length > 0
-    ? goalGroups.reduce((acc, g) => acc + g.items.length, 0)
-    : year.items.length;
+  const { doneCount: yearDoneCount, totalCount: yearTotalCount } = computeYearProgress(year);
 
   return (
     <div className="relative pl-12">
@@ -101,19 +134,21 @@ function YearSection({ year, starColor }: { year: SharedPlanYear; starColor: str
         {/* Grade header */}
         <button
           onClick={() => setOpen(o => !o)}
-          className="w-full flex items-center justify-between pt-1 pb-2"
+          className="w-full flex items-center justify-between gap-2 pt-1 pb-2"
         >
-          <div>
-            <div className="text-sm font-bold text-white text-left">
-              {gradeInfo?.fullLabel ?? year.gradeLabel}
-            </div>
-            <div className="text-[12px] text-gray-500 text-left">
-              목표 {goalCount}개 · 계획 {itemCount}개
-            </div>
+          <div className="text-sm font-bold text-white text-left">
+            {gradeInfo?.fullLabel ?? year.gradeLabel}
           </div>
-          {open
-            ? <ChevronUp className="w-4 h-4 text-gray-600 flex-shrink-0" />
-            : <ChevronDown className="w-4 h-4 text-gray-600 flex-shrink-0" />}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <CompactProgressBar
+              doneCount={yearDoneCount}
+              totalCount={Math.max(yearTotalCount, 1)}
+              color={starColor}
+            />
+            {open
+              ? <ChevronUp className="w-4 h-4 text-gray-600" />
+              : <ChevronDown className="w-4 h-4 text-gray-600" />}
+          </div>
         </button>
 
         {open && (

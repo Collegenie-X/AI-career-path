@@ -60,7 +60,6 @@ export type RoadmapFeedDetailCallbacks = {
   onShareRoadmap: (roadmap: SharedRoadmap, shareChannels: RoadmapShareChannel[], spaceIds: string[]) => void;
   onReportRoadmap: (roadmap: SharedRoadmap, reasonId: string, detail: string) => void;
   onCreateComment: (roadmap: SharedRoadmap, comment: string, parentId?: string) => void;
-  onToggleTodoItem: (roadmap: SharedRoadmap, itemId: string, todoId: string) => void;
 };
 
 interface RoadmapFeedTabProps {
@@ -187,16 +186,8 @@ export function RoadmapFeedTab({
 
   const listColumnInner = (
     <div className="space-y-4 pb-4">
-      <div className="flex items-start justify-between gap-2">
+      <div>
         <p className="mt-0.5 text-sm text-gray-500">{LABELS.feedSubtitle}</p>
-        <button
-          type="button"
-          onClick={onCreateRoadmap}
-          className="h-8 rounded-lg px-3 text-sm font-bold"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
-        >
-          + {LABELS.createRoadmapButton}
-        </button>
       </div>
 
       {bookmarkedRoadmaps.length > 0 && (
@@ -350,9 +341,8 @@ export function RoadmapFeedTab({
               variant="inline"
               roadmap={selectedRoadmap}
               isOwnedByCurrentUser={selectedRoadmap.ownerId === currentUserId}
-              showTimelineProgressBars={false}
+              timelineDetailMode="feed_view_only"
               isReferenceViewOnlyMode={false}
-              isFeedDetailView={true}
               availableSpaces={availableSpaces}
               onClose={() => setSelectedRoadmapId(null)}
               onUseRoadmap={() => {
@@ -371,7 +361,6 @@ export function RoadmapFeedTab({
               onShareRoadmap={(channels, spaceIds) => detailCallbacks.onShareRoadmap(selectedRoadmap, channels, spaceIds)}
               onReportRoadmap={(reasonId, detail) => detailCallbacks.onReportRoadmap(selectedRoadmap, reasonId, detail)}
               onCreateComment={(comment, parentId) => detailCallbacks.onCreateComment(selectedRoadmap, comment, parentId)}
-              onToggleTodoItem={(itemId, todoId) => detailCallbacks.onToggleTodoItem(selectedRoadmap, itemId, todoId)}
             />
           </DetailPanelScrollContainer>
         ) : null

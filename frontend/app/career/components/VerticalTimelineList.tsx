@@ -179,11 +179,6 @@ export function VerticalTimelineList({
         <div className="text-xs font-bold text-gray-400 uppercase tracking-wider">
           내 커리어 패스 ({allPlans.length})
         </div>
-        <button onClick={onNewPlan}
-          className="flex items-center gap-1.5 px-1.5 py-1.5 rounded-xl text-xs font-bold transition-all active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}>
-          <Plus style={{ width: 18, height: 18 }} />
-        </button>
       </div>
 
       {allPlans.map((plan) => (

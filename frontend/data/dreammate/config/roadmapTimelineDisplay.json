@@ -1,0 +1,28 @@
+{
+  "chrome": {
+    "planItemFolder": {
+      "borderStyle": "hairline",
+      "radiusClass": "rounded-xl",
+      "paddingClass": "overflow-hidden"
+    },
+    "weekSection": {
+      "borderStyle": "none",
+      "radiusClass": "rounded-md",
+      "paddingClass": "px-2 py-2"
+    },
+    "goalBlock": {
+      "borderStyle": "none",
+      "radiusClass": "rounded-md",
+      "paddingClass": "px-2 py-1.5"
+    }
+  },
+  "treeSpine": {
+    "lineOpacityHex": "12",
+    "dotSizeClass": "w-2 h-2",
+    "dotRingClass": "ring-2 ring-[#12122a]"
+  },
+  "labels": {
+    "weekSectionRegionSuffix": "주차 구간",
+    "goalBlockRegionSuffix": "목표·할 일 블록"
+  }
+}

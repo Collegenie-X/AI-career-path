@@ -43,10 +43,16 @@ export function PlanItemRowCard({
   item,
   color,
   isTitleDone = false,
+  variant = 'default',
+  showTodoReadOnly = false,
 }: {
   item: PlanItemDetail;
   color: string;
   isTitleDone?: boolean;
+  /** minimal: 커뮤니티 등 트리 내부용 — 테두리 없음, 배경만 */
+  variant?: 'default' | 'minimal';
+  /** true: 커뮤니티 그룹 — todo 리스트 보기 전용, 체크 상태 표시 (수정 불가) */
+  showTodoReadOnly?: boolean;
 }) {
   const typeConf = ITEM_TYPES.find((t) => t.value === item.type) ?? { label: item.type, color, emoji: '📌' };
   const months = item.months ?? (item.month != null ? [item.month] : []);
@@ -56,17 +62,19 @@ export function PlanItemRowCard({
     : months.length <= 3 ? months.map((m) => `${m}월`).join('·')
     : `${months[0]}~${months[months.length - 1]}월`;
   const subItems = item.subItems ?? [];
-  const [subExpanded, setSubExpanded] = useState(false);
+  const [subExpanded, setSubExpanded] = useState(showTodoReadOnly);
+
+  const isMinimal = variant === 'minimal';
 
   return (
     <div
-      className="rounded-xl overflow-hidden"
+      className={`overflow-hidden transition-colors ${isMinimal ? 'rounded-lg hover:bg-white/[0.04]' : 'rounded-xl'}`}
       style={{
-        backgroundColor: `${typeConf.color}0d`,
-        border: `1px solid ${typeConf.color}25`,
+        backgroundColor: isMinimal ? `${typeConf.color}06` : `${typeConf.color}0d`,
+        ...(isMinimal ? {} : { border: `1px solid ${typeConf.color}25` }),
       }}
     >
-      <div className="flex items-start gap-2.5 p-2.5">
+      <div className={`flex items-start gap-2.5 ${isMinimal ? 'p-2' : 'p-2.5'}`}>
         <div className="flex-1 min-w-0">
           <div
             className={`text-sm font-semibold leading-snug ${isTitleDone ? 'text-gray-400 line-through decoration-1 decoration-gray-500' : 'text-white'}`}
@@ -91,7 +99,7 @@ export function PlanItemRowCard({
                 {'★'.repeat(item.difficulty!)}{'☆'.repeat(5 - item.difficulty!)}
               </span>
             )}
-            {subItems.length > 0 && (
+            {subItems.length > 0 && !showTodoReadOnly && (
               <button
                 type="button"
                 onClick={(e) => { e.stopPropagation(); setSubExpanded((prev) => !prev); }}
@@ -103,6 +111,9 @@ export function PlanItemRowCard({
                 하위 {subItems.length}개
               </button>
             )}
+            {subItems.length > 0 && showTodoReadOnly && (
+              <span className="text-[11px] text-gray-500">할 일 {subItems.length}개</span>
+            )}
           </div>
           {item.organizer && (
             <div className="text-[12px] text-gray-600 mt-0.5">{item.organizer}</div>
@@ -110,8 +121,8 @@ export function PlanItemRowCard({
         </div>
       </div>
 
-      {/* 하위활동 아코디언 */}
-      {subExpanded && subItems.length > 0 && (
+      {/* 하위활동(todo) — showTodoReadOnly: 체크박스 없이 읽기 전용 표시 */}
+      {(subExpanded || showTodoReadOnly) && subItems.length > 0 && (
         <div
           className="px-2.5 pb-2.5 pt-1 space-y-1"
           style={{ borderTop: `1px solid ${typeConf.color}18` }}
@@ -124,7 +135,9 @@ export function PlanItemRowCard({
               style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
             >
               <div className="flex-1 min-w-0">
-                <span className="text-[12px] leading-snug text-white/80">
+                <span
+                  className={`text-[12px] leading-snug ${sub.done ? 'text-gray-500 line-through decoration-1 decoration-gray-600' : 'text-white/80'}`}
+                >
                   {sub.title}
                 </span>
                 {sub.description && (

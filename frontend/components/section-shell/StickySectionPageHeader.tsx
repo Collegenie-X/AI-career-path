@@ -21,8 +21,9 @@ export function StickySectionPageHeader({
   return (
     <div className="sticky top-0 z-20 px-4" style={SECTION_STICKY_HEADER_SURFACE_STYLE}>
       <div className="web-container py-4">
-        <div className="flex w-full items-center justify-between gap-4">
-          <div className="min-w-0">
+        {/* 모바일: 제목·부제 위 → 우측 슬롯 아래 | md+: 가로 정렬 */}
+        <div className="flex w-full flex-col gap-3 md:flex-row md:items-center md:justify-between md:gap-4">
+          <div className="min-w-0 w-full">
             <h1 className="text-2xl font-black tracking-tight text-transparent drop-shadow-[0_0_18px_rgba(139,92,246,0.35)] md:text-[30px] bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text">
               {title}
             </h1>
@@ -30,7 +31,9 @@ export function StickySectionPageHeader({
               <span className="line-clamp-2">{subtitlePill}</span>
             </p>
           </div>
-          {rightSlot ? <div className="flex-shrink-0">{rightSlot}</div> : null}
+          {rightSlot ? (
+            <div className="w-full md:w-auto md:flex-shrink-0 md:self-center">{rightSlot}</div>
+          ) : null}
         </div>
       </div>
     </div>

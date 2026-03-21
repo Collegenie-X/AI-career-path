@@ -7,9 +7,9 @@ import {
   X, UserPlus, Clock, Star, MoreVertical,
   LogOut, Copy,
 } from 'lucide-react';
-import { GRADE_YEARS } from '../../config';
+import { GRADE_YEARS, LABELS } from '../../config';
 import type { CommunityGroup, SharedPlan } from './types';
-import { SharedPlanCardWithReactions } from './SharedPlanCardWithReactions';
+import { CommunitySpaceDetailLayout } from './CommunitySpaceDetailLayout';
 import { JoinRequestDialog } from './JoinRequestDialog';
 import { formatTimeAgo, isRecentlyUpdated } from './formatTime';
 import { CommunityAccessGate } from './CommunityAccessGate';
@@ -221,141 +221,112 @@ function GroupDetailView({
   };
 
   return (
-    <div className="space-y-4">
-      {/* 목록 + 더보기 */}
-      <div className="flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-sm font-bold text-gray-300 transition-all active:scale-95"
+    <CommunitySpaceDetailLayout
+      backLabel="목록"
+      onBack={onBack}
+      onMoreClick={() => setShowMoreMenu(true)}
+      headerContent={
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: `linear-gradient(135deg, ${group.color}18, ${group.color}08)`,
+            border: `1.5px solid ${group.color}30`,
+          }}
         >
-          <ChevronRight className="w-4 h-4 rotate-180" />목록
-        </button>
-        <button
-          onClick={() => setShowMoreMenu(true)}
-          className="w-8 h-8 rounded-full flex items-center justify-center transition-all active:scale-95"
-          style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
-        >
-          <MoreVertical className="w-4 h-4 text-gray-400" />
-        </button>
-      </div>
-
-      {/* 그룹 헤더 */}
-      <div
-        className="rounded-2xl p-5"
-        style={{
-          background: `linear-gradient(135deg, ${group.color}18, ${group.color}08)`,
-          border: `1.5px solid ${group.color}30`,
-        }}
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl"
-            style={{ backgroundColor: `${group.color}20`, border: `1px solid ${group.color}35` }}
-          >
-            {group.emoji}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <h3 className="text-lg font-black text-white">{group.name}</h3>
-              {isJoined && (
-                <span
-                  className="flex items-center gap-0.5 text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
-                >
-                  <Star className="w-2 h-2" />참여 중
-                </span>
-              )}
+          <div className="flex items-center gap-3 mb-4">
+            <div
+              className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl"
+              style={{ backgroundColor: `${group.color}20`, border: `1px solid ${group.color}35` }}
+            >
+              {group.emoji}
             </div>
-            <p className="text-xs text-gray-400 mt-0.5">{group.description}</p>
-          </div>
-        </div>
-
-        {/* 미가입: 참여하기 버튼 (가입 시 친구 초대·탈퇴는 더보기 메뉴에서) */}
-        {!isJoined && onJoinClick && (
-          <button
-            onClick={onJoinClick}
-            className="w-full flex items-center justify-center gap-2 h-11 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-            style={{ background: `linear-gradient(135deg, ${group.color}, ${group.color}cc)`, color: '#fff' }}
-          >
-            <UserPlus className="w-4 h-4" />
-            참여하기
-          </button>
-        )}
-      </div>
-
-      {/* 멤버 */}
-      <div className="space-y-2">
-        <span className="text-xs font-bold text-gray-400">멤버 ({group.members.length})</span>
-        <div className="grid grid-cols-2 gap-2">
-          {group.members.map(member => {
-            const gradeInfo = GRADE_YEARS.find(g => g.id === member.grade);
-            const isCreator = member.id === group.creatorId;
-            return (
-              <div
-                key={member.id}
-                className="flex items-center gap-2.5 p-3 rounded-xl"
-                style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
-              >
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-lg"
-                  style={{ backgroundColor: `${group.color}15` }}
-                >
-                  {member.emoji}
-                </div>
-                <div className="min-w-0">
-                  <div className="flex items-center gap-1">
-                    <span className="text-xs font-bold text-white truncate">{member.name}</span>
-                    {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
-                  </div>
-                  <span className="text-[12px] text-gray-500">{gradeInfo?.label ?? member.grade}</span>
-                </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <h3 className="text-lg font-black text-white">{group.name}</h3>
+                {isJoined && (
+                  <span
+                    className="flex items-center gap-0.5 text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
+                    style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
+                  >
+                    <Star className="w-2 h-2" />참여 중
+                  </span>
+                )}
               </div>
-            );
-          })}
+              <p className="text-xs text-gray-400 mt-0.5">{group.description}</p>
+            </div>
+          </div>
+          {!isJoined && onJoinClick && (
+            <button
+              onClick={onJoinClick}
+              className="w-full flex items-center justify-center gap-2 h-11 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
+              style={{ background: `linear-gradient(135deg, ${group.color}, ${group.color}cc)`, color: '#fff' }}
+            >
+              <UserPlus className="w-4 h-4" />
+              참여하기
+            </button>
+          )}
         </div>
-      </div>
-
-      {/* 공유된 패스 */}
-      <div className="space-y-3">
-        <span className="text-xs font-bold text-gray-400">공유된 패스 ({sharedPlans.length})</span>
-        {sharedPlans.length === 0 ? (
-          <div
-            className="py-8 text-center rounded-xl"
-            style={{ border: '1px dashed rgba(255,255,255,0.1)' }}
-          >
-            <p className="text-xs text-gray-500">아직 공유된 패스가 없어요</p>
+      }
+      middleContent={
+        <div className="space-y-2">
+          <span className="text-xs font-bold text-gray-400">멤버 ({group.members.length})</span>
+          <div className="grid grid-cols-2 gap-2">
+            {group.members.map((member) => {
+              const gradeInfo = GRADE_YEARS.find((g) => g.id === member.grade);
+              const isCreator = member.id === group.creatorId;
+              return (
+                <div
+                  key={member.id}
+                  className="flex items-center gap-2.5 p-3 rounded-xl"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                >
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-lg"
+                    style={{ backgroundColor: `${group.color}15` }}
+                  >
+                    {member.emoji}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs font-bold text-white truncate">{member.name}</span>
+                      {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
+                    </div>
+                    <span className="text-[12px] text-gray-500">{gradeInfo?.label ?? member.grade}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        ) : (
-          <div className="space-y-3">
-          {sharedPlans.map(plan => (
-            <SharedPlanCardWithReactions
-              key={plan.id}
-              plan={plan}
-              isLiked={likedPlanIds.includes(plan.id)}
-              isBookmarked={bookmarkedPlanIds.includes(plan.id)}
-              likeCount={likeCounts[plan.id] ?? plan.likes}
-              bookmarkCount={bookmarkCounts[plan.id] ?? plan.bookmarks}
-              checkedAt={checkedPlans[plan.id]}
-              onToggleLike={() => onToggleLike(plan.id)}
-              onToggleBookmark={() => onToggleBookmark(plan.id)}
-              onViewDetail={() => onViewPlanDetail(plan)}
-            />
-          ))}
-          </div>
-        )}
-      </div>
-
-      {/* 더보기 메뉴 */}
-      {showMoreMenu && (
-        <GroupMoreMenu
-          group={group}
-          isJoined={isJoined}
-          onLeave={() => { setShowMoreMenu(false); onLeave(); }}
-          onCopyCode={handleCopyCode}
-          onClose={() => setShowMoreMenu(false)}
-        />
-      )}
-    </div>
+        </div>
+      }
+      planListLabel={`공유된 패스 (${sharedPlans.length})`}
+      planListProps={{
+        plans: sharedPlans,
+        emptyMessage: '아직 공유된 패스가 없어요',
+        likedPlanIds,
+        bookmarkedPlanIds,
+        likeCounts,
+        bookmarkCounts,
+        checkedPlans,
+        onToggleLike,
+        onToggleBookmark,
+        onViewDetail: onViewPlanDetail,
+      }}
+      moreMenuContent={
+        showMoreMenu ? (
+          <GroupMoreMenu
+            group={group}
+            isJoined={isJoined}
+            onLeave={() => {
+              setShowMoreMenu(false);
+              onLeave();
+            }}
+            onCopyCode={handleCopyCode}
+            onClose={() => setShowMoreMenu(false)}
+          />
+        ) : null
+      }
+    />
   );
 }
 
@@ -412,22 +383,22 @@ function CreateGroupDialog({ onClose, onCreate }: {
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">그룹 이름</label>
+            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{String(LABELS.community_group_name_label ?? '그룹 이름')}</label>
             <input
               value={name}
               onChange={e => setName(e.target.value)}
-              placeholder="예: IT 개발자 꿈나무들"
+              placeholder={String(LABELS.community_group_name_placeholder ?? '예: IT 개발자 꿈나무들')}
               className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
             />
           </div>
 
           <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">설명</label>
+            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{String(LABELS.community_group_desc_label ?? '설명')}</label>
             <input
               value={description}
               onChange={e => setDescription(e.target.value)}
-              placeholder="어떤 그룹인지 간단히 설명해 주세요"
+              placeholder={String(LABELS.community_group_desc_placeholder ?? '어떤 그룹인지 간단히 설명해 주세요')}
               className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
               style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
             />
@@ -439,7 +410,7 @@ function CreateGroupDialog({ onClose, onCreate }: {
             className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
             style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
           >
-            그룹 만들기
+            {String(LABELS.community_group_create_button ?? '그룹 만들기')}
           </button>
         </div>
       </div>
@@ -565,7 +536,7 @@ export function GroupListView({
       {/* 헤더 */}
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-base font-bold text-white">그룹</h3>
+          <h3 className="text-base font-bold text-white">{String(LABELS.community_groups_tab ?? '그룹')}</h3>
           <p className="text-xs text-gray-500 mt-0.5">친구들과 커리어 패스를 공유하세요</p>
         </div>
         <button
@@ -573,7 +544,7 @@ export function GroupListView({
           className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all active:scale-95"
           style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
         >
-          <Plus className="w-3.5 h-3.5" />새 그룹
+          <Plus className="w-3.5 h-3.5" />{String(LABELS.community_group_create_short ?? '새 그룹')}
         </button>
       </div>
 
@@ -587,8 +558,8 @@ export function GroupListView({
             <Users className="w-7 h-7" style={{ color: '#6C5CE7' }} />
           </div>
           <div>
-            <div className="text-sm font-bold text-white">아직 참여한 그룹이 없어요</div>
-            <div className="text-xs text-gray-400 mt-1">새 그룹을 만들거나 초대 코드로 참여하세요</div>
+            <div className="text-sm font-bold text-white">{String(LABELS.community_group_empty ?? '아직 참여한 그룹이 없어요')}</div>
+            <div className="text-xs text-gray-400 mt-1">{String(LABELS.community_group_empty_desc ?? '새 그룹을 만들거나 초대 코드로 참여하세요')}</div>
           </div>
         </div>
       ) : (
@@ -619,7 +590,7 @@ export function GroupListView({
         }}
       >
         <UserPlus className="w-3.5 h-3.5" />
-        그룹 코드로 참여하기
+        {String(LABELS.community_group_join_by_code ?? '그룹 코드로 참여하기')}
       </button>
 
       {/* 미가입 그룹 클릭 → JoinRequestDialog */}
@@ -687,8 +658,8 @@ function JoinGroupByCodeDialog({
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
         onClick={e => e.stopPropagation()}
       >
-        <h3 className="text-base font-black text-white mb-1">그룹 코드로 참여</h3>
-        <p className="text-xs text-gray-400 mb-4">친구에게 받은 그룹 초대 코드를 입력하세요.</p>
+        <h3 className="text-base font-black text-white mb-1">{String(LABELS.community_group_join_dialog_title ?? '그룹 코드로 참여')}</h3>
+        <p className="text-xs text-gray-400 mb-4">{String(LABELS.community_group_join_dialog_desc ?? '친구에게 받은 그룹 초대 코드를 입력하세요.')}</p>
         <div className="flex gap-2">
           <input
             value={code}

@@ -150,9 +150,6 @@ function DreamMatePageContent() {
                   onCreateComment: (roadmap, comment, parentId) => {
                     workspace.handleCreateRoadmapComment(roadmap.id, comment, parentId);
                   },
-                  onToggleTodoItem: (roadmap, itemId, todoId) => {
-                    workspace.handleToggleTodoItem(roadmap.id, itemId, todoId);
-                  },
                 }}
                 onTabChange={(tabId) => setActiveTab(tabId as DreamTabId)}
               />
@@ -224,9 +221,6 @@ function DreamMatePageContent() {
                 onCreateRoadmapComment={(roadmapId, comment, parentId) =>
                   workspace.handleCreateRoadmapComment(roadmapId, comment, parentId)
                 }
-                onToggleTodoItem={(roadmapId, itemId, todoId) =>
-                  workspace.handleToggleTodoItem(roadmapId, itemId, todoId)
-                }
                 onLeaveSpace={workspace.handleLeaveSpace}
                 onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
                 onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
@@ -287,7 +281,7 @@ function DreamMatePageContent() {
           roadmap={workspace.selectedRoadmap}
           isOwnedByCurrentUser={workspace.selectedRoadmap.ownerId === workspace.currentUserId}
           isReferenceViewOnlyMode={selectedRoadmapOpenedFromTab === 'space'}
-          isFeedDetailView={false}
+          timelineDetailMode="status_readonly"
           availableSpaces={workspace.joinedSpaces}
           onClose={() => {
             workspace.setSelectedRoadmapId(null);
@@ -317,8 +311,6 @@ function DreamMatePageContent() {
             workspace.handleReportRoadmap(workspace.selectedRoadmap!.id, reasonId, detail);
           }}
           onCreateComment={(comment, parentId) => workspace.handleCreateRoadmapComment(workspace.selectedRoadmap!.id, comment, parentId)}
-          showTimelineProgressBars
-          onToggleTodoItem={(itemId, todoId) => workspace.handleToggleTodoItem(workspace.selectedRoadmap!.id, itemId, todoId)}
         />
       )}
 
