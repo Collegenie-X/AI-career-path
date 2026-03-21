@@ -155,9 +155,9 @@ export function PersonaSection() {
                 style={{ background: `${active.color}10`, borderColor: `${active.color}30` }}
               >
                 <p className="text-xs font-semibold mb-3 uppercase tracking-wider" style={{ color: active.color }}>
-                  {persona.labels.dreampath}
+                  {persona.labels.careerpath}
                 </p>
-                <p className="text-sm text-white/75 leading-relaxed font-medium">{active.dreampath}</p>
+                <p className="text-sm text-white/75 leading-relaxed font-medium">{active.careerpath}</p>
               </div>
 
               <div className="flex items-center gap-3 mt-auto">

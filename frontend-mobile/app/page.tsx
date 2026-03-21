@@ -131,7 +131,7 @@ export default function SplashPage() {
           }}
         >
           <h1 className="text-4xl font-extrabold tracking-tight" style={{ background: 'linear-gradient(135deg, #fff 30%, #a29bfe 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-            DreamPath
+            CareerPath
           </h1>
           <p className="text-sm tracking-widest uppercase" style={{ color: '#a29bfe' }}>
             Career RPG Adventure

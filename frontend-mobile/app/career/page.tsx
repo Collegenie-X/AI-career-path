@@ -266,7 +266,7 @@ function CareerPageContent() {
         <div className="flex items-center justify-between py-3">
           <div>
             <h1 className="text-xl font-black bg-gradient-to-r from-white via-purple-200 to-indigo-300 bg-clip-text text-transparent">
-              드림 패스
+              커리어 패스
             </h1>
             <p className="text-xs text-gray-500">나만의 진로 로드맵</p>
           </div>

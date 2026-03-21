@@ -56,7 +56,7 @@ export const STAR_FIELD_CONFIG = {
 };
 
 export const LABELS = {
-  page_title: '드림 경험',
+  page_title: '커리어 경험',
   page_subtitle: '8개 별의 직업 세계를 탐험하세요',
   star_selected_subtitle: '개 직업 프로세스 & 커리어 패스',
   intro_banner_title: '직업 세계 탐험',
