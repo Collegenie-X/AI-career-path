@@ -10,6 +10,13 @@
       "icons": { "line1": ["💰", "💰"], "line2": ["🌟", "🚀"] }
     },
     "description": "적성검사 → 드림 경험 → 드림 패스 → 드림 실행, 4단계 여정을 무료로",
+    "rotatingDescriptions": [
+      "적성검사 → 드림 경험 → 드림 패스 → 드림 실행, 4단계 여정을 무료로",
+      "200개 직업 우주에서 나만의 궤적을 찾아보세요.",
+      "광고 기반 · 구독료 없이 전국 어디서나 동일한 정보.",
+      "드림 패스·드림 실행 일정을 홈에서 미리 살펴보고 바로 서비스로 이어가 보세요."
+    ],
+    "rotatingDescriptionIntervalMs": 5200,
     "cta": {
       "primary": { "label": "적성검사로 시작하기", "href": "/quiz/intro" },
       "secondary": { "label": "우리의 이야기", "href": "/about" }
@@ -261,7 +268,7 @@
     ],
     "footer": {
       "title": "찾다 → 세우다 → 실행하다 → 완성",
-      "description": "이 전체 여정을 하나의 앱으로, 그리고 무료로 해결하는 서비스는 DreamPath뿐입니다."
+      "description": "이 전체 여정을 하나의 앱으로,무료로 해결하는 서비스는 DreamPath뿐입니다."
     },
     "legend": {
       "yes": "완전 지원",

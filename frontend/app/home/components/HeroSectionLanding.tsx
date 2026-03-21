@@ -1,13 +1,38 @@
 'use client';
 
+import { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Rocket, ArrowRight, ChevronRight } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
 import homeContent from '@/data/home-content.json';
 
-const hero = homeContent.hero as typeof homeContent.hero;
+const hero = homeContent.hero as typeof homeContent.hero & {
+  rotatingDescriptions?: string[];
+  rotatingDescriptionIntervalMs?: number;
+};
 
 export function HeroSectionLanding() {
+  const rotatingLines = useMemo(
+    () =>
+      Array.isArray(hero.rotatingDescriptions) && hero.rotatingDescriptions.length > 0
+        ? hero.rotatingDescriptions
+        : [hero.description],
+    []
+  );
+  const rotatingIntervalMs =
+    typeof hero.rotatingDescriptionIntervalMs === 'number' ? hero.rotatingDescriptionIntervalMs : 5200;
+
+  const [descriptionLineIndex, setDescriptionLineIndex] = useState(0);
+
+  useEffect(() => {
+    if (rotatingLines.length <= 1) return undefined;
+    const timerId = window.setInterval(() => {
+      setDescriptionLineIndex((previousIndex) => (previousIndex + 1) % rotatingLines.length);
+    }, rotatingIntervalMs);
+    return () => window.clearInterval(timerId);
+  }, [rotatingLines.length, rotatingIntervalMs]);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
       <StarfieldCanvas count={150} />
@@ -61,10 +86,35 @@ export function HeroSectionLanding() {
             </div>
           </div>
 
-          {/* Short description */}
-          <p className="text-base md:text-lg text-white/50 mb-10 max-w-xl mx-auto">
-            {hero.description}
-          </p>
+          {/* Short description — rotates from JSON for a more dynamic hero */}
+          <div className="mb-10 max-w-xl mx-auto px-2">
+            <div className="min-h-[4.5rem] md:min-h-[3.75rem] flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={rotatingLines[descriptionLineIndex]}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.45 }}
+                  className="text-base md:text-lg text-white/50 text-center leading-relaxed"
+                >
+                  {rotatingLines[descriptionLineIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            {rotatingLines.length > 1 && (
+              <div className="flex justify-center gap-1.5 mt-3" aria-hidden>
+                {rotatingLines.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      index === descriptionLineIndex ? 'w-6 bg-purple-400/80' : 'w-1.5 bg-white/15'
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
 
           {/* CTA */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">

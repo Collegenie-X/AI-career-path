@@ -1,0 +1,125 @@
+{
+  "sectionHeader": {
+    "badge": "실제 화면 미리보기",
+    "title": "드림 패스 · 드림 실행 일정",
+    "subtitle": "왼쪽은 기능 설명, 오른쪽은 서비스에서 실제 쓰는 화면입니다."
+  },
+  "dreamPath": {
+    "tabLabel": "드림 패스",
+    "title": "드림 패스 일정",
+    "lead": "학년·목표 그룹 단위로 활동을 쌓아 올립니다. 언제 무엇을 해야 하는지 한눈에 보입니다.",
+    "bullets": [
+      "학년별 필수·선택 활동을 목표 그룹으로 묶어 관리",
+      "활동 유형·월·비용·난이도를 카드 한 장에 표시",
+      "드림 경험에서 고른 직업과 연결된 추천 활동 자동 배치"
+    ],
+    "link": { "label": "드림 패스 열기", "href": "/career" },
+    "frameLabel": "드림 패스 · 학년별 타임라인",
+    "gradeSection": {
+      "grade": "중1",
+      "gradeColor": "#3B82F6",
+      "groups": [
+        {
+          "icon": "🎯",
+          "title": "수학 선행 (고1 수준)",
+          "count": 3,
+          "activities": [
+            {
+              "icon": "🎯",
+              "title": "수학 선행: 수학1·수학2 기초",
+              "type": "활동",
+              "month": "3월",
+              "cost": "무료~학원",
+              "stars": 3,
+              "place": "자체·학원",
+              "desc": "고1 수준 완성 목표. KMO 입문."
+            },
+            {
+              "icon": "🎯",
+              "title": "과학 탐구 일지 쓰기",
+              "type": "활동",
+              "month": "4월",
+              "cost": "무료",
+              "stars": 2,
+              "place": "자체",
+              "desc": "'왜?' 질문 습관. 영재교육원 지원 준비."
+            },
+            {
+              "icon": "🎯",
+              "title": "영재교육원 지원 준비",
+              "type": "활동",
+              "month": "9월",
+              "cost": "무료",
+              "stars": 3,
+              "place": "시·도 교육청",
+              "desc": "영재교육원 수료는 서류 평가 핵심."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "dreamExecution": {
+    "tabLabel": "드림 실행",
+    "title": "드림 실행 일정",
+    "lead": "주차 단위로 목표와 세부 태스크를 트리로 관리합니다. 완료된 항목은 취소선으로 표시됩니다.",
+    "bullets": [
+      "산출물·기준을 명시해 모호한 목표를 없앰",
+      "주차별 목표 → 세부 태스크 트리로 실행 단위 관리",
+      "완료 항목 취소선으로 진행률을 한눈에 파악"
+    ],
+    "link": { "label": "드림 실행 열기", "href": "/dreammate" },
+    "frameLabel": "드림 실행 · 주간 실행 보드",
+    "project": {
+      "categoryEmoji": "🏆",
+      "categoryLabel": "수상·대회",
+      "period": "3월~5월",
+      "title": "학교 급식 리뷰 앱 개발 (React Native)",
+      "outputTag": "산출: GitHub 저장소 URL + APK 파일 + 시연 영상 3분",
+      "criteriaTag": "기준: 공모전 제출 마감 48시간 전 최종본 업로드, 실사용자 테스트 5명 이상 피드백 수렴",
+      "weeks": [
+        {
+          "label": "3월 1주차",
+          "count": 1,
+          "goals": [
+            {
+              "text": "급식 리뷰 앱 기획 및 화면 설계 완료",
+              "done": false,
+              "tasks": [
+                { "text": "핵심 기능 3가지 정의 (로그인, 리뷰 작성, 평점 보기)", "done": false }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "3월 2주차",
+          "count": 2,
+          "goals": [
+            {
+              "text": "React Native 환경 설정 및 로그인 화면 구현",
+              "done": true,
+              "tasks": [
+                { "text": "Firebase Authentication 설정 및 이메일 로그인 구현", "done": true },
+                { "text": "로그인 UI 컴포넌트 제작 및 에러 처리", "done": true }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "3월 3주차",
+          "count": 2,
+          "goals": [
+            {
+              "text": "리뷰 작성 화면 구현",
+              "done": false,
+              "tasks": [
+                { "text": "별점 컴포넌트 및 사진 업로드 기능", "done": false },
+                { "text": "Firestore 연동 및 데이터 저장", "done": false }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -26,10 +26,7 @@ export function ManifestoSection() {
             >
               {manifesto.header.titleHighlight}
             </span>
-          </h2>
-          <p className="text-white/45 text-base max-w-md mx-auto mb-2">
-            {manifesto.header.subtitle}
-          </p>
+          </h2>      
           {(manifesto.header as { intro?: string }).intro && (
             <p className="text-white/50 text-sm max-w-2xl mx-auto">
               {(manifesto.header as { intro: string }).intro}
