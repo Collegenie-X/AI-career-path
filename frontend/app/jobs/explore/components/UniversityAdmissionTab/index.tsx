@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Building2, Briefcase, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-import metaData from '@/data/university-admission/meta.json';
 import studentRecordComprehensiveCategory from '@/data/university-admission/admission-categories/student-record-comprehensive.json';
 import studentRecordAcademicCategory from '@/data/university-admission/admission-categories/student-record-academic.json';
 import regularAdmissionCategory from '@/data/university-admission/admission-categories/regular-admission.json';
@@ -43,11 +42,7 @@ import { DevEducationInstitutionsView } from './DevEducationInstitutionsView';
 import { CareerMajorConnectionView } from './CareerMajorConnectionView';
 import { InnovativeInstitutionsListIntroBlock } from './InnovativeInstitutionsListIntroBlock';
 import { StrategyHubView } from './StrategyHubView';
-import {
-  AdmissionExploreCosmicBackdrop,
-  AdmissionGameHudBanner,
-  admissionExploreOrbitCallout,
-} from '../AdmissionExploreGameChrome';
+import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
 type AdmissionCategory = {
   id: string;
@@ -170,52 +165,7 @@ export function UniversityAdmissionTab() {
               className={`relative overflow-hidden ${EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}`}
               style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
             >
-              <AdmissionExploreCosmicBackdrop variant="university" />
               <div className="relative z-[1] space-y-3">
-                <AdmissionGameHudBanner variant="university" />
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ type: 'spring', stiffness: 320, damping: 26 }}
-                  className="rounded-2xl p-3"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(132,94,247,0.24) 0%, rgba(32,201,151,0.12) 100%)',
-                    border: '1px solid rgba(132,94,247,0.35)',
-                    boxShadow: '0 10px 36px rgba(0,0,0,0.28)',
-                  }}
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="flex-1 min-w-0">
-                      <h2 className="text-base font-bold text-white mb-3">{metaData.intro.title}</h2>
-                      <div className="flex flex-wrap gap-1.5">
-                        {metaData.intro.highlights.map((highlight, index) => (
-                          <motion.span
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.85 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: index * 0.05, type: 'spring', stiffness: 400, damping: 22 }}
-                            className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-white/80"
-                          >
-                            {highlight}
-                          </motion.span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, x: -6 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="rounded-xl p-3"
-                  style={{
-                    background: 'rgba(239,68,68,0.16)',
-                    border: '1px solid rgba(239,68,68,0.35)',
-                  }}
-                >
-                  <p className="text-sm text-red-300 font-medium">{metaData.intro.warning}</p>
-                </motion.div>
-
                 <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-teal-200/90">
                   {admissionExploreOrbitCallout('university')}
                 </p>

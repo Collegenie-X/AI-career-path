@@ -153,6 +153,9 @@ interface DreamLibraryTabProps {
   onDeleteResource: (resourceId: string) => void;
   onCreateResourceComment: (resourceId: string, content: string) => void;
   onReportResource: (resourceId: string, reasonId: string, detail: string) => void;
+  /** 히어로 섹션 "자료 올리기" 버튼 클릭 시 다이얼로그 열기 */
+  openCreateDialog?: boolean;
+  onOpenCreateDialogDismiss?: () => void;
 }
 
 export function DreamLibraryTab({
@@ -168,6 +171,8 @@ export function DreamLibraryTab({
   onDeleteResource,
   onCreateResourceComment,
   onReportResource,
+  openCreateDialog = false,
+  onOpenCreateDialogDismiss,
 }: DreamLibraryTabProps) {
   const [selectedCategory, setSelectedCategory] = useState<ResourceCategoryId | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -179,6 +184,13 @@ export function DreamLibraryTab({
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, searchQuery]);
+
+  useEffect(() => {
+    if (openCreateDialog) {
+      setIsCreateDialogOpen(true);
+      onOpenCreateDialogDismiss?.();
+    }
+  }, [openCreateDialog, onOpenCreateDialogDismiss]);
 
   const allCategories: { id: ResourceCategoryId | 'all'; label: string; emoji: string; color: string }[] = [
     { id: 'all', label: '전체', emoji: '✨', color: '#6C5CE7' },

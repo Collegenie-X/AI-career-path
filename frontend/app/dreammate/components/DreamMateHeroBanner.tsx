@@ -13,7 +13,7 @@ import {
   Calendar,
   ClipboardList,
 } from 'lucide-react';
-import { HERO_CONFIG } from '../config';
+import { HERO_CONFIG, LABELS } from '../config';
 import type { DreamTabId } from '../types';
 
 type DreamMateHeroBannerProps = {
@@ -119,6 +119,11 @@ export function DreamMateHeroBanner({
 
   const HeadlineIcon = HEADLINE_ICON_MAP[copy.headlineIcon] ?? Sparkles;
 
+  const showHeroCreateExecutionButton =
+    activeTab === 'feed' || activeTab === 'space' || activeTab === 'my';
+
+  const showHeroUploadResourceButton = activeTab === 'library';
+
   return (
     <div
       className="relative overflow-hidden px-4 py-5 md:px-5 md:py-6 mb-4 md:mb-5"
@@ -143,8 +148,9 @@ export function DreamMateHeroBanner({
         }}
       />
 
-      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex flex-1 min-w-0 gap-4">
+      {/* 버튼은 전체 너비 상단 행이 아니라 오른쪽 열 안에만 두어, 왼쪽 카피와 같은 flex 행에서 상단 정렬(items-start) */}
+      <div className="relative z-[1] flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+        <div className="flex min-w-0 flex-1 gap-4">
           <div
             className="flex h-14 w-14 flex-shrink-0 items-center justify-center md:h-16 md:w-16"
             style={{
@@ -173,7 +179,40 @@ export function DreamMateHeroBanner({
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 lg:items-end lg:flex-shrink-0">
+        <div className="flex w-full flex-shrink-0 flex-col gap-3 lg:w-auto lg:items-end lg:gap-4">
+          {showHeroCreateExecutionButton ? (
+            <div className="flex w-full justify-end lg:w-auto">
+              <button
+                type="button"
+                onClick={onCreateRoadmap}
+                className="inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(108,92,231,0.9), rgba(99,102,241,0.8))',
+                  borderColor: 'rgba(108,92,231,0.5)',
+                  color: 'white',
+                }}
+                aria-label={LABELS.heroCreateExecutionButtonLabel}
+              >
+                {LABELS.heroCreateExecutionButtonLabel}
+              </button>
+            </div>
+          ) : showHeroUploadResourceButton && onUploadResource ? (
+            <div className="flex w-full justify-end lg:w-auto">
+              <button
+                type="button"
+                onClick={onUploadResource}
+                className="inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-semibold transition-all hover:opacity-90 active:scale-[0.98]"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(108,92,231,0.9), rgba(99,102,241,0.8))',
+                  borderColor: 'rgba(108,92,231,0.5)',
+                  color: 'white',
+                }}
+                aria-label={LABELS.uploadResourceButton}
+              >
+                {LABELS.uploadResourceButton}
+              </button>
+            </div>
+          ) : null}
           <div className="flex flex-wrap items-center gap-3 sm:gap-4 lg:justify-end">
             {heroStats.map((heroStat, heroStatIndex) => {
               const IconComponent = heroStat.icon;

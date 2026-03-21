@@ -53,6 +53,7 @@ function DreamMatePageContent() {
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
   const [showShareDialog, setShowShareDialog] = useState(false);
+  const [showLibraryCreateDialog, setShowLibraryCreateDialog] = useState(false);
 
   const workspace = useDreamMateWorkspaceContext();
 
@@ -109,7 +110,7 @@ function DreamMatePageContent() {
             activeTab={activeTab}
             onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
             onCreateSpace={() => {}}
-            onUploadResource={() => {}}
+            onUploadResource={() => setShowLibraryCreateDialog(true)}
             totalRoadmaps={workspace.visibleRoadmaps.length}
             totalMyRoadmaps={workspace.myRoadmaps.length}
             totalMySharedRoadmaps={workspace.myRoadmaps.filter((rm) => (rm.shareChannels ?? []).length > 0).length}
@@ -167,6 +168,8 @@ function DreamMatePageContent() {
                 onDeleteResource={workspace.handleDeleteResource}
                 onCreateResourceComment={workspace.handleCreateResourceComment}
                 onReportResource={workspace.handleReportResource}
+                openCreateDialog={showLibraryCreateDialog}
+                onOpenCreateDialogDismiss={() => setShowLibraryCreateDialog(false)}
               />
             ) : activeTab === 'space' ? (
               <DreamSpaceTab

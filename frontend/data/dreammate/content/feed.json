@@ -18,5 +18,6 @@
   "feedListRowLikesLabel": "좋아요",
   "feedListRowOpenDetailAria": "상세 보기",
   "createRoadmapButton":    "실행",
-  "myCreateRoadmapButton":  "+ 실행"
+  "myCreateRoadmapButton":  "+ 실행",
+  "heroCreateExecutionButtonLabel": "+ 실행"
 }

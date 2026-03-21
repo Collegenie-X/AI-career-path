@@ -4,7 +4,7 @@ import { useState } from 'react';
 import {
   X, Star, MapPin, Users, BookOpen, Lightbulb, TrendingUp,
   CheckCircle, XCircle, Clock, Heart, MessageCircle, Calendar,
-  Zap, Shield, Coffee, Target,
+  Zap, Shield, Coffee, Target, Maximize2,
 } from 'lucide-react';
 import type { HighSchoolDetail } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
@@ -15,6 +15,10 @@ type SchoolDetailPanelProps = {
   categoryColor: string;
   categoryBgColor: string;
   onClose: () => void;
+  /** 디테일 패널에서 "자세히 보기" 클릭 시 다이얼로그 열기 */
+  onOpenDetailDialog?: () => void;
+  /** panel: 오른쪽 패널(닫기 버튼 숨김) / dialog: 다이얼로그(닫기 버튼 표시) */
+  variant?: 'panel' | 'dialog';
 };
 
 type DetailTabId = 'intro' | 'roadmap' | 'reallife';
@@ -28,7 +32,7 @@ const DETAIL_TABS: { id: DetailTabId; label: string; emoji: string }[] = [
 /**
  * 웹 2-컬럼 레이아웃용 학교 상세 패널
  */
-export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose }: SchoolDetailPanelProps) {
+export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose, onOpenDetailDialog, variant = 'panel' }: SchoolDetailPanelProps) {
   const [activeTab, setActiveTab] = useState<DetailTabId>('intro');
 
   return (
@@ -105,13 +109,30 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
               </div>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90 relative z-10"
-            style={{ background: 'rgba(255,255,255,0.1)' }}
-          >
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
+          <div className="flex items-center gap-1 flex-shrink-0 relative z-10">
+            {onOpenDetailDialog && (
+              <button
+                type="button"
+                onClick={onOpenDetailDialog}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:bg-white/15"
+                style={{ background: 'rgba(255,255,255,0.1)' }}
+                title="자세히 보기"
+                aria-label="자세히 보기"
+              >
+                <Maximize2 className="w-4 h-4 text-gray-400" />
+              </button>
+            )}
+            {variant === 'dialog' && (
+              <button
+                onClick={onClose}
+                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
+                style={{ background: 'rgba(255,255,255,0.1)' }}
+                aria-label="닫기"
+              >
+                <X className="w-4 h-4 text-gray-400" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 탭 바 */}

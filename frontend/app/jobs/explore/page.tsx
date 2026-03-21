@@ -25,6 +25,7 @@ import {
   IntroBanner,
   JobDetailModal,
 } from './components';
+import { AdmissionExploreHeroBanner } from './components/AdmissionExploreHeroBanner';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
 import { UniversityAdmissionTab } from './components/UniversityAdmissionTab';
 import { LABELS, EXPLORE_PAGE_LAYOUT_CLASS } from './config';
@@ -85,7 +86,7 @@ function StarTabHeroBanner() {
             <p className="max-w-2xl text-[13px] leading-relaxed text-gray-300">{LABELS.intro_banner_description}</p>
           </div>
         </div>
-        <div className="flex flex-shrink-0 flex-wrap items-center gap-3 sm:gap-4 lg:justify-end">
+        <div className="flex flex-shrink-0 flex-wrap items-center gap-3 self-end sm:gap-4 lg:justify-end">
           <div className="text-center">
             <div className="text-[15px] font-black text-white">8</div>
             <div className="-mt-0.5 text-[13px] text-gray-500">직업 세계</div>
@@ -181,8 +182,10 @@ function JobsExploreContent() {
             />
           </div>
 
-          {/* 히어로 배너 (직업 탐색 탭만) */}
+          {/* 히어로 배너 — 탭별 표시 */}
           {activeTab === 'star' && <StarTabHeroBanner />}
+          {activeTab === 'admission' && <AdmissionExploreHeroBanner variant="highSchool" />}
+          {activeTab === 'university' && <AdmissionExploreHeroBanner variant="university" />}
 
           {/* ── 본문 — 탭 전환 시 가벼운 RPG 스테이지 전환 ── */}
           <motion.div

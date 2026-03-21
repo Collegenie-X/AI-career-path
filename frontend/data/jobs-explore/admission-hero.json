@@ -1,0 +1,22 @@
+{
+  "highSchool": {
+    "eyebrow": "고입 탐색",
+    "title": "나에게 맞는 고등학교를 찾아보세요",
+    "highlight": "학교 유형별 전략",
+    "description": "특목고·자사고·일반고까지 30개 학교의 입시요강, 합격 전략, 학교 생활을 탐방하세요",
+    "stat1Value": "30",
+    "stat1Label": "학교 탐방",
+    "stat2Value": "10",
+    "stat2Label": "학교 유형"
+  },
+  "university": {
+    "eyebrow": "대입 탐색",
+    "title": "2028 대입제도에 맞춘 전략적 준비",
+    "highlight": "AI 시대 프로젝트 기반",
+    "description": "전형별 행성과 전략 허브를 연결해 나만의 입시 로드맵을 완성해요. 전형 행성을 선택해 상세 가이드를 해금하세요!",
+    "stat1Value": "8",
+    "stat1Label": "전형 행성",
+    "stat2Value": "4",
+    "stat2Label": "전략 허브"
+  }
+}
