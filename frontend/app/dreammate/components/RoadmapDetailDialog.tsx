@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, Maximize2, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS, ROADMAP_SHARE_VISIBILITY_OPTIONS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { getShareChannelsFromRoadmap } from '../types';
@@ -32,20 +32,14 @@ interface RoadmapDetailDialogProps {
   onCreateComment: (comment: string, parentId?: string) => void;
   /** `timelineDetailMode === 'interactive'` 이고 본인 소유일 때만 사용 */
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
+  /** inline variant일 때 확대 버튼 클릭 시 호출 */
+  onExpand?: () => void;
 }
 
 function formatDateTime(value: string): string {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
   return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}.${String(date.getDate()).padStart(2, '0')}`;
-}
-
-function hasRoadmapShareableResult(roadmap: SharedRoadmap): boolean {
-  const hasFinalResultAsset = Boolean(roadmap.finalResultUrl?.trim() || roadmap.finalResultImageUrl?.trim());
-  const hasMilestoneAsset = (roadmap.milestoneResults ?? []).some(result =>
-    Boolean(result.resultUrl?.trim() || result.imageUrl?.trim()),
-  );
-  return hasFinalResultAsset || hasMilestoneAsset;
 }
 
 export function RoadmapDetailDialog({
@@ -64,6 +58,7 @@ export function RoadmapDetailDialog({
   onDelete,
   onCreateComment,
   onToggleTodoItem,
+  onExpand,
 }: RoadmapDetailDialogProps) {
   const [commentInput, setCommentInput] = useState('');
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
@@ -116,7 +111,6 @@ export function RoadmapDetailDialog({
       ? chronologicalTree
       : chronologicalTree.slice().reverse().map(reverseCommentTreeChronology);
   }, [commentSortOrder, roadmap.comments]);
-  const canSharePublicly = hasRoadmapShareableResult(roadmap);
   const isPageVariant = variant === 'page';
   const isInlineVariant = variant === 'inline';
 
@@ -145,7 +139,7 @@ export function RoadmapDetailDialog({
     ? 'w-full flex flex-col min-h-0'
     : isPageVariant
       ? 'min-h-screen w-full max-w-[645px] mx-auto flex flex-col'
-      : 'fixed inset-0 z-50 flex items-end justify-center';
+      : 'fixed inset-0 z-[100] flex items-end justify-center';
 
   const innerClass = isInlineVariant
     ? 'relative w-full flex flex-col min-h-0 overflow-y-auto'
@@ -194,6 +188,17 @@ export function RoadmapDetailDialog({
               <span className="text-sm text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
             <div className="flex items-center gap-2">
+              {isInlineVariant && onExpand && (
+                <button
+                  onClick={onExpand}
+                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all active:scale-90"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+                  aria-label={LABELS.feedExpandButtonAria ?? LABELS.feedExpandButtonLabel ?? '확대 보기'}
+                  title={LABELS.feedExpandButtonLabel ?? '확대 보기'}
+                >
+                  <Maximize2 className="w-4 h-4 text-gray-300" />
+                </button>
+              )}
               {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
                 <div ref={actionMenuRef} className="relative">
                   <button

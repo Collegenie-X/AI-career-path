@@ -1,4 +1,5 @@
 {
+  "requireResultAssetForPublicShare": false,
   "shareVisibilityOptions": [
     { "id": "private", "label": "비공개",      "description": "내 활동에서만 보입니다.",                  "emoji": "🔒", "color": "#94A3B8" },
     { "id": "public",  "label": "전체 공유",   "description": "로드맵 피드 전체에 공개됩니다.",           "emoji": "🌐", "color": "#22C55E" },

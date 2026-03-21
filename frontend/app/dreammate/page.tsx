@@ -15,6 +15,7 @@ import { RoadmapShareDialog } from './components/RoadmapShareDialog';
 import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
 import { useDreamMateWorkspaceContext } from './DreamMateWorkspaceProvider';
 import { getShareChannelsFromRoadmap } from './types';
+import { getCanSelectPublicShareForRoadmap } from './utils/roadmapPublicShareEligibility';
 import { StickySectionPageHeader } from '@/components/section-shell/StickySectionPageHeader';
 import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
 import { SECTION_SHELL_FRAME_STYLE, SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME, SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE } from '@/components/section-shell/section-shell-layout.constants';
@@ -322,14 +323,7 @@ function DreamMatePageContent() {
           currentShareChannels={getShareChannelsFromRoadmap(workspace.selectedRoadmap)}
           currentSpaceIds={workspace.selectedRoadmap.groupIds ?? []}
           spaces={workspace.joinedSpaces}
-          canSharePublicly={(() => {
-            const roadmap = workspace.selectedRoadmap;
-            const hasFinalResultAsset = Boolean(roadmap.finalResultUrl?.trim() || roadmap.finalResultImageUrl?.trim());
-            const hasMilestoneAsset = (roadmap.milestoneResults ?? []).some(result =>
-              Boolean(result.resultUrl?.trim() || result.imageUrl?.trim()),
-            );
-            return hasFinalResultAsset || hasMilestoneAsset;
-          })()}
+          canSharePublicly={getCanSelectPublicShareForRoadmap(workspace.selectedRoadmap)}
           onClose={() => {
             setShowShareDialog(false);
             if (selectedRoadmapOpenedFromTab === 'my') {

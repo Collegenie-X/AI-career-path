@@ -6,6 +6,7 @@ import { RoadmapEditorDialog } from '../../components/RoadmapEditorDialog';
 import { RoadmapShareDialog } from '../../components/RoadmapShareDialog';
 import { useDreamMateWorkspaceContext } from '../../DreamMateWorkspaceProvider';
 import { getShareChannelsFromRoadmap } from '../../types';
+import { getCanSelectPublicShareForRoadmap } from '../../utils/roadmapPublicShareEligibility';
 import { useState } from 'react';
 
 export default function RoadmapDetailPage() {
@@ -108,15 +109,7 @@ export default function RoadmapDetailPage() {
           currentShareChannels={getShareChannelsFromRoadmap(roadmap)}
           currentSpaceIds={roadmap.groupIds ?? []}
           spaces={workspace.joinedSpaces}
-          canSharePublicly={(() => {
-            const hasFinalResultAsset = Boolean(
-              roadmap.finalResultUrl?.trim() || roadmap.finalResultImageUrl?.trim()
-            );
-            const hasMilestoneAsset = (roadmap.milestoneResults ?? []).some((result) =>
-              Boolean(result.resultUrl?.trim() || result.imageUrl?.trim())
-            );
-            return hasFinalResultAsset || hasMilestoneAsset;
-          })()}
+          canSharePublicly={getCanSelectPublicShareForRoadmap(roadmap)}
           onClose={() => setShowShareDialog(false)}
           onSave={(shareChannels, selectedSpaceIds) => {
             workspace.handleShareRoadmap(roadmap.id, shareChannels, selectedSpaceIds);

@@ -128,25 +128,27 @@ export function RoadmapShareDialog({
           {/* 전체 공유 / 그룹 공유 — 멀티 선택 */}
           {SHARE_CHANNEL_OPTIONS.map(option => {
             const isPublicWithoutResult = option.id === 'public' && !canSharePublicly;
+            /** 비공개 ↔ 채널 전환은 클릭으로 가능해야 함. 전체 공유만 결과물 없으면 비활성 */
+            const isChannelDisabled = isPublicWithoutResult;
             const isActive = shareChannels.includes(option.id);
             return (
               <div key={option.id}>
                 <button
                   onClick={() => handleChannelToggle(option.id)}
-                  disabled={isPublicWithoutResult}
-                  className="w-full text-left rounded-xl px-3 py-2.5 flex items-start gap-3"
+                  disabled={isChannelDisabled}
+                  className="w-full text-left rounded-xl px-3 py-2.5 flex items-start gap-3 disabled:cursor-not-allowed disabled:pointer-events-none"
                   style={{
                     backgroundColor:
-                      isActive && !isPublicWithoutResult
+                      isActive && !isChannelDisabled
                         ? `${option.color}22`
-                        : isPublicWithoutResult
+                        : isChannelDisabled
                           ? 'rgba(148,163,184,0.06)'
                           : 'rgba(255,255,255,0.04)',
                     border:
-                      isActive && !isPublicWithoutResult
+                      isActive && !isChannelDisabled
                         ? `1px solid ${option.color}55`
                         : '1px solid rgba(255,255,255,0.08)',
-                    opacity: isPrivate ? 0.4 : isPublicWithoutResult ? 0.55 : 1,
+                    opacity: isChannelDisabled ? 0.55 : isPrivate && !isActive ? 0.85 : 1,
                   }}
                 >
                   <div
@@ -158,7 +160,7 @@ export function RoadmapShareDialog({
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <p className="text-sm font-bold text-white">{option.label}</p>
-                      {isActive && !isPublicWithoutResult && (
+                      {isActive && !isChannelDisabled && (
                         <Check className="w-3.5 h-3.5 text-white flex-shrink-0" />
                       )}
                     </div>

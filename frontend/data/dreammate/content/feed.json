@@ -17,6 +17,8 @@
   "feedListRowCommentsLabel": "댓글",
   "feedListRowLikesLabel": "좋아요",
   "feedListRowOpenDetailAria": "상세 보기",
+  "feedExpandButtonLabel":   "확대 보기",
+  "feedExpandButtonAria":   "전체 화면으로 확대",
   "createRoadmapButton":    "실행",
   "myCreateRoadmapButton":  "+ 실행",
   "heroCreateExecutionButtonLabel": "+ 실행"

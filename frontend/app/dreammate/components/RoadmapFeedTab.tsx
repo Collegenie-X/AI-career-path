@@ -85,6 +85,7 @@ export function RoadmapFeedTab({
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
+  const [showExpandDialog, setShowExpandDialog] = useState(false);
   const [bookmarkedPage, setBookmarkedPage] = useState(1);
   const [mySharedPage, setMySharedPage] = useState(1);
   const [feedListPage, setFeedListPage] = useState(1);
@@ -315,6 +316,7 @@ export function RoadmapFeedTab({
   );
 
   return (
+    <>
     <TwoColumnPanelLayout
       hasSelection={selectedRoadmap !== null}
       onClearSelection={() => setSelectedRoadmapId(null)}
@@ -345,6 +347,7 @@ export function RoadmapFeedTab({
               isReferenceViewOnlyMode={false}
               availableSpaces={availableSpaces}
               onClose={() => setSelectedRoadmapId(null)}
+              onExpand={() => setShowExpandDialog(true)}
               onUseRoadmap={() => {
                 detailCallbacks.onUseRoadmap(selectedRoadmap);
                 onTabChange?.('my');
@@ -366,5 +369,40 @@ export function RoadmapFeedTab({
         ) : null
       }
     />
+
+    {showExpandDialog && selectedRoadmap && (
+      <RoadmapDetailDialog
+        variant="dialog"
+        roadmap={selectedRoadmap}
+        isOwnedByCurrentUser={selectedRoadmap.ownerId === currentUserId}
+        timelineDetailMode="feed_view_only"
+        isReferenceViewOnlyMode={false}
+        availableSpaces={availableSpaces}
+        onClose={() => setShowExpandDialog(false)}
+        onUseRoadmap={() => {
+          detailCallbacks.onUseRoadmap(selectedRoadmap);
+          setShowExpandDialog(false);
+          onTabChange?.('my');
+        }}
+        onShare={() => {
+          detailCallbacks.onShare(selectedRoadmap);
+          setShowExpandDialog(false);
+        }}
+        onEdit={() => {
+          detailCallbacks.onEdit(selectedRoadmap);
+          setShowExpandDialog(false);
+          setSelectedRoadmapId(null);
+        }}
+        onDelete={() => {
+          detailCallbacks.onDelete(selectedRoadmap);
+          setShowExpandDialog(false);
+          setSelectedRoadmapId(null);
+        }}
+        onShareRoadmap={(channels, spaceIds) => detailCallbacks.onShareRoadmap(selectedRoadmap, channels, spaceIds)}
+        onReportRoadmap={(reasonId, detail) => detailCallbacks.onReportRoadmap(selectedRoadmap, reasonId, detail)}
+        onCreateComment={(comment, parentId) => detailCallbacks.onCreateComment(selectedRoadmap, comment, parentId)}
+      />
+    )}
+    </>
   );
 }

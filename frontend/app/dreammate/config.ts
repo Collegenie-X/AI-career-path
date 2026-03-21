@@ -80,6 +80,10 @@ export const DREAM_TABS = tabs as readonly {
   emoji: string;
 }[];
 
+export const REQUIRE_RESULT_ASSET_FOR_PUBLIC_SHARE = Boolean(
+  (spaceConfig as { requireResultAssetForPublicShare?: boolean }).requireResultAssetForPublicShare,
+);
+
 export const ROADMAP_SHARE_VISIBILITY_OPTIONS = spaceConfig.shareVisibilityOptions as readonly {
   id:          RoadmapShareScope;
   label:       string;
