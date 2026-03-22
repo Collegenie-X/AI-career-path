@@ -49,6 +49,8 @@
   "explore_bookmarks_count": "개 저장됨",
   "explore_detail_empty_title": "커리어 패스를 선택하세요",
   "explore_detail_empty_sub": "왼쪽 목록에서 패스를 누르면 상세 설명이 여기에 표시됩니다",
+  "explore_detail_expand_label": "확대 보기",
+  "explore_detail_expand_aria": "전체 화면으로 확대",
   "builder_step1_title": "별 · 직업 선택",
   "builder_step1_subtitle": "어떤 직업을 목표로 하나요?",
   "builder_select_star": "왕국(별) 선택",

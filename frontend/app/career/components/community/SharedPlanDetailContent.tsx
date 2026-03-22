@@ -16,6 +16,7 @@ import { ReportModal, type ReportTarget } from '../ReportModal';
 import { buildChronologicalParentTree, type ParentTreeNode } from '@/lib/timelineTreeUtils';
 import { CommunityDetailPanelYearSection } from './CommunityDetailPanelTimeline';
 import { CommunityCommentBubble } from './CommunityDetailPanelCommentBubble';
+import { CareerPathDetailExpandHeaderButton } from '../expandable-detail';
 
 /* ─── Comment input ─── */
 function CommentInput({
@@ -80,6 +81,8 @@ export type SharedPlanDetailContentProps = {
   readonly variant?: 'panel' | 'dialog';
   /** 닫기 버튼 표시 여부 (variant=panel일 때 md 이상에서 false) */
   readonly showCloseButton?: boolean;
+  /** 2열 패널에서만 — 상단 확대(560px 다이얼로그) */
+  readonly onExpand?: () => void;
 };
 
 export function SharedPlanDetailContent({
@@ -94,6 +97,7 @@ export function SharedPlanDetailContent({
   onAddComment,
   variant = 'panel',
   showCloseButton = true,
+  onExpand,
 }: SharedPlanDetailContentProps) {
   const [comments, setComments] = useState<OperatorComment[]>(plan.operatorComments);
   const [activeSection, setActiveSection] = useState<'timeline' | 'comments'>('timeline');
@@ -155,6 +159,9 @@ export function SharedPlanDetailContent({
 
   return (
     <>
+      <div
+        className={`flex flex-col min-h-0 flex-1 overflow-hidden ${variant === 'dialog' ? 'h-full max-h-full' : 'h-full'}`}
+      >
       {/* ── Header ── */}
       <div
         className="flex-shrink-0 px-5 pt-5 pb-4 relative"
@@ -191,6 +198,9 @@ export function SharedPlanDetailContent({
             </div>
           </div>
           <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+            {variant === 'panel' && onExpand && (
+              <CareerPathDetailExpandHeaderButton onExpand={onExpand} />
+            )}
             <button
               onClick={() => setShowContentMenu((m) => !m)}
               className="w-8 h-8 rounded-full flex items-center justify-center"
@@ -338,8 +348,8 @@ export function SharedPlanDetailContent({
         ))}
       </div>
 
-      {/* ── Scrollable body ── */}
-      <div className="flex-1 overflow-y-auto">
+      {/* ── Scrollable body (min-h-0: flex 안에서 스크롤 영역 높이 제한) ── */}
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
         {activeSection === 'timeline' ? (
           <div
             className={bodyPaddingClass}
@@ -410,6 +420,7 @@ export function SharedPlanDetailContent({
         }}
       >
         <CommentInput onSend={handleSendComment} starColor={plan.starColor} />
+      </div>
       </div>
 
       {reportTarget && (

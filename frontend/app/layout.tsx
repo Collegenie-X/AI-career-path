@@ -8,8 +8,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'CareerPath - 나만의 커리어 패스',
-  description: '적성 검사부터 직업 체험까지, 게임처럼 즐기는 진로 탐색',
+  title: 'AI CareerPath - AI와 함께 설계하는 나만의 커리어',
+  description: 'AI와 함께 템플릿 제작·패스 점검·실행 계획까지, 쓴 만큼만 내는 투명한 진로 설계',
   generator: '10000 Labs',
   icons: {
     icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],

@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import type { SharedPlan, OperatorComment } from './types';
 import { SharedPlanDetailContent } from './SharedPlanDetailContent';
+import { SharedPlanDetailDialog } from './SharedPlanDetailDialog';
 
 type CommunityDetailPanelProps = {
   readonly plan: SharedPlan;
@@ -26,7 +28,14 @@ export function CommunityDetailPanel({
   onClose,
   onAddComment,
 }: CommunityDetailPanelProps) {
+  const [showExpandDialog, setShowExpandDialog] = useState(false);
+
+  useEffect(() => {
+    setShowExpandDialog(false);
+  }, [plan.id]);
+
   return (
+    <>
     <div className="flex flex-col h-full">
       <SharedPlanDetailContent
         plan={plan}
@@ -40,7 +49,22 @@ export function CommunityDetailPanel({
         onAddComment={onAddComment}
         variant="panel"
         showCloseButton={true}
+        onExpand={() => setShowExpandDialog(true)}
       />
     </div>
+    {showExpandDialog && (
+      <SharedPlanDetailDialog
+        plan={plan}
+        isLiked={isLiked}
+        isBookmarked={isBookmarked}
+        likeCount={likeCount}
+        bookmarkCount={bookmarkCount}
+        onToggleLike={onToggleLike}
+        onToggleBookmark={onToggleBookmark}
+        onClose={() => setShowExpandDialog(false)}
+        onAddComment={onAddComment}
+      />
+    )}
+    </>
   );
 }

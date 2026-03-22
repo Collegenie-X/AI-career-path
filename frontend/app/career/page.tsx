@@ -12,6 +12,7 @@ import { CareerPageHeader } from './components/CareerPageHeader';
 import { CareerTabBar } from './components/CareerTabBar';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
+import { CareerPathExpandBottomSheetDialog } from './components/expandable-detail';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { SECTION_SHELL_FRAME_STYLE } from '@/components/section-shell/section-shell-layout.constants';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
@@ -76,6 +77,7 @@ function CareerPageContent() {
 
   /* ── 2-컬럼 패널용 선택 상태 ── */
   const [selectedCommunityPlan, setSelectedCommunityPlan] = useState<SharedPlan | null>(null);
+  const [showTimelineExpandDialog, setShowTimelineExpandDialog] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -96,6 +98,10 @@ function CareerPageContent() {
     const tabParam = searchParams.get('tab');
     if (isCareerPageTabId(tabParam) && tabParam !== activeTab) setActiveTab(tabParam);
   }, [activeTab, searchParams]);
+
+  useEffect(() => {
+    setShowTimelineExpandDialog(false);
+  }, [selectedPlanId]);
 
   const savePlans = (updatedPlans: CareerPlan[]) => {
     setPlans(updatedPlans);
@@ -228,6 +234,7 @@ function CareerPageContent() {
                 }}
               />
             ) : activeTab === 'timeline' ? (
+          <>
           <TwoColumnPanelLayout
             hasSelection={selectedPlanId !== null && selectedPlan !== null}
             onClearSelection={() => setSelectedPlanId(null)}
@@ -261,10 +268,29 @@ function CareerPageContent() {
                   onDeletePlan={deletePlan}
                   onSharePlan={handleSharePlan}
                   onOpenShareDialog={(plan) => setSharingPlan(plan)}
+                  onExpandToDialog={() => setShowTimelineExpandDialog(true)}
                 />
               ) : null
             }
           />
+          {showTimelineExpandDialog && selectedPlan && (
+            <CareerPathExpandBottomSheetDialog
+              onClose={() => setShowTimelineExpandDialog(false)}
+              panelContent={
+                <TimelineDetailPanel
+                  plan={selectedPlan}
+                  onClose={() => setShowTimelineExpandDialog(false)}
+                  onEdit={openEdit}
+                  onUpdatePlan={updatePlanInline}
+                  onDeletePlan={deletePlan}
+                  onSharePlan={handleSharePlan}
+                  onOpenShareDialog={(plan) => setSharingPlan(plan)}
+                  isExpandDialogMode
+                />
+              }
+            />
+          )}
+          </>
         ) : activeTab === 'community' ? (
           <TwoColumnPanelLayout
             hasSelection={selectedCommunityPlan !== null}

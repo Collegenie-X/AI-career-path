@@ -59,7 +59,7 @@ export function GradientSegmentedTabBar<TId extends string>({
             key={tab.id}
             type="button"
             onClick={() => onTabChange(tab.id)}
-            className="flex items-center justify-center gap-1.5 rounded-none py-2.5 text-xs font-bold transition-all"
+            className="flex items-center justify-center gap-2 rounded-none py-3 text-[13px] font-bold transition-all"
             style={
               isActive
                 ? {

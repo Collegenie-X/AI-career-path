@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { createPortal } from 'react-dom';
 import {
   X, Heart, Users, Calendar, Bookmark, BookmarkCheck,
   ExternalLink, Target, Sparkles, ThumbsUp, Edit2, Trash2,
@@ -12,6 +11,7 @@ import { ITEM_TYPES, GRADE_YEARS, LABELS } from '../config';
 import type { CareerPathTemplate } from '@/data/career-path-templates-index';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
+import { CareerPathExpandBottomSheetDialog } from './expandable-detail';
 
 type Template = CareerPathTemplate;
 
@@ -201,7 +201,6 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [showUseTemplateDialog, setShowUseTemplateDialog] = useState(false);
   const [copiedPlanTitle, setCopiedPlanTitle] = useState(template.title);
-  const [mounted, setMounted] = useState(false);
   const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -218,7 +217,6 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
   };
 
   useEffect(() => {
-    setMounted(true);
     const saved = loadTemplateBookmarks();
     setBookmarked(saved.includes(template.id));
   }, [template.id]);
@@ -303,24 +301,11 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
     }
   };
 
-  if (!mounted) return null;
-
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[9999] flex flex-col justify-end"
-      style={{ backgroundColor: 'rgba(0,0,0,0.82)' }}
-      onClick={onClose}
-    >
-      <div
-        className="w-full max-w-[430px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
-        style={{
-          backgroundColor: '#0d0d24',
-          border: '1px solid rgba(255,255,255,0.08)',
-          borderBottom: 'none',
-          maxHeight: 'calc(100vh - 56px)',
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
+  return (
+    <CareerPathExpandBottomSheetDialog
+      onClose={onClose}
+      panelContent={
+        <>
         {/* ── Header ── */}
         <div
           className="flex-shrink-0 px-5 py-4"
@@ -854,8 +839,10 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             <ExternalLink style={{ width: 16, height: 16 }} />
           </button>
         </div>
-      </div>
-
+        </>
+      }
+      fixedOverlays={
+        <>
       {/* ── Report modal ── */}
       {reportTarget && (
         <ReportModal
@@ -878,7 +865,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             }}
           />
           <div
-            className="relative w-full max-w-[430px] rounded-t-3xl p-5 space-y-4"
+            className="relative w-full max-w-[560px] rounded-t-3xl p-5 space-y-4"
             style={{ backgroundColor: '#0d0d24', border: '1px solid rgba(255,255,255,0.1)' }}
             onClick={(event) => event.stopPropagation()}
           >
@@ -928,7 +915,8 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
           </div>
         </div>
       )}
-    </div>,
-    document.body
+        </>
+      }
+    />
   );
 }

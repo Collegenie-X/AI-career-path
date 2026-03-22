@@ -10,6 +10,7 @@ import { YearTimelineNode } from './YearTimelineNode';
 import type { PlanItemWithCheck } from './TimelineItemComponents';
 import { PlanActionBar } from './PlanActionBar';
 import { calculateYearStatistics } from '../utils/planStatisticsCalculator';
+import { CareerPathDetailExpandHeaderButton } from './expandable-detail';
 
 type TimelineDetailPanelProps = {
   readonly plan: CareerPlan;
@@ -19,6 +20,10 @@ type TimelineDetailPanelProps = {
   readonly onDeletePlan: (planId: string) => void;
   readonly onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   readonly onOpenShareDialog?: (plan: CareerPlan) => void;
+  /** 오른쪽 패널에서만 전달 — 상단 확대(560px 다이얼로그) */
+  readonly onExpandToDialog?: () => void;
+  /** 확대 다이얼로그 안에서 렌더 시 true — 헤더 닫기(X)를 데스크톱에서도 표시 */
+  readonly isExpandDialogMode?: boolean;
 };
 
 export function TimelineDetailPanel({
@@ -28,6 +33,8 @@ export function TimelineDetailPanel({
   onUpdatePlan,
   onDeletePlan,
   onOpenShareDialog,
+  onExpandToDialog,
+  isExpandDialogMode = false,
 }: TimelineDetailPanelProps) {
   const [detailItem, setDetailItem] = useState<{ item: PlanItem; gradeLabel: string } | null>(null);
   const [showChecklistView, setShowChecklistView] = useState(false);
@@ -76,7 +83,8 @@ export function TimelineDetailPanel({
           borderBottom: `1px solid ${plan.starColor}30`,
         }}
       >
-        <div className="flex items-start gap-3">
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-3 flex-1 min-w-0">
           <div
             className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
             style={{
@@ -111,14 +119,26 @@ export function TimelineDetailPanel({
               </div>
             )}
           </div>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 md:hidden"
-            style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
-            title="닫기"
-          >
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            {onExpandToDialog && (
+              <CareerPathDetailExpandHeaderButton onExpand={onExpandToDialog} />
+            )}
+            <button
+              type="button"
+              onClick={onClose}
+              className={
+                isExpandDialogMode
+                  ? 'w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0'
+                  : 'w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 md:hidden'
+              }
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)' }}
+              title="닫기"
+              aria-label="닫기"
+            >
+              <X className="w-4 h-4 text-gray-400" />
+            </button>
+          </div>
         </div>
       </div>
 

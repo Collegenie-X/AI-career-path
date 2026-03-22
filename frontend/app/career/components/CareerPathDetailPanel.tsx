@@ -12,6 +12,7 @@ import { CareerPathDetailPanelTimeline } from './CareerPathDetailPanelTimeline';
 import { CareerPathDetailPanelComment, type DetailPanelComment } from './CareerPathDetailPanelComment';
 import { AdmissionTypeStrategiesSection, SuccessStoriesSection } from './CareerPathDetailPanelSections';
 import { UseTemplateDialog } from './UseTemplateDialog';
+import { CareerPathDetailExpandHeaderButton } from './expandable-detail';
 
 type Template = CareerPathTemplate;
 
@@ -21,6 +22,8 @@ type CareerPathDetailPanelProps = {
   readonly template: Template;
   readonly onClose: () => void;
   readonly onUseTemplate: (customTitle: string) => void;
+  /** inline 패널일 때 상단 확대 버튼 클릭 시 다이얼로그로 열기 (캐리어 실행 피드 참조) */
+  readonly onExpand?: () => void;
 };
 
 const TEMPLATE_BOOKMARKS_KEY = 'template_bookmarks_v1';
@@ -42,7 +45,7 @@ function saveTemplateBookmarks(ids: string[]): void {
 
 
 /* ─── Main panel (no createPortal, no fixed overlay) ─── */
-export function CareerPathDetailPanel({ template, onClose, onUseTemplate }: CareerPathDetailPanelProps) {
+export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpand }: CareerPathDetailPanelProps) {
   const [liked, setLiked] = useState(false);
   const [localLikes, setLocalLikes] = useState(template.likes);
   const [bookmarked, setBookmarked] = useState(false);
@@ -141,35 +144,38 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate }: Care
           borderBottom: `1px solid ${template.starColor}30`,
         }}
       >
-        <div className="flex items-start gap-3">
-          <div
-            className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-            style={{
-              width: 56, height: 56,
-              background: `linear-gradient(135deg, ${template.starColor}40, ${template.starColor}18)`,
-              border: `1.5px solid ${template.starColor}44`,
-            }}
-          >
-            {template.jobEmoji}
-          </div>
-          <div className="flex-1 min-w-0">
-            <h2 className="text-lg font-bold text-white leading-snug">{template.title}</h2>
-            <div className="flex items-center gap-2 mt-1 flex-wrap">
-              <span className="text-[13px] text-gray-400">{template.starEmoji} {template.starName}</span>
-              <span className="text-[13px] text-gray-600">·</span>
-              <span className="text-[13px] text-gray-500">{template.years.length}개 학년</span>
-              <span className="text-[13px] text-gray-600">·</span>
-              <span className="text-[13px] text-gray-500">{template.totalItems}개 항목</span>
-              {template.authorType === 'official' && (
-                <span
-                  className="text-[13px] font-bold px-2 py-0.5 rounded-full"
-                  style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}
-                >
-                  ✓ 공식
-                </span>
-              )}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-3 flex-1 min-w-0">
+            <div
+              className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+              style={{
+                width: 56, height: 56,
+                background: `linear-gradient(135deg, ${template.starColor}40, ${template.starColor}18)`,
+                border: `1.5px solid ${template.starColor}44`,
+              }}
+            >
+              {template.jobEmoji}
+            </div>
+            <div className="flex-1 min-w-0">
+              <h2 className="text-lg font-bold text-white leading-snug">{template.title}</h2>
+              <div className="flex items-center gap-2 mt-1 flex-wrap">
+                <span className="text-[13px] text-gray-400">{template.starEmoji} {template.starName}</span>
+                <span className="text-[13px] text-gray-600">·</span>
+                <span className="text-[13px] text-gray-500">{template.years.length}개 학년</span>
+                <span className="text-[13px] text-gray-600">·</span>
+                <span className="text-[13px] text-gray-500">{template.totalItems}개 항목</span>
+                {template.authorType === 'official' && (
+                  <span
+                    className="text-[13px] font-bold px-2 py-0.5 rounded-full"
+                    style={{ backgroundColor: '#6C5CE720', color: '#a78bfa' }}
+                  >
+                    ✓ 공식
+                  </span>
+                )}
+              </div>
             </div>
           </div>
+          {onExpand && <CareerPathDetailExpandHeaderButton onExpand={onExpand} />}
         </div>
       </div>
 

@@ -1,23 +1,23 @@
 {
   "creator": {
-    "badge": "Who Made This",
+    "badge": "AI + CareerPath",
     "title": "만든 사람",
-    "subtitle": "김종필 + AI Agent",
-    "description": "CareerPath는 한 사람의 경험과 AI의 능력이 결합되어 탄생했습니다.",
+    "subtitle": "김종필 + AI Agent → aicareerpath.com",
+    "description": "AI CareerPath는 한 사람의 경험과 AI의 능력이 결합되어 탄생했습니다. 학생들도 AI와 함께 커리어를 설계하는 시대를 만들고자 합니다.",
     "team": [
       {
         "id": "human",
         "name": "김종필",
         "role": "기획자 & 개발자",
         "avatar": "김",
-        "description": "평범한 환경에서 자라며 진로 정보 부족으로 많은 시행착오를 겪었습니다. 각종 프로젝트와 수상 경험을 통해 '체계적인 기획과 계획'의 중요성을 깨달았고, 많은 고등학생들을 멘토링하며 이들도 같은 문제를 겪고 있음을 발견했습니다."
+        "description": "평범한 환경에서 자라며 진로 정보 부족으로 많은 시행착오를 겪었습니다. 각종 프로젝트와 수상 경험을 통해 '체계적인 기획과 계획'의 중요성을 깨달았고, 많은 고등학생들을 멘토링하며 이들도 같은 문제를 겪고 있음을 발견했습니다. AI와 협업하여 aicareerpath.com을 만들었습니다."
       },
       {
         "id": "ai",
         "name": "AI Agent",
-        "role": "개발 파트너 & 멘토",
+        "role": "개발 파트너 & 학생 멘토",
         "avatar": "AI",
-        "description": "코드 작성, 디자인 구현, 데이터 구조화 등 실제 '만드는 작업'을 담당합니다. 하지만 무엇을 만들지, 왜 만들지, 어떻게 만들지는 김종필이 기획하고 계획합니다. AI는 도구이지, 기획자가 아닙니다."
+        "description": "코드 작성, 디자인 구현, 데이터 구조화 등 실제 '만드는 작업'을 담당합니다. 이제 학생들도 AI와 함께 커리어 패스 템플릿을 제작하고, 나만의 패스를 점검받을 수 있습니다. 쓴 만큼만 내는 투명한 과금(Cursor 방식)으로 제공합니다."
       }
     ]
   },
@@ -33,21 +33,47 @@
         "highlight": false
       },
       {
-        "id": "planning-matters",
+        "id": "human-superiority",
         "title": "하지만 기획은 사람이 합니다",
         "content": "무엇을 만들 것인가? 왜 만들어야 하는가? 누구를 위한 것인가? 어떤 문제를 해결하는가? 이런 질문에 답하는 것은 여전히 사람의 영역입니다. AI는 당신의 기획을 실현하는 도구일 뿐입니다.",
-        "highlight": true
+        "highlight": true,
+        "humanCapabilities": [
+          {
+            "id": "problem-definition",
+            "icon": "target",
+            "title": "진짜 문제 정의",
+            "description": "무엇을 만들 것인가? 왜 만들어야 하는가? 누구를 위한 것인가? 어떤 문제를 해결하는가? 이런 질문에 답하는 것은 여전히 사람의 영역입니다. AI는 당신이 정의한 문제를 해결하는 도구일 뿐입니다."
+          },
+          {
+            "id": "persona-planning",
+            "icon": "users",
+            "title": "기획 (페르소나 찾기)",
+            "description": "누구를 위한 것인가? 사용자의 진짜 니즈는 무엇인가? 공감과 직관으로 타겟을 정의하고, 그들의 맥락을 이해하는 것은 인간만이 할 수 있습니다. AI는 데이터를 분석하지만, 사람의 마음을 읽지는 못합니다."
+          },
+          {
+            "id": "execution-power",
+            "icon": "zap",
+            "title": "실행력",
+            "description": "계획을 현실로 만드는 추진력, 불확실성 속에서도 앞으로 나아가는 용기, 실패해도 다시 시도하는 끈기. 이것은 AI가 대신할 수 없는 인간의 의지입니다. AI는 도구를 제공하지만, 실행은 당신의 몫입니다."
+          },
+          {
+            "id": "reflection-debugging",
+            "icon": "search",
+            "title": "디버거 (성찰)",
+            "description": "무엇이 잘못되었는가? 왜 실패했는가? 다음엔 어떻게 개선할 것인가? 자신의 과정을 돌아보고 배우는 메타인지 능력은 인간 고유의 영역입니다. AI는 답을 주지만, 성찰은 스스로 해야 합니다."
+          }
+        ]
       },
       {
         "id": "process-over-result",
         "title": "과정이 곧 경쟁력입니다",
-        "content": "결과물은 AI가 만들 수 있지만, 그 과정에서의 사고, 판단, 기획은 복제할 수 없습니다. CareerPath는 학생들이 '무엇을 배울지, 어떤 프로젝트를 할지, 어떻게 성장할지' 기획하고 계획하는 능력을 키우도록 돕습니다.",
+        "content": "결과물은 AI가 만들 수 있지만, 그 과정에서의 사고, 판단, 기획은 복제할 수 없습니다. AI CareerPath는 학생들이 '무엇을 배울지, 어떤 프로젝트를 할지, 어떻게 성장할지' AI와 함께 기획하고 계획하는 능력을 키우도록 돕습니다.",
         "highlight": false
       },
       {
         "id": "career-planning",
         "title": "커리어 패스도 마찬가지입니다",
-        "content": "진로는 가벼운 문제가 아닙니다. 하지만 체계적으로 기획하고 계획한다면, 실행 과정은 즐거울 수 있습니다. CareerPath는 진지한 진로 설계를 게임처럼 즐겁게 실행할 수 있도록 설계되었습니다.",
+        "content": "진로는 가벼운 문제가 아닙니다. 하지만 AI와 함께 체계적으로 기획하고 계획한다면, 실행 과정은 즐거울 수 있습니다. AI CareerPath는 진지한 진로 설계를 AI 협업으로 즐겁게 실행할 수 있도록 설계되었습니다.",
         "highlight": false
       }
     ]
@@ -90,7 +116,7 @@
         "id": "mission",
         "icon": "target",
         "title": "미션",
-        "description": "모든 학생이 자신의 진로를 체계적으로 기획하고 계획할 수 있도록 돕습니다. 300만원짜리 입시 컨설팅의 정보를 무료로 민주화합니다.",
+        "description": "모든 학생이 자신의 진로를 체계적으로 기획하고 계획할 수 있도록 돕습니다. 고비용 입시 컨설팅의 정보를 무료로 민주화합니다.",
         "color": "#6C5CE7"
       },
       {
@@ -131,7 +157,7 @@
         "id": "information-gap",
         "icon": "lock",
         "title": "정보 접근성 문제",
-        "description": "입시 컨설팅은 300만원, 유학원은 1,000만원이 넘습니다. 정보는 소수에게만 독점되어 있고, 대부분의 학생들은 접근조차 어렵습니다.",
+        "description": "전문 컨설팅과 유학원은 수백만원이 넘습니다. 정보는 소수에게만 독점되어 있고, 대부분의 학생들은 접근조차 어렵습니다.",
         "color": "#8B5CF6"
       },
       {
@@ -143,19 +169,19 @@
       }
     ],
     "solution": {
-      "title": "CareerPath의 해결책",
+      "title": "AI CareerPath의 해결책",
       "features": [
         {
           "id": "career-path-db",
           "icon": "database",
           "title": "200개 직업 커리어 패스",
-          "description": "각 직업별로 중학교부터 대학교까지 단계별 활동, 공모전, 프로젝트를 체계적으로 안내합니다."
+          "description": "각 직업별로 중학교부터 대학교까지 단계별 활동, 공모전, 프로젝트를 체계적으로 안내합니다. 검증된 템플릿은 무료로 사용 가능합니다."
         },
         {
           "id": "ai-mentoring",
           "icon": "bot",
-          "title": "AI 기획 파트너",
-          "description": "24시간 AI와 함께 진로를 기획하고 계획합니다. 실행은 AI가 도와주지만, 방향은 당신이 정합니다."
+          "title": "AI 협업 파트너",
+          "description": "24시간 AI와 함께 템플릿을 제작하고 나만의 패스를 점검합니다. 쓴 만큼만 내는 투명한 과금(Cursor 방식)으로 부담 없이 시작하세요."
         },
         {
           "id": "guide-culture",
@@ -172,9 +198,57 @@
       ]
     }
   },
+  "aiUsage": {
+    "badge": "🤖 AI + CareerPath",
+    "title": "AI와 함께 설계하는 커리어",
+    "subtitle": "기본 무료 · AI 협업은 쓴 만큼 투명 과금",
+    "intro": "AI CareerPath(aicareerpath.co.kr)는 기본 기능을 무료로 제공합니다. AI와 함께 템플릿을 제작하거나 나만의 패스를 점검받는 고급 기능은 Cursor처럼 쓴 만큼만 내는 투명한 과금 모델입니다.",
+    "tiers": [
+      {
+        "id": "free",
+        "title": "무료 기능",
+        "icon": "gift",
+        "color": "#22C55E",
+        "colorBg": "rgba(34,197,94,0.1)",
+        "colorBorder": "rgba(34,197,94,0.3)",
+        "price": "0원",
+        "features": [
+          "적성검사 및 AI 분석 리포트",
+          "200개 직업 커리어 패스 열람",
+          "검증된 템플릿 사용 (패스·실행)",
+          "XP·배지 시스템",
+          "자동 포트폴리오 생성",
+          "커뮤니티 가이드 공유"
+        ]
+      },
+      {
+        "id": "ai-powered",
+        "title": "AI 협업 기능",
+        "icon": "sparkles",
+        "color": "#6C5CE7",
+        "colorBg": "rgba(108,92,231,0.1)",
+        "colorBorder": "rgba(108,92,231,0.3)",
+        "price": "쓴 만큼 결제",
+        "priceNote": "Cursor 방식: API 사용량 기반",
+        "features": [
+          "🎯 AI와 커리어 패스 템플릿 공동 제작",
+          "⚡ AI와 커리어 실행 계획 공동 제작",
+          "🔍 나만의 커리어 패스 AI 점검 및 개선 제안",
+          "📊 맞춤형 활동 추천 및 우선순위 분석",
+          "💡 프로젝트 아이디어 AI 브레인스토밍",
+          "📝 포트폴리오 내러티브 AI 작성 지원"
+        ]
+      }
+    ],
+    "explanation": {
+      "title": "💡 AI 협업 기능 핵심 포인트",
+      "content": "① 템플릿 제작: AI와 함께 커리어 패스·실행 템플릿을 처음부터 만듭니다. ② 패스 점검: 내가 만든 커리어 패스를 AI가 분석하고 개선 방향을 제안합니다. ③ 투명 과금: Cursor처럼 쓴 만큼만 내는 API 기반 과금으로 부담 없이 시작할 수 있습니다.",
+      "note": "✅ 검증된 템플릿 사용은 무료 · ⚡ AI와 새로 만들거나 점검받을 때만 비용 발생"
+    }
+  },
   "differentiators": {
-    "badge": "Why CareerPath",
-    "title": "CareerPath의 차별점",
+    "badge": "Why AI CareerPath",
+    "title": "AI CareerPath의 차별점",
     "subtitle": "기존 서비스와의 근본적인 차이",
     "items": [
       {
@@ -195,8 +269,8 @@
         "id": "free-access",
         "title": "무료 접근 (광고 기반)",
         "icon": "coins",
-        "description": "입시 컨설팅 300만원, 유학원 1,000만원의 정보를 무료로 제공합니다. 광고와 학교 B2B 수익으로 운영됩니다.",
-        "competitors": "입시 컨설턴트는 300만원, 유학원은 1,000만원이 필요합니다."
+        "description": "고비용 컨설팅 정보를 무료로 제공합니다. 광고와 학교 B2B 수익으로 운영되며, AI 협업 기능은 사용량 기반 투명 과금입니다.",
+        "competitors": "고비용 컨설팅은 수백만원이 필요하며, 정보 접근 자체가 제한적입니다."
       },
       {
         "id": "process-focused",

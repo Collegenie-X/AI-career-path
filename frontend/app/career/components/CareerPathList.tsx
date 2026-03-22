@@ -8,6 +8,7 @@ import careerPathTemplates from '@/data/career-path-templates-index';
 import communityData from '@/data/share-community.json';
 import { LABELS } from '../config';
 import { CareerPathDetailPanel } from './CareerPathDetailPanel';
+import { CareerPathDetailDialog } from './CareerPathDetailDialog';
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan, UserReactionState } from './community/types';
 import {
@@ -70,6 +71,7 @@ export function CareerPathList({
 }: CareerPathListProps) {
   const [activeFilter, setActiveFilter] = useState('all');
   const [internalSelectedTemplate, setInternalSelectedTemplate] = useState<Template | null>(null);
+  const [showExpandDialog, setShowExpandDialog] = useState(false);
 
   const isControlled = onSelectTemplate !== undefined;
   const selectedTemplate = isControlled
@@ -324,6 +326,7 @@ export function CareerPathList({
   );
 
   return (
+    <>
     <TwoColumnPanelLayout
       hasSelection={selectedTemplate !== null}
       onClearSelection={handleDetailClose}
@@ -336,9 +339,21 @@ export function CareerPathList({
             template={selectedTemplate}
             onClose={handleDetailClose}
             onUseTemplate={handleUseTemplate}
+            onExpand={() => setShowExpandDialog(true)}
           />
         ) : null
       }
     />
+    {showExpandDialog && selectedTemplate && (
+      <CareerPathDetailDialog
+        template={selectedTemplate}
+        onClose={() => setShowExpandDialog(false)}
+        onUseTemplate={(customTitle) => {
+          handleUseTemplate(customTitle);
+          setShowExpandDialog(false);
+        }}
+      />
+    )}
+    </>
   );
 }
