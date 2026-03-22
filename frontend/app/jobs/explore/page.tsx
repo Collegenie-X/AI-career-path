@@ -27,6 +27,10 @@ import {
 import { AdmissionExploreHeroBanner } from './components/AdmissionExploreHeroBanner';
 import { HighSchoolAdmissionTab } from './components/HighSchoolAdmissionTab';
 import { UniversityAdmissionTab } from './components/UniversityAdmissionTab';
+import {
+  SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT,
+  SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE,
+} from '@/components/section-shell/section-shell-layout.constants';
 import { LABELS, EXPLORE_PAGE_LAYOUT_CLASS } from './config';
 import type { StarData, Job } from './types';
 
@@ -152,14 +156,15 @@ function JobsExploreContent() {
           style={EXPLORE_PAGE_LAYOUT_CLASS.contentFrameStyle}
         >
           <div
-            className={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationArea}
-            style={EXPLORE_PAGE_LAYOUT_CLASS.tabNavigationAreaStyle}
+            className={SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT}
+            style={SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE}
           >
             <GradientSegmentedTabBar
               tabs={EXPLORE_SEGMENT_TABS}
               activeTab={activeTab}
               onTabChange={handleTabChange}
               embeddedInSectionShell
+              compact
               ariaLabel="커리어 경험 탭 전환"
             />
           </div>

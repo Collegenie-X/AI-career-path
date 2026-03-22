@@ -19,6 +19,10 @@ type GradientSegmentedTabBarProps<TId extends string> = {
    * true: 통합 셸 안 — 바깥 이중 테두리 없이 탭 그리드만 (히어로와 한 덩어리)
    */
   readonly embeddedInSectionShell?: boolean;
+  /**
+   * true: 탭을 콘텐츠 크기만큼만 표시하고 오른쪽 정렬 (전체 너비 사용 안 함)
+   */
+  readonly compact?: boolean;
   readonly ariaLabel: string;
 };
 
@@ -30,22 +34,29 @@ export function GradientSegmentedTabBar<TId extends string>({
   activeTab,
   onTabChange,
   embeddedInSectionShell = false,
+  compact = false,
   ariaLabel,
 }: GradientSegmentedTabBarProps<TId>) {
   const shellClassName = embeddedInSectionShell
-    ? 'grid gap-1.5 p-1 rounded-none'
+    ? compact
+      ? 'grid gap-2.5 pl-1 pt-1 pb-1 pr-0 rounded-none'
+      : 'grid gap-1.5 p-1 rounded-none'
     : 'grid gap-2 p-1.5 rounded-none border border-white/10';
 
   const shellStyle = embeddedInSectionShell
     ? { backgroundColor: 'rgba(255,255,255,0.06)' }
     : { backgroundColor: 'rgba(255,255,255,0.03)' };
 
+  const gridCols = compact
+    ? `repeat(${tabs.length}, auto)`
+    : `repeat(${tabs.length}, minmax(0, 1fr))`;
+
   return (
     <div
-      className={shellClassName}
+      className={compact ? `${shellClassName} w-fit ml-auto` : shellClassName}
       style={{
         ...shellStyle,
-        gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))`,
+        gridTemplateColumns: gridCols,
       }}
       role="tablist"
       aria-label={ariaLabel}
@@ -59,7 +70,7 @@ export function GradientSegmentedTabBar<TId extends string>({
             key={tab.id}
             type="button"
             onClick={() => onTabChange(tab.id)}
-            className="flex items-center justify-center gap-2 rounded-none py-3 text-[13px] font-bold transition-all"
+            className={`flex items-center justify-center gap-2 rounded-none py-3 text-[13px] font-bold transition-all ${compact ? 'px-6 md:px-8 min-w-0' : ''}`}
             style={
               isActive
                 ? {

@@ -13,7 +13,11 @@ import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
 import { CareerPathExpandBottomSheetDialog } from './components/expandable-detail';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
-import { SECTION_SHELL_FRAME_STYLE } from '@/components/section-shell/section-shell-layout.constants';
+import {
+  SECTION_SHELL_FRAME_STYLE,
+  SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT,
+  SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE,
+} from '@/components/section-shell/section-shell-layout.constants';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
@@ -194,8 +198,8 @@ function CareerPageContent() {
           style={SECTION_SHELL_FRAME_STYLE}
         >
           <div
-            className="border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5"
-            style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
+            className={SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT}
+            style={SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE}
           >
             <CareerTabBar
               activeTab={activeTab}

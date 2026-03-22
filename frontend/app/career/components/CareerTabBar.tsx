@@ -23,6 +23,7 @@ export function CareerTabBar({
       activeTab={activeTab}
       onTabChange={onTabChange}
       embeddedInSectionShell={embeddedInCareerShell}
+      compact
       ariaLabel="커리어 탭 전환"
     />
   );

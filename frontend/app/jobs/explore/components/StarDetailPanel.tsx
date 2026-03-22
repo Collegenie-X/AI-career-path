@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Briefcase, X, ChevronDown, ChevronUp, Star as StarIcon, Users, Lightbulb, Zap } from 'lucide-react';
+import { Briefcase, ChevronDown, ChevronUp, Star as StarIcon, Users, Lightbulb, Zap } from 'lucide-react';
 import { StarInfoBanner } from './StarInfoBanner';
 import { JobCard } from './JobCard';
 import { CTABanner } from './CTABanner';
@@ -138,15 +138,6 @@ export function StarDetailPanel({
             {star.jobCount}{LABELS.star_selected_subtitle}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90 active:bg-white/25 relative z-10"
-          style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-          aria-label="닫기"
-        >
-          <X className="w-4 h-4 text-white/70" />
-        </button>
       </div>
 
       {/* 스크롤 본문 */}
