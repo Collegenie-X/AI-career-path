@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import { Star, GraduationCap, School, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
-import { StickySectionPageHeader } from '@/components/section-shell/StickySectionPageHeader';
 import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
 import type { GradientSegmentedTabItem } from '@/components/section-shell/GradientSegmentedTabBar';
 import exploreStar from '@/data/stars/explore-star.json';
@@ -145,23 +144,6 @@ function JobsExploreContent() {
   return (
     <div className={EXPLORE_PAGE_LAYOUT_CLASS.pageRoot} style={{ backgroundColor: 'rgb(var(--background))' }}>
       <StarField />
-
-      <StickySectionPageHeader
-        title={LABELS.page_title}
-        subtitlePill={LABELS.page_subtitle}
-        rightSlot={
-          <div
-            className="hidden items-center gap-2 rounded-2xl border px-4 py-2 md:flex"
-            style={{
-              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
-              borderColor: 'rgba(108,92,231,0.4)',
-            }}
-          >
-            <Sparkles className="h-4 w-4 text-purple-400" />
-            <span className="text-[13px] font-bold text-purple-300">{LABELS.page_header_trailing_badge}</span>
-          </div>
-        }
-      />
 
       {/* ── Tab + Content 통합 border 컨테이너 (career·실행과 동일) ── */}
       <div className={EXPLORE_PAGE_LAYOUT_CLASS.contentShell}>

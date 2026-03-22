@@ -8,7 +8,6 @@ import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuild
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
 import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
-import { CareerPageHeader } from './components/CareerPageHeader';
 import { CareerTabBar } from './components/CareerTabBar';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
 import { CommunityDetailPanel } from './components/community/CommunityDetailPanel';
@@ -187,13 +186,6 @@ function CareerPageContent() {
       style={{ backgroundColor: 'rgb(var(--background))' }}
     >
       <StarField />
-      <CareerPageHeader
-        selectedPlanAccent={
-          mounted && selectedPlan
-            ? { jobEmoji: selectedPlan.jobEmoji, starColor: selectedPlan.starColor }
-            : null
-        }
-      />
 
       {/* ── Tab + Content (통합 테두리 컨테이너) ── */}
       <div className="web-container relative z-10 py-4 md:py-6 rounded-3xl">

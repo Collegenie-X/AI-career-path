@@ -16,7 +16,6 @@ import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
 import { useDreamMateWorkspaceContext } from './DreamMateWorkspaceProvider';
 import { getShareChannelsFromRoadmap } from './types';
 import { getCanSelectPublicShareForRoadmap } from './utils/roadmapPublicShareEligibility';
-import { StickySectionPageHeader } from '@/components/section-shell/StickySectionPageHeader';
 import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
 import { SECTION_SHELL_FRAME_STYLE, SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME, SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE } from '@/components/section-shell/section-shell-layout.constants';
 
@@ -74,23 +73,6 @@ function DreamMatePageContent() {
   return (
     <div className="min-h-screen pb-24 relative overflow-hidden w-full" style={{ backgroundColor: 'rgb(var(--background))' }}>
       <StarField />
-
-      <StickySectionPageHeader
-        title={LABELS.pageTitle}
-        subtitlePill={LABELS.pageSubtitle}
-        rightSlot={
-          <div
-            className="hidden items-center gap-2 rounded-2xl border px-4 py-2 md:flex"
-            style={{
-              background: 'linear-gradient(135deg, rgba(108,92,231,0.2), rgba(15,23,42,0.6))',
-              borderColor: 'rgba(108,92,231,0.4)',
-            }}
-          >
-            <Sparkles className="h-4 w-4 text-purple-400" />
-            <span className="text-[13px] font-bold text-purple-300">{LABELS.pageHeaderTrailingBadge}</span>
-          </div>
-        }
-      />
 
       {/* Tab + 히어로 + 본문 — 경험·패스와 동일 셸 */}
       <div className="web-container relative z-10 py-4 md:py-6">

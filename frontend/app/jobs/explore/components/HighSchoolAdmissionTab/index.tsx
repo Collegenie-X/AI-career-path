@@ -126,13 +126,6 @@ export function HighSchoolAdmissionTab() {
   const listSlotContent =
     !currentCategory ? (
       <div className="relative z-[1] space-y-3">
-        <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
-          {admissionExploreOrbitCallout('highSchool')}
-        </p>
-        <PlanetOrbitView
-          categories={typedData.categories}
-          onSelectCategory={handleSelectCategory}
-        />
         <div
           className="flex rounded-xl p-1 gap-1"
           style={{
@@ -152,16 +145,23 @@ export function HighSchoolAdmissionTab() {
               key={view}
               type="button"
               onClick={() => setViewState({ view })}
-              className="flex-1 py-2 rounded-lg text-[10px] font-bold transition-all flex items-center justify-center gap-1.5 text-gray-400 hover:text-white"
+              className="flex-1 py-2.5 rounded-lg text-[13px] font-bold transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white"
               style={{ background: 'transparent' }}
               whileHover={{ scale: 1.03, backgroundColor: 'rgba(139,92,246,0.15)' }}
               whileTap={{ scale: 0.96 }}
             >
-              <Icon className="w-3.5 h-3.5" />
+              <Icon className="h-4 w-4 shrink-0" aria-hidden />
               {label}
             </motion.button>
           ))}
         </div>
+        <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
+          {admissionExploreOrbitCallout('highSchool')}
+        </p>
+        <PlanetOrbitView
+          categories={typedData.categories}
+          onSelectCategory={handleSelectCategory}
+        />
       </div>
     ) : (
       <SchoolCategoryView
