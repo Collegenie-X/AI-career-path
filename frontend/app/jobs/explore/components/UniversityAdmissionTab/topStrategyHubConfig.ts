@@ -6,7 +6,21 @@ export const TOP_STRATEGY_HUB_CONFIG = {
   examplesTitle: '빠른 실행 예시',
   detailButtonLabel: '상세 가이드 열기',
   detailDialogTitle: '상세 실행 가이드',
-  detailDialogDescription: '탭에서 선택한 전략을 학년별 액션까지 확인하세요.',
+  detailDialogDescription: '전략·학년·보기 방식만 고르면 아래에서 상세 내용을 확인할 수 있어요.',
+  detailDialogCloseAriaLabel: '상세 실행 가이드 닫기',
+  expandWideDialogAriaLabel: '넓은 창(다이얼로그)으로 보기',
+  /** 상세 패널 상단 컨트롤 바(전략/학년/보기) 라벨 */
+  detailControlBarLabels: {
+    strategy: '전략',
+    grade: '학년',
+    content: '보기',
+  },
+  /** 보기 탭 짧은 이름(한 줄 세그먼트용) */
+  detailContentTabShortLabels: {
+    core: '핵심',
+    actionCards: '실행',
+    deepQa: 'Q&A',
+  },
   detailSections: {
     necessity: '왜 필요한가 (평가 포인트)',
     advantage: '입학사정관 관점 유리 포인트',

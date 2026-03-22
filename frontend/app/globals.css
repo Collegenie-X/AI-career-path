@@ -466,6 +466,16 @@ body::before {
   animation: admission-callout-blink 2.2s ease-in-out infinite;
 }
 
+/**
+ * 대입 전략 허브 오른쪽 인라인 패널: 닫기(X)는 좁은 뷰포트에서만 표시.
+ * (조건부 Tailwind 문자열이 번들에서 누락되는 경우에도 동작하도록 보조)
+ */
+@media (min-width: 768px) {
+  .strategy-hub-detail-close-visible-only-mobile {
+    display: none !important;
+  }
+}
+
 /* ── About 페이지 게임스러운 애니메이션 ── */
 @keyframes fadeInUp {
   from {

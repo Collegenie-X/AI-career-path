@@ -2,9 +2,13 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, X, Zap, Rocket, FlaskConical, Calendar, Target, Lightbulb, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ChevronDown, Lightbulb, Maximize2, X } from 'lucide-react';
 
 import { TOP_STRATEGY_HUB_CONFIG } from './topStrategyHubConfig';
+import {
+  TopStrategyHubDetailControlBar,
+  type StrategyHubDetailContentTabId,
+} from './TopStrategyHubDetailControlBar';
 import { TopStrategyHubCard } from './TopStrategyHubCard';
 import { TopStrategyHubInfoBlock } from './TopStrategyHubInfoBlock';
 import { TopStrategyHubQAItem } from './TopStrategyHubQAItem';
@@ -17,16 +21,13 @@ type TopStrategyHubDetailDialogProps = {
   onClose: () => void;
   /** inline: jobs/explore 대입 탐색 오른쪽 패널용 (모달 없이 스크롤 영역만) */
   variant?: 'modal' | 'inline';
+  /** variant=modal 일 때 패널 루트 클래스(너비·높이). 미지정 시 기본 카드 너비 */
+  modalPanelClassName?: string;
+  /** variant=modal 일 때 루트 오버레이 래퍼 클래스(z-index·패딩 등). 미지정 시 기본 오버레이 */
+  modalOverlayClassName?: string;
 };
 
-type DetailContentTabId = 'core' | 'actionCards' | 'deepQa';
-
-const SECTION_ICON_MAP: Record<string, React.ReactNode> = {
-  strategy2028: <Zap className="w-4 h-4" />,
-  aiProject: <Rocket className="w-4 h-4" />,
-  paperMaker: <FlaskConical className="w-4 h-4" />,
-  gradeRoadmap: <Calendar className="w-4 h-4" />,
-};
+type DetailContentTabId = StrategyHubDetailContentTabId;
 
 const GRADE_ICON_MAP: Record<string, string> = {
   grade1: '🌱',
@@ -34,14 +35,29 @@ const GRADE_ICON_MAP: Record<string, string> = {
   grade3: '🌳',
 };
 
+const DEFAULT_MODAL_PANEL_CLASS =
+  'w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto rounded-2xl';
+
+const EXPANDED_MODAL_PANEL_CLASS =
+  'w-full min-w-0 max-w-[640px] mx-auto h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto rounded-2xl';
+
+const DEFAULT_MODAL_OVERLAY_CLASS =
+  'fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4';
+
+const EXPANDED_MODAL_OVERLAY_CLASS =
+  'fixed inset-0 z-[10050] flex items-end md:items-center justify-center p-2 md:p-4';
+
 export function TopStrategyHubDetailDialog({
   sections,
   initialSectionId,
   initialGradeId,
   onClose,
   variant = 'modal',
+  modalPanelClassName,
+  modalOverlayClassName,
 }: TopStrategyHubDetailDialogProps) {
   const [mounted, setMounted] = useState(false);
+  const [isWideExpandModalOpen, setIsWideExpandModalOpen] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState(initialSectionId);
   const [activeGradeId, setActiveGradeId] = useState(initialGradeId);
   const [activeDetailContentTabId, setActiveDetailContentTabId] =
@@ -93,12 +109,14 @@ export function TopStrategyHubDetailDialog({
   const inlineWrapperClass =
     'w-full max-w-none min-w-0 rounded-2xl';
 
+  const resolvedModalPanelClass = modalPanelClassName ?? DEFAULT_MODAL_PANEL_CLASS;
+
   const panelInner = (
       <div
         className={
           variant === 'inline'
             ? inlineWrapperClass
-            : 'w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto rounded-2xl'
+            : resolvedModalPanelClass
         }
         style={{
           background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
@@ -107,7 +125,7 @@ export function TopStrategyHubDetailDialog({
         }}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 p-3 sm:p-4 space-y-3 bg-gradient-to-b from-slate-950/98 to-slate-900/95 backdrop-blur-xl border-b border-white/10">
+        <div className="sticky top-0 z-10 p-3 sm:p-4 space-y-2.5 bg-gradient-to-b from-slate-950/98 to-slate-900/95 backdrop-blur-xl border-b border-white/10">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
@@ -118,130 +136,45 @@ export function TopStrategyHubDetailDialog({
                 <p className="text-xs text-slate-300">{TOP_STRATEGY_HUB_CONFIG.detailDialogDescription}</p>
               </div>
             </div>
-            <button
-              onClick={onClose}
-              className="w-9 h-9 rounded-xl flex items-center justify-center bg-white/5 border border-white/20 hover:bg-white/10 transition-all"
-              aria-label="상세 다이얼로그 닫기"
-            >
-              <X className="w-4 h-4 text-white" />
-            </button>
-          </div>
-
-          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
-            {sections.map((section) => {
-              const isActive = section.id === activeSection.id;
-              return (
+            <div className="flex items-center gap-2 shrink-0 relative z-20">
+              {variant === 'inline' && (
                 <button
-                  key={section.id}
-                  onClick={() => {
-                    setActiveSectionId(section.id);
-                    setActiveGradeId(section.grades[0]?.id ?? '');
-                  }}
-                  className="shrink-0 px-3 py-2 rounded-xl text-xs font-semibold transition-all hover:scale-105 active:scale-95 flex items-center gap-2"
-                  style={{
-                    background: isActive 
-                      ? 'linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%)'
-                      : 'rgba(255,255,255,0.06)',
-                    border: `2px solid ${isActive ? 'rgba(129,140,248,0.8)' : 'rgba(148,163,184,0.25)'}`,
-                    color: isActive ? '#e0e7ff' : '#cbd5e1',
-                    boxShadow: isActive ? '0 4px 12px rgba(99,102,241,0.4)' : 'none',
-                  }}
+                  type="button"
+                  onClick={() => setIsWideExpandModalOpen(true)}
+                  className="inline-flex w-9 h-9 rounded-xl items-center justify-center bg-white/10 border border-violet-400/35 hover:bg-violet-500/20 transition-all"
+                  aria-label={TOP_STRATEGY_HUB_CONFIG.expandWideDialogAriaLabel}
                 >
-                  <div className={`${isActive ? 'text-indigo-300' : 'text-slate-400'}`}>
-                    {SECTION_ICON_MAP[section.id]}
-                  </div>
-                  <span>{section.emoji} {section.label}</span>
+                  <Maximize2 className="w-4 h-4 text-violet-100" strokeWidth={2.25} />
                 </button>
-              );
-            })}
+              )}
+              <button
+                type="button"
+                onClick={onClose}
+                className={
+                  variant === 'inline'
+                    ? 'strategy-hub-detail-close-visible-only-mobile w-9 h-9 rounded-xl flex items-center justify-center bg-white/5 border border-white/20 hover:bg-white/10 transition-all md:hidden'
+                    : 'w-9 h-9 rounded-xl flex items-center justify-center bg-white/5 border border-white/20 hover:bg-white/10 transition-all'
+                }
+                aria-label={TOP_STRATEGY_HUB_CONFIG.detailDialogCloseAriaLabel}
+              >
+                <X className="w-4 h-4 text-white" />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-2">
-            {activeSection.grades.map((grade) => {
-              const isActive = grade.id === activeGrade.id;
-              return (
-                <button
-                  key={`${activeSection.id}-${grade.id}`}
-                  onClick={() => setActiveGradeId(grade.id)}
-                  className="px-2 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5"
-                  style={{
-                    background: isActive 
-                      ? 'linear-gradient(135deg, rgba(34,197,94,0.3) 0%, rgba(16,185,129,0.3) 100%)'
-                      : 'rgba(255,255,255,0.05)',
-                    border: `2px solid ${isActive ? 'rgba(74,222,128,0.8)' : 'rgba(148,163,184,0.25)'}`,
-                    color: isActive ? '#d1fae5' : '#cbd5e1',
-                    boxShadow: isActive ? '0 4px 12px rgba(34,197,94,0.4)' : 'none',
-                  }}
-                >
-                  <span className="text-base">{GRADE_ICON_MAP[grade.id]}</span>
-                  <span>{grade.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="grid grid-cols-3 gap-2">
-            <button
-              onClick={() => setActiveDetailContentTabId('core')}
-              className="px-3 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5"
-              style={{
-                background:
-                  activeDetailContentTabId === 'core' 
-                    ? 'linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%)'
-                    : 'rgba(255,255,255,0.05)',
-                border: `2px solid ${
-                  activeDetailContentTabId === 'core'
-                    ? 'rgba(129,140,248,0.8)'
-                    : 'rgba(148,163,184,0.25)'
-                }`,
-                color: activeDetailContentTabId === 'core' ? '#e0e7ff' : '#cbd5e1',
-                boxShadow: activeDetailContentTabId === 'core' ? '0 4px 12px rgba(99,102,241,0.4)' : 'none',
-              }}
-            >
-              <Target className="w-3.5 h-3.5" />
-              <span>핵심 가이드</span>
-            </button>
-            <button
-              onClick={() => setActiveDetailContentTabId('actionCards')}
-              className="px-3 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5"
-              style={{
-                background:
-                  activeDetailContentTabId === 'actionCards'
-                    ? 'linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%)'
-                    : 'rgba(255,255,255,0.05)',
-                border: `2px solid ${
-                  activeDetailContentTabId === 'actionCards'
-                    ? 'rgba(129,140,248,0.8)'
-                    : 'rgba(148,163,184,0.25)'
-                }`,
-                color: activeDetailContentTabId === 'actionCards' ? '#e0e7ff' : '#cbd5e1',
-                boxShadow: activeDetailContentTabId === 'actionCards' ? '0 4px 12px rgba(99,102,241,0.4)' : 'none',
-              }}
-            >
-              <CheckCircle2 className="w-3.5 h-3.5" />
-              <span>실행 카드</span>
-            </button>
-            <button
-              onClick={() => setActiveDetailContentTabId('deepQa')}
-              className="px-3 py-2 rounded-xl text-xs font-bold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-1.5"
-              style={{
-                background:
-                  activeDetailContentTabId === 'deepQa'
-                    ? 'linear-gradient(135deg, rgba(99,102,241,0.3) 0%, rgba(139,92,246,0.3) 100%)'
-                    : 'rgba(255,255,255,0.05)',
-                border: `2px solid ${
-                  activeDetailContentTabId === 'deepQa'
-                    ? 'rgba(129,140,248,0.8)'
-                    : 'rgba(148,163,184,0.25)'
-                }`,
-                color: activeDetailContentTabId === 'deepQa' ? '#e0e7ff' : '#cbd5e1',
-                boxShadow: activeDetailContentTabId === 'deepQa' ? '0 4px 12px rgba(99,102,241,0.4)' : 'none',
-              }}
-            >
-              <Lightbulb className="w-3.5 h-3.5" />
-              <span>심화 Q&A</span>
-            </button>
-          </div>
+          <TopStrategyHubDetailControlBar
+            sections={sections}
+            activeSection={activeSection}
+            activeGradeId={activeGradeId}
+            activeDetailContentTabId={activeDetailContentTabId}
+            onSelectSection={(sectionId) => {
+              setActiveSectionId(sectionId);
+              const next = sections.find((s) => s.id === sectionId);
+              setActiveGradeId(next?.grades[0]?.id ?? '');
+            }}
+            onSelectGrade={setActiveGradeId}
+            onSelectContentTab={setActiveDetailContentTabId}
+          />
         </div>
 
         <div className="p-3 sm:p-4 space-y-3">
@@ -403,13 +336,36 @@ export function TopStrategyHubDetailDialog({
       </div>
   );
 
+  const resolvedModalOverlayClass = modalOverlayClassName ?? DEFAULT_MODAL_OVERLAY_CLASS;
+
+  const wideExpandModalPortal =
+    variant === 'inline' && isWideExpandModalOpen && mounted ? (
+      createPortal(
+        <TopStrategyHubDetailDialog
+          variant="modal"
+          modalPanelClassName={EXPANDED_MODAL_PANEL_CLASS}
+          modalOverlayClassName={EXPANDED_MODAL_OVERLAY_CLASS}
+          sections={sections}
+          initialSectionId={activeSectionId}
+          initialGradeId={activeGradeId}
+          onClose={() => setIsWideExpandModalOpen(false)}
+        />,
+        document.body
+      )
+    ) : null;
+
   if (variant === 'inline') {
-    return panelInner;
+    return (
+      <>
+        {panelInner}
+        {wideExpandModalPortal}
+      </>
+    );
   }
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4"
+      className={resolvedModalOverlayClass}
       style={{ background: 'rgba(2,6,23,0.86)' }}
       onClick={onClose}
     >
