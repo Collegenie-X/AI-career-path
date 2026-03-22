@@ -3,10 +3,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ChevronRight, Plus } from 'lucide-react';
 import librarySource from '@/data/high-school/resource-hub-library.json';
-import { ResourceDetailDialog } from './ResourceDetailDialog';
+import { ResourceDetailPanel } from './ResourceDetailPanel';
 import { HighSchoolResourceFormDialog } from './HighSchoolResourceFormDialog';
-import { ResourceStrategyPathCards } from './ResourceStrategyPathCards';
-import { formatFileSize, formatUploadedDate, loadStoredFiles, saveStoredFiles } from './resource-hub-storage';
+import { loadStoredFiles, saveStoredFiles } from './resource-hub-storage';
 import { RESOURCE_CATEGORIES, type ResourceCategoryId, type ResourceFile, type ResourceLibraryDocument } from './resource-hub-types';
 import type { ResourceListItem } from './resource-hub-view-model';
 
@@ -139,9 +138,11 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
     );
   };
 
+  const hasDetailSelection = selectedResource !== null;
+
   return (
-    <div className="space-y-3">
-      <div className="flex items-center gap-2">
+    <div className="flex flex-col h-full min-h-0">
+      <div className="flex items-center gap-2 shrink-0 mb-3">
         <button
           onClick={onBack}
           className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-200"
@@ -153,117 +154,132 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
         <p className="text-sm font-bold text-white">고입 자료실</p>
       </div>
 
-
-
-      <div className="rounded-2xl p-3 space-y-3" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
-          <select
-            value={uploadCategoryId}
-            onChange={(event) => setUploadCategoryId(event.target.value as ResourceCategoryId)}
-            className="rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
-          >
-            {RESOURCE_CATEGORIES.map((category) => (
-              <option key={category.id} value={category.id}>
-                업로드 카테고리: {category.label}
-              </option>
-            ))}
-          </select>
-          <button
-            onClick={() => setIsResourceFormDialogOpen(true)}
-            className="h-10 px-3 rounded-lg text-[12px] font-semibold inline-flex items-center justify-center gap-1.5"
-            style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.35), rgba(139,92,246,0.35))', color: '#ddd6fe', border: '1px solid rgba(196,181,253,0.4)' }}
-          >
-            <Plus className="w-4 h-4" />
-            자료 추가
-          </button>
-        </div>
-
-        <div className="flex flex-wrap gap-1.5">
-          <button
-            onClick={() => setCategoryFilter('all')}
-            className="px-2 py-1 rounded-lg text-[11px] font-semibold"
-            style={{ background: categoryFilter === 'all' ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}
-          >
-            전체
-          </button>
-          {RESOURCE_CATEGORIES.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setCategoryFilter(category.id)}
-              className="px-2 py-1 rounded-lg text-[11px] font-semibold"
-              style={{ background: categoryFilter === category.id ? `${category.color}33` : 'rgba(255,255,255,0.06)', color: category.color }}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="space-y-2.5">
-          {filteredResources.map((resourceItem) => {
-            const categoryMeta = getCategoryMeta(resourceItem.categoryId);
-            const isUserItem = resourceItem.source === 'user';
-            return (
-              <div
-                key={resourceItem.id}
-                className="rounded-2xl p-3 transition-all"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
-                  border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
-                }}
+      <div className="flex gap-3 flex-1 min-h-0">
+        {/* 왼쪽: 리스트 */}
+        <div
+          className={`flex flex-col min-w-0 ${hasDetailSelection ? 'w-[45%] shrink-0' : 'flex-1'}`}
+          style={{ minWidth: hasDetailSelection ? 180 : undefined }}
+        >
+          <div className="rounded-xl p-2.5 space-y-2 shrink-0" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="flex flex-wrap gap-1.5">
+              <select
+                value={uploadCategoryId}
+                onChange={(event) => setUploadCategoryId(event.target.value as ResourceCategoryId)}
+                className="rounded-lg px-2 py-1.5 text-[11px] bg-white/5 text-gray-100 border border-white/10"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="min-w-0">
-                    <p className="text-[13px] font-bold text-white truncate">{resourceItem.title}</p>
-                    <p className="text-[11px] mt-1 font-semibold" style={{ color: categoryMeta.color }}>
-                      {categoryMeta.label}
-                    </p>
-                    <p className="text-[12px] text-gray-300 mt-1.5 line-clamp-1">{resourceItem.summary}</p>
-                    <p className="text-[11px] text-gray-500 mt-1">
-                      {resourceItem.fileType.toUpperCase()} {isUserItem ? `· ${formatFileSize(resourceItem.size)} · ${formatUploadedDate(resourceItem.uploadedAt)}` : '· 기본 문서'}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 flex-shrink-0">
-                    {isUserItem ? (
-                      <button
-                        onClick={async () => {
-                          try {
-                            const shareUrl = getShareUrl(resourceItem.id);
-                            await navigator.clipboard.writeText(shareUrl);
-                          } catch {
-                            // optional clipboard support
-                          }
-                        }}
-                        className="px-2 py-1 rounded-md text-[11px] text-cyan-200 bg-cyan-500/15"
-                      >
-                        링크복사
-                      </button>
-                    ) : null}
-                    <button
-                      onClick={() => setSelectedResourceId(resourceItem.id)}
-                      className="w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-95"
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(139,92,246,0.45), rgba(99,102,241,0.45))',
-                        border: '1px solid rgba(196,181,253,0.45)',
-                        boxShadow: '0 0 12px rgba(139,92,246,0.25)',
-                      }}
-                      aria-label={`${resourceItem.title} 상세 보기`}
-                      title="상세 보기"
-                    >
-                      <ChevronRight className="w-4 h-4 text-white" />
-                    </button>
+                {RESOURCE_CATEGORIES.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    업로드: {category.label}
+                  </option>
+                ))}
+              </select>
+              <button
+                onClick={() => setIsResourceFormDialogOpen(true)}
+                className="h-8 px-2.5 rounded-lg text-[11px] font-semibold inline-flex items-center justify-center gap-1"
+                style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.35), rgba(139,92,246,0.35))', color: '#ddd6fe', border: '1px solid rgba(196,181,253,0.4)' }}
+              >
+                <Plus className="w-3.5 h-3.5" />
+                추가
+              </button>
+            </div>
+            <div className="flex flex-wrap gap-1">
+              <button
+                onClick={() => setCategoryFilter('all')}
+                className="px-1.5 py-0.5 rounded text-[10px] font-semibold"
+                style={{ background: categoryFilter === 'all' ? 'rgba(255,255,255,0.18)' : 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}
+              >
+                전체
+              </button>
+              {RESOURCE_CATEGORIES.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setCategoryFilter(category.id)}
+                  className="px-1.5 py-0.5 rounded text-[10px] font-semibold"
+                  style={{ background: categoryFilter === category.id ? `${category.color}33` : 'rgba(255,255,255,0.06)', color: category.color }}
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="flex-1 overflow-y-auto mt-2 space-y-1.5 min-h-0">
+            {filteredResources.map((resourceItem) => {
+              const categoryMeta = getCategoryMeta(resourceItem.categoryId);
+              const isUserItem = resourceItem.source === 'user';
+              const isSelected = resourceItem.id === selectedResourceId;
+
+              return (
+                <div
+                  key={resourceItem.id}
+                  onClick={() => setSelectedResourceId(resourceItem.id)}
+                  className="rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99]"
+                  style={{
+                    background: isSelected ? 'rgba(139,92,246,0.2)' : 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
+                    border: `1px solid ${isSelected ? 'rgba(139,92,246,0.5)' : 'rgba(255,255,255,0.1)'}`,
+                  }}
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="min-w-0 flex-1">
+                      <p className="text-[12px] font-bold text-white truncate">{resourceItem.title}</p>
+                      <p className="text-[10px] mt-0.5 font-semibold" style={{ color: categoryMeta.color }}>
+                        {categoryMeta.label}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1 flex-shrink-0">
+                      {isUserItem ? (
+                        <button
+                          type="button"
+                          onClick={async (e) => {
+                            e.stopPropagation();
+                            try {
+                              await navigator.clipboard.writeText(getShareUrl(resourceItem.id));
+                            } catch {}
+                          }}
+                          className="px-1.5 py-0.5 rounded text-[9px] text-cyan-200 bg-cyan-500/15"
+                        >
+                          링크
+                        </button>
+                      ) : null}
+                      <ChevronRight className="w-3.5 h-3.5 text-gray-400" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-          {filteredResources.length === 0 ? (
-            <p className="text-[12px] text-gray-500">선택한 카테고리에 자료가 없습니다.</p>
-          ) : null}
+              );
+            })}
+            {filteredResources.length === 0 ? (
+              <p className="text-[11px] text-gray-500 py-4">선택한 카테고리에 자료가 없습니다.</p>
+            ) : null}
+          </div>
+        </div>
+
+        {/* 오른쪽: 디테일 */}
+        <div className="flex-1 min-w-0 flex flex-col rounded-xl overflow-hidden" style={{ background: 'rgba(15,23,42,0.8)', border: '1px solid rgba(255,255,255,0.1)' }}>
+          {hasDetailSelection && selectedResource ? (
+            <ResourceDetailPanel
+              item={selectedResource}
+              startInEditModeResourceId={startInEditModeResourceId}
+              onConsumeStartInEditMode={(resourceId) => {
+                if (startInEditModeResourceId === resourceId) setStartInEditModeResourceId(null);
+              }}
+              onClearSelection={() => setSelectedResourceId(null)}
+              onDownloadUserFile={handleDownloadUserFile}
+              onDeleteUserFile={handleDeleteUserFile}
+              onUpdateUserFile={handleUpdateUserFile}
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center flex-1 min-h-[200px] gap-2 text-center px-4">
+              <p className="text-[12px] font-bold text-white/60">자료를 선택하세요</p>
+              <p className="text-[11px] text-gray-500">왼쪽 목록에서 항목을 클릭하면 상세 내용이 여기에 표시됩니다</p>
+            </div>
+          )}
         </div>
       </div>
 
-      <button onClick={onBack} className="w-full py-2.5 rounded-xl text-[11px] font-semibold" style={{ background: 'rgba(255,255,255,0.06)', color: '#9ca3af' }}>
+      <button
+        onClick={onBack}
+        className="w-full mt-3 py-2 rounded-xl text-[11px] font-semibold shrink-0"
+        style={{ background: 'rgba(255,255,255,0.06)', color: '#9ca3af' }}
+      >
         고입 탐색 메인으로 돌아가기
       </button>
 
@@ -285,20 +301,6 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
           </div>
         </div>
       ) : null}
-
-      <ResourceDetailDialog
-        item={selectedResource}
-        startInEditModeResourceId={startInEditModeResourceId}
-        onConsumeStartInEditMode={(resourceId) => {
-          if (startInEditModeResourceId === resourceId) {
-            setStartInEditModeResourceId(null);
-          }
-        }}
-        onClose={() => setSelectedResourceId(null)}
-        onDownloadUserFile={handleDownloadUserFile}
-        onDeleteUserFile={handleDeleteUserFile}
-        onUpdateUserFile={handleUpdateUserFile}
-      />
 
       {isResourceFormDialogOpen && (
         <HighSchoolResourceFormDialog

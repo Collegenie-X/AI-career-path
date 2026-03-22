@@ -1,0 +1,27 @@
+{
+  "dialog": {
+    "widthPx": 560,
+    "contentMaxHeightDvh": 90
+  },
+  "tabs": [
+    {
+      "id": "identity-challenge",
+      "label": "정체성 퀘스트",
+      "iconKey": "sparkles",
+      "ariaDialogTitle": "정체성 퀘스트"
+    },
+    {
+      "id": "mental-challenge",
+      "label": "멘탈 던전",
+      "iconKey": "zap",
+      "ariaDialogTitle": "멘탈 던전"
+    },
+    {
+      "id": "resource-hub",
+      "label": "자료 상점",
+      "iconKey": "library-big",
+      "ariaDialogTitle": "자료 상점",
+      "dialogWidthPx": 900
+    }
+  ]
+}

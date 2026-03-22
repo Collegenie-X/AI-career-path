@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LibraryBig, Sparkles, Zap } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import metaData from '@/data/high-school/meta.json';
 import scienceHigh from '@/data/high-school/science_high.json';
@@ -23,10 +21,12 @@ import { PlanetOrbitView } from './PlanetOrbitView';
 import { SchoolCategoryView } from './SchoolCategoryView';
 import { SchoolDetailPanel } from './SchoolDetailPanel';
 import { SchoolDetailDialog } from './SchoolDetailDialog';
-import { IdentityChallengeGame } from './IdentityChallengeGame';
-import { MentalChallengeGame } from './MentalChallengeGame';
 import { enrichHighSchoolCategories } from './school-profile-enricher';
-import { HighSchoolResourceHubSection } from './HighSchoolResourceHubSection';
+import {
+  HighSchoolOrbitHubChallengeDialogLayer,
+  HighSchoolOrbitHubChallengeTabBar,
+  type HighSchoolOrbitHubChallengeTabId,
+} from './HighSchoolOrbitHubChallengeUi';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
 import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
@@ -47,18 +47,15 @@ const typedData: HighSchoolAdmissionV2Data = {
   ] as unknown as HighSchoolCategory[]),
 };
 
-type AdmissionViewState =
-  | { view: 'planet' }
-  | { view: 'category'; category: HighSchoolCategory }
-  | { view: 'identity-challenge' }
-  | { view: 'mental-challenge' }
-  | { view: 'resource-hub' };
+type AdmissionViewState = { view: 'planet' } | { view: 'category'; category: HighSchoolCategory };
 
 export function HighSchoolAdmissionTab() {
   const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
   const [selectedSchool, setSelectedSchool] = useState<HighSchoolDetail | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<HighSchoolCategory | null>(null);
   const [showDetailDialog, setShowDetailDialog] = useState(false);
+  const [openOrbitHubChallengeTabId, setOpenOrbitHubChallengeTabId] =
+    useState<HighSchoolOrbitHubChallengeTabId | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -90,71 +87,13 @@ export function HighSchoolAdmissionTab() {
 
   const currentCategory = viewState.view === 'category' ? viewState.category : null;
 
-  /** 정체성/멘탈/자료실은 전체 너비 뷰 (대입의 전략허브 등과 동일) */
-  const isSubscreenView =
-    viewState.view === 'identity-challenge' ||
-    viewState.view === 'mental-challenge' ||
-    viewState.view === 'resource-hub';
-
-  if (isSubscreenView) {
-    return (
-      <>
-        {viewState.view === 'identity-challenge' && (
-          <IdentityChallengeGame
-            data={identityChallengeData as IdentityChallengeData}
-            categories={typedData.categories}
-            onBack={handleBackToPlanet}
-            onSelectCategory={handleSelectCategory}
-          />
-        )}
-        {viewState.view === 'mental-challenge' && (
-          <MentalChallengeGame
-            data={mentalChallengeData as MentalChallengeData}
-            onBack={handleBackToPlanet}
-          />
-        )}
-        {viewState.view === 'resource-hub' && (
-          <HighSchoolResourceHubSection onBack={handleBackToPlanet} />
-        )}
-      </>
-    );
-  }
-
   /** 2컬럼 레이아웃: 왼쪽 리스트, 오른쪽 디테일 (대입 UI와 동일) */
   const hasDetailSelection = selectedSchool !== null;
 
   const listSlotContent =
     !currentCategory ? (
       <div className="relative z-[1] space-y-3">
-        <div
-          className="flex rounded-xl p-1 gap-1"
-          style={{
-            background: 'rgba(15,23,42,0.65)',
-            border: '1px solid rgba(139,92,246,0.25)',
-            boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.04)',
-          }}
-        >
-          {(
-            [
-              { view: 'identity-challenge' as const, icon: Sparkles, label: '정체성 퀘스트' },
-              { view: 'mental-challenge' as const, icon: Zap, label: '멘탈 던전' },
-              { view: 'resource-hub' as const, icon: LibraryBig, label: '자료 상점' },
-            ] as const
-          ).map(({ view, icon: Icon, label }) => (
-            <motion.button
-              key={view}
-              type="button"
-              onClick={() => setViewState({ view })}
-              className="flex-1 py-2.5 rounded-lg text-[13px] font-bold transition-all flex items-center justify-center gap-2 text-gray-400 hover:text-white"
-              style={{ background: 'transparent' }}
-              whileHover={{ scale: 1.03, backgroundColor: 'rgba(139,92,246,0.15)' }}
-              whileTap={{ scale: 0.96 }}
-            >
-              <Icon className="h-4 w-4 shrink-0" aria-hidden />
-              {label}
-            </motion.button>
-          ))}
-        </div>
+        <HighSchoolOrbitHubChallengeTabBar onSelectTab={setOpenOrbitHubChallengeTabId} />
         <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
           {admissionExploreOrbitCallout('highSchool')}
         </p>
@@ -213,6 +152,15 @@ export function HighSchoolAdmissionTab() {
           onClose={() => setShowDetailDialog(false)}
         />
       )}
+
+      <HighSchoolOrbitHubChallengeDialogLayer
+        openTabId={openOrbitHubChallengeTabId}
+        onRequestClose={() => setOpenOrbitHubChallengeTabId(null)}
+        categories={typedData.categories}
+        identityData={identityChallengeData as IdentityChallengeData}
+        mentalData={mentalChallengeData as MentalChallengeData}
+        onIdentitySelectCategory={handleSelectCategory}
+      />
     </>
   );
 }

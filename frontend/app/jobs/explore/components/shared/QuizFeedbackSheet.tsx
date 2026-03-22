@@ -1,6 +1,5 @@
 'use client';
 
-import { createPortal } from 'react-dom';
 import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react';
 
 type QuizFeedbackSheetProps = {
@@ -22,9 +21,10 @@ export function QuizFeedbackSheet({
 }: QuizFeedbackSheetProps) {
   const content = (
     <div
+      data-quiz-feedback-sheet=""
       className="fixed inset-0 flex items-end justify-center p-4"
       style={{
-        zIndex: 9999,
+        zIndex: 99999,
         backgroundColor: 'rgba(0,0,0,0.6)',
         backdropFilter: 'blur(6px)',
       }}
@@ -87,10 +87,14 @@ export function QuizFeedbackSheet({
           from { transform: translateY(100px); opacity: 0; }
           to   { transform: translateY(0);     opacity: 1; }
         }
-      `}</style>
+      `}      </style>
     </div>
   );
 
-  if (typeof document === 'undefined') return content;
-  return createPortal(content, document.body);
+  /**
+   * 포털을 body에 붙이면 Radix Dialog의 disableOutsidePointerEvents가
+   * 피드백 시트에도 pointer-events: none을 주입해 클릭 불가.
+   * React 트리 안에 두면 Dialog 내부로 인식되어 클릭 가능.
+   */
+  return content;
 }
