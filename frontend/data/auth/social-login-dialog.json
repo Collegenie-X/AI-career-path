@@ -24,6 +24,36 @@
     { "value": "retake", "label": "N수" },
     { "value": "other", "label": "기타" }
   ],
+  "terms": {
+    "sectionTitle": "서비스 이용 약관 동의",
+    "agreeAll": "전체 동의",
+    "items": [
+      {
+        "id": "terms",
+        "label": "이용약관 동의",
+        "required": true,
+        "viewLinkLabel": "보기"
+      },
+      {
+        "id": "privacy",
+        "label": "개인정보 수집 및 이용 동의",
+        "required": true,
+        "viewLinkLabel": "보기"
+      },
+      {
+        "id": "marketing",
+        "label": "마케팅 정보 수신 동의",
+        "required": false,
+        "viewLinkLabel": "보기",
+        "description": "다양한 혜택과 프로그램 참여 기회를 약관에 따라 알려드릴게요!"
+      }
+    ],
+    "notices": [
+      "윤리적으로 AI를 활용하지 않을 경우, 운영 정책 위반으로 신고·법적 조치 또는 이용 제한이 있을 수 있습니다.",
+      "AI는 부정확하거나 부적절한 내용을 제공할 수 있습니다. 개인정보, 비밀번호 등 민감한 정보를 공유하지 마세요."
+    ],
+    "agreeButton": "동의하기"
+  },
   "submitSignup": "가입 완료",
   "mockNotice": "데모: 실제 서비스에서는 각 버튼이 해당 소셜 OAuth로 연결됩니다."
 }

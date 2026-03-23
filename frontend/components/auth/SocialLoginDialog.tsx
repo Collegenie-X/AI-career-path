@@ -1,11 +1,18 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import { MessageCircle, Sparkles } from 'lucide-react';
+import { MessageCircle, Sparkles, Mail, User, GraduationCap, Shield, CheckCircle2, ChevronRight } from 'lucide-react';
 import socialLoginDialogContent from '@/data/auth/social-login-dialog.json';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 type GradeOption = { value: string; label: string };
+type TermsItem = {
+  id: string;
+  label: string;
+  required: boolean;
+  viewLinkLabel: string;
+  description?: string;
+};
 type SocialLoginDialogContent = {
   dialogTitle: string;
   loginButton: string;
@@ -16,6 +23,13 @@ type SocialLoginDialogContent = {
   profileStepDescription: string;
   fields: { email: string; name: string; grade: string };
   gradeOptions: GradeOption[];
+  terms: {
+    sectionTitle: string;
+    agreeAll: string;
+    items: TermsItem[];
+    notices: string[];
+    agreeButton: string;
+  };
   submitSignup: string;
   mockNotice: string;
 };
@@ -65,11 +79,18 @@ type SocialLoginDialogProps = {
   readonly onOpenChange: (open: boolean) => void;
 };
 
+const initialTermsAgreed = (items: TermsItem[]) =>
+  Object.fromEntries(items.map((item) => [item.id, false]));
+
 export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps) {
   const [profile, setProfile] = useState<ProfileData | null>(null);
+  const [termsAgreed, setTermsAgreed] = useState<Record<string, boolean>>(() =>
+    initialTermsAgreed(content.terms.items),
+  );
 
   const reset = useCallback(() => {
     setProfile(null);
+    setTermsAgreed(initialTermsAgreed(content.terms.items));
   }, []);
 
   const handleOpenChange = useCallback(
@@ -91,6 +112,23 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
   const handleSubmitProfile = useCallback(() => {
     handleOpenChange(false);
   }, [handleOpenChange]);
+
+  const requiredTermsIds = content.terms.items.filter((i) => i.required).map((i) => i.id);
+  const allRequiredAgreed = requiredTermsIds.every((id) => termsAgreed[id]);
+  const allAgreed = content.terms.items.every((i) => termsAgreed[i.id]);
+
+  const handleAgreeAll = useCallback(() => {
+    const next = !allAgreed;
+    setTermsAgreed(Object.fromEntries(content.terms.items.map((i) => [i.id, next])));
+  }, [allAgreed]);
+
+  const handleTermsItemChange = useCallback((id: string, checked: boolean) => {
+    setTermsAgreed((prev) => ({ ...prev, [id]: checked }));
+  }, []);
+
+  const handleViewTerms = useCallback((_id: string) => {
+    // TODO: 열기 모달/페이지 연결
+  }, []);
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -118,10 +156,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
           className="relative space-y-0 border-b px-5 py-4 text-center sm:px-6"
           style={{ borderColor: 'rgba(139,92,246,0.3)', background: 'linear-gradient(180deg, rgba(139,92,246,0.12) 0%, transparent 100%)' }}
         >
-          <div className="mb-1.5 inline-flex items-center justify-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-widest" style={{ background: 'rgba(139,92,246,0.25)', color: '#c4b5fd' }}>
-            <Sparkles className="h-3 w-3" />
-            Stage · Entry
-          </div>
           <DialogTitle className="text-center text-base font-bold tracking-tight text-white">
             {content.dialogTitle}
           </DialogTitle>
@@ -178,57 +212,190 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
             <p className="mt-5 text-center text-[11px] text-gray-500">{content.mockNotice}</p>
           </div>
         ) : (
-          <div className="relative space-y-4 px-5 pb-7 pt-4 sm:px-6">
-            <p className="text-sm font-bold text-white">{content.profileStepTitle}</p>
-            <p className="text-[13px] text-gray-400">{content.profileStepDescription}</p>
-            <div className="space-y-2">
-              <label className="block">
-                <span className="mb-1 block text-[11px] font-medium text-gray-500">{content.fields.email}</span>
-                <input
-                  type="email"
-                  value={profile.email}
-                  disabled
-                  className="w-full cursor-not-allowed rounded-xl border px-3 py-2.5 text-sm text-white/60 opacity-75 transition-all"
-                  style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(139,92,246,0.2)' }}
-                />
+          <div className="relative max-h-[70vh] space-y-5 overflow-y-auto px-8 pb-7 pt-6 sm:px-10">
+            <div className="relative text-center">
+              <div className="absolute -left-6 top-0 text-6xl opacity-20">🎮</div>
+              <div className="absolute -right-6 top-0 text-6xl opacity-20">✨</div>
+              <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.3) 0%, rgba(99,102,241,0.2) 100%)', boxShadow: '0 0 30px rgba(139,92,246,0.4)' }}>
+                <span className="text-3xl">🎯</span>
+              </div>
+              <p className="text-base font-bold text-white">{content.profileStepTitle}</p>
+            </div>
+
+            <div className="relative space-y-3">
+              <div className="absolute -left-7 top-8 text-4xl opacity-30">💌</div>
+              <label className="group relative block">
+                <div className="mb-1.5 flex items-center gap-1.5">
+                  <Mail className="h-3.5 w-3.5 text-violet-400" />
+                  <span className="text-[11px] font-medium text-gray-500">{content.fields.email}</span>
+                </div>
+                <div className="relative">
+                  <input
+                    type="email"
+                    value={profile.email}
+                    disabled
+                    className="w-full cursor-not-allowed rounded-xl border px-4 py-2.5 pl-10 text-sm text-white/60 opacity-75 transition-all"
+                    style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(139,92,246,0.2)' }}
+                  />
+                  <Mail className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-600" />
+                </div>
               </label>
-              <label className="block">
-                <span className="mb-1 block text-[11px] font-medium text-gray-500">{content.fields.name}</span>
-                <input
-                  type="text"
-                  value={profile.name}
-                  onChange={(e) => setProfile((p) => (p ? { ...p, name: e.target.value } : null))}
-                  className="w-full rounded-xl border px-3 py-2.5 text-sm text-white transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/50"
-                  style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(139,92,246,0.25)' }}
-                  autoComplete="name"
-                />
+
+              <div className="absolute -right-7 top-20 text-4xl opacity-30">👤</div>
+              <label className="group relative block">
+                <div className="mb-1.5 flex items-center gap-1.5">
+                  <User className="h-3.5 w-3.5 text-violet-400" />
+                  <span className="text-[11px] font-medium text-gray-500">{content.fields.name}</span>
+                </div>
+                <div className="relative">
+                  <input
+                    type="text"
+                    value={profile.name}
+                    onChange={(e) => setProfile((p) => (p ? { ...p, name: e.target.value } : null))}
+                    className="w-full rounded-xl border px-4 py-2.5 pl-10 text-sm text-white transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                    style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(139,92,246,0.25)' }}
+                    autoComplete="name"
+                  />
+                  <User className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-violet-400/60 transition-colors group-focus-within:text-violet-400" />
+                </div>
               </label>
-              <label className="block">
-                <span className="mb-1 block text-[11px] font-medium text-gray-500">{content.fields.grade}</span>
-                <select
-                  value={profile.grade}
-                  onChange={(e) => setProfile((p) => (p ? { ...p, grade: e.target.value } : null))}
-                  className="w-full rounded-xl border px-3 py-2.5 text-sm text-white transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/50"
-                  style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(139,92,246,0.25)' }}
-                >
-                  {content.gradeOptions.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
-                      {opt.label}
-                    </option>
-                  ))}
-                </select>
+
+              <div className="absolute -left-7 bottom-4 text-4xl opacity-30">🎓</div>
+              <label className="group relative block">
+                <div className="mb-1.5 flex items-center gap-1.5">
+                  <GraduationCap className="h-3.5 w-3.5 text-violet-400" />
+                  <span className="text-[11px] font-medium text-gray-500">{content.fields.grade}</span>
+                </div>
+                <div className="relative">
+                  <select
+                    value={profile.grade}
+                    onChange={(e) => setProfile((p) => (p ? { ...p, grade: e.target.value } : null))}
+                    className="w-full appearance-none rounded-xl border px-4 py-2.5 pl-10 pr-10 text-sm text-white transition-all focus:outline-none focus:ring-2 focus:ring-violet-500/50"
+                    style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(139,92,246,0.25)' }}
+                  >
+                    {content.gradeOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value} style={{ background: '#1a1625' }}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                  <GraduationCap className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-violet-400/60 transition-colors group-focus-within:text-violet-400" />
+                  <ChevronRight className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 rotate-90 text-violet-400/60" />
+                </div>
               </label>
             </div>
+
+            <div className="relative space-y-3">
+              <div className="absolute -left-7 -top-2 text-5xl opacity-25">🛡️</div>
+              <div className="absolute -right-7 top-12 text-4xl opacity-25">📜</div>
+              <div className="flex items-center justify-center gap-2">
+                <Shield className="h-5 w-5 text-violet-400" />
+                <p className="text-sm font-bold text-white">{content.terms.sectionTitle}</p>
+              </div>
+              <div
+                className="relative overflow-hidden rounded-xl border p-4"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(139,92,246,0.08) 0%, rgba(99,102,241,0.05) 100%)',
+                  borderColor: 'rgba(139,92,246,0.3)',
+                  boxShadow: '0 0 20px rgba(139,92,246,0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
+                }}
+              >
+                <div className="pointer-events-none absolute -right-8 -top-8 text-7xl opacity-10">⚔️</div>
+                <label className="group flex cursor-pointer items-center gap-3 rounded-lg p-2.5 transition-all hover:bg-white/5">
+                  <div className="relative flex h-5 w-5 shrink-0 items-center justify-center">
+                    <input
+                      type="checkbox"
+                      checked={allAgreed}
+                      onChange={handleAgreeAll}
+                      className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border-2 border-violet-500/50 bg-transparent transition-all checked:border-violet-500 checked:bg-violet-500"
+                    />
+                    <CheckCircle2 className="pointer-events-none absolute h-5 w-5 text-white opacity-0 transition-opacity peer-checked:opacity-100" strokeWidth={2.5} />
+                  </div>
+                  <span className="text-[14px] font-bold text-white">{content.terms.agreeAll}</span>
+                </label>
+                <div
+                  className="my-3 h-px w-full"
+                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(139,92,246,0.3) 50%, transparent 100%)' }}
+                />
+                <div className="space-y-2">
+                  {content.terms.items.map((item) => (
+                    <div key={item.id} className="rounded-lg transition-all hover:bg-white/5">
+                      <div className="flex items-start gap-3 p-2">
+                        <label className="flex flex-1 cursor-pointer items-start gap-2.5">
+                          <div className="relative mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center">
+                            <input
+                              type="checkbox"
+                              checked={termsAgreed[item.id] ?? false}
+                              onChange={(e) => handleTermsItemChange(item.id, e.target.checked)}
+                              className="peer h-4 w-4 cursor-pointer appearance-none rounded border-2 border-violet-500/40 bg-transparent transition-all checked:border-violet-500 checked:bg-violet-500"
+                            />
+                            <div className="pointer-events-none absolute h-2 w-2 rounded-sm bg-white opacity-0 transition-opacity peer-checked:opacity-100" />
+                          </div>
+                          <span className="text-[13px] leading-snug text-white/90">
+                            {item.required && (
+                              <span className="mr-1 inline-block rounded px-1.5 py-0.5 text-[10px] font-bold text-violet-300" style={{ background: 'rgba(139,92,246,0.25)' }}>
+                                필수
+                              </span>
+                            )}
+                            {item.label}
+                          </span>
+                        </label>
+                        <button
+                          type="button"
+                          onClick={() => handleViewTerms(item.id)}
+                          className="group/link flex shrink-0 items-center gap-0.5 text-[12px] font-medium text-violet-400 transition-colors hover:text-violet-300"
+                        >
+                          {item.viewLinkLabel}
+                          <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover/link:translate-x-0.5" />
+                        </button>
+                      </div>
+                      {item.description && (
+                        <p className="ml-9 pb-2 pr-2 text-[11px] leading-relaxed text-gray-500">{item.description}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div
+                className="relative overflow-hidden rounded-lg p-3"
+                style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
+              >
+                <div className="pointer-events-none absolute -right-4 -bottom-4 text-5xl opacity-15">⚠️</div>
+                {content.terms.notices.map((notice, i) => (
+                  <p key={i} className="flex items-start gap-2 text-[11px] leading-relaxed text-amber-200/80">
+                    <span className="mt-1 text-sm">💡</span>
+                    <span>{notice}</span>
+                  </p>
+                ))}
+              </div>
+            </div>
+
             <button
               type="button"
               onClick={handleSubmitProfile}
-              className="mt-2 w-full rounded-xl py-3 text-sm font-bold text-white transition-all hover:scale-[1.02] active:scale-[0.98]"
-              style={{
-                background: 'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)',
-                boxShadow: '0 4px 24px rgba(139,92,246,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
-                border: '1px solid rgba(167,139,250,0.4)',
-              }}
+              disabled={!allRequiredAgreed}
+              className="group relative mt-4 flex w-full items-center justify-center gap-2 overflow-hidden rounded-xl py-3.5 text-sm font-bold text-white transition-all hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
+              style={
+                allRequiredAgreed
+                  ? {
+                      background: 'linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #a78bfa 100%)',
+                      boxShadow: '0 4px 24px rgba(139,92,246,0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
+                      border: '1px solid rgba(167,139,250,0.4)',
+                    }
+                  : {
+                      background: 'rgba(255,255,255,0.08)',
+                      border: '1px solid rgba(139,92,246,0.2)',
+                    }
+              }
             >
+              {allRequiredAgreed && (
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100"
+                  style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)' }}
+                />
+              )}
+              <span className="text-base">🚀</span>
+              <Sparkles className="h-4 w-4" />
               {content.submitSignup}
             </button>
           </div>
