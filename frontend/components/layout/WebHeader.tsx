@@ -2,8 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Info } from 'lucide-react';
+import { useState } from 'react';
+import { Info, LogIn } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
+import { SocialLoginDialog } from '@/components/auth/SocialLoginDialog';
+import socialLoginDialogContent from '@/data/auth/social-login-dialog.json';
+
+const SOCIAL_LOGIN_HEADER_LABEL = (socialLoginDialogContent as { loginButton: string }).loginButton;
 
 type HeaderNavigationItem = {
   readonly label: string;
@@ -26,6 +31,7 @@ const HEADER_NAVIGATION_ITEMS: readonly HeaderNavigationItem[] = [
 
 export function WebHeader() {
   const pathname = usePathname();
+  const [isSocialLoginOpen, setIsSocialLoginOpen] = useState(false);
 
   const getIsActive = (path: string) => {
     if (path === '/home') return pathname === '/home';
@@ -36,7 +42,7 @@ export function WebHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/8 bg-black/95 backdrop-blur-xl">
       <div className="web-container">
-        <nav className="flex items-center justify-between h-16 md:h-18">
+        <nav className="flex items-center justify-between gap-3 h-16 md:h-18">
           {/* Logo */}
           <Link href="/home" className="flex items-center gap-2.5 shrink-0 group">
             <div
@@ -55,7 +61,8 @@ export function WebHeader() {
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          <div className="flex flex-1 min-w-0 items-center justify-end gap-2 md:gap-3">
+            {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
@@ -86,10 +93,10 @@ export function WebHeader() {
                 </Link>
               );
             })}
-          </div>
+            </div>
 
-          {/* Mobile Nav - 아이콘만 */}
-          <div className="flex md:hidden items-center gap-1">
+            {/* Mobile Nav - 아이콘만 */}
+            <div className="flex md:hidden items-center gap-1 min-w-0">
             {HEADER_NAVIGATION_ITEMS.map((item) => {
               const active = getIsActive(item.href);
               const Icon = item.icon;
@@ -117,9 +124,23 @@ export function WebHeader() {
                 </Link>
               );
             })}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setIsSocialLoginOpen(true)}
+              className="flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-2.5 py-2 text-xs font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white md:px-3 md:text-sm"
+              aria-haspopup="dialog"
+              aria-label={SOCIAL_LOGIN_HEADER_LABEL}
+            >
+              <LogIn className="h-3.5 w-3.5 md:h-4 md:w-4" aria-hidden />
+              <span className="hidden sm:inline">{SOCIAL_LOGIN_HEADER_LABEL}</span>
+            </button>
           </div>
         </nav>
       </div>
+
+      <SocialLoginDialog open={isSocialLoginOpen} onOpenChange={setIsSocialLoginOpen} />
     </header>
   );
 }

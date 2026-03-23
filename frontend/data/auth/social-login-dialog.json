@@ -1,0 +1,29 @@
+{
+  "dialogTitle": "로그인/회원가입",
+  "loginButton": "로그인",
+  "heroSubtitle": "로그인하고 나만의 커리어 여정을 자유롭게 즐겨보세요",
+  "dividerText": "또는 소셜 계정으로 계속하기",
+  "providerButtons": {
+    "kakao": "카카오 로그인",
+    "google": "구글 로그인"
+  },
+  "profileStepTitle": "프로필 확인",
+  "profileStepDescription": "이메일은 소셜 계정 기준입니다. 이름과 학년을 확인·수정해 주세요.",
+  "fields": {
+    "email": "이메일",
+    "name": "이름",
+    "grade": "학년"
+  },
+  "gradeOptions": [
+    { "value": "middle1", "label": "중1" },
+    { "value": "middle2", "label": "중2" },
+    { "value": "middle3", "label": "중3" },
+    { "value": "high1", "label": "고1" },
+    { "value": "high2", "label": "고2" },
+    { "value": "high3", "label": "고3" },
+    { "value": "retake", "label": "N수" },
+    { "value": "other", "label": "기타" }
+  ],
+  "submitSignup": "가입 완료",
+  "mockNotice": "데모: 실제 서비스에서는 각 버튼이 해당 소셜 OAuth로 연결됩니다."
+}
