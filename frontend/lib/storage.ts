@@ -17,7 +17,16 @@ import type {
 // ============================
 // LocalStorage Keys
 // ============================
+export type AuthProfile = {
+  email: string;
+  name: string;
+  grade: string;
+  termsAgreed: Record<string, boolean>;
+  signedUpAt: string;
+};
+
 const KEYS = {
+  AUTH_PROFILE: 'dreampath_auth_profile',
   USER_PROFILE: 'dreampath_user_profile',
   RIASEC_RESULT: 'dreampath_riasec_result',
   SWIPE_LOGS: 'dreampath_swipe_logs',
@@ -55,6 +64,26 @@ function setItem<T>(key: string, value: T): void {
     localStorage.setItem(key, JSON.stringify(value));
   } catch (e) {
     console.error('localStorage setItem error:', e);
+  }
+}
+
+// ============================
+// Auth Profile (회원가입 완료 후 프로필/약관)
+// ============================
+export function getAuthProfile(): AuthProfile | null {
+  return getItem<AuthProfile | null>(KEYS.AUTH_PROFILE, null);
+}
+
+export function setAuthProfile(profile: AuthProfile): void {
+  setItem(KEYS.AUTH_PROFILE, profile);
+}
+
+export function clearAuthProfile(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.removeItem(KEYS.AUTH_PROFILE);
+  } catch {
+    // ignore
   }
 }
 
@@ -380,6 +409,11 @@ export function resetAllData(): void {
 // Organized API Export
 // ============================
 export const storage = {
+  auth: {
+    get: getAuthProfile,
+    set: setAuthProfile,
+    clear: clearAuthProfile,
+  },
   user: {
     get: getUserProfile,
     set: setUserProfile,

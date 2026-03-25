@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { MessageCircle, Sparkles, Mail, User, GraduationCap, Shield, CheckCircle2, ChevronRight } from 'lucide-react';
 import socialLoginDialogContent from '@/data/auth/social-login-dialog.json';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { storage } from '@/lib/storage';
 
 type GradeOption = { value: string; label: string };
 type TermsItem = {
@@ -77,12 +78,13 @@ function GoogleGIcon({ className }: { className?: string }) {
 type SocialLoginDialogProps = {
   readonly open: boolean;
   readonly onOpenChange: (open: boolean) => void;
+  readonly onSignupSuccess?: () => void;
 };
 
 const initialTermsAgreed = (items: TermsItem[]) =>
   Object.fromEntries(items.map((item) => [item.id, false]));
 
-export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps) {
+export function SocialLoginDialog({ open, onOpenChange, onSignupSuccess }: SocialLoginDialogProps) {
   const [profile, setProfile] = useState<ProfileData | null>(null);
   const [termsAgreed, setTermsAgreed] = useState<Record<string, boolean>>(() =>
     initialTermsAgreed(content.terms.items),
@@ -110,8 +112,17 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
   }, []);
 
   const handleSubmitProfile = useCallback(() => {
+    if (!profile) return;
+    storage.auth.set({
+      email: profile.email,
+      name: profile.name.trim(),
+      grade: profile.grade,
+      termsAgreed: { ...termsAgreed },
+      signedUpAt: new Date().toISOString(),
+    });
+    onSignupSuccess?.();
     handleOpenChange(false);
-  }, [handleOpenChange]);
+  }, [profile, termsAgreed, handleOpenChange, onSignupSuccess]);
 
   const requiredTermsIds = content.terms.items.filter((i) => i.required).map((i) => i.id);
   const allRequiredAgreed = requiredTermsIds.every((id) => termsAgreed[id]);
@@ -212,18 +223,8 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
             <p className="mt-5 text-center text-[11px] text-gray-500">{content.mockNotice}</p>
           </div>
         ) : (
-          <div className="relative max-h-[70vh] space-y-5 overflow-y-auto px-8 pb-7 pt-6 sm:px-10">
-            <div className="relative text-center">
-              <div className="absolute -left-6 top-0 text-6xl opacity-20">🎮</div>
-              <div className="absolute -right-6 top-0 text-6xl opacity-20">✨</div>
-              <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full" style={{ background: 'linear-gradient(135deg, rgba(139,92,246,0.3) 0%, rgba(99,102,241,0.2) 100%)', boxShadow: '0 0 30px rgba(139,92,246,0.4)' }}>
-                <span className="text-3xl">🎯</span>
-              </div>
-              <p className="text-base font-bold text-white">{content.profileStepTitle}</p>
-            </div>
-
+          <div className="relative max-h-[70vh] space-y-5 overflow-y-auto px-5 pb-7 pt-5 sm:px-6">
             <div className="relative space-y-3">
-              <div className="absolute -left-7 top-8 text-4xl opacity-30">💌</div>
               <label className="group relative block">
                 <div className="mb-1.5 flex items-center gap-1.5">
                   <Mail className="h-3.5 w-3.5 text-violet-400" />
@@ -241,7 +242,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
                 </div>
               </label>
 
-              <div className="absolute -right-7 top-20 text-4xl opacity-30">👤</div>
               <label className="group relative block">
                 <div className="mb-1.5 flex items-center gap-1.5">
                   <User className="h-3.5 w-3.5 text-violet-400" />
@@ -260,7 +260,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
                 </div>
               </label>
 
-              <div className="absolute -left-7 bottom-4 text-4xl opacity-30">🎓</div>
               <label className="group relative block">
                 <div className="mb-1.5 flex items-center gap-1.5">
                   <GraduationCap className="h-3.5 w-3.5 text-violet-400" />
@@ -286,8 +285,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
             </div>
 
             <div className="relative space-y-3">
-              <div className="absolute -left-7 -top-2 text-5xl opacity-25">🛡️</div>
-              <div className="absolute -right-7 top-12 text-4xl opacity-25">📜</div>
               <div className="flex items-center justify-center gap-2">
                 <Shield className="h-5 w-5 text-violet-400" />
                 <p className="text-sm font-bold text-white">{content.terms.sectionTitle}</p>
@@ -300,7 +297,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
                   boxShadow: '0 0 20px rgba(139,92,246,0.15), inset 0 1px 0 rgba(255,255,255,0.05)',
                 }}
               >
-                <div className="pointer-events-none absolute -right-8 -top-8 text-7xl opacity-10">⚔️</div>
                 <label className="group flex cursor-pointer items-center gap-3 rounded-lg p-2.5 transition-all hover:bg-white/5">
                   <div className="relative flex h-5 w-5 shrink-0 items-center justify-center">
                     <input
@@ -360,10 +356,15 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
                 className="relative overflow-hidden rounded-lg p-3"
                 style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.2)' }}
               >
-                <div className="pointer-events-none absolute -right-4 -bottom-4 text-5xl opacity-15">⚠️</div>
                 {content.terms.notices.map((notice, i) => (
                   <p key={i} className="flex items-start gap-2 text-[11px] leading-relaxed text-amber-200/80">
-                    <span className="mt-1 text-sm">💡</span>
+                    {i === 0 ? (
+                      <span className="mt-0.5 text-sm" aria-hidden>
+                        💡
+                      </span>
+                    ) : (
+                      <span className="mt-1.5 inline-block h-1 w-1 shrink-0 rounded-full bg-amber-400/50" aria-hidden />
+                    )}
                     <span>{notice}</span>
                   </p>
                 ))}
@@ -394,7 +395,6 @@ export function SocialLoginDialog({ open, onOpenChange }: SocialLoginDialogProps
                   style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%)' }}
                 />
               )}
-              <span className="text-base">🚀</span>
               <Sparkles className="h-4 w-4" />
               {content.submitSignup}
             </button>

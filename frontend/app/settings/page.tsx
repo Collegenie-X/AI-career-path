@@ -133,7 +133,7 @@ export default function SettingsPage() {
       {/* Content */}
       <div className="p-4 space-y-4">
         {/* Profile Card */}
-        <div className="cockpit-panel rounded-2xl p-5 relative overflow-hidden">
+        <div id="profile-settings" className="cockpit-panel rounded-2xl p-5 relative overflow-hidden scroll-mt-24">
           <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
           <div className="relative flex items-center gap-4">
             <div 

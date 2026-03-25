@@ -55,5 +55,12 @@
     "agreeButton": "동의하기"
   },
   "submitSignup": "가입 완료",
-  "mockNotice": "데모: 실제 서비스에서는 각 버튼이 해당 소셜 OAuth로 연결됩니다."
+  "mockNotice": "데모: 실제 서비스에서는 각 버튼이 해당 소셜 OAuth로 연결됩니다.",
+  "signedInMember": {
+    "viewTitle": "회원 정보",
+    "profileSectionTitle": "프로필",
+    "termsAppliedSectionTitle": "적용된 약관",
+    "agreedLabel": "동의함",
+    "closeButton": "닫기"
+  }
 }

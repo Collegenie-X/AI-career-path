@@ -1,0 +1,8 @@
+{
+  "settingsLabel": "설정",
+  "profileSettingsLabel": "프로필 설정",
+  "logoutLabel": "로그아웃",
+  "settingsPath": "/settings",
+  "profileSettingsHash": "#profile-settings",
+  "memberMenuAriaLabelTemplate": "{{name}}님 계정 메뉴"
+}

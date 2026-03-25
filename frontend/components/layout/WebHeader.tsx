@@ -2,13 +2,12 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Info, LogIn } from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
+import { Info } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
 import { SocialLoginDialog } from '@/components/auth/SocialLoginDialog';
-import socialLoginDialogContent from '@/data/auth/social-login-dialog.json';
-
-const SOCIAL_LOGIN_HEADER_LABEL = (socialLoginDialogContent as { loginButton: string }).loginButton;
+import { WebHeaderAccountArea } from '@/components/layout/WebHeaderAccountArea';
+import { storage, type AuthProfile } from '@/lib/storage';
 
 type HeaderNavigationItem = {
   readonly label: string;
@@ -32,6 +31,15 @@ const HEADER_NAVIGATION_ITEMS: readonly HeaderNavigationItem[] = [
 export function WebHeader() {
   const pathname = usePathname();
   const [isSocialLoginOpen, setIsSocialLoginOpen] = useState(false);
+  const [authProfile, setAuthProfile] = useState<AuthProfile | null>(null);
+
+  useEffect(() => {
+    setAuthProfile(storage.auth.get());
+  }, []);
+
+  const refreshAuthFromStorage = useCallback(() => {
+    setAuthProfile(storage.auth.get());
+  }, []);
 
   const getIsActive = (path: string) => {
     if (path === '/home') return pathname === '/home';
@@ -126,21 +134,20 @@ export function WebHeader() {
             })}
             </div>
 
-            <button
-              type="button"
-              onClick={() => setIsSocialLoginOpen(true)}
-              className="flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 bg-white/5 px-2.5 py-2 text-xs font-semibold text-white/90 transition-colors hover:bg-white/10 hover:text-white md:px-3 md:text-sm"
-              aria-haspopup="dialog"
-              aria-label={SOCIAL_LOGIN_HEADER_LABEL}
-            >
-              <LogIn className="h-3.5 w-3.5 md:h-4 md:w-4" aria-hidden />
-              <span className="hidden sm:inline">{SOCIAL_LOGIN_HEADER_LABEL}</span>
-            </button>
+            <WebHeaderAccountArea
+              authProfile={authProfile}
+              onOpenLoginDialog={() => setIsSocialLoginOpen(true)}
+              onAuthSessionChange={refreshAuthFromStorage}
+            />
           </div>
         </nav>
       </div>
 
-      <SocialLoginDialog open={isSocialLoginOpen} onOpenChange={setIsSocialLoginOpen} />
+      <SocialLoginDialog
+        open={isSocialLoginOpen}
+        onOpenChange={setIsSocialLoginOpen}
+        onSignupSuccess={refreshAuthFromStorage}
+      />
     </header>
   );
 }
