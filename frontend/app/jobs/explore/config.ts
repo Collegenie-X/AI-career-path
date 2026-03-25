@@ -77,6 +77,8 @@ export const LABELS = {
   coming_soon: '준비 중',
   
   // Modal
+  /** 별 상세 패널·다이얼로그 공통 닫기 (원형 X) 접근성 라벨 */
+  star_detail_panel_close_aria: '닫기',
   modal_process_tab: '직무 프로세스',
   modal_daily_tab: '주요 일과',
   modal_timeline_tab: '커리어 패스',

@@ -29,6 +29,11 @@ export const TIPS: TipItem[] = [
 export const LABELS: Record<string, string> = {
   title: '적성 검사',
   subtitle: '나의 숨겨진 재능을 깨워보세요',
+  /** localStorage에 결과가 있을 때 인트로 상단 안내 */
+  saved_result_notice:
+    '이 브라우저에 저장된 적성 검사 결과가 있어요. 리포트를 확인하거나 새 퀘스트를 시작할 수 있어요.',
+  view_result_report: '결과 리포트 보기',
+  start_quest_alt: '적성 검사 퀘스트 시작',
   reward_title: '검사 완료 보상',
   reward_desc: '+100 XP, RIASEC 유형 카드 획득',
   reward_badge: '+100 XP',
@@ -39,7 +44,9 @@ export const LABELS: Record<string, string> = {
 
 export const ROUTES = {
   back: '/onboarding',
-  quiz: '/quiz',
+  /** 퀘스트 본편(모드·문항) — /quiz 는 결과 유무 분기 전용 */
+  quizPlay: '/quiz/play',
+  quizResults: '/quiz/results',
 } as const;
 
 export const ANIMATION_CONFIG = {

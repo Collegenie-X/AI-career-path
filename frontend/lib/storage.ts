@@ -242,6 +242,18 @@ export function setRIASECResult(result: RIASECResult): void {
   setItem(KEYS.PORTFOLIO, { ...portfolio, riasecSummary: result });
 }
 
+/** 적성 검사 재시작 등: 현재 결과만 제거(이력 키는 유지). 포트폴리오 요약도 비움 */
+export function clearRIASECResult(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.removeItem(KEYS.RIASEC_RESULT);
+    const portfolio = getPortfolio();
+    setItem(KEYS.PORTFOLIO, { ...portfolio, riasecSummary: null });
+  } catch (e) {
+    console.error('clearRIASECResult error:', e);
+  }
+}
+
 // ============================
 // Swipe Logs
 // ============================
@@ -551,6 +563,7 @@ export const storage = {
     get: getRIASECResult,
     set: setRIASECResult,
     getHistory: getRiasecHistory,
+    clear: clearRIASECResult,
   },
   swipes: {
     getAll: getSwipeLogs,

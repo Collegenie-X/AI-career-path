@@ -6,6 +6,7 @@ import { Sparkles, ChevronRight, ChevronLeft } from 'lucide-react';
 import onboardingData from '@/data/onboarding.json';
 import { resolveSlides, ICON_MAP } from '@/app/onboarding/utils';
 import { storage } from '@/lib/storage';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 
 function seededRandom(seed: number): number {
   const x = Math.sin(seed * 9999) * 10000;
@@ -80,8 +81,6 @@ function ColoredDots() {
   );
 }
 
-const QUIZ_INTRO_PATH = '/quiz/intro';
-
 export function CenterOnboardingSlider() {
   const router = useRouter();
   const [current, setCurrent] = useState(0);
@@ -106,7 +105,7 @@ export function CenterOnboardingSlider() {
         createdAt: new Date().toISOString(),
         onboardingCompleted: true,
       });
-      router.push(QUIZ_INTRO_PATH);
+      router.push(getQuizLandingPath());
     }
   };
 
@@ -142,7 +141,7 @@ export function CenterOnboardingSlider() {
       createdAt: new Date().toISOString(),
       onboardingCompleted: true,
     });
-    router.push(QUIZ_INTRO_PATH);
+    router.push(getQuizLandingPath());
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {

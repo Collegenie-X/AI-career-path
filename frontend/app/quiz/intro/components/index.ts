@@ -1,3 +1,4 @@
+export { SavedResultChoiceBanner } from './SavedResultChoiceBanner';
 export { HeroIcon } from './HeroIcon';
 export { StatsGrid } from './StatsGrid';
 export { RewardPreview } from './RewardPreview';

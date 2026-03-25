@@ -9,12 +9,14 @@ import { storage } from '@/lib/storage';
 import {
   HeroIcon,
   RewardPreview,
+  SavedResultChoiceBanner,
 } from './components';
 import { STAT_ITEMS, TIPS, LABELS, ROUTES } from './config';
 
 export default function QuizIntroPage() {
   const router = useRouter();
   const [show, setShow] = useState(false);
+  const [hasSavedRiasecResult, setHasSavedRiasecResult] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setShow(true), 100);
@@ -22,11 +24,8 @@ export default function QuizIntroPage() {
   }, []);
 
   useEffect(() => {
-    const savedRiasec = storage.riasec.get();
-    if (savedRiasec) {
-      router.replace('/quiz/results');
-    }
-  }, [router]);
+    setHasSavedRiasecResult(storage.riasec.get() !== null);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden relative bg-black">
@@ -37,6 +36,18 @@ export default function QuizIntroPage() {
       <div className="web-container relative z-10 flex-1 flex flex-col justify-center py-10 md:py-20">
         <div className="max-w-4xl mx-auto w-full">
           <section className="rounded-3xl border border-white/10 bg-white/[0.03] px-5 py-8 md:px-10 md:py-12">
+          {hasSavedRiasecResult ? (
+            <div
+              style={{
+                opacity: show ? 1 : 0,
+                transform: show ? 'translateY(0)' : 'translateY(12px)',
+                transition: 'all 0.5s ease-out',
+              }}
+            >
+              <SavedResultChoiceBanner />
+            </div>
+          ) : null}
+
           {/* Hero section */}
           <div
             className="flex flex-col items-center text-center mb-10 md:mb-12"
@@ -144,35 +155,41 @@ export default function QuizIntroPage() {
             </div>
           </div>
 
-          {/* CTA button */}
-          <div
-            className="max-w-2xl mx-auto w-full"
-            style={{ 
-              opacity: show ? 1 : 0, 
-              transform: show ? 'translateY(0)' : 'translateY(20px)', 
-              transition: 'all 0.6s ease-out 0.45s' 
-            }}
-          >
-            <Button
-              size="lg"
-              className="w-full h-14 md:h-16 text-base md:text-lg font-bold rounded-2xl border-0 relative overflow-hidden transition-all hover:scale-105 active:scale-95 group"
+          {/* CTA: 저장 결과가 없을 때만 하단 대형 버튼 — 있으면 상단 배너에서 리포트/퀘스트 시작 */}
+          {!hasSavedRiasecResult ? (
+            <div
+              className="max-w-2xl mx-auto w-full"
               style={{
-                background: 'linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%)',
-                boxShadow: '0 8px 40px rgba(108,92,231,0.5)',
+                opacity: show ? 1 : 0,
+                transform: show ? 'translateY(0)' : 'translateY(20px)',
+                transition: 'all 0.6s ease-out 0.45s',
               }}
-              onClick={() => router.push(ROUTES.quiz)}
             >
-              <span className="absolute inset-0 animate-shimmer" />
-              <span className="relative flex items-center justify-center gap-2.5">
-                <Zap className="w-5 h-5 md:w-6 md:h-6" />
-                {LABELS.cta_button}
-                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
-              </span>
-            </Button>
-            <p className="text-center text-xs md:text-sm text-white/30 mt-4">
+              <Button
+                size="lg"
+                className="w-full h-14 md:h-16 text-base md:text-lg font-bold rounded-2xl border-0 relative overflow-hidden transition-all hover:scale-105 active:scale-95 group"
+                style={{
+                  background: 'linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%)',
+                  boxShadow: '0 8px 40px rgba(108,92,231,0.5)',
+                }}
+                onClick={() => router.push(ROUTES.quizPlay)}
+              >
+                <span className="absolute inset-0 animate-shimmer" />
+                <span className="relative flex items-center justify-center gap-2.5">
+                  <Zap className="w-5 h-5 md:w-6 md:h-6" />
+                  {LABELS.cta_button}
+                  <ArrowRight className="w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Button>
+              <p className="text-center text-xs md:text-sm text-white/30 mt-4">
+                {LABELS.cta_note}
+              </p>
+            </div>
+          ) : (
+            <p className="text-center text-xs text-white/35 max-w-2xl mx-auto">
               {LABELS.cta_note}
             </p>
-          </div>
+          )}
           </section>
         </div>
       </div>

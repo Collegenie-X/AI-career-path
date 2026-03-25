@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Home, Briefcase, Map, Users } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from './tab-bar.config';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 
 const ICON_MAP = {
   home: Home,
@@ -14,6 +15,7 @@ const ICON_MAP = {
 
 export function TopNavBar() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const getIsActive = (path: string) => {
     if (path === '/home') return pathname === '/home';
@@ -52,10 +54,19 @@ export function TopNavBar() {
           {BOTTOM_NAVIGATION_TABS.map(tab => {
             const active = getIsActive(tab.path);
             const Icon = ICON_MAP[tab.id as keyof typeof ICON_MAP] ?? tab.icon;
+            const isQuiz = tab.id === 'quiz';
             return (
               <Link
                 key={tab.id}
                 href={tab.path}
+                onClick={
+                  isQuiz
+                    ? (e) => {
+                        e.preventDefault();
+                        router.push(getQuizLandingPath());
+                      }
+                    : undefined
+                }
                 className={`
                   flex items-center gap-1.5 min-[720px]:gap-2 px-3 py-2 min-[720px]:px-4 rounded-lg
                   transition-all font-medium text-sm min-[720px]:text-base

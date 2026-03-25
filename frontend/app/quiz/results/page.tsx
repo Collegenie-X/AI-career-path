@@ -1,22 +1,27 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { storage } from '@/lib/storage';
 import { getRecommendedJobs } from '@/lib/recommendations';
 import kingdomsData from '@/data/kingdoms.json';
 import jobsData from '@/data/jobs.json';
 import * as LucideIcons from 'lucide-react';
-import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase, RotateCcw, ExternalLink } from 'lucide-react';
+import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase, RotateCcw } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
 import { JobDetailModal } from '@/app/jobs/explore/components/JobDetailModal';
 import { StarDetailPanel } from '@/app/jobs/explore/components/StarDetailPanel';
-import type { RIASECResult, Job, Kingdom } from '@/lib/types';
+import { QUIZ_RESULTS_INTRO_CONFIG, LABELS as QUIZ_LABELS, ROUTES as QUIZ_ROUTES } from '@/app/quiz/config';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
+import { QuizResultsAnalyzingView } from './components/QuizResultsAnalyzingView';
+import { fetchStarJsonByKingdomId, starJsonQueryKey } from '@/lib/queries/fetchStarJsonByKingdomId';
+import { quizRiasecResultQueryKey, readStoredRiasecResult } from '@/lib/queries/quizRiasecQuery';
+import type { Job, Kingdom, RIASECType } from '@/lib/types';
 import type { Job as ExploreJob, StarData } from '@/app/jobs/explore/types';
 
 function getJobIcon(iconName: string) {
-  const Icon = (LucideIcons as Record<string, React.ComponentType<{ className?: string; size?: number }>>)[iconName];
+  const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>>)[iconName];
   return Icon ?? Briefcase;
 }
 
@@ -34,122 +39,164 @@ const RIASEC_META: Record<string, { label: string; desc: string; color: string; 
 
 export default function QuizResultsPage() {
   const router = useRouter();
-  const [mounted, setMounted] = useState(false);
-  const [riasec, setRiasec] = useState<RIASECResult | null>(null);
+  const queryClient = useQueryClient();
   const [phase, setPhase] = useState<'analyzing' | 'reveal' | 'done'>('analyzing');
   const [selectedJobForDialog, setSelectedJobForDialog] = useState<ExploreJob | null>(null);
   const [selectedStarForDialog, setSelectedStarForDialog] = useState<StarData | null>(null);
   const [isJobDialogOpen, setIsJobDialogOpen] = useState(false);
   const [isStarPanelOpen, setIsStarPanelOpen] = useState(false);
   const [starDataForPanel, setStarDataForPanel] = useState<StarData | null>(null);
-  const [jobsWithExploreData, setJobsWithExploreData] = useState<Set<string>>(new Set());
+
+  const { data: riasec, isPending: isRiasecPending } = useQuery({
+    queryKey: quizRiasecResultQueryKey,
+    queryFn: readStoredRiasecResult,
+    staleTime: 0,
+    gcTime: 30 * 60_000,
+  });
 
   useEffect(() => {
-    setMounted(true);
-    const riasecResult = storage.riasec.get();
-    if (!riasecResult) {
-      router.push('/quiz');
-      return;
+    if (isRiasecPending) return;
+    if (!riasec) {
+      router.replace(getQuizLandingPath());
     }
-    setRiasec(riasecResult);
-
-    const t1 = setTimeout(() => setPhase('reveal'), 2200);
-    const t2 = setTimeout(() => setPhase('done'), 3000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, [router]);
+  }, [isRiasecPending, riasec, router]);
 
   useEffect(() => {
     if (!riasec) return;
 
-    const swipeLogs = storage.swipes.getAll();
-    const favoriteJobs = storage.favorites.getAll();
-    const recommended = getRecommendedJobs(riasec.scores, jobs, swipeLogs, favoriteJobs, 5);
+    let cancelled = false;
+    const { revealMs, doneMs, failSafeMaxMs, sessionStorageKey } = QUIZ_RESULTS_INTRO_CONFIG;
 
-    const checkAllJobs = async () => {
+    const markIntroDone = () => {
+      try {
+        sessionStorage.setItem(sessionStorageKey, JSON.stringify({ completedAt: riasec.completedAt }));
+      } catch {
+        // ignore quota / private mode
+      }
+    };
+
+    try {
+      const raw = sessionStorage.getItem(sessionStorageKey);
+      const parsed = raw ? (JSON.parse(raw) as { completedAt?: string }) : null;
+      if (parsed?.completedAt === riasec.completedAt) {
+        setPhase('done');
+        return;
+      }
+    } catch {
+      // ignore
+    }
+
+    const tReveal = window.setTimeout(() => {
+      if (!cancelled) setPhase('reveal');
+    }, revealMs);
+    const tDone = window.setTimeout(() => {
+      if (!cancelled) {
+        setPhase('done');
+        markIntroDone();
+      }
+    }, doneMs);
+    const tFailSafe = window.setTimeout(() => {
+      if (!cancelled) {
+        setPhase('done');
+        markIntroDone();
+      }
+    }, failSafeMaxMs);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(tReveal);
+      window.clearTimeout(tDone);
+      window.clearTimeout(tFailSafe);
+    };
+  }, [riasec]);
+
+  const { data: jobsWithExploreData = new Set<string>() } = useQuery({
+    queryKey: [...quizRiasecResultQueryKey, 'explore-job-ids', riasec?.completedAt ?? 'none'],
+    enabled: !!riasec,
+    staleTime: 5 * 60_000,
+    queryFn: async () => {
+      if (!riasec) return new Set<string>();
+
+      const swipeLogs = storage.swipes.getAll();
+      const favoriteJobs = storage.favorites.getAll();
+      const recommended = getRecommendedJobs(riasec.scores, jobs, swipeLogs, favoriteJobs, 5);
       const jobsWithData = new Set<string>();
-      
+
       for (const item of recommended) {
         const job = item.job;
         const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
         if (!kingdom) continue;
 
-        const star = await loadStarData(kingdom.id);
-        if (!star) continue;
+        const star = await queryClient.fetchQuery({
+          queryKey: starJsonQueryKey(kingdom.id),
+          queryFn: () => fetchStarJsonByKingdomId(kingdom.id),
+          staleTime: Number.POSITIVE_INFINITY,
+        });
 
-        const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
-        if (exploreJob) {
+        if (!star) continue;
+        if (star.jobs?.some((ej: ExploreJob) => ej.id === job.id)) {
           jobsWithData.add(job.id);
         }
       }
 
-      setJobsWithExploreData(jobsWithData);
-    };
+      return jobsWithData;
+    },
+  });
 
-    checkAllJobs();
-  }, [riasec]);
+  if (isRiasecPending) {
+    return (
+      <QuizResultsAnalyzingView accentColor="#6C5CE7" message={QUIZ_LABELS.quiz_analyzing} />
+    );
+  }
 
-  if (!mounted || !riasec) return null;
+  if (!riasec) {
+    return null;
+  }
 
-  const sortedTypes = Object.entries(riasec.scores)
+  const scoreEntries = Object.entries(riasec.scores) as Array<[string, number]>;
+  const sortedTypes = scoreEntries
     .sort(([, a], [, b]) => b - a)
     .map(([key]) => key);
 
-  const topType = riasec.topTypes[0];
-  const topMeta = RIASEC_META[topType];
-  const topStar = kingdoms.find((k) => k.riasecTypes && k.riasecTypes.includes(topType));
+  const topTypeRaw = riasec.topTypes[0];
+  const topType = (
+    topTypeRaw && topTypeRaw in RIASEC_META ? topTypeRaw : sortedTypes[0] ?? 'I'
+  ) as RIASECType;
+  const topMeta = RIASEC_META[topType] ?? RIASEC_META.I;
+  const topStar = kingdoms.find((k) => k.riasecTypes?.includes(topType));
 
   const swipeLogs = storage.swipes.getAll();
   const favoriteJobs = storage.favorites.getAll();
   const recommendedJobs = getRecommendedJobs(riasec.scores, jobs, swipeLogs, favoriteJobs, 5);
 
+  const handleRetakeQuiz = () => {
+    storage.riasec.clear();
+    queryClient.removeQueries({ queryKey: [...quizRiasecResultQueryKey] });
+    try {
+      sessionStorage.removeItem(QUIZ_RESULTS_INTRO_CONFIG.sessionStorageKey);
+    } catch {
+      // ignore
+    }
+    router.push(QUIZ_ROUTES.quizPlay);
+  };
+
   const handleStart = () => {
     storage.xp.add(100, '적성 검사 완료', 'quiz');
-    router.push('/home');
-  };
-
-  const loadStarData = async (kingdomId: string): Promise<StarData | null> => {
-    try {
-      const starDataMap: Record<string, () => Promise<{ default: StarData }>> = {
-        explore: () => import('@/data/stars/explore-star.json'),
-        create: () => import('@/data/stars/create-star.json'),
-        tech: () => import('@/data/stars/tech-star.json'),
-        nature: () => import('@/data/stars/nature-star.json'),
-        connect: () => import('@/data/stars/connect-star.json'),
-        order: () => import('@/data/stars/order-star.json'),
-        communicate: () => import('@/data/stars/communicate-star.json'),
-        challenge: () => import('@/data/stars/challenge-star.json'),
-      };
-
-      const loader = starDataMap[kingdomId];
-      if (!loader) return null;
-
-      const starModule = await loader();
-      return starModule.default as StarData;
-    } catch (error) {
-      console.error('Failed to load star data:', error);
-      return null;
-    }
-  };
-
-  const checkJobHasExploreData = async (job: Job): Promise<boolean> => {
-    const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
-    if (!kingdom) return false;
-
-    const star = await loadStarData(kingdom.id);
-    if (!star) return false;
-
-    const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
-    return !!exploreJob;
+    router.push(QUIZ_ROUTES.careerExplore);
   };
 
   const handleJobClick = async (job: Job) => {
     const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
     if (!kingdom) return;
 
-    const star = await loadStarData(kingdom.id);
+    const star = await queryClient.fetchQuery({
+      queryKey: starJsonQueryKey(kingdom.id),
+      queryFn: () => fetchStarJsonByKingdomId(kingdom.id),
+      staleTime: Number.POSITIVE_INFINITY,
+    });
     if (!star) return;
-      
-    const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
+
+    const exploreJob = star.jobs?.find((ej: ExploreJob) => ej.id === job.id);
     if (!exploreJob) {
       console.warn(`No explore job found for ${job.id} in ${kingdom.id}`);
       return;
@@ -170,23 +217,13 @@ export default function QuizResultsPage() {
 
   const handleKingdomClick = async (kingdom: Kingdom) => {
     try {
-      const starDataMap: Record<string, () => Promise<{ default: StarData }>> = {
-        explore: () => import('@/data/stars/explore-star.json'),
-        create: () => import('@/data/stars/create-star.json'),
-        tech: () => import('@/data/stars/tech-star.json'),
-        nature: () => import('@/data/stars/nature-star.json'),
-        connect: () => import('@/data/stars/connect-star.json'),
-        order: () => import('@/data/stars/order-star.json'),
-        communicate: () => import('@/data/stars/communicate-star.json'),
-        challenge: () => import('@/data/stars/challenge-star.json'),
-      };
+      const star = await queryClient.fetchQuery({
+        queryKey: starJsonQueryKey(kingdom.id),
+        queryFn: () => fetchStarJsonByKingdomId(kingdom.id),
+        staleTime: Number.POSITIVE_INFINITY,
+      });
+      if (!star) return;
 
-      const loader = starDataMap[kingdom.id];
-      if (!loader) return;
-
-      const starModule = await loader();
-      const star = starModule.default as StarData;
-      
       setStarDataForPanel(star);
       setIsStarPanelOpen(true);
     } catch (error) {
@@ -208,50 +245,7 @@ export default function QuizResultsPage() {
   };
 
   if (phase === 'analyzing') {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
-        <StarfieldCanvas count={150} />
-        
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-950/10 to-transparent pointer-events-none" />
-
-        <div className="relative z-10 flex flex-col items-center">
-          <div className="relative mb-8">
-            <div
-              className="w-40 h-40 md:w-48 md:h-48 rounded-full flex items-center justify-center animate-pulse-glow"
-              style={{
-                background: `radial-gradient(circle, ${topMeta.color}40 0%, ${topMeta.color}10 60%, transparent 70%)`,
-              }}
-            >
-              <Orbit className="w-20 h-20 md:w-24 md:h-24 text-white animate-sparkle-spin" style={{ animationDuration: '3s' }} />
-            </div>
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="absolute inset-0 flex items-center justify-center">
-                <div className="animate-orbit" style={{ animationDuration: `${3 + i * 1.5}s`, animationDelay: `${i * 0.5}s` }}>
-                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: topMeta.color, boxShadow: `0 0 12px ${topMeta.color}` }} />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-white/60 text-lg md:text-xl font-semibold animate-pulse">
-            적성 데이터 분석 중...
-          </p>
-          <div className="flex gap-2 mt-5">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className="w-2.5 h-2.5 rounded-full"
-                style={{
-                  backgroundColor: topMeta.color,
-                  animation: 'float 1s ease-in-out infinite',
-                  animationDelay: `${i * 0.15}s`,
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    );
+    return <QuizResultsAnalyzingView accentColor={topMeta.color} message={QUIZ_LABELS.quiz_analyzing} />;
   }
 
   return (
@@ -308,8 +302,8 @@ export default function QuizResultsPage() {
               <span className="text-base md:text-lg font-semibold text-white/60">RIASEC 스펙트럼</span>
             </div>
             {sortedTypes.map((type, index) => {
-              const meta = RIASEC_META[type];
-              const score = riasec.scores[type];
+              const meta = RIASEC_META[type] ?? RIASEC_META.I;
+              const score = riasec.scores[type as keyof typeof riasec.scores];
               const pct = Math.round(score * 100);
               const isTop = index === 0;
               return (
@@ -485,7 +479,7 @@ export default function QuizResultsPage() {
                           boxShadow: `0 4px 20px ${star?.color ?? topMeta.color}25`,
                         }}
                       >
-                        <JobIcon className="w-8 h-8 md:w-9 md:h-9 text-white" style={{ opacity: 0.95 }} />
+                        <JobIcon className="w-8 h-8 md:w-9 md:h-9 text-white opacity-95" />
                       </div>
                       <div
                         className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full flex items-center justify-center text-xs font-black text-white shadow-lg"
@@ -559,7 +553,7 @@ export default function QuizResultsPage() {
             <button
               type="button"
               className="w-full h-12 md:h-14 rounded-2xl text-sm md:text-base font-bold text-white/90 border border-white/15 bg-white/[0.04] transition-all hover:bg-white/[0.08] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
-              onClick={() => router.push('/quiz')}
+              onClick={handleRetakeQuiz}
             >
               <RotateCcw className="w-4 h-4 md:w-5 md:h-5" />
               적성 검사 다시 하기

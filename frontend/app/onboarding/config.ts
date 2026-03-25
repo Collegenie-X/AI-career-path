@@ -133,7 +133,7 @@ export const GRADE_OPTIONS: Record<SchoolLevel, Array<{ id: string; labelKey: st
 
 // ─── 네비게이션 경로 ──────────────────────────────────────────
 export const ROUTES = {
-  afterOnboarding: '/quiz/intro',
+  afterOnboarding: '/quiz',
 } as const;
 
 // ─── 파티클 설정 ──────────────────────────────────────────────

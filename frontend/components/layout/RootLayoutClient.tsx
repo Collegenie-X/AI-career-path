@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { QueryProvider } from '@/components/providers/QueryProvider';
 import { WebLayout } from './WebLayout';
 
 const HIDE_HEADER_FOOTER_PATHS = ['/', '/onboarding'];
@@ -13,8 +14,10 @@ export function RootLayoutClient({ children }: { children: React.ReactNode }) {
     HIDE_HEADER_FOOTER_PREFIXES.some((p) => pathname.startsWith(p));
 
   return (
-    <WebLayout hideHeaderFooter={hideHeaderFooter}>
-      {children}
-    </WebLayout>
+    <QueryProvider>
+      <WebLayout hideHeaderFooter={hideHeaderFooter}>
+        {children}
+      </WebLayout>
+    </QueryProvider>
   );
 }

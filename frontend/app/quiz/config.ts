@@ -26,6 +26,9 @@ export const ICON_MAP: Record<string, LucideIcon> = {
 
 // ─── 텍스트 라벨 ───────────────────────────────────────────────
 export const LABELS: Record<string, string> = {
+  /** /quiz 진입 시 잠깐 보이는 분기 화면 */
+  quiz_entry_redirecting: '불러오는 중...',
+
   // 모드 선택 화면
   mode_select_title: '직업 적성 검사',
   mode_select_subtitle: '나에게 맞는 직업 유형을 발견해보세요',
@@ -83,6 +86,21 @@ export const MODE_ICONS = {
 
 // ─── 네비게이션 경로 ──────────────────────────────────────────
 export const ROUTES = {
+  /** 적성 검사 단일 진입점 — 저장 결과 있으면 results, 없으면 intro */
+  quiz: '/quiz',
+  quizIntro: '/quiz/intro',
+  /** 모드 선택·문항 본편 */
+  quizPlay: '/quiz/play',
   quizResults: '/quiz/results',
   home: '/home',
+  /** 결과 화면 CTA — 상단 탭「커리어 탐색」과 동일 */
+  careerExplore: '/jobs/explore',
+} as const;
+
+/** 결과 화면 인트로 애니메이션 · 세션 단축 · 타이머 상한(Strict Mode 대비) */
+export const QUIZ_RESULTS_INTRO_CONFIG = {
+  revealMs: 2200,
+  doneMs: 3000,
+  failSafeMaxMs: 5500,
+  sessionStorageKey: 'dreampath_quiz_results_intro_done',
 } as const;

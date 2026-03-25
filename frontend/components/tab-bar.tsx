@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { BOTTOM_NAVIGATION_TABS } from './tab-bar.config';
 
 export function TabBar() {
@@ -24,7 +25,13 @@ export function TabBar() {
           return (
             <button
               key={tab.id}
-              onClick={() => router.push(tab.path)}
+              onClick={() => {
+                if (tab.id === 'quiz') {
+                  router.push(getQuizLandingPath());
+                } else {
+                  router.push(tab.path);
+                }
+              }}
               className="flex flex-col items-center justify-center gap-0.5 py-2 px-3 rounded-xl transition-all relative"
               style={active ? { color: '#6C5CE7' } : { color: '#666680' }}
             >

@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { Info } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { SocialLoginDialog } from '@/components/auth/SocialLoginDialog';
 import { WebHeaderAccountArea } from '@/components/layout/WebHeaderAccountArea';
 import { storage, type AuthProfile } from '@/lib/storage';
@@ -30,6 +31,7 @@ const HEADER_NAVIGATION_ITEMS: readonly HeaderNavigationItem[] = [
 
 export function WebHeader() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isSocialLoginOpen, setIsSocialLoginOpen] = useState(false);
   const [authProfile, setAuthProfile] = useState<AuthProfile | null>(null);
 
@@ -43,7 +45,7 @@ export function WebHeader() {
 
   const getIsActive = (path: string) => {
     if (path === '/home') return pathname === '/home';
-    if (path === '/quiz/intro') return pathname?.startsWith('/quiz');
+    if (path === '/quiz') return pathname?.startsWith('/quiz');
     return pathname?.startsWith(path);
   };
 
@@ -76,10 +78,19 @@ export function WebHeader() {
               const active = getIsActive(item.href);
               const Icon = item.icon;
               const glowColor = item.color ?? '#6C5CE7';
+              const isQuizNav = item.href === '/quiz';
               return (
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={
+                    isQuizNav
+                      ? (e) => {
+                          e.preventDefault();
+                          router.push(getQuizLandingPath());
+                        }
+                      : undefined
+                  }
                   className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     active
                       ? 'text-white'
@@ -109,11 +120,20 @@ export function WebHeader() {
               const active = getIsActive(item.href);
               const Icon = item.icon;
               const glowColor = item.color ?? '#6C5CE7';
+              const isQuizNav = item.href === '/quiz';
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   title={item.label}
+                  onClick={
+                    isQuizNav
+                      ? (e) => {
+                          e.preventDefault();
+                          router.push(getQuizLandingPath());
+                        }
+                      : undefined
+                  }
                   className={`p-2 rounded-lg transition-all ${
                     active ? 'text-white' : 'text-white/50 hover:text-white'
                   }`}

@@ -9,6 +9,7 @@ import jobsData from '@/data/jobs.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { Job, Kingdom } from '@/lib/types';
 import { storage } from '@/lib/storage';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { getJobDetailNav } from '@/app/jobs/explore/utils/resolveStarJob';
 import { ArrowLeft, Heart, X, Info } from 'lucide-react';
 
@@ -22,7 +23,7 @@ export default function JobSwipePage() {
     // Get recommended jobs based on user's RIASEC
     const userData = storage.user.get();
     if (!userData?.riasecScores) {
-      router.push('/quiz');
+      router.push(getQuizLandingPath());
       return;
     }
 

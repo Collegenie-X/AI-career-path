@@ -18,7 +18,7 @@
     ],
     "rotatingDescriptionIntervalMs": 5200,
     "cta": {
-      "primary": { "label": "적성검사로 시작하기", "href": "/quiz/intro" },
+      "primary": { "label": "적성검사로 시작하기", "href": "/quiz" },
       "secondary": { "label": "AI 협업 방식 알아보기", "href": "/about" }
     },
     "statBadges": [
@@ -284,7 +284,7 @@
         "emoji": "🔭",
         "title": "찾다",
         "subtitle": "직업 적성검사",
-        "href": "/quiz/intro",
+        "href": "/quiz",
         "ctaLabel": "적성검사 시작하기",
         "icons": ["🧠", "⭐", "🎯"],
         "color": "#3B82F6",
@@ -361,7 +361,7 @@
     "title": "AI와 함께 시작하세요",
     "subtitle": "기본 기능 무료 · AI 협업 기능은 쓴 만큼 결제 (Cursor 방식)",
     "buttonLabel": "무료로 시작하기",
-    "buttonHref": "/quiz/intro",
+    "buttonHref": "/quiz",
     "trustItems": [
       { "emoji": "✅", "text": "무료 적성 검사" },
       { "emoji": "🗺️", "text": "200개 커리어 패스" },

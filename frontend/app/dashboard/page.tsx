@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
+import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { BadgeToastManager } from '@/components/badge-toast';
 import { WhyTabStructureSection } from '../home/components/why-tab-structure-section';
 import { useBadgeChecker } from '@/hooks/use-badge-checker';
@@ -765,13 +766,13 @@ export default function DashboardPage() {
 
       <AptitudeSection
         riasec={riasec}
-        onTest={() => router.push('/quiz')}
+        onTest={() => router.push(getQuizLandingPath())}
         onViewReport={() => setShowReportDialog(true)}
       />
 
       <RecommendedJobsSection riasec={riasec} onJobClick={handleJobClick} />
 
-      <DailyMissionSection onQuiz={() => router.push('/quiz')} />
+      <DailyMissionSection onQuiz={() => router.push(getQuizLandingPath())} />
 
       <WhyTabStructureSection />
 
