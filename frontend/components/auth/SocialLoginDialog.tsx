@@ -137,8 +137,16 @@ export function SocialLoginDialog({ open, onOpenChange, onSignupSuccess }: Socia
     setTermsAgreed((prev) => ({ ...prev, [id]: checked }));
   }, []);
 
-  const handleViewTerms = useCallback((_id: string) => {
-    // TODO: 열기 모달/페이지 연결
+  const handleViewTerms = useCallback((id: string) => {
+    const pathByTermsId: Record<string, string> = {
+      terms: '/terms',
+      privacy: '/privacy',
+      marketing: '/marketing-consent',
+    };
+    const path = pathByTermsId[id];
+    if (path) {
+      window.open(path, '_blank', 'noopener,noreferrer');
+    }
   }, []);
 
   return (

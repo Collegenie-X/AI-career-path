@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "title": "서비스 이용 약관 동의",
+    "description": "AI CareerPath 서비스 이용을 위한 약관 동의"
+  },
+  "consentItems": [
+    {
+      "id": "essential-terms",
+      "type": "essential",
+      "label": "필수",
+      "title": "이용약관 동의",
+      "description": null,
+      "detailPath": "/terms",
+      "detailLabel": "보기",
+      "required": true
+    },
+    {
+      "id": "essential-privacy",
+      "type": "essential",
+      "label": "필수",
+      "title": "개인정보 수집 및 이용 동의",
+      "description": null,
+      "detailPath": "/privacy",
+      "detailLabel": "보기",
+      "required": true
+    },
+    {
+      "id": "optional-marketing",
+      "type": "optional",
+      "label": "선택",
+      "title": "마케팅 정보 수신 동의",
+      "description": "다양한 혜택과 프로그램 정보를 알림으로 받아볼래요!",
+      "detailPath": null,
+      "detailLabel": null,
+      "required": false
+    }
+  ],
+  "allAgreementLabel": "전체 동의",
+  "allAgreementDescription": "서비스 이용 약관 동의",
+  "marketingConsentDetails": {
+    "title": "마케팅 정보 수신 동의 상세",
+    "sections": [
+      {
+        "id": "purpose",
+        "title": "수집 및 이용 목적",
+        "content": [
+          "1. 신규 서비스 및 기능 업데이트 안내",
+          "2. 이벤트, 프로모션, 할인 혜택 정보 제공",
+          "3. 맞춤형 진로 콘텐츠 및 입시 정보 추천",
+          "4. 사용자 관심사 기반 커리어 기회 안내",
+          "5. 서비스 만족도 조사 및 피드백 요청"
+        ]
+      },
+      {
+        "id": "items",
+        "title": "수집 항목",
+        "content": [
+          "1. 기본 정보: 이메일 주소, 이름, 학년",
+          "2. 서비스 이용 정보: 적성검사 결과, 관심 직업, 탐색 기록",
+          "3. 활동 정보: 커리어 패스 설계 내역, 실행 계획 진행 상황",
+          "4. 선호도 정보: 관심 분야, 선호 학습 방식, 진로 희망 정보"
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "보유 및 이용 기간",
+        "content": [
+          "동의일로부터 동의 철회 시 또는 회원 탈퇴 시까지 보유 및 이용합니다.",
+          "단, 관련 법령에 따라 보존이 필요한 경우 해당 기간 동안 보관합니다."
+        ]
+      },
+      {
+        "id": "channels",
+        "title": "정보 제공 채널",
+        "content": [
+          "1. 이메일: 주요 이벤트 및 서비스 안내",
+          "2. 앱 푸시 알림: 실시간 혜택 및 미션 알림 (향후 제공)",
+          "3. 서비스 내 알림: 맞춤 추천 콘텐츠 및 업데이트"
+        ]
+      },
+      {
+        "id": "withdrawal",
+        "title": "동의 철회 방법",
+        "content": [
+          "마케팅 정보 수신 동의는 언제든지 철회할 수 있으며, 동의하지 않아도 서비스 이용에는 제한이 없습니다.",
+          "",
+          "철회 방법:",
+          "1. 설정 > 알림 설정에서 직접 변경",
+          "2. 이메일 하단의 '수신거부' 링크 클릭",
+          "3. 고객센터 문의: support@aicareerpath.com"
+        ]
+      },
+      {
+        "id": "rights",
+        "title": "이용자 권리",
+        "content": [
+          "1. 마케팅 수신 동의를 거부할 권리가 있으며, 거부 시에도 서비스 이용에 제한이 없습니다.",
+          "2. 동의 후에도 언제든지 철회할 수 있습니다.",
+          "3. 마케팅 정보 수신 동의 여부와 관계없이 서비스 이용에 필수적인 공지사항은 발송됩니다."
+        ]
+      }
+    ]
+  }
+}

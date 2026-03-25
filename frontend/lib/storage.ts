@@ -17,12 +17,116 @@ import type {
 // ============================
 // LocalStorage Keys
 // ============================
+export type TermsAgreement = {
+  terms: boolean;
+  privacy: boolean;
+  marketing: boolean;
+  agreedAt: string;
+};
+
 export type AuthProfile = {
   email: string;
   name: string;
   grade: string;
   termsAgreed: Record<string, boolean>;
   signedUpAt: string;
+};
+
+export type DetailedUserData = {
+  basicInfo: {
+    email: string;
+    name: string;
+    grade: string;
+  };
+  aptitudeTestInfo: {
+    riasecResult: {
+      scores: Record<string, number>;
+      topTypes: string[];
+      completedAt: string;
+    } | null;
+    interestAreas: string[];
+    exploredJobs: string[];
+  };
+  careerPathInfo: {
+    savedPaths: Array<{
+      jobId: string;
+      pathName: string;
+      completedSteps: string[];
+      startedAt: string;
+      lastUpdated: string;
+    }>;
+    learningPlans: Array<{
+      id: string;
+      title: string;
+      milestones: Array<{
+        stage: string;
+        title: string;
+        activities: string[];
+        priority: string;
+      }>;
+    }>;
+    admissionStrategies: Array<{
+      schoolType: string;
+      targetSchools: string[];
+      selectedStrategy: string;
+      savedAt: string;
+    }>;
+  };
+  careerExecutionInfo: {
+    portfolio: {
+      projects: Array<{
+        id: string;
+        title: string;
+        description: string;
+        type: string;
+        completedAt: string;
+      }>;
+      activities: Array<{
+        id: string;
+        title: string;
+        category: string;
+        date: string;
+      }>;
+      achievements: Array<{
+        id: string;
+        title: string;
+        description: string;
+        date: string;
+      }>;
+    };
+    timeline: Array<{
+      id: string;
+      type: string;
+      title: string;
+      description: string;
+      date: string;
+    }>;
+    dailyMissions: {
+      completed: number;
+      total: number;
+      history: Array<{
+        date: string;
+        missionsCompleted: string[];
+      }>;
+    };
+    xpAndLevel: {
+      totalXP: number;
+      currentLevel: number;
+      earnedBadges: string[];
+    };
+  };
+  consentInfo: {
+    termsAgreed: boolean;
+    privacyAgreed: boolean;
+    marketingAgreed: boolean;
+    agreedAt: string;
+    lastUpdatedAt: string;
+  };
+  metadata: {
+    signedUpAt: string;
+    lastLoginAt: string;
+    accountStatus: 'active' | 'inactive' | 'suspended';
+  };
 };
 
 const KEYS = {

@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "title": "약관 및 정책",
+    "description": "AI CareerPath 서비스 이용을 위한 약관 및 정책 안내"
+  },
+  "legalDocuments": [
+    {
+      "id": "terms",
+      "title": "이용약관",
+      "description": "서비스 이용에 관한 기본 약관 및 규정",
+      "path": "/terms",
+      "iconKey": "file-text",
+      "required": true
+    },
+    {
+      "id": "privacy",
+      "title": "개인정보 처리방침",
+      "description": "개인정보 수집, 이용, 보관 및 보호에 관한 정책",
+      "path": "/privacy",
+      "iconKey": "shield",
+      "required": true
+    },
+    {
+      "id": "email-policy",
+      "title": "이메일 무단수집 거부",
+      "description": "이메일 주소 무단 수집 및 스팸 발송 금지 정책",
+      "path": "/email-policy",
+      "iconKey": "mail-x",
+      "required": false
+    }
+  ]
+}
