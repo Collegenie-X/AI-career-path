@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Zap, ArrowRight } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
+import { storage } from '@/lib/storage';
 import {
   HeroIcon,
   RewardPreview,
@@ -19,6 +20,13 @@ export default function QuizIntroPage() {
     const t = setTimeout(() => setShow(true), 100);
     return () => clearTimeout(t);
   }, []);
+
+  useEffect(() => {
+    const savedRiasec = storage.riasec.get();
+    if (savedRiasec) {
+      router.replace('/quiz/results');
+    }
+  }, [router]);
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden relative bg-black">

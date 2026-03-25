@@ -29,6 +29,7 @@ export default function QuizPage() {
   const [animating, setAnimating] = useState(false);
   const [choicesVisible, setChoicesVisible] = useState(true);
   const [pendingFeedback, setPendingFeedback] = useState<FeedbackData | null>(null);
+  const [hasSavedRiasecResult, setHasSavedRiasecResult] = useState(false);
   const touchRef = useRef<{ x: number } | null>(null);
 
   const questions = mode
@@ -46,6 +47,14 @@ export default function QuizPage() {
     const t = setTimeout(() => setChoicesVisible(true), ANIMATION_CONFIG.choiceEnterDelay);
     return () => clearTimeout(t);
   }, [currentIndex]);
+
+  useEffect(() => {
+    const savedRiasec = storage.riasec.get();
+    setHasSavedRiasecResult(savedRiasec !== null);
+    if (savedRiasec && !mode) {
+      router.replace('/quiz/results');
+    }
+  }, [mode, router]);
 
   const finishQuiz = useCallback((finalAnswers: Record<number, number>) => {
     const map: Record<number, string> = {};
@@ -110,7 +119,9 @@ export default function QuizPage() {
     }
   };
 
-  if (!mode) return <ModeSelectScreen onSelect={setMode} />;
+  if (!mode) {
+    return <ModeSelectScreen onSelect={setMode} hasSavedRiasecResult={hasSavedRiasecResult} />;
+  }
   if (!q) return null;
 
   return (

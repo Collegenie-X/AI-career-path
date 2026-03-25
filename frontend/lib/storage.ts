@@ -129,10 +129,13 @@ export type DetailedUserData = {
   };
 };
 
+const RIASEC_HISTORY_MAX = 20;
+
 const KEYS = {
   AUTH_PROFILE: 'dreampath_auth_profile',
   USER_PROFILE: 'dreampath_user_profile',
   RIASEC_RESULT: 'dreampath_riasec_result',
+  RIASEC_HISTORY: 'dreampath_riasec_history',
   SWIPE_LOGS: 'dreampath_swipe_logs',
   SIMULATION_LOGS: 'dreampath_simulation_logs',
   XP_LOG: 'dreampath_xp_log',
@@ -208,14 +211,35 @@ export function isOnboardingCompleted(): boolean {
 }
 
 // ============================
-// RIASEC Result
+// RIASEC Result (localStorage: dreampath_riasec_result, dreampath_riasec_history)
 // ============================
 export function getRIASECResult(): RIASECResult | null {
   return getItem<RIASECResult | null>(KEYS.RIASEC_RESULT, null);
 }
 
+export function getRiasecHistory(): RIASECResult[] {
+  return getItem<RIASECResult[]>(KEYS.RIASEC_HISTORY, []);
+}
+
 export function setRIASECResult(result: RIASECResult): void {
+  const previous = getItem<RIASECResult | null>(KEYS.RIASEC_RESULT, null);
+  if (previous) {
+    const history = getRiasecHistory();
+    const nextHistory = [previous, ...history].slice(0, RIASEC_HISTORY_MAX);
+    setItem(KEYS.RIASEC_HISTORY, nextHistory);
+  }
   setItem(KEYS.RIASEC_RESULT, result);
+
+  const portfolio = getItem<Portfolio>(KEYS.PORTFOLIO, {
+    riasecSummary: null,
+    exploredJobs: [],
+    completedSims: [],
+    completedCamps: [],
+    projects: [],
+    earnedBadges: [],
+    timeline: [],
+  });
+  setItem(KEYS.PORTFOLIO, { ...portfolio, riasecSummary: result });
 }
 
 // ============================
@@ -526,6 +550,7 @@ export const storage = {
   riasec: {
     get: getRIASECResult,
     set: setRIASECResult,
+    getHistory: getRiasecHistory,
   },
   swipes: {
     getAll: getSwipeLogs,

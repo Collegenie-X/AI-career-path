@@ -37,6 +37,9 @@ export const LABELS: Record<string, string> = {
   mode_detailed_desc: '약 10~15분 • 상세 강점 리포트 제공',
   mode_recommended: '추천',
   mode_tip: '정답이 없어요! 솔직하게 답하면 더 정확해요 ✨',
+  saved_result_banner: '이 기기에 저장된 적성 검사 결과가 있어요',
+  view_saved_result: '저장된 결과 보기',
+  retake_quiz_hint: '다시 검사하면 이전 결과는 이력에 쌓입니다',
 
   // 퀴즈 진행 화면
   quiz_analyzing: '우주 적성 데이터 분석 중...',

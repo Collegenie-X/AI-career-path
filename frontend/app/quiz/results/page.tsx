@@ -1,15 +1,19 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { storage } from '@/lib/storage';
 import { getRecommendedJobs } from '@/lib/recommendations';
 import kingdomsData from '@/data/kingdoms.json';
 import jobsData from '@/data/jobs.json';
 import * as LucideIcons from 'lucide-react';
-import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase } from 'lucide-react';
+import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase, RotateCcw, ExternalLink } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';
+import { JobDetailModal } from '@/app/jobs/explore/components/JobDetailModal';
+import { StarDetailPanel } from '@/app/jobs/explore/components/StarDetailPanel';
 import type { RIASECResult, Job, Kingdom } from '@/lib/types';
+import type { Job as ExploreJob, StarData } from '@/app/jobs/explore/types';
 
 function getJobIcon(iconName: string) {
   const Icon = (LucideIcons as Record<string, React.ComponentType<{ className?: string; size?: number }>>)[iconName];
@@ -33,6 +37,12 @@ export default function QuizResultsPage() {
   const [mounted, setMounted] = useState(false);
   const [riasec, setRiasec] = useState<RIASECResult | null>(null);
   const [phase, setPhase] = useState<'analyzing' | 'reveal' | 'done'>('analyzing');
+  const [selectedJobForDialog, setSelectedJobForDialog] = useState<ExploreJob | null>(null);
+  const [selectedStarForDialog, setSelectedStarForDialog] = useState<StarData | null>(null);
+  const [isJobDialogOpen, setIsJobDialogOpen] = useState(false);
+  const [isStarPanelOpen, setIsStarPanelOpen] = useState(false);
+  const [starDataForPanel, setStarDataForPanel] = useState<StarData | null>(null);
+  const [jobsWithExploreData, setJobsWithExploreData] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     setMounted(true);
@@ -47,6 +57,36 @@ export default function QuizResultsPage() {
     const t2 = setTimeout(() => setPhase('done'), 3000);
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [router]);
+
+  useEffect(() => {
+    if (!riasec) return;
+
+    const swipeLogs = storage.swipes.getAll();
+    const favoriteJobs = storage.favorites.getAll();
+    const recommended = getRecommendedJobs(riasec.scores, jobs, swipeLogs, favoriteJobs, 5);
+
+    const checkAllJobs = async () => {
+      const jobsWithData = new Set<string>();
+      
+      for (const item of recommended) {
+        const job = item.job;
+        const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
+        if (!kingdom) continue;
+
+        const star = await loadStarData(kingdom.id);
+        if (!star) continue;
+
+        const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
+        if (exploreJob) {
+          jobsWithData.add(job.id);
+        }
+      }
+
+      setJobsWithExploreData(jobsWithData);
+    };
+
+    checkAllJobs();
+  }, [riasec]);
 
   if (!mounted || !riasec) return null;
 
@@ -63,8 +103,108 @@ export default function QuizResultsPage() {
   const recommendedJobs = getRecommendedJobs(riasec.scores, jobs, swipeLogs, favoriteJobs, 5);
 
   const handleStart = () => {
-    storage.xp.add(100, '적성 검사 완료');
+    storage.xp.add(100, '적성 검사 완료', 'quiz');
     router.push('/home');
+  };
+
+  const loadStarData = async (kingdomId: string): Promise<StarData | null> => {
+    try {
+      const starDataMap: Record<string, () => Promise<{ default: StarData }>> = {
+        explore: () => import('@/data/stars/explore-star.json'),
+        create: () => import('@/data/stars/create-star.json'),
+        tech: () => import('@/data/stars/tech-star.json'),
+        nature: () => import('@/data/stars/nature-star.json'),
+        connect: () => import('@/data/stars/connect-star.json'),
+        order: () => import('@/data/stars/order-star.json'),
+        communicate: () => import('@/data/stars/communicate-star.json'),
+        challenge: () => import('@/data/stars/challenge-star.json'),
+      };
+
+      const loader = starDataMap[kingdomId];
+      if (!loader) return null;
+
+      const starModule = await loader();
+      return starModule.default as StarData;
+    } catch (error) {
+      console.error('Failed to load star data:', error);
+      return null;
+    }
+  };
+
+  const checkJobHasExploreData = async (job: Job): Promise<boolean> => {
+    const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
+    if (!kingdom) return false;
+
+    const star = await loadStarData(kingdom.id);
+    if (!star) return false;
+
+    const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
+    return !!exploreJob;
+  };
+
+  const handleJobClick = async (job: Job) => {
+    const kingdom = kingdoms.find((k) => k.id === job.kingdomId);
+    if (!kingdom) return;
+
+    const star = await loadStarData(kingdom.id);
+    if (!star) return;
+      
+    const exploreJob = star.jobs?.find((ej) => ej.id === job.id);
+    if (!exploreJob) {
+      console.warn(`No explore job found for ${job.id} in ${kingdom.id}`);
+      return;
+    }
+
+    setSelectedJobForDialog(exploreJob);
+    setSelectedStarForDialog(star);
+    setIsJobDialogOpen(true);
+  };
+
+  const handleCloseJobDialog = () => {
+    setIsJobDialogOpen(false);
+    setTimeout(() => {
+      setSelectedJobForDialog(null);
+      setSelectedStarForDialog(null);
+    }, 300);
+  };
+
+  const handleKingdomClick = async (kingdom: Kingdom) => {
+    try {
+      const starDataMap: Record<string, () => Promise<{ default: StarData }>> = {
+        explore: () => import('@/data/stars/explore-star.json'),
+        create: () => import('@/data/stars/create-star.json'),
+        tech: () => import('@/data/stars/tech-star.json'),
+        nature: () => import('@/data/stars/nature-star.json'),
+        connect: () => import('@/data/stars/connect-star.json'),
+        order: () => import('@/data/stars/order-star.json'),
+        communicate: () => import('@/data/stars/communicate-star.json'),
+        challenge: () => import('@/data/stars/challenge-star.json'),
+      };
+
+      const loader = starDataMap[kingdom.id];
+      if (!loader) return;
+
+      const starModule = await loader();
+      const star = starModule.default as StarData;
+      
+      setStarDataForPanel(star);
+      setIsStarPanelOpen(true);
+    } catch (error) {
+      console.error('Failed to load star data:', error);
+    }
+  };
+
+  const handleCloseStarPanel = () => {
+    setIsStarPanelOpen(false);
+    setTimeout(() => {
+      setStarDataForPanel(null);
+    }, 300);
+  };
+
+  const handleOpenJobFromPanel = (job: ExploreJob) => {
+    setSelectedJobForDialog(job);
+    setSelectedStarForDialog(starDataForPanel);
+    setIsJobDialogOpen(true);
   };
 
   if (phase === 'analyzing') {
@@ -215,10 +355,13 @@ export default function QuizResultsPage() {
             })}
           </div>
 
-          {/* Matching Star */}
+          {/* Matching Star → 커리어 탐색(별/직업군) */}
           {topStar && (
-            <div
-              className="rounded-2xl md:rounded-3xl p-6 md:p-8 animate-slide-up relative overflow-hidden transition-all hover:scale-[1.01]"
+            <button
+              type="button"
+              onClick={() => handleKingdomClick(topStar)}
+              aria-label={`${topStar.name} 직업군 상세 정보 보기`}
+              className="w-full text-left rounded-2xl md:rounded-3xl p-6 md:p-8 animate-slide-up relative overflow-hidden transition-all hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
               style={{
                 background: `linear-gradient(135deg, ${topStar.color}15 0%, ${topStar.color}05 100%)`,
                 border: `1px solid ${topStar.color}30`,
@@ -247,9 +390,15 @@ export default function QuizResultsPage() {
                 />
               ))}
 
-              <div className="relative flex items-center gap-3 mb-4">
-                <Star className="w-5 h-5 md:w-6 md:h-6" style={{ color: topStar.color }} />
-                <span className="text-base md:text-lg font-bold" style={{ color: topStar.color }}>추천 별</span>
+              <div className="relative flex items-center justify-between gap-3 mb-4">
+                <div className="flex items-center gap-3">
+                  <Star className="w-5 h-5 md:w-6 md:h-6" style={{ color: topStar.color }} />
+                  <span className="text-base md:text-lg font-bold" style={{ color: topStar.color }}>추천 직업군</span>
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs md:text-sm font-semibold text-white/50">
+                  상세 보기
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </span>
               </div>
               <div className="relative flex items-center gap-5 md:gap-6">
                 <div
@@ -271,7 +420,7 @@ export default function QuizResultsPage() {
                   <p className="text-sm md:text-base text-white/50 leading-relaxed">{topStar.description}</p>
                 </div>
               </div>
-            </div>
+            </button>
           )}
 
           {/* Recommended Jobs */}
@@ -294,14 +443,33 @@ export default function QuizResultsPage() {
                 const JobIcon = getJobIcon(job.icon);
                 const rankColors = ['#FBBF24', '#9CA3AF', '#CD7C2F', '#6B7280', '#4B5563'];
                 const rankColor = rankColors[index] ?? rankColors[4];
+                const hasExploreData = jobsWithExploreData.has(job.id);
+                
                 return (
-                  <div
+                  <button
                     key={job.id}
-                    className="group relative flex items-start gap-4 p-4 md:p-5 rounded-xl md:rounded-2xl transition-all hover:-translate-y-1 cursor-default"
+                    type="button"
+                    onClick={() => hasExploreData && handleJobClick(job)}
+                    disabled={!hasExploreData}
+                    aria-label={hasExploreData ? `${job.name} 직업 상세 정보 보기` : `${job.name} (상세 정보 준비 중)`}
+                    className="group relative flex items-start gap-4 p-4 md:p-5 rounded-xl md:rounded-2xl transition-all text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50"
                     style={{
                       backgroundColor: 'rgba(255,255,255,0.03)',
                       border: '1px solid rgba(255,255,255,0.06)',
                       boxShadow: index === 0 ? `0 0 30px ${topMeta.color}15` : 'none',
+                      cursor: hasExploreData ? 'pointer' : 'not-allowed',
+                      opacity: hasExploreData ? 1 : 0.5,
+                      transform: hasExploreData ? 'none' : 'none',
+                    }}
+                    onMouseEnter={(e) => {
+                      if (hasExploreData) {
+                        e.currentTarget.style.transform = 'translateY(-4px)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (hasExploreData) {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }
                     }}
                   >
                     <div
@@ -341,7 +509,7 @@ export default function QuizResultsPage() {
                         </p>
                       )}
                       <div
-                        className="inline-block text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mt-3"
+                        className="inline-flex items-center gap-2 flex-wrap text-xs md:text-sm font-bold px-3 py-1.5 rounded-full mt-3"
                         style={{
                           backgroundColor: `${topMeta.color}20`,
                           color: topMeta.color,
@@ -350,8 +518,11 @@ export default function QuizResultsPage() {
                       >
                         매칭도 {item.score}%
                       </div>
+                      {!hasExploreData && (
+                        <p className="text-[10px] text-gray-500 mt-2">상세 정보 준비 중</p>
+                      )}
                     </div>
-                  </div>
+                  </button>
                 );
               })}
             </div>
@@ -379,6 +550,22 @@ export default function QuizResultsPage() {
             <div className="text-2xl md:text-3xl font-black text-[#a29bfe]">+100 XP</div>
           </div>
 
+          <p className="text-center text-[11px] text-white/35">
+            적성 결과는 이 브라우저의 localStorage에 저장됩니다. 다른 기기나 브라우저에서는 이어지지 않을 수 있어요.
+          </p>
+
+          {/* 재검사 */}
+          <div className="w-full">
+            <button
+              type="button"
+              className="w-full h-12 md:h-14 rounded-2xl text-sm md:text-base font-bold text-white/90 border border-white/15 bg-white/[0.04] transition-all hover:bg-white/[0.08] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+              onClick={() => router.push('/quiz')}
+            >
+              <RotateCcw className="w-4 h-4 md:w-5 md:h-5" />
+              적성 검사 다시 하기
+            </button>
+          </div>
+
           {/* CTA Button */}
           <div className="w-full">
             <button
@@ -400,6 +587,26 @@ export default function QuizResultsPage() {
 
         </section>
       </div>
+
+      {selectedJobForDialog && selectedStarForDialog && isJobDialogOpen && (
+        <JobDetailModal
+          job={selectedJobForDialog}
+          star={selectedStarForDialog}
+          onClose={handleCloseJobDialog}
+        />
+      )}
+
+      {isStarPanelOpen && starDataForPanel && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="w-full max-w-4xl h-[85vh] bg-slate-950 rounded-3xl border border-violet-500/30 overflow-hidden">
+            <StarDetailPanel
+              star={starDataForPanel}
+              onClose={handleCloseStarPanel}
+              onOpenJob={handleOpenJobFromPanel}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
