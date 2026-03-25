@@ -1,0 +1,254 @@
+{
+  "blueprints": [
+    {
+      "slug": "semester-grade-boost",
+      "title": "이번 학기 내신 방어 + 상승 플랜",
+      "description": "중간고사·기말고사 기준으로 주차별 점검표를 만듭니다.",
+      "priority": "high",
+      "items": [
+        {
+          "title": "전 과목 성취도·오답 유형 분석",
+          "description": "지난 시험·과제 기준으로 취약 단원 리스트업",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "주간 질문 로그 (교과별 3개)",
+          "description": "선생님·친구·스터디에 질문할 내용 누적",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "주말 모의고사/과제 타이머",
+          "description": "실전 시간·환경으로 스트레스 적응",
+          "order_index": 2,
+          "status": "todo"
+        },
+        {
+          "title": "세특·포트폴리오 한 줄 업데이트",
+          "description": "이번 달 배운 개념을 활동 기록으로 남기기",
+          "order_index": 3,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "cs-foundation-90days",
+      "title": "90일 CS 기초 다지기 (비전공자)",
+      "description": "Python·자료구조·웹 기초를 12주에 나누어 실행합니다.",
+      "priority": "medium",
+      "items": [
+        {
+          "title": "1~4주: Python 문법·문제 해결",
+          "description": "백준 브론즈~실버 40문제",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "5~8주: 자료구조·알고리즘",
+          "description": "스택/큐/그래프/DP 입문",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "9~12주: HTTP·REST·간단 API",
+          "description": "Flask/FastAPI로 CRUD 한 번",
+          "order_index": 2,
+          "status": "todo"
+        },
+        {
+          "title": "주간 회고 블로그 12편",
+          "description": "실패·시행착오를 기록해 면접 스토리로 전환",
+          "order_index": 3,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "portfolio-sprint-6w",
+      "title": "6주 포트폴리오 스프린트",
+      "description": "문제정의→출시→회고까지 한 사이클을 강제합니다.",
+      "priority": "high",
+      "items": [
+        {
+          "title": "1주: 문제 인터뷰 5명",
+          "description": "페인포인트·기존 대안·지불 의향 파악",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "2주: MVP 스펙·와이어",
+          "description": "필수 기능 3개만 남기고 나머지는 백로그",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "3~4주: 구현·테스트",
+          "description": "배포 URL·테스트 데이터·에러 로그",
+          "order_index": 2,
+          "status": "todo"
+        },
+        {
+          "title": "5주: 사용자 테스트 3회",
+          "description": "피드백 반영·지표(가입·리텐션) 기록",
+          "order_index": 3,
+          "status": "todo"
+        },
+        {
+          "title": "6주: 회고·발표 자료",
+          "description": "의사결정·리스크·다음 실험",
+          "order_index": 4,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "sat-english-daily",
+      "title": "수능 영어 매일 45분 루틴",
+      "description": "지문 유형별로 시간을 쪼개는 반복 플랜입니다.",
+      "priority": "medium",
+      "items": [
+        {
+          "title": "월: 독해 속도 (지문 2편 타이머)",
+          "description": "정답보다 시간·집중 유지",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "화: 빈칸·순서·삽입",
+          "description": "유형별 키워드 표시 연습",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "수: 어법·어휘",
+          "description": "오답 노트에 규칙 한 줄씩",
+          "order_index": 2,
+          "status": "todo"
+        },
+        {
+          "title": "목: 장문 독해 1회",
+          "description": "요약 3문장으로 강제",
+          "order_index": 3,
+          "status": "todo"
+        },
+        {
+          "title": "금: 모의고사 파트",
+          "description": "주간 오답 점검",
+          "order_index": 4,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "volunteer-log-career",
+      "title": "봉사·돌봄 활동 로그 & 세특 연결",
+      "description": "의료·사회·교육 진로를 위해 활동을 증명 가능하게 만듭니다.",
+      "priority": "medium",
+      "items": [
+        {
+          "title": "기관 선정·정기 일정 확보",
+          "description": "주 1회 이상 3개월 이상 목표",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "활동일지 (상황·행동·성찰)",
+          "description": "STAR 형식으로 매주 기록",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "세특 문장 초안",
+          "description": "교과 연결 키워드 3개",
+          "order_index": 2,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "startup-idea-4weeks",
+      "title": "4주 스타트업 아이디어 검증",
+      "description": "가설→실험→지표를 빠르게 돌리는 미니 플랜.",
+      "priority": "high",
+      "items": [
+        {
+          "title": "1주: 문제 가설·페르소나",
+          "description": "왜 지금인가? 기존 대안의 한계",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "2주: MVP 스펙·랜딩",
+          "description": "이메일 수집 또는 예약 1개",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "3주: 실험·지표",
+          "description": "전환율·이탈률·인터뷰 5명",
+          "order_index": 2,
+          "status": "todo"
+        },
+        {
+          "title": "4주: 피벗/킵 결정",
+          "description": "계속·중단·방향 전환 문서화",
+          "order_index": 3,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "transfer-foreign-language",
+      "title": "제2외국어·국제 이슈 확장 (외교·국제학)",
+      "description": "언어·국제 뉴스·모의UN을 연결하는 주간 플랜.",
+      "priority": "high",
+      "items": [
+        {
+          "title": "언어: 주 5회 듣기·따라말하기",
+          "description": "레벨별 콘텐츠 20분",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "주간 국제 이슈 브리핑 1페이지",
+          "description": "이해관계자·쟁점·한국 정책",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "모의UN·토론 스크립트",
+          "description": "입장·근거·반론 준비",
+          "order_index": 2,
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "slug": "health-routine-student",
+      "title": "컨디션 관리 (수면·운동·디지털 디톡스)",
+      "description": "장기 프로젝트에 필요한 체력·집중 루틴.",
+      "priority": "low",
+      "items": [
+        {
+          "title": "수면 7h+ 고정 시간",
+          "description": "취침·기상 알람·스크린 오프",
+          "order_index": 0,
+          "status": "todo"
+        },
+        {
+          "title": "주 3회 유산소 30분",
+          "description": "심박·기분 점수 기록",
+          "order_index": 1,
+          "status": "todo"
+        },
+        {
+          "title": "스마트폰 앱 제한 (집중 모드)",
+          "description": "공부 블록과 분리",
+          "order_index": 2,
+          "status": "todo"
+        }
+      ]
+    }
+  ]
+}

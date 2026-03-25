@@ -1,0 +1,2914 @@
+{
+  "meta": {
+    "title": "직업별 캐리어 루트",
+    "subtitle": "고입 → 대입 → 취업 완전 연결 가이드",
+    "description": "목표 직업에서 역산하는 전략적 캐리어 패스"
+  },
+  "categories": [
+    {
+      "id": "engineering-tech",
+      "name": "이공계·기술",
+      "emoji": "🔬",
+      "color": "#845ef7",
+      "jobs": [
+        {
+          "id": "semiconductor-engineer",
+          "name": "반도체 엔지니어",
+          "emoji": "💡",
+          "company": "삼성전자·SK하이닉스",
+          "salaryRange": "8,000만~1억 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "science-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "과학고·영재고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대 전기전자공학부",
+              "admissionType": "학종 (일반전형)",
+              "difficulty": 5
+            },
+            {
+              "name": "KAIST 전기전자공학과",
+              "admissionType": "특기자·일반전형",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대 전기전자공학부",
+              "admissionType": "학종 (활동우수)",
+              "difficulty": 4
+            },
+            {
+              "name": "POSTECH 전자전기공학과",
+              "admissionType": "일반전형",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "수학·과학 전 과목 A",
+                "영재교육원 입학",
+                "KMO·KPhO 경시대회"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "R&E 연구 (반도체·전자 주제)",
+                "올림피아드 수상",
+                "수학·물리 심화 학습"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전기전자 전공 학점 4.0+",
+                "반도체 연구실 인턴",
+                "삼성·SK 채용 연계 프로그램"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "삼성전자 DS부문 공채",
+                "SK하이닉스 공채",
+                "TSMC·인텔 해외 취업"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "수학·물리 심화 (미적분·선형대수)",
+            "반도체 공정 기초 지식",
+            "코딩 능력 (Python·C++)",
+            "영어 논문 독해 능력"
+          ],
+          "futureOutlook": "AI 반도체 수요 폭증으로 2030년까지 최고 유망 직종. HBM·3D 낸드 전문가 희소성 높음."
+        },
+        {
+          "id": "ai-researcher",
+          "name": "AI 연구원",
+          "emoji": "🤖",
+          "company": "네이버·카카오·구글·삼성리서치",
+          "salaryRange": "8,000만~1.5억 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "science-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "과학고·영재고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대 컴퓨터공학부",
+              "admissionType": "학종 (일반전형)",
+              "difficulty": 5
+            },
+            {
+              "name": "KAIST 전산학부",
+              "admissionType": "특기자·일반전형",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대 컴퓨터과학과",
+              "admissionType": "학종 (활동우수)",
+              "difficulty": 4
+            },
+            {
+              "name": "고려대 컴퓨터학과",
+              "admissionType": "학종 (학교추천)",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "수학 심화 (선형대수 기초)",
+                "코딩 입문 (Python)",
+                "AI·SW 경시대회 참가"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "R&E 연구 (AI·머신러닝 주제)",
+                "정보올림피아드 수상",
+                "오픈소스 프로젝트 기여"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4+",
+              "tasks": [
+                "컴퓨터공학 전공 + 수학 복수전공",
+                "AI 연구실 석사 진학",
+                "논문 발표 (NeurIPS·ICML)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "석사~",
+              "tasks": [
+                "네이버 클로바 AI 연구원",
+                "카카오 AI 랩",
+                "구글 브레인·딥마인드"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "수학 심화 (선형대수·확률통계·미적분)",
+            "Python·PyTorch·TensorFlow",
+            "논문 독해 및 구현 능력",
+            "영어 (논문·발표)"
+          ],
+          "futureOutlook": "ChatGPT 이후 AI 연구원 수요 폭발적 증가. 석사·박사 학위 보유자 연봉 1.5억~3억 수준."
+        },
+        {
+          "id": "software-developer",
+          "name": "소프트웨어 개발자",
+          "emoji": "💻",
+          "company": "네이버·카카오·토스·쿠팡",
+          "salaryRange": "6,000만~1.2억 (5년차)",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "science-high",
+            "autonomous-private-high",
+            "general-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "과학고·영재고",
+            "자사고",
+            "일반고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대·KAIST·POSTECH 컴퓨터공학",
+              "admissionType": "학종·특기자",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대·고려대 컴퓨터공학",
+              "admissionType": "학종",
+              "difficulty": 4
+            },
+            {
+              "name": "성균관대·한양대 컴퓨터공학",
+              "admissionType": "학종·교과",
+              "difficulty": 3
+            },
+            {
+              "name": "지방 국립대 컴퓨터공학",
+              "admissionType": "교과·정시",
+              "difficulty": 2
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "코딩 입문 (Python·Java)",
+                "정보올림피아드 참가",
+                "앱·웹 개발 프로젝트"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "알고리즘·자료구조 학습",
+                "오픈소스 기여",
+                "해커톤 참가"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "컴퓨터공학 전공 학점 3.5+",
+                "인턴십 (네이버·카카오·스타트업)",
+                "코딩테스트 준비 (LeetCode)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "네이버·카카오 공채",
+                "토스·쿠팡 수시채용",
+                "스타트업 창업"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "알고리즘·자료구조 (코딩테스트)",
+            "웹·앱 개발 실무 경험",
+            "오픈소스 프로젝트 포트폴리오",
+            "영어 기술 문서 독해"
+          ],
+          "futureOutlook": "AI 시대에도 소프트웨어 개발자 수요 지속. AI 도구 활용 능력이 핵심 차별화 요소."
+        }
+      ]
+    },
+    {
+      "id": "business-finance",
+      "name": "경영·금융",
+      "emoji": "📊",
+      "color": "#20c997",
+      "jobs": [
+        {
+          "id": "management-consultant",
+          "name": "경영 컨설턴트",
+          "emoji": "📋",
+          "company": "맥킨지·BCG·베인·삼일PwC",
+          "salaryRange": "1.2억~1.8억 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "foreign-language-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "외고·국제고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대 경영학과",
+              "admissionType": "학종 (일반전형)",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대 경영학과",
+              "admissionType": "학종 (활동우수)",
+              "difficulty": 5
+            },
+            {
+              "name": "고려대 경영학과",
+              "admissionType": "학종 (학교추천)",
+              "difficulty": 4
+            },
+            {
+              "name": "성균관대 글로벌경영학과",
+              "admissionType": "학종",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "영어 심화 (TOEFL 80+)",
+                "경제·경영 독서",
+                "모의UN·토론 동아리"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "경제·사회 세특 강화",
+                "모의UN 대표 활동",
+                "케이스 스터디 동아리"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "경영학 학점 4.0+",
+                "컨설팅 동아리 활동",
+                "케이스 인터뷰 준비 (맥킨지 스타일)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "맥킨지·BCG·베인 공채",
+                "삼일PwC·딜로이트 컨설팅",
+                "MBA 진학 후 재취업"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "케이스 인터뷰 (MECE 사고)",
+            "영어 (OPIc AL 이상)",
+            "엑셀·파워포인트 고급",
+            "경제·경영 기본 지식"
+          ],
+          "futureOutlook": "AI 컨설팅 수요 증가로 디지털 전환 전문 컨설턴트 희소성 높음."
+        },
+        {
+          "id": "investment-banker",
+          "name": "투자은행(IB) 전문가",
+          "emoji": "💹",
+          "company": "골드만삭스·JP모건·삼성증권",
+          "salaryRange": "1억~2억 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "foreign-language-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "외고·국제고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대·연세대·고려대 경영·경제",
+              "admissionType": "학종",
+              "difficulty": 5
+            },
+            {
+              "name": "성균관대·한양대·서강대 경영·경제",
+              "admissionType": "학종·교과",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "영어 심화",
+                "경제·주식 기초 학습",
+                "수학 심화 (통계)"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "경제·수학 세특 강화",
+                "모의 주식 투자 동아리",
+                "금융 관련 독서"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "경영·경제 학점 4.0+",
+                "CFA Level 1 취득",
+                "IB 인턴십 (증권사·PE)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "골드만삭스·JP모건 공채",
+                "삼성증권·미래에셋 IB부서",
+                "해외 MBA 후 글로벌 IB"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "CFA (공인재무분석사)",
+            "영어 (비즈니스 영어 최상급)",
+            "재무모델링 (엑셀)",
+            "경제·금융 시사 지식"
+          ],
+          "futureOutlook": "핀테크·AI 금융 시대에도 고부가가치 딜 소싱 능력은 대체 불가."
+        }
+      ]
+    },
+    {
+      "id": "medical-legal",
+      "name": "의료·법률",
+      "emoji": "⚕️",
+      "color": "#f03e3e",
+      "jobs": [
+        {
+          "id": "doctor",
+          "name": "의사 (서울 빅5 병원)",
+          "emoji": "🏥",
+          "company": "서울대병원·세브란스·삼성서울병원",
+          "salaryRange": "1억~2억+ (전문의 기준)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "autonomous-private-high",
+            "general-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "자사고",
+            "일반고 (학군지)"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대 의과대학",
+              "admissionType": "수능 최상위 (정시)",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대 의과대학",
+              "admissionType": "수능 최상위 (정시)",
+              "difficulty": 5
+            },
+            {
+              "name": "고려대 의과대학",
+              "admissionType": "수능 최상위 (정시)",
+              "difficulty": 5
+            },
+            {
+              "name": "지방 의과대학",
+              "admissionType": "수능 상위 (정시·수시)",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "전 과목 최상위 내신",
+                "수학·과학 심화",
+                "봉사 활동 (병원·요양원)"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "수능 전 과목 1등급 목표",
+                "생명과학·화학 심화",
+                "의료 봉사 활동"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "의과대학",
+              "period": "6년",
+              "tasks": [
+                "의학 전공 학점 관리",
+                "의사 국가고시 합격",
+                "전공의 지원 (인턴·레지던트)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "전문의",
+              "period": "4년 수련",
+              "tasks": [
+                "전공의 수련 (인턴 1년+레지던트 3~4년)",
+                "전문의 자격 취득",
+                "펠로우십 (빅5 병원)"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "수능 전 과목 상위 0.1% (의대 진입)",
+            "생명과학·화학 심화",
+            "봉사 활동 (의료 관련)",
+            "영어 (의학 논문 독해)"
+          ],
+          "futureOutlook": "의대 정원 확대로 경쟁 심화되나, 전문의·교수 등 상위 포지션 희소성 유지."
+        },
+        {
+          "id": "lawyer",
+          "name": "판사·검사·변호사",
+          "emoji": "⚖️",
+          "company": "법원·검찰·대형 로펌",
+          "salaryRange": "8,000만~1.5억 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "autonomous-private-high",
+            "general-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "자사고",
+            "일반고 (학군지)"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대·연세대·고려대 법학 → 로스쿨",
+              "admissionType": "학종·수능",
+              "difficulty": 5
+            },
+            {
+              "name": "성균관대·한양대·서강대 → 로스쿨",
+              "admissionType": "학종·교과",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "전 과목 최상위 내신",
+                "독서 (법·철학·사회)",
+                "토론 동아리"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "전 과목 1등급 목표",
+                "사회·국어 세특 강화",
+                "모의재판 동아리"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "법학 학점 4.0+",
+                "LEET 준비 (법학적성시험)",
+                "로스쿨 자기소개서 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "로스쿨·사법시험",
+              "period": "3년",
+              "tasks": [
+                "로스쿨 3년 수료",
+                "변호사 시험 합격",
+                "판사·검사 임용 또는 로펌 취업"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "LEET (법학적성시험) 고득점",
+            "영어 (TOEIC 900+)",
+            "법학 기초 지식",
+            "논리적 사고·글쓰기 능력"
+          ],
+          "futureOutlook": "AI 법률 서비스 확대로 단순 업무 대체되나, 고난도 소송·자문 전문가 수요 유지."
+        }
+      ]
+    },
+    {
+      "id": "public-government",
+      "name": "공공·외교",
+      "emoji": "🏛️",
+      "color": "#1971c2",
+      "jobs": [
+        {
+          "id": "diplomat",
+          "name": "외교관·국제기구 직원",
+          "emoji": "🌍",
+          "company": "외교부·UN·OECD·세계은행",
+          "salaryRange": "6,000만~9,000만 (5년차)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "foreign-language-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "외고·국제고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "서울대 외교학과·국제대학원",
+              "admissionType": "학종",
+              "difficulty": 5
+            },
+            {
+              "name": "연세대 국제학부",
+              "admissionType": "학종 (활동우수)",
+              "difficulty": 5
+            },
+            {
+              "name": "고려대 국제학부",
+              "admissionType": "학종 (학교추천)",
+              "difficulty": 4
+            },
+            {
+              "name": "한국외대 외교학과",
+              "admissionType": "학종·교과",
+              "difficulty": 4
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "영어 심화 (TOEFL 80+)",
+                "모의UN 동아리",
+                "국제 이슈 독서"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "영어·사회 세특 강화",
+                "모의UN 대표 활동",
+                "제2외국어 (중국어·프랑스어) 학습"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "외교학·국제학 학점 4.0+",
+                "외무고시 준비",
+                "해외 교환학생 (1년)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "외무고시 합격 (5급 공채)",
+                "UN 영프로페셔널 프로그램 (YPP)",
+                "국제기구 인턴십"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "영어 (OPIc AL 이상)",
+            "제2외국어 (중국어·프랑스어·스페인어)",
+            "국제 시사 지식",
+            "외무고시 준비 (국제법·경제)"
+          ],
+          "futureOutlook": "글로벌 이슈 증가로 외교·국제기구 전문가 수요 유지. 다국어 능력자 희소성 높음."
+        },
+        {
+          "id": "public-enterprise",
+          "name": "공기업 전문직",
+          "emoji": "🏢",
+          "company": "한전·가스공사·코레일·LH",
+          "salaryRange": "5,000만~7,000만 (5년차)",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "지방 국립대 공학·경영",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            },
+            {
+              "name": "성균관대·한양대·중앙대 공학·경영",
+              "admissionType": "학종·교과",
+              "difficulty": 4
+            },
+            {
+              "name": "서울대·연세대·고려대 공학·경영",
+              "admissionType": "학종",
+              "difficulty": 5
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "전 과목 내신 관리",
+                "수학·과학 기초 탄탄히",
+                "진로 방향 탐색"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신 1~2등급 목표",
+                "수능 병행 준비",
+                "전공 관련 활동"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 학점 3.5+",
+                "NCS 준비 (직업기초능력)",
+                "전공 자격증 취득 (전기기사 등)"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공기업 공채 (NCS+전공시험)",
+                "한전·가스공사·코레일 지원",
+                "필기·면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "NCS (직업기초능력평가)",
+            "전공 시험 (전기·기계·경영)",
+            "전공 자격증 (전기기사·기계기사)",
+            "한국사 능력검정시험"
+          ],
+          "futureOutlook": "공기업 정원 유지로 안정적 수요. 에너지 전환 시대에 한전·가스공사 전문가 중요도 증가."
+        }
+      ]
+    },
+    {
+      "id": "creative-media",
+      "name": "창작·미디어",
+      "emoji": "🎨",
+      "color": "#f59f00",
+      "jobs": [
+        {
+          "id": "game-developer",
+          "name": "게임 개발자",
+          "emoji": "🎮",
+          "company": "넥슨·넷마블·크래프톤·스마일게이트",
+          "salaryRange": "5,000만~1억 (5년차)",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "science-high",
+            "autonomous-private-high",
+            "general-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "과학고·영재고",
+            "자사고",
+            "일반고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "KAIST·POSTECH 전산학",
+              "admissionType": "특기자·일반전형",
+              "difficulty": 5
+            },
+            {
+              "name": "서울대·연세대·고려대 컴퓨터공학",
+              "admissionType": "학종",
+              "difficulty": 5
+            },
+            {
+              "name": "성균관대·한양대 컴퓨터공학",
+              "admissionType": "학종·교과",
+              "difficulty": 4
+            },
+            {
+              "name": "게임 특성화 대학 (청강문화산업대 등)",
+              "admissionType": "실기·면접",
+              "difficulty": 2
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "코딩 입문 (Unity·Unreal 기초)",
+                "게임 기획 아이디어 노트",
+                "수학 심화 (3D 그래픽스 기초)"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "게임 개발 프로젝트 (개인/팀)",
+                "게임잼 참가",
+                "컴퓨터공학 기초 학습"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "컴퓨터공학 전공 학점 3.5+",
+                "게임 개발 포트폴리오 구축",
+                "넥슨·크래프톤 인턴십"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "넥슨·넷마블·크래프톤 공채",
+                "인디 게임 개발 창업",
+                "해외 게임사 (EA·블리자드)"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "Unity·Unreal Engine 개발 능력",
+            "C++·C# 프로그래밍",
+            "게임 포트폴리오 (플레이 가능한 게임)",
+            "3D 그래픽스·물리 엔진 이해"
+          ],
+          "futureOutlook": "메타버스·VR 게임 시장 성장으로 게임 개발자 수요 지속 증가."
+        }
+      ]
+    },
+    {
+      "id": "seed-builtin-extra",
+      "name": "시드 확장 직업",
+      "emoji": "✨",
+      "color": "#868e96",
+      "jobs": [
+        {
+          "id": "data-scientist",
+          "name": "데이터 사이언티스트",
+          "emoji": "📊",
+          "company": "네이버·쿠팡·은행",
+          "salaryRange": "6,000만~1.2억 (경력)",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "데이터로 문제를 정의하고 모델을 설계해 의사결정을 돕는 직무입니다."
+        },
+        {
+          "id": "clinical-psychologist",
+          "name": "임상심리사",
+          "emoji": "🧠",
+          "company": "병원·심리상담센터",
+          "salaryRange": "4,000만~7,000만",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "심리평가와 치료를 통해 회복을 돕는 전문 직종입니다."
+        },
+        {
+          "id": "interior-designer",
+          "name": "인테리어 디자이너",
+          "emoji": "🏠",
+          "company": "건축·리빙 스튜디오",
+          "salaryRange": "3,500만~8,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "공간과 조명·재료를 설계해 삶의 질을 높입니다."
+        },
+        {
+          "id": "film-director",
+          "name": "영화 감독",
+          "emoji": "🎬",
+          "company": "제작사·OTT",
+          "salaryRange": "변동 큼 (프로젝트)",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "스토리텔링과 촬영·편집을 총괄하는 창작 직군입니다."
+        },
+        {
+          "id": "devops-engineer",
+          "name": "DevOps 엔지니어",
+          "emoji": "⚙️",
+          "company": "네이버·AWS·스타트업",
+          "salaryRange": "7,000만~1.3억",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "배포·모니터링·인프라 자동화로 서비스 안정성을 책임집니다."
+        },
+        {
+          "id": "security-engineer",
+          "name": "정보보안 엔지니어",
+          "emoji": "🔐",
+          "company": "안랩·금융권",
+          "salaryRange": "6,000만~1.1억",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "침해사고 대응·취약점 분석으로 시스템을 보호합니다."
+        },
+        {
+          "id": "forester",
+          "name": "산림·환경 기술자",
+          "emoji": "🌲",
+          "company": "산림청·환경공단",
+          "salaryRange": "4,000만~6,500만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "산림 보전·조성과 환경 모니터링을 수행합니다."
+        },
+        {
+          "id": "environmental-engineer",
+          "name": "환경공학기술자",
+          "emoji": "♻️",
+          "company": "EPC·대기업 환경팀",
+          "salaryRange": "4,500만~8,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "수질·대기·폐기물 처리 시설을 설계·운영합니다."
+        },
+        {
+          "id": "social-worker",
+          "name": "사회복지사",
+          "emoji": "🤝",
+          "company": "지자체·복지관",
+          "salaryRange": "3,200만~5,500만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "취약계층을 지원하고 복지 서비스를 연결합니다."
+        },
+        {
+          "id": "hr-specialist",
+          "name": "HRD·채용 담당자",
+          "emoji": "👔",
+          "company": "대기업·스타트업",
+          "salaryRange": "4,000만~9,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "채용·교육·평가 제도를 설계하고 조직 문화를 돕습니다."
+        },
+        {
+          "id": "accountant",
+          "name": "회계사",
+          "emoji": "📒",
+          "company": "회계법인·대기업",
+          "salaryRange": "5,500만~1.2억",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "재무제표·세무·감사로 기업의 신뢰를 지킵니다."
+        },
+        {
+          "id": "patent-attorney",
+          "name": "변리사",
+          "emoji": "📜",
+          "company": "특허법인",
+          "salaryRange": "6,000만~1.5억",
+          "difficulty": 5,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "특허 출원·분쟁을 다루는 기술·법률 복합 직종입니다."
+        },
+        {
+          "id": "pr-specialist",
+          "name": "PR·브랜드 커뮤니케이터",
+          "emoji": "📣",
+          "company": "대행사·대기업",
+          "salaryRange": "4,000만~9,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "메시지와 미디어를 설계해 브랜드 신뢰를 쌓습니다."
+        },
+        {
+          "id": "podcaster",
+          "name": "팟캐스터·오디오 PD",
+          "emoji": "🎙️",
+          "company": "1인 미디어·플랫폼",
+          "salaryRange": "변동 (광고·후원)",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "기획·녹음·편집으로 스토리를 오디오로 전달합니다."
+        },
+        {
+          "id": "product-manager",
+          "name": "프로덕트 매니저",
+          "emoji": "🚀",
+          "company": "IT·핀테크",
+          "salaryRange": "7,000만~1.5억",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "문제 정의·우선순위·지표로 제품 성장을 이끕니다."
+        },
+        {
+          "id": "franchise-consultant",
+          "name": "프랜차이즈 창업 컨설턴트",
+          "emoji": "🏪",
+          "company": "컨설팅·브랜드본부",
+          "salaryRange": "4,500만~9,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "매장 운영·원가·마케팅을 설계해 창업을 돕습니다."
+        },
+        {
+          "id": "nurse",
+          "name": "간호사",
+          "emoji": "💉",
+          "company": "상급병원·요양",
+          "salaryRange": "4,200만~7,500만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "환자 돌봄과 의료진 협진의 핵심 직무입니다."
+        },
+        {
+          "id": "civil-engineer",
+          "name": "토목·건설 기술자",
+          "emoji": "🏗️",
+          "company": "건설·시공사",
+          "salaryRange": "4,500만~9,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "도로·교량·플랜트 등 인프라를 설계·시공합니다."
+        },
+        {
+          "id": "chef",
+          "name": "셰프",
+          "emoji": "👨‍🍳",
+          "company": "호텔·레스토랑",
+          "salaryRange": "3,500만~8,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "레시피·운영·팀 리더십으로 식음 경험을 만듭니다."
+        },
+        {
+          "id": "journalist",
+          "name": "기자",
+          "emoji": "📰",
+          "company": "언론사·매체",
+          "salaryRange": "3,800만~8,500만",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "취재·검증·취재 윤리로 공론장을 만듭니다."
+        },
+        {
+          "id": "marketer",
+          "name": "퍼포먼스 마케터",
+          "emoji": "📈",
+          "company": "이커머스·게임",
+          "salaryRange": "4,200만~1억",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "성과 지표 기반으로 캠페인을 설계·최적화합니다."
+        },
+        {
+          "id": "electric-vehicle-engineer",
+          "name": "전기차 시스템 엔지니어",
+          "emoji": "🔋",
+          "company": "현대차·배터리",
+          "salaryRange": "6,000만~1.1억",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "배터리·모터·제어 SW로 모빌리티를 구현합니다."
+        },
+        {
+          "id": "urban-planner",
+          "name": "도시계획가",
+          "emoji": "🗺️",
+          "company": "지자체·설계사",
+          "salaryRange": "4,200만~7,000만",
+          "difficulty": 4,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "토지 이용·교통·주거 정책을 설계합니다."
+        },
+        {
+          "id": "curator",
+          "name": "큐레이터",
+          "emoji": "🖼️",
+          "company": "미술관·전시",
+          "salaryRange": "3,500만~6,500만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "전시 기획과 해설로 예술·문화를 연결합니다."
+        },
+        {
+          "id": "sports-trainer",
+          "name": "스포츠 트레이너",
+          "emoji": "🏃",
+          "company": "구단·피트니스",
+          "salaryRange": "3,200만~6,000만",
+          "difficulty": 3,
+          "recommendedHighSchool": [
+            "general-high",
+            "autonomous-private-high"
+          ],
+          "recommendedHighSchoolNames": [
+            "일반고",
+            "자사고"
+          ],
+          "recommendedUniversities": [
+            {
+              "name": "수도권 주요 대학",
+              "admissionType": "학종·수능",
+              "difficulty": 4
+            },
+            {
+              "name": "지역 국립대",
+              "admissionType": "교과·정시",
+              "difficulty": 3
+            }
+          ],
+          "careerPath": [
+            {
+              "stage": "중학교",
+              "period": "중1~중3",
+              "tasks": [
+                "기초 학습 습관",
+                "독서·탐구 활동",
+                "진로 관심 분야 찾기"
+              ],
+              "icon": "🏫"
+            },
+            {
+              "stage": "고등학교",
+              "period": "고1~고3",
+              "tasks": [
+                "내신·수능 전략",
+                "동아리·세특 정리",
+                "관심 분야 심화"
+              ],
+              "icon": "🔬"
+            },
+            {
+              "stage": "대학교",
+              "period": "대1~대4",
+              "tasks": [
+                "전공 이수",
+                "인턴·현장 경험",
+                "자격·어학 준비"
+              ],
+              "icon": "🎓"
+            },
+            {
+              "stage": "취업",
+              "period": "대4~",
+              "tasks": [
+                "공채·수시채용 지원",
+                "포트폴리오 정리",
+                "면접 준비"
+              ],
+              "icon": "💼"
+            }
+          ],
+          "keyPreparation": [
+            "전공 기초",
+            "실무 프로젝트",
+            "협업 경험",
+            "외국어·자격"
+          ],
+          "futureOutlook": "운동 처방·부상 예방으로 선수·일반인의 몸을 돕습니다."
+        }
+      ]
+    }
+  ],
+  "routeOverview": {
+    "title": "고입 → 대입 → 취업 전체 연결도",
+    "description": "목표 직업에서 역산하여 고입부터 전략적으로 준비",
+    "pathways": [
+      {
+        "highSchool": "과학고·영재고",
+        "universities": [
+          "서울대 이공계",
+          "KAIST",
+          "POSTECH"
+        ],
+        "jobs": [
+          "반도체 엔지니어",
+          "AI 연구원",
+          "소프트웨어 개발자"
+        ],
+        "color": "#845ef7"
+      },
+      {
+        "highSchool": "외고·국제고",
+        "universities": [
+          "연세대 경영·국제학",
+          "고려대 국제학부",
+          "서울대 외교학"
+        ],
+        "jobs": [
+          "경영 컨설턴트",
+          "투자은행(IB)",
+          "외교관"
+        ],
+        "color": "#20c997"
+      },
+      {
+        "highSchool": "자사고",
+        "universities": [
+          "SKY 전 계열",
+          "성균관대·한양대"
+        ],
+        "jobs": [
+          "의사",
+          "변호사",
+          "컨설턴트",
+          "대기업 임원"
+        ],
+        "color": "#f03e3e"
+      },
+      {
+        "highSchool": "일반고 (학군지)",
+        "universities": [
+          "SKY 수능 정시",
+          "지방 국립대"
+        ],
+        "jobs": [
+          "공기업 전문직",
+          "의사 (수능형)",
+          "교사"
+        ],
+        "color": "#fd7e14"
+      },
+      {
+        "highSchool": "비즈니스고",
+        "universities": [
+          "재직자 특별전형"
+        ],
+        "jobs": [
+          "금융·유통·IT 기업 취업",
+          "창업"
+        ],
+        "color": "#1971c2"
+      },
+      {
+        "highSchool": "마이스터고",
+        "universities": [
+          "선취업 후진학"
+        ],
+        "jobs": [
+          "대기업 기술직",
+          "기술 명장"
+        ],
+        "color": "#2f9e44"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+# Core Django (5.2.1+ fixes BaseContext.__copy__ on Python 3.14 — admin/templates crash otherwise)
+Django==5.2.5
+djangorestframework==3.15.0
+
+# Authentication
+djangorestframework-simplejwt==5.3.1
+social-auth-app-django==5.4.1
+PyJWT==2.8.0
+
+# API Documentation
+drf-spectacular==0.27.2
+
+# Cache
+django-redis==5.4.0
+redis==5.0.3
+
+# Utilities
+python-decouple==3.8
+django-cors-headers==4.3.1
+django-filter==23.5
+
+# Media & Storage (12.x: Python 3.14+ 용 바이너리 휠; 10.3.0은 3.14에서 소스 빌드 실패)
+Pillow==12.1.1
+django-storages==1.14.3
+boto3==1.34.0
+
+# Development Tools
+ipython==8.12.0
+django-extensions==3.2.3
+
+# HTTP Client
+requests==2.31.0

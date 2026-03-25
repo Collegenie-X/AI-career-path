@@ -1,0 +1,430 @@
+{
+  "templates": [
+    {
+      "template_key": "tpl-sw-engineer-track-001",
+      "title": "소프트웨어 엔지니어 성장 로드맵 (고등~대학)",
+      "category": "job",
+      "job_id": "software-developer",
+      "university_id": "",
+      "description": "알고리즘·웹·인턴까지 한 번에 정리한 공식 템플릿입니다.",
+      "likes": 210,
+      "uses": 88,
+      "is_official": true,
+      "years": [
+        {
+          "year": "고1",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "Python·정보 시간 기초 완성",
+              "description": "백준 브론즈~실버 구간 목표, 학교 수행평가로 프로젝트 1개",
+              "month": 3,
+              "emoji": "🐍",
+              "order_index": 0
+            },
+            {
+              "item_type": "project",
+              "title": "간단한 웹/앱 프로토타입",
+              "description": "Flask 또는 React로 CRUD 페이지 하나 배포",
+              "month": 9,
+              "emoji": "🌐",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고2",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "자료구조·알고리즘 심화",
+              "description": "DFS/BFS, DP 기초, 코딩테스트 유형 정리",
+              "month": 4,
+              "emoji": "📚",
+              "order_index": 0
+            },
+            {
+              "item_type": "competition",
+              "title": "해커톤·오픈소스 기여",
+              "description": "팀 협업 경험·GitHub 커밋 기록 남기기",
+              "month": 11,
+              "emoji": "🏆",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고3",
+          "order_index": 2,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "수능·내신 밸런스",
+              "description": "목표 학과 컷·모의고사 분석 주간 루틴",
+              "month": 3,
+              "emoji": "📝",
+              "order_index": 0
+            },
+            {
+              "item_type": "project",
+              "title": "입시용 포트폴리오 PDF",
+              "description": "문제정의→설계→구현→회고 한 페이지 요약",
+              "month": 9,
+              "emoji": "📎",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "대1~2",
+          "order_index": 3,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "CS 기초 (OS·네트워크·DB)",
+              "description": "운영체제·HTTP·SQL 트랜잭션 이해",
+              "month": null,
+              "emoji": "📖",
+              "order_index": 0
+            },
+            {
+              "item_type": "project",
+              "title": "팀 프로젝트 리드 경험",
+              "description": "역할 분담·코드리뷰·배포 파이프라인",
+              "month": null,
+              "emoji": "👥",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "대3~4",
+          "order_index": 4,
+          "items": [
+            {
+              "item_type": "activity",
+              "title": "인턴십 2회 이상",
+              "description": "백엔드/프론트 중 하나라도 프로덕션 경험",
+              "month": null,
+              "emoji": "💼",
+              "order_index": 0
+            },
+            {
+              "item_type": "certification",
+              "title": "코딩테스트·기술면접 준비",
+              "description": "LeetCode·이력서 스토리텔링·시스템 디자인 입문",
+              "month": null,
+              "emoji": "🎯",
+              "order_index": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template_key": "tpl-medical-track-001",
+      "title": "의·치·한 수의 예비 로드맵",
+      "category": "job",
+      "job_id": "doctor",
+      "university_id": "",
+      "description": "과학 실험·봉사·세특을 연결하는 의료계열 준비 템플릿.",
+      "likes": 402,
+      "uses": 190,
+      "is_official": true,
+      "years": [
+        {
+          "year": "고1",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "수학·과학 원리 이해 중심",
+              "description": "암기보다 실험·보고서·근거 제시 습관",
+              "month": 3,
+              "emoji": "🧪",
+              "order_index": 0
+            },
+            {
+              "item_type": "activity",
+              "title": "의료·돌봄 봉사 루틴",
+              "description": "병원·요양원 장기 봉사, 소감·성찰 기록",
+              "month": 7,
+              "emoji": "❤️",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고2",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "생명과학 심화·탐구 보고서",
+              "description": "질문·가설·실험·한계까지 서술",
+              "month": 5,
+              "emoji": "🔬",
+              "order_index": 0
+            },
+            {
+              "item_type": "competition",
+              "title": "과학경시·올림피아드 도전",
+              "description": "수상 여부와 무관하게 학습 궤적 남기기",
+              "month": 9,
+              "emoji": "🏅",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고3",
+          "order_index": 2,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "수능·내신 최종 점검",
+              "description": "과탐·수학 오답 패턴 분석·시간 배분",
+              "month": 3,
+              "emoji": "📋",
+              "order_index": 0
+            },
+            {
+              "item_type": "activity",
+              "title": "면접·구술 대비 스토리",
+              "description": "봉사·탐구·진로를 하나의 내러티브로 연결",
+              "month": 10,
+              "emoji": "🗣️",
+              "order_index": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template_key": "tpl-design-portfolio-001",
+      "title": "UX·브랜드 디자인 포트폴리오 트랙",
+      "category": "job",
+      "job_id": "ux-designer",
+      "university_id": "",
+      "description": "리서치→와이어→프로토타입까지 보여주는 작업물 구성.",
+      "likes": 178,
+      "uses": 72,
+      "is_official": true,
+      "years": [
+        {
+          "year": "고1~2",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "피그마 기초·UI 키트 따라 만들기",
+              "description": "오토레이아웃·컴포넌트 개념 익히기",
+              "month": null,
+              "emoji": "🎨",
+              "order_index": 0
+            },
+            {
+              "item_type": "project",
+              "title": "불편함 리디자인 1건",
+              "description": "학교 앱·지역 서비스 UX 개선 가설",
+              "month": null,
+              "emoji": "✨",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고3",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "project",
+              "title": "포트폴리오 사이트 배포",
+              "description": "문제정의→리서치→솔루션→지표",
+              "month": null,
+              "emoji": "🌍",
+              "order_index": 0
+            }
+          ]
+        },
+        {
+          "year": "대학",
+          "order_index": 2,
+          "items": [
+            {
+              "item_type": "activity",
+              "title": "인턴·공모전",
+              "description": "실무 협업·피드백 기록을 스펙에 남기기",
+              "month": null,
+              "emoji": "🤝",
+              "order_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template_key": "tpl-humanities-law-001",
+      "title": "인문·사회·법학 진로 베이스",
+      "category": "general",
+      "job_id": "lawyer",
+      "university_id": "",
+      "description": "독서·토론·사회 이슈를 세특·논술로 연결.",
+      "likes": 95,
+      "uses": 41,
+      "is_official": true,
+      "years": [
+        {
+          "year": "고1~2",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "논술형 독서",
+              "description": "쟁점·근거·반론 정리 습관",
+              "month": null,
+              "emoji": "📚",
+              "order_index": 0
+            },
+            {
+              "item_type": "activity",
+              "title": "모의재판·토론 동아리",
+              "description": "논리·발표·협상 경험",
+              "month": null,
+              "emoji": "⚖️",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고3",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "LEET·논술 기출 패턴",
+              "description": "시간 배분·분량·출제 의도 분석",
+              "month": null,
+              "emoji": "📑",
+              "order_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template_key": "tpl-business-peak-001",
+      "title": "경영·금융 트랙 (경제·수학 세특)",
+      "category": "job",
+      "job_id": "management-consultant",
+      "university_id": "",
+      "description": "케이스·경제·영어를 함께 끌어올리는 컨설턴트 예비 루트.",
+      "likes": 132,
+      "uses": 54,
+      "is_official": true,
+      "years": [
+        {
+          "year": "고1~2",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "미적분·확률과 통계",
+              "description": "데이터 해석·그래프 기반 경제 기사 읽기",
+              "month": null,
+              "emoji": "📊",
+              "order_index": 0
+            },
+            {
+              "item_type": "activity",
+              "title": "경제·경영 토론·모의기업",
+              "description": "시장·정책·윤리 쟁점을 팀으로 정리",
+              "month": null,
+              "emoji": "📈",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "고3",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "study",
+              "title": "수능·내신 밸런스",
+              "description": "경제·수학 상위권 유지 전략",
+              "month": null,
+              "emoji": "🎯",
+              "order_index": 0
+            }
+          ]
+        },
+        {
+          "year": "대학",
+          "order_index": 2,
+          "items": [
+            {
+              "item_type": "activity",
+              "title": "컨설팅 동아리·인턴",
+              "description": "케이스 인터뷰·엑셀 모델링 입문",
+              "month": null,
+              "emoji": "💼",
+              "order_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "template_key": "tpl-creator-media-001",
+      "title": "크리에이터·미디어 성장 트랙",
+      "category": "general",
+      "job_id": "youtuber",
+      "university_id": "",
+      "description": "기획·촬영·편집·업로드 루틴을 주차별로 쌓기.",
+      "likes": 267,
+      "uses": 120,
+      "is_official": true,
+      "years": [
+        {
+          "year": "분기 1",
+          "order_index": 0,
+          "items": [
+            {
+              "item_type": "project",
+              "title": "포지셔닝·콘셉트 정의",
+              "description": "타깃·톤·썸네일 가이드",
+              "month": null,
+              "emoji": "🎬",
+              "order_index": 0
+            },
+            {
+              "item_type": "study",
+              "title": "편집 툴 마스터",
+              "description": "프리미어·다빈치·캡컷 중 하나 선택",
+              "month": null,
+              "emoji": "✂️",
+              "order_index": 1
+            }
+          ]
+        },
+        {
+          "year": "분기 2",
+          "order_index": 1,
+          "items": [
+            {
+              "item_type": "activity",
+              "title": "업로드 주간 루틴",
+              "description": "기획표·촬영·배포·지표 분석",
+              "month": null,
+              "emoji": "📅",
+              "order_index": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
