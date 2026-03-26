@@ -51,7 +51,7 @@ class QuizQuestionAdmin(admin.ModelAdmin):
 @admin.register(QuizResult)
 class QuizResultAdmin(admin.ModelAdmin):
     """
-    Admin for quiz results (read-only)
+    Admin for quiz results: 조회·수정 제한, 삭제는 스태프 권한으로 허용
     """
     list_display = [
         'get_user_name',
@@ -62,7 +62,7 @@ class QuizResultAdmin(admin.ModelAdmin):
         'taken_at',
     ]
     list_filter = ['mode', 'top_type', 'taken_at']
-    search_fields = ['user__name', 'user__email']
+    search_fields = ['user__name', 'user__email', 'top_type', 'second_type']
     ordering = ['-taken_at']
     readonly_fields = [
         'user',
@@ -71,6 +71,9 @@ class QuizResultAdmin(admin.ModelAdmin):
         'riasec_scores',
         'top_type',
         'second_type',
+        'spectrum_snapshot',
+        'recommended_kingdom_snapshot',
+        'recommended_jobs_snapshot',
         'taken_at',
     ]
     
@@ -80,6 +83,14 @@ class QuizResultAdmin(admin.ModelAdmin):
         }),
         ('Result', {
             'fields': ['riasec_scores', 'top_type', 'second_type']
+        }),
+        ('결과 화면 스냅샷', {
+            'fields': [
+                'spectrum_snapshot',
+                'recommended_kingdom_snapshot',
+                'recommended_jobs_snapshot',
+            ],
+            'classes': ['collapse'],
         }),
         ('Answers', {
             'fields': ['answers'],
@@ -98,9 +109,7 @@ class QuizResultAdmin(admin.ModelAdmin):
     get_top_score.short_description = 'Top score'
     
     def has_add_permission(self, request):
-        return False
-    
-    def has_delete_permission(self, request, obj=None):
+        # 결과는 API 제출로만 생성하는 것이 일반적
         return False
 
 

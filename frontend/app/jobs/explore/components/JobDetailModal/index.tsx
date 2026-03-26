@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { ProcessTab } from './ProcessTab';
 import { TimelineTab } from './TimelineTab';
-import { DailyScheduleTab } from './DailyScheduleTab';
+import { AiTransformationTab } from './AiTransformationTab';
+import { OrganizationStructureTab } from './OrganizationStructureTab';
 import { ModalHeader } from './ModalHeader';
 import { ModalTabs, type ModalTab } from './ModalTabs';
 import { CareerPathStyleDialog } from '../CareerPathStyleDialog';
@@ -35,8 +36,11 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
           {activeTab === 'process' && (
             <ProcessTab job={job} star={star} />
           )}
-          {activeTab === 'daily' && (
-            <DailyScheduleTab job={job} star={star} />
+          {activeTab === 'ai' && (
+            <AiTransformationTab job={job} star={star} />
+          )}
+          {activeTab === 'organization' && (
+            <OrganizationStructureTab job={job} star={star} />
           )}
           {activeTab === 'timeline' && (
             <TimelineTab job={job} star={star} />

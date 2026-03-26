@@ -42,6 +42,200 @@
       { "type": "안정", "university": "중앙대 경영학부", "admission": "다빈치형인재", "note": "안전 지원" }
     ]
   },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 외국어고생이 반드시 알아야 할 것",
+    "summary": "AI 번역이 완벽해지는 시대, 외고생은 '문화 맥락 이해'와 '크로스컬처 커뮤니케이션'으로 차별화해야 합니다",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "기본 번역 (문서·회화 번역)",
+          "문법 교정 (Grammarly 등)",
+          "단순 통역 (실시간 AI 통역)",
+          "외국어 학습 기초 (AI 튜터)"
+        ],
+        "humanMustDo": [
+          "문화 맥락 이해 ('이 표현이 이 문화권에서 어떤 의미인가?')",
+          "뉘앙스 판단 (외교·비즈니스에서의 미묘한 어감 차이)",
+          "크로스컬처 협상 (문화 간 갈등 조정)",
+          "국제 관계 전략 수립 (정치·경제·문화 융합 판단)",
+          "글로벌 네트워크 구축 (신뢰 기반 인간 관계)"
+        ]
+      },
+      {
+        "title": "AI 도구 활용 로드맵 (중1~고3)",
+        "roadmap": [
+          {
+            "stage": "중학교 1~2학년",
+            "focus": "AI 번역 도구로 다언어 학습 가속화",
+            "tools": [
+              "DeepL/Papago: 번역 정확도 비교 학습",
+              "ChatGPT: 외국어 회화 연습 (롤플레이)",
+              "Duolingo/Memrise: AI 기반 어휘 학습",
+              "Grammarly: 영어 에세이 문법 교정"
+            ],
+            "projects": [
+              "AI 번역 vs 인간 번역 비교 프로젝트 (문화 맥락 차이 분석)",
+              "ChatGPT와 영어 토론 연습 (주제: 국제 이슈)"
+            ],
+            "warning": "⚠️ AI 번역을 무조건 신뢰하지 말고, '이 번역이 문화적으로 적절한가?'를 항상 확인하세요"
+          },
+          {
+            "stage": "중학교 3학년",
+            "focus": "AI를 활용한 글로벌 이슈 탐구",
+            "tools": [
+              "Perplexity: 국제 뉴스 검색·요약",
+              "ChatGPT: 외국어 에세이 초안 작성",
+              "Notion AI: 탐구 보고서 정리",
+              "Quillbot: 영어 문장 패러프레이징"
+            ],
+            "projects": [
+              "국제 이슈 탐구 보고서 (AI로 자료 수집, 인간이 분석)",
+              "모의UN 준비 (AI로 국가별 입장 리서치)"
+            ],
+            "keyPoint": "💡 AI는 '정보 수집'만, '입장 분석'과 '전략 수립'은 스스로 하세요"
+          },
+          {
+            "stage": "고등학교 1~2학년",
+            "focus": "AI 시대 글로벌 커뮤니케이션 역량",
+            "tools": [
+              "ChatGPT Advanced Voice: 외국어 회화 실전 연습",
+              "Otter.ai: 영어 토론 녹음·분석",
+              "Canva AI: 국제 프레젠테이션 디자인",
+              "Elicit: 국제 관계 논문 리서치"
+            ],
+            "projects": [
+              "모의UN 대표 활동 (AI로 국가별 정책 리서치)",
+              "국제 이슈 에세이 작성 (AI 초안 → 인간 논리 검증)",
+              "글로벌 기업 비즈니스 케이스 분석 (AI 데이터 분석)"
+            ],
+            "keyPoint": "💡 AI는 '정보'를 주지만, '설득'은 인간만이 할 수 있습니다"
+          },
+          {
+            "stage": "고등학교 3학년 (대입 준비)",
+            "focus": "AI 시대 글로벌 인재로서의 차별화",
+            "tools": [
+              "AI 기반 자소서 초안 작성 (단, 스토리는 본인)",
+              "면접 준비: AI와 모의 면접 (영어 면접 연습)"
+            ],
+            "projects": [
+              "AI 시대 국제 관계 변화 탐구",
+              "AI 외교·AI 윤리 관련 에세이 작성"
+            ],
+            "keyPoint": "💡 면접에서 'AI 번역이 완벽한 시대, 외국어 전공자의 가치는?'에 답할 수 있어야 합니다"
+          }
+        ]
+      },
+      {
+        "title": "AI 시대 외국어고생의 3대 차별화 전략",
+        "strategies": [
+          {
+            "strategy": "1. 문화 맥락 이해 — AI가 번역하지 못하는 '뉘앙스'",
+            "why": "AI는 단어를 번역하지만, 문화적 맥락과 뉘앙스는 이해하지 못합니다",
+            "how": [
+              "외국 영화·드라마를 자막 없이 보며 '이 표현이 왜 웃긴가?'를 분석",
+              "같은 단어가 문화권마다 다른 의미를 갖는 사례 수집 (예: '자유'의 미국 vs 유럽 의미)",
+              "모의UN에서 '문화적으로 적절한 표현'을 고민하며 발표"
+            ],
+            "example": "예: 'Thank you'를 언제 말하는가는 문화마다 다름 (미국 vs 일본)"
+          },
+          {
+            "strategy": "2. 크로스컬처 협상 능력 — AI가 할 수 없는 '신뢰 구축'",
+            "why": "AI는 정보를 전달하지만, 문화 간 신뢰를 구축하는 것은 인간만이 할 수 있습니다",
+            "how": [
+              "모의UN에서 '문화 간 갈등 조정' 경험 쌓기",
+              "외국 학생과 협업 프로젝트 (온라인 국제 교류)",
+              "비즈니스 케이스 스터디: 문화 차이로 실패한 글로벌 기업 사례 분석"
+            ],
+            "example": "예: 한국 기업이 중동 시장 진출 시 문화적 실수 사례 연구"
+          },
+          {
+            "strategy": "3. 국제 관계 전략 수립 — AI가 제공하지 못하는 '큰 그림'",
+            "why": "AI는 데이터를 분석하지만, 국제 정세의 '큰 그림'을 그리는 것은 인간의 영역입니다",
+            "how": [
+              "국제 뉴스를 매일 읽고 '왜 이 사건이 중요한가?'를 스스로 판단",
+              "지정학적 관점에서 국제 이슈 분석 (예: 미중 갈등이 한국에 미치는 영향)",
+              "AI가 제공한 데이터를 바탕으로 '그렇다면 한국은 어떻게 해야 하는가?'를 제안"
+            ],
+            "example": "예: AI가 미중 무역 데이터를 제공하면, 인간은 '한국의 전략'을 수립"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "🌍",
+        "category": "AI 번역 활용",
+        "tip": "AI 번역을 '초안'으로 삼고, 문화적 적절성은 스스로 판단하세요",
+        "detail": "DeepL로 번역한 문장을 그대로 사용하지 말고, '이 표현이 이 문화권에서 자연스러운가?'를 확인하세요. 원어민 감각은 AI가 대체할 수 없습니다."
+      },
+      {
+        "emoji": "🗣️",
+        "category": "회화 연습",
+        "tip": "ChatGPT Advanced Voice로 매일 외국어 회화 연습하세요",
+        "detail": "AI와 롤플레이 (예: 외교관 vs 기자, 비즈니스 협상 등)를 통해 실전 회화 능력을 키우세요. 하루 30분이면 충분합니다."
+      },
+      {
+        "emoji": "✍️",
+        "category": "에세이 작성",
+        "tip": "AI로 에세이 구조 제안 받기 → 인간이 논리 전개 → AI로 문법 교정",
+        "detail": "에세이 작성 3단계: 1) AI에게 '이 주제로 에세이를 쓴다면 어떤 구조가 좋을까?' 물어보기 → 2) 스스로 논리 전개 → 3) Grammarly로 문법 교정"
+      },
+      {
+        "emoji": "🎤",
+        "category": "토론 준비",
+        "tip": "AI와 토론 연습 — 반론 준비가 핵심",
+        "detail": "ChatGPT에게 '내 주장에 대한 반론을 제시해줘'라고 요청하세요. AI가 제시한 반론에 대응하는 연습이 실전 토론에서 큰 도움이 됩니다."
+      },
+      {
+        "emoji": "📚",
+        "category": "독서",
+        "tip": "AI로 원서 요약 받기 → 핵심 챕터는 직접 읽기",
+        "detail": "영어 원서를 읽을 때, AI에게 챕터별 요약을 받고 핵심 챕터만 직접 읽으세요. 독서 효율이 3배 이상 높아집니다."
+      },
+      {
+        "emoji": "🌐",
+        "category": "국제 이슈 탐구",
+        "tip": "Perplexity로 국제 뉴스 검색 → 스스로 '왜?'를 묻기",
+        "detail": "국제 뉴스를 AI로 검색·요약한 후, '왜 이 사건이 발생했는가?', '한국에 어떤 영향을 미치는가?'를 스스로 분석하세요."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "❌ AI 번역을 그대로 사용하여 문화적으로 부적절한 표현 사용",
+        "correct": "✅ AI 번역을 참고하되, 문화적 맥락을 고려하여 수정"
+      },
+      {
+        "mistake": "❌ AI가 작성한 에세이를 그대로 제출",
+        "correct": "✅ AI 에세이를 보고 구조를 참고하되, 본인의 경험과 생각으로 재작성"
+      },
+      {
+        "mistake": "❌ AI에게 '이 국제 이슈를 어떻게 생각하나?'를 물어보고 그대로 인용",
+        "correct": "✅ AI에게 데이터를 받고, '나는 이렇게 생각한다'를 스스로 정립"
+      },
+      {
+        "mistake": "❌ 'AI 번역이 완벽하니 외국어 공부는 필요 없다'고 생각",
+        "correct": "✅ 'AI 번역이 완벽하기 때문에, 문화 맥락 이해가 더욱 중요하다'고 인식"
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, 외국어 전공자의 미래는?",
+      "reality": "AI 번역이 완벽해지면서 '단순 통번역사'는 사라지고 있습니다. 하지만 '문화 컨설턴트', '크로스컬처 협상가', '글로벌 전략가'는 오히려 수요가 증가하고 있습니다.",
+      "newCareers": [
+        "AI 번역 품질 관리자 (문화적 적절성 검수)",
+        "크로스컬처 커뮤니케이션 컨설턴트",
+        "글로벌 기업 문화 전략가",
+        "AI 외교 정책 분석가",
+        "다국어 콘텐츠 로컬라이제이션 전문가"
+      ],
+      "preparation": [
+        "외국어 능력 + 문화 인류학 지식",
+        "외국어 능력 + 데이터 분석 (AI 도구 활용)",
+        "외국어 능력 + 비즈니스 전략",
+        "외국어 능력 + 국제 관계 이론"
+      ]
+    }
+  },
   "schools": [
     {
       "id": "daewon_foreign",
@@ -290,6 +484,981 @@
       "admissionTip": "부산·경남권 학생에게 유리. 해양·무역 관련 진로를 생각한다면 최적의 선택입니다.",
       "targetUniversities": ["부산대", "연세대 경영·국제학", "고려대", "해외 대학"],
       "alumniCareers": ["외교관", "무역 전문가 (연봉 5,000만~8,000만)", "통번역사", "항만 공무원", "해운·물류 기업"]
+    },
+    {
+      "id": "myungduk_foreign",
+      "name": "명덕외국어고등학교",
+      "shortName": "명덕외고",
+      "location": "서울특별시 중구",
+      "type": "외국어고",
+      "emoji": "🗣️",
+      "color": "#10b981",
+      "difficulty": 5,
+      "annualAdmission": 240,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "서울 명문 외고 — 서울대·연세대·고려대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심, 인문·사회 탐구",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "해외 명문대 진학 컨설팅"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🗣️",
+          "description": "영어·독일어·프랑스어·스페인어·중국어·일본어 중 선택",
+          "benefit": "서울대·연세대·고려대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육 — 학종 대비",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "서울·수도권 영어 최상위 (전국 상위 1%), 인문·사회 적성 우수",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 영어 능력 증빙", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접 + 학업 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "서울 중구", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "SKY 진학", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "서울 명문 외고라 서울대·연세대·고려대 인문·사회 계열 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이에요. 토론·에세이 교육으로 학종 대비가 탁월해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "기숙사가 없어서 통학해야 해요. 경쟁이 매우 치열합니다." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "서울대·연세대·고려대 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요. 학종 면접에서 큰 강점이 됩니다." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌍", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요. 학종 면접에서 강력한 증거가 됩니다." }
+      ],
+      "competitionLevel": "서울·수도권 영어 최상위 (전국 상위 1%)",
+      "studyHoursPerDay": "8~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "통학 중심",
+      "mentalHealthNote": "경쟁이 치열하지만, SKY 진학 목표로 동기부여 강함.",
+      "pros": ["서울 명문 외고", "SKY 진학 강점", "무상 교육"],
+      "cons": ["기숙사 없음", "경쟁 치열"],
+      "admissionTip": "서울·수도권 학생에게 유리. SKY 인문·사회 계열을 목표로 한다면 최고의 선택입니다.",
+      "targetUniversities": ["서울대 인문·사회", "연세대 경영·국제학", "고려대 정경·경영"],
+      "alumniCareers": ["외교관", "변호사", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "daegu_foreign",
+      "name": "대구외국어고등학교",
+      "shortName": "대구외고",
+      "location": "대구광역시 수성구",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 200,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "대구·경북권 최고 외고 — 경북대·영남대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "경북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "경북대·영남대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "대구·경북권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "대구 수성", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "경북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "대구·경북권 최고 외고라 경북대·영남대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "대구 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "대구·경북권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "대구·경북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 경북대 진학 목표로 동기부여 강함.",
+      "pros": ["대구 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["대구 소재"],
+      "admissionTip": "대구·경북권 학생에게 유리.",
+      "targetUniversities": ["경북대", "영남대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "gwangju_foreign",
+      "name": "광주외국어고등학교",
+      "shortName": "광주외고",
+      "location": "광주광역시 남구",
+      "type": "외국어고",
+      "emoji": "🌍",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 200,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "광주·전남권 최고 외고 — 전남대·조선대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "전남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌍",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "전남대·조선대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "광주·전남권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "광주 남구", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "전남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "광주·전남권 최고 외고라 전남대·조선대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "광주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "광주·전남권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌍", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "광주·전남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 전남대 진학 목표로 동기부여 강함.",
+      "pros": ["광주 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["광주 소재"],
+      "admissionTip": "광주·전남권 학생에게 유리.",
+      "targetUniversities": ["전남대", "조선대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "incheon_foreign",
+      "name": "인천외국어고등학교",
+      "shortName": "인천외고",
+      "location": "인천광역시 연수구",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 200,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "인천·경기 서부권 최고 외고 — 인천대·인하대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "인천대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "인천대·인하대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "인천·경기 서부권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "인천 연수", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "인천대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "인천·경기 서부권 최고 외고라 인천대·인하대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "인천 소재라 서울 접근성은 보통이에요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "인천·경기 서부권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "인천·경기 서부권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 인천대 진학 목표로 동기부여 강함.",
+      "pros": ["인천 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["인천 소재"],
+      "admissionTip": "인천·경기 서부권 학생에게 유리.",
+      "targetUniversities": ["인천대", "인하대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "ulsan_foreign",
+      "name": "울산외국어고등학교",
+      "shortName": "울산외고",
+      "location": "울산광역시 남구",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "울산·경남권 외고 — 울산대·부산대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "울산대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "울산대·부산대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "울산·경남권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "울산 남구", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "울산대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "울산·경남권 외고라 울산대·부산대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "울산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "울산·경남권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "울산·경남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 울산대 진학 목표로 동기부여 강함.",
+      "pros": ["울산 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["울산 소재"],
+      "admissionTip": "울산·경남권 학생에게 유리.",
+      "targetUniversities": ["울산대", "부산대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "jeonju_foreign",
+      "name": "전주외국어고등학교",
+      "shortName": "전주외고",
+      "location": "전북 전주시 완산구",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "전북권 최고 외고 — 전북대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "전북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "전북대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "전북권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "전북 전주", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "전북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "전북권 최고 외고라 전북대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "전주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "전북권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "전북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 전북대 진학 목표로 동기부여 강함.",
+      "pros": ["전북 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["전주 소재"],
+      "admissionTip": "전북권 학생에게 유리.",
+      "targetUniversities": ["전북대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "daejeon_foreign",
+      "name": "대전외국어고등학교",
+      "shortName": "대전외고",
+      "location": "대전광역시 유성구",
+      "type": "외국어고",
+      "emoji": "🌍",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "대전·충청권 최고 외고 — 충남대·충북대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "충남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌍",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "충남대·충북대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "대전·충청권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "대전 유성", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "충남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "대전·충청권 최고 외고라 충남대·충북대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "대전 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "대전·충청권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌍", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "대전·충청권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 충남대 진학 목표로 동기부여 강함.",
+      "pros": ["대전 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["대전 소재"],
+      "admissionTip": "대전·충청권 학생에게 유리.",
+      "targetUniversities": ["충남대", "충북대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "sejong_foreign",
+      "name": "세종외국어고등학교",
+      "shortName": "세종외고",
+      "location": "세종특별자치시",
+      "type": "외국어고",
+      "emoji": "🏛️",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "세종시 외고 — 정부 세종청사 연계, 정책·행정 특화",
+      "teachingMethod": "영어·제2외국어 집중 교육, 정책·행정 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "정부 세종청사 연계 프로그램",
+        "토론·에세이 집중 교육",
+        "정책·행정 탐구"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "정부 세종청사 연계 프로그램",
+          "emoji": "🏛️",
+          "description": "정부 세종청사 견학·인턴십",
+          "benefit": "정책·행정 분야 진로 탐색"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "세종·충청권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "세종시", "value": "공립", "emoji": "🏛️", "color": "#10b981" },
+        { "label": "세종청사 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "정책·행정", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "세종시 외고라 정부 세종청사 연계가 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "정부 세종청사 견학·인턴십으로 정책·행정 분야 진로 탐색이 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "세종시 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "정책·행정 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🏛️", "tip": "정부 세종청사 연계 프로그램을 최대한 활용하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "정책·행정 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "세종·충청권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "정책·행정 분야 진로로 동기부여 강함.",
+      "pros": ["세종청사 연계", "기숙사 제공", "무상 교육"],
+      "cons": ["세종시 소재"],
+      "admissionTip": "세종·충청권 학생에게 유리. 정책·행정 분야를 목표로 한다면 좋은 선택입니다.",
+      "targetUniversities": ["충남대", "서울대 행정학과", "연세대 정치외교학과"],
+      "alumniCareers": ["외교관", "정부 부처", "정책 전문가"]
+    },
+    {
+      "id": "gangwon_foreign",
+      "name": "강원외국어고등학교",
+      "shortName": "강원외고",
+      "location": "강원도 춘천시",
+      "type": "외국어고",
+      "emoji": "🏔️",
+      "color": "#10b981",
+      "difficulty": 3,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "강원권 최고 외고 — 강원대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "강원대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🏔️",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "강원대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "강원권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "강원 춘천", "value": "공립", "emoji": "🏔️", "color": "#10b981" },
+        { "label": "강원대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "강원권 최고 외고라 강원대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "춘천 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "강원권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🏔️", "tip": "강원도 자연환경을 활용한 탐구 활동을 하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "강원권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 강원대 진학 목표로 동기부여 강함.",
+      "pros": ["강원 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["춘천 소재"],
+      "admissionTip": "강원권 학생에게 유리.",
+      "targetUniversities": ["강원대", "연세대(원주)", "서울대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "chungnam_foreign",
+      "name": "충남외국어고등학교",
+      "shortName": "충남외고",
+      "location": "충남 아산시",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 3,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충남권 외고 — 충남대·단국대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "충남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "충남대·단국대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "충남권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충남 아산", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "충남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충남권 외고라 충남대·단국대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "아산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충남권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "충남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 충남대 진학 목표로 동기부여 강함.",
+      "pros": ["충남 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["아산 소재"],
+      "admissionTip": "충남권 학생에게 유리.",
+      "targetUniversities": ["충남대", "단국대", "서울대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "chungbuk_foreign",
+      "name": "충북외국어고등학교",
+      "shortName": "충북외고",
+      "location": "충북 청주시 흥덕구",
+      "type": "외국어고",
+      "emoji": "🌐",
+      "color": "#10b981",
+      "difficulty": 3,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충북권 최고 외고 — 충북대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "충북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌐",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "충북대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "충북권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충북 청주", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "충북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충북권 최고 외고라 충북대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "청주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충북권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌐", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "충북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 충북대 진학 목표로 동기부여 강함.",
+      "pros": ["충북 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["청주 소재"],
+      "admissionTip": "충북권 학생에게 유리.",
+      "targetUniversities": ["충북대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "gyeongnam_foreign",
+      "name": "경남외국어고등학교",
+      "shortName": "경남외고",
+      "location": "경남 창원시 의창구",
+      "type": "외국어고",
+      "emoji": "🌏",
+      "color": "#10b981",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "경남권 최고 외고 — 경상대·부산대 인문·사회 계열 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 토론·에세이 중심",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "인문·사회 탐구 프로젝트",
+        "토론·에세이 집중 교육",
+        "경상대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·제2외국어 집중 교육",
+          "emoji": "🌏",
+          "description": "영어·중국어·일본어 중 선택",
+          "benefit": "경상대·부산대 인문·사회 계열 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "경남권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "경남 창원", "value": "공립", "emoji": "📍", "color": "#10b981" },
+        { "label": "경상대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "경남권 최고 외고라 경상대·부산대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "창원 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "경남권에서 인문·사회 계열을 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "🌏", "tip": "제2외국어를 꾸준히 연습하세요." },
+        { "emoji": "📚", "tip": "인문·사회 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "경남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 경상대 진학 목표로 동기부여 강함.",
+      "pros": ["경남 최고 외고", "기숙사 제공", "무상 교육"],
+      "cons": ["창원 소재"],
+      "admissionTip": "경남권 학생에게 유리.",
+      "targetUniversities": ["경상대", "부산대", "서울대"],
+      "alumniCareers": ["외교관", "통번역사", "글로벌 기업"]
+    },
+    {
+      "id": "jeju_foreign",
+      "name": "제주외국어고등학교",
+      "shortName": "제주외고",
+      "location": "제주특별자치도 제주시",
+      "type": "외국어고",
+      "emoji": "🏝️",
+      "color": "#10b981",
+      "difficulty": 3,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "제주권 최고 외고 — 제주대 인문·사회 계열 직결, 관광·항공 특화",
+      "teachingMethod": "영어·제2외국어 집중 교육, 관광·항공 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "관광·항공 특화 프로그램",
+        "토론·에세이 집중 교육",
+        "제주대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "관광·항공 특화 프로그램",
+          "emoji": "✈️",
+          "description": "제주 관광·항공 산업 연계 교육",
+          "benefit": "관광·항공 분야 진로 탐색"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "제주권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 토론 동아리 활동",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "제주시", "value": "공립", "emoji": "🏝️", "color": "#10b981" },
+        { "label": "관광·항공", "value": "특화", "emoji": "✈️", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "인문·사회", "value": "특화", "emoji": "📚", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "제주권 최고 외고라 제주대 진학이 강점이에요. 관광·항공 특화가 독특합니다." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요. 제주 관광·항공 산업 연계 교육이 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "제주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "제주권에서 관광·항공 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "✈️", "tip": "관광·항공 특화 프로그램을 최대한 활용하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "관광·항공 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "제주권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 제주대 진학 목표로 동기부여 강함.",
+      "pros": ["제주 최고 외고", "관광·항공 특화", "기숙사 제공"],
+      "cons": ["제주 소재"],
+      "admissionTip": "제주권 학생에게 유리. 관광·항공 분야를 목표로 한다면 좋은 선택입니다.",
+      "targetUniversities": ["제주대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "통번역사", "관광·항공 기업"]
     }
   ]
 }

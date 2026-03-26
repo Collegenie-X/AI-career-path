@@ -30,7 +30,7 @@ export function PageHeader({ selectedStar, onBack }: PageHeaderProps) {
           </h1>
           <p className="text-xs text-gray-400">
             {selectedStar
-              ? `${selectedStar.jobCount}${LABELS.star_selected_subtitle}`
+              ? `${selectedStar.jobs?.length ?? selectedStar.jobCount}${LABELS.star_selected_subtitle}`
               : LABELS.page_subtitle}
           </p>
         </div>

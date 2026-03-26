@@ -1,22 +1,42 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { XPBar } from '@/components/xp-bar';
-import kingdomsData from '@/data/kingdoms.json';
 import { Kingdom } from '@/lib/types';
-import { Sparkles, Lock, Star, ChevronRight } from 'lucide-react';
+import { Sparkles, Star, ChevronRight } from 'lucide-react';
+import { useCareerKingdomsQuery } from '@/lib/queries/careerContentQuery';
+import {
+  ExploreCareerErrorState,
+  ExploreCareerLoadingState,
+} from './components/ExploreCareerFetchState';
 
 export default function ExplorePage() {
   const router = useRouter();
-  const [kingdoms] = useState<Kingdom[]>(kingdomsData as Kingdom[]);
   const [mounted, setMounted] = useState(false);
+  const { data: kingdoms = [], isLoading, isError, refetch } = useCareerKingdomsQuery();
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   if (!mounted) return null;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen relative overflow-hidden pb-20">
+        <ExploreCareerLoadingState />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-screen relative overflow-hidden pb-20">
+        <ExploreCareerErrorState onRetry={() => void refetch()} />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen relative overflow-hidden pb-20">

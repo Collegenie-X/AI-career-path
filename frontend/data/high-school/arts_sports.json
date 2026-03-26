@@ -20,6 +20,112 @@
     "aptitudeTest": "실기 시험 (분야별 상이 — 음악·미술·무용·연극 등)",
     "internalGradeStrategy": "실기 집중 훈련 (전문 레슨 필수), 학과 성적 기본 유지, 포트폴리오 체계적 구축"
   },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 예체능고생이 반드시 알아야 할 것",
+    "summary": "AI가 창작 도구를 제공하는 시대, 예술가는 'AI를 도구로 삼는 창작자'로 진화해야 합니다",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "기초 디자인 작업 (AI 이미지 생성)",
+          "음악 편곡 자동화",
+          "영상 편집 자동화",
+          "안무 패턴 생성"
+        ],
+        "humanMustDo": [
+          "예술적 비전 및 컨셉 설정",
+          "감정 표현 및 해석",
+          "창의적 실험 및 시도",
+          "무대 퍼포먼스 및 관객 소통",
+          "예술적 맥락 및 의미 부여"
+        ]
+      },
+      {
+        "title": "AI 창작 도구 활용 로드맵",
+        "roadmap": [
+          {
+            "stage": "중학교",
+            "focus": "AI 창작 도구 체험",
+            "tools": [
+              "Midjourney/DALL-E: 이미지 생성",
+              "Suno/Udio: AI 음악 생성",
+              "RunwayML: 영상 편집",
+              "ChatGPT: 스토리 아이디어"
+            ],
+            "projects": [
+              "AI와 협업 작품 만들기",
+              "AI 도구 실험"
+            ],
+            "warning": "⚠️ AI는 도구일 뿐, 예술적 비전은 본인이 만들어야 합니다"
+          },
+          {
+            "stage": "고등학교",
+            "focus": "AI 협업 창작",
+            "tools": [
+              "AI 창작 도구 마스터",
+              "포트폴리오에 AI 활용 명시"
+            ],
+            "projects": [
+              "AI 협업 졸업 작품",
+              "AI 창작 전시·공연"
+            ],
+            "keyPoint": "💡 'AI와 협업하는 예술가'를 어필하세요"
+          }
+        ]
+      },
+      {
+        "title": "AI 시대 예술가의 차별화 전략",
+        "strategies": [
+          {
+            "strategy": "1. 예술적 비전 — AI가 만들지 못하는 '의미'",
+            "why": "AI는 이미지를 생성하지만, 그 이미지가 무엇을 말하는지는 인간이 결정합니다",
+            "how": [
+              "AI 생성 이미지를 '출발점'으로 삼되, 본인의 비전으로 재해석",
+              "AI 작품에 '왜 이 작품을 만들었는가?' 스토리 추가",
+              "AI와 인간의 협업 과정을 예술적으로 표현"
+            ]
+          },
+          {
+            "strategy": "2. 감정 표현 — AI가 대체할 수 없는 '진정성'",
+            "why": "AI는 패턴을 생성하지만, 진정한 감정은 인간만이 표현할 수 있습니다",
+            "how": [
+              "무대 퍼포먼스에서 감정 몰입",
+              "관객과의 소통 및 교감",
+              "본인의 경험을 예술로 승화"
+            ]
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "🎨",
+        "category": "창작",
+        "tip": "AI를 '영감 도구'로 활용",
+        "detail": "AI 생성 작품을 보고 영감을 받되, 최종 작품은 본인의 비전으로 완성하세요."
+      },
+      {
+        "emoji": "🎭",
+        "category": "퍼포먼스",
+        "tip": "AI는 안무 패턴 제안, 감정은 본인",
+        "detail": "AI가 안무 패턴을 제안해도, 무대에서의 감정 표현은 본인만이 할 수 있습니다."
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, 예술가의 미래는?",
+      "reality": "AI가 기초 창작을 자동화하지만, 예술적 비전과 감정 표현은 인간의 영역입니다.",
+      "newCareers": [
+        "AI 협업 예술가",
+        "크리에이티브 디렉터 (AI 도구 활용)",
+        "디지털 아트 큐레이터"
+      ],
+      "preparation": [
+        "예술 실기 + AI 창작 도구",
+        "예술 이론 + 기술 융합",
+        "감정 표현 + 디지털 미디어"
+      ]
+    }
+  },
   "schools": [
     {
       "id": "seoul_arts",
@@ -308,6 +414,376 @@
       "admissionTip": "전국 대회 입상 실적이 핵심. 종목별 전문 코치 지도를 받으세요. 부상 예방에도 각별히 신경 쓰세요.",
       "targetUniversities": ["한국체육대학교", "서울대 체육교육과", "연세대 체육교육과", "이화여대 체육과학부"],
       "alumniCareers": ["프로 선수 (종목별 상이)", "체육 교사 (연봉 3,500만~5,000만)", "스포츠 트레이너", "스포츠 행정가·코치"]
+    },
+    {
+      "id": "busan_arts",
+      "name": "부산예술고등학교",
+      "shortName": "부산예고",
+      "location": "부산광역시 부산진구",
+      "type": "예술고",
+      "emoji": "🎨",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 180,
+      "tuition": "공립 수준 (저렴)",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "부산·경남권 최고 예술고 — 음악·미술·무용 특화",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도, 예술 이론 병행",
+      "famousPrograms": [
+        "음악 전공 (성악·기악)",
+        "미술 전공 (회화·디자인)",
+        "무용 전공 (한국무용·현대무용·발레)",
+        "예술 이론 교육"
+      ],
+      "studentLevel": "부산·경남권 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 및 진로 의지 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비, 포트폴리오 완성"
+      },
+      "pros": ["부산 최고 예술고", "공립 비용", "전문 교수 지도"],
+      "cons": ["기숙사 없음", "학과 공부 소홀 가능성"],
+      "admissionTip": "부산·경남권 예술 최상위 학생에게 유리. 콩쿠르 수상 실적이 중요합니다.",
+      "targetUniversities": ["서울예대", "한국예술종합학교", "부산대 예술대학"],
+      "alumniCareers": ["예술가", "예술 교사", "공연 기획자"]
+    },
+    {
+      "id": "daegu_arts",
+      "name": "대구예술고등학교",
+      "shortName": "대구예고",
+      "location": "대구광역시 중구",
+      "type": "예술고",
+      "emoji": "🎭",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "대구·경북권 최고 예술고",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도",
+      "famousPrograms": [
+        "음악 전공",
+        "미술 전공",
+        "무용 전공",
+        "예술 이론"
+      ],
+      "studentLevel": "대구·경북권 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["대구 최고 예술고", "공립 비용"],
+      "cons": ["기숙사 없음"],
+      "admissionTip": "대구·경북권 예술 최상위 학생에게 유리.",
+      "targetUniversities": ["서울예대", "한국예술종합학교", "경북대 예술대학"],
+      "alumniCareers": ["예술가", "예술 교사"]
+    },
+    {
+      "id": "gwangju_arts",
+      "name": "광주예술고등학교",
+      "shortName": "광주예고",
+      "location": "광주광역시 남구",
+      "type": "예술고",
+      "emoji": "🎨",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 150,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "광주·전남권 최고 예술고",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도",
+      "famousPrograms": [
+        "음악 전공",
+        "미술 전공",
+        "무용 전공",
+        "예술 이론"
+      ],
+      "studentLevel": "광주·전남권 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["광주 최고 예술고", "공립 비용"],
+      "cons": ["기숙사 없음"],
+      "admissionTip": "광주·전남권 예술 최상위 학생에게 유리.",
+      "targetUniversities": ["서울예대", "한국예술종합학교", "전남대 예술대학"],
+      "alumniCareers": ["예술가", "예술 교사"]
+    },
+    {
+      "id": "incheon_sports",
+      "name": "인천체육고등학교",
+      "shortName": "인천체고",
+      "location": "인천광역시 남동구",
+      "type": "체육고",
+      "emoji": "⚽",
+      "color": "#f87171",
+      "difficulty": 4,
+      "annualAdmission": 200,
+      "tuition": "공립 수준",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "인천·경기권 체육 특화",
+      "teachingMethod": "실기 중심 교육, 전문 코치 지도",
+      "famousPrograms": [
+        "축구·야구·농구 전문",
+        "육상·수영 전문",
+        "스포츠 과학 교육",
+        "전국 체전 준비"
+      ],
+      "studentLevel": "인천·경기권 체육 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "종목별 실기 평가", "icon": "🏃" },
+        { "step": 2, "title": "2단계: 면접", "detail": "체육 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "종목 기초 훈련",
+        "middle2": "종목 심화, 대회 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["인천 최고 체육고", "기숙사 제공", "공립 비용"],
+      "cons": ["학과 공부 소홀 가능성"],
+      "admissionTip": "인천·경기권 체육 최상위 학생에게 유리.",
+      "targetUniversities": ["한국체육대학교", "인천대 체육학과"],
+      "alumniCareers": ["프로 선수", "체육 교사"]
+    },
+    {
+      "id": "daejeon_arts",
+      "name": "대전예술고등학교",
+      "shortName": "대전예고",
+      "location": "대전광역시 서구",
+      "type": "예술고",
+      "emoji": "🎭",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 140,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "대전·충청권 최고 예술고",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도",
+      "famousPrograms": [
+        "음악 전공",
+        "미술 전공",
+        "무용 전공",
+        "예술 이론"
+      ],
+      "studentLevel": "대전·충청권 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["대전 최고 예술고", "공립 비용"],
+      "cons": ["기숙사 없음"],
+      "admissionTip": "대전·충청권 예술 최상위 학생에게 유리.",
+      "targetUniversities": ["서울예대", "한국예술종합학교", "충남대 예술대학"],
+      "alumniCareers": ["예술가", "예술 교사"]
+    },
+    {
+      "id": "ulsan_sports",
+      "name": "울산체육고등학교",
+      "shortName": "울산체고",
+      "location": "울산광역시 남구",
+      "type": "체육고",
+      "emoji": "⚽",
+      "color": "#f87171",
+      "difficulty": 4,
+      "annualAdmission": 180,
+      "tuition": "공립 수준",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "울산·경남권 체육 특화",
+      "teachingMethod": "실기 중심 교육, 전문 코치 지도",
+      "famousPrograms": [
+        "축구·야구 전문",
+        "육상·수영 전문",
+        "스포츠 과학 교육",
+        "전국 체전 준비"
+      ],
+      "studentLevel": "울산·경남권 체육 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "종목별 실기 평가", "icon": "🏃" },
+        { "step": 2, "title": "2단계: 면접", "detail": "체육 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "종목 기초 훈련",
+        "middle2": "종목 심화, 대회 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["울산 최고 체육고", "기숙사 제공", "공립 비용"],
+      "cons": ["학과 공부 소홀 가능성"],
+      "admissionTip": "울산·경남권 체육 최상위 학생에게 유리.",
+      "targetUniversities": ["한국체육대학교", "울산대 체육학과"],
+      "alumniCareers": ["프로 선수", "체육 교사"]
+    },
+    {
+      "id": "sejong_arts",
+      "name": "세종예술고등학교",
+      "shortName": "세종예고",
+      "location": "세종특별자치시",
+      "type": "예술고",
+      "emoji": "🎨",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 120,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "세종시 예술고",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도",
+      "famousPrograms": [
+        "음악 전공",
+        "미술 전공",
+        "무용 전공",
+        "예술 이론"
+      ],
+      "studentLevel": "세종시 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["세종시 예술고", "공립 비용"],
+      "cons": ["기숙사 없음"],
+      "admissionTip": "세종시 예술 최상위 학생에게 유리.",
+      "targetUniversities": ["서울예대", "한국예술종합학교"],
+      "alumniCareers": ["예술가", "예술 교사"]
+    },
+    {
+      "id": "jeju_sports",
+      "name": "제주체육고등학교",
+      "shortName": "제주체고",
+      "location": "제주특별자치도 제주시",
+      "type": "체육고",
+      "emoji": "⚽",
+      "color": "#f87171",
+      "difficulty": 4,
+      "annualAdmission": 150,
+      "tuition": "공립 수준",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "제주 체육 특화",
+      "teachingMethod": "실기 중심 교육, 전문 코치 지도",
+      "famousPrograms": [
+        "축구·야구 전문",
+        "육상·수영 전문",
+        "스포츠 과학 교육",
+        "전국 체전 준비"
+      ],
+      "studentLevel": "제주 체육 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "종목별 실기 평가", "icon": "🏃" },
+        { "step": 2, "title": "2단계: 면접", "detail": "체육 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "종목 기초 훈련",
+        "middle2": "종목 심화, 대회 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["제주 최고 체육고", "기숙사 제공", "공립 비용"],
+      "cons": ["수도권 접근성 낮음"],
+      "admissionTip": "제주 체육 최상위 학생에게 유리.",
+      "targetUniversities": ["한국체육대학교", "제주대 체육학과"],
+      "alumniCareers": ["프로 선수", "체육 교사"]
+    },
+    {
+      "id": "gangwon_sports",
+      "name": "강원체육고등학교",
+      "shortName": "강원체고",
+      "location": "강원도 춘천시",
+      "type": "체육고",
+      "emoji": "⛷️",
+      "color": "#f87171",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 수준",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "강원 체육 특화, 동계 스포츠 강점",
+      "teachingMethod": "실기 중심 교육, 전문 코치 지도, 동계 스포츠 특화",
+      "famousPrograms": [
+        "스키·스노보드 전문",
+        "아이스하키·스케이팅 전문",
+        "축구·야구 전문",
+        "스포츠 과학 교육"
+      ],
+      "studentLevel": "강원 체육 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "종목별 실기 평가", "icon": "🏃" },
+        { "step": 2, "title": "2단계: 면접", "detail": "체육 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "종목 기초 훈련",
+        "middle2": "종목 심화, 대회 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["강원 최고 체육고", "동계 스포츠 특화", "기숙사 제공"],
+      "cons": ["수도권 접근성 낮음"],
+      "admissionTip": "강원 체육 최상위 학생, 동계 스포츠 전문 학생에게 유리.",
+      "targetUniversities": ["한국체육대학교", "강원대 체육학과"],
+      "alumniCareers": ["프로 선수", "동계 스포츠 선수", "체육 교사"]
+    },
+    {
+      "id": "gyeonggi_arts",
+      "name": "경기예술고등학교",
+      "shortName": "경기예고",
+      "location": "경기도 수원시",
+      "type": "예술고",
+      "emoji": "🎭",
+      "color": "#ec4899",
+      "difficulty": 4,
+      "annualAdmission": 180,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "경기도 예술고",
+      "teachingMethod": "실기 중심 교육, 전문 교수 지도",
+      "famousPrograms": [
+        "음악 전공",
+        "미술 전공",
+        "무용 전공",
+        "예술 이론"
+      ],
+      "studentLevel": "경기도 예술 최상위",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 실기 시험", "detail": "전공별 실기 평가", "icon": "🎭" },
+        { "step": 2, "title": "2단계: 면접", "detail": "예술 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "전공 기초 실기 연마",
+        "middle2": "전공 심화, 콩쿠르 참가",
+        "middle3": "실기 시험 준비"
+      },
+      "pros": ["경기도 예술고", "공립 비용"],
+      "cons": ["기숙사 없음"],
+      "admissionTip": "경기도 예술 최상위 학생에게 유리.",
+      "targetUniversities": ["서울예대", "한국예술종합학교"],
+      "alumniCareers": ["예술가", "예술 교사"]
     }
   ]
 }

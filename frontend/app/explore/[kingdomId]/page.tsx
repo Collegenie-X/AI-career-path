@@ -1,36 +1,85 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import kingdomsData from '@/data/kingdoms.json';
-import jobsData from '@/data/jobs.json';
 import { Kingdom, Job } from '@/lib/types';
 import { getJobDetailNav } from '@/app/jobs/explore/utils/resolveStarJob';
 import { ArrowLeft, Sparkles, Star, Zap, TrendingUp, Lock } from 'lucide-react';
 import { storage } from '@/lib/storage';
+import { useCareerJobsQuery, useCareerKingdomsQuery } from '@/lib/queries/careerContentQuery';
+import {
+  ExploreCareerErrorState,
+  ExploreCareerLoadingState,
+} from '../components/ExploreCareerFetchState';
+import { EXPLORE_CAREER_LABELS } from '../config';
 
 export default function KingdomDetailPage() {
   const params = useParams();
   const router = useRouter();
   const kingdomId = params.kingdomId as string;
 
-  const [kingdom, setKingdom] = useState<Kingdom | null>(null);
-  const [jobs, setJobs] = useState<Job[]>([]);
   const [mounted, setMounted] = useState(false);
+
+  const {
+    data: kingdoms = [],
+    isLoading: kingdomsLoading,
+    isError: kingdomsError,
+    refetch: refetchKingdoms,
+  } = useCareerKingdomsQuery();
+  const {
+    data: jobs = [],
+    isLoading: jobsLoading,
+    isError: jobsError,
+    refetch: refetchJobs,
+  } = useCareerJobsQuery(kingdomId);
+
+  const kingdom = useMemo(
+    () => kingdoms.find((k) => k.id === kingdomId) ?? null,
+    [kingdoms, kingdomId]
+  );
 
   useEffect(() => {
     setMounted(true);
-    const k = (kingdomsData as Kingdom[]).find((k) => k.id === kingdomId);
-    setKingdom(k || null);
+  }, []);
 
-    const filteredJobs = (jobsData as Job[]).filter(
-      (j) => j.kingdomId === kingdomId
+  const loading = kingdomsLoading || jobsLoading;
+  const fetchError = kingdomsError || jobsError;
+
+  if (!mounted) return null;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen relative overflow-hidden pb-6">
+        <ExploreCareerLoadingState />
+      </div>
     );
-    setJobs(filteredJobs);
-  }, [kingdomId]);
+  }
 
-  if (!mounted || !kingdom) return null;
+  if (fetchError) {
+    return (
+      <div className="min-h-screen relative overflow-hidden pb-6 px-4">
+        <ExploreCareerErrorState
+          onRetry={() => {
+            void refetchKingdoms();
+            void refetchJobs();
+          }}
+        />
+      </div>
+    );
+  }
+
+  if (!kingdom) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4 px-4 text-center pb-20">
+        <p className="text-lg font-semibold text-white">{EXPLORE_CAREER_LABELS.kingdom_not_found_title}</p>
+        <p className="text-sm text-muted-foreground max-w-sm">{EXPLORE_CAREER_LABELS.kingdom_not_found_sub}</p>
+        <Button type="button" variant="secondary" onClick={() => router.push('/explore')}>
+          {EXPLORE_CAREER_LABELS.back_to_list}
+        </Button>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen relative overflow-hidden pb-6">

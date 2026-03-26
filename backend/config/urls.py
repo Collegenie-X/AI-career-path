@@ -14,7 +14,7 @@ from drf_spectacular.views import (
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+    # REST API (v1) — Postman: Import OpenAPI from http://127.0.0.1:8000/api/schema/ 또는 make openapi-export
     path('api/v1/auth/', include('apps.accounts.urls')),
     path('api/v1/quiz/', include('apps.quiz.urls')),
     path('api/v1/explore/', include('apps.explore.urls')),

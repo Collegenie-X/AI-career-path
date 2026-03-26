@@ -12,7 +12,6 @@ type SchoolDetailDialogProps = {
   readonly onClose: () => void;
 };
 
-/** 학교 상세 다이얼로그 — 디테일 패널에서 "자세히 보기" 클릭 시 전체 화면 모달 */
 export function SchoolDetailDialog({
   school,
   categoryColor,

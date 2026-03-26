@@ -4,6 +4,12 @@ URL patterns for explore app
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+
+from .views.career_content_views import (
+    CareerJobJsonDetailView,
+    CareerJobsJsonListView,
+    CareerKingdomsJsonView,
+)
 from .views import (
     JobCategoryViewSet,
     JobViewSet,
@@ -33,5 +39,8 @@ router.register(r'universities', UniversityViewSet, basename='university')
 router.register(r'university-infographics', UniversityInfographicViewSet, basename='university-infographic')
 
 urlpatterns = [
+    path('career-kingdoms/', CareerKingdomsJsonView.as_view()),
+    path('career-jobs/', CareerJobsJsonListView.as_view()),
+    path('career-jobs/<str:job_id>/', CareerJobJsonDetailView.as_view()),
     path('', include(router.urls)),
 ]

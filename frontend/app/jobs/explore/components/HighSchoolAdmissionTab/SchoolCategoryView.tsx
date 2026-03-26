@@ -2,12 +2,22 @@
 
 import { useState } from 'react';
 import {
-  ChevronLeft, ChevronRight, MapPin, BookOpen, Brain, Dumbbell, Star, Target, Clock,
-  ChevronDown, CheckCircle, Circle, RotateCcw, Zap, Users, Lightbulb,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  ChevronDown,
+  CheckCircle,
+  Circle,
+  RotateCcw,
+  Zap,
+  Users,
+  Lightbulb,
 } from 'lucide-react';
 import type { HighSchoolCategory, HighSchoolDetail } from '../../types';
 import { HIGH_SCHOOL_LABELS } from '../../config';
 import { CATEGORY_TRAIT_DETAIL, type QuizQuestion } from './category-trait-detail-config';
+import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
+import { TRAIT_ITEMS } from './highSchoolTraitItems';
 
 type SchoolCategoryViewProps = {
   category: HighSchoolCategory;
@@ -15,22 +25,13 @@ type SchoolCategoryViewProps = {
   onSelectSchool: (school: HighSchoolDetail) => void;
 };
 
-export const TRAIT_ITEMS = [
-  { key: 'aptitude' as const, icon: <Brain className="w-3.5 h-3.5" />, label: '🧠 적성', emoji: '🧠' },
-  { key: 'studyStyle' as const, icon: <BookOpen className="w-3.5 h-3.5" />, label: '📖 공부 스타일', emoji: '📖' },
-  { key: 'mentalStrength' as const, icon: <Dumbbell className="w-3.5 h-3.5" />, label: '💪 멘탈 강도', emoji: '💪' },
-  { key: 'gradeRequirement' as const, icon: <Star className="w-3.5 h-3.5" />, label: '📊 내신 기준', emoji: '📊' },
-  { key: 'aptitudeTest' as const, icon: <Target className="w-3.5 h-3.5" />, label: '🎯 적성 검사', emoji: '🎯' },
-  { key: 'internalGradeStrategy' as const, icon: <Clock className="w-3.5 h-3.5" />, label: '📅 내신 전략', emoji: '📅' },
-];
-
 type QuizPhase =
   | { phase: 'intro' }
   | { phase: 'question'; index: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] }
   | { phase: 'result'; totalScore: number; maxScore: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] };
 
 export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolCategoryViewProps) {
-  const [showTraitDetail, setShowTraitDetail] = useState(false);
+  const [categoryTraitDialogOpen, setCategoryTraitDialogOpen] = useState(false);
   const [showAptitudeQuiz, setShowAptitudeQuiz] = useState(false);
   const [quizPhase, setQuizPhase] = useState<QuizPhase>({ phase: 'intro' });
 
@@ -61,6 +62,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
   };
 
   return (
+    <>
     <div className="space-y-4">
       {/* ── 상단: 헤더 + 특성 카드 (강조) ── */}
       <div className="space-y-3">
@@ -115,7 +117,8 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
         </div>
 
         <button
-          onClick={() => setShowTraitDetail(prev => !prev)}
+          type="button"
+          onClick={() => setCategoryTraitDialogOpen(true)}
           className="w-full py-3 flex items-center justify-center gap-2 text-xs font-bold transition-all active:scale-[0.99]"
           style={{
             background: `${category.color}18`,
@@ -124,68 +127,10 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
           }}
         >
           {HIGH_SCHOOL_LABELS.school_trait_detail_button}
-          <ChevronDown
-            className="w-4 h-4 transition-transform duration-300"
-            style={{ transform: showTraitDetail ? 'rotate(180deg)' : 'rotate(0deg)' }}
-          />
+          <ChevronRight className="w-4 h-4 flex-shrink-0 opacity-90" aria-hidden />
         </button>
         </div>
       </div>
-
-      {/* 아코디언: 특성 상세 */}
-      {showTraitDetail && (
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: `1.5px solid ${category.color}30`,
-            animation: 'slide-up 0.3s ease-out both',
-          }}
-        >
-          <div className="px-4 py-4 space-y-3">
-            {/* 6개 특성 그리드 */}
-            <div className="grid grid-cols-2 gap-2">
-              {TRAIT_ITEMS.map((item, idx) => (
-                <div
-                  key={item.key}
-                  className="rounded-xl p-3 flex flex-col gap-1.5 transition-all hover:scale-105"
-                  style={{
-                    background: `linear-gradient(135deg, ${category.bgColor} 0%, rgba(0,0,0,0.2) 100%)`,
-                    border: `1px solid ${category.color}30`,
-                    animation: `slide-up 0.3s ease-out ${idx * 0.05}s both`,
-                  }}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-lg">{item.emoji}</span>
-                    <span className="text-[11px] font-bold" style={{ color: category.color }}>
-                      {item.label.replace(/^[^ ]+ /, '')}
-                    </span>
-                  </div>
-                  <p className="text-[11px] text-gray-300 leading-relaxed">
-                    {category.categoryTraits[item.key]}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* 자존감 경고 */}
-            {content.selfEsteemEmphasis && (
-              <div
-                className="rounded-xl p-3"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(185,28,28,0.08) 100%)',
-                  border: '1px solid rgba(239,68,68,0.4)',
-                }}
-              >
-                <p className="text-[11px] font-bold text-red-400 mb-1.5 flex items-center gap-1.5">
-                  ❤️‍🔥 자존감이 낮으면 위험해요
-                </p>
-                <p className="text-[11px] text-gray-200 leading-relaxed">{content.selfEsteemEmphasis}</p>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* 아코디언: 적성 검사 */}
       {content.quizQuestions.length > 0 && (
@@ -249,6 +194,14 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
         </div>
       </div>
     </div>
+
+    {categoryTraitDialogOpen && (
+      <CategoryTraitDetailDialog
+        category={category}
+        onClose={() => setCategoryTraitDialogOpen(false)}
+      />
+    )}
+    </>
   );
 }
 

@@ -1,10 +1,10 @@
 'use client';
 
-import { Briefcase, Calendar, Sun } from 'lucide-react';
+import { Briefcase, Calendar, Bot, Building2 } from 'lucide-react';
 import { LABELS } from '../../config';
 import type { StarData } from '../../types';
 
-export type ModalTab = 'process' | 'timeline' | 'daily';
+export type ModalTab = 'process' | 'timeline' | 'organization' | 'ai';
 
 interface ModalTabsProps {
   activeTab: ModalTab;
@@ -15,7 +15,8 @@ interface ModalTabsProps {
 export function ModalTabs({ activeTab, star, onTabChange }: ModalTabsProps) {
   const tabs = [
     { key: 'process' as const, label: LABELS.modal_process_tab, icon: Briefcase },
-    { key: 'daily' as const, label: LABELS.modal_daily_tab, icon: Sun },
+    { key: 'ai' as const, label: 'AI 변화', icon: Bot },
+    { key: 'organization' as const, label: '조직 구조', icon: Building2 },
     { key: 'timeline' as const, label: LABELS.modal_timeline_tab, icon: Calendar },
   ];
 
