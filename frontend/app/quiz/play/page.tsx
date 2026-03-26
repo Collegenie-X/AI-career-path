@@ -2,11 +2,12 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { useQueryClient } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { storage } from '@/lib/storage';
 import { quizRiasecResultQueryKey } from '@/lib/queries/quizRiasecQuery';
 import { generateRIASECResult } from '@/lib/riasec';
-import allQuestionsData from '@/data/quiz-questions.json';
+import { fetchQuizQuestions, quizQuestionsQueryKey } from '@/lib/queries/quizQuestionsQuery';
+import { submitQuizResultToBackend } from '@/lib/queries/submitQuizResultToBackend';
 import {
   ModeSelectScreen,
   FeedbackOverlay,
@@ -17,10 +18,9 @@ import {
   QuizStatus,
   BackgroundEffects,
 } from '../components';
-import { getZoneColor, QUIZ_CONFIG, ANIMATION_CONFIG, ROUTES } from '../config';
-import type { QuizMode, QuizQuestion, FeedbackData } from '../types';
-
-const allQuestions = allQuestionsData as unknown as QuizQuestion[];
+import { getZoneColor, ANIMATION_CONFIG, ROUTES, LABELS } from '../config';
+import { QuizResultsAnalyzingView } from '../results/components/QuizResultsAnalyzingView';
+import type { QuizMode, FeedbackData } from '../types';
 
 /**
  * 적성 퀘스트 본편: 모드 선택 → 문항 진행.
@@ -39,11 +39,19 @@ export default function QuizPlayPage() {
   const [hasSavedRiasecResult, setHasSavedRiasecResult] = useState(false);
   const touchRef = useRef<{ x: number } | null>(null);
 
-  const questions = mode
-    ? mode === '10'
-      ? allQuestions.filter((_, i) => QUIZ_CONFIG.quickModeFilter(i)).slice(0, QUIZ_CONFIG.quickModeQuestions)
-      : allQuestions
-    : [];
+  const {
+    data: questions = [],
+    isPending: isQuestionsPending,
+    isError: isQuestionsError,
+    refetch: refetchQuestions,
+  } = useQuery({
+    queryKey: mode ? quizQuestionsQueryKey(mode) : (['quizQuestions', 'idle'] as const),
+    queryFn: () => fetchQuizQuestions(mode!),
+    enabled: mode !== null,
+    staleTime: 10 * 60_000,
+    gcTime: 60 * 60_000,
+    retry: false,
+  });
 
   const q = questions[currentIndex];
   const color = q ? getZoneColor(q.zone) : '#6C5CE7';
@@ -60,11 +68,22 @@ export default function QuizPlayPage() {
     setHasSavedRiasecResult(savedRiasec !== null);
   }, []);
 
+  useEffect(() => {
+    if (!mode) return;
+    setCurrentIndex(0);
+    setAnswers({});
+    setPendingFeedback(null);
+    setAnimating(false);
+    setXpPopVisible(false);
+  }, [mode]);
+
   const finishQuiz = useCallback((finalAnswers: Record<number, number>) => {
     const map: Record<number, string> = {};
-    questions.forEach((qq, i) => {
+    const answersForApi = questions.map((qq, i) => {
       const ci = finalAnswers[i] ?? 0;
-      map[qq.id] = qq.choices[ci]?.id || qq.choices[0].id;
+      const choiceKey = qq.choices[ci]?.id || qq.choices[0].id;
+      map[qq.id] = choiceKey;
+      return { question_id: qq.id, choice_key: choiceKey };
     });
     const result = generateRIASECResult(questions, map);
     storage.riasec.set(result);
@@ -78,8 +97,17 @@ export default function QuizPlayPage() {
       onboardingCompleted: true,
       createdAt: existingProfile?.createdAt ?? new Date().toISOString(),
     });
+    if (mode) {
+      void submitQuizResultToBackend(mode, answersForApi)
+        .then((serverId) => {
+          if (serverId) storage.quiz.setLastResultId(serverId);
+        })
+        .catch((err) => {
+          console.warn('[quiz] 서버에 결과 저장 실패(로컬 결과는 유지됩니다):', err);
+        });
+    }
     router.push(ROUTES.quizResults);
-  }, [questions, queryClient, router]);
+  }, [questions, queryClient, router, mode]);
 
   const pickAnswer = (choiceId: string, choiceIdx: number) => {
     if (animating || pendingFeedback) return;
@@ -127,6 +155,38 @@ export default function QuizPlayPage() {
   if (!mode) {
     return <ModeSelectScreen onSelect={setMode} hasSavedRiasecResult={hasSavedRiasecResult} />;
   }
+
+  if (isQuestionsPending) {
+    return <QuizResultsAnalyzingView accentColor="#6C5CE7" message={LABELS.quiz_questions_loading} />;
+  }
+
+  if (isQuestionsError || questions.length === 0) {
+    return (
+      <div
+        className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-6"
+        style={{ backgroundColor: '#1A1A2E' }}
+      >
+        <p className="text-white/80 text-center text-base md:text-lg mb-6 max-w-md">{LABELS.quiz_questions_error}</p>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button
+            type="button"
+            className="px-6 py-3 rounded-2xl font-bold text-white bg-violet-600 hover:bg-violet-500 transition-colors"
+            onClick={() => refetchQuestions()}
+          >
+            {LABELS.quiz_questions_retry}
+          </button>
+          <button
+            type="button"
+            className="px-6 py-3 rounded-2xl font-bold text-white/90 border border-white/20 hover:bg-white/10 transition-colors"
+            onClick={() => setMode(null)}
+          >
+            {LABELS.quiz_back_to_mode_select}
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   if (!q) return null;
 
   return (

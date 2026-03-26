@@ -5,11 +5,13 @@ import { X, CheckCircle, Circle, RotateCcw, Star } from 'lucide-react';
 import { CareerPathStyleDialog } from '../CareerPathStyleDialog';
 import type { HighSchoolCategory } from '../../types';
 import { CATEGORY_TRAIT_DETAIL } from './category-trait-detail-config';
-import { TRAIT_ITEMS } from './SchoolCategoryView';
+import { TRAIT_ITEMS } from './highSchoolTraitItems';
+import { HighSchoolAiEraStrategyContent } from './HighSchoolAiEraStrategyContent';
+import { HIGH_SCHOOL_LABELS } from '../../config';
 
 // ── 타입 ──────────────────────────────────────────────────────
 
-type DialogTabId = 'traits' | 'quiz' | 'environment';
+type DialogTabId = 'traits' | 'aiEra' | 'quiz' | 'environment';
 
 type QuizAnswerRecord = {
   choiceIndex: number;
@@ -32,6 +34,7 @@ type CategoryTraitDetailDialogProps = {
 
 const DIALOG_TABS: { id: DialogTabId; label: string; emoji: string }[] = [
   { id: 'traits',      label: '특성 상세',  emoji: '📋' },
+  { id: 'aiEra',       label: HIGH_SCHOOL_LABELS.category_ai_era_tab_label, emoji: '🤖' },
   { id: 'quiz',        label: '적성 검사',  emoji: '🎮' },
   { id: 'environment', label: '환경 체크',  emoji: '🛡️' },
 ];
@@ -156,6 +159,14 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
               categoryColor={categoryColor}
               categoryBgColor={categoryBgColor}
               selfEsteemEmphasis={content.selfEsteemEmphasis}
+            />
+          )}
+          {activeTab === 'aiEra' && (
+            <HighSchoolAiEraStrategyContent
+              aiStrategy={category.aiEraStrategy}
+              categoryColor={categoryColor}
+              categoryBgColor={categoryBgColor}
+              contentPaddingClassName="px-4 py-4"
             />
           )}
           {activeTab === 'quiz' && (

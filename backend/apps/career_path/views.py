@@ -100,6 +100,8 @@ class UserCareerPathViewSet(viewsets.ModelViewSet):
     filterset_fields = ['status', 'share_scope']
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return UserCareerPath.objects.none()
         return UserCareerPath.objects.filter(
             user=self.request.user
         ).select_related('template', 'user')

@@ -38,29 +38,31 @@ export function CareerPathTimeline({
     <div className="w-full">
       <CareerPathSummaryCard summary={summary} theme={theme} />
 
-      <div className="relative pl-0.5">
-        {/* Glowing vertical line */}
-        <div
-          className="absolute left-[22px] top-5 bottom-0 w-0.5 -translate-x-1/2"
-          style={{
-            backgroundColor: theme.accentColor,
-            opacity: 0.6,
-            boxShadow: `0 0 8px ${theme.accentColor}60`,
-          }}
-          aria-hidden
-        />
-        <div className="relative space-y-0">
-          {milestones.map((milestone, index) => (
-            <CareerPathTimelineNode
-              key={`${milestone.period}-${milestone.semester}-${index}`}
-              milestone={milestone}
-              isLast={index === milestones.length - 1}
-              theme={theme}
-              setakLabel={labels.setak}
-            />
-          ))}
+      {milestones.length > 0 ? (
+        <div className="relative pl-0.5">
+          {/* Glowing vertical line */}
+          <div
+            className="absolute left-[22px] top-5 bottom-0 w-0.5 -translate-x-1/2"
+            style={{
+              backgroundColor: theme.accentColor,
+              opacity: 0.6,
+              boxShadow: `0 0 8px ${theme.accentColor}60`,
+            }}
+            aria-hidden
+          />
+          <div className="relative space-y-0">
+            {milestones.map((milestone, index) => (
+              <CareerPathTimelineNode
+                key={`${milestone.period}-${milestone.semester}-${index}`}
+                milestone={milestone}
+                isLast={index === milestones.length - 1}
+                theme={theme}
+                setakLabel={labels.setak}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <CareerPathKeySuccessCard
         keySuccess={keySuccess}

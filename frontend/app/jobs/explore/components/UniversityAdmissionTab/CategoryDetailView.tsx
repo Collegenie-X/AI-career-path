@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronRight, Target, CalendarDays, Zap, Trophy, ShieldCheck, Sparkles, Lightbulb } from 'lucide-react';
+import { ChevronDown, ChevronRight, Target, CalendarDays, Zap, Trophy } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
@@ -106,37 +106,6 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
               <h2 className="text-xl font-bold text-white mb-1">{category.name}</h2>
               <p className="text-sm text-white/80">{category.description}</p>
               <p className="text-xs text-white/70 mt-2 leading-relaxed">{playbook.coreMessage}</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-4 gap-1.5 mt-3">
-            <div
-              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
-              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
-            >
-              <Target className="w-4 h-4 mb-1" style={{ color: category.color }} />
-              <p className="text-[10px] text-white/90 font-medium text-center">핵심전략</p>
-            </div>
-            <div
-              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
-              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
-            >
-              <CalendarDays className="w-4 h-4 mb-1" style={{ color: category.color }} />
-              <p className="text-[10px] text-white/90 font-medium text-center">학년별</p>
-            </div>
-            <div
-              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
-              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
-            >
-              <Zap className="w-4 h-4 mb-1" style={{ color: category.color }} />
-              <p className="text-[10px] text-white/90 font-medium text-center">2028대응</p>
-            </div>
-            <div
-              className="rounded-lg px-2 py-2 flex flex-col items-center justify-center"
-              style={{ background: 'rgba(15,23,42,0.45)', border: `1px solid ${category.color}35` }}
-            >
-              <Trophy className="w-4 h-4 mb-1" style={{ color: category.color }} />
-              <p className="text-[10px] text-white/90 font-medium text-center">실전예시</p>
             </div>
           </div>
         </div>

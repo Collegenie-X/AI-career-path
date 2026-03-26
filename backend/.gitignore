@@ -58,3 +58,6 @@ logs/
 
 # Docker
 *.pid
+
+# Generated OpenAPI for Postman (make openapi-export)
+postman/openapi.json

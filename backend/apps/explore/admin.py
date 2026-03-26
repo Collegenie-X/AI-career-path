@@ -194,12 +194,20 @@ class HighSchoolInfographicAdmin(admin.ModelAdmin):
     image_preview.short_description = 'Preview'
 
 
+class UniversityAdmissionPlaybookInline(admin.StackedInline):
+    model = UniversityAdmissionPlaybook
+    extra = 0
+    fields = ['title', 'description', 'order_index', 'preparation_guide', 'timeline', 'key_strategies']
+    ordering = ['order_index']
+
+
 @admin.register(UniversityAdmissionCategory)
 class UniversityAdmissionCategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'emoji', 'color', 'planet_size', 'order_index', 'created_at']
     list_editable = ['order_index']
     search_fields = ['name']
     ordering = ['order_index']
+    inlines = [UniversityAdmissionPlaybookInline]
 
 
 class UniversityDepartmentInline(admin.TabularInline):

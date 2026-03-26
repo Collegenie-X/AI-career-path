@@ -77,3 +77,21 @@ class RoadmapCommentAdmin(admin.ModelAdmin):
     def get_content_preview(self, obj):
         return obj.content[:50] + '...' if len(obj.content) > 50 else obj.content
     get_content_preview.short_description = 'Comment'
+
+
+@admin.register(RoadmapLike)
+class RoadmapLikeAdmin(admin.ModelAdmin):
+    list_display = ['roadmap', 'user', 'created_at']
+    list_filter = ['created_at']
+    search_fields = ['roadmap__title', 'user__name', 'user__email']
+    ordering = ['-created_at']
+    autocomplete_fields = ['roadmap', 'user']
+
+
+@admin.register(RoadmapBookmark)
+class RoadmapBookmarkAdmin(admin.ModelAdmin):
+    list_display = ['roadmap', 'user', 'created_at']
+    list_filter = ['created_at']
+    search_fields = ['roadmap__title', 'user__name', 'user__email']
+    ordering = ['-created_at']
+    autocomplete_fields = ['roadmap', 'user']

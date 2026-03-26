@@ -12,13 +12,13 @@ from drf_spectacular.utils import extend_schema, OpenApiParameter
 from .models import QuizQuestion, QuizResult, RiasecReport
 from .serializers import (
     QuizQuestionSerializer,
-    QuizQuestionListSerializer,
     QuizResultSerializer,
     QuizResultListSerializer,
     QuizResultSubmitSerializer,
     RiasecReportSerializer,
 )
 from .services.riasec_calculator import RiasecCalculator
+from .services.quiz_result_snapshot import build_all_snapshots
 
 User = get_user_model()
 
@@ -29,10 +29,9 @@ class QuizQuestionViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = QuizQuestion.objects.filter(is_active=True).prefetch_related('choices')
     permission_classes = [AllowAny]
-    
+    pagination_class = None
+
     def get_serializer_class(self):
-        if self.action == 'list':
-            return QuizQuestionListSerializer
         return QuizQuestionSerializer
     
     @extend_schema(
@@ -67,12 +66,27 @@ class QuizQuestionViewSet(viewsets.ReadOnlyModelViewSet):
 class QuizResultViewSet(viewsets.ModelViewSet):
     """
     ViewSet for quiz results
+
+    - create: 익명 허용(비로그인도 DB 저장). 로그인 시 user 연결.
+    - retrieve: UUID 로 단건 조회 허용(프론트에 저장된 id 로 리포트 복원). UUID 노출 수준의 비공개.
+    - list: 본인 결과만 (인증 필요)
     """
     serializer_class = QuizResultSerializer
     permission_classes = [IsAuthenticated]
-    
+
+    def get_permissions(self):
+        if self.action in ('create', 'retrieve'):
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
     def get_queryset(self):
-        return QuizResult.objects.filter(user=self.request.user).order_by('-taken_at')
+        if getattr(self, 'swagger_fake_view', False):
+            return QuizResult.objects.none()
+        if self.action == 'retrieve':
+            return QuizResult.objects.all().order_by('-taken_at')
+        if self.request.user.is_authenticated:
+            return QuizResult.objects.filter(user=self.request.user).order_by('-taken_at')
+        return QuizResult.objects.none()
     
     def get_serializer_class(self):
         if self.action == 'list':
@@ -93,9 +107,13 @@ class QuizResultViewSet(viewsets.ModelViewSet):
         
         mode = serializer.validated_data['mode']
         answers = serializer.validated_data['answers']
-        
+
         result_data = RiasecCalculator.calculate_result(answers)
-        
+        snapshots = build_all_snapshots(
+            result_data['riasec_scores'],
+            result_data['top_type'],
+        )
+
         quiz_result = QuizResult.objects.create(
             user=request.user if request.user.is_authenticated else None,
             mode=mode,
@@ -103,6 +121,9 @@ class QuizResultViewSet(viewsets.ModelViewSet):
             riasec_scores=result_data['riasec_scores'],
             top_type=result_data['top_type'],
             second_type=result_data['second_type'],
+            spectrum_snapshot=snapshots['spectrum_snapshot'],
+            recommended_kingdom_snapshot=snapshots['recommended_kingdom_snapshot'],
+            recommended_jobs_snapshot=snapshots['recommended_jobs_snapshot'],
         )
         
         result_serializer = QuizResultSerializer(quiz_result)

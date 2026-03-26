@@ -42,6 +42,172 @@
       { "type": "해외", "university": "미국·영국 명문대", "admission": "IB 디플로마 활용", "note": "IB 38점 이상 목표" }
     ]
   },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 국제고생이 반드시 알아야 할 것",
+    "summary": "AI 번역·분석이 완벽해지는 시대, 국제고생은 '글로벌 맥락 이해'와 '국제 협상 능력'으로 차별화해야 합니다",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "기본 번역 및 통역",
+          "국제 뉴스 요약",
+          "기초 에세이 초안",
+          "데이터 분석"
+        ],
+        "humanMustDo": [
+          "국제 정세 맥락 이해 ('왜 이 사건이 중요한가?')",
+          "문화 간 협상 및 갈등 조정",
+          "글로벌 전략 수립 (정치·경제·문화 융합)",
+          "국제 네트워크 구축 (신뢰 기반 관계)",
+          "외교·비즈니스 윤리 판단"
+        ]
+      },
+      {
+        "title": "AI 도구 활용 로드맵 (중1~고3)",
+        "roadmap": [
+          {
+            "stage": "중학교 1~2학년",
+            "focus": "AI로 글로벌 이슈 이해하기",
+            "tools": [
+              "ChatGPT: 국제 이슈 개념 학습",
+              "Perplexity: 국제 뉴스 검색·요약",
+              "DeepL: 다국어 자료 번역",
+              "Notion AI: 탐구 일지"
+            ],
+            "projects": [
+              "국제 이슈 스크랩북 만들기",
+              "모의UN 준비 (AI로 국가별 정책 리서치)"
+            ],
+            "warning": "⚠️ AI 번역을 신뢰하되, 문화적 맥락은 스스로 판단하세요"
+          },
+          {
+            "stage": "중학교 3학년",
+            "focus": "AI를 활용한 국제 관계 탐구",
+            "tools": [
+              "ChatGPT: 국제 관계 시뮬레이션",
+              "Elicit: 국제 관계 논문 리서치",
+              "Canva AI: 프레젠테이션",
+              "Grammarly: 영어 에세이"
+            ],
+            "projects": [
+              "국제 관계 탐구 보고서",
+              "모의UN 대표 활동"
+            ],
+            "keyPoint": "💡 AI는 정보 제공, 전략 수립은 본인이 하세요"
+          },
+          {
+            "stage": "고등학교 1~2학년",
+            "focus": "AI 시대 글로벌 리더십",
+            "tools": [
+              "ChatGPT Advanced: 국제 협상 시뮬레이션",
+              "Perplexity: 지정학 리서치",
+              "AI 데이터 분석: 국제 경제 데이터",
+              "Otter.ai: 토론 녹음·분석"
+            ],
+            "projects": [
+              "국제 비즈니스 케이스 분석",
+              "글로벌 정책 제안서 작성",
+              "모의UN 리더십"
+            ],
+            "keyPoint": "💡 AI 데이터 + 인간 전략 = 글로벌 리더 역량"
+          },
+          {
+            "stage": "고등학교 3학년",
+            "focus": "AI 시대 글로벌 인재 차별화",
+            "tools": [
+              "AI 기반 자소서",
+              "면접 준비: AI 협상 시뮬레이션"
+            ],
+            "projects": [
+              "AI 시대 국제 관계 변화 에세이",
+              "포트폴리오: AI 활용 국제 프로젝트"
+            ],
+            "keyPoint": "💡 'AI 시대 글로벌 리더'임을 증명하세요"
+          }
+        ]
+      },
+      {
+        "title": "AI 시대 국제고생의 3대 차별화 전략",
+        "strategies": [
+          {
+            "strategy": "1. 국제 정세 맥락 이해",
+            "why": "AI는 데이터를 제공하지만, 그 의미는 인간이 해석해야 합니다",
+            "how": [
+              "국제 뉴스를 매일 읽고 '왜?'를 묻기",
+              "지정학적 관점에서 분석",
+              "AI 데이터 + 인간 해석"
+            ],
+            "example": "예: AI가 무역 데이터 제공 → 인간이 전략 수립"
+          },
+          {
+            "strategy": "2. 문화 간 협상 능력",
+            "why": "AI는 번역하지만, 문화적 신뢰 구축은 인간의 영역",
+            "how": [
+              "모의UN에서 문화 간 갈등 조정 경험",
+              "외국 학생과 협업 프로젝트",
+              "문화 차이 사례 연구"
+            ],
+            "example": "예: 한국 vs 중동 비즈니스 문화 차이"
+          },
+          {
+            "strategy": "3. 글로벌 전략 수립",
+            "why": "AI는 분석하지만, 큰 그림은 인간이 그립니다",
+            "how": [
+              "국제 이슈를 종합적으로 분석",
+              "다양한 이해관계자 고려",
+              "장기 전략 수립"
+            ],
+            "example": "예: 미중 갈등 속 한국의 전략"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "🌍",
+        "category": "국제 이슈",
+        "tip": "AI로 뉴스 요약 → 스스로 맥락 분석",
+        "detail": "Perplexity로 국제 뉴스를 검색한 후, '왜 이 사건이 중요한가?'를 스스로 판단하세요."
+      },
+      {
+        "emoji": "🗣️",
+        "category": "협상",
+        "tip": "ChatGPT와 협상 시뮬레이션 연습",
+        "detail": "AI를 상대방 역할로 설정하고 국제 협상 연습을 하세요. 실전 감각을 키울 수 있습니다."
+      },
+      {
+        "emoji": "📊",
+        "category": "데이터",
+        "tip": "AI 데이터 분석 → 인간이 전략 제안",
+        "detail": "국제 경제 데이터를 AI로 분석하고, 그 결과를 바탕으로 전략을 제안하세요."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "❌ AI 번역을 무조건 신뢰",
+        "correct": "✅ 문화적 맥락을 고려하여 수정"
+      },
+      {
+        "mistake": "❌ AI 분석 결과를 그대로 인용",
+        "correct": "✅ 스스로 비판적으로 분석 후 사용"
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, 국제고 출신의 미래는?",
+      "reality": "AI가 번역·분석을 자동화하지만, 글로벌 맥락 이해와 문화 간 협상은 인간의 영역입니다.",
+      "newCareers": [
+        "글로벌 전략 컨설턴트",
+        "크로스컬처 협상가",
+        "AI 국제 정책 분석가",
+        "글로벌 기업 문화 전략가"
+      ],
+      "preparation": [
+        "국제 감각 + AI 데이터 분석",
+        "외국어 능력 + 문화 이해",
+        "국제 관계 이론 + 실전 협상"
+      ]
+    }
+  },
   "schools": [
     {
       "id": "seoul_international",
@@ -298,6 +464,906 @@
       "admissionTip": "인천·경기 서부권 학생에게 유리. IB를 저렴하게 경험할 수 있는 최적의 선택입니다.",
       "targetUniversities": ["인하대", "연세대 국제학부", "해외 대학 (IB 활용)"],
       "alumniCareers": ["항공·물류 전문가", "국제 무역", "외교관", "글로벌 기업"]
+    },
+    {
+      "id": "busan_international",
+      "name": "부산국제고등학교",
+      "shortName": "부산국제고",
+      "location": "부산광역시 해운대구",
+      "type": "국제고",
+      "emoji": "🌏",
+      "color": "#f472b6",
+      "difficulty": 4,
+      "annualAdmission": 160,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "부산·경남권 최고 국제고 — 부산대·경상대 국제학부 직결, 해양·무역 특화",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화, 해양·무역 교육",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "부산항 연계 무역 교육",
+        "해외 명문대 진학 컨설팅"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "부산항 연계 무역 교육",
+          "emoji": "⚓",
+          "description": "부산항 현장 실습, 국제 무역 실무 교육",
+          "benefit": "무역·물류 분야 진로 탐색"
+        },
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌏",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        }
+      ],
+      "studentLevel": "부산·경남권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "부산 해운대", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "무역 특화", "value": "강점", "emoji": "⚓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "부산·경남권 최고 국제고라 부산대·경상대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "부산항 연계 무역 교육이 독특한 강점이에요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "부산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "부산·경남권에서 무역·물류 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "⚓", "tip": "부산항 연계 무역 교육을 최대한 활용하세요." },
+        { "emoji": "✍️", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "부산·경남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 부산대 진학 목표로 동기부여 강함.",
+      "pros": ["부산 최고 국제고", "무역 특화", "기숙사 제공"],
+      "cons": ["부산 소재"],
+      "admissionTip": "부산·경남권 학생에게 유리.",
+      "targetUniversities": ["부산대 국제학부", "경상대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "무역 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "daegu_international",
+      "name": "대구국제고등학교",
+      "shortName": "대구국제고",
+      "location": "대구광역시 수성구",
+      "type": "국제고",
+      "emoji": "🌍",
+      "color": "#f472b6",
+      "difficulty": 4,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "대구·경북권 최고 국제고 — 경북대·영남대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "경북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌍",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "대구·경북권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "대구 수성", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "경북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌍", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "대구·경북권 최고 국제고라 경북대·영남대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "대구 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "대구·경북권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌍", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "대구·경북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 경북대 진학 목표로 동기부여 강함.",
+      "pros": ["대구 최고 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["대구 소재"],
+      "admissionTip": "대구·경북권 학생에게 유리.",
+      "targetUniversities": ["경북대 국제학부", "영남대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "gwangju_international",
+      "name": "광주국제고등학교",
+      "shortName": "광주국제고",
+      "location": "광주광역시 남구",
+      "type": "국제고",
+      "emoji": "🌐",
+      "color": "#f472b6",
+      "difficulty": 4,
+      "annualAdmission": 140,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "광주·전남권 최고 국제고 — 전남대·조선대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "전남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌐",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "광주·전남권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "광주 남구", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "전남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌐", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "광주·전남권 최고 국제고라 전남대·조선대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "광주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "광주·전남권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌐", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "광주·전남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 전남대 진학 목표로 동기부여 강함.",
+      "pros": ["광주 최고 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["광주 소재"],
+      "admissionTip": "광주·전남권 학생에게 유리.",
+      "targetUniversities": ["전남대 국제학부", "조선대", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "daejeon_international",
+      "name": "대전국제고등학교",
+      "shortName": "대전국제고",
+      "location": "대전광역시 유성구",
+      "type": "국제고",
+      "emoji": "🌍",
+      "color": "#f472b6",
+      "difficulty": 4,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "대전·충청권 국제고 — 충남대·충북대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "충남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌍",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "대전·충청권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "대전 유성", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "충남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌍", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "대전·충청권 국제고라 충남대·충북대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "대전 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "대전·충청권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌍", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "대전·충청권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 치열하지만, 충남대 진학 목표로 동기부여 강함.",
+      "pros": ["대전 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["대전 소재"],
+      "admissionTip": "대전·충청권 학생에게 유리.",
+      "targetUniversities": ["충남대 국제학부", "충북대", "서울대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "ulsan_international",
+      "name": "울산국제고등학교",
+      "shortName": "울산국제고",
+      "location": "울산광역시 남구",
+      "type": "국제고",
+      "emoji": "🌏",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "울산·경남권 국제고 — 울산대·부산대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "울산대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌏",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "울산·경남권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "울산 남구", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "울산대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌏", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "울산·경남권 국제고라 울산대·부산대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "울산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "울산·경남권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌏", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "울산·경남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 울산대 진학 목표로 동기부여 강함.",
+      "pros": ["울산 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["울산 소재"],
+      "admissionTip": "울산·경남권 학생에게 유리.",
+      "targetUniversities": ["울산대 국제학부", "부산대", "서울대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "jeonju_international",
+      "name": "전주국제고등학교",
+      "shortName": "전주국제고",
+      "location": "전북 전주시 완산구",
+      "type": "국제고",
+      "emoji": "🌐",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "전북권 최고 국제고 — 전북대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "전북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌐",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "전북권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "전북 전주", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "전북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌐", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "전북권 최고 국제고라 전북대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "전주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "전북권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌐", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "전북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 전북대 진학 목표로 동기부여 강함.",
+      "pros": ["전북 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["전주 소재"],
+      "admissionTip": "전북권 학생에게 유리.",
+      "targetUniversities": ["전북대 국제학부", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "gangwon_international",
+      "name": "강원국제고등학교",
+      "shortName": "강원국제고",
+      "location": "강원도 춘천시",
+      "type": "국제고",
+      "emoji": "🏔️",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "강원권 국제고 — 강원대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "강원대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🏔️",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "강원권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "강원 춘천", "value": "공립", "emoji": "🏔️", "color": "#f472b6" },
+        { "label": "강원대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌐", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "강원권 국제고라 강원대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "춘천 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "강원권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🏔️", "tip": "강원도 자연환경을 활용한 탐구 활동을 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "강원권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 강원대 진학 목표로 동기부여 강함.",
+      "pros": ["강원 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["춘천 소재"],
+      "admissionTip": "강원권 학생에게 유리.",
+      "targetUniversities": ["강원대 국제학부", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "sejong_international",
+      "name": "세종국제고등학교",
+      "shortName": "세종국제고",
+      "location": "세종특별자치시",
+      "type": "국제고",
+      "emoji": "🏛️",
+      "color": "#f472b6",
+      "difficulty": 4,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "세종시 국제고 — 정부 세종청사 연계, 정책·외교 특화",
+      "teachingMethod": "영어·제2외국어 집중 교육, 정책·외교 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "정부 세종청사 연계 프로그램",
+        "국제 관계·정책 탐구",
+        "토론·에세이 집중 교육"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "정부 세종청사 연계 프로그램",
+          "emoji": "🏛️",
+          "description": "정부 세종청사 견학·인턴십, 정책 탐구",
+          "benefit": "정책·외교 분야 진로 탐색"
+        },
+        {
+          "name": "국제 관계·정책 탐구",
+          "emoji": "🌍",
+          "description": "국제 관계·정책 심화 교육",
+          "benefit": "국제학부·정치외교학과 입시에서 강점"
+        }
+      ],
+      "studentLevel": "세종·충청권 영어 최상위 (전국 상위 5%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 정책·외교 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "세종시", "value": "공립", "emoji": "🏛️", "color": "#f472b6" },
+        { "label": "세종청사 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "정책·외교", "value": "특화", "emoji": "🌍", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "세종시 국제고라 정부 세종청사 연계가 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "정부 세종청사 견학·인턴십으로 정책·외교 분야 진로 탐색이 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "세종시 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "정책·외교 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🏛️", "tip": "정부 세종청사 연계 프로그램을 최대한 활용하세요." },
+        { "emoji": "✍️", "tip": "정책·외교 탐구를 적극적으로 하세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "정책·외교 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "세종·충청권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "정책·외교 분야 진로로 동기부여 강함.",
+      "pros": ["세종청사 연계", "정책·외교 특화", "기숙사 제공"],
+      "cons": ["세종시 소재"],
+      "admissionTip": "세종·충청권 학생에게 유리. 정책·외교 분야를 목표로 한다면 좋은 선택입니다.",
+      "targetUniversities": ["충남대", "서울대 정치외교학과", "연세대 국제학부"],
+      "alumniCareers": ["외교관", "정부 부처", "정책 전문가"]
+    },
+    {
+      "id": "gyeonggi_international",
+      "name": "경기국제고등학교",
+      "shortName": "경기국제고",
+      "location": "경기도 수원시 영통구",
+      "type": "국제고",
+      "emoji": "🌍",
+      "color": "#f472b6",
+      "difficulty": 5,
+      "annualAdmission": 180,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "경기도 최고 국제고 — 서울대·연세대·고려대 국제학부 직결",
+      "teachingMethod": "영어·중국어 이중언어 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·중국어 이중언어 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "해외 명문대 진학 컨설팅"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "영어·중국어 이중언어 교육",
+          "emoji": "🌍",
+          "description": "영어·중국어를 모두 유창하게 구사",
+          "benefit": "서울대·연세대·고려대 국제학부 입시에서 차별화"
+        },
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌏",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        }
+      ],
+      "studentLevel": "경기·수도권 영어·중국어 최상위 (전국 상위 1%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 영어·중국어 능력 증빙", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어·중국어 에세이", "detail": "영어·중국어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어·중국어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어·중국어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어·중국어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "경기 수원", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "이중언어", "value": "영어·중국어", "emoji": "🌍", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "SKY 국제학부", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "경기도 최고 국제고라 서울대·연세대·고려대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "영어·중국어 이중언어 교육으로 글로벌 인재 양성이 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "영어·중국어 이중언어 부담이 크고, 경쟁이 매우 치열해요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "서울대·연세대·고려대 국제학부를 목표로 하는 학생, 영어·중국어를 모두 잘하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌍", "tip": "영어·중국어를 균형 있게 학습하세요." },
+        { "emoji": "✍️", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "🗣️", "tip": "영어·중국어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "경기·수도권 영어·중국어 최상위",
+      "studyHoursPerDay": "8~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 매우 치열하지만, SKY 국제학부 진학 목표로 동기부여 강함.",
+      "pros": ["경기 최고 국제고", "이중언어 교육", "기숙사 제공"],
+      "cons": ["이중언어 부담", "경쟁 치열"],
+      "admissionTip": "경기·수도권 학생에게 유리. SKY 국제학부를 목표로 한다면 최고의 선택입니다.",
+      "targetUniversities": ["서울대 국제학부", "연세대 국제학부", "고려대 국제학부"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업", "중국 관련 전문가"]
+    },
+    {
+      "id": "jeju_international",
+      "name": "제주국제고등학교",
+      "shortName": "제주국제고",
+      "location": "제주특별자치도 제주시",
+      "type": "국제고",
+      "emoji": "🏝️",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "제주권 국제고 — 제주대 국제학부 직결, 관광·환경 특화",
+      "teachingMethod": "영어·제2외국어 집중 교육, 관광·환경 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "관광·환경 특화 프로그램",
+        "국제 관계·경제 탐구",
+        "제주대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "관광·환경 특화 프로그램",
+          "emoji": "🏝️",
+          "description": "제주 관광·환경 산업 연계 교육",
+          "benefit": "관광·환경 분야 진로 탐색"
+        },
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌍",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        }
+      ],
+      "studentLevel": "제주권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 관광·환경 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "제주시", "value": "공립", "emoji": "🏝️", "color": "#f472b6" },
+        { "label": "관광·환경", "value": "특화", "emoji": "🌿", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "제주권 국제고라 제주대 국제학부 진학이 강점이에요. 관광·환경 특화가 독특합니다." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "제주 관광·환경 산업 연계 교육이 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "제주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "제주권에서 관광·환경 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🏝️", "tip": "제주 관광·환경 특화 프로그램을 최대한 활용하세요." },
+        { "emoji": "✍️", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "관광·환경 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "제주권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 제주대 진학 목표로 동기부여 강함.",
+      "pros": ["제주 국제고", "관광·환경 특화", "기숙사 제공"],
+      "cons": ["제주 소재"],
+      "admissionTip": "제주권 학생에게 유리. 관광·환경 분야를 목표로 한다면 좋은 선택입니다.",
+      "targetUniversities": ["제주대 국제학부", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "관광·환경 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "chungnam_international",
+      "name": "충남국제고등학교",
+      "shortName": "충남국제고",
+      "location": "충남 천안시",
+      "type": "국제고",
+      "emoji": "🌐",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충남권 국제고 — 충남대·단국대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "충남대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌐",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "충남권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충남 천안", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "충남대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌐", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충남권 국제고라 충남대·단국대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "천안 소재라 수도권 접근성은 보통이에요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충남권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌐", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "충남권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 충남대 진학 목표로 동기부여 강함.",
+      "pros": ["충남 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["천안 소재"],
+      "admissionTip": "충남권 학생에게 유리.",
+      "targetUniversities": ["충남대 국제학부", "단국대", "서울대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
+    },
+    {
+      "id": "chungbuk_international",
+      "name": "충북국제고등학교",
+      "shortName": "충북국제고",
+      "location": "충북 청주시 흥덕구",
+      "type": "국제고",
+      "emoji": "🌐",
+      "color": "#f472b6",
+      "difficulty": 3,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충북권 국제고 — 충북대 국제학부 직결",
+      "teachingMethod": "영어·제2외국어 집중 교육, 국제 관계·경제 특화",
+      "famousPrograms": [
+        "영어·제2외국어 집중 교육",
+        "국제 관계·경제 탐구",
+        "토론·에세이 집중 교육",
+        "충북대 연계 프로그램"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "국제 관계·경제 탐구",
+          "emoji": "🌐",
+          "description": "국제 관계·경제 심화 교육",
+          "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "토론·에세이 집중 교육",
+          "emoji": "✍️",
+          "description": "토론·에세이 능력 집중 교육",
+          "benefit": "학종 면접·에세이에서 강력한 증거"
+        }
+      ],
+      "studentLevel": "충북권 영어 최상위 (전국 상위 10%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✍️" },
+        { "step": 3, "title": "3단계: 면접", "detail": "영어 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "영어 기초 강화, 독서·에세이 연습",
+        "middle2": "영어 에세이 집중 연습, 국제 관계 탐구",
+        "middle3": "면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충북 청주", "value": "공립", "emoji": "📍", "color": "#f472b6" },
+        { "label": "충북대 연계", "value": "강점", "emoji": "🎓", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "국제학부", "value": "직결", "emoji": "🌐", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충북권 국제고라 충북대 국제학부 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "청주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충북권에서 국제 관계·경제 분야를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🌐", "tip": "국제 관계·경제 탐구를 적극적으로 하세요." },
+        { "emoji": "✍️", "tip": "토론·에세이 능력을 집중적으로 키우세요." },
+        { "emoji": "🗣️", "tip": "영어 구술 면접 준비를 철저히 하세요." },
+        { "emoji": "📚", "tip": "국제 관계·경제 관련 독서를 꾸준히 하세요." }
+      ],
+      "competitionLevel": "충북권 영어 최상위",
+      "studyHoursPerDay": "7~9시간",
+      "selfStudyRatio": "55%",
+      "socialLife": "기숙사 생활",
+      "mentalHealthNote": "경쟁이 보통이지만, 충북대 진학 목표로 동기부여 강함.",
+      "pros": ["충북 국제고", "기숙사 제공", "무상 교육"],
+      "cons": ["청주 소재"],
+      "admissionTip": "충북권 학생에게 유리.",
+      "targetUniversities": ["충북대 국제학부", "서울대", "연세대"],
+      "alumniCareers": ["외교관", "국제 관계 전문가", "글로벌 기업"]
     }
   ]
 }

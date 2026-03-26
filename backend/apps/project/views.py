@@ -2,8 +2,9 @@
 Views for project management
 """
 
-from rest_framework import viewsets
+from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -44,6 +45,8 @@ class UserProjectViewSet(viewsets.ModelViewSet):
     filterset_fields = ['status']
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return UserProject.objects.none()
         return UserProject.objects.filter(user=self.request.user)
     
     @extend_schema(tags=['Projects'])

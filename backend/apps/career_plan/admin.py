@@ -35,9 +35,17 @@ class ExecutionPlanAdmin(admin.ModelAdmin):
     get_user_name.short_description = 'User'
 
 
+class PlanGroupMemberInline(admin.TabularInline):
+    model = PlanGroupMember
+    extra = 0
+    fields = ['user', 'role', 'joined_at']
+    readonly_fields = ['joined_at']
+
+
 @admin.register(PlanGroup)
 class PlanGroupAdmin(admin.ModelAdmin):
     list_display = ['name', 'emoji', 'creator', 'member_count', 'created_at']
     search_fields = ['name', 'description']
     ordering = ['-created_at']
     readonly_fields = ['member_count']
+    inlines = [PlanGroupMemberInline]

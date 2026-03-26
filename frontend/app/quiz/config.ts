@@ -46,6 +46,10 @@ export const LABELS: Record<string, string> = {
 
   // 퀴즈 진행 화면
   quiz_analyzing: '우주 적성 데이터 분석 중...',
+  quiz_questions_loading: '문항을 불러오는 중...',
+  quiz_questions_error: '문항을 불러오지 못했어요. 네트워크를 확인한 뒤 다시 시도해 주세요.',
+  quiz_questions_retry: '다시 시도',
+  quiz_back_to_mode_select: '모드 선택으로',
   quiz_xp_earned: 'XP 획득',
   quiz_progress: '진행률',
 

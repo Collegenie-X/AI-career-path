@@ -267,7 +267,7 @@ make clean            # 캐시 파일 삭제
 
 ---
 
-## API 문서
+## API 문서 (실행하는 부분)
 
 ### Swagger UI
 http://localhost:8000/api/docs/
@@ -277,6 +277,11 @@ http://localhost:8000/api/redoc/
 
 ### OpenAPI Schema
 http://localhost:8000/api/schema/
+
+### Postman
+- 가이드: `postman/README.md`
+- 로컬 환경 변수: `postman/Local.postman_environment.json` Import
+- 오프라인 스키마: `make openapi-export` → `postman/openapi.json` 생성 후 Postman에서 파일 Import
 
 ---
 

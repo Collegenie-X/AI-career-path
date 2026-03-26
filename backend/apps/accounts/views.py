@@ -7,7 +7,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django.contrib.auth import get_user_model
-from drf_spectacular.utils import extend_schema, OpenApiResponse
+from drf_spectacular.utils import extend_schema, OpenApiResponse, inline_serializer
+from rest_framework import serializers as drf_serializers
 
 from .serializers import (
     UserSerializer,
@@ -117,6 +118,12 @@ def token_refresh_view(request):
 
 @extend_schema(
     tags=['Authentication'],
+    request=inline_serializer(
+        name='LogoutRequest',
+        fields={
+            'refresh_token': drf_serializers.CharField(help_text='블랙리스트할 refresh_token'),
+        },
+    ),
     responses={200: OpenApiResponse(description='Logout successful')}
 )
 @api_view(['POST'])

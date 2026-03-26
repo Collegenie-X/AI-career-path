@@ -31,6 +31,8 @@ class ExecutionPlanViewSet(viewsets.ModelViewSet):
     search_fields = ['title', 'description']
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return ExecutionPlan.objects.none()
         return ExecutionPlan.objects.filter(
             user=self.request.user
         ).prefetch_related('items')
@@ -111,6 +113,8 @@ class PlanGroupViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return PlanGroup.objects.none()
         return PlanGroup.objects.filter(
             members__user=self.request.user
         ).distinct()

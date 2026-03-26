@@ -42,6 +42,184 @@
       { "type": "안정", "university": "POSTECH", "admission": "일반전형", "note": "이공계 특화" }
     ]
   },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 과학고·영재고생이 반드시 알아야 할 것",
+    "summary": "AI가 코딩·데이터 분석을 자동화하는 시대, 과학고생은 '문제 정의'와 '연구 설계' 능력으로 차별화해야 합니다",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "기초 코딩 (Python 기본 알고리즘)",
+          "데이터 전처리·시각화",
+          "표준 실험 프로토콜 작성",
+          "문헌 검색·요약"
+        ],
+        "humanMustDo": [
+          "연구 문제 정의 ('무엇이 중요한 문제인가?')",
+          "실험 설계 및 변수 통제 전략",
+          "결과 해석 및 의미 도출",
+          "학제 간 융합 연구 설계",
+          "윤리적 판단 (AI 연구 윤리, 생명윤리)"
+        ]
+      },
+      {
+        "title": "AI 도구 활용 로드맵 (중1~고3)",
+        "roadmap": [
+          {
+            "stage": "중학교 1~2학년",
+            "focus": "AI 도구 기초 익히기",
+            "tools": [
+              "ChatGPT/Claude: 개념 이해, 문제 풀이 힌트",
+              "Wolfram Alpha: 수학·물리 계산 검증",
+              "Notion AI: 탐구 일지 정리",
+              "Perplexity: 논문 검색 및 요약"
+            ],
+            "projects": [
+              "AI와 함께 수학 올림피아드 문제 풀이 (단, 논리는 스스로)",
+              "과학 탐구 보고서 초안 작성 (AI는 구조 제안만)"
+            ],
+            "warning": "⚠️ AI에게 답을 물어보지 말고, '이 문제를 어떻게 접근해야 하나?'를 물어보세요"
+          },
+          {
+            "stage": "중학교 3학년",
+            "focus": "AI를 활용한 연구 프로젝트 시작",
+            "tools": [
+              "GitHub Copilot: 코딩 자동완성 (Python 기초)",
+              "Jupyter Notebook + AI: 데이터 분석",
+              "Zotero + AI: 논문 관리",
+              "Mermaid + AI: 연구 흐름도 작성"
+            ],
+            "projects": [
+              "AI를 활용한 데이터 분석 프로젝트 (예: 기후 데이터 분석)",
+              "과학 올림피아드 준비 (AI로 문제 유형 분석)"
+            ],
+            "keyPoint": "💡 AI는 '도구'일 뿐, 연구 문제는 스스로 정의하세요"
+          },
+          {
+            "stage": "고등학교 1~2학년 (R&E 시기)",
+            "focus": "AI와 협업하는 연구 역량",
+            "tools": [
+              "ChatGPT Code Interpreter: 고급 데이터 분석",
+              "Cursor AI: 연구용 코드 작성",
+              "Elicit/Consensus: AI 논문 리뷰",
+              "Overleaf + AI: LaTeX 논문 작성"
+            ],
+            "projects": [
+              "R&E 연구 프로젝트 (AI로 문헌 리뷰 가속화)",
+              "AI를 활용한 시뮬레이션 연구",
+              "학술대회 논문 작성 (AI는 초안 작성, 인간은 논리 검증)"
+            ],
+            "keyPoint": "💡 R&E 보고서에 'AI 활용 방법론' 섹션 추가 — 투명하게 공개하세요"
+          },
+          {
+            "stage": "고등학교 3학년 (대입 준비)",
+            "focus": "AI 시대 연구자로서의 차별화",
+            "tools": [
+              "AI 윤리 프레임워크 학습",
+              "AI 기반 연구 포트폴리오 정리",
+              "면접 준비: AI 활용 경험 스토리텔링"
+            ],
+            "projects": [
+              "AI 윤리 관련 탐구 (예: AI 편향성 연구)",
+              "AI 도구 활용 사례집 작성 (자소서·면접 소재)"
+            ],
+            "keyPoint": "💡 면접에서 'AI를 어떻게 활용했는가'를 구체적으로 설명하세요"
+          }
+        ]
+      },
+      {
+        "title": "AI 시대 과학고생의 3대 차별화 전략",
+        "strategies": [
+          {
+            "strategy": "1. 문제 정의 능력 — '무엇이 중요한 문제인가?'를 묻는 훈련",
+            "why": "AI는 주어진 문제를 풀지만, '무엇이 풀 가치가 있는 문제인가?'는 인간만이 판단할 수 있습니다",
+            "how": [
+              "R&E 연구 주제 선정 시: '왜 이 문제가 중요한가?'를 3단계로 설명하기",
+              "논문 읽을 때: '저자가 정의한 문제가 정말 중요한가?'를 비판적으로 평가",
+              "탐구 일지에 '문제 정의 과정' 기록하기"
+            ],
+            "example": "예: '기후변화 예측 모델 개선'보다 '기후변화가 식량 안보에 미치는 영향'이 더 중요한 문제일 수 있음"
+          },
+          {
+            "strategy": "2. 학제 간 융합 연구 — AI가 할 수 없는 '맥락 이해'",
+            "why": "AI는 단일 분야에서 강하지만, 여러 분야를 융합하는 것은 인간의 영역입니다",
+            "how": [
+              "물리+생물, 화학+환경, 수학+경제 등 2개 이상 분야 융합 연구",
+              "R&E 연구 시 다른 왕국(예: 자연 왕국 + 기술 왕국) 교차 프로젝트",
+              "과학 올림피아드 문제를 다른 분야 관점에서 재해석"
+            ],
+            "example": "예: 수학 모델링을 생태계 보존에 적용 (수학+자연)"
+          },
+          {
+            "strategy": "3. AI 윤리 및 사회적 영향 고민 — 기술의 '의미'를 묻는 능력",
+            "why": "AI 기술이 사회에 미치는 영향을 고민하는 것은 인간만이 할 수 있습니다",
+            "how": [
+              "R&E 연구에 '윤리적 고려사항' 섹션 추가",
+              "AI 편향성, 데이터 프라이버시 등 윤리 이슈 탐구",
+              "과학기술과 사회(STS) 관점에서 연구 주제 재해석"
+            ],
+            "example": "예: AI 의료 진단 시스템의 편향성 문제 연구"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "🤖",
+        "category": "AI 도구 활용",
+        "tip": "AI를 '선생님'이 아닌 '연구 조수'로 활용하세요",
+        "detail": "ChatGPT에게 '이 문제의 답은?'이 아니라 '이 문제를 풀기 위한 접근 방법은?'을 물어보세요. AI는 힌트를 주고, 최종 판단은 스스로 하세요."
+      },
+      {
+        "emoji": "📊",
+        "category": "데이터 분석",
+        "tip": "AI가 생성한 코드를 무조건 신뢰하지 마세요",
+        "detail": "AI가 작성한 Python 코드는 반드시 직접 실행하고 검증하세요. 특히 통계 분석 코드는 논리를 이해한 후 사용하세요."
+      },
+      {
+        "emoji": "📝",
+        "category": "논문 작성",
+        "tip": "AI로 초안 작성 → 인간이 논리 검증 → AI로 문장 다듬기",
+        "detail": "R&E 보고서 작성 시: 1) AI로 구조 제안 받기 → 2) 스스로 논리 전개 → 3) AI로 문장 교정. 순서가 중요합니다."
+      },
+      {
+        "emoji": "🔬",
+        "category": "실험 설계",
+        "tip": "AI에게 실험 설계 아이디어를 물어보되, 변수 통제는 스스로 결정하세요",
+        "detail": "AI는 일반적인 실험 프로토콜을 제안하지만, 여러분의 연구 맥락에 맞는 변수 통제 전략은 스스로 설계해야 합니다."
+      },
+      {
+        "emoji": "💡",
+        "category": "창의성",
+        "tip": "AI가 제안한 아이디어를 '출발점'으로 삼되, 독창성은 스스로 만드세요",
+        "detail": "AI는 기존 지식을 조합하지만, 진짜 창의성은 '예상 밖의 연결'에서 나옵니다. AI 제안을 보고 '그렇다면 이건 어떨까?'를 스스로 묻세요."
+      },
+      {
+        "emoji": "🎯",
+        "category": "면접 준비",
+        "tip": "면접에서 'AI를 어떻게 활용했는가'를 솔직하게 말하세요",
+        "detail": "AI 활용을 숨기지 말고, 'AI를 도구로 삼아 어떻게 연구 효율을 높였는가'를 구체적으로 설명하세요. 이것이 AI 시대 연구자의 핵심 역량입니다."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "❌ AI에게 R&E 연구 주제를 물어보고 그대로 사용",
+        "correct": "✅ AI에게 여러 주제 아이디어를 받고, 스스로 '왜 이 주제가 중요한가?'를 판단한 후 선택"
+      },
+      {
+        "mistake": "❌ AI가 작성한 코드를 이해하지 못한 채 복사-붙여넣기",
+        "correct": "✅ AI 코드를 한 줄씩 읽고 이해한 후, 필요하면 수정. 면접에서 '이 코드가 왜 이렇게 작동하는가?'를 설명할 수 있어야 함"
+      },
+      {
+        "mistake": "❌ AI로 논문 초안을 작성하고 그대로 제출",
+        "correct": "✅ AI 초안을 보고 논리 구조를 재검토. '이 주장이 정말 타당한가?'를 스스로 판단한 후 수정"
+      },
+      {
+        "mistake": "❌ AI 활용 사실을 숨기고 모든 것을 스스로 한 것처럼 포장",
+        "correct": "✅ AI 활용을 투명하게 공개하고, '어떻게 AI를 도구로 삼았는가'를 자소서·면접에서 강점으로 어필"
+      }
+    ]
+  },
   "schools": [
     {
       "id": "kaist_science",
@@ -406,6 +584,941 @@
       "admissionTip": "대전·충청권 학생에게 유리. KAIST 연계 프로그램을 적극 활용하세요.",
       "targetUniversities": ["KAIST", "서울대 공대", "연세대 공대", "ETRI 연구원"],
       "alumniCareers": ["이공계 연구원", "교수", "IT 엔지니어", "ETRI·KAIST 연구원"]
+    },
+    {
+      "id": "busan_science_high",
+      "name": "부산과학고등학교",
+      "shortName": "부산과고",
+      "location": "부산광역시 부산진구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 5,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "부산·경남권 최고 과학고 — 부산대·경상대 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E (Research & Education) 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (부산대 연계)",
+        "과학 올림피아드 집중 교육",
+        "부산대 공대 연계 프로그램",
+        "AI·데이터 과학 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (부산대 연계)",
+          "emoji": "🔬",
+          "description": "부산대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "부산대·경상대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·데이터 과학 특화",
+          "emoji": "🤖",
+          "description": "Python·TensorFlow 활용 AI 프로젝트, 데이터 분석 교육",
+          "benefit": "AI·데이터 과학 분야 진로 탐색, 이공계 대학 입시 차별화"
+        }
+      ],
+      "studentLevel": "부산·경남권 수학·과학 최상위 (전국 상위 1%), 과학 올림피아드 수상자",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 과학 올림피아드 수상 경력", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접 + 연구 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "수학·과학 심화 학습 (고등 과정 선행)",
+            "과학 올림피아드 기출 문제 풀이",
+            "과학 탐구 보고서 작성",
+            "과학 동아리 활동"
+          ],
+          "keyPoint": "부산과고는 부산·경남권 최고 과학고예요. 중1부터 과학 올림피아드를 준비하세요."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "과학 올림피아드 수상 목표 (지역 대회 이상)",
+            "R&E 프로젝트 경험 (과학 탐구 대회)",
+            "수학·과학 심화 (고2 과정 선행)",
+            "부산대 과학 캠프 참가"
+          ],
+          "keyPoint": "과학 올림피아드 수상이 입시에서 강력한 증거가 됩니다."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "영재성 검사 준비 (창의적 문제해결력)",
+            "면접 준비: '왜 과학고인가', '어떤 연구를 하고 싶은가'",
+            "부산과고 기출 면접 연습",
+            "R&E 프로젝트 계획"
+          ],
+          "keyPoint": "면접에서 '어떤 연구를 하고 싶은가'를 구체적으로 말해야 해요."
+        }
+      ],
+      "highlightStats": [
+        { "label": "부산 소재", "value": "부산진구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "R&E", "value": "부산대 연계", "emoji": "🔬", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "부산·경남권 최고 과학고라 부산대·경상대 의대·공대 진학이 강점이에요. 기숙사가 있어서 생활이 편리합니다." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "공립이라 무상 교육이고 기숙사까지 제공돼요. 부산대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "과학 올림피아드 준비 부담이 크고, 부산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "부산·경남권에서 이공계 연구원을 꿈꾸는 학생, 부산대·경상대 의대·공대를 목표로 하는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "R&E 프로젝트를 최대한 활용하세요. 부산대 교수님과의 관계가 대학 진학에도 도움이 됩니다." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요. 지역 대회부터 시작해 전국 대회로 도전하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요. 연구 과정을 기록하는 습관이 대입 면접에서 빛을 발합니다." },
+        { "emoji": "🤖", "tip": "AI·데이터 과학 교육을 적극 활용하세요. 미래 이공계 핵심 역량입니다." }
+      ],
+      "competitionLevel": "부산·경남권 최상위 (전국 상위 1%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음. 부산대 연계로 진로 방향이 명확해 멘탈 관리에 유리.",
+      "pros": ["부산대 연계 강점", "부산 소재 (경남권 최고)", "무상 교육 + 기숙사"],
+      "cons": ["과학 올림피아드 준비 부담", "부산 소재 (수도권 접근성 낮음)"],
+      "admissionTip": "부산·경남권 학생에게 유리. 부산대 연계 프로그램을 적극 활용하세요.",
+      "targetUniversities": ["부산대 의대·공대", "경상대 의대", "서울대 공대", "KAIST"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "IT 엔지니어"]
+    },
+    {
+      "id": "gwangju_science_high",
+      "name": "광주과학고등학교",
+      "shortName": "광주과고",
+      "location": "광주광역시 북구",
+      "type": "과학고",
+      "emoji": "🧪",
+      "color": "#8b5cf6",
+      "difficulty": 5,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "광주·전남권 최고 과학고 — 전남대·조선대 의대·공대 직결, GIST 연계",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, GIST(광주과학기술원) 연계",
+      "famousPrograms": [
+        "R&E 프로젝트 (GIST 연계)",
+        "과학 올림피아드 집중 교육",
+        "GIST 연계 프로그램",
+        "AI·생명과학 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (GIST 연계)",
+          "emoji": "🔬",
+          "description": "GIST 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "전남대·조선대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·생명과학 특화",
+          "emoji": "🧬",
+          "description": "AI·생명과학 융합 교육, 바이오 데이터 분석",
+          "benefit": "의대·생명과학 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "광주·전남권 수학·과학 최상위 (전국 상위 1%), 과학 올림피아드 수상자",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 과학 올림피아드 수상 경력", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접 + 연구 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "광주 소재", "value": "북구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "GIST 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "광주·전남권 최고 과학고라 전남대·조선대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "GIST 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "과학 올림피아드 준비 부담이 크고, 광주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "광주·전남권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "GIST 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." },
+        { "emoji": "🧬", "tip": "AI·생명과학 교육을 적극 활용하세요." }
+      ],
+      "competitionLevel": "광주·전남권 최상위 (전국 상위 1%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음. GIST 연계로 진로 방향이 명확해 멘탈 관리에 유리.",
+      "pros": ["GIST 연계 강점", "광주 소재", "무상 교육 + 기숙사"],
+      "cons": ["과학 올림피아드 준비 부담", "광주 소재"],
+      "admissionTip": "광주·전남권 학생에게 유리. GIST 연계 프로그램을 적극 활용하세요.",
+      "targetUniversities": ["전남대 의대·공대", "조선대 의대", "GIST", "서울대 공대"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "GIST 연구원"]
+    },
+    {
+      "id": "daegu_science_high",
+      "name": "대구과학고등학교",
+      "shortName": "대구과고",
+      "location": "대구광역시 달서구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 5,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "대구·경북권 최고 과학고 — 경북대 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (경북대 연계)",
+        "과학 올림피아드 집중 교육",
+        "경북대 공대 연계 프로그램",
+        "AI·로봇 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (경북대 연계)",
+          "emoji": "🔬",
+          "description": "경북대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "경북대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·로봇 특화",
+          "emoji": "🤖",
+          "description": "AI·로봇 공학 교육, 로봇 제어 프로젝트",
+          "benefit": "AI·로봇 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "대구·경북권 수학·과학 최상위 (전국 상위 1%), 과학 올림피아드 수상자",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 과학 올림피아드 수상 경력", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접 + 연구 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "대구 소재", "value": "달서구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "R&E", "value": "경북대 연계", "emoji": "🔬", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "대구·경북권 최고 과학고라 경북대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "경북대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "과학 올림피아드 준비 부담이 크고, 대구 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "대구·경북권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "경북대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." },
+        { "emoji": "🤖", "tip": "AI·로봇 교육을 적극 활용하세요." }
+      ],
+      "competitionLevel": "대구·경북권 최상위 (전국 상위 1%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음. 경북대 연계로 진로 방향이 명확해 멘탈 관리에 유리.",
+      "pros": ["경북대 연계 강점", "대구 소재", "무상 교육 + 기숙사"],
+      "cons": ["과학 올림피아드 준비 부담", "대구 소재"],
+      "admissionTip": "대구·경북권 학생에게 유리. 경북대 연계 프로그램을 적극 활용하세요.",
+      "targetUniversities": ["경북대 의대·공대", "서울대 공대", "KAIST", "POSTECH"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "IT 엔지니어"]
+    },
+    {
+      "id": "incheon_science_high",
+      "name": "인천과학고등학교",
+      "shortName": "인천과고",
+      "location": "인천광역시 연수구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 5,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "인천·경기 서부권 최고 과학고 — 인천대·인하대 공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (인천대·인하대 연계)",
+        "과학 올림피아드 집중 교육",
+        "인천대·인하대 연계 프로그램",
+        "AI·항공우주 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (인천대·인하대 연계)",
+          "emoji": "🔬",
+          "description": "인천대·인하대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "인천대·인하대 공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·항공우주 특화",
+          "emoji": "✈️",
+          "description": "AI·항공우주 공학 교육, 드론·위성 프로젝트",
+          "benefit": "항공우주 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "인천·경기 서부권 수학·과학 최상위 (전국 상위 1%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 과학 올림피아드 수상 경력", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접 + 연구 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "인천 소재", "value": "연수구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "인천대·인하대", "value": "연계", "emoji": "🔬", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "인천·경기 서부권 최고 과학고라 인천대·인하대 공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "인천대·인하대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "과학 올림피아드 준비 부담이 커요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "인천·경기 서부권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "인천대·인하대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." },
+        { "emoji": "✈️", "tip": "AI·항공우주 교육을 적극 활용하세요." }
+      ],
+      "competitionLevel": "인천·경기 서부권 최상위 (전국 상위 1%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음.",
+      "pros": ["인천대·인하대 연계", "인천 소재", "무상 교육 + 기숙사"],
+      "cons": ["과학 올림피아드 준비 부담"],
+      "admissionTip": "인천·경기 서부권 학생에게 유리.",
+      "targetUniversities": ["인천대 공대", "인하대 공대", "서울대 공대", "KAIST"],
+      "alumniCareers": ["이공계 연구원", "교수", "IT 엔지니어"]
+    },
+    {
+      "id": "ulsan_science_high",
+      "name": "울산과학고등학교",
+      "shortName": "울산과고",
+      "location": "울산광역시 남구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "울산·경남권 과학고 — UNIST 연계, 화학·에너지 특화",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, UNIST 연계",
+      "famousPrograms": [
+        "R&E 프로젝트 (UNIST 연계)",
+        "과학 올림피아드 집중 교육",
+        "UNIST 연계 프로그램",
+        "화학·에너지 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (UNIST 연계)",
+          "emoji": "🔬",
+          "description": "UNIST 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "UNIST·울산대 입시에서 강력한 증거"
+        },
+        {
+          "name": "화학·에너지 특화",
+          "emoji": "⚡",
+          "description": "화학·에너지 공학 교육, 신재생에너지 프로젝트",
+          "benefit": "화학·에너지 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "울산·경남권 수학·과학 최상위 (전국 상위 1%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "울산 소재", "value": "남구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "UNIST 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "화학·에너지", "value": "특화", "emoji": "⚡", "color": "#fbbf24" },
+        { "label": "공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "울산·경남권 과학고라 UNIST·울산대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "UNIST 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "울산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "울산·경남권에서 화학·에너지 분야 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "UNIST 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "⚡", "tip": "화학·에너지 교육을 적극 활용하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "울산·경남권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음.",
+      "pros": ["UNIST 연계", "화학·에너지 특화", "무상 교육 + 기숙사"],
+      "cons": ["울산 소재"],
+      "admissionTip": "울산·경남권 학생에게 유리.",
+      "targetUniversities": ["UNIST", "울산대 공대", "서울대 공대", "POSTECH"],
+      "alumniCareers": ["이공계 연구원", "교수", "화학·에너지 엔지니어"]
+    },
+    {
+      "id": "jeonbuk_science_high",
+      "name": "전북과학고등학교",
+      "shortName": "전북과고",
+      "location": "전북 전주시 완산구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "전북권 최고 과학고 — 전북대 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (전북대 연계)",
+        "과학 올림피아드 집중 교육",
+        "전북대 공대 연계 프로그램",
+        "AI·농생명 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (전북대 연계)",
+          "emoji": "🔬",
+          "description": "전북대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "전북대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·농생명 특화",
+          "emoji": "🌾",
+          "description": "AI·농생명 융합 교육, 스마트팜 프로젝트",
+          "benefit": "농생명·바이오 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "전북권 수학·과학 최상위 (전국 상위 2%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "전북 전주", "value": "완산구", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "전북대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "농생명 특화", "value": "강점", "emoji": "🌾", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "전북권 최고 과학고라 전북대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "전북대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "전주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "전북권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "전북대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "🌾", "tip": "AI·농생명 교육을 적극 활용하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "전북권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음.",
+      "pros": ["전북대 연계", "농생명 특화", "무상 교육 + 기숙사"],
+      "cons": ["전주 소재"],
+      "admissionTip": "전북권 학생에게 유리.",
+      "targetUniversities": ["전북대 의대·공대", "서울대 공대", "KAIST"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "농생명 연구원"]
+    },
+    {
+      "id": "sejong_science_high",
+      "name": "세종과학예술영재학교",
+      "shortName": "세종과학예술영재",
+      "location": "세종특별자치시",
+      "type": "영재학교",
+      "emoji": "🎨",
+      "color": "#8b5cf6",
+      "difficulty": 5,
+      "annualAdmission": 120,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "과학·예술 융합 영재학교 — KAIST·서울대 예술대 직결",
+      "teachingMethod": "과학·예술 융합 교육, STEAM 프로젝트, R&E 프로젝트",
+      "famousPrograms": [
+        "과학·예술 융합 프로젝트",
+        "STEAM 교육",
+        "R&E 프로젝트",
+        "AI·디자인 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "과학·예술 융합 프로젝트",
+          "emoji": "🎨",
+          "description": "과학과 예술을 융합한 창의적 프로젝트 — 미디어아트·디자인·음악",
+          "benefit": "서울대 예술대·디자인학부 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·디자인 특화",
+          "emoji": "🤖",
+          "description": "AI·디자인 융합 교육, 생성형 AI 활용 디자인",
+          "benefit": "AI·디자인 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "과학·예술 융합 적성 우수, 창의력 탁월한 학생",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 과학·예술 포트폴리오", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "과학·예술 창의적 문제해결력 평가", "icon": "🎨" },
+        { "step": 3, "title": "3단계: 면접", "detail": "과학·예술 융합 역량 평가", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학·예술 기초 학습",
+        "middle2": "과학·예술 융합 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "세종시", "value": "공립", "emoji": "🏛️", "color": "#8b5cf6" },
+        { "label": "과학·예술", "value": "융합", "emoji": "🎨", "color": "#34d399" },
+        { "label": "무상 교육", "value": "공립", "emoji": "💰", "color": "#fbbf24" },
+        { "label": "융합 인재", "value": "양성", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "과학·예술 융합이 강점이에요. 서울대 예술대·디자인학부 진학이 수월합니다." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "과학과 예술을 동시에 배울 수 있어요. STEAM 교육으로 창의력을 키울 수 있습니다." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "과학과 예술을 동시에 준비하면 부담이 커요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "과학·예술 융합에 관심 있는 학생, 창의력이 탁월한 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🎨", "tip": "과학·예술 융합 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🤖", "tip": "AI·디자인 교육을 적극 활용하세요." },
+        { "emoji": "📓", "tip": "창의적 프로젝트 일지를 꾸준히 쓰세요." },
+        { "emoji": "🎯", "tip": "STEAM 경진대회에 도전하세요." }
+      ],
+      "competitionLevel": "세종·충청권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "65%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "과학·예술 융합 부담이 크지만, 창의력 발휘로 동기부여 강함.",
+      "pros": ["과학·예술 융합", "STEAM 교육", "무상 교육 + 기숙사"],
+      "cons": ["과학·예술 병행 부담", "세종시 소재"],
+      "admissionTip": "과학·예술 융합에 관심 있다면 좋은 선택입니다.",
+      "targetUniversities": ["서울대 예술대·디자인학부", "KAIST", "연세대 공대·예술대"],
+      "alumniCareers": ["미디어아티스트", "디자이너", "이공계 연구원", "융합 인재"]
+    },
+    {
+      "id": "gangwon_science_high",
+      "name": "강원과학고등학교",
+      "shortName": "강원과고",
+      "location": "강원도 원주시",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "강원권 최고 과학고 — 강원대·연세대(원주) 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (강원대 연계)",
+        "과학 올림피아드 집중 교육",
+        "강원대·연세대(원주) 연계 프로그램",
+        "환경·생태 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (강원대 연계)",
+          "emoji": "🔬",
+          "description": "강원대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "강원대·연세대(원주) 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "환경·생태 특화",
+          "emoji": "🌲",
+          "description": "강원도 자연환경 활용 환경·생태 연구",
+          "benefit": "환경·생태 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "강원권 수학·과학 최상위 (전국 상위 2%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "강원 원주", "value": "공립", "emoji": "🏔️", "color": "#8b5cf6" },
+        { "label": "강원대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "환경·생태", "value": "특화", "emoji": "🌲", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "강원권 최고 과학고라 강원대·연세대(원주) 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "강원도 자연환경을 활용한 환경·생태 연구가 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "원주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "강원권에서 환경·생태 분야 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "강원대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🌲", "tip": "강원도 자연환경을 활용한 환경·생태 연구를 하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "강원권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 높음.",
+      "pros": ["강원대 연계", "환경·생태 특화", "무상 교육 + 기숙사"],
+      "cons": ["원주 소재"],
+      "admissionTip": "강원권 학생에게 유리.",
+      "targetUniversities": ["강원대 의대·공대", "연세대(원주) 의대", "서울대 공대"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "환경·생태 연구원"]
+    },
+    {
+      "id": "jeju_science_high",
+      "name": "제주과학고등학교",
+      "shortName": "제주과고",
+      "location": "제주특별자치도 제주시",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 80,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "제주권 최고 과학고 — 제주대 의대·공대 직결, 해양·환경 특화",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 해양·환경 특화",
+      "famousPrograms": [
+        "R&E 프로젝트 (제주대 연계)",
+        "과학 올림피아드 집중 교육",
+        "제주대 연계 프로그램",
+        "해양·환경 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (제주대 연계)",
+          "emoji": "🔬",
+          "description": "제주대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "제주대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "해양·환경 특화",
+          "emoji": "🌊",
+          "description": "제주 해양·환경 연구, 해양 생물·기후 변화 프로젝트",
+          "benefit": "해양·환경 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "제주권 수학·과학 최상위 (전국 상위 3%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "제주시", "value": "공립", "emoji": "🏝️", "color": "#8b5cf6" },
+        { "label": "제주대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "해양·환경", "value": "특화", "emoji": "🌊", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "제주권 최고 과학고라 제주대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "제주 해양·환경을 활용한 연구가 가능해요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "제주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "제주권에서 해양·환경 분야 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "제주대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🌊", "tip": "제주 해양·환경을 활용한 연구를 하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "제주권 최상위 (전국 상위 3%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 있음.",
+      "pros": ["제주대 연계", "해양·환경 특화", "무상 교육 + 기숙사"],
+      "cons": ["제주 소재"],
+      "admissionTip": "제주권 학생에게 유리.",
+      "targetUniversities": ["제주대 의대·공대", "서울대 공대", "KAIST"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "해양·환경 연구원"]
+    },
+    {
+      "id": "chungnam_science_high",
+      "name": "충남과학고등학교",
+      "shortName": "충남과고",
+      "location": "충남 아산시",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충남권 최고 과학고 — 충남대·단국대 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (충남대 연계)",
+        "과학 올림피아드 집중 교육",
+        "충남대 공대 연계 프로그램",
+        "AI·반도체 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (충남대 연계)",
+          "emoji": "🔬",
+          "description": "충남대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "충남대·단국대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·반도체 특화",
+          "emoji": "💻",
+          "description": "AI·반도체 공학 교육, 삼성전자 아산 캠퍼스 연계",
+          "benefit": "AI·반도체 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "충남권 수학·과학 최상위 (전국 상위 2%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충남 아산", "value": "공립", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "충남대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "AI·반도체", "value": "특화", "emoji": "💻", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충남권 최고 과학고라 충남대·단국대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "충남대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "아산 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충남권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "충남대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "💻", "tip": "AI·반도체 교육을 적극 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "충남권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 있음.",
+      "pros": ["충남대 연계", "AI·반도체 특화", "무상 교육 + 기숙사"],
+      "cons": ["아산 소재"],
+      "admissionTip": "충남권 학생에게 유리.",
+      "targetUniversities": ["충남대 의대·공대", "단국대 의대", "서울대 공대", "KAIST"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "AI·반도체 엔지니어"]
+    },
+    {
+      "id": "chungbuk_science_high",
+      "name": "충북과학고등학교",
+      "shortName": "충북과고",
+      "location": "충북 청주시 흥덕구",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "충북권 최고 과학고 — 충북대·건국대(충주) 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (충북대 연계)",
+        "과학 올림피아드 집중 교육",
+        "충북대 공대 연계 프로그램",
+        "AI·바이오 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (충북대 연계)",
+          "emoji": "🔬",
+          "description": "충북대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "충북대·건국대(충주) 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·바이오 특화",
+          "emoji": "🧬",
+          "description": "AI·바이오 융합 교육, 생명과학 데이터 분석",
+          "benefit": "AI·바이오 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "충북권 수학·과학 최상위 (전국 상위 2%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "충북 청주", "value": "공립", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "충북대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "AI·바이오", "value": "특화", "emoji": "🧬", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "충북권 최고 과학고라 충북대·건국대(충주) 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "충북대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "청주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "충북권에서 이공계 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "충북대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🧬", "tip": "AI·바이오 교육을 적극 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "충북권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 있음.",
+      "pros": ["충북대 연계", "AI·바이오 특화", "무상 교육 + 기숙사"],
+      "cons": ["청주 소재"],
+      "admissionTip": "충북권 학생에게 유리.",
+      "targetUniversities": ["충북대 의대·공대", "건국대(충주) 의대", "서울대 공대"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "AI·바이오 연구원"]
+    },
+    {
+      "id": "gyeongnam_science_high",
+      "name": "경남과학고등학교",
+      "shortName": "경남과고",
+      "location": "경남 진주시",
+      "type": "과학고",
+      "emoji": "🔬",
+      "color": "#8b5cf6",
+      "difficulty": 4,
+      "annualAdmission": 100,
+      "tuition": "공립 (무상 교육)",
+      "dormitory": true,
+      "ibCertified": false,
+      "specialCertification": "경남권 최고 과학고 — 경상대 의대·공대 직결",
+      "teachingMethod": "수학·과학 심화 교육, R&E 프로젝트, 과학 올림피아드 집중",
+      "famousPrograms": [
+        "R&E 프로젝트 (경상대 연계)",
+        "과학 올림피아드 집중 교육",
+        "경상대 공대 연계 프로그램",
+        "AI·농생명 특화"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "R&E 프로젝트 (경상대 연계)",
+          "emoji": "🔬",
+          "description": "경상대 교수 지도 하에 1년간 연구 프로젝트 수행",
+          "benefit": "경상대 의대·공대 입시에서 강력한 증거"
+        },
+        {
+          "name": "AI·농생명 특화",
+          "emoji": "🌾",
+          "description": "AI·농생명 융합 교육, 스마트팜 프로젝트",
+          "benefit": "농생명·바이오 분야 진로 탐색"
+        }
+      ],
+      "studentLevel": "경남권 수학·과학 최상위 (전국 상위 2%)",
+      "admissionProcess": [
+        { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+        { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결력 평가", "icon": "🧪" },
+        { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 심화 면접", "icon": "🎤" }
+      ],
+      "careerPath": {
+        "middle1": "수학·과학 심화 학습, 과학 올림피아드 준비",
+        "middle2": "과학 올림피아드 수상, R&E 프로젝트 경험",
+        "middle3": "영재성 검사 준비, 면접 준비"
+      },
+      "highlightStats": [
+        { "label": "경남 진주", "value": "공립", "emoji": "📍", "color": "#8b5cf6" },
+        { "label": "경상대 연계", "value": "강점", "emoji": "🔬", "color": "#34d399" },
+        { "label": "농생명 특화", "value": "강점", "emoji": "🌾", "color": "#fbbf24" },
+        { "label": "의대·공대", "value": "직결", "emoji": "🎓", "color": "#60a5fa" }
+      ],
+      "realTalk": [
+        { "emoji": "😤", "title": "솔직히 말하면...", "content": "경남권 최고 과학고라 경상대 의대·공대 진학이 강점이에요." },
+        { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "경상대 연계 R&E 프로젝트로 연구 경험을 쌓을 수 있어요." },
+        { "emoji": "😰", "title": "힘든 점은...", "content": "진주 소재라 수도권 접근성은 낮아요." },
+        { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "경남권에서 농생명 분야 연구원을 꿈꾸는 학생에게 최적이에요." }
+      ],
+      "survivalTips": [
+        { "emoji": "🔬", "tip": "경상대 연계 R&E 프로젝트를 최대한 활용하세요." },
+        { "emoji": "🌾", "tip": "AI·농생명 교육을 적극 활용하세요." },
+        { "emoji": "🏆", "tip": "과학 올림피아드 수상을 목표로 하세요." },
+        { "emoji": "📓", "tip": "탐구 일지를 꾸준히 쓰세요." }
+      ],
+      "competitionLevel": "경남권 최상위 (전국 상위 2%)",
+      "studyHoursPerDay": "7~10시간",
+      "selfStudyRatio": "60%",
+      "socialLife": "기숙사 공동체 생활",
+      "mentalHealthNote": "번아웃 위험 있음.",
+      "pros": ["경상대 연계", "농생명 특화", "무상 교육 + 기숙사"],
+      "cons": ["진주 소재"],
+      "admissionTip": "경남권 학생에게 유리.",
+      "targetUniversities": ["경상대 의대·공대", "부산대 공대", "서울대 공대"],
+      "alumniCareers": ["이공계 연구원", "교수", "의사", "농생명 연구원"]
     }
   ]
 }

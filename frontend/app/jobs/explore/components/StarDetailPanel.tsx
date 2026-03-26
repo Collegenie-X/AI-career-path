@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Briefcase, ChevronDown, Users, Lightbulb, Zap, X } from 'lucide-react';
+import { Briefcase, ChevronDown, Users, Lightbulb, Zap, X, Bot } from 'lucide-react';
 import { StarInfoBanner } from './StarInfoBanner';
 import { JobCard } from './JobCard';
 import { CTABanner } from './CTABanner';
+import { AiKingdomOccupationChangeGamePanel } from './AiKingdomOccupationChangeGamePanel';
 import { LABELS } from '../config';
+import { STAR_PANEL_AI_ERA_INTRO } from '../config/aiEraTransformationLabels';
 import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
 import type { StarData, Job } from '../types';
 
@@ -93,6 +95,8 @@ export function StarDetailPanel({
     [rawProfile]
   );
 
+  const displayedJobCount = star.jobs?.length ?? star.jobCount;
+
   const coreTraitsSection = profile?.sections.find((s) => s.id === 'coreTraits');
   const fitSection = profile?.sections.find((s) => s.id === 'fitPersonality');
   const whySection = profile?.sections.find((s) => s.id === 'whyThisGroup');
@@ -100,6 +104,30 @@ export function StarDetailPanel({
   const fitItems = fitSection?.type === 'fitList' ? fitSection.fitItems : [];
   const notFitItems = fitSection?.type === 'fitList' ? fitSection.notFitItems : [];
   const commonDNA = whySection?.type === 'reasonWithTags' ? whySection.commonDNA : [];
+
+  const kingdomAiChangePanelData = useMemo(() => {
+    if (!star.jobs.some((job) => job.aiTransformation)) return null;
+    const jobsWithAI = star.jobs.filter((job) => job.aiTransformation);
+    const lowRisk = jobsWithAI.filter((job) => job.aiTransformation?.replacementRisk === 'low').length;
+    const mediumRisk = jobsWithAI.filter((job) => job.aiTransformation?.replacementRisk === 'medium').length;
+    const highRisk = jobsWithAI.filter((job) => job.aiTransformation?.replacementRisk === 'high').length;
+    const allAiTools = Array.from(
+      new Set(jobsWithAI.flatMap((job) => job.aiTransformation?.aiTools || []).filter(Boolean))
+    ).slice(0, 12);
+    const allSurvivalStrategies = Array.from(
+      new Set(
+        jobsWithAI.flatMap((job) => job.aiTransformation?.survivalStrategy || []).filter(Boolean)
+      )
+    ).slice(0, 8);
+    return {
+      lowRiskCount: lowRisk,
+      mediumRiskCount: mediumRisk,
+      highRiskCount: highRisk,
+      allAiTools,
+      allSurvivalStrategies,
+    };
+  }, [star.jobs]);
+
   return (
     <div
       className="flex flex-col h-full"
@@ -135,7 +163,7 @@ export function StarDetailPanel({
         <div className="flex-1 min-w-0 relative z-10">
           <h2 className="text-lg font-bold text-white leading-tight">{star.name}</h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            {star.jobCount}{LABELS.star_selected_subtitle}
+            {displayedJobCount}{LABELS.star_selected_subtitle}
           </p>
         </div>
         <button
@@ -270,11 +298,36 @@ export function StarDetailPanel({
           </div>
         )}
 
+        {/* AI 시대 직업군 전체 변화 */}
+        {kingdomAiChangePanelData && (
+          <div className="mb-4">
+            <AccordionSection
+              title="AI 시대 직업군 전체 변화"
+              icon={Bot}
+              color={star.color}
+              defaultOpen={true}
+            >
+              <div className="mt-2 space-y-3">
+                <AiKingdomOccupationChangeGamePanel
+                  starName={star.name}
+                  starColor={star.color}
+                  lowRiskCount={kingdomAiChangePanelData.lowRiskCount}
+                  mediumRiskCount={kingdomAiChangePanelData.mediumRiskCount}
+                  highRiskCount={kingdomAiChangePanelData.highRiskCount}
+                  allAiTools={kingdomAiChangePanelData.allAiTools}
+                  allSurvivalStrategies={kingdomAiChangePanelData.allSurvivalStrategies}
+                  footerIntroText={STAR_PANEL_AI_ERA_INTRO}
+                />
+              </div>
+            </AccordionSection>
+          </div>
+        )}
+
         {/* 직업 목록 */}
         <div className="mt-4">
           <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
             <Briefcase className="w-3.5 h-3.5" />
-            {star.jobCount}{LABELS.jobs_title}
+            {displayedJobCount}{LABELS.jobs_title}
           </h3>
           <div className="space-y-2 pb-4">
             {star.jobs.map((job, idx) => (

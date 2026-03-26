@@ -1,31 +1,31 @@
 // ─── Configuration ───────────────────────────────────────────────
 
 import type React from 'react';
-import type { DailyScheduleItem } from './types';
+import type { SchoolDailyScheduleItem } from './types';
 
-// ─── 일과 타입 색상 ────────────────────────────────────────────
-export const SCHEDULE_TYPE_COLORS: Record<DailyScheduleItem['type'], string> = {
-  morning: '#F59E0B',
-  meeting: '#8B5CF6',
-  work: '#10B981',
-  lunch: '#F97316',
-  review: '#3B82F6',
-  admin: '#6B7280',
-  evening: '#EC4899',
-  field: '#06B6D4',
-};
+// ─── 일과 타입 색상 (SchoolDailyScheduleItem에는 type 필드가 없으므로 제거 또는 별도 타입 정의 필요) ────────────────────────────────────────────
+// export const SCHEDULE_TYPE_COLORS: Record<SchoolDailyScheduleItem['type'], string> = {
+//   morning: '#F59E0B',
+//   meeting: '#8B5CF6',
+//   work: '#10B981',
+//   lunch: '#F97316',
+//   review: '#3B82F6',
+//   admin: '#6B7280',
+//   evening: '#EC4899',
+//   field: '#06B6D4',
+// };
 
 // ─── 일과 타입 라벨 ────────────────────────────────────────────
-export const SCHEDULE_TYPE_LABELS: Record<DailyScheduleItem['type'], string> = {
-  morning: '아침',
-  meeting: '미팅',
-  work: '작업',
-  lunch: '점심',
-  review: '검토',
-  admin: '행정',
-  evening: '저녁',
-  field: '현장',
-};
+// export const SCHEDULE_TYPE_LABELS: Record<SchoolDailyScheduleItem['type'], string> = {
+//   morning: '아침',
+//   meeting: '미팅',
+//   work: '작업',
+//   lunch: '점심',
+//   review: '검토',
+//   admin: '행정',
+//   evening: '저녁',
+//   field: '현장',
+// };
 
 // ─── 홀랜드 코드 라벨 ─────────────────────────────────────────
 export const HOLLAND_CODE_LABELS: Record<string, string> = {
@@ -80,6 +80,7 @@ export const LABELS = {
   /** 별 상세 패널·다이얼로그 공통 닫기 (원형 X) 접근성 라벨 */
   star_detail_panel_close_aria: '닫기',
   modal_process_tab: '직무 프로세스',
+  modal_ai_tab: 'AI 변화',
   modal_daily_tab: '주요 일과',
   modal_timeline_tab: '커리어 패스',
   modal_duration: '소요 시간',
@@ -183,6 +184,9 @@ export const LABELS = {
 
   timeline_key_success: '핵심 성공 지표',
   timeline_total_cost: '총 예상 비용',
+  /** milestones가 비어 있을 때 entryProcess 등으로 단계를 나눈 경우 안내 */
+  timeline_fallback_caption:
+    '학년·학기별 상세 타임라인이 없을 때는, 아래 단계는 입사·준비 경로(entryProcess)를 나눈 예시예요.',
 
   // Explore tab navigations
   explore_tab_star: '직업 탐색',
@@ -217,6 +221,10 @@ export const HIGH_SCHOOL_LABELS = {
   school_view_detail: '자세히 보기',
   school_trait_detail_title: '이 유형의 특성 상세',
   school_trait_detail_button: '상세 보기 + 적성 검사',
+  /** 학교 유형 다이얼로그 — AI 전략 탭 (카테고리 공통 JSON) */
+  category_ai_era_tab_label: 'AI 전략',
+  category_ai_era_empty_title: 'AI 전략 준비 중',
+  category_ai_era_empty_sub: '이 학교 유형의 AI 시대 생존 전략을 준비 중이에요.',
   school_annual_admission_suffix: '명',
   school_difficulty_levels: {
     '1': '쉬움',
