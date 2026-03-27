@@ -67,3 +67,40 @@ class TokenRefreshResponseSerializer(serializers.Serializer):
     """
     access_token = serializers.CharField()
     refresh_token = serializers.CharField()
+
+
+class EmailSignupRequestSerializer(serializers.Serializer):
+    """
+    Serializer for email signup request
+    """
+    email = serializers.EmailField()
+    password = serializers.CharField(min_length=8, max_length=128, write_only=True)
+    name = serializers.CharField(max_length=100)
+    grade = serializers.ChoiceField(choices=User.GRADE_CHOICES, required=False)
+    emoji = serializers.CharField(max_length=10, required=False, default='👤')
+
+
+class EmailSignupResponseSerializer(serializers.Serializer):
+    """
+    Serializer for email signup response
+    """
+    access_token = serializers.CharField()
+    refresh_token = serializers.CharField()
+    user = UserSerializer()
+
+
+class EmailLoginRequestSerializer(serializers.Serializer):
+    """
+    Serializer for email login request
+    """
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)
+
+
+class EmailLoginResponseSerializer(serializers.Serializer):
+    """
+    Serializer for email login response
+    """
+    access_token = serializers.CharField()
+    refresh_token = serializers.CharField()
+    user = UserSerializer()

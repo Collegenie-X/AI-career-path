@@ -23,6 +23,46 @@
       },
       "item": [
         {
+          "name": "POST email-signup",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"newuser@example.com\",\n  \"password\": \"password123\",\n  \"name\": \"새로운 유저\",\n  \"grade\": \"high1\",\n  \"emoji\": \"😊\"\n}"
+            },
+            "url": "{{auth_prefix}}/email-signup/"
+          }
+        },
+        {
+          "name": "POST email-login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": "{{auth_prefix}}/email-login/"
+          }
+        },
+        {
           "name": "POST social-login",
           "request": {
             "auth": {

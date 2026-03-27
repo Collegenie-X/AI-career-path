@@ -146,21 +146,8 @@ function CareerPageContent() {
   const closeBuilder = () => { setBuilderOpen(false); setEditingPlan(null); setBuilderInitialStep(undefined); };
 
   const handleUseTemplate = async (template: Template, customTitle: string) => {
-    const useBackend = hasCareerPathBackendAuth();
-    let saved: CareerPlan;
-    
-    if (useBackend && isUuidString(template.id)) {
-      try {
-        saved = await useTemplateFromBackend(template.id, customTitle);
-      } catch (err) {
-        console.error('Failed to use template from backend:', err);
-        const planFromTemplate = buildPlanFromTemplate(template, customTitle);
-        saved = await persistCareerPlan(planFromTemplate);
-      }
-    } else {
-      const planFromTemplate = buildPlanFromTemplate(template, customTitle);
-      saved = await persistCareerPlan(planFromTemplate);
-    }
+    const planFromTemplate = buildPlanFromTemplate(template, customTitle);
+    const saved = await persistCareerPlan(planFromTemplate);
     
     setSelectedPlanId(saved.id);
     handleTabChange('timeline');
