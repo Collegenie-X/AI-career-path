@@ -38,6 +38,8 @@ export const API_PATHS = {
   careerKingdoms: '/api/v1/explore/career-kingdoms/',
   /** 직업 설명 콘텐츠 — `jobs.json` (쿼리 `kingdom_id` 선택) */
   careerJobs: '/api/v1/explore/career-jobs/',
+  /** 커리어 패스 CRUD — `apps.career_path` */
+  careerPlans: '/api/v1/career-path/career-plans/',
 } as const;
 
 /**

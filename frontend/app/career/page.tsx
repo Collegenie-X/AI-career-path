@@ -26,10 +26,14 @@ import communityData from '@/data/share-community.json';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import { buildPlanFromTemplate } from './utils/buildPlanFromTemplate';
 import { useCommunityReactions } from './hooks/useCommunityReactions';
+import { useCareerPlansController } from './hooks/useCareerPlansController';
+import { useMySharedPlansQuery } from './hooks/useMySharedPlansQuery';
+import { isUuidString } from '@/lib/career-path/isUuidString';
+import { createSharedPlanApi, updateSharedPlanApi, fetchSharedPlanByCareerPlanId, deleteSharedPlanApi } from '@/lib/career-path/sharedPlanApi';
+import { hasCareerPathBackendAuth } from '@/lib/career-path/careerPathApi';
 
 type Template = typeof careerPathTemplates[0];
 
-const STORAGE_KEY = 'career_plans_v3';
 const DEFAULT_TAB_ID: CareerPageTabId = 'explore';
 
 const isCareerPageTabId = (value: string | null): value is CareerPageTabId => {
@@ -70,7 +74,14 @@ function CareerPageContent() {
   const searchParams = useSearchParams();
 
   const [activeTab, setActiveTab] = useState<CareerPageTabId>(DEFAULT_TAB_ID);
-  const [plans, setPlans] = useState<CareerPlan[]>([]);
+  const {
+    plans,
+    savePlan: persistCareerPlan,
+    deletePlan: removeCareerPlan,
+    updatePlanInline: persistPlanInline,
+    useTemplate: useTemplateFromBackend,
+  } = useCareerPlansController();
+  const { data: mySharedPlansFromApi } = useMySharedPlansQuery();
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -86,16 +97,20 @@ function CareerPageContent() {
     setMounted(true);
     const tabParam = searchParams.get('tab');
     if (isCareerPageTabId(tabParam)) setActiveTab(tabParam);
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const loadedPlans = JSON.parse(raw) as CareerPlan[];
-        setPlans(loadedPlans);
-        if (loadedPlans.length > 0) setSelectedPlanId(loadedPlans[0].id);
-      }
-    } catch {}
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    if (plans.length === 0) {
+      setSelectedPlanId(null);
+      return;
+    }
+    setSelectedPlanId((prev) => {
+      if (prev && plans.some((p) => p.id === prev)) return prev;
+      return plans[0].id;
+    });
+  }, [mounted, plans]);
 
   useEffect(() => {
     const tabParam = searchParams.get('tab');
@@ -106,11 +121,6 @@ function CareerPageContent() {
     setShowTimelineExpandDialog(false);
   }, [selectedPlanId]);
 
-  const savePlans = (updatedPlans: CareerPlan[]) => {
-    setPlans(updatedPlans);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
-  };
-
   const handleTabChange = (nextTabId: CareerPageTabId) => {
     if (nextTabId === activeTab) return;
     setActiveTab(nextTabId);
@@ -119,50 +129,78 @@ function CareerPageContent() {
     router.replace(`/career?${nextSearchParams.toString()}`, { scroll: false });
   };
 
-  const savePlan = (plan: CareerPlan) => {
-    const existingIndex = plans.findIndex(p => p.id === plan.id);
-    const updatedPlans = existingIndex >= 0
-      ? plans.map((p, i) => i === existingIndex ? plan : p)
-      : [...plans, plan];
-    savePlans(updatedPlans);
-    setSelectedPlanId(plan.id);
+  const savePlan = async (plan: CareerPlan) => {
+    const saved = await persistCareerPlan(plan);
+    setSelectedPlanId(saved.id);
     setBuilderOpen(false);
     setEditingPlan(null);
     handleTabChange('timeline');
   };
 
-  const deletePlan = (planId: string) => {
-    const updatedPlans = plans.filter(p => p.id !== planId);
-    savePlans(updatedPlans);
-    if (selectedPlanId === planId) {
-      const nextId = updatedPlans.length > 0 ? updatedPlans[0].id : null;
-      setSelectedPlanId(nextId);
-    }
+  const deletePlan = async (planId: string) => {
+    await removeCareerPlan(planId);
   };
 
   const openNew = () => { setEditingPlan(null); setBuilderInitialStep(1); setBuilderOpen(true); };
   const openEdit = (plan: CareerPlan) => { setEditingPlan(plan); setBuilderInitialStep(3); setBuilderOpen(true); };
   const closeBuilder = () => { setBuilderOpen(false); setEditingPlan(null); setBuilderInitialStep(undefined); };
 
-  const handleUseTemplate = (template: Template, customTitle: string) => {
-    const planFromTemplate = buildPlanFromTemplate(template, customTitle);
-    const updatedPlans = [...plans, planFromTemplate];
-    savePlans(updatedPlans);
-    setSelectedPlanId(planFromTemplate.id);
+  const handleUseTemplate = async (template: Template, customTitle: string) => {
+    const useBackend = hasCareerPathBackendAuth();
+    let saved: CareerPlan;
+    
+    if (useBackend && isUuidString(template.id)) {
+      try {
+        saved = await useTemplateFromBackend(template.id, customTitle);
+      } catch (err) {
+        console.error('Failed to use template from backend:', err);
+        const planFromTemplate = buildPlanFromTemplate(template, customTitle);
+        saved = await persistCareerPlan(planFromTemplate);
+      }
+    } else {
+      const planFromTemplate = buildPlanFromTemplate(template, customTitle);
+      saved = await persistCareerPlan(planFromTemplate);
+    }
+    
+    setSelectedPlanId(saved.id);
     handleTabChange('timeline');
     setBuilderOpen(false);
     setEditingPlan(null);
     setBuilderInitialStep(undefined);
   };
 
-  const updatePlanInline = (updatedPlan: CareerPlan) => {
-    const updatedPlans = plans.map(p => p.id === updatedPlan.id ? updatedPlan : p);
-    setPlans(updatedPlans);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  const updatePlanInline = async (updatedPlan: CareerPlan) => {
+    await persistPlanInline(updatedPlan);
   };
 
-  const handleSharePlan = (plan: CareerPlan, isPublic: boolean) => {
-    if (isPublic) handleTabChange('community');
+  const handleSharePlan = async (plan: CareerPlan, isPublic: boolean) => {
+    if (!isPublic) return;
+    
+    const useBackend = hasCareerPathBackendAuth() && isUuidString(plan.id);
+    
+    if (useBackend) {
+      try {
+        const channels = plan.shareChannels ?? [];
+        let shareType: 'public' | 'school' | 'group' | 'private' = 'private';
+        if (channels.includes('public')) shareType = 'public';
+        else if (channels.includes('school')) shareType = 'school';
+        else if (channels.includes('group')) shareType = 'group';
+        
+        const payload: Parameters<typeof createSharedPlanApi>[0] = {
+          career_plan: plan.id,
+          share_type: shareType,
+          description: plan.description ?? '',
+          tags: [],
+          group_ids: channels.includes('group') ? (plan.shareGroupIds ?? []) : [],
+        };
+        
+        await createSharedPlanApi(payload);
+      } catch (err) {
+        console.error('Failed to share plan:', err);
+      }
+    }
+    
+    handleTabChange('community');
   };
 
   const selectedPlan = mounted ? (plans.find(p => p.id === selectedPlanId) ?? null) : null;
@@ -171,11 +209,15 @@ function CareerPageContent() {
     const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
     return timeB - timeA;
   });
+  
+  const myPublicPlans = hasCareerPathBackendAuth() && mySharedPlansFromApi.length > 0
+    ? mySharedPlansFromApi
+    : plans.filter((plan) => plan.isPublic);
   const totalTemplateCount = careerPathTemplates.length;
   const totalTemplateUses = careerPathTemplates.reduce((sum, template) => sum + template.uses, 0);
   const totalCommunitySharedPlans = ((communityData as { sharedPlans?: unknown[] }).sharedPlans ?? []).length;
   const totalCommunityGroups = ((communityData as { groups?: unknown[] }).groups ?? []).length;
-  const totalMyPublicPlans = plans.filter((plan) => plan.isPublic).length;
+  const totalMyPublicPlans = myPublicPlans.length;
 
   /* ── 커뮤니티 패널용 reactions 상태 (CommunityDetailPanel에 전달) ── */
   const {
@@ -223,7 +265,7 @@ function CareerPageContent() {
               <CareerPathList
                 onUseTemplate={handleUseTemplate}
                 onNewPath={openNew}
-                myPublicPlans={plans.filter((plan) => plan.isPublic)}
+                myPublicPlans={myPublicPlans}
                 onViewMyPlan={(plan) => {
                   setSelectedPlanId(plan.id);
                   handleTabChange('timeline');
@@ -347,7 +389,7 @@ function CareerPageContent() {
           currentGroupIds={sharingPlan.shareGroupIds}
           availableGroups={(communityData.groups ?? []) as CommunityGroup[]}
           isCurrentlyShared={sharingPlan.isPublic}
-          onConfirm={(channels: ShareChannel[], description: string, groupIds: string[]) => {
+          onConfirm={async (channels: ShareChannel[], description: string, groupIds: string[]) => {
             const isPublic = channels.length > 0;
             const shareType = isPublic ? channelsToShareType(channels) : undefined;
             const updated: CareerPlan = {
@@ -359,8 +401,47 @@ function CareerPageContent() {
               shareGroupIds: channels.includes('group') ? groupIds : undefined,
               sharedAt: isPublic ? new Date().toISOString() : undefined,
             };
-            updatePlanInline(updated);
-            handleSharePlan(updated, isPublic);
+            await persistPlanInline(updated);
+            
+            const useBackend = hasCareerPathBackendAuth() && isUuidString(sharingPlan.id);
+            
+            if (useBackend) {
+              try {
+                const existingShared = await fetchSharedPlanByCareerPlanId(sharingPlan.id);
+                
+                if (isPublic) {
+                  const channels = updated.shareChannels ?? [];
+                  let shareType: 'public' | 'school' | 'group' | 'private' = 'private';
+                  if (channels.includes('public')) shareType = 'public';
+                  else if (channels.includes('school')) shareType = 'school';
+                  else if (channels.includes('group')) shareType = 'group';
+                  
+                  if (existingShared) {
+                    await updateSharedPlanApi(existingShared.id, {
+                      share_type: shareType,
+                      description: description,
+                      tags: [],
+                      group_ids: channels.includes('group') ? groupIds : [],
+                    });
+                  } else {
+                    await createSharedPlanApi({
+                      career_plan: sharingPlan.id,
+                      share_type: shareType,
+                      description: description,
+                      tags: [],
+                      group_ids: channels.includes('group') ? groupIds : [],
+                    });
+                  }
+                } else if (existingShared) {
+                  await deleteSharedPlanApi(existingShared.id);
+                }
+              } catch (err) {
+                console.error('Failed to update share status:', err);
+              }
+            } else if (isPublic) {
+              await handleSharePlan(updated, isPublic);
+            }
+            
             setSharingPlan(null);
           }}
           onClose={() => setSharingPlan(null)}

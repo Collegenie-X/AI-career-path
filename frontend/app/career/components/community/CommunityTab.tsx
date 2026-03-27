@@ -18,6 +18,8 @@ import {
   leaveSchool,
 } from '@/lib/careerCommunity';
 import { LABELS } from '../../config';
+import { useSharedPlansQuery } from '../../hooks/useSharedPlansQuery';
+import { useSharedPlanReactions } from '../../hooks/useSharedPlanReactions';
 
 type SubTab = 'school' | 'groups';
 
@@ -50,14 +52,11 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
     setJoinedGroupIds(loadJoinedGroupIds());
   }, []);
 
-  const sharedPlans = communityData.sharedPlans as SharedPlan[];
+  const { data: sharedPlansFromApi } = useSharedPlansQuery();
+  const sharedPlans = sharedPlansFromApi.length > 0 ? sharedPlansFromApi : (communityData.sharedPlans as SharedPlan[]);
   const groups = communityData.groups as CommunityGroup[];
 
-  /* ─── Reactions state ─── */
-  const [reactions, setReactions] = useState<UserReactionState>({
-    likedPlanIds: [],
-    bookmarkedPlanIds: [],
-  });
+  const { reactions, toggleLike, toggleBookmark } = useSharedPlanReactions();
 
   /* likeCounts / bookmarkCounts: base value from JSON, adjusted by saved reactions */
   const [likeCounts, setLikeCounts] = useState<Record<string, number>>(() => {
@@ -101,7 +100,7 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isControlled, onSelectPlan]);
 
-  /* Load persisted reactions + checked plans once on mount */
+  /* Load persisted checked plans once on mount */
   useEffect(() => {
     try {
       const rawChecked = localStorage.getItem(CHECKED_PLANS_STORAGE_KEY);
@@ -112,69 +111,21 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
   }, []);
 
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem(REACTIONS_STORAGE_KEY);
-      if (!raw) return;
-      const saved = JSON.parse(raw) as UserReactionState;
-      setReactions(saved);
-
-      /* Adjust counts: base + 1 if user has reacted */
-      setLikeCounts(() => {
-        const counts: Record<string, number> = {};
-        sharedPlans.forEach(p => {
-          counts[p.id] = p.likes + (saved.likedPlanIds.includes(p.id) ? 1 : 0);
-        });
-        return counts;
+    setLikeCounts(() => {
+      const counts: Record<string, number> = {};
+      sharedPlans.forEach(p => {
+        counts[p.id] = p.likes + (reactions.likedPlanIds.includes(p.id) ? 1 : 0);
       });
-      setBookmarkCounts(() => {
-        const counts: Record<string, number> = {};
-        sharedPlans.forEach(p => {
-          counts[p.id] = p.bookmarks + (saved.bookmarkedPlanIds.includes(p.id) ? 1 : 0);
-        });
-        return counts;
+      return counts;
+    });
+    setBookmarkCounts(() => {
+      const counts: Record<string, number> = {};
+      sharedPlans.forEach(p => {
+        counts[p.id] = p.bookmarks + (reactions.bookmarkedPlanIds.includes(p.id) ? 1 : 0);
       });
-    } catch {}
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  /* Toggle like — uses functional updater to avoid stale closure */
-  const handleToggleLike = useCallback((planId: string) => {
-    setReactions(prev => {
-      const wasLiked = prev.likedPlanIds.includes(planId);
-      const updated: UserReactionState = {
-        ...prev,
-        likedPlanIds: wasLiked
-          ? prev.likedPlanIds.filter(id => id !== planId)
-          : [...prev.likedPlanIds, planId],
-      };
-      localStorage.setItem(REACTIONS_STORAGE_KEY, JSON.stringify(updated));
-
-      /* Sync count immediately */
-      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.likes ?? 0;
-      setLikeCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasLiked ? 0 : 1) }));
-
-      return updated;
+      return counts;
     });
-  }, []);
-
-  /* Toggle bookmark — same pattern */
-  const handleToggleBookmark = useCallback((planId: string) => {
-    setReactions(prev => {
-      const wasBookmarked = prev.bookmarkedPlanIds.includes(planId);
-      const updated: UserReactionState = {
-        ...prev,
-        bookmarkedPlanIds: wasBookmarked
-          ? prev.bookmarkedPlanIds.filter(id => id !== planId)
-          : [...prev.bookmarkedPlanIds, planId],
-      };
-      localStorage.setItem(REACTIONS_STORAGE_KEY, JSON.stringify(updated));
-
-      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.bookmarks ?? 0;
-      setBookmarkCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasBookmarked ? 0 : 1) }));
-
-      return updated;
-    });
-  }, []);
+  }, [sharedPlans, reactions]);
 
   const handleJoinSchool = useCallback((schoolId: string) => {
     joinSchool(schoolId);
@@ -239,8 +190,8 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
           likeCounts={likeCounts}
           bookmarkCounts={bookmarkCounts}
           checkedPlans={checkedPlans}
-          onToggleLike={handleToggleLike}
-          onToggleBookmark={handleToggleBookmark}
+          onToggleLike={toggleLike}
+          onToggleBookmark={toggleBookmark}
           onViewPlanDetail={handleViewPlanDetail}
           onJoinSchool={handleJoinSchool}
           onLeaveSchool={handleLeaveSchool}
@@ -256,8 +207,8 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
           likeCounts={likeCounts}
           bookmarkCounts={bookmarkCounts}
           checkedPlans={checkedPlans}
-          onToggleLike={handleToggleLike}
-          onToggleBookmark={handleToggleBookmark}
+          onToggleLike={toggleLike}
+          onToggleBookmark={toggleBookmark}
           onViewPlanDetail={handleViewPlanDetail}
           onJoinGroup={handleJoinGroup}
           onLeaveGroup={handleLeaveGroup}
@@ -273,8 +224,8 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
           isBookmarked={reactions.bookmarkedPlanIds.includes(selectedPlan.id)}
           likeCount={likeCounts[selectedPlan.id] ?? selectedPlan.likes}
           bookmarkCount={bookmarkCounts[selectedPlan.id] ?? selectedPlan.bookmarks}
-          onToggleLike={() => handleToggleLike(selectedPlan.id)}
-          onToggleBookmark={() => handleToggleBookmark(selectedPlan.id)}
+          onToggleLike={() => toggleLike(selectedPlan.id)}
+          onToggleBookmark={() => toggleBookmark(selectedPlan.id)}
           onClose={() => setSelectedPlan(null)}
           onAddComment={handleAddComment}
         />

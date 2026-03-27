@@ -108,7 +108,7 @@ export type CareerPlan = {
 type Props = {
   initialPlan?: CareerPlan | null;
   initialStep?: number;
-  onSave: (plan: CareerPlan) => void;
+  onSave: (plan: CareerPlan) => void | Promise<void>;
   onClose: () => void;
 };
 
@@ -2261,7 +2261,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
     return true;
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const gradeOrder = GRADE_YEARS.reduce((acc, g, i) => { acc[g.id] = i; return acc; }, {} as Record<string, number>);
     const sortedYears = yearPlans.sort((a, b) => (gradeOrder[a.gradeId] ?? 0) - (gradeOrder[b.gradeId] ?? 0));
     const star = kingdom ?? {
@@ -2288,8 +2288,14 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
       years: sortedYears,
       createdAt: initialPlan?.createdAt ?? new Date().toISOString(),
       title: `${jobInfo.name} 커리어 패스`,
+      description: initialPlan?.description,
+      isPublic: initialPlan?.isPublic,
+      shareChannels: initialPlan?.shareChannels,
+      shareType: initialPlan?.shareType,
+      shareGroupIds: initialPlan?.shareGroupIds,
+      sharedAt: initialPlan?.sharedAt,
     };
-    onSave(plan);
+    await onSave(plan);
   };
 
   const headings: Record<number, { title: string; desc: string }> = {

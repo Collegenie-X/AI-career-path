@@ -21,7 +21,7 @@ import {
 type Template = typeof careerPathTemplates[0];
 
 type CareerPathListProps = {
-  onUseTemplate: (template: Template, customTitle: string) => void;
+  onUseTemplate: (template: Template, customTitle: string) => void | Promise<void>;
   onNewPath?: () => void;
   myPublicPlans?: CareerPlan[];
   onViewMyPlan?: (plan: CareerPlan) => void;
@@ -191,9 +191,9 @@ export function CareerPathList({
     return careerPathTemplates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
 
-  const handleUseTemplate = (customTitle: string) => {
+  const handleUseTemplate = async (customTitle: string) => {
     if (selectedTemplate) {
-      onUseTemplate(selectedTemplate, customTitle);
+      await onUseTemplate(selectedTemplate, customTitle);
       handleSelectTemplate(null);
     }
   };

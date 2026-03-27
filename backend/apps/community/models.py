@@ -107,11 +107,13 @@ class SharedRoadmap(UUIDPrimaryKeyModel, TimeStampedModel):
         ('public', '전체 공개'),
     ]
     
-    user_path = models.OneToOneField(
-        'career_path.UserCareerPath',
+    career_plan = models.ForeignKey(
+        'career_path.CareerPlan',
         on_delete=models.CASCADE,
-        related_name='shared_roadmap',
-        verbose_name='사용자 패스'
+        related_name='community_shared_roadmaps',
+        null=True,
+        blank=True,
+        verbose_name='커리어 패스'
     )
     
     owner = models.ForeignKey(

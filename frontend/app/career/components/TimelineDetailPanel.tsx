@@ -16,8 +16,8 @@ type TimelineDetailPanelProps = {
   readonly plan: CareerPlan;
   readonly onClose: () => void;
   readonly onEdit: (plan: CareerPlan) => void;
-  readonly onUpdatePlan: (plan: CareerPlan) => void;
-  readonly onDeletePlan: (planId: string) => void;
+  readonly onUpdatePlan: (plan: CareerPlan) => void | Promise<void>;
+  readonly onDeletePlan: (planId: string) => void | Promise<void>;
   readonly onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   readonly onOpenShareDialog?: (plan: CareerPlan) => void;
   /** 오른쪽 패널에서만 전달 — 상단 확대(560px 다이얼로그) */
