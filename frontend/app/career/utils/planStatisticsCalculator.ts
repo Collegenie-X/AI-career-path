@@ -1,4 +1,4 @@
-import type { YearPlan } from '../components/CareerPathBuilder';
+import type { CareerPlan, YearPlan } from '../components/CareerPathBuilder';
 import type { PlanItemWithCheck } from '../components/TimelineItemComponents';
 
 export function calculateYearStatistics(year: YearPlan): { total: number; checked: number } {
@@ -23,4 +23,24 @@ export function calculateYearStatistics(year: YearPlan): { total: number; checke
   const checked = directChecked + groupChecked + goalGroupChecked;
 
   return { total, checked };
+}
+
+/** 타임라인 상세·리스트 카드 공통 — 학년별 통계 합산 */
+export function calculateCareerPlanStatistics(plan: CareerPlan): {
+  totalItems: number;
+  checkedItems: number;
+  completionPercent: number;
+} {
+  const { totalItems, checkedItems } = plan.years.reduce(
+    (acc, year) => {
+      const stats = calculateYearStatistics(year);
+      return {
+        totalItems: acc.totalItems + stats.total,
+        checkedItems: acc.checkedItems + stats.checked,
+      };
+    },
+    { totalItems: 0, checkedItems: 0 },
+  );
+  const completionPercent = totalItems > 0 ? (checkedItems / totalItems) * 100 : 0;
+  return { totalItems, checkedItems, completionPercent };
 }

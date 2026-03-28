@@ -4,7 +4,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { likeSharedPlanApi, bookmarkSharedPlanApi, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 import { CAREER_SHARED_PLANS_QUERY_KEY } from '@/app/career/hooks/useSharedPlansQuery';
-import type { UserReactionState } from '@/app/career/components/community/types';
+import { sharedPlanCommunityDetailQueryKey } from '@/app/career/hooks/useSharedPlanCommunityDetailQuery';
+import type { SharedPlan, UserReactionState } from '@/app/career/components/community/types';
 
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
 
@@ -40,8 +41,15 @@ export function useSharedPlanReactions() {
       }
       return { like_count: 0 };
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+    onSuccess: (data, planId) => {
+      if (!useBackend) return;
+      queryClient.setQueryData<SharedPlan[]>(CAREER_SHARED_PLANS_QUERY_KEY, (old) => {
+        if (!old) return old;
+        return old.map((p) => (p.id === planId ? { ...p, likes: data.like_count } : p));
+      });
+      queryClient.setQueryData<SharedPlan>(sharedPlanCommunityDetailQueryKey(planId), (old) =>
+        old ? { ...old, likes: data.like_count } : old,
+      );
     },
   });
 
@@ -52,8 +60,15 @@ export function useSharedPlanReactions() {
       }
       return { bookmark_count: 0 };
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+    onSuccess: (data, planId) => {
+      if (!useBackend) return;
+      queryClient.setQueryData<SharedPlan[]>(CAREER_SHARED_PLANS_QUERY_KEY, (old) => {
+        if (!old) return old;
+        return old.map((p) => (p.id === planId ? { ...p, bookmarks: data.bookmark_count } : p));
+      });
+      queryClient.setQueryData<SharedPlan>(sharedPlanCommunityDetailQueryKey(planId), (old) =>
+        old ? { ...old, bookmarks: data.bookmark_count } : old,
+      );
     },
   });
 

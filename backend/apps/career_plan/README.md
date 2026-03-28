@@ -31,7 +31,8 @@
 4. **공유 로드맵 (Shared Roadmap)**
    - 로드맵 커뮤니티 공유
    - 전체 공유·그룹 공유
-   - 좋아요·북마크·조회
+   - 좋아요·북마크·조회·댓글·**신고** (`career_path.SharedPlan`과 동일한 통계 필드 패턴)
+   - DB 제약: **로드맵(`Roadmap`)당 `SharedDreamRoadmap` 1행** (중복 공유 행 마이그레이션 시 병합)
 
 ---
 
@@ -147,14 +148,14 @@ SharedRoadmap (공유 로드맵)
 └── SharedRoadmapGroup (그룹 연결)
 ```
 
-#### SharedRoadmap
+#### SharedRoadmap (`SharedDreamRoadmap`)
 
-- `roadmap`: 원본 로드맵
+- `roadmap`: 원본 로드맵 (**FK 유일 제약 — 로드맵당 공유 설정 1건**)
 - `user`: 공유자
 - `share_type`: 공유 유형 (비공개·전체·그룹)
 - `description`: 공유 설명
 - `tags`: 태그 (JSON 배열)
-- `like_count`, `bookmark_count`, `view_count`, `comment_count`: 통계
+- `like_count`, `bookmark_count`, `view_count`, `comment_count`, `report_count`: 통계 (비정규화)
 - `shared_at`: 공유 일시
 - `is_hidden`: 숨김 여부
 
@@ -451,5 +452,6 @@ python3 manage.py migrate career_plan
 ## 참고
 
 - 설계 문서: `documents/backend/커리어실행_DreamMate_Django_DB_설계서.md`
-- Career Path 앱: `backend/apps/career_path/`
+- 프론트·백 통합 요약: `backend/apps/career_plan/INTEGRATION.md`
+- Career Path 앱: `backend/apps/career_path/` (공유·통계 패턴 참조)
 - Community 앱: `backend/apps/community/`

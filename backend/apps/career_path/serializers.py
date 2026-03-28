@@ -61,13 +61,29 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'name', 'emoji', 'description',
             'creator', 'creator_name', 'creator_emoji',
-            'invite_code', 'member_count', 'is_public',
+            'invite_code', 'member_count', 'max_members', 'category', 'mode', 'tags',
+            'is_public',
             'created_at', 'updated_at'
         ]
         read_only_fields = [
             'id', 'creator', 'invite_code', 'member_count',
             'created_at', 'updated_at'
         ]
+    
+    def validate_max_members(self, value):
+        if value < 2 or value > 200:
+            raise serializers.ValidationError('최대 인원은 2~200 사이로 설정해 주세요.')
+        return value
+    
+    def validate_tags(self, value):
+        if value is None:
+            return []
+        if not isinstance(value, list):
+            raise serializers.ValidationError('태그는 배열이어야 합니다.')
+        cleaned = [str(t).strip() for t in value if str(t).strip()]
+        if len(cleaned) > 20:
+            raise serializers.ValidationError('태그는 최대 20개까지 입력할 수 있습니다.')
+        return cleaned[:20]
 
 
 class GroupMemberSerializer(serializers.ModelSerializer):
@@ -506,13 +522,14 @@ class SharedPlanListSerializer(serializers.ModelSerializer):
     job_emoji = serializers.CharField(source='career_plan.job_emoji', read_only=True)
     star_name = serializers.CharField(source='career_plan.star_name', read_only=True)
     star_color = serializers.CharField(source='career_plan.star_color', read_only=True)
+    group_ids = serializers.SerializerMethodField()
     
     class Meta:
         model = SharedPlan
         fields = [
             'id', 'career_plan', 'user', 'career_plan_title',
             'job_name', 'job_emoji', 'star_name', 'star_color',
-            'share_type', 'description', 'tags',
+            'share_type', 'description', 'tags', 'group_ids',
             'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
             'shared_at', 'updated_at', 'is_hidden'
         ]
@@ -520,6 +537,9 @@ class SharedPlanListSerializer(serializers.ModelSerializer):
             'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
             'shared_at', 'updated_at'
         ]
+    
+    def get_group_ids(self, obj):
+        return [str(link.group_id) for link in obj.group_links.all()]
 
 
 class SharedPlanDetailSerializer(serializers.ModelSerializer):

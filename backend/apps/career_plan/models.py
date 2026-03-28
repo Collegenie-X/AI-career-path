@@ -651,11 +651,12 @@ class SharedDreamRoadmap(UUIDPrimaryKeyModel, TimeStampedModel):
         verbose_name='태그'
     )
     
-    # 통계
+    # 통계 (비정규화 — career_path.SharedPlan 과 동일 패턴)
     like_count = models.IntegerField(default=0, verbose_name='좋아요 수')
     bookmark_count = models.IntegerField(default=0, verbose_name='북마크 수')
     view_count = models.IntegerField(default=0, verbose_name='조회 수')
     comment_count = models.IntegerField(default=0, verbose_name='댓글 수')
+    report_count = models.IntegerField(default=0, verbose_name='신고 수')
     
     shared_at = models.DateTimeField(auto_now_add=True, verbose_name='공유 일시')
     
@@ -666,6 +667,12 @@ class SharedDreamRoadmap(UUIDPrimaryKeyModel, TimeStampedModel):
         verbose_name = '공유 드림 로드맵'
         verbose_name_plural = '공유 드림 로드맵 목록'
         ordering = ['-shared_at']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['roadmap'],
+                name='uniq_shared_dream_roadmap_one_row_per_roadmap',
+            ),
+        ]
         indexes = [
             models.Index(fields=['user', '-shared_at'], name='idx_shared_dream_rm_user'),
             models.Index(fields=['roadmap'], name='idx_shared_dream_rm_roadmap'),

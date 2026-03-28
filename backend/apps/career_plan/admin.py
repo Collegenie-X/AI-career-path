@@ -1,10 +1,18 @@
 """
 Career Plan (DreamMate) Admin - 커리어 실행 관리자 페이지
 
+운영자는 로드맵 변경 화면에서 활동·TODO·마일스톤 통합 보기를 확인할 수 있습니다.
+공유(커뮤니티)는 로드맵당 1행(career_path.SharedPlan 과 동일 패턴)입니다.
+
 설계 문서: documents/backend/커리어실행_DreamMate_Django_DB_설계서.md
 """
 
 from django.contrib import admin
+from django.db.models import CharField, IntegerField, OuterRef, Subquery
+from django.db.models.functions import Coalesce
+from django.utils.html import format_html
+
+from .admin_roadmap_overview_html import build_roadmap_overview_html
 from .models import (
     Roadmap, RoadmapItem, RoadmapTodo, RoadmapMilestone,
     DreamResource, ResourceSection,
@@ -41,15 +49,94 @@ class RoadmapMilestoneInline(admin.TabularInline):
     ordering = ['sort_order']
 
 
+class SharedDreamRoadmapInline(admin.TabularInline):
+    """같은 로드맵에 대한 공유(커뮤니티) 설정 — DB상 로드맵당 1행만 허용"""
+    model = SharedDreamRoadmap
+    extra = 0
+    max_num = 1
+    can_delete = True
+    fk_name = 'roadmap'
+    fields = [
+        'share_type', 'like_count', 'bookmark_count', 'view_count',
+        'comment_count', 'report_count', 'is_hidden', 'shared_at',
+    ]
+    readonly_fields = [
+        'like_count', 'bookmark_count', 'view_count', 'comment_count',
+        'report_count', 'shared_at',
+    ]
+    show_change_link = True
+
+
 @admin.register(Roadmap)
 class RoadmapAdmin(admin.ModelAdmin):
     """로드맵 관리자"""
-    list_display = ['title', 'user', 'period', 'star_color', 'item_count', 'created_at']
+    change_form_template = 'admin/career_plan/roadmap/change_form.html'
+    list_display = [
+        'title',
+        'user',
+        'period',
+        'summary_share_status',
+        'summary_like',
+        'summary_bookmark',
+        'summary_report',
+        'item_count',
+        'created_at',
+    ]
     list_filter = ['period', 'created_at']
     search_fields = ['title', 'user__name', 'description']
     readonly_fields = ['id', 'created_at', 'updated_at']
-    inlines = [RoadmapItemInline, RoadmapMilestoneInline]
-    
+    inlines = [RoadmapItemInline, RoadmapMilestoneInline, SharedDreamRoadmapInline]
+    ordering = ['-created_at']
+
+    def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        if object_id:
+            obj = self.get_object(request, object_id)
+            if obj is not None:
+                extra_context['roadmap_overview_tree'] = build_roadmap_overview_html(obj)
+        return super().changeform_view(request, object_id, form_url, extra_context)
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request).select_related('user')
+        latest_sr = SharedDreamRoadmap.objects.filter(roadmap=OuterRef('pk')).order_by('-shared_at', '-id')
+        return qs.annotate(
+            _hub_share_type=Subquery(
+                latest_sr.values('share_type')[:1], output_field=CharField(max_length=20)
+            ),
+            _hub_like=Coalesce(
+                Subquery(latest_sr.values('like_count')[:1], output_field=IntegerField()),
+                0,
+            ),
+            _hub_bookmark=Coalesce(
+                Subquery(latest_sr.values('bookmark_count')[:1], output_field=IntegerField()),
+                0,
+            ),
+            _hub_report=Coalesce(
+                Subquery(latest_sr.values('report_count')[:1], output_field=IntegerField()),
+                0,
+            ),
+        )
+
+    @admin.display(description='공개·공유', ordering='_hub_share_type')
+    def summary_share_status(self, obj):
+        st = getattr(obj, '_hub_share_type', None)
+        if st is None:
+            return format_html('<span style="color:#888;">미공유</span>')
+        label = dict(SharedDreamRoadmap.SHARE_TYPE_CHOICES).get(st, st)
+        return label
+
+    @admin.display(description='좋아요', ordering='_hub_like')
+    def summary_like(self, obj):
+        return getattr(obj, '_hub_like', 0) or 0
+
+    @admin.display(description='북마크', ordering='_hub_bookmark')
+    def summary_bookmark(self, obj):
+        return getattr(obj, '_hub_bookmark', 0) or 0
+
+    @admin.display(description='신고', ordering='_hub_report')
+    def summary_report(self, obj):
+        return getattr(obj, '_hub_report', 0) or 0
+
     fieldsets = (
         ('기본 정보', {
             'fields': ('id', 'user', 'title', 'description', 'period', 'star_color')
@@ -260,10 +347,16 @@ class SharedDreamRoadmapGroupInline(admin.TabularInline):
 @admin.register(SharedDreamRoadmap)
 class SharedDreamRoadmapAdmin(admin.ModelAdmin):
     """공유 드림 로드맵 관리자"""
-    list_display = ['roadmap', 'user', 'share_type', 'like_count', 'view_count', 'shared_at', 'is_hidden']
+    list_display = [
+        'roadmap', 'user', 'share_type', 'like_count', 'view_count',
+        'report_count', 'shared_at', 'is_hidden',
+    ]
     list_filter = ['share_type', 'is_hidden', 'shared_at']
     search_fields = ['roadmap__title', 'user__name', 'description', 'tags']
-    readonly_fields = ['id', 'like_count', 'bookmark_count', 'view_count', 'comment_count', 'shared_at']
+    readonly_fields = [
+        'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count',
+        'report_count', 'shared_at',
+    ]
     inlines = [SharedDreamRoadmapGroupInline]
     
     fieldsets = (
@@ -271,7 +364,9 @@ class SharedDreamRoadmapAdmin(admin.ModelAdmin):
             'fields': ('id', 'roadmap', 'user', 'share_type', 'description', 'tags', 'is_hidden')
         }),
         ('통계', {
-            'fields': ('like_count', 'bookmark_count', 'view_count', 'comment_count')
+            'fields': (
+                'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
+            )
         }),
         ('타임스탬프', {
             'fields': ('shared_at',)

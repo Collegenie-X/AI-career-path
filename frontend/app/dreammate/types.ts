@@ -69,6 +69,12 @@ export interface SharedRoadmap {
   groupIds: string[];
   likes: number;
   bookmarks: number;
+  /** 조회 수 — 백엔드 `SharedDreamRoadmap.view_count`와 대응 */
+  viewCount?: number;
+  /** 댓글 수(집계) — 백엔드 `comment_count` (UI `comments` 배열과 별개일 수 있음) */
+  commentCount?: number;
+  /** 신고 수 — 백엔드 `report_count` (career_path.SharedPlan 과 동일 패턴) */
+  reportCount?: number;
   sharedAt: string;
   comments: RoadmapComment[];
 }

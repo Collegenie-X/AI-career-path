@@ -78,6 +78,7 @@ export function MyDreamMateTab({
   const router = useRouter();
   const [subTab, setSubTab] = useState<MySubTab>('roadmaps');
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
+  const [showRoadmapExpandDialog, setShowRoadmapExpandDialog] = useState(false);
   const [selectedSpaceId, setSelectedSpaceId] = useState<string | null>(null);
   const [roadmapsPage, setRoadmapsPage] = useState(1);
   const [spacesPage, setSpacesPage] = useState(1);
@@ -85,6 +86,7 @@ export function MyDreamMateTab({
   useEffect(() => {
     setSelectedRoadmapId(null);
     setSelectedSpaceId(null);
+    setShowRoadmapExpandDialog(false);
     setRoadmapsPage(1);
     setSpacesPage(1);
   }, [subTab]);
@@ -246,6 +248,7 @@ export function MyDreamMateTab({
   return (
     <div className="space-y-0 pb-28">
       {subTab === 'roadmaps' ? (
+        <>
         <TwoColumnPanelLayout
           hasSelection={selectedRoadmap !== null}
           onClearSelection={() => setSelectedRoadmapId(null)}
@@ -265,6 +268,7 @@ export function MyDreamMateTab({
                   isReferenceViewOnlyMode={false}
                   availableSpaces={availableSpaces}
                   onClose={() => setSelectedRoadmapId(null)}
+                  onExpand={() => setShowRoadmapExpandDialog(true)}
                   onUseRoadmap={() => {}}
                   onShare={() => onRequestShareRoadmap(selectedRoadmap)}
                   onEdit={() => {
@@ -285,6 +289,39 @@ export function MyDreamMateTab({
             ) : null
           }
         />
+
+        {showRoadmapExpandDialog && selectedRoadmap && (
+          <RoadmapDetailDialog
+            variant="dialog"
+            roadmap={selectedRoadmap}
+            isOwnedByCurrentUser
+            timelineDetailMode="status_readonly"
+            isReferenceViewOnlyMode={false}
+            availableSpaces={availableSpaces}
+            onClose={() => setShowRoadmapExpandDialog(false)}
+            onUseRoadmap={() => {}}
+            onShare={() => {
+              onRequestShareRoadmap(selectedRoadmap);
+              setShowRoadmapExpandDialog(false);
+            }}
+            onEdit={() => {
+              onEditRoadmap(selectedRoadmap.id);
+              setShowRoadmapExpandDialog(false);
+              setSelectedRoadmapId(null);
+            }}
+            onDelete={() => {
+              onDeleteRoadmap(selectedRoadmap.id);
+              setShowRoadmapExpandDialog(false);
+              setSelectedRoadmapId(null);
+            }}
+            onShareRoadmap={(channels, spaceIds) => onShareRoadmap(selectedRoadmap.id, channels, spaceIds)}
+            onReportRoadmap={(reasonId, detail) => onReportRoadmap(selectedRoadmap.id, reasonId, detail)}
+            onCreateComment={(comment, parentId) =>
+              onCreateRoadmapComment(selectedRoadmap.id, comment, parentId)
+            }
+          />
+        )}
+        </>
       ) : (
         <TwoColumnPanelLayout
           hasSelection={selectedSpace !== null}

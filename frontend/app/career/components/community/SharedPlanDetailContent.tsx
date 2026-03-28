@@ -15,7 +15,7 @@ import { GRADE_YEARS } from '../../config';
 import type { SharedPlan, OperatorComment, OperatorCommentNode } from './types';
 import { ReportModal, type ReportTarget } from '../ReportModal';
 import { buildChronologicalParentTree, type ParentTreeNode } from '@/lib/timelineTreeUtils';
-import { CommunityDetailPanelYearSection } from './CommunityDetailPanelTimeline';
+import { SharedPlanMyPathStyleTimeline } from './SharedPlanMyPathStyleTimeline';
 import { CommunityCommentBubble } from './CommunityDetailPanelCommentBubble';
 import { CareerPathDetailExpandHeaderButton } from '../expandable-detail';
 import { postSharedPlanComment, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
@@ -201,16 +201,19 @@ export function SharedPlanDetailContent({
       <div
         className="flex-shrink-0 px-5 pt-5 pb-4 relative"
         style={{
-          background: `linear-gradient(135deg, ${plan.starColor}18, ${plan.starColor}06)`,
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}0a)`,
+          borderBottom: `1px solid ${plan.starColor}30`,
         }}
       >
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+              className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
               style={{
-                background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
+                width: 52,
+                height: 52,
+                background: `linear-gradient(135deg, ${plan.starColor}40, ${plan.starColor}18)`,
+                border: `1.5px solid ${plan.starColor}44`,
               }}
             >
               {plan.jobEmoji}
@@ -353,10 +356,10 @@ export function SharedPlanDetailContent({
         </div>
       </div>
 
-      {/* ── Section tabs ── */}
+      {/* ── Section tabs (내 패스 PlanActionBar 영역과 동일한 색조) ── */}
       <div
         className="flex-shrink-0 flex gap-0"
-        style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ borderBottom: `1px solid ${plan.starColor}22` }}
       >
         {[
           { id: 'timeline' as const, label: '📋 커리어 타임라인' },
@@ -390,23 +393,7 @@ export function SharedPlanDetailContent({
             className={bodyPaddingClass}
             style={bodyPaddingBottom ? { paddingBottom: bodyPaddingBottom } : undefined}
           >
-            {plan.years.length === 0 ? (
-              <div className="py-12 text-center">
-                <div className="text-4xl mb-3">📭</div>
-                <p className="text-sm text-gray-500">상세 계획 정보가 없어요</p>
-              </div>
-            ) : (
-              <div className="relative">
-                {plan.years.map((year, idx) => (
-                  <CommunityDetailPanelYearSection
-                    key={year.gradeId}
-                    year={year}
-                    starColor={plan.starColor}
-                    isLast={idx === plan.years.length - 1}
-                  />
-                ))}
-              </div>
-            )}
+            <SharedPlanMyPathStyleTimeline sharedPlan={plan} />
           </div>
         ) : (
           <div

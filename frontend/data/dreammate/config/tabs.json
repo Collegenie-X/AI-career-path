@@ -1,6 +1,30 @@
 [
-  { "id": "feed",    "label": "피드",   "emoji": "🗓️" },
-  { "id": "space",   "label": "커뮤니티",   "emoji": "🤝" },
-  { "id": "my",      "label": "내 기록", "emoji": "⭐" },
-  { "id": "library", "label": "자료실", "emoji": "📚" }
+  {
+    "id": "feed",
+    "label": "피드",
+    "emoji": "🗓️",
+    "description": "공유 로드맵·활동 피드",
+    "routeHint": "tab=feed"
+  },
+  {
+    "id": "space",
+    "label": "커뮤니티",
+    "emoji": "🤝",
+    "description": "그룹·학교 공간 탐색",
+    "routeHint": "tab=space"
+  },
+  {
+    "id": "my",
+    "label": "내 기록",
+    "emoji": "⭐",
+    "description": "나의 로드맵·저장",
+    "routeHint": "tab=my"
+  },
+  {
+    "id": "library",
+    "label": "자료실",
+    "emoji": "📚",
+    "description": "드림 라이브러리 자료",
+    "routeHint": "tab=library"
+  }
 ]

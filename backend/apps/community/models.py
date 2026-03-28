@@ -14,6 +14,19 @@ class Group(UUIDPrimaryKeyModel, TimeStampedModel):
     """
     Group model for community features
     """
+    CATEGORY_CHOICES = [
+        ('study', '스터디'),
+        ('project', '프로젝트'),
+        ('mentoring', '멘토링'),
+        ('school_club', '동아리'),
+        ('other', '기타'),
+    ]
+    MODE_CHOICES = [
+        ('online', '온라인'),
+        ('offline', '오프라인'),
+        ('hybrid', '온·오프'),
+    ]
+
     name = models.CharField(max_length=200, verbose_name='그룹명')
     description = models.TextField(blank=True, verbose_name='설명')
     emoji = models.CharField(max_length=10, default='👥', verbose_name='이모지')
@@ -33,6 +46,20 @@ class Group(UUIDPrimaryKeyModel, TimeStampedModel):
     )
     
     member_count = models.IntegerField(default=1, verbose_name='멤버 수')
+    max_members = models.PositiveIntegerField(default=50, verbose_name='최대 인원')
+    category = models.CharField(
+        max_length=32,
+        choices=CATEGORY_CHOICES,
+        default='study',
+        verbose_name='카테고리',
+    )
+    mode = models.CharField(
+        max_length=16,
+        choices=MODE_CHOICES,
+        default='online',
+        verbose_name='진행 방식',
+    )
+    tags = models.JSONField(default=list, blank=True, verbose_name='태그')
     
     is_public = models.BooleanField(default=False, verbose_name='공개 여부')
     

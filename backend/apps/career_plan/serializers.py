@@ -381,11 +381,11 @@ class SharedDreamRoadmapListSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'user', 'user_name', 'roadmap', 'roadmap_title',
             'share_type', 'tags', 'like_count', 'bookmark_count',
-            'view_count', 'comment_count', 'shared_at', 'is_hidden'
+            'view_count', 'comment_count', 'report_count', 'shared_at', 'is_hidden'
         ]
         read_only_fields = [
             'id', 'user', 'like_count', 'bookmark_count',
-            'view_count', 'comment_count', 'shared_at'
+            'view_count', 'comment_count', 'report_count', 'shared_at'
         ]
 
 
@@ -401,12 +401,12 @@ class SharedDreamRoadmapDetailSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'user', 'user_name', 'roadmap', 'share_type',
             'description', 'tags', 'like_count', 'bookmark_count',
-            'view_count', 'comment_count', 'shared_at', 'is_hidden',
+            'view_count', 'comment_count', 'report_count', 'shared_at', 'is_hidden',
             'group_links'
         ]
         read_only_fields = [
             'id', 'user', 'like_count', 'bookmark_count',
-            'view_count', 'comment_count', 'shared_at'
+            'view_count', 'comment_count', 'report_count', 'shared_at'
         ]
 
 
@@ -429,22 +429,24 @@ class SharedDreamRoadmapCreateSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         group_ids = validated_data.pop('group_ids', [])
-        
         user = self.context['request'].user
-        shared_roadmap = SharedDreamRoadmap.objects.create(user=user, **validated_data)
-        
-        # 그룹 연결
+        roadmap = validated_data.pop('roadmap')
+        # 로드맵당 공유 1행 — 재요청 시 갱신 (career_path.SharedPlan 과 동일 DB 제약)
+        shared_roadmap, _created = SharedDreamRoadmap.objects.update_or_create(
+            roadmap=roadmap,
+            defaults={**validated_data, 'user': user},
+        )
+        shared_roadmap.group_links.all().delete()
         from apps.community.models import Group
         for group_id in group_ids:
             try:
                 group = Group.objects.get(id=group_id)
                 SharedDreamRoadmapGroup.objects.create(
                     shared_roadmap=shared_roadmap,
-                    group=group
+                    group=group,
                 )
             except Group.DoesNotExist:
                 pass
-        
         return shared_roadmap
 
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, Flag, X } from 'lucide-react';
 import { LABELS, ROADMAP_REPORT_REASONS } from '../config';
+import { ROADMAP_DETAIL_NESTED_OVERLAY_Z_INDEX } from '../config/roadmap-detail-dialog-display.config';
 
 interface RoadmapReportDialogProps {
   roadmapTitle: string;
@@ -41,7 +42,10 @@ export function RoadmapReportDialog({
   if (!mounted) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[120] flex items-end justify-center">
+    <div
+      className="fixed inset-0 flex items-end justify-center"
+      style={{ zIndex: ROADMAP_DETAIL_NESTED_OVERLAY_Z_INDEX }}
+    >
       <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
       <div
         className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto pb-5"

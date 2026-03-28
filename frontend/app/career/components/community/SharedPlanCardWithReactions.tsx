@@ -1,6 +1,8 @@
 'use client';
 
+import { useQueryClient } from '@tanstack/react-query';
 import { Heart, Bookmark, MessageSquare, Shield, Globe, ChevronRight, Clock } from 'lucide-react';
+import { prefetchSharedPlanCommunityDetail } from '@/app/career/hooks/useSharedPlanCommunityDetailQuery';
 import { GRADE_YEARS, ITEM_TYPES } from '../../config';
 import type { SharedPlan } from './types';
 import { formatTimeAgo, formatShortDate, isRecentlyUpdated, isEdited, isOlderThanWeek } from './formatTime';
@@ -23,6 +25,8 @@ export function SharedPlanCardWithReactions({
   checkedAt,
   onToggleLike, onToggleBookmark, onViewDetail,
 }: Props) {
+  const queryClient = useQueryClient();
+
   const isOperatorOnly = (plan.shareType as string) === 'operator';
   const commentCount = plan.commentCount ?? plan.operatorComments.length;
   const gradeInfo = GRADE_YEARS.find(g => g.id === plan.ownerGrade);
@@ -47,6 +51,9 @@ export function SharedPlanCardWithReactions({
         boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
       onClick={onViewDetail}
+      onPointerEnter={() => {
+        void prefetchSharedPlanCommunityDetail(queryClient, plan.id);
+      }}
     >
       {/* ── Main row: emoji + info + reactions + circular arrow ── */}
       <div className="flex items-center gap-4 px-5 py-4">

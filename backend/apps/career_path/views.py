@@ -178,6 +178,12 @@ class GroupViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST
             )
         
+        if group.member_count >= group.max_members:
+            return Response(
+                {'error': '그룹 정원이 찼습니다.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
         # 그룹 멤버 생성
         member = GroupMember.objects.create(
             group=group,
@@ -547,7 +553,7 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
         
         queryset = SharedPlan.objects.filter(
             is_hidden=False
-        ).select_related('user', 'career_plan', 'school')
+        ).select_related('user', 'career_plan', 'school').prefetch_related('group_links')
         
         share_type = self.request.query_params.get('share_type')
 
@@ -591,7 +597,7 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
         """현재 사용자가 공유한 패스 목록 (내 공개 프로필용)"""
         qs = SharedPlan.objects.filter(is_hidden=False, user=request.user).select_related(
             'user', 'career_plan', 'school'
-        ).order_by('-shared_at')
+        ).prefetch_related('group_links').order_by('-shared_at')
         serializer = SharedPlanListSerializer(qs, many=True)
         return Response(serializer.data)
     

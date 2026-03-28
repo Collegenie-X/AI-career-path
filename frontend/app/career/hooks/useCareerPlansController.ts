@@ -17,6 +17,7 @@ import {
   updateCareerPlanApi,
 } from '@/lib/career-path/careerPathApi';
 import { useTemplateApi } from '@/lib/career-path/templateApi';
+import { CAREER_QUERY_GC_TIME_MS, CAREER_QUERY_STALE_TIME_MS } from './careerPathQueryCache';
 
 /** 레거시 키 — 마이그레이션 후 제거 가능 */
 export const CAREER_PLANS_STORAGE_KEY = 'career_plans_v3';
@@ -73,7 +74,8 @@ export function useCareerPlansController() {
     queryKey: careerPlansQueryKey,
     queryFn: fetchPlansForUi,
     enabled: useBackend,
-    staleTime: 20_000,
+    staleTime: CAREER_QUERY_STALE_TIME_MS.careerPlansMine,
+    gcTime: CAREER_QUERY_GC_TIME_MS,
   });
 
   const plans: CareerPlan[] = useMemo(() => {

@@ -3,6 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchSharedPlans } from '@/lib/career-path/sharedPlanApi';
 import type { SharedPlan } from '@/app/career/components/community/types';
+import { CAREER_QUERY_GC_TIME_MS, CAREER_QUERY_STALE_TIME_MS } from './careerPathQueryCache';
 
 export const CAREER_SHARED_PLANS_QUERY_KEY = ['sharedPlans', 'career'] as const;
 
@@ -34,7 +35,7 @@ function mapApiSharedPlanToUi(api: Awaited<ReturnType<typeof fetchSharedPlans>>[
     bookmarks: api.bookmark_count,
     years: [],
     operatorComments: [],
-    groupIds: [],
+    groupIds: Array.isArray(api.group_ids) ? api.group_ids : [],
     tags: api.tags,
     commentCount: api.comment_count,
   };
@@ -48,7 +49,8 @@ export function useSharedPlansQuery() {
       const apiPlans = await fetchSharedPlans();
       return apiPlans.map(mapApiSharedPlanToUi);
     },
-    staleTime: 30_000,
+    staleTime: CAREER_QUERY_STALE_TIME_MS.sharedPlansList,
+    gcTime: CAREER_QUERY_GC_TIME_MS,
   });
 
   return {

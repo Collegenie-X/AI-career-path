@@ -141,6 +141,10 @@ export interface CommunityGroup {
   creatorId: string;
   creatorName: string;
   memberCount: number;
+  /** 그룹 정원 (초대·가입 시 상한) */
+  maxMembers?: number;
+  category?: string;
+  mode?: 'online' | 'offline' | 'hybrid';
   members: GroupMember[];
   sharedPlanCount: number;
   inviteCode?: string;

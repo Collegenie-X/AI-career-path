@@ -64,6 +64,8 @@ export type ApiSharedPlanListItem = {
   shared_at: string;
   updated_at: string;
   is_hidden: boolean;
+  /** 그룹 공유 시 연결된 그룹 UUID 목록 */
+  group_ids?: string[];
 };
 
 export type ApiSharedPlanCommentRow = {

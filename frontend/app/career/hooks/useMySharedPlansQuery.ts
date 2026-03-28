@@ -3,8 +3,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchMySharedPlans, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 import type { CareerPlan } from '@/app/career/components/CareerPathBuilder';
+import { CAREER_QUERY_GC_TIME_MS, CAREER_QUERY_STALE_TIME_MS } from './careerPathQueryCache';
 
-const mySharedPlansQueryKey = ['mySharedPlans', 'career'] as const;
+export const MY_SHARED_PLANS_QUERY_KEY = ['mySharedPlans', 'career'] as const;
 
 const EMPTY_MY_SHARED_PLANS: CareerPlan[] = [];
 
@@ -33,13 +34,14 @@ export function useMySharedPlansQuery() {
   const useBackend = hasCareerPathBackendAuth();
 
   const query = useQuery({
-    queryKey: mySharedPlansQueryKey,
+    queryKey: MY_SHARED_PLANS_QUERY_KEY,
     queryFn: async () => {
       const apiPlans = await fetchMySharedPlans();
       return apiPlans.map(mapApiSharedPlanToCareerPlan);
     },
     enabled: useBackend,
-    staleTime: 30_000,
+    staleTime: CAREER_QUERY_STALE_TIME_MS.mySharedPlans,
+    gcTime: CAREER_QUERY_GC_TIME_MS,
   });
 
   if (!useBackend) {
