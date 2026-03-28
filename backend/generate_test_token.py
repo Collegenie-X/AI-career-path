@@ -25,14 +25,19 @@ def main():
         defaults={
             'name': '테스트 유저',
             'emoji': '🧪',
-            'grade': 'high1',
+            'grade': 'high_1',
         }
     )
-    
+
+    # 스크립트로만 만든 계정은 비밀번호가 없을 수 있음 — 로그인 페이지 안내와 맞춤
+    user.set_password('password123')
+    user.save(update_fields=['password'])
+
     if created:
         print(f"\n✅ 새 테스트 유저 생성됨: {user.name} ({user.email})")
     else:
         print(f"\n✅ 기존 테스트 유저 사용: {user.name} ({user.email})")
+        print("   (비밀번호를 password123 으로 맞춰 두었습니다.)")
     
     # JWT 토큰 생성
     token = AccessToken.for_user(user)

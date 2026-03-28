@@ -18,49 +18,56 @@ import {
 } from '@/lib/career-path/careerPathApi';
 import { useTemplateApi } from '@/lib/career-path/templateApi';
 
-const STORAGE_KEY = 'career_plans_v3';
-export const CAREER_PLANS_STORAGE_KEY = STORAGE_KEY;
+/** 레거시 키 — 마이그레이션 후 제거 가능 */
+export const CAREER_PLANS_STORAGE_KEY = 'career_plans_v3';
+
+/** JWT 없이 탐색·템플릿 적용 시 로컬에만 보관 (로그인 후에는 API 목록만 사용) */
+const GUEST_CAREER_PLANS_KEY = 'career_plans_guest_v1';
 
 const careerPlansQueryKey = ['careerPlans', 'mine'] as const;
+
+function loadGuestPlansFromStorage(): CareerPlan[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(GUEST_CAREER_PLANS_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as unknown;
+    return Array.isArray(parsed) ? (parsed as CareerPlan[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function persistGuestPlansToStorage(plans: CareerPlan[]): void {
+  try {
+    localStorage.setItem(GUEST_CAREER_PLANS_KEY, JSON.stringify(plans));
+  } catch {
+    // ignore quota / private mode
+  }
+}
 
 async function fetchPlansForUi(): Promise<CareerPlan[]> {
   const details = await fetchMyCareerPlanDetails();
   return details.map(mapCareerPlanDetailApiToUi);
 }
 
-function loadLocalPlans(): CareerPlan[] {
-  if (typeof window === 'undefined') return [];
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
-    return JSON.parse(raw) as CareerPlan[];
-  } catch {
-    return [];
-  }
-}
-
-function saveLocalPlans(plans: CareerPlan[]): void {
-  if (typeof window === 'undefined') return;
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
-  } catch {
-    // ignore
-  }
-}
-
-export type CareerPlansSource = 'api' | 'local';
+export type CareerPlansSource = 'api' | 'local' | 'none';
 
 export function useCareerPlansController() {
   const queryClient = useQueryClient();
   const [mounted, setMounted] = useState(false);
-  const [localPlans, setLocalPlans] = useState<CareerPlan[]>([]);
+  const [guestPlans, setGuestPlans] = useState<CareerPlan[]>([]);
 
   const useBackend = mounted && hasCareerPathBackendAuth();
 
   useEffect(() => {
     setMounted(true);
-    setLocalPlans(loadLocalPlans());
   }, []);
+
+  useEffect(() => {
+    if (!mounted || useBackend) return;
+    setGuestPlans(loadGuestPlansFromStorage());
+  }, [mounted, useBackend]);
 
   const listQuery = useQuery({
     queryKey: careerPlansQueryKey,
@@ -71,8 +78,8 @@ export function useCareerPlansController() {
 
   const plans: CareerPlan[] = useMemo(() => {
     if (useBackend) return listQuery.data ?? [];
-    return localPlans;
-  }, [useBackend, listQuery.data, localPlans]);
+    return guestPlans;
+  }, [useBackend, listQuery.data, guestPlans]);
 
   const saveToBackend = useCallback(
     async (plan: CareerPlan, previous: CareerPlan | null): Promise<CareerPlan> => {
@@ -105,59 +112,64 @@ export function useCareerPlansController() {
 
   const savePlan = useCallback(
     async (plan: CareerPlan, previousSnapshot?: CareerPlan | null) => {
+      if (!useBackend) {
+        let mergedResult: CareerPlan = plan;
+        setGuestPlans((prev) => {
+          const previous =
+            previousSnapshot ?? prev.find((p) => p.id === plan.id) ?? null;
+          const merged = mergeUiShareFields(plan, previous ?? plan);
+          mergedResult = merged;
+          const idx = prev.findIndex((p) => p.id === plan.id);
+          const next =
+            idx >= 0
+              ? prev.map((p, i) => (i === idx ? merged : p))
+              : [...prev, merged];
+          persistGuestPlansToStorage(next);
+          return next;
+        });
+        return mergedResult;
+      }
       const previous =
         previousSnapshot ??
         plans.find((p) => p.id === plan.id) ??
         null;
-
-      if (useBackend) {
-        const saved = await saveMutation.mutateAsync({ plan, previous });
-        return saved;
-      }
-
-      setLocalPlans((prev) => {
-        const existingIndex = prev.findIndex((p) => p.id === plan.id);
-        const next =
-          existingIndex >= 0
-            ? prev.map((p, i) => (i === existingIndex ? plan : p))
-            : [...prev, plan];
-        saveLocalPlans(next);
-        return next;
-      });
-      return plan;
+      return saveMutation.mutateAsync({ plan, previous });
     },
     [useBackend, plans, saveMutation]
   );
 
   const deletePlan = useCallback(
     async (planId: string) => {
-      if (useBackend) {
-        if (isUuidString(planId)) await deleteMutation.mutateAsync(planId);
+      if (!useBackend) {
+        setGuestPlans((prev) => {
+          const next = prev.filter((p) => p.id !== planId);
+          persistGuestPlansToStorage(next);
+          return next;
+        });
         return;
       }
-      setLocalPlans((prev) => {
-        const next = prev.filter((p) => p.id !== planId);
-        saveLocalPlans(next);
-        return next;
-      });
+      if (isUuidString(planId)) await deleteMutation.mutateAsync(planId);
     },
     [useBackend, deleteMutation]
   );
 
   const updatePlanInline = useCallback(
     async (updatedPlan: CareerPlan) => {
-      if (useBackend && isUuidString(updatedPlan.id)) {
-        await saveMutation.mutateAsync({
-          plan: updatedPlan,
-          previous:
-            plans.find((p) => p.id === updatedPlan.id) ?? updatedPlan,
+      if (!useBackend) {
+        setGuestPlans((prev) => {
+          const idx = prev.findIndex((p) => p.id === updatedPlan.id);
+          if (idx < 0) return prev;
+          const next = [...prev];
+          next[idx] = updatedPlan;
+          persistGuestPlansToStorage(next);
+          return next;
         });
         return;
       }
-      setLocalPlans((prev) => {
-        const next = prev.map((p) => (p.id === updatedPlan.id ? updatedPlan : p));
-        saveLocalPlans(next);
-        return next;
+      if (!isUuidString(updatedPlan.id)) return;
+      await saveMutation.mutateAsync({
+        plan: updatedPlan,
+        previous: plans.find((p) => p.id === updatedPlan.id) ?? updatedPlan,
       });
     },
     [useBackend, plans, saveMutation]
@@ -166,7 +178,7 @@ export function useCareerPlansController() {
   const useTemplate = useCallback(
     async (templateId: string, customTitle: string) => {
       if (!useBackend) {
-        throw new Error('useTemplate requires backend auth');
+        throw new Error('템플릿 적용(서버 복사)은 로그인이 필요합니다.');
       }
       const detail = await useTemplateApi(templateId, customTitle);
       const ui = mapCareerPlanDetailApiToUi(detail);
@@ -176,9 +188,15 @@ export function useCareerPlansController() {
     [useBackend, queryClient]
   );
 
+  const source: CareerPlansSource = useMemo(() => {
+    if (useBackend) return 'api';
+    if (guestPlans.length > 0) return 'local';
+    return 'none';
+  }, [useBackend, guestPlans.length]);
+
   return {
     plans,
-    source: (useBackend ? 'api' : 'local') as CareerPlansSource,
+    source,
     isLoading: useBackend && listQuery.isLoading,
     isError: useBackend && listQuery.isError,
     queryError: listQuery.error,

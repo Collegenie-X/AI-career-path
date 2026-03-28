@@ -1,5 +1,6 @@
 import { API_PATHS, buildApiUrl } from '@/lib/config/api';
 import { getAccessToken } from '@/lib/auth/jwtStorage';
+import { fetchWithAuthRetry } from '@/lib/auth/fetchWithAuthRetry';
 import type { ApiCareerPlanDetail } from '@/lib/career-path/mapCareerPlanApi';
 
 const JSON_HEADERS = {
@@ -33,7 +34,7 @@ export async function fetchMyCareerPlanDetails(): Promise<ApiCareerPlanDetail[]>
   const listUrl = buildApiUrl(
     `${API_PATHS.careerPlans}?page_size=100&is_template=false`
   );
-  const res = await fetch(listUrl, {
+  const res = await fetchWithAuthRetry(listUrl, {
     method: 'GET',
     headers: authHeaders(),
     credentials: 'omit',
@@ -52,7 +53,7 @@ export async function fetchMyCareerPlanDetails(): Promise<ApiCareerPlanDetail[]>
 
 export async function fetchCareerPlanDetailById(id: string): Promise<ApiCareerPlanDetail> {
   const url = buildApiUrl(`${API_PATHS.careerPlans}${id}/`);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'GET',
     headers: authHeaders(),
     credentials: 'omit',
@@ -66,7 +67,7 @@ export async function createCareerPlanApi(
   body: Record<string, unknown>
 ): Promise<ApiCareerPlanDetail> {
   const url = buildApiUrl(API_PATHS.careerPlans);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'POST',
     headers: authHeaders(),
     credentials: 'omit',
@@ -83,7 +84,7 @@ export async function updateCareerPlanApi(
   body: Record<string, unknown>
 ): Promise<ApiCareerPlanDetail> {
   const url = buildApiUrl(`${API_PATHS.careerPlans}${id}/`);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'PATCH',
     headers: authHeaders(),
     credentials: 'omit',
@@ -95,7 +96,7 @@ export async function updateCareerPlanApi(
 
 export async function deleteCareerPlanApi(id: string): Promise<void> {
   const url = buildApiUrl(`${API_PATHS.careerPlans}${id}/`);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'DELETE',
     headers: authHeaders(),
     credentials: 'omit',

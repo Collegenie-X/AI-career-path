@@ -1,12 +1,14 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { fetchSharedPlans, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { fetchMySharedPlans, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 import type { CareerPlan } from '@/app/career/components/CareerPathBuilder';
 
 const mySharedPlansQueryKey = ['mySharedPlans', 'career'] as const;
 
-function mapApiSharedPlanToCareerPlan(api: Awaited<ReturnType<typeof fetchSharedPlans>>[0]): CareerPlan {
+const EMPTY_MY_SHARED_PLANS: CareerPlan[] = [];
+
+function mapApiSharedPlanToCareerPlan(api: Awaited<ReturnType<typeof fetchMySharedPlans>>[0]): CareerPlan {
   return {
     id: api.career_plan,
     starId: '',
@@ -26,17 +28,15 @@ function mapApiSharedPlanToCareerPlan(api: Awaited<ReturnType<typeof fetchShared
   };
 }
 
+/** 내가 공유한 패스 — GET .../shared-plans/mine/ */
 export function useMySharedPlansQuery() {
   const useBackend = hasCareerPathBackendAuth();
 
   const query = useQuery({
     queryKey: mySharedPlansQueryKey,
     queryFn: async () => {
-      const apiPlans = await fetchSharedPlans();
-      const myUserId = '';
-      return apiPlans
-        .filter(p => p.user.id === myUserId)
-        .map(mapApiSharedPlanToCareerPlan);
+      const apiPlans = await fetchMySharedPlans();
+      return apiPlans.map(mapApiSharedPlanToCareerPlan);
     },
     enabled: useBackend,
     staleTime: 30_000,
@@ -44,16 +44,16 @@ export function useMySharedPlansQuery() {
 
   if (!useBackend) {
     return {
-      data: [],
+      data: EMPTY_MY_SHARED_PLANS,
       isLoading: false,
       isError: false,
       error: null,
-      refetch: async () => ({ data: [] as CareerPlan[] }),
+      refetch: async () => ({ data: EMPTY_MY_SHARED_PLANS }),
     };
   }
 
   return {
-    data: query.data ?? [],
+    data: query.data ?? EMPTY_MY_SHARED_PLANS,
     isLoading: query.isLoading,
     isError: query.isError,
     error: query.error,

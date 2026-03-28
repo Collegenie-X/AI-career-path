@@ -400,6 +400,22 @@ python manage.py migrate career_path 0001
 
 ---
 
+## 데모 시드
+
+프론트엔드가 백엔드 API만 사용할 때, 로컬에 학교·그룹·공개 공유 패스를 채우려면:
+
+```bash
+cd backend && source venv/bin/activate
+python manage.py seed_career_path_demo
+# 기존 시드 데모 계정을 지우고 다시 만들 때
+python manage.py seed_career_path_demo --reset
+```
+
+- 로그인: `seed.demo@example.com` / `seed12345`
+- 생성 내용: 학교 2곳, 공개 그룹 3개, 공개 `SharedPlan` 3건 (각각 `CareerPlan` 포함)
+
+---
+
 ## 다음 단계
 
 1. **Comment 모델 추가** - 공유 패스에 댓글 기능

@@ -8,7 +8,6 @@ import {
   MoreVertical, LogOut, Copy, X,
 } from 'lucide-react';
 import type { SharedPlan, School } from './types';
-import communityData from '@/data/share-community.json';
 import { SharedPlanListSection } from './SharedPlanListSection';
 import { JoinRequestDialog } from './JoinRequestDialog';
 import { formatTimeAgo } from './formatTime';
@@ -429,6 +428,7 @@ function SchoolDetailView({
 
 /* ─── 메인 export ─── */
 type Props = {
+  schools: School[];
   joinedSchoolIds: string[];
   sharedPlans: SharedPlan[];
   likedPlanIds: string[];
@@ -445,6 +445,7 @@ type Props = {
 };
 
 export function SchoolSpaceView({
+  schools: allSchools,
   joinedSchoolIds,
   sharedPlans,
   likedPlanIds,
@@ -459,7 +460,6 @@ export function SchoolSpaceView({
   onLeaveSchool,
   onRefreshJoined,
 }: Props) {
-  const allSchools = communityData.schools as School[];
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSchoolId, setSelectedSchoolId] = useState<string | null>(null);
   const [joinTargetSchool, setJoinTargetSchool] = useState<School | null>(null);
@@ -469,7 +469,7 @@ export function SchoolSpaceView({
     ? allSchools.find(s => s.id === selectedSchoolId) ?? null
     : null;
 
-  const operatorSchoolId = 'school-1';
+  const operatorSchoolId = allSchools.find((s) => s.code === 'SEEDHS01')?.id ?? allSchools[0]?.id ?? '';
 
   const sortedSchools = useMemo(() => {
     const filtered = searchQuery.trim()

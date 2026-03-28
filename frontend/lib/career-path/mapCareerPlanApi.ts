@@ -152,6 +152,7 @@ function mapYearFromApi(y: ApiPlanYear): YearPlan {
       },
     ];
     return {
+      yearId: y.id,
       gradeId: y.grade_id,
       gradeLabel: y.grade_label,
       semester: 'split',
@@ -163,6 +164,7 @@ function mapYearFromApi(y: ApiPlanYear): YearPlan {
   }
 
   return {
+    yearId: y.id,
     gradeId: y.grade_id,
     gradeLabel: y.grade_label,
     semester,
@@ -244,24 +246,28 @@ function collectGoalGroupsForApi(y: YearPlan): Array<Record<string, unknown>> {
     for (const sp of y.semesterPlans) {
       const semId = sp.semesterId === 'second' ? 'second' : 'first';
       for (const gg of sp.goalGroups ?? []) {
-        out.push({
+        const row: Record<string, unknown> = {
           goal: gg.goal,
           semester_id: semId,
           sort_order: out.length,
           items: (gg.items ?? []).map(mapPlanItemToApi),
-        });
+        };
+        if (isUuidString(gg.id)) row.id = gg.id;
+        out.push(row);
       }
     }
     return out;
   }
 
   for (const gg of y.goalGroups ?? []) {
-    out.push({
+    const row: Record<string, unknown> = {
       goal: gg.goal,
       semester_id: '',
       sort_order: out.length,
       items: (gg.items ?? []).map(mapPlanItemToApi),
-    });
+    };
+    if (isUuidString(gg.id)) row.id = gg.id;
+    out.push(row);
   }
   return out;
 }
@@ -280,14 +286,18 @@ export function mergeUiShareFields(server: CareerPlan, fallback: CareerPlan): Ca
 
 /** 생성/수정 요청 본문 (CareerPlanCreateSerializer) */
 export function mapCareerPlanUiToWritePayload(plan: CareerPlan): Record<string, unknown> {
-  const years = (plan.years ?? []).map((y, idx) => ({
-    grade_id: y.gradeId,
-    grade_label: y.gradeLabel,
-    semester: y.semester || 'both',
-    sort_order: idx,
-    goal_groups: collectGoalGroupsForApi(y),
-    items: (y.items ?? []).map(mapPlanItemToApi),
-  }));
+  const years = (plan.years ?? []).map((y, idx) => {
+    const row: Record<string, unknown> = {
+      grade_id: y.gradeId,
+      grade_label: y.gradeLabel,
+      semester: y.semester || 'both',
+      sort_order: idx,
+      goal_groups: collectGoalGroupsForApi(y),
+      items: (y.items ?? []).map(mapPlanItemToApi),
+    };
+    if (isUuidString(y.yearId)) row.id = y.yearId;
+    return row;
+  });
 
   return {
     title: plan.title,

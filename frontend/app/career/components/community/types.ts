@@ -108,6 +108,8 @@ export interface SharedPlan {
   updatedAt?: string; // 없으면 sharedAt 사용. 코멘트·수정 시 갱신
   likes: number;
   bookmarks: number;
+  /** 목록 API의 comment_count (카드 배지용). 상세는 operatorComments 사용 */
+  commentCount?: number;
   years: SharedPlanYear[];
   operatorComments: OperatorComment[];
   groupIds: string[];

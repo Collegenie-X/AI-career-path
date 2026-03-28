@@ -5,18 +5,19 @@ import { Bookmark, Globe, Sparkles } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import careerPathTemplates from '@/data/career-path-templates-index';
-import communityData from '@/data/share-community.json';
 import { LABELS } from '../config';
 import { CareerPathDetailPanel } from './CareerPathDetailPanel';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
 import type { CareerPlan } from './CareerPathBuilder';
-import type { SharedPlan, UserReactionState } from './community/types';
+import type { SharedPlan } from './community/types';
 import {
   TemplateRow,
   MyPublicPlanCard,
   BookmarkedTemplateCard,
   BookmarkedCommunityCard,
 } from './CareerPathListCards';
+import { useSharedPlansQuery } from '../hooks/useSharedPlansQuery';
+import { useSharedPlanReactions } from '../hooks/useSharedPlanReactions';
 
 type Template = typeof careerPathTemplates[0];
 
@@ -45,7 +46,6 @@ const STAR_FILTERS = [
   { id: 'challenge',   label: '도전', emoji: '🚀' },
 ];
 
-const COMMUNITY_REACTIONS_KEY = 'community_reactions_v1';
 const TEMPLATE_BOOKMARKS_KEY  = 'template_bookmarks_v1';
 
 /* ─── localStorage helpers ─── */
@@ -69,6 +69,9 @@ export function CareerPathList({
   selectedTemplateId,
   onSelectTemplate,
 }: CareerPathListProps) {
+  const { data: sharedPlansFromApi } = useSharedPlansQuery();
+  const { reactions, toggleLike, toggleBookmark } = useSharedPlanReactions();
+
   const [activeFilter, setActiveFilter] = useState('all');
   const [internalSelectedTemplate, setInternalSelectedTemplate] = useState<Template | null>(null);
   const [showExpandDialog, setShowExpandDialog] = useState(false);
@@ -89,43 +92,19 @@ export function CareerPathList({
   /* ─── Template bookmarks ─── */
   const [templateBookmarkIds, setTemplateBookmarkIds] = useState<string[]>([]);
 
-  /* ─── Community reactions ─── */
-  const [reactions, setReactions] = useState<UserReactionState>({ likedPlanIds: [], bookmarkedPlanIds: [] });
-  const [likeCounts, setLikeCounts] = useState<Record<string, number>>(() => {
-    const counts: Record<string, number> = {};
-    (communityData.sharedPlans as SharedPlan[]).forEach(p => { counts[p.id] = p.likes; });
-    return counts;
-  });
-  const [bookmarkCounts, setBookmarkCounts] = useState<Record<string, number>>(() => {
-    const counts: Record<string, number> = {};
-    (communityData.sharedPlans as SharedPlan[]).forEach(p => { counts[p.id] = p.bookmarks; });
-    return counts;
-  });
+  /* ─── Community counts (백엔드 피드 기준, 파생값 — effect+setState로 두면 data 참조 불안정 시 무한 루프 위험) ─── */
+  const { likeCounts, bookmarkCounts } = useMemo(() => {
+    const like: Record<string, number> = {};
+    const bm: Record<string, number> = {};
+    sharedPlansFromApi.forEach((p) => {
+      like[p.id] = p.likes;
+      bm[p.id] = p.bookmarks;
+    });
+    return { likeCounts: like, bookmarkCounts: bm };
+  }, [sharedPlansFromApi]);
 
-  /* Load from localStorage on mount */
   useEffect(() => {
     setTemplateBookmarkIds(loadTemplateBookmarkIds());
-
-    try {
-      const raw = localStorage.getItem(COMMUNITY_REACTIONS_KEY);
-      if (!raw) return;
-      const saved = JSON.parse(raw) as UserReactionState;
-      setReactions(saved);
-      setLikeCounts(() => {
-        const counts: Record<string, number> = {};
-        (communityData.sharedPlans as SharedPlan[]).forEach(p => {
-          counts[p.id] = p.likes + (saved.likedPlanIds.includes(p.id) ? 1 : 0);
-        });
-        return counts;
-      });
-      setBookmarkCounts(() => {
-        const counts: Record<string, number> = {};
-        (communityData.sharedPlans as SharedPlan[]).forEach(p => {
-          counts[p.id] = p.bookmarks + (saved.bookmarkedPlanIds.includes(p.id) ? 1 : 0);
-        });
-        return counts;
-      });
-    } catch {}
   }, []);
 
   /* Template bookmark toggle */
@@ -140,42 +119,21 @@ export function CareerPathList({
     });
   }, []);
 
-  /* Community like toggle */
-  const handleToggleLike = useCallback((planId: string) => {
-    setReactions(prev => {
-      const wasLiked = prev.likedPlanIds.includes(planId);
-      const updated: UserReactionState = {
-        ...prev,
-        likedPlanIds: wasLiked
-          ? prev.likedPlanIds.filter(id => id !== planId)
-          : [...prev.likedPlanIds, planId],
-      };
-      localStorage.setItem(COMMUNITY_REACTIONS_KEY, JSON.stringify(updated));
-      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.likes ?? 0;
-      setLikeCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasLiked ? 0 : 1) }));
-      return updated;
-    });
-  }, []);
+  const handleToggleLike = useCallback(
+    (planId: string) => {
+      toggleLike(planId);
+    },
+    [toggleLike]
+  );
 
-  /* Community bookmark toggle */
-  const handleToggleCommunityBookmark = useCallback((planId: string) => {
-    setReactions(prev => {
-      const wasBookmarked = prev.bookmarkedPlanIds.includes(planId);
-      const updated: UserReactionState = {
-        ...prev,
-        bookmarkedPlanIds: wasBookmarked
-          ? prev.bookmarkedPlanIds.filter(id => id !== planId)
-          : [...prev.bookmarkedPlanIds, planId],
-      };
-      localStorage.setItem(COMMUNITY_REACTIONS_KEY, JSON.stringify(updated));
-      const base = (communityData.sharedPlans as SharedPlan[]).find(p => p.id === planId)?.bookmarks ?? 0;
-      setBookmarkCounts(prevCounts => ({ ...prevCounts, [planId]: base + (wasBookmarked ? 0 : 1) }));
-      return updated;
-    });
-  }, []);
+  const handleToggleCommunityBookmark = useCallback(
+    (planId: string) => {
+      toggleBookmark(planId);
+    },
+    [toggleBookmark]
+  );
 
-  /* Derived data */
-  const allSharedPlans = communityData.sharedPlans as SharedPlan[];
+  const allSharedPlans = sharedPlansFromApi;
   const bookmarkedTemplates = careerPathTemplates.filter(t => templateBookmarkIds.includes(t.id));
   const bookmarkedCommunityPlans = allSharedPlans.filter(p => reactions.bookmarkedPlanIds.includes(p.id));
   const totalBookmarkCount = bookmarkedTemplates.length + bookmarkedCommunityPlans.length;

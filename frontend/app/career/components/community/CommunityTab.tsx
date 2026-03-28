@@ -2,8 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { School as SchoolIcon, Users } from 'lucide-react';
-import communityData from '@/data/share-community.json';
-import type { SharedPlan, CommunityGroup, School, OperatorComment, UserReactionState } from './types';
+import type { SharedPlan, CommunityGroup, School, OperatorComment } from './types';
 import { SchoolSpaceView } from './SchoolSpaceView';
 import { GroupListView } from './GroupListView';
 import { SharedPlanDetailDialog } from './SharedPlanDetailDialog';
@@ -19,7 +18,9 @@ import {
 } from '@/lib/careerCommunity';
 import { LABELS } from '../../config';
 import { useSharedPlansQuery } from '../../hooks/useSharedPlansQuery';
+import { useSharedPlanCommunityDetailQuery } from '../../hooks/useSharedPlanCommunityDetailQuery';
 import { useSharedPlanReactions } from '../../hooks/useSharedPlanReactions';
+import { useCareerPathGroupsQuery, useCareerPathSchoolsQuery } from '../../hooks/useCareerPathCommunityData';
 
 type SubTab = 'school' | 'groups';
 
@@ -53,8 +54,9 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
   }, []);
 
   const { data: sharedPlansFromApi } = useSharedPlansQuery();
-  const sharedPlans = sharedPlansFromApi.length > 0 ? sharedPlansFromApi : (communityData.sharedPlans as SharedPlan[]);
-  const groups = communityData.groups as CommunityGroup[];
+  const sharedPlans = sharedPlansFromApi;
+  const { data: groups = [] } = useCareerPathGroupsQuery();
+  const { data: schools = [] } = useCareerPathSchoolsQuery();
 
   const { reactions, toggleLike, toggleBookmark } = useSharedPlanReactions();
 
@@ -113,19 +115,19 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
   useEffect(() => {
     setLikeCounts(() => {
       const counts: Record<string, number> = {};
-      sharedPlans.forEach(p => {
-        counts[p.id] = p.likes + (reactions.likedPlanIds.includes(p.id) ? 1 : 0);
+      sharedPlans.forEach((p) => {
+        counts[p.id] = p.likes;
       });
       return counts;
     });
     setBookmarkCounts(() => {
       const counts: Record<string, number> = {};
-      sharedPlans.forEach(p => {
-        counts[p.id] = p.bookmarks + (reactions.bookmarkedPlanIds.includes(p.id) ? 1 : 0);
+      sharedPlans.forEach((p) => {
+        counts[p.id] = p.bookmarks;
       });
       return counts;
     });
-  }, [sharedPlans, reactions]);
+  }, [sharedPlans]);
 
   const handleJoinSchool = useCallback((schoolId: string) => {
     joinSchool(schoolId);
@@ -148,8 +150,15 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
   }, [refreshJoinedIds]);
 
   const handleAddComment = (_planId: string, _comment: OperatorComment) => {
-    // 추후 백엔드 연동 시 API 호출
+    // 서버 댓글은 SharedPlanDetailContent mutation에서 처리
   };
+
+  const sharedPlanDialogDetail = useSharedPlanCommunityDetailQuery(
+    !isControlled ? selectedPlan?.id ?? null : null,
+  );
+  const dialogPlanMerged = selectedPlan
+    ? sharedPlanDialogDetail.data ?? selectedPlan
+    : null;
 
   return (
     <div className="space-y-4 pb-28">
@@ -183,6 +192,7 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
       {/* Content */}
       {subTab === 'school' ? (
         <SchoolSpaceView
+          schools={schools as School[]}
           joinedSchoolIds={joinedSchoolIds}
           sharedPlans={sharedPlans}
           likedPlanIds={reactions.likedPlanIds}
@@ -199,7 +209,7 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
         />
       ) : (
         <GroupListView
-          groups={groups}
+          groups={groups as CommunityGroup[]}
           joinedGroupIds={joinedGroupIds}
           sharedPlans={sharedPlans}
           likedPlanIds={reactions.likedPlanIds}
@@ -217,15 +227,15 @@ export function CommunityTab({ selectedPlanId, onSelectPlan }: CommunityTabProps
       )}
 
       {/* Dialogs — controlled 모드에서는 부모가 패널로 렌더링하므로 Dialog 숨김 */}
-      {!isControlled && selectedPlan && (
+      {!isControlled && dialogPlanMerged && (
         <SharedPlanDetailDialog
-          plan={selectedPlan}
-          isLiked={reactions.likedPlanIds.includes(selectedPlan.id)}
-          isBookmarked={reactions.bookmarkedPlanIds.includes(selectedPlan.id)}
-          likeCount={likeCounts[selectedPlan.id] ?? selectedPlan.likes}
-          bookmarkCount={bookmarkCounts[selectedPlan.id] ?? selectedPlan.bookmarks}
-          onToggleLike={() => toggleLike(selectedPlan.id)}
-          onToggleBookmark={() => toggleBookmark(selectedPlan.id)}
+          plan={dialogPlanMerged}
+          isLiked={reactions.likedPlanIds.includes(dialogPlanMerged.id)}
+          isBookmarked={reactions.bookmarkedPlanIds.includes(dialogPlanMerged.id)}
+          likeCount={likeCounts[dialogPlanMerged.id] ?? dialogPlanMerged.likes}
+          bookmarkCount={bookmarkCounts[dialogPlanMerged.id] ?? dialogPlanMerged.bookmarks}
+          onToggleLike={() => toggleLike(dialogPlanMerged.id)}
+          onToggleBookmark={() => toggleBookmark(dialogPlanMerged.id)}
           onClose={() => setSelectedPlan(null)}
           onAddComment={handleAddComment}
         />

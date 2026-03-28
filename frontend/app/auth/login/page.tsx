@@ -4,20 +4,21 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Mail, Lock, User, Sparkles, ArrowRight, AlertCircle } from 'lucide-react';
 import { emailLoginApi, emailSignupApi } from '@/lib/auth/authApi';
-import { setAccessToken } from '@/lib/auth/jwtStorage';
+import { setAccessToken, setRefreshToken } from '@/lib/auth/jwtStorage';
 
 type AuthMode = 'login' | 'signup';
 
+/** User.GRADE_CHOICES 와 동일한 value (백엔드 검증 통과) */
 const GRADE_OPTIONS = [
   { value: 'elementary_4', label: '초등학교 4학년' },
   { value: 'elementary_5', label: '초등학교 5학년' },
   { value: 'elementary_6', label: '초등학교 6학년' },
-  { value: 'mid1', label: '중학교 1학년' },
-  { value: 'mid2', label: '중학교 2학년' },
-  { value: 'mid3', label: '중학교 3학년' },
-  { value: 'high1', label: '고등학교 1학년' },
-  { value: 'high2', label: '고등학교 2학년' },
-  { value: 'high3', label: '고등학교 3학년' },
+  { value: 'middle_1', label: '중학교 1학년' },
+  { value: 'middle_2', label: '중학교 2학년' },
+  { value: 'middle_3', label: '중학교 3학년' },
+  { value: 'high_1', label: '고등학교 1학년' },
+  { value: 'high_2', label: '고등학교 2학년' },
+  { value: 'high_3', label: '고등학교 3학년' },
 ];
 
 const EMOJI_OPTIONS = ['👤', '😊', '🎓', '🚀', '⭐', '💫', '🌟', '✨', '🎯', '🔥', '💡', '🎨', '🧪', '📚', '🏆'];
@@ -28,7 +29,7 @@ export default function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [grade, setGrade] = useState('high1');
+  const [grade, setGrade] = useState('high_1');
   const [emoji, setEmoji] = useState('👤');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -48,6 +49,7 @@ export default function AuthPage() {
           emoji,
         });
         setAccessToken(response.access_token);
+        setRefreshToken(response.refresh_token);
         router.push('/career');
       } else {
         const response = await emailLoginApi({
@@ -55,6 +57,7 @@ export default function AuthPage() {
           password,
         });
         setAccessToken(response.access_token);
+        setRefreshToken(response.refresh_token);
         router.push('/career');
       }
     } catch (err) {

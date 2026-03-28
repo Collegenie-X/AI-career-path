@@ -74,6 +74,8 @@ export type PlanGroup = {
 };
 
 export type YearPlan = {
+  /** 서버 PlanYear UUID — 저장 시 포함해야 동일 학년 행이 유지됩니다 */
+  yearId?: string;
   gradeId: string;
   gradeLabel: string;
   semester: SemesterOption;
@@ -2235,6 +2237,7 @@ function normalizeYearPlans(years: YearPlan[] | undefined): YearPlan[] {
   if (!years?.length) return [];
   return years.map((y) => ({
     ...y,
+    yearId: y.yearId,
     semester: (y.semester ?? '') as SemesterOption,
     goalGroups: y.goalGroups ?? [],
     semesterPlans: y.semesterPlans ?? [],

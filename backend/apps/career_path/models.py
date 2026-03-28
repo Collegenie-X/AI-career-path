@@ -287,11 +287,11 @@ class PlanItem(UUIDPrimaryKeyModel, TimeStampedModel):
     
     goal_group = models.ForeignKey(
         GoalGroup,
-        on_delete=models.SET_NULL,
+        on_delete=models.CASCADE,
         blank=True,
         null=True,
         related_name='items',
-        verbose_name='소속 목표 그룹'
+        verbose_name='소속 목표 그룹',
     )
     
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, verbose_name='활동 유형')
@@ -490,6 +490,7 @@ class SharedPlan(UUIDPrimaryKeyModel, TimeStampedModel):
     bookmark_count = models.IntegerField(default=0, verbose_name='북마크 수')
     view_count = models.IntegerField(default=0, verbose_name='조회 수')
     comment_count = models.IntegerField(default=0, verbose_name='댓글 수')
+    report_count = models.IntegerField(default=0, verbose_name='신고 수')
     
     shared_at = models.DateTimeField(auto_now_add=True, verbose_name='공유 일시')
     
@@ -500,9 +501,14 @@ class SharedPlan(UUIDPrimaryKeyModel, TimeStampedModel):
         verbose_name = '공유 커리어 패스'
         verbose_name_plural = '공유 커리어 패스 목록'
         ordering = ['-shared_at']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['career_plan'],
+                name='uniq_sharedplan_one_row_per_career_plan',
+            ),
+        ]
         indexes = [
             models.Index(fields=['user', '-shared_at'], name='idx_cp_splan_user_shared'),
-            models.Index(fields=['career_plan'], name='idx_cp_splan_career_plan'),
             models.Index(fields=['school'], name='idx_cp_splan_school'),
             models.Index(fields=['share_type'], name='idx_cp_splan_share_type'),
             models.Index(fields=['-like_count'], name='idx_cp_splan_likes'),
@@ -512,6 +518,46 @@ class SharedPlan(UUIDPrimaryKeyModel, TimeStampedModel):
     
     def __str__(self):
         return f"Shared: {self.career_plan.title} ({self.share_type})"
+
+
+class SharedPlanComment(UUIDPrimaryKeyModel, TimeStampedModel):
+    """
+    공유 커리어 패스 댓글 (답글: parent)
+    """
+
+    shared_plan = models.ForeignKey(
+        SharedPlan,
+        on_delete=models.CASCADE,
+        related_name='plan_comments',
+        verbose_name='공유 패스',
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='shared_plan_comments',
+        verbose_name='작성자',
+    )
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='replies',
+        verbose_name='상위 댓글',
+    )
+    content = models.TextField(verbose_name='내용')
+
+    class Meta:
+        db_table = 'career_path_shared_plan_comments'
+        verbose_name = '공유 패스 댓글'
+        verbose_name_plural = '공유 패스 댓글 목록'
+        ordering = ['created_at']
+        indexes = [
+            models.Index(fields=['shared_plan', 'created_at'], name='idx_cp_spcom_plan_created'),
+        ]
+
+    def __str__(self):
+        return f"Comment on {self.shared_plan_id} by {self.author_id}"
 
 
 class SharedPlanGroup(UUIDPrimaryKeyModel, TimeStampedModel):

@@ -6,6 +6,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   X, Shield, Globe, MessageSquare, Calendar,
   Heart, Bookmark, Flag, MoreVertical,
@@ -17,20 +18,34 @@ import { buildChronologicalParentTree, type ParentTreeNode } from '@/lib/timelin
 import { CommunityDetailPanelYearSection } from './CommunityDetailPanelTimeline';
 import { CommunityCommentBubble } from './CommunityDetailPanelCommentBubble';
 import { CareerPathDetailExpandHeaderButton } from '../expandable-detail';
+import { postSharedPlanComment, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { isUuidString } from '@/lib/career-path/isUuidString';
+import { sharedPlanCommunityDetailQueryKey } from '@/app/career/hooks/useSharedPlanCommunityDetailQuery';
+import { CAREER_SHARED_PLANS_QUERY_KEY } from '@/app/career/hooks/useSharedPlansQuery';
 
 /* ─── Comment input ─── */
 function CommentInput({
   onSend,
   starColor,
+  disabled,
+  busy,
+  placeholder = '코멘트를 남겨보세요...',
 }: {
   readonly onSend: (text: string, parentId?: string) => void;
   readonly starColor: string;
+  readonly disabled?: boolean;
+  readonly busy?: boolean;
+  readonly placeholder?: string;
 }) {
   const [text, setText] = useState('');
+  const locked = Boolean(disabled || busy);
   return (
     <div
       className="flex items-center gap-3 px-4 py-3 rounded-2xl"
-      style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+      style={{
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        opacity: locked ? 0.55 : 1,
+      }}
     >
       <div
         className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0"
@@ -40,19 +55,22 @@ function CommentInput({
       </div>
       <input
         value={text}
+        disabled={locked}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
+          if (locked) return;
           if (e.key === 'Enter' && !e.shiftKey && text.trim()) {
             e.preventDefault();
             onSend(text.trim());
             setText('');
           }
         }}
-        placeholder="코멘트를 남겨보세요..."
-        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
+        placeholder={busy ? '전송 중…' : placeholder}
+        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none disabled:cursor-not-allowed"
       />
-      {text.trim() && (
+      {text.trim() && !locked && (
         <button
+          type="button"
           onClick={() => {
             onSend(text.trim());
             setText('');
@@ -99,12 +117,25 @@ export function SharedPlanDetailContent({
   showCloseButton = true,
   onExpand,
 }: SharedPlanDetailContentProps) {
+  const queryClient = useQueryClient();
   const [comments, setComments] = useState<OperatorComment[]>(plan.operatorComments);
   const [activeSection, setActiveSection] = useState<'timeline' | 'comments'>('timeline');
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
   const commentsEndRef = useRef<HTMLDivElement>(null);
+
+  const isBackendPlan = isUuidString(plan.id);
+  const canPostToServer = hasCareerPathBackendAuth() && isBackendPlan;
+
+  const postCommentMut = useMutation({
+    mutationFn: ({ text, parentId }: { text: string; parentId?: string }) =>
+      postSharedPlanComment(plan.id, { content: text, parent: parentId ?? null }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: sharedPlanCommunityDetailQueryKey(plan.id) });
+      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+    },
+  });
 
   useEffect(() => {
     setComments(plan.operatorComments);
@@ -118,7 +149,7 @@ export function SharedPlanDetailContent({
     }
   }, [comments.length, activeSection]);
 
-  const isOperatorOnly = plan.shareType === 'operator';
+  const isOperatorOnly = (plan.shareType as string) === 'operator';
   const gradeInfo = GRADE_YEARS.find((g) => g.id === plan.ownerGrade);
   const sharedDate = new Date(plan.sharedAt).toLocaleDateString('ko-KR', {
     year: 'numeric',
@@ -127,6 +158,10 @@ export function SharedPlanDetailContent({
   });
 
   const handleSendComment = (text: string, parentId?: string) => {
+    if (canPostToServer) {
+      postCommentMut.mutate({ text, parentId });
+      return;
+    }
     const newComment: OperatorComment = {
       id: `comment-${Date.now()}`,
       parentId,
@@ -419,7 +454,17 @@ export function SharedPlanDetailContent({
             : {}),
         }}
       >
-        <CommentInput onSend={handleSendComment} starColor={plan.starColor} />
+        <CommentInput
+          onSend={handleSendComment}
+          starColor={plan.starColor}
+          disabled={isBackendPlan && !hasCareerPathBackendAuth()}
+          busy={postCommentMut.isPending}
+          placeholder={
+            isBackendPlan && !hasCareerPathBackendAuth()
+              ? '로그인 후 댓글을 작성할 수 있어요'
+              : '코멘트를 남겨보세요...'
+          }
+        />
       </div>
       </div>
 

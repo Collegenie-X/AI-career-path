@@ -10,12 +10,13 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.db.models import Prefetch, Q, Count
 from django.db import transaction
+from django.shortcuts import get_object_or_404
 from django_filters.rest_framework import DjangoFilterBackend
 
 from .models import (
     School, Group, GroupMember,
     CareerPlan, PlanYear, GoalGroup, PlanItem, SubItem, ItemLink,
-    SharedPlan, SharedPlanGroup
+    SharedPlan, SharedPlanComment, SharedPlanGroup,
 )
 from .serializers import (
     SchoolSerializer, GroupSerializer, GroupMemberSerializer,
@@ -24,7 +25,8 @@ from .serializers import (
     GoalGroupSerializer, GoalGroupCreateSerializer,
     PlanItemSerializer, PlanItemCreateSerializer,
     SubItemSerializer, ItemLinkSerializer,
-    SharedPlanListSerializer, SharedPlanDetailSerializer, SharedPlanCreateSerializer
+    SharedPlanListSerializer, SharedPlanDetailSerializer, SharedPlanCreateSerializer,
+    SharedPlanCommentSerializer, SharedPlanCommentCreateSerializer,
 )
 
 
@@ -38,6 +40,8 @@ class SchoolViewSet(viewsets.ModelViewSet):
     
     - 선생님이 학교 생성
     - 학생들은 학교 코드로 가입
+    - 목록/상세: 누구나 조회 (시드·탐색용)
+    - 생성/수정/삭제: 로그인 + 운영자 본인
     """
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
@@ -47,18 +51,21 @@ class SchoolViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'code']
     ordering_fields = ['name', 'member_count', 'created_at']
     ordering = ['-created_at']
+
+    def get_permissions(self):
+        if self.action in ('list', 'retrieve'):
+            return [AllowAny()]
+        return [IsAuthenticated()]
     
     def get_queryset(self):
-        """사용자가 운영하거나 소속된 학교만 조회"""
+        """목록/상세: 전체 학교. 쓰기: 본인이 운영하는 학교만."""
         user = self.request.user
-        
-        # 운영자인 학교
-        operated_schools = School.objects.filter(operator=user)
-        
-        # 멤버로 소속된 학교
-        # member_schools = School.objects.filter(members__user=user)
-        
-        return operated_schools.distinct()
+        base = School.objects.all().select_related('operator')
+        if self.action in ('list', 'retrieve'):
+            return base
+        if user.is_authenticated:
+            return base.filter(operator=user)
+        return base.none()
     
     @action(detail=False, methods=['post'])
     def join(self, request):
@@ -109,6 +116,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     
     - 학생이 자유롭게 생성
     - 초대 코드로 가입
+    - 목록/상세: 공개 그룹 + (로그인 시) 내 그룹
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
@@ -117,18 +125,21 @@ class GroupViewSet(viewsets.ModelViewSet):
     search_fields = ['name', 'description']
     ordering_fields = ['name', 'member_count', 'created_at']
     ordering = ['-created_at']
+
+    def get_permissions(self):
+        if self.action in ('list', 'retrieve'):
+            return [AllowAny()]
+        return [IsAuthenticated()]
     
     def get_queryset(self):
-        """사용자가 생성하거나 소속된 그룹만 조회"""
+        """비로그인: 공개 그룹만. 로그인: 공개 + 생성 + 멤버 소속."""
+        public_qs = Group.objects.filter(is_public=True)
         user = self.request.user
-        
-        # 생성한 그룹
+        if not user.is_authenticated:
+            return public_qs.distinct()
         created_groups = Group.objects.filter(creator=user)
-        
-        # 멤버로 소속된 그룹
         member_groups = Group.objects.filter(members__user=user)
-        
-        return (created_groups | member_groups).distinct()
+        return (created_groups | member_groups | public_qs).distinct()
     
     def perform_create(self, serializer):
         """그룹 생성 시 생성자를 현재 사용자로 설정"""
@@ -510,7 +521,8 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
     공유 패스 ViewSet
     
     - 전체 공유 / 학교 공유 / 그룹 공유
-    - 좋아요·북마크·댓글 기능
+    - 목록/상세: 비로그인은 public만, 로그인 시 공개·내 공유·그룹 멤버십 기반
+    - 생성/수정/삭제: 로그인 필요
     """
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
@@ -518,14 +530,18 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
     search_fields = ['career_plan__title', 'description', 'tags']
     ordering_fields = ['shared_at', 'updated_at', 'like_count', 'bookmark_count', 'view_count']
     ordering = ['-shared_at']
+
+    def get_permissions(self):
+        if self.action in ('list', 'retrieve'):
+            return [AllowAny()]
+        return [IsAuthenticated()]
     
     def get_queryset(self):
         """
         공유 패스 조회 권한
         
-        - 전체 공유: 모두 조회 가능
-        - 학교 공유: 같은 학교 학생만
-        - 그룹 공유: 같은 그룹 멤버만
+        - 비로그인: 전체 공유(public)만
+        - 로그인: public + 본인이 공유한 항목 + (옵션) 학교/그룹 필터
         """
         user = self.request.user
         
@@ -533,25 +549,28 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
             is_hidden=False
         ).select_related('user', 'career_plan', 'school')
         
-        # 필터: 공유 유형
         share_type = self.request.query_params.get('share_type')
-        
+
+        if not user.is_authenticated:
+            return queryset.filter(share_type='public')
+
         if share_type == 'public':
-            queryset = queryset.filter(share_type='public')
-        elif share_type == 'school':
-            # 사용자의 학교 ID (추후 구현)
-            # user_school_id = user.school_memberships.first().school_id if user.school_memberships.exists() else None
-            # queryset = queryset.filter(share_type='school', school_id=user_school_id)
-            queryset = queryset.filter(share_type='school')
-        elif share_type == 'group':
-            # 사용자가 속한 그룹의 공유 패스
-            user_group_ids = user.group_memberships.values_list('group_id', flat=True)
-            queryset = queryset.filter(
+            return queryset.filter(share_type='public')
+        if share_type == 'school':
+            return queryset.filter(share_type='school')
+        if share_type == 'group':
+            user_group_ids = GroupMember.objects.filter(user=user).values_list('group_id', flat=True)
+            return queryset.filter(
                 share_type='group',
                 group_links__group_id__in=user_group_ids
             ).distinct()
-        
-        return queryset
+
+        user_group_ids = GroupMember.objects.filter(user=user).values_list('group_id', flat=True)
+        return queryset.filter(
+            Q(share_type='public')
+            | Q(user=user)
+            | Q(share_type='group', group_links__group_id__in=user_group_ids)
+        ).distinct()
     
     def get_serializer_class(self):
         """액션별 시리얼라이저 선택"""
@@ -561,27 +580,56 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
             return SharedPlanCreateSerializer
         else:
             return SharedPlanDetailSerializer
+
+    @action(
+        detail=False,
+        methods=['get'],
+        url_path='mine',
+        permission_classes=[IsAuthenticated],
+    )
+    def mine(self, request):
+        """현재 사용자가 공유한 패스 목록 (내 공개 프로필용)"""
+        qs = SharedPlan.objects.filter(is_hidden=False, user=request.user).select_related(
+            'user', 'career_plan', 'school'
+        ).order_by('-shared_at')
+        serializer = SharedPlanListSerializer(qs, many=True)
+        return Response(serializer.data)
     
     def retrieve(self, request, *args, **kwargs):
         """
-        상세 조회 (조회 수 증가)
+        상세 조회 (조회 수 증가, 댓글 prefetch)
         """
-        instance = self.get_object()
-        
-        # 조회 수 증가
+        pk = kwargs.get('pk')
+        base = (
+            self.get_queryset()
+            .select_related('user', 'career_plan', 'school')
+            .prefetch_related(
+                Prefetch(
+                    'plan_comments',
+                    SharedPlanComment.objects.select_related('author').order_by('created_at'),
+                ),
+                'group_links__group',
+            )
+        )
+        instance = get_object_or_404(base, pk=pk)
         instance.view_count += 1
         instance.save(update_fields=['view_count'])
-        
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
     
     @action(detail=False, methods=['get'], url_path='by-career-plan/(?P<career_plan_id>[^/.]+)')
     def by_career_plan(self, request, career_plan_id=None):
-        """커리어 패스 ID로 공유 패스 조회"""
+        """커리어 패스 ID로 공유 패스 조회 (패스당 공유 레코드 1행)"""
+        try:
+            CareerPlan.objects.get(pk=career_plan_id, user=request.user)
+        except CareerPlan.DoesNotExist:
+            return Response(
+                {'error': '커리어 패스를 찾을 수 없습니다.'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
         try:
             shared_plan = SharedPlan.objects.select_related('user', 'career_plan', 'school').get(
                 career_plan_id=career_plan_id,
-                user=request.user
             )
             serializer = SharedPlanDetailSerializer(shared_plan)
             return Response(serializer.data)
@@ -608,3 +656,40 @@ class SharedPlanViewSet(viewsets.ModelViewSet):
         shared_plan.save(update_fields=['bookmark_count'])
         
         return Response({'bookmark_count': shared_plan.bookmark_count})
+
+    @action(
+        detail=True,
+        methods=['post'],
+        url_path='comments',
+        permission_classes=[IsAuthenticated],
+    )
+    def post_comment(self, request, pk=None):
+        """공유 패스에 댓글 작성 (답글: {\"content\":\"...\",\"parent\":\"uuid\"})"""
+        shared_plan = self.get_object()
+        ser = SharedPlanCommentCreateSerializer(
+            data=request.data,
+            context={**self.get_serializer_context(), 'shared_plan': shared_plan},
+        )
+        ser.is_valid(raise_exception=True)
+        ser.save()
+        return Response(
+            SharedPlanCommentSerializer(ser.instance).data,
+            status=status.HTTP_201_CREATED,
+        )
+
+    @action(
+        detail=True,
+        methods=['delete'],
+        url_path=r'comments/(?P<comment_id>[^/.]+)',
+        permission_classes=[IsAuthenticated],
+    )
+    def delete_comment(self, request, pk=None, comment_id=None):
+        """본인 댓글만 삭제 (답글 CASCADE)"""
+        shared_plan = self.get_object()
+        comment = shared_plan.plan_comments.filter(pk=comment_id).first()
+        if not comment:
+            return Response({'detail': '댓글을 찾을 수 없습니다.'}, status=status.HTTP_404_NOT_FOUND)
+        if comment.author_id != request.user.id:
+            return Response({'detail': '삭제 권한이 없습니다.'}, status=status.HTTP_403_FORBIDDEN)
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

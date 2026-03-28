@@ -1,5 +1,6 @@
 import { API_PATHS, buildApiUrl } from '@/lib/config/api';
 import { getAccessToken } from '@/lib/auth/jwtStorage';
+import { fetchWithAuthRetry } from '@/lib/auth/fetchWithAuthRetry';
 import type { ApiCareerPlanDetail } from '@/lib/career-path/mapCareerPlanApi';
 
 const JSON_HEADERS = {
@@ -30,7 +31,7 @@ async function parseJsonOrThrow(res: Response, label: string): Promise<unknown> 
 
 export async function fetchCareerPlanTemplates(): Promise<ApiCareerPlanDetail[]> {
   const url = buildApiUrl(`${API_PATHS.careerPlans}?page_size=100&is_template=true`);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'GET',
     headers: authHeaders(),
     credentials: 'omit',
@@ -47,7 +48,7 @@ export async function useTemplateApi(
   customTitle: string
 ): Promise<ApiCareerPlanDetail> {
   const url = buildApiUrl(`${API_PATHS.careerPlans}${templateId}/use_template/`);
-  const res = await fetch(url, {
+  const res = await fetchWithAuthRetry(url, {
     method: 'POST',
     headers: authHeaders(),
     credentials: 'omit',

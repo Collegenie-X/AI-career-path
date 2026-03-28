@@ -227,7 +227,7 @@ def email_signup_view(request):
     email = serializer.validated_data['email']
     password = serializer.validated_data['password']
     name = serializer.validated_data['name']
-    grade = serializer.validated_data.get('grade', 'high1')
+    grade = serializer.validated_data.get('grade', 'high_1')
     emoji = serializer.validated_data.get('emoji', '👤')
     
     if User.objects.filter(email=email).exists():

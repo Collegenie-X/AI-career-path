@@ -40,6 +40,9 @@ export const API_PATHS = {
   careerJobs: '/api/v1/explore/career-jobs/',
   /** 커리어 패스 CRUD — `apps.career_path` */
   careerPlans: '/api/v1/career-path/career-plans/',
+  careerPathSchools: '/api/v1/career-path/schools/',
+  careerPathGroups: '/api/v1/career-path/groups/',
+  careerPathSharedPlans: '/api/v1/career-path/shared-plans/',
   /** 인증 API — `apps.accounts` */
   auth: {
     emailSignup: '/api/v1/auth/email-signup/',

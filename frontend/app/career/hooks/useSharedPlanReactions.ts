@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { likeSharedPlanApi, bookmarkSharedPlanApi, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { CAREER_SHARED_PLANS_QUERY_KEY } from '@/app/career/hooks/useSharedPlansQuery';
 import type { UserReactionState } from '@/app/career/components/community/types';
 
 const REACTIONS_STORAGE_KEY = 'community_reactions_v1';
@@ -40,7 +41,7 @@ export function useSharedPlanReactions() {
       return { like_count: 0 };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['sharedPlans', 'career'] });
+      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
     },
   });
 
@@ -52,7 +53,7 @@ export function useSharedPlanReactions() {
       return { bookmark_count: 0 };
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['sharedPlans', 'career'] });
+      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
     },
   });
 

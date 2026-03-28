@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useMemo, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
@@ -22,14 +22,16 @@ import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
 import { CAREER_PAGE_TABS, type CareerPageTabId } from './config';
-import communityData from '@/data/share-community.json';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import { buildPlanFromTemplate } from './utils/buildPlanFromTemplate';
-import { useCommunityReactions } from './hooks/useCommunityReactions';
 import { useCareerPlansController } from './hooks/useCareerPlansController';
 import { useMySharedPlansQuery } from './hooks/useMySharedPlansQuery';
+import { useSharedPlansQuery } from './hooks/useSharedPlansQuery';
+import { useSharedPlanCommunityDetailQuery } from './hooks/useSharedPlanCommunityDetailQuery';
+import { useCareerPathGroupsQuery } from './hooks/useCareerPathCommunityData';
+import { useSharedPlanReactions } from './hooks/useSharedPlanReactions';
 import { isUuidString } from '@/lib/career-path/isUuidString';
-import { createSharedPlanApi, updateSharedPlanApi, fetchSharedPlanByCareerPlanId, deleteSharedPlanApi } from '@/lib/career-path/sharedPlanApi';
+import { createSharedPlanApi, updateSharedPlanApi, fetchSharedPlanByCareerPlanId, deleteSharedPlanApi, sanitizeSharedPlanGroupIds } from '@/lib/career-path/sharedPlanApi';
 import { hasCareerPathBackendAuth } from '@/lib/career-path/careerPathApi';
 
 type Template = typeof careerPathTemplates[0];
@@ -79,9 +81,12 @@ function CareerPageContent() {
     savePlan: persistCareerPlan,
     deletePlan: removeCareerPlan,
     updatePlanInline: persistPlanInline,
-    useTemplate: useTemplateFromBackend,
   } = useCareerPlansController();
   const { data: mySharedPlansFromApi } = useMySharedPlansQuery();
+  const { data: sharedPlansFeed = [] } = useSharedPlansQuery();
+  const { data: careerPathGroups = [] } = useCareerPathGroupsQuery();
+  const { reactions: sharedReactionState, toggleLike: toggleSharedLike, toggleBookmark: toggleSharedBookmark } =
+    useSharedPlanReactions();
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -92,6 +97,15 @@ function CareerPageContent() {
   /* ── 2-컬럼 패널용 선택 상태 ── */
   const [selectedCommunityPlan, setSelectedCommunityPlan] = useState<SharedPlan | null>(null);
   const [showTimelineExpandDialog, setShowTimelineExpandDialog] = useState(false);
+
+  const sharedPlanCommunityDetail = useSharedPlanCommunityDetailQuery(
+    activeTab === 'community' ? selectedCommunityPlan?.id ?? null : null,
+  );
+  const communityPanelPlan = useMemo(() => {
+    if (!selectedCommunityPlan) return null;
+    if (sharedPlanCommunityDetail.data) return sharedPlanCommunityDetail.data;
+    return selectedCommunityPlan;
+  }, [selectedCommunityPlan, sharedPlanCommunityDetail.data]);
 
   useEffect(() => {
     setMounted(true);
@@ -130,11 +144,19 @@ function CareerPageContent() {
   };
 
   const savePlan = async (plan: CareerPlan) => {
-    const saved = await persistCareerPlan(plan);
-    setSelectedPlanId(saved.id);
-    setBuilderOpen(false);
-    setEditingPlan(null);
-    handleTabChange('timeline');
+    try {
+      const saved = await persistCareerPlan(plan);
+      setSelectedPlanId(saved.id);
+      setBuilderOpen(false);
+      setEditingPlan(null);
+      handleTabChange('timeline');
+    } catch (err) {
+      console.error(err);
+      const msg = err instanceof Error ? err.message : '';
+      if (msg.includes(':401') || msg.includes('로그인')) {
+        router.push('/auth/login');
+      }
+    }
   };
 
   const deletePlan = async (planId: string) => {
@@ -146,14 +168,21 @@ function CareerPageContent() {
   const closeBuilder = () => { setBuilderOpen(false); setEditingPlan(null); setBuilderInitialStep(undefined); };
 
   const handleUseTemplate = async (template: Template, customTitle: string) => {
-    const planFromTemplate = buildPlanFromTemplate(template, customTitle);
-    const saved = await persistCareerPlan(planFromTemplate);
-    
-    setSelectedPlanId(saved.id);
-    handleTabChange('timeline');
-    setBuilderOpen(false);
-    setEditingPlan(null);
-    setBuilderInitialStep(undefined);
+    try {
+      const planFromTemplate = buildPlanFromTemplate(template, customTitle);
+      const saved = await persistCareerPlan(planFromTemplate);
+      setSelectedPlanId(saved.id);
+      handleTabChange('timeline');
+      setBuilderOpen(false);
+      setEditingPlan(null);
+      setBuilderInitialStep(undefined);
+    } catch (err) {
+      console.error('handleUseTemplate', err);
+      const msg = err instanceof Error ? err.message : '';
+      if (msg.includes(':401') || msg.includes('로그인')) {
+        router.push('/auth/login');
+      }
+    }
   };
 
   const updatePlanInline = async (updatedPlan: CareerPlan) => {
@@ -178,7 +207,7 @@ function CareerPageContent() {
           share_type: shareType,
           description: plan.description ?? '',
           tags: [],
-          group_ids: channels.includes('group') ? (plan.shareGroupIds ?? []) : [],
+          group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? plan.shareGroupIds : undefined),
         };
         
         await createSharedPlanApi(payload);
@@ -197,21 +226,12 @@ function CareerPageContent() {
     return timeB - timeA;
   });
   
-  const myPublicPlans = hasCareerPathBackendAuth() && mySharedPlansFromApi.length > 0
-    ? mySharedPlansFromApi
-    : plans.filter((plan) => plan.isPublic);
+  const myPublicPlans = hasCareerPathBackendAuth() ? mySharedPlansFromApi : [];
   const totalTemplateCount = careerPathTemplates.length;
   const totalTemplateUses = careerPathTemplates.reduce((sum, template) => sum + template.uses, 0);
-  const totalCommunitySharedPlans = ((communityData as { sharedPlans?: unknown[] }).sharedPlans ?? []).length;
-  const totalCommunityGroups = ((communityData as { groups?: unknown[] }).groups ?? []).length;
+  const totalCommunitySharedPlans = sharedPlansFeed.length;
+  const totalCommunityGroups = careerPathGroups.length;
   const totalMyPublicPlans = myPublicPlans.length;
-
-  /* ── 커뮤니티 패널용 reactions 상태 (CommunityDetailPanel에 전달) ── */
-  const {
-    reactions: communityReactions,
-    handleToggleLike: handleCommunityToggleLike,
-    handleToggleBookmark: handleCommunityToggleBookmark,
-  } = useCommunityReactions();
 
   return (
     <div
@@ -338,15 +358,15 @@ function CareerPageContent() {
               </div>
             }
             detailSlot={
-              selectedCommunityPlan ? (
+              communityPanelPlan ? (
                 <CommunityDetailPanel
-                  plan={selectedCommunityPlan}
-                  isLiked={communityReactions.likedPlanIds.includes(selectedCommunityPlan.id)}
-                  isBookmarked={communityReactions.bookmarkedPlanIds.includes(selectedCommunityPlan.id)}
-                  likeCount={communityReactions.likeCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.likes}
-                  bookmarkCount={communityReactions.bookmarkCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.bookmarks}
-                  onToggleLike={() => handleCommunityToggleLike(selectedCommunityPlan.id)}
-                  onToggleBookmark={() => handleCommunityToggleBookmark(selectedCommunityPlan.id)}
+                  plan={communityPanelPlan}
+                  isLiked={sharedReactionState.likedPlanIds.includes(communityPanelPlan.id)}
+                  isBookmarked={sharedReactionState.bookmarkedPlanIds.includes(communityPanelPlan.id)}
+                  likeCount={communityPanelPlan.likes}
+                  bookmarkCount={communityPanelPlan.bookmarks}
+                  onToggleLike={() => toggleSharedLike(communityPanelPlan.id)}
+                  onToggleBookmark={() => toggleSharedBookmark(communityPanelPlan.id)}
                   onClose={() => setSelectedCommunityPlan(null)}
                   onAddComment={() => {}}
                 />
@@ -374,7 +394,7 @@ function CareerPageContent() {
           currentDescription={sharingPlan.description}
           currentChannels={sharingPlan.shareChannels}
           currentGroupIds={sharingPlan.shareGroupIds}
-          availableGroups={(communityData.groups ?? []) as CommunityGroup[]}
+          availableGroups={careerPathGroups as CommunityGroup[]}
           isCurrentlyShared={sharingPlan.isPublic}
           onConfirm={async (channels: ShareChannel[], description: string, groupIds: string[]) => {
             const isPublic = channels.length > 0;
@@ -408,7 +428,7 @@ function CareerPageContent() {
                       share_type: shareType,
                       description: description,
                       tags: [],
-                      group_ids: channels.includes('group') ? groupIds : [],
+                      group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? groupIds : undefined),
                     });
                   } else {
                     await createSharedPlanApi({
@@ -416,7 +436,7 @@ function CareerPageContent() {
                       share_type: shareType,
                       description: description,
                       tags: [],
-                      group_ids: channels.includes('group') ? groupIds : [],
+                      group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? groupIds : undefined),
                     });
                   }
                 } else if (existingShared) {
@@ -425,8 +445,6 @@ function CareerPageContent() {
               } catch (err) {
                 console.error('Failed to update share status:', err);
               }
-            } else if (isPublic) {
-              await handleSharePlan(updated, isPublic);
             }
             
             setSharingPlan(null);

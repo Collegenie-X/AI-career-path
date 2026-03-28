@@ -10,8 +10,9 @@ from django.db import transaction
 from .models import (
     School, Group, GroupMember,
     CareerPlan, PlanYear, GoalGroup, PlanItem, SubItem, ItemLink,
-    SharedPlan, SharedPlanGroup
+    SharedPlan, SharedPlanComment, SharedPlanGroup,
 )
+from .nested_sync import sync_career_plan_years_from_payload
 
 User = get_user_model()
 
@@ -95,7 +96,8 @@ class ItemLinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = ItemLink
         fields = ['id', 'title', 'url', 'kind', 'sort_order']
-        read_only_fields = ['id']
+        read_only_fields = []
+        extra_kwargs = {'id': {'read_only': False, 'required': False}}
 
 
 class SubItemSerializer(serializers.ModelSerializer):
@@ -104,7 +106,8 @@ class SubItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = SubItem
         fields = ['id', 'title', 'is_done', 'url', 'description', 'sort_order']
-        read_only_fields = ['id']
+        read_only_fields = []
+        extra_kwargs = {'id': {'read_only': False, 'required': False}}
 
 
 class PlanItemSerializer(serializers.ModelSerializer):
@@ -126,7 +129,7 @@ class PlanItemSerializer(serializers.ModelSerializer):
 
 class PlanItemCreateSerializer(serializers.ModelSerializer):
     """활동 항목 생성 시리얼라이저 (하위 항목·링크 포함)"""
-    
+
     sub_items = SubItemSerializer(many=True, required=False)
     links = ItemLinkSerializer(many=True, required=False)
     
@@ -138,7 +141,8 @@ class PlanItemCreateSerializer(serializers.ModelSerializer):
             'category_tags', 'activity_subtype', 'sort_order',
             'sub_items', 'links'
         ]
-        read_only_fields = ['id']
+        read_only_fields = ['plan_year', 'goal_group']
+        extra_kwargs = {'id': {'read_only': False, 'required': False}}
     
     def create(self, validated_data):
         sub_items_data = validated_data.pop('sub_items', [])
@@ -193,25 +197,29 @@ class GoalGroupSerializer(serializers.ModelSerializer):
 
 class GoalGroupCreateSerializer(serializers.ModelSerializer):
     """목표 그룹 생성 시리얼라이저 (활동 항목 포함)"""
-    
+
     items = PlanItemCreateSerializer(many=True, required=False)
     
     class Meta:
         model = GoalGroup
         fields = ['id', 'plan_year', 'goal', 'semester_id', 'sort_order', 'items']
-        read_only_fields = ['id']
+        read_only_fields = ['plan_year']
+        extra_kwargs = {'id': {'read_only': False, 'required': False}}
     
     def create(self, validated_data):
         items_data = validated_data.pop('items', [])
         
         goal_group = GoalGroup.objects.create(**validated_data)
         
-        # 활동 항목 생성
+        # 활동 항목 생성 (plan_year 는 모델 필수 — 부모 학년에서 설정)
         for item_data in items_data:
             sub_items_data = item_data.pop('sub_items', [])
             links_data = item_data.pop('links', [])
-            
+            item_data.pop('plan_year', None)
+            item_data.pop('goal_group', None)
+
             plan_item = PlanItem.objects.create(
+                plan_year=goal_group.plan_year,
                 goal_group=goal_group,
                 **item_data
             )
@@ -244,7 +252,7 @@ class PlanYearSerializer(serializers.ModelSerializer):
 
 class PlanYearCreateSerializer(serializers.ModelSerializer):
     """학년별 계획 생성 시리얼라이저 (목표 그룹·활동 항목 포함)"""
-    
+
     goal_groups = GoalGroupCreateSerializer(many=True, required=False)
     items = PlanItemCreateSerializer(many=True, required=False)
     
@@ -254,7 +262,8 @@ class PlanYearCreateSerializer(serializers.ModelSerializer):
             'id', 'career_plan', 'grade_id', 'grade_label', 'semester', 'sort_order',
             'goal_groups', 'items'
         ]
-        read_only_fields = ['id']
+        read_only_fields = ['career_plan']
+        extra_kwargs = {'id': {'read_only': False, 'required': False}}
     
     def create(self, validated_data):
         goal_groups_data = validated_data.pop('goal_groups', [])
@@ -265,6 +274,7 @@ class PlanYearCreateSerializer(serializers.ModelSerializer):
         # 목표 그룹 생성
         for goal_group_data in goal_groups_data:
             goal_items_data = goal_group_data.pop('items', [])
+            goal_group_data.pop('plan_year', None)
             
             goal_group = GoalGroup.objects.create(
                 plan_year=plan_year,
@@ -275,6 +285,8 @@ class PlanYearCreateSerializer(serializers.ModelSerializer):
             for item_data in goal_items_data:
                 sub_items_data = item_data.pop('sub_items', [])
                 links_data = item_data.pop('links', [])
+                item_data.pop('plan_year', None)
+                item_data.pop('goal_group', None)
                 
                 plan_item = PlanItem.objects.create(
                     plan_year=plan_year,
@@ -292,6 +304,8 @@ class PlanYearCreateSerializer(serializers.ModelSerializer):
         for item_data in items_data:
             sub_items_data = item_data.pop('sub_items', [])
             links_data = item_data.pop('links', [])
+            item_data.pop('plan_year', None)
+            item_data.pop('goal_group', None)
             
             plan_item = PlanItem.objects.create(
                 plan_year=plan_year,
@@ -373,6 +387,7 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
         for year_data in years_data:
             goal_groups_data = year_data.pop('goal_groups', [])
             items_data = year_data.pop('items', [])
+            year_data.pop('career_plan', None)
             
             plan_year = PlanYear.objects.create(
                 career_plan=career_plan,
@@ -382,6 +397,7 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
             # 목표 그룹 생성
             for goal_group_data in goal_groups_data:
                 goal_items_data = goal_group_data.pop('items', [])
+                goal_group_data.pop('plan_year', None)
                 
                 goal_group = GoalGroup.objects.create(
                     plan_year=plan_year,
@@ -392,6 +408,8 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
                 for item_data in goal_items_data:
                     sub_items_data = item_data.pop('sub_items', [])
                     links_data = item_data.pop('links', [])
+                    item_data.pop('plan_year', None)
+                    item_data.pop('goal_group', None)
                     
                     plan_item = PlanItem.objects.create(
                         plan_year=plan_year,
@@ -409,6 +427,8 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
             for item_data in items_data:
                 sub_items_data = item_data.pop('sub_items', [])
                 links_data = item_data.pop('links', [])
+                item_data.pop('plan_year', None)
+                item_data.pop('goal_group', None)
                 
                 plan_item = PlanItem.objects.create(
                     plan_year=plan_year,
@@ -425,7 +445,7 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
 
     @transaction.atomic
     def update(self, instance, validated_data):
-        """전체 중첩 구조 교체 (학년·목표·활동 재생성)"""
+        """학년·목표·활동은 ID 기준으로 갱신(동일 행 유지). years 미전달 시 구조는 유지."""
         years_data = validated_data.pop('years', None)
 
         for attr, value in validated_data.items():
@@ -433,54 +453,7 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
         instance.save()
 
         if years_data is not None:
-            instance.years.all().delete()
-            for year_data in years_data:
-                goal_groups_data = year_data.pop('goal_groups', [])
-                items_data = year_data.pop('items', [])
-
-                plan_year = PlanYear.objects.create(
-                    career_plan=instance,
-                    **year_data
-                )
-
-                for goal_group_data in goal_groups_data:
-                    goal_items_data = goal_group_data.pop('items', [])
-
-                    goal_group = GoalGroup.objects.create(
-                        plan_year=plan_year,
-                        **goal_group_data
-                    )
-
-                    for item_data in goal_items_data:
-                        sub_items_data = item_data.pop('sub_items', [])
-                        links_data = item_data.pop('links', [])
-
-                        plan_item = PlanItem.objects.create(
-                            plan_year=plan_year,
-                            goal_group=goal_group,
-                            **item_data
-                        )
-
-                        for sub_item_data in sub_items_data:
-                            SubItem.objects.create(plan_item=plan_item, **sub_item_data)
-
-                        for link_data in links_data:
-                            ItemLink.objects.create(plan_item=plan_item, **link_data)
-
-                for item_data in items_data:
-                    sub_items_data = item_data.pop('sub_items', [])
-                    links_data = item_data.pop('links', [])
-
-                    plan_item = PlanItem.objects.create(
-                        plan_year=plan_year,
-                        **item_data
-                    )
-
-                    for sub_item_data in sub_items_data:
-                        SubItem.objects.create(plan_item=plan_item, **sub_item_data)
-
-                    for link_data in links_data:
-                        ItemLink.objects.create(plan_item=plan_item, **link_data)
+            sync_career_plan_years_from_payload(instance, years_data)
 
         return instance
 
@@ -488,6 +461,41 @@ class CareerPlanCreateSerializer(serializers.ModelSerializer):
 # ============================================================================
 # Shared Plan Serializers
 # ============================================================================
+
+class SharedPlanCommentSerializer(serializers.ModelSerializer):
+    """공유 패스 댓글"""
+
+    author = UserSimpleSerializer(read_only=True)
+
+    class Meta:
+        model = SharedPlanComment
+        fields = ['id', 'author', 'content', 'parent', 'created_at']
+        read_only_fields = ['id', 'author', 'created_at']
+
+
+class SharedPlanCommentCreateSerializer(serializers.ModelSerializer):
+    """댓글 작성 (답글 시 parent UUID)"""
+
+    content = serializers.CharField(min_length=1, max_length=8000)
+
+    class Meta:
+        model = SharedPlanComment
+        fields = ['content', 'parent']
+        extra_kwargs = {'parent': {'required': False, 'allow_null': True}}
+
+    def validate_parent(self, value):
+        if value is None:
+            return value
+        shared_plan = self.context['shared_plan']
+        if value.shared_plan_id != shared_plan.id:
+            raise serializers.ValidationError('이 공유 패스의 댓글이 아닙니다.')
+        return value
+
+    def create(self, validated_data):
+        validated_data['author'] = self.context['request'].user
+        validated_data['shared_plan'] = self.context['shared_plan']
+        return super().create(validated_data)
+
 
 class SharedPlanListSerializer(serializers.ModelSerializer):
     """공유 패스 목록 시리얼라이저 (요약 정보)"""
@@ -505,11 +513,11 @@ class SharedPlanListSerializer(serializers.ModelSerializer):
             'id', 'career_plan', 'user', 'career_plan_title',
             'job_name', 'job_emoji', 'star_name', 'star_color',
             'share_type', 'description', 'tags',
-            'like_count', 'bookmark_count', 'view_count', 'comment_count',
+            'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
             'shared_at', 'updated_at', 'is_hidden'
         ]
         read_only_fields = [
-            'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count',
+            'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
             'shared_at', 'updated_at'
         ]
 
@@ -521,17 +529,19 @@ class SharedPlanDetailSerializer(serializers.ModelSerializer):
     career_plan = CareerPlanDetailSerializer(read_only=True)
     school = SchoolSerializer(read_only=True)
     groups = serializers.SerializerMethodField()
+    comments = SharedPlanCommentSerializer(many=True, read_only=True, source='plan_comments')
     
     class Meta:
         model = SharedPlan
         fields = [
             'id', 'career_plan', 'user', 'school', 'groups',
             'share_type', 'description', 'tags',
-            'like_count', 'bookmark_count', 'view_count', 'comment_count',
-            'shared_at', 'updated_at', 'is_hidden'
+            'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
+            'shared_at', 'updated_at', 'is_hidden',
+            'comments',
         ]
         read_only_fields = [
-            'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count',
+            'id', 'like_count', 'bookmark_count', 'view_count', 'comment_count', 'report_count',
             'shared_at', 'updated_at'
         ]
     
@@ -569,19 +579,28 @@ class SharedPlanCreateSerializer(serializers.ModelSerializer):
     @transaction.atomic
     def create(self, validated_data):
         group_ids = validated_data.pop('group_ids', [])
-        
-        # 현재 로그인한 사용자를 공유자로 설정
         user = self.context['request'].user
-        shared_plan = SharedPlan.objects.create(user=user, **validated_data)
-        
-        # 그룹 연결
+        career_plan = validated_data.pop('career_plan')
+
+        if getattr(career_plan, 'user_id', None) != user.id:
+            raise serializers.ValidationError(
+                {'career_plan': '본인의 커리어 패스만 공유할 수 있습니다.'}
+            )
+
+        defaults = {**validated_data, 'user': user}
+        shared_plan, _created = SharedPlan.objects.update_or_create(
+            career_plan=career_plan,
+            defaults=defaults,
+        )
+
+        shared_plan.group_links.all().delete()
         for group_id in group_ids:
             try:
                 group = Group.objects.get(id=group_id)
                 SharedPlanGroup.objects.create(shared_plan=shared_plan, group=group)
             except Group.DoesNotExist:
                 pass
-        
+
         return shared_plan
     
     @transaction.atomic

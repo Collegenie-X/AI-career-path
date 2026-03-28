@@ -1,11 +1,13 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { fetchSharedPlans, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { fetchSharedPlans } from '@/lib/career-path/sharedPlanApi';
 import type { SharedPlan } from '@/app/career/components/community/types';
-import communityData from '@/data/share-community.json';
 
-const sharedPlansQueryKey = ['sharedPlans', 'career'] as const;
+export const CAREER_SHARED_PLANS_QUERY_KEY = ['sharedPlans', 'career'] as const;
+
+/** React는 `[]` 리터럴마다 새 참조를 만들므로, 로딩 중 매 렌더마다 의존성이 바뀌어 무한 업데이트가 날 수 있음 */
+const EMPTY_SHARED_PLANS: SharedPlan[] = [];
 
 function mapApiSharedPlanToUi(api: Awaited<ReturnType<typeof fetchSharedPlans>>[0]): SharedPlan {
   return {
@@ -34,34 +36,23 @@ function mapApiSharedPlanToUi(api: Awaited<ReturnType<typeof fetchSharedPlans>>[
     operatorComments: [],
     groupIds: [],
     tags: api.tags,
+    commentCount: api.comment_count,
   };
 }
 
+/** 커뮤니티 피드 — 백엔드 공유 패스만 (비로그인은 public 목록) */
 export function useSharedPlansQuery() {
-  const useBackend = hasCareerPathBackendAuth();
-
   const query = useQuery({
-    queryKey: sharedPlansQueryKey,
+    queryKey: CAREER_SHARED_PLANS_QUERY_KEY,
     queryFn: async () => {
       const apiPlans = await fetchSharedPlans();
       return apiPlans.map(mapApiSharedPlanToUi);
     },
-    enabled: useBackend,
     staleTime: 30_000,
   });
 
-  if (!useBackend) {
-    return {
-      data: (communityData.sharedPlans ?? []) as SharedPlan[],
-      isLoading: false,
-      isError: false,
-      error: null,
-      refetch: async () => ({ data: [] as SharedPlan[] }),
-    };
-  }
-
   return {
-    data: query.data ?? [],
+    data: query.data ?? EMPTY_SHARED_PLANS,
     isLoading: query.isLoading,
     isError: query.isError,
     error: query.error,

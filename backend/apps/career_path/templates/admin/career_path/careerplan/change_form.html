@@ -1,0 +1,12 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block after_field_sets %}
+{% if nested_career_plan_tree %}
+<fieldset class="module aligned">
+  <h2>학년 · 목표 · 활동 통합 보기</h2>
+  {{ nested_career_plan_tree }}
+</fieldset>
+{% endif %}
+{{ block.super }}
+{% endblock %}
