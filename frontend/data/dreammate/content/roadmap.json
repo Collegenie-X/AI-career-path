@@ -18,6 +18,8 @@
   "roadmapCardExpandLabel":          "펼치기",
   "roadmapCardCollapseLabel":        "접기",
   "roadmapCardNoMonthLabel":         "월 정보 없음",
+  "roadmapDetailReflectProgressCheckboxLabel": "주간 체크 반영",
+  "roadmapDetailReflectProgressCheckboxHint": "켜면 아래 주간 항목을 눌러 완료·진행률에 반영할 수 있어요.",
   "roadmapCategoryLabel":            "실행 카테고리",
   "roadmapCategoryHint":             "공유는 생성 후에 전체/그룹으로 선택할 수 있어요.",
   "shareRoadmapButton":              "실행계획 공유하기",

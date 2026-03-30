@@ -15,5 +15,12 @@
   "myRoadmapDetailEmptyTitle": "실행계획을 선택하세요",
   "myRoadmapDetailEmptySub": "왼쪽 목록에서 실행계획을 클릭하면 상세 내용이 여기에 표시됩니다",
   "mySpaceDetailEmptyTitle": "실행팀을 선택하세요",
-  "mySpaceDetailEmptySub": "왼쪽 목록에서 참여 중인 실행팀을 클릭하면 상세가 여기에 표시됩니다"
+  "mySpaceDetailEmptySub": "왼쪽 목록에서 참여 중인 실행팀을 클릭하면 상세가 여기에 표시됩니다",
+  "myExecutionFilterApplyHint": "체크한 조건에 맞는 실행계획만 왼쪽 목록에 표시해요. (여러 개 선택 시 모두 만족하는 항목만)",
+  "myExecutionFilterAllLabel": "내 실행",
+  "myExecutionFilterSharedLabel": "공개중",
+  "myExecutionFilterSpaceLinkedLabel": "실행팀 연결",
+  "myExecutionFilterJoinedSpacesNote": "참여 그룹",
+  "myExecutionFilterEmptyTitle": "조건에 맞는 실행계획이 없어요",
+  "myExecutionFilterEmptyDesc": "위 체크를 해제하거나 조합을 바꿔 보세요"
 }

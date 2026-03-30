@@ -21,8 +21,15 @@
   "roadmapEditorAddWeekTaskButtonLabel":    "추가",
   "roadmapEditorAddSubItemButtonLabel":     "하위 항목 추가",
   "roadmapEditorWeekGoalLabel":             "주차 목표",
+  "roadmapEditorWeekGoalTreeFieldLabel":    "목표",
+  "roadmapEditorWeekGoalOutputFieldLabel":  "산출물 (URL 또는 파일명) — 주당 1개",
+  "roadmapEditorSubItemSectionLabel":       "하위 항목",
   "roadmapEditorWeekGoalPlaceholder":       "{month}월 {week}주차 목표 (선택)",
   "roadmapEditorWeekTaskPlaceholder":       "{month}월 {week}주차 항목",
   "roadmapEditorNoWeekGroupHint":           "주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.",
-  "roadmapEditorDeleteWeekGroupButtonLabel": "삭제"
+  "roadmapEditorDeleteWeekGroupButtonLabel": "삭제",
+  "roadmapEditorWeekGoalRequiredHint":        "주차 목표는 필수입니다.",
+  "roadmapEditorWeekGoalValidationHint":      "저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.",
+  "timeline_show_checklist":                  "체크",
+  "timeline_hide_checklist":                  "체크"
 }

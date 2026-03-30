@@ -19,6 +19,8 @@ import {
   roadmapEditorSoftInsetPanelClassName,
   roadmapEditorSectionLabelClassName,
 } from './roadmap-editor-ui/roadmapEditorUiTokens';
+import type { WeekGroupViewModel } from './roadmap-editor-ui/roadmapEditorWbsTypes';
+import { RoadmapEditorWbsWeeklyChecklistTree } from './roadmap-editor-ui/RoadmapEditorWbsWeeklyChecklistTree';
 import {
   DREAM_ITEM_TYPES,
   LABELS,
@@ -203,14 +205,6 @@ function parseWeekGroupKey(groupKey: string): { month: number; week: number } | 
 function getWeekGroupKeyFromTodo(todoItem: RoadmapTodoItem, fallbackMonth: number): string {
   const monthWeek = extractMonthWeek(todoItem, fallbackMonth);
   return getWeekGroupKey(monthWeek.month, monthWeek.week);
-}
-
-interface WeekGroupViewModel {
-  groupKey: string;
-  month: number;
-  week: number;
-  goal?: RoadmapTodoItem;
-  tasks: RoadmapTodoItem[];
 }
 
 function buildSortedWeekGroups(subItems: RoadmapTodoItem[], fallbackMonth: number): WeekGroupViewModel[] {
@@ -1083,184 +1077,50 @@ export function RoadmapEditorDialog({
                         적용 월: {itemMonths.map(month => `${month}월`).join(', ')}
                       </p>
 
-                      <div className="space-y-1.5 pt-1">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-bold text-gray-400">{LABELS.todoSectionLabel} · {LABELS.weeklyChecklistLabel}</span>
-                          <button
-                            onClick={() => addWeekGroup(item.id)}
-                            className="text-sm font-bold px-2.5 py-1.5 rounded-md"
-                            style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-                          >
-                            + {LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주차 그룹 추가'}
-                          </button>
-                        </div>
-                        {(item.subItems ?? []).length === 0 ? (
-                          <p className="text-sm text-gray-600">{LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.'}</p>
-                        ) : (
-                          <div className="space-y-2">
-                            {(() => {
-                              const monthGroups = new Map<number, Array<{ groupKey: string; group: { month: number; week: number; goal?: RoadmapTodoItem; tasks: RoadmapTodoItem[] } }>>();
-                              sortedWeekGroups.forEach(group => {
-                                const monthGroupItems = monthGroups.get(group.month) ?? [];
-                                monthGroupItems.push({ groupKey: group.groupKey, group });
-                                monthGroups.set(group.month, monthGroupItems);
-                              });
-
-                              return [...monthGroups.entries()]
-                                .sort(([leftMonth], [rightMonth]) => leftMonth - rightMonth)
-                                .map(([month, monthGroupItems]) => {
-                                  const monthAccordionKey = `${item.id}-month-${month}`;
-                                  const isMonthOpen = monthAccordionOpenMap[monthAccordionKey] ?? true;
-                                  return (
-                                    <div key={monthAccordionKey} className="rounded-xl p-2 bg-white/[0.03] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
-                                      <button
-                                        onClick={() => setMonthAccordionOpenMap(previous => ({
-                                          ...previous,
-                                          [monthAccordionKey]: !(previous[monthAccordionKey] ?? true),
-                                        }))}
-                                        className="w-full flex items-center justify-between text-left"
-                                      >
-                                        <span className="text-sm font-bold text-sky-300">{month}월</span>
-                                        <span className="text-gray-500">
-                                          {isMonthOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                                        </span>
-                                      </button>
-
-                                      {isMonthOpen && (
-                                        <div className="mt-1.5 space-y-1.5">
-                                          {monthGroupItems.map(({ groupKey, group }) => {
-                                            const weekAccordionKey = `${item.id}-${groupKey}`;
-                                            const isWeekOpen = weekAccordionOpenMap[weekAccordionKey] ?? true;
-                                            const hasGoal = (group.goal?.title.trim().length ?? 0) > 0;
-                                            return (
-                                              <div
-                                                key={weekAccordionKey}
-                                                className={`rounded-xl p-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ${
-                                                  hasGoal ? 'bg-white/[0.03]' : 'bg-red-500/[0.12]'
-                                                }`}
-                                              >
-                                                <div className="flex items-center justify-between gap-2">
-                                                  <button
-                                                    onClick={() => setWeekAccordionOpenMap(previous => ({
-                                                      ...previous,
-                                                      [weekAccordionKey]: !(previous[weekAccordionKey] ?? true),
-                                                    }))}
-                                                    className="flex items-center gap-1 text-sm font-bold text-sky-300"
-                                                  >
-                                                    {group.month}월 {group.week}주차
-                                                    {isWeekOpen ? <ChevronUp className="w-3.5 h-3.5 text-gray-500" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-500" />}
-                                                  </button>
-                                                  <div className="flex items-center gap-1">
-                                                    <button
-                                                      onClick={() => removeWeekGroup(item.id, groupKey)}
-                                                      className="text-sm font-bold px-2.5 py-1.5 rounded-md"
-                                                      style={{ backgroundColor: 'rgba(239,68,68,0.18)', color: '#fca5a5' }}
-                                                    >
-                                                      {LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '주차 삭제'}
-                                                    </button>
-                                                  </div>
-                                                </div>
-
-                                                {isWeekOpen && (
-                                                  <div className="mt-1.5 space-y-2">
-                                                    {/* 목표 — 주당 1개 */}
-                                                    <div
-                                                      className="rounded-xl p-2 bg-violet-500/[0.08] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
-                                                    >
-                                                      <label className="text-[13px] text-gray-500 block mb-0.5">목표</label>
-                                                      <input
-                                                        value={group.goal?.title ?? ''}
-                                                        onChange={event => upsertWeekGoal(item.id, groupKey, event.target.value)}
-                                                        placeholder={(LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)')
-                                                          .replaceAll('{month}', String(group.month))
-                                                          .replaceAll('{week}', String(group.week))}
-                                                        className={`w-full h-8 px-2.5 rounded-lg text-white placeholder-gray-500 outline-none text-[11px] border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] ${
-                                                          hasGoal ? '' : 'ring-2 ring-red-400/35 ring-inset'
-                                                        }`}
-                                                      />
-                                                      {!hasGoal && (
-                                                        <p className="text-red-300 mt-0.5" style={{ fontSize: 10 }}>
-                                                          {LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.'}
-                                                        </p>
-                                                      )}
-
-                                                      {group.goal && (
-                                                      <div className="mt-1.5">
-                                                        <label className="text-[13px] text-gray-500 block mb-0.5">산출물 (URL 또는 파일명) — 주당 1개</label>
-                                                        <input
-                                                          value={group.goal.outputRef ?? ''}
-                                                          onChange={e => updateSubItem(item.id, group.goal!.id, { outputRef: e.target.value })}
-                                                          placeholder="https://... 또는 파일명"
-                                                          className="w-full h-7 px-2 rounded-lg text-white placeholder-gray-600 outline-none text-[10px] border-0 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
-                                                        />
-                                                      </div>
-                                                      )}
-                                                    </div>
-
-                                                    {/* 하위 항목 추가 버튼 + 하위 항목 목록 (주당 산출물 1개만, 목표에 연결) */}
-                                                    <div className="flex items-center justify-between mt-2 mb-1">
-                                                      <span className="text-[13px] text-gray-500 font-semibold">하위 항목</span>
-                                                      <button
-                                                        onClick={() => addWeekTask(item.id, groupKey)}
-                                                        className="text-[13px] font-bold px-2 py-1 rounded-md"
-                                                        style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-                                                      >
-                                                        + {LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가'}
-                                                      </button>
-                                                    </div>
-                                                    <div className="space-y-1">
-                                                    {group.tasks.map(subItem => (
-                                                      <div
-                                                        key={subItem.id}
-                                                        className="rounded-lg px-2 py-1.5 flex items-center gap-1.5 bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
-                                                      >
-                                                        <input
-                                                          value={subItem.title}
-                                                          onChange={event => updateSubItem(item.id, subItem.id, { title: event.target.value })}
-                                                          placeholder={(LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목')
-                                                            .replaceAll('{month}', String(group.month))
-                                                            .replaceAll('{week}', String(group.week))}
-                                                          list={`todo-autocomplete-${item.id}`}
-                                                          className="flex-1 h-8 px-2.5 rounded-lg text-white placeholder-gray-500 outline-none text-[11px] border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
-                                                        />
-                                                        <button
-                                                          onClick={() => removeSubItem(item.id, subItem.id)}
-                                                          className="w-8 h-8 rounded-md flex items-center justify-center"
-                                                          style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
-                                                        >
-                                                          <Trash2 className="w-3.5 h-3.5" />
-                                                        </button>
-                                                      </div>
-                                                    ))}
-                                                    </div>
-                                                  </div>
-                                                )}
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
-                                      )}
-                                    </div>
-                                  );
-                                });
-                            })()}
-                          </div>
-                        )}
-                        {hasMissingGoalInItem && (
-                          <p className="text-sm text-red-300">
-                            {LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.'}
-                          </p>
-                        )}
-                        <datalist id={`todo-autocomplete-${item.id}`}>
-                          {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? [])
-                            .map(suggestion => (
-                              <option key={suggestion} value={suggestion} />
-                            ))}
-                        </datalist>
-                        <div className="text-sm text-gray-600">
-                          {LABELS.todoAutoCompleteHint}: {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []).join(' · ')}
-                        </div>
-                      </div>
+                      <RoadmapEditorWbsWeeklyChecklistTree
+                        item={item}
+                        sortedWeekGroups={sortedWeekGroups}
+                        labels={{
+                          sectionTitle: `${LABELS.todoSectionLabel} · ${LABELS.weeklyChecklistLabel}`,
+                          addWeekGroupButton: LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주 추가',
+                          noWeekGroupHint: LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.',
+                          deleteWeekGroupButton: LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '삭제',
+                          weekGoalLabel: LABELS.roadmapEditorWeekGoalTreeFieldLabel ?? '목표',
+                          weekGoalRequiredHint: LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.',
+                          weekGoalValidationHint: LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.',
+                          goalOutputLabel: LABELS.roadmapEditorWeekGoalOutputFieldLabel ?? '산출물 (URL 또는 파일명) — 주당 1개',
+                          subItemSectionLabel: LABELS.roadmapEditorSubItemSectionLabel ?? '하위 항목',
+                          addSubItemButton: LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가',
+                          todoAutoCompleteHint: LABELS.todoAutoCompleteHint,
+                        }}
+                        weekGoalPlaceholderTemplate={LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)'}
+                        weekTaskPlaceholderTemplate={LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목'}
+                        monthAccordionOpenMap={monthAccordionOpenMap}
+                        weekAccordionOpenMap={weekAccordionOpenMap}
+                        onToggleMonthAccordion={monthAccordionKey => {
+                          setMonthAccordionOpenMap(previous => ({
+                            ...previous,
+                            [monthAccordionKey]: !(previous[monthAccordionKey] ?? true),
+                          }));
+                        }}
+                        onToggleWeekAccordion={weekAccordionKey => {
+                          setWeekAccordionOpenMap(previous => ({
+                            ...previous,
+                            [weekAccordionKey]: !(previous[weekAccordionKey] ?? true),
+                          }));
+                        }}
+                        onAddWeekGroup={() => addWeekGroup(item.id)}
+                        onRemoveWeekGroup={groupKey => removeWeekGroup(item.id, groupKey)}
+                        onUpsertWeekGoal={(groupKey, title) => upsertWeekGoal(item.id, groupKey, title)}
+                        onUpdateSubItem={(subItemId, patch) => updateSubItem(item.id, subItemId, patch)}
+                        onRemoveSubItem={subItemId => removeSubItem(item.id, subItemId)}
+                        onAddWeekTask={groupKey => addWeekTask(item.id, groupKey)}
+                        autocompleteListId={`todo-autocomplete-${item.id}`}
+                        autocompleteSuggestions={
+                          WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []
+                        }
+                        hasMissingGoalInItem={hasMissingGoalInItem}
+                      />
                     </div>
                   )}
                 </div>
