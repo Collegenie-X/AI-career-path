@@ -91,6 +91,24 @@ class QuizResult(UUIDPrimaryKeyModel, TimeStampedModel):
     riasec_scores = models.JSONField(default=dict, verbose_name='RIASEC 점수')
     top_type = models.CharField(max_length=2, verbose_name='1순위 타입')
     second_type = models.CharField(max_length=2, blank=True, verbose_name='2순위 타입')
+    spectrum_snapshot = models.JSONField(
+        default=dict,
+        blank=True,
+        verbose_name='RIASEC 스펙트럼 스냅샷',
+        help_text='scores, sorted_types, percent_by_type 등 결과 화면과 동일 구조',
+    )
+    recommended_kingdom_snapshot = models.JSONField(
+        default=dict,
+        blank=True,
+        verbose_name='추천 직업군 스냅샷',
+        help_text='id, name, color, description, riasec_types',
+    )
+    recommended_jobs_snapshot = models.JSONField(
+        default=list,
+        blank=True,
+        verbose_name='추천 직업 TOP5 스냅샷',
+        help_text='job_id, job_name, kingdom_id, kingdom_name, match_score, reason',
+    )
     taken_at = models.DateTimeField(auto_now_add=True, verbose_name='응시 일시')
     
     class Meta:

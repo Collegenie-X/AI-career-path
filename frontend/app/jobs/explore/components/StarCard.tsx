@@ -12,6 +12,7 @@ interface StarCardProps {
 }
 
 export function StarCard({ star, onClick, index, isSelected = false }: StarCardProps) {
+  const displayedJobCount = star.jobs?.length ?? star.jobCount;
   return (
     <button
       className="relative rounded-3xl overflow-hidden text-left w-full transition-all duration-300 active:scale-95 hover:scale-[1.02] group"
@@ -57,7 +58,7 @@ export function StarCard({ star, onClick, index, isSelected = false }: StarCardP
             style={{ backgroundColor: `${star.color}33`, color: star.color, border: `1px solid ${star.color}66` }}
           >
             <Star className="w-3 h-3 fill-current" />
-            <span>직업 {star.jobCount}개</span>
+            <span>직업 {displayedJobCount}개</span>
           </div>
           <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
             <ChevronRight className="w-3.5 h-3.5 text-white" />

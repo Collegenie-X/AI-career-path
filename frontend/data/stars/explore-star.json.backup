@@ -1,0 +1,933 @@
+{
+  "id": "explore",
+  "name": "탐구의 별",
+  "emoji": "🔬",
+  "icon": "Microscope",
+  "color": "#4A90D9",
+  "bgColor": "#1a2744",
+  "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+  "description": "진실을 밝히고 분석하는 탐구형 직업의 세계",
+  "riasecTypes": [
+    "I"
+  ],
+  "jobCount": 23,
+  "starProfile": {
+    "tagline": "왜? 라는 질문을 멈추지 않는 사람들의 별",
+    "careerKeywords": [
+      "분석",
+      "연구",
+      "전문직",
+      "과학",
+      "데이터"
+    ],
+    "sections": [
+      {
+        "id": "coreTraits",
+        "type": "traitGrid",
+        "titleKey": "star_core_traits_title",
+        "items": [
+          {
+            "icon": "🔍",
+            "label": "분석력",
+            "desc": "현상의 원인을 파고드는 깊은 탐구 능력"
+          },
+          {
+            "icon": "🧬",
+            "label": "과학적 사고",
+            "desc": "가설 → 실험 → 검증의 논리적 사고 흐름"
+          },
+          {
+            "icon": "📊",
+            "label": "데이터 해석",
+            "desc": "숫자와 결과에서 의미를 찾아내는 능력"
+          },
+          {
+            "icon": "🎯",
+            "label": "집중력",
+            "desc": "한 가지 문제에 오래 몰입할 수 있는 끈기"
+          }
+        ]
+      },
+      {
+        "id": "fitPersonality",
+        "type": "fitList",
+        "titleKey": "star_fit_title",
+        "fitItems": [
+          "왜 그럴까? 라는 질문을 자주 하는 사람",
+          "실험하고 결과를 확인하는 과정이 즐거운 사람",
+          "혼자 깊이 파고드는 것을 좋아하는 사람",
+          "과학·수학·생명 과목이 재미있는 사람",
+          "정확한 답을 찾을 때까지 포기하지 않는 사람"
+        ],
+        "notFitItems": [
+          "빠른 결과와 즉각적인 성과를 원하는 사람",
+          "사람들과 어울리는 것이 더 중요한 사람"
+        ]
+      },
+      {
+        "id": "whyThisGroup",
+        "type": "reasonWithTags",
+        "titleKey": "star_why_grouped_title",
+        "reason": "의사·AI 연구원·약사는 모두 '탐구형(I)' RIASEC 코드를 공유합니다. 세 직업 모두 ① 과학적 지식 기반, ② 분석과 검증 과정, ③ 데이터/증거 중심 의사결정이라는 공통 DNA를 가집니다. 겉으로는 달라 보여도 '문제를 정의하고 → 원인을 분석하고 → 해결책을 검증한다'는 핵심 사고 방식이 동일합니다.",
+        "commonDNA": [
+          "과학적 지식 기반",
+          "가설-검증 사고",
+          "데이터 중심 판단",
+          "전문 자격 필요",
+          "평생 학습 필수"
+        ]
+      }
+    ],
+    "meta": {
+      "difficultyLevel": 5,
+      "avgPreparationYears": 9,
+      "hollandCode": "I (탐구형)",
+      "keySubjects": [
+        "생명과학",
+        "화학",
+        "수학",
+        "물리학"
+      ]
+    }
+  },
+  "jobs": [
+    {
+      "id": "doctor-general",
+      "name": "의사 (일반·전문의)",
+      "icon": "🩺",
+      "image": "doctor-general-hero.jpg",
+      "holland": "I+S",
+      "description": "환자를 진단하고 치료하며 생명을 살리는 직업입니다. AI 시대에는 AI 1차 진단을 감독하고 복합 케이스를 최종 판단합니다.",
+      "shortDesc": "AI 진단 감독 + 복합 케이스 판단",
+      "salaryRange": "8,000~25,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "의과대학 6년 + 인턴 1년 + 레지던트 4년 + AI 의료 교육",
+      "aiTransformation": {
+        "beforeAI": "문진·진단·처방 전 과정 직접 수행",
+        "afterAI": "AI 1차 진단 감독 + 복합 케이스 최종 판단 + 환자 공감 + 다학제 협진 조율",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "IBM Watson Health",
+          "PathAI",
+          "Nuance DAX"
+        ],
+        "survivalStrategy": [
+          "복합 판단력 강화 (여러 질환 동시 발생 시 우선순위 판단)",
+          "환자 공감 및 소통 능력 (AI 진단을 환자가 이해하도록 번역)",
+          "AI 리터러시 및 감독 능력 (AI 진단 오류 발견 및 수정)",
+          "다학제 협업 조율 (여러 전문과와 협진 설계)",
+          "윤리적 판단 및 책임 (AI 권고와 환자 가치관 충돌 시 중재)"
+        ]
+      }
+    },
+    {
+      "id": "ai-medical-supervisor",
+      "name": "AI 의료 감독관",
+      "icon": "🤖",
+      "image": "ai-medical-supervisor-hero.jpg",
+      "holland": "I+C",
+      "description": "AI 의료 시스템의 오류를 탐지하고 편향을 감사하며 병원 AI 도입 전략을 설계하는 신생 직종입니다.",
+      "shortDesc": "AI 의료 시스템 품질 관리 전문가",
+      "salaryRange": "7,000~15,000만원/년",
+      "aiRisk": "낮음",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "의대 졸업 + 임상 경험 3년 → AI 의료 감독관 전환 OR 간호대 + 의료 데이터 분석 석사",
+      "aiTransformation": {
+        "beforeAI": "신생 직종 (2025년 이후 출현)",
+        "afterAI": "AI 의료 시스템 오류 탐지 + 편향 감사 + 의료 AI 정책 설계 + 병원 AI 도입 전략",
+        "replacementRisk": "low",
+        "aiTools": [
+          "자체 AI 감사 툴",
+          "Python 분석",
+          "의료 AI 모니터링 시스템"
+        ],
+        "survivalStrategy": [
+          "의학 지식 + 데이터 분석 능력 융합",
+          "AI 모델 이해 (머신러닝 기초)",
+          "의료 윤리 및 법규 지식",
+          "병원 경영 이해",
+          "의료진 교육 및 소통 능력"
+        ]
+      }
+    },
+    {
+      "id": "clinical-research-coordinator",
+      "name": "임상연구원 (CRC)",
+      "icon": "🔬",
+      "image": "clinical-research-coordinator-hero.jpg",
+      "holland": "I+C",
+      "description": "임상시험을 설계하고 관리하는 연구 전문가입니다. AI 시대에는 연구 설계와 피험자 관계가 핵심 역할입니다.",
+      "shortDesc": "연구 설계 + AI 결과 해석",
+      "salaryRange": "4,000~7,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "실험 데이터 직접 수집·분석 + 피험자 관리",
+        "afterAI": "연구 설계 + AI 결과 해석 + 연구 윤리 판단 + 피험자 공감",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "Medidata",
+          "Veeva Vault",
+          "임상시험 관리 AI"
+        ],
+        "survivalStrategy": [
+          "임상시험 프로토콜 설계 능력",
+          "피험자와의 신뢰 관계 형성",
+          "AI 수집 데이터 품질 검증",
+          "이상반응 최종 판단 능력",
+          "연구 윤리 준수 감독"
+        ]
+      }
+    },
+    {
+      "id": "pharmacist",
+      "name": "약사",
+      "icon": "💊",
+      "image": "pharmacist-hero.jpg",
+      "holland": "I+S+C",
+      "description": "약물을 조제하고 복약 지도를 하는 전문가입니다. AI 시대에는 임상약사로 전환이 필수입니다.",
+      "shortDesc": "AI 처방 검증 + 환자 복약 상담",
+      "salaryRange": "4,500~8,000만원/년",
+      "aiRisk": "높음",
+      "futureGrowth": 3,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "처방 조제 + 용량 계산 + 복약 지도",
+        "afterAI": "AI 처방 이상 탐지 감독 + 환자 복약 상담 + 약물 상호작용 최종 판단",
+        "replacementRisk": "high",
+        "aiTools": [
+          "ScriptPro",
+          "Parata",
+          "조제 로봇"
+        ],
+        "survivalStrategy": [
+          "임상약사로 전환 (병원·요양원에서 의사와 협업)",
+          "AI가 놓친 약물 상호작용 최종 검증",
+          "환자 개별 상황 고려한 복약 상담",
+          "다약제 복용 노인 환자 약물 관리",
+          "약물 전문가로서 의사에게 자문"
+        ]
+      },
+      "workProcess": {
+        "title": "약사의 조제 프로세스",
+        "description": "처방전의 적절성과 약물 상호작용을 검토한 뒤 정확히 조제합니다. 환자에게 복용 방법과 주의사항을 안내하고, 재고 관리와 일반의약품 상담을 담당합니다.",
+        "phases": [
+          {
+            "id": 1,
+            "phase": "처방 검토",
+            "icon": "📋",
+            "title": "처방전 분석",
+            "description": "의사 처방전의 적절성을 검토하고 약물 상호작용을 확인합니다",
+            "duration": "5~10분",
+            "tools": [
+              "처방전",
+              "약물 DB",
+              "상호작용 검색 시스템"
+            ],
+            "skills": [
+              "약물 지식",
+              "분석력",
+              "주의력"
+            ],
+            "example": "처방전을 받으면 약물 용량이 적절한지, 함께 먹으면 안 되는 약은 없는지 확인합니다"
+          },
+          {
+            "id": 2,
+            "phase": "조제",
+            "icon": "💊",
+            "title": "약물 조제 및 포장",
+            "description": "정확한 용량으로 약물을 조제하고 포장합니다",
+            "duration": "10~15분",
+            "tools": [
+              "조제 장비",
+              "자동 포장기",
+              "계량 도구"
+            ],
+            "skills": [
+              "정확성",
+              "꼼꼼함",
+              "기술력"
+            ],
+            "example": "약을 정확히 세고, 1일 3회 복용이면 3일치를 9봉지로 나눠 포장합니다"
+          },
+          {
+            "id": 3,
+            "phase": "복약 지도",
+            "icon": "💬",
+            "title": "환자 상담",
+            "description": "약물 복용 방법, 주의사항, 부작용을 설명합니다",
+            "duration": "5~10분",
+            "tools": [
+              "복약 지도서",
+              "환자 기록"
+            ],
+            "skills": [
+              "소통 능력",
+              "공감 능력",
+              "설명력"
+            ],
+            "example": "'이 약은 식후 30분에 드세요. 졸릴 수 있으니 운전 조심하세요' 같은 안내를 합니다"
+          },
+          {
+            "id": 4,
+            "phase": "재고 관리",
+            "icon": "📦",
+            "title": "의약품 발주 및 관리",
+            "description": "약품 재고를 확인하고 유통기한을 관리합니다",
+            "duration": "지속적",
+            "tools": [
+              "재고 관리 시스템",
+              "발주 시스템"
+            ],
+            "skills": [
+              "관리 능력",
+              "계획성"
+            ],
+            "example": "자주 나가는 약은 미리 발주하고, 유통기한 임박 약은 먼저 사용합니다"
+          },
+          {
+            "id": 5,
+            "phase": "전문 상담",
+            "icon": "🩺",
+            "title": "건강 상담 및 OTC 추천",
+            "description": "일반의약품을 추천하고 건강 관리 조언을 합니다",
+            "duration": "10~20분",
+            "tools": [
+              "건강 정보 DB",
+              "상담 가이드"
+            ],
+            "skills": [
+              "전문 지식",
+              "판단력",
+              "서비스 마인드"
+            ],
+            "example": "'감기 증상이면 이 약을 드세요. 3일 먹어도 안 나으면 병원 가세요' 같은 조언"
+          }
+        ]
+      },
+      "admissionStrategy": {
+        "title": "약학대 학종 합격 전략",
+        "factors": [
+          {
+            "name": "내신",
+            "importance": 5,
+            "detail": "화학·생명과학·수학 1등급, 전체 1~2등급",
+            "tip": "약대는 정시 비중이 높아 내신+수능 모두 중요"
+          },
+          {
+            "name": "세특",
+            "importance": 5,
+            "detail": "화학·생명과학 교과에서 약학 관련 탐구 기록",
+            "tip": "약물, 신약, 제약 관련 일관된 관심"
+          },
+          {
+            "name": "탐구 일관성",
+            "importance": 5,
+            "detail": "화학·약물·건강 일관된 관심 스토리",
+            "tip": "초등부터 약사의 꿈을 키워온 과정"
+          },
+          {
+            "name": "수능",
+            "importance": 5,
+            "detail": "약대 정시 비중 60%+, 수능 최저 필수",
+            "tip": "학종도 수능 최저가 있어 수능 공부 필수"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nurse",
+      "name": "간호사",
+      "icon": "👩‍⚕️",
+      "image": "nurse-hero.jpg",
+      "holland": "S",
+      "description": "환자를 직접 돌보고 건강을 관리하는 의료 전문가입니다. AI 시대에는 케어 중심 전문가로 진화합니다.",
+      "shortDesc": "AI 모니터링 감독 + 환자 감정 돌봄",
+      "salaryRange": "4,000~7,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "활력징후 측정·기록 + 투약 + 환자 케어",
+        "afterAI": "AI 모니터링 감독 + 환자 감정 돌봄 + 이상 징후 최종 판단 + 가족 소통",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "Epic Systems",
+          "웨어러블 AI",
+          "환자 모니터링 시스템"
+        ],
+        "survivalStrategy": [
+          "환자 감정 돌봄 및 불안 해소",
+          "AI 알림 이상 징후 최종 확인",
+          "환자 가족과의 깊은 소통",
+          "돌봄 계획 개인화 (환자 선호·문화 고려)",
+          "응급 상황 최초 대응 및 판단"
+        ]
+      }
+    },
+    {
+      "id": "radiologist",
+      "name": "영상의학과 전문의",
+      "icon": "📷",
+      "image": "radiologist-hero.jpg",
+      "holland": "I+C",
+      "description": "X-ray, CT, MRI 등 의료 영상을 판독하는 전문의입니다. AI 판독 정확도가 인간 수준에 도달하여 고위험 직종입니다.",
+      "shortDesc": "AI 판독 검증 + 경계 케이스 전문가",
+      "salaryRange": "8,000~20,000만원/년",
+      "aiRisk": "높음",
+      "futureGrowth": 3,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "X-ray, CT, MRI 판독 전체",
+        "afterAI": "AI 1차 판독 검증 + 경계 케이스 최종 판단 + 임상의와 소통",
+        "replacementRisk": "high",
+        "aiTools": [
+          "Zebra Medical",
+          "Aidoc",
+          "Lunit INSIGHT"
+        ],
+        "survivalStrategy": [
+          "경계 케이스 전문가로 포지셔닝 (AI가 불확실 판정한 케이스)",
+          "협진 중심 역할 전환 (임상의와 직접 소통)",
+          "AI 판독 감독자 (오류 모니터링 및 품질 관리)",
+          "희귀 질환 전문성 강화",
+          "영상 소견의 임상적 의미 해석"
+        ]
+      }
+    },
+    {
+      "id": "pathologist",
+      "name": "병리학 전문의",
+      "icon": "🔍",
+      "image": "pathologist-hero.jpg",
+      "holland": "I+C",
+      "description": "조직 슬라이드를 분석하여 질병을 진단하는 전문의입니다. AI 병리 분석 도입으로 역할 변화 중입니다.",
+      "shortDesc": "AI 병리 분석 감독 + 희귀 케이스 판단",
+      "salaryRange": "8,000~18,000만원/년",
+      "aiRisk": "높음",
+      "futureGrowth": 3,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "조직 슬라이드 현미경 판독",
+        "afterAI": "AI 병리 분석 감독 + 희귀 케이스 판단 + 임상 맥락 통합 해석",
+        "replacementRisk": "high",
+        "aiTools": [
+          "PathAI",
+          "Paige.AI",
+          "병리 진단 AI"
+        ],
+        "survivalStrategy": [
+          "AI 1차 분석 검증 (특히 경계성 병변)",
+          "희귀 질환 최종 판단 전문성",
+          "임상 정보 통합 해석 (환자 증상 + 영상 + 병리)",
+          "병리 AI 시스템 품질 관리",
+          "병리 소견의 임상적 의미 설명"
+        ]
+      }
+    },
+    {
+      "id": "psychiatrist",
+      "name": "정신건강의학과 의사",
+      "icon": "🧠",
+      "image": "psychiatrist-hero.jpg",
+      "holland": "I+S",
+      "description": "정신 질환을 진단하고 치료하는 전문의입니다. AI 대체 불가 영역으로 치료적 관계가 핵심입니다.",
+      "shortDesc": "AI 심리검사 해석 + 치료 관계 형성",
+      "salaryRange": "7,000~18,000만원/년",
+      "aiRisk": "낮음",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "상담·진단·처방 전체",
+        "afterAI": "AI 심리검사 해석 + 복합 정신 질환 판단 + 치료 관계 형성",
+        "replacementRisk": "low",
+        "aiTools": [
+          "Woebot",
+          "Wysa (보조용)",
+          "심리검사 AI"
+        ],
+        "survivalStrategy": [
+          "치료적 관계 형성 (AI는 진짜 공감 불가)",
+          "복합 정신 질환 감별 진단",
+          "AI 심리검사 결과의 임상적 해석",
+          "환자 삶의 맥락 이해",
+          "치료 방향 윤리적 결정"
+        ]
+      }
+    },
+    {
+      "id": "biotech-researcher",
+      "name": "생명공학연구원",
+      "icon": "🧬",
+      "image": "biotech-researcher-hero.jpg",
+      "holland": "I",
+      "description": "생명 현상을 연구하고 신기술을 개발하는 연구원입니다. AI 시대에는 실험 설계자로 진화합니다.",
+      "shortDesc": "실험 설계 + AI 데이터 해석",
+      "salaryRange": "4,000~8,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "실험 반복 수행 + 데이터 기록 + 결과 분석",
+        "afterAI": "실험 설계 + AI 데이터 해석 + 가설 수립 + 연구 방향 설정",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "BenchSci",
+          "Synthace",
+          "실험 자동화 로봇"
+        ],
+        "survivalStrategy": [
+          "연구 질문 정의 능력 ('무엇을 밝혀낼 것인가')",
+          "실험 설계 전략 수립",
+          "AI 분석 결과의 생물학적 의미 해석",
+          "연구 방향 피벗 결정",
+          "연구 윤리 준수"
+        ]
+      }
+    },
+    {
+      "id": "drug-development-researcher",
+      "name": "신약개발연구원",
+      "icon": "💉",
+      "image": "drug-development-researcher-hero.jpg",
+      "holland": "I",
+      "description": "신약을 개발하고 임상시험을 진행하는 연구원입니다. AlphaFold 시대의 전략가로 진화합니다.",
+      "shortDesc": "AlphaFold 결과 검증 + 신약 방향성 설계",
+      "salaryRange": "5,000~12,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "화합물 합성 + 임상 데이터 분석 + 문헌 검색",
+        "afterAI": "AlphaFold 결과 검증 + 신약 방향성 설계 + 임상 전략 수립",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "AlphaFold",
+          "Atomwise",
+          "Insilico Medicine"
+        ],
+        "survivalStrategy": [
+          "타겟 단백질 선정 전략 (질병 메커니즘 이해)",
+          "AlphaFold 예측의 생물학적 타당성 검증",
+          "신약 후보의 임상 가능성 판단",
+          "신약 개발 전략 수립 (Fast-track vs 정규)",
+          "임상시험 설계 및 관리"
+        ]
+      }
+    },
+    {
+      "id": "geneticist",
+      "name": "유전학자",
+      "icon": "🧬",
+      "image": "geneticist-hero.jpg",
+      "holland": "I",
+      "description": "유전자를 연구하고 유전 질환을 진단하는 전문가입니다. 유전 상담 및 윤리 전문가로 진화합니다.",
+      "shortDesc": "AI 유전체 분석 감독 + 유전 상담",
+      "salaryRange": "5,000~10,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "DNA 시퀀싱 + 데이터 분석 + 논문 작성",
+        "afterAI": "AI 유전체 분석 감독 + 유전 상담 + 윤리적 판단 + 개인화 의료 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "DeepVariant",
+          "GATK",
+          "유전체 분석 AI"
+        ],
+        "survivalStrategy": [
+          "유전 검사 결과를 환자·가족에게 설명",
+          "윤리적 판단 (유전자 편집, 착상 전 진단)",
+          "개인화 의료 전략 설계",
+          "유전 정보 프라이버시 보호 감독",
+          "AI 유전체 분석 결과 임상 해석"
+        ]
+      }
+    },
+    {
+      "id": "medical-data-scientist",
+      "name": "의료데이터사이언티스트",
+      "icon": "📊",
+      "image": "medical-data-scientist-hero.jpg",
+      "holland": "I+C",
+      "description": "임상 데이터를 분석하고 AI 모델을 의료 현장에 적용하는 신생 직종입니다. 의학과 AI의 브릿지 역할입니다.",
+      "shortDesc": "임상 데이터 해석 + AI 모델 의료 번역",
+      "salaryRange": "6,000~12,000만원/년",
+      "aiRisk": "낮음",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "신생 직종 (2023년 이후 출현)",
+        "afterAI": "임상 데이터 의미 해석 + AI 모델 의료 번역 + 병원 데이터 전략",
+        "replacementRisk": "low",
+        "aiTools": [
+          "TensorFlow",
+          "PyTorch",
+          "FHIR",
+          "의료 데이터 플랫폼"
+        ],
+        "survivalStrategy": [
+          "임상 질문을 데이터 분석 문제로 번역",
+          "AI 모델 결과를 의료진이 이해하도록 설명",
+          "병원 데이터 전략 수립",
+          "의료 AI 모델 개발 및 검증",
+          "의료진과 AI 엔지니어 간 소통 중재"
+        ]
+      }
+    },
+    {
+      "id": "bioinformatics-specialist",
+      "name": "바이오인포매틱스 전문가",
+      "icon": "🖥️",
+      "image": "bioinformatics-specialist-hero.jpg",
+      "holland": "I",
+      "description": "생물 정보를 컴퓨터로 분석하는 전문가입니다. 생물학적 의미 해석자로 진화합니다.",
+      "shortDesc": "AI 생물정보 분석 설계 + 생물학적 해석",
+      "salaryRange": "4,500~9,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "생물 정보 데이터베이스 구축·분석",
+        "afterAI": "AI 생물정보 분석 설계 + 결과 생물학적 해석 + 연구 방향 제시",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "Bioconductor",
+          "Galaxy",
+          "생물정보 분석 AI"
+        ],
+        "survivalStrategy": [
+          "AI 분석 결과의 생물학적 의미 해석",
+          "연구 방향 제시 (이 결과가 다음 연구로)",
+          "생물학적 타당성 판단",
+          "다학제 협업 (생물학자·의사·개발자)",
+          "생물정보 분석 파이프라인 설계"
+        ]
+      }
+    },
+    {
+      "id": "clinical-pathologist",
+      "name": "임상병리사",
+      "icon": "🔬",
+      "image": "clinical-pathologist-hero.jpg",
+      "holland": "I+C",
+      "description": "혈액·조직 검사를 수행하고 결과를 판독하는 전문가입니다. 검사 실행에서 검증 감독으로 전환됩니다.",
+      "shortDesc": "AI 검사 결과 검증 + 정도 관리",
+      "salaryRange": "3,500~6,000만원/년",
+      "aiRisk": "높음",
+      "futureGrowth": 3,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "혈액·조직 검사 수행 + 결과 판독",
+        "afterAI": "AI 검사 결과 검증 + 이상값 최종 판단 + 정도 관리 감독",
+        "replacementRisk": "high",
+        "aiTools": [
+          "자동화 검사 장비 AI",
+          "검사 결과 분석 AI"
+        ],
+        "survivalStrategy": [
+          "AI 검사 결과 이상값 최종 확인",
+          "검사 장비 정도 관리 (AI 오류 감지)",
+          "희귀 케이스 수동 검사",
+          "검사 품질 관리 감독",
+          "검사 결과의 임상적 의미 설명"
+        ]
+      }
+    },
+    {
+      "id": "public-health-specialist",
+      "name": "공중보건학자",
+      "icon": "🏥",
+      "image": "public-health-specialist-hero.jpg",
+      "holland": "I+S",
+      "description": "지역사회 건강을 연구하고 보건 정책을 설계하는 전문가입니다. 정책 설계 및 지역사회 설득자로 진화합니다.",
+      "shortDesc": "AI 역학 모델 해석 + 보건 정책 설계",
+      "salaryRange": "4,000~8,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "역학 데이터 수집·분석 + 보고서 작성",
+        "afterAI": "AI 역학 모델 해석 + 보건 정책 설계 + 지역사회 설득",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "EpiModel",
+          "예측 모델 AI",
+          "보건 데이터 플랫폼"
+        ],
+        "survivalStrategy": [
+          "AI 예측 모델 해석 및 정책 번역",
+          "지역사회 설득 (주민이 이해하도록 설명)",
+          "보건 정책의 사회적·윤리적 영향 판단",
+          "이해관계자 조율 (정부·의료기관·주민)",
+          "감염병 대응 전략 수립"
+        ]
+      }
+    },
+    {
+      "id": "biomedical-engineer",
+      "name": "의생명공학자",
+      "icon": "⚙️",
+      "image": "biomedical-engineer-hero.jpg",
+      "holland": "R+I",
+      "description": "의료기기를 설계하고 개발하는 공학자입니다. AI 시뮬레이션 감독 및 안전성 판단자로 진화합니다.",
+      "shortDesc": "AI 시뮬레이션 감독 + 인체 안전성 판단",
+      "salaryRange": "4,500~9,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "의료기기 설계 + 프로토타입 제작 + 테스트",
+        "afterAI": "AI 시뮬레이션 감독 + 인체 적용 안전성 판단 + 사용자 경험 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "COMSOL",
+          "ANSYS AI",
+          "의료기기 시뮬레이션"
+        ],
+        "survivalStrategy": [
+          "AI 시뮬레이션 결과 검증",
+          "인체 적용 안전성 최종 판단",
+          "사용자 (의료진·환자) 경험 설계",
+          "의료기기 규제 대응",
+          "융합 전문성 (의학 + 공학)"
+        ]
+      }
+    },
+    {
+      "id": "veterinarian",
+      "name": "수의사",
+      "icon": "🐕",
+      "image": "veterinarian-hero.jpg",
+      "holland": "I+S",
+      "description": "동물을 진료하고 치료하는 전문가입니다. AI 영상 판독 감독 및 보호자 상담 중심으로 전환됩니다.",
+      "shortDesc": "AI 영상 판독 감독 + 보호자 상담",
+      "salaryRange": "4,000~12,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "진료·수술 전 과정 직접 수행",
+        "afterAI": "AI 영상 판독 감독 + 보호자 상담 + 복합 케이스 판단 + 동물 행동 해석",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "VetCT AI",
+          "수의 진단 AI",
+          "동물 행동 분석 AI"
+        ],
+        "survivalStrategy": [
+          "AI 진단 결과 검증",
+          "보호자와의 신뢰 관계 형성",
+          "복합 질환 최종 판단",
+          "동물 행동 및 스트레스 해석",
+          "동물 복지 윤리 판단"
+        ]
+      }
+    },
+    {
+      "id": "wildlife-biologist",
+      "name": "야생동물학자",
+      "icon": "🦁",
+      "image": "wildlife-biologist-hero.jpg",
+      "holland": "R+I",
+      "description": "야생동물을 연구하고 보전 전략을 설계하는 전문가입니다. AI 카메라 트랩 데이터 해석자로 진화합니다.",
+      "shortDesc": "AI 카메라 트랩 해석 + 보전 전략 설계",
+      "salaryRange": "3,500~6,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "현장 관찰 + 데이터 수집 + 개체 추적",
+        "afterAI": "AI 카메라 트랩 데이터 해석 + 생태계 맥락 판단 + 보전 전략 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "Wildlife Insights",
+          "iNaturalist",
+          "AI 개체 인식"
+        ],
+        "survivalStrategy": [
+          "AI 데이터의 생태학적 맥락 해석",
+          "서식지 보전 우선순위 판단",
+          "지역 주민과 야생동물 공존 전략",
+          "보전 정책 제안 및 설득",
+          "현장 전문성 유지"
+        ]
+      }
+    },
+    {
+      "id": "marine-biologist",
+      "name": "해양생물학자",
+      "icon": "🐋",
+      "image": "marine-biologist-hero.jpg",
+      "holland": "R+I",
+      "description": "해양 생물과 생태계를 연구하는 전문가입니다. AI 수중 드론 데이터 해석자로 진화합니다.",
+      "shortDesc": "AI 수중 드론 해석 + 해양 생태 판단",
+      "salaryRange": "3,500~6,500만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "해양 생물 채집·분류 + 생태 조사",
+        "afterAI": "AI 수중 드론 데이터 해석 + 해양 생태계 건강도 판단 + 보전 정책 제안",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "NOAA AI",
+          "해양 모니터링 AI",
+          "수중 드론 AI"
+        ],
+        "survivalStrategy": [
+          "AI 데이터의 해양 생태학적 의미 해석",
+          "해양 생태계 건강도 종합 판단",
+          "해양 보전 정책 제안",
+          "어업·관광과 보전의 균형 설계",
+          "해양 현장 전문성"
+        ]
+      }
+    },
+    {
+      "id": "animal-behaviorist",
+      "name": "동물행동학자",
+      "icon": "🐾",
+      "image": "animal-behaviorist-hero.jpg",
+      "holland": "I",
+      "description": "동물 행동을 연구하고 동물 복지를 개선하는 전문가입니다. AI 행동 분석 감독 및 맥락 해석자로 진화합니다.",
+      "shortDesc": "AI 행동 패턴 분석 감독 + 맥락 해석",
+      "salaryRange": "3,500~7,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "동물 행동 관찰·기록 + 패턴 분석",
+        "afterAI": "AI 행동 패턴 분석 감독 + 맥락적 해석 + 동물 복지 판단",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "DeepLabCut",
+          "BORIS",
+          "동물 행동 AI"
+        ],
+        "survivalStrategy": [
+          "AI 행동 데이터의 맥락적 해석",
+          "동물 복지 판단 (스트레스·행복도)",
+          "행동 문제 원인 분석 및 해결책",
+          "동물 훈련 전략 설계",
+          "동물 복지 정책 제안"
+        ]
+      }
+    },
+    {
+      "id": "ecologist",
+      "name": "환경생태학자",
+      "icon": "🌿",
+      "image": "ecologist-hero.jpg",
+      "holland": "I",
+      "description": "생태계를 연구하고 환경을 보전하는 전문가입니다. AI 생물 다양성 분석 해석자로 진화합니다.",
+      "shortDesc": "AI 생물 다양성 해석 + 생태계 진단",
+      "salaryRange": "3,500~7,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "생태계 조사 + 종 다양성 측정",
+        "afterAI": "AI 생물 다양성 분석 해석 + 생태계 건강 진단 + 복원 전략 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "eBird",
+          "iNaturalist",
+          "GBIF",
+          "생태 분석 AI"
+        ],
+        "survivalStrategy": [
+          "AI 분석의 생태학적 의미 해석",
+          "생태계 건강도 종합 판단",
+          "생태 복원 전략 설계",
+          "지역사회 참여 프로그램 설계",
+          "생태 보전 정책 제안"
+        ]
+      }
+    },
+    {
+      "id": "aquarium-curator",
+      "name": "수족관 큐레이터",
+      "icon": "🐠",
+      "image": "aquarium-curator-hero.jpg",
+      "holland": "I",
+      "description": "수족관 생물을 관리하고 교육 프로그램을 설계하는 전문가입니다. AI 모니터링 감독 및 교육 설계자로 진화합니다.",
+      "shortDesc": "AI 수질·생물 모니터링 감독 + 전시 스토리텔링",
+      "salaryRange": "3,000~5,500만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 3,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "수조 관리 + 생물 건강 모니터링 + 교육 프로그램",
+        "afterAI": "AI 수질·생물 모니터링 감독 + 전시 스토리텔링 + 방문객 교육 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "IoT 센서 AI",
+          "수질 모니터링 시스템"
+        ],
+        "survivalStrategy": [
+          "AI 모니터링 데이터 해석",
+          "전시 스토리텔링 설계",
+          "방문객 교육 프로그램 기획",
+          "생물 복지 판단",
+          "전시 경험 설계"
+        ]
+      }
+    },
+    {
+      "id": "zoo-veterinarian",
+      "name": "동물원 수의사",
+      "icon": "🦒",
+      "image": "zoo-veterinarian-hero.jpg",
+      "holland": "I+S",
+      "description": "야생동물을 진료하고 동물원 동물 복지를 관리하는 수의사입니다. AI 건강 모니터링 감독 및 복지 윤리 전문가로 진화합니다.",
+      "shortDesc": "AI 건강 모니터링 감독 + 동물 복지 윤리",
+      "salaryRange": "4,500~9,000만원/년",
+      "aiRisk": "중간",
+      "futureGrowth": 4,
+      "admissionPath": "학종+정시",
+      "entryProcess": "관련 전공 4년",
+      "aiTransformation": {
+        "beforeAI": "야생동물 진료 + 건강 관리 + 번식 관리",
+        "afterAI": "AI 건강 모니터링 감독 + 희귀종 복합 판단 + 동물 복지 윤리 설계",
+        "replacementRisk": "medium",
+        "aiTools": [
+          "야생동물 진단 AI",
+          "건강 모니터링 IoT"
+        ],
+        "survivalStrategy": [
+          "희귀종 복합 질환 판단",
+          "동물 복지 윤리 설계",
+          "AI 건강 데이터 해석",
+          "번식 프로그램 관리",
+          "동물원 교육 프로그램 협력"
+        ]
+      }
+    }
+  ]
+}

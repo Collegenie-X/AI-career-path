@@ -42,6 +42,85 @@
       { "type": "안정", "university": "서강대 학생부교과", "admission": "학생부교과", "note": "소규모 면접" }
     ]
   },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 일반고(학군지)생이 반드시 알아야 할 것",
+    "summary": "AI가 학습을 최적화하는 시대, 메타인지와 전략적 학습으로 차별화하세요",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "문제 풀이 자동화",
+          "개념 설명",
+          "학습 계획 제안",
+          "오답 분석"
+        ],
+        "humanMustDo": [
+          "내신 관리 전략 (어느 과목에 집중할지)",
+          "세특 활동 선정 (무엇이 의미 있는 탐구인가)",
+          "수능 vs 내신 균형 조절",
+          "면접 논리 구성",
+          "자기 관리 및 번아웃 예방"
+        ]
+      },
+      {
+        "title": "AI 학습 도구 활용 로드맵",
+        "roadmap": [
+          {
+            "stage": "중학교",
+            "focus": "AI로 학습 효율 극대화",
+            "tools": [
+              "ChatGPT: 개념 학습",
+              "Khan Academy: 수학 선행",
+              "Quizlet: AI 암기",
+              "Notion AI: 학습 계획"
+            ],
+            "projects": [
+              "과목별 오답 노트",
+              "AI 기반 학습 계획"
+            ],
+            "warning": "⚠️ AI에게 답만 묻지 말고, 개념 이해에 활용하세요"
+          },
+          {
+            "stage": "고등학교",
+            "focus": "AI로 내신+수능 동시 관리",
+            "tools": [
+              "AI 오답 분석",
+              "세특 주제 아이디어",
+              "수능 모의고사 분석"
+            ],
+            "projects": [
+              "세특 탐구 활동",
+              "수능 약점 집중 보완"
+            ],
+            "keyPoint": "💡 AI는 효율성 도구, 전략은 본인이 수립하세요"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "📚",
+        "category": "학습",
+        "tip": "AI로 약점 분석 → 집중 학습",
+        "detail": "AI에게 오답 패턴을 분석하게 하고, 약점 과목을 집중 보완하세요."
+      },
+      {
+        "emoji": "✍️",
+        "category": "세특",
+        "tip": "AI로 주제 탐색 → 탐구는 본인",
+        "detail": "AI에게 탐구 주제 아이디어를 받되, 실제 탐구는 본인이 설계하세요."
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, 일반고 출신의 미래는?",
+      "reality": "AI가 학습을 보조하면서 자기주도 학습과 전략적 사고가 더욱 중요해졌습니다.",
+      "newCareers": [
+        "AI 기반 학습 설계자",
+        "교육 전략가",
+        "자기주도 학습 코치"
+      ]
+    }
+  },
   "schools": [
     {
       "id": "daechi_high",
@@ -277,6 +356,366 @@
       "admissionTip": "중계동 학군은 강남 대비 비용이 저렴하면서도 수능 준비 환경이 우수합니다. 자기만의 공부 루틴을 만들고 번아웃을 예방하세요.",
       "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
       "alumniCareers": ["의사 (연봉 1억~2억+)", "법조인", "대기업", "교사"]
+    },
+    {
+      "id": "mokdong_general",
+      "name": "목동 일반고 (목동고 등)",
+      "shortName": "목동 일반고",
+      "location": "서울특별시 양천구 목동",
+      "type": "일반고 (학군지)",
+      "emoji": "🏘️",
+      "color": "#38bdf8",
+      "difficulty": 4,
+      "annualAdmission": 300,
+      "tuition": "공립 수준 (매우 저렴)",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "목동 학군지 — 서울 서부권 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "목동 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "목동 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["목동 학원가 연계", "공립 비용", "SKY 진학률 높음"],
+      "cons": ["학원 경쟁 치열"],
+      "admissionTip": "목동 학군은 서울 서부권 명문 학군입니다. 학원을 적극 활용하세요.",
+      "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "교사"]
+    },
+    {
+      "id": "bundang_general",
+      "name": "분당 일반고 (분당고 등)",
+      "shortName": "분당 일반고",
+      "location": "경기도 성남시 분당구",
+      "type": "일반고 (학군지)",
+      "emoji": "🏙️",
+      "color": "#38bdf8",
+      "difficulty": 4,
+      "annualAdmission": 300,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "분당 학군지 — 경기 남부권 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "분당 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "분당 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["분당 학원가 연계", "공립 비용", "SKY 진학률 높음"],
+      "cons": ["학원 경쟁 치열"],
+      "admissionTip": "분당 학군은 경기 남부권 명문 학군입니다.",
+      "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "교사"]
+    },
+    {
+      "id": "pyeongchon_general",
+      "name": "평촌 일반고 (평촌고 등)",
+      "shortName": "평촌 일반고",
+      "location": "경기도 안양시 동안구 평촌",
+      "type": "일반고 (학군지)",
+      "emoji": "🏘️",
+      "color": "#38bdf8",
+      "difficulty": 4,
+      "annualAdmission": 300,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "평촌 학군지 — 경기 남부권 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "평촌 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "평촌 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["평촌 학원가 연계", "공립 비용", "SKY 진학률 높음"],
+      "cons": ["학원 경쟁 치열"],
+      "admissionTip": "평촌 학군은 경기 남부권 명문 학군입니다.",
+      "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "교사"]
+    },
+    {
+      "id": "ilsan_general",
+      "name": "일산 일반고 (일산고 등)",
+      "shortName": "일산 일반고",
+      "location": "경기도 고양시 일산",
+      "type": "일반고 (학군지)",
+      "emoji": "🏙️",
+      "color": "#38bdf8",
+      "difficulty": 4,
+      "annualAdmission": 300,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "일산 학군지 — 경기 북부권 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "일산 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "일산 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["일산 학원가 연계", "공립 비용", "SKY 진학률 높음"],
+      "cons": ["학원 경쟁 치열"],
+      "admissionTip": "일산 학군은 경기 북부권 명문 학군입니다.",
+      "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "교사"]
+    },
+    {
+      "id": "busan_haeundae_general",
+      "name": "부산 해운대 일반고",
+      "shortName": "해운대 일반고",
+      "location": "부산광역시 해운대구",
+      "type": "일반고 (학군지)",
+      "emoji": "🌊",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 300,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "부산 해운대 학군지 — 부산 최고 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "해운대 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "부산 해운대 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["해운대 학원가 연계", "공립 비용", "부산대 진학 유리"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "부산 해운대 학군은 부산 최고 학군입니다.",
+      "targetUniversities": ["부산대", "경상대", "서울대", "연세대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "공무원"]
+    },
+    {
+      "id": "daegu_suseong_general",
+      "name": "대구 수성구 일반고",
+      "shortName": "수성구 일반고",
+      "location": "대구광역시 수성구",
+      "type": "일반고 (학군지)",
+      "emoji": "🏙️",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 300,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "대구 수성구 학군지 — 대구 최고 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "수성구 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "대구 수성구 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["수성구 학원가 연계", "공립 비용", "경북대 진학 유리"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "대구 수성구 학군은 대구 최고 학군입니다.",
+      "targetUniversities": ["경북대", "대구대", "서울대", "연세대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "공무원"]
+    },
+    {
+      "id": "gwangju_donggu_general",
+      "name": "광주 동구 일반고",
+      "shortName": "광주 동구 일반고",
+      "location": "광주광역시 동구",
+      "type": "일반고 (학군지)",
+      "emoji": "🌆",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 280,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "광주 동구 학군지 — 광주 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "광주 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "광주 동구 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["광주 학원가 연계", "공립 비용", "전남대 진학 유리"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "광주 동구 학군은 광주 명문 학군입니다.",
+      "targetUniversities": ["전남대", "조선대", "서울대", "연세대"],
+      "alumniCareers": ["의사", "법조인", "공무원", "교사"]
+    },
+    {
+      "id": "daejeon_seogu_general",
+      "name": "대전 서구 일반고",
+      "shortName": "대전 서구 일반고",
+      "location": "대전광역시 서구",
+      "type": "일반고 (학군지)",
+      "emoji": "🏙️",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 280,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "대전 서구 학군지 — 대전 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "대전 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "KAIST 연계"
+      ],
+      "studentLevel": "대전 서구 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["대전 학원가 연계", "KAIST 연계", "공립 비용"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "대전 서구 학군은 대전 명문 학군입니다.",
+      "targetUniversities": ["충남대", "KAIST", "서울대", "연세대"],
+      "alumniCareers": ["이공계 연구원", "의사", "공무원", "교사"]
+    },
+    {
+      "id": "ulsan_namgu_general",
+      "name": "울산 남구 일반고",
+      "shortName": "울산 남구 일반고",
+      "location": "울산광역시 남구",
+      "type": "일반고 (학군지)",
+      "emoji": "🏭",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 280,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "울산 남구 학군지 — 울산 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "울산 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "현대 계열사 연계"
+      ],
+      "studentLevel": "울산 남구 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["울산 학원가 연계", "현대 계열사 연계", "공립 비용"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "울산 남구 학군은 울산 명문 학군입니다.",
+      "targetUniversities": ["울산대", "UNIST", "서울대", "연세대"],
+      "alumniCareers": ["현대 계열사", "이공계 직종", "공무원", "교사"]
+    },
+    {
+      "id": "incheon_yeonsu_general",
+      "name": "인천 연수구 일반고",
+      "shortName": "인천 연수구 일반고",
+      "location": "인천광역시 연수구",
+      "type": "일반고 (학군지)",
+      "emoji": "🌊",
+      "color": "#38bdf8",
+      "difficulty": 3,
+      "annualAdmission": 280,
+      "tuition": "공립 수준",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "인천 연수구 학군지 — 인천 명문 학군",
+      "teachingMethod": "내신 + 수능 병행, 학원 연계 학습",
+      "famousPrograms": [
+        "인천 학원가 연계",
+        "내신 관리 프로그램",
+        "수능 대비 프로그램",
+        "진로 탐색"
+      ],
+      "studentLevel": "인천 연수구 내신 최상위권",
+      "admissionProcess": [
+        { "step": 1, "title": "추첨 배정", "detail": "학군 내 추첨 배정", "icon": "🎲" }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 내신 A등급 유지",
+        "middle2": "내신 1등급 확보, 학원 연계",
+        "middle3": "수능 준비, 수시 전략 수립"
+      },
+      "pros": ["인천 학원가 연계", "공립 비용", "서울 접근성 좋음"],
+      "cons": ["수도권 대비 진학 지원 약함"],
+      "admissionTip": "인천 연수구 학군은 인천 명문 학군입니다.",
+      "targetUniversities": ["인하대", "서울대", "연세대", "고려대"],
+      "alumniCareers": ["의사", "법조인", "대기업", "공무원"]
     }
   ]
 }

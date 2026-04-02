@@ -16,7 +16,7 @@ from .models import (
 class TemplateItemInline(admin.TabularInline):
     model = TemplateItem
     extra = 0
-    fields = ['item_type', 'title', 'month', 'emoji', 'order_index']
+    fields = ['item_type', 'title', 'description', 'month', 'emoji', 'order_index']
     ordering = ['order_index']
 
 
@@ -54,6 +54,24 @@ class CareerPathTemplateAdmin(admin.ModelAdmin):
             'fields': ['likes', 'uses', 'is_official', 'is_active']
         }),
     ]
+
+
+@admin.register(TemplateYear)
+class TemplateYearAdmin(admin.ModelAdmin):
+    """
+    템플릿 연도별 활동 항목 CRUD (CareerPathTemplate 인라인에서 연도만 추가한 뒤,
+    여기서 세부 TemplateItem 을 편집)
+    """
+    list_display = ['get_template_title', 'year', 'order_index']
+    list_filter = ['template__category']
+    search_fields = ['template__title', 'year']
+    ordering = ['template', 'order_index']
+    inlines = [TemplateItemInline]
+
+    def get_template_title(self, obj):
+        return obj.template.title
+
+    get_template_title.short_description = 'Template'
 
 
 @admin.register(UserCareerPath)

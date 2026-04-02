@@ -15,9 +15,7 @@ type SchoolDetailPanelProps = {
   categoryColor: string;
   categoryBgColor: string;
   onClose: () => void;
-  /** 디테일 패널에서 "자세히 보기" 클릭 시 다이얼로그 열기 */
   onOpenDetailDialog?: () => void;
-  /** panel: 오른쪽 패널(닫기 버튼 숨김) / dialog: 다이얼로그(닫기 버튼 표시) */
   variant?: 'panel' | 'dialog';
 };
 

@@ -23,6 +23,8 @@ class PortfolioItemViewSet(viewsets.ModelViewSet):
     filterset_fields = ['item_type', 'is_ongoing']
     
     def get_queryset(self):
+        if getattr(self, 'swagger_fake_view', False):
+            return PortfolioItem.objects.none()
         return PortfolioItem.objects.filter(user=self.request.user)
     
     @extend_schema(tags=['Portfolio'])

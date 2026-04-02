@@ -15,6 +15,9 @@ DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('DJANGO_ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
+# REST API에서는 슬래시 없어도 301 리다이렉트 없이 바로 처리 (프론트 rewrite 호환)
+APPEND_SLASH = False
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -137,6 +140,39 @@ SPECTACULAR_SETTINGS = {
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,
     'SCHEMA_PATH_PREFIX': '/api/v1/',
+    'SERVERS': [
+        {'url': 'http://127.0.0.1:8000', 'description': '로컬 개발'},
+    ],
+    'CONTACT': {'name': 'AI Career Path'},
+    'TAGS': [
+        {'name': 'Authentication', 'description': '소셜 로그인, JWT, 프로필'},
+        {'name': 'Quiz', 'description': '적성 검사·RIASEC'},
+        {'name': 'Explore - Jobs', 'description': '직업·직무 인포그래픽'},
+        {'name': 'Explore - High Schools', 'description': '고등학교 탐색'},
+        {'name': 'Explore - Universities', 'description': '대학·전형 인포그래픽'},
+        {'name': 'Career Path', 'description': '커리어 패스 템플릿·사용자 패스·학교'},
+        {'name': 'Career Plan', 'description': '실행 계획·계획 그룹'},
+        {'name': 'Community', 'description': '그룹·공유 로드맵'},
+        {'name': 'Resources', 'description': '학습 자료'},
+        {'name': 'Projects', 'description': '프로젝트 템플릿·사용자 프로젝트'},
+        {'name': 'Portfolio', 'description': '포트폴리오 항목'},
+    ],
+    'SWAGGER_UI_SETTINGS': {
+        'deepLinking': True,
+        'persistAuthorization': True,
+        'displayOperationId': False,
+        'filter': True,
+    },
+    'APPEND_COMPONENTS': {
+        'securitySchemes': {
+            'bearerAuth': {
+                'type': 'http',
+                'scheme': 'bearer',
+                'bearerFormat': 'JWT',
+                'description': 'Authorization: Bearer <access_token>',
+            }
+        }
+    },
 }
 
 SIMPLE_JWT = {

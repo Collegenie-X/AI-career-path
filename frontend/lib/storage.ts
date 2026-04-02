@@ -136,6 +136,8 @@ const KEYS = {
   USER_PROFILE: 'dreampath_user_profile',
   RIASEC_RESULT: 'dreampath_riasec_result',
   RIASEC_HISTORY: 'dreampath_riasec_history',
+  /** 서버 `QuizResult` UUID — 리포트 복원용 */
+  LAST_QUIZ_RESULT_ID: 'dreampath_last_quiz_result_id',
   SWIPE_LOGS: 'dreampath_swipe_logs',
   SIMULATION_LOGS: 'dreampath_simulation_logs',
   XP_LOG: 'dreampath_xp_log',
@@ -247,10 +249,39 @@ export function clearRIASECResult(): void {
   if (typeof window === 'undefined') return;
   try {
     localStorage.removeItem(KEYS.RIASEC_RESULT);
+    clearLastQuizResultId();
     const portfolio = getPortfolio();
     setItem(KEYS.PORTFOLIO, { ...portfolio, riasecSummary: null });
   } catch (e) {
     console.error('clearRIASECResult error:', e);
+  }
+}
+
+export function getLastQuizResultId(): string | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = localStorage.getItem(KEYS.LAST_QUIZ_RESULT_ID);
+    return raw && raw.length > 0 ? raw : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setLastQuizResultId(id: string): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(KEYS.LAST_QUIZ_RESULT_ID, id);
+  } catch {
+    // ignore
+  }
+}
+
+export function clearLastQuizResultId(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.removeItem(KEYS.LAST_QUIZ_RESULT_ID);
+  } catch {
+    // ignore
   }
 }
 
@@ -564,6 +595,11 @@ export const storage = {
     set: setRIASECResult,
     getHistory: getRiasecHistory,
     clear: clearRIASECResult,
+  },
+  quiz: {
+    getLastResultId: getLastQuizResultId,
+    setLastResultId: setLastQuizResultId,
+    clearLastResultId: clearLastQuizResultId,
   },
   swipes: {
     getAll: getSwipeLogs,

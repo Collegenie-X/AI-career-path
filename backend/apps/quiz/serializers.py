@@ -99,6 +99,9 @@ class QuizResultSerializer(serializers.ModelSerializer):
             'riasec_scores',
             'top_type',
             'second_type',
+            'spectrum_snapshot',
+            'recommended_kingdom_snapshot',
+            'recommended_jobs_snapshot',
             'report',
             'taken_at',
         ]

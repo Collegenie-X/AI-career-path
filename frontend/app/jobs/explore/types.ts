@@ -17,18 +17,55 @@ export type StarData = {
   starProfile?: StarProfile;
 };
 
-export type DailyScheduleItem = {
-  time: string;
-  activity: string;
-  detail?: string;
+export type OrganizationLevel = {
+  level: number;
+  title: string;
   icon: string;
-  type: 'morning' | 'meeting' | 'work' | 'lunch' | 'review' | 'admin' | 'evening' | 'field';
+  yearsRange: string;
+  /** 서술형: 이 직급에서 맡는 일·책임 범위 (커리어 경로 카드와 유사한 톤) */
+  roleNarrative: string;
+  /** 서술형: 이 단계에서 요구되는 역량·습관 */
+  competencyNarrative: string;
+  /** 레거시 JSON 호환: narrative 없을 때만 칩으로 표시 */
+  roles?: string[];
+  requiredSkills?: string[];
+  avgSalary?: string;
 };
 
-export type DailySchedule = {
+export type CareerPath = {
+  path: string;
+  description: string;
+};
+
+export type OrganizationStructure = {
   title: string;
-  basis: string;
-  schedule: DailyScheduleItem[];
+  description: string;
+  levels: OrganizationLevel[];
+  promotionCriteria: string[];
+  careerPaths: CareerPath[];
+};
+
+/** JSON에 직접 넣을 때: 단계별 협업 (없으면 기본 템플릿으로 생성) */
+export type AiCollaborationPlaybookStep = {
+  stepTitle: string;
+  humanRole: string;
+  aiRole: string;
+  scenarioExample: string;
+  recommendedTools: string[];
+};
+
+export type AiTransformation = {
+  beforeAI: string;
+  afterAI: string;
+  replacementRisk: 'low' | 'medium' | 'high';
+  aiTools: string[];
+  survivalStrategy: string[];
+  /** 1~5: AI 대체 압력 (높을수록 루틴 자동화 압력). 미입력 시 replacementRisk 로 추정 */
+  replacementPressure5?: 1 | 2 | 3 | 4 | 5;
+  /** 1~5: AI 협업 설계·검증 역량 요구. 미입력 시 replacementRisk 로 추정 */
+  aiCollaborationRequired5?: 1 | 2 | 3 | 4 | 5;
+  /** 직업별 커스텀 협업 플레이북 (없으면 공통 4단계 템플릿 + job 이름·aiTools 조합) */
+  collaborationPlaybook?: AiCollaborationPlaybookStep[];
 };
 
 export type Job = {
@@ -36,6 +73,10 @@ export type Job = {
   name: string;
   icon: string;
   shortDesc: string;
+  /** 입시·입학 루트 요약 (JSON, 선택) */
+  admissionPath?: string;
+  /** 입사·전환 경로 한 줄 — careerTimeline.milestones가 비어 있을 때 타임라인 폴백에 사용 */
+  entryProcess?: string;
   description?: string;
   holland: string;
   salaryRange: string;
@@ -53,7 +94,8 @@ export type Job = {
     milestones: Milestone[];
     keySuccess: string[];
   };
-  dailySchedule?: DailySchedule;
+  organizationStructure?: OrganizationStructure;
+  aiTransformation?: AiTransformation;
 };
 
 export type WorkPhase = {
@@ -296,6 +338,52 @@ export type HighSchoolDetail = {
   selfStudyRatio?: string;
   socialLife?: string;
   mentalHealthNote?: string;
+  aiEraStrategy?: HighSchoolAiEraStrategy;
+};
+
+export type HighSchoolAiEraStrategy = {
+  title: string;
+  summary: string;
+  keyInsights?: Array<{
+    title: string;
+    aiReplaces?: string[];
+    humanMustDo?: string[];
+    roadmap?: Array<{
+      stage: string;
+      focus: string;
+      tools?: string[];
+      projects?: string[];
+      warning?: string;
+      keyPoint?: string;
+    }>;
+    strategies?: Array<{
+      strategy: string;
+      why: string;
+      how?: string[];
+      example?: string;
+    }>;
+  }>;
+  practicalTips?: Array<{
+    emoji: string;
+    category: string;
+    tip: string;
+    detail: string;
+  }>;
+  commonMistakes?: Array<{
+    mistake: string;
+    correct: string;
+  }>;
+  futureCareerInsight?: {
+    title: string;
+    reality: string;
+    newCareers?: string[];
+    preparation?: string[];
+    salaryTrend?: {
+      traditional: string;
+      aiCollaborator: string;
+      gap: string;
+    };
+  };
 };
 
 export type HighSchoolCategory = {
@@ -308,6 +396,7 @@ export type HighSchoolCategory = {
   planet: SchoolPlanetConfig;
   categoryTraits: SchoolCategoryTraits;
   schools: HighSchoolDetail[];
+  aiEraStrategy?: HighSchoolAiEraStrategy;
 };
 
 export type IdentityTip = {
