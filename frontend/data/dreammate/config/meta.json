@@ -1,0 +1,9 @@
+{
+  "appDisplayName": "DreamMate",
+  "appDisplayNameKo": "커리어 실행",
+  "apiNamespace": "career-plan",
+  "apiVersionHint": "v1",
+  "primaryEntitySingular": "roadmap",
+  "communityShareEntitySingular": "shared_dream_roadmap",
+  "notes": "백엔드 앱 레이블: career_plan. 커뮤니티 공유는 SharedDreamRoadmap (로드맵당 1행)."
+}

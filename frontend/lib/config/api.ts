@@ -38,6 +38,19 @@ export const API_PATHS = {
   careerKingdoms: '/api/v1/explore/career-kingdoms/',
   /** 직업 설명 콘텐츠 — `jobs.json` (쿼리 `kingdom_id` 선택) */
   careerJobs: '/api/v1/explore/career-jobs/',
+  /** 커리어 패스 CRUD — `apps.career_path` */
+  careerPlans: '/api/v1/career-path/career-plans/',
+  careerPathSchools: '/api/v1/career-path/schools/',
+  careerPathGroups: '/api/v1/career-path/groups/',
+  careerPathSharedPlans: '/api/v1/career-path/shared-plans/',
+  /** 인증 API — `apps.accounts` */
+  auth: {
+    emailSignup: '/api/v1/auth/email-signup/',
+    emailLogin: '/api/v1/auth/email-login/',
+    socialLogin: '/api/v1/auth/social-login/',
+    tokenRefresh: '/api/v1/auth/token/refresh/',
+    me: '/api/v1/auth/me/',
+  },
 } as const;
 
 /**

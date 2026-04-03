@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X, Globe, School, Users, Lock, Check, ChevronLeft, AlertTriangle,
 } from 'lucide-react';
@@ -75,6 +76,10 @@ export function ShareSettingsDialog({
   const [selectedChannels, setSelectedChannels] = useState<ShareChannel[]>(currentChannels);
   const [selectedGroupIds, setSelectedGroupIds] = useState<string[]>(currentGroupIds);
   const [isPrivate, setIsPrivate] = useState(currentChannels.length === 0 && isCurrentlyShared);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handlePrivateToggle = () => {
     setIsPrivate(true);
@@ -140,8 +145,11 @@ export function ShareSettingsDialog({
     scope: '공유할 채널을 선택하세요 (복수 선택 가능)',
   };
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
+  const sheet = (
+    <div
+      className="fixed inset-0 z-[1000] flex items-end justify-center pointer-events-auto"
+      data-layer="share-settings-overlay"
+    >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
         className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto animate-slide-up flex flex-col"
@@ -243,6 +251,9 @@ export function ShareSettingsDialog({
       </div>
     </div>
   );
+
+  if (!mounted || typeof document === 'undefined') return null;
+  return createPortal(sheet, document.body);
 }
 
 /* ─── Step indicator ─── */

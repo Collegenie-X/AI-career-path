@@ -50,7 +50,7 @@ const MOCK_PROFILE_BY_PROVIDER: Record<SocialProviderId, { email: string; name: 
   google: { email: 'user@gmail.com', name: 'Google 사용자' },
 };
 
-const DEFAULT_GRADE = 'high1';
+const DEFAULT_GRADE = 'high_1';
 
 function GoogleGIcon({ className }: { className?: string }) {
   return (

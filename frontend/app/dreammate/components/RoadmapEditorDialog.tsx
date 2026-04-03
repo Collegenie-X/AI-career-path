@@ -2,6 +2,25 @@
 
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react';
+import { RoadmapEditorAccordionHeaderButton } from './roadmap-editor-ui/RoadmapEditorAccordionHeaderButton';
+import { RoadmapEditorColorSwatchRow } from './roadmap-editor-ui/RoadmapEditorColorSwatchRow';
+import { RoadmapEditorDreamItemTypeToggleGrid } from './roadmap-editor-ui/RoadmapEditorDreamItemTypeToggleGrid';
+import { RoadmapEditorGradientAccordionShell } from './roadmap-editor-ui/RoadmapEditorGradientAccordionShell';
+import { RoadmapEditorLabeledFieldRow } from './roadmap-editor-ui/RoadmapEditorLabeledFieldRow';
+import { RoadmapEditorPeriodPillGroup } from './roadmap-editor-ui/RoadmapEditorPeriodPillGroup';
+import { RoadmapEditorSparkleIconButton } from './roadmap-editor-ui/RoadmapEditorSparkleIconButton';
+import {
+  RoadmapEditorSoftTextFieldMultiline,
+  RoadmapEditorSoftTextFieldSingleLine,
+} from './roadmap-editor-ui/RoadmapEditorSoftTextField';
+import {
+  roadmapEditorDialogFooterClassName,
+  roadmapEditorDialogShellClassName,
+  roadmapEditorSoftInsetPanelClassName,
+  roadmapEditorSectionLabelClassName,
+} from './roadmap-editor-ui/roadmapEditorUiTokens';
+import type { WeekGroupViewModel } from './roadmap-editor-ui/roadmapEditorWbsTypes';
+import { RoadmapEditorWbsWeeklyChecklistTree } from './roadmap-editor-ui/RoadmapEditorWbsWeeklyChecklistTree';
 import {
   DREAM_ITEM_TYPES,
   LABELS,
@@ -186,14 +205,6 @@ function parseWeekGroupKey(groupKey: string): { month: number; week: number } | 
 function getWeekGroupKeyFromTodo(todoItem: RoadmapTodoItem, fallbackMonth: number): string {
   const monthWeek = extractMonthWeek(todoItem, fallbackMonth);
   return getWeekGroupKey(monthWeek.month, monthWeek.week);
-}
-
-interface WeekGroupViewModel {
-  groupKey: string;
-  month: number;
-  week: number;
-  goal?: RoadmapTodoItem;
-  tasks: RoadmapTodoItem[];
 }
 
 function buildSortedWeekGroups(subItems: RoadmapTodoItem[], fallbackMonth: number): WeekGroupViewModel[] {
@@ -614,8 +625,8 @@ export function RoadmapEditorDialog({
     <div className="fixed inset-0 z-50 flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[645px] rounded-t-3xl overflow-hidden flex flex-col"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 72px)', marginBottom: 72 }}
+        className={roadmapEditorDialogShellClassName}
+        style={{ backgroundColor: '#12122a', maxHeight: 'calc(100vh - 72px)', marginBottom: 72 }}
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-3 flex-shrink-0">
           <h3 className="text-lg font-black text-white">{title}</h3>
@@ -629,89 +640,70 @@ export function RoadmapEditorDialog({
         </div>
 
         <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-4 space-y-5">
-          <section className="space-y-2">
-            <div className="flex items-center justify-between">
-              <label className="text-sm font-bold text-gray-400">{LABELS.roadmapEditorTitleLabel ?? '로드맵 제목'}</label>
-              <button
-                onClick={createRoadmapTitleAutoComplete}
-                title={LABELS.autoCompleteButton}
-                aria-label={LABELS.autoCompleteButton}
-                className="w-7 h-7 rounded-md flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            <input
-              value={roadmapTitle}
-              onChange={event => setRoadmapTitle(event.target.value)}
-              placeholder="예: 고입 준비 6개월 로드맵"
-              className="w-full h-12 px-4 rounded-xl text-base text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-            />
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-bold text-gray-500">로드맵 설명</span>
-              <button
-                onClick={createRoadmapDescriptionAutoComplete}
-                title={LABELS.autoCompleteButton}
-                aria-label={LABELS.autoCompleteButton}
-                className="w-7 h-7 rounded-md flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-              >
-                <Sparkles className="w-3.5 h-3.5" />
-              </button>
-            </div>
-            <textarea
-              value={description}
-              onChange={event => setDescription(event.target.value)}
-              placeholder="로드맵 설명을 입력해 주세요"
-              rows={3}
-              className="w-full px-4 py-3 rounded-xl text-sm text-white placeholder-gray-500 outline-none resize-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-            />
+          <section className="space-y-4">
+            <RoadmapEditorLabeledFieldRow
+              label={LABELS.roadmapEditorTitleLabel ?? '로드맵 제목'}
+              trailing={(
+                <RoadmapEditorSparkleIconButton
+                  title={LABELS.autoCompleteButton}
+                  ariaLabel={LABELS.autoCompleteButton}
+                  onClick={createRoadmapTitleAutoComplete}
+                />
+              )}
+            >
+              <RoadmapEditorSoftTextFieldSingleLine
+                value={roadmapTitle}
+                onChange={event => setRoadmapTitle(event.target.value)}
+                placeholder={LABELS.roadmapEditorTitlePlaceholder ?? '예: 고입 준비 6개월 로드맵'}
+                minHeightPx={48}
+              />
+            </RoadmapEditorLabeledFieldRow>
+            <RoadmapEditorLabeledFieldRow
+              label={LABELS.roadmapEditorDescriptionLabel ?? '로드맵 설명'}
+              trailing={(
+                <RoadmapEditorSparkleIconButton
+                  title={LABELS.autoCompleteButton}
+                  ariaLabel={LABELS.autoCompleteButton}
+                  onClick={createRoadmapDescriptionAutoComplete}
+                />
+              )}
+            >
+              <RoadmapEditorSoftTextFieldMultiline
+                value={description}
+                onChange={event => setDescription(event.target.value)}
+                placeholder={LABELS.roadmapEditorDescriptionPlaceholder ?? '로드맵 설명을 입력해 주세요'}
+                rows={3}
+              />
+            </RoadmapEditorLabeledFieldRow>
           </section>
 
           {/* 중간 결과물 섹션 - 아코디언 */}
-          <section
-            className="rounded-2xl overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.07) 0%, rgba(99,102,241,0.07) 100%)', border: '1px solid rgba(56,189,248,0.18)' }}
-          >
-            <button
-              type="button"
-              onClick={() => setIsMilestoneSectionOpen(prev => !prev)}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-left"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="text-base">🏁</span>
-                <div>
-                  <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
-                  <p className="text-sm text-sky-400/70 mt-0.5">
-                    {milestoneResults.length > 0
-                      ? `${milestoneResults.length}개 기록됨`
-                      : '진행 중 만든 결과물을 기록해보세요'}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {milestoneResults.length > 0 && (
-                  <span className="text-sm font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
+          <RoadmapEditorGradientAccordionShell
+            tone="sky"
+            header={(
+              <RoadmapEditorAccordionHeaderButton
+                isOpen={isMilestoneSectionOpen}
+                onToggle={() => setIsMilestoneSectionOpen(prev => !prev)}
+                icon="🏁"
+                title={LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}
+                subtitle={milestoneResults.length > 0
+                  ? `${milestoneResults.length}개 기록됨`
+                  : '진행 중 만든 결과물을 기록해보세요'}
+                titleClassName="text-sky-200"
+                subtitleClassName="text-sky-400/75"
+                chevronClassName="text-sky-400"
+                trailing={milestoneResults.length > 0 ? (
+                  <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-200">
                     {milestoneResults.length}
                   </span>
-                )}
-                {isMilestoneSectionOpen ? (
-                  <ChevronUp className="w-4 h-4 text-sky-400" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-sky-400" />
-                )}
-              </div>
-            </button>
-
-            {isMilestoneSectionOpen && (
+                ) : undefined}
+              />
+            )}
+            body={isMilestoneSectionOpen ? (
               <div className="px-3 pb-3 space-y-2">
                 {milestoneResults.length === 0 ? (
                   <div
-                    className="rounded-xl p-4 text-center space-y-2"
-                    style={{ border: '1px dashed rgba(56,189,248,0.2)' }}
+                    className={`${roadmapEditorSoftInsetPanelClassName} rounded-xl p-4 text-center space-y-2`}
                   >
                     <p className="text-2xl">📸</p>
                     <p className="text-sm font-semibold text-sky-300/80">아직 기록된 중간 결과물이 없어요</p>
@@ -727,8 +719,7 @@ export function RoadmapEditorDialog({
                       return (
                         <div
                           key={result.id}
-                          className="rounded-lg overflow-hidden"
-                          style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(56,189,248,0.14)' }}
+                          className={`${roadmapEditorSoftInsetPanelClassName} rounded-xl overflow-hidden`}
                         >
                           <div className="flex items-center">
                             <div
@@ -773,14 +764,13 @@ export function RoadmapEditorDialog({
                           </div>
 
                           {isOpen && (
-                            <div className="px-2.5 pb-2 space-y-1.5 border-t" style={{ borderColor: 'rgba(56,189,248,0.1)' }}>
+                            <div className="px-2.5 pb-2 space-y-1.5 pt-1 border-t border-white/[0.06]">
                               <div className="pt-1.5">
                                 <input
                                   value={result.title}
                                   onChange={event => updateMilestoneResult(result.id, { title: event.target.value })}
                                   placeholder={LABELS.roadmapMilestoneResultTitlePlaceholder ?? '예: 1차 시제품 데모'}
-                                  className="w-full px-2.5 py-1.5 rounded-md text-white placeholder-gray-500 outline-none"
-                                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', fontSize: 11, minHeight: 32 }}
+                                  className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] min-h-[32px]"
                                 />
                               </div>
                               <textarea
@@ -788,13 +778,11 @@ export function RoadmapEditorDialog({
                                 onChange={event => updateMilestoneResult(result.id, { description: event.target.value })}
                                 placeholder={LABELS.roadmapMilestoneResultDescriptionPlaceholder ?? '어떤 결과물인지 간단히 적어주세요'}
                                 rows={2}
-                                className="w-full px-2.5 py-1.5 rounded-md text-white placeholder-gray-500 outline-none resize-none"
-                                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', fontSize: 11 }}
+                                className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none resize-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                               />
                               <div className="grid grid-cols-2 gap-1.5">
                                 <label
-                                  className="flex items-center gap-1.5 px-2 h-8 rounded-md cursor-pointer"
-                                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                                  className="flex items-center gap-1.5 px-2 h-8 rounded-lg cursor-pointer bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                                 >
                                   <span className="text-sky-400/70 whitespace-nowrap" style={{ fontSize: 10 }}>{LABELS.roadmapMilestoneResultMonthLabel ?? '월'}</span>
                                   <select
@@ -811,8 +799,7 @@ export function RoadmapEditorDialog({
                                   </select>
                                 </label>
                                 <label
-                                  className="flex items-center gap-1.5 px-2 h-8 rounded-md cursor-pointer"
-                                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                                  className="flex items-center gap-1.5 px-2 h-8 rounded-lg cursor-pointer bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                                 >
                                   <span className="text-sky-400/70 whitespace-nowrap" style={{ fontSize: 10 }}>{LABELS.roadmapMilestoneResultWeekLabel ?? '주차'}</span>
                                   <select
@@ -833,12 +820,10 @@ export function RoadmapEditorDialog({
                                 value={result.resultUrl ?? ''}
                                 onChange={event => updateMilestoneResult(result.id, { resultUrl: event.target.value })}
                                 placeholder={LABELS.roadmapMilestoneResultUrlPlaceholder ?? '결과물 URL (예: https://...)'}
-                                className="w-full px-2.5 py-1.5 rounded-md text-white placeholder-gray-500 outline-none"
-                                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)', fontSize: 11, minHeight: 30 }}
+                                className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] min-h-[30px]"
                               />
                               <div
-                                className="rounded-md p-2 space-y-1.5"
-                                style={{ backgroundColor: 'rgba(56,189,248,0.05)', border: '1px dashed rgba(56,189,248,0.15)' }}
+                                className="rounded-lg p-2 space-y-1.5 bg-sky-500/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
                               >
                                 <p className="text-sky-400/80 font-semibold" style={{ fontSize: 10 }}>📷 결과물 이미지</p>
                                 <input
@@ -851,7 +836,7 @@ export function RoadmapEditorDialog({
                                   <img
                                     src={result.imageUrl}
                                     alt={result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${resultIndex + 1}`}
-                                    className="w-full max-h-32 object-cover rounded border border-white/10"
+                                    className="w-full max-h-32 object-cover rounded-lg ring-1 ring-white/10"
                                   />
                                 )}
                               </div>
@@ -866,158 +851,108 @@ export function RoadmapEditorDialog({
                 <button
                   type="button"
                   onClick={addMilestoneResult}
-                  className="w-full flex items-center justify-center gap-1.5 h-9 rounded-lg font-bold"
-                  style={{ backgroundColor: 'rgba(56,189,248,0.1)', color: '#7dd3fc', border: '1px dashed rgba(56,189,248,0.25)', fontSize: 11 }}
+                  className="w-full flex items-center justify-center gap-1.5 h-9 rounded-xl font-bold text-[11px] text-sky-200 bg-sky-500/15 hover:bg-sky-500/25 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
                 >
                   <Plus className="w-4 h-4" />
                   {LABELS.roadmapMilestoneResultAddButtonLabel ?? '중간 결과물 추가'}
                 </button>
               </div>
-            )}
-          </section>
+            ) : undefined}
+          />
 
           {/* 최종 결과물 섹션 - 아코디언 */}
-          <section
-            className="rounded-2xl overflow-hidden"
-            style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(6,182,212,0.07) 100%)', border: '1px solid rgba(16,185,129,0.22)' }}
-          >
-            <button
-              type="button"
-              onClick={() => setIsFinalResultSectionOpen(prev => !prev)}
-              className="w-full flex items-center justify-between px-3 py-2.5 text-left"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="text-base">🏆</span>
-                <div>
-                  <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
-                  <p className="text-sm text-emerald-400/70 mt-0.5">
-                    {finalResultTitle.trim().length > 0
-                      ? finalResultTitle
-                      : '완성된 결과물을 자랑해보세요'}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                {(finalResultUrl.trim() || finalResultImageUrl.trim()) && (
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                )}
-                {isFinalResultSectionOpen ? (
-                  <ChevronUp className="w-4 h-4 text-emerald-400" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-emerald-400" />
-                )}
-              </div>
-            </button>
-
-            {isFinalResultSectionOpen && (
-              <div className="px-3 pb-3 space-y-2 border-t" style={{ borderColor: 'rgba(16,185,129,0.12)' }}>
-                <div className="pt-2">
-                  <input
-                    value={finalResultTitle}
-                    onChange={event => setFinalResultTitle(event.target.value)}
-                    placeholder={LABELS.roadmapFinalResultTitlePlaceholder ?? '예: SW 공모전 최종 제출작'}
-                    className="w-full px-3 py-2 rounded-lg text-white placeholder-gray-500 outline-none"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(16,185,129,0.18)', fontSize: 11, minHeight: 32 }}
-                  />
-                </div>
+          <RoadmapEditorGradientAccordionShell
+            tone="emerald"
+            header={(
+              <RoadmapEditorAccordionHeaderButton
+                isOpen={isFinalResultSectionOpen}
+                onToggle={() => setIsFinalResultSectionOpen(prev => !prev)}
+                icon="🏆"
+                title={LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}
+                subtitle={finalResultTitle.trim().length > 0
+                  ? finalResultTitle
+                  : '완성된 결과물을 자랑해보세요'}
+                titleClassName="text-emerald-200"
+                subtitleClassName="text-emerald-400/75"
+                chevronClassName="text-emerald-400"
+                trailing={(finalResultUrl.trim() || finalResultImageUrl.trim()) ? (
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.55)]" />
+                ) : undefined}
+              />
+            )}
+            body={isFinalResultSectionOpen ? (
+              <div className="px-3 pb-3 space-y-2 border-t border-white/[0.06] pt-2">
+                <input
+                  value={finalResultTitle}
+                  onChange={event => setFinalResultTitle(event.target.value)}
+                  placeholder={LABELS.roadmapFinalResultTitlePlaceholder ?? '예: SW 공모전 최종 제출작'}
+                  className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-h-[32px]"
+                />
                 <textarea
                   value={finalResultDescription}
                   onChange={event => setFinalResultDescription(event.target.value)}
                   placeholder={LABELS.roadmapFinalResultDescriptionPlaceholder ?? '무엇을 만들었고, 어떤 점이 핵심 결과인지 적어주세요'}
                   rows={3}
-                  className="w-full px-3 py-2 rounded-lg text-white placeholder-gray-500 outline-none resize-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(16,185,129,0.18)', fontSize: 11 }}
+                  className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none resize-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
                 />
                 <input
                   value={finalResultUrl}
                   onChange={event => setFinalResultUrl(event.target.value)}
                   placeholder={LABELS.roadmapFinalResultUrlPlaceholder ?? '결과물 URL (예: https://github.com/...)'}
-                  className="w-full px-3 py-2 rounded-lg text-white placeholder-gray-500 outline-none"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(16,185,129,0.18)', fontSize: 11, minHeight: 32 }}
+                  className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-h-[32px]"
                 />
-                <div
-                  className="rounded-lg p-2 space-y-1.5"
-                  style={{ backgroundColor: 'rgba(16,185,129,0.05)', border: '1px dashed rgba(16,185,129,0.2)' }}
-                >
-                  <p className="text-emerald-400/80 font-semibold" style={{ fontSize: 10 }}>🖼️ 결과물 대표 이미지</p>
+                <div className="rounded-xl p-2 space-y-1.5 bg-emerald-500/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                  <p className="text-emerald-300/90 font-semibold text-[10px]">🖼️ 결과물 대표 이미지</p>
                   <input
                     type="file"
                     accept="image/*"
                     onChange={event => { void handleFinalResultImageFileUpload(event); }}
-                    className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/20 file:text-emerald-200"
+                    className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/25 file:text-emerald-100"
                   />
                   {finalResultImageUrl && (
                     <img
                       src={finalResultImageUrl}
                       alt={finalResultTitle || LABELS.roadmapFinalResultSectionLabel || '최종 결과물'}
-                      className="w-full max-h-40 object-cover rounded border border-white/10"
+                      className="w-full max-h-40 object-cover rounded-lg ring-1 ring-white/10"
                     />
                   )}
                 </div>
-                <p className="text-emerald-500/70 leading-relaxed" style={{ fontSize: 10 }}>
+                <p className="text-emerald-500/75 leading-relaxed text-[10px]">
                   {LABELS.roadmapFinalResultHint ?? '전체 공유는 결과물 URL 또는 이미지가 있을 때 가능해요.'}
                 </p>
               </div>
-            )}
+            ) : undefined}
+          />
+
+          <section className="space-y-2">
+            <span className={roadmapEditorSectionLabelClassName}>
+              {LABELS.roadmapEditorActivityPeriodLabel ?? '활동 시기'}
+            </span>
+            <RoadmapEditorPeriodPillGroup
+              options={periodOptions}
+              value={period}
+              onChange={setPeriod}
+            />
           </section>
 
           <section className="space-y-2">
-            <label className="text-sm font-bold text-gray-400">활동 시기</label>
-            <div className="grid grid-cols-3 gap-2">
-              {periodOptions.map(option => {
-                const selected = period === option.id;
-                return (
-                  <button
-                    key={option.id}
-                    onClick={() => setPeriod(option.id)}
-                    className="h-11 rounded-xl text-sm font-bold transition-all"
-                    style={selected
-                      ? { background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }
-                      : { backgroundColor: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.55)', border: '1px solid rgba(255,255,255,0.08)' }}
-                  >
-                    {option.emoji} {option.label}
-                  </button>
-                );
-              })}
-            </div>
+            <span className={roadmapEditorSectionLabelClassName}>
+              {LABELS.roadmapEditorAccentColorLabel ?? '대표 색상'}
+            </span>
+            <RoadmapEditorColorSwatchRow
+              colors={COLOR_OPTIONS}
+              value={starColor}
+              onChange={setStarColor}
+            />
           </section>
 
           <section className="space-y-2">
-            <label className="text-sm font-bold text-gray-400">대표 색상</label>
-            <div className="flex flex-wrap gap-2">
-              {COLOR_OPTIONS.map(color => (
-                <button
-                  key={color}
-                  onClick={() => setStarColor(color)}
-                  className="w-9 h-9 rounded-full border-2"
-                  style={{
-                    backgroundColor: color,
-                    borderColor: starColor === color ? '#ffffff' : 'rgba(255,255,255,0.15)',
-                  }}
-                />
-              ))}
-            </div>
-          </section>
-
-          <section className="space-y-2">
-            <label className="text-sm font-bold text-gray-400">{LABELS.roadmapCategoryLabel}</label>
-            <div className="grid grid-cols-2 gap-2">
-              {DREAM_ITEM_TYPES.map(itemType => {
-                const isSelected = focusItemTypes.includes(itemType.value);
-                return (
-                  <button
-                    key={itemType.value}
-                    onClick={() => toggleFocusItemType(itemType.value)}
-                    className="h-11 px-3 rounded-xl text-sm font-semibold text-left transition-all"
-                    style={isSelected
-                      ? { backgroundColor: `${itemType.color}22`, color: itemType.color, border: `1px solid ${itemType.color}66` }
-                      : { backgroundColor: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.55)', border: '1px solid rgba(255,255,255,0.08)' }}
-                  >
-                    {itemType.emoji} {itemType.label}
-                  </button>
-                );
-              })}
-            </div>
+            <span className={roadmapEditorSectionLabelClassName}>{LABELS.roadmapCategoryLabel}</span>
+            <RoadmapEditorDreamItemTypeToggleGrid
+              options={DREAM_ITEM_TYPES}
+              selectedValues={focusItemTypes}
+              onToggle={toggleFocusItemType}
+            />
             <p className="text-sm text-gray-500">{LABELS.roadmapCategoryHint}</p>
           </section>
 
@@ -1065,16 +1000,14 @@ export function RoadmapEditorDialog({
               return (
                 <div
                   key={item.id}
-                  className="rounded-xl p-3 space-y-2"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
+                  className={`${roadmapEditorSoftInsetPanelClassName} rounded-2xl p-3 space-y-2`}
                 >
                   <div className="flex items-center gap-2">
                     <input
                       value={item.title}
                       onChange={event => updateItem(item.id, { title: event.target.value })}
                       placeholder={LABELS.roadmapEditorItemTitlePlaceholder ?? '항목명 입력'}
-                      className="flex-1 h-11 px-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none"
-                      style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      className="flex-1 h-11 px-3 rounded-xl text-sm text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
                     />
                     <button
                       onClick={() => createRoadmapItemTitleAutoComplete(item.id, item.type)}
@@ -1144,190 +1077,50 @@ export function RoadmapEditorDialog({
                         적용 월: {itemMonths.map(month => `${month}월`).join(', ')}
                       </p>
 
-                      <div className="space-y-1.5 pt-1">
-                        <div className="flex items-center justify-between">
-                          <span className="text-sm font-bold text-gray-400">{LABELS.todoSectionLabel} · {LABELS.weeklyChecklistLabel}</span>
-                          <button
-                            onClick={() => addWeekGroup(item.id)}
-                            className="text-sm font-bold px-2.5 py-1.5 rounded-md"
-                            style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-                          >
-                            + {LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주차 그룹 추가'}
-                          </button>
-                        </div>
-                        {(item.subItems ?? []).length === 0 ? (
-                          <p className="text-sm text-gray-600">{LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.'}</p>
-                        ) : (
-                          <div className="space-y-2">
-                            {(() => {
-                              const monthGroups = new Map<number, Array<{ groupKey: string; group: { month: number; week: number; goal?: RoadmapTodoItem; tasks: RoadmapTodoItem[] } }>>();
-                              sortedWeekGroups.forEach(group => {
-                                const monthGroupItems = monthGroups.get(group.month) ?? [];
-                                monthGroupItems.push({ groupKey: group.groupKey, group });
-                                monthGroups.set(group.month, monthGroupItems);
-                              });
-
-                              return [...monthGroups.entries()]
-                                .sort(([leftMonth], [rightMonth]) => leftMonth - rightMonth)
-                                .map(([month, monthGroupItems]) => {
-                                  const monthAccordionKey = `${item.id}-month-${month}`;
-                                  const isMonthOpen = monthAccordionOpenMap[monthAccordionKey] ?? true;
-                                  return (
-                                    <div key={monthAccordionKey} className="rounded-lg p-2" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
-                                      <button
-                                        onClick={() => setMonthAccordionOpenMap(previous => ({
-                                          ...previous,
-                                          [monthAccordionKey]: !(previous[monthAccordionKey] ?? true),
-                                        }))}
-                                        className="w-full flex items-center justify-between text-left"
-                                      >
-                                        <span className="text-sm font-bold text-sky-300">{month}월</span>
-                                        <span className="text-gray-500">
-                                          {isMonthOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-                                        </span>
-                                      </button>
-
-                                      {isMonthOpen && (
-                                        <div className="mt-1.5 space-y-1.5">
-                                          {monthGroupItems.map(({ groupKey, group }) => {
-                                            const weekAccordionKey = `${item.id}-${groupKey}`;
-                                            const isWeekOpen = weekAccordionOpenMap[weekAccordionKey] ?? true;
-                                            const hasGoal = (group.goal?.title.trim().length ?? 0) > 0;
-                                            return (
-                                              <div
-                                                key={weekAccordionKey}
-                                                className="rounded-md p-2"
-                                                style={hasGoal
-                                                  ? { backgroundColor: 'rgba(255,255,255,0.02)' }
-                                                  : { backgroundColor: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.2)' }}
-                                              >
-                                                <div className="flex items-center justify-between gap-2">
-                                                  <button
-                                                    onClick={() => setWeekAccordionOpenMap(previous => ({
-                                                      ...previous,
-                                                      [weekAccordionKey]: !(previous[weekAccordionKey] ?? true),
-                                                    }))}
-                                                    className="flex items-center gap-1 text-sm font-bold text-sky-300"
-                                                  >
-                                                    {group.month}월 {group.week}주차
-                                                    {isWeekOpen ? <ChevronUp className="w-3.5 h-3.5 text-gray-500" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-500" />}
-                                                  </button>
-                                                  <div className="flex items-center gap-1">
-                                                    <button
-                                                      onClick={() => removeWeekGroup(item.id, groupKey)}
-                                                      className="text-sm font-bold px-2.5 py-1.5 rounded-md"
-                                                      style={{ backgroundColor: 'rgba(239,68,68,0.18)', color: '#fca5a5' }}
-                                                    >
-                                                      {LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '주차 삭제'}
-                                                    </button>
-                                                  </div>
-                                                </div>
-
-                                                {isWeekOpen && (
-                                                  <div className="mt-1.5 space-y-2">
-                                                    {/* 목표 — 주당 1개 */}
-                                                    <div
-                                                      className="rounded-md p-2"
-                                                      style={{ backgroundColor: 'rgba(139,92,246,0.06)', border: '1px solid rgba(139,92,246,0.2)' }}
-                                                    >
-                                                      <label className="text-[13px] text-gray-500 block mb-0.5">목표</label>
-                                                      <input
-                                                        value={group.goal?.title ?? ''}
-                                                        onChange={event => upsertWeekGoal(item.id, groupKey, event.target.value)}
-                                                        placeholder={(LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)')
-                                                          .replaceAll('{month}', String(group.month))
-                                                          .replaceAll('{week}', String(group.week))}
-                                                        className="w-full h-8 px-2.5 rounded text-white placeholder-gray-500 outline-none"
-                                                        style={hasGoal
-                                                          ? { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)', fontSize: 11 }
-                                                          : { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(239,68,68,0.35)', fontSize: 11 }}
-                                                      />
-                                                      {!hasGoal && (
-                                                        <p className="text-red-300 mt-0.5" style={{ fontSize: 10 }}>
-                                                          {LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.'}
-                                                        </p>
-                                                      )}
-
-                                                      {group.goal && (
-                                                      <div className="mt-1.5">
-                                                        <label className="text-[13px] text-gray-500 block mb-0.5">산출물 (URL 또는 파일명) — 주당 1개</label>
-                                                        <input
-                                                          value={group.goal.outputRef ?? ''}
-                                                          onChange={e => updateSubItem(item.id, group.goal!.id, { outputRef: e.target.value })}
-                                                          placeholder="https://... 또는 파일명"
-                                                          className="w-full h-7 px-2 rounded text-white placeholder-gray-600 outline-none"
-                                                          style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)', fontSize: 10 }}
-                                                        />
-                                                      </div>
-                                                      )}
-                                                    </div>
-
-                                                    {/* 하위 항목 추가 버튼 + 하위 항목 목록 (주당 산출물 1개만, 목표에 연결) */}
-                                                    <div className="flex items-center justify-between mt-2 mb-1">
-                                                      <span className="text-[13px] text-gray-500 font-semibold">하위 항목</span>
-                                                      <button
-                                                        onClick={() => addWeekTask(item.id, groupKey)}
-                                                        className="text-[13px] font-bold px-2 py-1 rounded-md"
-                                                        style={{ backgroundColor: 'rgba(59,130,246,0.2)', color: '#93c5fd' }}
-                                                      >
-                                                        + {LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가'}
-                                                      </button>
-                                                    </div>
-                                                    <div className="space-y-1">
-                                                    {group.tasks.map(subItem => (
-                                                      <div
-                                                        key={subItem.id}
-                                                        className="rounded-md px-2 py-1.5 flex items-center gap-1.5"
-                                                        style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
-                                                      >
-                                                        <input
-                                                          value={subItem.title}
-                                                          onChange={event => updateSubItem(item.id, subItem.id, { title: event.target.value })}
-                                                          placeholder={(LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목')
-                                                            .replaceAll('{month}', String(group.month))
-                                                            .replaceAll('{week}', String(group.week))}
-                                                          list={`todo-autocomplete-${item.id}`}
-                                                          className="flex-1 h-8 px-2.5 rounded text-white placeholder-gray-500 outline-none"
-                                                          style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.06)', fontSize: 11 }}
-                                                        />
-                                                        <button
-                                                          onClick={() => removeSubItem(item.id, subItem.id)}
-                                                          className="w-8 h-8 rounded-md flex items-center justify-center"
-                                                          style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
-                                                        >
-                                                          <Trash2 className="w-3.5 h-3.5" />
-                                                        </button>
-                                                      </div>
-                                                    ))}
-                                                    </div>
-                                                  </div>
-                                                )}
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
-                                      )}
-                                    </div>
-                                  );
-                                });
-                            })()}
-                          </div>
-                        )}
-                        {hasMissingGoalInItem && (
-                          <p className="text-sm text-red-300">
-                            {LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.'}
-                          </p>
-                        )}
-                        <datalist id={`todo-autocomplete-${item.id}`}>
-                          {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? [])
-                            .map(suggestion => (
-                              <option key={suggestion} value={suggestion} />
-                            ))}
-                        </datalist>
-                        <div className="text-sm text-gray-600">
-                          {LABELS.todoAutoCompleteHint}: {(WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []).join(' · ')}
-                        </div>
-                      </div>
+                      <RoadmapEditorWbsWeeklyChecklistTree
+                        item={item}
+                        sortedWeekGroups={sortedWeekGroups}
+                        labels={{
+                          sectionTitle: `${LABELS.todoSectionLabel} · ${LABELS.weeklyChecklistLabel}`,
+                          addWeekGroupButton: LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주 추가',
+                          noWeekGroupHint: LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.',
+                          deleteWeekGroupButton: LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '삭제',
+                          weekGoalLabel: LABELS.roadmapEditorWeekGoalTreeFieldLabel ?? '목표',
+                          weekGoalRequiredHint: LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.',
+                          weekGoalValidationHint: LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.',
+                          goalOutputLabel: LABELS.roadmapEditorWeekGoalOutputFieldLabel ?? '산출물 (URL 또는 파일명) — 주당 1개',
+                          subItemSectionLabel: LABELS.roadmapEditorSubItemSectionLabel ?? '하위 항목',
+                          addSubItemButton: LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가',
+                          todoAutoCompleteHint: LABELS.todoAutoCompleteHint,
+                        }}
+                        weekGoalPlaceholderTemplate={LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)'}
+                        weekTaskPlaceholderTemplate={LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목'}
+                        monthAccordionOpenMap={monthAccordionOpenMap}
+                        weekAccordionOpenMap={weekAccordionOpenMap}
+                        onToggleMonthAccordion={monthAccordionKey => {
+                          setMonthAccordionOpenMap(previous => ({
+                            ...previous,
+                            [monthAccordionKey]: !(previous[monthAccordionKey] ?? true),
+                          }));
+                        }}
+                        onToggleWeekAccordion={weekAccordionKey => {
+                          setWeekAccordionOpenMap(previous => ({
+                            ...previous,
+                            [weekAccordionKey]: !(previous[weekAccordionKey] ?? true),
+                          }));
+                        }}
+                        onAddWeekGroup={() => addWeekGroup(item.id)}
+                        onRemoveWeekGroup={groupKey => removeWeekGroup(item.id, groupKey)}
+                        onUpsertWeekGoal={(groupKey, title) => upsertWeekGoal(item.id, groupKey, title)}
+                        onUpdateSubItem={(subItemId, patch) => updateSubItem(item.id, subItemId, patch)}
+                        onRemoveSubItem={subItemId => removeSubItem(item.id, subItemId)}
+                        onAddWeekTask={groupKey => addWeekTask(item.id, groupKey)}
+                        autocompleteListId={`todo-autocomplete-${item.id}`}
+                        autocompleteSuggestions={
+                          WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []
+                        }
+                        hasMissingGoalInItem={hasMissingGoalInItem}
+                      />
                     </div>
                   )}
                 </div>
@@ -1338,11 +1131,9 @@ export function RoadmapEditorDialog({
         </div>
 
         <div
-          className="flex-shrink-0 px-5 pt-3"
+          className={`${roadmapEditorDialogFooterClassName} shadow-[0_-12px_32px_rgba(0,0,0,0.45)]`}
           style={{
-            background: 'linear-gradient(180deg, rgba(18,18,42,0.5), #12122a 36%)',
             paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
-            borderTop: '1px solid rgba(255,255,255,0.08)',
           }}
         >
           <button

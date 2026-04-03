@@ -1,9 +1,10 @@
 'use client';
 
+import { useQueryClient } from '@tanstack/react-query';
 import { Heart, Bookmark, MessageSquare, Shield, Globe, ChevronRight, Clock } from 'lucide-react';
+import { prefetchSharedPlanCommunityDetail } from '@/app/career/hooks/useSharedPlanCommunityDetailQuery';
 import { GRADE_YEARS, ITEM_TYPES } from '../../config';
 import type { SharedPlan } from './types';
-import communityData from '@/data/share-community.json';
 import { formatTimeAgo, formatShortDate, isRecentlyUpdated, isEdited, isOlderThanWeek } from './formatTime';
 
 type Props = {
@@ -24,8 +25,10 @@ export function SharedPlanCardWithReactions({
   checkedAt,
   onToggleLike, onToggleBookmark, onViewDetail,
 }: Props) {
-  const isOperatorOnly = plan.shareType === 'operator';
-  const commentCount = plan.operatorComments.length;
+  const queryClient = useQueryClient();
+
+  const isOperatorOnly = (plan.shareType as string) === 'operator';
+  const commentCount = plan.commentCount ?? plan.operatorComments.length;
   const gradeInfo = GRADE_YEARS.find(g => g.id === plan.ownerGrade);
   const displayTime = plan.updatedAt ?? plan.sharedAt;
   const sharedDate = formatShortDate(plan.sharedAt);
@@ -48,6 +51,9 @@ export function SharedPlanCardWithReactions({
         boxShadow: `0 4px 16px ${plan.starColor}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
       onClick={onViewDetail}
+      onPointerEnter={() => {
+        void prefetchSharedPlanCommunityDetail(queryClient, plan.id);
+      }}
     >
       {/* ── Main row: emoji + info + reactions + circular arrow ── */}
       <div className="flex items-center gap-4 px-5 py-4">
@@ -80,8 +86,8 @@ export function SharedPlanCardWithReactions({
               <span className="text-[11px] font-black px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.2)', color: '#22C55E', border: '1px solid rgba(34,197,94,0.35)' }}>NEW</span>
             )}
             {showCheckNeededBadge && !showNewBadge && (
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: '#FBBF24', border: '1px solid rgba(251,191,36,0.3)' }} title={String((communityData.meta?.ui as Record<string, string>)?.checkNeededBadgeTitle ?? '1주일 이상 경과 · 확인 필요')}>
-                {String((communityData.meta?.ui as Record<string, string>)?.checkNeededBadge ?? '확인 필요')}
+              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: '#FBBF24', border: '1px solid rgba(251,191,36,0.3)' }} title="1주일 이상 경과 · 확인 필요">
+                확인 필요
               </span>
             )}
             {isOperatorOnly ? (

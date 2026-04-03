@@ -215,6 +215,7 @@ function DreamMatePageContent() {
                 onLeaveSpace={workspace.handleLeaveSpace}
                 onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
                 onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
+                onToggleRoadmapTodoItem={workspace.handleToggleTodoItem}
               />
             ) : null}
           </div>

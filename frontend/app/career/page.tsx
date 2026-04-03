@@ -1,12 +1,15 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, useMemo, Suspense, startTransition } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { CareerPathList } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
+import { CommunityGroupSplitRightPanel } from './components/community/CommunityGroupSplitRightPanel';
+import { SharedPlanDetailDialog } from './components/community/SharedPlanDetailDialog';
 import { ShareSettingsDialog } from './components/community/ShareSettingsDialog';
 import { CareerTabBar } from './components/CareerTabBar';
 import { TimelineDetailPanel } from './components/TimelineDetailPanel';
@@ -19,17 +22,26 @@ import {
   SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE,
 } from '@/components/section-shell/section-shell-layout.constants';
 import { ExploreHeroBanner } from './components/ExploreHeroBanner';
-import type { ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
+import type { OperatorComment, ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
-import { CAREER_PAGE_TABS, type CareerPageTabId } from './config';
-import communityData from '@/data/share-community.json';
+import { CAREER_PAGE_TABS, LABELS, type CareerPageTabId } from './config';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import { buildPlanFromTemplate } from './utils/buildPlanFromTemplate';
-import { useCommunityReactions } from './hooks/useCommunityReactions';
+import { useCareerPlansController } from './hooks/useCareerPlansController';
+import { MY_SHARED_PLANS_QUERY_KEY, useMySharedPlansQuery } from './hooks/useMySharedPlansQuery';
+import { CAREER_SHARED_PLANS_QUERY_KEY, useSharedPlansQuery } from './hooks/useSharedPlansQuery';
+import {
+  prefetchSharedPlanCommunityDetail,
+  useSharedPlanCommunityDetailQuery,
+} from './hooks/useSharedPlanCommunityDetailQuery';
+import { useCareerPathGroupsQuery } from './hooks/useCareerPathCommunityData';
+import { useSharedPlanReactions } from './hooks/useSharedPlanReactions';
+import { isUuidString } from '@/lib/career-path/isUuidString';
+import { createSharedPlanApi, updateSharedPlanApi, fetchSharedPlanByCareerPlanId, deleteSharedPlanApi, sanitizeSharedPlanGroupIds } from '@/lib/career-path/sharedPlanApi';
+import { hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 
 type Template = typeof careerPathTemplates[0];
 
-const STORAGE_KEY = 'career_plans_v3';
 const DEFAULT_TAB_ID: CareerPageTabId = 'explore';
 
 const isCareerPageTabId = (value: string | null): value is CareerPageTabId => {
@@ -68,9 +80,20 @@ function StarField() {
 function CareerPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const queryClient = useQueryClient();
 
   const [activeTab, setActiveTab] = useState<CareerPageTabId>(DEFAULT_TAB_ID);
-  const [plans, setPlans] = useState<CareerPlan[]>([]);
+  const {
+    plans,
+    savePlan: persistCareerPlan,
+    deletePlan: removeCareerPlan,
+    updatePlanInline: persistPlanInline,
+  } = useCareerPlansController();
+  const { data: mySharedPlansFromApi } = useMySharedPlansQuery();
+  const { data: sharedPlansFeed = [] } = useSharedPlansQuery();
+  const { data: careerPathGroups = [] } = useCareerPathGroupsQuery();
+  const { reactions: sharedReactionState, toggleLike: toggleSharedLike, toggleBookmark: toggleSharedBookmark } =
+    useSharedPlanReactions();
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [editingPlan, setEditingPlan] = useState<CareerPlan | null>(null);
   const [builderOpen, setBuilderOpen] = useState(false);
@@ -80,22 +103,76 @@ function CareerPageContent() {
 
   /* ── 2-컬럼 패널용 선택 상태 ── */
   const [selectedCommunityPlan, setSelectedCommunityPlan] = useState<SharedPlan | null>(null);
+  /** 커뮤니티 그룹 탭: 왼쪽 목록에서 선택한 그룹 → 오른쪽 패널 */
+  const [selectedCommunityGroupId, setSelectedCommunityGroupId] = useState<string | null>(null);
+  /** 그룹 상세에서 공유 패스 클릭 시 전체 화면 다이얼로그 */
+  const [communitySharedPlanDialogPlan, setCommunitySharedPlanDialogPlan] = useState<SharedPlan | null>(null);
+  const [communityJoinSyncKey, setCommunityJoinSyncKey] = useState(0);
   const [showTimelineExpandDialog, setShowTimelineExpandDialog] = useState(false);
+  /**
+   * 탭 전환 버벅임 완화: 내 패스·커뮤니티 패널은 한 번 마운트 후 DOM에 유지하고 display만 전환
+   * (완전 언마운트 시 TwoColumn·목록·모션이 매번 다시 그려짐)
+   */
+  const [careerTabShellMounted, setCareerTabShellMounted] = useState({
+    timeline: false,
+    community: false,
+  });
+
+  const sharedPlanCommunityDetail = useSharedPlanCommunityDetailQuery(
+    activeTab === 'community' ? selectedCommunityPlan?.id ?? null : null,
+  );
+  const communityPanelPlan = useMemo(() => {
+    if (!selectedCommunityPlan) return null;
+    if (sharedPlanCommunityDetail.data) return sharedPlanCommunityDetail.data;
+    return selectedCommunityPlan;
+  }, [selectedCommunityPlan, sharedPlanCommunityDetail.data]);
+
+  const communitySharedPlanDialogDetail = useSharedPlanCommunityDetailQuery(
+    activeTab === 'community' ? communitySharedPlanDialogPlan?.id ?? null : null,
+  );
+  const communityDialogPlanMerged = useMemo(() => {
+    if (!communitySharedPlanDialogPlan) return null;
+    if (communitySharedPlanDialogDetail.data) return communitySharedPlanDialogDetail.data;
+    return communitySharedPlanDialogPlan;
+  }, [communitySharedPlanDialogPlan, communitySharedPlanDialogDetail.data]);
+
+  useEffect(() => {
+    const id = selectedCommunityPlan?.id;
+    if (activeTab !== 'community' || !id || !isUuidString(id)) return;
+    void prefetchSharedPlanCommunityDetail(queryClient, id);
+  }, [activeTab, queryClient, selectedCommunityPlan?.id]);
+
+  useEffect(() => {
+    const id = communitySharedPlanDialogPlan?.id;
+    if (activeTab !== 'community' || !id || !isUuidString(id)) return;
+    void prefetchSharedPlanCommunityDetail(queryClient, id);
+  }, [activeTab, queryClient, communitySharedPlanDialogPlan?.id]);
+
+  useEffect(() => {
+    if (activeTab !== 'community') {
+      setSelectedCommunityGroupId(null);
+      setCommunitySharedPlanDialogPlan(null);
+    }
+  }, [activeTab]);
 
   useEffect(() => {
     setMounted(true);
     const tabParam = searchParams.get('tab');
     if (isCareerPageTabId(tabParam)) setActiveTab(tabParam);
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const loadedPlans = JSON.parse(raw) as CareerPlan[];
-        setPlans(loadedPlans);
-        if (loadedPlans.length > 0) setSelectedPlanId(loadedPlans[0].id);
-      }
-    } catch {}
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    if (plans.length === 0) {
+      setSelectedPlanId(null);
+      return;
+    }
+    setSelectedPlanId((prev) => {
+      if (prev && plans.some((p) => p.id === prev)) return prev;
+      return plans[0].id;
+    });
+  }, [mounted, plans]);
 
   useEffect(() => {
     const tabParam = searchParams.get('tab');
@@ -106,83 +183,143 @@ function CareerPageContent() {
     setShowTimelineExpandDialog(false);
   }, [selectedPlanId]);
 
-  const savePlans = (updatedPlans: CareerPlan[]) => {
-    setPlans(updatedPlans);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
-  };
+  useEffect(() => {
+    if (activeTab !== 'timeline') setShowTimelineExpandDialog(false);
+  }, [activeTab]);
+
+  useEffect(() => {
+    if (activeTab === 'timeline') {
+      setCareerTabShellMounted((s) => (s.timeline ? s : { ...s, timeline: true }));
+    }
+    if (activeTab === 'community') {
+      setCareerTabShellMounted((s) => (s.community ? s : { ...s, community: true }));
+    }
+  }, [activeTab]);
 
   const handleTabChange = (nextTabId: CareerPageTabId) => {
     if (nextTabId === activeTab) return;
-    setActiveTab(nextTabId);
+    startTransition(() => {
+      setActiveTab(nextTabId);
+    });
     const nextSearchParams = new URLSearchParams(searchParams.toString());
     nextSearchParams.set('tab', nextTabId);
     router.replace(`/career?${nextSearchParams.toString()}`, { scroll: false });
   };
 
-  const savePlan = (plan: CareerPlan) => {
-    const existingIndex = plans.findIndex(p => p.id === plan.id);
-    const updatedPlans = existingIndex >= 0
-      ? plans.map((p, i) => i === existingIndex ? plan : p)
-      : [...plans, plan];
-    savePlans(updatedPlans);
-    setSelectedPlanId(plan.id);
-    setBuilderOpen(false);
-    setEditingPlan(null);
-    handleTabChange('timeline');
+  const handleSelectCommunityPlan = (plan: SharedPlan | null) => {
+    setSelectedCommunityPlan(plan);
+    if (plan) {
+      setSelectedCommunityGroupId(null);
+    }
   };
 
-  const deletePlan = (planId: string) => {
-    const updatedPlans = plans.filter(p => p.id !== planId);
-    savePlans(updatedPlans);
-    if (selectedPlanId === planId) {
-      const nextId = updatedPlans.length > 0 ? updatedPlans[0].id : null;
-      setSelectedPlanId(nextId);
+  const handleSelectCommunityGroup = (groupId: string | null) => {
+    setSelectedCommunityGroupId(groupId);
+    if (groupId) {
+      setSelectedCommunityPlan(null);
     }
+  };
+
+  const handleCommunityExplorerSubTabChange = (sub: 'school' | 'groups') => {
+    if (sub === 'school') setSelectedCommunityGroupId(null);
+    if (sub === 'groups') setSelectedCommunityPlan(null);
+  };
+
+  const handleCommunitySharedPlanDialogComment = (_planId: string, _comment: OperatorComment) => {};
+
+  const savePlan = async (plan: CareerPlan) => {
+    try {
+      const saved = await persistCareerPlan(plan);
+      setSelectedPlanId(saved.id);
+      setBuilderOpen(false);
+      setEditingPlan(null);
+      handleTabChange('timeline');
+    } catch (err) {
+      console.error(err);
+      const msg = err instanceof Error ? err.message : '';
+      if (msg.includes(':401') || msg.includes('로그인')) {
+        router.push('/auth/login');
+      }
+    }
+  };
+
+  const deletePlan = async (planId: string) => {
+    await removeCareerPlan(planId);
   };
 
   const openNew = () => { setEditingPlan(null); setBuilderInitialStep(1); setBuilderOpen(true); };
   const openEdit = (plan: CareerPlan) => { setEditingPlan(plan); setBuilderInitialStep(3); setBuilderOpen(true); };
   const closeBuilder = () => { setBuilderOpen(false); setEditingPlan(null); setBuilderInitialStep(undefined); };
 
-  const handleUseTemplate = (template: Template, customTitle: string) => {
-    const planFromTemplate = buildPlanFromTemplate(template, customTitle);
-    const updatedPlans = [...plans, planFromTemplate];
-    savePlans(updatedPlans);
-    setSelectedPlanId(planFromTemplate.id);
-    handleTabChange('timeline');
-    setBuilderOpen(false);
-    setEditingPlan(null);
-    setBuilderInitialStep(undefined);
+  const handleUseTemplate = async (template: Template, customTitle: string) => {
+    try {
+      const planFromTemplate = buildPlanFromTemplate(template, customTitle);
+      const saved = await persistCareerPlan(planFromTemplate);
+      setSelectedPlanId(saved.id);
+      handleTabChange('timeline');
+      setBuilderOpen(false);
+      setEditingPlan(null);
+      setBuilderInitialStep(undefined);
+    } catch (err) {
+      console.error('handleUseTemplate', err);
+      const msg = err instanceof Error ? err.message : '';
+      if (msg.includes(':401') || msg.includes('로그인')) {
+        router.push('/auth/login');
+      }
+    }
   };
 
-  const updatePlanInline = (updatedPlan: CareerPlan) => {
-    const updatedPlans = plans.map(p => p.id === updatedPlan.id ? updatedPlan : p);
-    setPlans(updatedPlans);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedPlans));
+  const updatePlanInline = async (updatedPlan: CareerPlan) => {
+    await persistPlanInline(updatedPlan);
   };
 
-  const handleSharePlan = (plan: CareerPlan, isPublic: boolean) => {
-    if (isPublic) handleTabChange('community');
+  const handleSharePlan = async (plan: CareerPlan, _isPublic: boolean) => {
+    const channels = plan.shareChannels ?? [];
+    if (channels.length === 0) return;
+
+    const useBackend = hasCareerPathBackendAuth() && isUuidString(plan.id);
+
+    if (useBackend) {
+      try {
+        let shareType: 'public' | 'school' | 'group' | 'private' = 'private';
+        if (channels.includes('public')) shareType = 'public';
+        else if (channels.includes('school')) shareType = 'school';
+        else if (channels.includes('group')) shareType = 'group';
+
+        const payload: Parameters<typeof createSharedPlanApi>[0] = {
+          career_plan: plan.id,
+          share_type: shareType,
+          description: plan.description ?? '',
+          tags: [],
+          group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? plan.shareGroupIds : undefined),
+        };
+
+        await createSharedPlanApi(payload);
+        await queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+        await queryClient.invalidateQueries({ queryKey: MY_SHARED_PLANS_QUERY_KEY });
+      } catch (err) {
+        console.error('Failed to share plan:', err);
+      }
+    }
+
+    handleTabChange('community');
   };
 
   const selectedPlan = mounted ? (plans.find(p => p.id === selectedPlanId) ?? null) : null;
-  const sortedPlans = [...plans].sort((a, b) => {
-    const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
-    const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
-    return timeB - timeA;
-  });
+  const sortedPlans = useMemo(() => {
+    return [...plans].sort((a, b) => {
+      const timeA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const timeB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return timeB - timeA;
+    });
+  }, [plans]);
+  
+  const myPublicPlans = hasCareerPathBackendAuth() ? mySharedPlansFromApi : [];
   const totalTemplateCount = careerPathTemplates.length;
   const totalTemplateUses = careerPathTemplates.reduce((sum, template) => sum + template.uses, 0);
-  const totalCommunitySharedPlans = ((communityData as { sharedPlans?: unknown[] }).sharedPlans ?? []).length;
-  const totalCommunityGroups = ((communityData as { groups?: unknown[] }).groups ?? []).length;
-  const totalMyPublicPlans = plans.filter((plan) => plan.isPublic).length;
-
-  /* ── 커뮤니티 패널용 reactions 상태 (CommunityDetailPanel에 전달) ── */
-  const {
-    reactions: communityReactions,
-    handleToggleLike: handleCommunityToggleLike,
-    handleToggleBookmark: handleCommunityToggleBookmark,
-  } = useCommunityReactions();
+  const totalCommunitySharedPlans = sharedPlansFeed.length;
+  const totalCommunityGroups = careerPathGroups.length;
+  const totalMyPublicPlans = myPublicPlans.length;
 
   return (
     <div
@@ -219,112 +356,161 @@ function CareerPageContent() {
             totalMyPublicPlans={totalMyPublicPlans}
           />
           <div className="px-4 pb-4 md:px-5 md:pb-5">
-            {!mounted ? null : activeTab === 'explore' ? (
-              <CareerPathList
-                onUseTemplate={handleUseTemplate}
-                onNewPath={openNew}
-                myPublicPlans={plans.filter((plan) => plan.isPublic)}
-                onViewMyPlan={(plan) => {
-                  setSelectedPlanId(plan.id);
-                  handleTabChange('timeline');
-                }}
-              />
-            ) : activeTab === 'timeline' ? (
-          <>
-          <TwoColumnPanelLayout
-            hasSelection={selectedPlanId !== null && selectedPlan !== null}
-            onClearSelection={() => setSelectedPlanId(null)}
-            emptyPlaceholderText="패스를 선택하세요"
-            emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 타임라인이 여기에 표시됩니다"
-            listSlot={
-              <div
-                className="rounded-none border px-4 py-4 md:px-5 md:py-5"
-                style={{
-                  borderColor: 'rgba(255,255,255,0.12)',
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-                  boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
-                }}
-              >
-                <VerticalTimelineList
-                  allPlans={sortedPlans}
-                  preferredOpenPlanId={selectedPlanId}
-                  selectedPlanId={selectedPlanId}
-                  onSelectPlan={setSelectedPlanId}
-                  onNewPlan={openNew}
-                />
-              </div>
-            }
-            detailSlot={
-              selectedPlan ? (
-                <TimelineDetailPanel
-                  plan={selectedPlan}
-                  onClose={() => setSelectedPlanId(null)}
-                  onEdit={openEdit}
-                  onUpdatePlan={updatePlanInline}
-                  onDeletePlan={deletePlan}
-                  onSharePlan={handleSharePlan}
-                  onOpenShareDialog={(plan) => setSharingPlan(plan)}
-                  onExpandToDialog={() => setShowTimelineExpandDialog(true)}
-                />
-              ) : null
-            }
-          />
-          {showTimelineExpandDialog && selectedPlan && (
-            <CareerPathExpandBottomSheetDialog
-              onClose={() => setShowTimelineExpandDialog(false)}
-              panelContent={
-                <TimelineDetailPanel
-                  plan={selectedPlan}
-                  onClose={() => setShowTimelineExpandDialog(false)}
-                  onEdit={openEdit}
-                  onUpdatePlan={updatePlanInline}
-                  onDeletePlan={deletePlan}
-                  onSharePlan={handleSharePlan}
-                  onOpenShareDialog={(plan) => setSharingPlan(plan)}
-                  isExpandDialogMode
-                />
-              }
-            />
-          )}
-          </>
-        ) : activeTab === 'community' ? (
-          <TwoColumnPanelLayout
-            hasSelection={selectedCommunityPlan !== null}
-            onClearSelection={() => setSelectedCommunityPlan(null)}
-            emptyPlaceholderText="공유 패스를 선택하세요"
-            emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 상세 내용이 여기에 표시됩니다"
-            listSlot={
-              <div
-                className="rounded-none border px-4 py-4 md:px-5 md:py-5"
-                style={{
-                  borderColor: 'rgba(255,255,255,0.12)',
-                  background: 'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
-                  boxShadow: '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
-                }}
-              >
-                <CommunityTab
-                  selectedPlanId={selectedCommunityPlan?.id ?? null}
-                  onSelectPlan={setSelectedCommunityPlan}
-                />
-              </div>
-            }
-            detailSlot={
-              selectedCommunityPlan ? (
-                <CommunityDetailPanel
-                  plan={selectedCommunityPlan}
-                  isLiked={communityReactions.likedPlanIds.includes(selectedCommunityPlan.id)}
-                  isBookmarked={communityReactions.bookmarkedPlanIds.includes(selectedCommunityPlan.id)}
-                  likeCount={communityReactions.likeCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.likes}
-                  bookmarkCount={communityReactions.bookmarkCounts[selectedCommunityPlan.id] ?? selectedCommunityPlan.bookmarks}
-                  onToggleLike={() => handleCommunityToggleLike(selectedCommunityPlan.id)}
-                  onToggleBookmark={() => handleCommunityToggleBookmark(selectedCommunityPlan.id)}
-                  onClose={() => setSelectedCommunityPlan(null)}
-                  onAddComment={() => {}}
-                />
-              ) : null
-            }
-          />
-            ) : null}
+            {!mounted ? null : (
+              <>
+                {activeTab === 'explore' && (
+                  <CareerPathList
+                    onUseTemplate={handleUseTemplate}
+                    onNewPath={openNew}
+                    myPublicPlans={myPublicPlans}
+                    onViewMyPlan={(plan) => {
+                      setSelectedPlanId(plan.id);
+                      handleTabChange('timeline');
+                    }}
+                  />
+                )}
+
+                {careerTabShellMounted.timeline && (
+                  <div
+                    className={activeTab === 'timeline' ? 'block' : 'hidden'}
+                    aria-hidden={activeTab !== 'timeline'}
+                  >
+                    <TwoColumnPanelLayout
+                      hasSelection={selectedPlanId !== null && selectedPlan !== null}
+                      onClearSelection={() => setSelectedPlanId(null)}
+                      emptyPlaceholderText="패스를 선택하세요"
+                      emptyPlaceholderSubText="왼쪽 목록에서 패스를 클릭하면 타임라인이 여기에 표시됩니다"
+                      listSlot={
+                        <div
+                          className="rounded-none border px-4 py-4 md:px-5 md:py-5"
+                          style={{
+                            borderColor: 'rgba(255,255,255,0.12)',
+                            background:
+                              'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+                            boxShadow:
+                              '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+                          }}
+                        >
+                          <VerticalTimelineList
+                            allPlans={sortedPlans}
+                            preferredOpenPlanId={selectedPlanId}
+                            selectedPlanId={selectedPlanId}
+                            onSelectPlan={setSelectedPlanId}
+                            onNewPlan={openNew}
+                            myPublicSharedCount={totalMyPublicPlans}
+                          />
+                        </div>
+                      }
+                      detailSlot={
+                        selectedPlan ? (
+                          <TimelineDetailPanel
+                            plan={selectedPlan}
+                            onClose={() => setSelectedPlanId(null)}
+                            onEdit={openEdit}
+                            onUpdatePlan={updatePlanInline}
+                            onDeletePlan={deletePlan}
+                            onSharePlan={handleSharePlan}
+                            onOpenShareDialog={(plan) => setSharingPlan(plan)}
+                            onExpandToDialog={() => setShowTimelineExpandDialog(true)}
+                          />
+                        ) : null
+                      }
+                    />
+                    {showTimelineExpandDialog && selectedPlan && (
+                      <CareerPathExpandBottomSheetDialog
+                        onClose={() => setShowTimelineExpandDialog(false)}
+                        panelContent={
+                          <TimelineDetailPanel
+                            plan={selectedPlan}
+                            onClose={() => setShowTimelineExpandDialog(false)}
+                            onEdit={openEdit}
+                            onUpdatePlan={updatePlanInline}
+                            onDeletePlan={deletePlan}
+                            onSharePlan={handleSharePlan}
+                            onOpenShareDialog={(plan) => setSharingPlan(plan)}
+                            isExpandDialogMode
+                          />
+                        }
+                      />
+                    )}
+                  </div>
+                )}
+
+                {careerTabShellMounted.community && (
+                  <div
+                    className={activeTab === 'community' ? 'block' : 'hidden'}
+                    aria-hidden={activeTab !== 'community'}
+                  >
+                    <TwoColumnPanelLayout
+                      hasSelection={
+                        selectedCommunityGroupId !== null || selectedCommunityPlan !== null
+                      }
+                      onClearSelection={() => {
+                        setSelectedCommunityGroupId(null);
+                        setSelectedCommunityPlan(null);
+                      }}
+                      emptyPlaceholderText={String(
+                        LABELS.community_two_column_empty_title ?? '그룹 또는 공유 패스를 선택하세요',
+                      )}
+                      emptyPlaceholderSubText={String(
+                        LABELS.community_two_column_empty_sub ??
+                          '왼쪽에서 항목을 선택하면 여기에 표시됩니다',
+                      )}
+                      listSlot={
+                        <div
+                          className="rounded-none border px-4 py-4 md:px-5 md:py-5"
+                          style={{
+                            borderColor: 'rgba(255,255,255,0.12)',
+                            background:
+                              'linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))',
+                            boxShadow:
+                              '0 20px 55px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.05)',
+                          }}
+                        >
+                          <CommunityTab
+                            groupListSplitMode
+                            communityJoinSyncKey={communityJoinSyncKey}
+                            selectedCommunityGroupId={selectedCommunityGroupId}
+                            onSelectCommunityGroup={handleSelectCommunityGroup}
+                            onCommunityExplorerSubTabChange={handleCommunityExplorerSubTabChange}
+                            selectedPlanId={selectedCommunityPlan?.id ?? null}
+                            onSelectPlan={handleSelectCommunityPlan}
+                          />
+                        </div>
+                      }
+                      detailSlot={
+                        selectedCommunityGroupId ? (
+                          <CommunityGroupSplitRightPanel
+                            groupId={selectedCommunityGroupId}
+                            onClose={() => setSelectedCommunityGroupId(null)}
+                            onViewPlanDetail={(plan) => {
+                              setCommunitySharedPlanDialogPlan(plan);
+                            }}
+                            onJoinedGroupsChanged={() =>
+                              setCommunityJoinSyncKey((keyValue) => keyValue + 1)
+                            }
+                          />
+                        ) : communityPanelPlan ? (
+                          <CommunityDetailPanel
+                            plan={communityPanelPlan}
+                            isLiked={sharedReactionState.likedPlanIds.includes(communityPanelPlan.id)}
+                            isBookmarked={sharedReactionState.bookmarkedPlanIds.includes(
+                              communityPanelPlan.id,
+                            )}
+                            likeCount={communityPanelPlan.likes}
+                            bookmarkCount={communityPanelPlan.bookmarks}
+                            onToggleLike={() => toggleSharedLike(communityPanelPlan.id)}
+                            onToggleBookmark={() => toggleSharedBookmark(communityPanelPlan.id)}
+                            onClose={() => setSelectedCommunityPlan(null)}
+                            onAddComment={() => {}}
+                          />
+                        ) : null
+                      }
+                    />
+                  </div>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -339,15 +525,31 @@ function CareerPageContent() {
         />
       )}
 
+      {communityDialogPlanMerged && (
+        <SharedPlanDetailDialog
+          plan={communityDialogPlanMerged}
+          isLiked={sharedReactionState.likedPlanIds.includes(communityDialogPlanMerged.id)}
+          isBookmarked={sharedReactionState.bookmarkedPlanIds.includes(
+            communityDialogPlanMerged.id,
+          )}
+          likeCount={communityDialogPlanMerged.likes}
+          bookmarkCount={communityDialogPlanMerged.bookmarks}
+          onToggleLike={() => toggleSharedLike(communityDialogPlanMerged.id)}
+          onToggleBookmark={() => toggleSharedBookmark(communityDialogPlanMerged.id)}
+          onClose={() => setCommunitySharedPlanDialogPlan(null)}
+          onAddComment={handleCommunitySharedPlanDialogComment}
+        />
+      )}
+
       {sharingPlan && (
         <ShareSettingsDialog
           planTitle={sharingPlan.title}
           currentDescription={sharingPlan.description}
           currentChannels={sharingPlan.shareChannels}
           currentGroupIds={sharingPlan.shareGroupIds}
-          availableGroups={(communityData.groups ?? []) as CommunityGroup[]}
+          availableGroups={careerPathGroups as CommunityGroup[]}
           isCurrentlyShared={sharingPlan.isPublic}
-          onConfirm={(channels: ShareChannel[], description: string, groupIds: string[]) => {
+          onConfirm={async (channels: ShareChannel[], description: string, groupIds: string[]) => {
             const isPublic = channels.length > 0;
             const shareType = isPublic ? channelsToShareType(channels) : undefined;
             const updated: CareerPlan = {
@@ -359,8 +561,47 @@ function CareerPageContent() {
               shareGroupIds: channels.includes('group') ? groupIds : undefined,
               sharedAt: isPublic ? new Date().toISOString() : undefined,
             };
-            updatePlanInline(updated);
-            handleSharePlan(updated, isPublic);
+            await persistPlanInline(updated);
+            
+            const useBackend = hasCareerPathBackendAuth() && isUuidString(sharingPlan.id);
+            
+            if (useBackend) {
+              try {
+                const existingShared = await fetchSharedPlanByCareerPlanId(sharingPlan.id);
+                
+                if (isPublic) {
+                  const channels = updated.shareChannels ?? [];
+                  let shareType: 'public' | 'school' | 'group' | 'private' = 'private';
+                  if (channels.includes('public')) shareType = 'public';
+                  else if (channels.includes('school')) shareType = 'school';
+                  else if (channels.includes('group')) shareType = 'group';
+                  
+                  if (existingShared) {
+                    await updateSharedPlanApi(existingShared.id, {
+                      share_type: shareType,
+                      description: description,
+                      tags: [],
+                      group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? groupIds : undefined),
+                    });
+                  } else {
+                    await createSharedPlanApi({
+                      career_plan: sharingPlan.id,
+                      share_type: shareType,
+                      description: description,
+                      tags: [],
+                      group_ids: sanitizeSharedPlanGroupIds(channels.includes('group') ? groupIds : undefined),
+                    });
+                  }
+                } else if (existingShared) {
+                  await deleteSharedPlanApi(existingShared.id);
+                }
+                await queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+                await queryClient.invalidateQueries({ queryKey: MY_SHARED_PLANS_QUERY_KEY });
+              } catch (err) {
+                console.error('Failed to update share status:', err);
+              }
+            }
+            
             setSharingPlan(null);
           }}
           onClose={() => setSharingPlan(null)}

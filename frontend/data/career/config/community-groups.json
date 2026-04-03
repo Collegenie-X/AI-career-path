@@ -1,0 +1,17 @@
+{
+  "categories": [
+    { "id": "study", "label": "스터디", "emoji": "📖", "color": "#3B82F6" },
+    { "id": "project", "label": "프로젝트", "emoji": "⚡", "color": "#FBBF24" },
+    { "id": "mentoring", "label": "멘토링", "emoji": "🎓", "color": "#6C5CE7" },
+    { "id": "school_club", "label": "동아리", "emoji": "🏫", "color": "#22C55E" },
+    { "id": "other", "label": "기타", "emoji": "✨", "color": "#94A3B8" }
+  ],
+  "modes": [
+    { "id": "online", "label": "온라인" },
+    { "id": "offline", "label": "오프라인" },
+    { "id": "hybrid", "label": "온·오프 병행" }
+  ],
+  "maxMembersMin": 2,
+  "maxMembersMax": 200,
+  "maxMembersDefault": 30
+}

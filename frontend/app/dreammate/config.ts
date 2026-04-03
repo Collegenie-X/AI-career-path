@@ -3,6 +3,8 @@ import itemTypes      from '@/data/dreammate/config/itemTypes.json';
 import autocomplete   from '@/data/dreammate/config/autocomplete.json';
 import filters        from '@/data/dreammate/config/filters.json';
 import tabs           from '@/data/dreammate/config/tabs.json';
+import dreamMeta      from '@/data/dreammate/config/meta.json';
+import backendModelMap from '@/data/dreammate/config/backendModelMap.json';
 import spaceConfig    from '@/data/dreammate/config/space.json';
 import reportReasons  from '@/data/dreammate/config/report.json';
 import heroConfig     from '@/data/dreammate/config/hero.json';
@@ -78,7 +80,46 @@ export const DREAM_TABS = tabs as readonly {
   id:    DreamTabId;
   label: string;
   emoji: string;
+  description?: string;
+  routeHint?: string;
 }[];
+
+/** DreamMate 앱 메타(API 네임스페이스·표시명 등). */
+export const DREAM_META = dreamMeta as {
+  readonly appDisplayName: string;
+  readonly appDisplayNameKo: string;
+  readonly apiNamespace: string;
+  readonly apiVersionHint: string;
+  readonly primaryEntitySingular: string;
+  readonly communityShareEntitySingular: string;
+  readonly notes: string;
+};
+
+/** UI 도메인과 Django `career_plan` 모델 매핑 (문서·디버깅용). */
+export const DREAM_BACKEND_MODEL_MAP = backendModelMap as {
+  readonly roadmap: {
+    readonly djangoApp: string;
+    readonly model: string;
+    readonly related: Record<string, string>;
+  };
+  readonly sharedRoadmap: {
+    readonly djangoApp: string;
+    readonly model: string;
+    readonly parityReference: string;
+    readonly statsFields: readonly string[];
+  };
+  readonly dreamResource: {
+    readonly djangoApp: string;
+    readonly model: string;
+    readonly related: Record<string, string>;
+  };
+  readonly dreamSpace: {
+    readonly djangoApp: string;
+    readonly model: string;
+    readonly related: Record<string, string>;
+    readonly foreignKeys: Record<string, string>;
+  };
+};
 
 export const REQUIRE_RESULT_ASSET_FOR_PUBLIC_SHARE = Boolean(
   (spaceConfig as { requireResultAssetForPublicShare?: boolean }).requireResultAssetForPublicShare,

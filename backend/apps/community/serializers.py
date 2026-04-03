@@ -97,6 +97,7 @@ class SharedRoadmapListSerializer(serializers.ModelSerializer):
         model = SharedRoadmap
         fields = [
             'id',
+            'career_plan',
             'owner',
             'owner_name',
             'owner_emoji',
@@ -125,7 +126,7 @@ class SharedRoadmapDetailSerializer(serializers.ModelSerializer):
         model = SharedRoadmap
         fields = [
             'id',
-            'user_path',
+            'career_plan',
             'owner',
             'owner_name',
             'owner_emoji',
@@ -150,4 +151,4 @@ class SharedRoadmapCreateSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SharedRoadmap
-        fields = ['user_path', 'group', 'title', 'description', 'share_scope']
+        fields = ['career_plan', 'group', 'title', 'description', 'share_scope']

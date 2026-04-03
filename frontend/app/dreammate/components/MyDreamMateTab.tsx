@@ -11,6 +11,13 @@ import { RoadmapListRow } from './RoadmapListRow';
 import { RoadmapDetailDialog } from './RoadmapDetailDialog';
 import { SpaceDetailView } from './SpaceDetailView';
 import { SpaceCard } from './DreamSpaceTab';
+import { DreamMateMyExecutionDashboardFilterBar } from './DreamMateMyExecutionDashboardFilterBar';
+import {
+  countMyRoadmapsShared,
+  countMyRoadmapsWithSpaceLink,
+  filterMyRoadmapsByExecutionDashboardFilters,
+  type MyExecutionDashboardFilterState,
+} from '../utils/filterMyRoadmapsByExecutionDashboardFilters';
 
 type MySubTab = 'roadmaps' | 'spaces';
 
@@ -42,6 +49,8 @@ interface MyDreamMateTabProps {
   onLeaveSpace: (spaceId: string) => void;
   onToggleSpaceRecruitmentStatus: (spaceId: string) => void;
   onCreateSpaceNotice: (spaceId: string, title: string, content: string) => void;
+  /** 내 기록 상세: 주간 체크 토글 시 로드맵 항목 완료 반영 */
+  onToggleRoadmapTodoItem: (roadmapId: string, itemId: string, todoId: string) => void;
 }
 
 const listColumnShellClass =
@@ -74,25 +83,51 @@ export function MyDreamMateTab({
   onLeaveSpace,
   onToggleSpaceRecruitmentStatus,
   onCreateSpaceNotice,
+  onToggleRoadmapTodoItem,
 }: MyDreamMateTabProps) {
   const router = useRouter();
   const [subTab, setSubTab] = useState<MySubTab>('roadmaps');
   const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
+  const [showRoadmapExpandDialog, setShowRoadmapExpandDialog] = useState(false);
   const [selectedSpaceId, setSelectedSpaceId] = useState<string | null>(null);
   const [roadmapsPage, setRoadmapsPage] = useState(1);
   const [spacesPage, setSpacesPage] = useState(1);
+  const [myExecutionFilters, setMyExecutionFilters] = useState<MyExecutionDashboardFilterState>({
+    filterSharedOnly: false,
+    filterSpaceLinkedOnly: false,
+  });
 
   useEffect(() => {
     setSelectedRoadmapId(null);
     setSelectedSpaceId(null);
+    setShowRoadmapExpandDialog(false);
     setRoadmapsPage(1);
     setSpacesPage(1);
   }, [subTab]);
+
+  const filteredMyRoadmaps = useMemo(
+    () => filterMyRoadmapsByExecutionDashboardFilters(myRoadmaps, myExecutionFilters),
+    [myRoadmaps, myExecutionFilters],
+  );
+
+  const sharedRoadmapCount = useMemo(() => countMyRoadmapsShared(myRoadmaps), [myRoadmaps]);
+  const spaceLinkedRoadmapCount = useMemo(() => countMyRoadmapsWithSpaceLink(myRoadmaps), [myRoadmaps]);
+
+  useEffect(() => {
+    setRoadmapsPage(1);
+  }, [myExecutionFilters]);
 
   const selectedRoadmap = useMemo(
     () => myRoadmaps.find((rm) => rm.id === selectedRoadmapId) ?? null,
     [myRoadmaps, selectedRoadmapId],
   );
+
+  useEffect(() => {
+    if (!selectedRoadmapId) return;
+    if (!filteredMyRoadmaps.some(rm => rm.id === selectedRoadmapId)) {
+      setSelectedRoadmapId(null);
+    }
+  }, [filteredMyRoadmaps, selectedRoadmapId]);
 
   const selectedSpace = useMemo(
     () => joinedSpaces.find((s) => s.id === selectedSpaceId) ?? null,
@@ -113,69 +148,87 @@ export function MyDreamMateTab({
     LABELS.mySpaceDetailEmptySub ?? LABELS.spaceDetailEmptySub ?? '왼쪽 목록에서 항목을 선택하세요',
   );
 
-  const headerBlock = (
-    <>
-      <div>
-        <h3 className="text-base font-bold text-white">{LABELS.myTitle}</h3>
-        <p className="text-sm text-gray-500 mt-0.5">{LABELS.mySubtitle}</p>
-      </div>
+  const myHeaderTitleBlock = (
+    <div>
+      <h3 className="text-base font-bold text-white">{LABELS.myTitle}</h3>
+      <p className="text-sm text-gray-500 mt-0.5">{LABELS.mySubtitle}</p>
+    </div>
+  );
 
-      <div className="grid grid-cols-2 gap-2">
-        {[
-          { label: LABELS.myRoadmapsLabel, count: myRoadmaps.length, emoji: '🗺️', color: '#6C5CE7' },
-          { label: LABELS.myGroupsLabel, count: joinedSpaces.length, emoji: '🤝', color: '#3B82F6' },
-        ].map((card) => (
-          <div
-            key={card.label}
-            className="flex flex-col items-center gap-1 py-4 rounded-xl"
-            style={{ backgroundColor: `${card.color}08`, border: `1px solid ${card.color}20` }}
+  const mySubTabBar = (
+    <div
+      className="flex gap-2 p-1 rounded-xl"
+      style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
+    >
+      {MY_SUB_TABS.map((tab) => {
+        const isActive = subTab === tab.id;
+        const Icon = tab.icon;
+        return (
+          <button
+            key={tab.id}
+            type="button"
+            onClick={() => setSubTab(tab.id)}
+            className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-sm font-bold transition-all"
+            style={
+              isActive
+                ? {
+                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                    color: '#fff',
+                    boxShadow: '0 2px 12px rgba(108,92,231,0.3)',
+                  }
+                : { color: 'rgba(255,255,255,0.4)' }
+            }
           >
-            <span className="text-2xl">{card.emoji}</span>
-            <span className="text-lg font-black text-white">{card.count}</span>
-            <span className="text-sm text-gray-400">{card.label}</span>
-          </div>
-        ))}
-      </div>
+            <Icon className="w-3.5 h-3.5" />
+            {LABELS[tab.labelKey]}
+          </button>
+        );
+      })}
+    </div>
+  );
 
-      <div
-        className="flex gap-2 p-1 rounded-xl"
-        style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}
-      >
-        {MY_SUB_TABS.map((tab) => {
-          const isActive = subTab === tab.id;
-          const Icon = tab.icon;
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              onClick={() => setSubTab(tab.id)}
-              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-lg text-sm font-bold transition-all"
-              style={
-                isActive
-                  ? {
-                      background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                      color: '#fff',
-                      boxShadow: '0 2px 12px rgba(108,92,231,0.3)',
-                    }
-                  : { color: 'rgba(255,255,255,0.4)' }
-              }
-            >
-              <Icon className="w-3.5 h-3.5" />
-              {LABELS[tab.labelKey]}
-            </button>
-          );
-        })}
-      </div>
-    </>
+  const spacesSummaryCardsBlock = (
+    <div className="grid grid-cols-2 gap-2">
+      {[
+        { label: LABELS.myRoadmapsLabel, count: myRoadmaps.length, emoji: '🗺️', color: '#6C5CE7' },
+        { label: LABELS.myGroupsLabel, count: joinedSpaces.length, emoji: '🤝', color: '#3B82F6' },
+      ].map((card) => (
+        <div
+          key={card.label}
+          className="flex flex-col items-center gap-1 py-4 rounded-xl"
+          style={{ backgroundColor: `${card.color}08`, border: `1px solid ${card.color}20` }}
+        >
+          <span className="text-2xl">{card.emoji}</span>
+          <span className="text-lg font-black text-white">{card.count}</span>
+          <span className="text-sm text-gray-400">{card.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const roadmapsExecutionFilterBlock = (
+    <DreamMateMyExecutionDashboardFilterBar
+      totalMyRoadmaps={myRoadmaps.length}
+      totalSharedRoadmaps={sharedRoadmapCount}
+      totalRoadmapsLinkedToSpace={spaceLinkedRoadmapCount}
+      totalJoinedSpaces={joinedSpaces.length}
+      filters={myExecutionFilters}
+      onChangeFilters={setMyExecutionFilters}
+      labelAll={String(LABELS.myExecutionFilterAllLabel ?? LABELS.myRoadmapsLabel ?? '내 실행')}
+      labelShared={String(LABELS.myExecutionFilterSharedLabel ?? '공개중')}
+      labelSpace={String(LABELS.myExecutionFilterSpaceLinkedLabel ?? '실행팀 연결')}
+      joinedSpacesNote={String(LABELS.myExecutionFilterJoinedSpacesNote ?? LABELS.myGroupsLabel ?? '참여 그룹')}
+      helperApplyHint={String(LABELS.myExecutionFilterApplyHint ?? '')}
+    />
   );
 
   const paginatedMyRoadmaps = useMemo(
     () =>
-      myRoadmaps.slice(
+      filteredMyRoadmaps.slice(
         (roadmapsPage - 1) * DREAM_LIST_ITEMS_PER_PAGE,
         roadmapsPage * DREAM_LIST_ITEMS_PER_PAGE,
       ),
-    [myRoadmaps, roadmapsPage],
+    [filteredMyRoadmaps, roadmapsPage],
   );
 
   const paginatedJoinedSpaces = useMemo(
@@ -189,9 +242,17 @@ export function MyDreamMateTab({
 
   const roadmapsListInner = (
     <div className="space-y-4 pb-4">
-      {headerBlock}
+      {myHeaderTitleBlock}
+      {roadmapsExecutionFilterBlock}
+      {mySubTabBar}
       {myRoadmaps.length === 0 ? (
         <EmptyState emoji="🗺️" title={LABELS.myPlanEmptyTitle} desc={LABELS.myPlanEmptyDesc} />
+      ) : filteredMyRoadmaps.length === 0 ? (
+        <EmptyState
+          emoji="🔎"
+          title={String(LABELS.myExecutionFilterEmptyTitle ?? '조건에 맞는 실행계획이 없어요')}
+          desc={String(LABELS.myExecutionFilterEmptyDesc ?? '필터를 바꿔 보세요')}
+        />
       ) : (
         <>
           <div className="space-y-2">
@@ -205,7 +266,7 @@ export function MyDreamMateTab({
             ))}
           </div>
           <ListPagination
-            totalItems={myRoadmaps.length}
+            totalItems={filteredMyRoadmaps.length}
             currentPage={roadmapsPage}
             onPageChange={setRoadmapsPage}
           />
@@ -216,7 +277,9 @@ export function MyDreamMateTab({
 
   const spacesListInner = (
     <div className="space-y-4 pb-4">
-      {headerBlock}
+      {myHeaderTitleBlock}
+      {spacesSummaryCardsBlock}
+      {mySubTabBar}
       {joinedSpaces.length === 0 ? (
         <EmptyState emoji="🤝" title="참여 중인 스페이스가 없어요" desc="스페이스 탭에서 참여해 보세요" />
       ) : (
@@ -246,6 +309,7 @@ export function MyDreamMateTab({
   return (
     <div className="space-y-0 pb-28">
       {subTab === 'roadmaps' ? (
+        <>
         <TwoColumnPanelLayout
           hasSelection={selectedRoadmap !== null}
           onClearSelection={() => setSelectedRoadmapId(null)}
@@ -264,7 +328,12 @@ export function MyDreamMateTab({
                   timelineDetailMode="status_readonly"
                   isReferenceViewOnlyMode={false}
                   availableSpaces={availableSpaces}
+                  allowProgressChecklistToggle
+                  onToggleTodoItem={(itemId, todoId) =>
+                    onToggleRoadmapTodoItem(selectedRoadmap.id, itemId, todoId)
+                  }
                   onClose={() => setSelectedRoadmapId(null)}
+                  onExpand={() => setShowRoadmapExpandDialog(true)}
                   onUseRoadmap={() => {}}
                   onShare={() => onRequestShareRoadmap(selectedRoadmap)}
                   onEdit={() => {
@@ -285,6 +354,43 @@ export function MyDreamMateTab({
             ) : null
           }
         />
+
+        {showRoadmapExpandDialog && selectedRoadmap && (
+          <RoadmapDetailDialog
+            variant="dialog"
+            roadmap={selectedRoadmap}
+            isOwnedByCurrentUser
+            timelineDetailMode="status_readonly"
+            isReferenceViewOnlyMode={false}
+            availableSpaces={availableSpaces}
+            allowProgressChecklistToggle
+            onToggleTodoItem={(itemId, todoId) =>
+              onToggleRoadmapTodoItem(selectedRoadmap.id, itemId, todoId)
+            }
+            onClose={() => setShowRoadmapExpandDialog(false)}
+            onUseRoadmap={() => {}}
+            onShare={() => {
+              onRequestShareRoadmap(selectedRoadmap);
+              setShowRoadmapExpandDialog(false);
+            }}
+            onEdit={() => {
+              onEditRoadmap(selectedRoadmap.id);
+              setShowRoadmapExpandDialog(false);
+              setSelectedRoadmapId(null);
+            }}
+            onDelete={() => {
+              onDeleteRoadmap(selectedRoadmap.id);
+              setShowRoadmapExpandDialog(false);
+              setSelectedRoadmapId(null);
+            }}
+            onShareRoadmap={(channels, spaceIds) => onShareRoadmap(selectedRoadmap.id, channels, spaceIds)}
+            onReportRoadmap={(reasonId, detail) => onReportRoadmap(selectedRoadmap.id, reasonId, detail)}
+            onCreateComment={(comment, parentId) =>
+              onCreateRoadmapComment(selectedRoadmap.id, comment, parentId)
+            }
+          />
+        )}
+        </>
       ) : (
         <TwoColumnPanelLayout
           hasSelection={selectedSpace !== null}

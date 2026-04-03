@@ -170,7 +170,7 @@ export function StarDetailPanel({
           type="button"
           onClick={onClose}
           aria-label={LABELS.star_detail_panel_close_aria}
-          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 transition-colors hover:bg-white/15 active:scale-95"
+          className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 transition-colors hover:bg-white/15 active:scale-95 md:hidden"
           style={{
             backgroundColor: 'rgba(255,255,255,0.1)',
             border: `1px solid ${star.color}44`,

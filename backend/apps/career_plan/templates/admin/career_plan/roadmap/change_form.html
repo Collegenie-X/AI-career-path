@@ -1,0 +1,12 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block after_field_sets %}
+{% if roadmap_overview_tree %}
+<fieldset class="module aligned">
+  <h2>활동 · 주차 TODO · 마일스톤 통합 보기</h2>
+  {{ roadmap_overview_tree }}
+</fieldset>
+{% endif %}
+{{ block.super }}
+{% endblock %}

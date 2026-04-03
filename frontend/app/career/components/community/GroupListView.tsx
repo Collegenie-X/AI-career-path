@@ -1,18 +1,18 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import {
-  Users, Plus, ChevronRight, Crown, MessageSquare,
-  X, UserPlus, Clock, Star, MoreVertical,
-  LogOut, Copy,
+  Users, Plus, ChevronRight, MessageSquare,
+  Clock, Star, UserPlus,
 } from 'lucide-react';
-import { GRADE_YEARS, LABELS } from '../../config';
+import { LABELS } from '../../config';
 import type { CommunityGroup, SharedPlan } from './types';
-import { CommunitySpaceDetailLayout } from './CommunitySpaceDetailLayout';
+import { GroupDetailView } from './GroupDetailPanel';
 import { JoinRequestDialog } from './JoinRequestDialog';
 import { formatTimeAgo, isRecentlyUpdated } from './formatTime';
 import { CommunityAccessGate } from './CommunityAccessGate';
+import { CareerCreateGroupDialog } from './CareerCreateGroupDialog';
+import type { CareerGroupFormSubmitPayload } from '../../config/communityGroupForm';
 import { hasCommunityAccess } from '@/lib/communityAccess';
 import { leaveGroup } from '@/lib/careerCommunity';
 
@@ -21,11 +21,13 @@ function GroupCard({
   group,
   sharedPlansInGroup,
   isJoined,
+  isSelected,
   onOpen,
 }: {
   group: CommunityGroup;
   sharedPlansInGroup: SharedPlan[];
   isJoined: boolean;
+  isSelected?: boolean;
   onOpen: () => void;
 }) {
   return (
@@ -33,9 +35,15 @@ function GroupCard({
       onClick={onOpen}
       className="group w-full rounded-2xl text-left transition-all duration-200 active:scale-[0.99] hover:brightness-110"
       style={{
-        border: `2px solid ${isJoined ? `${group.color}35` : `${group.color}25`}`,
-        background: `linear-gradient(135deg, ${group.color}12, rgba(255,255,255,0.04))`,
-        boxShadow: `0 4px 16px ${group.color}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
+        border: isSelected
+          ? `2px solid ${group.color}88`
+          : `2px solid ${isJoined ? `${group.color}35` : `${group.color}25`}`,
+        background: isSelected
+          ? `linear-gradient(135deg, ${group.color}22, rgba(255,255,255,0.06))`
+          : `linear-gradient(135deg, ${group.color}12, rgba(255,255,255,0.04))`,
+        boxShadow: isSelected
+          ? `inset 3px 0 0 0 ${group.color}, 0 4px 16px ${group.color}22`
+          : `0 4px 16px ${group.color}15, inset 0 1px 0 rgba(255,255,255,0.04)`,
       }}
     >
       <div className="flex items-center gap-4 px-5 py-4">
@@ -82,7 +90,10 @@ function GroupCard({
                 </div>
               )}
             </div>
-            <span className="text-[12px] text-gray-500">{group.memberCount}명</span>
+            <span className="text-[12px] text-gray-500">
+              {group.memberCount}
+              {group.maxMembers != null ? ` / ${group.maxMembers}` : ''}명
+            </span>
             <span className="text-[12px] text-gray-600">·</span>
             <span className="flex items-center gap-0.5 text-[12px] text-gray-500"><MessageSquare className="w-2.5 h-2.5" />{sharedPlansInGroup.length}개 패스</span>
           </div>
@@ -103,320 +114,6 @@ function GroupCard({
   );
 }
 
-/* ─── 더보기 메뉴 ─── */
-function GroupMoreMenu({
-  group,
-  isJoined,
-  onLeave,
-  onCopyCode,
-  onClose,
-}: {
-  group: CommunityGroup;
-  isJoined: boolean;
-  onLeave: () => void;
-  onCopyCode: () => void;
-  onClose: () => void;
-}) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
-  const menuContent = (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
-      <div
-        className="relative w-full max-w-[430px] rounded-t-3xl"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)', paddingBottom: 'max(1.5rem, env(safe-area-inset-bottom))' }}
-        onClick={e => e.stopPropagation()}
-      >
-        <div className="flex items-center justify-between gap-3 px-5 pt-5 pb-3 border-b border-white/10">
-          <div className="flex items-center gap-3 min-w-0">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-              style={{ backgroundColor: `${group.color}20` }}
-            >
-              {group.emoji}
-            </div>
-            <div className="min-w-0">
-              <p className="text-sm font-bold text-white truncate">{group.name}</p>
-              <p className="text-[12px] text-gray-500 mt-0.5">{group.memberCount}명 참여 중</p>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all active:scale-95"
-            style={{ backgroundColor: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.6)' }}
-          >
-            <X className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="px-4 py-3 flex flex-col gap-1">
-          <button
-            onClick={onCopyCode}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-white transition-all active:scale-[0.98]"
-            style={{ backgroundColor: 'rgba(255,255,255,0.04)' }}
-          >
-            <Copy className="w-4 h-4 text-gray-400 flex-shrink-0" />
-            초대 코드 복사
-          </button>
-
-          {isJoined && (
-            <button
-              onClick={onLeave}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-              style={{ backgroundColor: 'rgba(239,68,68,0.08)', color: '#EF4444' }}
-            >
-              <LogOut className="w-4 h-4 flex-shrink-0" />
-              그룹 탈퇴하기
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-
-  return createPortal(menuContent, document.body);
-}
-
-/* ─── 그룹 상세 뷰 ─── */
-function GroupDetailView({
-  group,
-  sharedPlans,
-  isJoined,
-  onJoinClick,
-  onLeave,
-  onBack,
-  onViewPlanDetail,
-  likedPlanIds,
-  bookmarkedPlanIds,
-  likeCounts,
-  bookmarkCounts,
-  checkedPlans,
-  onToggleLike,
-  onToggleBookmark,
-}: {
-  group: CommunityGroup;
-  sharedPlans: SharedPlan[];
-  isJoined: boolean;
-  onJoinClick?: () => void;
-  onLeave: () => void;
-  onBack: () => void;
-  onViewPlanDetail: (plan: SharedPlan) => void;
-  likedPlanIds: string[];
-  bookmarkedPlanIds: string[];
-  likeCounts: Record<string, number>;
-  bookmarkCounts: Record<string, number>;
-  checkedPlans: Record<string, string>;
-  onToggleLike: (planId: string) => void;
-  onToggleBookmark: (planId: string) => void;
-}) {
-  const [showMoreMenu, setShowMoreMenu] = useState(false);
-  const inviteCode = group.inviteCode ?? group.id;
-
-  const handleCopyCode = () => {
-    navigator.clipboard?.writeText(inviteCode);
-    setShowMoreMenu(false);
-  };
-
-  return (
-    <CommunitySpaceDetailLayout
-      backLabel="목록"
-      onBack={onBack}
-      onMoreClick={() => setShowMoreMenu(true)}
-      headerContent={
-        <div
-          className="rounded-2xl p-5"
-          style={{
-            background: `linear-gradient(135deg, ${group.color}18, ${group.color}08)`,
-            border: `1.5px solid ${group.color}30`,
-          }}
-        >
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-14 h-14 rounded-xl flex items-center justify-center text-3xl"
-              style={{ backgroundColor: `${group.color}20`, border: `1px solid ${group.color}35` }}
-            >
-              {group.emoji}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2">
-                <h3 className="text-lg font-black text-white">{group.name}</h3>
-                {isJoined && (
-                  <span
-                    className="flex items-center gap-0.5 text-[12px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: 'rgba(34,197,94,0.15)', color: '#22C55E' }}
-                  >
-                    <Star className="w-2 h-2" />참여 중
-                  </span>
-                )}
-              </div>
-              <p className="text-xs text-gray-400 mt-0.5">{group.description}</p>
-            </div>
-          </div>
-          {!isJoined && onJoinClick && (
-            <button
-              onClick={onJoinClick}
-              className="w-full flex items-center justify-center gap-2 h-11 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-              style={{ background: `linear-gradient(135deg, ${group.color}, ${group.color}cc)`, color: '#fff' }}
-            >
-              <UserPlus className="w-4 h-4" />
-              참여하기
-            </button>
-          )}
-        </div>
-      }
-      middleContent={
-        <div className="space-y-2">
-          <span className="text-xs font-bold text-gray-400">멤버 ({group.members.length})</span>
-          <div className="grid grid-cols-2 gap-2">
-            {group.members.map((member) => {
-              const gradeInfo = GRADE_YEARS.find((g) => g.id === member.grade);
-              const isCreator = member.id === group.creatorId;
-              return (
-                <div
-                  key={member.id}
-                  className="flex items-center gap-2.5 p-3 rounded-xl"
-                  style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
-                >
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-lg"
-                    style={{ backgroundColor: `${group.color}15` }}
-                  >
-                    {member.emoji}
-                  </div>
-                  <div className="min-w-0">
-                    <div className="flex items-center gap-1">
-                      <span className="text-xs font-bold text-white truncate">{member.name}</span>
-                      {isCreator && <Crown className="w-3 h-3 flex-shrink-0" style={{ color: '#FBBF24' }} />}
-                    </div>
-                    <span className="text-[12px] text-gray-500">{gradeInfo?.label ?? member.grade}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      }
-      planListLabel={`공유된 패스 (${sharedPlans.length})`}
-      planListProps={{
-        plans: sharedPlans,
-        emptyMessage: '아직 공유된 패스가 없어요',
-        likedPlanIds,
-        bookmarkedPlanIds,
-        likeCounts,
-        bookmarkCounts,
-        checkedPlans,
-        onToggleLike,
-        onToggleBookmark,
-        onViewDetail: onViewPlanDetail,
-      }}
-      moreMenuContent={
-        showMoreMenu ? (
-          <GroupMoreMenu
-            group={group}
-            isJoined={isJoined}
-            onLeave={() => {
-              setShowMoreMenu(false);
-              onLeave();
-            }}
-            onCopyCode={handleCopyCode}
-            onClose={() => setShowMoreMenu(false)}
-          />
-        ) : null
-      }
-    />
-  );
-}
-
-/* ─── 그룹 만들기 다이얼로그 ─── */
-function CreateGroupDialog({ onClose, onCreate }: {
-  onClose: () => void;
-  onCreate: (name: string, description: string, emoji: string) => void;
-}) {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [emoji, setEmoji] = useState('👥');
-  const EMOJI_OPTIONS = ['👥', '💻', '🎨', '🔬', '🏥', '⚖️', '🚀', '🎵', '📚', '🌱', '🎮', '🏆'];
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto flex flex-col"
-        style={{
-          backgroundColor: '#12122a',
-          border: '1px solid rgba(255,255,255,0.08)',
-          maxHeight: 'calc(100vh - 80px)',
-          marginBottom: 80,
-        }}
-      >
-        <div className="flex items-center justify-between px-5 pt-5 pb-3">
-          <h3 className="text-lg font-black text-white">새 그룹 만들기</h3>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full flex items-center justify-center"
-            style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-          >
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
-        </div>
-
-        <div className="px-5 space-y-4 pb-10">
-          <div>
-            <label className="text-xs font-bold text-gray-400 mb-2 block">그룹 아이콘</label>
-            <div className="flex gap-2 flex-wrap">
-              {EMOJI_OPTIONS.map(e => (
-                <button
-                  key={e}
-                  onClick={() => setEmoji(e)}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xl transition-all"
-                  style={emoji === e
-                    ? { backgroundColor: 'rgba(108,92,231,0.2)', border: '2px solid #6C5CE7' }
-                    : { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-                >
-                  {e}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{String(LABELS.community_group_name_label ?? '그룹 이름')}</label>
-            <input
-              value={name}
-              onChange={e => setName(e.target.value)}
-              placeholder={String(LABELS.community_group_name_placeholder ?? '예: IT 개발자 꿈나무들')}
-              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-            />
-          </div>
-
-          <div>
-            <label className="text-xs font-bold text-gray-400 mb-1.5 block">{String(LABELS.community_group_desc_label ?? '설명')}</label>
-            <input
-              value={description}
-              onChange={e => setDescription(e.target.value)}
-              placeholder={String(LABELS.community_group_desc_placeholder ?? '어떤 그룹인지 간단히 설명해 주세요')}
-              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-            />
-          </div>
-
-          <button
-            onClick={() => { if (name.trim()) onCreate(name.trim(), description.trim(), emoji); }}
-            disabled={!name.trim()}
-            className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
-            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
-          >
-            {String(LABELS.community_group_create_button ?? '그룹 만들기')}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 /* ─── 메인 export ─── */
 type Props = {
@@ -434,6 +131,17 @@ type Props = {
   onJoinGroup: (groupId: string) => void;
   onLeaveGroup: (groupId: string) => void;
   onRefreshJoined: () => void;
+  /** 그룹 생성 API — 성공 시 목록이 갱신되도록 부모에서 연결 */
+  onCreateGroup?: (payload: CareerGroupFormSubmitPayload) => Promise<void>;
+  isCreateGroupPending?: boolean;
+  /**
+   * true: 왼쪽은 그룹 목록만 표시하고, 상세는 부모 2열 레이아웃 오른쪽 슬롯에서 렌더링 (커리어 패스 커뮤니티 3단계 UX)
+   */
+  listOnlyMode?: boolean;
+  /** listOnlyMode일 때 선택된 그룹(부모 controlled) */
+  externalSelectedGroupId?: string | null;
+  /** listOnlyMode일 때 그룹 선택/해제 */
+  onSelectGroup?: (groupId: string | null) => void;
 };
 
 export function GroupListView({
@@ -451,10 +159,16 @@ export function GroupListView({
   onJoinGroup,
   onLeaveGroup,
   onRefreshJoined,
+  onCreateGroup,
+  isCreateGroupPending = false,
+  listOnlyMode = false,
+  externalSelectedGroupId = null,
+  onSelectGroup,
 }: Props) {
   const [selectedGroupId, setSelectedGroupId] = useState<string | null>(null);
   const [joinTargetGroupId, setJoinTargetGroupId] = useState<string | null>(null);
   const [showCreateDialog, setShowCreateDialog] = useState(false);
+  const [createGroupError, setCreateGroupError] = useState<string | null>(null);
   const [showJoinByCodeDialog, setShowJoinByCodeDialog] = useState(false);
   const [hasAccess, setHasAccess] = useState(() => hasCommunityAccess());
 
@@ -466,7 +180,11 @@ export function GroupListView({
   /* 그룹 카드 클릭: 가입 여부에 따라 분기 */
   const handleGroupCardClick = (group: CommunityGroup) => {
     if (joinedGroupIds.includes(group.id)) {
-      setSelectedGroupId(group.id);
+      if (listOnlyMode) {
+        onSelectGroup?.(group.id);
+      } else {
+        setSelectedGroupId(group.id);
+      }
     } else {
       setJoinTargetGroupId(group.id);
     }
@@ -477,18 +195,26 @@ export function GroupListView({
     onRefreshJoined();
     setJoinTargetGroupId(null);
     setShowJoinByCodeDialog(false);
-    setSelectedGroupId(groupId);
+    if (listOnlyMode) {
+      onSelectGroup?.(groupId);
+    } else {
+      setSelectedGroupId(groupId);
+    }
   };
 
   const handleLeave = (groupId: string) => {
     leaveGroup(groupId);
     onLeaveGroup(groupId);
     onRefreshJoined();
-    setSelectedGroupId(null);
+    if (listOnlyMode) {
+      onSelectGroup?.(null);
+    } else {
+      setSelectedGroupId(null);
+    }
   };
 
-  /* 상세 뷰 */
-  if (selectedGroup) {
+  /* 상세 뷰 — listOnlyMode면 부모 오른쪽 패널에서 표시 */
+  if (!listOnlyMode && selectedGroup) {
     if (!hasAccess) {
       return (
         <CommunityAccessGate
@@ -572,6 +298,11 @@ export function GroupListView({
                 group={group}
                 sharedPlansInGroup={groupPlans}
                 isJoined={joinedGroupIds.includes(group.id)}
+                isSelected={
+                  listOnlyMode
+                    ? externalSelectedGroupId === group.id
+                    : selectedGroupId === group.id
+                }
                 onOpen={() => handleGroupCardClick(group)}
               />
             );
@@ -614,11 +345,33 @@ export function GroupListView({
       )}
 
       {showCreateDialog && (
-        <CreateGroupDialog
-          onClose={() => setShowCreateDialog(false)}
-          onCreate={(_name, _description, _emoji) => {
+        <CareerCreateGroupDialog
+          onClose={() => {
+            if (isCreateGroupPending) return;
             setShowCreateDialog(false);
+            setCreateGroupError(null);
           }}
+          onSubmit={async (payload) => {
+            if (!onCreateGroup) {
+              setShowCreateDialog(false);
+              return;
+            }
+            setCreateGroupError(null);
+            try {
+              await onCreateGroup(payload);
+              setShowCreateDialog(false);
+            } catch (err) {
+              const raw = err instanceof Error ? err.message : '';
+              const needLogin = raw.includes(':401') || raw.includes('401');
+              setCreateGroupError(
+                needLogin
+                  ? String(LABELS.community_group_create_need_login ?? '로그인이 필요합니다.')
+                  : String(LABELS.community_group_create_error ?? '그룹을 만들 수 없습니다.'),
+              );
+            }
+          }}
+          isSubmitting={isCreateGroupPending}
+          errorMessage={createGroupError}
         />
       )}
     </div>
@@ -651,7 +404,7 @@ function JoinGroupByCodeDialog({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
         className="relative w-full max-w-[430px] rounded-t-3xl p-5"

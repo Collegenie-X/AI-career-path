@@ -9,6 +9,11 @@
   "weeklyNumberLabel":                      "주차",
   "wbsSprintSectionTitle":                  "WBS + 주간 스프린트",
   "roadmapEditorTitleLabel":                "로드맵 제목",
+  "roadmapEditorDescriptionLabel":          "로드맵 설명",
+  "roadmapEditorTitlePlaceholder":          "예: 고입 준비 6개월 로드맵",
+  "roadmapEditorDescriptionPlaceholder":    "로드맵 설명을 입력해 주세요",
+  "roadmapEditorActivityPeriodLabel":       "활동 시기",
+  "roadmapEditorAccentColorLabel":          "대표 색상",
   "roadmapEditorMonthSectionLabel":         "월 선택 (멀티)",
   "roadmapEditorItemTitlePlaceholder":      "항목명 입력",
   "roadmapEditorAddItemButtonLabel":        "추가",
@@ -16,8 +21,15 @@
   "roadmapEditorAddWeekTaskButtonLabel":    "추가",
   "roadmapEditorAddSubItemButtonLabel":     "하위 항목 추가",
   "roadmapEditorWeekGoalLabel":             "주차 목표",
+  "roadmapEditorWeekGoalTreeFieldLabel":    "목표",
+  "roadmapEditorWeekGoalOutputFieldLabel":  "산출물 (URL 또는 파일명) — 주당 1개",
+  "roadmapEditorSubItemSectionLabel":       "하위 항목",
   "roadmapEditorWeekGoalPlaceholder":       "{month}월 {week}주차 목표 (선택)",
   "roadmapEditorWeekTaskPlaceholder":       "{month}월 {week}주차 항목",
   "roadmapEditorNoWeekGroupHint":           "주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.",
-  "roadmapEditorDeleteWeekGroupButtonLabel": "삭제"
+  "roadmapEditorDeleteWeekGroupButtonLabel": "삭제",
+  "roadmapEditorWeekGoalRequiredHint":        "주차 목표는 필수입니다.",
+  "roadmapEditorWeekGoalValidationHint":      "저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.",
+  "timeline_show_checklist":                  "체크",
+  "timeline_hide_checklist":                  "체크"
 }

@@ -119,7 +119,7 @@ class SharedRoadmapViewSet(viewsets.ModelViewSet):
         queryset = SharedRoadmap.objects.select_related(
             'owner',
             'group',
-            'user_path'
+            'career_plan',
         )
         
         if not self.request.user.is_authenticated:

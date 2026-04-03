@@ -17,6 +17,10 @@ from .serializers import (
     SocialLoginResponseSerializer,
     TokenRefreshRequestSerializer,
     TokenRefreshResponseSerializer,
+    EmailSignupRequestSerializer,
+    EmailSignupResponseSerializer,
+    EmailLoginRequestSerializer,
+    EmailLoginResponseSerializer,
 )
 from .services.social_auth_service import SocialAuthService
 from .services.jwt_service import JWTService
@@ -198,3 +202,104 @@ class UserProfileView(generics.RetrieveUpdateDestroyAPIView):
             {'message': 'Account deactivated successfully'},
             status=status.HTTP_204_NO_CONTENT
         )
+
+
+@extend_schema(
+    tags=['Authentication'],
+    request=EmailSignupRequestSerializer,
+    responses={
+        201: EmailSignupResponseSerializer,
+        400: OpenApiResponse(description='Invalid request or email already exists'),
+    }
+)
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def email_signup_view(request):
+    """
+    Email/password signup endpoint
+    
+    Creates a new user account with email and password.
+    Returns JWT tokens upon successful signup.
+    """
+    serializer = EmailSignupRequestSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    
+    email = serializer.validated_data['email']
+    password = serializer.validated_data['password']
+    name = serializer.validated_data['name']
+    grade = serializer.validated_data.get('grade', 'high_1')
+    emoji = serializer.validated_data.get('emoji', '👤')
+    
+    if User.objects.filter(email=email).exists():
+        return Response(
+            {'error': '이미 등록된 이메일입니다.'},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    user = User.objects.create_user(
+        email=email,
+        name=name,
+        password=password,
+        grade=grade,
+        emoji=emoji,
+    )
+    
+    tokens = JWTService.generate_tokens_for_user(user)
+    
+    return Response({
+        'access_token': tokens['access_token'],
+        'refresh_token': tokens['refresh_token'],
+        'user': UserSerializer(user).data,
+    }, status=status.HTTP_201_CREATED)
+
+
+@extend_schema(
+    tags=['Authentication'],
+    request=EmailLoginRequestSerializer,
+    responses={
+        200: EmailLoginResponseSerializer,
+        401: OpenApiResponse(description='Invalid credentials'),
+    }
+)
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def email_login_view(request):
+    """
+    Email/password login endpoint
+    
+    Authenticates user with email and password.
+    Returns JWT tokens upon successful login.
+    """
+    serializer = EmailLoginRequestSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    
+    email = serializer.validated_data['email']
+    password = serializer.validated_data['password']
+    
+    try:
+        user = User.objects.get(email=email)
+    except User.DoesNotExist:
+        return Response(
+            {'error': '이메일 또는 비밀번호가 올바르지 않습니다.'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+    
+    if not user.check_password(password):
+        return Response(
+            {'error': '이메일 또는 비밀번호가 올바르지 않습니다.'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+    
+    if not user.is_active:
+        return Response(
+            {'error': '비활성화된 계정입니다.'},
+            status=status.HTTP_401_UNAUTHORIZED
+        )
+    
+    tokens = JWTService.generate_tokens_for_user(user)
+    
+    return Response({
+        'access_token': tokens['access_token'],
+        'refresh_token': tokens['refresh_token'],
+        'user': UserSerializer(user).data,
+    })

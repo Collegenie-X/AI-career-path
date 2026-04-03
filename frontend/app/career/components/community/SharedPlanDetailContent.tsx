@@ -6,6 +6,7 @@
  */
 
 import { useState, useRef, useEffect } from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   X, Shield, Globe, MessageSquare, Calendar,
   Heart, Bookmark, Flag, MoreVertical,
@@ -14,23 +15,37 @@ import { GRADE_YEARS } from '../../config';
 import type { SharedPlan, OperatorComment, OperatorCommentNode } from './types';
 import { ReportModal, type ReportTarget } from '../ReportModal';
 import { buildChronologicalParentTree, type ParentTreeNode } from '@/lib/timelineTreeUtils';
-import { CommunityDetailPanelYearSection } from './CommunityDetailPanelTimeline';
+import { SharedPlanMyPathStyleTimeline } from './SharedPlanMyPathStyleTimeline';
 import { CommunityCommentBubble } from './CommunityDetailPanelCommentBubble';
 import { CareerPathDetailExpandHeaderButton } from '../expandable-detail';
+import { postSharedPlanComment, hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { isUuidString } from '@/lib/career-path/isUuidString';
+import { sharedPlanCommunityDetailQueryKey } from '@/app/career/hooks/useSharedPlanCommunityDetailQuery';
+import { CAREER_SHARED_PLANS_QUERY_KEY } from '@/app/career/hooks/useSharedPlansQuery';
 
 /* ─── Comment input ─── */
 function CommentInput({
   onSend,
   starColor,
+  disabled,
+  busy,
+  placeholder = '코멘트를 남겨보세요...',
 }: {
   readonly onSend: (text: string, parentId?: string) => void;
   readonly starColor: string;
+  readonly disabled?: boolean;
+  readonly busy?: boolean;
+  readonly placeholder?: string;
 }) {
   const [text, setText] = useState('');
+  const locked = Boolean(disabled || busy);
   return (
     <div
       className="flex items-center gap-3 px-4 py-3 rounded-2xl"
-      style={{ backgroundColor: 'rgba(255,255,255,0.05)' }}
+      style={{
+        backgroundColor: 'rgba(255,255,255,0.05)',
+        opacity: locked ? 0.55 : 1,
+      }}
     >
       <div
         className="w-8 h-8 rounded-full flex items-center justify-center text-base flex-shrink-0"
@@ -40,19 +55,22 @@ function CommentInput({
       </div>
       <input
         value={text}
+        disabled={locked}
         onChange={(e) => setText(e.target.value)}
         onKeyDown={(e) => {
+          if (locked) return;
           if (e.key === 'Enter' && !e.shiftKey && text.trim()) {
             e.preventDefault();
             onSend(text.trim());
             setText('');
           }
         }}
-        placeholder="코멘트를 남겨보세요..."
-        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none"
+        placeholder={busy ? '전송 중…' : placeholder}
+        className="flex-1 bg-transparent text-sm text-white placeholder-gray-600 outline-none disabled:cursor-not-allowed"
       />
-      {text.trim() && (
+      {text.trim() && !locked && (
         <button
+          type="button"
           onClick={() => {
             onSend(text.trim());
             setText('');
@@ -99,12 +117,25 @@ export function SharedPlanDetailContent({
   showCloseButton = true,
   onExpand,
 }: SharedPlanDetailContentProps) {
+  const queryClient = useQueryClient();
   const [comments, setComments] = useState<OperatorComment[]>(plan.operatorComments);
   const [activeSection, setActiveSection] = useState<'timeline' | 'comments'>('timeline');
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
   const commentsEndRef = useRef<HTMLDivElement>(null);
+
+  const isBackendPlan = isUuidString(plan.id);
+  const canPostToServer = hasCareerPathBackendAuth() && isBackendPlan;
+
+  const postCommentMut = useMutation({
+    mutationFn: ({ text, parentId }: { text: string; parentId?: string }) =>
+      postSharedPlanComment(plan.id, { content: text, parent: parentId ?? null }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: sharedPlanCommunityDetailQueryKey(plan.id) });
+      queryClient.invalidateQueries({ queryKey: CAREER_SHARED_PLANS_QUERY_KEY });
+    },
+  });
 
   useEffect(() => {
     setComments(plan.operatorComments);
@@ -118,7 +149,7 @@ export function SharedPlanDetailContent({
     }
   }, [comments.length, activeSection]);
 
-  const isOperatorOnly = plan.shareType === 'operator';
+  const isOperatorOnly = (plan.shareType as string) === 'operator';
   const gradeInfo = GRADE_YEARS.find((g) => g.id === plan.ownerGrade);
   const sharedDate = new Date(plan.sharedAt).toLocaleDateString('ko-KR', {
     year: 'numeric',
@@ -127,6 +158,10 @@ export function SharedPlanDetailContent({
   });
 
   const handleSendComment = (text: string, parentId?: string) => {
+    if (canPostToServer) {
+      postCommentMut.mutate({ text, parentId });
+      return;
+    }
     const newComment: OperatorComment = {
       id: `comment-${Date.now()}`,
       parentId,
@@ -166,16 +201,19 @@ export function SharedPlanDetailContent({
       <div
         className="flex-shrink-0 px-5 pt-5 pb-4 relative"
         style={{
-          background: `linear-gradient(135deg, ${plan.starColor}18, ${plan.starColor}06)`,
-          borderBottom: '1px solid rgba(255,255,255,0.06)',
+          background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}0a)`,
+          borderBottom: `1px solid ${plan.starColor}30`,
         }}
       >
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3 flex-1 min-w-0">
             <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+              className="rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
               style={{
-                background: `linear-gradient(135deg, ${plan.starColor}28, ${plan.starColor}10)`,
+                width: 52,
+                height: 52,
+                background: `linear-gradient(135deg, ${plan.starColor}40, ${plan.starColor}18)`,
+                border: `1.5px solid ${plan.starColor}44`,
               }}
             >
               {plan.jobEmoji}
@@ -318,10 +356,10 @@ export function SharedPlanDetailContent({
         </div>
       </div>
 
-      {/* ── Section tabs ── */}
+      {/* ── Section tabs (내 패스 PlanActionBar 영역과 동일한 색조) ── */}
       <div
         className="flex-shrink-0 flex gap-0"
-        style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ borderBottom: `1px solid ${plan.starColor}22` }}
       >
         {[
           { id: 'timeline' as const, label: '📋 커리어 타임라인' },
@@ -355,23 +393,7 @@ export function SharedPlanDetailContent({
             className={bodyPaddingClass}
             style={bodyPaddingBottom ? { paddingBottom: bodyPaddingBottom } : undefined}
           >
-            {plan.years.length === 0 ? (
-              <div className="py-12 text-center">
-                <div className="text-4xl mb-3">📭</div>
-                <p className="text-sm text-gray-500">상세 계획 정보가 없어요</p>
-              </div>
-            ) : (
-              <div className="relative">
-                {plan.years.map((year, idx) => (
-                  <CommunityDetailPanelYearSection
-                    key={year.gradeId}
-                    year={year}
-                    starColor={plan.starColor}
-                    isLast={idx === plan.years.length - 1}
-                  />
-                ))}
-              </div>
-            )}
+            <SharedPlanMyPathStyleTimeline sharedPlan={plan} />
           </div>
         ) : (
           <div
@@ -419,7 +441,17 @@ export function SharedPlanDetailContent({
             : {}),
         }}
       >
-        <CommentInput onSend={handleSendComment} starColor={plan.starColor} />
+        <CommentInput
+          onSend={handleSendComment}
+          starColor={plan.starColor}
+          disabled={isBackendPlan && !hasCareerPathBackendAuth()}
+          busy={postCommentMut.isPending}
+          placeholder={
+            isBackendPlan && !hasCareerPathBackendAuth()
+              ? '로그인 후 댓글을 작성할 수 있어요'
+              : '코멘트를 남겨보세요...'
+          }
+        />
       </div>
       </div>
 

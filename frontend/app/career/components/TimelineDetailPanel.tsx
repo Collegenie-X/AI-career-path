@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Pencil, Check } from 'lucide-react';
 import { GRADE_YEARS } from '../config';
 import type { CareerPlan, PlanItem, YearPlan } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
@@ -16,8 +16,8 @@ type TimelineDetailPanelProps = {
   readonly plan: CareerPlan;
   readonly onClose: () => void;
   readonly onEdit: (plan: CareerPlan) => void;
-  readonly onUpdatePlan: (plan: CareerPlan) => void;
-  readonly onDeletePlan: (planId: string) => void;
+  readonly onUpdatePlan: (plan: CareerPlan) => void | Promise<void>;
+  readonly onDeletePlan: (planId: string) => void | Promise<void>;
   readonly onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   readonly onOpenShareDialog?: (plan: CareerPlan) => void;
   /** 오른쪽 패널에서만 전달 — 상단 확대(560px 다이얼로그) */
@@ -38,6 +38,8 @@ export function TimelineDetailPanel({
 }: TimelineDetailPanelProps) {
   const [detailItem, setDetailItem] = useState<{ item: PlanItem; gradeLabel: string } | null>(null);
   const [showChecklistView, setShowChecklistView] = useState(false);
+  const [isEditingTitle, setIsEditingTitle] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(plan.title);
 
   const gradeOrder = GRADE_YEARS.reduce(
     (acc, g, i) => { acc[g.id] = i; return acc; },
@@ -73,6 +75,22 @@ export function TimelineDetailPanel({
     return found ? plan.starColor : '#6C5CE7';
   };
 
+  const handleTitleSave = async () => {
+    const trimmed = editedTitle.trim();
+    if (trimmed.length === 0 || trimmed === plan.title) {
+      setIsEditingTitle(false);
+      setEditedTitle(plan.title);
+      return;
+    }
+    await onUpdatePlan({ ...plan, title: trimmed });
+    setIsEditingTitle(false);
+  };
+
+  const handleTitleCancel = () => {
+    setIsEditingTitle(false);
+    setEditedTitle(plan.title);
+  };
+
   return (
     <div className="flex flex-col h-full">
       {/* ── Header ── */}
@@ -96,7 +114,47 @@ export function TimelineDetailPanel({
             {plan.jobEmoji}
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-base font-bold text-white leading-snug">{plan.title}</h2>
+            {isEditingTitle ? (
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={editedTitle}
+                  onChange={(e) => setEditedTitle(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleTitleSave();
+                    if (e.key === 'Escape') handleTitleCancel();
+                  }}
+                  className="flex-1 px-2 py-1 text-sm font-bold text-white bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
+                  style={{ minWidth: 200 }}
+                  autoFocus
+                />
+                <button
+                  onClick={handleTitleSave}
+                  className="p-1.5 rounded-lg bg-green-500/20 hover:bg-green-500/30 transition-colors"
+                  title="저장"
+                >
+                  <Check className="w-4 h-4 text-green-400" />
+                </button>
+                <button
+                  onClick={handleTitleCancel}
+                  className="p-1.5 rounded-lg bg-red-500/20 hover:bg-red-500/30 transition-colors"
+                  title="취소"
+                >
+                  <X className="w-4 h-4 text-red-400" />
+                </button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2 group">
+                <h2 className="text-base font-bold text-white leading-snug">{plan.title}</h2>
+                <button
+                  onClick={() => setIsEditingTitle(true)}
+                  className="opacity-0 group-hover:opacity-100 p-1 rounded hover:bg-white/10 transition-all"
+                  title="제목 수정"
+                >
+                  <Pencil className="w-3.5 h-3.5 text-white/60" />
+                </button>
+              </div>
+            )}
             <div className="flex items-center gap-2 mt-1 flex-wrap">
               <span className="text-xs font-semibold" style={{ color: `${plan.starColor}cc` }}>
                 {plan.starEmoji} {plan.starName}

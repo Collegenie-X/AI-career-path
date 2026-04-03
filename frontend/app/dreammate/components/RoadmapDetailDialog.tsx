@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, Maximize2, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, ListChecks, Maximize2, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS, ROADMAP_SHARE_VISIBILITY_OPTIONS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { getShareChannelsFromRoadmap } from '../types';
@@ -13,6 +14,20 @@ import { RoadmapTreeView } from './RoadmapTreeView';
 import { getRoadmapEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { RoadmapReportDialog } from './RoadmapReportDialog';
 import type { RoadmapTimelineDetailMode } from '../config/roadmap-timeline-display.config';
+import {
+  ROADMAP_DETAIL_EXPAND_DIALOG_WIDTH_PX,
+  ROADMAP_DETAIL_PORTAL_Z_INDEX,
+} from '../config/roadmap-detail-dialog-display.config';
+import {
+  DetailActionPillButton,
+  getDetailActionPillCancelStyle,
+  getDetailActionPillCheckToggleStyle,
+  getDetailActionPillDeleteConfirmStyle,
+  getDetailActionPillDeleteStyle,
+  getDetailActionPillEditStyle,
+  getDetailActionPillShareActiveStyle,
+  getDetailActionPillShareNeutralStyle,
+} from '@/components/detail-action-bar';
 
 interface RoadmapDetailDialogProps {
   roadmap: SharedRoadmap;
@@ -32,6 +47,11 @@ interface RoadmapDetailDialogProps {
   onCreateComment: (comment: string, parentId?: string) => void;
   /** `timelineDetailMode === 'interactive'` 이고 본인 소유일 때만 사용 */
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
+  /**
+   * 내 기록 등: 상단에서 주간 체크 반영을 켠 뒤 interactive와 동일하게 토글 가능.
+   * `true`이고 `onToggleTodoItem`이 있으면 체크박스 노출.
+   */
+  allowProgressChecklistToggle?: boolean;
   /** inline variant일 때 확대 버튼 클릭 시 호출 */
   onExpand?: () => void;
 }
@@ -58,6 +78,7 @@ export function RoadmapDetailDialog({
   onDelete,
   onCreateComment,
   onToggleTodoItem,
+  allowProgressChecklistToggle = false,
   onExpand,
 }: RoadmapDetailDialogProps) {
   const [commentInput, setCommentInput] = useState('');
@@ -73,7 +94,39 @@ export function RoadmapDetailDialog({
     const firstResult = (roadmap.milestoneResults ?? [])[0];
     return firstResult ? new Set([firstResult.id]) : new Set();
   });
+  const [isPortalTargetReady, setIsPortalTargetReady] = useState(false);
+  const [reflectProgressChecklistActive, setReflectProgressChecklistActive] = useState(false);
   const actionMenuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setIsPortalTargetReady(true);
+  }, []);
+
+  useEffect(() => {
+    setReflectProgressChecklistActive(false);
+  }, [roadmap.id]);
+
+  const showReflectProgressCheckbox =
+    allowProgressChecklistToggle
+    && isOwnedByCurrentUser
+    && !isReferenceViewOnlyMode
+    && Boolean(onToggleTodoItem)
+    && timelineDetailMode !== 'interactive';
+
+  const effectiveTimelineDetailMode: RoadmapTimelineDetailMode = useMemo(() => {
+    if (timelineDetailMode === 'interactive') return 'interactive';
+    if (
+      showReflectProgressCheckbox
+      && reflectProgressChecklistActive
+    ) {
+      return 'interactive';
+    }
+    return timelineDetailMode;
+  }, [
+    timelineDetailMode,
+    showReflectProgressCheckbox,
+    reflectProgressChecklistActive,
+  ]);
   const periodLabel = useMemo(
     () => PERIOD_FILTERS.find(item => item.id === roadmap.period)?.label ?? roadmap.period,
     [roadmap.period],
@@ -105,6 +158,15 @@ export function RoadmapDetailDialog({
     };
   }, [showActionMenu]);
 
+  useEffect(() => {
+    if (variant !== 'dialog') return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [variant, onClose]);
+
   const commentTree = useMemo(() => {
     const chronologicalTree = buildChronologicalParentTree(roadmap.comments);
     return commentSortOrder === 'oldest'
@@ -135,32 +197,41 @@ export function RoadmapDetailDialog({
     };
   })();
 
+  const isDialogVariant = !isPageVariant && !isInlineVariant;
+
   const wrapperClass = isInlineVariant
     ? 'w-full flex flex-col min-h-0'
     : isPageVariant
       ? 'min-h-screen w-full max-w-[645px] mx-auto flex flex-col'
-      : 'fixed inset-0 z-[100] flex items-end justify-center';
+      : 'fixed inset-0 flex items-center justify-center p-4 sm:p-6';
 
   const innerClass = isInlineVariant
     ? 'relative w-full flex flex-col min-h-0 overflow-y-auto'
     : isPageVariant
       ? 'relative w-full flex flex-col min-h-screen'
-      : 'relative w-full flex flex-col max-w-[645px] rounded-t-3xl overflow-hidden';
+      : 'relative w-full flex flex-col rounded-3xl overflow-hidden min-h-0 max-h-[min(92dvh,900px)]';
 
   const innerStyle = isInlineVariant
     ? { backgroundColor: 'transparent' }
     : isPageVariant
       ? { backgroundColor: '#12122a' }
-      : { backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 56px)', marginBottom: 56 };
+      : {
+          backgroundColor: '#12122a',
+          border: '1px solid rgba(255,255,255,0.08)',
+          maxWidth: ROADMAP_DETAIL_EXPAND_DIALOG_WIDTH_PX,
+        };
 
-  return (
-    <div className={wrapperClass}>
-      {!isPageVariant && !isInlineVariant && (
-        <>
-          <div className="absolute inset-0 bg-black/65 backdrop-blur-sm" onClick={onClose} />
-        </>
+  const shell = (
+    <div
+      className={wrapperClass}
+      style={isDialogVariant ? { zIndex: ROADMAP_DETAIL_PORTAL_Z_INDEX } : undefined}
+      role={isDialogVariant ? 'dialog' : undefined}
+      aria-modal={isDialogVariant ? true : undefined}
+    >
+      {isDialogVariant && (
+        <div className="absolute inset-0 z-0 bg-black/65 backdrop-blur-sm" onClick={onClose} aria-hidden />
       )}
-      <div className={innerClass} style={innerStyle}>
+      <div className={`${innerClass} ${isDialogVariant ? 'relative z-10' : ''}`} style={innerStyle}>
         <div className="sticky top-0 z-10 px-4 pt-4 pb-3 space-y-2" style={{ backgroundColor: '#12122a', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 min-w-0">
@@ -229,7 +300,7 @@ export function RoadmapDetailDialog({
                   )}
                 </div>
               )}
-              {!isPageVariant && !isInlineVariant && (
+              {isDialogVariant && (
                 <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }} aria-label="닫기">
                   <X className="w-4 h-4 text-gray-300" />
                 </button>
@@ -243,60 +314,55 @@ export function RoadmapDetailDialog({
 
           {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
             <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8 mt-3">
-              <button
-                onClick={onEdit}
-                className="flex items-center justify-center gap-1.5 h-9 px-4 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-                style={{
-                  backgroundColor: `${roadmap.starColor}22`,
-                  color: roadmap.starColor,
-                  border: `1px solid ${roadmap.starColor}44`,
-                }}
-              >
-                <Pencil className="w-3.5 h-3.5" />
+              <DetailActionPillButton onClick={onEdit} style={getDetailActionPillEditStyle(roadmap.starColor)}>
+                <Pencil style={{ width: 13, height: 13 }} />
                 {LABELS.roadmapEditButtonLabel ?? LABELS.editButtonLabel ?? '수정하기'}
-              </button>
-              <button
+              </DetailActionPillButton>
+              <DetailActionPillButton
                 onClick={onShare}
-                className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-                style={{
-                  backgroundColor: shareChannels.length > 0 ? `${shareBadgeLabel.color}18` : 'rgba(255,255,255,0.07)',
-                  color: shareChannels.length > 0 ? shareBadgeLabel.color : 'rgba(255,255,255,0.5)',
-                  border: shareChannels.length > 0 ? `1px solid ${shareBadgeLabel.color}40` : '1px solid rgba(255,255,255,0.12)',
-                }}
+                style={
+                  shareChannels.length > 0
+                    ? getDetailActionPillShareActiveStyle(shareBadgeLabel.color)
+                    : getDetailActionPillShareNeutralStyle()
+                }
               >
-                <Share2 className="w-3.5 h-3.5" />
+                <Share2 style={{ width: 13, height: 13 }} />
                 {LABELS.shareRoadmapButtonLarge ?? '공유'}
-              </button>
-              {!showDeleteConfirmationActions ? (
-                <button
-                  onClick={() => setShowDeleteConfirmationActions(true)}
-                  className="flex items-center justify-center gap-1.5 h-9 px-3 rounded-xl text-sm font-bold transition-all active:scale-[0.98]"
-                  style={{
-                    backgroundColor: 'rgba(239,68,68,0.12)',
-                    color: '#ef4444',
-                    border: '1px solid rgba(239,68,68,0.28)',
-                  }}
+              </DetailActionPillButton>
+              {showReflectProgressCheckbox ? (
+                <DetailActionPillButton
+                  onClick={() => setReflectProgressChecklistActive(previous => !previous)}
+                  style={getDetailActionPillCheckToggleStyle(roadmap.starColor, reflectProgressChecklistActive)}
+                  title={String(LABELS.roadmapDetailReflectProgressCheckboxHint ?? '')}
+                  aria-pressed={reflectProgressChecklistActive}
                 >
-                  <Trash2 className="w-3.5 h-3.5" />
+                  <ListChecks style={{ width: 14, height: 14 }} />
+                  {reflectProgressChecklistActive
+                    ? (LABELS.timeline_hide_checklist as string ?? '체크')
+                    : (LABELS.timeline_show_checklist as string ?? '체크')
+                  }
+                </DetailActionPillButton>
+              ) : null}
+              {!showDeleteConfirmationActions ? (
+                <DetailActionPillButton
+                  onClick={() => setShowDeleteConfirmationActions(true)}
+                  style={getDetailActionPillDeleteStyle()}
+                >
+                  <Trash2 style={{ width: 13, height: 13 }} />
                   {LABELS.deleteButtonLabel ?? '삭제'}
-                </button>
+                </DetailActionPillButton>
               ) : (
-                <div className="flex gap-1.5">
-                  <button
+                <>
+                  <DetailActionPillButton
                     onClick={() => setShowDeleteConfirmationActions(false)}
-                    className="h-9 px-3 rounded-xl text-sm font-semibold"
-                    style={{ backgroundColor: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.5)' }}
+                    style={getDetailActionPillCancelStyle()}
                   >
                     {LABELS.cancelButtonLabel ?? '취소'}
-                  </button>
-                  <button
-                    onClick={onDelete}
-                    className="h-9 px-3 rounded-xl text-sm font-bold text-white"
-                    style={{ backgroundColor: '#ef4444' }}
-                  >
+                  </DetailActionPillButton>
+                  <DetailActionPillButton onClick={onDelete} style={getDetailActionPillDeleteConfirmStyle()}>
                     {LABELS.deleteConfirmButtonLabel ?? '삭제 확인'}
-                  </button>
-                </div>
+                  </DetailActionPillButton>
+                </>
               )}
             </div>
           )}
@@ -492,9 +558,9 @@ export function RoadmapDetailDialog({
             <h4 className="text-sm font-bold text-white">{LABELS.timelineViewLabel}</h4>
             <RoadmapTreeView
               roadmap={roadmap}
-              timelineDetailMode={timelineDetailMode}
+              timelineDetailMode={effectiveTimelineDetailMode}
               onToggleTodoItem={
-                timelineDetailMode === 'interactive' && isOwnedByCurrentUser && !isReferenceViewOnlyMode
+                effectiveTimelineDetailMode === 'interactive' && isOwnedByCurrentUser && !isReferenceViewOnlyMode
                   ? onToggleTodoItem
                   : undefined
               }
@@ -596,6 +662,13 @@ export function RoadmapDetailDialog({
       )}
     </div>
   );
+
+  if (isDialogVariant) {
+    if (!isPortalTargetReady) return null;
+    return createPortal(shell, document.body);
+  }
+
+  return shell;
 }
 
 function CommentTreeNode({

@@ -9,6 +9,8 @@ app_name = 'accounts'
 
 urlpatterns = [
     path('social-login/', views.social_login_view, name='social-login'),
+    path('email-signup/', views.email_signup_view, name='email-signup'),
+    path('email-login/', views.email_login_view, name='email-login'),
     path('token/refresh/', views.token_refresh_view, name='token-refresh'),
     path('logout/', views.logout_view, name='logout'),
     path('me/', views.UserProfileView.as_view(), name='user-profile'),
