@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useCallback, useEffect, useState, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 import { Sparkles } from 'lucide-react';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
@@ -52,14 +53,35 @@ function StarField() {
 
 /* ─── Main page content ─── */
 function DreamMatePageContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [showLibraryCreateDialog, setShowLibraryCreateDialog] = useState(false);
+  const [showSpaceCreateDialog, setShowSpaceCreateDialog] = useState(false);
 
   const workspace = useDreamMateWorkspaceContext();
+
+  /** 로그인 후에만 생성·수정·삭제·복사 등 변경 (미로그인 시 UI 자체 비표시) */
+  const canMutate = mounted && hasCareerPathBackendAuth();
+
+  const requireAuthForMutation = useCallback((): boolean => {
+    if (hasCareerPathBackendAuth()) return true;
+    router.push('/auth/login');
+    return false;
+  }, [router]);
+
+  useEffect(() => {
+    if (canMutate) return;
+    workspace.setShowCreateRoadmapDialog(false);
+    workspace.setEditingRoadmapId(null);
+    setShowShareDialog(false);
+    setShowLibraryCreateDialog(false);
+    setShowSpaceCreateDialog(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- 로그아웃·비로그인 시 다이얼로그만 닫음
+  }, [canMutate]);
 
   useEffect(() => {
     setMounted(true);
@@ -96,9 +118,20 @@ function DreamMatePageContent() {
           </div>
           <DreamMateHeroBanner
             activeTab={activeTab}
-            onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
-            onCreateSpace={() => {}}
-            onUploadResource={() => setShowLibraryCreateDialog(true)}
+            statsReady={mounted}
+            allowMutations={canMutate}
+            onCreateRoadmap={() => {
+              if (!requireAuthForMutation()) return;
+              workspace.setShowCreateRoadmapDialog(true);
+            }}
+            onCreateSpace={() => {
+              if (!requireAuthForMutation()) return;
+              setShowSpaceCreateDialog(true);
+            }}
+            onUploadResource={() => {
+              if (!requireAuthForMutation()) return;
+              setShowLibraryCreateDialog(true);
+            }}
             totalRoadmaps={workspace.visibleRoadmaps.length}
             totalMyRoadmaps={workspace.myRoadmaps.length}
             totalMySharedRoadmaps={workspace.myRoadmaps.filter((rm) => (rm.shareChannels ?? []).length > 0).length}
@@ -113,24 +146,33 @@ function DreamMatePageContent() {
                 roadmaps={workspace.visibleRoadmaps}
                 currentUserId={workspace.currentUserId}
                 bookmarkedIds={workspace.reactions.bookmarkedRoadmapIds}
-                onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
+                allowMutations={canMutate}
+                onCreateRoadmap={() => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.setShowCreateRoadmapDialog(true);
+                }}
                 availableSpaces={workspace.joinedSpaces}
                 detailCallbacks={{
                   onUseRoadmap: (roadmap) => {
+                    if (!requireAuthForMutation()) return;
                     workspace.handleUseRoadmap(roadmap);
                     setActiveTab('my');
                   },
                   onEdit: (roadmap) => {
+                    if (!requireAuthForMutation()) return;
                     workspace.setEditingRoadmapId(roadmap.id);
                   },
                   onShare: (roadmap) => {
+                    if (!requireAuthForMutation()) return;
                     workspace.setSelectedRoadmapId(roadmap.id);
                     setShowShareDialog(true);
                   },
                   onDelete: (roadmap) => {
+                    if (!requireAuthForMutation()) return;
                     workspace.handleDeleteRoadmap(roadmap.id);
                   },
                   onShareRoadmap: (roadmap, channels, spaceIds) => {
+                    if (!requireAuthForMutation()) return;
                     workspace.handleShareRoadmap(roadmap.id, channels, spaceIds);
                   },
                   onReportRoadmap: (roadmap, reasonId, detail) => {
@@ -144,6 +186,7 @@ function DreamMatePageContent() {
               />
             ) : activeTab === 'library' ? (
               <DreamLibraryTab
+                allowMutations={canMutate}
                 currentUserId={workspace.currentUserId}
                 resources={workspace.resources}
                 resourceCommentsByResourceId={workspace.resourceCommentsByResourceId}
@@ -151,9 +194,18 @@ function DreamMatePageContent() {
                 bookmarkedResourceIds={workspace.reactions.bookmarkedResourceIds}
                 onToggleLikeResource={workspace.handleToggleLikeResource}
                 onToggleBookmarkResource={workspace.handleToggleBookmarkResource}
-                onCreateResource={workspace.handleCreateResource}
-                onUpdateResource={workspace.handleUpdateResource}
-                onDeleteResource={workspace.handleDeleteResource}
+                onCreateResource={(payload) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleCreateResource(payload);
+                }}
+                onUpdateResource={(resourceId, payload) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleUpdateResource(resourceId, payload);
+                }}
+                onDeleteResource={(resourceId) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleDeleteResource(resourceId);
+                }}
                 onCreateResourceComment={workspace.handleCreateResourceComment}
                 onReportResource={workspace.handleReportResource}
                 openCreateDialog={showLibraryCreateDialog}
@@ -161,6 +213,7 @@ function DreamMatePageContent() {
               />
             ) : activeTab === 'space' ? (
               <DreamSpaceTab
+                allowMutations={canMutate}
                 currentUserId={workspace.currentUserId}
                 spaces={workspace.spaces}
                 roadmaps={workspace.roadmaps}
@@ -178,12 +231,18 @@ function DreamMatePageContent() {
                 }}
                 onJoinSpace={workspace.handleJoinSpace}
                 onLeaveSpace={workspace.handleLeaveSpace}
-                onCreateSpace={workspace.handleCreateSpace}
+                onCreateSpace={(payload) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleCreateSpace(payload);
+                }}
                 onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
                 onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
+                openCreateDialog={showSpaceCreateDialog}
+                onOpenCreateDialogDismiss={() => setShowSpaceCreateDialog(false)}
               />
             ) : activeTab === 'my' ? (
               <MyDreamMateTab
+                allowMutations={canMutate}
                 myRoadmaps={workspace.myRoadmaps}
                 allRoadmaps={workspace.roadmaps}
                 joinedSpaces={workspace.joinedSpaces}
@@ -195,17 +254,28 @@ function DreamMatePageContent() {
                 bookmarkCounts={workspace.roadmapBookmarkCounts}
                 onToggleLike={workspace.handleToggleRoadmapLike}
                 onToggleBookmark={workspace.handleToggleRoadmapBookmark}
-                onCreateRoadmap={() => workspace.setShowCreateRoadmapDialog(true)}
-                onEditRoadmap={(roadmapId) => workspace.setEditingRoadmapId(roadmapId)}
-                onDeleteRoadmap={(roadmapId) => workspace.handleDeleteRoadmap(roadmapId)}
+                onCreateRoadmap={() => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.setShowCreateRoadmapDialog(true);
+                }}
+                onEditRoadmap={(roadmapId) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.setEditingRoadmapId(roadmapId);
+                }}
+                onDeleteRoadmap={(roadmapId) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleDeleteRoadmap(roadmapId);
+                }}
                 onRequestShareRoadmap={(roadmap) => {
+                  if (!requireAuthForMutation()) return;
                   setSelectedRoadmapOpenedFromTab('my');
                   workspace.setSelectedRoadmapId(roadmap.id);
                   setShowShareDialog(true);
                 }}
-                onShareRoadmap={(roadmapId, channels, spaceIds) =>
-                  workspace.handleShareRoadmap(roadmapId, channels, spaceIds)
-                }
+                onShareRoadmap={(roadmapId, channels, spaceIds) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleShareRoadmap(roadmapId, channels, spaceIds);
+                }}
                 onReportRoadmap={(roadmapId, reasonId, detail) =>
                   workspace.handleReportRoadmap(roadmapId, reasonId, detail)
                 }
@@ -215,14 +285,17 @@ function DreamMatePageContent() {
                 onLeaveSpace={workspace.handleLeaveSpace}
                 onToggleSpaceRecruitmentStatus={workspace.handleToggleSpaceRecruitmentStatus}
                 onCreateSpaceNotice={workspace.handleCreateSpaceNotice}
-                onToggleRoadmapTodoItem={workspace.handleToggleTodoItem}
+                onToggleRoadmapTodoItem={(roadmapId, itemId, todoId) => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.handleToggleTodoItem(roadmapId, itemId, todoId);
+                }}
               />
             ) : null}
           </div>
         </div>
       </div>
 
-      {workspace.showCreateRoadmapDialog && (
+      {canMutate && workspace.showCreateRoadmapDialog && (
         <RoadmapEditorDialog
           title={LABELS.createRoadmapButton}
           submitLabel={LABELS.createRoadmapButton}
@@ -241,11 +314,14 @@ function DreamMatePageContent() {
             items: [],
           }}
           onClose={() => workspace.setShowCreateRoadmapDialog(false)}
-          onSubmit={workspace.handleCreateRoadmap}
+          onSubmit={(payload) => {
+            if (!requireAuthForMutation()) return;
+            workspace.handleCreateRoadmap(payload);
+          }}
         />
       )}
 
-      {workspace.editingRoadmap && (
+      {canMutate && workspace.editingRoadmap && (
         <RoadmapEditorDialog
           title="실행계획 수정하기"
           submitLabel="수정 완료"
@@ -264,7 +340,10 @@ function DreamMatePageContent() {
             items: workspace.editingRoadmap.items,
           }}
           onClose={() => workspace.setEditingRoadmapId(null)}
-          onSubmit={(payload) => workspace.handleUpdateRoadmap(workspace.editingRoadmap!.id, payload)}
+          onSubmit={(payload) => {
+            if (!requireAuthForMutation()) return;
+            workspace.handleUpdateRoadmap(workspace.editingRoadmap!.id, payload);
+          }}
         />
       )}
 
@@ -280,23 +359,28 @@ function DreamMatePageContent() {
             setSelectedRoadmapOpenedFromTab(null);
           }}
           onUseRoadmap={() => {
+            if (!requireAuthForMutation()) return;
             setSelectedRoadmapOpenedFromTab('my');
             workspace.handleUseRoadmap(workspace.selectedRoadmap!);
             setActiveTab('my');
           }}
           onEdit={() => {
+            if (!requireAuthForMutation()) return;
             workspace.setEditingRoadmapId(workspace.selectedRoadmap!.id);
             workspace.setSelectedRoadmapId(null);
             setSelectedRoadmapOpenedFromTab(null);
           }}
           onShare={() => {
+            if (!requireAuthForMutation()) return;
             setShowShareDialog(true);
           }}
           onDelete={() => {
+            if (!requireAuthForMutation()) return;
             workspace.handleDeleteRoadmap(workspace.selectedRoadmap!.id);
             setSelectedRoadmapOpenedFromTab(null);
           }}
           onShareRoadmap={(shareChannels, selectedSpaceIds) => {
+            if (!requireAuthForMutation()) return;
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareChannels, selectedSpaceIds);
           }}
           onReportRoadmap={(reasonId, detail) => {
@@ -306,7 +390,7 @@ function DreamMatePageContent() {
         />
       )}
 
-      {showShareDialog && workspace.selectedRoadmap && (
+      {canMutate && showShareDialog && workspace.selectedRoadmap && (
         <RoadmapShareDialog
           currentShareChannels={getShareChannelsFromRoadmap(workspace.selectedRoadmap)}
           currentSpaceIds={workspace.selectedRoadmap.groupIds ?? []}
@@ -320,6 +404,7 @@ function DreamMatePageContent() {
             }
           }}
           onSave={(shareChannels, selectedSpaceIds) => {
+            if (!requireAuthForMutation()) return;
             workspace.handleShareRoadmap(workspace.selectedRoadmap!.id, shareChannels, selectedSpaceIds);
             setShowShareDialog(false);
             if (selectedRoadmapOpenedFromTab === 'my') {

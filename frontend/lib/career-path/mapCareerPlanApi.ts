@@ -41,6 +41,8 @@ export type ApiPlanItem = {
   category_tags: string[];
   activity_subtype?: string | null;
   sort_order: number;
+  /** 활동 단위 완료(타임라인 체크) — UI에서는 checked로 매핑 */
+  is_done?: boolean;
   sub_items: ApiSubItem[];
   links: ApiItemLink[];
 };
@@ -104,6 +106,7 @@ function mapPlanItemFromApi(item: ApiPlanItem): PlanItem {
     description: item.description ?? undefined,
     categoryTags: (item.category_tags ?? []) as PlanItem['categoryTags'],
     activitySubtype: (item.activity_subtype ?? undefined) as PlanItem['activitySubtype'],
+    checked: item.is_done === true,
     subItems: (item.sub_items ?? []).map(mapSubItemFromApi),
     links: (item.links ?? []).map(
       (l): CareerItemLink => ({
@@ -232,6 +235,7 @@ function mapPlanItemToApi(item: PlanItem): Record<string, unknown> {
     category_tags: item.categoryTags ?? [],
     activity_subtype: item.activitySubtype ?? null,
     sort_order: 0,
+    is_done: item.checked === true,
     sub_items: (item.subItems ?? []).map(mapSubItemToApi),
     links: (item.links ?? []).map(mapLinkToApi),
   };

@@ -99,7 +99,7 @@ export type SharedPlanDetailContentProps = {
   readonly variant?: 'panel' | 'dialog';
   /** 닫기 버튼 표시 여부 (variant=panel일 때 md 이상에서 false) */
   readonly showCloseButton?: boolean;
-  /** 2열 패널에서만 — 상단 확대(560px 다이얼로그) */
+  /** 2열 패널에서만 — 상단 확대(580px 다이얼로그) */
   readonly onExpand?: () => void;
 };
 

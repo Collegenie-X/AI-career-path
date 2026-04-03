@@ -322,6 +322,9 @@ class PlanItem(UUIDPrimaryKeyModel, TimeStampedModel):
     )
     
     sort_order = models.IntegerField(default=0, verbose_name='정렬 순서')
+
+    # 타임라인·체크리스트 활동 단위 완료(상위 항목 체크); 하위 SubItem.is_done과 별개
+    is_done = models.BooleanField(default=False, verbose_name='활동 완료')
     
     class Meta:
         db_table = 'career_path_plan_items'

@@ -19,6 +19,8 @@ export interface RoadmapEditorWbsWeeklyChecklistLabels {
   noWeekGroupHint: string;
   deleteWeekGroupButton: string;
   weekGoalLabel: string;
+  /** 목표 입력란 위·아래 짧은 안내 (config에서 주입). */
+  weekGoalEditHelpHint?: string;
   weekGoalRequiredHint: string;
   weekGoalValidationHint: string;
   goalOutputLabel: string;
@@ -166,6 +168,11 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
                                 <RoadmapEditorWbsWeekDetailStack>
                                   <div className="space-y-2 rounded-lg bg-violet-500/[0.07] px-2 py-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                                     <label className="mb-0.5 block text-[13px] text-gray-500">{labels.weekGoalLabel}</label>
+                                    {labels.weekGoalEditHelpHint ? (
+                                      <p className="mb-1 text-[10px] leading-snug text-gray-500">
+                                        {labels.weekGoalEditHelpHint}
+                                      </p>
+                                    ) : null}
                                     <input
                                       value={group.goal?.title ?? ''}
                                       onChange={event => onUpsertWeekGoal(groupKey, event.target.value)}

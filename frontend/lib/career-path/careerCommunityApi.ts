@@ -13,10 +13,28 @@ function optionalAuthHeaders(): HeadersInit {
   return { ...JSON_HEADERS, Authorization: `Bearer ${token}` };
 }
 
+function formatDrfErrorBody(text: string): string {
+  try {
+    const j = JSON.parse(text) as { detail?: unknown; non_field_errors?: unknown[] };
+    if (typeof j.detail === 'string') return j.detail;
+    if (Array.isArray(j.detail)) return j.detail.map(String).join('; ');
+    if (j.detail && typeof j.detail === 'object') {
+      return Object.entries(j.detail as Record<string, unknown>)
+        .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(', ') : String(v)}`)
+        .join('; ');
+    }
+    if (Array.isArray(j.non_field_errors)) return j.non_field_errors.map(String).join('; ');
+  } catch {
+    /* fall through */
+  }
+  return text.slice(0, 400);
+}
+
 async function parseJsonOrThrow(res: Response, label: string): Promise<unknown> {
   const text = await res.text().catch(() => '');
   if (!res.ok) {
-    throw new Error(`${label}:${res.status}:${text.slice(0, 400)}`);
+    const detail = formatDrfErrorBody(text);
+    throw new Error(`${label}:${res.status}:${detail}`);
   }
   try {
     return text ? JSON.parse(text) : {};
@@ -121,4 +139,34 @@ export async function createCareerPathGroup(
   });
   const data = await parseJsonOrThrow(res, 'career_path_group_create');
   return data as ApiCareerPathGroup;
+}
+
+export type UpdateCareerPathGroupPayload = Partial<CreateCareerPathGroupPayload>;
+
+export async function updateCareerPathGroup(
+  groupId: string,
+  payload: UpdateCareerPathGroupPayload,
+): Promise<ApiCareerPathGroup> {
+  const url = buildApiUrl(`${API_PATHS.careerPathGroups}${groupId}/`);
+  const res = await fetchWithAuthRetry(url, {
+    method: 'PATCH',
+    headers: optionalAuthHeaders(),
+    credentials: 'omit',
+    body: JSON.stringify(payload),
+  });
+  const data = await parseJsonOrThrow(res, 'career_path_group_patch');
+  return data as ApiCareerPathGroup;
+}
+
+export async function deleteCareerPathGroup(groupId: string): Promise<void> {
+  const url = buildApiUrl(`${API_PATHS.careerPathGroups}${groupId}/`);
+  const res = await fetchWithAuthRetry(url, {
+    method: 'DELETE',
+    headers: optionalAuthHeaders(),
+    credentials: 'omit',
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(() => '');
+    throw new Error(`career_path_group_delete:${res.status}:${text.slice(0, 400)}`);
+  }
 }

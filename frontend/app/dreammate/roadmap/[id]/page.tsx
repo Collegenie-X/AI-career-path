@@ -7,14 +7,29 @@ import { RoadmapShareDialog } from '../../components/RoadmapShareDialog';
 import { useDreamMateWorkspaceContext } from '../../DreamMateWorkspaceProvider';
 import { getShareChannelsFromRoadmap } from '../../types';
 import { getCanSelectPublicShareForRoadmap } from '../../utils/roadmapPublicShareEligibility';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
 
 export default function RoadmapDetailPage() {
   const params = useParams();
   const router = useRouter();
   const workspace = useDreamMateWorkspaceContext();
+  const [mounted, setMounted] = useState(false);
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [showEditDialog, setShowEditDialog] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const canMutate = mounted && hasCareerPathBackendAuth();
+
+  useEffect(() => {
+    if (!canMutate) {
+      setShowEditDialog(false);
+      setShowShareDialog(false);
+    }
+  }, [canMutate]);
 
   const roadmapId = typeof params.id === 'string' ? params.id : null;
   const roadmap = roadmapId
@@ -53,6 +68,8 @@ export default function RoadmapDetailPage() {
         isReferenceViewOnlyMode={false}
         availableSpaces={workspace.joinedSpaces}
         variant="page"
+        allowMutations={canMutate}
+        allowProgressChecklistToggle={canMutate && isOwnedByCurrentUser}
         onClose={() => router.push('/dreammate?tab=my')}
         onUseRoadmap={() => {
           workspace.handleUseRoadmap(roadmap);
@@ -78,7 +95,7 @@ export default function RoadmapDetailPage() {
         }
       />
 
-      {showEditDialog && (
+      {canMutate && showEditDialog && (
         <RoadmapEditorDialog
           title="실행계획 수정하기"
           submitLabel="수정 완료"
@@ -104,7 +121,7 @@ export default function RoadmapDetailPage() {
         />
       )}
 
-      {showShareDialog && (
+      {canMutate && showShareDialog && (
         <RoadmapShareDialog
           currentShareChannels={getShareChannelsFromRoadmap(roadmap)}
           currentSpaceIds={roadmap.groupIds ?? []}

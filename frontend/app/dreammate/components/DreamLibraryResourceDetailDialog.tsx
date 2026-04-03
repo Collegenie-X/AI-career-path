@@ -15,6 +15,8 @@ interface DreamLibraryResourceDetailDialogProps {
   isLiked: boolean;
   isBookmarked: boolean;
   canManage: boolean;
+  /** 로그인 시에만 좋아요·북마크·댓글·신고(비소유자) 등 */
+  allowMutations?: boolean;
   variant?: DreamLibraryResourceDetailVariant;
   onClose: () => void;
   onToggleLike: () => void;
@@ -37,6 +39,7 @@ export function DreamLibraryResourceDetailDialog({
   isLiked,
   isBookmarked,
   canManage,
+  allowMutations = true,
   variant = 'dialog',
   onClose,
   onToggleLike,
@@ -105,7 +108,7 @@ export function DreamLibraryResourceDetailDialog({
               <p className="text-sm text-gray-500 mt-1">{formatDateTime(resource.createdAt)}</p>
             </div>
             <div className="flex items-center gap-2">
-              {!canManage && (
+              {!canManage && allowMutations && (
                 <div ref={actionMenuRef} className="relative">
                   <button
                     onClick={() => setShowActionMenu(previousState => !previousState)}
@@ -175,16 +178,22 @@ export function DreamLibraryResourceDetailDialog({
             </div>
           )}
 
-          <div className="flex items-center gap-2">
-            <button onClick={onToggleLike} className="h-9 px-3 rounded-xl text-sm flex items-center gap-1.5" style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: isLiked ? '#f87171' : '#9ca3af' }}>
-              <Heart className="w-4 h-4" fill={isLiked ? '#f87171' : 'none'} />
-              {resource.likes + (isLiked ? 1 : 0)}
-            </button>
-            <button onClick={onToggleBookmark} className="h-9 px-3 rounded-xl text-sm flex items-center gap-1.5" style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: isBookmarked ? '#fbbf24' : '#9ca3af' }}>
-              <Bookmark className="w-4 h-4" fill={isBookmarked ? '#fbbf24' : 'none'} />
-              {resource.bookmarks + (isBookmarked ? 1 : 0)}
-            </button>
-            {canManage && (
+          <div className="flex flex-wrap items-center gap-2">
+            {allowMutations ? (
+              <>
+                <button type="button" onClick={onToggleLike} className="h-9 px-3 rounded-xl text-sm flex items-center gap-1.5" style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: isLiked ? '#f87171' : '#9ca3af' }}>
+                  <Heart className="w-4 h-4" fill={isLiked ? '#f87171' : 'none'} />
+                  {resource.likes + (isLiked ? 1 : 0)}
+                </button>
+                <button type="button" onClick={onToggleBookmark} className="h-9 px-3 rounded-xl text-sm flex items-center gap-1.5" style={{ backgroundColor: 'rgba(251,191,36,0.15)', color: isBookmarked ? '#fbbf24' : '#9ca3af' }}>
+                  <Bookmark className="w-4 h-4" fill={isBookmarked ? '#fbbf24' : 'none'} />
+                  {resource.bookmarks + (isBookmarked ? 1 : 0)}
+                </button>
+              </>
+            ) : (
+              <p className="text-sm text-gray-500 w-full">{LABELS.loginRequiredForLibraryInteractionsHint}</p>
+            )}
+            {canManage && allowMutations && (
               <>
                 <button onClick={onEditRequest} className="h-9 px-3 rounded-xl text-sm" style={{ backgroundColor: 'rgba(108,92,231,0.22)', color: '#c4b5fd' }}>
                   {LABELS.libraryEditButton}
@@ -213,32 +222,35 @@ export function DreamLibraryResourceDetailDialog({
                 </div>
               ))}
             </div>
-            <div className="flex items-center gap-2">
-              <input
-                value={newComment}
-                onChange={event => setNewComment(event.target.value)}
-                placeholder={LABELS.libraryCommentPlaceholder}
-                className="flex-1 h-10 px-3 rounded-lg text-sm text-white placeholder-gray-600 outline-none"
-                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-              />
-              <button
-                onClick={() => {
-                  if (!newComment.trim()) return;
-                  onCreateComment(newComment);
-                  setNewComment('');
-                }}
-                className="h-10 px-3 rounded-lg text-sm font-bold"
-                style={{ backgroundColor: 'rgba(108,92,231,0.25)', color: '#ddd6fe' }}
-              >
-                {LABELS.libraryCommentSubmitButton}
-              </button>
-            </div>
+            {allowMutations ? (
+              <div className="flex items-center gap-2">
+                <input
+                  value={newComment}
+                  onChange={event => setNewComment(event.target.value)}
+                  placeholder={LABELS.libraryCommentPlaceholder}
+                  className="flex-1 h-10 px-3 rounded-lg text-sm text-white placeholder-gray-600 outline-none"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!newComment.trim()) return;
+                    onCreateComment(newComment);
+                    setNewComment('');
+                  }}
+                  className="h-10 px-3 rounded-lg text-sm font-bold"
+                  style={{ backgroundColor: 'rgba(108,92,231,0.25)', color: '#ddd6fe' }}
+                >
+                  {LABELS.libraryCommentSubmitButton}
+                </button>
+              </div>
+            ) : null}
           </div>
 
         </div>
       </div>
 
-      {showReportDialog && !canManage && (
+      {showReportDialog && !canManage && allowMutations && (
         <RoadmapReportDialog
           roadmapTitle={resource.title}
           onClose={() => setShowReportDialog(false)}

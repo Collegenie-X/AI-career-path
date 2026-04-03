@@ -40,6 +40,7 @@ function ResourceCard({
   onOpen,
   onToggleLike,
   onToggleBookmark,
+  allowMutations = true,
 }: {
   resource: DreamResource;
   isLiked: boolean;
@@ -48,6 +49,7 @@ function ResourceCard({
   onOpen: () => void;
   onToggleLike: () => void;
   onToggleBookmark: () => void;
+  allowMutations?: boolean;
 }) {
   const cat = RESOURCE_CATEGORIES.find(c => c.id === resource.category);
 
@@ -109,28 +111,43 @@ function ResourceCard({
               <span className="text-sm text-gray-400">{resource.authorName}</span>
             </div>
             <div className="flex items-center gap-3">
-              <button
-                onClick={event => {
-                  event.stopPropagation();
-                  onToggleLike();
-                }}
-                className="flex items-center gap-1 text-sm transition-all"
-                style={{ color: isLiked ? '#EF4444' : '#6B7280' }}
-              >
-                <Heart className="w-3 h-3" fill={isLiked ? '#EF4444' : 'none'} />
-                {resource.likes + (isLiked ? 1 : 0)}
-              </button>
-              <button
-                onClick={event => {
-                  event.stopPropagation();
-                  onToggleBookmark();
-                }}
-                className="flex items-center gap-1 text-sm transition-all"
-                style={{ color: isBookmarked ? '#FBBF24' : '#6B7280' }}
-              >
-                <Bookmark className="w-3 h-3" fill={isBookmarked ? '#FBBF24' : 'none'} />
-                {resource.bookmarks + (isBookmarked ? 1 : 0)}
-              </button>
+              {allowMutations ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={event => {
+                      event.stopPropagation();
+                      onToggleLike();
+                    }}
+                    className="flex items-center gap-1 text-sm transition-all"
+                    style={{ color: isLiked ? '#EF4444' : '#6B7280' }}
+                  >
+                    <Heart className="w-3 h-3" fill={isLiked ? '#EF4444' : 'none'} />
+                    {resource.likes + (isLiked ? 1 : 0)}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={event => {
+                      event.stopPropagation();
+                      onToggleBookmark();
+                    }}
+                    className="flex items-center gap-1 text-sm transition-all"
+                    style={{ color: isBookmarked ? '#FBBF24' : '#6B7280' }}
+                  >
+                    <Bookmark className="w-3 h-3" fill={isBookmarked ? '#FBBF24' : 'none'} />
+                    {resource.bookmarks + (isBookmarked ? 1 : 0)}
+                  </button>
+                </>
+              ) : (
+                <div className="flex items-center gap-3 text-sm text-gray-500">
+                  <span className="flex items-center gap-1">
+                    <Heart className="w-3 h-3" /> {resource.likes}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Bookmark className="w-3 h-3" /> {resource.bookmarks}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -156,6 +173,8 @@ interface DreamLibraryTabProps {
   /** 히어로 섹션 "자료 올리기" 버튼 클릭 시 다이얼로그 열기 */
   openCreateDialog?: boolean;
   onOpenCreateDialogDismiss?: () => void;
+  /** 로그인 시에만 업로드·수정·삭제 다이얼로그 및 목록 업로드 버튼 */
+  allowMutations?: boolean;
 }
 
 export function DreamLibraryTab({
@@ -173,6 +192,7 @@ export function DreamLibraryTab({
   onReportResource,
   openCreateDialog = false,
   onOpenCreateDialogDismiss,
+  allowMutations = true,
 }: DreamLibraryTabProps) {
   const [selectedCategory, setSelectedCategory] = useState<ResourceCategoryId | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -186,11 +206,18 @@ export function DreamLibraryTab({
   }, [selectedCategory, searchQuery]);
 
   useEffect(() => {
-    if (openCreateDialog) {
+    if (!allowMutations) {
+      setIsCreateDialogOpen(false);
+      setEditingResourceId(null);
+    }
+  }, [allowMutations]);
+
+  useEffect(() => {
+    if (openCreateDialog && allowMutations) {
       setIsCreateDialogOpen(true);
       onOpenCreateDialogDismiss?.();
     }
-  }, [openCreateDialog, onOpenCreateDialogDismiss]);
+  }, [openCreateDialog, allowMutations, onOpenCreateDialogDismiss]);
 
   const allCategories: { id: ResourceCategoryId | 'all'; label: string; emoji: string; color: string }[] = [
     { id: 'all', label: '전체', emoji: '✨', color: '#6C5CE7' },
@@ -231,14 +258,17 @@ export function DreamLibraryTab({
           <h3 className="text-base font-bold text-white">{LABELS.libraryTitle}</h3>
           <p className="text-sm text-gray-500 mt-0.5">{LABELS.librarySubtitle}</p>
         </div>
-        <button
-          onClick={() => setIsCreateDialogOpen(true)}
-          className="h-8 px-3 rounded-lg text-sm font-bold flex items-center gap-1.5 flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
-        >
-          <Plus className="w-3.5 h-3.5" />
-          {LABELS.uploadResourceButton}
-        </button>
+        {allowMutations && (
+          <button
+            type="button"
+            onClick={() => setIsCreateDialogOpen(true)}
+            className="h-8 px-3 rounded-lg text-sm font-bold flex items-center gap-1.5 flex-shrink-0"
+            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)', color: '#fff' }}
+          >
+            <Plus className="w-3.5 h-3.5" />
+            {LABELS.uploadResourceButton}
+          </button>
+        )}
       </div>
 
       <div className="relative">
@@ -293,6 +323,7 @@ export function DreamLibraryTab({
                 isLiked={likedResourceIds.includes(res.id)}
                 isBookmarked={bookmarkedResourceIds.includes(res.id)}
                 isSelected={selectedResourceId === res.id}
+                allowMutations={allowMutations}
                 onOpen={() => setSelectedResourceId(res.id)}
                 onToggleLike={() => onToggleLikeResource(res.id)}
                 onToggleBookmark={() => onToggleBookmarkResource(res.id)}
@@ -343,6 +374,7 @@ export function DreamLibraryTab({
                 isLiked={likedResourceIds.includes(selectedResource.id)}
                 isBookmarked={bookmarkedResourceIds.includes(selectedResource.id)}
                 canManage={selectedResource.authorId === currentUserId}
+                allowMutations={allowMutations}
                 onClose={() => setSelectedResourceId(null)}
                 onToggleLike={() => onToggleLikeResource(selectedResource.id)}
                 onToggleBookmark={() => onToggleBookmarkResource(selectedResource.id)}
@@ -363,7 +395,7 @@ export function DreamLibraryTab({
         }
       />
 
-      {isCreateDialogOpen && (
+      {allowMutations && isCreateDialogOpen && (
         <DreamLibraryResourceFormDialog
           title={LABELS.libraryUploadDialogTitle}
           submitLabel={LABELS.uploadResourceButton}
@@ -375,7 +407,7 @@ export function DreamLibraryTab({
         />
       )}
 
-      {editingResource && (
+      {allowMutations && editingResource && (
         <DreamLibraryResourceFormDialog
           title={LABELS.libraryEditButton}
           submitLabel={LABELS.libraryEditButton}

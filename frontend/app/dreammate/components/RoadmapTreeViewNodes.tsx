@@ -8,6 +8,7 @@ import { getWeekProgressFromBlocks, groupWeekIntoGoalBlocks } from '../utils/roa
 import { formatRoadmapItemMonthLabel, groupSubItemsByWeek, type RoadmapWeekGroup } from '../utils/roadmapTreeWeekGrouping';
 import { RoadmapTodoHeaderInlineProgressBar } from './RoadmapTodoProgressBars';
 import type { RoadmapTreeTodoRowVisualMode } from '../config/roadmap-timeline-display.config';
+import type { PlanFolderVariant } from './roadmap-timeline/RoadmapTimelineSectionChrome';
 import {
   RoadmapTimelinePlanItemFolderFrame,
   RoadmapTimelineWeekSectionFrame,
@@ -75,8 +76,8 @@ function TreeWeekNode({
         </div>
         {open && (
           <div
-            className="mt-2 space-y-2 border-l pl-3 ml-0.5"
-            style={{ borderColor: `${accentColor}14` }}
+            className="mt-2 space-y-2 border-l-2 pl-3 ml-0.5"
+            style={{ borderColor: `${accentColor}28` }}
           >
             {goalBlocks.map((block, blockIdx) => (
               <WeekGoalBlock
@@ -106,6 +107,7 @@ export function TreeItemNode({
   todoRowVisualMode,
   onToggleTodoItem,
   onSelectItem,
+  planFolderVariant = 'box',
 }: {
   item: RoadmapItem;
   accentColor: string;
@@ -115,13 +117,14 @@ export function TreeItemNode({
   todoRowVisualMode: RoadmapTreeTodoRowVisualMode;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
   onSelectItem: (item: RoadmapItem) => void;
+  planFolderVariant?: PlanFolderVariant;
 }) {
   const [open, setOpen] = useState(true);
   const weekGroups = useMemo(() => groupSubItemsByWeek(item.subItems ?? []), [item.subItems]);
   const { total, done } = getEffectiveTodoCounts(item);
 
   return (
-    <RoadmapTimelinePlanItemFolderFrame accentColor={accentColor}>
+    <RoadmapTimelinePlanItemFolderFrame accentColor={accentColor} variant={planFolderVariant}>
       <div
         className="cursor-pointer px-3 py-2.5 transition-colors hover:bg-white/5"
         style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}

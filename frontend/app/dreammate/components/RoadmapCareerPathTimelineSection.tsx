@@ -7,7 +7,7 @@ import { GOAL_GROUP_TEMPLATES_BY_ITEM_TYPE, LABELS, PERIOD_FILTERS } from '../co
 import type { DreamItemType, RoadmapItem, SharedRoadmap } from '../types';
 import { getEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { sortByEarliestMonth } from '@/lib/timelineTreeUtils';
-import { RoadmapTodoInlineProgressBar, RoadmapTodoProgressBarCard } from './RoadmapTodoProgressBars';
+import { RoadmapTodoHeaderInlineProgressBar, RoadmapTodoInlineProgressBar } from './RoadmapTodoProgressBars';
 
 interface RoadmapCareerPathTimelineSectionProps {
   roadmap: SharedRoadmap;
@@ -433,13 +433,10 @@ export function RoadmapCareerPathTimelineSection({
           </span>
         </div>
         <div className="text-sm text-gray-400 mt-1">{LABELS.sprintGuideLabel}</div>
-        <div className="text-sm text-gray-500 mt-1">
-          목표 {groupedGoals.length}개 · 계획 {roadmap.items.length}개 · {LABELS.weeklyChecklistLabel} {weeklyDoneCount}/{weeklyTotalCount}
-        </div>
         {showProgressBars && (
-          <div className="mt-2 grid grid-cols-1 gap-2">
-            <RoadmapTodoProgressBarCard
-              title={LABELS.overallProgressLabel}
+          <div className="flex items-center justify-between gap-2 mt-1">
+            <span className="text-sm text-gray-500">{LABELS.roadmapGoalPlanWeeklySummaryLineLabel}</span>
+            <RoadmapTodoHeaderInlineProgressBar
               doneCount={weeklyDoneCount}
               totalCount={weeklyTotalCount}
               accentColor={roadmap.starColor}

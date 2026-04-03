@@ -8,6 +8,7 @@ from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.exceptions import PermissionDenied
 from django.db.models import Prefetch, Q, Count
 from django.db import transaction
 from django.shortcuts import get_object_or_404
@@ -18,6 +19,7 @@ from .models import (
     CareerPlan, PlanYear, GoalGroup, PlanItem, SubItem, ItemLink,
     SharedPlan, SharedPlanComment, SharedPlanGroup,
 )
+from .pagination import CareerCommunityPageNumberPagination
 from .serializers import (
     SchoolSerializer, GroupSerializer, GroupMemberSerializer,
     CareerPlanListSerializer, CareerPlanDetailSerializer, CareerPlanCreateSerializer,
@@ -45,6 +47,7 @@ class SchoolViewSet(viewsets.ModelViewSet):
     """
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
+    pagination_class = CareerCommunityPageNumberPagination
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_fields = ['school_type', 'region']
@@ -120,6 +123,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     """
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    pagination_class = CareerCommunityPageNumberPagination
     permission_classes = [IsAuthenticated]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     search_fields = ['name', 'description']
@@ -142,15 +146,29 @@ class GroupViewSet(viewsets.ModelViewSet):
         return (created_groups | member_groups | public_qs).distinct()
     
     def perform_create(self, serializer):
-        """그룹 생성 시 생성자를 현재 사용자로 설정"""
-        group = serializer.save(creator=self.request.user)
-        
-        # 생성자를 멤버로 추가
-        GroupMember.objects.create(
-            group=group,
-            user=self.request.user,
-            role='admin'
-        )
+        """그룹 생성 시 생성자를 관리자 멤버로 등록하고 member_count를 동기화합니다."""
+        with transaction.atomic():
+            group = serializer.save(creator=self.request.user)
+            GroupMember.objects.create(
+                group=group,
+                user=self.request.user,
+                role='admin',
+            )
+            count = GroupMember.objects.filter(group=group).count()
+            if group.member_count != count:
+                group.member_count = count
+                group.save(update_fields=['member_count'])
+
+    def perform_update(self, serializer):
+        group = serializer.instance
+        if group.creator_id != self.request.user.id:
+            raise PermissionDenied('그룹을 수정할 권한이 없습니다.')
+        serializer.save()
+
+    def perform_destroy(self, instance):
+        if instance.creator_id != self.request.user.id:
+            raise PermissionDenied('그룹을 삭제할 권한이 없습니다.')
+        instance.delete()
     
     @action(detail=False, methods=['post'])
     def join(self, request):

@@ -16,7 +16,7 @@ export function WebLayout({ children, hideHeaderFooter = false }: WebLayoutProps
 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="w-full max-w-[1200px] mx-auto flex flex-col flex-1 min-w-0">
+      <div className="w-full max-w-[1300px] mx-auto flex flex-col flex-1 min-w-0">
         <WebHeader />
         <main className="flex-1">
           {children}

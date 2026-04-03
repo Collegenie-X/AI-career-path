@@ -43,6 +43,11 @@ export const API_PATHS = {
   careerPathSchools: '/api/v1/career-path/schools/',
   careerPathGroups: '/api/v1/career-path/groups/',
   careerPathSharedPlans: '/api/v1/career-path/shared-plans/',
+  /** DreamMate 커리어 실행 — `apps.career_plan` */
+  dreamMateRoadmaps: '/api/v1/career-plan/roadmaps/',
+  dreamMateSharedDreamRoadmaps: '/api/v1/career-plan/shared-dream-roadmaps/',
+  /** DreamMate 실행계획 AI (주간 WBS 초안) — `apps.career_plan` */
+  executionPlanAiGenerate: '/api/v1/career-plan/execution-plan-ai/generate/',
   /** 인증 API — `apps.accounts` */
   auth: {
     emailSignup: '/api/v1/auth/email-signup/',

@@ -6,7 +6,7 @@ import type { RoadmapItem, SharedRoadmap } from '../types';
 import { getEffectiveTodoCounts } from '../utils/roadmapTodoCounts';
 import { sortByEarliestMonth } from '@/lib/timelineTreeUtils';
 import { PlanItemDetailSheet } from '@/app/career/components/PlanItemDetailSheet';
-import { RoadmapTodoProgressBarCard } from './RoadmapTodoProgressBars';
+import { RoadmapTodoHeaderInlineProgressBar } from './RoadmapTodoProgressBars';
 import { toPlanItemDetail } from './RoadmapCareerPathTimelineSection';
 import { TreeItemNode } from './RoadmapTreeViewNodes';
 import {
@@ -24,12 +24,15 @@ interface RoadmapTreeViewProps {
   /** 피드(뷰만) / 커뮤니티·내기록 패널(상태만) / 전용 페이지(체크) */
   timelineDetailMode: RoadmapTimelineDetailMode;
   onToggleTodoItem?: (itemId: string, todoId: string) => void;
+  /** 상세 다이얼로그 세로 플로우 — 상단 WBS 소개 카드 생략, 트리만 */
+  layoutVariant?: 'default' | 'detailFlow';
 }
 
 export function RoadmapTreeView({
   roadmap,
   timelineDetailMode,
   onToggleTodoItem,
+  layoutVariant = 'default',
 }: RoadmapTreeViewProps) {
   const showProgressBars = getShowTimelineProgressBarsFromDetailMode(timelineDetailMode);
   const todoRowVisualMode = getRoadmapTreeTodoRowVisualModeFromDetailMode(timelineDetailMode);
@@ -59,10 +62,34 @@ export function RoadmapTreeView({
     );
   }
 
-  return (
-    <div className="space-y-3">
+  const sprintIntroBlock =
+    layoutVariant === 'detailFlow' ? (
+      <div className="mb-3 space-y-2 border-l-2 pl-3" style={{ borderColor: `${roadmap.starColor}44` }}>
+        <p className="text-xs font-bold uppercase tracking-wide text-gray-500">{LABELS.timelineViewLabel}</p>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-400">
+          <span className="font-semibold text-white">{LABELS.wbsSprintSectionTitle}</span>
+          <span
+            className="font-bold px-2 py-0.5 rounded-full text-xs"
+            style={{ backgroundColor: `${roadmap.starColor}22`, color: roadmap.starColor }}
+          >
+            {periodLabel}
+          </span>
+        </div>
+        <p className="text-xs text-gray-500 leading-snug">{LABELS.sprintGuideLabel}</p>
+        {showProgressBars && (
+          <div className="flex items-center justify-between gap-2">
+            <span className="text-xs text-gray-600">{LABELS.roadmapSprintSummaryLineLabel}</span>
+            <RoadmapTodoHeaderInlineProgressBar
+              doneCount={weeklyDone}
+              totalCount={weeklyTotal}
+              accentColor={roadmap.starColor}
+            />
+          </div>
+        )}
+      </div>
+    ) : (
       <div
-        className="rounded-xl px-3 py-2.5"
+        className="rounded-xl px-3 py-2.5 mb-3"
         style={{ backgroundColor: `${roadmap.starColor}12`, border: `1px solid ${roadmap.starColor}22` }}
       >
         <div className="flex items-center justify-between gap-2">
@@ -75,13 +102,10 @@ export function RoadmapTreeView({
           </span>
         </div>
         <p className="text-sm text-gray-400 mt-1">{LABELS.sprintGuideLabel}</p>
-        <p className="text-sm text-gray-500 mt-1">
-          계획 {roadmap.items.length}개 · {LABELS.weeklyChecklistLabel} {weeklyDone}/{weeklyTotal}
-        </p>
-        {showProgressBars && weeklyTotal > 0 && (
-          <div className="mt-2">
-            <RoadmapTodoProgressBarCard
-              title={LABELS.overallProgressLabel}
+        {showProgressBars && (
+          <div className="flex items-center justify-between gap-2 mt-1">
+            <span className="text-sm text-gray-500">{LABELS.roadmapSprintSummaryLineLabel}</span>
+            <RoadmapTodoHeaderInlineProgressBar
               doneCount={weeklyDone}
               totalCount={weeklyTotal}
               accentColor={roadmap.starColor}
@@ -89,6 +113,11 @@ export function RoadmapTreeView({
           </div>
         )}
       </div>
+    );
+
+  return (
+    <div className="space-y-2">
+      {sprintIntroBlock}
 
       <div className="space-y-2">
         {sortedItems.map(item => {
@@ -104,6 +133,7 @@ export function RoadmapTreeView({
               todoRowVisualMode={todoRowVisualMode}
               onToggleTodoItem={effectiveToggleTodoItem}
               onSelectItem={setSelectedItem}
+              planFolderVariant={layoutVariant === 'detailFlow' ? 'spine' : 'box'}
             />
           );
         })}

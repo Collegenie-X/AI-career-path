@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useQueryClient } from '@tanstack/react-query';
 import { Mail, Lock, User, Sparkles, ArrowRight, AlertCircle } from 'lucide-react';
 import { emailLoginApi, emailSignupApi } from '@/lib/auth/authApi';
 import { setAccessToken, setRefreshToken } from '@/lib/auth/jwtStorage';
+import { invalidateSessionQueries } from '@/lib/auth/sessionQueryInvalidation';
 
 type AuthMode = 'login' | 'signup';
 
@@ -25,6 +27,7 @@ const EMOJI_OPTIONS = ['👤', '😊', '🎓', '🚀', '⭐', '💫', '🌟', '�
 
 export default function AuthPage() {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [mode, setMode] = useState<AuthMode>('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -50,6 +53,8 @@ export default function AuthPage() {
         });
         setAccessToken(response.access_token);
         setRefreshToken(response.refresh_token);
+        await invalidateSessionQueries(queryClient);
+        router.refresh();
         router.push('/career');
       } else {
         const response = await emailLoginApi({
@@ -58,6 +63,8 @@ export default function AuthPage() {
         });
         setAccessToken(response.access_token);
         setRefreshToken(response.refresh_token);
+        await invalidateSessionQueries(queryClient);
+        router.refresh();
         router.push('/career');
       }
     } catch (err) {

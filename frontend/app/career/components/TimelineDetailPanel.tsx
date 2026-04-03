@@ -7,6 +7,7 @@ import type { CareerPlan, PlanItem, YearPlan } from './CareerPathBuilder';
 import { ItemDetailDialog } from './ItemDetailDialog';
 import type { ShareType } from './community/types';
 import { YearTimelineNode } from './YearTimelineNode';
+import { CareerPathTimelineListChromeRoot } from './timeline-dream-path/CareerPathTimelineListChrome';
 import type { PlanItemWithCheck } from './TimelineItemComponents';
 import { PlanActionBar } from './PlanActionBar';
 import { calculateYearStatistics } from '../utils/planStatisticsCalculator';
@@ -20,7 +21,7 @@ type TimelineDetailPanelProps = {
   readonly onDeletePlan: (planId: string) => void | Promise<void>;
   readonly onSharePlan?: (plan: CareerPlan, isPublic: boolean, shareType?: ShareType) => void;
   readonly onOpenShareDialog?: (plan: CareerPlan) => void;
-  /** 오른쪽 패널에서만 전달 — 상단 확대(560px 다이얼로그) */
+  /** 오른쪽 패널에서만 전달 — 상단 확대(580px 다이얼로그) */
   readonly onExpandToDialog?: () => void;
   /** 확대 다이얼로그 안에서 렌더 시 true — 헤더 닫기(X)를 데스크톱에서도 표시 */
   readonly isExpandDialogMode?: boolean;
@@ -212,14 +213,10 @@ export function TimelineDetailPanel({
         />
       </div>
 
-      {/* ── Scrollable timeline body ── */}
+      {/* ── Scrollable timeline body (탐색 상세와 동일 레일·학년 아코디언) ── */}
       <div className="flex-1 overflow-y-auto">
         <div className="relative px-4 py-4">
-          <div
-            className="absolute left-[38px] top-0 bottom-4 w-0.5"
-            style={{ backgroundColor: `${plan.starColor}28` }}
-          />
-          <div className="space-y-0">
+          <CareerPathTimelineListChromeRoot accentColor={plan.starColor}>
             {sortedYears.map((year, idx) => (
               <YearTimelineNode
                 key={year.gradeId}
@@ -228,11 +225,12 @@ export function TimelineDetailPanel({
                 isLast={idx === sortedYears.length - 1}
                 isEditMode={false}
                 showCheckboxes={showChecklistView}
+                showTimelineProgressBars
                 onUpdateYear={updateYear}
                 onItemInfoClick={(item, gradeLabel) => setDetailItem({ item, gradeLabel })}
               />
             ))}
-          </div>
+          </CareerPathTimelineListChromeRoot>
         </div>
       </div>
 

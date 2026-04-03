@@ -70,6 +70,8 @@ interface RoadmapFeedTabProps {
   availableSpaces: DreamSpace[];
   detailCallbacks: RoadmapFeedDetailCallbacks;
   onTabChange?: (tabId: string) => void;
+  /** JWT 로그인 시에만 상세에서 수정·삭제·사용하기·댓글 등 */
+  allowMutations?: boolean;
 }
 
 export function RoadmapFeedTab({
@@ -80,6 +82,7 @@ export function RoadmapFeedTab({
   availableSpaces,
   detailCallbacks,
   onTabChange,
+  allowMutations = true,
 }: RoadmapFeedTabProps) {
   const [periodFilter, setPeriodFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
@@ -346,6 +349,7 @@ export function RoadmapFeedTab({
               timelineDetailMode="feed_view_only"
               isReferenceViewOnlyMode={false}
               availableSpaces={availableSpaces}
+              allowMutations={allowMutations}
               onClose={() => setSelectedRoadmapId(null)}
               onExpand={() => setShowExpandDialog(true)}
               onUseRoadmap={() => {
@@ -378,6 +382,7 @@ export function RoadmapFeedTab({
         timelineDetailMode="feed_view_only"
         isReferenceViewOnlyMode={false}
         availableSpaces={availableSpaces}
+        allowMutations={allowMutations}
         onClose={() => setShowExpandDialog(false)}
         onUseRoadmap={() => {
           detailCallbacks.onUseRoadmap(selectedRoadmap);

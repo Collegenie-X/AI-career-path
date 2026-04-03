@@ -51,6 +51,8 @@ interface MyDreamMateTabProps {
   onCreateSpaceNotice: (spaceId: string, title: string, content: string) => void;
   /** 내 기록 상세: 주간 체크 토글 시 로드맵 항목 완료 반영 */
   onToggleRoadmapTodoItem: (roadmapId: string, itemId: string, todoId: string) => void;
+  /** JWT 로그인 시에만 상세에서 수정·삭제·공유·댓글·체크리스트 토글 등 */
+  allowMutations?: boolean;
 }
 
 const listColumnShellClass =
@@ -84,6 +86,7 @@ export function MyDreamMateTab({
   onToggleSpaceRecruitmentStatus,
   onCreateSpaceNotice,
   onToggleRoadmapTodoItem,
+  allowMutations = true,
 }: MyDreamMateTabProps) {
   const router = useRouter();
   const [subTab, setSubTab] = useState<MySubTab>('roadmaps');
@@ -328,7 +331,8 @@ export function MyDreamMateTab({
                   timelineDetailMode="status_readonly"
                   isReferenceViewOnlyMode={false}
                   availableSpaces={availableSpaces}
-                  allowProgressChecklistToggle
+                  allowMutations={allowMutations}
+                  allowProgressChecklistToggle={allowMutations}
                   onToggleTodoItem={(itemId, todoId) =>
                     onToggleRoadmapTodoItem(selectedRoadmap.id, itemId, todoId)
                   }
@@ -363,7 +367,8 @@ export function MyDreamMateTab({
             timelineDetailMode="status_readonly"
             isReferenceViewOnlyMode={false}
             availableSpaces={availableSpaces}
-            allowProgressChecklistToggle
+            allowMutations={allowMutations}
+            allowProgressChecklistToggle={allowMutations}
             onToggleTodoItem={(itemId, todoId) =>
               onToggleRoadmapTodoItem(selectedRoadmap.id, itemId, todoId)
             }

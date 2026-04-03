@@ -6,17 +6,22 @@ Career Plan (DreamMate) Views - 커리어 실행 API
 
 from rest_framework import viewsets, status, filters
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from django.db import transaction
+from django.db.models import Prefetch, Q
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
+
+from apps.community.models import GroupMember
 
 from .models import (
     Roadmap, RoadmapItem, RoadmapTodo, RoadmapMilestone,
     DreamResource, ResourceSection,
     DreamSpace, SpaceParticipant,
-    SharedDreamRoadmap, SharedDreamRoadmapGroup
+    SharedDreamRoadmap, SharedDreamRoadmapComment,
+    SharedDreamRoadmapLike, SharedDreamRoadmapBookmark,
 )
 from .serializers import (
     RoadmapListSerializer, RoadmapDetailSerializer,
@@ -30,7 +35,8 @@ from .serializers import (
     DreamSpaceListSerializer, DreamSpaceDetailSerializer,
     DreamSpaceCreateSerializer, SpaceParticipantSerializer,
     SharedDreamRoadmapListSerializer, SharedDreamRoadmapDetailSerializer,
-    SharedDreamRoadmapCreateSerializer, SharedDreamRoadmapUpdateSerializer
+    SharedDreamRoadmapCreateSerializer, SharedDreamRoadmapUpdateSerializer,
+    SharedDreamRoadmapCommentSerializer, SharedDreamRoadmapCommentCreateSerializer,
 )
 
 
@@ -61,7 +67,8 @@ class RoadmapViewSet(viewsets.ModelViewSet):
     
     def get_serializer_class(self):
         if self.action == 'list':
-            return RoadmapListSerializer
+            # 목록도 활동·TODO 포함 (DreamMate UI 동기화)
+            return RoadmapDetailSerializer
         elif self.action == 'create':
             return RoadmapCreateSerializer
         elif self.action in ['update', 'partial_update']:
@@ -500,29 +507,67 @@ class SpaceParticipantViewSet(viewsets.ReadOnlyModelViewSet):
 class SharedDreamRoadmapViewSet(viewsets.ModelViewSet):
     """
     공유 드림 로드맵 ViewSet
-    
-    - 로드맵 공유 CRUD
-    - 좋아요·북마크·조회
+
+    - 목록/상세: career_path.SharedPlan 과 유사 (public + 그룹 멤버 + 본인)
+    - 생성/수정/삭제: 로그인, 본인 공유 행만
+    - 좋아요·북마크: 사용자별 토글 (DB 행)
+    - 댓글: POST/DELETE
     """
-    permission_classes = [IsAuthenticated]
+
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['share_type']
+    filterset_fields = ['share_type', 'roadmap']
     search_fields = ['roadmap__title', 'description', 'tags']
     ordering_fields = ['shared_at', 'like_count', 'view_count']
     ordering = ['-shared_at']
-    
+
+    def get_permissions(self):
+        if self.action in ('list', 'retrieve'):
+            return [AllowAny()]
+        return [IsAuthenticated()]
+
+    def _base_shared_queryset(self):
+        return SharedDreamRoadmap.objects.filter(is_hidden=False).select_related(
+            'user', 'roadmap'
+        ).prefetch_related(
+            'group_links__group',
+            'roadmap__items__todos',
+            'roadmap__milestones',
+        )
+
     def get_queryset(self):
-        if self.action == 'list':
-            # 본인 공유 + 전체 공유
-            from django.db.models import Q
-            return SharedDreamRoadmap.objects.filter(
-                Q(user=self.request.user) | Q(share_type='public', is_hidden=False)
-            ).select_related('user', 'roadmap').prefetch_related('group_links__group')
-        
-        return SharedDreamRoadmap.objects.filter(
-            user=self.request.user
-        ).select_related('user', 'roadmap').prefetch_related('group_links__group')
-    
+        qs = self._base_shared_queryset()
+        user = self.request.user
+
+        if self.action in ('update', 'partial_update', 'destroy'):
+            if not user.is_authenticated:
+                return SharedDreamRoadmap.objects.none()
+            return qs.filter(user=user)
+
+        if not user.is_authenticated:
+            return qs.filter(share_type='public')
+
+        user_group_ids = GroupMember.objects.filter(user=user).values_list(
+            'group_id', flat=True
+        )
+        qs = qs.filter(
+            Q(share_type='public')
+            | Q(user=user)
+            | Q(share_type='space', group_links__group_id__in=user_group_ids)
+        ).distinct()
+
+        if self.action == 'list' and user.is_authenticated:
+            qs = qs.prefetch_related(
+                Prefetch(
+                    'user_likes',
+                    queryset=SharedDreamRoadmapLike.objects.filter(user=user),
+                ),
+                Prefetch(
+                    'user_bookmarks',
+                    queryset=SharedDreamRoadmapBookmark.objects.filter(user=user),
+                ),
+            )
+        return qs
+
     def get_serializer_class(self):
         if self.action == 'list':
             return SharedDreamRoadmapListSerializer
@@ -531,43 +576,132 @@ class SharedDreamRoadmapViewSet(viewsets.ModelViewSet):
         elif self.action in ['update', 'partial_update']:
             return SharedDreamRoadmapUpdateSerializer
         return SharedDreamRoadmapDetailSerializer
-    
+
     @transaction.atomic
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-    
+
+    def retrieve(self, request, *args, **kwargs):
+        pk = kwargs.get('pk')
+        base = (
+            self.get_queryset()
+            .prefetch_related(
+                Prefetch(
+                    'dream_comments',
+                    SharedDreamRoadmapComment.objects.select_related('author').order_by(
+                        'created_at'
+                    ),
+                ),
+            )
+        )
+        instance = get_object_or_404(base, pk=pk)
+        instance.view_count += 1
+        instance.save(update_fields=['view_count'])
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
     @action(detail=True, methods=['post'])
     @transaction.atomic
     def like(self, request, pk=None):
-        """
-        공유 드림 로드맵 좋아요
-        """
+        """좋아요 토글 (사용자당 1회 — SharedDreamRoadmapLike)"""
+        if not request.user.is_authenticated:
+            return Response(
+                {'detail': '인증이 필요합니다.'},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
         shared_roadmap = self.get_object()
-        shared_roadmap.like_count += 1
-        shared_roadmap.save()
-        
-        return Response({'like_count': shared_roadmap.like_count})
-    
+        like, created = SharedDreamRoadmapLike.objects.get_or_create(
+            shared_roadmap=shared_roadmap,
+            user=request.user,
+        )
+        if not created:
+            like.delete()
+            shared_roadmap.like_count = max(0, shared_roadmap.like_count - 1)
+            shared_roadmap.save(update_fields=['like_count'])
+            liked = False
+        else:
+            shared_roadmap.like_count += 1
+            shared_roadmap.save(update_fields=['like_count'])
+            liked = True
+        return Response({'like_count': shared_roadmap.like_count, 'liked': liked})
+
     @action(detail=True, methods=['post'])
     @transaction.atomic
     def bookmark(self, request, pk=None):
-        """
-        공유 드림 로드맵 북마크
-        """
+        """북마크 토글 (사용자당 1회 — SharedDreamRoadmapBookmark)"""
+        if not request.user.is_authenticated:
+            return Response(
+                {'detail': '인증이 필요합니다.'},
+                status=status.HTTP_401_UNAUTHORIZED,
+            )
         shared_roadmap = self.get_object()
-        shared_roadmap.bookmark_count += 1
-        shared_roadmap.save()
-        
-        return Response({'bookmark_count': shared_roadmap.bookmark_count})
-    
+        bm, created = SharedDreamRoadmapBookmark.objects.get_or_create(
+            shared_roadmap=shared_roadmap,
+            user=request.user,
+        )
+        if not created:
+            bm.delete()
+            shared_roadmap.bookmark_count = max(0, shared_roadmap.bookmark_count - 1)
+            shared_roadmap.save(update_fields=['bookmark_count'])
+            bookmarked = False
+        else:
+            shared_roadmap.bookmark_count += 1
+            shared_roadmap.save(update_fields=['bookmark_count'])
+            bookmarked = True
+        return Response({
+            'bookmark_count': shared_roadmap.bookmark_count,
+            'bookmarked': bookmarked,
+        })
+
     @action(detail=True, methods=['post'])
     @transaction.atomic
     def view(self, request, pk=None):
-        """
-        공유 드림 로드맵 조회 (카운트 증가)
-        """
+        """조회 수만 증가 (클라이언트 명시 호출용)"""
         shared_roadmap = self.get_object()
         shared_roadmap.view_count += 1
-        shared_roadmap.save()
-        
+        shared_roadmap.save(update_fields=['view_count'])
         return Response({'view_count': shared_roadmap.view_count})
+
+    @action(
+        detail=True,
+        methods=['post'],
+        url_path='comments',
+        permission_classes=[IsAuthenticated],
+    )
+    def post_comment(self, request, pk=None):
+        shared_roadmap = self.get_object()
+        ser = SharedDreamRoadmapCommentCreateSerializer(
+            data=request.data,
+            context={
+                **self.get_serializer_context(),
+                'shared_roadmap': shared_roadmap,
+            },
+        )
+        ser.is_valid(raise_exception=True)
+        ser.save()
+        return Response(
+            SharedDreamRoadmapCommentSerializer(ser.instance).data,
+            status=status.HTTP_201_CREATED,
+        )
+
+    @action(
+        detail=True,
+        methods=['delete'],
+        url_path=r'comments/(?P<comment_id>[^/.]+)',
+        permission_classes=[IsAuthenticated],
+    )
+    def delete_comment(self, request, pk=None, comment_id=None):
+        shared_roadmap = self.get_object()
+        comment = shared_roadmap.dream_comments.filter(pk=comment_id).first()
+        if not comment:
+            return Response(
+                {'detail': '댓글을 찾을 수 없습니다.'},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        if comment.author_id != request.user.id:
+            return Response(
+                {'detail': '삭제 권한이 없습니다.'},
+                status=status.HTTP_403_FORBIDDEN,
+            )
+        comment.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

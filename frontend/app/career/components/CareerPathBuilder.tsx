@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS, CAREER_PATH_BUILDER_DIALOG, GOAL_TEMPLATE_SELECTOR_DIALOG, LABELS } from '../config';
+import { CAREER_PATH_NESTED_OVERLAY_Z_INDEX } from './expandable-detail/careerPathExpandDialog.constants';
 import { CareerPathBuilderDawnSky } from './CareerPathBuilderDawnSky';
 import type { ShareType, ShareChannel } from './community/types';
 import careerMaker from '@/data/career-maker.json';
@@ -47,6 +48,8 @@ export type PlanItem = {
   categoryTags?: CareerItemCategoryTag[];
   activitySubtype?: CareerActivitySubtype;
   custom?: boolean;
+  /** 서버 is_done — 타임라인·체크리스트 상위 항목 완료 */
+  checked?: boolean;
   /** 이 활동을 구성하는 하위 실행 항목들 */
   subItems?: SubItem[];
 };
@@ -2312,7 +2315,10 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const careerPathBuilderDialogTheme = CAREER_PATH_BUILDER_DIALOG;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-stretch md:items-center justify-center p-0 md:p-4">
+    <div
+      className="fixed inset-0 flex items-stretch md:items-center justify-center p-0 md:p-4"
+      style={{ zIndex: CAREER_PATH_NESTED_OVERLAY_Z_INDEX }}
+    >
       <div
         className="absolute inset-0"
         aria-hidden

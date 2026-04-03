@@ -91,8 +91,9 @@ class Roadmap(UUIDPrimaryKeyModel, TimeStampedModel):
     
     class Meta:
         db_table = 'roadmaps'
-        verbose_name = '로드맵'
-        verbose_name_plural = '로드맵 목록'
+        # 관리자에서 커리어 패스(CareerPlan)와 혼동 방지 — 피드·내 기록의 실행 로드맵(DB)
+        verbose_name = '로드맵 (DreamMate 실행 계획)'
+        verbose_name_plural = '로드맵 목록 (DreamMate · /api/v1/career-plan/roadmaps/)'
         ordering = ['-created_at']
         indexes = [
             models.Index(fields=['user', '-created_at'], name='idx_roadmaps_user_created'),
@@ -715,3 +716,137 @@ class SharedDreamRoadmapGroup(UUIDPrimaryKeyModel, TimeStampedModel):
     
     def __str__(self):
         return f"{self.shared_roadmap.roadmap.title} → {self.group.name}"
+
+
+class SharedDreamRoadmapComment(UUIDPrimaryKeyModel, TimeStampedModel):
+    """
+    공유 드림 로드맵 댓글 (답글: parent)
+    """
+
+    shared_roadmap = models.ForeignKey(
+        SharedDreamRoadmap,
+        on_delete=models.CASCADE,
+        related_name='dream_comments',
+        verbose_name='공유 로드맵',
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='shared_dream_roadmap_comments',
+        verbose_name='작성자',
+    )
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='replies',
+        verbose_name='상위 댓글',
+    )
+    content = models.TextField(verbose_name='내용')
+
+    class Meta:
+        db_table = 'shared_dream_roadmap_comments'
+        verbose_name = '공유 드림 로드맵 댓글'
+        verbose_name_plural = '공유 드림 로드맵 댓글 목록'
+        ordering = ['created_at']
+        indexes = [
+            models.Index(
+                fields=['shared_roadmap', 'created_at'],
+                name='idx_sdrm_com_shared_created',
+            ),
+        ]
+
+    def __str__(self):
+        return f"Comment on {self.shared_roadmap_id} by {self.author_id}"
+
+
+class SharedDreamRoadmapLike(UUIDPrimaryKeyModel, TimeStampedModel):
+    """공유 드림 로드맵 좋아요 (사용자당 1회)"""
+
+    shared_roadmap = models.ForeignKey(
+        SharedDreamRoadmap,
+        on_delete=models.CASCADE,
+        related_name='user_likes',
+        verbose_name='공유 로드맵',
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='shared_dream_roadmap_likes',
+        verbose_name='사용자',
+    )
+
+    class Meta:
+        db_table = 'shared_dream_roadmap_likes'
+        verbose_name = '공유 드림 로드맵 좋아요'
+        verbose_name_plural = '공유 드림 로드맵 좋아요 목록'
+        unique_together = [['shared_roadmap', 'user']]
+        indexes = [
+            models.Index(fields=['shared_roadmap'], name='idx_sdrm_like_shared'),
+            models.Index(fields=['user'], name='idx_sdrm_like_user'),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} likes {self.shared_roadmap_id}"
+
+
+class SharedDreamRoadmapBookmark(UUIDPrimaryKeyModel, TimeStampedModel):
+    """공유 드림 로드맵 북마크 (사용자당 1회)"""
+
+    shared_roadmap = models.ForeignKey(
+        SharedDreamRoadmap,
+        on_delete=models.CASCADE,
+        related_name='user_bookmarks',
+        verbose_name='공유 로드맵',
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='shared_dream_roadmap_bookmarks',
+        verbose_name='사용자',
+    )
+
+    class Meta:
+        db_table = 'shared_dream_roadmap_bookmarks'
+        verbose_name = '공유 드림 로드맵 북마크'
+        verbose_name_plural = '공유 드림 로드맵 북마크 목록'
+        unique_together = [['shared_roadmap', 'user']]
+        indexes = [
+            models.Index(fields=['shared_roadmap'], name='idx_sdrm_bm_shared'),
+            models.Index(fields=['user'], name='idx_sdrm_bm_user'),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} bookmark {self.shared_roadmap_id}"
+
+
+class ExecutionPlanAiUsage(TimeStampedModel):
+    """
+    사용자별 실행계획 AI 생성 호출 횟수 (월 단위 리셋 키).
+    """
+
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='execution_plan_ai_usages',
+        verbose_name='사용자',
+    )
+    period_key = models.CharField(
+        max_length=16,
+        verbose_name='집계 기간 키',
+        help_text='예: YYYY-MM (월별 한도)',
+    )
+    call_count = models.PositiveIntegerField(default=0, verbose_name='호출 횟수')
+
+    class Meta:
+        db_table = 'execution_plan_ai_usage'
+        verbose_name = '실행계획 AI 사용량'
+        verbose_name_plural = '실행계획 AI 사용량'
+        unique_together = [['user', 'period_key']]
+        indexes = [
+            models.Index(fields=['user', 'period_key'], name='idx_epai_user_period'),
+        ]
+
+    def __str__(self):
+        return f"{self.user_id} {self.period_key}: {self.call_count}"

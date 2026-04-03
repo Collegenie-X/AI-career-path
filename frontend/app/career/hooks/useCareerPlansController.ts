@@ -18,6 +18,7 @@ import {
 } from '@/lib/career-path/careerPathApi';
 import { useTemplateApi } from '@/lib/career-path/templateApi';
 import { CAREER_QUERY_GC_TIME_MS, CAREER_QUERY_STALE_TIME_MS } from './careerPathQueryCache';
+import { CAREER_PLANS_MINE_QUERY_KEY } from '@/lib/auth/sessionQueryInvalidation';
 
 /** 레거시 키 — 마이그레이션 후 제거 가능 */
 export const CAREER_PLANS_STORAGE_KEY = 'career_plans_v3';
@@ -25,7 +26,7 @@ export const CAREER_PLANS_STORAGE_KEY = 'career_plans_v3';
 /** JWT 없이 탐색·템플릿 적용 시 로컬에만 보관 (로그인 후에는 API 목록만 사용) */
 const GUEST_CAREER_PLANS_KEY = 'career_plans_guest_v1';
 
-const careerPlansQueryKey = ['careerPlans', 'mine'] as const;
+const careerPlansQueryKey = CAREER_PLANS_MINE_QUERY_KEY;
 
 function loadGuestPlansFromStorage(): CareerPlan[] {
   if (typeof window === 'undefined') return [];

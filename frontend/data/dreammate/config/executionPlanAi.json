@@ -1,0 +1,31 @@
+{
+  "dialogTitle": "AI 주간 실행계획",
+  "dialogSubtitle": "분량만 고르고 생성하면 됩니다.",
+  "gameHeaderBadge": "SIDE QUEST",
+  "planDepthLabel": "계획 분량",
+  "planDepthHint": "세부는 할 일을 촘촘히, 간단은 핵심만 짧게 만듭니다.",
+  "planDepthOptions": [
+    { "id": "detailed", "label": "세부", "hint": "주당 할 일 많게", "emoji": "📋" },
+    { "id": "brief", "label": "간략", "hint": "균형", "emoji": "⚖️" },
+    { "id": "simple", "label": "간단", "hint": "최소만", "emoji": "✨" }
+  ],
+  "aiDraftBadge": "AI 초안",
+  "quotaHint": "이번 달 남은 횟수",
+  "generateButton": "실행계획 생성",
+  "applyButton": "이 활동에 적용",
+  "closeButton": "닫기",
+  "titleLabel": "활동 목표",
+  "titleFieldHint": "로드맵 활동에서 불러온 값 · 적용 월과 함께 AI가 주간 계획을 짭니다.",
+  "autoFinalGoalTemplate": "적용 월 {months} 동안 「{title}」 활동 목표를 달성한다.",
+  "applicableMonthsLabel": "적용 월",
+  "applicableMonthsEmptyHint": "로드맵에서 이 활동의 적용 월을 먼저 선택해 주세요.",
+  "titlePlaceholder": "활동 목표를 입력해 주세요",
+  "constraintsLabel": "메모 (선택)",
+  "constraintsPlaceholder": "예: 주 3시간, 교과서 단원 기준",
+  "milestonesLabel": "중요 일정 (선택)",
+  "milestoneAdd": "추가",
+  "milestoneTitlePlaceholder": "시험·제출 등",
+  "milestoneDateAriaLabel": "날짜 선택",
+  "previousRunHint": "직전 생성 톤 유지",
+  "disclaimer": "AI가 만든 초안이에요. 일정·내용은 꼭 확인해 주세요."
+}

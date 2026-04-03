@@ -8,7 +8,7 @@ import { useSharedPlansQuery } from '../../hooks/useSharedPlansQuery';
 import { useCareerPathGroupsQuery } from '../../hooks/useCareerPathCommunityData';
 import { useSharedPlanReactions } from '../../hooks/useSharedPlanReactions';
 import type { CommunityGroup, SharedPlan } from './types';
-import { GroupDetailView } from './GroupDetailPanel';
+import { GroupDetailOperatorPanel } from './GroupDetailOperatorPanel';
 import { CommunityAccessGate } from './CommunityAccessGate';
 
 const CHECKED_PLANS_STORAGE_KEY = 'community_checked_plans_v1';
@@ -125,8 +125,8 @@ export function CommunityGroupSplitRightPanel({
 
   return (
     <DetailPanelScrollContainer scrollKey={groupId}>
-      <div className="rounded-none border-0 p-0 md:p-0">
-        <GroupDetailView
+      <div className="rounded-none border-0 p-0 w-full max-w-[460px]">
+        <GroupDetailOperatorPanel
           group={group}
           sharedPlans={groupPlans}
           isJoined={isJoined}
@@ -140,6 +140,7 @@ export function CommunityGroupSplitRightPanel({
           checkedPlans={checkedPlans}
           onToggleLike={toggleLike}
           onToggleBookmark={toggleBookmark}
+          onJoinedGroupsChanged={onJoinedGroupsChanged}
         />
       </div>
     </DetailPanelScrollContainer>

@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { LABELS } from '../../config';
 import type { CommunityGroup, SharedPlan } from './types';
-import { GroupDetailView } from './GroupDetailPanel';
+import { GroupDetailOperatorPanel } from './GroupDetailOperatorPanel';
 import { JoinRequestDialog } from './JoinRequestDialog';
 import { formatTimeAgo, isRecentlyUpdated } from './formatTime';
 import { CommunityAccessGate } from './CommunityAccessGate';
@@ -227,7 +227,7 @@ export function GroupListView({
     const isJoined = joinedGroupIds.includes(selectedGroup.id);
     return (
       <>
-        <GroupDetailView
+        <GroupDetailOperatorPanel
           group={selectedGroup}
           sharedPlans={groupPlans}
           isJoined={isJoined}
@@ -242,6 +242,7 @@ export function GroupListView({
           checkedPlans={checkedPlans}
           onToggleLike={onToggleLike}
           onToggleBookmark={onToggleBookmark}
+          onJoinedGroupsChanged={onRefreshJoined}
         />
         {joinTargetGroup && (
           <JoinRequestDialog
