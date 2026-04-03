@@ -15,12 +15,17 @@ import {
 } from 'lucide-react';
 import { HERO_CONFIG, LABELS } from '../config';
 import type { DreamTabId } from '../types';
+import { DreamSpaceCreateGroupButton } from './DreamSpaceCreateGroupButton';
 
 type DreamMateHeroBannerProps = {
   readonly activeTab: DreamTabId;
   readonly onCreateRoadmap: () => void;
   readonly onCreateSpace?: () => void;
   readonly onUploadResource?: () => void;
+  /** 로그인(JWT) 후에만 실행 계획·스페이스·자료 생성 CTA 표시 */
+  readonly allowMutations?: boolean;
+  /** false면 통계 숫자를 0으로 렌더 — localStorage 등으로 마운트 후 값이 달라져 hydration 불일치 방지 */
+  readonly statsReady?: boolean;
   readonly totalRoadmaps: number;
   readonly totalMyRoadmaps: number;
   readonly totalMySharedRoadmaps: number;
@@ -65,7 +70,7 @@ function getHeroStatItems({
   totalSpaces,
   totalJoinedSpaces,
   totalResources,
-}: Omit<DreamMateHeroBannerProps, 'onCreateRoadmap' | 'onCreateSpace' | 'onUploadResource'>): readonly HeroStatItem[] {
+}: Omit<DreamMateHeroBannerProps, 'onCreateRoadmap' | 'onCreateSpace' | 'onUploadResource' | 'allowMutations'>): readonly HeroStatItem[] {
   const statConfig = HERO_CONFIG.statIcons[activeTab] ?? [];
 
   const valueMap: Record<string, number> = {
@@ -80,7 +85,9 @@ function getHeroStatItems({
 
   return statConfig.map((stat) => ({
     icon: STAT_ICON_MAP[stat.icon] ?? Target,
-    value: stat.valueKey ? valueMap[stat.valueKey]?.toLocaleString() ?? '0' : (stat.value ?? '0'),
+    value: stat.valueKey
+      ? (valueMap[stat.valueKey] ?? 0).toLocaleString('ko-KR')
+      : (stat.value ?? '0'),
     label: stat.label,
     iconBackground: stat.iconBackground,
     iconColor: stat.iconColor,
@@ -92,6 +99,8 @@ export function DreamMateHeroBanner({
   onCreateRoadmap,
   onCreateSpace,
   onUploadResource,
+  allowMutations = true,
+  statsReady = true,
   totalRoadmaps,
   totalMyRoadmaps,
   totalMySharedRoadmaps,
@@ -106,23 +115,23 @@ export function DreamMateHeroBanner({
 
   const heroStats = getHeroStatItems({
     activeTab,
-    totalRoadmaps,
-    totalMyRoadmaps,
-    totalMySharedRoadmaps,
-    totalBookmarkedRoadmaps,
-    totalSpaces,
-    totalJoinedSpaces,
-    totalResources,
+    totalRoadmaps: statsReady ? totalRoadmaps : 0,
+    totalMyRoadmaps: statsReady ? totalMyRoadmaps : 0,
+    totalMySharedRoadmaps: statsReady ? totalMySharedRoadmaps : 0,
+    totalBookmarkedRoadmaps: statsReady ? totalBookmarkedRoadmaps : 0,
+    totalSpaces: statsReady ? totalSpaces : 0,
+    totalJoinedSpaces: statsReady ? totalJoinedSpaces : 0,
+    totalResources: statsReady ? totalResources : 0,
   });
 
   if (!visualStyle || !copy) return null;
 
   const HeadlineIcon = HEADLINE_ICON_MAP[copy.headlineIcon] ?? Sparkles;
 
-  const showHeroCreateExecutionButton =
-    activeTab === 'feed' || activeTab === 'space' || activeTab === 'my';
+  const showHeroCreateRoadmapButton = allowMutations && (activeTab === 'feed' || activeTab === 'my');
+  const showHeroCreateSpaceButton = allowMutations && activeTab === 'space' && typeof onCreateSpace === 'function';
 
-  const showHeroUploadResourceButton = activeTab === 'library';
+  const showHeroUploadResourceButton = allowMutations && activeTab === 'library';
 
   return (
     <div
@@ -180,7 +189,16 @@ export function DreamMateHeroBanner({
         </div>
 
         <div className="flex w-full flex-shrink-0 flex-col gap-3 lg:w-auto lg:items-end lg:gap-4">
-          {showHeroCreateExecutionButton ? (
+          {showHeroCreateSpaceButton ? (
+            <div className="flex w-full justify-end lg:w-auto">
+              <DreamSpaceCreateGroupButton
+                variant="heroPill"
+                label={copy.cta}
+                onClick={() => onCreateSpace?.()}
+                ariaLabel={copy.cta}
+              />
+            </div>
+          ) : showHeroCreateRoadmapButton ? (
             <div className="flex w-full justify-end lg:w-auto">
               <button
                 type="button"

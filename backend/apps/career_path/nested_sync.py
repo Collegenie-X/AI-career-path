@@ -42,6 +42,7 @@ def _scalar_plan_item_fields(data: dict) -> dict:
     allowed = {
         'type', 'title', 'months', 'difficulty', 'cost', 'organizer', 'url',
         'description', 'category_tags', 'activity_subtype', 'sort_order',
+        'is_done',
     }
     return {k: data[k] for k in allowed if k in data}
 

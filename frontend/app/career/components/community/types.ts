@@ -149,6 +149,8 @@ export interface CommunityGroup {
   sharedPlanCount: number;
   inviteCode?: string;
   tags?: string[];
+  /** 목록 공개 여부 (백엔드 `is_public`) */
+  isPublic?: boolean;
   createdAt: string;
   updatedAt?: string;
   isOperatorTest?: boolean;  // 운영자 UI 테스트용 그룹

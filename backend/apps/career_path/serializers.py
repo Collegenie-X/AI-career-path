@@ -138,6 +138,7 @@ class PlanItemSerializer(serializers.ModelSerializer):
             'id', 'type', 'title', 'months', 'difficulty',
             'cost', 'organizer', 'url', 'description',
             'category_tags', 'activity_subtype', 'sort_order',
+            'is_done',
             'sub_items', 'links'
         ]
         read_only_fields = ['id']
@@ -155,6 +156,7 @@ class PlanItemCreateSerializer(serializers.ModelSerializer):
             'id', 'plan_year', 'goal_group', 'type', 'title', 'months', 'difficulty',
             'cost', 'organizer', 'url', 'description',
             'category_tags', 'activity_subtype', 'sort_order',
+            'is_done',
             'sub_items', 'links'
         ]
         read_only_fields = ['plan_year', 'goal_group']

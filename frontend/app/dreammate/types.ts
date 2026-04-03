@@ -1,3 +1,8 @@
+import type {
+  CareerGroupCategoryId,
+  CareerGroupModeId,
+} from '@/app/career/config/communityGroupForm';
+
 export type DreamItemType = 'award' | 'activity' | 'project' | 'paper';
 
 export type PeriodType = 'afterschool' | 'vacation' | 'semester';
@@ -48,6 +53,8 @@ export interface RoadmapMilestoneResult {
 
 export interface SharedRoadmap {
   id: string;
+  /** 공유 행 PK — 댓글·좋아요·공유 설정 API (`shared-dream-roadmaps`) */
+  sharedDreamRoadmapId?: string;
   ownerId: string;
   ownerName: string;
   ownerEmoji: string;
@@ -69,6 +76,10 @@ export interface SharedRoadmap {
   groupIds: string[];
   likes: number;
   bookmarks: number;
+  /** 백엔드 피드 — 현재 사용자 좋아요 여부 */
+  likedByMe?: boolean;
+  /** 백엔드 피드 — 현재 사용자 북마크 여부 */
+  bookmarkedByMe?: boolean;
   /** 조회 수 — 백엔드 `SharedDreamRoadmap.view_count`와 대응 */
   viewCount?: number;
   /** 댓글 수(집계) — 백엔드 `comment_count` (UI `comments` 배열과 별개일 수 있음) */
@@ -238,6 +249,12 @@ export interface DreamSpace {
   participationApplications?: SpaceParticipationApplication[];
   inviteCode?: string;
   tags?: string[];
+  /** 커리어 패스 그룹 생성 폼과 동일 — 최대 인원(슬라이더) */
+  maxMembers?: number;
+  groupCategory?: CareerGroupCategoryId;
+  groupMode?: CareerGroupModeId;
+  /** 목록 공개(그룹 폼 토글) — 비공개 시 초대 위주 UX에 사용 */
+  isPublic?: boolean;
   createdAt: string;
   updatedAt?: string;
 }

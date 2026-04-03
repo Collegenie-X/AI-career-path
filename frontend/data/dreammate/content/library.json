@@ -38,5 +38,6 @@
   "libraryReportButton": "자료 신고",
   "libraryReportDetailPlaceholder": "신고 사유를 자세히 적어 주세요.",
   "libraryReportSubmitButton": "신고 접수",
-  "libraryDeleteConfirm": "이 자료를 삭제하시겠어요?"
+  "libraryDeleteConfirm": "이 자료를 삭제하시겠어요?",
+  "loginRequiredForLibraryInteractionsHint": "로그인 후 좋아요·북마크·댓글·신고를 이용할 수 있어요."
 }

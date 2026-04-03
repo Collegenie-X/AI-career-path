@@ -5,9 +5,11 @@ Base settings shared across all environments.
 
 from pathlib import Path
 from datetime import timedelta
-from decouple import config, Csv
+from decouple import AutoConfig, Csv
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+# CWD와 무관하게 `backend/.env` 를 읽습니다 (예: 레포 루트에서 `python backend/manage.py` 실행).
+config = AutoConfig(search_path=BASE_DIR)
 
 SECRET_KEY = config('DJANGO_SECRET_KEY', default='django-insecure-dev-key-change-in-production')
 
@@ -206,6 +208,14 @@ SOCIAL_AUTH_KAKAO_REDIRECT_URI = config('KAKAO_REDIRECT_URI', default='')
 SOCIAL_AUTH_NAVER_KEY = config('NAVER_CLIENT_ID', default='')
 SOCIAL_AUTH_NAVER_SECRET = config('NAVER_CLIENT_SECRET', default='')
 SOCIAL_AUTH_NAVER_REDIRECT_URI = config('NAVER_REDIRECT_URI', default='')
+
+# 실행계획 AI (OpenAI) — DreamMate 주간 WBS 자동 생성
+OPENAI_API_KEY = config('OPENAI_API_KEY', default='')
+OPENAI_EXECUTION_PLAN_MODEL = config('OPENAI_EXECUTION_PLAN_MODEL', default='gpt-4o')
+OPENAI_EXECUTION_PLAN_TIMEOUT_SECONDS = config('OPENAI_EXECUTION_PLAN_TIMEOUT_SECONDS', default=120, cast=int)
+EXECUTION_PLAN_AI_WEEKS_PER_MONTH = config('EXECUTION_PLAN_AI_WEEKS_PER_MONTH', default=4, cast=int)
+EXECUTION_PLAN_AI_MAX_WEEKS = config('EXECUTION_PLAN_AI_MAX_WEEKS', default=52, cast=int)
+EXECUTION_PLAN_AI_USER_MONTHLY_LIMIT = config('EXECUTION_PLAN_AI_USER_MONTHLY_LIMIT', default=10, cast=int)
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',

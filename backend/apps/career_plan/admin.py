@@ -17,7 +17,8 @@ from .models import (
     Roadmap, RoadmapItem, RoadmapTodo, RoadmapMilestone,
     DreamResource, ResourceSection,
     DreamSpace, SpaceParticipant,
-    SharedDreamRoadmap, SharedDreamRoadmapGroup
+    SharedDreamRoadmap, SharedDreamRoadmapGroup,
+    ExecutionPlanAiUsage,
 )
 
 
@@ -390,3 +391,13 @@ class SharedDreamRoadmapGroupAdmin(admin.ModelAdmin):
             'fields': ('created_at', 'updated_at')
         }),
     )
+
+
+@admin.register(ExecutionPlanAiUsage)
+class ExecutionPlanAiUsageAdmin(admin.ModelAdmin):
+    """실행계획 AI 월별 호출 횟수"""
+
+    list_display = ['user', 'period_key', 'call_count', 'updated_at']
+    list_filter = ['period_key']
+    search_fields = ['user__email', 'user__username']
+    readonly_fields = ['created_at', 'updated_at']

@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import type { ShareChannel, CommunityGroup } from './types';
 import { channelsToShareType } from './types';
+import { CAREER_PATH_NESTED_OVERLAY_Z_INDEX } from '../expandable-detail/careerPathExpandDialog.constants';
 
 /* ─── Config ─── */
 
@@ -147,7 +148,8 @@ export function ShareSettingsDialog({
 
   const sheet = (
     <div
-      className="fixed inset-0 z-[1000] flex items-end justify-center pointer-events-auto"
+      className="fixed inset-0 flex items-end justify-center pointer-events-auto"
+      style={{ zIndex: CAREER_PATH_NESTED_OVERLAY_Z_INDEX }}
       data-layer="share-settings-overlay"
     >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />

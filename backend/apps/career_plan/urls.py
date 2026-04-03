@@ -6,6 +6,7 @@ Career Plan (DreamMate) URLs - 커리어 실행 API 라우팅
 
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from .views_execution_plan_ai import ExecutionPlanAiGenerateView
 from .views import (
     RoadmapViewSet, RoadmapItemViewSet, RoadmapTodoViewSet, RoadmapMilestoneViewSet,
     DreamResourceViewSet, ResourceSectionViewSet,
@@ -35,5 +36,6 @@ router.register(r'space-participants', SpaceParticipantViewSet, basename='space-
 router.register(r'shared-dream-roadmaps', SharedDreamRoadmapViewSet, basename='shared-dream-roadmap')
 
 urlpatterns = [
+    path('execution-plan-ai/generate/', ExecutionPlanAiGenerateView.as_view(), name='execution-plan-ai-generate'),
     path('', include(router.urls)),
 ]

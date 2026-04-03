@@ -8,6 +8,7 @@ import { useMemo, useState } from 'react';
 import { GRADE_YEARS } from '../../config';
 import type { PlanItem, YearPlan } from '../CareerPathBuilder';
 import { YearTimelineNode } from '../YearTimelineNode';
+import { CareerPathTimelineListChromeRoot } from '../timeline-dream-path/CareerPathTimelineListChrome';
 import { ItemDetailDialog } from '../ItemDetailDialog';
 import type { PlanItemWithCheck } from '../TimelineItemComponents';
 import type { SharedPlan } from './types';
@@ -63,11 +64,7 @@ export function SharedPlanMyPathStyleTimeline({ sharedPlan }: SharedPlanMyPathSt
   return (
     <>
       <div className="relative px-4 py-4">
-        <div
-          className="absolute left-[38px] top-0 bottom-4 w-0.5"
-          style={{ backgroundColor: `${careerPlan.starColor}28` }}
-        />
-        <div className="space-y-0">
+        <CareerPathTimelineListChromeRoot accentColor={careerPlan.starColor}>
           {sortedYears.map((year, idx) => (
             <YearTimelineNode
               key={year.gradeId}
@@ -76,11 +73,12 @@ export function SharedPlanMyPathStyleTimeline({ sharedPlan }: SharedPlanMyPathSt
               isLast={idx === sortedYears.length - 1}
               isEditMode={false}
               showCheckboxes={false}
+              showTimelineProgressBars={false}
               onUpdateYear={handleReadOnlyYearUpdate}
               onItemInfoClick={(item, gradeLabel) => setDetailItem({ item, gradeLabel })}
             />
           ))}
-        </div>
+        </CareerPathTimelineListChromeRoot>
       </div>
       {detailItem && (
         <ItemDetailDialog

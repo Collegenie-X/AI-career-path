@@ -28,6 +28,7 @@ import {
   getDetailActionPillShareActiveStyle,
   getDetailActionPillShareNeutralStyle,
 } from '@/components/detail-action-bar';
+import { RoadmapDetailVerticalFlow, RoadmapDetailVerticalFlowStep } from './RoadmapDetailVerticalFlow';
 
 interface RoadmapDetailDialogProps {
   roadmap: SharedRoadmap;
@@ -54,6 +55,8 @@ interface RoadmapDetailDialogProps {
   allowProgressChecklistToggle?: boolean;
   /** inline variant일 때 확대 버튼 클릭 시 호출 */
   onExpand?: () => void;
+  /** JWT 로그인 시에만 true — 생성·수정·삭제·복사·댓글 작성·체크 등 변경 행위 */
+  allowMutations?: boolean;
 }
 
 function formatDateTime(value: string): string {
@@ -80,6 +83,7 @@ export function RoadmapDetailDialog({
   onToggleTodoItem,
   allowProgressChecklistToggle = false,
   onExpand,
+  allowMutations = true,
 }: RoadmapDetailDialogProps) {
   const [commentInput, setCommentInput] = useState('');
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
@@ -107,7 +111,8 @@ export function RoadmapDetailDialog({
   }, [roadmap.id]);
 
   const showReflectProgressCheckbox =
-    allowProgressChecklistToggle
+    allowMutations
+    && allowProgressChecklistToggle
     && isOwnedByCurrentUser
     && !isReferenceViewOnlyMode
     && Boolean(onToggleTodoItem)
@@ -312,7 +317,7 @@ export function RoadmapDetailDialog({
             <p className="text-sm text-gray-400 truncate">{roadmap.ownerName}</p>
           </div>
 
-          {isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
+          {isOwnedByCurrentUser && !isReferenceViewOnlyMode && allowMutations && (
             <div className="flex flex-wrap gap-2 pt-3 border-t border-white/8 mt-3">
               <DetailActionPillButton onClick={onEdit} style={getDetailActionPillEditStyle(roadmap.starColor)}>
                 <Pencil style={{ width: 13, height: 13 }} />
@@ -369,205 +374,224 @@ export function RoadmapDetailDialog({
         </div>
 
         <div
-          className="flex-1 min-h-0 overflow-y-auto px-4 py-3 space-y-3"
+          className="flex-1 min-h-0 overflow-y-auto px-4 py-3"
           style={{ paddingBottom: isReferenceViewOnlyMode ? 16 : 12 }}
         >
-          <div className="rounded-xl p-3" style={{ backgroundColor: `${roadmap.starColor}10`, border: `1px solid ${roadmap.starColor}24` }}>
-            <p className="text-sm text-gray-200 leading-relaxed">{roadmap.description}</p>
-          </div>
-          <div className="rounded-xl p-3 space-y-1.5" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <p className="text-sm font-bold text-white">실행 검증 요약</p>
-            <p className="text-sm text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
-            <p className="text-sm text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
-            <p className="text-sm text-cyan-200">
-              실행 진행률: {executionSummary.doneActionableTodoCount}/{executionSummary.totalActionableTodoCount}
-            </p>
-          </div>
+          <RoadmapDetailVerticalFlow starColor={roadmap.starColor}>
+            <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="star">
+              <p className="text-xs font-bold uppercase tracking-wide text-gray-500">개요</p>
+              <div className="mt-1.5 rounded-lg p-3" style={{ backgroundColor: `${roadmap.starColor}0d` }}>
+                <p className="text-sm text-gray-200 leading-relaxed">{roadmap.description}</p>
+              </div>
+            </RoadmapDetailVerticalFlowStep>
 
-          {/* 중간 결과물 - 데이터 있을 때만 표시 */}
-          {(roadmap.milestoneResults ?? []).length > 0 && (
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, rgba(56,189,248,0.07) 0%, rgba(99,102,241,0.07) 100%)', border: '1px solid rgba(56,189,248,0.2)' }}
-            >
-              <button
-                type="button"
-                onClick={() => setIsMilestoneResultsOpen(prev => !prev)}
-                className="w-full flex items-center justify-between px-4 py-3 text-left"
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="text-base">🏁</span>
-                  <div>
-                    <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
-                    <p className="text-sm text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
-                    {(roadmap.milestoneResults ?? []).length}
-                  </span>
-                  {isMilestoneResultsOpen ? (
-                    <ChevronUp className="w-4 h-4 text-sky-400" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-sky-400" />
-                  )}
-                </div>
-              </button>
+            <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="violet">
+              <p className="text-sm font-bold text-white">실행 검증 요약</p>
+              <div className="mt-2 space-y-1.5 border-l-2 pl-3" style={{ borderColor: `${roadmap.starColor}40` }}>
+                <p className="text-sm text-violet-200">산출물/완료기준 정의 항목: {executionSummary.outputDefinedItemCount}개</p>
+                <p className="text-sm text-emerald-200">업무 증빙: {executionSummary.evidenceCount}건</p>
+                <p className="text-sm text-cyan-200">
+                  실행 진행률: {executionSummary.doneActionableTodoCount}/{executionSummary.totalActionableTodoCount}
+                </p>
+              </div>
+            </RoadmapDetailVerticalFlowStep>
 
-              {isMilestoneResultsOpen && (
-                <div className="px-3 pb-3 space-y-2 border-t" style={{ borderColor: 'rgba(56,189,248,0.1)' }}>
-                  {(roadmap.milestoneResults ?? []).map((result, index) => {
-                    const isExpanded = expandedMilestoneIds.has(result.id);
-                    return (
-                      <article
-                        key={result.id}
-                        className="rounded-xl overflow-hidden"
-                        style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(56,189,248,0.12)' }}
-                      >
-                        <button
-                          type="button"
-                          onClick={() => setExpandedMilestoneIds(prev => {
-                            const next = new Set(prev);
-                            if (next.has(result.id)) next.delete(result.id);
-                            else next.add(result.id);
-                            return next;
-                          })}
-                          className="w-full flex items-center justify-between px-3 py-2.5 text-left"
-                        >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <span
-                              className="w-5 h-5 rounded-full flex items-center justify-center text-sm font-black flex-shrink-0"
-                              style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}
+            {(roadmap.milestoneResults ?? []).length > 0 && (
+              <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="sky">
+                <div
+                  className="rounded-xl overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(56,189,248,0.06) 0%, rgba(99,102,241,0.05) 100%)',
+                    border: '1px solid rgba(56,189,248,0.16)',
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setIsMilestoneResultsOpen(prev => !prev)}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-left"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-base">🏁</span>
+                      <div>
+                        <p className="text-sm font-bold text-sky-200">{LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}</p>
+                        <p className="text-sm text-sky-400/70 mt-0.5">{(roadmap.milestoneResults ?? []).length}개 기록됨</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      <span className="text-sm font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc' }}>
+                        {(roadmap.milestoneResults ?? []).length}
+                      </span>
+                      {isMilestoneResultsOpen ? (
+                        <ChevronUp className="w-4 h-4 text-sky-400" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-sky-400" />
+                      )}
+                    </div>
+                  </button>
+
+                  {isMilestoneResultsOpen && (
+                    <div className="px-3 pb-3 space-y-0 border-t border-sky-500/10">
+                      {(roadmap.milestoneResults ?? []).map((result, index) => {
+                        const isExpanded = expandedMilestoneIds.has(result.id);
+                        const isLast = index === (roadmap.milestoneResults ?? []).length - 1;
+                        return (
+                          <div
+                            key={result.id}
+                            className={`relative pl-3 border-l border-sky-400/25 ${index === 0 ? 'pt-3' : 'pt-2'} ${!isLast ? 'pb-2' : 'pb-0'}`}
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedMilestoneIds(prev => {
+                                const next = new Set(prev);
+                                if (next.has(result.id)) next.delete(result.id);
+                                else next.add(result.id);
+                                return next;
+                              })}
+                              className="w-full flex items-center justify-between gap-2 text-left py-1"
                             >
-                              {index + 1}
-                            </span>
-                            <span className="text-sm font-semibold text-white truncate">
-                              {result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
-                            </span>
-                            {result.monthWeekLabel && (
-                              <span className="text-sm text-sky-400/60 whitespace-nowrap flex-shrink-0">
-                                {result.monthWeekLabel}
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex items-center gap-1.5 flex-shrink-0">
-                            {result.imageUrl && <span className="text-sm">🖼️</span>}
-                            {result.resultUrl && <span className="text-sm">🔗</span>}
-                            {isExpanded ? (
-                              <ChevronUp className="w-3.5 h-3.5 text-gray-400" />
-                            ) : (
-                              <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
-                            )}
-                          </div>
-                        </button>
+                              <div className="flex items-center gap-2 min-w-0">
+                                <span
+                                  className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
+                                  style={{ backgroundColor: 'rgba(56,189,248,0.22)', color: '#7dd3fc' }}
+                                >
+                                  {index + 1}
+                                </span>
+                                <span className="text-sm font-semibold text-white truncate">
+                                  {result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
+                                </span>
+                                {result.monthWeekLabel && (
+                                  <span className="text-sm text-sky-400/60 whitespace-nowrap flex-shrink-0">
+                                    {result.monthWeekLabel}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-1.5 flex-shrink-0">
+                                {result.imageUrl && <span className="text-sm">🖼️</span>}
+                                {result.resultUrl && <span className="text-sm">🔗</span>}
+                                {isExpanded ? (
+                                  <ChevronUp className="w-3.5 h-3.5 text-gray-400" />
+                                ) : (
+                                  <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
+                                )}
+                              </div>
+                            </button>
 
-                        {isExpanded && (
-                          <div className="px-3 pb-3 space-y-2 border-t" style={{ borderColor: 'rgba(56,189,248,0.08)' }}>
-                            {result.description && (
-                              <p className="pt-2 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{result.description}</p>
-                            )}
-                            {result.imageUrl && (
-                              <img
-                                src={result.imageUrl}
-                                alt={result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
-                                className="w-full max-h-52 object-cover rounded-lg border border-white/10"
-                              />
-                            )}
-                            {result.resultUrl && (
-                              <a
-                                href={result.resultUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200 break-all"
-                              >
-                                <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
-                                <span className="underline underline-offset-2 truncate">{result.resultUrl}</span>
-                              </a>
+                            {isExpanded && (
+                              <div className="mt-2 space-y-2 pl-1">
+                                {result.description && (
+                                  <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-line">{result.description}</p>
+                                )}
+                                {result.imageUrl && (
+                                  <img
+                                    src={result.imageUrl}
+                                    alt={result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${index + 1}`}
+                                    className="w-full max-h-52 object-cover rounded-lg border border-white/10"
+                                  />
+                                )}
+                                {result.resultUrl && (
+                                  <a
+                                    href={result.resultUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200 break-all"
+                                  >
+                                    <ExternalLink className="w-3.5 h-3.5 flex-shrink-0" />
+                                    <span className="underline underline-offset-2 truncate">{result.resultUrl}</span>
+                                  </a>
+                                )}
+                              </div>
                             )}
                           </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </RoadmapDetailVerticalFlowStep>
+            )}
+
+            {(roadmap.finalResultTitle || roadmap.finalResultDescription || roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
+              <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="emerald">
+                <div
+                  className="rounded-xl overflow-hidden"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(16,185,129,0.07) 0%, rgba(6,182,212,0.05) 100%)',
+                    border: '1px solid rgba(16,185,129,0.22)',
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setIsFinalResultOpen(prev => !prev)}
+                    className="w-full flex items-center justify-between px-3 py-2.5 text-left"
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <span className="text-base">🏆</span>
+                      <div>
+                        <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
+                        {roadmap.finalResultTitle && (
+                          <p className="text-sm text-emerald-400/70 mt-0.5 truncate max-w-[220px]">{roadmap.finalResultTitle}</p>
                         )}
-                      </article>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          )}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 flex-shrink-0">
+                      {(roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                      )}
+                      {isFinalResultOpen ? (
+                        <ChevronUp className="w-4 h-4 text-emerald-400" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-emerald-400" />
+                      )}
+                    </div>
+                  </button>
 
-          {/* 최종 결과물 - 데이터 있을 때만 표시 */}
-          {(roadmap.finalResultTitle || roadmap.finalResultDescription || roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
-            <div
-              className="rounded-2xl overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(6,182,212,0.06) 100%)', border: '1px solid rgba(16,185,129,0.28)' }}
-            >
-              <button
-                type="button"
-                onClick={() => setIsFinalResultOpen(prev => !prev)}
-                className="w-full flex items-center justify-between px-4 py-3 text-left"
-              >
-                <div className="flex items-center gap-2.5">
-                  <span className="text-base">🏆</span>
-                  <div>
-                    <p className="text-sm font-bold text-emerald-200">{LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}</p>
-                    {roadmap.finalResultTitle && (
-                      <p className="text-sm text-emerald-400/70 mt-0.5 truncate max-w-[200px]">{roadmap.finalResultTitle}</p>
-                    )}
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  {(roadmap.finalResultUrl || roadmap.finalResultImageUrl) && (
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  )}
-                  {isFinalResultOpen ? (
-                    <ChevronUp className="w-4 h-4 text-emerald-400" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-emerald-400" />
-                  )}
-                </div>
-              </button>
-
-              {isFinalResultOpen && (
-                <div className="px-4 pb-4 space-y-2.5 border-t" style={{ borderColor: 'rgba(16,185,129,0.12)' }}>
-                  {roadmap.finalResultDescription && (
-                    <p className="pt-2 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{roadmap.finalResultDescription}</p>
-                  )}
-                  {roadmap.finalResultImageUrl && (
-                    <img
-                      src={roadmap.finalResultImageUrl}
-                      alt={roadmap.finalResultTitle ?? '최종 결과물 이미지'}
-                      className="w-full max-h-56 object-cover rounded-xl border border-white/10"
-                    />
-                  )}
-                  {roadmap.finalResultUrl && (
-                    <a
-                      href={roadmap.finalResultUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200"
-                    >
-                      <ExternalLink className="w-4 h-4 flex-shrink-0" />
-                      <span className="underline underline-offset-2 break-all">{roadmap.finalResultUrl}</span>
-                    </a>
+                  {isFinalResultOpen && (
+                    <div className="px-3 pb-3 space-y-2.5 border-t border-emerald-500/12">
+                      {roadmap.finalResultDescription && (
+                        <p className="pt-2 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{roadmap.finalResultDescription}</p>
+                      )}
+                      {roadmap.finalResultImageUrl && (
+                        <img
+                          src={roadmap.finalResultImageUrl}
+                          alt={roadmap.finalResultTitle ?? '최종 결과물 이미지'}
+                          className="w-full max-h-56 object-cover rounded-xl border border-white/10"
+                        />
+                      )}
+                      {roadmap.finalResultUrl && (
+                        <a
+                          href={roadmap.finalResultUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-1.5 text-sm font-semibold text-cyan-300 hover:text-cyan-200"
+                        >
+                          <ExternalLink className="w-4 h-4 flex-shrink-0" />
+                          <span className="underline underline-offset-2 break-all">{roadmap.finalResultUrl}</span>
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-          )}
+              </RoadmapDetailVerticalFlowStep>
+            )}
 
-          <div className="space-y-2">
-            <h4 className="text-sm font-bold text-white">{LABELS.timelineViewLabel}</h4>
-            <RoadmapTreeView
-              roadmap={roadmap}
-              timelineDetailMode={effectiveTimelineDetailMode}
-              onToggleTodoItem={
-                effectiveTimelineDetailMode === 'interactive' && isOwnedByCurrentUser && !isReferenceViewOnlyMode
-                  ? onToggleTodoItem
-                  : undefined
-              }
-            />
-          </div>
+            <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="amber">
+              <RoadmapTreeView
+                roadmap={roadmap}
+                timelineDetailMode={effectiveTimelineDetailMode}
+                layoutVariant="detailFlow"
+                onToggleTodoItem={
+                  allowMutations
+                    && effectiveTimelineDetailMode === 'interactive'
+                    && isOwnedByCurrentUser
+                    && !isReferenceViewOnlyMode
+                    ? onToggleTodoItem
+                    : undefined
+                }
+              />
+            </RoadmapDetailVerticalFlowStep>
+          </RoadmapDetailVerticalFlow>
 
-          <div className="space-y-2 pt-1">
+          <div className="space-y-2 pt-5 mt-2 border-t border-white/[0.07]">
             <div className="flex items-center justify-between gap-2">
               <h4 className="text-sm font-bold text-white">{LABELS.commentViewLabel} {roadmap.comments.length}</h4>
               <button
@@ -590,6 +614,7 @@ export function RoadmapDetailDialog({
                     key={node.id}
                     node={node}
                     depth={0}
+                    allowMutations={allowMutations}
                     replyTargetId={replyTargetId}
                     onReply={(parentId) => setReplyTargetId(parentId)}
                     onReplyCancel={() => setReplyTargetId(null)}
@@ -599,30 +624,35 @@ export function RoadmapDetailDialog({
               </div>
             )}
 
-            <div className="flex items-center gap-2">
-              <input
-                value={commentInput}
-                onChange={event => setCommentInput(event.target.value)}
-                placeholder={LABELS.commentInputPlaceholder}
-                className="flex-1 h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-                style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
-              />
-              <button
-                onClick={() => {
-                  if (!commentInput.trim()) return;
-                  onCreateComment(commentInput.trim());
-                  setCommentInput('');
-                }}
-                className="w-10 h-10 rounded-xl flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(108,92,231,0.25)', color: '#ddd6fe' }}
-              >
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
+            {allowMutations ? (
+              <div className="flex items-center gap-2">
+                <input
+                  value={commentInput}
+                  onChange={event => setCommentInput(event.target.value)}
+                  placeholder={LABELS.commentInputPlaceholder}
+                  className="flex-1 h-10 px-3 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (!commentInput.trim()) return;
+                    onCreateComment(commentInput.trim());
+                    setCommentInput('');
+                  }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: 'rgba(108,92,231,0.25)', color: '#ddd6fe' }}
+                >
+                  <Send className="w-4 h-4" />
+                </button>
+              </div>
+            ) : (
+              <p className="text-xs text-gray-500 py-1">로그인 후 댓글·답글을 작성할 수 있어요.</p>
+            )}
           </div>
         </div>
 
-        {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && (
+        {!isOwnedByCurrentUser && !isReferenceViewOnlyMode && allowMutations && (
           <div
             className="w-full px-4 pt-3 pb-4 shrink-0"
             style={{
@@ -632,6 +662,7 @@ export function RoadmapDetailDialog({
             }}
           >
             <button
+              type="button"
               onClick={() => setShowUseRoadmapCustomizeDialog(true)}
               className="w-full h-12 rounded-none text-sm font-black text-white"
               style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)' }}
@@ -674,6 +705,7 @@ export function RoadmapDetailDialog({
 function CommentTreeNode({
   node,
   depth,
+  allowMutations = true,
   replyTargetId,
   onReply,
   onReplyCancel,
@@ -681,6 +713,7 @@ function CommentTreeNode({
 }: {
   node: ParentTreeNode<RoadmapComment>;
   depth: number;
+  allowMutations?: boolean;
   replyTargetId: string | null;
   onReply: (parentId: string) => void;
   onReplyCancel: () => void;
@@ -702,17 +735,20 @@ function CommentTreeNode({
         <p className="text-sm text-gray-300 mt-1">{node.content}</p>
         <div className="mt-1 flex items-center gap-2">
           <p className="text-sm text-gray-500">{formatDateTime(node.createdAt)}</p>
-          <button
-            onClick={() => onReply(node.id)}
-            className="text-sm font-semibold text-gray-400 flex items-center gap-1"
-          >
-            <MessageSquare className="w-3 h-3" />
-            답글
-          </button>
+          {allowMutations ? (
+            <button
+              type="button"
+              onClick={() => onReply(node.id)}
+              className="text-sm font-semibold text-gray-400 flex items-center gap-1"
+            >
+              <MessageSquare className="w-3 h-3" />
+              답글
+            </button>
+          ) : null}
         </div>
       </div>
 
-      {isReplyMode && (
+      {allowMutations && isReplyMode && (
         <div className="mt-1 pl-4 flex items-center gap-1">
           <CornerDownRight className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" />
           <input
@@ -723,6 +759,7 @@ function CommentTreeNode({
             style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
           />
           <button
+            type="button"
             onClick={() => {
               if (!replyText.trim()) return;
               onReplySubmit(replyText.trim(), node.id);
@@ -744,6 +781,7 @@ function CommentTreeNode({
               key={child.id}
               node={child}
               depth={depth + 1}
+              allowMutations={allowMutations}
               replyTargetId={replyTargetId}
               onReply={onReply}
               onReplyCancel={onReplyCancel}

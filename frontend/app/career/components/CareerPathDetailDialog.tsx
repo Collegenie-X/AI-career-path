@@ -865,7 +865,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             }}
           />
           <div
-            className="relative w-full max-w-[560px] rounded-t-3xl p-5 space-y-4"
+            className="relative w-full max-w-[580px] rounded-t-3xl p-5 space-y-4"
             style={{ backgroundColor: '#0d0d24', border: '1px solid rgba(255,255,255,0.1)' }}
             onClick={(event) => event.stopPropagation()}
           >

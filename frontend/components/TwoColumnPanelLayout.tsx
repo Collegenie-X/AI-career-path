@@ -100,20 +100,20 @@ export function TwoColumnPanelLayout({
   detailPanelClassName = 'rounded-3xl',
 }: TwoColumnPanelLayoutProps) {
   return (
-    <div className="flex w-full gap-5 items-start">
-      {/* ── 왼쪽: 리스트 (md+: 전체 너비 대비 4/10) ── */}
+    <div className="flex w-full gap-6 md:gap-8 items-start">
+      {/* ── 왼쪽: 리스트 (md+: 약 45%) ── */}
       {/* 모바일: 선택 없을 때만 표시 / 데스크탑: 항상 표시 */}
       <div
-        className={`w-full md:basis-0 md:grow-[6] md:min-w-0 ${hasSelection ? 'hidden md:block' : 'block'}`}
+        className={`w-full md:basis-0 md:grow-[9] md:min-w-0 ${hasSelection ? 'hidden md:block' : 'block'}`}
       >
         {listSlot}
       </div>
 
-      {/* ── 오른쪽: 상세 패널 (md+: 전체 너비 대비 6/10) ── */}
+      {/* ── 오른쪽: 상세 패널 (md+: 약 55%, 왼쪽 구분·여백) ── */}
       {/* 모바일: 선택 있을 때만 표시 / 데스크탑: 항상 표시 */}
       <div
         className={`
-          w-full md:basis-0 md:grow-[6] md:min-w-0
+          w-full md:basis-0 md:grow-[11] md:min-w-0 md:pl-2 lg:pl-5 md:border-l md:border-white/[0.06]
           ${hasSelection ? 'block w-full' : 'hidden md:block'}
         `}
       >

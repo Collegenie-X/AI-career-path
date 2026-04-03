@@ -13,6 +13,7 @@ import { CareerPathDetailPanelComment, type DetailPanelComment } from './CareerP
 import { AdmissionTypeStrategiesSection, SuccessStoriesSection } from './CareerPathDetailPanelSections';
 import { UseTemplateDialog } from './UseTemplateDialog';
 import { CareerPathDetailExpandHeaderButton } from './expandable-detail';
+import { toggleCollapseSetKey } from '../utils/careerPathTimelineCollapseSet';
 
 type Template = CareerPathTemplate;
 
@@ -56,6 +57,7 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
   const [showContentMenu, setShowContentMenu] = useState(false);
   const [showUseTemplateDialog, setShowUseTemplateDialog] = useState(false);
   const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
+  const [collapsedGradeKeys, setCollapsedGradeKeys] = useState<Set<string>>(new Set());
   const [comments, setComments] = useState<Comment[]>([
     {
       id: 'c1', userId: 'u1', userName: '김진로', userEmoji: '👨‍🎓',
@@ -73,17 +75,17 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
     setLiked(false);
     setLocalLikes(template.likes);
     setCollapsedGoalKeys(new Set());
+    setCollapsedGradeKeys(new Set());
     const saved = loadTemplateBookmarks();
     setBookmarked(saved.includes(template.id));
   }, [template.id, template.likes]);
 
   const toggleGoalExpand = (key: string) => {
-    setCollapsedGoalKeys(prev => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      return next;
-    });
+    setCollapsedGoalKeys((prev) => toggleCollapseSetKey(prev, key));
+  };
+
+  const toggleGradeExpand = (gradeId: string) => {
+    setCollapsedGradeKeys((prev) => toggleCollapseSetKey(prev, gradeId));
   };
 
   const addComment = () => {
@@ -265,6 +267,8 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
             template={template}
             collapsedGoalKeys={collapsedGoalKeys}
             onToggleGoalExpand={toggleGoalExpand}
+            collapsedGradeKeys={collapsedGradeKeys}
+            onToggleGradeExpand={toggleGradeExpand}
           />
 
           {/* Tags */}

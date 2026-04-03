@@ -1,0 +1,426 @@
+[
+  {
+    "id": "tpl-exec-ms2-2026",
+    "ownerId": "demo-owner-ms2",
+    "ownerName": "한서연",
+    "ownerEmoji": "📘",
+    "ownerGrade": "mid2",
+    "title": "[중2] 진로 탐색·기초 학습 습관 1학기 로드맵",
+    "description": "중학교 2학년 1학기에 맞춰 흥미·적성을 넓게 탐색하고, 국·영·수 기초를 다지는 12주 실행 계획입니다. 독서 기록·동아리 활동·진로 상담 일정을 한눈에 관리합니다.",
+    "period": "semester",
+    "starColor": "#3B82F6",
+    "focusItemTypes": ["activity", "paper", "project"],
+    "shareScope": "public",
+    "shareChannels": ["public"],
+    "groupIds": [],
+    "likes": 24,
+    "bookmarks": 11,
+    "viewCount": 310,
+    "commentCount": 4,
+    "sharedAt": "2026-02-01T08:00:00.000Z",
+    "comments": [
+      {
+        "id": "tpl-ms2-c1",
+        "authorName": "김민준",
+        "authorEmoji": "✏️",
+        "content": "독서 기록 주차 나누는 방식이 따라하기 좋아요.",
+        "createdAt": "2026-02-03T12:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "tpl-ms2-ms1",
+        "title": "진로적성검사 결과 정리 및 희망 분야 3가지 도출",
+        "description": "교육청 검사 + 교사 상담 메모 반영",
+        "monthWeekLabel": "3월 2주차",
+        "recordedAt": "2026-03-10T15:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "학기말 독서·활동 포트폴리오 1권 완성",
+    "finalResultDescription": "탐구노트·독서록·동아리 활동 사진을 묶은 PDF 1부 제출 목표.",
+    "items": [
+      {
+        "id": "tpl-ms2-i1",
+        "type": "activity",
+        "title": "독서·미디어 진로 탐색 (주 3회)",
+        "months": [3, 4, 5],
+        "difficulty": 2,
+        "targetOutput": "독서 기록지 12회 + 진로 관련 기사 클리핑 6건",
+        "successCriteria": "매주 금요일 기록 제출, 담임 확인 1회 이상",
+        "subItems": [
+          {
+            "id": "tpl-ms2-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "goal",
+            "title": "희망 분야 관련 도서 2권 선정",
+            "isDone": false
+          },
+          {
+            "id": "tpl-ms2-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "task",
+            "title": "진로 키워드 5개 정리 및 부모님과 공유",
+            "isDone": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-ms2-i2",
+        "type": "paper",
+        "title": "국·영·수 기초 루틴 (평일 45분)",
+        "months": [3, 4, 5],
+        "difficulty": 3,
+        "targetOutput": "단원별 오답 노트 디지털 파일",
+        "successCriteria": "주간 학습 일지 10주 연속 작성",
+        "subItems": [
+          {
+            "id": "tpl-ms2-i2-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "task",
+            "title": "국어 지문 읽기 속도 측정 1회",
+            "isDone": false
+          },
+          {
+            "id": "tpl-ms2-i2-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "goal",
+            "title": "영어 단어장 Day 1~14 완료",
+            "isDone": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-exec-hs-2026",
+    "ownerId": "demo-owner-hs",
+    "ownerName": "오지훈",
+    "ownerEmoji": "🎯",
+    "ownerGrade": "high1",
+    "title": "[고입] 목표 고교·내신·수행평가 정렬 로드맵",
+    "description": "지망 고등학교 유형(일반고·특목고·자사고)에 맞춰 내신·수행·비교과를 균형 있게 배치한 2학기 실행표입니다. 모의고·학교 설명회 일정까지 함께 넣었습니다.",
+    "period": "semester",
+    "starColor": "#8B5CF6",
+    "focusItemTypes": ["award", "activity", "paper"],
+    "shareScope": "public",
+    "shareChannels": ["public"],
+    "groupIds": [],
+    "likes": 41,
+    "bookmarks": 19,
+    "viewCount": 520,
+    "commentCount": 7,
+    "sharedAt": "2026-01-15T09:30:00.000Z",
+    "comments": [],
+    "milestoneResults": [],
+    "finalResultTitle": "고교 지원 서류·자기소개 초안 v1",
+    "finalResultDescription": "지원 동기·학업 계획·비교과 연계 문단 각 200자 내외.",
+    "items": [
+      {
+        "id": "tpl-hs-i1",
+        "type": "activity",
+        "title": "내신 취약 단원 보완 (교과별 주 2회)",
+        "months": [9, 10, 11],
+        "difficulty": 4,
+        "targetOutput": "과목별 오답 클리어표",
+        "successCriteria": "중간·기말 모의평가 목표 등급 달성",
+        "subItems": [
+          {
+            "id": "tpl-hs-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "9월 1주차",
+            "entryType": "goal",
+            "title": "전 과목 성적 분석표 작성",
+            "isDone": false
+          },
+          {
+            "id": "tpl-hs-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "9월 2주차",
+            "entryType": "task",
+            "title": "지망교 전년도 입결·교육과정 비교 노트",
+            "isDone": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-hs-i2",
+        "type": "award",
+        "title": "수행평가·탐구 보고서 일정 역산",
+        "months": [9, 10, 11, 12],
+        "difficulty": 3,
+        "targetOutput": "수행 마감 캘린더 + 초안 일정",
+        "successCriteria": "주요 수행 100% 기한 내 제출",
+        "subItems": [
+          {
+            "id": "tpl-hs-i2-w1",
+            "weekNumber": 1,
+            "weekLabel": "9월 1주차",
+            "entryType": "task",
+            "title": "담임·세부 과목 수행 일정 수집",
+            "isDone": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-exec-uni-a-2026",
+    "ownerId": "demo-owner-uni-a",
+    "ownerName": "이도윤",
+    "ownerEmoji": "📊",
+    "ownerGrade": "high3",
+    "title": "[대입 A] 수능·모의고사 중심 6개월 집중 로드맵",
+    "description": "수능 체계(국·수·영·탐) 위주로 주간 모의고사·오답 CL·약점 단원 루프를 돌리는 플랜입니다. 등급 목표를 분기별로 쪼개 관리합니다.",
+    "period": "semester",
+    "starColor": "#EC4899",
+    "focusItemTypes": ["paper", "award"],
+    "shareScope": "public",
+    "shareChannels": ["public"],
+    "groupIds": [],
+    "likes": 67,
+    "bookmarks": 38,
+    "viewCount": 890,
+    "commentCount": 12,
+    "sharedAt": "2025-12-01T10:00:00.000Z",
+    "comments": [
+      {
+        "id": "tpl-uni-a-c1",
+        "authorName": "박서준",
+        "authorEmoji": "📐",
+        "content": "분기별 목표 등급 표가 직관적이에요.",
+        "createdAt": "2025-12-05T09:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "tpl-uni-a-ms1",
+        "title": "6월 모의고사 목표 등급 달성",
+        "description": "수학 2등급, 국어 3등급 이내",
+        "monthWeekLabel": "6월 2주차",
+        "recordedAt": "2026-06-12T11:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "수능 최종 모의 3회 평균 목표선 도달",
+    "finalResultDescription": "실전 감각·시간 배분 점검 후 약점 단원 최종 정리.",
+    "items": [
+      {
+        "id": "tpl-uni-a-i1",
+        "type": "paper",
+        "title": "주간 전국연합·EBS 모의고사 + 오답 정리",
+        "months": [3, 4, 5, 6, 7, 8],
+        "difficulty": 5,
+        "targetOutput": "과목별 오답 노트 스캔본",
+        "successCriteria": "매 시험 후 48시간 내 오답 완료",
+        "subItems": [
+          {
+            "id": "tpl-uni-a-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "goal",
+            "title": "이전 모의 성적표 입력 및 약점 과목 1개 선정",
+            "isDone": false
+          },
+          {
+            "id": "tpl-uni-a-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "task",
+            "title": "수학 확률·통계 파트 20문제 재풀이",
+            "isDone": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-uni-a-i2",
+        "type": "award",
+        "title": "수능 D-30~D-1 실전 루틴",
+        "months": [10, 11],
+        "difficulty": 5,
+        "targetOutput": "실전 시간표 + 컨디션 체크리스트",
+        "successCriteria": "실전 3회 연속 목표 시간 내 풀이",
+        "subItems": [
+          {
+            "id": "tpl-uni-a-i2-w1",
+            "weekNumber": 1,
+            "weekLabel": "10월 1주차",
+            "entryType": "task",
+            "title": "실제 시험 시간표로 풀스코어 모의 1회",
+            "isDone": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-exec-uni-b-2026",
+    "ownerId": "demo-owner-uni-b",
+    "ownerName": "최유진",
+    "ownerEmoji": "🎨",
+    "ownerGrade": "high3",
+    "title": "[대입 B] 학생부·포트폴리오·비교과 균형 로드맵",
+    "description": "교과 이외에 세특·세부능력·동아리·봉사를 입시 전략과 연결해 기록하는 플랜입니다. 디자인·SW·인문 등 전공 연계 활동을 주차별로 쌓습니다.",
+    "period": "semester",
+    "starColor": "#22C55E",
+    "focusItemTypes": ["project", "activity", "paper"],
+    "shareScope": "public",
+    "shareChannels": ["public"],
+    "groupIds": [],
+    "likes": 52,
+    "bookmarks": 27,
+    "viewCount": 640,
+    "commentCount": 9,
+    "sharedAt": "2025-11-20T08:00:00.000Z",
+    "comments": [],
+    "milestoneResults": [],
+    "finalResultTitle": "전공 연계 포트폴리오 PDF 1종 + 자기소개서 초안",
+    "finalResultDescription": "활동별 역량 키워드 매핑표 포함.",
+    "items": [
+      {
+        "id": "tpl-uni-b-i1",
+        "type": "project",
+        "title": "전공 연계 개인 프로젝트 (12주)",
+        "months": [3, 4, 5, 6],
+        "difficulty": 4,
+        "targetOutput": "깃허브 또는 피그마 링크 + 활동 보고서",
+        "successCriteria": "주간 커밋·피드백 10회 이상",
+        "subItems": [
+          {
+            "id": "tpl-uni-b-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "goal",
+            "title": "문제 정의·페르소나·가설 설정",
+            "isDone": false
+          },
+          {
+            "id": "tpl-uni-b-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "task",
+            "title": "프로토타입 1차 시연 및 멘토 피드백",
+            "isDone": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-uni-b-i2",
+        "type": "activity",
+        "title": "봉사·동아리·세특 키워드 정렬",
+        "months": [3, 4, 5, 6, 7],
+        "difficulty": 3,
+        "targetOutput": "세특 문장 초안 + 활동 사진 모음",
+        "successCriteria": "학기말 생기부 열람 전 검토 2회",
+        "subItems": [
+          {
+            "id": "tpl-uni-b-i2-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "task",
+            "title": "희망 학과별 요구 역량 3개 조사",
+            "isDone": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-exec-job-2026",
+    "ownerId": "demo-owner-job",
+    "ownerName": "강민서",
+    "ownerEmoji": "💼",
+    "ownerGrade": "univ4",
+    "title": "[취업] 인턴·자격·포트폴리오 6개월 이행 로드맵",
+    "description": "졸업 전후 취업 준비를 위해 장·단기 인턴, 자격증, 포트폴리오 정리, 코테·면접 루틴을 한 번에 묶었습니다. 주차별 산출물이 명확해 혼자서도 점검하기 쉽습니다.",
+    "period": "semester",
+    "starColor": "#F97316",
+    "focusItemTypes": ["project", "award", "activity"],
+    "shareScope": "public",
+    "shareChannels": ["public"],
+    "groupIds": [],
+    "likes": 73,
+    "bookmarks": 45,
+    "viewCount": 1020,
+    "commentCount": 15,
+    "sharedAt": "2026-01-05T07:00:00.000Z",
+    "comments": [
+      {
+        "id": "tpl-job-c1",
+        "authorName": "정하람",
+        "authorEmoji": "🧩",
+        "content": "코테 주차 나누기가 실전이랑 잘 맞아요.",
+        "createdAt": "2026-01-08T18:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "tpl-job-ms1",
+        "title": "Summer 인턴 서류·코테 1차 통과",
+        "description": "백엔드 직무 2곳 지원",
+        "monthWeekLabel": "7월 1주차",
+        "recordedAt": "2026-07-05T10:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "최종 포트폴리오 사이트 + 이력서·자소서 세트 v1",
+    "finalResultDescription": "지원 기업별 맞춤 문장 분기 저장.",
+    "items": [
+      {
+        "id": "tpl-job-i1",
+        "type": "project",
+        "title": "포트폴리오 웹·깃허브 정리 (주간 배포)",
+        "months": [3, 4, 5, 6, 7, 8],
+        "difficulty": 4,
+        "targetOutput": "배포 URL + README + 아키텍처 다이어그램",
+        "successCriteria": "코드 리뷰·이슈 클로즈 주 2회 이상",
+        "subItems": [
+          {
+            "id": "tpl-job-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "goal",
+            "title": "대표 프로젝트 2개 선정 및 기술 스택 표 정리",
+            "isDone": false
+          },
+          {
+            "id": "tpl-job-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "task",
+            "title": "CI 파이프라인·테스트 커버리지 목표치 설정",
+            "isDone": false
+          }
+        ]
+      },
+      {
+        "id": "tpl-job-i2",
+        "type": "activity",
+        "title": "코딩테스트·면접 스터디 (주 3회)",
+        "months": [3, 4, 5, 6],
+        "difficulty": 4,
+        "targetOutput": "문제 유형별 오답집 + 모의 면접 영상 3개",
+        "successCriteria": "목표 기업 직무 기출 80% 이상 정답률",
+        "subItems": [
+          {
+            "id": "tpl-job-i2-w1",
+            "weekNumber": 1,
+            "weekLabel": "3월 1주차",
+            "entryType": "task",
+            "title": "자료구조·그래프 유형 10문제 풀이",
+            "isDone": false
+          },
+          {
+            "id": "tpl-job-i2-w2",
+            "weekNumber": 2,
+            "weekLabel": "3월 2주차",
+            "entryType": "goal",
+            "title": "기술 면접 질문 20개 답변 초안",
+            "isDone": false
+          }
+        ]
+      }
+    ]
+  }
+]

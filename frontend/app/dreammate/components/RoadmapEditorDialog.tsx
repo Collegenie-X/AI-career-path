@@ -1,6 +1,7 @@
 'use client';
 
 import { useMemo, useState, type ChangeEvent } from 'react';
+import { ExecutionPlanAiGenerateDialog } from './execution-plan-ai/ExecutionPlanAiGenerateDialog';
 import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react';
 import { RoadmapEditorAccordionHeaderButton } from './roadmap-editor-ui/RoadmapEditorAccordionHeaderButton';
 import { RoadmapEditorColorSwatchRow } from './roadmap-editor-ui/RoadmapEditorColorSwatchRow';
@@ -31,6 +32,15 @@ import {
   WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE,
 } from '../config';
 import type { DreamItemType, PeriodType, RoadmapItem, RoadmapMilestoneResult, RoadmapTodoItem } from '../types';
+import {
+  buildMonthWeekLabel,
+  createWeeklyGoalSubItem,
+  createWeeklyTaskSubItem,
+  extractMonthWeek,
+  extractWeekNumber,
+  isGoalTodoEntry,
+  normalizeSubItemsToAvailableMonths,
+} from '../utils/roadmapWeeklySubItemBuilders';
 
 interface RoadmapEditorPayload {
   title: string;
@@ -71,28 +81,6 @@ function createEmptyItem(selectedMonths: number[]): RoadmapItem {
   };
 }
 
-function createWeeklyTaskSubItem(month: number, week: number): RoadmapTodoItem {
-  return {
-    id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    weekNumber: week,
-    weekLabel: buildMonthWeekLabel(month, week),
-    entryType: 'task',
-    title: `${month}월 ${week}주차 항목`,
-    isDone: false,
-  };
-}
-
-function createWeeklyGoalSubItem(month: number, week: number, title = ''): RoadmapTodoItem {
-  return {
-    id: `draft-sub-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-    weekNumber: week,
-    weekLabel: buildMonthWeekLabel(month, week),
-    entryType: 'goal',
-    title,
-    isDone: false,
-  };
-}
-
 function createEmptyMilestoneResult(): RoadmapMilestoneResult {
   return {
     id: `milestone-result-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
@@ -130,63 +118,6 @@ function convertImageFileToDataUrl(imageFile: File): Promise<string> {
     fileReader.onerror = () => reject(new Error('이미지 업로드 중 오류가 발생했어요.'));
     fileReader.readAsDataURL(imageFile);
   });
-}
-
-function buildMonthWeekLabel(month: number, week: number): string {
-  return `${month}월 ${week}주차`;
-}
-
-function extractWeekNumber(todoItem: RoadmapTodoItem): number {
-  if (typeof todoItem.weekNumber === 'number' && todoItem.weekNumber > 0) {
-    return todoItem.weekNumber;
-  }
-  const matchedMonthWeek = (todoItem.weekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
-  if (matchedMonthWeek) {
-    const weekFromMonthWeek = Number(matchedMonthWeek[2]);
-    if (Number.isFinite(weekFromMonthWeek) && weekFromMonthWeek > 0) return weekFromMonthWeek;
-  }
-  const numberMatches = (todoItem.weekLabel ?? '').match(/\d+/g);
-  const lastNumber = numberMatches ? Number(numberMatches[numberMatches.length - 1]) : NaN;
-  return Number.isFinite(lastNumber) && lastNumber > 0 ? lastNumber : 1;
-}
-
-function extractMonthWeek(todoItem: RoadmapTodoItem, fallbackMonth: number): { month: number; week: number } {
-  const matched = (todoItem.weekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
-  if (matched) {
-    const month = Number(matched[1]);
-    const week = Number(matched[2]);
-    if (month >= 1 && month <= 12 && week >= 1 && week <= 5) {
-      return { month, week };
-    }
-  }
-
-  return {
-    month: fallbackMonth,
-    week: Math.min(Math.max(extractWeekNumber(todoItem), 1), 5),
-  };
-}
-
-function normalizeSubItemsToAvailableMonths(
-  subItems: RoadmapTodoItem[],
-  availableMonths: number[],
-): RoadmapTodoItem[] {
-  const normalizedMonths = availableMonths.length > 0 ? availableMonths : [3];
-  const fallbackMonth = normalizedMonths[0];
-  return subItems.map(subItem => {
-    const parsed = extractMonthWeek(subItem, fallbackMonth);
-    const targetMonth = normalizedMonths.includes(parsed.month) ? parsed.month : fallbackMonth;
-    return {
-      ...subItem,
-      weekNumber: parsed.week,
-      weekLabel: buildMonthWeekLabel(targetMonth, parsed.week),
-      entryType: subItem.entryType ?? 'task',
-      title: subItem.title?.trim().length ? subItem.title : `${targetMonth}월 ${parsed.week}주차 활동`,
-    };
-  });
-}
-
-function isGoalTodoEntry(todoItem: RoadmapTodoItem): boolean {
-  return todoItem.entryType === 'goal';
 }
 
 function getWeekGroupKey(month: number, week: number): string {
@@ -621,7 +552,43 @@ export function RoadmapEditorDialog({
     updateItem(itemId, { title: randomSuggestion });
   };
 
+  const [executionPlanAiItemId, setExecutionPlanAiItemId] = useState<string | null>(null);
+
+  const executionPlanAiTargetItem = useMemo(
+    () => (executionPlanAiItemId ? items.find(i => i.id === executionPlanAiItemId) : undefined),
+    [executionPlanAiItemId, items],
+  );
+
+  /** AI 실행계획은 해당 활동 행의 적용 월 기준(비어 있으면 에디터 상단 월 선택과 동일 로직). */
+  const executionPlanAiSelectedMonths = useMemo(() => {
+    if (!executionPlanAiTargetItem) return [...selectedMonths].sort((a, b) => a - b);
+    const fromItem = executionPlanAiTargetItem.months;
+    const raw = fromItem.length > 0 ? fromItem : selectedMonths;
+    return [...raw].sort((a, b) => a - b);
+  }, [executionPlanAiTargetItem, selectedMonths]);
+
+  /** 프롬프트용 제목: 로드맵 전체 제목이 아니라 활동 항목(목표) 한 줄. */
+  const executionPlanAiDefaultTitle = useMemo(() => {
+    const activityGoal = executionPlanAiTargetItem?.title?.trim();
+    return activityGoal && activityGoal.length > 0 ? activityGoal : '나의 활동';
+  }, [executionPlanAiTargetItem]);
+
+  const applyExecutionPlanAiSubItems = (subItems: RoadmapTodoItem[]) => {
+    if (!executionPlanAiItemId) return;
+    setItems(previousItems => previousItems.map(item => {
+      if (item.id !== executionPlanAiItemId) return item;
+      const months = item.months.length > 0 ? item.months : selectedMonths;
+      return {
+        ...item,
+        months,
+        subItems,
+      };
+    }));
+    setExecutionPlanAiItemId(null);
+  };
+
   return (
+    <>
     <div className="fixed inset-0 z-50 flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
@@ -1077,6 +1044,16 @@ export function RoadmapEditorDialog({
                         적용 월: {itemMonths.map(month => `${month}월`).join(', ')}
                       </p>
 
+                      <button
+                        type="button"
+                        onClick={() => setExecutionPlanAiItemId(item.id)}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-bold transition-colors active:scale-[0.99]"
+                        style={{ backgroundColor: 'rgba(139,92,246,0.22)', color: '#e9d5ff' }}
+                      >
+                        <Sparkles className="w-4 h-4" />
+                        AI로 주간 계획 만들기
+                      </button>
+
                       <RoadmapEditorWbsWeeklyChecklistTree
                         item={item}
                         sortedWeekGroups={sortedWeekGroups}
@@ -1086,6 +1063,7 @@ export function RoadmapEditorDialog({
                           noWeekGroupHint: LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.',
                           deleteWeekGroupButton: LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '삭제',
                           weekGoalLabel: LABELS.roadmapEditorWeekGoalTreeFieldLabel ?? '목표',
+                          weekGoalEditHelpHint: LABELS.roadmapEditorWeekGoalEditHelpHint,
                           weekGoalRequiredHint: LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.',
                           weekGoalValidationHint: LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.',
                           goalOutputLabel: LABELS.roadmapEditorWeekGoalOutputFieldLabel ?? '산출물 (URL 또는 파일명) — 주당 1개',
@@ -1147,6 +1125,14 @@ export function RoadmapEditorDialog({
         </div>
       </div>
     </div>
+    <ExecutionPlanAiGenerateDialog
+      isOpen={executionPlanAiItemId !== null}
+      onClose={() => setExecutionPlanAiItemId(null)}
+      selectedMonths={executionPlanAiSelectedMonths}
+      defaultPlanTitle={executionPlanAiDefaultTitle}
+      onApplySubItems={applyExecutionPlanAiSubItems}
+    />
+    </>
   );
 }
 

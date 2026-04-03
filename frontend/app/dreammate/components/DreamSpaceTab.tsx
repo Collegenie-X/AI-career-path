@@ -5,13 +5,16 @@ import { DREAM_LIST_ITEMS_PER_PAGE } from '../config';
 import { ListPagination } from './ListPagination';
 import {
   Users, ChevronRight, MessageSquare,
-  X, Clock, Star,
+  Clock, Star,
 } from 'lucide-react';
 import { TwoColumnPanelLayout, DetailPanelScrollContainer } from '@/components/TwoColumnPanelLayout';
 import { LABELS } from '../config';
 import type { DreamSpace, SharedRoadmap } from '../types';
 import { SpaceDetailView } from './SpaceDetailView';
 import { SpaceJoinRequestDialog } from './SpaceJoinRequestDialog';
+import { DreamSpaceListHeader } from './DreamSpaceListHeader';
+import { DreamMateCreateSpaceDialog } from './DreamMateCreateSpaceDialog';
+import type { CareerGroupFormSubmitPayload } from '@/app/career/config/communityGroupForm';
 
 function formatTimeAgo(dateStr: string): string {
   const diff = Date.now() - new Date(dateStr).getTime();
@@ -106,73 +109,6 @@ export function SpaceCard({
   );
 }
 
-/* ─── Create Space Dialog ─── */
-function CreateSpaceDialog({ onClose, onCreate }: {
-  onClose: () => void;
-  onCreate: (name: string, description: string, emoji: string) => void;
-}) {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [emoji, setEmoji] = useState('🤝');
-  const EMOJI_OPTIONS = ['🤝', '💻', '🎨', '🔬', '🏥', '⚖️', '🚀', '🎵', '📚', '🌱', '🎮', '🏆'];
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div
-        className="relative w-full max-w-[430px] rounded-t-3xl overflow-y-auto"
-        style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.08)', maxHeight: 'calc(100vh - 80px)', marginBottom: 80 }}
-      >
-        <div className="flex items-center justify-between px-5 pt-5 pb-3">
-          <h3 className="text-lg font-black text-white">{LABELS.createSpaceButton}</h3>
-          <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-            <X className="w-4 h-4 text-gray-400" />
-          </button>
-        </div>
-        <div className="px-5 space-y-4 pb-10">
-          <div>
-            <label className="text-sm font-bold text-gray-400 mb-2 block">아이콘</label>
-            <div className="flex gap-2 flex-wrap">
-              {EMOJI_OPTIONS.map(e => (
-                <button
-                  key={e}
-                  onClick={() => setEmoji(e)}
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xl transition-all"
-                  style={emoji === e
-                    ? { backgroundColor: 'rgba(108,92,231,0.2)', border: '2px solid #6C5CE7' }
-                    : { backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
-                >
-                  {e}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <label className="text-sm font-bold text-gray-400 mb-1.5 block">스페이스 이름</label>
-            <input value={name} onChange={e => setName(e.target.value)} placeholder="예: 과학고 준비반"
-              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
-          </div>
-          <div>
-            <label className="text-sm font-bold text-gray-400 mb-1.5 block">설명</label>
-            <input value={description} onChange={e => setDescription(e.target.value)} placeholder="어떤 스페이스인지 간단히 설명해 주세요"
-              className="w-full h-11 px-4 rounded-xl text-sm text-white placeholder-gray-600 outline-none"
-              style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
-          </div>
-          <button
-            onClick={() => { if (name.trim()) onCreate(name.trim(), description.trim(), emoji); }}
-            disabled={!name.trim()}
-            className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
-            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
-          >
-            스페이스 만들기
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Main export ─── */
 interface DreamSpaceTabProps {
   currentUserId: string;
@@ -189,9 +125,14 @@ interface DreamSpaceTabProps {
   onViewRoadmapDetail: (rm: SharedRoadmap) => void;
   onJoinSpace: (id: string) => void;
   onLeaveSpace: (id: string) => void;
-  onCreateSpace: (name: string, description: string, emoji: string) => void;
+  onCreateSpace: (payload: CareerGroupFormSubmitPayload) => void;
   onToggleSpaceRecruitmentStatus: (spaceId: string) => void;
   onCreateSpaceNotice: (spaceId: string, title: string, content: string) => void;
+  /** 히어로 등 외부에서 생성 다이얼로그를 열 때 사용 (자료실 탭과 동일 패턴) */
+  openCreateDialog?: boolean;
+  onOpenCreateDialogDismiss?: () => void;
+  /** 로그인 시에만 스페이스 생성 다이얼로그·헤더 버튼 */
+  allowMutations?: boolean;
 }
 
 export function DreamSpaceTab({
@@ -204,6 +145,9 @@ export function DreamSpaceTab({
   onLeaveSpace, onCreateSpace,
   onToggleSpaceRecruitmentStatus,
   onCreateSpaceNotice,
+  openCreateDialog = false,
+  onOpenCreateDialogDismiss,
+  allowMutations = true,
 }: DreamSpaceTabProps) {
   const [selectedSpaceId, setSelectedSpaceId] = useState<string | null>(null);
   const [joinTargetSpaceId, setJoinTargetSpaceId] = useState<string | null>(null);
@@ -217,6 +161,17 @@ export function DreamSpaceTab({
       setSelectedSpaceId(initialSelectedSpaceId);
     }
   }, [initialSelectedSpaceId]);
+
+  useEffect(() => {
+    if (!allowMutations) setShowCreateDialog(false);
+  }, [allowMutations]);
+
+  useEffect(() => {
+    if (openCreateDialog && allowMutations) {
+      setShowCreateDialog(true);
+      onOpenCreateDialogDismiss?.();
+    }
+  }, [openCreateDialog, allowMutations, onOpenCreateDialogDismiss]);
 
   const selectedSpace = useMemo(
     () => spaces.find(s => s.id === selectedSpaceId) ?? null,
@@ -241,11 +196,17 @@ export function DreamSpaceTab({
     setJoinTargetSpaceId(space.id);
   };
 
+  const handleDismissCreateDialog = () => {
+    setShowCreateDialog(false);
+    onOpenCreateDialogDismiss?.();
+  };
+
   const listColumn = (
     <div className="space-y-4 pb-2">
-      <div>
-        <p className="text-sm text-gray-500 mt-0.5">{LABELS.spaceSubtitle}</p>
-      </div>
+      <DreamSpaceListHeader
+        allowMutations={allowMutations}
+        onRequestCreateGroup={() => setShowCreateDialog(true)}
+      />
 
       <div className="rounded-2xl p-3 space-y-2" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
         <p className="text-sm font-bold text-gray-300">{LABELS.joinByCodeButton}</p>
@@ -377,12 +338,12 @@ export function DreamSpaceTab({
         }
       />
 
-      {showCreateDialog && (
-        <CreateSpaceDialog
-          onClose={() => setShowCreateDialog(false)}
-          onCreate={(name, description, emoji) => {
-            onCreateSpace(name, description, emoji);
-            setShowCreateDialog(false);
+      {allowMutations && showCreateDialog && (
+        <DreamMateCreateSpaceDialog
+          onClose={handleDismissCreateDialog}
+          onSubmit={(payload: CareerGroupFormSubmitPayload) => {
+            onCreateSpace(payload);
+            handleDismissCreateDialog();
           }}
         />
       )}

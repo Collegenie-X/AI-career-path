@@ -6,7 +6,7 @@ import {
   Users, ChevronRight, Crown, MessageSquare,
   X, UserPlus, Clock, Star, MoreVertical,
   LogOut, Copy,
-  Search, Heart, TrendingUp,
+  Search, Heart, TrendingUp, Pencil, Trash2,
 } from 'lucide-react';
 import { GRADE_YEARS, LABELS } from '../../config';
 import { CAREER_GROUP_FORM_CONFIG } from '../../config/communityGroupForm';
@@ -127,6 +127,9 @@ export function GroupDetailView({
   checkedPlans,
   onToggleLike,
   onToggleBookmark,
+  isGroupOperator = false,
+  onRequestEditGroup,
+  onRequestDeleteGroup,
 }: {
   group: CommunityGroup;
   sharedPlans: SharedPlan[];
@@ -142,6 +145,10 @@ export function GroupDetailView({
   checkedPlans: Record<string, string>;
   onToggleLike: (planId: string) => void;
   onToggleBookmark: (planId: string) => void;
+  /** 방장(생성자) — 수정·삭제 버튼 */
+  isGroupOperator?: boolean;
+  onRequestEditGroup?: () => void;
+  onRequestDeleteGroup?: () => void;
 }) {
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
@@ -199,7 +206,7 @@ export function GroupDetailView({
     <div className="space-y-4">
       {/* Sticky header — SchoolDetailView와 동일 구조 */}
       <div
-        className="sticky top-0 z-20 -mx-4 px-4 pt-3 pb-3"
+        className="sticky top-0 z-20 -mx-5 sm:-mx-6 md:-mx-7 px-5 sm:px-6 md:px-7 pt-3 pb-3"
         style={{
           backgroundColor: 'rgba(10,10,30,0.88)',
           backdropFilter: 'blur(18px)',
@@ -207,15 +214,15 @@ export function GroupDetailView({
           boxShadow: '0 10px 30px rgba(0,0,0,0.35)',
         }}
       >
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0 flex items-center gap-2.5">
+        <div className="flex items-center justify-between gap-2 sm:gap-3">
+          <div className="min-w-0 flex items-center gap-2 sm:gap-2.5">
             <button
               type="button"
               onClick={() => {
                 onBack();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="flex items-center gap-2 h-10 pl-3 pr-3 rounded-xl text-sm font-black transition-all active:scale-[0.98]"
+              className="flex items-center gap-2 h-10 pl-2.5 pr-2.5 sm:pl-3 sm:pr-3 rounded-xl text-sm font-black transition-all active:scale-[0.98]"
               style={{
                 backgroundColor: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(255,255,255,0.12)',
@@ -233,24 +240,62 @@ export function GroupDetailView({
             </div>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setShowMoreMenu(true)}
-            className="w-10 h-10 rounded-xl flex items-center justify-center transition-all active:scale-[0.98]"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.06)',
-              border: '1px solid rgba(255,255,255,0.12)',
-            }}
-            aria-label="그룹 옵션 더보기"
-          >
-            <MoreVertical className="w-4 h-4 text-gray-300" />
-          </button>
+          <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+            {isGroupOperator && onRequestEditGroup && onRequestDeleteGroup && (
+              <>
+                <button
+                  type="button"
+                  onClick={onRequestEditGroup}
+                  className="flex items-center gap-1 h-9 px-2 sm:px-2.5 rounded-xl text-[12px] sm:text-xs font-bold transition-all active:scale-[0.98]"
+                  style={{
+                    backgroundColor: `${group.color}24`,
+                    border: `1px solid ${group.color}44`,
+                    color: '#e9d5ff',
+                  }}
+                  title={String(LABELS.community_group_operator_edit ?? '수정')}
+                >
+                  <Pencil className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span className="hidden sm:inline">
+                    {String(LABELS.community_group_operator_edit ?? '수정')}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={onRequestDeleteGroup}
+                  className="flex items-center gap-1 h-9 px-2 sm:px-2.5 rounded-xl text-[12px] sm:text-xs font-bold transition-all active:scale-[0.98]"
+                  style={{
+                    backgroundColor: 'rgba(239,68,68,0.12)',
+                    border: '1px solid rgba(239,68,68,0.35)',
+                    color: '#FCA5A5',
+                  }}
+                  title={String(LABELS.community_group_operator_delete ?? '삭제')}
+                >
+                  <Trash2 className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span className="hidden sm:inline">
+                    {String(LABELS.community_group_operator_delete ?? '삭제')}
+                  </span>
+                </button>
+              </>
+            )}
+            <button
+              type="button"
+              onClick={() => setShowMoreMenu(true)}
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center transition-all active:scale-[0.98]"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.06)',
+                border: '1px solid rgba(255,255,255,0.12)',
+              }}
+              aria-label="그룹 옵션 더보기"
+            >
+              <MoreVertical className="w-4 h-4 text-gray-300" />
+            </button>
+          </div>
         </div>
       </div>
 
       {/* 그룹 정보 카드 — 학교 정보 카드와 동일 톤 */}
       <div
-        className="rounded-2xl p-4"
+        className="rounded-2xl p-4 sm:p-5"
         style={{
           background: `linear-gradient(135deg, ${group.color}15, rgba(168,85,247,0.08))`,
           border: `1px solid ${group.color}28`,
@@ -383,7 +428,7 @@ export function GroupDetailView({
 
       {/* 멤버 — 카드형 (정보 보강) */}
       <div
-        className="rounded-2xl p-4"
+        className="rounded-2xl p-4 sm:p-5"
         style={{
           backgroundColor: 'rgba(255,255,255,0.03)',
           border: '1px solid rgba(255,255,255,0.08)',

@@ -12,8 +12,28 @@ type AccentProps = {
   className?: string;
 };
 
-/** 계획 항목 래퍼 — 테두리 최소(헤어라인) */
-export function RoadmapTimelinePlanItemFolderFrame({ accentColor, children, className = '' }: AccentProps) {
+export type PlanFolderVariant = 'box' | 'spine';
+
+/** 계획 항목 래퍼 — `spine`: 좌측 강조선만(상세 플로우 트리), `box`: 기존 헤어라인 테두리 */
+export function RoadmapTimelinePlanItemFolderFrame({
+  accentColor,
+  children,
+  className = '',
+  variant = 'box',
+}: AccentProps & { variant?: PlanFolderVariant }) {
+  if (variant === 'spine') {
+    return (
+      <div
+        className={`${CHROME.planItemFolder.radiusClass} ${CHROME.planItemFolder.paddingClass} ${className}`}
+        style={{
+          borderLeft: `3px solid ${accentColor}55`,
+          backgroundColor: 'rgba(255,255,255,0.02)',
+        }}
+      >
+        {children}
+      </div>
+    );
+  }
   return (
     <div
       className={`${CHROME.planItemFolder.radiusClass} ${CHROME.planItemFolder.paddingClass} ${className}`}
@@ -31,16 +51,13 @@ type WeekProps = AccentProps & {
   weekLabel: string;
 };
 
-/** 주차 블록 — 박스 테두리 없이 배경만 (주차 간 트리는 RoadmapTimelineWeekTreeStack 사용) */
+/** 주차 블록 — 테두리·배경 없이 트리 스파인으로만 구분 */
 export function RoadmapTimelineWeekSectionFrame({ accentColor, weekLabel, children, className = '' }: WeekProps) {
   const regionLabel = `${weekLabel} ${ROADMAP_TIMELINE_DISPLAY.labels.weekSectionRegionSuffix}`;
   return (
     <section
       aria-label={regionLabel}
       className={`${CHROME.weekSection.radiusClass} ${CHROME.weekSection.paddingClass} ${className}`}
-      style={{
-        backgroundColor: 'rgba(255,255,255,0.015)',
-      }}
     >
       {children}
     </section>
@@ -51,7 +68,7 @@ type GoalProps = AccentProps & {
   blockLabel?: string;
 };
 
-/** 목표·할 일 묶음 — 테두리 제거, 아주 연한 배경만 */
+/** 목표·할 일 묶음 — 배경·테두리 없이 들여쓰기만 (상위 트리 스파인에 연결) */
 export function RoadmapTimelineGoalBlockFrame({ accentColor, blockLabel, children, className = '' }: GoalProps) {
   const regionLabel = blockLabel
     ? `${blockLabel} · ${ROADMAP_TIMELINE_DISPLAY.labels.goalBlockRegionSuffix}`
@@ -60,9 +77,6 @@ export function RoadmapTimelineGoalBlockFrame({ accentColor, blockLabel, childre
     <div
       aria-label={regionLabel}
       className={`${CHROME.goalBlock.radiusClass} ${CHROME.goalBlock.paddingClass} space-y-0.5 ${className}`}
-      style={{
-        backgroundColor: 'rgba(255,255,255,0.02)',
-      }}
     >
       {children}
     </div>

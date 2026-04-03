@@ -5,13 +5,26 @@ Career Plan (DreamMate) Serializers - 커리어 실행 시리얼라이저
 """
 
 from rest_framework import serializers
+from django.contrib.auth import get_user_model
 from django.db import transaction
 from .models import (
     Roadmap, RoadmapItem, RoadmapTodo, RoadmapMilestone,
     DreamResource, ResourceSection,
     DreamSpace, SpaceParticipant,
-    SharedDreamRoadmap, SharedDreamRoadmapGroup
+    SharedDreamRoadmap, SharedDreamRoadmapGroup,
+    SharedDreamRoadmapComment, SharedDreamRoadmapLike, SharedDreamRoadmapBookmark,
 )
+
+User = get_user_model()
+
+
+class UserSimpleSerializer(serializers.ModelSerializer):
+    """사용자 간단 정보 (공유 로드맵 등)"""
+
+    class Meta:
+        model = User
+        fields = ['id', 'name', 'email', 'emoji', 'grade']
+        read_only_fields = fields
 
 
 # ============================================================================
@@ -157,9 +170,10 @@ class RoadmapCreateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         items_data = validated_data.pop('items', [])
         milestones_data = validated_data.pop('milestones', [])
-        
-        user = self.context['request'].user
-        roadmap = Roadmap.objects.create(user=user, **validated_data)
+        # `RoadmapViewSet.perform_create` 가 `serializer.save(user=request.user)` 로 주입
+        if 'user' not in validated_data:
+            validated_data['user'] = self.context['request'].user
+        roadmap = Roadmap.objects.create(**validated_data)
         
         # 활동 생성
         for item_data in items_data:
@@ -178,16 +192,42 @@ class RoadmapCreateSerializer(serializers.ModelSerializer):
 
 
 class RoadmapUpdateSerializer(serializers.ModelSerializer):
-    """로드맵 수정 시리얼라이저"""
-    
+    """로드맵 수정 시리얼라이저 (중첩 활동·TODO·마일스톤 전체 교체 가능)"""
+
+    items = RoadmapItemCreateSerializer(many=True, required=False)
+    milestones = RoadmapMilestoneSerializer(many=True, required=False)
+
     class Meta:
         model = Roadmap
         fields = [
             'title', 'description', 'period', 'star_color',
             'focus_item_types', 'final_result_title',
             'final_result_description', 'final_result_url',
-            'final_result_image_url'
+            'final_result_image_url', 'items', 'milestones',
         ]
+
+    @transaction.atomic
+    def update(self, instance, validated_data):
+        items_data = validated_data.pop('items', None)
+        milestones_data = validated_data.pop('milestones', None)
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+
+        if items_data is not None:
+            instance.items.all().delete()
+            for item_data in items_data:
+                todos_data = item_data.pop('todos', [])
+                roadmap_item = RoadmapItem.objects.create(roadmap=instance, **item_data)
+                for todo_data in todos_data:
+                    RoadmapTodo.objects.create(roadmap_item=roadmap_item, **todo_data)
+
+        if milestones_data is not None:
+            instance.milestones.all().delete()
+            for milestone_data in milestones_data:
+                RoadmapMilestone.objects.create(roadmap=instance, **milestone_data)
+
+        return instance
 
 
 # ============================================================================
@@ -371,43 +411,112 @@ class SharedDreamRoadmapGroupSerializer(serializers.ModelSerializer):
 
 
 class SharedDreamRoadmapListSerializer(serializers.ModelSerializer):
-    """공유 드림 로드맵 목록 시리얼라이저"""
-    
+    """공유 드림 로드맵 목록 시리얼라이저 (피드용 — 중첩 roadmap 전체)"""
+
     user_name = serializers.CharField(source='user.name', read_only=True)
     roadmap_title = serializers.CharField(source='roadmap.title', read_only=True)
-    
+    roadmap = RoadmapDetailSerializer(read_only=True)
+    group_ids = serializers.SerializerMethodField()
+    liked_by_me = serializers.SerializerMethodField()
+    bookmarked_by_me = serializers.SerializerMethodField()
+
     class Meta:
         model = SharedDreamRoadmap
         fields = [
             'id', 'user', 'user_name', 'roadmap', 'roadmap_title',
-            'share_type', 'tags', 'like_count', 'bookmark_count',
-            'view_count', 'comment_count', 'report_count', 'shared_at', 'is_hidden'
+            'share_type', 'tags', 'group_ids',
+            'like_count', 'bookmark_count',
+            'view_count', 'comment_count', 'report_count', 'shared_at', 'is_hidden',
+            'liked_by_me', 'bookmarked_by_me',
         ]
         read_only_fields = [
             'id', 'user', 'like_count', 'bookmark_count',
             'view_count', 'comment_count', 'report_count', 'shared_at'
         ]
 
+    def get_group_ids(self, obj):
+        return [str(link.group_id) for link in obj.group_links.all()]
+
+    def get_liked_by_me(self, obj):
+        return obj.user_likes.exists()
+
+    def get_bookmarked_by_me(self, obj):
+        return obj.user_bookmarks.exists()
+
+
+class SharedDreamRoadmapCommentSerializer(serializers.ModelSerializer):
+    """공유 드림 로드맵 댓글"""
+
+    author = UserSimpleSerializer(read_only=True)
+
+    class Meta:
+        model = SharedDreamRoadmapComment
+        fields = ['id', 'author', 'content', 'parent', 'created_at']
+        read_only_fields = ['id', 'author', 'created_at']
+
+
+class SharedDreamRoadmapCommentCreateSerializer(serializers.ModelSerializer):
+    """공유 드림 로드맵 댓글 작성"""
+
+    class Meta:
+        model = SharedDreamRoadmapComment
+        fields = ['content', 'parent']
+        extra_kwargs = {'parent': {'required': False, 'allow_null': True}}
+
+    def validate_parent(self, value):
+        if value is None:
+            return value
+        shared_roadmap = self.context['shared_roadmap']
+        if value.shared_roadmap_id != shared_roadmap.id:
+            raise serializers.ValidationError('이 공유 로드맵의 댓글이 아닙니다.')
+        return value
+
+    def create(self, validated_data):
+        validated_data['author'] = self.context['request'].user
+        validated_data['shared_roadmap'] = self.context['shared_roadmap']
+        return super().create(validated_data)
+
 
 class SharedDreamRoadmapDetailSerializer(serializers.ModelSerializer):
     """공유 드림 로드맵 상세 시리얼라이저"""
-    
+
     user_name = serializers.CharField(source='user.name', read_only=True)
     roadmap = RoadmapDetailSerializer(read_only=True)
     group_links = SharedDreamRoadmapGroupSerializer(many=True, read_only=True)
-    
+    comments = SharedDreamRoadmapCommentSerializer(
+        many=True, read_only=True, source='dream_comments'
+    )
+    liked_by_me = serializers.SerializerMethodField()
+    bookmarked_by_me = serializers.SerializerMethodField()
+
     class Meta:
         model = SharedDreamRoadmap
         fields = [
             'id', 'user', 'user_name', 'roadmap', 'share_type',
             'description', 'tags', 'like_count', 'bookmark_count',
             'view_count', 'comment_count', 'report_count', 'shared_at', 'is_hidden',
-            'group_links'
+            'group_links', 'comments', 'liked_by_me', 'bookmarked_by_me',
         ]
         read_only_fields = [
             'id', 'user', 'like_count', 'bookmark_count',
             'view_count', 'comment_count', 'report_count', 'shared_at'
         ]
+
+    def get_liked_by_me(self, obj):
+        request = self.context.get('request')
+        if not request or not request.user.is_authenticated:
+            return False
+        return SharedDreamRoadmapLike.objects.filter(
+            shared_roadmap_id=obj.id, user_id=request.user.id
+        ).exists()
+
+    def get_bookmarked_by_me(self, obj):
+        request = self.context.get('request')
+        if not request or not request.user.is_authenticated:
+            return False
+        return SharedDreamRoadmapBookmark.objects.filter(
+            shared_roadmap_id=obj.id, user_id=request.user.id
+        ).exists()
 
 
 class SharedDreamRoadmapCreateSerializer(serializers.ModelSerializer):
@@ -425,6 +534,12 @@ class SharedDreamRoadmapCreateSerializer(serializers.ModelSerializer):
             'roadmap', 'share_type', 'description', 'tags',
             'is_hidden', 'group_ids'
         ]
+
+    def validate_roadmap(self, value):
+        user = self.context['request'].user
+        if getattr(value, 'user_id', None) != user.id:
+            raise serializers.ValidationError('본인의 로드맵만 공유할 수 있습니다.')
+        return value
     
     @transaction.atomic
     def create(self, validated_data):

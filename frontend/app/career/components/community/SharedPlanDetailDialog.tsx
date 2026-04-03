@@ -3,7 +3,7 @@
 /**
  * 공유 패스 상세 모달
  * - document.body 로 포털 → 2열 레이아웃(transform 등)에 가두이지 않고 전체 화면 fixed
- * - 일반 다이얼로그: 전역 오버레이 + 가운데 정렬(560px max)
+ * - 일반 다이얼로그: 전역 오버레이 + 가운데 정렬(580px max)
  */
 
 import { useEffect, useState } from 'react';

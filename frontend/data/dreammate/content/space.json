@@ -1,4 +1,7 @@
 {
+  "spaceGroupFormDialogTitle":         "새 그룹 만들기",
+  "spaceGroupFormSubmitButton":      "스페이스 만들기",
+  "spaceGroupFormSubmitPending":     "만드는 중…",
   "spaceTitle":                        "커리어 스페이스",
   "spaceSubtitle":                     "프로젝트팀·스터디 그룹 생성하고, 함께 만들어 봐요.",
   "spaceEmpty":                        "아직 참여한 그룹이 없어요",

@@ -90,7 +90,7 @@ export function RoadmapTodoHeaderInlineProgressBar({
   return (
     <div
       className="flex shrink-0 items-center gap-2"
-      aria-label={`진행 ${doneCount}/${totalCount}`}
+      aria-label={`진행률 ${progressPercent}%`}
     >
       <span className="text-[13px] tabular-nums text-gray-400 whitespace-nowrap">
         {progressPercent}%

@@ -1,5 +1,5 @@
 import type { CareerPlan, YearPlan } from '../components/CareerPathBuilder';
-import type { PlanItemWithCheck } from '../components/TimelineItemComponents';
+import type { PlanItemWithCheck } from '../types/timelinePlanItemTypes';
 
 export function calculateYearStatistics(year: YearPlan): { total: number; checked: number } {
   const goalGroupItemIds = new Set(
@@ -7,15 +7,26 @@ export function calculateYearStatistics(year: YearPlan): { total: number; checke
       ? (year.semesterPlans ?? []).flatMap(sp => sp.goalGroups.flatMap(g => g.items.map(it => it.id)))
       : (year.goalGroups ?? []).flatMap(g => g.items.map(it => it.id))
   );
-  
-  const ungroupedCount = year.items.filter(it => !goalGroupItemIds.has(it.id)).length;
+  /** 플랜 그룹에도 들어 있는 항목은 year.items 미분류에서 제외(중복 집계 방지) */
+  const planGroupItemIds = new Set(
+    (year.groups ?? []).flatMap(g => g.items.map(it => it.id)),
+  );
+
+  const ungroupedCount = year.items.filter(
+    it => !goalGroupItemIds.has(it.id) && !planGroupItemIds.has(it.id),
+  ).length;
   const groupCount = (year.groups ?? []).reduce((gs, g) => gs + g.items.length, 0);
   const goalGroupCount = year.semester === 'split'
     ? (year.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.length, 0), 0)
     : (year.goalGroups ?? []).reduce((gs, g) => gs + g.items.length, 0);
   const total = ungroupedCount + groupCount + goalGroupCount;
 
-  const directChecked = year.items.filter((it) => !goalGroupItemIds.has(it.id) && (it as PlanItemWithCheck).checked).length;
+  const directChecked = year.items.filter(
+    (it) =>
+      !goalGroupItemIds.has(it.id) &&
+      !planGroupItemIds.has(it.id) &&
+      (it as PlanItemWithCheck).checked,
+  ).length;
   const groupChecked = (year.groups ?? []).reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0);
   const goalGroupChecked = year.semester === 'split'
     ? (year.semesterPlans ?? []).reduce((ss, sp) => ss + sp.goalGroups.reduce((gs, g) => gs + g.items.filter(it => (it as PlanItemWithCheck).checked).length, 0), 0)
