@@ -8,6 +8,8 @@
 
 import admissionTemplates from './career-path-templates-admission.json';
 import highschoolTemplates from './career-path-templates-highschool.json';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import aiTemplatesRaw from './career-path-templates.json';
 import { normalizeCareerPathTemplates } from './career-item-structure';
 
 export type CareerPathTemplate = (typeof admissionTemplates)[0] & {
@@ -24,10 +26,14 @@ export type CareerPathTemplate = (typeof admissionTemplates)[0] & {
   >;
 };
 
-/** 고입 + 대입 합격 커리어 패스 통합 (탐색 피드) */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const aiTemplates = aiTemplatesRaw as any[];
+
+/** 고입 + 대입 + AI 커리어 패스 통합 (탐색 피드) */
 export const careerPathTemplates: CareerPathTemplate[] = [
   ...highschoolTemplates,
   ...admissionTemplates,
+  ...aiTemplates,
 ].map((template) => normalizeCareerPathTemplates([template])[0]) as CareerPathTemplate[];
 
 export default careerPathTemplates;

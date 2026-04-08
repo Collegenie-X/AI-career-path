@@ -36,6 +36,7 @@ const STAR_FILTERS = [
   { id: 'all',         label: '전체', emoji: '✨' },
   { id: 'highschool',  label: '고입', emoji: '🏫' },
   { id: 'admission',   label: '대입', emoji: '🎓' },
+  { id: 'job',         label: '취업', emoji: '💼' },
   { id: 'explore',     label: '탐구', emoji: '🔬' },
   { id: 'create',      label: '창작', emoji: '🎨' },
   { id: 'tech',        label: '기술', emoji: '💻' },
@@ -145,6 +146,9 @@ export function CareerPathList({
     }
     if (activeFilter === 'admission') {
       return careerPathTemplates.filter(t => (t as { category?: string }).category === 'admission');
+    }
+    if (activeFilter === 'job') {
+      return careerPathTemplates.filter(t => (t as { category?: string }).category === 'job');
     }
     return careerPathTemplates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);

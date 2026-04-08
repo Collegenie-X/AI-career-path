@@ -1,1 +1,4871 @@
-[]
+[
+  {
+    "id": "tpl-hs-ai-inquiry-journey-001",
+    "title": "AI 탐구보고서로 일반고 이과 진학 패스",
+    "description": "중1부터 중3까지 ChatGPT·Claude를 탐구 파트너로 삼아 보고서 3편을 완성하고, 내신 A와 탐구 기록으로 일반고 이과에 당당히 입학하는 3년 완성 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "hs-ai-inquiry",
+    "jobName": "AI 탐구·이과 진학",
+    "jobEmoji": "📝",
+    "category": "highschool",
+    "schoolType": "general",
+    "schoolTypeName": "일반고(이과)",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "지역 일반고",
+        "quote": "3년간 AI로 탐구보고서 3편을 완성했어요. 수상은 없었지만 '3년의 기록'이 자소서의 전부였습니다. 입학사정관이 '이 학생은 진짜 탐구를 했구나'라고 했대요.",
+        "strategy": "중1: AI 도구 입문 + 관찰 일지 → 중2: 첫 탐구보고서 완성 + 발표 → 중3: 심화 보고서 + 자소서·면접",
+        "tips": [
+          "AI는 아이디어·자료 탐색 도우미, 분석·결론은 반드시 내가",
+          "보고서 1편보다 '탐구 일지 3년치'가 더 강력",
+          "선생님 피드백 횟수를 자소서에 적으면 진정성 UP"
+        ]
+      }
+    ],
+    "likes": 243,
+    "uses": 127,
+    "tags": [
+      "AI탐구",
+      "탐구보고서",
+      "일반고이과",
+      "고입",
+      "3년로드맵"
+    ],
+    "totalItems": 15,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 탐구 습관 형성",
+        "goals": [
+          "AI 도구 기본 사용법 완전 습득",
+          "과학·수학 내신 전 과목 A 달성",
+          "탐구 질문 일지 50편 누적"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "ChatGPT·Claude 기초 사용법 → 탐구 질문 일지 시작",
+            "months": [
+              3,
+              4
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "3월: AI 도구 사용법 익히기(1주). 4월부터: 매주 '왜?' 질문 1개를 AI에게 물어보고 내 생각으로 정리. 연말까지 누적 50편 목표. 결과: AI 활용 탐구 질문 일지 파일 1개 완성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "1학기 내신 전 과목 A 달성 → 성취도 분석표 작성",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "과학·수학·영어 중심으로 A 목표. 시험 후 오답노트 작성 + ChatGPT로 틀린 이유 분석. 결과: 1학기 내신 성취도 분석표(어떤 단원이 약한지 명확히 파악).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "교과 연계 미니 탐구 1편 완성 → 교과 선생님 제출",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·과학 또는 수학 선생님",
+            "description": "2학기 수업에서 궁금했던 주제 1개 선택 → AI로 자료 탐색 → A4 2~3장 미니 보고서 → 선생님 제출 + 피드백 받기. 결과: 교과 선생님 피드백 코멘트 보관(자소서 소재).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "과학·수학·정보 교내 동아리 가입 → 연간 활동 기록",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "학교 동아리",
+            "description": "주 1회 동아리 활동. 모임마다 배운 점 A4 반 장 기록. 결과: 연간 동아리 활동 일지 20편 이상(학생부 기재 근거).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 첫 탐구보고서 완성",
+        "goals": [
+          "AI 보조 탐구보고서 1편 완성·발표",
+          "내신 A 유지 + 과학·수학 심화 학습",
+          "교내 탐구 발표 경험 획득"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "탐구 주제 확정 → AI 보조 탐구보고서 1편 완성 (A4 6~8장)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·과학 선생님",
+            "description": "3월: 주제 3개 후보 → 교과 선생님 상담 후 1개 확정. 4~5월: AI(Elicit·ChatGPT)로 선행 자료 탐색. 6~7월: 직접 분석·정리 + 선생님 피드백 2회. 결과: A4 6~8장 탐구보고서 완성본·학교 도서관 비치 or 교내 전시.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "교내 탐구 발표회 참가 → 발표 영상·피드백 보관",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "완성 보고서로 교내 발표. 수상 불필요—발표 자체가 목적. 발표 후 심사 교사 피드백을 노션에 정리. 결과: 발표 경험 1회 + 피드백 기록(자소서에서 '교사 평가' 소재로 활용).",
+            "categoryTags": [
+              "award",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "AI 도구로 수학·과학 오답 분석 루틴 정착",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "시험·과제 오답 → ChatGPT로 개념 재확인 → 오답 노트 정리. 매달 5문항 이상. 결과: 중2 전 과목 A 유지 + '학생이 왜 틀렸는지 스스로 분석한다' 교사 인식 형성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "2학기 미니 탐구 2번째 편 완성 → 동아리 내 공유",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·동아리",
+            "description": "중2 수업에서 새롭게 생긴 궁금증으로 A4 4~5장 보고서. 동아리 친구들과 공유. 결과: 탐구보고서 누적 2편(중1: 미니 1편, 중2: 정식 1편 + 미니 1편).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 심화·마무리·합격",
+        "goals": [
+          "심화 탐구보고서 1편 완성 (A4 10장+)",
+          "자소서 '3년 탐구 성장 스토리' 완성",
+          "면접 대비: AI 탐구 활용 경험 구체적 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "중2 보고서 발전 → 심화 탐구보고서 완성 (A4 10~12장)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님·학교 R&E",
+            "description": "중2 보고서의 미흡한 부분을 발전시켜 심화. AI로 최신 관련 논문 2편 이상 탐색 → 직접 분석 → 선생님 피드백 3회 반영. 결과: 3년 탐구 여정을 완성하는 보고서 1편(학생부 세특 기재 근거).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서 작성: '중1 질문 → 중2 탐구 → 중3 결론' 성장 스토리",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'AI를 어떻게 사용했고, 내가 직접 무엇을 했으며, 무엇을 배웠는가'를 구체적으로 서술. ChatGPT로 초안 → 직접 수정 3회 이상 → 국어 선생님 최종 확인. 결과: 자소서 최종본(1000자 이내, 3년 스토리 압축).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접 준비: 탐구 과정 10분 발표 + 예상 질문 20개 답변",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·담임 선생님",
+            "description": "'왜 이 주제를 탐구했나' '어떤 어려움이 있었나' 'AI를 어떻게 활용했나'를 자연스럽게 설명하는 연습. ChatGPT와 모의 면접 연습 10회 이상. 결과: 면접 예상 질문 20개 + 답변 노트 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-vibe-coding-journey-001",
+    "title": "바이브 코딩으로 실배포 앱 만들고 기술 고입 패스",
+    "description": "중1부터 Cursor·Claude 등 AI 코딩 도구로 아이디어를 앱으로 구현하고, 중3 졸업 전 실제 URL에 배포된 서비스 1개를 포트폴리오로 일반고 기술 트랙에 입학하는 패스.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "hs-vibe-coding",
+    "jobName": "바이브 코딩·기술 고입",
+    "jobEmoji": "⚡",
+    "category": "highschool",
+    "schoolType": "general",
+    "schoolTypeName": "일반고(기술·SW)",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "일반고(경기 수원)",
+        "quote": "Cursor로 반 친구들의 급식 메뉴 알림 봇을 만들었어요. 실제로 친구 30명이 쓰는 서비스라는 게 자소서의 전부였습니다. 코딩 실력보다 '왜 만들었나'가 더 중요했어요.",
+        "strategy": "중1: 블록코딩 → AI 코딩 입문 → 중2: 첫 실배포 앱 → 중3: 포트폴리오 완성 → 고입 지원",
+        "tips": [
+          "AI가 코드 짜도 괜찮다—기획·사용자 피드백·개선이 나의 역할",
+          "실제 사용자 10명 이상이 쓰는 앱이 최고 포트폴리오",
+          "개발 과정 노션 기록이 면접 소재가 된다"
+        ]
+      }
+    ],
+    "likes": 298,
+    "uses": 163,
+    "tags": [
+      "바이브코딩",
+      "앱개발",
+      "Cursor",
+      "고입",
+      "포트폴리오"
+    ],
+    "totalItems": 14,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — AI 코딩 입문",
+        "goals": [
+          "엔트리·스크래치 → Python 기초 완성",
+          "Cursor AI 코딩 도구 첫 사용",
+          "미니 웹앱 1개 완성 + 친구 피드백"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "블록코딩(엔트리) → Python 기초 → ChatGPT 코딩 도우미 체험",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체 (점프투파이썬 무료)",
+            "description": "3~4월: 엔트리로 미니 게임 1개 완성. 5~6월: Python 변수·반복·조건문 기초(ChatGPT로 모르는 코드 설명 받기). 결과: 간단한 계산기 또는 퀴즈 앱 1개 코드 파일.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "Cursor AI로 아이디어 구현 → 첫 웹앱 완성",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료 (Cursor 무료 플랜)",
+            "organizer": "자체",
+            "description": "여름방학: Cursor 설치 + 기본 사용법 습득(2주). 9~10월: 일상 불편함 1가지를 해결하는 웹앱 제작(예: 급식 메뉴 알림, 학교 시간표 앱). AI가 코드를 짜도 괜찮음—기획과 테스트는 내가. 결과: 로컬에서 작동하는 웹앱 1개 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "개발 과정 노션 일지 → 친구 5명 피드백 수집",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "앱 만들면서 겪은 오류·해결 과정을 노션에 글로 기록(주 1회). 친구 5명에게 앱 사용 후 피드백 수집. 결과: 개발 일지 10편 + 사용자 피드백 5개 노션 정리본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 실배포 앱 완성",
+        "goals": [
+          "실제 URL에 배포된 서비스 1개 완성",
+          "사용자 30명 이상 확보",
+          "개발 과정 탐구보고서 1편 완성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "중1 앱 개선 → 실배포 서비스 완성 (Vercel 배포)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료 (Vercel 무료 플랜)",
+            "organizer": "자체",
+            "description": "중1 피드백 반영해 앱 전면 개선. Cursor로 DB 연동(Supabase 무료)·사용자 로그인 기능 추가. 5월: Vercel 배포 완료 → 실제 URL 확보. 결과: 배포 URL + 사용자 30명 이상(친구·가족 포함) + GitHub 커밋 50개 이상.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "앱 개발 탐구보고서 작성 (A4 8~10장)",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·정보 선생님",
+            "description": "'기획 이유 → AI 활용 개발 과정 → 사용자 피드백 분석 → 개선 결과 → 배운 점'을 A4 8~10장으로 정리. 정보 선생님 피드백 2회 반영. 결과: 보고서 완성본 + 선생님 서명 확인(자소서 근거 자료).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "교내 SW 경진대회 또는 지역 앱 공모전 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교·교육청·민간",
+            "description": "배포 앱으로 대회 참가. 수상보다 '실제 서비스를 들고 대회에 나간 경험'이 목적. 결과: 참가 확인서 + 발표 경험 + 심사위원 피드백.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "SW 동아리 창설 or 기존 동아리 주도적 참여",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "AI 코딩 경험을 동아리 친구들과 공유. 주 1회 모임에서 발표 또는 기술 공유. 결과: 동아리 부원 3명 이상에게 AI 코딩 도구 전수(학생부 기재).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 포트폴리오 완성·고입",
+        "goals": [
+          "GitHub 포트폴리오 + 개인 사이트 완성",
+          "자소서: AI 코딩 도구 활용 솔직 서술",
+          "면접: 앱 기획·개발·개선 과정 10분 발표"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "GitHub 포트폴리오 정리 + 바이브 코딩으로 개인 사이트 제작",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "중1~중2 모든 프로젝트 README 작성. Cursor로 개인 포트폴리오 사이트 제작 → Vercel 배포. 결과: 공개 GitHub 프로필 + 배포된 개인 사이트 URL(자소서·면접 첨부).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "자소서 + 면접: 'AI 코딩 도구 활용 경험' 구체적 준비",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'AI가 코드를 짰고, 나는 기획·디버깅·사용자 피드백 반영을 했다'는 솔직한 서술. 면접 예상 질문: '코드를 이해하는가?' → 핵심 로직 3개는 반드시 직접 설명 가능하게 준비. 결과: 자소서 최종본 + 면접 답변 노트 30개.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-literature-journey-001",
+    "title": "AI 글쓰기·독서로 자사고 인문계 합격 패스",
+    "description": "중1부터 AI 글쓰기 도구를 교정·피드백 파트너로 활용해 독서감상문 36편과 탐구보고서 2편을 완성하고, 자사고 자기주도 전형에서 '진짜 성장한 학생'으로 합격하는 패스.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "hs-literature",
+    "jobName": "AI 글쓰기·자사고 인문",
+    "jobEmoji": "📚",
+    "category": "highschool",
+    "schoolType": "autonomous_private",
+    "schoolTypeName": "자사고(인문계)",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "민족사관고",
+        "quote": "3년간 월 1권 독서 + AI 교정 감상문이 자소서의 전부였어요. 자사고 면접에서 '이 학생은 3년간 정말 꾸준히 읽었구나'가 느껴진다고 하셨습니다.",
+        "strategy": "중1: 독서 습관 + AI 교정 → 중2: 인문 탐구보고서 완성 → 중3: 자소서·면접 완성",
+        "tips": [
+          "AI 교정은 도구, 내 목소리·감정은 절대 AI에게 맡기지 않기",
+          "3년 독서 목록이 자소서를 증명한다",
+          "자사고 자기주도 전형 = '나의 성장 증거'"
+        ]
+      }
+    ],
+    "likes": 187,
+    "uses": 94,
+    "tags": [
+      "AI글쓰기",
+      "독서",
+      "자사고인문",
+      "고입",
+      "자기주도"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 독서·글쓰기 습관 정착",
+        "goals": [
+          "월 1권 독서 + AI 교정 감상문 12편",
+          "내신 전 과목 A 달성",
+          "관심 인문 주제 1개 발견"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "월 1권 독서 → AI 교정 독서감상문 12편 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 2,
+            "cost": "무료 (학교·공립 도서관)",
+            "organizer": "자체",
+            "description": "매월 1권 독서(문학·인문·과학 번갈아). 감상문 초안 직접 작성 → ChatGPT에 교정 요청 → 교정 이유 확인 → 내 문체로 최종 수정. AI는 교정만, 내용은 내가. 결과: 연간 독서감상문 12편 누적 파일.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "교내 독서·토론 동아리 참여 → 월 1회 토론 발표",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "학교 동아리",
+            "description": "독서 후 내 생각을 말로 표현하는 연습. 매월 토론 주제에 대해 A4 1장 입장문 작성 후 발표. 결과: 연간 발표 8회 + 입장문 8편(학생부 기재 근거).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "관심 인문 주제 발굴 → 미니 에세이 2편",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·국어 선생님",
+            "description": "독서·수업에서 가장 흥미로운 주제 1개 선택. AI로 관련 자료 탐색 → A4 2~3장 에세이 2편 → 국어 선생님 피드백. 결과: 에세이 2편 + 선생님 코멘트(중2 탐구보고서 씨앗).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 인문 탐구보고서 완성",
+        "goals": [
+          "AI 보조 인문 탐구보고서 1편 (A4 8장+) 완성",
+          "독서감상문 누적 24편",
+          "글쓰기 대회 또는 공모전 1회 도전"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 보조 인문 탐구보고서 완성 (A4 8~10장)",
+            "months": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·국어·사회 선생님",
+            "description": "중1 에세이 주제를 발전시켜 탐구보고서로 확장. ChatGPT·Perplexity로 반론·근거 자료 탐색 → 내가 직접 분석·결론 작성. 선생님 피드백 3회 반영. 결과: A4 8~10장 탐구보고서 최종본 + 교사 서명.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "전국 독서감상문 또는 논술 대회 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "교육청·도서관협회",
+            "description": "수상이 목적이 아니라 '마감 있는 글쓰기 경험'이 목적. AI로 초안 → 직접 수정 3회 이상 → 최종 제출. 결과: 참가 확인서 + AI 없는 내 글쓰기 역량 점검.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "월 1권 독서 유지 → 감상문 누적 24편",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "중1 독서 루틴 유지. 중2에서 읽는 책의 난이도를 조금씩 높이기(고전·인문학 포함). AI 교정 루틴 동일하게 유지. 결과: 중2 말 누적 독서감상문 24편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자사고 탐색: 학교별 전형 분석 + 선배 후기 조사",
+            "months": [
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "목표 자사고 3곳의 자기주도학습 전형 분석(내신 비중, 자소서 항목, 면접 형식). ChatGPT로 합격 전략 초안 작성. 결과: 지원 전략 요약 노트 1편.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 자소서·면접 완성",
+        "goals": [
+          "심화 인문 탐구보고서 1편 완성",
+          "자소서: 3년 독서·탐구 성장 스토리",
+          "면접: 지적 호기심·자기주도 학습 증명"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "심화 탐구보고서 완성 + 3년 탐구 성과 정리",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "중2 보고서에서 발전한 심화 탐구. AI로 반론 탐색 + 새로운 각도 추가. 3년간 에세이·보고서 목록을 한 파일로 정리. 결과: 심화 탐구보고서 1편 + 3년 성과 목록(자소서 첨부 자료).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서 완성 → 면접 준비 → 최종 지원",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·담임 선생님",
+            "description": "자소서: '중1 첫 책 → 중2 탐구보고서 → 중3 심화' 성장 스토리 1000자. 면접 예상 질문 30개 + 답변 노트 작성. AI로 예상 면접 연습 10회. 결과: 자소서 최종본 + 면접 준비 완료 + 자사고 1~2곳 지원.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-science-olympiad-journey-001",
+    "title": "AI 수학탐구로 과학고·영재고 합격 패스",
+    "description": "중1부터 ChatGPT로 수학 개념 탐구를 시작해 KMO 올림피아드·영재교육원을 정복하고, 중3에 과학고·영재고에 합격하는 3년 올인 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "hs-science-olympiad",
+    "jobName": "과학고·영재고 합격",
+    "jobEmoji": "🏆",
+    "category": "highschool",
+    "schoolType": "science_high",
+    "schoolTypeName": "과학고·영재고",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "한국과학영재학교(KSA)",
+        "quote": "ChatGPT로 수학 오류를 분석하다가 KMO 패턴을 발견했어요. AI는 '왜 틀렸는지 설명해주는 선생님' 역할이었습니다. KMO 2차 입상이 합격의 핵심이었어요.",
+        "strategy": "중1: 고1 수준 수학 선행 + AI 탐구 → 중2: KMO 1차 + 영재교육원 → 중3: KMO 2차 + 자소서",
+        "tips": [
+          "ChatGPT로 문제 풀이 원리 이해, 답만 받으면 아무 의미 없음",
+          "영재교육원 수료는 서류 평가 필수",
+          "KMO 2차 이상이 KSA·과학고 사실상 필수"
+        ]
+      }
+    ],
+    "likes": 356,
+    "uses": 178,
+    "tags": [
+      "과학고",
+      "영재고",
+      "KMO",
+      "올림피아드",
+      "AI수학탐구"
+    ],
+    "totalItems": 14,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 수학 선행·탐구 시작",
+        "goals": [
+          "고1 수준 수학(수학1·2) 기초 완성",
+          "ChatGPT로 수학 개념 탐구 일지 시작",
+          "영재교육원 지원 준비"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "고1 수준 수학 선행 + ChatGPT 개념 탐구",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료~학원비",
+            "organizer": "자체·학원",
+            "description": "수학1·수학2 기초 완성(고1 수준). 매 단원 이해 안 되는 개념 → ChatGPT로 '왜 이렇게 되는가?' 탐구 → A4 반 장 메모. 연간 수학 개념 탐구 메모 30편 목표. 결과: 고1 수준 수학 기초 + 탐구 메모 파일.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "수학 R&E 기초 탐구보고서 1편 (A4 4장)",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·수학 선생님",
+            "description": "수업 중 궁금했던 수학적 현상(예: 피보나치 수열과 자연) ChatGPT로 관련 자료 탐색 → A4 4장 보고서 → 선생님 피드백. 결과: 미니 탐구보고서 1편(과학고 R&E 경험의 씨앗).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "시·도 영재교육원 지원 준비 및 선발 시험 응시",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "시·도 교육청",
+            "description": "영재교육원 선발 시험 기출문제 분석(ChatGPT로 유형 파악). 수학·과학 창의 문제 집중 연습. 결과: 영재교육원 지원 완료 + 선발 시험 응시(합격 여부와 무관하게 경험 자체가 중요).",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          },
+          {
+            "type": "award",
+            "title": "교내 수학·과학 경시대회 참가",
+            "months": [
+              5,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "학교 내 수학·과학 경시대회 참가. 결과보다 실전 대회 감각 익히기 목적. 결과: 참가 기록 보관.",
+            "categoryTags": [
+              "award"
+            ]
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — KMO·영재교육원 도전",
+        "goals": [
+          "KMO 1차 합격",
+          "시·도 영재교육원 수료",
+          "AI 보조 R&E 탐구보고서 1편"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "KMO 수학올림피아드 1차 + KPhO/KChO 중 1개",
+            "months": [
+              5
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "한국수학올림피아드·한국물리학회",
+            "description": "KMO 1차 합격 목표. 기출 5년치 분석(ChatGPT로 풀이 원리 이해). 4월까지 집중 준비. 결과: KMO 1차 합격 기록 보관(2차 준비 기반 확보).",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "시·도 영재교육원 연간 수료",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "교육청",
+            "description": "영재교육원 모든 수업 100% 출석. 과제·R&E 활동 성실히. 수료 시 과학고·영재고 서류 평가 핵심 스펙. 결과: 영재교육원 수료증(서류 첨부).",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp"
+          },
+          {
+            "type": "activity",
+            "title": "AI 보조 수학·과학 R&E 탐구보고서 (A4 8~10장)",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·수학 선생님·영재교육원",
+            "description": "영재교육원 주제 or 독자 주제 선택. ChatGPT·Wolfram Alpha로 데이터 분석 보조 → 직접 탐구·결론. 결과: R&E 탐구보고서 1편 완성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — KMO 2차·합격 완성",
+        "goals": [
+          "KMO 2차 입상 (KSA 필수)",
+          "과학고·영재고 자소서 완성",
+          "영재성 검사·구술 면접 대비"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "KMO 2차 입상 목표 (최우선 과제)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "한국수학올림피아드",
+            "description": "2차 기출 5년치 완전 분석. ChatGPT로 증명 풀이 원리 설명 반복 학습. KSA 합격에 사실상 필수. 결과: KMO 2차 입상 기록.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "과학고·영재고 자소서 완성 + 영재성 검사 대비",
+            "months": [
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "자소서: '왜 과학·수학인가' → ChatGPT로 논리 구조 점검 → 직접 내 언어로 최종 작성. 영재성 검사 기출 50문항 풀기. 결과: 자소서 최종본 + 영재성 검사 대비 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "구술 면접 대비: 탐구 연구 10분 발표 + 교수급 질문 30개",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "R&E 탐구보고서 내용 10분 발표 연습. ChatGPT로 교수 수준 예상 질문 30개 받아 답변 준비. 결과: 면접 준비 완료 + KSA·과학고 최종 지원.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-foreign-lang-journey-001",
+    "title": "AI 번역·문화탐구로 외고 합격 패스",
+    "description": "중1부터 AI 번역 도구로 해외 원문을 읽고 세계문화 탐구보고서를 완성하며, TOEIC·영어 구술 실력을 갖추어 외고(외국어고등학교)에 합격하는 3년 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "hs-foreign-lang",
+    "jobName": "AI 언어탐구·외고 합격",
+    "jobEmoji": "🌐",
+    "category": "highschool",
+    "schoolType": "foreign_language",
+    "schoolTypeName": "외국어고",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "대원외국어고",
+        "quote": "AI 번역으로 일본 기사를 읽고 한일 문화 비교 보고서를 썼어요. '번역 도구를 쓴 것'을 면접에서 솔직하게 말했더니 오히려 '도구를 잘 활용하는 학생'이라는 평가를 받았어요.",
+        "strategy": "중1: AI 번역 + 원문 읽기 → 중2: 문화 탐구보고서 + TOEIC → 중3: 구술 면접·자소서",
+        "tips": [
+          "AI 번역은 도구, 비교·분석·내 주장은 내가",
+          "TOEIC 900+이 외고 영어 실력 인증의 핵심",
+          "자소서 '왜 이 외국어를 배우고 싶은가' 구체적 경험 필수"
+        ]
+      }
+    ],
+    "likes": 234,
+    "uses": 118,
+    "tags": [
+      "외고",
+      "AI번역",
+      "세계문화",
+      "TOEIC",
+      "고입"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 언어·문화 탐구 입문",
+        "goals": [
+          "AI 번역 도구 비교 실습 완료",
+          "영어 내신 A 달성",
+          "관심 나라·언어 1개 선정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "DeepL·Papago·ChatGPT 번역 비교 + 원문 읽기 주 1회",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "매주 관심 나라 기사 1편을 AI 3가지 도구로 번역·비교. 번역 차이점 메모(탐구 주제 발굴). BBC·NHK·Le Monde 등 해외 언론 탐색. 결과: 번역 비교 메모 30편 + 관심 언어·나라 확정.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "영어 내신 A 유지 + 제2외국어 기초 시작",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원비",
+            "organizer": "학교·자체",
+            "description": "영어 A는 외고 절대 기준. 2학기부터 제2외국어(일본어·중국어·프랑스어 중 1개) 기초 시작. ChatGPT로 단어 암기 루틴 구성. 결과: 1년 내 영어 A + 제2외국어 기초 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "세계 문화 탐구 미니 보고서 2편 (A4 2~3장)",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·사회·영어 선생님",
+            "description": "관심 나라 2곳의 문화·교육·음식 비교. AI 번역 자료 + 내 분석. 결과: 미니 보고서 2편(중2 탐구보고서 씨앗).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 탐구보고서·TOEIC 완성",
+        "goals": [
+          "다국가 문화 비교 탐구보고서 1편 (A4 8장+) 완성",
+          "TOEIC 900+ 취득",
+          "모의UN·영어 토론 경험"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 번역 활용 3개국 문화 비교 탐구보고서 (A4 8~10장)",
+            "months": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·영어·사회 선생님",
+            "description": "AI 번역으로 현지 자료(원문 기사·통계) 수집 → 3개국 비교 분석 → 내 주장·결론 작성. 선생님 피드백 2회. 결과: A4 8~10장 탐구보고서 완성본 + 교사 확인.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "TOEIC 900+ 취득 (외고 서류 핵심)",
+            "months": [
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "5만 2천원",
+            "organizer": "ETS Korea",
+            "description": "4월부터 준비 시작. 매일 단어 50개 + ChatGPT로 문법 취약점 분석. 6~10월 시험 일정 중 1회 응시. 결과: TOEIC 900+ 점수 (외고 서류 핵심 스펙).",
+            "categoryTags": []
+          },
+          {
+            "type": "activity",
+            "title": "모의UN 또는 영어 토론 대회 참가",
+            "months": [
+              4,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교·동아리·지역 교육청",
+            "description": "영어로 국제 이슈 토론 경험. ChatGPT로 입장문 초안 → 직접 수정 → 영어로 발표 연습. 결과: 모의UN 참가 기록 + 영어 발표 경험(학생부 기재).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 구술·자소서·최종 합격",
+        "goals": [
+          "영어 구술 면접 완벽 준비",
+          "자소서: '왜 이 언어인가' 구체적 경험",
+          "외고 1~2곳 최종 지원"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "영어 구술 면접 완전 준비 (시사 질문 30개 + ChatGPT 모의 면접)",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "최근 국제 시사 10개 주제 영어로 요약·답변 준비. ChatGPT와 영어 모의 면접 20회. 발음·유창성보다 '내 주장이 있는 답변' 집중 연습. 결과: 구술 면접 답변 노트 30개.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "자소서: '왜 이 언어를 배우고 싶은가' 탐구 경험 완성",
+            "months": [
+              8,
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·담임 선생님",
+            "description": "중1부터 3년간의 AI 번역·문화 탐구 경험을 자소서 핵심 소재로. '번역 도구를 어떻게 활용했고 무엇을 직접 분석했나'를 구체적으로. 결과: 자소서 최종본(1000자 이내).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-environment-journey-001",
+    "title": "AI 환경탐구로 특목고·일반고 자연계 패스",
+    "description": "중1부터 우리 동네 환경을 직접 관찰·측정하고, AI로 공공 환경 데이터를 분석해 탐구보고서 2편을 완성하고 환경·자연과학 관심 특목고·일반고 자연계에 입학하는 패스.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "nature",
+    "starName": "자연 왕국",
+    "starEmoji": "🌿",
+    "starColor": "#27AE60",
+    "jobId": "hs-environment",
+    "jobName": "AI 환경탐구·자연계",
+    "jobEmoji": "🌍",
+    "category": "highschool",
+    "schoolType": "general",
+    "schoolTypeName": "일반고(자연계)",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "일반고(인천)",
+        "quote": "학교 앞 하천 수질을 직접 3년간 측정했어요. AI로 데이터 정리했지만 매달 직접 측정한 내 데이터가 있어서 면접에서 '이건 진짜구나'라는 반응이 왔습니다.",
+        "strategy": "중1: 관찰 시작 → 중2: 탐구보고서 완성 → 중3: 심화 분석 + 환경 캠페인",
+        "tips": [
+          "직접 측정한 데이터가 AI 분석보다 훨씬 강력",
+          "환경부 공공데이터 포털(data.go.kr) 적극 활용",
+          "3년 누적 데이터가 있으면 탐구의 진정성이 명확"
+        ]
+      }
+    ],
+    "likes": 189,
+    "uses": 97,
+    "tags": [
+      "환경탐구",
+      "AI데이터분석",
+      "특목고",
+      "자연계",
+      "고입"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 관찰·데이터 수집 시작",
+        "goals": [
+          "우리 동네 환경 관찰 일지 52편 (주 1회)",
+          "환경부 공공데이터 탐색 완료",
+          "AI 데이터 분석 기초 실습"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "우리 동네 환경 관찰 일지 — 주 1회 정기 관찰",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "매주 같은 장소(학교 앞 하천, 공원, 주변 공기질) 관찰. 사진 + 날짜·날씨·측정값(간이 수질 키트 등) 기록. ChatGPT로 '이 변화가 왜 생겼나' 분석 보조. 결과: 연간 관찰 일지 40편 이상 누적.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "에어코리아·KOSIS 환경 공공데이터 탐색 + 미니 보고서",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체 (airkorea.or.kr, kosis.kr)",
+            "description": "관심 지역 대기·수질·소음 공공데이터 다운로드 → ChatGPT로 데이터 의미 해석. A4 2~3장 미니 보고서. 결과: 공공데이터 활용 미니 보고서 1편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "학교 환경 동아리 가입 → 환경 실천 활동",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "학교 동아리",
+            "description": "분리수거·텃밭·에너지 절약 캠페인 참여. 동아리 활동 기록 노트 작성. 결과: 연간 동아리 활동 일지(학생부 기재).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 탐구보고서 완성",
+        "goals": [
+          "직접 측정 데이터 + AI 분석 결합 탐구보고서 (A4 8장+)",
+          "환경 관련 대회 또는 공모전 참가",
+          "관찰 일지 누적 100편"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "직접 데이터 + AI 분석 결합 환경 탐구보고서 (A4 8~10장)",
+            "months": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "간이 측정 키트 1~2만원",
+            "organizer": "자체·과학 선생님",
+            "description": "중1 관찰 데이터 1년치 + 에어코리아 공공데이터 비교 분석. ChatGPT로 그래프 작성 보조 → 직접 해석·결론 작성. 선생님 피드백 2회. 결과: A4 8~10장 탐구보고서 + 교사 확인.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "환경부·교육청 환경 탐구 대회 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "환경부·교육청",
+            "description": "완성 보고서로 환경 탐구 대회 제출. 수상보다 제출 경험 + 외부 심사위원 피드백이 목적. 결과: 참가 기록 + 피드백.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "환경 관찰 일지 누적 100편 달성",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "중1부터 이어온 주 1회 관찰 루틴 유지. 중2 말까지 관찰 일지 80편+ 누적. 결과: 중1~중2 관찰 데이터 2년치(중3 심화 탐구의 핵심 자료).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 심화·캠페인·합격",
+        "goals": [
+          "2년 관찰 데이터 통합 심화 보고서",
+          "환경 문제 해결 제안서 or 캠페인",
+          "자소서: 3년 탐구 스토리"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "2년 관찰 데이터 통합 심화 탐구보고서 (A4 12장+)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·과학 선생님",
+            "description": "중1~중2 관찰 데이터 2년치 통합. AI로 시계열 변화 분석 → 원인 탐구 → 해결 방안 제안. 결과: 심화 탐구보고서 1편(3년 성과 집약).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "환경 개선 제안서 or 캠페인 기획 → 학교 제출",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·학교",
+            "description": "탐구 결과를 바탕으로 실제 환경 개선 제안서 작성 또는 캠페인 기획. AI로 제안서 논리 구조 점검. 결과: 제안서 제출 기록(자소서 소재).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "자소서 + 면접: '3년 관찰자의 눈으로 본 환경 변화'",
+            "months": [
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'중1부터 매주 관찰했고, AI로 분석했으며, 직접 제안서를 냈다'는 구체적 스토리. 결과: 자소서 최종본 + 면접 준비 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-hs-social-ai-journey-001",
+    "title": "AI 사회탐구로 일반고 인문·문과 합격 패스",
+    "description": "중1부터 지역사회 문제를 직접 취재하고 AI 데이터 분석으로 탐구보고서를 완성해, '생각하는 시민'으로 일반고 문과에 입학하는 3년 패스.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "hs-social-ai",
+    "jobName": "AI 사회탐구·문과 진학",
+    "jobEmoji": "🏛️",
+    "category": "highschool",
+    "schoolType": "general",
+    "schoolTypeName": "일반고(문과·인문)",
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "일반고(대전)",
+        "quote": "우리 동네 젠트리피케이션을 직접 상인 인터뷰하고 AI로 해외 사례를 분석했어요. '내 발로 뛴 데이터'가 보고서를 살렸고 면접에서 자신 있게 말할 수 있었습니다.",
+        "strategy": "중1: 지역사회 관찰 → 중2: 취재·탐구보고서 → 중3: 심화·자소서",
+        "tips": [
+          "현장 취재·인터뷰가 AI 분석보다 100배 강력",
+          "AI는 해외 사례 비교·자료 정리 보조용",
+          "'내가 직접 목격한 것'이 자소서 핵심"
+        ]
+      }
+    ],
+    "likes": 156,
+    "uses": 79,
+    "tags": [
+      "사회탐구",
+      "AI분석",
+      "일반고문과",
+      "고입",
+      "현장취재"
+    ],
+    "totalItems": 12,
+    "years": [
+      {
+        "gradeId": "mid1",
+        "gradeLabel": "중1 — 관찰·뉴스 분석 시작",
+        "goals": [
+          "지역사회 관찰 일지 40편 (주 1회)",
+          "AI 뉴스 분석 도구 체험",
+          "관심 사회 주제 1개 발굴"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "우리 동네 사회 이슈 관찰 일지 — 주 1회",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "학교 주변·동네 변화(상가 변화, 공사, 새 건물, 인구 변화) 관찰. 사진 + 날짜 + '왜 이런 변화가?'라는 질문 기록. ChatGPT로 지역 뉴스 키워드 분석. 결과: 연간 관찰 일지 35편 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "지역 신문 5편 AI 분류 분석 → 사회 주제 발굴",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "지역 신문 기사 5편을 ChatGPT로 주제·감정 분류. AI 결과 직접 검토·수정. 가장 관심 가는 주제 1개 확정. 결과: 탐구 주제 확정서 1편.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "사회·역사 관련 독서 6권 + 독서감상문",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료 (도서관)",
+            "organizer": "자체",
+            "description": "사회·역사·철학 관련 책 2개월에 1권. ChatGPT로 교정한 감상문 6편. 결과: 독서감상문 6편 + 탐구 배경 지식 형성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2 — 취재·탐구보고서 완성",
+        "goals": [
+          "현장 취재 + AI 분석 탐구보고서 (A4 8장+)",
+          "사회 토론 대회 1회 참가",
+          "탐구 주제 심화"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "현장 취재(인터뷰·사진) + AI 해외사례 탐구보고서 (A4 8~10장)",
+            "months": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·사회·역사 선생님",
+            "description": "지역 이슈 직접 현장 취재(상인·주민 3명 인터뷰 + 사진 10장) + ChatGPT로 해외 유사 사례 탐색 → 비교 분석 → 내 주장·제안. 결과: A4 8~10장 탐구보고서 + 교사 확인.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "교내·지역 사회 토론 대회 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교·교육청",
+            "description": "탐구 주제와 연결된 사회 이슈로 토론 참가. AI로 입장문 초안 → 직접 수정. 결과: 토론 참가 기록 + '사회 문제에 주도적으로 참여하는 학생' 인식.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "사회 현안 관련 지역 신문 기고 또는 학교 게시판 제안",
+            "months": [
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·학교",
+            "description": "탐구 결과를 A4 1장 분량으로 정리 → 학교 게시판 게시 또는 지역 신문 독자 기고 투고. 결과: 공개 의견 제출 기록(자소서 소재).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 심화·자소서·합격",
+        "goals": [
+          "2년 관찰 통합 심화 탐구보고서",
+          "자소서: 현장 탐구 스토리",
+          "면접: 사회 현안 내 관점 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "2년 관찰·취재 데이터 통합 심화 탐구보고서",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·사회 선생님",
+            "description": "중1~중2 관찰 일지 + 취재 자료 통합. AI로 시계열 변화·해외 정책 비교 분석. 결과: 심화 보고서 1편 + 3년 성과 목록.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서 + 면접: '내 발로 뛴 3년 탐구' 완성",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'중1 관찰 → 중2 취재 → 중3 심화'의 3년 스토리 자소서. 면접: 사회 현안에 '나의 관점'이 있는 답변 30개 준비. 결과: 합격 자소서 + 면접 준비 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-paper-journey-001",
+    "title": "AI 소논문 3년 완성으로 인서울 학종 합격 패스",
+    "description": "고1부터 Elicit·Perplexity·ChatGPT를 논문 탐색 파트너로 삼아 소논문 2편을 완성하고, 학생부종합 서류에서 '탐구력 있는 학생'으로 인서울 대학에 합격하는 3년 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "univ-ai-paper",
+    "jobName": "AI 소논문·인서울 학종",
+    "jobEmoji": "📄",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 소논문 2편 + 교과 세특 연계 탐구가 핵심. AI 활용 과정까지 세특에 솔직히 기재."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "중상위권 서울 소재 대학 사회과학부",
+        "admissionType": "수시",
+        "quote": "Elicit으로 선행 연구를 정리하고 직접 설문 50명 데이터를 모아 소논문을 완성했어요. AI 활용 과정을 세특에 솔직히 기재했더니 '도구를 제대로 활용하는 학생'이라는 평가를 받았습니다.",
+        "strategy": "고1: AI 탐색 도구 습득 + 미니 탐구 2건 → 고2: 소논문 완성 + 세특 연계 → 고3: 정리·자소서·면접",
+        "tips": [
+          "Elicit·Perplexity로 선행 연구 탐색하면 한 달이 3일이 됨",
+          "직접 설문·인터뷰 데이터 없으면 소논문이 약해짐",
+          "세특 기재: AI를 어떻게 활용했는지 구체적으로"
+        ]
+      }
+    ],
+    "likes": 312,
+    "uses": 189,
+    "tags": [
+      "소논문",
+      "AI탐구",
+      "학생부종합",
+      "대입",
+      "인서울"
+    ],
+    "totalItems": 14,
+    "years": [
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — 탐구 준비·도구 습득",
+        "goals": [
+          "Elicit·Perplexity·ChatGPT 논문 탐색 완전 습득",
+          "관심 주제 3개 후보 설정",
+          "교과 세특 연계 미니 탐구 1건"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 논문 탐색 도구 3종 실전 습득",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "Elicit(논문 탐색), Perplexity(출처 포함 검색), ChatGPT(논문 요약)를 관심 주제에 적용. 각 도구의 차이·장단점 파악. 결과: AI 탐색 도구 활용 실습 보고서 1편(고1 소논문 준비 완성).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "소논문 주제 3개 후보 → 고1 담임·교과 선생님 상담",
+            "months": [
+              11,
+              12
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "관심 주제 3개 후보를 A4 1장에 정리 → 고1에 어떤 교과 선생님께 도움받을 수 있는지 탐색. 결과: 주제 후보 3개 + 연락할 선생님 1명 결정.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — 탐구 기반 구축",
+        "goals": [
+          "교과 연계 미니 탐구 2건 완성",
+          "소논문 주제 확정 + 선행 연구 탐색",
+          "교과 전 영역 내신 2등급 이내"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 보조 교과 연계 미니 탐구 2편 (A4 4~5장)",
+            "months": [
+              5,
+              6,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·각 교과 선생님",
+            "description": "사회·국어·과학 등 수업 중 궁금한 주제 2개. Elicit으로 관련 논문 2편 탐색 → 직접 분석 → 선생님 피드백. 결과: 미니 탐구 2편(세특 기재 근거 + 소논문 주제 검증).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "소논문 주제 확정 + 선행 연구 15편 탐색·요약",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "Elicit·Perplexity로 관련 논문 15편 탐색 → ChatGPT로 각각 요약 → 직접 검토 및 정리. 선생님과 연구 방향 상담 1회. 결과: 선행 연구 요약 노트 + 소논문 연구 계획서.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "1·2학기 내신 전 영역 2등급 이내 유지",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "학종 기본 요건. ChatGPT로 취약 단원 개념 보완. 결과: 고1 내신 평균 2등급 이내.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 소논문 완성",
+        "goals": [
+          "소논문 1편 완성 (A4 12~15장, 직접 데이터 포함)",
+          "교내 발표 + 세특 기재",
+          "2번째 소논문 주제 착수"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "소논문 완성 — 선행 연구 → 직접 설문·인터뷰 → AI 분석 → 결론",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료~설문 인쇄비",
+            "organizer": "자체·교과 선생님",
+            "description": "고1 선행 연구 기반 → 직접 설문 50명 이상 or 인터뷰 3명 이상 → ChatGPT·Elicit 분석 보조 → 내 결론 작성. 선생님 피드백 3회 반영. 결과: A4 12~15장 소논문 완성본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "교내 탐구발표대회 발표 → 세특 기재",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "소논문 10분 발표. AI 활용 과정 포함해 발표. 교과 선생님이 세특에 기재. 결과: 탐구 세특 기재 + 발표 경험.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "2번째 소논문 주제 선정 + 미니 탐구 시작",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "고2 탐구 경험을 바탕으로 2번째 소논문 주제(다른 교과 연계). 결과: 2번째 소논문 연구 계획서 + 선행 연구 10편 탐색 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 정리·자소서·면접·합격",
+        "goals": [
+          "2번째 소논문 완성 or 고2 소논문 심화",
+          "자소서: 3년 탐구 성장 스토리 완성",
+          "면접: 소논문 내용 10분 발표 준비"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "2번째 소논문 완성 + 3년 탐구 성과 정리",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "2번째 소논문 완성(A4 10~12장). 고1~고3 탐구 6건 목록을 한 파일로 정리. 결과: 소논문 2편 + 탐구 성과 목록(자소서 첨부).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서·면접: AI 탐구 도구 활용 경험 구체적 서술",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'고1 미니 탐구 → 고2 소논문 → 고3 심화'의 성장 스토리. AI 활용 과정 솔직하게 + 내가 직접 한 것 구체적으로. 면접 소논문 10분 발표 연습. 결과: 자소서 최종본 + 면접 준비 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-vibe-coding-journey-001",
+    "title": "바이브 코딩 3년 포트폴리오로 SW 학종·특기자 합격 패스",
+    "description": "고1부터 Cursor·v0·GitHub Copilot으로 실제 서비스를 만들고, 고3에 배포된 서비스 3개 이상의 포트폴리오로 SW 특기자·학생부종합에 합격하는 3년 실전 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "univ-vibe-coding",
+    "jobName": "바이브 코딩·SW 대입",
+    "jobEmoji": "⚡",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "SW특기자"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — GitHub 커밋 기록 + 탐구보고서 세특이 핵심.",
+      "SW특기자": "배포된 서비스 URL + 기획 의도 발표. 복잡한 코드보다 '왜 만들었나'가 더 중요."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "중위권 대학 소프트웨어학부",
+        "admissionType": "SW특기자",
+        "quote": "Cursor로 학교 급식 알림 봇, 도서관 예약 시스템, 스터디 매칭 앱 3개를 만들었어요. AI가 코드 짰지만 기획·테스트·개선은 내가 했습니다. 면접에서 '왜 만들었나'를 10분 발표했고 합격했어요.",
+        "strategy": "고1: AI 코딩 입문 + 미니 프로젝트 → 고2: 실배포 서비스 → 고3: 포트폴리오 완성 + 지원",
+        "tips": [
+          "AI가 코드를 짜도 좋다—기획·사용자 피드백이 나의 역할",
+          "GitHub 커밋 기록이 성실함을 증명",
+          "실제 사용자가 있는 서비스가 최고 포트폴리오"
+        ]
+      }
+    ],
+    "likes": 378,
+    "uses": 224,
+    "tags": [
+      "바이브코딩",
+      "SW특기자",
+      "GitHub포트폴리오",
+      "대입",
+      "앱개발"
+    ],
+    "totalItems": 16,
+    "years": [
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3 — AI 코딩 기초",
+        "goals": [
+          "Cursor + GitHub 기초 완성",
+          "미니 웹앱 2개 + GitHub 커밋 30개",
+          "개발 아이디어 노트 10개 이상"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "Cursor·GitHub·Vercel 기초 완전 습득",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료 플랜",
+            "organizer": "자체",
+            "description": "여름방학 2주: Cursor로 첫 웹페이지 제작. Vercel 배포. GitHub 첫 커밋. 9~11월: 미니 프로젝트 2개 완성. 결과: GitHub 퍼블릭 레포 2개 + 배포 URL 2개.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — 프로젝트 기반 구축",
+        "goals": [
+          "아이디어→배포 사이클 3회 경험",
+          "GitHub 커밋 100개 이상",
+          "개발 탐구보고서 미니 1편"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "학교 생활 불편함 해결 앱 3개 완성·배포",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "학교 생활에서 불편한 것 3가지를 AI 코딩으로 해결. 각 앱: 기획서(A4 1장) → Cursor 개발 → Vercel 배포 → 친구 10명 피드백. 결과: 배포 서비스 3개 + GitHub 커밋 100개+.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "개발 과정 탐구보고서 1편 (A4 6~8장)",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·정보 선생님",
+            "description": "가장 잘 된 프로젝트의 기획→AI 활용 개발→사용자 피드백→개선 과정을 보고서로 정리. 세특 기재용. 결과: 보고서 1편 + 세특 기재.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "정보처리기능사 취득 (선택)",
+            "months": [
+              9
+            ],
+            "difficulty": 3,
+            "cost": "2만 2천원",
+            "organizer": "한국산업인력공단",
+            "description": "실기 포함 정보처리기능사 취득. 세특 기재 가능. 결과: 자격증 취득(SW 특기자 서류 추가 스펙).",
+            "categoryTags": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 실사용자 서비스 완성",
+        "goals": [
+          "실사용자 100명 이상 서비스 1개 완성",
+          "개발 탐구보고서 심화 1편",
+          "SW 관련 대회·해커톤 참가"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "실사용자 100명+ 서비스 완성 + 6개월 운영",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 5,
+            "cost": "무료~Supabase 소량 비용",
+            "organizer": "자체",
+            "description": "고1 앱 중 하나를 고도화. DB 연동(Supabase)·사용자 인증·모바일 반응형 완성. 배포 후 지속 운영. 결과: 사용자 100명 이상 + GitHub 커밋 200개+.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "서비스 개발 심화 탐구보고서 (A4 10~12장)",
+            "months": [
+              8,
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·정보 선생님",
+            "description": "'기획 → AI 개발 → 사용자 100명 유치 → 피드백 분석 → 개선' 전 과정. AI 활용 방식 상세히 기술. 결과: 탐구보고서 완성 + 세특 기재 + 지원 포트폴리오 핵심.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "학교 SW 경진대회 또는 지역 해커톤 참가",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교·교육청·민간 해커톤",
+            "description": "배포 서비스로 대회 참가. 수상보다 팀 경험 + 심사위원 피드백이 목적. 결과: 대회 참가 기록 + 외부 피드백.",
+            "categoryTags": [
+              "award"
+            ]
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 포트폴리오 완성·합격",
+        "goals": [
+          "GitHub 포트폴리오 + 개인 사이트 완성",
+          "자소서: AI 활용 개발 솔직 서술",
+          "SW 특기자 면접 10분 발표 준비"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "GitHub 포트폴리오 정리 + 바이브 코딩으로 개인 사이트 완성",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "3년간 모든 프로젝트 README·배포 URL 정리. 바이브 코딩으로 개인 포트폴리오 사이트(프로젝트 갤러리 포함) 완성. 결과: 공개 GitHub 프로필 + 포트폴리오 사이트 URL.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "자소서·면접: 'AI가 짠 코드, 내가 한 기획·개선' 솔직 서술",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "자소서: AI 활용 과정 솔직하게 + 내가 한 기획·디버깅·사용자 연구 구체적으로. 면접: 각 서비스의 기획 이유 10분 발표 연습(ChatGPT로 예상 질문 20개). 결과: 자소서 완성 + 면접 준비 완료.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-ethics-journey-001",
+    "title": "AI 윤리·철학 탐구로 인문사회계열 대입 패스",
+    "description": "고1부터 AI 편향·AI와 인권·AI 창작 저작권 등 사회 쟁점을 탐구해 소논문 2편을 완성하고, 철학·사회학·법학·윤리교육 계열에 학생부종합으로 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "univ-ai-ethics",
+    "jobName": "AI 윤리·인문사회 대입",
+    "jobEmoji": "⚖️",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — AI 윤리 소논문이 철학·사회·윤리 세특 핵심. 설문 직접 데이터 + 내 주장이 차별점."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "서울 소재 중위권 대학 사회학과",
+        "admissionType": "수시",
+        "quote": "'AI 얼굴 인식의 인종 편향'을 주제로 직접 실험 설계를 했어요. ChatGPT로 논문을 요약하고 내 관점으로 결론을 냈더니 '자기 생각이 있는 학생'이라는 평가를 받았습니다.",
+        "strategy": "고1: 도서 독서 + 에세이 → 고2: 소논문 완성 + 직접 데이터 → 고3: 자소서·면접",
+        "tips": [
+          "AI 찬반보다 '내 구체적 관점이 있는 탐구'",
+          "직접 설문 50명 이상이 소논문을 살린다",
+          "세특: 어떤 AI 도구를 어떻게 활용했는지 구체적으로"
+        ]
+      }
+    ],
+    "likes": 234,
+    "uses": 143,
+    "tags": [
+      "AI윤리",
+      "소논문",
+      "인문사회",
+      "대입",
+      "학생부종합"
+    ],
+    "totalItems": 14,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — AI 윤리 기초 탐구",
+        "goals": [
+          "AI 윤리 관련 도서 3권 독서",
+          "에세이 2편 완성",
+          "소논문 주제 후보 설정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 사회 영향 도서 3권 독서 + AI 논문 탐색",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 2,
+            "cost": "무료 (도서관)",
+            "organizer": "자체",
+            "description": "『AI 이후의 세계』, 『알고리즘의 편견』 등 AI 사회 영향 도서 3권. Elicit으로 관련 논문 5편 탐색·요약. 결과: 독서 감상문 3편 + AI 논문 요약 노트 5편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "AI 윤리 쟁점 에세이 2편 (A4 4~5장)",
+            "months": [
+              6,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·윤리·사회 선생님",
+            "description": "AI 편향, AI 일자리, AI 저작권 중 2개 주제. 내 주장 + AI 도구 활용 과정 명시 + 반론 포함. 결과: 에세이 2편 + 선생님 피드백(세특 기재 씨앗).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "소논문 주제 3개 후보 → 교과 선생님 상담 1회",
+            "months": [
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·윤리·사회 선생님",
+            "description": "고2 소논문 주제 후보 3개 정리. 직접 데이터 수집 가능한지 검토. 결과: 소논문 주제 확정 + 연구 계획서 초안.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 소논문 완성",
+        "goals": [
+          "AI 윤리 소논문 1편 완성 (직접 데이터 포함)",
+          "교내 토론·발표 1회",
+          "세특 기재 전략 완성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 윤리 소논문 완성 (A4 12~15장, 직접 설문 50명+)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료~설문 소량",
+            "organizer": "자체·윤리·사회 선생님",
+            "description": "Elicit 선행 연구 → 직접 설문 50명+ → ChatGPT 분류 보조 → 내 분석·결론 작성. 선생님 피드백 3회. AI 활용 과정 모두 기록. 결과: 소논문 완성본 + AI 활용 과정 기록.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "교내 사회·철학 토론대회 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "AI 윤리 주제 토론. 소논문 내용을 3분 요약 발표 연습. 결과: 발표 경험 + 세특 기재.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "소논문 AI 활용 과정 세특 소재 정리",
+            "months": [
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "'어떤 AI 도구를, 어떻게, 왜 활용했는지' + '내가 직접 한 것' 구체적으로 교과 선생님께 정리 제출. 결과: 3개 교과 세특 기재(윤리·사회·국어).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "2번째 소논문 또는 심화 에세이 착수",
+            "months": [
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·교과 선생님",
+            "description": "고2 탐구를 다른 각도에서 심화. 결과: 2번째 탐구 연구 계획서.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 최종 정리·합격",
+        "goals": [
+          "소논문 심화 또는 2편 완성",
+          "자소서: AI 시대 인문 탐구자 스토리",
+          "면접: AI 윤리 쟁점 내 관점 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "소논문 최종 보완 + 자소서 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "고2 소논문 피드백 반영 최종본. '고1 호기심 → 고2 탐구 → 고3 심화' 성장 스토리 자소서 완성. 결과: 자소서 최종본 + 소논문 완성본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접 준비: AI 윤리 쟁점 30개 + 내 관점 답변",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "탐구 결론 기반 면접 답변 30개 준비. 'AI 편향을 어떻게 해결할 것인가' 등 심화 질문. 결과: 면접 준비 완료 + 최종 지원.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-data-social-journey-001",
+    "title": "AI 데이터분석으로 사회과학·통계학과 대입 패스",
+    "description": "고1부터 공공데이터와 ChatGPT·Copilot으로 사회 현상을 데이터로 탐구해 소논문을 완성하고, 사회과학·통계·정책학 계열 대학에 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "univ-ai-data-social",
+    "jobName": "AI 데이터·사회과학 대입",
+    "jobEmoji": "📊",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 사회·통계 세특 연계 데이터 소논문. 공공데이터 + 직접 수집 데이터 결합이 차별점."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "지방 국립대 사회학과",
+        "admissionType": "수시",
+        "quote": "통계청 데이터로 지역 소멸을 분석했어요. Excel+ChatGPT 그래프로 시각화하고 직접 해석했습니다. 교수님이 '데이터를 직접 다루려는 자세'를 높이 평가했어요.",
+        "strategy": "고1: 공공데이터 탐색 → 고2: 소논문 완성 + ADsP → 고3: 자소서·면접",
+        "tips": [
+          "통계청·KOSIS·열린데이터광장이 보물 창고",
+          "직접 설문 데이터 + 공공데이터 결합이 차별점",
+          "AI 분석 과정을 세특에 정직하게 기재"
+        ]
+      }
+    ],
+    "likes": 198,
+    "uses": 113,
+    "tags": [
+      "데이터분석",
+      "공공데이터",
+      "사회과학",
+      "대입",
+      "소논문"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — 데이터 분석 기초",
+        "goals": [
+          "Excel + ChatGPT 데이터 분석 기초 완성",
+          "공공데이터 탐구 미니 보고서 3편",
+          "사회 탐구 주제 후보 설정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "통계청·KOSIS 공공데이터 분석 실습 3건",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              9,
+              10
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체 (kosis.kr, data.go.kr)",
+            "description": "관심 사회 주제 데이터 3개 다운로드 → Excel로 정리 → ChatGPT로 그래프 작성 보조 → 직접 해석. A4 2~3장 미니 보고서. 결과: 미니 보고서 3편 + 공공데이터 활용 능력.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "생활 경제·사회 현상 관찰 일지 + 데이터 연결 습관",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "편의점 가격 변화, 버스 이용객 수 등 일상 데이터 관찰. 주 1회 공공데이터와 연결. 결과: 연간 관찰 일지 30편(소논문 데이터 아이디어 창고).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "소논문 주제 확정 + 선행 연구 10편 탐색",
+            "months": [
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체·사회·통계 선생님",
+            "description": "Perplexity·Elicit으로 관련 연구 10편 탐색. 선생님 상담 후 주제 확정. 결과: 연구 계획서 1편.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 소논문·자격증 완성",
+        "goals": [
+          "공공데이터 + 직접 설문 결합 소논문 1편",
+          "ADsP 데이터 분석 준전문가 취득",
+          "데이터 발표 경험"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "사회 현상 소논문 완성 (A4 12~15장, 직접 데이터 포함)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·사회 선생님",
+            "description": "공공데이터 + 직접 설문 50명 → ChatGPT·Excel 분석 보조 → 내가 결론 도출. 선생님 피드백 3회. 결과: 소논문 완성본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "ADsP 데이터 분석 준전문가 취득",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "7만원",
+            "organizer": "한국데이터산업진흥원",
+            "description": "데이터 분석 기초 자격증. 고교생 응시 가능. 세특 기재. 결과: 자격증 취득.",
+            "categoryTags": []
+          },
+          {
+            "type": "activity",
+            "title": "교내 데이터 발표회 + 세특 기재",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "소논문 그래프 포함 10분 발표. '숫자로 이야기하기' 경험. 결과: 발표 기록 + 세특 기재.",
+            "categoryTags": [
+              "award",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 최종 정리·합격",
+        "goals": [
+          "소논문 심화·완성",
+          "자소서: 데이터로 세상 보는 눈",
+          "면접: 탐구 분석 과정 구체적 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "소논문 최종본 + 2번째 미니 탐구 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "고2 소논문 피드백 반영 최종본. 새 공공데이터로 미니 탐구 1건 추가. 결과: 탐구 3건 포트폴리오.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서·면접: '데이터로 사회 현상을 보게 된 계기'",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'공공데이터로 처음 탐구했을 때의 놀라움'부터 소논문 완성까지 스토리. 면접: 탐구 방법론 질문 대비. 결과: 최종 합격.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-biology-journey-001",
+    "title": "AI 생명과학탐구로 의생명·보건학과 대입 패스",
+    "description": "고1부터 Elicit·PubMed로 최신 논문을 탐색하고 직접 실험 설계를 완성해, 의생명과학·생명공학·보건학 계열에 학생부종합으로 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "nature",
+    "starName": "자연 왕국",
+    "starEmoji": "🌿",
+    "starColor": "#27AE60",
+    "jobId": "univ-ai-biology",
+    "jobName": "AI 생명과학·의생명 대입",
+    "jobEmoji": "🧬",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — AI 논문 탐색 + 직접 실험 결합 탐구보고서가 생명과학 세특 핵심."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "지방 국립대 생명과학과",
+        "admissionType": "수시",
+        "quote": "Elicit으로 장내 미생물 논문을 탐색하고 학교 실험실에서 직접 실험을 설계했어요. AI가 논문 이해를 도와줬고 실험은 제가 직접 했습니다. '실험 정신'이 합격 포인트였어요.",
+        "strategy": "고1: AI 논문 탐색 습득 + 미니 탐구 → 고2: 직접 실험 포함 탐구보고서 → 고3: 자소서·면접",
+        "tips": [
+          "Elicit.org 무료 논문 탐색이 보물",
+          "직접 실험 없으면 탐구가 약해짐",
+          "생명과학 선생님과 정기 피드백 필수"
+        ]
+      }
+    ],
+    "likes": 213,
+    "uses": 121,
+    "tags": [
+      "생명과학",
+      "AI논문탐색",
+      "의생명",
+      "대입",
+      "탐구보고서"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — AI 논문 탐색 + 미니 탐구",
+        "goals": [
+          "Elicit·PubMed AI 논문 탐색 완전 습득",
+          "생명과학 교과 연계 탐구 2건",
+          "관심 연구 주제 확정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "Elicit·PubMed + ChatGPT 논문 탐색·요약 실습",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "관심 생물 주제로 논문 5편 탐색. ChatGPT로 요약 → 핵심 개념 직접 이해. 논문 읽는 법(abstract·method·result) 체득. 결과: 논문 요약 노트 5편.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "생명과학 교과 연계 미니 탐구 2편 (A4 4~5장)",
+            "months": [
+              6,
+              7,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~실험재료 소량",
+            "organizer": "자체·생명과학 선생님",
+            "description": "수업 개념 → Elicit 관련 논문 1편 → 학교 실험 설계 → A4 4~5장 보고서. 결과: 미니 탐구 2편 + 선생님 피드백.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "의생명·생명공학 관련 도서 독서 2권 + 탐구 주제 확정",
+            "months": [
+              8,
+              9,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료 (도서관)",
+            "organizer": "자체",
+            "description": "『유전자의 내밀한 역사』 등 관련 도서 2권. AI에게 관련 최신 논문 추천 받기. 고2 탐구보고서 주제 확정. 결과: 독서감상문 2편 + 연구 계획서.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 직접 실험 포함 탐구보고서",
+        "goals": [
+          "AI 논문 탐색 + 직접 실험 결합 탐구보고서 완성",
+          "교내 R&E 또는 탐구 발표",
+          "관련 의료·생명 봉사 경험"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 논문 탐색 + 직접 실험 설계 탐구보고서 (A4 10~12장)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료~실험재료 2~3만원",
+            "organizer": "자체·생명과학 선생님·학교 실험실",
+            "description": "Elicit 선행 연구 → 직접 실험 설계·실행(학교 실험실) → ChatGPT 데이터 분석 보조 → 내 결론. 선생님 피드백 3회. 결과: 탐구보고서 완성본 + 실험 사진·데이터.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "교내 R&E 발표 + 세특 기재",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "탐구보고서 10분 발표. AI 논문 탐색 과정 포함해 발표. 결과: 세특 기재 + 외부 피드백.",
+            "categoryTags": [
+              "award",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "의료·보건 관련 봉사 경험 (월 1회)",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "지역 봉사 기관",
+            "description": "요양원·보건소 봉사. '돌봄'의 의미 직접 경험. 봉사 일지 작성. 결과: 연간 봉사 8회 기록(자소서 '왜 의생명인가' 소재).",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "volunteer"
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 최종 정리·합격",
+        "goals": [
+          "탐구보고서 최종 보완",
+          "자소서: 실험에서 배운 생명의 의미",
+          "면접: 실험 과정 구체적 설명"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "탐구보고서 최종 보완 + 2번째 미니 탐구",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·생명과학 선생님",
+            "description": "고2 보고서 피드백 반영 최종본. 새 연구 방향으로 미니 탐구 1건 추가. 결과: 탐구 3건 성과 목록.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "자소서·면접: '실험 설계로 배운 것, AI 도구 활용'",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'AI로 논문을 이해하고 직접 실험을 설계한 경험'이 자소서 핵심. 면접: 실험 방법론·결과 설명 연습. 결과: 최종 합격.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-language-journey-001",
+    "title": "AI 언어탐구로 국어국문·사범대 대입 패스",
+    "description": "고1부터 ChatGPT로 SNS·뉴스 텍스트를 분석하고 언어 변화를 탐구해 소논문을 완성하며, 국어국문·교육학·사범대에 학생부종합으로 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "univ-ai-language",
+    "jobName": "AI 언어탐구·국어 대입",
+    "jobEmoji": "📖",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 국어·언어 소논문이 국어국문·교육학 세특 핵심. 실제 언어 데이터 수집이 차별점."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "지방 국립대 국어국문학과",
+        "admissionType": "수시",
+        "quote": "SNS 댓글 500개를 ChatGPT로 분류하고 세대별 언어 차이를 분석했어요. AI 분류는 도구, 해석은 내가 직접 했습니다. '언어를 연구 대상으로 본 시각'이 합격 포인트였어요.",
+        "strategy": "고1: AI 텍스트 분석 입문 + 에세이 → 고2: 언어 소논문 + 국어 세특 → 고3: 자소서·면접",
+        "tips": [
+          "실제 SNS 데이터 수집이 소논문을 살린다",
+          "AI 분류 오류 찾기도 탐구 소재",
+          "국어 선생님과 주 1회 피드백 필수"
+        ]
+      }
+    ],
+    "likes": 178,
+    "uses": 96,
+    "tags": [
+      "국어탐구",
+      "AI언어분석",
+      "국어국문",
+      "사범대",
+      "대입"
+    ],
+    "totalItems": 12,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — AI 텍스트 분석 입문",
+        "goals": [
+          "ChatGPT 텍스트 분류·감정 분석 습득",
+          "언어 탐구 에세이 2편",
+          "소논문 주제 확정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "ChatGPT SNS·뉴스 텍스트 분류·감정 분석 실습",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "뉴스 기사 10편·SNS 텍스트 30개를 ChatGPT로 분류·감정 분석. AI 결과 직접 검토·수정. AI가 틀린 사례 기록(탐구 소재). 결과: 분석 실습 노트 + AI 오류 사례 목록.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "언어 변화·미디어 언어 탐구 에세이 2편 (A4 4~5장)",
+            "months": [
+              7,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·국어 선생님",
+            "description": "SNS 신조어, 광고 언어, 세대별 언어 차이 중 2개 주제. AI 분석 보조 + 내 언어학적 해석. 결과: 에세이 2편 + 선생님 피드백.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 언어 소논문 완성",
+        "goals": [
+          "실제 데이터 수집 + AI 분석 언어 소논문 완성",
+          "국어·언어 관련 발표·토론",
+          "AI 언어 분류 오류 탐구 리포트"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "SNS·뉴스 텍스트 수집 + AI 분석 언어 소논문 (A4 12~15장)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·국어 선생님",
+            "description": "공개 SNS 텍스트 500개+ 수집 → ChatGPT 분류 보조 → 내 언어학적 해석·분석 → 세대·매체별 언어 차이 결론 도출. 결과: 소논문 완성본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "AI 언어 분류 오류 탐구 리포트 (A4 4장)",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "AI가 언어를 잘못 분류한 사례 20개 수집 → 이유 분석(언어의 맥락 의존성). 결과: 리포트 1편 + 세특 기재 소재.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "award",
+            "title": "교내·지역 국어 논술 대회 참가",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교·교육청",
+            "description": "소논문 주제로 논술 작성. 결과: 참가 기록 + 세특 기재.",
+            "categoryTags": [
+              "award"
+            ]
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 최종 정리·합격",
+        "goals": [
+          "소논문 최종 완성",
+          "자소서: 언어 연구자 성장 스토리",
+          "면접: AI와 언어 관계 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "소논문 최종본 + 자소서 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·국어 선생님",
+            "description": "고2 소논문 최종 보완. '언어에 관심을 갖게 된 계기 → AI 분석 탐구 → 언어학적 발견' 자소서 스토리. 결과: 자소서 최종본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접: 'AI가 언어를 이해할 수 있는가' 심화 답변",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'AI 텍스트 분석의 한계', 'AI가 시를 이해할 수 있는가' 등 예상 질문 30개 준비. 결과: 최종 합격.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-economy-journey-001",
+    "title": "AI 경제탐구로 경영·경제학과 대입 패스",
+    "description": "고1부터 한국은행·통계청 공공 경제 데이터와 ChatGPT로 현실 경제 현상을 탐구하고, 경영·경제·무역 계열 대학에 학생부종합으로 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "univ-ai-economy",
+    "jobName": "AI 경제탐구·경영 대입",
+    "jobEmoji": "💰",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 경제·사회 세특 연계 데이터 소논문. 현장 조사 + AI 분석 결합이 차별점."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "지방 사립대 경영학과",
+        "admissionType": "수시",
+        "quote": "편의점 가격을 직접 3개월 조사하고 AI로 물가지수와 비교했어요. '발로 뛴 데이터'가 면접에서 차별점이 됐습니다. 경제 선생님과 매주 피드백을 나눈 것도 큰 도움이 됐어요.",
+        "strategy": "고1: 생활 경제 관찰 + 공공데이터 탐색 → 고2: 소논문 완성 → 고3: 자소서·면접",
+        "tips": [
+          "직접 현장 가격·소비 데이터 수집이 최고",
+          "한국은행·통계청이 보물 창고",
+          "경제 선생님과 정기 피드백이 소논문 질을 올린다"
+        ]
+      }
+    ],
+    "likes": 187,
+    "uses": 102,
+    "tags": [
+      "경제탐구",
+      "공공데이터",
+      "경영경제",
+      "대입",
+      "소논문"
+    ],
+    "totalItems": 12,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — 생활 경제 탐구 시작",
+        "goals": [
+          "생활 경제 관찰 일지 40편",
+          "한국은행·통계청 데이터 분석 3건",
+          "경제 주제 미니 탐구 2편"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "생활 경제 관찰 일지 (주 1회 가격·소비 데이터)",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "편의점·마트·배달앱 가격 변화를 주 1회 직접 기록. ChatGPT로 소비자물가지수와 연결. 결과: 직접 수집 경제 데이터 40주치.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "한국은행·통계청 경제 데이터 탐구 3건",
+            "months": [
+              5,
+              7,
+              9
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "자체 (bok.or.kr, kosis.kr)",
+            "description": "금리·물가·실업률 데이터 다운로드 → ChatGPT로 해석 보조 → 직접 결론. A4 2~3장 미니 보고서 3편. 결과: 경제 데이터 보고서 3편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 소논문 완성",
+        "goals": [
+          "현장 데이터 + AI 분석 경제 소논문 완성",
+          "모의 주식·경제 동아리 활동",
+          "ADsP 또는 경제 관련 자격 도전"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "현장 데이터 + 공공데이터 경제 소논문 (A4 12~15장)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·경제·사회 선생님",
+            "description": "직접 수집 가격 데이터 + 통계청 물가지수 비교 → ChatGPT 시각화 보조 → 경제 이론 연결 → 내 분석·제안. 결과: 소논문 완성본.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "경제·경영 동아리 또는 모의 주식 투자 참여",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료 (모의 투자)",
+            "organizer": "학교·증권사 무료 시뮬레이션",
+            "description": "주식 모의 투자 + 탐구 주제 연결. 투자 결과 분석 보고서 작성. 결과: 동아리 활동 기록 + 경제 시뮬레이션 보고서.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "award",
+            "title": "교내 경제 탐구 발표 대회 참가",
+            "months": [
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "소논문 발표 + 피드백. 결과: 발표 기록 + 세특 기재.",
+            "categoryTags": [
+              "award"
+            ]
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 최종 정리·합격",
+        "goals": [
+          "소논문 최종본 완성",
+          "자소서: 생활 속 경제 탐구 스토리",
+          "면접: 경제 시사 + 탐구 연결"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "소논문 최종본 + 자소서·면접 준비 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "소논문 피드백 반영 최종본. '편의점 가격 관찰에서 시작된 탐구' 자소서 스토리. 최근 경제 이슈와 탐구 연결 면접 준비. 결과: 최종 합격.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-univ-ai-arts-journey-001",
+    "title": "AI 창작탐구로 예술·미디어 계열 대입 패스",
+    "description": "고1부터 Midjourney·DALL-E·Suno 등 AI 창작 도구로 예술을 탐구하고 'AI 창작 vs 인간 창작'을 비교·분석한 소논문으로 예술·미디어·디자인 계열에 합격하는 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "create",
+    "starName": "창작 왕국",
+    "starEmoji": "🎨",
+    "starColor": "#9B59B6",
+    "jobId": "univ-ai-arts",
+    "jobName": "AI 창작탐구·예술 대입",
+    "jobEmoji": "🎭",
+    "category": "admission",
+    "admissionTypes": [
+      "수시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 미술·음악·국어 세특 연계. AI 창작물 자체보다 비교·분석 탐구가 차별점."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "schoolName": "시각디자인학과",
+        "admissionType": "수시",
+        "quote": "Midjourney로 포스터를 만들면서 AI와 인간 창작의 차이를 분석했어요. '도구로 만든 게 아니라 도구를 연구한 것'이라는 프레임이 합격 포인트였습니다.",
+        "strategy": "고1: AI 도구 체험 + 비교 탐구 → 고2: 소논문 + 창작 포트폴리오 → 고3: 자소서·면접",
+        "tips": [
+          "AI 창작물 자체보다 '비교·분석'이 탐구 핵심",
+          "창작물 + 탐구보고서 세트 완성",
+          "AI 저작권 이슈도 탐구 소재"
+        ]
+      }
+    ],
+    "likes": 167,
+    "uses": 89,
+    "tags": [
+      "AI창작",
+      "예술탐구",
+      "미디어",
+      "대입",
+      "디자인"
+    ],
+    "totalItems": 12,
+    "years": [
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1 — AI 창작 도구 탐구",
+        "goals": [
+          "AI 창작 도구 5종 체험·비교",
+          "AI vs 인간 창작 비교 에세이 2편",
+          "창작 주제 및 소논문 방향 설정"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 창작 도구 체험 + 인간 창작 비교 실험",
+            "months": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료~소량",
+            "organizer": "자체",
+            "description": "DALL-E·Midjourney(이미지), Suno(음악), ChatGPT(글)로 같은 주제 창작 → 내가 직접 창작 → 비교 기록. 결과: 비교 실험 노트 20편.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "AI 창작 비교 탐구 에세이 2편 (A4 4~5장)",
+            "months": [
+              8,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체·미술·국어 선생님",
+            "description": "'창의성이란 무엇인가', 'AI 창작물의 저작권' 등 주제. 내 관점 명확히. 결과: 에세이 2편 + 선생님 피드백.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2 — 소논문 + 창작 포트폴리오",
+        "goals": [
+          "AI 창작 탐구 소논문 완성 + 창작물 첨부",
+          "교내 전시·발표",
+          "예술 관련 전시 관람 + 에세이"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 창작 소논문 완성 (A4 10~12장) + 창작물 첨부",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·미술·국어 선생님",
+            "description": "AI vs 인간 창작 체계적 비교 → 예술·저작권 이슈 탐구 → 결론. 탐구한 AI 창작물 첨부. 결과: 소논문 + 창작물 세트.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "교내 AI 창작 전시 + 탐구보고서 함께 전시",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "인쇄비 소량",
+            "organizer": "학교",
+            "description": "AI 창작물 + 탐구보고서 함께 전시. 결과: '탐구한 창작자' 인식 + 세특 기재.",
+            "categoryTags": [
+              "award",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "지역 AI·디지털 아트 전시 관람 + 감상 에세이",
+            "months": [
+              9
+            ],
+            "difficulty": 2,
+            "cost": "입장료 소량",
+            "organizer": "지역 미술관",
+            "description": "AI 예술 작품 현장 감상 → A4 2장 에세이. 결과: 에세이 1편 + 세특 기재.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 포트폴리오·합격",
+        "goals": [
+          "탐구 + 창작 포트폴리오 완성",
+          "자소서: AI 시대 예술가 정체성",
+          "면접: AI 창작 철학 답변"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "탐구보고서 최종 + 창작 포트폴리오 통합",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "소논문 최종본 + 3년 창작물을 하나의 포트폴리오로 통합. 결과: 포트폴리오 완성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접: 'AI 시대 예술가의 역할' 철학적 답변",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'AI가 예술가를 대체할 수 있는가' 등 30개 예상 질문 준비. 결과: 최종 합격.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-job-prompt-engineer-journey-001",
+    "title": "AI 프롬프트 엔지니어로 스타트업 취업 패스",
+    "description": "ChatGPT·Claude·Gemini API를 프롬프트 최적화 역량으로 마스터하고, 프롬프트 라이브러리 포트폴리오를 구축해 AI 스타트업·IT 기업에 실제 취업하는 6~12개월 실전 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "job-prompt-engineer",
+    "jobName": "AI 프롬프트 엔지니어",
+    "jobEmoji": "🧠",
+    "category": "job",
+    "relatedJobs": [
+      "AI 활용 기획자",
+      "LLM 서비스 QA",
+      "AI 컨텐츠 디렉터"
+    ],
+    "averageSalary": "3,200~4,500만원 (신입)",
+    "jobMarket": "성장",
+    "likes": 389,
+    "uses": 256,
+    "tags": [
+      "프롬프트엔지니어링",
+      "ChatGPT",
+      "Claude",
+      "취업",
+      "AI스타트업"
+    ],
+    "totalItems": 16,
+    "years": [
+      {
+        "gradeId": "step1",
+        "gradeLabel": "기초 역량 (1~3개월)",
+        "goals": [
+          "주요 AI 모델 3종 특성 완전 파악",
+          "프롬프트 기법 8종 실전 적용",
+          "프롬프트 테스트 일지 100건 달성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "ChatGPT·Claude·Gemini 3종 비교 실습 100회",
+            "months": [
+              1,
+              2
+            ],
+            "difficulty": 2,
+            "cost": "무료~유료 플랜",
+            "organizer": "자체",
+            "description": "같은 업무 요청을 3개 모델에 적용해 차이 비교. 각 모델의 강점(Claude: 긴 문서, GPT-4o: 코딩, Gemini: 실시간 정보) 파악. 결과: 모델별 특성 정리 문서 + 비교 테스트 기록 100개.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "프롬프트 기법 8종 실전 적용 + 효과 비교",
+            "months": [
+              1,
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (Learn Prompting 무료 교재)",
+            "description": "Zero-shot·Few-shot·Chain-of-Thought·Role·Tree of Thought·Self-Consistency·ReAct·RAG 기법 각 20회 실습. 같은 요청에 기법별 결과 비교. 결과: 기법별 효과 비교 보고서 + 개인 프롬프트 기법 가이드.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "Google AI Essentials + Anthropic 프롬프트 엔지니어링 수료",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "Google Coursera · Anthropic",
+            "description": "공식 AI 활용 수료증 취득. 이력서 기재 가능. 결과: 수료증 2개.",
+            "categoryTags": []
+          }
+        ]
+      },
+      {
+        "gradeId": "step2",
+        "gradeLabel": "실전 역량 (3~6개월)",
+        "goals": [
+          "업무 유형별 프롬프트 템플릿 100개 구축",
+          "API 연동 간단한 챗봇 완성",
+          "실무 효율화 사례 3건 문서화"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "업무 유형 10종 × 프롬프트 10개 = 100개 템플릿 라이브러리",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "마케팅·고객응대·데이터정리·보고서·번역·코딩리뷰·법률문서·인사·교육·영업 등 10가지 업무 유형별 최적 프롬프트 10개씩 검증. 결과: GitHub 공개 프롬프트 라이브러리 100개.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "Claude/OpenAI API 연동 업무 자동화 챗봇 완성",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "API 크레딧 소량",
+            "organizer": "자체",
+            "description": "바이브 코딩(Cursor)으로 API 연동 챗봇 제작. 특정 업무(예: 이메일 자동 분류·답변 초안) 자동화. 결과: 배포 가능한 챗봇 1개 + GitHub 공개.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "AI 활용 업무 효율화 사례 보고서 3편",
+            "months": [
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (벨로그·노션 공개)",
+            "description": "실제 업무에 AI 적용한 Before/After 수치 포함 사례 3편. '○○ 작업 시간 70% 단축' 등 수치화. 결과: 공개 포트폴리오 3편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "step3",
+        "gradeLabel": "포트폴리오 (6~9개월)",
+        "goals": [
+          "GitHub + 개인 사이트 포트폴리오 완성",
+          "AI 스타트업 인턴십 1회 경험",
+          "블로그 구독자 200명 달성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "프롬프트 엔지니어링 포트폴리오 사이트 + GitHub 공개",
+            "months": [
+              6,
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (바이브 코딩으로 제작)",
+            "description": "프롬프트 라이브러리 100개 + 사례 보고서 3편 + 챗봇 프로젝트를 포트폴리오 사이트로 통합. 결과: 포트폴리오 사이트 URL + GitHub 스타 20개 이상 목표.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "AI 활용 실무 블로그 20편 + 커뮤니티 기여",
+            "months": [
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (벨로그·미디엄)",
+            "description": "프롬프트 엔지니어링 실무 팁·사례 블로그 20편. AI 커뮤니티(디스코드·카카오톡 오픈채팅) 기여 활동. 결과: 구독자 200명 + 블로그 총 5000뷰 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "step4",
+        "gradeLabel": "취업 활동 (9~12개월)",
+        "goals": [
+          "AI 역량 특화 이력서 완성",
+          "목표 기업 15곳 지원",
+          "최종 취업 목표"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 역량 수치화 이력서 + 포트폴리오 링크 완성",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'프롬프트 최적화로 ○○ 업무 70% 단축', '프롬프트 라이브러리 100개 구축' 등 수치화. 결과: AI 역량 특화 이력서 완성본.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "AI 스타트업·IT 기업 15곳 지원 + 면접 준비",
+            "months": [
+              10,
+              11,
+              12
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "목표 기업",
+            "description": "AI 활용 기획자·프롬프트 엔지니어·LLM QA 포지션 집중 지원. 면접: '프롬프트 라이브러리 실시간 시연' 준비. 결과: 최종 취업.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "면접 실전 준비: 프롬프트 라이브 시연 + AI 트렌드 답변",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "면접에서 노트북으로 프롬프트 실시간 시연 준비. 'GPT-5 출시 후 프롬프트 엔지니어 역할은?' 등 트렌드 질문 30개 준비. 결과: 면접 합격.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ],
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "스타트업 합류",
+        "quote": "포트폴리오 없이 실습 기록만 PDF로 만들었는데 면접에서 바로 통했어요. ChatGPT 쓸 줄 아는 사람 자체가 드물었거든요.",
+        "strategy": "단계별 실습 기록을 GitHub에 올리고, 결과물 위주 PDF 포트폴리오 제작",
+        "tips": [
+          "GitHub 꼭 공개 설정",
+          "실패 사례도 배움으로 포함",
+          "LinkedIn 프로필 업데이트"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "대기업 IT팀",
+        "quote": "프롬프트 엔지니어링 자격증이 없어도, 실제 업무 자동화 사례를 보여주니 바로 채용 연락 왔어요.",
+        "strategy": "사내 업무 중 AI 자동화 가능 영역 직접 발굴하여 데모 시연",
+        "tips": [
+          "자동화 전/후 비교 데이터 필수",
+          "부서별 활용 사례 다양화",
+          "비용 절감 수치 강조"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-job-vibe-dev-journey-001",
+    "title": "바이브 코딩으로 IT 기업 개발자 취업 패스",
+    "description": "Cursor·v0·GitHub Copilot으로 실제 서비스를 만들고, 배포된 포트폴리오 3개 이상으로 프론트엔드·풀스택 개발자로 IT 기업·스타트업에 취업하는 12개월 실전 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "job-vibe-dev",
+    "jobName": "바이브 코딩 개발자",
+    "jobEmoji": "⚡",
+    "category": "job",
+    "relatedJobs": [
+      "프론트엔드 개발자",
+      "풀스택 개발자",
+      "AI 서비스 개발자"
+    ],
+    "averageSalary": "3,500~5,000만원 (신입)",
+    "jobMarket": "성장",
+    "likes": 512,
+    "uses": 334,
+    "tags": [
+      "바이브코딩",
+      "Cursor",
+      "풀스택",
+      "취업",
+      "IT기업"
+    ],
+    "totalItems": 16,
+    "years": [
+      {
+        "gradeId": "step1",
+        "gradeLabel": "기초 역량 (1~3개월)",
+        "goals": [
+          "Cursor + v0 + Bolt 바이브 코딩 도구 마스터",
+          "미니 웹앱 3개 + GitHub 커밋 100개",
+          "웹 기초 개념 이해 완성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "Cursor·v0·Bolt 3종 바이브 코딩 집중 실습",
+            "months": [
+              1,
+              2
+            ],
+            "difficulty": 2,
+            "cost": "무료 플랜",
+            "organizer": "자체",
+            "description": "각 도구로 같은 기능 구현해 차이 비교. 'AI에게 말해서 코드 만들기' 흐름 체득. 결과: 3종 도구 특성 완전 파악 + GitHub 첫 커밋.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "미니 웹앱 3개 완성 + Vercel 배포 + README 작성",
+            "months": [
+              1,
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "실생활 아이디어 3개 구현(할일 앱, 날씨앱, 링크 모음). 각 배포 URL 확보. README: 기획 이유·기능·기술 스택 명시. 결과: GitHub 3개 레포 + Vercel 배포 URL 3개.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "HTML·CSS·JavaScript·React 기초 개념 이해",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (MDN·React 공식 문서)",
+            "description": "AI가 짠 코드의 원리 이해. '왜 이렇게 짰는가' 설명 가능한 수준 목표. ChatGPT로 코드 설명 반복. 결과: 기초 개념 50개 이해 노트.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "step2",
+        "gradeLabel": "실전 역량 (3~6개월)",
+        "goals": [
+          "실사용자 50명+ 서비스 1개 완성",
+          "DB 연동·인증 기능 구현 경험",
+          "기술 블로그 10편 + 코드 이해력 강화"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "실사용자 50명+ 풀스택 서비스 완성 (DB 연동·인증 포함)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 5,
+            "cost": "무료~Supabase 소량",
+            "organizer": "자체",
+            "description": "Cursor로 개발 → Supabase(무료 DB) 연동 → 사용자 인증(NextAuth) → Vercel 배포. 지인·커뮤니티 공유로 사용자 50명 확보. 결과: 서비스 URL + 사용자 50명 증거.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "기술 블로그 10편 (개발 과정 + 배운 점 기록)",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (벨로그·노션)",
+            "description": "만들면서 겪은 오류·해결 과정 + 'AI 코드 이해하기' 시리즈 블로그 작성. 검색되는 글 → 구인담당자 노출. 결과: 기술 블로그 10편 + 총 3000뷰 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "step3",
+        "gradeLabel": "포트폴리오 (6~9개월)",
+        "goals": [
+          "배포 서비스 3개 이상",
+          "GitHub 커밋 500개 이상",
+          "개인 포트폴리오 사이트 완성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "GitHub 포트폴리오 + 개인 사이트 완성",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "모든 프로젝트 README 정리. 바이브 코딩으로 개인 포트폴리오 사이트(프로젝트 갤러리·기술 스택·연락처). 결과: 포트폴리오 사이트 URL.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "3번째 서비스 완성 (사이드 프로젝트 고도화)",
+            "months": [
+              7,
+              8,
+              9
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "스텝2 서비스를 발전시키거나 새 아이디어로 도전. 사용자 100명 이상 목표. 결과: 포트폴리오 3번째 서비스 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "step4",
+        "gradeLabel": "취업 활동 (9~12개월)",
+        "goals": [
+          "AI 개발 역량 이력서 완성",
+          "기술 면접 대비 완성",
+          "IT 기업·스타트업 최종 취업"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "개발자 이력서 + 포트폴리오 사이트 최종 완성",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "사용자 수·GitHub 커밋 수·기술 스택 수치화. 포트폴리오 링크 이력서 첨부. 결과: 이력서 + 포트폴리오 최종본.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "기술 면접 대비: 내 코드 설명 + 알고리즘 기초",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·스터디",
+            "description": "AI가 짠 코드를 내 언어로 설명하는 연습. 백준 Silver 수준 알고리즘 30문제. '왜 이 기술을 선택했는가' 답변 준비. 결과: 기술 면접 통과.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "IT 기업·AI 스타트업 20곳 지원 + 최종 취업",
+            "months": [
+              11,
+              12
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "목표 기업",
+            "description": "프론트엔드·풀스택·AI 서비스 개발 포지션 집중 지원. 포트폴리오 URL 필수 첨부. 결과: 최종 취업.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ],
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "스타트업 취업",
+        "quote": "Cursor 쓴 지 6개월 만에 실제 배포된 앱 3개를 만들었어요. 전공자인 팀원보다 빠르게 프로토타입을 만든다고 칭찬받았습니다.",
+        "strategy": "아이디어 → 실배포까지 빠른 사이클 반복으로 포트폴리오 구축",
+        "tips": [
+          "GitHub Pages로 무료 배포",
+          "사용자 피드백 실제 반영",
+          "README 문서 상세하게"
+        ]
+      },
+      {
+        "year": "2025",
+        "admissionType": "IT 기업 인턴",
+        "quote": "코딩 부트캠프 수료자보다 오히려 빠이브 코딩으로 만든 실제 서비스가 더 인상적이었다고 했어요.",
+        "strategy": "v0와 Cursor 조합으로 UI/기능 모두 완성도 있는 서비스 구현",
+        "tips": [
+          "실사용자 확보 (가족, 친구라도 OK)",
+          "앱스토어 등록 경험 큰 강점",
+          "기술 스택 설명 가능하게 공부"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-job-content-creator-journey-001",
+    "title": "AI 콘텐츠 마케터로 브랜드 기업 취업 패스",
+    "description": "ChatGPT·Midjourney·Runway·Suno로 콘텐츠 채널을 운영하고 구독자 1000명을 확보한 뒤, 기업 SNS팀·콘텐츠팀·마케팅팀에 취업하는 12개월 실전 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "create",
+    "starName": "창작 왕국",
+    "starEmoji": "🎨",
+    "starColor": "#9B59B6",
+    "jobId": "job-content-creator",
+    "jobName": "AI 콘텐츠 마케터",
+    "jobEmoji": "🎬",
+    "category": "job",
+    "relatedJobs": [
+      "SNS 운영 담당자",
+      "AI 카피라이터",
+      "디지털 마케터"
+    ],
+    "averageSalary": "2,800~4,000만원 (신입)",
+    "jobMarket": "성장",
+    "likes": 312,
+    "uses": 207,
+    "tags": [
+      "AI콘텐츠",
+      "SNS마케팅",
+      "콘텐츠마케터",
+      "취업",
+      "유튜브"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "step1",
+        "gradeLabel": "기초 역량 (1~3개월)",
+        "goals": [
+          "AI 콘텐츠 도구 7종 실전 마스터",
+          "콘텐츠 제작 루틴 확립",
+          "채널 개설 + 첫 10편 발행"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 콘텐츠 도구 7종 집중 실습",
+            "months": [
+              1,
+              2
+            ],
+            "difficulty": 2,
+            "cost": "무료~소량",
+            "organizer": "자체",
+            "description": "ChatGPT(기획·카피), Midjourney(이미지), Runway(영상), Suno(음악), Canva AI(디자인), HeyGen(AI 영상), Notion AI(정리). 각 도구로 콘텐츠 1편씩 제작. 결과: 7종 도구 실습 + 개인 사용 가이드.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "관심 주제 채널 개설 + 첫 10편 발행",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (유튜브·인스타·벨로그)",
+            "description": "AI 활용 콘텐츠 기획→제작→발행 루틴 확립(주 2~3편). 첫 10편 발행 후 조회수·반응 데이터 분석. 결과: 채널 개설 + 10편 발행 + 첫 성과 데이터.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      },
+      {
+        "gradeId": "step2",
+        "gradeLabel": "실전 역량 (3~7개월)",
+        "goals": [
+          "구독자·팔로워 1000명 달성",
+          "AI 콘텐츠 성과 분석 보고서 2편",
+          "기업 인턴십 또는 프리랜서 1건"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 활용 콘텐츠 월 12편 꾸준히 발행 (구독자 1000명)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "ChatGPT 기획 + AI 제작 도구로 제작 시간 50% 단축. 매달 12편 발행. 결과: 구독자·팔로워 1000명 달성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "AI 콘텐츠 성과 분석 보고서 2편 (Before/After 수치화)",
+            "months": [
+              4,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "조회수·인게이지먼트 데이터를 ChatGPT로 분석. 'AI 도구 도입 전/후 제작 시간 비교' 수치화. 결과: 보고서 2편(취업 포트폴리오 핵심).",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "기업 SNS 콘텐츠 프리랜서 1건 수주",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체·프리랜서 플랫폼",
+            "description": "크몽·숨고 등에서 기업 SNS 콘텐츠 외주 1건 수주. 실무 경험 + 포트폴리오 추가. 결과: 첫 프리랜서 수입 + 실무 포트폴리오 1건.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "intern"
+          }
+        ]
+      },
+      {
+        "gradeId": "step3",
+        "gradeLabel": "포트폴리오·취업 (7~12개월)",
+        "goals": [
+          "콘텐츠 포트폴리오 사이트 완성",
+          "기업 콘텐츠팀 인턴십 지원",
+          "최종 정규직 취업"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 콘텐츠 포트폴리오 사이트 완성",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (바이브 코딩으로 제작)",
+            "description": "채널 성과 수치(구독자·조회수·인게이지먼트) + 대표 콘텐츠 + AI 활용 프로세스를 포트폴리오 사이트로 통합. 결과: 포트폴리오 URL.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "기업 SNS·콘텐츠팀 15곳 지원 + 최종 취업",
+            "months": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "목표 기업",
+            "description": "AI 콘텐츠 제작 능력 수치 증명 포트폴리오로 지원. 면접: '우리 브랜드 콘텐츠 전략 개선 제안' 사전 과제 준비. 결과: 최종 취업.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "AI 마케팅 면접 대비: 실무 제안서 + 트렌드 답변",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "'지원 기업의 현재 SNS 분석 + AI 활용 개선 제안' A4 2장 준비. AI 콘텐츠 윤리 질문 대비. 결과: 면접 합격.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ],
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "브랜드 에이전시",
+        "quote": "AI 툴로 콘텐츠 제작 속도가 3배 빨라진다는 걸 수치로 보여주니 바로 채용됐어요.",
+        "strategy": "Midjourney·ChatGPT 활용 콘텐츠 제작 속도 및 품질 비교 데이터 준비",
+        "tips": [
+          "전/후 비교 포트폴리오 필수",
+          "SNS 팔로워 성장 그래프 포함",
+          "AI 윤리 관련 입장 정리"
+        ]
+      },
+      {
+        "year": "2025",
+        "admissionType": "이커머스 기업",
+        "quote": "제 인스타그램 팔로워 1만 명이 포트폴리오였어요. AI로 콘텐츠를 꾸준히 올린 결과였죠.",
+        "strategy": "개인 SNS 운영을 실전 포트폴리오로 활용, AI 활용 콘텐츠 일관성 있게 유지",
+        "tips": [
+          "월 100만뷰 이상 달성 후 지원",
+          "브랜드와의 협업 경험 포함",
+          "AI 사용 과정 투명하게 공개"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-job-data-analyst-journey-001",
+    "title": "AI 데이터 분석가로 테크 기업 취업 패스",
+    "description": "Python·SQL과 ChatGPT·Copilot으로 데이터를 분석하고 캐글 대회 2건 + ADsP 자격증으로 테크 기업·스타트업 데이터 분석가로 취업하는 12개월 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "job-data-analyst",
+    "jobName": "AI 데이터 분석가",
+    "jobEmoji": "📊",
+    "category": "job",
+    "relatedJobs": [
+      "BI 분석가",
+      "마케팅 데이터 분석가",
+      "서비스 기획자"
+    ],
+    "averageSalary": "3,500~5,500만원 (신입)",
+    "jobMarket": "안정·성장",
+    "likes": 423,
+    "uses": 289,
+    "tags": [
+      "데이터분석",
+      "Python",
+      "SQL",
+      "취업",
+      "캐글"
+    ],
+    "totalItems": 16,
+    "years": [
+      {
+        "gradeId": "step1",
+        "gradeLabel": "기초 역량 (1~3개월)",
+        "goals": [
+          "Python·SQL 기초 + AI 코딩 보조",
+          "ADsP 데이터 분석 준전문가 취득",
+          "공공데이터 분석 미니 프로젝트 5건"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "Python(Pandas·Matplotlib) + ChatGPT 바이브 분석 코딩",
+            "months": [
+              1,
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (점프투파이썬 무료·캐글 무료)",
+            "description": "Pandas·Matplotlib·Seaborn 기초 실습. ChatGPT로 분석 코드 작성 보조('이 데이터에서 트렌드 찾는 코드 작성해줘'). 결과: 분석 코드 50개 작성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "certification",
+            "title": "ADsP 데이터 분석 준전문가 취득",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "7만원",
+            "organizer": "한국데이터산업진흥원",
+            "description": "1~2월 필기 준비. 3월 시험. 데이터 분석 국내 공식 자격증. 결과: ADsP 자격증.",
+            "categoryTags": []
+          },
+          {
+            "type": "activity",
+            "title": "공공데이터 분석 미니 프로젝트 5건",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (data.go.kr)",
+            "description": "관심 주제 공공데이터 5개 → AI 보조 분석 → 인사이트 도출. 각 Notion에 문제 정의·분석 과정·결론 정리. 결과: 포트폴리오 미니 프로젝트 5건.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "step2",
+        "gradeLabel": "실전 역량 (3~7개월)",
+        "goals": [
+          "캐글 입문 대회 2건 참여 + 코드 공개",
+          "실무 주제 분석 보고서 2편",
+          "SQL + SQLD 자격증 도전"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "캐글 입문 대회 2건 완주 + 코드 공개",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "캐글 (Kaggle.com)",
+            "description": "타이타닉·주택가격 등 입문 대회 2건. AI 코딩 보조로 분석 코드 작성. 각 노트북 공개 + 설명 추가. 결과: 캐글 공개 노트북 2개 + Upvote 10개 이상.",
+            "categoryTags": [
+              "award"
+            ]
+          },
+          {
+            "type": "activity",
+            "title": "비즈니스 주제 데이터 분석 보고서 2편 (매출·이탈 분석)",
+            "months": [
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "실제 비즈니스 문제(매출 예측·고객 이탈) → 샘플 데이터 or 공공데이터 → AI 보조 분석 → 인사이트 보고서. 결과: A4 10장+ 분석 보고서 2편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "SQLD SQL 개발자 취득",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "7만 5천원",
+            "organizer": "한국데이터산업진흥원",
+            "description": "데이터 직군 실무 필수 자격증. ChatGPT로 SQL 쿼리 연습. 결과: SQLD 자격증.",
+            "categoryTags": []
+          }
+        ]
+      },
+      {
+        "gradeId": "step3",
+        "gradeLabel": "포트폴리오 (7~9개월)",
+        "goals": [
+          "GitHub + Notion 포트폴리오 5건 완성",
+          "데이터 분석 인턴십 또는 프리랜서",
+          "Power BI / Tableau 대시보드 구현"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "데이터 분석 포트폴리오 5건 GitHub + Notion 정리",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "5건 프로젝트 각각: 문제 정의 → 분석 과정 → 결론 → 비즈니스 임팩트 명확히 서술. 결과: GitHub 5개 레포 + Notion 포트폴리오.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "데이터 시각화 대시보드 완성 (Power BI 또는 Looker Studio)",
+            "months": [
+              8,
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "분석 보고서를 인터랙티브 대시보드로 구현. 공개 URL 확보. 결과: 대시보드 1개 공개 URL.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "step4",
+        "gradeLabel": "취업 활동 (9~12개월)",
+        "goals": [
+          "데이터 직군 이력서 완성",
+          "15곳 지원 + 최종 취업",
+          "면접 케이스 스터디 대비"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "데이터 분석 역량 수치화 이력서 완성",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "ADsP·SQLD 자격증 + 캐글 노트북 + 포트폴리오 URL 포함. '분석 보고서 5건, 데이터 처리 ○만 rows' 수치화. 결과: 이력서 최종본.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "데이터 직군 면접 케이스 스터디 + AI 활용 답변",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "A/B 테스트·이탈 분석·매출 예측 케이스 스터디 20개 연습. 'AI 분석 도구를 어떻게 활용했는가' 구체적 답변. 결과: 면접 통과.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "테크 기업·스타트업 15곳 데이터 직군 지원 + 최종 취업",
+            "months": [
+              11,
+              12
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "목표 기업",
+            "description": "데이터 분석가·BI 분석가·마케팅 데이터 포지션 집중 지원. 포트폴리오 링크 필수 첨부. 결과: 최종 취업.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ],
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "핀테크 기업",
+        "quote": "SQL도 Python도 완벽하지 않았는데, 실제 공공데이터로 만든 분석 레포트가 인상 깊었다고 하더라고요.",
+        "strategy": "공공데이터 포털에서 실제 데이터 선택해 비즈니스 인사이트 도출 연습",
+        "tips": [
+          "Kaggle 노트북 공개 설정",
+          "시각화 품질이 중요 (Plotly 추천)",
+          "도메인 지식 함께 공부"
+        ]
+      },
+      {
+        "year": "2025",
+        "admissionType": "유통 대기업",
+        "quote": "AI가 데이터 분석을 대체할 것 같아 걱정했는데, 오히려 AI 활용해서 분석 잘하는 사람이 더 필요하다더라고요.",
+        "strategy": "ChatGPT로 분석 코드 작성 → 직접 검증 → 인사이트 도출 워크플로우 완성",
+        "tips": [
+          "분석 목적과 결론 명확히",
+          "불확실성 인정하는 자세",
+          "SQL 기본은 반드시"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-job-edu-creator-journey-001",
+    "title": "AI 교육 콘텐츠 개발자로 에듀테크 취업 패스",
+    "description": "AI 교육 도구로 수업 자료를 개발하고 파일럿 수업 경험을 쌓아, 에듀테크 기업·교육 콘텐츠 회사에 러닝 디자이너·AI 교육 기획자로 취업하는 12개월 로드맵.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "communicate",
+    "starName": "소통 왕국",
+    "starEmoji": "📡",
+    "starColor": "#E91E63",
+    "jobId": "job-edu-creator",
+    "jobName": "AI 교육 콘텐츠 개발자",
+    "jobEmoji": "🎓",
+    "category": "job",
+    "relatedJobs": [
+      "에듀테크 기획자",
+      "러닝 디자이너",
+      "AI 교육 강사"
+    ],
+    "averageSalary": "2,800~4,200만원 (신입)",
+    "jobMarket": "성장",
+    "likes": 234,
+    "uses": 156,
+    "tags": [
+      "에듀테크",
+      "AI교육",
+      "러닝디자인",
+      "취업",
+      "교육기획"
+    ],
+    "totalItems": 13,
+    "years": [
+      {
+        "gradeId": "step1",
+        "gradeLabel": "기초 역량 (1~3개월)",
+        "goals": [
+          "AI 교육 도구 7종 마스터",
+          "교육 설계(ADDIE·학습 목표) 기초 이해",
+          "미니 수업 자료 10차시 제작"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 교육 도구 7종 집중 실습",
+            "months": [
+              1,
+              2
+            ],
+            "difficulty": 2,
+            "cost": "무료~소량",
+            "organizer": "자체",
+            "description": "ChatGPT(문제·퀴즈 생성), Gamma(슬라이드), Canva AI(시각자료), Notebook LM(학습 자료), Khanmigo(튜터링), MagicSchool(교사 도구), Diffit(수준별 자료) 각 실습. 결과: 도구별 사용 가이드 정리.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "교육 설계 기초 학습 + 미니 수업 자료 10차시 완성",
+            "months": [
+              2,
+              3
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (Coursera 무료 러닝 디자인 강의)",
+            "description": "학습 목표→내용 설계→평가 기초(ADDIE 모델). AI 도구로 초등·중등 수준별 수업 자료 10차시 제작. 결과: 수업 자료 10차시 파일.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "certification",
+            "title": "Google for Education Level 1 공식 수료",
+            "months": [
+              3
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "Google for Education",
+            "description": "AI 교육 도구 공식 자격. 이력서 기재. 결과: Google 교육 자격증.",
+            "categoryTags": []
+          }
+        ]
+      },
+      {
+        "gradeId": "step2",
+        "gradeLabel": "실전 역량 (3~7개월)",
+        "goals": [
+          "완성도 높은 교육 콘텐츠 시리즈 20차시",
+          "파일럿 수업 3회 진행 + 효과 측정",
+          "AI 교육 트렌드 보고서 2편"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "AI 활용 교육 콘텐츠 시리즈 20차시 완성",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "관심 교과·주제 20차시 분량. AI 도구로 수준별 자료(초급·중급·고급) 각각 제작. 결과: 20차시 수업 자료 패키지.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "파일럿 수업 3회 진행 + 학습 효과 측정 보고서",
+            "months": [
+              5,
+              6,
+              7
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체·지역 학원·방과후 학교",
+            "description": "실제 학생 5~10명에게 3회 수업 진행. 사전·사후 평가로 학습 효과 측정. AI 도구 사용 전/후 비교. 결과: 파일럿 수업 보고서 3편 + 학생 만족도 데이터.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          },
+          {
+            "type": "activity",
+            "title": "AI 교육 트렌드 분석 보고서 2편 (공개)",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (노션·벨로그 공개)",
+            "description": "'국내 에듀테크 AI 적용 사례 분석', '학생 AI 활용 교육 효과 연구 리뷰' 등. 결과: 공개 보고서 2편 + 업계 전문성 노출.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research"
+          }
+        ]
+      },
+      {
+        "gradeId": "step3",
+        "gradeLabel": "포트폴리오·취업 (7~12개월)",
+        "goals": [
+          "교육 콘텐츠 포트폴리오 완성",
+          "에듀테크 인턴십 1회",
+          "최종 정규직 취업"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "교육 콘텐츠 포트폴리오 사이트 완성",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "20차시 콘텐츠 + 파일럿 수업 결과 + 학생 만족도 수치 + AI 트렌드 보고서를 포트폴리오 사이트로 통합. 결과: 포트폴리오 URL.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          },
+          {
+            "type": "activity",
+            "title": "에듀테크 기업 인턴십 지원 및 경험",
+            "months": [
+              8,
+              9,
+              10
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "클래스101·뤼튼·밀리의서재·EBS 에듀테크",
+            "description": "교육 콘텐츠 개발·러닝 디자인 인턴 포지션 지원. 결과: 인턴십 경험 + 실무 포트폴리오 추가.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "intern"
+          },
+          {
+            "type": "activity",
+            "title": "에듀테크·교육 기업 15곳 지원 + 최종 취업",
+            "months": [
+              10,
+              11,
+              12
+            ],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "목표 기업",
+            "description": "러닝 디자이너·AI 교육 기획자·콘텐츠 개발자 포지션 집중 지원. 면접: 'AI 시대 교육의 역할' 철학 답변 + 파일럿 수업 결과 발표. 결과: 최종 취업.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general"
+          }
+        ]
+      }
+    ],
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "에듀테크 스타트업",
+        "quote": "유튜브 구독자 500명짜리 채널이 포트폴리오였는데, 실제 학습자 피드백이 담겨있어서 설득력이 있었어요.",
+        "strategy": "실제 학생 대상으로 무료 강의 → 피드백 수집 → 개선 반복 사이클 완성",
+        "tips": [
+          "수강생 후기 보존 (동의 받고)",
+          "학습 효과 수치 측정 방법 준비",
+          "AI 활용 제작 시간 단축 증명"
+        ]
+      },
+      {
+        "year": "2025",
+        "admissionType": "공교육 에듀테크",
+        "quote": "AI로 교육 자료를 만드는 속도와 품질에 감탄했다고 했어요. 선생님 출신이 아니어도 괜찮다고 하더라고요.",
+        "strategy": "중·고등학교 교사와 협업해 실제 수업 자료 제작, 검증 경험 쌓기",
+        "tips": [
+          "교과 연계 근거 명확히",
+          "저작권 클리어한 AI 이미지만",
+          "EBS 콘텐츠 형식 분석 후 참고"
+        ]
+      }
+    ]
+  }
+]

@@ -63,7 +63,7 @@ export function SuccessStoriesSection({ template }: { readonly template: Templat
         합격 후기
       </div>
       <div className="px-4 pb-4 space-y-4">
-        {tpl.successStories.map((s, i) => (
+        {tpl.successStories.map((s: { year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }, i) => (
           <div key={i} className="rounded-xl p-3 space-y-2"
             style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.06)' }}>
             <div className="flex items-center gap-2 flex-wrap">

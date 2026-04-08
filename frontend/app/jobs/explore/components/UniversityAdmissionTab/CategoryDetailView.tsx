@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronRight, Target, CalendarDays, Zap, Trophy } from 'lucide-react';
+import { ChevronDown, ChevronRight, Eye, CalendarDays, BrainCircuit, Crosshair } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 
 type AdmissionCategory = {
@@ -22,19 +22,49 @@ type AdmissionCategory = {
 type CategoryPlaybook = {
   categoryId: string;
   coreMessage: string;
-  weeklyActions: string[];
+  admissionOfficerView: {
+    title: string;
+    points: Array<{
+      no: number;
+      label: string;
+      detail: string;
+    }>;
+  };
   gradeRoadmap: Array<{
     grade: string;
     goal: string;
     missionChecklist: string[];
     outputExamples: string[];
+    aiProject?: string;
   }>;
-  k2028Strategy: Array<{
-    change: string;
-    studentAction: string;
-    deadline: string;
-  }>;
-  practicalExamples: {
+  ai2028Strategy: {
+    overview: string;
+    selectionCriteria: Array<{
+      criterion: string;
+      description: string;
+      example: string;
+    }>;
+    keyProjects: Array<{
+      grade: string;
+      focus: string;
+      project: string;
+      note: string;
+    }>;
+  };
+  appealStrategy: {
+    steps: Array<{
+      step: number;
+      title: string;
+      action: string;
+      tip: string;
+    }>;
+    doList: string[];
+    dontList: string[];
+  };
+  // legacy fields (kept for backward compat)
+  weeklyActions?: string[];
+  k2028Strategy?: Array<{ change: string; studentAction: string; deadline: string; }>;
+  practicalExamples?: {
     setakSentenceTemplates: string[];
     interviewQuestions: string[];
     makerAndResearchExamples: string[];
@@ -43,10 +73,7 @@ type CategoryPlaybook = {
     areaId: string;
     areaTitle: string;
     areaSummary: string;
-    qaItems: Array<{
-      question: string;
-      answer: string;
-    }>;
+    qaItems: Array<{ question: string; answer: string; }>;
   }>;
 };
 
@@ -66,10 +93,10 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
   useEffect(() => setMounted(true), []);
 
   const tabs: Array<{ id: TabId; label: string; icon: any }> = [
-    { id: 'core', label: '핵심전략', icon: Target },
+    { id: 'core', label: '입학사정관', icon: Eye },
     { id: 'grade', label: '학년별', icon: CalendarDays },
-    { id: 'strategy2028', label: '2028대응', icon: Zap },
-    { id: 'practical', label: '실전예시', icon: Trophy },
+    { id: 'strategy2028', label: 'AI 2028전략', icon: BrainCircuit },
+    { id: 'practical', label: '어필 전략', icon: Crosshair },
   ];
 
   const panelScrollClass =
@@ -131,9 +158,9 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
           })}
         </div>
 
-        {activeTab === 'core' && <CoreStrategyTab category={category} playbook={playbook} />}
+        {activeTab === 'core' && <AdmissionOfficerTab category={category} playbook={playbook} />}
         {activeTab === 'grade' && <GradeRoadmapTab category={category} playbook={playbook} />}
-        {activeTab === 'strategy2028' && <Strategy2028Tab category={category} playbook={playbook} />}
+        {activeTab === 'strategy2028' && <Ai2028StrategyTab category={category} playbook={playbook} />}
         {activeTab === 'practical' && (
           <CategoryPracticalExamplesPanel category={category} playbook={playbook} />
         )}
@@ -158,44 +185,68 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
   );
 }
 
-function CoreStrategyTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
+function AdmissionOfficerTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
+  const view = playbook.admissionOfficerView;
   return (
     <div className="space-y-3">
-      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <div className="flex items-center gap-2 mb-2">
-          <Target className="w-4 h-4" style={{ color: category.color }} />
-          <h3 className="text-sm font-bold text-white">지금 당장 해야 할 주간 액션</h3>
+      {/* 헤더 배너 */}
+      <div
+        className="rounded-xl p-3"
+        style={{
+          background: `linear-gradient(135deg, ${category.color}22 0%, ${category.color}10 100%)`,
+          border: `1px solid ${category.color}55`,
+        }}
+      >
+        <div className="flex items-center gap-2 mb-1">
+          <Eye className="w-4 h-4" style={{ color: category.color }} />
+          <h3 className="text-sm font-bold text-white">{view?.title ?? '입학사정관이 보는 핵심 3가지'}</h3>
         </div>
-        <div className="space-y-1.5">
-          {playbook.weeklyActions.map((action, index) => (
+        <p className="text-[11px] text-white/65">입학사정관의 시선으로 내 준비를 점검하세요</p>
+      </div>
+
+      {/* 3가지 관점 카드 */}
+      {(view?.points ?? []).map((point) => (
+        <div
+          key={point.no}
+          className="rounded-xl p-3 bg-white/5 border border-white/10"
+        >
+          <div className="flex items-center gap-2 mb-2">
             <div
-              key={index}
-              className="flex items-start gap-2 text-sm text-white/85 p-2 rounded-lg"
-              style={{ background: category.bgColor, border: `1px solid ${category.color}2a` }}
+              className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+              style={{ background: category.bgColor, color: category.color, border: `1px solid ${category.color}` }}
             >
-              <span style={{ color: category.color }}>✔</span>
-              <span className="flex-1">{action}</span>
+              {point.no}
+            </div>
+            <h4 className="text-sm font-bold" style={{ color: category.color }}>{point.label}</h4>
+          </div>
+          <p className="text-xs text-white/85 leading-relaxed pl-8">{point.detail}</p>
+        </div>
+      ))}
+
+      {/* 전형 핵심 특징 */}
+      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
+        <h3 className="text-sm font-bold text-white mb-2">🎯 이 전형 핵심 특징</h3>
+        <div className="space-y-1">
+          {category.keyFeatures.map((feature, index) => (
+            <div key={index} className="flex items-start gap-2 text-xs text-white/80">
+              <span style={{ color: category.color }} className="flex-shrink-0">▸</span>
+              <span>{feature}</span>
             </div>
           ))}
         </div>
       </div>
 
+      {/* 이 전형에 맞는 학생 */}
       <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <h3 className="text-sm font-bold text-white mb-2">합격에 직접 연결되는 핵심 특징</h3>
-        {category.keyFeatures.map((feature, index) => (
-          <p key={index} className="text-sm text-white/80 mb-1">
-            • {feature}
-          </p>
-        ))}
-      </div>
-
-      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <h3 className="text-sm font-bold text-white mb-2">이 전형과 잘 맞는 학생 유형</h3>
-        {category.targetStudents.map((student, index) => (
-          <p key={index} className="text-sm text-white/80 mb-1">
-            • {student}
-          </p>
-        ))}
+        <h3 className="text-sm font-bold text-white mb-2">✅ 이 전형에 맞는 학생</h3>
+        <div className="space-y-1">
+          {category.targetStudents.map((student, index) => (
+            <div key={index} className="flex items-start gap-2 text-xs text-white/80">
+              <span style={{ color: category.color }} className="flex-shrink-0">•</span>
+              <span>{student}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -279,6 +330,21 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
                     ))}
                   </ul>
                 </div>
+
+                {/* 4단계: AI 프로젝트 */}
+                {gradePlan.aiProject && (
+                  <div className="px-4 py-2 pl-8 border-t border-white/5">
+                    <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                      🤖 AI 프로젝트
+                    </p>
+                    <div
+                      className="rounded-lg px-2.5 py-2"
+                      style={{ background: `${category.color}15`, border: `1px solid ${category.color}30` }}
+                    >
+                      <p className="text-xs text-white/85 leading-relaxed">{gradePlan.aiProject}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -288,31 +354,75 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
   );
 }
 
-function Strategy2028Tab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
+function Ai2028StrategyTab({ category, playbook }: { category: AdmissionCategory; playbook: CategoryPlaybook }) {
+  const strat = playbook.ai2028Strategy;
   return (
     <div className="space-y-3">
+      {/* 개요 배너 */}
       <div
         className="rounded-xl p-3"
         style={{
-          background: 'linear-gradient(135deg, rgba(251,191,36,0.2) 0%, rgba(245,158,11,0.2) 100%)',
-          border: '1px solid rgba(251,191,36,0.35)',
+          background: 'linear-gradient(135deg, rgba(99,102,241,0.25) 0%, rgba(16,185,129,0.18) 100%)',
+          border: '1px solid rgba(99,102,241,0.45)',
         }}
       >
         <div className="flex items-center gap-2 mb-2">
-          <Zap className="w-4 h-4 text-yellow-300" />
-          <h3 className="text-sm font-bold text-white">2028 개편 대응 액션 플랜</h3>
+          <BrainCircuit className="w-4 h-4 text-indigo-300" />
+          <h3 className="text-sm font-bold text-white">2028 AI 연계 선발 기준</h3>
         </div>
-        {playbook.k2028Strategy.map((strategy, index) => (
-          <div key={index} className="rounded-lg p-2.5 bg-black/25 mb-2 last:mb-0">
-            <p className="text-xs text-yellow-200 font-semibold mb-1">{strategy.change}</p>
-            <p className="text-xs text-white/85 mb-1">실행: {strategy.studentAction}</p>
-            <p className="text-xs text-white/70">점검 시점: {strategy.deadline}</p>
-          </div>
-        ))}
+        <p className="text-xs text-white/85 leading-relaxed">{strat?.overview ?? ''}</p>
       </div>
 
+      {/* 선발 기준 카드 */}
       <div className="rounded-xl p-3 bg-white/5 border border-white/10">
-        <h3 className="text-sm font-bold text-white mb-2">대학 리스트(참고)</h3>
+        <h3 className="text-sm font-bold text-white mb-2.5">🔍 어떤 학생을 선발하는가</h3>
+        <div className="space-y-2">
+          {(strat?.selectionCriteria ?? []).map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-lg p-2.5"
+              style={{ background: category.bgColor, border: `1px solid ${category.color}35` }}
+            >
+              <p className="text-xs font-bold mb-1" style={{ color: category.color }}>
+                {String(idx + 1).padStart(2, '0')} {item.criterion}
+              </p>
+              <p className="text-xs text-white/85 mb-1.5 leading-relaxed">{item.description}</p>
+              <div
+                className="rounded px-2 py-1"
+                style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${category.color}25` }}
+              >
+                <p className="text-[11px] text-white/65">💡 예시: {item.example}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 학년별 AI 프로젝트 로드맵 */}
+      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
+        <h3 className="text-sm font-bold text-white mb-2.5">📅 학년별 AI 프로젝트 로드맵</h3>
+        <div className="space-y-2">
+          {(strat?.keyProjects ?? []).map((proj, idx) => (
+            <div key={idx} className="rounded-lg p-2.5 bg-black/20 border border-white/8">
+              <div className="flex items-center gap-2 mb-1">
+                <span
+                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                  style={{ background: category.bgColor, color: category.color, border: `1px solid ${category.color}` }}
+                >
+                  {proj.grade}
+                </span>
+                <p className="text-xs font-semibold text-white/90">{proj.focus}</p>
+              </div>
+              <p className="text-xs text-white/80 mb-1 pl-1">▸ {proj.project}</p>
+              <p className="text-[11px] text-white/55 pl-1">📌 {proj.note}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 대학 리스트 */}
+      <div className="rounded-xl p-3 bg-white/5 border border-white/10">
+        <h3 className="text-sm font-bold text-white mb-2">🏫 주요 지원 대학</h3>
         <div className="flex flex-wrap gap-1.5">
           {category.universities.map((university, index) => (
             <span
