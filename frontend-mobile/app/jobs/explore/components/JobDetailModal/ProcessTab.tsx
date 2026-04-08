@@ -76,8 +76,8 @@ function ProcessTreeNode({
   starColor: string;
   isLast: boolean;
 }) {
-  const tools = phase.tools ?? [];
-  const skills = phase.skills ?? [];
+  const tools = Array.isArray(phase.tools) ? phase.tools : [];
+  const skills = Array.isArray(phase.skills) ? phase.skills : [];
 
   return (
     <div className="relative flex gap-4">
