@@ -302,6 +302,38 @@ export type SchoolSelectionProfile = {
   middleSchoolSelectionChecklist: string[];
 };
 
+/** 학교 기본 정보 카드 (학교 소개 탭 상단 그리드 렌더링용) */
+export type SchoolInfoCard = {
+  /** 선발 범위 + 교통 요약 (예: "서울시 단위 · 통학 가능") */
+  regionScope: string;
+  /** 연간 입학 정원 + 총 재학생 (예: "연 360명 · 총 1,080명") */
+  capacity: string;
+  /** 남녀 비율 (예: "남 40% · 여 60%") */
+  genderRatio: string;
+  /** 기숙사 유형 (예: "선택 기숙사 · 4인실") */
+  dormitoryType: string;
+  /** 연간 총 예상 비용 (예: "연 800~1,000만원 (기숙사 포함 시)") */
+  costPerYear: string;
+  /** 장학금·소득 지원 요약 (예: "기초수급자 등록금 100% · 국가장학금 신청 가능") */
+  scholarship: string;
+  /** 소득 하위 가정을 위한 현실 조언 */
+  lowIncomeAdvice?: string;
+};
+
+/** 입학 자격 요약 (학교 소개 탭 렌더링용) */
+export type SchoolAdmissionQualifications = {
+  /** 필수 조건 목록 (없으면 사실상 불합격) */
+  mandatory: string[];
+  /** 우대 조건 목록 (있으면 유리) */
+  recommended?: string[];
+  /** 면접 형식 요약 */
+  interviewFormat?: string;
+  /** 경쟁률 (예: "약 5:1") */
+  competitionRate?: string;
+  /** AI 관련 전형 팁 */
+  aiTip?: string;
+};
+
 export type HighSchoolDetail = {
   id: string;
   name: string;
@@ -339,6 +371,18 @@ export type HighSchoolDetail = {
   socialLife?: string;
   mentalHealthNote?: string;
   aiEraStrategy?: HighSchoolAiEraStrategy;
+  /** 학교 소개 한 줄 설명 (학교 소개 탭 상단) */
+  description?: string;
+  /** 학교 기본 정보 카드 그리드 (정원·남녀비율·등록금·기숙사·장학금) */
+  schoolInfoCard?: SchoolInfoCard;
+  /** 입학 자격 요약 (필수·우대 조건) */
+  admissionQualifications?: SchoolAdmissionQualifications;
+  /** 학습 방식 상세 설명 */
+  studyStyleDetail?: string;
+  /** 졸업 후 진로 요약 */
+  futureOutlook?: string;
+  /** 학교 공식 홈페이지 URL */
+  websiteUrl?: string;
 };
 
 export type HighSchoolAiEraStrategy = {
