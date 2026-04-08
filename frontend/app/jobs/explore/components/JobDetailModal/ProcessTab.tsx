@@ -76,8 +76,8 @@ function ProcessTreeNode({
   starColor: string;
   isLast: boolean;
 }) {
-  const tools = phase.tools ?? [];
-  const skills = phase.skills ?? [];
+  const tools = Array.isArray(phase.tools) ? phase.tools : [];
+  const skills = Array.isArray(phase.skills) ? phase.skills : [];
 
   return (
     <div className="relative flex gap-4">
@@ -149,9 +149,9 @@ function ProcessTreeNode({
                 <span className="text-xs font-bold text-gray-400">사용 도구</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {tools.map((tool) => (
+                {tools.map((tool, i) => (
                   <span
-                    key={tool}
+                    key={`${tool}-${i}`}
                     className="px-2.5 py-1 rounded-lg text-xs font-semibold"
                     style={{
                       backgroundColor: 'rgba(255,255,255,0.06)',
@@ -173,9 +173,9 @@ function ProcessTreeNode({
                 <span className="text-xs font-bold text-gray-400">필요 스킬</span>
               </div>
               <div className="flex flex-wrap gap-1.5">
-                {skills.map((skill) => (
+                {skills.map((skill, i) => (
                   <span
-                    key={skill}
+                    key={`${skill}-${i}`}
                     className="px-2.5 py-1 rounded-lg text-xs font-bold"
                     style={{
                       backgroundColor: 'rgba(251,191,36,0.12)',

@@ -153,7 +153,166 @@
       "workProcess": {
         "title": "기자의 직무 프로세스",
         "description": "뉴스를 취재하고 보도하는 전문가입니다. AI 시대에는 탐사 저널리스트로 진화합니다.",
-        "phases": []
+        "phases": [
+          {
+            "id": 1,
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "기자이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 기자 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
+            ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Google Alerts AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
+            "skills": [
+              "Google Alerts AI",
+              "Grammarly AI",
+              "ChatGPT",
+              "BuzzSumo AI"
+            ]
+          },
+          {
+            "id": 2,
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 기자 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
+            ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Google Alerts AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
+            "skills": [
+              "Google Alerts AI",
+              "Grammarly AI",
+              "Otter.ai",
+              "Reuters AI",
+              "ChatGPT",
+              "Jasper AI"
+            ]
+          },
+          {
+            "id": 3,
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
+            ],
+            "aiRole": "Google Alerts AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
+            "skills": [
+              "Google Alerts AI",
+              "Grammarly AI",
+              "Otter.ai",
+              "Reuters AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Grammarly AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Google Alerts AI",
+              "Grammarly AI",
+              "Otter.ai",
+              "Reuters AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Google Alerts AI",
+              "Grammarly AI",
+              "Otter.ai",
+              "Reuters AI",
+              "ChatGPT",
+              "Notion AI"
+            ]
+          }
+        ]
       },
       "careerTimeline": {
         "title": "기자의 준비 경로",
@@ -504,50 +663,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "콘텐츠 전략가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "콘텐츠전략가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 콘텐츠전략가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, BuzzSumo AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "BuzzSumo AI",
+              "SEMrush AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "콘텐츠 전략을 수립하는 전문가입니다. AI 콘텐츠 생성 감독 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 콘텐츠전략가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, BuzzSumo AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "BuzzSumo AI",
+              "SEMrush AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "BuzzSumo AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "BuzzSumo AI",
+              "SEMrush AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, SEMrush AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "BuzzSumo AI",
+              "SEMrush AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "BuzzSumo AI",
+              "SEMrush AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -901,50 +1170,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "카피라이터 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "카피라이터이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 카피라이터 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Jasper AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Jasper AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "광고 문구를 작성하는 전문가입니다. AI 시대에는 크리에이티브 디렉터로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 카피라이터 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Jasper AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Jasper AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Persado AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Jasper AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Jasper AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Persado AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Jasper AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Persado AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Jasper AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Persado AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -1298,50 +1677,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "소셜미디어 매니저 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "소셜미디어매니저이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 소셜미디어매니저 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Hootsuite AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Hootsuite AI",
+              "Buffer AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "소셜미디어를 관리하는 전문가입니다. AI 콘텐츠 생성 감독 및 커뮤니티 관계 전문가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 소셜미디어매니저 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Hootsuite AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Hootsuite AI",
+              "Buffer AI",
+              "Sprout Social AI",
+              "Canva AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Hootsuite AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Hootsuite AI",
+              "Buffer AI",
+              "Sprout Social AI",
+              "Canva AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Buffer AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Hootsuite AI",
+              "Buffer AI",
+              "Sprout Social AI",
+              "Canva AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Hootsuite AI",
+              "Buffer AI",
+              "Sprout Social AI",
+              "Canva AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -1694,50 +2183,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "PR 전문가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "PR전문가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: PR전문가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Meltwater AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "홍보를 담당하는 전문가입니다. AI 보도자료 생성 감독 및 PR 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: PR전문가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Meltwater AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Meltwater AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Cision AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -2091,50 +2690,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "마케터 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "마케터이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 마케터 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, HubSpot AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "HubSpot AI",
+              "Google Analytics AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "마케팅을 기획하고 실행하는 전문가입니다. AI 시대에는 마케팅 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 마케터 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, HubSpot AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "HubSpot AI",
+              "Google Analytics AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "HubSpot AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "HubSpot AI",
+              "Google Analytics AI",
+              "ChatGPT",
+              "Canva AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Google Analytics AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "HubSpot AI",
+              "Google Analytics AI",
+              "ChatGPT",
+              "Canva AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "HubSpot AI",
+              "Google Analytics AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -2487,50 +3196,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "브랜드 매니저 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "브랜드매니저이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 브랜드매니저 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Brandwatch AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Brandwatch AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "브랜드를 관리하는 전문가입니다. AI 브랜드 데이터 해석 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 브랜드매니저 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Brandwatch AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Brandwatch AI",
+              "ChatGPT",
+              "Canva AI",
+              "Tableau",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Brandwatch AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Brandwatch AI",
+              "ChatGPT",
+              "Canva AI",
+              "Tableau",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Brandwatch AI",
+              "ChatGPT",
+              "Canva AI",
+              "Tableau",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Brandwatch AI",
+              "ChatGPT",
+              "Canva AI",
+              "Tableau",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -2884,50 +3703,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "광고기획자 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "광고기획자이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 광고기획자 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Meta Ads AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Meta Ads AI",
+              "Google Ads AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "광고를 기획하는 전문가입니다. AI 광고 생성 감독 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 광고기획자 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Meta Ads AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Meta Ads AI",
+              "Google Ads AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Meta Ads AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Meta Ads AI",
+              "Google Ads AI",
+              "ChatGPT",
+              "Canva AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Google Ads AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Meta Ads AI",
+              "Google Ads AI",
+              "ChatGPT",
+              "Canva AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Meta Ads AI",
+              "Google Ads AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -3280,50 +4209,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "매체기획자 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "미디어플래너이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 미디어플래너 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, DV360 AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "DV360 AI",
+              "Nielsen AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "광고 매체를 기획하는 전문가입니다. AI 매체 분석 해석 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 미디어플래너 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, DV360 AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "DV360 AI",
+              "Nielsen AI",
+              "Comscore AI",
+              "Google Analytics",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "DV360 AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "DV360 AI",
+              "Nielsen AI",
+              "Comscore AI",
+              "Google Analytics",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Nielsen AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "DV360 AI",
+              "Nielsen AI",
+              "Comscore AI",
+              "Google Analytics",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "DV360 AI",
+              "Nielsen AI",
+              "Comscore AI",
+              "Google Analytics",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -3674,7 +4713,166 @@
       "workProcess": {
         "title": "영상 프로듀서의 직무 프로세스",
         "description": "영상을 제작하는 프로듀서입니다. AI 영상 생성 감독 및 스토리 전략가로 진화합니다.",
-        "phases": []
+        "phases": [
+          {
+            "id": 1,
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "영상PD이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 영상PD 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
+            ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Adobe Premiere AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
+            "skills": [
+              "Adobe Premiere AI",
+              "Descript AI",
+              "ChatGPT",
+              "BuzzSumo AI"
+            ]
+          },
+          {
+            "id": 2,
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 영상PD 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
+            ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Adobe Premiere AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
+            "skills": [
+              "Adobe Premiere AI",
+              "Descript AI",
+              "Runway ML",
+              "CapCut AI",
+              "ChatGPT",
+              "Jasper AI"
+            ]
+          },
+          {
+            "id": 3,
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
+            ],
+            "aiRole": "Adobe Premiere AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
+            "skills": [
+              "Adobe Premiere AI",
+              "Descript AI",
+              "Runway ML",
+              "CapCut AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Descript AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Adobe Premiere AI",
+              "Descript AI",
+              "Runway ML",
+              "CapCut AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Adobe Premiere AI",
+              "Descript AI",
+              "Runway ML",
+              "CapCut AI",
+              "ChatGPT",
+              "Notion AI"
+            ]
+          }
+        ]
       },
       "careerTimeline": {
         "title": "영상 프로듀서의 준비 경로",
@@ -4025,50 +5223,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "팟캐스트 프로듀서 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "팟캐스트PD이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 팟캐스트PD 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Descript AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Descript AI",
+              "Adobe Podcast AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "팟캐스트를 제작하는 프로듀서입니다. AI 편집 감독 및 콘텐츠 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 팟캐스트PD 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Descript AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Descript AI",
+              "Adobe Podcast AI",
+              "Otter.ai",
+              "Auphonic AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Descript AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Descript AI",
+              "Adobe Podcast AI",
+              "Otter.ai",
+              "Auphonic AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Adobe Podcast AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Descript AI",
+              "Adobe Podcast AI",
+              "Otter.ai",
+              "Auphonic AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Descript AI",
+              "Adobe Podcast AI",
+              "Otter.ai",
+              "Auphonic AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -4420,50 +5728,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "인플루언서 매니저 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "인플루언서매니저이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 인플루언서매니저 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Later AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Later AI",
+              "Hootsuite AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "인플루언서를 관리하는 전문가입니다. AI 데이터 분석 해석 및 관계 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 인플루언서매니저 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Later AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Later AI",
+              "Hootsuite AI",
+              "HypeAuditor AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Later AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Later AI",
+              "Hootsuite AI",
+              "HypeAuditor AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Hootsuite AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Later AI",
+              "Hootsuite AI",
+              "HypeAuditor AI",
+              "ChatGPT",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Later AI",
+              "Hootsuite AI",
+              "HypeAuditor AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -4817,50 +6235,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "SEO 전문가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "SEO전문가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: SEO전문가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Semrush AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Semrush AI",
+              "Ahrefs AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "검색 최적화를 담당하는 전문가입니다. AI SEO 자동화 감독 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: SEO전문가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Semrush AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Semrush AI",
+              "Ahrefs AI",
+              "Surfer SEO AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Semrush AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Semrush AI",
+              "Ahrefs AI",
+              "Surfer SEO AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Ahrefs AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Semrush AI",
+              "Ahrefs AI",
+              "Surfer SEO AI",
+              "ChatGPT",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Semrush AI",
+              "Ahrefs AI",
+              "Surfer SEO AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -5213,50 +6741,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "퍼포먼스 마케터 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "퍼포먼스마케터이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 퍼포먼스마케터 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Google Ads AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Google Ads AI",
+              "Meta Ads AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "성과형 마케팅을 담당하는 전문가입니다. AI 광고 자동화 감독 및 최적화 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 퍼포먼스마케터 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Google Ads AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Google Ads AI",
+              "Meta Ads AI",
+              "Supermetrics AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Google Ads AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Google Ads AI",
+              "Meta Ads AI",
+              "Supermetrics AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Meta Ads AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Google Ads AI",
+              "Meta Ads AI",
+              "Supermetrics AI",
+              "ChatGPT",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Google Ads AI",
+              "Meta Ads AI",
+              "Supermetrics AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -5609,50 +7247,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "커뮤니티 매니저 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "커뮤니티매니저이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 커뮤니티매니저 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Circle AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Circle AI",
+              "Discord AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "온라인 커뮤니티를 관리하는 전문가입니다. AI 대체 불가 영역으로 관계 형성이 핵심입니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 커뮤니티매니저 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Circle AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Circle AI",
+              "Discord AI",
+              "Hootsuite AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Circle AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Circle AI",
+              "Discord AI",
+              "Hootsuite AI",
+              "ChatGPT",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Discord AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Circle AI",
+              "Discord AI",
+              "Hootsuite AI",
+              "ChatGPT",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Circle AI",
+              "Discord AI",
+              "Hootsuite AI",
+              "ChatGPT",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -6004,50 +7752,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "강연자 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "강연자이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 강연자 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Gamma AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Gamma AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "강연을 하는 전문가입니다. AI 대체 불가 영역으로 감정 전달이 핵심입니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 강연자 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Gamma AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Gamma AI",
+              "ChatGPT",
+              "Descript AI",
+              "Speeko AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Gamma AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Gamma AI",
+              "ChatGPT",
+              "Descript AI",
+              "Speeko AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Gamma AI",
+              "ChatGPT",
+              "Descript AI",
+              "Speeko AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Gamma AI",
+              "ChatGPT",
+              "Descript AI",
+              "Speeko AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -6400,50 +8258,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "이벤트 기획자 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "이벤트기획자이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 이벤트기획자 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Cvent AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Cvent AI",
+              "Hopin AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "이벤트를 기획하는 전문가입니다. AI 이벤트 시뮬레이션 감독 및 경험 설계자로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 이벤트기획자 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Cvent AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Cvent AI",
+              "Hopin AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Cvent AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Cvent AI",
+              "Hopin AI",
+              "ChatGPT",
+              "Canva AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Hopin AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Cvent AI",
+              "Hopin AI",
+              "ChatGPT",
+              "Canva AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Cvent AI",
+              "Hopin AI",
+              "ChatGPT",
+              "Canva AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -6792,7 +8760,166 @@
       "workProcess": {
         "title": "방송인의 직무 프로세스",
         "description": "방송을 진행하는 전문가입니다. AI 대체 불가 영역으로 감정 전달이 핵심입니다.",
-        "phases": []
+        "phases": [
+          {
+            "id": 1,
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "방송인이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 방송인 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
+            ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Adobe Podcast AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
+            "skills": [
+              "Adobe Podcast AI",
+              "Descript AI",
+              "ChatGPT",
+              "BuzzSumo AI"
+            ]
+          },
+          {
+            "id": 2,
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 방송인 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
+            ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Adobe Podcast AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
+            "skills": [
+              "Adobe Podcast AI",
+              "Descript AI",
+              "Prompter AI",
+              "OBS AI",
+              "ChatGPT",
+              "Jasper AI"
+            ]
+          },
+          {
+            "id": 3,
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
+            ],
+            "aiRole": "Adobe Podcast AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
+            "skills": [
+              "Adobe Podcast AI",
+              "Descript AI",
+              "Prompter AI",
+              "OBS AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Descript AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Adobe Podcast AI",
+              "Descript AI",
+              "Prompter AI",
+              "OBS AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Adobe Podcast AI",
+              "Descript AI",
+              "Prompter AI",
+              "OBS AI",
+              "ChatGPT",
+              "Notion AI"
+            ]
+          }
+        ]
       },
       "careerTimeline": {
         "title": "방송인의 준비 경로",
@@ -7142,50 +9269,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "시나리오 작가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "작가·시나리오작가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 작가·시나리오작가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, ChatGPT으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "ChatGPT",
+              "Jasper AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "시나리오를 쓰는 작가입니다. AI 시나리오 생성 감독 및 스토리 창작자로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 작가·시나리오작가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, ChatGPT으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "ChatGPT",
+              "Jasper AI",
+              "Scrivener AI",
+              "Final Draft AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "ChatGPT으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "ChatGPT",
+              "Jasper AI",
+              "Scrivener AI",
+              "Final Draft AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Jasper AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "ChatGPT",
+              "Jasper AI",
+              "Scrivener AI",
+              "Final Draft AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "ChatGPT",
+              "Jasper AI",
+              "Scrivener AI",
+              "Final Draft AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -7538,50 +9775,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "편집자 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "편집자이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 편집자 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Grammarly AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Grammarly AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "콘텐츠를 편집하는 전문가입니다. AI 편집 감독 및 콘텐츠 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 편집자 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Grammarly AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Grammarly AI",
+              "ChatGPT",
+              "Hemingway AI",
+              "ProWritingAid",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Grammarly AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Grammarly AI",
+              "ChatGPT",
+              "Hemingway AI",
+              "ProWritingAid",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Grammarly AI",
+              "ChatGPT",
+              "Hemingway AI",
+              "ProWritingAid",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Grammarly AI",
+              "ChatGPT",
+              "Hemingway AI",
+              "ProWritingAid",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -7935,50 +10282,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "번역가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "번역가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 번역가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, DeepL AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "DeepL AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "번역을 하는 전문가입니다. AI 번역 감독 및 문화 번역가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 번역가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, DeepL AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "DeepL AI",
+              "ChatGPT",
+              "SDL Trados AI",
+              "Phrase AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "DeepL AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "DeepL AI",
+              "ChatGPT",
+              "SDL Trados AI",
+              "Phrase AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "DeepL AI",
+              "ChatGPT",
+              "SDL Trados AI",
+              "Phrase AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "DeepL AI",
+              "ChatGPT",
+              "SDL Trados AI",
+              "Phrase AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -8330,50 +10787,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "통역사 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "통역사이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 통역사 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, KUDO AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "KUDO AI",
+              "Interprefy AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "통역을 하는 전문가입니다. AI 통역 감독 및 문화 중재자로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 통역사 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, KUDO AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "KUDO AI",
+              "Interprefy AI",
+              "Google Translate AI",
+              "iInterpret AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "KUDO AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "KUDO AI",
+              "Interprefy AI",
+              "Google Translate AI",
+              "iInterpret AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Interprefy AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "KUDO AI",
+              "Interprefy AI",
+              "Google Translate AI",
+              "iInterpret AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "KUDO AI",
+              "Interprefy AI",
+              "Google Translate AI",
+              "iInterpret AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -8726,50 +11293,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "UX 라이터 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "UX라이터이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: UX라이터 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Notion AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Notion AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "UX 문구를 작성하는 전문가입니다. AI 문구 생성 감독 및 사용자 경험 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: UX라이터 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Notion AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Notion AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Figma AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Notion AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Notion AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Figma AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Notion AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Figma AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Notion AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Figma AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -9122,50 +11799,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "기술 커뮤니케이터 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "기술커뮤니케이터이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 기술커뮤니케이터 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Mintlify AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Mintlify AI",
+              "Notion AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "기술을 쉽게 설명하는 전문가입니다. AI 문서 생성 감독 및 사용자 이해 설계자로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 기술커뮤니케이터 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Mintlify AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Mintlify AI",
+              "Notion AI",
+              "Grammarly AI",
+              "GitBook AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Mintlify AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Mintlify AI",
+              "Notion AI",
+              "Grammarly AI",
+              "GitBook AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Notion AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Mintlify AI",
+              "Notion AI",
+              "Grammarly AI",
+              "GitBook AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Mintlify AI",
+              "Notion AI",
+              "Grammarly AI",
+              "GitBook AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -9518,50 +12305,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "위기소통 전문가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "위기커뮤니케이션전문가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 위기커뮤니케이션전문가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Meltwater AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "위기 상황 소통을 담당하는 전문가입니다. AI 위기 예측 해석 및 대응 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 위기커뮤니케이션전문가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Meltwater AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Slack AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Meltwater AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Slack AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Cision AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Slack AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Meltwater AI",
+              "Cision AI",
+              "ChatGPT",
+              "Slack AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -9913,50 +12810,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "사내 커뮤니케이션 전문가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "내부커뮤니케이션전문가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 내부커뮤니케이션전문가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Slack AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Slack AI",
+              "Teams AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "사내 소통을 관리하는 전문가입니다. AI 콘텐츠 생성 감독 및 조직 문화 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 내부커뮤니케이션전문가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Slack AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Slack AI",
+              "Teams AI",
+              "Staffbase AI",
+              "Poppulo AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Slack AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Slack AI",
+              "Teams AI",
+              "Staffbase AI",
+              "Poppulo AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Teams AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Slack AI",
+              "Teams AI",
+              "Staffbase AI",
+              "Poppulo AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Slack AI",
+              "Teams AI",
+              "Staffbase AI",
+              "Poppulo AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -10308,50 +13315,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "미디어 관계 전문가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "미디어관계전문가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 미디어관계전문가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Cision AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Cision AI",
+              "Meltwater AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "언론 관계를 관리하는 전문가입니다. AI 미디어 모니터링 해석 및 관계 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 미디어관계전문가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Cision AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Cision AI",
+              "Meltwater AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Cision AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Cision AI",
+              "Meltwater AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Meltwater AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Cision AI",
+              "Meltwater AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Cision AI",
+              "Meltwater AI",
+              "ChatGPT",
+              "Grammarly AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -10704,50 +13821,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "디지털 마케팅 분석가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "디지털마케팅분석가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 디지털마케팅분석가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, Google Analytics AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "Google Analytics AI",
+              "Tableau",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "디지털 마케팅을 분석하는 전문가입니다. AI 마케팅 데이터 해석 및 전략가로 진화합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 디지털마케팅분석가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, Google Analytics AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "Google Analytics AI",
+              "Tableau",
+              "Python AI",
+              "Supermetrics",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "Google Analytics AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "Google Analytics AI",
+              "Tableau",
+              "Python AI",
+              "Supermetrics",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Tableau AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "Google Analytics AI",
+              "Tableau",
+              "Python AI",
+              "Supermetrics",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "Google Analytics AI",
+              "Tableau",
+              "Python AI",
+              "Supermetrics",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -11100,50 +14327,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "브랜드 스토리텔러 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "브랜드스토리텔러이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 브랜드스토리텔러 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, ChatGPT으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "ChatGPT",
+              "Jasper AI",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "브랜드 스토리를 창작하는 전문가입니다. AI 시대의 필수 직종으로 부상합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 브랜드스토리텔러 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, ChatGPT으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "ChatGPT",
+              "Jasper AI",
+              "Canva AI",
+              "Gamma AI",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "ChatGPT으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "ChatGPT",
+              "Jasper AI",
+              "Canva AI",
+              "Gamma AI",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, Jasper AI AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "ChatGPT",
+              "Jasper AI",
+              "Canva AI",
+              "Gamma AI",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "ChatGPT",
+              "Jasper AI",
+              "Canva AI",
+              "Gamma AI",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]
@@ -11495,50 +14832,160 @@
         "phases": [
           {
             "id": 1,
-            "phase": "이해",
-            "icon": "🔍",
-            "title": "과제·상황 파악",
-            "description": "커뮤니케이션 전략가 업무에서 우선 해결할 과제와 이해관계자 요구를 정리합니다.",
-            "duration": "가변",
-            "tools": [
-              "협업 문서",
-              "업무 메모"
+            "phase": "전략·기획",
+            "icon": "🎯",
+            "title": "콘텐츠/캠페인 전략 수립",
+            "duration": "2~5일",
+            "description": "커뮤니케이션전략가이 목표 오디언스와 메시지 전략을 수립합니다.",
+            "example": "예: 커뮤니케이션전략가 실무 - AI 트렌드 분석 → 캠페인 방향 설정 → 콘텐츠 캘린더 작성",
+            "tasks": [
+              "목표 오디언스 분석 및 페르소나 정의",
+              "경쟁 분석 및 트렌드 조사",
+              "핵심 메시지 및 USP 정의",
+              "채널별 전략 수립",
+              "콘텐츠 캘린더 작성"
             ],
+            "aiRole": "BuzzSumo AI로 트렌드 콘텐츠 자동 분석, ChatGPT로 콘텐츠 아이디어 대량 생성, BuzzSumo AI으로 경쟁사 분석",
+            "humanRole": "브랜드 정체성에 맞는 전략 방향 최종 결정, 문화적 맥락과 뉘앙스 판단",
+            "output": [
+              "전략 수립",
+              "트렌드 분석",
+              "기획"
+            ],
+            "tools": "콘텐츠 전략 문서 + 콘텐츠 캘린더",
             "skills": [
-              "관찰력",
-              "문제 정의"
+              "BuzzSumo AI",
+              "ChatGPT",
+              "ChatGPT",
+              "BuzzSumo AI"
             ]
           },
           {
             "id": 2,
-            "phase": "실행",
-            "icon": "⚙️",
-            "title": "실행·검증",
-            "description": "커뮤니케이션 전략을 총괄하는 전문가입니다. AI 시대의 필수 직종으로 부상합니다.",
-            "duration": "가변",
-            "tools": [
-              "전문 도구",
-              "AI 보조"
+            "phase": "콘텐츠 제작",
+            "icon": "✍️",
+            "title": "AI 협업 콘텐츠 제작",
+            "duration": "2~7일",
+            "description": "AI 도구로 초안을 빠르게 만들고 전문가가 브랜드 보이스로 완성합니다.",
+            "example": "예: 커뮤니케이션전략가 실무 - AI로 초안 10분 완성 → 브랜드 톤 적용 → 문화 검수 → 최종화",
+            "tasks": [
+              "AI로 텍스트 초안 작성",
+              "브랜드 보이스 적용 및 감수",
+              "시각 자료 제작 (이미지·영상·그래픽)",
+              "SEO 최적화 적용",
+              "법적·윤리적 검토"
             ],
+            "aiRole": "ChatGPT/Claude로 텍스트 초안 자동 생성, BuzzSumo AI으로 디자인 자동화, Descript AI로 영상 편집 자동화",
+            "humanRole": "브랜드 일관성·문화적 뉘앙스 최종 판단, 오해 소지 콘텐츠 필터링",
+            "output": [
+              "콘텐츠 작성",
+              "브랜드 일관성",
+              "창의성"
+            ],
+            "tools": "완성된 콘텐츠 (글·이미지·영상)",
             "skills": [
-              "실행력",
-              "품질 관리"
+              "BuzzSumo AI",
+              "ChatGPT",
+              "Brandwatch AI",
+              "Tableau",
+              "ChatGPT",
+              "Jasper AI"
             ]
           },
           {
             "id": 3,
-            "phase": "개선",
-            "icon": "📈",
-            "title": "피드백·개선",
-            "description": "결과를 검토하고 다음 사이클을 설계합니다.",
-            "duration": "가변",
-            "tools": [
-              "리포트",
-              "대시보드"
+            "phase": "배포·운영",
+            "icon": "📢",
+            "title": "멀티채널 콘텐츠 배포",
+            "duration": "지속적",
+            "description": "최적 시간대에 여러 채널에 콘텐츠를 배포하고 커뮤니티를 운영합니다.",
+            "example": "예: AI 최적 게시 시간 분석 → 자동 스케줄링 배포 → 댓글 실시간 모니터링",
+            "tasks": [
+              "채널별 콘텐츠 포맷 최적화",
+              "최적 게시 시간 설정 및 자동 스케줄링",
+              "커뮤니티 댓글·DM 대응",
+              "실시간 트렌드 모니터링 및 대응",
+              "크로스 채널 일관성 관리"
             ],
+            "aiRole": "BuzzSumo AI으로 멀티채널 자동 배포·스케줄링, Hootsuite AI로 댓글 자동 분류, AI 트렌드 알림",
+            "humanRole": "위기 상황 및 부정 반응 즉각 판단, 실시간 창의적 대응",
+            "output": [
+              "멀티채널 운영",
+              "커뮤니티 관리",
+              "실시간 대응"
+            ],
+            "tools": "배포 기록 + 초기 반응 데이터",
             "skills": [
-              "피드백 수용",
-              "개선 루프"
+              "BuzzSumo AI",
+              "ChatGPT",
+              "Brandwatch AI",
+              "Tableau",
+              "Hootsuite AI",
+              "Buffer AI"
+            ]
+          },
+          {
+            "id": 4,
+            "phase": "성과 분석",
+            "icon": "📊",
+            "title": "데이터 기반 성과 측정",
+            "duration": "주간·월간",
+            "description": "채널별 성과 데이터를 분석하고 효과적인 콘텐츠 패턴을 파악합니다.",
+            "example": "예: AI 성과 대시보드 → 높은 인게이지먼트 콘텐츠 패턴 발견 → 전략 조정",
+            "tasks": [
+              "KPI 대시보드 주간 리뷰 (도달·참여·전환)",
+              "A/B 테스트 결과 분석",
+              "채널별 ROI 계산",
+              "상위 성과 콘텐츠 패턴 분석",
+              "경쟁사 성과 벤치마킹"
+            ],
+            "aiRole": "Google Analytics AI로 트래픽 자동 분석, ChatGPT AI로 성과 자동 보고, AI 인사이트 자동 생성",
+            "humanRole": "지표 뒤의 맥락 해석, 단기 지표 vs 장기 브랜드 가치 균형 판단",
+            "output": [
+              "성과 분석",
+              "데이터 해석",
+              "최적화"
+            ],
+            "tools": "성과 분석 보고서",
+            "skills": [
+              "BuzzSumo AI",
+              "ChatGPT",
+              "Brandwatch AI",
+              "Tableau",
+              "Google Analytics AI",
+              "Tableau"
+            ]
+          },
+          {
+            "id": 5,
+            "phase": "최적화·개선",
+            "icon": "🔄",
+            "title": "전략 개선 및 다음 사이클 계획",
+            "duration": "월간·분기",
+            "description": "분석 인사이트로 전략을 지속 개선하고 다음 캠페인을 계획합니다.",
+            "example": "예: 성과 낮은 채널 예산 재배분 → 고성과 콘텐츠 포맷 확대 → 분기 전략 수정",
+            "tasks": [
+              "저성과 콘텐츠·채널 개선 또는 중단 결정",
+              "예산 재배분 계획",
+              "다음 분기 전략 업데이트",
+              "팀 역량 개발 계획",
+              "새로운 채널·포맷 실험 계획"
+            ],
+            "aiRole": "AI 트렌드 예측으로 다음 전략 방향 제안, AI 예산 최적화 시뮬레이션",
+            "humanRole": "전략적 방향 최종 결정, 브랜드 장기 방향 유지",
+            "output": [
+              "전략 개선",
+              "의사결정",
+              "계획 수립"
+            ],
+            "tools": "다음 분기 전략 계획서",
+            "skills": [
+              "BuzzSumo AI",
+              "ChatGPT",
+              "Brandwatch AI",
+              "Tableau",
+              "ChatGPT",
+              "Notion AI"
             ]
           }
         ]

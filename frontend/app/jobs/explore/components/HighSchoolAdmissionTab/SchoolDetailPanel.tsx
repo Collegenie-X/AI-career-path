@@ -192,8 +192,13 @@ function OverviewTab({
   categoryColor: string;
   categoryBgColor: string;
 }) {
+  const infoCard = school.schoolInfoCard;
+  const qualifications = school.admissionQualifications;
+
   return (
     <div className="px-5 py-4 space-y-3">
+
+      {/* ── 학교 소개 ── */}
       <div
         className="rounded-2xl p-4"
         style={{
@@ -201,12 +206,173 @@ function OverviewTab({
           border: `1px solid ${categoryColor}30`,
         }}
       >
-        <p className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: categoryColor }}>
-          🏫 학교 소개
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
+            🏫 학교 소개
+          </p>
+          {school.websiteUrl && (
+            <a
+              href={school.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all hover:opacity-80 active:scale-95"
+              style={{
+                background: `${categoryColor}25`,
+                color: categoryColor,
+                border: `1px solid ${categoryColor}50`,
+              }}
+            >
+              🌐 홈페이지
+            </a>
+          )}
+        </div>
+        <p className="text-[12px] text-gray-200 leading-relaxed">
+          {school.description || school.specialCertification || '학교 소개 정보가 준비 중입니다.'}
         </p>
-        <p className="text-[12px] text-gray-200 leading-relaxed">{school.description}</p>
       </div>
 
+      {/* ── 학교 기본 정보 그리드 ── */}
+      {infoCard && (
+        <div
+          className="rounded-2xl p-3"
+          style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}25` }}
+        >
+          <p className="text-[11px] font-bold mb-3 flex items-center gap-1.5" style={{ color: categoryColor }}>
+            <Users className="w-3.5 h-3.5" />
+            학교 기본 정보
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {/* 선발 범위 */}
+            <div
+              className="rounded-xl p-2.5"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-[10px] text-gray-500 mb-0.5">📍 위치·통학</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.regionScope}</p>
+            </div>
+            {/* 정원 */}
+            <div
+              className="rounded-xl p-2.5"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-[10px] text-gray-500 mb-0.5">👥 정원·규모</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.capacity}</p>
+            </div>
+            {/* 남녀 비율 */}
+            <div
+              className="rounded-xl p-2.5"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-[10px] text-gray-500 mb-0.5">⚖️ 남녀 비율</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.genderRatio}</p>
+            </div>
+            {/* 기숙사 */}
+            <div
+              className="rounded-xl p-2.5"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-[10px] text-gray-500 mb-0.5">🏠 기숙사</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.dormitoryType}</p>
+            </div>
+            {/* 연간 비용 */}
+            <div
+              className="rounded-xl p-2.5 col-span-2"
+              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+            >
+              <p className="text-[10px] text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.costPerYear}</p>
+            </div>
+            {/* 장학금 */}
+            <div
+              className="rounded-xl p-2.5 col-span-2"
+              style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
+            >
+              <p className="text-[10px] mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{infoCard.scholarship}</p>
+            </div>
+          </div>
+          {/* 저소득 가정 조언 */}
+          {infoCard.lowIncomeAdvice && (
+            <div
+              className="mt-2 p-2.5 rounded-xl"
+              style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
+            >
+              <p className="text-[10px] font-bold text-yellow-400 mb-0.5">💡 소득 하위 가정 조언</p>
+              <p className="text-[11px] text-gray-200 leading-relaxed">{infoCard.lowIncomeAdvice}</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── 입학 자격 요약 ── */}
+      {qualifications && (
+        <div
+          className="rounded-2xl p-3"
+          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <p className="text-[11px] font-bold text-gray-400 mb-2 flex items-center gap-1.5">
+            <CheckCircle className="w-3.5 h-3.5" />
+            입학 자격 요약
+          </p>
+          {/* 필수 조건 */}
+          <div className="mb-2">
+            <p className="text-[10px] font-bold text-red-400 mb-1">✅ 필수 조건 (없으면 불합격)</p>
+            <ul className="space-y-1">
+              {qualifications.mandatory.map((item, i) => (
+                <li key={i} className="flex items-start gap-1.5 text-[11px] text-gray-200 leading-snug">
+                  <span className="text-red-400 flex-shrink-0 mt-0.5">▸</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* 우대 조건 */}
+          {qualifications.recommended && qualifications.recommended.length > 0 && (
+            <div className="mb-2">
+              <p className="text-[10px] font-bold text-blue-400 mb-1">⭐ 우대 조건 (있으면 유리)</p>
+              <ul className="space-y-1">
+                {qualifications.recommended.map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-[11px] text-gray-300 leading-snug">
+                    <span className="text-blue-400 flex-shrink-0 mt-0.5">▸</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {/* 면접 형식 + 경쟁률 */}
+          <div className="flex flex-wrap gap-2 mt-2">
+            {qualifications.interviewFormat && (
+              <span
+                className="text-[10px] px-2 py-1 rounded-full font-semibold"
+                style={{ background: 'rgba(255,255,255,0.08)', color: '#d1d5db' }}
+              >
+                🎤 {qualifications.interviewFormat}
+              </span>
+            )}
+            {qualifications.competitionRate && (
+              <span
+                className="text-[10px] px-2 py-1 rounded-full font-semibold"
+                style={{ background: `${categoryColor}20`, color: categoryColor }}
+              >
+                🏆 경쟁률 {qualifications.competitionRate}
+              </span>
+            )}
+          </div>
+          {/* AI 전형 팁 */}
+          {qualifications.aiTip && (
+            <div
+              className="mt-2 p-2.5 rounded-xl"
+              style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)' }}
+            >
+              <p className="text-[10px] font-bold text-purple-400 mb-0.5">🤖 AI 세특 전형 팁</p>
+              <p className="text-[11px] text-gray-200 leading-relaxed">{qualifications.aiTip}</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* ── 교육 방식 ── */}
       {school.teachingMethod && (
         <InfoBlock
           icon={<BookOpen className="w-4 h-4" />}
@@ -216,6 +382,17 @@ function OverviewTab({
         />
       )}
 
+      {/* ── 학습 방식 상세 ── */}
+      {school.studyStyleDetail && (
+        <InfoBlock
+          icon={<Clock className="w-4 h-4" />}
+          title="이 학교는 이렇게 공부해요"
+          content={school.studyStyleDetail}
+          color={categoryColor}
+        />
+      )}
+
+      {/* ── 대표 프로그램 ── */}
       {school.famousPrograms && school.famousPrograms.length > 0 && (
         <div
           className="rounded-2xl p-3"
@@ -239,6 +416,7 @@ function OverviewTab({
         </div>
       )}
 
+      {/* ── 미래 전망 ── */}
       {school.futureOutlook && (
         <InfoBlock
           icon={<TrendingUp className="w-4 h-4" />}
