@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useCallback } from 'react';
 import { Bookmark, Globe, Sparkles } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { ListPagination } from '@/components/shared/ListPagination';
 import careerPathTemplates from '@/data/career-path-templates-index';
 import { LABELS } from '../config';
 import { CareerPathDetailPanel } from './CareerPathDetailPanel';
@@ -76,6 +77,9 @@ export function CareerPathList({
   const [activeFilter, setActiveFilter] = useState('all');
   const [internalSelectedTemplate, setInternalSelectedTemplate] = useState<Template | null>(null);
   const [showExpandDialog, setShowExpandDialog] = useState(false);
+  const [bookmarkedTemplatePage, setBookmarkedTemplatePage] = useState(1);
+  const [myPublicPage, setMyPublicPage] = useState(1);
+  const [templateListPage, setTemplateListPage] = useState(1);
 
   const isControlled = onSelectTemplate !== undefined;
   const selectedTemplate = isControlled
@@ -139,6 +143,12 @@ export function CareerPathList({
   const bookmarkedCommunityPlans = allSharedPlans.filter(p => reactions.bookmarkedPlanIds.includes(p.id));
   const totalBookmarkCount = bookmarkedTemplates.length + bookmarkedCommunityPlans.length;
 
+  useEffect(() => {
+    setTemplateListPage(1);
+  }, [activeFilter]);
+
+  const ITEMS_PER_PAGE = 10;
+
   const filtered = useMemo(() => {
     if (activeFilter === 'all') return careerPathTemplates;
     if (activeFilter === 'highschool') {
@@ -152,6 +162,22 @@ export function CareerPathList({
     }
     return careerPathTemplates.filter(t => t.starId === activeFilter);
   }, [activeFilter]);
+
+  const paginatedBookmarkedTemplates = useMemo(() => {
+    const start = (bookmarkedTemplatePage - 1) * ITEMS_PER_PAGE;
+    return bookmarkedTemplates.slice(start, start + ITEMS_PER_PAGE);
+  }, [bookmarkedTemplates, bookmarkedTemplatePage]);
+
+  const paginatedMyPublicPlans = useMemo(() => {
+    const plans = myPublicPlans ?? [];
+    const start = (myPublicPage - 1) * ITEMS_PER_PAGE;
+    return plans.slice(start, start + ITEMS_PER_PAGE);
+  }, [myPublicPlans, myPublicPage]);
+
+  const paginatedFiltered = useMemo(() => {
+    const start = (templateListPage - 1) * ITEMS_PER_PAGE;
+    return filtered.slice(start, start + ITEMS_PER_PAGE);
+  }, [filtered, templateListPage]);
 
   const handleUseTemplate = async (customTitle: string) => {
     if (selectedTemplate) {
@@ -182,7 +208,7 @@ export function CareerPathList({
               </div>
             }
           >
-            {bookmarkedTemplates.map(template => (
+            {paginatedBookmarkedTemplates.map(template => (
               <BookmarkedTemplateCard
                 key={template.id}
                 template={template}
@@ -202,6 +228,12 @@ export function CareerPathList({
                 onToggleBookmark={() => handleToggleCommunityBookmark(plan.id)}
               />
             ))}
+            <ListPagination
+              totalItems={totalBookmarkCount}
+              currentPage={bookmarkedTemplatePage}
+              itemsPerPage={ITEMS_PER_PAGE}
+              onPageChange={setBookmarkedTemplatePage}
+            />
             <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
           </AccordionSection>
         )}
@@ -218,13 +250,19 @@ export function CareerPathList({
               </div>
             }
           >
-            {(myPublicPlans ?? []).map(plan => (
+            {paginatedMyPublicPlans.map(plan => (
               <MyPublicPlanCard
                 key={plan.id}
                 plan={plan}
                 onClick={() => onViewMyPlan?.(plan)}
               />
             ))}
+            <ListPagination
+              totalItems={(myPublicPlans ?? []).length}
+              currentPage={myPublicPage}
+              itemsPerPage={ITEMS_PER_PAGE}
+              onPageChange={setMyPublicPage}
+            />
             <div className="h-px mt-3" style={{ backgroundColor: 'rgba(255,255,255,0.06)' }} />
           </AccordionSection>
         )}
@@ -260,18 +298,26 @@ export function CareerPathList({
               <p className="text-sm text-gray-500">해당 왕국의 커리어 패스가 없어요</p>
             </div>
           ) : (
-            <div className="space-y-3">
-              {filtered.map(template => (
-                <TemplateRow
-                  key={template.id}
-                  template={template}
-                  isBookmarked={templateBookmarkIds.includes(template.id)}
-                  isSelected={selectedTemplate?.id === template.id}
-                  onShowDetail={() => handleSelectTemplate(template)}
-                  onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
-                />
-              ))}
-            </div>
+            <>
+              <div className="space-y-3">
+                {paginatedFiltered.map(template => (
+                  <TemplateRow
+                    key={template.id}
+                    template={template}
+                    isBookmarked={templateBookmarkIds.includes(template.id)}
+                    isSelected={selectedTemplate?.id === template.id}
+                    onShowDetail={() => handleSelectTemplate(template)}
+                    onToggleBookmark={e => handleToggleTemplateBookmark(template.id, e)}
+                  />
+                ))}
+              </div>
+              <ListPagination
+                totalItems={filtered.length}
+                currentPage={templateListPage}
+                itemsPerPage={ITEMS_PER_PAGE}
+                onPageChange={setTemplateListPage}
+              />
+            </>
           )}
         </AccordionSection>
     </div>
