@@ -194,8 +194,14 @@
   @media (min-width: 1300px) {
     .web-container {
       max-width: 1300px;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .web-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

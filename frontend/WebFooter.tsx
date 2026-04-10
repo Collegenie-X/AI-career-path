@@ -9,7 +9,7 @@ const FOOTER_SECTIONS = [
       { label: '대표자: 김종필', href: '#' },
       { label: '사업자번호: 760-57-00294', href: '#' },
       // { label: '통신판매업: 2025-서울강남-0001', href: '#' },
-      { label:'경기도 하남시 풍산동 미사강변서로 16, 하우스디스마트벨리 10층 1046호', href: '#' },
+      { label:'주소: 경기도 하남시 풍산동 미사강변서로 16,하우스디스마트벨리 10층 1046호', href: '#' },
       { label: '대표번호: 010-2708-0051', href: '#' },
     ],
   },
@@ -41,7 +41,7 @@ export function WebFooter() {
     <footer className="w-full border-t border-white/5 bg-black">
       <div className="web-container">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 min-[720px]:grid-cols-3 gap-8 min-[1200px]:gap-5 py-12 px-2 min-[720px]:px-8">
+        <div className="grid grid-cols-1 min-[720px]:grid-cols-3 gap-8 min-[980px]:gap-12 py-12 px-4 min-[720px]:px-8">
           {FOOTER_SECTIONS.map((section) => (
             <div key={section.title}>
               <h3 className="text-base font-bold text-white mb-4">{section.title}</h3>
