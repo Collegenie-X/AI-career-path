@@ -44,7 +44,7 @@ export function WebHeader() {
   }, []);
 
   const getIsActive = (path: string) => {
-    if (path === '/home') return pathname === '/home';
+    if (path === '/') return pathname === '/';
     if (path === '/quiz') return pathname?.startsWith('/quiz');
     return pathname?.startsWith(path);
   };
@@ -54,7 +54,7 @@ export function WebHeader() {
       <div className="web-container">
         <nav className="flex items-center justify-between gap-2 sm:gap-3 min-h-16 md:min-h-[4.5rem] py-1 md:py-0">
           {/* Logo */}
-          <Link href="/home" className="flex items-center gap-2 sm:gap-2.5 shrink-0 min-w-0 group">
+          <Link href="/" className="flex items-center gap-2 sm:gap-2.5 shrink-0 min-w-0 group">
             <div
               className="w-8 h-8 md:w-9 md:h-9 rounded-lg flex items-center justify-center transition-all group-hover:scale-105"
               style={{

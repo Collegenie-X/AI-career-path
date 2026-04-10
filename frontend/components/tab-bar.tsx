@@ -9,7 +9,7 @@ export function TabBar() {
   const router = useRouter();
 
   const getIsActive = (path: string) => {
-    if (path === '/home') return pathname === '/home';
+    if (path === '/') return pathname === '/';
     return pathname?.startsWith(path);
   };
 

@@ -87,7 +87,7 @@ export const ROUTES = {
   saved: '/jobs/saved',
   detail: (id: string) => `/jobs/${id}`,
   simulation: (id: string) => `/simulation/${id}`,
-  home: '/home',
+  home: '/',
 } as const;
 
 // ─── 레이아웃 설정 ────────────────────────────────────────────

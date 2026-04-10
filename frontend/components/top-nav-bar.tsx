@@ -18,7 +18,7 @@ export function TopNavBar() {
   const router = useRouter();
 
   const getIsActive = (path: string) => {
-    if (path === '/home') return pathname === '/home';
+    if (path === '/') return pathname === '/';
     return pathname?.startsWith(path);
   };
 
@@ -30,7 +30,7 @@ export function TopNavBar() {
       <nav className="web-container flex items-center justify-between h-14 min-[720px]:h-16 px-4 min-[720px]:px-6">
         {/* Logo */}
         <Link
-          href="/home"
+          href="/"
           className="flex items-center gap-2 shrink-0"
         >
           <div

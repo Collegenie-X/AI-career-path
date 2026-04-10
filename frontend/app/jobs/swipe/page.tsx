@@ -46,7 +46,7 @@ export default function JobSwipePage() {
         setCurrentIndex(currentIndex + 1);
         setDirection(null);
       } else {
-        router.push('/home');
+        router.push('/');
       }
     }, 300);
   };
@@ -67,7 +67,7 @@ export default function JobSwipePage() {
       <div className="min-h-screen bg-background flex items-center justify-center p-6">
         <div className="text-center">
           <h2 className="text-xl font-bold mb-2">모든 직업을 확인했어요!</h2>
-          <Button onClick={() => router.push('/home')}>홈으로 돌아가기</Button>
+          <Button onClick={() => router.push('/')}>홈으로 돌아가기</Button>
         </div>
       </div>
     );

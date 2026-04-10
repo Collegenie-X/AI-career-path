@@ -96,7 +96,7 @@ export const ROUTES = {
   /** 모드 선택·문항 본편 */
   quizPlay: '/quiz/play',
   quizResults: '/quiz/results',
-  home: '/home',
+  home: '/',
   /** 결과 화면 CTA — 상단 탭「커리어 탐색」과 동일 */
   careerExplore: '/jobs/explore',
 } as const;

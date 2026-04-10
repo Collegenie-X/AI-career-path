@@ -117,7 +117,7 @@ export default function SettingsPage() {
           <Button 
             variant="ghost" 
             size="icon"
-            onClick={() => router.push('/home')}
+            onClick={() => router.push('/')}
             className="hover:bg-white/10"
           >
             <ArrowLeft className="w-5 h-5" />

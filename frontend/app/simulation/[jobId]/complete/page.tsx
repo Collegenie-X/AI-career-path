@@ -102,7 +102,7 @@ export default function SimulationCompletePage() {
             size="lg"
             variant="outline"
             className="w-full"
-            onClick={() => router.push('/home')}
+            onClick={() => router.push('/')}
           >
             <Home className="w-5 h-5 mr-2" />
             홈으로 돌아가기
