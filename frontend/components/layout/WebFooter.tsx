@@ -4,13 +4,13 @@ import Link from 'next/link';
 
 const FOOTER_SECTIONS = [
   {
-    title: 'AI CareerPath',
+    title: '만랩 회사',
     links: [
       { label: '대표자: 김종필', href: '#' },
-      { label: '사업자번호: 123-45-67890', href: '#' },
-      { label: '통신판매업: 2025-서울강남-0001', href: '#' },
-      { label: '📍서울특별시 강남구 테헤란로 123, 4층 401호', href: '#' },
-      { label: '대표번호: 02-1234-5678', href: '#' },
+      { label: '사업자번호: 760-57-00294', href: '#' },
+      // { label: '통신판매업: 2025-서울강남-0001', href: '#' },
+      { label:'경기도 하남시 풍산동 미사강변서로 16, 10층 1046호', href: '#' },
+      { label: '대표번호: 010-2708-0051', href: '#' },
     ],
   },
   {
@@ -19,7 +19,7 @@ const FOOTER_SECTIONS = [
       { label: '상담시간', href: '#' },
       { label: '평일 09:00~18:00', href: '#' },
       { label: '(점심시간 12:30~13:30)', href: '#' },
-      { label: '02-1234-5678', href: '#' },
+      // { label: '02-1234-5678', href: '#' },
       { label: 'support@aicareerpath.com', href: 'mailto:support@aicareerpath.com' },
     ],
   },
