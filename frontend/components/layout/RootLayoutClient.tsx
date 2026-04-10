@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import { QueryProvider } from '@/components/providers/QueryProvider';
 import { WebLayout } from './WebLayout';
 
-const HIDE_HEADER_FOOTER_PATHS = ['/', '/onboarding'];
+const HIDE_HEADER_FOOTER_PATHS = ['/onboarding'];
 const HIDE_HEADER_FOOTER_PREFIXES: string[] = [];
 
 export function RootLayoutClient({ children }: { children: React.ReactNode }) {
