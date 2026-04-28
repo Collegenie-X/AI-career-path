@@ -401,6 +401,80 @@
 .animate-icon-float { animation: icon-float 3s ease-in-out infinite; }
 .animate-badge-pop { animation: badge-pop 0.5s ease-out forwards; }
 
+/* ===== Mode Select — game-style entrance & glow ===== */
+@keyframes mode-card-enter {
+  0%   { opacity: 0; transform: translateY(28px) scale(0.96); }
+  60%  { opacity: 1; transform: translateY(-4px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes hero-enter {
+  0%   { opacity: 0; transform: translateY(20px) scale(0.92); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes border-pulse-purple {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,92,231,0), 0 0 20px rgba(108,92,231,0.15); border-color: rgba(108,92,231,0.45); }
+  50%       { box-shadow: 0 0 0 4px rgba(108,92,231,0.08), 0 0 40px rgba(108,92,231,0.35); border-color: rgba(108,92,231,0.75); }
+}
+@keyframes border-pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(243,156,18,0), 0 0 20px rgba(243,156,18,0.15); border-color: rgba(243,156,18,0.45); }
+  50%       { box-shadow: 0 0 0 4px rgba(243,156,18,0.08), 0 0 40px rgba(243,156,18,0.35); border-color: rgba(243,156,18,0.75); }
+}
+@keyframes recommended-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(243,156,18,0.4); transform: scale(1); }
+  50%       { box-shadow: 0 0 0 5px rgba(243,156,18,0); transform: scale(1.06); }
+}
+@keyframes star-hero {
+  0%, 100% { transform: translateY(0) scale(1) rotate(-5deg); filter: drop-shadow(0 0 14px rgba(255,210,60,0.7)); }
+  33%       { transform: translateY(-10px) scale(1.12) rotate(4deg); filter: drop-shadow(0 0 28px rgba(255,210,60,1)); }
+  66%       { transform: translateY(-5px) scale(1.05) rotate(-2deg); filter: drop-shadow(0 0 20px rgba(255,210,60,0.85)); }
+}
+@keyframes orbit-sparkle {
+  0%   { transform: rotate(0deg) translateX(36px) rotate(0deg); opacity: 0.9; }
+  50%  { opacity: 0.4; }
+  100% { transform: rotate(360deg) translateX(36px) rotate(-360deg); opacity: 0.9; }
+}
+@keyframes orbit-sparkle-rev {
+  0%   { transform: rotate(0deg) translateX(28px) rotate(0deg); opacity: 0.6; }
+  100% { transform: rotate(-360deg) translateX(28px) rotate(360deg); opacity: 0.6; }
+}
+@keyframes tip-fade-in {
+  0%   { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-mode-card-enter  { animation: mode-card-enter 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-hero-enter       { animation: hero-enter 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-border-purple    { animation: border-pulse-purple 2.8s ease-in-out infinite; }
+.animate-border-gold      { animation: border-pulse-gold 2.4s ease-in-out infinite; }
+.animate-recommended      { animation: recommended-pulse 1.8s ease-in-out infinite; }
+.animate-star-hero        { animation: star-hero 4s ease-in-out infinite; }
+.animate-orbit-sparkle    { animation: orbit-sparkle 7s linear infinite; }
+.animate-orbit-sparkle-rev{ animation: orbit-sparkle-rev 5s linear infinite; }
+.animate-tip-fade-in      { animation: tip-fade-in 0.7s ease-out forwards; }
+
+/* ===== Home page SVG & narrative animations ===== */
+@keyframes svg-dash-flow {
+  to { stroke-dashoffset: -26; }
+}
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes count-up-pop {
+  0% { transform: scale(0.85); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease-in-out infinite;
+}
+.animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+
 /* Global starfield layer — applied to body */
 body::before {
   content: '';
@@ -449,6 +523,43 @@ body::before {
   0% { transform: translateX(30px); opacity: 0; }
   100% { transform: translateX(0); opacity: 1; }
 }
+
+/* ── 뽕뽕뽕! 카드 팝인 — 바운스 등장 ── */
+@keyframes panel-pop-in {
+  0%   { transform: translateY(16px) scale(0.94); opacity: 0; }
+  60%  { transform: translateY(-3px) scale(1.02); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+.panel-pop-in {
+  animation: panel-pop-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+/* 1~10번 stagger 지연 — 자식 요소에 순차 적용 */
+.panel-pop-stagger > * {
+  animation: panel-pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.panel-pop-stagger > *:nth-child(1)  { animation-delay: 0.04s; }
+.panel-pop-stagger > *:nth-child(2)  { animation-delay: 0.10s; }
+.panel-pop-stagger > *:nth-child(3)  { animation-delay: 0.16s; }
+.panel-pop-stagger > *:nth-child(4)  { animation-delay: 0.22s; }
+.panel-pop-stagger > *:nth-child(5)  { animation-delay: 0.28s; }
+.panel-pop-stagger > *:nth-child(6)  { animation-delay: 0.34s; }
+.panel-pop-stagger > *:nth-child(7)  { animation-delay: 0.40s; }
+.panel-pop-stagger > *:nth-child(8)  { animation-delay: 0.46s; }
+.panel-pop-stagger > *:nth-child(9)  { animation-delay: 0.52s; }
+.panel-pop-stagger > *:nth-child(n+10) { animation-delay: 0.58s; }
+/* 빠른 stagger — 리스트 아이템용 */
+.panel-pop-stagger-fast > * {
+  animation: panel-pop-in 0.42s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.panel-pop-stagger-fast > *:nth-child(1)  { animation-delay: 0.02s; }
+.panel-pop-stagger-fast > *:nth-child(2)  { animation-delay: 0.05s; }
+.panel-pop-stagger-fast > *:nth-child(3)  { animation-delay: 0.08s; }
+.panel-pop-stagger-fast > *:nth-child(4)  { animation-delay: 0.11s; }
+.panel-pop-stagger-fast > *:nth-child(5)  { animation-delay: 0.14s; }
+.panel-pop-stagger-fast > *:nth-child(6)  { animation-delay: 0.17s; }
+.panel-pop-stagger-fast > *:nth-child(7)  { animation-delay: 0.20s; }
+.panel-pop-stagger-fast > *:nth-child(8)  { animation-delay: 0.23s; }
+.panel-pop-stagger-fast > *:nth-child(n+9) { animation-delay: 0.26s; }
 
 /* ── 고입·대입 탐색 — 궤도 / 행성 게임 연출 ── */
 @keyframes admission-orbit-dash-flow {

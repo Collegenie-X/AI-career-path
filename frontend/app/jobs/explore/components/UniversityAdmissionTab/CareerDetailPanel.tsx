@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   Award,
   BookOpen,
@@ -11,11 +12,13 @@ import {
   GraduationCap,
   HelpCircle,
   Lightbulb,
+  Maximize2,
   Rocket,
   Target,
   TrendingUp,
   Trophy,
   Users,
+  X,
 } from 'lucide-react';
 
 import careerDetailGuidanceData from '@/data/university-admission/career-detail-guidance.json';
@@ -92,10 +95,28 @@ function extractNormalizedKingdomLabel(kingdomValue: string): string {
 type CareerDetailPanelProps = {
   readonly career: CareerMajorCareer;
   readonly onClose: () => void;
+  /** inline: 오른쪽 패널 내부 사용 (기본). dialog: 전체 화면 다이얼로그 */
+  readonly variant?: 'inline' | 'dialog';
+  /** inline 패널에서 다이얼로그로 확장하는 콜백 */
+  readonly onOpenDetailDialog?: () => void;
 };
 
 /** 직업(과)별 대입 상세 — 마스터-디테일 오른쪽 패널 */
-export function CareerDetailPanel({ career, onClose }: CareerDetailPanelProps) {
+export function CareerDetailPanel({ career, onClose, variant = 'inline', onOpenDetailDialog }: CareerDetailPanelProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (variant !== 'dialog') return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleEscape);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [variant, onClose]);
 
   const [activeTab, setActiveTab] = useState<'setak' | 'strategy' | 'universities' | 'qa'>('setak');
   const [expandedQaIndex, setExpandedQaIndex] = useState<number | null>(null);
@@ -116,13 +137,21 @@ export function CareerDetailPanel({ career, onClose }: CareerDetailPanelProps) {
     }))
     .filter((item): item is { typeLabel: string; strategy: AdmissionTypeStrategy } => Boolean(item.strategy));
 
-  return (
+  if (!mounted) return null;
+
+  const panelInner = (
       <div
-        className="w-full min-w-0 max-w-full max-h-[min(78vh,720px)] md:max-h-none overflow-y-auto overflow-x-hidden rounded-2xl pb-2"
+        className={
+          variant === 'dialog'
+            ? 'w-full max-w-[34rem] md:max-w-[40rem] h-[94dvh] md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-2xl pb-2'
+            : 'w-full min-w-0 max-w-full max-h-[min(78vh,720px)] md:max-h-none overflow-y-auto overflow-x-hidden rounded-2xl pb-2'
+        }
         style={{
           background: 'linear-gradient(135deg, rgba(17,24,39,0.95) 0%, rgba(31,41,55,0.95) 100%)',
           border: '2px solid rgba(16,185,129,0.4)',
+          boxShadow: variant === 'dialog' ? '0 12px 56px rgba(15,23,42,0.45)' : undefined,
         }}
+        onClick={(e) => variant === 'dialog' ? e.stopPropagation() : undefined}
       >
         <div
           className="sticky top-0 z-10 p-4"
@@ -142,7 +171,34 @@ export function CareerDetailPanel({ career, onClose }: CareerDetailPanelProps) {
               {career.emoji}
             </div>
             <div className="flex-1 min-w-0 break-words">
-              <h2 className="text-lg font-bold text-white mb-1">{career.name}</h2>
+              <div className="flex items-start justify-between gap-2 mb-1">
+                <h2 className="text-lg font-bold text-white flex-1 min-w-0 break-words">{career.name}</h2>
+                <div className="flex items-center gap-1.5 flex-shrink-0">
+                  {variant === 'inline' && onOpenDetailDialog && (
+                    <button
+                      type="button"
+                      onClick={onOpenDetailDialog}
+                      className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:bg-emerald-500/25 active:scale-95"
+                      style={{ background: 'rgba(16,185,129,0.18)', border: '1px solid rgba(16,185,129,0.45)' }}
+                      title="자세히 보기"
+                      aria-label="자세히 보기"
+                    >
+                      <Maximize2 className="w-3.5 h-3.5 text-emerald-300" />
+                    </button>
+                  )}
+                  {variant === 'dialog' && (
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:bg-white/15 hover:rotate-90"
+                      style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+                      aria-label="닫기"
+                    >
+                      <X className="w-3.5 h-3.5 text-white" />
+                    </button>
+                  )}
+                </div>
+              </div>
               <p className="text-xs text-white/70 mb-1">{career.kingdom}</p>
               <p className="text-xs text-emerald-400 mb-2">{career.targetMajor}</p>
               
@@ -628,4 +684,19 @@ export function CareerDetailPanel({ career, onClose }: CareerDetailPanelProps) {
         </div>
       </div>
   );
+
+  if (variant === 'dialog') {
+    return createPortal(
+      <div
+        className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4"
+        style={{ background: 'rgba(2,6,23,0.86)' }}
+        onClick={onClose}
+      >
+        {panelInner}
+      </div>,
+      document.body
+    );
+  }
+
+  return panelInner;
 }

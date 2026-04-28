@@ -6,6 +6,7 @@ import { PersonaSection } from './home/components/PersonaSection';
 import { CompetitorTableSection } from './home/components/CompetitorTableSection';
 import { FeaturesSection } from './home/components/FeaturesSection';
 import { CTASection } from './home/components/CTASection';
+import { AnimatedStatsSection } from './home/components/AnimatedStatsSection';
 import { WebHeader } from '@/components/layout/WebHeader';
 import { WebFooter } from '@/components/layout/WebFooter';
 
@@ -15,6 +16,7 @@ export default function HomePage() {
       <WebHeader />
       <main className="flex-1">
         <HeroSectionLanding />
+        <AnimatedStatsSection />
         <PersonaSection />
         <JourneyStepsSection />
         <DreamSchedulePreviewSection />

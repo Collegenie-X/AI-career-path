@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
-import { Info } from 'lucide-react';
+import { Info, Menu, X } from 'lucide-react';
 import { BOTTOM_NAVIGATION_TABS } from '@/components/tab-bar.config';
 import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { SocialLoginDialog } from '@/components/auth/SocialLoginDialog';
@@ -34,10 +34,24 @@ export function WebHeader() {
   const router = useRouter();
   const [isSocialLoginOpen, setIsSocialLoginOpen] = useState(false);
   const [authProfile, setAuthProfile] = useState<AuthProfile | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   useEffect(() => {
     setAuthProfile(storage.auth.get());
   }, []);
+
+  useEffect(() => {
+    if (isDrawerOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isDrawerOpen]);
+
+  useEffect(() => {
+    setIsDrawerOpen(false);
+  }, [pathname]);
 
   const refreshAuthFromStorage = useCallback(() => {
     setAuthProfile(storage.auth.get());
@@ -50,6 +64,7 @@ export function WebHeader() {
   };
 
   return (
+    <>
     <header className="sticky top-0 z-50 w-full border-b border-white/8 bg-black/95 backdrop-blur-xl">
       <div className="web-container">
         <nav className="flex items-center justify-between gap-2 sm:gap-3 min-h-16 md:min-h-[4.5rem] py-1 md:py-0">
@@ -114,45 +129,14 @@ export function WebHeader() {
             })}
             </div>
 
-            {/* md ~ lg 및 모바일: 아이콘만 (라벨은 title로 표시) — 좁은 폭에서는 가로 스크롤 */}
-            <div className="flex lg:hidden items-center gap-0.5 sm:gap-1 min-w-0 flex-1 overflow-x-auto scrollbar-hide justify-end">
-            {HEADER_NAVIGATION_ITEMS.map((item) => {
-              const active = getIsActive(item.href);
-              const Icon = item.icon;
-              const glowColor = item.color ?? '#6C5CE7';
-              const isQuizNav = item.href === '/quiz';
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  title={item.label}
-                  onClick={
-                    isQuizNav
-                      ? (e) => {
-                          e.preventDefault();
-                          router.push(getQuizLandingPath());
-                        }
-                      : undefined
-                  }
-                  className={`p-2 rounded-lg transition-all ${
-                    active ? 'text-white' : 'text-white/50 hover:text-white'
-                  }`}
-                  style={
-                    active
-                      ? {
-                          color: '#ffffff',
-                          backgroundColor: `${glowColor}28`,
-                          boxShadow: `0 0 12px ${glowColor}50, inset 0 0 10px ${glowColor}18`,
-                          border: `1px solid ${glowColor}`,
-                        }
-                      : undefined
-                  }
-                >
-                  <Icon className="w-4 h-4 shrink-0" />
-                </Link>
-              );
-            })}
-            </div>
+            {/* 모바일 ~ lg: 햄버거 버튼 */}
+            <button
+              className="flex lg:hidden items-center justify-center p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
+              onClick={() => setIsDrawerOpen(true)}
+              aria-label="메뉴 열기"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
 
             <WebHeaderAccountArea
               authProfile={authProfile}
@@ -169,5 +153,100 @@ export function WebHeader() {
         onSignupSuccess={refreshAuthFromStorage}
       />
     </header>
+
+    {/* 모바일 드로어 오버레이 */}
+    {isDrawerOpen && (
+      <div
+        className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm lg:hidden"
+        onClick={() => setIsDrawerOpen(false)}
+      />
+    )}
+
+    {/* 왼쪽 슬라이드 드로어 */}
+    <div
+      className={`fixed top-0 left-0 z-[70] h-full w-72 lg:hidden flex flex-col transition-transform duration-300 ease-in-out ${
+        isDrawerOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}
+      style={{ backgroundColor: 'rgba(13,13,30,0.98)', borderRight: '1px solid rgba(255,255,255,0.08)' }}
+    >
+      {/* 드로어 헤더 */}
+      <div className="flex items-center justify-between px-5 py-4 border-b border-white/8">
+        <Link href="/" className="flex items-center gap-2.5" onClick={() => setIsDrawerOpen(false)}>
+          <div
+            className="w-8 h-8 rounded-lg flex items-center justify-center"
+            style={{ background: 'linear-gradient(135deg, #6C5CE7 0%, #a29bfe 100%)', boxShadow: '0 0 16px rgba(108,92,231,0.5)' }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3l1.912 5.813a2 2 0 001.272 1.272L21 12l-5.813 1.912a2 2 0 00-1.272 1.272L12 21l-1.912-5.813a2 2 0 00-1.272-1.272L3 12l5.813-1.912a2 2 0 001.272-1.272L12 3z" />
+            </svg>
+          </div>
+          <span className="text-base font-bold text-white">AI CareerPath</span>
+        </Link>
+        <button
+          className="p-1.5 rounded-lg text-white/50 hover:text-white hover:bg-white/10 transition-all"
+          onClick={() => setIsDrawerOpen(false)}
+          aria-label="메뉴 닫기"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </div>
+
+      {/* 메뉴 목록 */}
+      <nav className="flex-1 overflow-y-auto py-4 px-3">
+        <div className="flex flex-col gap-1">
+          {HEADER_NAVIGATION_ITEMS.map((item) => {
+            const active = getIsActive(item.href);
+            const Icon = item.icon;
+            const glowColor = item.color ?? '#6C5CE7';
+            const isQuizNav = item.href === '/quiz';
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={(e) => {
+                  if (isQuizNav) {
+                    e.preventDefault();
+                    router.push(getQuizLandingPath());
+                  }
+                  setIsDrawerOpen(false);
+                }}
+                className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-sm font-medium transition-all ${
+                  active ? 'text-white' : 'text-white/60 hover:text-white hover:bg-white/5'
+                }`}
+                style={
+                  active
+                    ? {
+                        color: '#ffffff',
+                        backgroundColor: `${glowColor}28`,
+                        boxShadow: `0 0 14px ${glowColor}40, inset 0 0 12px ${glowColor}15`,
+                        border: `1px solid ${glowColor}60`,
+                      }
+                    : undefined
+                }
+              >
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+                  style={active ? { backgroundColor: `${glowColor}40` } : { backgroundColor: 'rgba(255,255,255,0.05)' }}
+                >
+                  <Icon className="w-4 h-4" style={active ? { color: glowColor } : undefined} />
+                </div>
+                <div className="flex flex-col min-w-0">
+                  <span className="leading-tight">{item.label}</span>
+                  {item.step && (
+                    <span className="text-xs mt-0.5" style={{ color: glowColor, opacity: 0.8 }}>
+                      STEP {item.step}
+                    </span>
+                  )}
+                </div>
+                {active && (
+                  <div className="ml-auto w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: glowColor }} />
+                )}
+              </Link>
+            );
+          })}
+        </div>
+      </nav>
+    </div>
+  </>
   );
 }

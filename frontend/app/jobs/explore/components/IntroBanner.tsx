@@ -20,8 +20,8 @@ export function IntroBanner() {
         {LABELS.intro_banner_subtitle}
       </p>
       <p className="text-xs text-gray-300 leading-relaxed">
-        실제 <span className="text-white font-bold">직무 프로세스</span>와{' '}
-        <span className="text-white font-bold">커리어 패스</span>를 게임처럼 경험해보세요!
+        진짜 직장에서 하는 <span className="text-white font-bold">일</span>과{' '}
+        <span className="text-white font-bold">성장 루트</span>를 게임처럼 따라가 봐요 — 부담 없이 둘러봐요!
       </p>
     </div>
   );

@@ -12,6 +12,8 @@ import {
   Zap,
   Users,
   Lightbulb,
+  Star,
+  X,
 } from 'lucide-react';
 import type { HighSchoolCategory, HighSchoolDetail } from '../../types';
 import { HIGH_SCHOOL_LABELS } from '../../config';
@@ -23,6 +25,9 @@ type SchoolCategoryViewProps = {
   category: HighSchoolCategory;
   onBack: () => void;
   onSelectSchool: (school: HighSchoolDetail) => void;
+  /** 'leftList'(기본): 왼쪽 패널에서 사용 (← 뒤로가기 버튼 표시).
+   *  'rightDetail': 오른쪽 패널에서 사용 (X 닫기 버튼 표시) */
+  variant?: 'leftList' | 'rightDetail';
 };
 
 type QuizPhase =
@@ -30,7 +35,7 @@ type QuizPhase =
   | { phase: 'question'; index: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] }
   | { phase: 'result'; totalScore: number; maxScore: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] };
 
-export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolCategoryViewProps) {
+export function SchoolCategoryView({ category, onBack, onSelectSchool, variant = 'leftList' }: SchoolCategoryViewProps) {
   const [categoryTraitDialogOpen, setCategoryTraitDialogOpen] = useState(false);
   const [showAptitudeQuiz, setShowAptitudeQuiz] = useState(false);
   const [quizPhase, setQuizPhase] = useState<QuizPhase>({ phase: 'intro' });
@@ -61,19 +66,25 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
     }
   };
 
+  /** 카테고리가 바뀔 때마다 stagger 애니메이션 새로 트리거 */
+  const animationKey = `school-category-${category.id}`;
+
   return (
     <>
-    <div className="space-y-4">
+    <div className={variant === 'rightDetail' ? 'space-y-4 panel-pop-stagger' : 'space-y-4'} key={animationKey}>
       {/* ── 상단: 헤더 + 특성 카드 (강조) ── */}
       <div className="space-y-3">
         <div className="flex items-center gap-2">
-          <button
-            onClick={onBack}
-            className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all active:scale-95"
-            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.12)' }}
-          >
-            <ChevronLeft className="w-4 h-4 text-gray-300" />
-          </button>
+          {variant === 'leftList' && (
+            <button
+              onClick={onBack}
+              className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all active:scale-95"
+              style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.12)' }}
+              aria-label="뒤로 가기"
+            >
+              <ChevronLeft className="w-4 h-4 text-gray-300" />
+            </button>
+          )}
           <div
             className="flex-1 flex items-center gap-3 px-4 py-3.5 rounded-2xl min-h-[72px]"
             style={{
@@ -87,6 +98,16 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
               <p className="text-base font-bold text-white leading-tight">{category.name}</p>
               <p className="text-xs mt-1 leading-snug" style={{ color: category.color }}>{category.description}</p>
             </div>
+            {variant === 'rightDetail' && (
+              <button
+                onClick={onBack}
+                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
+                style={{ background: 'rgba(255,255,255,0.1)', border: `1px solid ${category.color}55` }}
+                aria-label="닫기"
+              >
+                <X className="w-3.5 h-3.5 text-white" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -176,12 +197,15 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool }: SchoolC
         </div>
       )}
 
+      {/* ── 2028 입시 방향성 + AI 방향성 (카테고리 단위) ── */}
+      <CategoryDirectionPanel category={category} />
+
       {/* ── 학교 목록 (단순화) ── */}
       <div>
         <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
           {category.schools.length}{HIGH_SCHOOL_LABELS.school_list_section_title} · {HIGH_SCHOOL_LABELS.school_list_click_hint}
         </p>
-        <div className="space-y-2">
+        <div className={variant === 'rightDetail' ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
           {category.schools.map((school) => (
             <SchoolListCard
               key={school.id}
@@ -539,5 +563,194 @@ function SchoolListCard({
         </div>
       )}
     </button>
+  );
+}
+
+/**
+ * 2028 입시 방향성 + AI 방향성을 카테고리 단위로 보여주는 아코디언 패널.
+ * 두 개의 탭으로 구성: 📋 2028 입시 / 🤖 AI 시대
+ */
+function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) {
+  const [activeTab, setActiveTab] = useState<'admission2028' | 'aiEra'>('admission2028');
+  const [expanded, setExpanded] = useState(false);
+
+  const has2028 = !!(category.policyContext2028 || category.admissionStrategy2028);
+  const hasAi = !!(category.aiEraContext || category.aiEraStrategy);
+  if (!has2028 && !hasAi) return null;
+
+  const TAB_META = [
+    { id: 'admission2028' as const, label: '2028 입시 방향성', emoji: '📋', show: has2028 },
+    { id: 'aiEra' as const, label: 'AI 시대 방향성', emoji: '🤖', show: hasAi },
+  ].filter((t) => t.show);
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(139,92,246,0.10) 100%)',
+        border: `1.5px solid ${category.color}50`,
+        boxShadow: `0 4px 20px ${category.color}20`,
+      }}
+    >
+      {/* 헤더 (펼침 토글) */}
+      <button
+        type="button"
+        onClick={() => setExpanded((s) => !s)}
+        className="w-full px-4 py-3 flex items-center justify-between gap-2 transition-colors hover:bg-white/5"
+      >
+        <div className="flex items-center gap-2">
+          <span className="text-base">🎯</span>
+          <p className="text-[13px] font-bold text-white text-left">
+            2028 입시 + AI 방향성
+          </p>
+          <span
+            className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
+            style={{ background: `${category.color}25`, color: category.color, border: `1px solid ${category.color}40` }}
+          >
+            카테고리
+          </span>
+        </div>
+        <ChevronDown
+          className="w-4 h-4 transition-transform duration-300 flex-shrink-0"
+          style={{
+            color: category.color,
+            transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+          }}
+        />
+      </button>
+
+      {expanded && (
+        <div className="px-4 pb-4 pt-1 space-y-3" style={{ animation: 'slide-up 0.3s ease-out both' }}>
+          {/* 탭 바 */}
+          <div className="flex gap-1 rounded-xl p-1" style={{ background: 'rgba(255,255,255,0.06)' }}>
+            {TAB_META.map((tab) => (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setActiveTab(tab.id)}
+                className="flex-1 py-2 rounded-lg text-[12px] font-bold transition-all flex items-center justify-center gap-1.5"
+                style={{
+                  background: activeTab === tab.id ? `${category.color}40` : 'transparent',
+                  color: activeTab === tab.id ? category.color : 'rgba(255,255,255,0.6)',
+                  boxShadow: activeTab === tab.id ? `0 2px 8px ${category.color}30` : 'none',
+                }}
+              >
+                <span>{tab.emoji}</span>
+                <span>{tab.label}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* 컨텐츠: 2028 입시 */}
+          {activeTab === 'admission2028' && (
+            <div className="space-y-2.5">
+              {category.policyContext2028 && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
+                >
+                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                    📌 정책 컨텍스트
+                  </p>
+                  <p className="text-[12px] text-gray-200 leading-relaxed">
+                    {category.policyContext2028}
+                  </p>
+                </div>
+              )}
+              {category.admissionStrategy2028 && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
+                >
+                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
+                    🎯 {category.admissionStrategy2028.title}
+                  </p>
+                  <p className="text-[11px] text-gray-300 leading-relaxed mb-2">
+                    {category.admissionStrategy2028.summary}
+                  </p>
+                  <ul className="space-y-1.5">
+                    {category.admissionStrategy2028.points.map((point, i) => {
+                      const isObj = typeof point === 'object' && point !== null;
+                      const text = isObj ? `${point.label} — ${point.detail}` : point;
+                      return (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2 text-[11.5px] text-gray-200 leading-relaxed"
+                        >
+                          <span className="flex-shrink-0 mt-0.5" style={{ color: category.color }}>▸</span>
+                          <span>{text}</span>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* 컨텐츠: AI 시대 */}
+          {activeTab === 'aiEra' && (
+            <div className="space-y-2.5">
+              {category.aiEraContext && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.35)' }}
+                >
+                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5 text-purple-300">
+                    🤖 AI 시대 컨텍스트
+                  </p>
+                  <p className="text-[12px] text-gray-200 leading-relaxed">
+                    {category.aiEraContext}
+                  </p>
+                </div>
+              )}
+              {category.aiEraStrategy && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.35)' }}
+                >
+                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1 text-purple-300">
+                    ⚡ {category.aiEraStrategy.title}
+                  </p>
+                  <p className="text-[11px] text-gray-300 leading-relaxed mb-2">
+                    {category.aiEraStrategy.summary}
+                  </p>
+                  {category.aiEraStrategy.practicalTips && category.aiEraStrategy.practicalTips.length > 0 && (
+                    <div className="space-y-1.5 mt-2">
+                      {category.aiEraStrategy.practicalTips.slice(0, 4).map((tip, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-2 text-[11.5px] text-gray-200 leading-relaxed p-2 rounded-lg"
+                          style={{ background: 'rgba(255,255,255,0.04)' }}
+                        >
+                          <span className="text-base flex-shrink-0">{tip.emoji}</span>
+                          <div className="min-w-0">
+                            <p className="font-bold text-purple-200">{tip.tip}</p>
+                            <p className="text-[11px] text-gray-300 leading-relaxed">{tip.detail}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  {category.aiEraStrategy.futureCareerInsight && (
+                    <div
+                      className="mt-2.5 p-2.5 rounded-lg"
+                      style={{ background: 'rgba(251,191,36,0.10)', border: '1px solid rgba(251,191,36,0.35)' }}
+                    >
+                      <p className="text-[11px] font-bold text-yellow-300 mb-0.5">
+                        💡 {category.aiEraStrategy.futureCareerInsight.title}
+                      </p>
+                      <p className="text-[11px] text-gray-200 leading-relaxed">
+                        {category.aiEraStrategy.futureCareerInsight.reality}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

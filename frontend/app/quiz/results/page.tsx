@@ -17,6 +17,7 @@ import { getQuizLandingPath } from '@/lib/navigation/quizLandingPath';
 import { QuizResultsAnalyzingView } from './components/QuizResultsAnalyzingView';
 import { fetchStarJsonByKingdomId, starJsonQueryKey } from '@/lib/queries/fetchStarJsonByKingdomId';
 import { quizRiasecResultQueryKey, readStoredRiasecResult } from '@/lib/queries/quizRiasecQuery';
+import { normalizeScores } from '@/lib/riasec';
 import type { Job, Kingdom, RIASECType } from '@/lib/types';
 import type { Job as ExploreJob, StarData } from '@/app/jobs/explore/types';
 
@@ -152,6 +153,8 @@ export default function QuizResultsPage() {
   if (!riasec) {
     return null;
   }
+
+  const normalizedScores = normalizeScores(riasec.scores);
 
   const scoreEntries = Object.entries(riasec.scores) as Array<[string, number]>;
   const sortedTypes = scoreEntries
@@ -304,7 +307,7 @@ export default function QuizResultsPage() {
             {sortedTypes.map((type, index) => {
               const meta = RIASEC_META[type] ?? RIASEC_META.I;
               const score = riasec.scores[type as keyof typeof riasec.scores];
-              const pct = Math.round(score * 100);
+              const pct = normalizedScores[type as keyof typeof normalizedScores] ?? Math.min(100, score);
               const isTop = index === 0;
               return (
                 <div key={type} className="space-y-2">

@@ -1,60 +1,74 @@
 {
   "header": {
-    "title": "고입 자료실",
-    "shortDescription": "카테고리별 핵심 자료를 빠르게 찾고, 클릭해서 상세 다이얼로그로 확인하세요.",
-    "detailDescription": "이 자료실은 한국 캐리어패스 일반 루트/특수 루트 문서를 바탕으로 구성되었습니다. 목록에서는 핵심 요약만 보여주고, 상세 내용(표/체크리스트/Mermaid)은 다이얼로그에서 확인하도록 분리했습니다.",
-    "totalDocuments": 20,
-    "lastUpdated": "2026-04-08",
-    "tip": "📌 카테고리 필터로 필요한 자료를 빠르게 찾으세요. 상세 내용은 클릭하면 열려요!"
+    "title": "고입 자료 상점 (2028 개편 + AI 시대 대응판)",
+    "shortDescription": "2028 대입 개편 + AI 시대 진로 변화를 반영한 카테고리별 핵심 자료. 클릭해서 상세 다이얼로그로 확인하세요.",
+    "detailDescription": "이 자료실은 2028학년도 대입 개편(내신 5등급제·통합형 수능·심화수학 미포함·면접 비중 확대)과 AI 시대(직무 자동화·문제정의·AI 협업 역량)의 두 축을 모두 반영해 재구성되었습니다. 일반 루트(정시·학종·투트랙·지방국립)와 특수 루트(과학고·사관·경찰대·로스쿨·행시·해외·의대) 외에 'AI 시대 대응 가이드'와 '2028 개편 변화 정리'를 추가했어요. 목록에서는 핵심 요약만 보여주고, 상세 내용(표·체크리스트·Mermaid 다이어그램)은 다이얼로그에서 분리해 확인하도록 했습니다.",
+    "policyContext": "2028 개편 핵심: ① 내신 5등급제(상위 10%=1등급)로 학종 진입 폭 확대 ② 통합형 수능(국·수·탐구 공통+선택 폐지)으로 일반고 유리·자사고 차별화 약화 ③ 심화수학 미포함 → 과학고도 수능 단독 변별 어려움 ④ 의대 정원 확대 + 학종 면접 비중 ↑",
+    "aiEraContext": "AI 시대 대응 핵심: ① 단순 암기·계산·번역·코딩은 AI 대체 → '문제 정의·맥락 판단·창의적 융합'이 차별화 ② 학종·면접에서 'AI를 어떻게 도구로 썼고 무엇을 직접 했는가' 설명 능력이 변별력 ③ 사양 직무·신흥 직무 구분 → 진로 선택의 첫 번째 기준",
+    "totalDocuments": 22,
+    "lastUpdated": "2026-04-28",
+    "tip": "📌 카테고리 필터로 필요한 자료를 빠르게 찾으세요. 2028·AI 표시가 있는 자료를 우선 확인하세요. 상세 내용은 클릭하면 열려요!"
   },
   "categories": [
     {
       "id": "admission_strategy",
       "label": "입시전략",
       "emoji": "🎯",
-      "description": "루트별 입시 전략과 합격 로드맵"
+      "description": "루트별 입시 전략과 합격 로드맵 — 2028 통합형 수능·내신 5등급제 반영, 면접 비중 확대 대응까지 정리"
     },
     {
       "id": "school_comparison",
       "label": "학교비교",
       "emoji": "📊",
-      "description": "학교 유형별 특성과 차이점 비교"
+      "description": "학교 유형별 특성·차이점 비교 — 2028 개편 후 자사고/특목고/일반고의 유불리 변화, 비용·진학률·번아웃 위험 동시 비교"
     },
     {
       "id": "study_material",
       "label": "학습자료",
       "emoji": "📚",
-      "description": "학년별·과목별 학습 가이드와 체크리스트"
+      "description": "학년별·과목별 학습 가이드와 체크리스트 — 통합형 수능 대비 통합사회·통합과학 비중 ↑, AI 도구를 학습 코치로 쓰는 법 포함"
     },
     {
       "id": "interview_prep",
       "label": "면접준비",
       "emoji": "🎤",
-      "description": "학교별 면접 질문과 답변 프레임워크"
+      "description": "학교별 면접 질문과 답변 프레임워크 — 2028 면접 비중 최대 40% 확대 대응, 'AI 활용 경험을 어떻게 설명할 것인가'까지"
     },
     {
       "id": "mental_health",
       "label": "멘탈관리",
       "emoji": "🧘",
-      "description": "번아웃 예방, 스트레스 관리, 동기부여"
+      "description": "번아웃 예방·스트레스 관리·동기부여 — AI 비교 불안, SNS 비교, 챗봇 의존 등 디지털 시대 신종 멘탈 리스크 대응"
     },
     {
       "id": "parent_guide",
       "label": "학부모가이드",
       "emoji": "👨‍👩‍👧",
-      "description": "학부모를 위한 고입 지원 전략과 소통법"
+      "description": "학부모를 위한 고입 지원 전략·소통법 — 2028 개편 정보 정리, 자녀의 AI 활용을 통제·격려·지도하는 균형 잡힌 가이드"
     },
     {
       "id": "special_institutions",
       "label": "특수기관",
       "emoji": "🏫",
-      "description": "특수 학교·기관 정보와 입시 전략"
+      "description": "사관학교·경찰대·영재학교·국립대 부속고 등 특수 학교·기관 정보 — 입시 일정과 경쟁률, 졸업 후 진로 트리"
+    },
+    {
+      "id": "ai_career_pivot",
+      "label": "AI 진로 대응",
+      "emoji": "🤖",
+      "description": "AI로 사라지는 직무 vs 살아남는 직무, 신흥 영역 — 학과 선택·전공 선택·자격증 선택의 의사결정 기준"
+    },
+    {
+      "id": "policy_2028",
+      "label": "2028 개편 정리",
+      "emoji": "📰",
+      "description": "내신 5등급제·통합형 수능·심화수학 미포함·면접 비중 확대 등 2028 개편 핵심 변화 한눈 정리, 학년별 대응 매뉴얼"
     },
     {
       "id": "other",
       "label": "기타",
       "emoji": "📋",
-      "description": "FAQ, 특수 상황, 기타 유용한 정보"
+      "description": "FAQ·특수 상황(재수/N수·검정고시·기회균형·장애인 특별전형) 등 그 외 유용한 정보"
     }
   ],
   "documents": [
@@ -192,15 +206,39 @@
     },
     {
       "id": "admission-strategy-2028-admission-trend",
-      "categoryId": "admission_strategy",
-      "title": "2028학년도 입시 트렌드 분석",
-      "summary": "정시 확대, 학종 변화, IB 도입 확대 등 최신 입시 환경 변화 정리",
+      "categoryId": "policy_2028",
+      "title": "2028학년도 입시 개편 핵심 변화",
+      "summary": "내신 5등급제·통합형 수능·심화수학 미포함·면접 비중 확대·IB 확대 — 학교 유형별 유불리와 학년별 대응 매뉴얼",
       "markdownPath": "/resource-hub/admission_strategy_2028_admission_trend.md",
-      "tags": ["2028입시", "트렌드", "정시확대", "학종변화"],
-      "keyTopics": ["정시 비율 확대 영향", "학종 평가 기준 변화", "IB 학교 확대 현황", "대학별 전형 변화"],
+      "tags": ["2028입시", "내신5등급제", "통합형수능", "면접확대", "심화수학미포함"],
+      "keyTopics": ["내신 5등급제 적용 방식과 학종 변화", "통합형 수능 출제 범위와 변별력", "심화수학 미포함의 이공계 영향", "면접 비중 확대(최대 40%) 대응", "학교 유형별 유불리 매트릭스"],
       "difficultyLevel": 3,
-      "estimatedReadTime": "10분",
-      "priority": 2
+      "estimatedReadTime": "12분",
+      "priority": 1
+    },
+    {
+      "id": "ai-career-pivot-survival-map",
+      "categoryId": "ai_career_pivot",
+      "title": "AI 시대 진로 생존 지도",
+      "summary": "AI가 대체하는 직무 vs 살아남는 직무 vs 신흥 영역 — 학과·전공·자격증 의사결정 기준",
+      "markdownPath": "/resource-hub/ai_career_pivot_survival_map.md",
+      "tags": ["AI시대", "진로지도", "자동화위험", "신흥직무"],
+      "keyTopics": ["AI 자동화 위험 직무 TOP 30", "AI 시대 살아남는 직무 특성 5가지", "신흥 직무(AI 윤리·프롬프트 엔지니어·AI 정책)", "학과 선택 시 AI 영향도 체크리스트"],
+      "difficultyLevel": 3,
+      "estimatedReadTime": "12분",
+      "priority": 1
+    },
+    {
+      "id": "ai-tools-study-guide",
+      "categoryId": "ai_career_pivot",
+      "title": "AI 도구 학습 활용 가이드 (학생용)",
+      "summary": "ChatGPT·Claude·Notion AI를 학습 코치로 쓰는 법, 면접·세특에서 'AI 사용 흔적' 설명하는 방법",
+      "markdownPath": "/resource-hub/ai_tools_study_guide.md",
+      "tags": ["AI도구", "ChatGPT", "학습", "면접대비", "세특"],
+      "keyTopics": ["AI에게 답을 시키지 말고 검토자로 쓰는 법", "'AI 사용 윤리' 학교 규정 확인", "세특·면접에서 AI 활용 경험 설명 프레임", "AI 의존도 자가 점검 체크리스트"],
+      "difficultyLevel": 2,
+      "estimatedReadTime": "8분",
+      "priority": 1
     },
     {
       "id": "school-comparison-ib-vs-regular",

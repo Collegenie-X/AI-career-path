@@ -107,27 +107,30 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-1 flex-shrink-0 relative z-10">
+          <div className="flex items-center gap-1.5 flex-shrink-0 relative z-10">
             {onOpenDetailDialog && (
               <button
                 type="button"
                 onClick={onOpenDetailDialog}
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:bg-white/15"
-                style={{ background: 'rgba(255,255,255,0.1)' }}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                style={{
+                  background: `${categoryColor}25`,
+                  border: `1px solid ${categoryColor}55`,
+                }}
                 title="자세히 보기"
                 aria-label="자세히 보기"
               >
-                <Maximize2 className="w-4 h-4 text-gray-400" />
+                <Maximize2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
               </button>
             )}
             {variant === 'dialog' && (
               <button
                 onClick={onClose}
                 className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
-                style={{ background: 'rgba(255,255,255,0.1)' }}
+                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
                 aria-label="닫기"
               >
-                <X className="w-4 h-4 text-gray-400" />
+                <X className="w-3.5 h-3.5 text-white" />
               </button>
             )}
           </div>
@@ -210,9 +213,9 @@ function OverviewTab({
           <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
             🏫 학교 소개
           </p>
-          {school.websiteUrl && (
+          {(school.middleSchoolGuide?.homepageUrl || school.websiteUrl) && (
             <a
-              href={school.websiteUrl}
+              href={school.middleSchoolGuide?.homepageUrl || school.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold transition-all hover:opacity-80 active:scale-95"
@@ -229,7 +232,162 @@ function OverviewTab({
         <p className="text-[12px] text-gray-200 leading-relaxed">
           {school.description || school.specialCertification || '학교 소개 정보가 준비 중입니다.'}
         </p>
+        {school.middleSchoolGuide && (
+          <p className="mt-2 pt-2 text-[12px] text-white leading-relaxed border-t" style={{ borderColor: `${categoryColor}30` }}>
+            <span className="font-semibold" style={{ color: categoryColor }}>📖 한 줄 요약 · </span>
+            {school.middleSchoolGuide.oneLineAbout}
+          </p>
+        )}
       </div>
+
+      {/* ── 중학생을 위한 고입 가이드 (2028 + AI) ── */}
+      {school.middleSchoolGuide && (
+        <div
+          className="rounded-2xl p-4 space-y-3"
+          style={{
+            background: `linear-gradient(135deg, rgba(96,165,250,0.10) 0%, rgba(167,139,250,0.10) 100%)`,
+            border: `1px solid ${categoryColor}40`,
+          }}
+        >
+          <div className="flex items-center justify-between">
+            <p className="text-[11px] font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
+              🎯 중학생을 위한 고입 가이드
+            </p>
+            <a
+              href={school.middleSchoolGuide.homepageUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-bold transition-all hover:opacity-80 active:scale-95"
+              style={{
+                background: categoryColor,
+                color: '#000',
+              }}
+            >
+              🏫 학교 홈페이지 →
+            </a>
+          </div>
+
+          {/* 잘 맞는 친구 / 다시 생각해 봐요 */}
+          <div className="grid grid-cols-1 gap-2">
+            <div className="rounded-xl p-2.5" style={{ background: 'rgba(34,197,94,0.10)', border: '1px solid rgba(34,197,94,0.30)' }}>
+              <p className="text-[10px] font-bold mb-1.5 text-green-300">✅ 이런 친구한테 잘 맞아요</p>
+              <ul className="space-y-1">
+                {school.middleSchoolGuide.goodFor.map((item, i) => (
+                  <li key={i} className="text-[11px] text-gray-200 leading-snug pl-3 relative">
+                    <span className="absolute left-0 text-green-400">·</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-xl p-2.5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
+              <p className="text-[10px] font-bold mb-1.5 text-red-300">⚠️ 이런 친구는 다시 생각해 봐요</p>
+              <ul className="space-y-1">
+                {school.middleSchoolGuide.notForYouIf.map((item, i) => (
+                  <li key={i} className="text-[11px] text-gray-200 leading-snug pl-3 relative">
+                    <span className="absolute left-0 text-red-400">·</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* 지금 뭘 해야 해요 */}
+          <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}30` }}>
+            <p className="text-[10px] font-bold mb-1.5" style={{ color: categoryColor }}>📋 지금(중학생 때) 뭘 해야 해요?</p>
+            <ul className="space-y-1">
+              {school.middleSchoolGuide.whatToDoNow.map((item, i) => (
+                <li key={i} className="text-[11px] text-gray-200 leading-snug pl-4 relative">
+                  <span className="absolute left-0 text-[11px]" style={{ color: categoryColor }}>{i + 1}.</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 입시 핵심 정보 */}
+          <div className="grid grid-cols-2 gap-2">
+            <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <p className="text-[10px] text-gray-500 mb-0.5">📅 입시 일정</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{school.middleSchoolGuide.admissionTimeline}</p>
+            </div>
+            <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+              <p className="text-[10px] text-gray-500 mb-0.5">📊 경쟁률</p>
+              <p className="text-[11px] font-semibold text-gray-200 leading-snug">{school.middleSchoolGuide.competitionRate}</p>
+            </div>
+          </div>
+
+          {/* 학교가 보는 것 */}
+          <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}30` }}>
+            <p className="text-[10px] font-bold mb-1.5" style={{ color: categoryColor }}>🔍 학교가 뭘 봐요?</p>
+            <ul className="space-y-1">
+              {school.middleSchoolGuide.whatTheyCheck.map((item, i) => (
+                <li key={i} className="text-[11px] text-gray-200 leading-snug pl-3 relative">
+                  <span className="absolute left-0">·</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* AI 팁 + 홈페이지에서 확인할 것 */}
+          <div className="rounded-xl p-3" style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.30)' }}>
+            <p className="text-[10px] font-bold mb-1 text-purple-300">🤖 AI 시대 한 줄 조언</p>
+            <p className="text-[11px] text-gray-200 leading-relaxed mb-2">{school.middleSchoolGuide.aiTipForMiddleSchooler}</p>
+            <p className="text-[10px] font-bold mb-1 text-blue-300">🌐 홈페이지에서 꼭 확인하세요</p>
+            <p className="text-[11px] text-gray-200 leading-relaxed">{school.middleSchoolGuide.homepageMustCheck}</p>
+          </div>
+
+          {/* 마지막 홈페이지 버튼 */}
+          <a
+            href={school.middleSchoolGuide.homepageUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full text-center px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all hover:opacity-80 active:scale-95"
+            style={{
+              background: `linear-gradient(135deg, ${categoryColor} 0%, ${categoryColor}cc 100%)`,
+              color: '#000',
+            }}
+          >
+            🏫 {school.name} 공식 홈페이지에서 자세히 보기 →
+          </a>
+        </div>
+      )}
+
+      {/* ── 2028 개편 + AI 시대 주의점 ── */}
+      {school.update2028AI && (
+        <div
+          className="rounded-2xl p-4 space-y-3"
+          style={{
+            background: `linear-gradient(135deg, rgba(234,179,8,0.08) 0%, rgba(16,185,129,0.08) 100%)`,
+            border: '1px solid rgba(234,179,8,0.30)',
+          }}
+        >
+          <p className="text-[11px] font-bold uppercase tracking-wider text-yellow-300">
+            ⚠️ 2028 입시 개편 + AI 시대 주의점
+          </p>
+          <div className="rounded-xl p-2.5" style={{ background: 'rgba(234,179,8,0.10)', border: '1px solid rgba(234,179,8,0.25)' }}>
+            <p className="text-[10px] font-bold mb-1 text-yellow-300">📰 2028 개편 영향</p>
+            <p className="text-[11px] text-gray-200 leading-relaxed">{school.update2028AI.policy2028}</p>
+          </div>
+          <div className="rounded-xl p-2.5" style={{ background: 'rgba(16,185,129,0.10)', border: '1px solid rgba(16,185,129,0.25)' }}>
+            <p className="text-[10px] font-bold mb-1 text-emerald-300">🤖 AI 시대 영향</p>
+            <p className="text-[11px] text-gray-200 leading-relaxed">{school.update2028AI.aiEra}</p>
+          </div>
+          <div className="rounded-xl p-2.5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
+            <p className="text-[10px] font-bold mb-1.5 text-red-300">🚨 꼭 챙겨야 할 점</p>
+            <ul className="space-y-1">
+              {school.update2028AI.cautionPoints.map((item, i) => (
+                <li key={i} className="text-[11px] text-gray-200 leading-snug pl-3 relative">
+                  <span className="absolute left-0 text-red-400">·</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
 
       {/* ── 학교 기본 정보 그리드 ── */}
       {infoCard && (

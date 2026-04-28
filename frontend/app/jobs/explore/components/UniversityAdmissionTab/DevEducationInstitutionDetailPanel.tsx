@@ -1,15 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   BookOpen,
   Calendar,
   CheckCircle2,
   ChevronDown,
   Info,
+  Maximize2,
   Rocket,
   Target,
   Trophy,
+  X,
   XCircle,
 } from 'lucide-react';
 
@@ -49,6 +52,8 @@ export type DevEducationInstitution = {
 type DevEducationInstitutionDetailPanelProps = {
   readonly institution: DevEducationInstitution;
   readonly onClose: () => void;
+  readonly variant?: 'inline' | 'dialog';
+  readonly onOpenDetailDialog?: () => void;
 };
 
 function InstitutionInfoRow({ label, value, link }: { label: string; value: string; link?: boolean }) {
@@ -71,22 +76,46 @@ function InstitutionInfoRow({ label, value, link }: { label: string; value: stri
   );
 }
 
-/** 개발자·혁신 교육기관 상세 — 마스터-디테일 오른쪽 패널용 (모달 없음) */
+/** 개발자·혁신 교육기관 상세 — 마스터-디테일 오른쪽 패널용 (모달 + 다이얼로그) */
 export function DevEducationInstitutionDetailPanel({
   institution,
   onClose,
+  variant = 'inline',
+  onOpenDetailDialog,
 }: DevEducationInstitutionDetailPanelProps) {
   const [activeTab, setActiveTab] = useState<'info' | 'success' | 'strategy' | 'career'>('info');
   const [expandedSuccess, setExpandedSuccess] = useState<number | null>(null);
   const [expandedStrategy, setExpandedStrategy] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (variant !== 'dialog') return;
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.addEventListener('keydown', handleEscape);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = '';
+    };
+  }, [variant, onClose]);
 
-  return (
+  if (!mounted) return null;
+
+  const panelInner = (
     <div
-      className="w-full min-w-0 max-w-full max-h-[min(78vh,720px)] md:max-h-none overflow-y-auto overflow-x-hidden rounded-2xl"
+      className={
+        variant === 'dialog'
+          ? 'w-full max-w-[34rem] md:max-w-[40rem] h-[94dvh] md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-2xl'
+          : 'w-full min-w-0 max-w-full max-h-[min(78vh,720px)] md:max-h-none overflow-y-auto overflow-x-hidden rounded-2xl'
+      }
       style={{
         background: 'linear-gradient(135deg, rgba(17,24,39,0.95) 0%, rgba(31,41,55,0.95) 100%)',
         border: `2px solid ${institution.color}40`,
+        boxShadow: variant === 'dialog' ? '0 12px 56px rgba(15,23,42,0.45)' : undefined,
       }}
+      onClick={(e) => variant === 'dialog' ? e.stopPropagation() : undefined}
     >
       <div
         className="sticky top-0 z-10 p-3 sm:p-4"
@@ -106,7 +135,34 @@ export function DevEducationInstitutionDetailPanel({
             {institution.emoji}
           </div>
           <div className="flex-1 min-w-0">
-            <h2 className="text-base sm:text-lg font-bold text-white mb-1">{institution.name}</h2>
+            <div className="flex items-start justify-between gap-2 mb-1">
+              <h2 className="text-base sm:text-lg font-bold text-white flex-1 min-w-0 break-words">{institution.name}</h2>
+              <div className="flex items-center gap-1.5 flex-shrink-0">
+                {variant === 'inline' && onOpenDetailDialog && (
+                  <button
+                    type="button"
+                    onClick={onOpenDetailDialog}
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                    style={{ background: institution.color + '25', border: `1px solid ${institution.color}55` }}
+                    title="자세히 보기"
+                    aria-label="자세히 보기"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" style={{ color: institution.color }} />
+                  </button>
+                )}
+                {variant === 'dialog' && (
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:bg-white/15 hover:rotate-90"
+                    style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+                    aria-label="닫기"
+                  >
+                    <X className="w-3.5 h-3.5 text-white" />
+                  </button>
+                )}
+              </div>
+            </div>
             {institution.fullName && <p className="text-xs text-white/60 mb-1">{institution.fullName}</p>}
             <p className="text-xs text-white/70">{institution.organizer}</p>
           </div>
@@ -472,4 +528,19 @@ export function DevEducationInstitutionDetailPanel({
       </div>
     </div>
   );
+
+  if (variant === 'dialog') {
+    return createPortal(
+      <div
+        className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-2 md:p-4"
+        style={{ background: 'rgba(2,6,23,0.86)' }}
+        onClick={onClose}
+      >
+        {panelInner}
+      </div>,
+      document.body
+    );
+  }
+
+  return panelInner;
 }

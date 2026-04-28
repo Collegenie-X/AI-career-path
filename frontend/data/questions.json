@@ -1,222 +1,222 @@
 [
   {
     "id": 1,
-    "situation": "새로운 학교에 전학을 왔어요!",
-    "description": "처음 만난 친구들과 자유 시간이 생겼을 때, 나는...",
+    "situation": "쉬는 시간 10분이 생겼어요!",
+    "description": "쉬는 시간 종이 울렸을 때, 가장 먼저 하고 싶은 행동은?",
     "choices": [
-      { "id": "1a", "text": "교실 물건들을 분해하고 조립해보며 구조를 탐색한다", "riasecScores": { "R": 3 } },
-      { "id": "1b", "text": "학교 도서관에서 재미있는 과학책을 찾아 읽는다", "riasecScores": { "I": 3 } },
-      { "id": "1c", "text": "스케치북을 꺼내 교실 풍경을 그린다", "riasecScores": { "A": 3 } },
-      { "id": "1d", "text": "외로워 보이는 친구에게 먼저 다가가 말을 건다", "riasecScores": { "S": 3 } }
+      { "id": "1a", "text": "친구들과 모여 보드게임이나 수다로 시끌벅적하게 논다", "riasecScores": { "E": 2, "S": 1 } },
+      { "id": "1b", "text": "이어폰 끼고 혼자 음악·웹툰을 본다", "riasecScores": { "I": 2, "A": 1 } },
+      { "id": "1c", "text": "친한 친구 한두 명과 진지한 이야기를 나눈다", "riasecScores": { "S": 2, "I": 1 } },
+      { "id": "1d", "text": "다른 반·다른 학년 친구들에게도 인사하러 다닌다", "riasecScores": { "E": 2, "S": 1 } }
     ]
   },
   {
     "id": 2,
-    "situation": "학교 축제 부스를 운영하게 되었어요!",
-    "description": "어떤 역할을 맡고 싶나요?",
+    "situation": "축제 부스를 우리 반이 맡았어요!",
+    "description": "어떤 역할을 하고 싶나요?",
     "choices": [
-      { "id": "2a", "text": "부스 장식과 포스터를 직접 디자인한다", "riasecScores": { "A": 3 } },
-      { "id": "2b", "text": "부스 전체 운영을 기획하고 팀을 이끈다", "riasecScores": { "E": 3 } },
-      { "id": "2c", "text": "예산과 물품 관리를 체계적으로 정리한다", "riasecScores": { "C": 3 } },
-      { "id": "2d", "text": "손님들에게 친절하게 안내하고 설명한다", "riasecScores": { "S": 3 } }
+      { "id": "2a", "text": "캔바·미드저니로 포스터와 부스 비주얼을 디자인한다", "riasecScores": { "A": 3 } },
+      { "id": "2b", "text": "콘셉트와 타임라인을 짜고 팀원에게 역할을 분배한다", "riasecScores": { "E": 2, "C": 1 } },
+      { "id": "2c", "text": "예산·재료·매출을 엑셀로 빈틈없이 정리한다", "riasecScores": { "C": 3 } },
+      { "id": "2d", "text": "손님을 맞이하며 분위기를 띄우고 친절하게 안내한다", "riasecScores": { "S": 3 } }
     ]
   },
   {
     "id": 3,
-    "situation": "과학 시간에 자유 실험 주제를 정해요!",
-    "description": "어떤 실험을 하고 싶나요?",
+    "situation": "AI 도구 써도 되는 자유 탐구 과제!",
+    "description": "선생님이 \"AI 써도 되니 자유 주제로 탐구해 와\" 하셨어요. 나는?",
     "choices": [
-      { "id": "3a", "text": "로봇 팔을 만들어 물건을 집어보는 실험", "riasecScores": { "R": 2, "I": 1 } },
-      { "id": "3b", "text": "식물의 성장 조건을 변수별로 비교하는 실험", "riasecScores": { "I": 3 } },
-      { "id": "3c", "text": "색깔과 감정의 관계를 알아보는 심리 실험", "riasecScores": { "A": 2, "S": 1 } },
-      { "id": "3d", "text": "반 친구들의 취미를 조사하고 통계 그래프를 만든다", "riasecScores": { "C": 2, "I": 1 } }
+      { "id": "3a", "text": "아두이노·3D 프린터로 작은 장치를 직접 만들어 시연한다", "riasecScores": { "R": 2, "I": 1 } },
+      { "id": "3b", "text": "가설을 세우고 실험·데이터로 검증해 결론을 낸다", "riasecScores": { "I": 3 } },
+      { "id": "3c", "text": "주제를 정해 AI로 일러스트와 인포그래픽을 만들어 발표한다", "riasecScores": { "A": 2, "I": 1 } },
+      { "id": "3d", "text": "구글폼으로 친구들 설문을 받고 통계 그래프로 정리한다", "riasecScores": { "C": 2, "I": 1 } }
     ]
   },
   {
     "id": 4,
-    "situation": "방과 후 자유 시간이 2시간 생겼어요!",
-    "description": "가장 먼저 하고 싶은 것은?",
+    "situation": "방과 후 자유 시간 2시간이 비었어요!",
+    "description": "학원 없는 평일 저녁, 가장 끌리는 활동은?",
     "choices": [
-      { "id": "4a", "text": "코딩으로 간단한 게임을 만들어 본다", "riasecScores": { "R": 2, "I": 1 } },
-      { "id": "4b", "text": "유튜브 영상을 촬영하고 편집한다", "riasecScores": { "A": 2, "E": 1 } },
-      { "id": "4c", "text": "동생이나 후배에게 공부를 가르쳐 준다", "riasecScores": { "S": 3 } },
-      { "id": "4d", "text": "미래 사업 아이디어를 노트에 적어본다", "riasecScores": { "E": 3 } }
+      { "id": "4a", "text": "코딩으로 작은 게임이나 챗봇을 만들어 본다", "riasecScores": { "R": 1, "I": 2 } },
+      { "id": "4b", "text": "스마트폰으로 영상을 찍고 편집해 SNS에 올린다", "riasecScores": { "A": 2, "E": 1 } },
+      { "id": "4c", "text": "동생이나 후배에게 어려워하는 과목을 알려준다", "riasecScores": { "S": 3 } },
+      { "id": "4d", "text": "용돈으로 시작할 수 있는 작은 사업 아이디어를 메모한다", "riasecScores": { "E": 3 } }
     ]
   },
   {
     "id": 5,
-    "situation": "친구들과 팀 프로젝트를 하게 되었어요!",
-    "description": "어떤 역할이 가장 잘 어울릴까요?",
+    "situation": "팀 프로젝트에 AI 도구를 써도 돼요!",
+    "description": "조별 발표, ChatGPT 같은 AI 도구를 활용할 수 있어요. 어떤 역할이 잘 맞나요?",
     "choices": [
-      { "id": "5a", "text": "자료 조사와 데이터 분석 담당", "riasecScores": { "I": 2, "C": 1 } },
-      { "id": "5b", "text": "PPT 디자인과 발표 자료 제작", "riasecScores": { "A": 3 } },
-      { "id": "5c", "text": "팀장으로 전체 일정과 역할 배분", "riasecScores": { "E": 2, "C": 1 } },
-      { "id": "5d", "text": "팀원들 의견 조율하고 분위기 관리", "riasecScores": { "S": 3 } }
+      { "id": "5a", "text": "AI가 준 답을 출처로 검증하고 핵심만 다시 정리한다", "riasecScores": { "I": 2, "C": 1 } },
+      { "id": "5b", "text": "AI 이미지·PPT 템플릿으로 시각 자료를 멋지게 다듬는다", "riasecScores": { "A": 3 } },
+      { "id": "5c", "text": "팀의 작업을 통합하고 발표 흐름과 일정을 책임진다", "riasecScores": { "E": 2, "C": 1 } },
+      { "id": "5d", "text": "갈등을 풀고 모두가 의견을 낼 수 있도록 분위기를 만든다", "riasecScores": { "S": 3 } }
     ]
   },
   {
     "id": 6,
-    "situation": "꿈의 직업 체험관에 갈 수 있어요!",
-    "description": "어디를 가장 먼저 가볼까요?",
+    "situation": "진로 체험관 하루 깊게 체험!",
+    "description": "한 곳만 깊게 체험할 수 있어요. 어디로 갈까요?",
     "choices": [
-      { "id": "6a", "text": "로봇 공학 연구소에서 드론을 조종해본다", "riasecScores": { "R": 3 } },
-      { "id": "6b", "text": "병원에서 모의 수술 체험을 해본다", "riasecScores": { "I": 2, "R": 1 } },
-      { "id": "6c", "text": "법정에서 모의 재판 변호사 역할을 해본다", "riasecScores": { "E": 2, "C": 1 } },
-      { "id": "6d", "text": "동물 보호소에서 동물 돌봄 체험을 한다", "riasecScores": { "S": 2, "R": 1 } }
+      { "id": "6a", "text": "로봇·자율주행 연구소에서 드론과 자동화 장비를 다뤄본다", "riasecScores": { "R": 2, "I": 1 } },
+      { "id": "6b", "text": "병원 시뮬레이터로 모의 수술과 진단 체험을 해본다", "riasecScores": { "I": 2, "S": 1 } },
+      { "id": "6c", "text": "스타트업 데모데이를 참관하며 사업 발표를 들어본다", "riasecScores": { "E": 2, "C": 1 } },
+      { "id": "6d", "text": "유기 동물 보호소나 멸종위기종 보호 센터에서 봉사한다", "riasecScores": { "S": 2, "R": 1 } }
     ]
   },
   {
     "id": 7,
-    "situation": "SNS에서 내가 만든 콘텐츠가 인기를 끌었어요!",
-    "description": "어떤 종류의 콘텐츠였을까요?",
+    "situation": "내 SNS 게시물이 떡상했어요!",
+    "description": "어떤 콘텐츠일 가능성이 가장 높을까요?",
     "choices": [
-      { "id": "7a", "text": "직접 그린 일러스트나 웹툰", "riasecScores": { "A": 3 } },
-      { "id": "7b", "text": "과학 실험이나 흥미로운 사실 정리글", "riasecScores": { "I": 3 } },
-      { "id": "7c", "text": "사회 이슈에 대한 의견과 토론글", "riasecScores": { "E": 2, "S": 1 } },
-      { "id": "7d", "text": "깔끔하게 정리한 공부법 가이드", "riasecScores": { "C": 3 } }
+      { "id": "7a", "text": "직접 그린 일러스트·웹툰·캐릭터 굿즈", "riasecScores": { "A": 3 } },
+      { "id": "7b", "text": "어려운 과학·역사를 1분 안에 풀어주는 숏폼", "riasecScores": { "I": 2, "S": 1 } },
+      { "id": "7c", "text": "사회 이슈에 대한 내 의견과 토론 댓글", "riasecScores": { "E": 2, "S": 1 } },
+      { "id": "7d", "text": "노션·인포그래픽으로 정리한 공부법·꿀팁", "riasecScores": { "C": 3 } }
     ]
   },
   {
     "id": 8,
-    "situation": "세상에서 하나만 고를 수 있는 초능력이 있어요!",
-    "description": "어떤 초능력을 갖고 싶나요?",
+    "situation": "AI 시대, 직업 고르는 기준은?",
+    "description": "직업을 고를 때 가장 중요한 기준은?",
     "choices": [
-      { "id": "8a", "text": "어떤 기계든 한 번에 고치는 능력", "riasecScores": { "R": 3 } },
-      { "id": "8b", "text": "미래를 예측하는 분석 능력", "riasecScores": { "I": 2, "C": 1 } },
-      { "id": "8c", "text": "누구의 마음이든 치유하는 능력", "riasecScores": { "S": 3 } },
-      { "id": "8d", "text": "사람들을 설득하고 이끄는 카리스마", "riasecScores": { "E": 3 } }
+      { "id": "8a", "text": "AI가 흉내내기 어려운 나만의 창의성과 감각을 발휘하는 일", "riasecScores": { "A": 2, "E": 1 } },
+      { "id": "8b", "text": "사람을 직접 만나 마음을 이해하고 돕는 일", "riasecScores": { "S": 3 } },
+      { "id": "8c", "text": "오랜 공부와 책임이 필요한 전문직으로 안정적으로 성장하는 일", "riasecScores": { "C": 2, "I": 1 } },
+      { "id": "8d", "text": "결과로 증명하는 도전적이고 보상이 큰 일", "riasecScores": { "E": 3 } }
     ]
   },
   {
     "id": 9,
-    "situation": "학교 신문에 기사를 쓰게 되었어요!",
-    "description": "어떤 주제로 쓰고 싶나요?",
+    "situation": "처음 듣는 개념을 만났어요!",
+    "description": "수업에서 모르는 개념이 나왔을 때 어떻게 이해하나요?",
     "choices": [
-      { "id": "9a", "text": "새로 나온 과학 기술이나 발명품 소개", "riasecScores": { "I": 2, "R": 1 } },
-      { "id": "9b", "text": "학교 주변 환경 문제와 개선 방안", "riasecScores": { "S": 2, "I": 1 } },
-      { "id": "9c", "text": "학생들의 예술 작품이나 공연 리뷰", "riasecScores": { "A": 3 } },
-      { "id": "9d", "text": "학교 예산 사용 내역 분석과 제안", "riasecScores": { "C": 2, "E": 1 } }
+      { "id": "9a", "text": "유튜브 영상이나 인포그래픽을 먼저 보고 감을 잡는다", "riasecScores": { "R": 2, "A": 1 } },
+      { "id": "9b", "text": "교과서·책·논문을 정독하면서 차근차근 이해한다", "riasecScores": { "I": 3 } },
+      { "id": "9c", "text": "ChatGPT에 \"중학생도 이해할 수 있게 설명해줘\"라며 질문한다", "riasecScores": { "I": 2, "S": 1 } },
+      { "id": "9d", "text": "친구나 선생님과 이야기하며 같이 정리한다", "riasecScores": { "S": 2, "E": 1 } }
     ]
   },
   {
     "id": 10,
-    "situation": "무인도에 혼자 떨어졌어요!",
-    "description": "가장 먼저 할 행동은?",
+    "situation": "혼자 풀어야 하는 어려운 문제!",
+    "description": "어떻게 해결을 시작하나요?",
     "choices": [
-      { "id": "10a", "text": "나뭇가지로 도구를 만들어 생존 기지를 짓는다", "riasecScores": { "R": 3 } },
-      { "id": "10b", "text": "주변 식물과 동물을 관찰하고 식용 가능 여부를 분석한다", "riasecScores": { "I": 3 } },
-      { "id": "10c", "text": "모래사장에 SOS 메시지를 예술적으로 만든다", "riasecScores": { "A": 2, "E": 1 } },
-      { "id": "10d", "text": "구조될 때까지의 생활 규칙과 일정표를 만든다", "riasecScores": { "C": 3 } }
+      { "id": "10a", "text": "정보를 모아 논리적으로 쪼개서 단계별로 푼다", "riasecScores": { "I": 2, "C": 1 } },
+      { "id": "10b", "text": "일단 작게 시도해보고 안 되면 방법을 바꾼다", "riasecScores": { "R": 2, "E": 1 } },
+      { "id": "10c", "text": "비슷한 경험을 한 사람에게 묻고 함께 풀어본다", "riasecScores": { "S": 3 } },
+      { "id": "10d", "text": "전혀 다른 분야에서 힌트를 가져와 색다른 방법을 시도한다", "riasecScores": { "A": 2, "E": 1 } }
     ]
   },
   {
     "id": 11,
-    "situation": "동아리를 만들 수 있어요!",
-    "description": "어떤 동아리를 만들까요?",
+    "situation": "원하는 동아리를 직접 만들어요!",
+    "description": "어떤 동아리를 만들고 싶나요?",
     "choices": [
-      { "id": "11a", "text": "3D 프린터로 제품을 만드는 메이커 동아리", "riasecScores": { "R": 3 } },
-      { "id": "11b", "text": "지역 봉사활동을 기획하는 사회공헌 동아리", "riasecScores": { "S": 3 } },
-      { "id": "11c", "text": "창업 아이디어를 발표하는 비즈니스 동아리", "riasecScores": { "E": 3 } },
-      { "id": "11d", "text": "영화 감상과 리뷰를 나누는 문화 동아리", "riasecScores": { "A": 2, "I": 1 } }
+      { "id": "11a", "text": "3D 프린터·아두이노로 물건을 만드는 메이커 동아리", "riasecScores": { "R": 3 } },
+      { "id": "11b", "text": "AI·코딩으로 작은 서비스를 만드는 개발 동아리", "riasecScores": { "I": 2, "R": 1 } },
+      { "id": "11c", "text": "밴드·연극·영상 제작 같은 공연 창작 동아리", "riasecScores": { "A": 3 } },
+      { "id": "11d", "text": "환경·복지 등 사회 문제를 해결하는 봉사 동아리", "riasecScores": { "S": 2, "E": 1 } }
     ]
   },
   {
     "id": 12,
-    "situation": "1억원으로 프로젝트를 할 수 있어요!",
-    "description": "어떤 프로젝트를 하고 싶나요?",
+    "situation": "10년 후 내 모습은?",
+    "description": "스물 후반의 내가 가장 행복한 모습은?",
     "choices": [
-      { "id": "12a", "text": "환경을 살리는 신기술 제품을 개발한다", "riasecScores": { "R": 2, "I": 1 } },
-      { "id": "12b", "text": "어려운 이웃을 돕는 복지 센터를 만든다", "riasecScores": { "S": 3 } },
-      { "id": "12c", "text": "혁신적인 스타트업을 창업한다", "riasecScores": { "E": 3 } },
-      { "id": "12d", "text": "대규모 예술 축제를 기획하고 개최한다", "riasecScores": { "A": 2, "E": 1 } }
+      { "id": "12a", "text": "회사·팀을 이끌며 큰 임팩트를 만드는 리더의 모습", "riasecScores": { "E": 3 } },
+      { "id": "12b", "text": "내 이름이 붙은 작품·브랜드·채널을 운영하는 모습", "riasecScores": { "A": 3 } },
+      { "id": "12c", "text": "한 분야의 전문가로 깊이 인정받는 모습", "riasecScores": { "I": 2, "C": 1 } },
+      { "id": "12d", "text": "주변 사람들에게 든든한 존재로 사랑받는 모습", "riasecScores": { "S": 3 } }
     ]
   },
   {
     "id": 13,
-    "situation": "학교에서 멘토링 프로그램이 시작되었어요!",
-    "description": "어떤 역할을 하고 싶나요?",
+    "situation": "또래보다 잘하는 능력!",
+    "description": "친구들보다 확실히 잘한다고 느끼는 것은?",
     "choices": [
-      { "id": "13a", "text": "수학/과학 과목의 학습 멘토가 된다", "riasecScores": { "I": 2, "S": 1 } },
-      { "id": "13b", "text": "멘토링 프로그램 전체를 기획하고 운영한다", "riasecScores": { "E": 2, "C": 1 } },
-      { "id": "13c", "text": "멘티의 고민을 상담하고 정서적 지원을 한다", "riasecScores": { "S": 3 } },
-      { "id": "13d", "text": "활동 기록과 성과 데이터를 정리 분석한다", "riasecScores": { "C": 3 } }
+      { "id": "13a", "text": "복잡한 수학·과학 문제를 차근차근 풀어내는 것", "riasecScores": { "I": 2, "C": 1 } },
+      { "id": "13b", "text": "그림·글쓰기·음악 같은 창의적 표현", "riasecScores": { "A": 3 } },
+      { "id": "13c", "text": "처음 보는 사람과도 자연스럽게 친해지는 것", "riasecScores": { "S": 2, "E": 1 } },
+      { "id": "13d", "text": "결정을 빠르게 내리고 바로 행동에 옮기는 것", "riasecScores": { "E": 2, "R": 1 } }
     ]
   },
   {
     "id": 14,
-    "situation": "미래 도시를 설계할 수 있어요!",
-    "description": "가장 중요하게 생각하는 것은?",
+    "situation": "재미있는 과목 한 가지!",
+    "description": "시험 부담 없이 \"재미있다\"고 느끼는 과목은?",
     "choices": [
-      { "id": "14a", "text": "첨단 기술이 적용된 스마트 인프라", "riasecScores": { "R": 2, "I": 1 } },
-      { "id": "14b", "text": "아름다운 건축물과 문화 공간", "riasecScores": { "A": 3 } },
-      { "id": "14c", "text": "모든 시민이 편리한 복지 시스템", "riasecScores": { "S": 2, "C": 1 } },
-      { "id": "14d", "text": "효율적인 교통과 에너지 관리 시스템", "riasecScores": { "C": 2, "R": 1 } }
+      { "id": "14a", "text": "수학·과학·정보 (원리와 코드로 푸는 즐거움)", "riasecScores": { "I": 2, "R": 1 } },
+      { "id": "14b", "text": "국어·영어·제2외국어 (언어와 표현의 즐거움)", "riasecScores": { "A": 2, "S": 1 } },
+      { "id": "14c", "text": "사회·역사·경제 (사람과 세상의 즐거움)", "riasecScores": { "S": 2, "E": 1 } },
+      { "id": "14d", "text": "체육·음악·미술 (몸과 감각으로 표현하는 즐거움)", "riasecScores": { "R": 2, "A": 1 } }
     ]
   },
   {
     "id": 15,
-    "situation": "유명 회사에서 인턴 체험 기회가 왔어요!",
-    "description": "어떤 부서에서 일하고 싶나요?",
+    "situation": "롤모델 한 명을 직접 만난다면?",
+    "description": "한 명만 만나서 이야기를 들을 수 있다면 누구를 고를까요?",
     "choices": [
-      { "id": "15a", "text": "연구개발(R&D) 부서에서 신제품 연구", "riasecScores": { "I": 3 } },
-      { "id": "15b", "text": "디자인 부서에서 브랜딩 작업", "riasecScores": { "A": 3 } },
-      { "id": "15c", "text": "경영전략 부서에서 사업 기획", "riasecScores": { "E": 2, "C": 1 } },
-      { "id": "15d", "text": "인사/복지 부서에서 직원 케어", "riasecScores": { "S": 2, "C": 1 } }
+      { "id": "15a", "text": "AI·로봇·우주 같은 기술로 산업을 바꾼 혁신가", "riasecScores": { "I": 1, "E": 2 } },
+      { "id": "15b", "text": "음악·영화·디자인으로 세상에 감동을 준 아티스트", "riasecScores": { "A": 3 } },
+      { "id": "15c", "text": "사회 약자를 위해 평생을 바친 활동가", "riasecScores": { "S": 2, "E": 1 } },
+      { "id": "15d", "text": "한계를 넘어 영웅이 된 스포츠 스타", "riasecScores": { "R": 2, "E": 1 } }
     ]
   },
   {
     "id": 16,
-    "situation": "타임머신으로 과거에 갈 수 있어요!",
-    "description": "어떤 시대에 가서 무엇을 하고 싶나요?",
+    "situation": "주말 계획을 세울 때 나는?",
+    "description": "토요일 아침, 주말 시간을 어떻게 정하나요?",
     "choices": [
-      { "id": "16a", "text": "르네상스 시대 레오나르도 다빈치의 작업실 방문", "riasecScores": { "A": 2, "I": 1 } },
-      { "id": "16b", "text": "산업혁명 시대 발명가들의 공장 탐방", "riasecScores": { "R": 3 } },
-      { "id": "16c", "text": "고대 로마의 법정에서 재판 참관", "riasecScores": { "C": 2, "E": 1 } },
-      { "id": "16d", "text": "플로렌스 나이팅게일과 함께 간호 활동", "riasecScores": { "S": 3 } }
+      { "id": "16a", "text": "시간표를 분 단위로 짜고 그대로 실행한다", "riasecScores": { "C": 3 } },
+      { "id": "16b", "text": "계획 없이 그날 기분대로 움직인다", "riasecScores": { "A": 2, "R": 1 } },
+      { "id": "16c", "text": "큰 목표만 잡고 세부 사항은 그때그때 정한다", "riasecScores": { "E": 2, "I": 1 } },
+      { "id": "16d", "text": "친구·가족과의 약속에 맞춰 계획을 세운다", "riasecScores": { "S": 3 } }
     ]
   },
   {
     "id": 17,
-    "situation": "AI 로봇 친구가 생겼어요!",
-    "description": "로봇 친구에게 가장 먼저 가르쳐주고 싶은 것은?",
+    "situation": "어른이 돼서 만들고 싶은 회사!",
+    "description": "직접 회사·작업실을 만든다면 어떤 곳?",
     "choices": [
-      { "id": "17a", "text": "감정을 이해하고 사람들을 위로하는 법", "riasecScores": { "S": 3 } },
-      { "id": "17b", "text": "논리적으로 생각하고 문제를 푸는 법", "riasecScores": { "I": 3 } },
-      { "id": "17c", "text": "음악을 만들고 그림을 그리는 법", "riasecScores": { "A": 3 } },
-      { "id": "17d", "text": "효율적으로 일정을 관리하는 법", "riasecScores": { "C": 3 } }
+      { "id": "17a", "text": "AI·앱·데이터로 사람들의 문제를 푸는 테크 스타트업", "riasecScores": { "I": 1, "E": 2 } },
+      { "id": "17b", "text": "AI도 흉내 못 내는 감성을 만드는 크리에이티브 스튜디오", "riasecScores": { "A": 3 } },
+      { "id": "17c", "text": "기술로 사회 약자를 돕는 소셜벤처", "riasecScores": { "S": 2, "E": 1 } },
+      { "id": "17d", "text": "음식·공예·건축처럼 손으로 품질을 만드는 장인 공방", "riasecScores": { "R": 3 } }
     ]
   },
   {
     "id": 18,
-    "situation": "학교 문제를 해결하는 위원회에 들어갔어요!",
-    "description": "어떤 문제를 해결하고 싶나요?",
+    "situation": "친구들이 자주 하는 말!",
+    "description": "친구들이 평소 나에게 자주 하는 말은?",
     "choices": [
-      { "id": "18a", "text": "노후된 학교 시설을 최신 기술로 업그레이드", "riasecScores": { "R": 2, "I": 1 } },
-      { "id": "18b", "text": "학생들 간 갈등 해소와 소통 증진", "riasecScores": { "S": 3 } },
-      { "id": "18c", "text": "학교 운영 규칙과 제도 개선", "riasecScores": { "C": 2, "E": 1 } },
-      { "id": "18d", "text": "창의적인 학교 문화 행사 기획", "riasecScores": { "A": 2, "E": 1 } }
+      { "id": "18a", "text": "\"넌 진짜 논리적이야, 같이 분석하면 답이 나와\"", "riasecScores": { "I": 3 } },
+      { "id": "18b", "text": "\"너랑 얘기하면 마음이 편해, 공감 잘해줘\"", "riasecScores": { "S": 3 } },
+      { "id": "18c", "text": "\"넌 결정 진짜 빨라, 같이 있으면 든든해\"", "riasecScores": { "E": 2, "R": 1 } },
+      { "id": "18d", "text": "\"넌 정말 꼼꼼해, 너 검토하면 실수 없어\"", "riasecScores": { "C": 3 } }
     ]
   },
   {
     "id": 19,
-    "situation": "꿈에서 10년 후의 나를 만났어요!",
-    "description": "미래의 내가 하고 있으면 좋겠는 일은?",
+    "situation": "시험 끝난 날, 회복 방법은?",
+    "description": "스트레스를 푸는 가장 효과적인 방법은?",
     "choices": [
-      { "id": "19a", "text": "세계적인 연구소에서 새로운 발견을 하고 있다", "riasecScores": { "I": 3 } },
-      { "id": "19b", "text": "내 이름으로 된 회사를 성공적으로 운영하고 있다", "riasecScores": { "E": 3 } },
-      { "id": "19c", "text": "많은 사람들에게 감동을 주는 작품을 만들고 있다", "riasecScores": { "A": 3 } },
-      { "id": "19d", "text": "어려운 사람들을 돕는 일에 보람을 느끼고 있다", "riasecScores": { "S": 3 } }
+      { "id": "19a", "text": "축구·러닝·자전거 같은 야외 활동으로 땀을 흘린다", "riasecScores": { "R": 3 } },
+      { "id": "19b", "text": "그림 그리기·작곡·글쓰기로 감정을 표현한다", "riasecScores": { "A": 3 } },
+      { "id": "19c", "text": "친한 친구와 카페에서 한참 수다를 떤다", "riasecScores": { "S": 3 } },
+      { "id": "19d", "text": "방에서 좋아하는 책·게임·영화에 푹 빠진다", "riasecScores": { "I": 2, "C": 1 } }
     ]
   },
   {
     "id": 20,
-    "situation": "마지막 질문! 나를 가장 잘 표현하는 말은?",
-    "description": "친구들이 나를 이렇게 부르면 기분이 좋을 것 같아요!",
+    "situation": "마지막! 자유 발표 주제는?",
+    "description": "수업 시간 자유 발표, 어떤 주제를 고를까요?",
     "choices": [
-      { "id": "20a", "text": "\"넌 뭐든 뚝딱 만들어내는 발명가야!\"", "riasecScores": { "R": 3 } },
-      { "id": "20b", "text": "\"넌 진짜 똑똑하고 분석력이 대단해!\"", "riasecScores": { "I": 3 } },
-      { "id": "20c", "text": "\"넌 항상 모두를 챙기는 따뜻한 사람이야!\"", "riasecScores": { "S": 3 } },
-      { "id": "20d", "text": "\"넌 리더십이 대단해! 대장감이야!\"", "riasecScores": { "E": 3 } }
+      { "id": "20a", "text": "ChatGPT·자율주행·우주여행 같은 미래 기술", "riasecScores": { "I": 2, "R": 1 } },
+      { "id": "20b", "text": "기후 위기·청소년 정신건강 같은 사회 이슈", "riasecScores": { "S": 2, "E": 1 } },
+      { "id": "20c", "text": "K-팝·영화·게임 속 숨은 미학", "riasecScores": { "A": 3 } },
+      { "id": "20d", "text": "성공한 창업가·브랜드의 비즈니스 전략", "riasecScores": { "E": 3 } }
     ]
   }
 ]

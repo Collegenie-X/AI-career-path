@@ -57,23 +57,23 @@ export const STAR_FIELD_CONFIG = {
 };
 
 export const LABELS = {
-  page_title: '커리어 탐색',
-  page_subtitle: '8개 별의 직업 세계를 탐험하세요',
+  page_title: '직업 우주 탐험 🚀',
+  page_subtitle: '별 8개 중에 어떤 게 나랑 맞을까?',
   /** 상단 우측 pill (데스크톱) — 패스·실행 헤더와 동일 톤 */
-  page_header_trailing_badge: '8개 별의 직업 세계',
-  star_selected_subtitle: '개 직업 프로세스 & 커리어 패스',
-  intro_banner_title: '직업 세계 탐험',
-  intro_banner_subtitle: '별을 선택하고 직업을 체험하세요',
+  page_header_trailing_badge: '🌌 별 8개 직업 모험',
+  star_selected_subtitle: '개 직업이 기다리는 중!',
+  intro_banner_title: '🚀 직업 우주 탐험',
+  intro_banner_subtitle: '별 하나 골라서 직업 체험 가보자!',
   /** 히어로 제목 그라데이션 강조 구문 */
   intro_banner_highlight: '직업 체험',
-  intro_banner_description: '실제 직무 프로세스와 커리어 패스를 게임처럼 경험해보세요!',
-  star_grid_title: '8개 별 선택',
+  intro_banner_description: '진짜 직장에서 하는 일을 게임처럼 따라가 보는 거예요 — 부담 없이 둘러봐요!',
+  star_grid_title: '🌟 어느 별로 갈까?',
   /** 별 그리드 패널: 패스·커리어와 동일한 그룹 테두리 느낌 */
-  star_grid_panel_caption: '8개 직업 세계가 한 여정으로 이어져 있어요',
+  star_grid_panel_caption: '8개 별이 하나의 모험으로 이어져 있어요 ✨',
   jobs_title: '개 직업 체험',
-  cta_title: '커리어 패스 만들기',
-  cta_description: '이 별 직업의 활동·수상 계획 세우기',
-  cta_button: '시작',
+  cta_title: '내 직업 모험 만들기',
+  cta_description: '이 별의 활동·수상·미션을 내 계획에 담아봐요',
+  cta_button: '출발 ✨',
   coming_soon: '준비 중',
   
   // Modal
@@ -189,9 +189,9 @@ export const LABELS = {
     '학년·학기별 상세 타임라인이 없을 때는, 아래 단계는 입사·준비 경로(entryProcess)를 나눈 예시예요.',
 
   // Explore tab navigations
-  explore_tab_star: '직업 탐색',
-  explore_tab_admission: '고입 탐색',
-  explore_tab_university: '대입 탐색',
+  explore_tab_star: '🌌 직업 별 탐험',
+  explore_tab_admission: '🏫 고등학교 찾기',
+  explore_tab_university: '🎓 대학교 찾기',
 };
 
 // ─── High School Admission Labels ─────────────────────────────

@@ -65,16 +65,14 @@ type AdmissionCategory = {
   universities: string[];
 };
 
-type ViewState =
-  | { view: 'planet' }
-  | { view: 'strategy-hub' }
-  | { view: 'dev-institutions' }
-  | { view: 'innovative-institutions' }
-  | { view: 'career-major' };
+type SubView = 'strategy-hub' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
 
 export function UniversityAdmissionTab() {
-  const [viewState, setViewState] = useState<ViewState>({ view: 'planet' });
   const [selectedCategory, setSelectedCategory] = useState<AdmissionCategory | null>(null);
+  const [showCategoryDialog, setShowCategoryDialog] = useState(false);
+  const [selectedSubView, setSelectedSubView] = useState<SubView>(null);
+  /** right-panel 애니메이션 재실행용 키 */
+  const [subViewAnimKey, setSubViewAnimKey] = useState(0);
 
   const categories = [
     studentRecordComprehensiveCategory.category,
@@ -120,268 +118,253 @@ export function UniversityAdmissionTab() {
     gradeRoadmapOverviewData,
   ];
 
-  const hasRightPanelDetail = selectedCategory !== null;
+  const hasRightPanelDetail = selectedCategory !== null || selectedSubView !== null;
 
-  const handleClearRightPanelSelection = () => setSelectedCategory(null);
-
-  const handleSelectCategory = (category: AdmissionCategory) => setSelectedCategory(category);
-
-  const handleBackToPlanet = () => {
-    setViewState({ view: 'planet' });
+  const handleClearRightPanelSelection = () => {
     setSelectedCategory(null);
+    setShowCategoryDialog(false);
+    setSelectedSubView(null);
   };
 
-  const handleShowStrategyHub = () => {
-    setSelectedCategory(null);
-    setViewState({ view: 'strategy-hub' });
+  const handleSelectCategory = (category: AdmissionCategory) => {
+    setSelectedCategory(category);
+    setShowCategoryDialog(false);
+    setSelectedSubView(null);
+    setSubViewAnimKey((k) => k + 1);
   };
 
-  const handleShowDevInstitutions = () => {
+  const handleSelectSubView = (sub: NonNullable<SubView>) => {
     setSelectedCategory(null);
-    setViewState({ view: 'dev-institutions' });
-  };
-
-  const handleShowInnovativeInstitutions = () => {
-    setSelectedCategory(null);
-    setViewState({ view: 'innovative-institutions' });
-  };
-
-  const handleShowCareerMajor = () => {
-    setSelectedCategory(null);
-    setViewState({ view: 'career-major' });
+    setShowCategoryDialog(false);
+    setSelectedSubView(sub);
+    setSubViewAnimKey((k) => k + 1);
   };
 
   return (
     <div className="space-y-3">
-      {/* 행성(대입 탐색 홈): 고입 탐색과 동일 — 왼쪽 허브 / 오른쪽 상세 가이드 */}
-      {viewState.view === 'planet' && (
-        <TwoColumnPanelLayout
-          hasSelection={hasRightPanelDetail}
-          onClearSelection={handleClearRightPanelSelection}
-          emptyPlaceholderText="상세 가이드를 선택하세요"
-          emptyPlaceholderSubText="왼쪽에서 행성(전형)을 선택하거나 전략 실행 허브·직업(과)별·교육기관으로 이동하면 상세 내용이 표시됩니다"
-          listSlot={
-            <div
-              className={`relative overflow-hidden ${EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}`}
-              style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
-            >
-              <div className="relative z-[1] space-y-3">
-                <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-teal-200/90">
-                  {admissionExploreOrbitCallout('university')}
-                </p>
-                <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />
+      {/* 항상 왼쪽에 행성 + 4개 버튼, 오른쪽에 선택된 상세 패널 */}
+      <TwoColumnPanelLayout
+        hasSelection={hasRightPanelDetail}
+        onClearSelection={handleClearRightPanelSelection}
+        emptyPlaceholderText="상세 가이드를 선택하세요"
+        emptyPlaceholderSubText="왼쪽에서 행성(전형)을 선택하거나 전략 실행 허브·직업(과)별·교육기관을 눌러보세요"
+        listSlot={
+          <div
+            className={`relative overflow-hidden ${EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}`}
+            style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
+          >
+            <div className="relative z-[1] space-y-3">
+              <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-teal-200/90">
+                {admissionExploreOrbitCallout('university')}
+              </p>
+              <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />
 
-                <div className="space-y-2">
-            {/* 전략 실행 허브 */}
-            <motion.button
-              type="button"
-              onClick={handleShowStrategyHub}
-              className="w-full rounded-xl p-4"
-              style={{
-                background: 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.2) 100%)',
-                border: '1px solid rgba(129,140,248,0.3)',
-              }}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(99,102,241,0.25)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+              <div className="space-y-2">
+                {/* 전략 실행 허브 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('strategy-hub')}
+                  className="w-full rounded-xl p-4"
                   style={{
-                    background: 'rgba(99,102,241,0.3)',
-                    border: '2px solid rgba(129,140,248,0.5)',
+                    background: selectedSubView === 'strategy-hub'
+                      ? 'linear-gradient(135deg, rgba(99,102,241,0.35) 0%, rgba(139,92,246,0.35) 100%)'
+                      : 'linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(139,92,246,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'strategy-hub' ? 'rgba(129,140,248,0.7)' : 'rgba(129,140,248,0.3)'}`,
+                    boxShadow: selectedSubView === 'strategy-hub' ? '0 0 20px rgba(99,102,241,0.3)' : undefined,
                   }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(99,102,241,0.25)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
                 >
-                  <Target className="w-6 h-6 text-indigo-400" />
-                </div>
-                <div className="flex-1 text-left">
-                  <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.title}</h3>
-                  <p className="text-xs text-white/70">
-                    {admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.subtitle}
-                  </p>
-                </div>
-                <span className="text-white/40">→</span>
-              </div>
-            </motion.button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(99,102,241,0.3)', border: '2px solid rgba(129,140,248,0.5)' }}>
+                      <Target className="w-6 h-6 text-indigo-400" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.title}</h3>
+                      <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
 
-            {/* 직업(과) 연계 준비 */}
-            <motion.button
-              type="button"
-              onClick={handleShowCareerMajor}
-              className="w-full rounded-xl p-4"
-              style={{
-                background: 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.2) 100%)',
-                border: '1px solid rgba(16,185,129,0.3)',
-              }}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(16,185,129,0.25)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                {/* 직업(과) 연계 준비 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('career-major')}
+                  className="w-full rounded-xl p-4"
                   style={{
-                    background: 'rgba(16,185,129,0.3)',
-                    border: '2px solid rgba(16,185,129,0.5)',
+                    background: selectedSubView === 'career-major'
+                      ? 'linear-gradient(135deg, rgba(16,185,129,0.35) 0%, rgba(5,150,105,0.35) 100%)'
+                      : 'linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(5,150,105,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'career-major' ? 'rgba(16,185,129,0.7)' : 'rgba(16,185,129,0.3)'}`,
+                    boxShadow: selectedSubView === 'career-major' ? '0 0 20px rgba(16,185,129,0.3)' : undefined,
                   }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(16,185,129,0.25)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
                 >
-                  <Briefcase className="w-6 h-6 text-emerald-400" />
-                </div>
-                <div className="flex-1 text-left">
-                  <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.careerMajor.title}</h3>
-                  <p className="text-xs text-white/70">
-                    {admissionSubscreenMasterDetailUi.planetEntranceButtons.careerMajor.subtitle}
-                  </p>
-                </div>
-                <span className="text-white/40">→</span>
-              </div>
-            </motion.button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(16,185,129,0.3)', border: '2px solid rgba(16,185,129,0.5)' }}>
+                      <Briefcase className="w-6 h-6 text-emerald-400" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.careerMajor.title}</h3>
+                      <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.careerMajor.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
 
-            {/* 개발자 교육기관 */}
-            <motion.button
-              type="button"
-              onClick={handleShowDevInstitutions}
-              className="w-full rounded-xl p-4"
-              style={{
-                background: 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 100%)',
-                border: '1px solid rgba(59,130,246,0.3)',
-              }}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(59,130,246,0.28)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+                {/* 개발자 교육기관 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('dev-institutions')}
+                  className="w-full rounded-xl p-4"
                   style={{
-                    background: 'rgba(59,130,246,0.3)',
-                    border: '2px solid rgba(59,130,246,0.5)',
+                    background: selectedSubView === 'dev-institutions'
+                      ? 'linear-gradient(135deg, rgba(59,130,246,0.35) 0%, rgba(139,92,246,0.35) 100%)'
+                      : 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(139,92,246,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'dev-institutions' ? 'rgba(59,130,246,0.7)' : 'rgba(59,130,246,0.3)'}`,
+                    boxShadow: selectedSubView === 'dev-institutions' ? '0 0 20px rgba(59,130,246,0.3)' : undefined,
                   }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(59,130,246,0.28)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
                 >
-                  <Building2 className="w-6 h-6 text-blue-400" />
-                </div>
-                <div className="flex-1 text-left">
-                  <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.title}</h3>
-                  <p className="text-xs text-white/70">
-                    {admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.subtitle}
-                  </p>
-                </div>
-                <span className="text-white/40">→</span>
-              </div>
-            </motion.button>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(59,130,246,0.3)', border: '2px solid rgba(59,130,246,0.5)' }}>
+                      <Building2 className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.title}</h3>
+                      <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
 
-            {/* 혁신 교육기관 */}
-            <motion.button
-              type="button"
-              onClick={handleShowInnovativeInstitutions}
-              className="w-full rounded-xl p-4"
-              style={{
-                background: 'linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(239,68,68,0.2) 100%)',
-                border: '1px solid rgba(245,158,11,0.3)',
-              }}
-              whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(245,158,11,0.28)' }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-            >
-              <div className="flex items-center gap-3">
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+                {/* 혁신 교육기관 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('innovative-institutions')}
+                  className="w-full rounded-xl p-4"
                   style={{
-                    background: 'rgba(245,158,11,0.3)',
-                    border: '2px solid rgba(245,158,11,0.5)',
+                    background: selectedSubView === 'innovative-institutions'
+                      ? 'linear-gradient(135deg, rgba(245,158,11,0.35) 0%, rgba(239,68,68,0.35) 100%)'
+                      : 'linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(239,68,68,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'innovative-institutions' ? 'rgba(245,158,11,0.7)' : 'rgba(245,158,11,0.3)'}`,
+                    boxShadow: selectedSubView === 'innovative-institutions' ? '0 0 20px rgba(245,158,11,0.3)' : undefined,
                   }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(245,158,11,0.28)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
                 >
-                  🌐
-                </div>
-                <div className="flex-1 text-left">
-                  <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.title}</h3>
-                  <p className="text-xs text-white/70">
-                    {admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.subtitle}
-                  </p>
-                </div>
-                <span className="text-white/40">→</span>
-              </div>
-            </motion.button>
-                </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: 'rgba(245,158,11,0.3)', border: '2px solid rgba(245,158,11,0.5)' }}>
+                      🌐
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.title}</h3>
+                      <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
               </div>
             </div>
-          }
-          detailSlot={
-            selectedCategory ? (
-              <CategoryDetailView
-                variant="inline"
-                category={selectedCategory}
-                playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
-                onClose={() => setSelectedCategory(null)}
-              />
-            ) : null
-          }
-        />
-      )}
-
-      {viewState.view === 'strategy-hub' && (
-        <StrategyHubView
-          sections={topStrategySections}
-          onBackToAdmissionExploreMain={handleBackToPlanet}
-          masterDetailLabels={{
-            backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
-            backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
-            emptyDetailTitle: admissionSubscreenMasterDetailUi.strategyHub.emptyDetailTitle,
-            emptyDetailSubText: admissionSubscreenMasterDetailUi.strategyHub.emptyDetailSubText,
-            listIntroEmoji: admissionSubscreenMasterDetailUi.strategyHub.listIntroEmoji,
-            listIntroTitle: admissionSubscreenMasterDetailUi.strategyHub.listIntroTitle,
-            listIntroDescription: admissionSubscreenMasterDetailUi.strategyHub.listIntroDescription,
-          }}
-        />
-      )}
-
-      {viewState.view === 'dev-institutions' && (
-        <DevEducationInstitutionsView
-          institutions={devInstitutions}
-          onBackToAdmissionExploreMain={handleBackToPlanet}
-          masterDetailLabels={{
-            backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
-            backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
-            emptyDetailTitle: admissionSubscreenMasterDetailUi.developerInstitutions.emptyDetailTitle,
-            emptyDetailSubText: admissionSubscreenMasterDetailUi.developerInstitutions.emptyDetailSubText,
-          }}
-        />
-      )}
-
-      {viewState.view === 'innovative-institutions' && (
-        <DevEducationInstitutionsView
-          institutions={innovativeInstitutions}
-          onBackToAdmissionExploreMain={handleBackToPlanet}
-          masterDetailLabels={{
-            backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
-            backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
-            emptyDetailTitle: admissionSubscreenMasterDetailUi.innovativeInstitutions.emptyDetailTitle,
-            emptyDetailSubText: admissionSubscreenMasterDetailUi.innovativeInstitutions.emptyDetailSubText,
-          }}
-          listIntroSlotOverride={
-            <InnovativeInstitutionsListIntroBlock
-              emoji={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroEmoji}
-              title={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroTitle}
-              description={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroDescription}
+          </div>
+        }
+        detailSlot={
+          selectedCategory ? (
+            <CategoryDetailView
+              key={`cat-${selectedCategory.id}-${subViewAnimKey}`}
+              variant="inline"
+              category={selectedCategory}
+              playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
+              onClose={() => setSelectedCategory(null)}
+              onOpenDetailDialog={() => setShowCategoryDialog(true)}
             />
-          }
+          ) : selectedSubView === 'strategy-hub' ? (
+            <StrategyHubView
+              key={`strategy-${subViewAnimKey}`}
+              mode="right-panel"
+              sections={topStrategySections}
+              masterDetailLabels={{
+                backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
+                backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
+                emptyDetailTitle: admissionSubscreenMasterDetailUi.strategyHub.emptyDetailTitle,
+                emptyDetailSubText: admissionSubscreenMasterDetailUi.strategyHub.emptyDetailSubText,
+                listIntroEmoji: admissionSubscreenMasterDetailUi.strategyHub.listIntroEmoji,
+                listIntroTitle: admissionSubscreenMasterDetailUi.strategyHub.listIntroTitle,
+                listIntroDescription: admissionSubscreenMasterDetailUi.strategyHub.listIntroDescription,
+              }}
+              onClose={() => setSelectedSubView(null)}
+            />
+          ) : selectedSubView === 'career-major' ? (
+            <CareerMajorConnectionView
+              key={`career-${subViewAnimKey}`}
+              mode="right-panel"
+              careers={careerMajorData}
+              masterDetailLabels={{
+                backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
+                backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
+                emptyDetailTitle: admissionSubscreenMasterDetailUi.careerMajor.emptyDetailTitle,
+                emptyDetailSubText: admissionSubscreenMasterDetailUi.careerMajor.emptyDetailSubText,
+              }}
+              onClose={() => setSelectedSubView(null)}
+            />
+          ) : selectedSubView === 'dev-institutions' ? (
+            <DevEducationInstitutionsView
+              key={`dev-${subViewAnimKey}`}
+              mode="right-panel"
+              institutions={devInstitutions}
+              masterDetailLabels={{
+                backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
+                backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
+                emptyDetailTitle: admissionSubscreenMasterDetailUi.developerInstitutions.emptyDetailTitle,
+                emptyDetailSubText: admissionSubscreenMasterDetailUi.developerInstitutions.emptyDetailSubText,
+              }}
+              rightPanelTitle={admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.title}
+              rightPanelSubtitle={admissionSubscreenMasterDetailUi.planetEntranceButtons.developerInstitutions.subtitle}
+              rightPanelColor="#8B5CF6"
+              onClose={() => setSelectedSubView(null)}
+            />
+          ) : selectedSubView === 'innovative-institutions' ? (
+            <DevEducationInstitutionsView
+              key={`innovative-${subViewAnimKey}`}
+              mode="right-panel"
+              institutions={innovativeInstitutions}
+              masterDetailLabels={{
+                backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
+                backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
+                emptyDetailTitle: admissionSubscreenMasterDetailUi.innovativeInstitutions.emptyDetailTitle,
+                emptyDetailSubText: admissionSubscreenMasterDetailUi.innovativeInstitutions.emptyDetailSubText,
+              }}
+              rightPanelTitle={admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.title}
+              rightPanelSubtitle={admissionSubscreenMasterDetailUi.planetEntranceButtons.innovativeInstitutions.subtitle}
+              rightPanelColor="#F59E0B"
+              listIntroSlotOverride={
+                <InnovativeInstitutionsListIntroBlock
+                  emoji={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroEmoji}
+                  title={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroTitle}
+                  description={admissionSubscreenMasterDetailUi.innovativeInstitutions.listIntroDescription}
+                />
+              }
+              onClose={() => setSelectedSubView(null)}
+            />
+          ) : null
+        }
+      />
+
+      {showCategoryDialog && selectedCategory && (
+        <CategoryDetailView
+          variant="modal"
+          category={selectedCategory}
+          playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
+          onClose={() => setShowCategoryDialog(false)}
         />
       )}
-
-      {viewState.view === 'career-major' && (
-        <CareerMajorConnectionView
-          careers={careerMajorData}
-          onBackToAdmissionExploreMain={handleBackToPlanet}
-          masterDetailLabels={{
-            backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
-            backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
-            emptyDetailTitle: admissionSubscreenMasterDetailUi.careerMajor.emptyDetailTitle,
-            emptyDetailSubText: admissionSubscreenMasterDetailUi.careerMajor.emptyDetailSubText,
-          }}
-        />
-      )}
-
     </div>
   );
 }

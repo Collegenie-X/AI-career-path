@@ -19,7 +19,6 @@ import type { HighSchoolAdmissionV2Data, HighSchoolCategory, HighSchoolDetail } 
 import type { IdentityChallengeData, MentalChallengeData } from '../../types';
 import { PlanetOrbitView } from './PlanetOrbitView';
 import { SchoolCategoryView } from './SchoolCategoryView';
-import { SchoolDetailPanel } from './SchoolDetailPanel';
 import { SchoolDetailDialog } from './SchoolDetailDialog';
 import { enrichHighSchoolCategories } from './school-profile-enricher';
 import {
@@ -47,13 +46,11 @@ const typedData: HighSchoolAdmissionV2Data = {
   ] as unknown as HighSchoolCategory[]),
 };
 
-type AdmissionViewState = { view: 'planet' } | { view: 'category'; category: HighSchoolCategory };
-
 export function HighSchoolAdmissionTab() {
-  const [viewState, setViewState] = useState<AdmissionViewState>({ view: 'planet' });
-  const [selectedSchool, setSelectedSchool] = useState<HighSchoolDetail | null>(null);
+  /** 2단계: 오른쪽 패널에 표시할 카테고리 (학교 유형) */
   const [selectedCategory, setSelectedCategory] = useState<HighSchoolCategory | null>(null);
-  const [showDetailDialog, setShowDetailDialog] = useState(false);
+  /** 3단계: 다이얼로그로 표시할 개별 학교 */
+  const [selectedSchool, setSelectedSchool] = useState<HighSchoolDetail | null>(null);
   const [openOrbitHubChallengeTabId, setOpenOrbitHubChallengeTabId] =
     useState<HighSchoolOrbitHubChallengeTabId | null>(null);
 
@@ -65,91 +62,76 @@ export function HighSchoolAdmissionTab() {
     for (const category of typedData.categories) {
       const matchedSchool = category.schools.find((school) => school.id === schoolId);
       if (!matchedSchool) continue;
-      setViewState({ view: 'category', category });
       setSelectedCategory(category);
       setSelectedSchool(matchedSchool);
       return;
     }
   }, []);
 
+  /** 1단계 → 2단계: 카테고리 선택 → 오른쪽 패널 노출 */
   const handleSelectCategory = (category: HighSchoolCategory) => {
-    setViewState({ view: 'category', category });
-  };
-
-  const handleSelectSchool = (school: HighSchoolDetail, category: HighSchoolCategory) => {
-    setSelectedSchool(school);
     setSelectedCategory(category);
+    setSelectedSchool(null);
   };
 
-  const handleBackToPlanet = () => {
-    setViewState({ view: 'planet' });
+  /** 2단계 → 3단계: 학교 선택 → 다이얼로그 노출 */
+  const handleSelectSchool = (school: HighSchoolDetail) => {
+    setSelectedSchool(school);
   };
 
-  const currentCategory = viewState.view === 'category' ? viewState.category : null;
-
-  /** 2컬럼 레이아웃: 왼쪽 리스트, 오른쪽 디테일 (대입 UI와 동일) */
-  const hasDetailSelection = selectedSchool !== null;
-
-  const listSlotContent =
-    !currentCategory ? (
-      <div className="relative z-[1] space-y-3">
-        <HighSchoolOrbitHubChallengeTabBar onSelectTab={setOpenOrbitHubChallengeTabId} />
-        <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
-          {admissionExploreOrbitCallout('highSchool')}
-        </p>
-        <PlanetOrbitView
-          categories={typedData.categories}
-          onSelectCategory={handleSelectCategory}
-        />
-      </div>
-    ) : (
-      <SchoolCategoryView
-        category={currentCategory}
-        onBack={handleBackToPlanet}
-        onSelectSchool={(school) => handleSelectSchool(school, currentCategory)}
-      />
-    );
+  /** 2컬럼 레이아웃: 왼쪽 = 항상 카테고리 그리드, 오른쪽 = 카테고리 상세 + 학교 목록 */
+  const hasDetailSelection = selectedCategory !== null;
 
   return (
     <>
       <TwoColumnPanelLayout
         hasSelection={hasDetailSelection}
         onClearSelection={() => {
-          setSelectedSchool(null);
           setSelectedCategory(null);
+          setSelectedSchool(null);
         }}
-        emptyPlaceholderText="학교를 선택하세요"
-        emptyPlaceholderSubText="왼쪽에서 학교 유형(행성)을 선택한 뒤, 학교를 클릭하면 상세 내용이 여기에 표시됩니다"
+        emptyPlaceholderText="학교 유형을 선택하세요"
+        emptyPlaceholderSubText="왼쪽에서 학교 유형(행성)을 클릭하면 카테고리 설명과 학교 목록이 여기에 표시됩니다"
         listSlot={
           <div
             className={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanel}
             style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
           >
-            {listSlotContent}
+            <div className="relative z-[1] space-y-3">
+              <HighSchoolOrbitHubChallengeTabBar onSelectTab={setOpenOrbitHubChallengeTabId} />
+              <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-purple-200/90">
+                {admissionExploreOrbitCallout('highSchool')}
+              </p>
+              <PlanetOrbitView
+                categories={typedData.categories}
+                onSelectCategory={handleSelectCategory}
+              />
+            </div>
           </div>
         }
         detailSlot={
-          selectedSchool && selectedCategory ? (
-            <SchoolDetailPanel
-              school={selectedSchool}
-              categoryColor={selectedCategory.color}
-              categoryBgColor={selectedCategory.bgColor}
-              onClose={() => {
-                setSelectedSchool(null);
-                setSelectedCategory(null);
-              }}
-              onOpenDetailDialog={() => setShowDetailDialog(true)}
-            />
+          selectedCategory ? (
+            <div className="rounded-2xl p-4" style={{ background: 'rgba(15,23,42,0.6)', border: `1px solid ${selectedCategory.color}40` }}>
+              <SchoolCategoryView
+                variant="rightDetail"
+                category={selectedCategory}
+                onBack={() => {
+                  setSelectedCategory(null);
+                  setSelectedSchool(null);
+                }}
+                onSelectSchool={handleSelectSchool}
+              />
+            </div>
           ) : null
         }
       />
 
-      {showDetailDialog && selectedSchool && selectedCategory && (
+      {selectedSchool && selectedCategory && (
         <SchoolDetailDialog
           school={selectedSchool}
           categoryColor={selectedCategory.color}
           categoryBgColor={selectedCategory.bgColor}
-          onClose={() => setShowDetailDialog(false)}
+          onClose={() => setSelectedSchool(null)}
         />
       )}
 

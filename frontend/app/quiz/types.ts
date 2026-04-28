@@ -4,6 +4,7 @@ export interface QuizQuestion {
   id: number;
   zone: string;
   zoneIcon: string;
+  situationEmoji?: string;
   situation: string;
   description: string;
   feedbackMap: Record<string, string>;
@@ -13,6 +14,7 @@ export interface QuizQuestion {
 export interface QuizChoice {
   id: string;
   text: string;
+  emoji?: string;
   riasecScores: Record<string, number>;
 }
 

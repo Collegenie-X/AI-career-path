@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, ChevronRight, X } from 'lucide-react';
 
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 
@@ -11,8 +11,11 @@ import type { DevEducationMasterDetailLabels } from './DevEducationInstitutionsV
 
 type CareerMajorConnectionViewProps = {
   readonly careers: CareerMajorCareer[];
-  readonly onBackToAdmissionExploreMain: () => void;
+  readonly onBackToAdmissionExploreMain?: () => void;
   readonly masterDetailLabels: DevEducationMasterDetailLabels;
+  /** right-panel: 부모 TwoColumnPanel의 detailSlot 안에 컴팩트 목록으로 렌더링 */
+  readonly mode?: 'standalone' | 'right-panel';
+  readonly onClose?: () => void;
 };
 
 function CareerListBackToMainButton({
@@ -41,17 +44,141 @@ export function CareerMajorConnectionView({
   careers,
   onBackToAdmissionExploreMain,
   masterDetailLabels,
+  mode = 'standalone',
+  onClose,
 }: CareerMajorConnectionViewProps) {
   const [selectedCareer, setSelectedCareer] = useState<CareerMajorCareer | null>(null);
   const [selectedKingdom, setSelectedKingdom] = useState<string | null>(null);
+  const [showCareerDialog, setShowCareerDialog] = useState(false);
 
   const kingdoms = Array.from(new Set(careers.map((c) => c.kingdom)));
   const filteredCareers = selectedKingdom ? careers.filter((c) => c.kingdom === selectedKingdom) : careers;
 
+  // ── right-panel 모드: 컴팩트 목록 + 다이얼로그 직접 오픈 ──
+  if (mode === 'right-panel') {
+    return (
+      <>
+        {/* 헤더 */}
+        <div
+          className="flex-shrink-0 flex items-center justify-between px-4 py-3"
+          style={{
+            background: 'linear-gradient(135deg, rgba(16,185,129,0.22), rgba(5,150,105,0.12))',
+            borderBottom: '1px solid rgba(16,185,129,0.25)',
+          }}
+        >
+          <div className="flex items-center gap-2.5">
+            <Briefcase className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <div>
+              <h2 className="text-sm font-bold text-white leading-tight">직업(과)별 대입 준비 전략</h2>
+              <p className="text-[10px] text-emerald-300/80 mt-0.5">직업별 학과·세특 전략을 확인하세요</p>
+            </div>
+          </div>
+          {onClose && (
+            <button
+              type="button"
+              onClick={onClose}
+              className="w-7 h-7 rounded-full flex items-center justify-center transition-all hover:bg-white/15 hover:rotate-90"
+              style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(16,185,129,0.4)' }}
+              aria-label="닫기"
+            >
+              <X className="w-3.5 h-3.5 text-white" />
+            </button>
+          )}
+        </div>
+
+        {/* 왕국 필터 */}
+        <div className="px-4 pt-3 flex gap-2 overflow-x-auto pb-2 scrollbar-hide flex-shrink-0">
+          <button
+            type="button"
+            onClick={() => setSelectedKingdom(null)}
+            className="px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all"
+            style={{
+              background: selectedKingdom === null ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.05)',
+              border: `1px solid ${selectedKingdom === null ? 'rgba(16,185,129,0.5)' : 'rgba(255,255,255,0.1)'}`,
+              color: selectedKingdom === null ? 'white' : 'rgba(255,255,255,0.6)',
+            }}
+          >
+            전체
+          </button>
+          {kingdoms.map((kingdom) => (
+            <button
+              key={kingdom}
+              type="button"
+              onClick={() => setSelectedKingdom(kingdom)}
+              className="px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all"
+              style={{
+                background: selectedKingdom === kingdom ? 'rgba(16,185,129,0.3)' : 'rgba(255,255,255,0.05)',
+                border: `1px solid ${selectedKingdom === kingdom ? 'rgba(16,185,129,0.5)' : 'rgba(255,255,255,0.1)'}`,
+                color: selectedKingdom === kingdom ? 'white' : 'rgba(255,255,255,0.6)',
+              }}
+            >
+              {kingdom}
+            </button>
+          ))}
+        </div>
+
+        {/* 직업 목록 */}
+        <div className="panel-pop-stagger p-4 pt-2 space-y-2 overflow-y-auto max-h-[65vh]">
+          {filteredCareers.map((career) => (
+            <button
+              key={career.id}
+              type="button"
+              onClick={() => {
+                setSelectedCareer(career);
+                setShowCareerDialog(true);
+              }}
+              className="w-full text-left rounded-xl p-3 transition-all hover:scale-[1.01] active:scale-[0.99] group"
+              style={{ background: 'rgba(16,185,129,0.07)', border: '1px solid rgba(16,185,129,0.2)' }}
+            >
+              <div className="flex items-start gap-3">
+                <div
+                  className="flex-shrink-0 w-11 h-11 rounded-xl flex items-center justify-center text-xl"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(16,185,129,0.2), rgba(5,150,105,0.3))',
+                    border: '2px solid rgba(16,185,129,0.4)',
+                  }}
+                >
+                  {career.emoji}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-0.5 flex-wrap">
+                    <h4 className="text-sm font-bold text-white">{career.name}</h4>
+                    <span className="text-[10px] text-white/40">{career.kingdom}</span>
+                  </div>
+                  <p className="text-xs text-emerald-400 mb-1">{career.targetMajor}</p>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                      {career.admissionType}
+                    </span>
+                  </div>
+                </div>
+                <ChevronRight className="w-4 h-4 text-emerald-400/50 group-hover:text-emerald-300 transition-colors flex-shrink-0 mt-1" />
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* 직업 다이얼로그 */}
+        {showCareerDialog && selectedCareer && (
+          <CareerDetailPanel
+            career={selectedCareer}
+            onClose={() => { setSelectedCareer(null); setShowCareerDialog(false); }}
+            variant="dialog"
+          />
+        )}
+      </>
+    );
+  }
+
+  // ── standalone 모드: 기존 TwoColumnPanelLayout ──
   return (
+    <>
     <TwoColumnPanelLayout
       hasSelection={selectedCareer !== null}
-      onClearSelection={() => setSelectedCareer(null)}
+      onClearSelection={() => {
+        setSelectedCareer(null);
+        setShowCareerDialog(false);
+      }}
       emptyPlaceholderText={masterDetailLabels.emptyDetailTitle}
       emptyPlaceholderSubText={masterDetailLabels.emptyDetailSubText}
       listSlot={
@@ -65,7 +192,7 @@ export function CareerMajorConnectionView({
               ariaLabel={masterDetailLabels.backToMainAriaLabel}
               onBack={() => {
                 setSelectedCareer(null);
-                onBackToAdmissionExploreMain();
+                onBackToAdmissionExploreMain?.();
               }}
             />
 
@@ -122,7 +249,10 @@ export function CareerMajorConnectionView({
                   <button
                     key={career.id}
                     type="button"
-                    onClick={() => setSelectedCareer(career)}
+                    onClick={() => {
+                      setSelectedCareer(career);
+                      setShowCareerDialog(false);
+                    }}
                     className={`w-full text-left rounded-xl p-3 transition-all hover:scale-[1.01] active:scale-[0.99] bg-white/5 border-2 ${
                       isSelected
                         ? 'border-emerald-500/50 shadow-[0_0_0_1px_rgba(16,185,129,0.35)]'
@@ -180,9 +310,22 @@ export function CareerMajorConnectionView({
       }
       detailSlot={
         selectedCareer ? (
-          <CareerDetailPanel career={selectedCareer} onClose={() => setSelectedCareer(null)} />
+          <CareerDetailPanel
+            career={selectedCareer}
+            onClose={() => setSelectedCareer(null)}
+            variant="inline"
+            onOpenDetailDialog={() => setShowCareerDialog(true)}
+          />
         ) : null
       }
     />
+    {showCareerDialog && selectedCareer && (
+      <CareerDetailPanel
+        career={selectedCareer}
+        onClose={() => setShowCareerDialog(false)}
+        variant="dialog"
+      />
+    )}
+    </>
   );
 }

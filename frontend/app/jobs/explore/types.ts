@@ -383,6 +383,25 @@ export type HighSchoolDetail = {
   futureOutlook?: string;
   /** 학교 공식 홈페이지 URL */
   websiteUrl?: string;
+  /** 2028 개편 + AI 시대 카테고리 공통 업데이트 (학교 단위로 동일) */
+  update2028AI?: {
+    policy2028: string;
+    aiEra: string;
+    cautionPoints: string[];
+  };
+  /** 중학생을 위한 친근한 고입 가이드 (카테고리 공통, 학교별 homepageUrl만 다름) */
+  middleSchoolGuide?: {
+    oneLineAbout: string;
+    goodFor: string[];
+    notForYouIf: string[];
+    whatToDoNow: string[];
+    admissionTimeline: string;
+    competitionRate: string;
+    whatTheyCheck: string[];
+    aiTipForMiddleSchooler: string;
+    homepageMustCheck: string;
+    homepageUrl: string;
+  };
 };
 
 export type HighSchoolAiEraStrategy = {
@@ -430,6 +449,20 @@ export type HighSchoolAiEraStrategy = {
   };
 };
 
+export type HighSchoolAdmissionStrategy2028 = {
+  title: string;
+  summary: string;
+  /** 핵심 포인트 — 단순 문자열 배열 또는 라벨·상세 객체 모두 지원 */
+  points: Array<
+    | string
+    | {
+        label: string;
+        detail: string;
+        impact?: 'positive' | 'neutral' | 'caution';
+      }
+  >;
+};
+
 export type HighSchoolCategory = {
   id: string;
   name: string;
@@ -441,6 +474,12 @@ export type HighSchoolCategory = {
   categoryTraits: SchoolCategoryTraits;
   schools: HighSchoolDetail[];
   aiEraStrategy?: HighSchoolAiEraStrategy;
+  /** 2028 입시제도 정책 컨텍스트 한 줄 요약 */
+  policyContext2028?: string;
+  /** AI 시대 직업 변화 컨텍스트 한 줄 요약 */
+  aiEraContext?: string;
+  /** 2028 입시 전략 (제목·요약·핵심 포인트) */
+  admissionStrategy2028?: HighSchoolAdmissionStrategy2028;
 };
 
 export type IdentityTip = {

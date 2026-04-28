@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronRight, Eye, CalendarDays, BrainCircuit, Crosshair } from 'lucide-react';
+import { ChevronDown, ChevronRight, Eye, CalendarDays, BrainCircuit, Crosshair, GraduationCap, Maximize2, X } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
+import { UniversityFocusDialog } from './UniversityFocusDialog';
 
 type AdmissionCategory = {
   id: string;
@@ -83,13 +84,17 @@ type CategoryDetailViewProps = {
   onClose: () => void;
   /** inline: 오른쪽 패널에 삽입 (모달 없음) — jobs/explore 대입 탐색 2컬럼용 */
   variant?: 'modal' | 'inline';
+  /** inline 패널에서 다이얼로그로 확장하는 콜백 (변형 'inline' 일 때만 노출) */
+  onOpenDetailDialog?: () => void;
 };
 
 type TabId = 'core' | 'grade' | 'strategy2028' | 'practical';
 
-export function CategoryDetailView({ category, playbook, onClose, variant = 'modal' }: CategoryDetailViewProps) {
+export function CategoryDetailView({ category, playbook, onClose, variant = 'modal', onOpenDetailDialog }: CategoryDetailViewProps) {
   const [activeTab, setActiveTab] = useState<TabId>('core');
   const [mounted, setMounted] = useState(false);
+  /** 3단계: 개별 대학 포커스 다이얼로그 */
+  const [selectedUniversity, setSelectedUniversity] = useState<string | null>(null);
   useEffect(() => setMounted(true), []);
 
   const tabs: Array<{ id: TabId; label: string; icon: any }> = [
@@ -104,9 +109,13 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
       ? 'w-full min-w-0 max-w-full overflow-x-hidden rounded-2xl p-3 sm:p-4 space-y-3'
       : 'w-full min-w-0 max-w-full md:max-w-[28rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4';
 
+  /** 카테고리가 바뀔 때마다 stagger 애니메이션 새로 트리거 */
+  const animationKey = `category-${category.id}`;
+
   const panelInner = (
       <div
-        className={panelScrollClass}
+        key={animationKey}
+        className={`${panelScrollClass} ${variant === 'inline' ? 'panel-pop-stagger' : ''}`}
         style={{
           background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
           border: `1px solid ${category.color}55`,
@@ -115,10 +124,46 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
         onClick={(event) => event.stopPropagation()}
       >
         <div
-          className="rounded-2xl p-4"
+          className="relative rounded-2xl p-4 overflow-hidden"
           style={{ background: category.bgColor, border: `1px solid ${category.color}40` }}
         >
-          <div className="flex items-start gap-3">
+          <div
+            className="pointer-events-none absolute -right-10 -top-10 w-32 h-32 rounded-full opacity-30"
+            style={{ background: `radial-gradient(circle, ${category.color}, transparent)` }}
+            aria-hidden
+          />
+          <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5">
+            {variant === 'inline' && onOpenDetailDialog && (
+              <button
+                type="button"
+                onClick={onOpenDetailDialog}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  border: `1px solid ${category.color}55`,
+                }}
+                title="자세히 보기"
+                aria-label="자세히 보기"
+              >
+                <Maximize2 className="w-3.5 h-3.5" style={{ color: category.color }} />
+              </button>
+            )}
+            {variant === 'modal' && (
+              <button
+                type="button"
+                onClick={onClose}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:rotate-90 hover:bg-white/15"
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  border: `1px solid ${category.color}55`,
+                }}
+                aria-label="닫기"
+              >
+                <X className="w-3.5 h-3.5 text-white" />
+              </button>
+            )}
+          </div>
+          <div className="relative flex items-start gap-3 pr-10">
             <div
               className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl"
               style={{
@@ -164,24 +209,93 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
         {activeTab === 'practical' && (
           <CategoryPracticalExamplesPanel category={category} playbook={playbook} />
         )}
+
+        {/* ── 3단계 진입: 주요 지원 대학 (클릭하면 다이얼로그) ── */}
+        {category.universities && category.universities.length > 0 && (
+          <div
+            className="rounded-2xl p-3 sm:p-4"
+            style={{
+              background: `linear-gradient(135deg, ${category.bgColor} 0%, rgba(0,0,0,0.25) 100%)`,
+              border: `1px solid ${category.color}40`,
+            }}
+          >
+            <div className="flex items-center justify-between gap-2 mb-2.5">
+              <div className="flex items-center gap-1.5">
+                <GraduationCap className="w-4 h-4" style={{ color: category.color }} />
+                <p className="text-[12px] font-bold text-white">주요 지원 대학</p>
+                <span
+                  className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
+                  style={{ background: `${category.color}25`, color: category.color, border: `1px solid ${category.color}40` }}
+                >
+                  {category.universities.length}곳
+                </span>
+              </div>
+              <span className="text-[10px] text-white/50">클릭하면 자세히 보기</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 panel-pop-stagger-fast">
+              {category.universities.map((university, index) => (
+                <button
+                  key={`${university}-${index}`}
+                  type="button"
+                  onClick={() => setSelectedUniversity(university)}
+                  className="group flex items-center justify-between gap-2 text-left px-3 py-2 rounded-xl transition-all hover:scale-[1.01] active:scale-[0.99]"
+                  style={{
+                    background: 'rgba(255,255,255,0.05)',
+                    border: `1px solid ${category.color}30`,
+                  }}
+                >
+                  <span className="text-[12px] font-semibold text-white/90 leading-tight">{university}</span>
+                  <ChevronRight
+                    className="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:translate-x-0.5"
+                    style={{ color: category.color }}
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
   );
 
   if (!mounted) return null;
 
+  const universityDialog = selectedUniversity ? (
+    <UniversityFocusDialog
+      universityLabel={selectedUniversity}
+      categoryName={category.name}
+      categoryShortName={category.shortName}
+      categoryEmoji={category.emoji}
+      categoryColor={category.color}
+      categoryBgColor={category.bgColor}
+      keyFeatures={category.keyFeatures}
+      targetStudents={category.targetStudents}
+      onClose={() => setSelectedUniversity(null)}
+    />
+  ) : null;
+
   if (variant === 'inline') {
-    return panelInner;
+    return (
+      <>
+        {panelInner}
+        {universityDialog}
+      </>
+    );
   }
 
-  return createPortal(
-    <div
-      className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-0 md:p-4"
-      style={{ background: 'rgba(2,6,23,0.88)' }}
-      onClick={onClose}
-    >
-      {panelInner}
-    </div>,
-    document.body
+  return (
+    <>
+      {createPortal(
+        <div
+          className="fixed inset-0 z-[9999] flex items-end md:items-center justify-center p-0 md:p-4"
+          style={{ background: 'rgba(2,6,23,0.88)' }}
+          onClick={onClose}
+        >
+          {panelInner}
+        </div>,
+        document.body
+      )}
+      {universityDialog}
+    </>
   );
 }
 

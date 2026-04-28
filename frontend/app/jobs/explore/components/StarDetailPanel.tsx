@@ -26,22 +26,35 @@ function AccordionSection({
   color,
   children,
   defaultOpen = false,
+  hintBadge,
+  pulse = false,
 }: {
   title: string;
   icon: React.ElementType;
   color: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
+  /** 닫혀 있을 때 옆에 노출할 미니 안내 뱃지 (예: '탭해서 열기') */
+  hintBadge?: string;
+  /** 닫혀 있을 때 살짝 깜빡이는 글로우 효과 (호기심 유도) */
+  pulse?: boolean;
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
     <div
-      className="rounded-2xl overflow-hidden transition-all duration-300"
+      className="relative rounded-2xl overflow-hidden transition-all duration-300"
       style={{
-        border: `1px solid ${color}22`,
-        background: isOpen ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.03)',
-        boxShadow: isOpen ? `0 4px 20px ${color}20` : 'none',
+        border: `1px solid ${isOpen ? `${color}55` : `${color}22`}`,
+        background: isOpen
+          ? `linear-gradient(180deg, ${color}10, rgba(255,255,255,0.04))`
+          : 'rgba(255,255,255,0.03)',
+        boxShadow: isOpen
+          ? `0 4px 20px ${color}25`
+          : pulse
+            ? `0 0 0 1px ${color}33, 0 0 18px ${color}25`
+            : 'none',
+        animation: !isOpen && pulse ? 'pulse-glow 2.4s ease-in-out infinite' : undefined,
       }}
     >
       <button
@@ -58,11 +71,23 @@ function AccordionSection({
           <Icon className="w-4 h-4" style={{ color }} />
         </div>
         <span className="flex-1 text-left text-sm font-bold text-white">{title}</span>
+        {!isOpen && hintBadge && (
+          <span
+            className="text-[10px] font-bold px-2 py-0.5 rounded-full mr-1"
+            style={{
+              backgroundColor: `${color}20`,
+              color,
+              border: `1px solid ${color}40`,
+            }}
+          >
+            {hintBadge}
+          </span>
+        )}
         <div
           className="transition-transform duration-300"
           style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
         >
-          <ChevronDown className="w-4 h-4 text-gray-500" />
+          <ChevronDown className="w-4 h-4" style={{ color: isOpen ? color : 'rgba(156,163,175,1)' }} />
         </div>
       </button>
       <div
@@ -75,6 +100,33 @@ function AccordionSection({
         <div className="px-4 pb-4 pt-2 border-t border-white/5">
           {children}
         </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * 별 트레일 — 섹션을 한 여정처럼 잇는 좌측 점선/별 마커
+ */
+function JourneyTrail({
+  color,
+  children,
+}: {
+  color: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="relative pl-5">
+      {/* 좌측 트레일 라인 (그라데이션) */}
+      <div
+        className="absolute left-1.5 top-1 bottom-1 w-px"
+        aria-hidden
+        style={{
+          background: `linear-gradient(180deg, ${color}66, ${color}22 60%, transparent)`,
+        }}
+      />
+      <div className="relative space-y-2.5">
+        {children}
       </div>
     </div>
   );
@@ -197,130 +249,130 @@ export function StarDetailPanel({
           </p>
         </div>
 
-        {/* 아코디언: 핵심 특성 */}
-        {profile && coreTraits.length > 0 && (
-          <div className="mb-3">
-            <AccordionSection
-              title={LABELS.star_core_traits_title}
-              icon={Zap}
-              color={star.color}
-              defaultOpen={false}
-            >
-              <div className="grid grid-cols-2 gap-2 mt-2">
-                {coreTraits.map((trait, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-xl p-3 text-center transition-all hover:scale-105"
-                    style={{
-                      background: `${star.color}10`,
-                      border: `1px solid ${star.color}20`,
-                    }}
-                  >
-                    <div className="text-2xl mb-1">{trait.icon}</div>
-                    <div className="text-xs font-bold text-white mb-0.5">{trait.label}</div>
-                    <div className="text-[10px] text-gray-500 leading-snug">{trait.desc}</div>
-                  </div>
-                ))}
-              </div>
-            </AccordionSection>
-          </div>
-        )}
+        {/* 별 여정 트레일 — 섹션이 한 여정으로 이어지는 느낌 */}
+        {profile && (coreTraits.length > 0 || fitItems.length > 0 || commonDNA.length > 0 || kingdomAiChangePanelData) && (
+          <JourneyTrail color={star.color}>
+            {/* 핵심 특성 (기본 열림) */}
+            {coreTraits.length > 0 && (
+              <AccordionSection
+                title={LABELS.star_core_traits_title}
+                icon={Zap}
+                color={star.color}
+                defaultOpen
+              >
+                <div className="grid grid-cols-2 gap-2 mt-2">
+                  {coreTraits.map((trait, idx) => (
+                    <div
+                      key={idx}
+                      className="rounded-xl p-3 text-center transition-all hover:scale-105"
+                      style={{
+                        background: `${star.color}10`,
+                        border: `1px solid ${star.color}20`,
+                      }}
+                    >
+                      <div className="text-2xl mb-1">{trait.icon}</div>
+                      <div className="text-xs font-bold text-white mb-0.5">{trait.label}</div>
+                      <div className="text-[10px] text-gray-500 leading-snug">{trait.desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </AccordionSection>
+            )}
 
-        {/* 아코디언: 이런 사람에게 딱 */}
-        {profile && fitItems.length > 0 && (
-          <div className="mb-3">
-            <AccordionSection
-              title={LABELS.star_fit_title}
-              icon={Users}
-              color={star.color}
-              defaultOpen={false}
-            >
-              <div className="space-y-2 mt-2">
-                {fitItems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-2 text-xs text-gray-300 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
-                  >
-                    <span className="flex-shrink-0">✨</span>
-                    <span>{item}</span>
-                  </div>
-                ))}
-              </div>
-              {notFitItems.length > 0 && (
-                <>
-                  <div className="h-px bg-white/10 my-3" />
-                  <div className="text-[11px] font-bold text-gray-500 mb-2">
-                    {LABELS.star_fit_not_recommend_title}
-                  </div>
-                  <div className="space-y-2">
-                    {notFitItems.map((item, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2 text-xs text-gray-400 leading-relaxed p-2 rounded-lg"
-                        style={{ backgroundColor: 'rgba(255,100,100,0.08)' }}
-                      >
-                        <span className="flex-shrink-0">⚠️</span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
-            </AccordionSection>
-          </div>
-        )}
+            {/* 이런 사람에게 딱 (기본 열림) */}
+            {fitItems.length > 0 && (
+              <AccordionSection
+                title={LABELS.star_fit_title}
+                icon={Users}
+                color={star.color}
+                defaultOpen
+              >
+                <div className="space-y-2 mt-2">
+                  {fitItems.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-2 text-xs text-gray-300 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
+                    >
+                      <span className="flex-shrink-0">✨</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                {notFitItems.length > 0 && (
+                  <>
+                    <div className="h-px bg-white/10 my-3" />
+                    <div className="text-[11px] font-bold text-gray-500 mb-2">
+                      {LABELS.star_fit_not_recommend_title}
+                    </div>
+                    <div className="space-y-2">
+                      {notFitItems.map((item, idx) => (
+                        <div
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-gray-400 leading-relaxed p-2 rounded-lg"
+                          style={{ backgroundColor: 'rgba(255,100,100,0.08)' }}
+                        >
+                          <span className="flex-shrink-0">⚠️</span>
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </AccordionSection>
+            )}
 
-        {/* 아코디언: 공통 DNA */}
-        {profile && commonDNA.length > 0 && (
-          <div className="mb-3">
-            <AccordionSection
-              title={LABELS.star_common_dna_label}
-              icon={Lightbulb}
-              color={star.color}
-              defaultOpen={false}
-            >
-              <div className="flex flex-wrap gap-2 mt-2">
-                {commonDNA.map((dna, idx) => (
-                  <div
-                    key={idx}
-                    className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all hover:scale-105"
-                    style={{
-                      backgroundColor: `${star.color}20`,
-                      color: star.color,
-                      border: `1px solid ${star.color}30`,
-                    }}
-                  >
-                    {dna}
-                  </div>
-                ))}
-              </div>
-            </AccordionSection>
-          </div>
-        )}
+            {/* 공통 DNA (기본 닫힘 — 호기심 유도) */}
+            {commonDNA.length > 0 && (
+              <AccordionSection
+                title={LABELS.star_common_dna_label}
+                icon={Lightbulb}
+                color={star.color}
+                defaultOpen={false}
+                hintBadge="탭해서 보기"
+              >
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {commonDNA.map((dna, idx) => (
+                    <div
+                      key={idx}
+                      className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all hover:scale-105"
+                      style={{
+                        backgroundColor: `${star.color}20`,
+                        color: star.color,
+                        border: `1px solid ${star.color}30`,
+                      }}
+                    >
+                      {dna}
+                    </div>
+                  ))}
+                </div>
+              </AccordionSection>
+            )}
 
-        {/* AI 시대 직업군 전체 변화 */}
-        {kingdomAiChangePanelData && (
-          <div className="mb-4">
-            <AccordionSection
-              title="AI 시대 직업군 전체 변화"
-              icon={Bot}
-              color={star.color}
-              defaultOpen={true}
-            >
-              <div className="mt-2 space-y-3">
-                <AiKingdomOccupationChangeGamePanel
-                  starName={star.name}
-                  starColor={star.color}
-                  lowRiskCount={kingdomAiChangePanelData.lowRiskCount}
-                  mediumRiskCount={kingdomAiChangePanelData.mediumRiskCount}
-                  highRiskCount={kingdomAiChangePanelData.highRiskCount}
-                  allAiTools={kingdomAiChangePanelData.allAiTools}
-                  allSurvivalStrategies={kingdomAiChangePanelData.allSurvivalStrategies}
-                  footerIntroText={STAR_PANEL_AI_ERA_INTRO}
-                />
-              </div>
-            </AccordionSection>
-          </div>
+            {/* 🤖 AI가 오면? (기본 닫힘 — 깜빡이는 글로우 + 안내 뱃지로 호기심 유도) */}
+            {kingdomAiChangePanelData && (
+              <AccordionSection
+                title="🤖 AI가 오면 어떻게 될까?"
+                icon={Bot}
+                color={star.color}
+                defaultOpen={false}
+                hintBadge="열어보기"
+                pulse
+              >
+                <div className="mt-2 space-y-3">
+                  <AiKingdomOccupationChangeGamePanel
+                    starName={star.name}
+                    starColor={star.color}
+                    lowRiskCount={kingdomAiChangePanelData.lowRiskCount}
+                    mediumRiskCount={kingdomAiChangePanelData.mediumRiskCount}
+                    highRiskCount={kingdomAiChangePanelData.highRiskCount}
+                    allAiTools={kingdomAiChangePanelData.allAiTools}
+                    allSurvivalStrategies={kingdomAiChangePanelData.allSurvivalStrategies}
+                    footerIntroText={STAR_PANEL_AI_ERA_INTRO}
+                  />
+                </div>
+              </AccordionSection>
+            )}
+          </JourneyTrail>
         )}
 
         {/* 직업 목록 */}
