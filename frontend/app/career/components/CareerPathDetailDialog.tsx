@@ -653,7 +653,48 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                             {typeConf?.emoji ?? '📌'}
                                           </div>
                                           <div className="flex-1 min-w-0">
-                                            <div className="text-xs font-semibold text-white leading-snug">{item.title}</div>
+                                            <div className="flex items-start gap-1.5 flex-wrap">
+                                              {item.priority === 'must' && (
+                                                <span
+                                                  className="text-[10.5px] font-black px-1.5 py-0.5 rounded-md flex-shrink-0"
+                                                  style={{
+                                                    background: 'linear-gradient(135deg, #ef4444, #dc2626)',
+                                                    color: '#fff',
+                                                    boxShadow: '0 0 8px rgba(239,68,68,0.45)',
+                                                  }}
+                                                  title="합격 결정타 — 이 시기 반드시 챙겨야 하는 항목"
+                                                >
+                                                  🔥 핵심
+                                                </span>
+                                              )}
+                                              {item.priority === 'boost' && (
+                                                <span
+                                                  className="text-[10.5px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0"
+                                                  style={{
+                                                    backgroundColor: 'rgba(167,139,250,0.18)',
+                                                    border: '1px solid rgba(167,139,250,0.55)',
+                                                    color: '#c4b5fd',
+                                                  }}
+                                                  title="가산점 — 있으면 강력한 차별화 요소"
+                                                >
+                                                  ⚡ 가산점
+                                                </span>
+                                              )}
+                                              {item.projectTrack && (
+                                                <span
+                                                  className="text-[10.5px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0"
+                                                  style={{
+                                                    backgroundColor: 'rgba(34,197,94,0.16)',
+                                                    border: '1px solid rgba(34,197,94,0.5)',
+                                                    color: '#86efac',
+                                                  }}
+                                                  title="AI 도구를 직접 활용하는 프로젝트 트랙"
+                                                >
+                                                  🤖 AI 프로젝트
+                                                </span>
+                                              )}
+                                              <div className="text-xs font-semibold text-white leading-snug">{item.title}</div>
+                                            </div>
                                             <div className="flex items-center gap-1.5 mt-1 flex-wrap">
                                               <span
                                                 className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
@@ -693,6 +734,38 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                             )}
                                             {item.description && (
                                               <div className="text-[12px] text-gray-500 mt-1 leading-relaxed">{item.description}</div>
+                                            )}
+                                            {Array.isArray(item.aiTools) && item.aiTools.length > 0 && (
+                                              <div className="flex flex-wrap items-center gap-1 mt-1.5">
+                                                <span className="text-[10px] text-gray-500">🛠️</span>
+                                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                                {item.aiTools.map((tool: string, ti: number) => (
+                                                  <span
+                                                    key={`${tool}-${ti}`}
+                                                    className="text-[10px] px-1.5 py-0.5 rounded-md font-medium"
+                                                    style={{
+                                                      backgroundColor: 'rgba(96,165,250,0.14)',
+                                                      border: '1px solid rgba(96,165,250,0.35)',
+                                                      color: '#bfdbfe',
+                                                    }}
+                                                  >
+                                                    {tool}
+                                                  </span>
+                                                ))}
+                                              </div>
+                                            )}
+                                            {item.deliverable && (
+                                              <div
+                                                className="mt-1.5 text-[11px] flex items-start gap-1 px-1.5 py-1 rounded-md"
+                                                style={{
+                                                  backgroundColor: 'rgba(251,191,36,0.08)',
+                                                  border: '1px solid rgba(251,191,36,0.25)',
+                                                  color: '#fde68a',
+                                                }}
+                                              >
+                                                <span>🎁</span>
+                                                <span><span className="font-bold">산출물:</span> {item.deliverable}</span>
+                                              </div>
                                             )}
                                             {/* Sub-items preview */}
                                             {Array.isArray(item.subItems) && item.subItems.length > 0 && (

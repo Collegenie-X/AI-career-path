@@ -21,6 +21,34 @@ import { CATEGORY_TRAIT_DETAIL, type QuizQuestion } from './category-trait-detai
 import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 
+/** ==text== 마크업을 형광펜 효과로 렌더링 */
+function HL({ text }: { text: string }) {
+  const parts = text.split(/==(.+?)==/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <mark
+            key={i}
+            className="rounded-sm px-0.5 not-italic"
+            style={{
+              background: 'linear-gradient(120deg, rgba(250,204,21,0.4) 0%, rgba(250,204,21,0.65) 100%)',
+              color: 'inherit',
+              fontWeight: 700,
+              boxDecorationBreak: 'clone',
+              WebkitBoxDecorationBreak: 'clone',
+            } as React.CSSProperties}
+          >
+            {part}
+          </mark>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 type SchoolCategoryViewProps = {
   category: HighSchoolCategory;
   onBack: () => void;
@@ -96,7 +124,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
             <span className="text-3xl flex-shrink-0">{category.emoji}</span>
             <div className="min-w-0 flex-1">
               <p className="text-base font-bold text-white leading-tight">{category.name}</p>
-              <p className="text-xs mt-1 leading-snug" style={{ color: category.color }}>{category.description}</p>
+              <p className="text-xs mt-1 leading-snug" style={{ color: category.color }}><HL text={category.description} /></p>
             </div>
             {variant === 'rightDetail' && (
               <button
@@ -202,7 +230,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
 
       {/* ── 학교 목록 (단순화) ── */}
       <div>
-        <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">
+        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
           {category.schools.length}{HIGH_SCHOOL_LABELS.school_list_section_title} · {HIGH_SCHOOL_LABELS.school_list_click_hint}
         </p>
         <div className={variant === 'rightDetail' ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
@@ -246,10 +274,10 @@ function TraitRow({
         className="flex items-center gap-1 flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded-lg"
         style={{ background: `${color}15` }}
       >
-        <span className="text-[12px]">{emoji}</span>
-        <span className="text-[12px] font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
+        <span className="text-xs">{emoji}</span>
+        <span className="text-xs font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
       </div>
-      <p className="text-[12px] text-gray-300 leading-relaxed">{value}</p>
+      <p className="text-xs text-gray-300 leading-relaxed"><HL text={value} /></p>
     </div>
   );
 }
@@ -314,7 +342,7 @@ function AptitudeQuizContent({
         </div>
         <div className="text-center">
           <h3 className="text-sm font-bold text-white mb-1.5">간단 적성 검사</h3>
-          <p className="text-[11px] text-gray-400 leading-relaxed">
+          <p className="text-xs text-gray-400 leading-relaxed">
             교과·방과후·수상·실습 준비도를 점검해보세요
           </p>
         </div>
@@ -343,10 +371,10 @@ function AptitudeQuizContent({
         {/* 진행 바 */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-[11px] font-bold text-gray-400">
+            <span className="text-xs font-bold text-gray-400">
               {index + 1} / {questions.length}
             </span>
-            <span className="text-[11px] text-gray-500">
+            <span className="text-xs text-gray-500">
               {Math.round(progress)}% 완료
             </span>
           </div>
@@ -372,7 +400,7 @@ function AptitudeQuizContent({
         >
           <span className="text-4xl">{current.emoji}</span>
           <span
-            className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+            className="text-xs font-bold px-2 py-0.5 rounded-full"
             style={{ background: `${categoryColor}28`, color: categoryColor }}
           >
             {current.focusArea}
@@ -395,9 +423,9 @@ function AptitudeQuizContent({
                 }}
               >
                 <div className="flex items-start justify-between gap-2">
-                  <p className="text-[11px] font-semibold leading-relaxed text-gray-100">{choice.label}</p>
+                  <p className="text-xs font-semibold leading-relaxed text-gray-100">{choice.label}</p>
                   <span
-                    className="text-[10px] px-1.5 py-0.5 rounded-full font-bold flex-shrink-0"
+                    className="text-xs px-1.5 py-0.5 rounded-full font-bold flex-shrink-0"
                     style={{ color: choiceColor, background: `${choiceColor}22` }}
                   >
                     {choice.score}점
@@ -431,7 +459,7 @@ function AptitudeQuizContent({
         <span className="text-4xl">{result.emoji}</span>
         <div>
           <p className="text-base font-bold text-white mb-1">{result.title}</p>
-          <p className="text-[11px] text-gray-300 leading-relaxed">{result.desc}</p>
+          <p className="text-xs text-gray-300 leading-relaxed">{result.desc}</p>
         </div>
         <div className="flex items-center gap-1 mt-1">
           {Array.from({ length: 5 }).map((_, i) => (
@@ -446,7 +474,7 @@ function AptitudeQuizContent({
             />
           ))}
         </div>
-        <p className="text-[11px] font-bold" style={{ color: categoryColor }}>
+        <p className="text-xs font-bold" style={{ color: categoryColor }}>
           {totalScore} / {normalizedMaxScore}점 ({Math.round(ratio * 100)}%)
         </p>
       </div>
@@ -505,30 +533,30 @@ function SchoolListCard({
           <div className="flex items-center gap-1.5 mb-0.5">
             <span className="text-sm font-bold text-white truncate">{school.name}</span>
             {school.ibCertified && (
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981' }}>
+              <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981' }}>
                 IB
               </span>
             )}
             {school.dormitory && (
-              <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
+              <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
                 🏠
               </span>
             )}
           </div>
-          <p className="text-[12px] text-gray-400 line-clamp-1 mb-1">{shortDesc}</p>
+          <p className="text-xs text-gray-400 line-clamp-1 mb-1">{shortDesc}</p>
           
           {/* 하단: 지역·난이도·정원 */}
           <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3 flex-shrink-0 text-gray-500" />
-              <span className="text-[12px] text-gray-500">{school.location}</span>
+              <span className="text-xs text-gray-500">{school.location}</span>
             </div>
             <div className="flex items-center gap-1">
               <DifficultyDots level={school.difficulty} color={categoryColor} />
-              <span className="text-[12px] text-gray-500">{difficultyText}</span>
+              <span className="text-xs text-gray-500">{difficultyText}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-[12px] text-gray-500">👥 {school.annualAdmission}명</span>
+              <span className="text-xs text-gray-500">👥 {school.annualAdmission}명</span>
             </div>
           </div>
         </div>
@@ -554,7 +582,7 @@ function SchoolListCard({
           {school.famousPrograms.slice(0, 3).map((prog, idx) => (
             <span
               key={idx}
-              className="text-[11px] px-2 py-0.5 rounded-full text-gray-300"
+              className="text-xs px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.06)' }}
             >
               {prog}
@@ -604,7 +632,7 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
             2028 입시 + AI 방향성
           </p>
           <span
-            className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
+            className="text-xs font-semibold px-1.5 py-0.5 rounded-full"
             style={{ background: `${category.color}25`, color: category.color, border: `1px solid ${category.color}40` }}
           >
             카테고리
@@ -628,7 +656,7 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className="flex-1 py-2 rounded-lg text-[12px] font-bold transition-all flex items-center justify-center gap-1.5"
+                className="flex-1 py-2 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5"
                 style={{
                   background: activeTab === tab.id ? `${category.color}40` : 'transparent',
                   color: activeTab === tab.id ? category.color : 'rgba(255,255,255,0.6)',
@@ -649,11 +677,11 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                   className="rounded-xl p-3"
                   style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
                 >
-                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
                     📌 정책 컨텍스트
                   </p>
-                  <p className="text-[12px] text-gray-200 leading-relaxed">
-                    {category.policyContext2028}
+                  <p className="text-xs text-gray-200 leading-relaxed">
+                    <HL text={category.policyContext2028} />
                   </p>
                 </div>
               )}
@@ -662,11 +690,11 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                   className="rounded-xl p-3"
                   style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
                 >
-                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
                     🎯 {category.admissionStrategy2028.title}
                   </p>
-                  <p className="text-[11px] text-gray-300 leading-relaxed mb-2">
-                    {category.admissionStrategy2028.summary}
+                  <p className="text-xs text-gray-300 leading-relaxed mb-2">
+                    <HL text={category.admissionStrategy2028.summary} />
                   </p>
                   <ul className="space-y-1.5">
                     {category.admissionStrategy2028.points.map((point, i) => {
@@ -675,10 +703,10 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                       return (
                         <li
                           key={i}
-                          className="flex items-start gap-2 text-[11.5px] text-gray-200 leading-relaxed"
+                          className="flex items-start gap-2 text-xs text-gray-200 leading-relaxed"
                         >
                           <span className="flex-shrink-0 mt-0.5" style={{ color: category.color }}>▸</span>
-                          <span>{text}</span>
+                          <span><HL text={text} /></span>
                         </li>
                       );
                     })}
@@ -696,11 +724,11 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                   className="rounded-xl p-3"
                   style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.35)' }}
                 >
-                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1.5 text-purple-300">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1.5 text-purple-300">
                     🤖 AI 시대 컨텍스트
                   </p>
-                  <p className="text-[12px] text-gray-200 leading-relaxed">
-                    {category.aiEraContext}
+                  <p className="text-xs text-gray-200 leading-relaxed">
+                    <HL text={category.aiEraContext} />
                   </p>
                 </div>
               )}
@@ -709,24 +737,24 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                   className="rounded-xl p-3"
                   style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.35)' }}
                 >
-                  <p className="text-[11px] font-bold uppercase tracking-wider mb-1 text-purple-300">
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1 text-purple-300">
                     ⚡ {category.aiEraStrategy.title}
                   </p>
-                  <p className="text-[11px] text-gray-300 leading-relaxed mb-2">
-                    {category.aiEraStrategy.summary}
+                  <p className="text-xs text-gray-300 leading-relaxed mb-2">
+                    <HL text={category.aiEraStrategy.summary} />
                   </p>
                   {category.aiEraStrategy.practicalTips && category.aiEraStrategy.practicalTips.length > 0 && (
                     <div className="space-y-1.5 mt-2">
                       {category.aiEraStrategy.practicalTips.slice(0, 4).map((tip, i) => (
                         <div
                           key={i}
-                          className="flex items-start gap-2 text-[11.5px] text-gray-200 leading-relaxed p-2 rounded-lg"
+                          className="flex items-start gap-2 text-xs text-gray-200 leading-relaxed p-2 rounded-lg"
                           style={{ background: 'rgba(255,255,255,0.04)' }}
                         >
                           <span className="text-base flex-shrink-0">{tip.emoji}</span>
                           <div className="min-w-0">
-                            <p className="font-bold text-purple-200">{tip.tip}</p>
-                            <p className="text-[11px] text-gray-300 leading-relaxed">{tip.detail}</p>
+                            <p className="font-bold text-purple-200"><HL text={tip.tip} /></p>
+                            <p className="text-xs text-gray-300 leading-relaxed"><HL text={tip.detail} /></p>
                           </div>
                         </div>
                       ))}
@@ -737,11 +765,11 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                       className="mt-2.5 p-2.5 rounded-lg"
                       style={{ background: 'rgba(251,191,36,0.10)', border: '1px solid rgba(251,191,36,0.35)' }}
                     >
-                      <p className="text-[11px] font-bold text-yellow-300 mb-0.5">
+                      <p className="text-xs font-bold text-yellow-300 mb-0.5">
                         💡 {category.aiEraStrategy.futureCareerInsight.title}
                       </p>
-                      <p className="text-[11px] text-gray-200 leading-relaxed">
-                        {category.aiEraStrategy.futureCareerInsight.reality}
+                      <p className="text-xs text-gray-200 leading-relaxed">
+                        <HL text={category.aiEraStrategy.futureCareerInsight.reality} />
                       </p>
                     </div>
                   )}

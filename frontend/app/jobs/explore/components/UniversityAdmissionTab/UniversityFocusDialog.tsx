@@ -52,7 +52,7 @@ export function UniversityFocusDialog({
       <div
         className="w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:max-h-[88vh] overflow-y-auto rounded-2xl flex flex-col"
         style={{
-          background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
+          background: 'linear-gradient(180deg, #0f172a, #111827)',
           border: `1px solid ${categoryColor}55`,
           boxShadow: '0 12px 56px rgba(15,23,42,0.45)',
         }}
@@ -62,7 +62,7 @@ export function UniversityFocusDialog({
         <div
           className="flex-shrink-0 relative overflow-hidden p-4"
           style={{
-            background: `linear-gradient(135deg, ${categoryColor}28, ${categoryColor}0a)`,
+            background: '#0c1219',
             borderBottom: `1px solid ${categoryColor}30`,
           }}
         >

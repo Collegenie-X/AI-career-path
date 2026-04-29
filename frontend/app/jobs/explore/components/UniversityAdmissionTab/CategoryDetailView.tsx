@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 import { ChevronDown, ChevronRight, Eye, CalendarDays, BrainCircuit, Crosshair, GraduationCap, Maximize2, X } from 'lucide-react';
 import { CategoryPracticalExamplesPanel } from './CategoryPracticalExamplesPanel';
 import { UniversityFocusDialog } from './UniversityFocusDialog';
+import { HighlightText } from './HighlightText';
 
 type AdmissionCategory = {
   id: string;
@@ -117,7 +118,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
         key={animationKey}
         className={`${panelScrollClass} ${variant === 'inline' ? 'panel-pop-stagger' : ''}`}
         style={{
-          background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
+          background: 'linear-gradient(180deg, #0f172a, #111827)',
           border: `1px solid ${category.color}55`,
           boxShadow: `0 10px 50px ${category.color}22`,
         }}
@@ -176,7 +177,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
             </div>
             <div className="flex-1 min-w-0">
               <h2 className="text-xl font-bold text-white mb-1">{category.name}</h2>
-              <p className="text-sm text-white/80">{category.description}</p>
+              <HighlightText className="text-sm text-white/80">{category.description}</HighlightText>
               <p className="text-xs text-white/70 mt-2 leading-relaxed">{playbook.coreMessage}</p>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import type { StrategyActionCard } from './TopStrategyHubTypes';
+import { HighlightText } from './HighlightText';
 
 type TopStrategyHubCardProps = {
   card: StrategyActionCard;
@@ -23,18 +24,22 @@ export function TopStrategyHubCard({ card, index, sectionId, gradeId }: TopStrat
           <span className="text-xs font-bold text-indigo-200">{index + 1}</span>
         </div>
         <div className="flex-1">
-          <p className="text-sm font-bold text-white">{card.title}</p>
-          <p className="text-xs text-slate-300 mt-1 leading-relaxed">{card.description}</p>
+          <p className="text-sm font-bold text-white">
+            <HighlightText>{card.title}</HighlightText>
+          </p>
+          <p className="text-xs text-slate-300 mt-1 leading-relaxed" style={{ fontSize: '12px' }}>
+            <HighlightText>{card.description}</HighlightText>
+          </p>
         </div>
       </div>
-      <div 
+      <div
         className="rounded-lg p-2 mb-2"
         style={{
           background: 'rgba(99,102,241,0.1)',
           border: '1px solid rgba(129,140,248,0.3)',
         }}
       >
-        <p className="text-xs text-indigo-200 flex items-center gap-1.5">
+        <p className="text-xs text-indigo-200 flex items-center gap-1.5" style={{ fontSize: '12px' }}>
           <span>⏰</span>
           <span className="font-semibold">권장 시점:</span>
           <span>{card.recommendedTiming}</span>
@@ -49,8 +54,8 @@ export function TopStrategyHubCard({ card, index, sectionId, gradeId }: TopStrat
             <div className="w-5 h-5 rounded-md bg-emerald-500/20 flex items-center justify-center border border-emerald-400/40 mt-0.5 shrink-0">
               <span className="text-[10px] font-bold text-emerald-300">{stepIndex + 1}</span>
             </div>
-            <p className="text-xs text-slate-200 leading-relaxed flex-1">
-              {step}
+            <p className="text-xs text-slate-200 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
+              <HighlightText>{step}</HighlightText>
             </p>
           </div>
         ))}

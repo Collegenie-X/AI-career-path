@@ -1,24 +1,56 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { X, Sparkles, ChevronRight, Check } from 'lucide-react';
+import { X, Sparkles, ChevronRight, Check, Pencil, ArrowLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import goalTemplatesData from '@/data/goal-templates.json';
 import { GOAL_TEMPLATE_SELECTOR_DIALOG } from '../config';
 
-/** 템플릿 항목: 문자열 또는 { label, icon?, description? } */
-type TemplateItem = string | { label: string; icon?: string; description?: string };
+/** 템플릿 항목: 문자열 또는 게임화 메타 포함 객체 */
+type TierKey = 'E' | 'D' | 'C' | 'B' | 'A' | 'S';
+type TemplateItem =
+  | string
+  | {
+      label: string;
+      icon?: string;
+      description?: string;
+      tagline?: string;
+      tier?: TierKey;
+      xp?: number;
+    };
 
-function normalizeTemplate(t: TemplateItem): { label: string; icon: string; description: string } {
+type NormalizedTemplate = {
+  label: string;
+  icon: string;
+  description: string;
+  tagline: string;
+  tier: TierKey;
+  xp: number;
+};
+
+function normalizeTemplate(t: TemplateItem): NormalizedTemplate {
   if (typeof t === 'string') {
-    return { label: t, icon: '•', description: '' };
+    return { label: t, icon: '•', description: '', tagline: '', tier: 'C', xp: 100 };
   }
   return {
     label: t.label,
     icon: t.icon ?? '•',
     description: t.description ?? '',
+    tagline: t.tagline ?? '',
+    tier: (t.tier ?? 'C') as TierKey,
+    xp: t.xp ?? 100,
   };
 }
+
+/** 티어별 컬러·라벨 (RPG 등급 느낌) */
+const TIER_STYLE: Record<TierKey, { color: string; label: string; glow: string }> = {
+  E: { color: '#94A3B8', label: 'E', glow: 'rgba(148,163,184,0.45)' },
+  D: { color: '#34D399', label: 'D', glow: 'rgba(52,211,153,0.45)' },
+  C: { color: '#60A5FA', label: 'C', glow: 'rgba(96,165,250,0.5)' },
+  B: { color: '#A78BFA', label: 'B', glow: 'rgba(167,139,250,0.55)' },
+  A: { color: '#F472B6', label: 'A', glow: 'rgba(244,114,182,0.6)' },
+  S: { color: '#FBBF24', label: 'S', glow: 'rgba(251,191,36,0.7)' },
+};
 
 interface GoalTemplateSelectorProps {
   onSelect: (goal: string) => void;
@@ -38,6 +70,23 @@ export function GoalTemplateSelector({
 }: GoalTemplateSelectorProps) {
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(null);
   const [confirmingGoal, setConfirmingGoal] = useState<string | null>(null);
+  const [editingIdx, setEditingIdx] = useState<number | null>(null);
+  const [editLabel, setEditLabel] = useState<string>('');
+
+  const startEdit = (idx: number, label: string) => {
+    setEditingIdx(idx);
+    setEditLabel(label);
+  };
+  const cancelEdit = () => {
+    setEditingIdx(null);
+    setEditLabel('');
+  };
+  const submitEdit = () => {
+    const trimmed = editLabel.trim();
+    if (!trimmed) return;
+    cancelEdit();
+    handleSelectGoal(trimmed);
+  };
 
   const categories = Object.entries(goalTemplatesData).map(([key, data]) => ({
     key: key as CategoryKey,
@@ -110,16 +159,37 @@ export function GoalTemplateSelector({
             WebkitBackdropFilter: 'blur(12px)',
           }}
         >
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-5 h-5" style={{ color }} />
-            <h3 className="text-lg font-bold text-white">
-              {selectedCategory ? goalTemplatesData[selectedCategory].label : '목표 템플릿 선택'}
-            </h3>
+          <div className="flex items-center gap-2 min-w-0">
+            {selectedCategory && (
+              <button
+                onClick={() => {
+                  cancelEdit();
+                  setSelectedCategory(null);
+                }}
+                className="w-9 h-9 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+                style={{ backgroundColor: `${color}22`, border: `1px solid ${color}55` }}
+                title="카테고리로 돌아가기"
+              >
+                <ArrowLeft className="w-4 h-4" style={{ color }} />
+              </button>
+            )}
+            {!selectedCategory && <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color }} />}
+            <div className="flex flex-col leading-tight min-w-0">
+              <h3 className="text-lg font-bold text-white truncate">
+                {selectedCategory ? goalTemplatesData[selectedCategory].label : '목표 퀘스트 선택'}
+              </h3>
+              <span className="text-[10.5px] text-gray-400 truncate">
+                {selectedCategory
+                  ? (goalTemplatesData[selectedCategory] as { tagline?: string }).tagline ?? '나만의 도전 시작!'
+                  : '카테고리를 골라 모험을 시작하자!'}
+              </span>
+            </div>
           </div>
           <button
-            onClick={selectedCategory ? () => setSelectedCategory(null) : onClose}
-            className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+            onClick={onClose}
+            className="w-9 h-9 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
             style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+            title="닫기"
           >
             <X className="w-4 h-4 text-white" />
           </button>
@@ -224,7 +294,22 @@ export function GoalTemplateSelector({
                         </motion.div>
                         <div className="text-left">
                           <div className="text-white font-bold text-base">{category.label}</div>
-                          <div className="text-xs text-gray-400">{category.templates.length}개 템플릿</div>
+                          {(category as { tagline?: string }).tagline && (
+                            <div className="text-[11px] text-gray-300/90 mt-0.5">
+                              {(category as { tagline?: string }).tagline}
+                            </div>
+                          )}
+                          <div
+                            className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full text-[10px] font-bold"
+                            style={{
+                              backgroundColor: `${category.color}22`,
+                              border: `1px solid ${category.color}55`,
+                              color: category.color,
+                            }}
+                          >
+                            <span>⚔️</span>
+                            <span>{category.templates.length} 퀘스트</span>
+                          </div>
                         </div>
                       </div>
                       <ChevronRight className="w-5 h-5 text-gray-400" />
@@ -290,15 +375,21 @@ export function GoalTemplateSelector({
                   </div>
                 )}
 
-                {/* 템플릿 목록 — 아이콘 + 제목만 (호버·팝업 상세 없음) */}
+                {/* 안내 문구: 카드 클릭 = 바로 추가 / 연필 = 내 말로 수정 */}
+                <div className="flex items-center justify-between text-[11px] text-gray-400 px-1">
+                  <span>💡 카드를 누르면 바로 추가, 연필을 누르면 내 말로 수정할 수 있어요</span>
+                </div>
+
+                {/* 템플릿 목록 — 제목·태그라인·세부설명 + 인라인 수정 */}
                 <div className="space-y-2">
                   {categoryTemplates.map((t, idx) => {
-                    const { label, icon } = normalizeTemplate(t);
-                    const isConfirming = confirmingGoal === label;
+                    const { label, icon, tagline, tier, description } = normalizeTemplate(t);
+                    const tierStyle = TIER_STYLE[tier];
+                    const isConfirming = confirmingGoal === label || (editingIdx === idx && confirmingGoal === editLabel.trim());
+                    const isEditing = editingIdx === idx;
                     return (
-                      <motion.button
+                      <motion.div
                         key={idx}
-                        disabled={!!confirmingGoal}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{
                           opacity: 1,
@@ -309,19 +400,20 @@ export function GoalTemplateSelector({
                         }}
                         transition={{ delay: idx * 0.02, duration: isConfirming ? 0.38 : 0.2 }}
                         whileHover={
-                          !confirmingGoal
-                            ? { scale: 1.01, x: 4, boxShadow: `0 0 16px ${color}33`, borderColor: `${color}55` }
+                          !confirmingGoal && !isEditing
+                            ? { scale: 1.005, boxShadow: `0 0 16px ${color}33` }
                             : {}
                         }
-                        whileTap={!confirmingGoal ? { scale: 0.99 } : {}}
-                        onClick={() => {
-                          if (confirmingGoal) return;
-                          handleSelectGoal(label);
-                        }}
-                        className="relative w-full flex items-center gap-3 p-3.5 rounded-xl transition-[box-shadow,border-color] text-left disabled:opacity-95"
+                        className="relative w-full rounded-xl transition-[box-shadow,border-color] disabled:opacity-95"
                         style={{
-                          backgroundColor: isConfirming ? `${color}15` : 'rgba(255,255,255,0.04)',
-                          border: `1px solid ${isConfirming ? `${color}55` : 'rgba(255,255,255,0.08)'}`,
+                          backgroundColor: isConfirming
+                            ? `${color}15`
+                            : isEditing
+                            ? `${color}10`
+                            : 'rgba(255,255,255,0.04)',
+                          border: `1px solid ${
+                            isConfirming || isEditing ? `${color}66` : 'rgba(255,255,255,0.08)'
+                          }`,
                         }}
                       >
                         {isConfirming && (
@@ -335,19 +427,147 @@ export function GoalTemplateSelector({
                             <Check className="w-3 h-3 text-white" strokeWidth={3} />
                           </motion.span>
                         )}
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                          style={{
-                            backgroundColor: `${color}18`,
-                            border: `1px solid ${color}30`,
-                          }}
-                        >
-                          {icon}
+
+                        {/* 메인 카드 영역 (클릭 시 바로 추가) */}
+                        <div className="flex items-start gap-3 p-3.5">
+                          <div
+                            className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                            style={{
+                              backgroundColor: `${color}18`,
+                              border: `1px solid ${color}30`,
+                            }}
+                          >
+                            {icon}
+                          </div>
+
+                          <button
+                            type="button"
+                            disabled={!!confirmingGoal || isEditing}
+                            onClick={() => {
+                              if (confirmingGoal || isEditing) return;
+                              handleSelectGoal(label);
+                            }}
+                            className="flex-1 min-w-0 text-left disabled:cursor-default"
+                          >
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                              <span
+                                className="inline-flex items-center justify-center w-5 h-5 rounded-md text-[10px] font-black flex-shrink-0"
+                                style={{
+                                  background: `linear-gradient(135deg, ${tierStyle.color}, ${tierStyle.color}cc)`,
+                                  color: '#0b0820',
+                                  boxShadow: `0 0 8px ${tierStyle.glow}`,
+                                }}
+                                title={`${tierStyle.label}티어`}
+                              >
+                                {tierStyle.label}
+                              </span>
+                              <span className="text-sm font-bold text-white leading-snug">
+                                {label}
+                              </span>
+                              {tagline && (
+                                <span
+                                  className="text-[10.5px] px-1.5 py-0.5 rounded-md font-medium"
+                                  style={{ backgroundColor: `${color}22`, color: '#e9e6ff' }}
+                                >
+                                  {tagline}
+                                </span>
+                              )}
+                            </div>
+                            {description && (
+                              <div
+                                className="mt-1 leading-relaxed"
+                                style={{
+                                  fontSize: '11px',
+                                  color: 'rgba(255,255,255,0.42)',
+                                  letterSpacing: '0.1px',
+                                }}
+                              >
+                                {description}
+                              </div>
+                            )}
+                          </button>
+
+                          {/* 수정 버튼 */}
+                          {!isEditing && (
+                            <button
+                              type="button"
+                              disabled={!!confirmingGoal}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (confirmingGoal) return;
+                                startEdit(idx, label);
+                              }}
+                              className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors"
+                              style={{
+                                backgroundColor: 'rgba(255,255,255,0.06)',
+                                border: '1px solid rgba(255,255,255,0.12)',
+                              }}
+                              title="내 말로 수정해서 추가"
+                            >
+                              <Pencil className="w-3.5 h-3.5 text-gray-300" />
+                            </button>
+                          )}
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="text-sm font-semibold text-white leading-snug">{label}</div>
-                        </div>
-                      </motion.button>
+
+                        {/* 인라인 수정 모드 */}
+                        {isEditing && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            className="px-3.5 pb-3.5 space-y-2"
+                          >
+                            <input
+                              autoFocus
+                              type="text"
+                              value={editLabel}
+                              onChange={(e) => setEditLabel(e.target.value)}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter') submitEdit();
+                                if (e.key === 'Escape') cancelEdit();
+                              }}
+                              placeholder="목표를 내 말로 적어보세요"
+                              className="w-full px-3 py-2.5 rounded-lg text-sm text-white outline-none"
+                              style={{
+                                backgroundColor: 'rgba(0,0,0,0.35)',
+                                border: `1px solid ${color}66`,
+                              }}
+                              maxLength={60}
+                            />
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-[10.5px] text-gray-400">
+                                {editLabel.trim().length}/60자 · Enter로 추가, Esc로 취소
+                              </span>
+                              <div className="flex items-center gap-2">
+                                <button
+                                  type="button"
+                                  onClick={cancelEdit}
+                                  className="px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-300"
+                                  style={{
+                                    backgroundColor: 'rgba(255,255,255,0.06)',
+                                    border: '1px solid rgba(255,255,255,0.12)',
+                                  }}
+                                >
+                                  취소
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={submitEdit}
+                                  disabled={!editLabel.trim()}
+                                  className="px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 disabled:opacity-50"
+                                  style={{
+                                    backgroundColor: color,
+                                    color: '#0b0820',
+                                    boxShadow: `0 0 12px ${color}55`,
+                                  }}
+                                >
+                                  <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                                  이 목표로 추가
+                                </button>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </motion.div>
                     );
                   })}
                 </div>

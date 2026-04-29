@@ -128,7 +128,7 @@ export function DreamMateHeroBanner({
 
   const HeadlineIcon = HEADLINE_ICON_MAP[copy.headlineIcon] ?? Sparkles;
 
-  const showHeroCreateRoadmapButton = allowMutations && (activeTab === 'feed' || activeTab === 'my');
+  const showHeroCreateRoadmapButton = activeTab === 'feed' || (allowMutations && activeTab === 'my');
   const showHeroCreateSpaceButton = allowMutations && activeTab === 'space' && typeof onCreateSpace === 'function';
 
   const showHeroUploadResourceButton = allowMutations && activeTab === 'library';

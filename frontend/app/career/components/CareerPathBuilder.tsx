@@ -15,6 +15,7 @@ import { CareerPathBuilderDawnSky } from './CareerPathBuilderDawnSky';
 import type { ShareType, ShareChannel } from './community/types';
 import careerMaker from '@/data/career-maker.json';
 import portfolioItems from '@/data/portfolio-items.json';
+import goalRecommendedItems from '@/data/goal-recommended-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
 import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
 import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActivitySubtype, type CareerItemLink } from '@/data/career-item-structure';
@@ -394,6 +395,7 @@ function AddItemSheet({
 }) {
   const [mode, setMode] = useState<'pick' | 'custom'>('pick');
   const [filterType, setFilterType] = useState('all');
+  const [scopedToGoalRaw, setScopedToGoalRaw] = useState<boolean>(true);
   /** 추천 목록: 아코디언으로 상세 노출 후 버튼으로 확정 (호버 대신) */
   const [expandedSuggestItemId, setExpandedSuggestItemId] = useState<string | null>(null);
 
@@ -450,7 +452,130 @@ function AddItemSheet({
   }));
 
   const allItems: SuggestedItem[] = [...careerItems, ...portItems];
-  const filtered = filterType === 'all' ? allItems : allItems.filter(it => it.type === filterType);
+
+  /* ── 목표 맞춤 추천: goal-recommended-items.json에서 linkedGoalText에 해당하는 그룹 찾기 ── */
+  type Phase = 'prep' | 'execute' | 'compete' | 'output' | 'cert' | 'archive';
+  type GoalRecGroup = { label: string; phase?: Phase; items: SuggestedItem[] };
+  const goalRecData = (goalRecommendedItems as {
+    fallback?: { keywordRules?: { match: string[]; tags: string[] }[] };
+    taxonomy?: {
+      phases?: { key: Phase; label: string }[];
+      categories?: Record<string, { label: string; color: string; order: number }>;
+    };
+    goals: Record<string, {
+      tagline?: string;
+      keywords?: string[];
+      category?: string;
+      groups: Record<string, { label: string; phase?: Phase; items: Array<Omit<SuggestedItem, 'subtitle' | 'tip'> & { description?: string }> }>;
+    }>;
+  });
+  const PHASE_ORDER: Phase[] = ['prep','execute','compete','output','cert','archive'];
+  const phaseLabels: Record<Phase, string> = Object.fromEntries(
+    (goalRecData.taxonomy?.phases ?? []).map(p => [p.key, p.label])
+  ) as Record<Phase, string>;
+  const sortGroupsByPhase = <T extends { phase?: Phase }>(arr: T[]): T[] =>
+    [...arr].sort((a,b) => PHASE_ORDER.indexOf(a.phase ?? 'execute') - PHASE_ORDER.indexOf(b.phase ?? 'execute'));
+  const linkedGoalKey = linkedGoalText?.trim() ?? '';
+  const exactMatchedGoalEntry = linkedGoalKey ? goalRecData.goals[linkedGoalKey] : undefined;
+
+  /* 느슨한 매칭: 토큰화 후 모든 정의된 목표의 keywords/label/tagline과 점수 비교. 정확 매칭이 없을 때 사용. */
+  const tokenize = (s: string) => s
+    .replace(/[!,·…•\-—()\[\]{}"'`?·]/g, ' ')
+    .split(/\s+/)
+    .filter(t => t.length >= 2);
+  const linkedTokens = tokenize(linkedGoalKey);
+  type ScoredGoal = { key: string; score: number; entry: typeof goalRecData.goals[string] };
+  const looseMatches: ScoredGoal[] = !exactMatchedGoalEntry && linkedGoalKey
+    ? Object.entries(goalRecData.goals).map(([key, entry]) => {
+        const haystack = `${key} ${entry.tagline ?? ''} ${(entry.keywords ?? []).join(' ')}`;
+        let score = 0;
+        for (const tok of linkedTokens) if (haystack.includes(tok)) score += 2;
+        for (const kw of entry.keywords ?? []) if (linkedGoalKey.includes(kw)) score += 3;
+        if (linkedGoalKey.includes(key) || key.includes(linkedGoalKey)) score += 5;
+        return { key, score, entry };
+      })
+        .filter(s => s.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+    : [];
+
+  /* 그룹: 정확 매치면 단일 목표의 그룹들(phase 순), 아니면 상위 매칭 목표들의 그룹을 모두 펼침(중복 허용) */
+  let goalScopedGroups: GoalRecGroup[] = [];
+  if (exactMatchedGoalEntry) {
+    goalScopedGroups = sortGroupsByPhase(Object.values(exactMatchedGoalEntry.groups))
+      .map(g => ({ label: g.label, phase: g.phase, items: g.items as SuggestedItem[] }));
+  } else if (looseMatches.length > 0) {
+    for (const m of looseMatches) {
+      const sorted = sortGroupsByPhase(Object.values(m.entry.groups));
+      for (const g of sorted) {
+        goalScopedGroups.push({ label: `${m.key} · ${g.label}`, phase: g.phase, items: g.items as SuggestedItem[] });
+      }
+    }
+  }
+
+  /* 키워드 기반 careerMaker 항목 보충 — 여러 룰을 모두 합치고, 정의된 목표 매치가 없을 때만 사용 */
+  const keywordRules = goalRecData.fallback?.keywordRules ?? [];
+  const matchedKeywordTags = (goalScopedGroups.length === 0 && linkedGoalKey)
+    ? keywordRules
+        .filter(r => r.match.some(k => linkedGoalKey.includes(k)))
+        .flatMap(r => r.tags)
+    : [];
+  const keywordScopedItems: SuggestedItem[] = matchedKeywordTags.length > 0
+    ? allItems.filter(it => {
+        const tagsArr = ((kingdom?.careerItems ?? []).find(c => c.id === it.id)?.tags as string[] | undefined) ?? [];
+        return matchedKeywordTags.some(t =>
+          tagsArr.includes(t) || it.title.includes(t) || (it.description ?? '').includes(t)
+        );
+      })
+    : [];
+
+  /* 마지막 폴백: 위 두 방법 모두 비었을 때, 토큰을 careerMaker 제목·설명에서 직접 부분 매칭 */
+  const looseTokenItems: SuggestedItem[] = (goalScopedGroups.length === 0 && keywordScopedItems.length === 0 && linkedTokens.length > 0)
+    ? allItems.filter(it => {
+        const blob = `${it.title} ${it.description ?? ''} ${(it as SuggestedItem).subtitle ?? ''}`;
+        return linkedTokens.some(t => blob.includes(t));
+      })
+    : [];
+
+  const hasGoalScoped = goalScopedGroups.length > 0 || keywordScopedItems.length > 0 || looseTokenItems.length > 0;
+  const matchMode: 'exact' | 'loose-goal' | 'keyword' | 'token' | 'none' =
+    exactMatchedGoalEntry ? 'exact'
+    : looseMatches.length > 0 ? 'loose-goal'
+    : keywordScopedItems.length > 0 ? 'keyword'
+    : looseTokenItems.length > 0 ? 'token'
+    : 'none';
+  const scopedToGoal = hasGoalScoped ? scopedToGoalRaw : false;
+  const setScopedToGoal = setScopedToGoalRaw;
+
+  const visibleSource: SuggestedItem[] = scopedToGoal && hasGoalScoped
+    ? (goalScopedGroups.length > 0
+        ? goalScopedGroups.flatMap(g => g.items)
+        : (keywordScopedItems.length > 0 ? keywordScopedItems : looseTokenItems))
+    : allItems;
+  const filtered = filterType === 'all' ? visibleSource : visibleSource.filter(it => it.type === filterType);
+
+  /** 항목 id → 소속 그룹 라벨 (목표 맞춤 모드에서만), 그리고 phase로 group divider 색·아이콘 */
+  const itemGroupLabelById: Record<string, string> = {};
+  const itemGroupPhaseById: Record<string, Phase | undefined> = {};
+  if (scopedToGoal) {
+    if (goalScopedGroups.length > 0) {
+      for (const g of goalScopedGroups) for (const it of g.items) {
+        const phaseEmoji = g.phase ? (phaseLabels[g.phase] ?? '').split(' ')[0] : '';
+        itemGroupLabelById[it.id] = phaseEmoji ? `${phaseEmoji} ${g.label}` : g.label;
+        itemGroupPhaseById[it.id] = g.phase;
+      }
+    } else if (keywordScopedItems.length > 0) {
+      for (const it of keywordScopedItems) itemGroupLabelById[it.id] = '🔑 키워드 매칭';
+    } else if (looseTokenItems.length > 0) {
+      for (const it of looseTokenItems) itemGroupLabelById[it.id] = '🪄 느슨한 매칭';
+    }
+  }
+
+  /** 연결된 목표의 카테고리 메타 (정확 매치 시) */
+  const goalCategoryKey = exactMatchedGoalEntry?.category;
+  const goalCategoryMeta = goalCategoryKey
+    ? goalRecData.taxonomy?.categories?.[goalCategoryKey]
+    : undefined;
 
   const handleSelectSuggest = (item: SuggestedItem) => {
     setSelectedSuggest(item);
@@ -560,6 +685,14 @@ function AddItemSheet({
                 <p className="text-sm font-bold text-white leading-snug break-words">
                   {linkedGoalText.trim()}
                 </p>
+                {goalCategoryMeta && (
+                  <span
+                    className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-md text-[10px] font-bold"
+                    style={{ backgroundColor: `${goalCategoryMeta.color}28`, border: `1px solid ${goalCategoryMeta.color}55`, color: goalCategoryMeta.color }}
+                  >
+                    {goalCategoryMeta.label}
+                  </span>
+                )}
                 <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed">
                   {LABELS.builder_add_item_linked_goal_hint}
                 </p>
@@ -573,6 +706,40 @@ function AddItemSheet({
           {/* ── Recommend mode ── */}
           {mode === 'pick' && !selectedSuggest && (
             <div className="space-y-2.5 pt-1">
+              {/* 목표 범위 토글 — 연결된 목표가 있을 때만 노출 */}
+              {hasGoalScoped && (
+                <div className="flex items-center gap-2 rounded-xl p-1"
+                  style={{ backgroundColor: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                  {[
+                    {
+                      value: true,
+                      label: matchMode === 'exact' ? '🎯 목표 맞춤'
+                        : matchMode === 'loose-goal' ? '🧭 유사 목표'
+                        : matchMode === 'keyword' ? '🔑 키워드 매칭'
+                        : '🪄 느슨한 매칭',
+                      desc: matchMode === 'exact' ? '연결된 목표 전용 추천'
+                        : matchMode === 'loose-goal' ? '비슷한 목표들의 추천을 모아 보여줌'
+                        : matchMode === 'keyword' ? '제목·태그 기반 추천'
+                        : '키워드 부분 매칭 추천',
+                    },
+                    { value: false, label: '🌐 전체 보기', desc: '왕국 전체 항목' },
+                  ].map(opt => (
+                    <button
+                      key={String(opt.value)}
+                      type="button"
+                      onClick={() => { setScopedToGoal(opt.value); setExpandedSuggestItemId(null); setFilterType('all'); }}
+                      className="flex-1 py-2 rounded-lg text-[12px] font-bold transition-all"
+                      style={scopedToGoal === opt.value
+                        ? { backgroundColor: color, color: '#fff' }
+                        : { color: 'rgba(255,255,255,0.5)' }}
+                      title={opt.desc}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+
               {/* Type filter */}
               <div className="flex gap-1.5 overflow-x-auto pb-1">
                 {[{ value: 'all', label: '전체', emoji: '✨' }, ...ITEM_TYPES.map(t => ({ value: t.value, label: t.label, emoji: t.emoji }))].map(t => (
@@ -596,6 +763,9 @@ function AddItemSheet({
               {filtered.map((item, idx) => {
                 const tc = ITEM_TYPES.find(t => t.value === item.type)!;
                 const itemColor = tc?.color ?? color;
+                const groupLabel = itemGroupLabelById[item.id];
+                const prevGroupLabel = idx > 0 ? itemGroupLabelById[filtered[idx - 1].id] : undefined;
+                const showGroupHeader = !!groupLabel && groupLabel !== prevGroupLabel;
                 const diffLabel = item.difficulty === 1 ? '매우 쉬움' : item.difficulty === 2 ? '쉬움' : item.difficulty === 3 ? '보통' : item.difficulty === 4 ? '어려움' : '매우 어려움';
                 const isSuggestAccordionExpanded = expandedSuggestItemId === item.id;
                 const detailBodyId = `add-item-suggest-detail-${item.id}`;
@@ -604,8 +774,17 @@ function AddItemSheet({
                 const detailText = item.description || (item as SuggestedItem).tip || '';
 
                 return (
+                  <div key={item.id}>
+                    {showGroupHeader && (
+                      <div className="flex items-center gap-2 px-1 pt-2 pb-1.5">
+                        <div className="h-[1px] flex-1" style={{ background: `linear-gradient(90deg, ${color}50 0%, transparent 100%)` }} />
+                        <span className="text-[11px] font-bold tracking-wide uppercase" style={{ color: `${color}dd` }}>
+                          {groupLabel}
+                        </span>
+                        <div className="h-[1px] flex-1" style={{ background: `linear-gradient(90deg, transparent 0%, ${color}50 100%)` }} />
+                      </div>
+                    )}
                   <motion.div
-                    key={item.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.02, type: 'spring', stiffness: 400, damping: 24 }}
@@ -769,9 +948,10 @@ function AddItemSheet({
                       )}
                     </AnimatePresence>
                   </motion.div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
+          </div>
           )}
 
           {/* ── Recommend mode: month picker ── */}
@@ -1519,12 +1699,20 @@ function GoalActivityGroupCard({
             />
           ) : (
             <span
-              className="flex-1 text-sm font-bold text-white cursor-pointer leading-snug"
+              className="flex-1 text-sm font-bold text-white cursor-pointer leading-snug truncate"
               onClick={() => setEditingGoal(true)}
             >
               {group.goal}
             </span>
           )}
+
+          <span
+            className="text-[10px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0"
+            style={{ backgroundColor: `${color}20`, color: `${color}e0`, border: `1px solid ${color}40` }}
+            title="연결된 세부활동 수"
+          >
+            활동 {group.items.length}
+          </span>
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
             <button
@@ -1560,9 +1748,18 @@ function GoalActivityGroupCard({
                 className="px-3.5 pb-3 space-y-1.5"
                 style={{ borderTop: `1px solid ${color}18` }}
               >
+                {/* 세부활동 섹션 라벨 */}
+                <div className="flex items-center gap-1.5 pt-2.5">
+                  <span className="text-[10px]">⚡</span>
+                  <span className="text-[10.5px] font-bold tracking-wide" style={{ color: `${color}cc` }}>
+                    세부활동
+                  </span>
+                  <div className="flex-1 h-px" style={{ backgroundColor: `${color}15` }} />
+                </div>
+
                 {/* 활동 목록 — ActivityItemCard로 렌더링 */}
                 {group.items.length > 0 && (
-                  <div className="pt-2 space-y-1.5">
+                  <div className="pt-1 space-y-1.5">
                     <AnimatePresence>
                       {group.items.map((item) => (
                         <motion.div
@@ -1636,6 +1833,7 @@ function SemesterSection({
 }) {
   const [goalInput, setGoalInput] = useState('');
   const [showGoalTemplates, setShowGoalTemplates] = useState(false);
+  const [showGoalChange, setShowGoalChange] = useState(false);
   const linkedGoalGroups = goalGroups.slice(0, 1);
   const linkedGoalGroup = linkedGoalGroups[0];
 
@@ -1646,6 +1844,7 @@ function SemesterSection({
     if (linkedGoalGroup) {
       onUpdateGoalGroups([{ ...linkedGoalGroup, goal: trimmedGoalText, isExpanded: true }]);
       setGoalInput('');
+      setShowGoalChange(false);
       return;
     }
 
@@ -1657,6 +1856,7 @@ function SemesterSection({
     };
     onUpdateGoalGroups([newGroup]);
     setGoalInput('');
+    setShowGoalChange(false);
   };
 
   const updateGoalGroup = (updated: GoalActivityGroup) => {
@@ -1680,20 +1880,6 @@ function SemesterSection({
           <span className="text-xs font-bold text-white">{semesterLabel}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: `${color}25` }} />
           <span className="text-[12px] text-gray-500">{linkedGoalGroups.length}개 목표</span>
-        </div>
-      )}
-
-      {linkedGoalGroup && (
-        <div
-          className="rounded-xl px-3.5 py-2.5 flex items-center gap-2.5"
-          style={{ backgroundColor: `${color}0d`, border: `1px solid ${color}30` }}
-        >
-          <span className="text-[11px] font-bold" style={{ color: `${color}d9` }}>현재 목표</span>
-          <span className="text-xs font-semibold text-white truncate">{linkedGoalGroup.goal}</span>
-          <ArrowRight className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
-          <span className="text-[11px] text-gray-400 flex-shrink-0">
-            세부활동 {linkedGoalGroup.items.length}개 연계
-          </span>
         </div>
       )}
 
@@ -1723,53 +1909,77 @@ function SemesterSection({
         </div>
       )}
 
-      {/* 목표 추가 입력 — min-w-0으로 작은 모바일에서 버튼 항상 노출 */}
-      <div className="space-y-2">
-        <div className="flex gap-2.5 min-w-0">
-          <input
-            type="text"
-            value={goalInput}
-            onChange={e => setGoalInput(e.target.value)}
-            onKeyDown={e => { if (e.key === 'Enter') addGoalGroup(goalInput); }}
-            placeholder={linkedGoalGroup ? '목표를 변경하려면 새 목표를 입력하세요' : '목표를 입력하거나 템플릿에서 선택하세요'}
-            className="flex-1 min-w-0 h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none transition-all focus:border-2"
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.08)',
-              border: '1.5px solid rgba(255,255,255,0.12)',
-            }}
-          />
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowGoalTemplates(true)}
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-            style={{ backgroundColor: `${color}20`, border: `1.5px solid ${color}44`, color }}
-            title="목표 템플릿"
-          >
-            <Sparkles className="w-5 h-5" />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => addGoalGroup(goalInput)}
-            disabled={!goalInput.trim()}
-            className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
-            style={{ backgroundColor: `${color}25`, border: `1.5px solid ${color}44`, color }}
-          >
-            <Plus className="w-5 h-5" />
-          </motion.button>
-        </div>
-
-        {linkedGoalGroups.length === 0 && (
-          <div
-            className="rounded-xl py-4 flex flex-col items-center gap-1.5"
-            style={{ border: `1.5px dashed ${color}25`, backgroundColor: `${color}05` }}
-          >
-            <Target className="w-5 h-5" style={{ color: `${color}60` }} />
-            <span className="text-xs text-gray-500">목표를 추가하고 세부활동을 연결하세요</span>
+      {/* 목표 추가/변경 입력 — 목표 있을 땐 토글로 숨김 */}
+      {linkedGoalGroup && !showGoalChange ? (
+        <button
+          onClick={() => setShowGoalChange(true)}
+          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-lg text-[11px] font-medium transition-colors"
+          style={{ color: `${color}aa`, backgroundColor: `${color}08`, border: `1px dashed ${color}25` }}
+        >
+          <Pencil className="w-3 h-3" />
+          다른 목표로 바꾸기
+        </button>
+      ) : (
+        <div className="space-y-2">
+          <div className="flex gap-2.5 min-w-0">
+            <input
+              type="text"
+              value={goalInput}
+              onChange={e => setGoalInput(e.target.value)}
+              onKeyDown={e => {
+                if (e.key === 'Enter') addGoalGroup(goalInput);
+                if (e.key === 'Escape' && linkedGoalGroup) { setGoalInput(''); setShowGoalChange(false); }
+              }}
+              autoFocus={!!linkedGoalGroup && showGoalChange}
+              placeholder={linkedGoalGroup ? '새 목표를 입력하면 현재 목표가 바뀝니다' : '목표를 입력하거나 템플릿에서 선택하세요'}
+              className="flex-1 min-w-0 h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none transition-all focus:border-2"
+              style={{
+                backgroundColor: 'rgba(255,255,255,0.08)',
+                border: '1.5px solid rgba(255,255,255,0.12)',
+              }}
+            />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowGoalTemplates(true)}
+              className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: `${color}20`, border: `1.5px solid ${color}44`, color }}
+              title="목표 템플릿"
+            >
+              <Sparkles className="w-5 h-5" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => addGoalGroup(goalInput)}
+              disabled={!goalInput.trim()}
+              className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 disabled:opacity-30"
+              style={{ backgroundColor: `${color}25`, border: `1.5px solid ${color}44`, color }}
+            >
+              <Plus className="w-5 h-5" />
+            </motion.button>
           </div>
-        )}
-      </div>
+
+          {linkedGoalGroup && showGoalChange && (
+            <button
+              onClick={() => { setGoalInput(''); setShowGoalChange(false); }}
+              className="w-full text-[11px] text-gray-500 hover:text-gray-300 transition-colors py-1"
+            >
+              취소
+            </button>
+          )}
+
+          {linkedGoalGroups.length === 0 && (
+            <div
+              className="rounded-xl py-4 flex flex-col items-center gap-1.5"
+              style={{ border: `1.5px dashed ${color}25`, backgroundColor: `${color}05` }}
+            >
+              <Target className="w-5 h-5" style={{ color: `${color}60` }} />
+              <span className="text-xs text-gray-500">목표를 추가하고 세부활동을 연결하세요</span>
+            </div>
+          )}
+        </div>
+      )}
 
       {showGoalTemplates && (
         <GoalTemplateSelector

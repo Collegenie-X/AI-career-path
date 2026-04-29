@@ -9,6 +9,34 @@ import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { HighSchoolAiEraStrategyContent } from './HighSchoolAiEraStrategyContent';
 import { HIGH_SCHOOL_LABELS } from '../../config';
 
+/** ==text== 마크업을 형광펜 효과로 렌더링 */
+function HL({ text }: { text: string }) {
+  const parts = text.split(/==(.+?)==/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <mark
+            key={i}
+            className="rounded-sm px-0.5 not-italic"
+            style={{
+              background: 'linear-gradient(120deg, rgba(250,204,21,0.4) 0%, rgba(250,204,21,0.65) 100%)',
+              color: 'inherit',
+              fontWeight: 700,
+              boxDecorationBreak: 'clone',
+              WebkitBoxDecorationBreak: 'clone',
+            } as React.CSSProperties}
+          >
+            {part}
+          </mark>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 // ── 타입 ──────────────────────────────────────────────────────
 
 type DialogTabId = 'traits' | 'aiEra' | 'quiz' | 'environment';
@@ -113,7 +141,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
               </div>
               <div>
                 <h2 className="text-base font-bold text-white">{category.name}</h2>
-                <p className="text-[12px] text-gray-500 mt-0.5">{category.description}</p>
+                <p className="text-xs text-gray-500 mt-0.5">{category.description}</p>
               </div>
             </div>
             <button
@@ -142,7 +170,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
                 }}
               >
                 <span className="text-base">{tab.emoji}</span>
-                <span className="text-[12px] leading-tight">{tab.label}</span>
+                <span className="text-xs leading-tight">{tab.label}</span>
               </button>
             ))}
           </div>
@@ -212,7 +240,7 @@ function TraitsTab({
     <div className="px-4 py-4 space-y-4">
       {/* 6개 특성 2열 그리드 */}
       <div>
-        <p className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: categoryColor }}>
+        <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: categoryColor }}>
           📋 이 유형의 6가지 특성
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -227,12 +255,12 @@ function TraitsTab({
             >
               <div className="flex items-center gap-1.5">
                 <span className="text-xl">{item.emoji}</span>
-                <span className="text-[12px] font-bold" style={{ color: categoryColor }}>
+                <span className="text-xs font-bold" style={{ color: categoryColor }}>
                   {item.label.replace(/^[^ ]+ /, '')}
                 </span>
               </div>
-              <p className="text-[12px] text-gray-300 leading-relaxed">
-                {category.categoryTraits[item.key]}
+              <p className="text-xs text-gray-300 leading-relaxed">
+                <HL text={category.categoryTraits[item.key]} />
               </p>
             </div>
           ))}
@@ -247,15 +275,15 @@ function TraitsTab({
           border: '1px solid rgba(239,68,68,0.4)',
         }}
       >
-        <p className="text-[12px] font-bold text-red-400 mb-2 flex items-center gap-1.5">
+        <p className="text-xs font-bold text-red-400 mb-2 flex items-center gap-1.5">
           ❤️‍🔥 자존감이 낮으면 위험해요
         </p>
-        <p className="text-[12px] text-gray-200 leading-relaxed">{selfEsteemEmphasis}</p>
+        <p className="text-xs text-gray-200 leading-relaxed">{selfEsteemEmphasis}</p>
         <div className="mt-3 flex flex-wrap gap-1.5">
           {['성적 하락', '자신감 상실', '악순환 주의'].map((tag) => (
             <span
               key={tag}
-              className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+              className="text-xs font-bold px-2 py-0.5 rounded-full"
               style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171' }}
             >
               ⚠️ {tag}
@@ -300,7 +328,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         </div>
         <div className="text-center">
           <h3 className="text-lg font-bold text-white mb-2">간단 적성 검사</h3>
-          <p className="text-[12px] text-gray-400 leading-relaxed">
+          <p className="text-xs text-gray-400 leading-relaxed">
             각 문항은 4지선다로 구성되어 있어요.<br />
             교과·방과후·수상·실습(코딩 포함) 준비도를 점검해보세요.
           </p>
@@ -314,10 +342,10 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             >
               <span className="text-lg flex-shrink-0">{q.emoji}</span>
               <div className="min-w-0">
-                <p className="text-[12px] font-bold mb-0.5" style={{ color: categoryColor }}>
+                <p className="text-xs font-bold mb-0.5" style={{ color: categoryColor }}>
                   {q.focusArea}
                 </p>
-                <p className="text-[12px] text-gray-400 leading-relaxed">{q.question}</p>
+                <p className="text-xs text-gray-400 leading-relaxed">{q.question}</p>
               </div>
             </div>
           ))}
@@ -347,10 +375,10 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         {/* 진행 바 */}
         <div>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="text-[11px] font-bold text-gray-400">
+            <span className="text-xs font-bold text-gray-400">
               {index + 1} / {questions.length}
             </span>
-            <span className="text-[12px] text-gray-500">
+            <span className="text-xs text-gray-500">
               {Math.round(progress)}% 완료
             </span>
           </div>
@@ -397,13 +425,13 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         >
           <span className="text-5xl">{current.emoji}</span>
           <span
-            className="text-[11px] font-bold px-2 py-1 rounded-full"
+            className="text-xs font-bold px-2 py-1 rounded-full"
             style={{ background: `${categoryColor}28`, color: categoryColor }}
           >
             {current.focusArea}
           </span>
           <p className="text-[15px] font-semibold text-white leading-relaxed">{current.question}</p>
-          <p className="text-[12px] text-gray-500">솔직하게 답해보세요</p>
+          <p className="text-xs text-gray-500">솔직하게 답해보세요</p>
         </div>
 
         {/* 4지선다 버튼 */}
@@ -422,9 +450,9 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
                 }}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="text-[12px] font-semibold leading-relaxed text-gray-100">{choice.label}</p>
+                  <p className="text-xs font-semibold leading-relaxed text-gray-100">{choice.label}</p>
                   <span
-                    className="text-[11px] px-2 py-0.5 rounded-full font-bold flex-shrink-0"
+                    className="text-xs px-2 py-0.5 rounded-full font-bold flex-shrink-0"
                     style={{ color: choiceColor, background: `${choiceColor}22` }}
                   >
                     {choice.score}점
@@ -458,7 +486,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         <span className="text-5xl">{result.emoji}</span>
         <div>
           <p className="text-lg font-bold text-white mb-1">{result.title}</p>
-          <p className="text-[12px] text-gray-300 leading-relaxed">{result.desc}</p>
+          <p className="text-xs text-gray-300 leading-relaxed">{result.desc}</p>
         </div>
 
         {/* 별점 */}
@@ -475,7 +503,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             />
           ))}
         </div>
-        <p className="text-[12px] font-bold" style={{ color: categoryColor }}>
+        <p className="text-xs font-bold" style={{ color: categoryColor }}>
           {totalScore} / {normalizedMaxScore}점 ({Math.round(ratio * 100)}%)
         </p>
       </div>
@@ -485,7 +513,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
         className="rounded-2xl p-3 space-y-2"
         style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
       >
-        <p className="text-[11px] font-bold text-gray-400 mb-2">📊 문항별 결과</p>
+        <p className="text-xs font-bold text-gray-400 mb-2">📊 문항별 결과</p>
         {questions.map((q, i) => {
           const answer = answers[i];
           if (!answer) return null;
@@ -493,13 +521,13 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
             <div key={i} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.03)' }}>
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="text-base flex-shrink-0">{q.emoji}</span>
-                <p className="text-[12px] text-gray-300 flex-1 leading-relaxed">{q.question}</p>
+                <p className="text-xs text-gray-300 flex-1 leading-relaxed">{q.question}</p>
               </div>
-              <p className="text-[12px] font-semibold text-gray-100">
+              <p className="text-xs font-semibold text-gray-100">
                 선택: {answer.label} ({answer.score}점)
               </p>
               {answer.feedback ? (
-                <p className="text-[12px] text-gray-400 mt-0.5 leading-relaxed">{answer.feedback}</p>
+                <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">{answer.feedback}</p>
               ) : null}
             </div>
           );
@@ -552,11 +580,11 @@ function EnvironmentTab({
           className="px-3 py-2.5 flex items-center justify-between"
           style={{ background: `${categoryColor}15` }}
         >
-          <p className="text-[12px] font-bold" style={{ color: categoryColor }}>
+          <p className="text-xs font-bold" style={{ color: categoryColor }}>
             👥 엘리트 환경 적응 체크리스트
           </p>
           <span
-            className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+            className="text-xs font-bold px-2 py-0.5 rounded-full"
             style={{ background: `${categoryColor}30`, color: categoryColor }}
           >
             {checkedCount} / {total}
@@ -590,7 +618,7 @@ function EnvironmentTab({
                 <Circle className="w-5 h-5 flex-shrink-0 mt-0.5 text-gray-600" />
               )}
               <p
-                className="text-[12px] leading-relaxed"
+                className="text-xs leading-relaxed"
                 style={{ color: checkedItems.has(i) ? '#e5e7eb' : '#9ca3af' }}
               >
                 {q}
@@ -611,7 +639,7 @@ function EnvironmentTab({
             border: `1px solid ${checkedCount === total ? categoryColor + '40' : 'rgba(255,255,255,0.08)'}`,
           }}
         >
-          <p className="text-[12px] font-semibold" style={{ color: checkedCount === total ? categoryColor : '#9ca3af' }}>
+          <p className="text-xs font-semibold" style={{ color: checkedCount === total ? categoryColor : '#9ca3af' }}>
             {checkedCount === total
               ? `🎉 ${total}개 모두 체크! 이 환경에 잘 어울릴 수 있어요.`
               : `${checkedCount}개 체크됨 — 나머지 항목도 한 번 더 고민해보세요.`}
@@ -624,11 +652,11 @@ function EnvironmentTab({
         className="rounded-2xl p-3 space-y-2.5"
         style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
       >
-        <p className="text-[11px] font-bold text-gray-400">💡 추가로 알아두면 좋아요</p>
+        <p className="text-xs font-bold text-gray-400">💡 추가로 알아두면 좋아요</p>
         {additionalGuidance.map((g, i) => (
           <div key={i} className="flex items-start gap-2">
-            <span className="text-[12px] flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
-            <p className="text-[12px] text-gray-300 leading-relaxed">{g}</p>
+            <span className="text-xs flex-shrink-0 mt-0.5" style={{ color: categoryColor }}>▸</span>
+            <p className="text-xs text-gray-300 leading-relaxed">{g}</p>
           </div>
         ))}
       </div>

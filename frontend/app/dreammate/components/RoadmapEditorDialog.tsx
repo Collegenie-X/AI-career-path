@@ -644,6 +644,10 @@ export function RoadmapEditorDialog({
             </RoadmapEditorLabeledFieldRow>
           </section>
 
+          {/* 결과물 그룹 */}
+          <section className="space-y-2">
+            <span className={roadmapEditorSectionLabelClassName}>📦 결과물 <span className="font-normal text-gray-600">(선택)</span></span>
+
           {/* 중간 결과물 섹션 - 아코디언 */}
           <RoadmapEditorGradientAccordionShell
             tone="sky"
@@ -890,37 +894,50 @@ export function RoadmapEditorDialog({
               </div>
             ) : undefined}
           />
-
-          <section className="space-y-2">
-            <span className={roadmapEditorSectionLabelClassName}>
-              {LABELS.roadmapEditorActivityPeriodLabel ?? '활동 시기'}
-            </span>
-            <RoadmapEditorPeriodPillGroup
-              options={periodOptions}
-              value={period}
-              onChange={setPeriod}
-            />
           </section>
 
-          <section className="space-y-2">
-            <span className={roadmapEditorSectionLabelClassName}>
-              {LABELS.roadmapEditorAccentColorLabel ?? '대표 색상'}
-            </span>
-            <RoadmapEditorColorSwatchRow
-              colors={COLOR_OPTIONS}
-              value={starColor}
-              onChange={setStarColor}
-            />
-          </section>
+          {/* 기본 설정 그룹 — 활동시기·색상 한 줄, 카테고리 그 아래 */}
+          <section className="space-y-3">
+            <span className={roadmapEditorSectionLabelClassName}>⚙ 기본 설정</span>
 
-          <section className="space-y-2">
-            <span className={roadmapEditorSectionLabelClassName}>{LABELS.roadmapCategoryLabel}</span>
-            <RoadmapEditorDreamItemTypeToggleGrid
-              options={DREAM_ITEM_TYPES}
-              selectedValues={focusItemTypes}
-              onToggle={toggleFocusItemType}
-            />
-            <p className="text-sm text-gray-500">{LABELS.roadmapCategoryHint}</p>
+            {/* 활동 시기 — 라벨 + 컨트롤 인라인 */}
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="text-[11px] font-semibold text-gray-400 w-14 flex-shrink-0">
+                {LABELS.roadmapEditorActivityPeriodLabel ?? '활동 시기'}
+              </span>
+              <div className="flex-1 min-w-0">
+                <RoadmapEditorPeriodPillGroup
+                  options={periodOptions}
+                  value={period}
+                  onChange={setPeriod}
+                />
+              </div>
+            </div>
+
+            {/* 대표 색상 — 라벨 + 스와치 인라인 */}
+            <div className="flex items-center gap-3 min-w-0">
+              <span className="text-[11px] font-semibold text-gray-400 w-14 flex-shrink-0">
+                {LABELS.roadmapEditorAccentColorLabel ?? '대표 색상'}
+              </span>
+              <div className="flex-1 min-w-0">
+                <RoadmapEditorColorSwatchRow
+                  colors={COLOR_OPTIONS}
+                  value={starColor}
+                  onChange={setStarColor}
+                />
+              </div>
+            </div>
+
+            {/* 실행 카테고리 */}
+            <div className="space-y-1.5">
+              <span className="text-[11px] font-semibold text-gray-400">{LABELS.roadmapCategoryLabel}</span>
+              <RoadmapEditorDreamItemTypeToggleGrid
+                options={DREAM_ITEM_TYPES}
+                selectedValues={focusItemTypes}
+                onToggle={toggleFocusItemType}
+              />
+              <p className="text-xs text-gray-500">{LABELS.roadmapCategoryHint}</p>
+            </div>
           </section>
 
           <section className="space-y-3">

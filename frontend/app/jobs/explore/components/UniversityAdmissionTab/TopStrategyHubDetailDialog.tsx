@@ -12,6 +12,7 @@ import {
 import { TopStrategyHubCard } from './TopStrategyHubCard';
 import { TopStrategyHubInfoBlock } from './TopStrategyHubInfoBlock';
 import { TopStrategyHubQAItem } from './TopStrategyHubQAItem';
+import { HighlightText } from './HighlightText';
 import type { StrategyHubSection } from './TopStrategyHubTypes';
 
 type TopStrategyHubDetailDialogProps = {
@@ -119,13 +120,13 @@ export function TopStrategyHubDetailDialog({
             : resolvedModalPanelClass
         }
         style={{
-          background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
+          background: 'linear-gradient(180deg, #0f172a, #111827)',
           border: '1px solid rgba(129,140,248,0.35)',
           boxShadow: '0 12px 56px rgba(15,23,42,0.45)',
         }}
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 p-3 sm:p-4 space-y-2.5 bg-gradient-to-b from-slate-950/98 to-slate-900/95 backdrop-blur-xl border-b border-white/10">
+        <div className="sticky top-0 z-10 p-3 sm:p-4 space-y-2.5 border-b border-white/10" style={{ background: 'linear-gradient(to bottom, #0c1524, #0f172a)' }}>
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
@@ -195,10 +196,10 @@ export function TopStrategyHubDetailDialog({
                 <p className="text-sm font-bold text-white mb-1.5">
                   {activeSection.title}
                 </p>
-                <p className="text-xs text-indigo-100 mb-2 leading-relaxed">{activeSection.summary}</p>
+                <p className="text-xs text-indigo-100 mb-2 leading-relaxed"><HighlightText>{activeSection.summary}</HighlightText></p>
                 <div className="flex items-center gap-2">
                   <span className="text-base">{GRADE_ICON_MAP[activeGrade.id]}</span>
-                  <p className="text-xs text-indigo-200 leading-relaxed">{activeGrade.objective}</p>
+                  <p className="text-xs text-indigo-200 leading-relaxed"><HighlightText>{activeGrade.objective}</HighlightText></p>
                 </div>
               </div>
             </div>

@@ -72,7 +72,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 43,
+    "totalItems": 48,
     "years": [
       {
         "gradeId": "mid2",
@@ -199,6 +199,22 @@
             "links": [
               { "title": "Figma 무료 시작", "url": "https://www.figma.com", "kind": "reference" }
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "개인 학습자료 RAG 챗봇 (LangChain+Streamlit)",
+            "months": [8],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "본인 정리노트를 임베딩해 질문하면 답하는 챗봇. 중학생이 LLM 앱을 직접 배포한 사례는 학종 비교과에서 즉시 눈에 띔.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["LangChain", "OpenAI API", "Streamlit", "Pinecone"],
+            "deliverable": "배포 URL + GitHub repo + 데모 영상",
+            "links": []
           }
         ]
       },
@@ -325,6 +341,22 @@
             "description": "정렬 알고리즘 시간복잡도 비교 보고서. 학생부 '세특(정보)' 기재. 수시 학종 탐구 역량.",
             "categoryTags": ["paper", "activity"],
             "activitySubtype": "research"
+          },
+          {
+            "type": "portfolio",
+            "title": "음성 회의록 자동화 SaaS MVP (FastAPI+Whisper)",
+            "months": [10],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "음성 업로드 → Whisper 전사 → GPT 요약 → 액션아이템 추출. 친구·가족 베타 10명이라도 실사용 사례를 면접에서 설명 가능.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["FastAPI", "OpenAI Whisper", "GPT-4o", "Vercel"],
+            "deliverable": "배포 URL + 사용자 피드백 정리",
+            "links": []
           }
         ]
       },
@@ -504,6 +536,22 @@
               { "title": "TOEFL 공식 홈페이지", "url": "https://www.ets.org/toefl", "kind": "official" },
               { "title": "무료 연습 문제", "url": "https://www.ets.org/toefl/test-takers/ibt/prepare.html", "kind": "reference" }
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "오픈소스 LLM 파인튜닝 (LoRA on Llama 3)",
+            "months": [8],
+            "difficulty": 5,
+            "cost": "무료~5만원(GPU)",
+            "organizer": "자체 (AI 활용)",
+            "description": "한국어 도메인 데이터셋으로 Llama 3 8B를 LoRA 파인튜닝, HuggingFace에 모델 카드 공개. 서울대 컴공 정시·학종 모두에서 강력한 차별점.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["HuggingFace", "PEFT/LoRA", "Colab Pro", "Llama 3"],
+            "deliverable": "HuggingFace 모델 페이지 + 평가 보고서",
+            "links": []
           }
         ]
       },
@@ -682,6 +730,22 @@
             "description": "정시 준비 시작. 수학·영어 집중. 모의고사 2등급 이내 목표. 수시 최저 충족.",
             "categoryTags": ["activity"],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "멀티 에이전트 시스템 구축 (LangGraph)",
+            "months": [7],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "3개 이상 에이전트가 협업하는 워크플로(예: 리서처-비평가-작성자) 구현·공개. GitHub 50★ 이상이면 자기소개서 핵심 사례.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["LangGraph", "Claude API", "GPT-4o", "Python"],
+            "deliverable": "공개 GitHub repo + 데모 영상 + 기술 블로그 글",
+            "links": []
           }
         ]
       },
@@ -752,6 +816,22 @@
             "description": "R&E 지도교수·담임교사·동아리 담당교사. 2~3명 추천서 요청. 최소 1개월 전 요청 권장.",
             "categoryTags": ["activity"],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "졸업 프로젝트: 본인 도메인 AI 에이전트 (실서비스)",
+            "months": [6],
+            "difficulty": 5,
+            "cost": "무료~10만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "본인이 풀고 싶은 문제를 AI 에이전트로 실서비스화. 사용자 100명 + 1개월 운영 데이터. 면접에서 '왜 컴공인가' 답변의 결정타.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["LangChain/LangGraph", "Vercel/Railway", "PostHog (분석)"],
+            "deliverable": "운영 중인 서비스 URL + 사용자 통계",
+            "links": []
           }
         ]
       }
@@ -819,7 +899,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 31,
+    "totalItems": 36,
     "years": [
       {
         "gradeId": "mid2",
@@ -913,6 +993,22 @@
             "description": "고등 수학·물리 선행. KPhO 대비. 수시·정시 기초. 미적분·전자기학 필수.",
             "categoryTags": ["activity"],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "센서 데이터 수집·시각화 노트북 (Arduino+Python+AI 분석)",
+            "months": [9],
+            "difficulty": 3,
+            "cost": "3~5만원(센서)",
+            "organizer": "자체 (AI 활용)",
+            "description": "아두이노로 온습도·소음 등 센서 데이터 수집 → ChatGPT로 분석 코드 작성·검증 → 시각화. EE 진학 동기를 데이터로 증명.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["Arduino", "Python", "ChatGPT (코드 검증)", "matplotlib"],
+            "deliverable": "공개 노트북 + 1쪽 인사이트 리포트",
+            "links": []
           }
         ]
       },
@@ -1006,6 +1102,22 @@
             "description": "맥스웰 방정식 입문. 보고서 작성. 학생부 세특(물리) 기재.",
             "categoryTags": ["paper", "activity"],
             "activitySubtype": "research"
+          },
+          {
+            "type": "portfolio",
+            "title": "엣지 AI 미니 프로젝트 (Raspberry Pi+TFLite)",
+            "months": [10],
+            "difficulty": 4,
+            "cost": "5~8만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "라즈베리파이에 TensorFlow Lite로 객체 인식 모델 배포(예: 분리수거 분류기). 하드웨어+AI 융합은 KAIST EE 차별화 1순위.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["Raspberry Pi", "TensorFlow Lite", "Teachable Machine"],
+            "deliverable": "동작 영상 + GitHub repo",
+            "links": []
           }
         ]
       },
@@ -1131,6 +1243,22 @@
             "description": "전자기 유도 실험. 보고서 작성. 학생부 세특(물리) 기재. 수시 학종 탐구 역량.",
             "categoryTags": ["paper", "activity"],
             "activitySubtype": "research"
+          },
+          {
+            "type": "portfolio",
+            "title": "신호처리 + 딥러닝 융합 프로젝트 (PyTorch)",
+            "months": [8],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "FFT·필터링 등 신호처리 기초를 ML 파이프라인과 결합(예: ECG 이상감지, 음성 노이즈 제거). KAIST EE 학과 R&E에서 통하는 수준.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["PyTorch", "scipy.signal", "Colab"],
+            "deliverable": "공개 노트북 + 결과 보고서",
+            "links": []
           }
         ]
       },
@@ -1250,6 +1378,22 @@
             "description": "정시 준비 시작. 수학·물리·화학 집중. 모의고사 2등급 이내 목표.",
             "categoryTags": ["activity"],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "FPGA/MCU에 경량 AI 모델 포팅",
+            "months": [7],
+            "difficulty": 5,
+            "cost": "5~15만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "양자화·프루닝으로 모델 경량화 후 STM32 또는 FPGA에 포팅. 학종 면접에서 '왜 EE인가' 답에 그대로 쓰임.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["TensorFlow Lite Micro", "STM32CubeIDE", "ChatGPT (디버깅)"],
+            "deliverable": "동작 영상 + 기술 블로그",
+            "links": []
           }
         ]
       },
@@ -1294,6 +1438,22 @@
             "description": "수학·물리·화학 1등급 목표. 모의고사 주 1회. 기출 5개년 3회 이상.",
             "categoryTags": ["activity"],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "학부 R&E 수준 논문 1편 (AI+EE)",
+            "months": [5],
+            "difficulty": 5,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "AI 도구로 선행 연구 정리·실험 코드 작성, 본인은 가설·해석에 집중. 청소년 학회 발표 또는 arXiv 게시.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["Elicit", "Claude (논문 요약)", "Overleaf"],
+            "deliverable": "논문 PDF + 발표 자료",
+            "links": []
           }
         ]
       }
@@ -1359,7 +1519,7 @@
       "정시",
       "R&E"
     ],
-    "totalItems": 14,
+    "totalItems": 17,
     "years": [
       {
         "gradeId": "mid2",
@@ -1413,6 +1573,22 @@
               "activity"
             ],
             "activitySubtype": "research"
+          },
+          {
+            "type": "portfolio",
+            "title": "공공 보건 데이터 시각화 (KOSIS+ChatGPT)",
+            "months": [8],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "국가통계포털에서 청소년 비만·정신건강 데이터를 ChatGPT로 분석·시각화. 의대 자소서 '왜 의학인가'의 데이터 기반 답변.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["KOSIS", "ChatGPT (분석)", "Datawrapper"],
+            "deliverable": "인포그래픽 + 1쪽 보고서",
+            "links": []
           }
         ]
       },
@@ -1466,6 +1642,22 @@
               "activity"
             ],
             "activitySubtype": "camp"
+          },
+          {
+            "type": "portfolio",
+            "title": "의학 논문 요약 봇 (PubMed+Claude)",
+            "months": [10],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "관심 질환 논문을 PubMed에서 가져와 Claude로 요약·용어 풀이. 본인이 핵심 가설·한계점을 정리한 노트도 함께 공개.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["PubMed API", "Claude", "Notion"],
+            "deliverable": "공개 Notion 페이지 (논문 10편 요약)",
+            "links": []
           }
         ]
       },
@@ -1537,6 +1729,22 @@
               "activity"
             ],
             "activitySubtype": "camp"
+          },
+          {
+            "type": "portfolio",
+            "title": "의료 영상 AI 입문 프로젝트 (Kaggle+PyTorch)",
+            "months": [8],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "X-ray 폐렴 분류 등 공개 의료 데이터셋으로 CNN 학습. 결과·한계·의료 윤리 고민까지 정리하면 의대 면접에서 강력.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["PyTorch", "Kaggle", "ChatGPT (코드 검증)"],
+            "deliverable": "공개 노트북 + 윤리 고찰 1쪽",
+            "links": []
           }
         ]
       },
@@ -1601,6 +1809,22 @@
               "award",
               "paper"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "환자·의료진 인터뷰 + AI 전사·주제 분석",
+            "months": [6],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "의료 봉사 중 만난 환자/의료진 인터뷰 5건을 Whisper로 전사, Claude로 주제 도출. 정성 데이터 분석은 의대 차별화.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["OpenAI Whisper", "Claude", "NVivo (대안)"],
+            "deliverable": "질적 분석 보고서",
+            "links": []
           }
         ]
       }
@@ -1668,7 +1892,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 12,
+    "totalItems": 14,
     "years": [
       {
         "gradeId": "mid2",
@@ -1708,6 +1932,22 @@
               "activity"
             ],
             "activitySubtype": "general"
+          },
+          {
+            "type": "portfolio",
+            "title": "가상 포트폴리오 운영 + AI 종목 리포트",
+            "months": [9],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "모의투자 5종목을 ChatGPT로 재무·뉴스 요약 분석, 본인 매매 일지와 비교 회고. 경영학과 자소서의 시장 감각 증명.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["ChatGPT", "Yahoo Finance", "Notion"],
+            "deliverable": "6개월 운영 노트 + 종목 리포트 5건",
+            "links": []
           }
         ]
       },
@@ -1748,6 +1988,22 @@
               "activity"
             ],
             "activitySubtype": "camp"
+          },
+          {
+            "type": "portfolio",
+            "title": "교내 미니 창업 + AI 마케팅 워크플로",
+            "months": [10],
+            "difficulty": 3,
+            "cost": "무료~5만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "학교 축제 부스·온라인 굿즈 등 작은 사업을 ChatGPT/Midjourney로 기획·디자인·카피. 매출/원가/CAC를 숫자로 정리.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["ChatGPT", "Midjourney", "Canva"],
+            "deliverable": "사업 회고 보고서 (매출·원가 포함)",
+            "links": []
           }
         ]
       },
@@ -1802,6 +2058,22 @@
               "project",
               "award"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "산업·기업 분석 리포트 (Perplexity+Claude)",
+            "months": [8],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "관심 산업 1개 + 기업 3개를 분기 단위로 분석. AI는 정보 수집 도구, 결론·투자 의견은 본인. 경영학과 면접의 강력 무기.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["Perplexity", "Claude", "DART (전자공시)"],
+            "deliverable": "분기 리포트 4편 (블로그·노션 공개)",
+            "links": []
           }
         ]
       },
@@ -1851,6 +2123,22 @@
             "categoryTags": [
               "award"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "AI 시대 비즈니스 모델 제안서 1편",
+            "months": [7],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "실존 사회 문제 → AI 활용 BM 캔버스 → 프로토타입(노코드 + GPTs). 청소년 창업·아이디어 대회 출품용으로 결정타.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["GPTs", "Bubble/Glide", "ChatGPT"],
+            "deliverable": "BM 캔버스 + 프로토타입 데모",
+            "links": []
           }
         ]
       }
@@ -1918,7 +2206,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 13,
+    "totalItems": 15,
     "years": [
       {
         "gradeId": "mid2",
@@ -1956,6 +2244,22 @@
               "activity"
             ],
             "activitySubtype": "camp"
+          },
+          {
+            "type": "portfolio",
+            "title": "청소년 관점 사회 이슈 팩트체크 노트 (Perplexity+Claude)",
+            "months": [9],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "매월 사회 이슈 1건을 다출처로 검증, AI 답변과 본인 검증의 차이를 기록. 법학 자소서의 비판적 사고 증빙.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["Perplexity", "Claude", "Notion"],
+            "deliverable": "공개 팩트체크 노트 6편",
+            "links": []
           }
         ]
       },
@@ -2013,6 +2317,22 @@
             "categoryTags": [
               "award"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "판례·법령 검색 RAG 챗봇 (국가법령정보센터+LangChain)",
+            "months": [10],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "공개 법령·판례 데이터를 임베딩해 질문하면 관련 판례 찾는 봇. 법학 진학 동기를 도구로 증명하는 결정타.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": ["LangChain", "국가법령정보 OpenAPI", "Streamlit"],
+            "deliverable": "배포 URL + GitHub repo",
+            "links": []
           }
         ]
       },
@@ -2065,6 +2385,22 @@
             "categoryTags": [
               "award"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "AI 윤리·법 쟁점 모의 의견서 1편",
+            "months": [8],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "AI 저작권·딥페이크 등 쟁점에 대한 모의 변호인 의견서를 Claude와 토론하며 작성. 법학과 면접의 화제성·전문성 동시 확보.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["Claude", "Perplexity", "Overleaf"],
+            "deliverable": "모의 의견서 PDF + 작성 회고",
+            "links": []
           }
         ]
       },
@@ -2116,6 +2452,22 @@
             "categoryTags": [
               "award"
             ]
+          },
+          {
+            "type": "portfolio",
+            "title": "법령 텍스트 분석 노트북 (Python+NLP)",
+            "months": [7],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "특정 법령 개정 이력을 텍스트 마이닝으로 시각화(키워드 빈도·감성). 인문·사회 + 데이터 융합은 서울대 법대 차별화.",
+            "categoryTags": ["paper", "activity"],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": ["Python", "KoNLPy", "ChatGPT (코드 검증)"],
+            "deliverable": "공개 노트북 + 1쪽 분석 리포트",
+            "links": []
           }
         ]
       }

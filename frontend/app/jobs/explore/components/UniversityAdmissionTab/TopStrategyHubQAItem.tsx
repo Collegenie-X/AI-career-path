@@ -1,6 +1,7 @@
 import { ChevronDown } from 'lucide-react';
 
 import type { StrategyActionCard, StrategyDeepQuestionAnswer } from './TopStrategyHubTypes';
+import { HighlightText } from './HighlightText';
 
 type TopStrategyHubQAItemProps = {
   qaItem: StrategyDeepQuestionAnswer;
@@ -43,8 +44,8 @@ export function TopStrategyHubQAItem({
           <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-purple-500/30 to-violet-600/30 flex items-center justify-center border border-purple-400/40 shrink-0">
             <span className="text-xs font-bold text-purple-200">Q{index + 1}</span>
           </div>
-          <p className="text-xs font-semibold text-violet-100 leading-relaxed group-hover:text-violet-50 transition-colors">
-            {qaItem.question}
+          <p className="text-xs font-semibold text-violet-100 leading-relaxed group-hover:text-violet-50 transition-colors" style={{ fontSize: '12px' }}>
+            <HighlightText>{qaItem.question}</HighlightText>
           </p>
         </div>
         <ChevronDown
@@ -56,7 +57,7 @@ export function TopStrategyHubQAItem({
 
       {isOpened && (
         <div className="mt-3 space-y-2.5 pl-9">
-          <div 
+          <div
             className="rounded-xl p-3 relative overflow-hidden"
             style={{
               background: 'rgba(139,92,246,0.15)',
@@ -64,11 +65,13 @@ export function TopStrategyHubQAItem({
             }}
           >
             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-purple-400 to-violet-500" />
-            <p className="text-xs text-violet-50 leading-relaxed pl-2">{qaItem.answer}</p>
+            <p className="text-xs text-violet-50 leading-relaxed pl-2" style={{ fontSize: '12px' }}>
+              <HighlightText>{qaItem.answer}</HighlightText>
+            </p>
           </div>
 
           {mappedCard && (
-            <div 
+            <div
               className="rounded-xl p-3 relative overflow-hidden"
               style={{
                 background: 'rgba(99,102,241,0.15)',
@@ -80,12 +83,10 @@ export function TopStrategyHubQAItem({
                 <div className="w-5 h-5 rounded-md bg-indigo-500/30 flex items-center justify-center border border-indigo-400/40">
                   <span className="text-xs">🎯</span>
                 </div>
-                <p className="text-xs font-bold text-indigo-100">
-                  전략 실행 순서
-                </p>
+                <p className="text-xs font-bold text-indigo-100">전략 실행 순서</p>
               </div>
-              <p className="text-xs text-indigo-50 mb-2 font-semibold pl-2">
-                추천 카드: {mappedCard.title}
+              <p className="text-xs text-indigo-50 mb-2 font-semibold pl-2" style={{ fontSize: '12px' }}>
+                추천 카드: <HighlightText>{mappedCard.title}</HighlightText>
               </p>
               <div className="space-y-1.5 pl-2">
                 {mappedCard.actionSteps.slice(0, 3).map((step, stepIndex) => (
@@ -96,20 +97,20 @@ export function TopStrategyHubQAItem({
                     <div className="w-5 h-5 rounded-md bg-indigo-500/25 flex items-center justify-center border border-indigo-400/40 mt-0.5 shrink-0">
                       <span className="text-[10px] font-bold text-indigo-200">{stepIndex + 1}</span>
                     </div>
-                    <p className="text-xs text-indigo-100 leading-relaxed flex-1">
-                      {step}
+                    <p className="text-xs text-indigo-100 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
+                      <HighlightText>{step}</HighlightText>
                     </p>
                   </div>
                 ))}
               </div>
-              <div 
+              <div
                 className="mt-2 rounded-lg p-2 pl-2"
                 style={{
                   background: 'rgba(99,102,241,0.1)',
                   border: '1px solid rgba(129,140,248,0.3)',
                 }}
               >
-                <p className="text-xs text-indigo-200 flex items-center gap-1.5">
+                <p className="text-xs text-indigo-200 flex items-center gap-1.5" style={{ fontSize: '12px' }}>
                   <span>⏰</span>
                   <span className="font-semibold">권장 시점:</span>
                   <span>{mappedCard.recommendedTiming}</span>
@@ -119,7 +120,7 @@ export function TopStrategyHubQAItem({
           )}
 
           {mappedChecklist.length > 0 && (
-            <div 
+            <div
               className="rounded-xl p-3 relative overflow-hidden"
               style={{
                 background: 'rgba(59,130,246,0.15)',
@@ -131,9 +132,7 @@ export function TopStrategyHubQAItem({
                 <div className="w-5 h-5 rounded-md bg-blue-500/30 flex items-center justify-center border border-blue-400/40">
                   <span className="text-xs">✅</span>
                 </div>
-                <p className="text-xs font-bold text-blue-100">
-                  리스크 점검 포인트
-                </p>
+                <p className="text-xs font-bold text-blue-100">체크 포인트</p>
               </div>
               <div className="space-y-1 pl-2">
                 {mappedChecklist.map((checkItem, checkIndex) => (
@@ -144,8 +143,8 @@ export function TopStrategyHubQAItem({
                     <div className="w-4 h-4 rounded bg-blue-500/25 flex items-center justify-center border border-blue-400/40 mt-0.5 shrink-0">
                       <span className="text-[9px]">✓</span>
                     </div>
-                    <p className="text-xs text-blue-100 leading-relaxed flex-1">
-                      {checkItem}
+                    <p className="text-xs text-blue-100 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
+                      <HighlightText>{checkItem}</HighlightText>
                     </p>
                   </div>
                 ))}
@@ -154,7 +153,7 @@ export function TopStrategyHubQAItem({
           )}
 
           {mappedEvidence && (
-            <div 
+            <div
               className="rounded-xl p-3 relative overflow-hidden"
               style={{
                 background: 'rgba(16,185,129,0.15)',
@@ -166,11 +165,11 @@ export function TopStrategyHubQAItem({
                 <div className="w-5 h-5 rounded-md bg-emerald-500/30 flex items-center justify-center border border-emerald-400/40">
                   <span className="text-xs">📝</span>
                 </div>
-                <p className="text-xs font-bold text-emerald-100">
-                  서류·면접 증빙 연결
-                </p>
+                <p className="text-xs font-bold text-emerald-100">서류·면접 증거 연결</p>
               </div>
-              <p className="text-xs text-emerald-100 leading-relaxed pl-2">{mappedEvidence}</p>
+              <p className="text-xs text-emerald-100 leading-relaxed pl-2" style={{ fontSize: '12px' }}>
+                <HighlightText>{mappedEvidence}</HighlightText>
+              </p>
             </div>
           )}
         </div>

@@ -189,9 +189,9 @@ export const LABELS = {
     '학년·학기별 상세 타임라인이 없을 때는, 아래 단계는 입사·준비 경로(entryProcess)를 나눈 예시예요.',
 
   // Explore tab navigations
-  explore_tab_star: '🌌 직업 별 탐험',
-  explore_tab_admission: '🏫 고등학교 찾기',
-  explore_tab_university: '🎓 대학교 찾기',
+  explore_tab_star: '🌌 취업',
+  explore_tab_admission: '🏫 고입',
+  explore_tab_university: '🎓 대입',
 };
 
 // ─── High School Admission Labels ─────────────────────────────

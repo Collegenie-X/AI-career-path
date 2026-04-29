@@ -1,19 +1,23 @@
-import { AboutCreatorSection } from './components/AboutCreatorSection';
-import { AboutPhilosophySection } from './components/AboutPhilosophySection';
-import { AboutWorkStyleSection } from './components/AboutWorkStyleSection';
-import { AboutMissionSection } from './components/AboutMissionSection';
+import { AboutHeroSection } from './components/AboutHeroSection';
+import { AboutStatsSection } from './components/AboutStatsSection';
+import { AboutCreatorSectionNew } from './components/AboutCreatorSectionNew';
+import { AboutPhilosophySectionNew } from './components/AboutPhilosophySectionNew';
+import { AboutMissionSectionNew } from './components/AboutMissionSectionNew';
+import { AboutFunFactsSection } from './components/AboutFunFactsSection';
 import { AboutAIUsageSection } from './components/AboutAIUsageSection';
-import { AboutProblemSolutionSection } from './components/AboutProblemSolutionSection';
+import { AboutProblemSolutionSectionNew } from './components/AboutProblemSolutionSectionNew';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
-      <AboutCreatorSection />
-      <AboutPhilosophySection />
-      <AboutWorkStyleSection />
-      <AboutMissionSection />
+      <AboutHeroSection />
+      <AboutStatsSection />
+      <AboutCreatorSectionNew />
+      <AboutPhilosophySectionNew />
+      <AboutMissionSectionNew />
+      <AboutFunFactsSection />
       <AboutAIUsageSection />
-      <AboutProblemSolutionSection />
+      <AboutProblemSolutionSectionNew />
     </div>
   );
 }

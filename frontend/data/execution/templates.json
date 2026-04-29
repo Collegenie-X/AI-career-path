@@ -1,0 +1,662 @@
+{
+  "categories": [
+    {
+      "id": "award",
+      "label": "수상·대회",
+      "emoji": "🏆",
+      "color": "#F59E0B",
+      "tagline": "실력을 겨루고 성과를 인정받아요",
+      "templates": [
+        {
+          "id": "science-olympiad",
+          "title": "과학 올림피아드",
+          "emoji": "🔬",
+          "description": "물리·화학·생물 등 과학 경시대회 준비",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "출제 범위 파악 & 학습 계획 수립", "tasks": ["기출문제 목록 수집", "단원별 비중 분석"] },
+            { "weekLabel": "2주차", "title": "기초 이론 집중 학습", "tasks": ["핵심 개념 노트 정리", "기본 공식 암기"] },
+            { "weekLabel": "3주차", "title": "심화 문제 풀이 시작", "tasks": ["단원별 심화 문제 30문항", "풀이법 노트 작성"] },
+            { "weekLabel": "4주차", "title": "기출문제 유형 분석", "tasks": ["3개년 기출 분석", "자주 출제 유형 정리"] },
+            { "weekLabel": "5주차", "title": "약점 단원 집중 보완", "tasks": ["오답 노트 복습", "취약 개념 재정리"] },
+            { "weekLabel": "6주차", "title": "모의고사 & 시간 관리 연습", "tasks": ["실전 모의고사 2회", "시간 배분 전략 수립"] },
+            { "weekLabel": "7주차", "title": "최종 점검 & 제출 준비", "tasks": ["총정리 오답 확인", "대회 준비물 체크"] }
+          ]
+        },
+        {
+          "id": "math-olympiad",
+          "title": "수학 올림피아드",
+          "emoji": "🧮",
+          "description": "KMO·AMC 등 수학 경시대회 준비",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 5,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "시험 범위 & 출제 경향 파악", "tasks": ["대회 공식 사이트 확인", "기출 유형 분류"] },
+            { "weekLabel": "2주차", "title": "대수·정수론 기초 다지기", "tasks": ["핵심 정리·공식 암기", "기본 문제 50문항"] },
+            { "weekLabel": "3주차", "title": "기하·조합 영역 학습", "tasks": ["증명 연습", "그래프·도형 문제 풀기"] },
+            { "weekLabel": "4주차", "title": "기출 문제 실전 풀기", "tasks": ["최근 5년 기출 전문", "시간 내 풀기 연습"] },
+            { "weekLabel": "5주차", "title": "고난도 심화 문제 도전", "tasks": ["KMO 1차 수준 문제", "오답 원인 분석"] },
+            { "weekLabel": "6주차", "title": "최종 마무리 & 전략 점검", "tasks": ["틀린 문제 총복습", "대회 당일 전략 수립"] }
+          ]
+        },
+        {
+          "id": "sw-contest",
+          "title": "SW 코딩 대회",
+          "emoji": "💻",
+          "description": "알고리즘·프로그래밍 경시대회 준비",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "대회 규격 & 사용 언어 확인", "tasks": ["Python/C++ 환경 세팅", "기출 문제 1회 분 풀기"] },
+            { "weekLabel": "2주차", "title": "기초 자료구조 & 알고리즘 복습", "tasks": ["스택·큐·그래프 구현", "정렬 알고리즘 5종"] },
+            { "weekLabel": "3주차", "title": "탐색 & 완전탐색 집중", "tasks": ["BFS/DFS 문제 10문항", "백트래킹 연습"] },
+            { "weekLabel": "4주차", "title": "동적 프로그래밍 집중", "tasks": ["DP 유형 15문항", "메모이제이션 패턴 정리"] },
+            { "weekLabel": "5주차", "title": "그리디·분할정복 학습", "tasks": ["그리디 10문항", "분할정복 5문항"] },
+            { "weekLabel": "6주차", "title": "모의 대회 & 실전 연습", "tasks": ["온라인 저지 모의전 2회", "시간 초과·메모리 최적화"] },
+            { "weekLabel": "7주차", "title": "약점 보완 & 최종 점검", "tasks": ["틀린 문제 재도전", "코드 리뷰"] },
+            { "weekLabel": "8주차", "title": "대회 직전 점검", "tasks": ["입출력 형식 확인", "멘탈 & 컨디션 관리"] }
+          ]
+        },
+        {
+          "id": "english-speech",
+          "title": "영어 말하기 대회",
+          "emoji": "🎤",
+          "description": "영어 스피치·토론 대회 준비",
+          "period": "semester",
+          "months": [4, 5],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 선정 & 원고 초안 작성", "tasks": ["주제 3개 브레인스토밍", "아웃라인 작성"] },
+            { "weekLabel": "2주차", "title": "원고 완성 & 발음 교정", "tasks": ["원고 최종본 완성", "발음 교정 연습 20분/일"] },
+            { "weekLabel": "3주차", "title": "스피치 리허설 반복", "tasks": ["10회 이상 낭독 연습", "제스처·눈 맞춤 연습"] },
+            { "weekLabel": "4주차", "title": "실전 모의 발표 & 피드백", "tasks": ["친구·가족 앞 발표", "피드백 반영 수정"] }
+          ]
+        },
+        {
+          "id": "essay-contest",
+          "title": "논술·글짓기 대회",
+          "emoji": "✍️",
+          "description": "교내외 논술·작문 공모전 준비",
+          "period": "semester",
+          "months": [4, 5],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 분석 & 자료 수집", "tasks": ["관련 신문 기사 5개 읽기", "핵심 논점 정리"] },
+            { "weekLabel": "2주차", "title": "개요 작성 & 초고 완성", "tasks": ["서론·본론·결론 개요", "초고 1000자 이상 작성"] },
+            { "weekLabel": "3주차", "title": "첨삭 & 퇴고", "tasks": ["3회 이상 퇴고", "선생님 첨삭 받기"] },
+            { "weekLabel": "4주차", "title": "최종 제출본 완성", "tasks": ["맞춤법·형식 최종 확인", "제출"] }
+          ]
+        },
+        {
+          "id": "debate-contest",
+          "title": "교내외 토론 대회",
+          "emoji": "🗣️",
+          "description": "찬반 토론·디베이트 대회 준비",
+          "period": "semester",
+          "months": [4, 5],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 리서치 & 입장 결정", "tasks": ["찬반 양측 자료 5건씩 조사", "핵심 논점 3개 도출"] },
+            { "weekLabel": "2주차", "title": "입론·반론 시나리오 작성", "tasks": ["입론서 작성", "예상 반론 & 재반론 준비"] },
+            { "weekLabel": "3주차", "title": "팀 모의 토론", "tasks": ["팀원과 모의전 3회", "약점 보완"] },
+            { "weekLabel": "4주차", "title": "실전 대회 & 회고", "tasks": ["대회 참가", "녹화본 보고 개선점 정리"] }
+          ]
+        },
+        {
+          "id": "robot-contest",
+          "title": "로봇·메이킹 경진대회",
+          "emoji": "🤖",
+          "description": "로봇·드론·메이킹 대회 출전",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "대회 미션 분석 & 팀 구성", "tasks": ["대회 규정 정독", "역할 분담 (설계·코딩·발표)"] },
+            { "weekLabel": "2주차", "title": "프로토타입 설계", "tasks": ["기구부 도면 작성", "센서·모터 사양 결정"] },
+            { "weekLabel": "3주차", "title": "조립 & 1차 테스트", "tasks": ["하드웨어 조립", "기본 동작 테스트"] },
+            { "weekLabel": "4주차", "title": "제어 코딩 & 미션 수행 연습", "tasks": ["임무 수행 코드 구현", "반복 테스트"] },
+            { "weekLabel": "5주차", "title": "최적화 & 발표 자료", "tasks": ["오류 수정 & 안정화", "발표 PPT 제작"] },
+            { "weekLabel": "6주차", "title": "대회 출전 & 회고", "tasks": ["대회 참가", "결과 분석 보고서"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "activity",
+      "label": "활동",
+      "emoji": "⚡",
+      "color": "#22C55E",
+      "tagline": "경험을 쌓고 성장하는 활동들",
+      "templates": [
+        {
+          "id": "study-club",
+          "title": "학술 동아리 활동",
+          "emoji": "📚",
+          "description": "교내 학술·토론 동아리 정기 활동",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "동아리 목표 & 연간 계획 수립", "tasks": ["활동 주제 선정", "역할 분담 확정"] },
+            { "weekLabel": "2주차", "title": "첫 번째 주제 탐구 시작", "tasks": ["관련 자료 3건 이상 조사", "요약 노트 작성"] },
+            { "weekLabel": "3주차", "title": "토론 & 발표 준비", "tasks": ["발표 자료 제작", "토론 논점 정리"] },
+            { "weekLabel": "4주차", "title": "정기 발표 & 피드백", "tasks": ["내부 발표 진행", "피드백 정리"] },
+            { "weekLabel": "5주차", "title": "두 번째 주제 심화 탐구", "tasks": ["2차 자료 조사", "보고서 초안 작성"] },
+            { "weekLabel": "6주차", "title": "최종 보고서 & 활동 정리", "tasks": ["보고서 최종 완성", "포트폴리오 정리"] }
+          ]
+        },
+        {
+          "id": "volunteer",
+          "title": "봉사활동 프로젝트",
+          "emoji": "🤝",
+          "description": "지역사회·기관 연계 봉사활동 계획",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 1,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "봉사 기관 선정 & 신청", "tasks": ["봉사 사이트 검색", "기관 연락 및 신청"] },
+            { "weekLabel": "2주차", "title": "사전 교육 & 준비", "tasks": ["오리엔테이션 참여", "활동 준비물 목록 작성"] },
+            { "weekLabel": "3주차", "title": "봉사활동 1차 실시", "tasks": ["현장 봉사 참여", "활동 사진 기록"] },
+            { "weekLabel": "4주차", "title": "봉사활동 2차 & 소감 정리", "tasks": ["2차 봉사 참여", "소감문 작성 + 제출"] }
+          ]
+        },
+        {
+          "id": "student-council",
+          "title": "학생회 활동",
+          "emoji": "🏫",
+          "description": "학생자치회 임원 활동 계획",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7, 8],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "학기 사업 계획 수립", "tasks": ["전년도 활동 검토", "2~3개 사업 아이디어 제안"] },
+            { "weekLabel": "2주차", "title": "회의 & 역할 분담 확정", "tasks": ["정기 회의 진행", "담당 업무 배분"] },
+            { "weekLabel": "3주차", "title": "첫 번째 사업 준비", "tasks": ["행사 기획안 작성", "홍보물 초안 제작"] },
+            { "weekLabel": "4주차", "title": "사업 실행 & 평가", "tasks": ["행사 진행", "설문 조사 결과 분석"] },
+            { "weekLabel": "5주차", "title": "두 번째 사업 기획", "tasks": ["2차 행사 아이디어", "예산안 작성"] },
+            { "weekLabel": "6주차", "title": "마무리 & 활동 보고서", "tasks": ["전체 활동 보고서 작성", "사진첩 정리"] }
+          ]
+        },
+        {
+          "id": "reading-activity",
+          "title": "독서 탐구 활동",
+          "emoji": "📖",
+          "description": "주제 독서 후 탐구·발표로 이어지는 활동",
+          "period": "semester",
+          "months": [3, 4, 5],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "탐구 주제 & 도서 선정", "tasks": ["관심 주제 3개 후보 작성", "도서 2~3권 선정"] },
+            { "weekLabel": "2주차", "title": "1차 독서 & 발췌 정리", "tasks": ["핵심 내용 밑줄 & 메모", "질문 목록 작성"] },
+            { "weekLabel": "3주차", "title": "2차 독서 & 심화 탐구", "tasks": ["관련 논문·기사 2건 조사", "탐구 노트 완성"] },
+            { "weekLabel": "4주차", "title": "독서 발표 자료 제작 & 공유", "tasks": ["PPT 또는 보고서 완성", "수업 내 발표"] }
+          ]
+        },
+        {
+          "id": "science-club",
+          "title": "과학 실험 동아리",
+          "emoji": "⚗️",
+          "description": "교내 과학 실험·탐구 동아리 활동",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "실험 주제 선정 & 가설 설정", "tasks": ["주제 3개 브레인스토밍", "가설 카드 작성"] },
+            { "weekLabel": "2주차", "title": "실험 설계 & 준비물 확보", "tasks": ["실험 절차 설계", "재료 구입 목록 작성"] },
+            { "weekLabel": "3주차", "title": "1차 실험 실시 & 데이터 수집", "tasks": ["실험 진행", "결과 데이터 기록"] },
+            { "weekLabel": "4주차", "title": "2차 실험 & 오차 분석", "tasks": ["반복 실험", "오차 원인 분석"] },
+            { "weekLabel": "5주차", "title": "결과 분석 & 보고서 초안", "tasks": ["그래프·표 제작", "초안 작성"] },
+            { "weekLabel": "6주차", "title": "최종 보고서 & 발표", "tasks": ["보고서 최종 완성", "동아리 내 발표"] }
+          ]
+        },
+        {
+          "id": "subject-record",
+          "title": "세특(세부능력·특기사항) 만들기",
+          "emoji": "📝",
+          "description": "수업 활동·발표·과제로 세특 채우기",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "교과 연계 관심 주제 선정", "tasks": ["과목별 흥미 주제 3개 작성", "선생님 면담 신청"] },
+            { "weekLabel": "2주차", "title": "교과 연계 자료 조사", "tasks": ["관련 자료·논문 3건 정리", "탐구 노트 작성"] },
+            { "weekLabel": "3주차", "title": "수업 발표 자료 제작", "tasks": ["PPT 또는 보고서 초안", "발표 시나리오 정리"] },
+            { "weekLabel": "4주차", "title": "수업 내 발표 진행", "tasks": ["수업 중 발표", "Q&A 대응"] },
+            { "weekLabel": "5주차", "title": "심화 탐구 이어가기", "tasks": ["발표 후 심화 질문 탐구", "추가 자료 정리"] },
+            { "weekLabel": "6주차", "title": "교과 활동 포트폴리오 정리", "tasks": ["활동 기록 정리", "결과물 파일 보관"] }
+          ]
+        },
+        {
+          "id": "career-camp",
+          "title": "진로·진학 캠프",
+          "emoji": "🏕️",
+          "description": "대학·기업·기관 주관 진로 체험 캠프",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 1,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "캠프 정보 검색 & 신청", "tasks": ["관심 분야 캠프 5개 비교", "지원서 작성·제출"] },
+            { "weekLabel": "2주차", "title": "사전 준비 & 학습", "tasks": ["관련 분야 기초 지식 학습", "준비물 체크"] },
+            { "weekLabel": "3주차", "title": "캠프 참여 & 활동 기록", "tasks": ["프로그램 적극 참여", "일일 활동 일지 작성"] },
+            { "weekLabel": "4주차", "title": "사후 정리 & 진로 연계", "tasks": ["수료증·결과물 정리", "느낀점 & 진로 계획 작성"] }
+          ]
+        },
+        {
+          "id": "mentoring-volunteer",
+          "title": "학습 멘토링 봉사",
+          "emoji": "👨‍🏫",
+          "description": "후배·지역 학생 학습 멘토링 봉사",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "멘토링 기관 매칭 & 멘티 파악", "tasks": ["봉사 기관 신청", "멘티 학습 수준 파악"] },
+            { "weekLabel": "2주차", "title": "수업 자료 준비", "tasks": ["커리큘럼 설계", "교재·문제지 준비"] },
+            { "weekLabel": "3주차", "title": "1차 멘토링 진행", "tasks": ["주 1회 수업", "수업 일지 작성"] },
+            { "weekLabel": "4주차", "title": "중간 점검 & 보완", "tasks": ["멘티 진도 평가", "어려운 단원 보강 자료"] },
+            { "weekLabel": "5주차", "title": "심화 멘토링 & 동기부여", "tasks": ["응용 문제 풀이 지도", "학습 동기부여 활동"] },
+            { "weekLabel": "6주차", "title": "최종 평가 & 봉사 보고", "tasks": ["종합 평가 진행", "봉사 활동 보고서 제출"] }
+          ]
+        },
+        {
+          "id": "environment-volunteer",
+          "title": "환경 보호 봉사",
+          "emoji": "🌍",
+          "description": "플로깅·캠페인 등 환경 봉사 활동",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 1,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "활동 계획 & 팀 구성", "tasks": ["활동 지역 선정", "필요 도구 준비"] },
+            { "weekLabel": "2주차", "title": "1차 플로깅·정화 활동", "tasks": ["현장 활동 진행", "수거량 기록 및 사진 촬영"] },
+            { "weekLabel": "3주차", "title": "환경 캠페인 콘텐츠 제작", "tasks": ["SNS 카드뉴스 제작", "교내 게시판 포스터"] },
+            { "weekLabel": "4주차", "title": "2차 활동 & 결과 보고", "tasks": ["2차 활동 진행", "활동 보고서 작성"] }
+          ]
+        },
+        {
+          "id": "book-discussion",
+          "title": "독서 토론 동아리",
+          "emoji": "📕",
+          "description": "함께 읽고 토론하는 독서 동아리",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "도서 선정 & 독서 일정", "tasks": ["월별 도서 4권 선정", "독서 일정표 공유"] },
+            { "weekLabel": "2주차", "title": "1차 도서 읽기 & 발제 준비", "tasks": ["완독 + 메모", "발제문 작성"] },
+            { "weekLabel": "3주차", "title": "1차 토론 진행", "tasks": ["토론 진행", "토론 기록"] },
+            { "weekLabel": "4주차", "title": "2차 도서 독서", "tasks": ["완독 + 핵심 인용 정리", "비교 관점 작성"] },
+            { "weekLabel": "5주차", "title": "2차 토론 & 비교 분석", "tasks": ["1·2차 책 비교 토론", "통합 발제문"] },
+            { "weekLabel": "6주차", "title": "독서 신문 또는 발표회", "tasks": ["독서 신문 제작 또는 발표", "활동 결과물 게시"] }
+          ]
+        },
+        {
+          "id": "class-leader",
+          "title": "학급 임원·자율 활동",
+          "emoji": "👥",
+          "description": "학급 임원·자치 활동 운영",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "학급 운영 계획 수립", "tasks": ["학급 규칙 안건 작성", "월별 행사 캘린더 작성"] },
+            { "weekLabel": "2주차", "title": "1차 학급 회의 진행", "tasks": ["회의 안건 정리", "결정 사항 게시"] },
+            { "weekLabel": "3주차", "title": "학급 행사 기획·실행", "tasks": ["행사 1건 기획", "준비물·역할 분담"] },
+            { "weekLabel": "4주차", "title": "행사 실시 & 피드백", "tasks": ["행사 진행", "참여 학생 피드백 수렴"] },
+            { "weekLabel": "5주차", "title": "학급 문제 해결 캠페인", "tasks": ["학급 이슈 발굴", "개선안 시행"] },
+            { "weekLabel": "6주차", "title": "활동 정리 & 보고", "tasks": ["분기 활동 보고서", "다음 학기 인수인계 자료"] }
+          ]
+        },
+        {
+          "id": "career-interview",
+          "title": "진로 탐색·직업 인터뷰",
+          "emoji": "🎯",
+          "description": "관심 직업인 인터뷰 및 직업 체험",
+          "period": "afterschool",
+          "months": [4, 5],
+          "difficulty": 1,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "관심 직업 & 인터뷰 대상 선정", "tasks": ["관심 직업 3개 정리", "인터뷰 가능한 분 섭외"] },
+            { "weekLabel": "2주차", "title": "인터뷰 질문지 작성 & 진행", "tasks": ["질문 10개 이상 준비", "인터뷰 실시 및 녹음"] },
+            { "weekLabel": "3주차", "title": "직업 체험 또는 현장 방문", "tasks": ["직장 방문 또는 잡섀도우", "현장 사진·메모"] },
+            { "weekLabel": "4주차", "title": "탐색 보고서 정리", "tasks": ["인터뷰·체험 요약 보고서", "진로 계획 업데이트"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "project",
+      "label": "프로젝트",
+      "emoji": "🚀",
+      "color": "#6C5CE7",
+      "tagline": "아이디어를 실제로 만들어요",
+      "templates": [
+        {
+          "id": "app-dev",
+          "title": "앱·웹 개발 프로젝트",
+          "emoji": "📱",
+          "description": "직접 앱 또는 웹 서비스를 기획·개발",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "아이디어 발굴 & 기획 확정", "tasks": ["문제 정의 & 타겟 사용자 설정", "핵심 기능 3개 선정"] },
+            { "weekLabel": "2주차", "title": "기술 스택 선정 & 환경 세팅", "tasks": ["프레임워크 선택", "개발 환경 구성"] },
+            { "weekLabel": "3주차", "title": "UI/UX 와이어프레임 설계", "tasks": ["Figma 등으로 화면 설계", "사용자 흐름 정의"] },
+            { "weekLabel": "4주차", "title": "핵심 기능 1 개발", "tasks": ["기능 구현", "단위 테스트"] },
+            { "weekLabel": "5주차", "title": "핵심 기능 2·3 개발", "tasks": ["나머지 기능 구현", "연동 테스트"] },
+            { "weekLabel": "6주차", "title": "통합 테스트 & 버그 수정", "tasks": ["전체 기능 테스트", "버그 수정 목록 작성"] },
+            { "weekLabel": "7주차", "title": "배포 & 발표 자료 준비", "tasks": ["서비스 배포", "발표 데모 준비"] },
+            { "weekLabel": "8주차", "title": "최종 발표 & 회고", "tasks": ["발표 진행", "개선점 정리"] }
+          ]
+        },
+        {
+          "id": "research-project",
+          "title": "탐구 실험 프로젝트",
+          "emoji": "🧪",
+          "description": "과학·사회 분야 탐구 주제 설정 및 실험",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "탐구 주제 선정 & 선행 연구 조사", "tasks": ["주제 후보 3개 검토", "관련 논문 2건 요약"] },
+            { "weekLabel": "2주차", "title": "탐구 설계 & 가설 수립", "tasks": ["연구 방법 결정", "가설 2~3개 작성"] },
+            { "weekLabel": "3주차", "title": "실험 준비 & 1차 데이터 수집", "tasks": ["실험 도구 준비", "1차 실험 진행"] },
+            { "weekLabel": "4주차", "title": "2차 실험 & 변인 통제", "tasks": ["반복 실험", "변인 통제 확인"] },
+            { "weekLabel": "5주차", "title": "데이터 분석 & 시각화", "tasks": ["통계 분석", "그래프·표 제작"] },
+            { "weekLabel": "6주차", "title": "결론 도출 & 보고서 완성", "tasks": ["결론 작성", "보고서 최종 검토"] }
+          ]
+        },
+        {
+          "id": "video-project",
+          "title": "영상 제작 프로젝트",
+          "emoji": "🎬",
+          "description": "교육·홍보 목적 영상 기획 및 제작",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 & 스토리보드 기획", "tasks": ["영상 주제 확정", "스토리보드 스케치"] },
+            { "weekLabel": "2주차", "title": "촬영 준비 & 장비 점검", "tasks": ["촬영 장소·일정 계획", "장비 테스트"] },
+            { "weekLabel": "3주차", "title": "촬영 완료 & 편집 시작", "tasks": ["원본 영상 촬영", "편집 소프트웨어 편집 시작"] },
+            { "weekLabel": "4주차", "title": "최종 편집 & 배포", "tasks": ["자막·BGM 추가", "유튜브·학교 플랫폼 업로드"] }
+          ]
+        },
+        {
+          "id": "arduino-project",
+          "title": "아두이노·IoT 프로젝트",
+          "emoji": "🤖",
+          "description": "하드웨어+소프트웨어 융합 메이킹 프로젝트",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "아이디어 & 회로 설계", "tasks": ["구현할 기능 정의", "부품 목록 & 회로도 작성"] },
+            { "weekLabel": "2주차", "title": "부품 조달 & 기본 회로 구성", "tasks": ["부품 구입", "LED·센서 기본 테스트"] },
+            { "weekLabel": "3주차", "title": "핵심 기능 코딩 & 통합", "tasks": ["Arduino 코드 작성", "하드웨어-소프트웨어 연동"] },
+            { "weekLabel": "4주차", "title": "테스트 & 케이스 제작", "tasks": ["기능 테스트 & 버그 수정", "케이스 디자인"] },
+            { "weekLabel": "5주차", "title": "최종 시연 & 보고서", "tasks": ["시연 영상 촬영", "제작 보고서 작성"] },
+            { "weekLabel": "6주차", "title": "발표 & 공유", "tasks": ["학교 발표", "제작 과정 블로그·SNS 공유"] }
+          ]
+        },
+        {
+          "id": "env-campaign",
+          "title": "환경 캠페인 프로젝트",
+          "emoji": "🌱",
+          "description": "환경 문제 해결을 위한 캠페인 기획·실행",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "환경 이슈 선정 & 조사", "tasks": ["로컬 환경 문제 3개 탐색", "관련 데이터 수집"] },
+            { "weekLabel": "2주차", "title": "캠페인 방향 & 콘텐츠 기획", "tasks": ["슬로건 3개 후보 작성", "SNS 콘텐츠 기획"] },
+            { "weekLabel": "3주차", "title": "콘텐츠 제작 & 홍보 실행", "tasks": ["카드뉴스·포스터 제작", "SNS·교내 홍보"] },
+            { "weekLabel": "4주차", "title": "캠페인 실행 & 결과 측정", "tasks": ["오프라인 캠페인 진행", "참여자 수 집계"] }
+          ]
+        },
+        {
+          "id": "ai-ml-project",
+          "title": "AI·머신러닝 프로젝트",
+          "emoji": "🧠",
+          "description": "관심 데이터로 AI 모델을 만들어보기",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 5,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 선정 & 데이터셋 탐색", "tasks": ["풀고 싶은 문제 정의", "Kaggle/공공데이터 후보 3개"] },
+            { "weekLabel": "2주차", "title": "Python·라이브러리 학습", "tasks": ["pandas 기본 학습", "scikit-learn 튜토리얼 실습"] },
+            { "weekLabel": "3주차", "title": "데이터 전처리 & EDA", "tasks": ["결측치·이상치 처리", "시각화로 패턴 분석"] },
+            { "weekLabel": "4주차", "title": "베이스라인 모델 학습", "tasks": ["로지스틱 회귀·랜덤포레스트 학습", "성능 평가"] },
+            { "weekLabel": "5주차", "title": "모델 개선 & 하이퍼파라미터 튜닝", "tasks": ["GridSearch 적용", "Cross-validation"] },
+            { "weekLabel": "6주차", "title": "결과 분석 & 발표 자료", "tasks": ["혼동행렬·feature importance 분석", "Jupyter 보고서 작성"] }
+          ]
+        },
+        {
+          "id": "data-analysis",
+          "title": "데이터 분석 프로젝트",
+          "emoji": "📊",
+          "description": "공공·SNS 데이터로 인사이트 도출",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "분석 주제 & 가설 설정", "tasks": ["관심 사회 이슈 3개", "분석 가설 2개 작성"] },
+            { "weekLabel": "2주차", "title": "데이터 수집 & 정리", "tasks": ["공공데이터 포털 검색", "엑셀·CSV 정리"] },
+            { "weekLabel": "3주차", "title": "분석 도구 학습 & 1차 분석", "tasks": ["엑셀 피벗 또는 Python", "기본 통계량 도출"] },
+            { "weekLabel": "4주차", "title": "시각화 & 인사이트 도출", "tasks": ["차트 5개 이상 제작", "패턴 해석 작성"] },
+            { "weekLabel": "5주차", "title": "보고서 & 발표 자료", "tasks": ["분석 보고서 완성", "발표용 요약 슬라이드"] }
+          ]
+        },
+        {
+          "id": "social-impact",
+          "title": "사회 문제 해결 프로젝트",
+          "emoji": "🌟",
+          "description": "지역사회 문제를 직접 해결하는 액션",
+          "period": "semester",
+          "months": [4, 5, 6, 7],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "문제 발굴 & 사용자 인터뷰", "tasks": ["관심 사회 문제 3개", "당사자 5명 인터뷰"] },
+            { "weekLabel": "2주차", "title": "근본 원인 분석 & 솔루션 아이데이션", "tasks": ["원인 도식화", "해결 아이디어 5개 브레인스토밍"] },
+            { "weekLabel": "3주차", "title": "프로토타입 제작", "tasks": ["솔루션 시안 제작", "지인 5명에게 피드백"] },
+            { "weekLabel": "4주차", "title": "파일럿 실행", "tasks": ["소규모 시범 운영", "사용자 반응 기록"] },
+            { "weekLabel": "5주차", "title": "성과 측정 & 개선", "tasks": ["참여자 수·만족도 조사", "개선안 적용"] },
+            { "weekLabel": "6주차", "title": "최종 보고 & 확산", "tasks": ["성과 보고서 작성", "SNS·교내 공유"] }
+          ]
+        },
+        {
+          "id": "creator-channel",
+          "title": "콘텐츠 크리에이터 프로젝트",
+          "emoji": "📹",
+          "description": "유튜브·블로그 콘텐츠 채널 운영",
+          "period": "vacation",
+          "months": [7, 8],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "주제 컨셉 & 채널 기획", "tasks": ["타겟·차별점 정의", "채널 이름·아이덴티티 설계"] },
+            { "weekLabel": "2주차", "title": "1차 콘텐츠 제작 & 업로드", "tasks": ["콘텐츠 1편 촬영·편집", "썸네일·제목 최적화"] },
+            { "weekLabel": "3주차", "title": "2~3편 정기 업로드", "tasks": ["주 2편 일정 운영", "구독자 반응 분석"] },
+            { "weekLabel": "4주차", "title": "데이터 분석 & 개선", "tasks": ["조회수·시청 시간 분석", "다음 시즌 기획안"] }
+          ]
+        },
+        {
+          "id": "startup-project",
+          "title": "창업·비즈니스 프로젝트",
+          "emoji": "💼",
+          "description": "비즈니스 아이디어 검증 및 MVP 실행",
+          "period": "semester",
+          "months": [3, 4, 5, 6],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "아이템 선정 & 시장 조사", "tasks": ["고객 문제 정의", "경쟁사 3개 분석"] },
+            { "weekLabel": "2주차", "title": "비즈니스 모델 설계", "tasks": ["BMC 작성", "수익 구조 설계"] },
+            { "weekLabel": "3주차", "title": "MVP 기획 & 제작", "tasks": ["최소 기능 제품 설계", "프로토타입 또는 랜딩페이지 제작"] },
+            { "weekLabel": "4주차", "title": "고객 검증 인터뷰", "tasks": ["타겟 고객 10명 인터뷰", "피드백 정리"] },
+            { "weekLabel": "5주차", "title": "피벗 또는 개선", "tasks": ["주요 가설 검증", "개선안 적용"] },
+            { "weekLabel": "6주차", "title": "사업 계획서 & 피칭", "tasks": ["사업 계획서 작성", "발표 피칭 리허설"] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "paper",
+      "label": "논문·보고서",
+      "emoji": "📄",
+      "color": "#EC4899",
+      "tagline": "탐구 결과를 글로 남겨요",
+      "templates": [
+        {
+          "id": "research-report",
+          "title": "탐구 보고서",
+          "emoji": "📋",
+          "description": "교과 연계 심화 탐구 보고서 작성",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "탐구 주제 선정 & 선행 조사", "tasks": ["주제 3개 후보", "관련 자료 2건 이상"] },
+            { "weekLabel": "2주차", "title": "탐구 계획서 작성", "tasks": ["연구 방법 기술", "일정 계획표 완성"] },
+            { "weekLabel": "3주차", "title": "본격 탐구 & 데이터 수집", "tasks": ["실험·조사 진행", "원자료 정리"] },
+            { "weekLabel": "4주차", "title": "데이터 분석 & 해석", "tasks": ["분석 결과 정리", "그래프·표 제작"] },
+            { "weekLabel": "5주차", "title": "보고서 초안 작성", "tasks": ["서론~결론 초안 완성", "참고문헌 정리"] },
+            { "weekLabel": "6주차", "title": "첨삭 & 최종본 제출", "tasks": ["선생님 첨삭", "최종본 제출"] }
+          ]
+        },
+        {
+          "id": "mini-thesis",
+          "title": "소논문 작성",
+          "emoji": "📝",
+          "description": "학술적 형식을 갖춘 소논문 기획 및 완성",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7],
+          "difficulty": 5,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "연구 주제 & 연구 문제 설정", "tasks": ["선행 연구 5편 이상 검색", "연구 문제 2~3개 설정"] },
+            { "weekLabel": "2주차", "title": "문헌 검토 & 이론적 배경 작성", "tasks": ["관련 이론 정리", "이론적 배경 초안"] },
+            { "weekLabel": "3주차", "title": "연구 방법 설계", "tasks": ["연구 대상·방법 확정", "설문지·실험 도구 제작"] },
+            { "weekLabel": "4주차", "title": "자료 수집 & 분석", "tasks": ["설문·실험 진행", "통계 분석"] },
+            { "weekLabel": "5주차", "title": "결과 & 논의 작성", "tasks": ["결과 섹션 완성", "논의 및 시사점 작성"] },
+            { "weekLabel": "6주차", "title": "서론 & 결론 완성", "tasks": ["서론 최종 수정", "결론 및 제언 작성"] },
+            { "weekLabel": "7주차", "title": "전체 퇴고 & 형식 점검", "tasks": ["APA 형식 확인", "맞춤법·인용 검토"] },
+            { "weekLabel": "8주차", "title": "최종 제출 & 발표 준비", "tasks": ["최종본 제출", "발표용 PPT 제작"] }
+          ]
+        },
+        {
+          "id": "book-review",
+          "title": "독서 감상문·비평문",
+          "emoji": "📚",
+          "description": "심화 독서 후 비평·감상 글쓰기",
+          "period": "afterschool",
+          "months": [3, 4],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "도서 선정 & 1차 독서", "tasks": ["도서 2~3권 후보 검토", "첫 읽기 & 핵심 밑줄"] },
+            { "weekLabel": "2주차", "title": "심화 독서 & 비교 자료 조사", "tasks": ["재독 & 메모 보강", "관련 서평·비평 2건 조사"] },
+            { "weekLabel": "3주차", "title": "글쓰기 초안 작성", "tasks": ["주장·근거 구조 잡기", "1000자 이상 초안"] }
+          ]
+        },
+        {
+          "id": "presentation-paper",
+          "title": "발표 보고서 & PPT",
+          "emoji": "📊",
+          "description": "수업·대회용 발표 자료 및 보고서 패키지",
+          "period": "semester",
+          "months": [4, 5],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "발표 주제 & 구성 기획", "tasks": ["핵심 메시지 1문장 정의", "슬라이드 목차 구성"] },
+            { "weekLabel": "2주차", "title": "자료 조사 & 데이터 수집", "tasks": ["공신력 있는 출처 3건", "그래프·통계 자료"] },
+            { "weekLabel": "3주차", "title": "PPT 제작 & 보고서 초안", "tasks": ["시각 자료 디자인", "보고서 초안 작성"] },
+            { "weekLabel": "4주차", "title": "리허설 & 최종 완성", "tasks": ["발표 리허설 3회", "피드백 반영 최종본 제출"] },
+            { "weekLabel": "5주차", "title": "발표 & 반성 회고", "tasks": ["실제 발표 진행", "잘된 점·개선점 기록"] }
+          ]
+        },
+        {
+          "id": "experiment-report",
+          "title": "실험 결과 보고서",
+          "emoji": "🔬",
+          "description": "과학 교과 심화 실험 설계 및 결과 보고",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 3,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "실험 주제 & 가설 설정", "tasks": ["가설 2개 이상 작성", "선행 실험 사례 조사"] },
+            { "weekLabel": "2주차", "title": "실험 설계 & 재료 준비", "tasks": ["실험 절차 문서화", "재료 & 기기 준비"] },
+            { "weekLabel": "3주차", "title": "실험 실시 & 데이터 기록", "tasks": ["실험 3회 이상 반복", "원자료 표에 기록"] },
+            { "weekLabel": "4주차", "title": "결과 분석 & 보고서 완성", "tasks": ["그래프·통계 분석", "결론 및 오차 분석 작성"] }
+          ]
+        },
+        {
+          "id": "re-report",
+          "title": "R&E 연구 보고서",
+          "emoji": "🔍",
+          "description": "교사·교수 지도 하 심화 연구 (R&E)",
+          "period": "semester",
+          "months": [3, 4, 5, 6, 7, 8],
+          "difficulty": 5,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "지도교사 매칭 & 주제 협의", "tasks": ["연구 분야 제안서 작성", "지도교사 면담"] },
+            { "weekLabel": "2주차", "title": "선행 연구 정독 (10편 이상)", "tasks": ["관련 논문 검색·읽기", "핵심 요약 카드 작성"] },
+            { "weekLabel": "3주차", "title": "연구 문제 & 가설 확정", "tasks": ["연구 문제 정의", "검증 가능한 가설 도출"] },
+            { "weekLabel": "4주차", "title": "연구 설계 & 윤리 검토", "tasks": ["연구 방법 문서화", "연구 윤리 체크"] },
+            { "weekLabel": "5주차", "title": "데이터 수집 1차", "tasks": ["실험·설문 진행", "원자료 정리"] },
+            { "weekLabel": "6주차", "title": "데이터 분석 & 결과 정리", "tasks": ["통계 분석 또는 정성 분석", "결과표·그래프 제작"] },
+            { "weekLabel": "7주차", "title": "초고 작성 & 지도 받기", "tasks": ["보고서 초안 완성", "지도교사 첨삭"] },
+            { "weekLabel": "8주차", "title": "최종본 완성 & 발표", "tasks": ["최종 보고서 제출", "발표회 자료 제작"] }
+          ]
+        },
+        {
+          "id": "career-research",
+          "title": "진로 탐색 보고서",
+          "emoji": "🧭",
+          "description": "관심 진로·학과·직업 탐색 보고서",
+          "period": "semester",
+          "months": [3, 4, 5],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "관심 진로 분야 조사", "tasks": ["관심 직업·학과 3개 작성", "필요 역량 정리"] },
+            { "weekLabel": "2주차", "title": "현직자 인터뷰 또는 자료 수집", "tasks": ["현직자 1명 이상 인터뷰", "관련 도서·기사 5건"] },
+            { "weekLabel": "3주차", "title": "직업 체험 또는 캠프 참여", "tasks": ["진로 체험 활동 1회", "체험 일지 작성"] },
+            { "weekLabel": "4주차", "title": "보고서 작성 & 진로 계획", "tasks": ["탐색 보고서 완성", "고등학교/대학 진학 계획 수립"] }
+          ]
+        },
+        {
+          "id": "interdisciplinary-report",
+          "title": "교과 융합 탐구 보고서",
+          "emoji": "🔗",
+          "description": "두 개 이상 교과를 융합한 탐구 보고서",
+          "period": "semester",
+          "months": [4, 5, 6],
+          "difficulty": 4,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "융합 주제 선정", "tasks": ["연결할 교과 2~3개 선정", "공통 주제 브레인스토밍"] },
+            { "weekLabel": "2주차", "title": "각 교과별 자료 조사", "tasks": ["과목별 자료 3건씩", "핵심 개념 비교"] },
+            { "weekLabel": "3주차", "title": "통합 관점 분석", "tasks": ["교과별 시각 정리", "통합 결론 도출"] },
+            { "weekLabel": "4주차", "title": "탐구 활동 (실험 또는 조사)", "tasks": ["주제 관련 활동 진행", "데이터·관찰 기록"] },
+            { "weekLabel": "5주차", "title": "보고서 작성 & 첨삭", "tasks": ["초안 작성", "교과 선생님 첨삭"] },
+            { "weekLabel": "6주차", "title": "최종본 & 발표", "tasks": ["최종 제출", "수업 발표"] }
+          ]
+        },
+        {
+          "id": "portfolio-collection",
+          "title": "활동 포트폴리오 모음집",
+          "emoji": "📁",
+          "description": "한 학기 활동을 한 권의 포트폴리오로",
+          "period": "semester",
+          "months": [6, 7, 8],
+          "difficulty": 2,
+          "weeklyGoals": [
+            { "weekLabel": "1주차", "title": "활동 자료 수집·분류", "tasks": ["사진·결과물·증빙 모으기", "활동별 폴더링"] },
+            { "weekLabel": "2주차", "title": "포트폴리오 구성·디자인", "tasks": ["목차·레이아웃 설계", "표지·폰트 선정"] },
+            { "weekLabel": "3주차", "title": "활동별 페이지 제작", "tasks": ["각 활동 1페이지 정리", "성과·배운 점 작성"] },
+            { "weekLabel": "4주차", "title": "최종본 제작 & 출력/공유", "tasks": ["전체 검토·교정", "PDF 또는 인쇄본 제작"] }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Star, GraduationCap, School, Sparkles } from 'lucide-react';
+import { Star, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { GradientSegmentedTabBar } from '@/components/section-shell/GradientSegmentedTabBar';
@@ -37,9 +37,9 @@ import type { StarData, Job } from './types';
 type ExploreTabId = 'star' | 'admission' | 'university';
 
 const EXPLORE_SEGMENT_TABS: readonly GradientSegmentedTabItem<ExploreTabId>[] = [
-  { id: 'star', label: LABELS.explore_tab_star, icon: <Star className="h-3.5 w-3.5" /> },
-  { id: 'admission', label: LABELS.explore_tab_admission, icon: <GraduationCap className="h-3.5 w-3.5" /> },
-  { id: 'university', label: LABELS.explore_tab_university, icon: <School className="h-3.5 w-3.5" /> },
+  { id: 'star', label: LABELS.explore_tab_star },
+  { id: 'admission', label: LABELS.explore_tab_admission },
+  { id: 'university', label: LABELS.explore_tab_university },
 ];
 
 /* ── 히어로 배너 (직업 탐색 탭 전용) — 패스·실행 히어로와 동일 레이아웃 ── */

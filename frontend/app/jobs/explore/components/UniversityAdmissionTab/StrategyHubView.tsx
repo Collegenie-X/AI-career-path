@@ -1,11 +1,37 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronRight, X } from 'lucide-react';
+import { ChevronDown, ChevronRight, X } from 'lucide-react';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
 import { TopStrategyHubDetailDialog } from './TopStrategyHubDetailDialog';
 import type { StrategyHubSection } from './TopStrategyHubTypes';
+
+/** ==text== 마커를 형광펜 강조로 렌더링 */
+function HL({ text }: { text: string }) {
+  const parts = text.split(/==(.+?)==/g);
+  return (
+    <>
+      {parts.map((part, i) =>
+        i % 2 === 1 ? (
+          <mark
+            key={i}
+            className="rounded-sm px-0.5 font-bold not-italic"
+            style={{
+              background: 'rgba(250,204,21,0.28)',
+              color: '#fde68a',
+              boxShadow: '0 1px 0 rgba(250,204,21,0.5)',
+            }}
+          >
+            {part}
+          </mark>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
 
 export type StrategyHubMasterDetailLabels = {
   readonly emptyDetailTitle: string;
@@ -108,6 +134,17 @@ export function StrategyHubView({
   };
 
   // ── right-panel 모드: 학년 탭 + 전체 내용 인라인 표시 (다이얼로그 없음) ──
+  const [openSectionIds, setOpenSectionIds] = useState<Set<string>>(
+    () => new Set(sections.slice(0, 1).map((s) => s.id))
+  );
+
+  const toggleSection = (id: string) =>
+    setOpenSectionIds((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+
   if (mode === 'right-panel') {
     // 전체 학년 목록은 첫 번째 섹션에서 추출
     const allGrades = sections[0]?.grades ?? [];
@@ -126,15 +163,15 @@ export function StrategyHubView({
         <div
           className="flex-shrink-0 flex items-center justify-between px-4 py-3"
           style={{
-            background: 'linear-gradient(135deg, rgba(99,102,241,0.22), rgba(139,92,246,0.12))',
-            borderBottom: '1px solid rgba(129,140,248,0.25)',
+            background: 'linear-gradient(135deg, #1e1b4b, #1a1040)',
+            borderBottom: '1px solid rgba(129,140,248,0.35)',
           }}
         >
           <div className="flex items-center gap-2.5">
             <span className="text-xl" aria-hidden>{masterDetailLabels.listIntroEmoji}</span>
             <div>
               <h2 className="text-sm font-bold text-white leading-tight">{masterDetailLabels.listIntroTitle}</h2>
-              <p className="text-[10px] text-indigo-300/80 mt-0.5">{masterDetailLabels.listIntroDescription}</p>
+              <p className="text-xs text-indigo-300/80 mt-0.5">{masterDetailLabels.listIntroDescription}</p>
             </div>
           </div>
           {onClose && (
@@ -185,93 +222,108 @@ export function StrategyHubView({
                 className="rounded-2xl overflow-hidden"
                 style={{ border: `1px solid ${gradeColor.border}`, background: gradeColor.bg }}
               >
-                {/* 섹션 헤더 */}
-                <div
-                  className="px-4 py-3 flex items-center gap-2"
-                  style={{ background: `${gradeColor.accent}`, borderBottom: `1px solid ${gradeColor.border}` }}
+                {/* 섹션 헤더 (아코디언 토글) */}
+                <button
+                  type="button"
+                  onClick={() => toggleSection(section.id)}
+                  className="w-full px-4 py-3 flex items-center gap-2 text-left transition-opacity hover:opacity-90 active:opacity-75"
+                  style={{
+                    background: gradeColor.accent,
+                    borderBottom: openSectionIds.has(section.id) ? `1px solid ${gradeColor.border}` : 'none',
+                  }}
+                  aria-expanded={openSectionIds.has(section.id)}
                 >
-                  <span className="text-lg" aria-hidden>{section.emoji}</span>
-                  <div>
+                  <span className="text-xl shrink-0" aria-hidden>{section.emoji}</span>
+                  <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-bold text-white">{section.label}</h3>
-                    <p className="text-[10px] mt-0.5" style={{ color: gradeColor.text }}>{section.summary}</p>
+                    <p className="text-xs mt-0.5 leading-relaxed" style={{ color: gradeColor.text }}><HL text={section.summary} /></p>
                   </div>
-                </div>
+                  <ChevronDown
+                    className="shrink-0 w-4 h-4 transition-transform duration-200"
+                    style={{
+                      color: gradeColor.text,
+                      transform: openSectionIds.has(section.id) ? 'rotate(0deg)' : 'rotate(-90deg)',
+                    }}
+                  />
+                </button>
 
-                <div className="p-4 space-y-3">
-                  {/* 학년 목표 */}
-                  <div
-                    className="rounded-xl px-3 py-2.5"
-                    style={{ background: `${gradeColor.accent}`, border: `1px solid ${gradeColor.border}` }}
-                  >
-                    <p className="text-[10px] font-bold uppercase tracking-wide mb-1" style={{ color: gradeColor.text }}>
-                      🎯 {grade.label} 핵심 목표
-                    </p>
-                    <p className="text-xs text-white/90 leading-relaxed">{grade.objective}</p>
-                  </div>
-
-                  {/* 액션 카드 */}
-                  <div className="space-y-2">
-                    {grade.cards.map((card, ci) => (
-                      <div
-                        key={ci}
-                        className="rounded-xl p-3"
-                        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-                      >
-                        <div className="flex items-start gap-2 mb-2">
-                          <span
-                            className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5"
-                            style={{ background: gradeColor.accent, color: gradeColor.text, border: `1px solid ${gradeColor.border}` }}
-                          >
-                            {ci + 1}
-                          </span>
-                          <div>
-                            <h4 className="text-xs font-bold text-white leading-tight">{card.title}</h4>
-                            <p className="text-[10px] text-white/60 mt-0.5 leading-relaxed">{card.description}</p>
-                          </div>
-                        </div>
-                        <ul className="space-y-1 ml-7">
-                          {card.actionSteps.map((step, si) => (
-                            <li key={si} className="flex items-start gap-1.5 text-[10px] text-white/75 leading-relaxed">
-                              <span className="flex-shrink-0 mt-0.5" style={{ color: gradeColor.text }}>▸</span>
-                              <span>{step}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        <p className="text-[9px] mt-2 ml-7" style={{ color: `${gradeColor.text}aa` }}>⏱ {card.recommendedTiming}</p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* 실전 예시 */}
-                  {grade.practicalExamples.length > 0 && (
+                {openSectionIds.has(section.id) && (
+                  <div className="p-4 space-y-3">
+                    {/* 학년 목표 */}
                     <div
-                      className="rounded-xl p-3"
-                      style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                      className="rounded-xl px-3 py-3"
+                      style={{ background: `${gradeColor.accent}`, border: `1px solid ${gradeColor.border}` }}
                     >
-                      <p className="text-[10px] font-bold uppercase tracking-wide mb-2 text-white/50">💡 실전 예시</p>
-                      <ul className="space-y-1.5">
-                        {grade.practicalExamples.map((ex, ei) => (
-                          <li key={ei} className="text-[10px] text-white/65 leading-relaxed">
-                            {ex}
-                          </li>
-                        ))}
-                      </ul>
+                      <p className="text-xs font-bold mb-1.5" style={{ color: gradeColor.text }}>
+                        🎯 {grade.label} 핵심 목표
+                      </p>
+                      <p className="text-xs text-white/90 leading-relaxed"><HL text={grade.objective} /></p>
                     </div>
-                  )}
 
-                  {/* 체크리스트 */}
-                  {grade.detailChecklist.length > 0 && (
-                    <div className="space-y-1">
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-white/50 mb-1">✅ 체크리스트</p>
-                      {grade.detailChecklist.map((item, di) => (
-                        <div key={di} className="flex items-start gap-1.5">
-                          <span className="flex-shrink-0 text-[10px] mt-0.5" style={{ color: gradeColor.text }}>□</span>
-                          <p className="text-[10px] text-white/65 leading-relaxed">{item}</p>
+                    {/* 액션 카드 */}
+                    <div className="space-y-2.5">
+                      {grade.cards.map((card, ci) => (
+                        <div
+                          key={ci}
+                          className="rounded-xl p-3.5"
+                          style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)' }}
+                        >
+                          <div className="flex items-start gap-2.5 mb-2.5">
+                            <span
+                              className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                              style={{ background: gradeColor.accent, color: gradeColor.text, border: `1.5px solid ${gradeColor.border}` }}
+                            >
+                              {ci + 1}
+                            </span>
+                            <div>
+                              <h4 className="text-sm font-bold text-white leading-tight"><HL text={card.title} /></h4>
+                              <p className="text-xs text-white/65 mt-1 leading-relaxed"><HL text={card.description} /></p>
+                            </div>
+                          </div>
+                          <ul className="space-y-1.5 ml-8">
+                            {card.actionSteps.map((step, si) => (
+                              <li key={si} className="flex items-start gap-2 text-xs text-white/80 leading-relaxed">
+                                <span className="flex-shrink-0 font-bold mt-0.5" style={{ color: gradeColor.text }}>✓</span>
+                                <span><HL text={step} /></span>
+                              </li>
+                            ))}
+                          </ul>
+                          <p className="text-xs mt-2.5 ml-8 font-medium" style={{ color: `${gradeColor.text}cc` }}>{card.recommendedTiming}</p>
                         </div>
                       ))}
                     </div>
-                  )}
-                </div>
+
+                    {/* 실전 예시 */}
+                    {grade.practicalExamples.length > 0 && (
+                      <div
+                        className="rounded-xl p-3.5"
+                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      >
+                        <p className="text-xs font-bold mb-2.5 text-white/60">💡 이렇게 해봐!</p>
+                        <ul className="space-y-2">
+                          {grade.practicalExamples.map((ex, ei) => (
+                            <li key={ei} className="text-xs text-white/70 leading-relaxed">
+                              <HL text={ex} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* 체크리스트 */}
+                    {grade.detailChecklist.length > 0 && (
+                      <div className="space-y-1.5">
+                        <p className="text-xs font-bold text-white/60 mb-2">✅ 나 잘 하고 있나?</p>
+                        {grade.detailChecklist.map((item, di) => (
+                          <div key={di} className="flex items-start gap-2">
+                            <span className="flex-shrink-0 text-sm mt-0.5" style={{ color: gradeColor.text }}>□</span>
+                            <p className="text-xs text-white/70 leading-relaxed"><HL text={item} /></p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             );
           })}

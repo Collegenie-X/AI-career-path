@@ -16,6 +16,8 @@ import {
   XCircle,
 } from 'lucide-react';
 
+import { HighlightText } from './HighlightText';
+
 export type DevEducationInstitution = {
   id: string;
   name: string;
@@ -111,7 +113,7 @@ export function DevEducationInstitutionDetailPanel({
           : 'w-full min-w-0 max-w-full max-h-[min(78vh,720px)] md:max-h-none overflow-y-auto overflow-x-hidden rounded-2xl'
       }
       style={{
-        background: 'linear-gradient(135deg, rgba(17,24,39,0.95) 0%, rgba(31,41,55,0.95) 100%)',
+        background: 'linear-gradient(135deg, #111827 0%, #1f2937 100%)',
         border: `2px solid ${institution.color}40`,
         boxShadow: variant === 'dialog' ? '0 12px 56px rgba(15,23,42,0.45)' : undefined,
       }}
@@ -120,7 +122,7 @@ export function DevEducationInstitutionDetailPanel({
       <div
         className="sticky top-0 z-10 p-3 sm:p-4"
         style={{
-          background: institution.bgColor,
+          background: '#0f172a',
           borderBottom: `1px solid ${institution.color}40`,
         }}
       >
@@ -191,7 +193,7 @@ export function DevEducationInstitutionDetailPanel({
                 }}
               >
                 <Icon className="w-4 h-4" />
-                <span className="text-[10px]">{tab.label}</span>
+                <span className="text-xs">{tab.label}</span>
               </button>
             );
           })}
@@ -223,7 +225,7 @@ export function DevEducationInstitutionDetailPanel({
                 {institution.features.map((feature, index) => (
                   <div key={index} className="flex items-start gap-2 text-xs text-white/80">
                     <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: institution.color }} />
-                    <span>{feature}</span>
+                    <span><HighlightText>{feature}</HighlightText></span>
                   </div>
                 ))}
               </div>
@@ -242,7 +244,7 @@ export function DevEducationInstitutionDetailPanel({
                     style={{ background: institution.bgColor }}
                   >
                     <span style={{ color: institution.color }}>→</span>
-                    <span>{item}</span>
+                    <span><HighlightText>{item}</HighlightText></span>
                   </div>
                 ))}
               </div>
@@ -257,7 +259,7 @@ export function DevEducationInstitutionDetailPanel({
                 <div className="space-y-1">
                   {institution.pros.map((pro, index) => (
                     <p key={index} className="text-xs text-white/80">
-                      ✓ {pro}
+                      ✓ <HighlightText>{pro}</HighlightText>
                     </p>
                   ))}
                 </div>
@@ -270,7 +272,7 @@ export function DevEducationInstitutionDetailPanel({
                 <div className="space-y-1">
                   {institution.cons.map((con, index) => (
                     <p key={index} className="text-xs text-white/80">
-                      • {con}
+                      • <HighlightText>{con}</HighlightText>
                     </p>
                   ))}
                 </div>
@@ -315,7 +317,7 @@ export function DevEducationInstitutionDetailPanel({
                           <Trophy className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: institution.color }} />
                           <div className="min-w-0">
                             <p className="text-xs font-semibold text-white">사례 #{index + 1}</p>
-                            <p className="text-xs text-white/80">{example.profile}</p>
+                            <p className="text-xs text-white/80"><HighlightText>{example.profile}</HighlightText></p>
                           </div>
                         </div>
                         <ChevronDown
@@ -327,16 +329,16 @@ export function DevEducationInstitutionDetailPanel({
                         <div className="p-3 space-y-2" style={{ background: 'rgba(15,23,42,0.5)' }}>
                           <div>
                             <p
-                              className="text-[10px] font-bold uppercase tracking-wider mb-1"
+                              className="text-xs font-bold uppercase tracking-wider mb-1"
                               style={{ color: institution.color }}
                             >
                               타임라인
                             </p>
-                            <p className="text-xs text-white/85">{example.timeline}</p>
+                            <p className="text-xs text-white/85"><HighlightText>{example.timeline}</HighlightText></p>
                           </div>
                           <div>
                             <p
-                              className="text-[10px] font-bold uppercase tracking-wider mb-1.5"
+                              className="text-xs font-bold uppercase tracking-wider mb-1.5"
                               style={{ color: institution.color }}
                             >
                               핵심 성공 요인
@@ -345,7 +347,7 @@ export function DevEducationInstitutionDetailPanel({
                               {example.keyFactors.map((factor, idx) => (
                                 <div key={idx} className="flex items-start gap-2 text-xs text-white/85">
                                   <CheckCircle2 className="w-3 h-3 mt-0.5 flex-shrink-0" style={{ color: institution.color }} />
-                                  <span>{factor}</span>
+                                  <span><HighlightText>{factor}</HighlightText></span>
                                 </div>
                               ))}
                             </div>
@@ -400,7 +402,7 @@ export function DevEducationInstitutionDetailPanel({
                           <Calendar className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: institution.color }} />
                           <div className="min-w-0">
                             <p className="text-xs font-semibold text-white">{strategy.grade}</p>
-                            <p className="text-xs text-white/80">{strategy.goal}</p>
+                            <p className="text-xs text-white/80"><HighlightText>{strategy.goal}</HighlightText></p>
                           </div>
                         </div>
                         <ChevronDown
@@ -412,7 +414,7 @@ export function DevEducationInstitutionDetailPanel({
                         <div className="p-3 space-y-2" style={{ background: 'rgba(15,23,42,0.5)' }}>
                           <div>
                             <p
-                              className="text-[10px] font-bold uppercase tracking-wider mb-1.5"
+                              className="text-xs font-bold uppercase tracking-wider mb-1.5"
                               style={{ color: institution.color }}
                             >
                               매월 실행 액션
@@ -424,14 +426,14 @@ export function DevEducationInstitutionDetailPanel({
                                     className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
                                     style={{ background: institution.color }}
                                   />
-                                  <span>{action}</span>
+                                  <span><HighlightText>{action}</HighlightText></span>
                                 </div>
                               ))}
                             </div>
                           </div>
                           <div>
                             <p
-                              className="text-[10px] font-bold uppercase tracking-wider mb-1.5"
+                              className="text-xs font-bold uppercase tracking-wider mb-1.5"
                               style={{ color: institution.color }}
                             >
                               핵심 마일스톤
@@ -440,7 +442,7 @@ export function DevEducationInstitutionDetailPanel({
                               {strategy.criticalMilestones.map((milestone, idx) => (
                                 <div key={idx} className="flex items-start gap-2 text-xs text-white/85">
                                   <CheckCircle2 className="w-3 h-3 mt-0.5 flex-shrink-0" style={{ color: institution.color }} />
-                                  <span>{milestone}</span>
+                                  <span><HighlightText>{milestone}</HighlightText></span>
                                 </div>
                               ))}
                             </div>
@@ -474,7 +476,7 @@ export function DevEducationInstitutionDetailPanel({
                     style={{ background: institution.bgColor }}
                   >
                     <span style={{ color: institution.color }}>→</span>
-                    <span>{path}</span>
+                    <span><HighlightText>{path}</HighlightText></span>
                   </div>
                 ))}
               </div>
@@ -489,7 +491,7 @@ export function DevEducationInstitutionDetailPanel({
                 {institution.targetStudents.map((target, index) => (
                   <div key={index} className="flex items-start gap-2 text-xs text-white/80">
                     <span style={{ color: institution.color }}>✓</span>
-                    <span>{target}</span>
+                    <span><HighlightText>{target}</HighlightText></span>
                   </div>
                 ))}
               </div>
@@ -504,7 +506,7 @@ export function DevEducationInstitutionDetailPanel({
                 <div className="space-y-1">
                   {institution.pros.map((pro, index) => (
                     <p key={index} className="text-xs text-white/80">
-                      ✓ {pro}
+                      ✓ <HighlightText>{pro}</HighlightText>
                     </p>
                   ))}
                 </div>
@@ -517,7 +519,7 @@ export function DevEducationInstitutionDetailPanel({
                 <div className="space-y-1">
                   {institution.cons.map((con, index) => (
                     <p key={index} className="text-xs text-white/80">
-                      • {con}
+                      • <HighlightText>{con}</HighlightText>
                     </p>
                   ))}
                 </div>

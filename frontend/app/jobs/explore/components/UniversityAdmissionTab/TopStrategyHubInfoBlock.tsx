@@ -1,3 +1,5 @@
+import { HighlightText } from './HighlightText';
+
 type TopStrategyHubInfoBlockProps = {
   title: string;
   items?: string[];
@@ -16,20 +18,15 @@ export function TopStrategyHubInfoBlock({
   if (!items || items.length === 0) return null;
 
   return (
-    <div 
+    <div
       className={`rounded-2xl p-4 border-2 relative overflow-hidden ${toneClassName}`}
-      style={{
-        boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
-      }}
+      style={{ boxShadow: '0 2px 12px rgba(0,0,0,0.15)' }}
     >
       <div className="absolute top-0 left-0 w-1.5 h-full" style={{ background: accentColor }} />
       <div className="flex items-center gap-2 mb-3 pl-2">
-        <div 
+        <div
           className="w-7 h-7 rounded-lg flex items-center justify-center border"
-          style={{
-            background: accentColor,
-            borderColor: accentColor,
-          }}
+          style={{ background: accentColor, borderColor: accentColor }}
         >
           <span className="text-base">{icon}</span>
         </div>
@@ -38,17 +35,14 @@ export function TopStrategyHubInfoBlock({
       <div className="space-y-2 pl-2">
         {items.map((item, index) => (
           <div key={`${title}-${index}`} className="flex items-start gap-2">
-            <div 
+            <div
               className="w-5 h-5 rounded-md flex items-center justify-center border mt-0.5 shrink-0"
-              style={{
-                background: `${accentColor}40`,
-                borderColor: accentColor,
-              }}
+              style={{ background: `${accentColor}40`, borderColor: accentColor }}
             >
               <span className="text-[10px] font-bold">{index + 1}</span>
             </div>
-            <p className="text-xs leading-relaxed flex-1">
-              {item}
+            <p className="text-xs leading-relaxed flex-1" style={{ fontSize: '12px' }}>
+              <HighlightText>{item}</HighlightText>
             </p>
           </div>
         ))}

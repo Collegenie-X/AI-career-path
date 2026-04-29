@@ -1,8 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { hasCareerPathBackendAuth } from '@/lib/career-path/sharedPlanApi';
+import { useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
@@ -11,6 +10,7 @@ import { DreamLibraryTab } from './components/DreamLibraryTab';
 import { DreamSpaceTab } from './components/DreamSpaceTab';
 import { MyDreamMateTab } from './components/MyDreamMateTab';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
+import { ExecutionWizardDialog } from './components/ExecutionWizardDialog';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
 import { RoadmapShareDialog } from './components/RoadmapShareDialog';
 import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
@@ -53,7 +53,6 @@ function StarField() {
 
 /* ─── Main page content ─── */
 function DreamMatePageContent() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
@@ -64,24 +63,12 @@ function DreamMatePageContent() {
 
   const workspace = useDreamMateWorkspaceContext();
 
-  /** 로그인 후에만 생성·수정·삭제·복사 등 변경 (미로그인 시 UI 자체 비표시) */
-  const canMutate = mounted && hasCareerPathBackendAuth();
+  /** localStorage 모드: 로그인 없이 누구나 생성·수정·삭제 가능 */
+  const canMutate = mounted;
 
   const requireAuthForMutation = useCallback((): boolean => {
-    if (hasCareerPathBackendAuth()) return true;
-    router.push('/auth/login');
-    return false;
-  }, [router]);
-
-  useEffect(() => {
-    if (canMutate) return;
-    workspace.setShowCreateRoadmapDialog(false);
-    workspace.setEditingRoadmapId(null);
-    setShowShareDialog(false);
-    setShowLibraryCreateDialog(false);
-    setShowSpaceCreateDialog(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- 로그아웃·비로그인 시 다이얼로그만 닫음
-  }, [canMutate]);
+    return true;
+  }, []);
 
   useEffect(() => {
     setMounted(true);
@@ -296,23 +283,7 @@ function DreamMatePageContent() {
       </div>
 
       {canMutate && workspace.showCreateRoadmapDialog && (
-        <RoadmapEditorDialog
-          title={LABELS.createRoadmapButton}
-          submitLabel={LABELS.createRoadmapButton}
-          initialValues={{
-            title: '',
-            description: '',
-            period: 'semester' as PeriodType,
-            starColor: '#6C5CE7',
-            focusItemTypes: ['award', 'activity', 'project', 'paper'],
-            milestoneResults: [],
-            finalResultTitle: '',
-            finalResultDescription: '',
-            finalResultUrl: '',
-            finalResultImageUrl: '',
-            groupIds: [],
-            items: [],
-          }}
+        <ExecutionWizardDialog
           onClose={() => workspace.setShowCreateRoadmapDialog(false)}
           onSubmit={(payload) => {
             if (!requireAuthForMutation()) return;
