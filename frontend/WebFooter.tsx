@@ -20,7 +20,7 @@ const FOOTER_SECTIONS = [
       { label: '평일 09:00~18:00', href: '#' },
       { label: '(점심시간 12:30~13:30)', href: '#' },
       // { label: '02-1234-5678', href: '#' },
-      { label: 'support@aicareerpath.com', href: 'mailto:support@aicareerpath.com' },
+      { label: 'support@aicareerpath.co.kr', href: 'mailto:support@aicareerpath.co.kr' },
     ],
   },
   {

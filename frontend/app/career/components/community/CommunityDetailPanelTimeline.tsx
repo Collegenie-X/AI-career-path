@@ -140,7 +140,7 @@ export function CommunityDetailPanelYearSection({
           onClick={() => setOpen(o => !o)}
           className="w-full flex items-center justify-between gap-2 pt-0.5 pb-2 text-left"
         >
-          <div className="text-sm font-bold text-white">{gradeInfo?.fullLabel ?? year.gradeLabel}</div>
+          <div className="text-sm font-bold text-white">{year.gradeLabel}</div>
           <div className="flex items-center gap-2 flex-shrink-0">
             <CompactProgressBar
               doneCount={yearDoneCount}
@@ -161,7 +161,7 @@ export function CommunityDetailPanelYearSection({
                   key={gi}
                   group={group}
                   starColor={starColor}
-                  gradeLabel={gradeInfo?.fullLabel ?? year.gradeLabel}
+                  gradeLabel={year.gradeLabel}
                   onItemSelect={setSelectedItem}
                 />
               ))
@@ -212,7 +212,7 @@ export function CommunityDetailPanelYearSection({
       {selectedItem && (
         <PlanItemDetailSheet
           item={selectedItem}
-          gradeLabel={gradeInfo?.fullLabel ?? year.gradeLabel}
+          gradeLabel={year.gradeLabel}
           color={starColor}
           onClose={() => setSelectedItem(null)}
         />

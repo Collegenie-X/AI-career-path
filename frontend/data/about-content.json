@@ -2,7 +2,7 @@
   "creator": {
     "badge": "AI + CareerPath",
     "title": "만든 사람",
-    "subtitle": "김종필 + AI Agent → aicareerpath.com",
+    "subtitle": "김종필 + AI Agent → aicareerpath.co.kr",
     "description": "AI CareerPath는 한 사람의 경험과 AI의 능력이 결합되어 탄생했습니다. 학생들도 AI와 함께 커리어를 설계하는 시대를 만들고자 합니다.",
     "team": [
       {
@@ -10,7 +10,7 @@
         "name": "김종필",
         "role": "기획자 & 개발자",
         "avatar": "김",
-        "description": "평범한 환경에서 자라며 진로 정보 부족으로 많은 시행착오를 겪었습니다. 각종 프로젝트와 수상 경험을 통해 '체계적인 기획과 계획'의 중요성을 깨달았고, 많은 고등학생들을 멘토링하며 이들도 같은 문제를 겪고 있음을 발견했습니다. AI와 협업하여 aicareerpath.com을 만들었습니다."
+        "description": "평범한 환경에서 자라며 진로 정보 부족으로 많은 시행착오를 겪었습니다. 각종 프로젝트와 수상 경험을 통해 '체계적인 기획과 계획'의 중요성을 깨달았고, 많은 고등학생들을 멘토링하며 이들도 같은 문제를 겪고 있음을 발견했습니다. AI와 협업하여 aicareerpath.co.kr을 만들었습니다."
       },
       {
         "id": "ai",

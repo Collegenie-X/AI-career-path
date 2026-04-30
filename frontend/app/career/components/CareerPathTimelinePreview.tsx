@@ -238,12 +238,12 @@ export function CareerPathTimelinePreview({ years, color }: Props) {
                   fontSize: 12,
                 }}
               >
-                {year.gradeLabel}
+                {grade?.label ?? year.gradeLabel}
               </div>
 
               <div className="space-y-2.5 pt-1">
                 <div>
-                  <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
+                  <div className="text-sm font-bold text-white">{year.gradeLabel}</div>
                   <div className="flex items-center gap-2 mt-0.5">
                     {semesterConf && (
                       <span className="text-[12px]" style={{ color: `${color}99` }}>

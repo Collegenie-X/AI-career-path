@@ -37,9 +37,9 @@ import type { StarData, Job } from './types';
 type ExploreTabId = 'star' | 'admission' | 'university';
 
 const EXPLORE_SEGMENT_TABS: readonly GradientSegmentedTabItem<ExploreTabId>[] = [
-  { id: 'star', label: LABELS.explore_tab_star },
   { id: 'admission', label: LABELS.explore_tab_admission },
   { id: 'university', label: LABELS.explore_tab_university },
+  { id: 'star', label: LABELS.explore_tab_star },
 ];
 
 /* ── 히어로 배너 (직업 탐색 탭 전용) — 패스·실행 히어로와 동일 레이아웃 ── */

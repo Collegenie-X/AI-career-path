@@ -141,7 +141,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
               </div>
               <div>
                 <h2 className="text-base font-bold text-white">{category.name}</h2>
-                <p className="text-xs text-gray-500 mt-0.5">{category.description}</p>
+                <p className="text-xs text-gray-500 mt-0.5"><HL text={category.description} /></p>
               </div>
             </div>
             <button

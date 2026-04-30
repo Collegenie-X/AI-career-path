@@ -76,7 +76,7 @@ export function PlanSummaryView({
                   {year.gradeLabel}
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
+                  <div className="text-xs font-semibold text-white">{year.gradeLabel}</div>
                   <div className="text-[12px] text-gray-500">{yearChecked}/{yearTotal} 완료</div>
                 </div>
               </div>

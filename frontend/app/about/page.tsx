@@ -1,5 +1,4 @@
 import { AboutHeroSection } from './components/AboutHeroSection';
-import { AboutStatsSection } from './components/AboutStatsSection';
 import { AboutCreatorSectionNew } from './components/AboutCreatorSectionNew';
 import { AboutPhilosophySectionNew } from './components/AboutPhilosophySectionNew';
 import { AboutMissionSectionNew } from './components/AboutMissionSectionNew';
@@ -11,7 +10,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black">
       <AboutHeroSection />
-      <AboutStatsSection />
       <AboutCreatorSectionNew />
       <AboutPhilosophySectionNew />
       <AboutMissionSectionNew />

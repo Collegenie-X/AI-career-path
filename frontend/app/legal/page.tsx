@@ -131,10 +131,10 @@ export default function LegalOverviewPage() {
               <div className="flex items-center gap-2">
                 <span className="text-gray-500">이메일:</span>
                 <a
-                  href="mailto:support@aicareerpath.com"
+                  href="mailto:support@aicareerpath.co.kr"
                   className="text-violet-400 hover:text-violet-300 transition-colors"
                 >
-                  support@aicareerpath.com
+                  support@aicareerpath.co.kr
                 </a>
               </div>
               <div className="flex items-center gap-2">

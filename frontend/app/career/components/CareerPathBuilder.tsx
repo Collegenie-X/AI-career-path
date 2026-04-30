@@ -2051,7 +2051,7 @@ function YearPlanCard({
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm">
-            {GRADE_YEARS.find(g => g.id === yearPlan.gradeId)?.fullLabel ?? yearPlan.gradeLabel}
+            {yearPlan.gradeLabel}
           </div>
           <div className="flex items-center gap-2 mt-0.5 flex-wrap">
             {needsSemesterPick && (

@@ -77,8 +77,8 @@ export function CareerPathDetailPanelTimeline({
           <CareerPathTimelineGradeSectionChrome
             key={year.gradeId}
             accentColor={template.starColor}
-            gradeShortLabel={year.gradeLabel}
-            gradeFullLabel={grade?.fullLabel ?? year.gradeLabel}
+            gradeShortLabel={grade?.label ?? year.gradeLabel}
+            gradeFullLabel={year.gradeLabel}
             isGradeExpanded={isGradeExpanded}
             onToggleGrade={() => onToggleGradeExpand(year.gradeId)}
             showGradeProgressBar={false}

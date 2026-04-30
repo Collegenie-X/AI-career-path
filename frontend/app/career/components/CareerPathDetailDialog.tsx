@@ -531,7 +531,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                           fontSize: 12,
                         }}
                       >
-                        {year.gradeLabel}
+                        {grade?.label ?? year.gradeLabel}
                       </div>
 
                       {(() => {
@@ -569,7 +569,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                           <div className="space-y-3 pt-1" key={year.gradeId}>
                             {/* Year header */}
                             <div className="flex items-center justify-between">
-                              <div className="text-sm font-bold text-white">{grade?.fullLabel ?? year.gradeLabel}</div>
+                              <div className="text-sm font-bold text-white">{year.gradeLabel}</div>
                             </div>
 
                             {allGroups

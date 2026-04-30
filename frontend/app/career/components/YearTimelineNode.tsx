@@ -215,8 +215,8 @@ export function YearTimelineNode({
   return (
     <CareerPathTimelineGradeSectionChrome
       accentColor={color}
-      gradeShortLabel={year.gradeLabel}
-      gradeFullLabel={grade?.fullLabel ?? year.gradeLabel}
+      gradeShortLabel={grade?.label ?? year.gradeLabel}
+      gradeFullLabel={year.gradeLabel}
       isGradeExpanded={gradeExpanded}
       onToggleGrade={() => setGradeExpanded((v) => !v)}
       showGradeProgressBar={showTimelineProgressBars}

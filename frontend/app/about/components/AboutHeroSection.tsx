@@ -232,19 +232,6 @@ export function AboutHeroSection() {
           </span>
         </motion.div>
 
-        {/* Title */}
-        <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight"
-          initial={{ y: 30 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-        >
-          <span className="block">AI와 함께</span>
-          <span className="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-            커리어를 설계하다
-          </span>
-        </motion.h1>
-
         {/* Subtitle */}
         <motion.p
           className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed"
@@ -254,7 +241,7 @@ export function AboutHeroSection() {
         >
           한 사람의 경험 + AI의 능력 = 모든 학생을 위한 커리어 플랫폼
           <br />
-          <span className="text-purple-400 font-semibold">aicareerpath.com</span>이 탄생한 이야기
+          <span className="text-purple-400 font-semibold">aicareerpath.co.kr</span>이 탄생한 이야기
         </motion.p>
 
         {/* Scroll indicator */}

@@ -323,11 +323,11 @@ function YearCard({
             className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-sm"
             style={{ backgroundColor: planColor, color: '#fff', boxShadow: `0 0 12px ${planColor}44` }}
           >
-            {yearPlan.gradeLabel}
+            {grade?.label ?? yearPlan.gradeLabel}
           </div>
 
           <div className="flex-1 min-w-0">
-            <div className="font-bold text-white text-sm">{grade?.fullLabel ?? yearPlan.gradeLabel}</div>
+            <div className="font-bold text-white text-sm">{yearPlan.gradeLabel}</div>
             <div className="flex items-center gap-2 mt-0.5 flex-wrap">
               {semesterConf && (
                 <span className="text-[12px]" style={{ color: `${planColor}99` }}>
