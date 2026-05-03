@@ -36,6 +36,11 @@ export type ResourceLibraryDocument = {
   summary: string;
   markdownPath: string;
   tags: string[];
+  keyTopics?: string[];
+  difficultyLevel?: number;
+  estimatedReadTime?: string;
+  priority?: number;
+  isNew?: boolean;
 };
 
 export const RESOURCE_CATEGORIES: ResourceCategory[] = [

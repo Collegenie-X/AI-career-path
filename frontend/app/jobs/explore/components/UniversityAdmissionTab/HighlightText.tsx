@@ -1,8 +1,9 @@
-import type { ReactNode } from 'react';
+import { GlossaryText } from './GlossaryText';
 
 /**
- * ==text== 마크업을 형광펜 효과로 렌더링합니다.
- * 모든 텍스트는 최소 12px(text-xs) 이상으로 표시됩니다.
+ * 호환용 래퍼.
+ * `==text==`는 형광펜으로, 등록된 약자(IB·EE·CAS·HL·TOK·AP·SAT·SKY 등)는
+ * 점선 밑줄 + 호버/탭 시 말풍선 툴팁으로 렌더링한다.
  */
 export function HighlightText({
   children,
@@ -11,50 +12,5 @@ export function HighlightText({
   children: string;
   className?: string;
 }) {
-  const parts = parseHighlight(children);
-  return (
-    <span className={className}>
-      {parts.map((part, i) =>
-        part.highlight ? (
-          <mark
-            key={i}
-            style={{
-              background: 'linear-gradient(120deg, rgba(250,204,21,0.35) 0%, rgba(250,204,21,0.55) 100%)',
-              borderRadius: '3px',
-              padding: '0 3px',
-              color: 'inherit',
-              fontWeight: 700,
-              boxDecorationBreak: 'clone',
-              WebkitBoxDecorationBreak: 'clone',
-            }}
-          >
-            {part.text}
-          </mark>
-        ) : (
-          <span key={i}>{part.text}</span>
-        )
-      )}
-    </span>
-  );
-}
-
-function parseHighlight(text: string): Array<{ text: string; highlight: boolean }> {
-  const result: Array<{ text: string; highlight: boolean }> = [];
-  const regex = /==([^=]+)==/g;
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      result.push({ text: text.slice(lastIndex, match.index), highlight: false });
-    }
-    result.push({ text: match[1], highlight: true });
-    lastIndex = regex.lastIndex;
-  }
-
-  if (lastIndex < text.length) {
-    result.push({ text: text.slice(lastIndex), highlight: false });
-  }
-
-  return result;
+  return <GlossaryText className={className}>{children}</GlossaryText>;
 }

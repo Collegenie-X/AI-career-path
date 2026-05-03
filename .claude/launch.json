@@ -3,9 +3,12 @@
   "configurations": [
     {
       "name": "Frontend (Next.js)",
-      "runtimeExecutable": "npm",
+      "runtimeExecutable": "/Users/kimjongphil/.nvm/versions/node/v20.19.5/bin/npm",
       "runtimeArgs": ["run", "dev"],
       "cwd": "frontend",
+      "env": {
+        "PATH": "/Users/kimjongphil/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/usr/bin:/bin"
+      },
       "port": 58028,
       "autoPort": false
     }

@@ -2,6 +2,7 @@
 
 import { Star, ChevronRight } from 'lucide-react';
 import type { StarData } from '../types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 interface StarCardProps {
   star: StarData;
@@ -75,7 +76,7 @@ export function StarCard({ star, onClick, index, isSelected = false }: StarCardP
         <div className="text-center">
           <h3 className="font-bold text-white text-base mb-0.5">{star.name}</h3>
           <p className="text-xs line-clamp-2 leading-relaxed" style={{ color: `${star.color}dd` }}>
-            {star.description}
+            <GlossaryText>{star.description}</GlossaryText>
           </p>
         </div>
       </div>

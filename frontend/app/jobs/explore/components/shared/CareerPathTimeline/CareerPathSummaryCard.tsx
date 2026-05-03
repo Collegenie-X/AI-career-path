@@ -1,6 +1,7 @@
 'use client';
 
 import type { CareerPathTimelineSummary, CareerPathTimelineTheme } from './types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type CareerPathSummaryCardProps = {
   summary: CareerPathTimelineSummary;
@@ -19,7 +20,9 @@ export function CareerPathSummaryCard({ summary, theme }: CareerPathSummaryCardP
         borderColor: `${accentColor}30`,
       }}
     >
-      <h3 className="font-extrabold text-white text-base mb-3">{title}</h3>
+      <h3 className="font-extrabold text-white text-base mb-3">
+        <GlossaryText>{title}</GlossaryText>
+      </h3>
       <div className="flex flex-wrap gap-2">
         <div
           className="flex items-center gap-1.5 px-3 py-2 rounded-xl"
@@ -30,7 +33,7 @@ export function CareerPathSummaryCard({ summary, theme }: CareerPathSummaryCardP
         >
           <span className="text-sm">📅</span>
           <span className="text-sm font-extrabold" style={{ color: accentColor }}>
-            {totalYears}
+            <GlossaryText>{totalYears}</GlossaryText>
           </span>
         </div>
         <div
@@ -42,7 +45,7 @@ export function CareerPathSummaryCard({ summary, theme }: CareerPathSummaryCardP
         >
           <span className="text-sm">💰</span>
           <span className="text-sm font-extrabold" style={{ color: accentColor }}>
-            총 {totalCost}
+            총 <GlossaryText>{totalCost}</GlossaryText>
           </span>
         </div>
       </div>

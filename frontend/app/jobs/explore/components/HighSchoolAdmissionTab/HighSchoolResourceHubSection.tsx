@@ -48,7 +48,58 @@ function normalizeLibraryItems(): ResourceListItem[] {
     size: 0,
     tags: documentItem.tags,
     markdownPath: documentItem.markdownPath,
+    difficultyLevel: documentItem.difficultyLevel,
+    estimatedReadTime: documentItem.estimatedReadTime,
+    isNew: documentItem.isNew,
   }));
+}
+
+function renderDifficultyDots(level: number): string {
+  const filled = Math.max(0, Math.min(5, level));
+  return '●'.repeat(filled) + '○'.repeat(5 - filled);
+}
+
+type RarityTier = { label: string; emoji: string; color: string; gradient: string };
+
+function getRarity(level: number | undefined): RarityTier {
+  switch (level) {
+    case 5:
+      return {
+        label: '레전더리',
+        emoji: '👑',
+        color: '#facc15',
+        gradient: 'linear-gradient(90deg, rgba(250,204,21,0.25), rgba(251,146,60,0.25))',
+      };
+    case 4:
+      return {
+        label: '에픽',
+        emoji: '💎',
+        color: '#c084fc',
+        gradient: 'linear-gradient(90deg, rgba(192,132,252,0.22), rgba(167,139,250,0.22))',
+      };
+    case 3:
+      return {
+        label: '레어',
+        emoji: '🔮',
+        color: '#60a5fa',
+        gradient: 'linear-gradient(90deg, rgba(96,165,250,0.2), rgba(34,211,238,0.2))',
+      };
+    case 2:
+      return {
+        label: '언커먼',
+        emoji: '🌿',
+        color: '#34d399',
+        gradient: 'linear-gradient(90deg, rgba(52,211,153,0.2), rgba(16,185,129,0.2))',
+      };
+    case 1:
+    default:
+      return {
+        label: '코먼',
+        emoji: '📜',
+        color: '#9ca3af',
+        gradient: 'linear-gradient(90deg, rgba(156,163,175,0.18), rgba(107,114,128,0.18))',
+      };
+  }
 }
 
 function mapUserFilesToListItems(userFiles: ResourceFile[]): ResourceListItem[] {
@@ -151,7 +202,11 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
         >
           <ArrowLeft className="w-4 h-4" />
         </button>
-        <p className="text-sm font-bold text-white">고입 자료실</p>
+        <p className="text-sm font-bold text-white inline-flex items-center gap-1">
+          <span>🎒</span>
+          <span>고입 자료 상점</span>
+          <span className="text-[10px] font-medium text-amber-300/80 ml-1">{resourceLibrarySource.documents.length}개 아이템</span>
+        </p>
       </div>
 
       <div className="flex gap-3 flex-1 min-h-0">
@@ -207,23 +262,67 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
               const categoryMeta = getCategoryMeta(resourceItem.categoryId);
               const isUserItem = resourceItem.source === 'user';
               const isSelected = resourceItem.id === selectedResourceId;
+              const rarity = getRarity(resourceItem.difficultyLevel);
 
               return (
                 <div
                   key={resourceItem.id}
                   onClick={() => setSelectedResourceId(resourceItem.id)}
-                  className="rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99]"
+                  className={`relative rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99] hover:scale-[1.01] overflow-hidden ${resourceItem.isNew ? 'resource-card-new-shimmer' : ''}`}
                   style={{
-                    background: isSelected ? 'rgba(139,92,246,0.2)' : 'linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02))',
-                    border: `1px solid ${isSelected ? 'rgba(139,92,246,0.5)' : 'rgba(255,255,255,0.1)'}`,
+                    background: isSelected
+                      ? 'rgba(139,92,246,0.2)'
+                      : `${rarity.gradient}, linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
+                    border: `1px solid ${isSelected ? 'rgba(139,92,246,0.5)' : rarity.color + '40'}`,
+                    boxShadow: isSelected ? '0 0 18px rgba(139,92,246,0.25)' : `0 0 6px ${rarity.color}18`,
                   }}
                 >
                   <div className="flex items-center justify-between gap-2">
                     <div className="min-w-0 flex-1">
-                      <p className="text-[12px] font-bold text-white truncate">{resourceItem.title}</p>
-                      <p className="text-[10px] mt-0.5 font-semibold" style={{ color: categoryMeta.color }}>
-                        {categoryMeta.label}
-                      </p>
+                      <div className="flex items-center gap-1.5">
+                        <p className="text-[12px] font-bold text-white truncate">{resourceItem.title}</p>
+                        {resourceItem.isNew ? (
+                          <span
+                            className="px-1 py-px rounded text-[9px] font-bold flex-shrink-0 inline-flex items-center gap-0.5"
+                            style={{
+                              background: 'linear-gradient(90deg, rgba(244,114,182,0.4), rgba(168,85,247,0.4))',
+                              color: '#fff',
+                              border: '1px solid rgba(244,114,182,0.6)',
+                              textShadow: '0 0 6px rgba(244,114,182,0.6)',
+                            }}
+                          >
+                            ✨ NEW
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
+                        <span
+                          className="text-[9px] font-bold px-1 py-px rounded inline-flex items-center gap-0.5"
+                          style={{
+                            background: `${rarity.color}1f`,
+                            color: rarity.color,
+                            border: `1px solid ${rarity.color}55`,
+                          }}
+                          title={`난이도 ${resourceItem.difficultyLevel ?? 1}/5`}
+                        >
+                          <span>{rarity.emoji}</span>
+                          <span>{rarity.label}</span>
+                        </span>
+                        <span className="text-[10px] font-semibold" style={{ color: categoryMeta.color }}>
+                          {categoryMeta.label}
+                        </span>
+                        {resourceItem.difficultyLevel ? (
+                          <span
+                            className="text-[9px] font-mono"
+                            style={{ color: rarity.color }}
+                          >
+                            {renderDifficultyDots(resourceItem.difficultyLevel)}
+                          </span>
+                        ) : null}
+                        {resourceItem.estimatedReadTime ? (
+                          <span className="text-[9px] text-gray-400">⏱ {resourceItem.estimatedReadTime}</span>
+                        ) : null}
+                      </div>
                     </div>
                     <div className="flex items-center gap-1 flex-shrink-0">
                       {isUserItem ? (
@@ -301,6 +400,28 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
           </div>
         </div>
       ) : null}
+
+      <style jsx global>{`
+        .resource-card-new-shimmer::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            115deg,
+            transparent 30%,
+            rgba(244, 114, 182, 0.2) 45%,
+            rgba(168, 85, 247, 0.18) 55%,
+            transparent 70%
+          );
+          background-size: 200% 100%;
+          animation: resource-card-shimmer 2.4s linear infinite;
+          pointer-events: none;
+        }
+        @keyframes resource-card-shimmer {
+          0% { background-position: 100% 0; }
+          100% { background-position: -100% 0; }
+        }
+      `}</style>
 
       {isResourceFormDialogOpen && (
         <HighSchoolResourceFormDialog

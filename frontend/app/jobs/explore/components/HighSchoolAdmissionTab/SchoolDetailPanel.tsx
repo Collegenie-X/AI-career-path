@@ -9,33 +9,11 @@ import {
 import type { HighSchoolDetail } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
 import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
+import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
 
-/** ==text== 마크업을 형광펜 효과로 렌더링 */
+/** ==text==는 형광펜, 약자(IB·EE·CAS·HL·TOK·AP·SAT·SKY 등)는 말풍선 툴팁 */
 function HL({ text }: { text: string }) {
-  const parts = text.split(/==(.+?)==/g);
-  return (
-    <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? (
-          <mark
-            key={i}
-            className="rounded-sm px-0.5 not-italic"
-            style={{
-              background: 'linear-gradient(120deg, rgba(250,204,21,0.4) 0%, rgba(250,204,21,0.65) 100%)',
-              color: 'inherit',
-              fontWeight: 700,
-              boxDecorationBreak: 'clone',
-              WebkitBoxDecorationBreak: 'clone',
-            } as React.CSSProperties}
-          >
-            {part}
-          </mark>
-        ) : (
-          part
-        )
-      )}
-    </>
-  );
+  return <GlossaryText>{text}</GlossaryText>;
 }
 
 type SchoolDetailPanelProps = {

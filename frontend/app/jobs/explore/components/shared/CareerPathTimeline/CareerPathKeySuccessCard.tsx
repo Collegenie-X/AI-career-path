@@ -2,6 +2,7 @@
 
 import { Target } from 'lucide-react';
 import type { CareerPathTimelineTheme } from './types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type CareerPathKeySuccessCardProps = {
   keySuccess: string[];
@@ -44,13 +45,17 @@ export function CareerPathKeySuccessCard({
             <span className="text-sm flex-shrink-0" style={{ color: successColor }}>
               ✅
             </span>
-            <span className="text-sm text-gray-200 flex-1 leading-relaxed">{item}</span>
+            <span className="text-sm text-gray-200 flex-1 leading-relaxed">
+              <GlossaryText>{item}</GlossaryText>
+            </span>
           </div>
         ))}
       </div>
       <div className="pt-3 border-t border-white/10 flex items-center justify-between text-sm">
         <span className="text-gray-400">{totalCostLabel}</span>
-        <span className="font-extrabold text-white">{totalCost}</span>
+        <span className="font-extrabold text-white">
+          <GlossaryText>{totalCost}</GlossaryText>
+        </span>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { Trophy } from 'lucide-react';
 import type { CareerPathTimelineMilestone, CareerPathTimelineTheme } from './types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type CareerPathTimelineNodeProps = {
   milestone: CareerPathTimelineMilestone;
@@ -65,7 +66,9 @@ export function CareerPathTimelineNode({
           </span>
         </div>
 
-        <h4 className="font-extrabold text-white text-base mb-2 leading-snug">{title}</h4>
+        <h4 className="font-extrabold text-white text-base mb-2 leading-snug">
+          <GlossaryText>{title}</GlossaryText>
+        </h4>
 
         <ul className="space-y-1 mb-3">
           {activities.map((a) => (
@@ -74,7 +77,7 @@ export function CareerPathTimelineNode({
               className="text-sm text-gray-300 leading-relaxed flex items-start gap-2"
             >
               <span className="text-gray-500 flex-shrink-0 mt-0.5">•</span>
-              <span>{a}</span>
+              <span><GlossaryText>{a}</GlossaryText></span>
             </li>
           ))}
         </ul>
@@ -95,7 +98,7 @@ export function CareerPathTimelineNode({
                     color: award.includes('합격') ? successColor : costColor,
                   }}
                 >
-                  {award}
+                  <GlossaryText>{award}</GlossaryText>
                 </span>
               </div>
             ))}
@@ -104,7 +107,7 @@ export function CareerPathTimelineNode({
               ✅
             </span>
             <span className="text-sm font-semibold" style={{ color: successColor }}>
-              {achievement}
+              <GlossaryText>{achievement}</GlossaryText>
             </span>
           </div>
         </div>
@@ -123,7 +126,9 @@ export function CareerPathTimelineNode({
             >
               {setakLabel}
             </div>
-            <p className="text-sm text-gray-200 leading-relaxed">{setak}</p>
+            <p className="text-sm text-gray-200 leading-relaxed">
+              <GlossaryText>{setak}</GlossaryText>
+            </p>
           </div>
         )}
       </div>

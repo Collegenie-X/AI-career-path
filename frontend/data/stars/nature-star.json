@@ -6,14 +6,14 @@
   "color": "#22C55E",
   "bgColor": "#0a2010",
   "gradient": "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-  "description": "자연과 생명을 가까이서 돌보고 지키는 직업들의 세계예요. 흙, 물, 바람, 동식물처럼 우리 주변의 자연을 살피고 더 건강하게 만들어 가는 사람들이 모인 별이랍니다.",
+  "description": "==자연과 생명==을 가까이서 ==보고 지키는== 직업들의 별이에요",
   "riasecTypes": [
     "R",
     "I"
   ],
   "jobCount": 30,
   "starProfile": {
-    "tagline": "지구와 생명을 사랑해서 직접 지키는 일을 하는 사람들의 별이에요",
+    "tagline": "==밖에서 일하고 살아 있는 것을 다루는== 일이 더 자연스러운 친구들의 별이에요",
     "coreTraits": [
       {
         "icon": "🌿",
@@ -79,7 +79,7 @@
       "icon": "🌍",
       "image": "environmental-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "흙, 물, 공기, 동식물 같은 자연 환경을 직접 조사하고 어떻게 지킬지 계획을 세우는 과학자예요. 요즘에는 AI가 모은 환경 데이터를 사람이 알아보기 쉽게 풀어서 알려주는 일도 함께 한답니다.",
+      "description": "흙, 물, 공기, 동식물 같은 자연 환경을 직접 조사하고 어떻게 지킬지 계획을 세우는 과학자예요. 요즘에는 ==AI가 모은 환경 데이터를 사람이 알아보기 쉽게 풀어서 알려주는 일도 함께 한답니다==.",
       "shortDesc": "자연을 지키는 길을 찾는 과학자",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
@@ -88,7 +88,7 @@
       "entryProcess": "환경공학 전공 + 실무 3년 → 보전 전략가 전환 + AI 데이터 분석 교육",
       "aiTransformation": {
         "beforeAI": "환경 데이터 수집·분석 수작업",
-        "afterAI": "AI 환경 데이터 해석 + 보전 전략 설계 + 정책 제안",
+        "afterAI": "==AI 환경 데이터 해석== + 보전 전략 설계 + 정책 제안",
         "replacementRisk": "medium",
         "aiTools": [
           "Google Earth Engine",
@@ -588,7 +588,7 @@
       "icon": "🌡️",
       "image": "climate-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "지구의 날씨와 기온이 왜 점점 변해 가는지 연구하는 과학자예요. AI가 만든 기후 예측 결과를 사람이 알아보기 쉽게 풀어서, 어떻게 대응해야 할지 알려준답니다.",
+      "description": "지구의 날씨와 기온이 왜 점점 변해 가는지 연구하는 과학자예요. ==AI가 만든 기후 예측 결과를 사람이 알아보기 쉽게 풀어서, 어떻게 대응해야 할지 알려준답니다==.",
       "shortDesc": "지구 기후 변화를 연구하는 과학자",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
@@ -1096,7 +1096,7 @@
       "icon": "🌾",
       "image": "agricultural-scientist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "농작물을 더 건강하고 맛있게 키울 수 있는 방법을 연구하는 과학자예요. AI가 모은 농업 자료를 살펴서 어떤 작물을 어떻게 키워야 할지 농부들에게 알려준답니다.",
+      "description": "농작물을 더 건강하고 맛있게 키울 수 있는 방법을 연구하는 과학자예요. ==AI가 모은 농업 자료를 살펴서 어떤 작물을 어떻게 키워야 할지 농부들에게 알려준답니다==.",
       "shortDesc": "농작물을 잘 키우는 법을 연구하는 과학자",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "중간",
@@ -1105,7 +1105,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "작물 연구·재배 실험 수작업",
-        "afterAI": "AI 농업 데이터 해석 + 재배 전략 설계 + 스마트팜 감독",
+        "afterAI": "==AI 농업 데이터 해석== + 재배 전략 설계 + 스마트팜 감독",
         "replacementRisk": "medium",
         "aiTools": [
           "스마트팜 AI",
@@ -1604,8 +1604,8 @@
       "icon": "🍽️",
       "image": "food-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "사람들이 더 맛있고 안전하게 먹을 수 있는 음식을 연구하고 새롭게 만들어 내는 과학자예요. AI가 추천하는 새로운 식품을 직접 맛보고 검증하면서 더 좋은 맛과 영양을 설계한답니다.",
-      "shortDesc": "맛있고 안전한 음식을 연구하는 사람",
+      "description": "사람들이 더 맛있고 안전하게 먹을 수 있는 음식을 연구하고 새롭게 만들어 내는 과학자예요. ==AI가 추천하는 새로운 식품을 직접 맛보고 검증하면서 더 좋은 맛과 영양을 설계한답니다==.",
+      "shortDesc": "==맛있고 안전한 음식을 연구하는== 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -2112,8 +2112,8 @@
       "icon": "🌲",
       "image": "forestry-specialist-ai-hero.jpg",
       "holland": "R+I",
-      "description": "산과 숲을 직접 둘러보며 나무들이 잘 자라고 있는지 살피고, 숲을 오래오래 지킬 방법을 찾는 사람이에요. AI가 알려주는 산불 위험이나 숲의 변화 자료를 보고 어떻게 대응할지 결정한답니다.",
-      "shortDesc": "숲과 나무를 지키는 사람",
+      "description": "산과 숲을 직접 둘러보며 나무들이 잘 자라고 있는지 살피고, 숲을 오래오래 지킬 방법을 찾는 사람이에요. ==AI가 알려주는 산불 위험이나 숲의 변화 자료를 보고 어떻게 대응할지 결정한답니다==.",
+      "shortDesc": "==숲과 나무를 지키는== 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -2121,7 +2121,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "산림 조사·관리 수작업",
-        "afterAI": "AI 산림 모니터링 감독 + 보전 전략 설계 + 산불 예측 해석",
+        "afterAI": "==AI 산림 모니터링 감독== + 보전 전략 설계 + 산불 예측 해석",
         "replacementRisk": "medium",
         "aiTools": [
           "드론 AI",
@@ -2630,7 +2630,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "생물 종 조사·개체 수 측정 수작업",
-        "afterAI": "AI 생물 다양성 분석 해석 + 보전 전략 설계 + 복원 우선순위 판단",
+        "afterAI": "==AI 생물 다양성 분석 해석== + 보전 전략 설계 + 복원 우선순위 판단",
         "replacementRisk": "medium",
         "aiTools": [
           "iNaturalist",
@@ -3130,7 +3130,7 @@
       "icon": "🪨",
       "image": "soil-scientist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "땅속 흙이 얼마나 건강한지, 어떤 작물이 잘 자라는지 살펴보고 흙을 잘 관리하는 방법을 연구하는 과학자예요. AI가 알려주는 토양 자료를 보고 농부에게 어떤 비료가 맞는지 알려준답니다.",
+      "description": "땅속 흙이 얼마나 건강한지, 어떤 작물이 잘 자라는지 살펴보고 흙을 잘 관리하는 방법을 연구하는 과학자예요. ==AI가 알려주는 토양 자료를 보고 농부에게 어떤 비료가 맞는지 알려준답니다==.",
       "shortDesc": "흙을 살피고 살리는 과학자",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
@@ -3139,7 +3139,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "토양 샘플 수집·분석 수작업",
-        "afterAI": "AI 토양 데이터 해석 + 토양 관리 전략 설계 + 농업 자문",
+        "afterAI": "==AI 토양 데이터 해석== + 토양 관리 전략 설계 + 농업 자문",
         "replacementRisk": "medium",
         "aiTools": [
           "토양 센서 AI",
@@ -3638,8 +3638,8 @@
       "icon": "💧",
       "image": "water-resource-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "강과 호수, 우리가 마시는 물이 깨끗하고 충분한지 살펴보고, 물을 잘 쓰고 지킬 수 있도록 계획을 세우는 사람이에요. AI가 모은 수질 자료를 보고 어떤 곳을 빨리 고쳐야 할지 결정한답니다.",
-      "shortDesc": "깨끗한 물을 지키는 사람",
+      "description": "강과 호수, 우리가 마시는 물이 깨끗하고 충분한지 살펴보고, 물을 잘 쓰고 지킬 수 있도록 계획을 세우는 사람이에요. ==AI가 모은 수질 자료를 보고 어떤 곳을 빨리 고쳐야 할지 결정한답니다==.",
+      "shortDesc": "==깨끗한 물을 지키는== 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -3647,7 +3647,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "수질 측정·관리 수작업",
-        "afterAI": "AI 수질 모니터링 감독 + 수자원 전략 설계 + 수질 오염 대응",
+        "afterAI": "==AI 수질 모니터링 감독== + 수자원 전략 설계 + 수질 오염 대응",
         "replacementRisk": "medium",
         "aiTools": [
           "IoT 센서 AI",
@@ -4146,7 +4146,7 @@
       "icon": "☀️",
       "image": "renewable-energy-engineer-ai-hero.jpg",
       "holland": "R+I",
-      "description": "햇빛, 바람, 물처럼 자연에서 얻을 수 있는 깨끗한 에너지를 모아 전기를 만드는 시스템을 설계하는 엔지니어예요. AI가 알려주는 에너지 자료를 보고 발전소를 가장 효율적으로 운영하는 방법을 정한답니다.",
+      "description": "햇빛, 바람, 물처럼 자연에서 얻을 수 있는 깨끗한 에너지를 모아 전기를 만드는 시스템을 설계하는 엔지니어예요. ==AI가 알려주는 에너지 자료를 보고 발전소를 가장 효율적으로 운영하는 방법을 정한답니다==.",
       "shortDesc": "깨끗한 에너지를 만드는 엔지니어",
       "salaryRange": "4,500~10,000만원/년",
       "aiRisk": "중간",
@@ -4155,7 +4155,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "태양광·풍력 시스템 설계",
-        "afterAI": "AI 에너지 최적화 감독 + 재생에너지 전략 설계 + 그리드 통합 설계",
+        "afterAI": "==AI 에너지 최적화 감독== + 재생에너지 전략 설계 + 그리드 통합 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "에너지 예측 AI",
@@ -4654,8 +4654,8 @@
       "icon": "🏙️",
       "image": "urban-farmer-ai-hero.jpg",
       "holland": "R",
-      "description": "건물 옥상이나 작은 도시 공간에서도 채소와 작물을 키울 수 있도록 도와주는 사람이에요. AI가 알려주는 스마트팜 자료를 보고 도시 사람들이 신선한 먹거리를 가까이서 즐길 수 있게 한답니다.",
-      "shortDesc": "도시에서 작물을 키우는 사람",
+      "description": "건물 옥상이나 작은 도시 공간에서도 채소와 작물을 키울 수 있도록 도와주는 사람이에요. ==AI가 알려주는 스마트팜 자료를 보고 도시 사람들이 신선한 먹거리를 가까이서 즐길 수 있게 한답니다==.",
+      "shortDesc": "==도시에서 작물을 키우는== 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -4663,7 +4663,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "도시 농업 직접 재배·관리",
-        "afterAI": "AI 스마트팜 감독 + 도시농업 전략 설계 + 커뮤니티 교육",
+        "afterAI": "==AI 스마트팜 감독== + 도시농업 전략 설계 + 커뮤니티 교육",
         "replacementRisk": "medium",
         "aiTools": [
           "스마트팜 AI",
@@ -5162,8 +5162,8 @@
       "icon": "🌱",
       "image": "organic-farming-consultant-ai-hero.jpg",
       "holland": "R+I",
-      "description": "농약을 쓰지 않고 자연 그대로의 방법으로 작물을 키우는 유기농 농사를 농부에게 알려주는 전문가예요. AI가 알려주는 농업 자료를 보고 어떤 작물에 어떤 자연 비료가 잘 맞는지 조언한답니다.",
-      "shortDesc": "농약 없이 작물 키우는 법을 알려주는 사람",
+      "description": "농약을 쓰지 않고 자연 그대로의 방법으로 작물을 키우는 유기농 농사를 농부에게 알려주는 전문가예요. ==AI가 알려주는 농업 자료를 보고 어떤 작물에 어떤 자연 비료가 잘 맞는지 조언한답니다==.",
+      "shortDesc": "==농약 없이 작물 키우는 법을 알려주는== 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -5171,7 +5171,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "유기농 재배 자문",
-        "afterAI": "AI 농업 데이터 해석 + 유기농 전략 설계 + 농가 교육",
+        "afterAI": "==AI 농업 데이터 해석== + 유기농 전략 설계 + 농가 교육",
         "replacementRisk": "medium",
         "aiTools": [
           "농업 데이터 AI",
@@ -5671,7 +5671,7 @@
       "image": "landscape-architect-ai-hero.jpg",
       "holland": "A",
       "description": "공원, 학교, 아파트 같은 공간에 나무와 꽃, 산책길을 어떻게 배치하면 더 아름답고 자연 친화적일지 설계하는 사람이에요. AI 시뮬레이션으로 미리 풍경을 그려 보면서 더 좋은 정원을 만들어 낸답니다.",
-      "shortDesc": "정원과 공원을 그려서 만드는 사람",
+      "shortDesc": "==정원과 공원을 그려서 만드는== 사람",
       "salaryRange": "3,500~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -5679,7 +5679,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "조경 설계 도면 수작업",
-        "afterAI": "AI 조경 시뮬레이션 감독 + 생태 설계 + 공간 경험 설계",
+        "afterAI": "==AI 조경 시뮬레이션 감독== + 생태 설계 + 공간 경험 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "조경 설계 AI",
@@ -6178,8 +6178,8 @@
       "icon": "♻️",
       "image": "environmental-engineer-ai-hero.jpg",
       "holland": "I+R",
-      "description": "오염된 물이나 공기, 흙을 깨끗하게 만드는 시설과 기계를 설계하고 운영하는 엔지니어예요. AI가 모은 환경 자료를 보고 시설이 가장 잘 돌아가도록 도와준답니다.",
-      "shortDesc": "환경 문제를 기술로 해결하는 사람",
+      "description": "오염된 물이나 공기, 흙을 깨끗하게 만드는 시설과 기계를 설계하고 운영하는 엔지니어예요. ==AI가 모은 환경 자료를 보고 시설이 가장 잘 돌아가도록 도와준답니다==.",
+      "shortDesc": "==환경 문제를 기술로 해결하는== 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -6187,7 +6187,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "환경 시설 설계·운영",
-        "afterAI": "AI 환경 시스템 최적화 감독 + 환경 전략 설계 + 지속가능성 판단",
+        "afterAI": "==AI 환경 시스템 최적화 감독== + 환경 전략 설계 + 지속가능성 판단",
         "replacementRisk": "medium",
         "aiTools": [
           "환경 모니터링 AI",
@@ -6687,7 +6687,7 @@
       "image": "waste-management-specialist-ai-hero.jpg",
       "holland": "R+I",
       "description": "우리가 버린 쓰레기를 어떻게 잘 모으고 재활용할 수 있을지 계획을 세우는 전문가예요. AI 분류 시스템을 보고 쓰레기를 다시 자원으로 바꾸는 방법을 찾는답니다.",
-      "shortDesc": "쓰레기를 자원으로 바꾸는 사람",
+      "shortDesc": "==쓰레기를 자원으로 바꾸는== 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -6695,7 +6695,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "폐기물 분류·처리 관리",
-        "afterAI": "AI 분류 시스템 감독 + 순환경제 전략 설계 + 재활용 최적화",
+        "afterAI": "==AI 분류 시스템 감독== + 순환경제 전략 설계 + 재활용 최적화",
         "replacementRisk": "medium",
         "aiTools": [
           "폐기물 분류 AI",
@@ -7194,7 +7194,7 @@
       "icon": "🌫️",
       "image": "carbon-credit-analyst-ai-hero.jpg",
       "holland": "I+C",
-      "description": "기업이나 나라가 내뿜는 이산화탄소의 양을 계산하고, 그 양을 줄이도록 도와주는 전문가예요. AI가 모은 탄소 자료를 보고 어떤 곳이 환경에 좋은 결정을 했는지 알려준답니다.",
+      "description": "기업이나 나라가 내뿜는 이산화탄소의 양을 계산하고, 그 양을 줄이도록 도와주는 전문가예요. ==AI가 모은 탄소 자료를 보고 어떤 곳이 환경에 좋은 결정을 했는지 알려준답니다==.",
       "shortDesc": "이산화탄소를 줄이도록 돕는 분석가",
       "salaryRange": "5,000~10,000만원/년",
       "aiRisk": "중간",
@@ -7203,7 +7203,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "탄소 배출량 측정·분석",
-        "afterAI": "AI 탄소 데이터 해석 + 탄소 전략 설계 + 배출권 거래 전략",
+        "afterAI": "==AI 탄소 데이터 해석== + 탄소 전략 설계 + 배출권 거래 전략",
         "replacementRisk": "medium",
         "aiTools": [
           "탄소 측정 AI",
@@ -7702,8 +7702,8 @@
       "icon": "♻️",
       "image": "sustainability-consultant-ai-hero.jpg",
       "holland": "I+E",
-      "description": "기업이 환경을 해치지 않으면서도 오래도록 잘 운영될 수 있도록 도와주는 컨설턴트예요. AI가 모은 환경·사회 자료를 보고 회사가 더 좋은 결정을 내리도록 알려준답니다.",
-      "shortDesc": "기업이 자연과 함께 성장하도록 돕는 사람",
+      "description": "기업이 환경을 해치지 않으면서도 오래도록 잘 운영될 수 있도록 도와주는 컨설턴트예요. ==AI가 모은 환경·사회 자료를 보고 회사가 더 좋은 결정을 내리도록 알려준답니다==.",
+      "shortDesc": "==기업이 자연과 함께 성장하도록 돕는== 사람",
       "salaryRange": "5,000~12,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -7711,7 +7711,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "ESG 데이터 수집·분석",
-        "afterAI": "AI 지속가능성 분석 해석 + ESG 전략 설계 + 기업 설득",
+        "afterAI": "==AI 지속가능성 분석 해석== + ESG 전략 설계 + 기업 설득",
         "replacementRisk": "medium",
         "aiTools": [
           "ESG 분석 AI",
@@ -8210,8 +8210,8 @@
       "icon": "🏞️",
       "image": "eco-tourism-planner-ai-hero.jpg",
       "holland": "S",
-      "description": "자연을 해치지 않으면서도 사람들이 즐겁게 자연을 즐길 수 있는 여행 코스를 만드는 전문가예요. AI가 알려주는 관광 자료를 보고 어디에 어떤 체험 프로그램을 운영하면 좋을지 정한답니다.",
-      "shortDesc": "자연을 즐기는 여행을 만드는 사람",
+      "description": "자연을 해치지 않으면서도 사람들이 즐겁게 자연을 즐길 수 있는 여행 코스를 만드는 전문가예요. ==AI가 알려주는 관광 자료를 보고 어디에 어떤 체험 프로그램을 운영하면 좋을지 정한답니다==.",
+      "shortDesc": "==자연을 즐기는 여행을 만드는== 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -8219,7 +8219,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "생태관광 프로그램 기획",
-        "afterAI": "AI 관광 데이터 해석 + 생태 경험 설계 + 지역사회 협력",
+        "afterAI": "==AI 관광 데이터 해석== + 생태 경험 설계 + 지역사회 협력",
         "replacementRisk": "low",
         "aiTools": [
           "관광 데이터 분석 AI"
@@ -8717,8 +8717,8 @@
       "icon": "🎓",
       "image": "environmental-educator-ai-hero.jpg",
       "holland": "S",
-      "description": "학생이나 시민에게 자연이 왜 소중한지, 어떻게 환경을 지킬 수 있는지 가르쳐 주는 선생님이에요. AI가 만든 교육 자료를 살펴보고 더 재미있는 환경 수업을 만들어 낸답니다.",
-      "shortDesc": "환경의 소중함을 가르치는 사람",
+      "description": "학생이나 시민에게 자연이 왜 소중한지, 어떻게 환경을 지킬 수 있는지 가르쳐 주는 선생님이에요. ==AI가 만든 교육 자료를 살펴보고 더 재미있는 환경 수업을 만들어 낸답니다==.",
+      "shortDesc": "==환경의 소중함을 가르치는== 사람",
       "salaryRange": "3,000~5,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -8726,7 +8726,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "환경 교육 프로그램 직접 진행",
-        "afterAI": "AI 교육 콘텐츠 감독 + 환경 경험 설계 + 학습자 동기 부여",
+        "afterAI": "==AI 교육 콘텐츠 감독== + 환경 경험 설계 + 학습자 동기 부여",
         "replacementRisk": "medium",
         "aiTools": [
           "교육 콘텐츠 생성 AI"
@@ -9225,7 +9225,7 @@
       "image": "precision-agriculture-specialist-ai-hero.jpg",
       "holland": "I+R",
       "description": "드론과 AI 기계를 이용해서 농지를 한 곳 한 곳 자세히 살피며, 작물에 필요한 만큼만 물과 비료를 주는 똑똑한 농업을 만드는 전문가예요.",
-      "shortDesc": "AI로 똑똑한 농사를 만드는 사람",
+      "shortDesc": "==AI로 똑똑한 농사를 만드는== 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -9734,7 +9734,7 @@
       "image": "biodiversity-data-analyst-ai-hero.jpg",
       "holland": "I+C",
       "description": "여러 곳에서 모은 동식물 자료를 컴퓨터로 분석해서, 어떤 생물이 어디에 얼마나 살고 있는지 알아내는 전문가예요. 그 결과를 바탕으로 생명을 어떻게 지킬지 제안한답니다.",
-      "shortDesc": "동식물 자료를 분석해 자연을 지키는 사람",
+      "shortDesc": "==동식물 자료를 분석해 자연을 지키는== 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -9742,7 +9742,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "생물 다양성 데이터 수집·분석",
-        "afterAI": "AI 생물 데이터 해석 + 보전 전략 설계 + 정책 제안",
+        "afterAI": "==AI 생물 데이터 해석== + 보전 전략 설계 + 정책 제안",
         "replacementRisk": "medium",
         "aiTools": [
           "GBIF",
@@ -10241,8 +10241,8 @@
       "icon": "🌦️",
       "image": "climate-adaptation-planner-ai-hero.jpg",
       "holland": "I",
-      "description": "더위, 폭우, 가뭄 같은 기후 변화로부터 사람과 도시를 안전하게 지킬 수 있는 방법을 미리 계획하는 전문가예요. AI가 알려주는 기후 예측 자료를 보고 어떤 대비책이 필요할지 정한답니다.",
-      "shortDesc": "기후 변화로부터 도시를 지키는 사람",
+      "description": "더위, 폭우, 가뭄 같은 기후 변화로부터 사람과 도시를 안전하게 지킬 수 있는 방법을 미리 계획하는 전문가예요. ==AI가 알려주는 기후 예측 자료를 보고 어떤 대비책이 필요할지 정한답니다==.",
+      "shortDesc": "==기후 변화로부터 도시를 지키는== 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -10250,7 +10250,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 기후 예측 해석 + 적응 전략 설계 + 지역사회 협력",
+        "afterAI": "==AI 기후 예측 해석== + 적응 전략 설계 + 지역사회 협력",
         "replacementRisk": "low",
         "aiTools": [
           "기후 예측 AI",
@@ -10750,7 +10750,7 @@
       "image": "green-building-consultant-ai-hero.jpg",
       "holland": "I",
       "description": "건물을 지을 때 에너지를 적게 쓰고 자연에 부담을 덜 주는 방법을 알려주는 전문가예요. AI 시뮬레이션으로 미리 살펴서 더 시원하고 따뜻하면서도 친환경적인 건물을 만든답니다.",
-      "shortDesc": "환경에 좋은 건물을 만드는 사람",
+      "shortDesc": "==환경에 좋은 건물을 만드는== 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -10758,7 +10758,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "에너지 효율 분석·인증 자문",
-        "afterAI": "AI 에너지 시뮬레이션 해석 + 친환경 전략 설계 + 인증 전략",
+        "afterAI": "==AI 에너지 시뮬레이션 해석== + 친환경 전략 설계 + 인증 전략",
         "replacementRisk": "medium",
         "aiTools": [
           "건물 에너지 시뮬레이션 AI",
@@ -11258,7 +11258,7 @@
       "image": "urban-ecology-planner-ai-hero.jpg",
       "holland": "I",
       "description": "건물과 길로 가득한 도시에도 나무와 동물이 함께 살 수 있도록 공원, 가로수, 녹지 공간을 어디에 둘지 계획하는 전문가예요. AI 자료를 보고 도시 속에 자연이 더 잘 어우러지게 만든답니다.",
-      "shortDesc": "도시에 자연을 들여오는 사람",
+      "shortDesc": "==도시에 자연을 들여오는== 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -11266,7 +11266,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "도시 생태 조사·계획",
-        "afterAI": "AI 도시 생태 데이터 해석 + 도시 전략 설계 + 주민 참여 설계",
+        "afterAI": "==AI 도시 생태 데이터 해석== + 도시 전략 설계 + 주민 참여 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "도시 생태 분석 AI",
@@ -11766,7 +11766,7 @@
       "image": "permaculture-designer-ai-hero.jpg",
       "holland": "R+I",
       "description": "사람과 동식물이 자연 속에서 서로 도와 가며 살 수 있는 텃밭이나 작은 마을을 설계하는 디자이너예요. AI 시뮬레이션으로 자연이 오래도록 잘 어우러지는 공간을 그려 본답니다.",
-      "shortDesc": "자연이 함께 사는 공간을 그리는 사람",
+      "shortDesc": "==자연이 함께 사는 공간을 그리는== 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -11774,7 +11774,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "퍼머컬처 시스템 설계",
-        "afterAI": "AI 생태 시뮬레이션 해석 + 퍼머컬처 설계 + 지역사회 교육",
+        "afterAI": "==AI 생태 시뮬레이션 해석== + 퍼머컬처 설계 + 지역사회 교육",
         "replacementRisk": "low",
         "aiTools": [
           "생태 시뮬레이션 AI"
@@ -12272,8 +12272,8 @@
       "icon": "🌊",
       "image": "ocean-conservation-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "바다와 그곳에 사는 물고기, 산호, 해양 식물을 지키기 위해 바다 상태를 직접 살펴보고 보호 계획을 세우는 전문가예요. AI가 알려주는 해양 자료로 어디부터 보호해야 할지 정한답니다.",
-      "shortDesc": "바다와 바다 생물을 지키는 사람",
+      "description": "바다와 그곳에 사는 물고기, 산호, 해양 식물을 지키기 위해 바다 상태를 직접 살펴보고 보호 계획을 세우는 전문가예요. ==AI가 알려주는 해양 자료로 어디부터 보호해야 할지 정한답니다==.",
+      "shortDesc": "==바다와 바다 생물을 지키는== 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -12281,7 +12281,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "해양 조사·보전 활동",
-        "afterAI": "AI 해양 데이터 해석 + 보전 전략 설계 + 정책 제안",
+        "afterAI": "==AI 해양 데이터 해석== + 보전 전략 설계 + 정책 제안",
         "replacementRisk": "medium",
         "aiTools": [
           "해양 모니터링 AI",
@@ -12780,8 +12780,8 @@
       "icon": "💨",
       "image": "air-quality-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "우리가 마시는 공기가 얼마나 깨끗한지 살피고, 미세먼지나 매연 같은 오염을 줄일 방법을 찾는 전문가예요. AI가 알려주는 공기 자료를 보고 어디부터 빨리 고쳐야 할지 정한답니다.",
-      "shortDesc": "공기를 깨끗하게 지키는 사람",
+      "description": "우리가 마시는 공기가 얼마나 깨끗한지 살피고, 미세먼지나 매연 같은 오염을 줄일 방법을 찾는 전문가예요. ==AI가 알려주는 공기 자료를 보고 어디부터 빨리 고쳐야 할지 정한답니다==.",
+      "shortDesc": "==공기를 깨끗하게 지키는== 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -12789,7 +12789,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "대기질 측정·분석",
-        "afterAI": "AI 대기질 예측 해석 + 정책 전략 설계 + 오염원 관리",
+        "afterAI": "==AI 대기질 예측 해석== + 정책 전략 설계 + 오염원 관리",
         "replacementRisk": "medium",
         "aiTools": [
           "대기질 예측 AI",
@@ -13289,7 +13289,7 @@
       "image": "ecosystem-restoration-specialist-ai-hero.jpg",
       "holland": "I+R",
       "description": "사람의 활동이나 재해 때문에 망가진 숲, 강, 갯벌 같은 자연을 다시 건강하게 되돌리는 일을 하는 전문가예요. AI 시뮬레이션으로 어떻게 복원해야 잘 회복될지 미리 살펴본답니다.",
-      "shortDesc": "망가진 자연을 되살리는 사람",
+      "shortDesc": "==망가진 자연을 되살리는== 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -13297,7 +13297,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "생태 복원 계획·실행",
-        "afterAI": "AI 생태 시뮬레이션 해석 + 복원 전략 설계 + 복원 효과 모니터링",
+        "afterAI": "==AI 생태 시뮬레이션 해석== + 복원 전략 설계 + 복원 효과 모니터링",
         "replacementRisk": "medium",
         "aiTools": [
           "생태 시뮬레이션 AI",
@@ -13796,8 +13796,8 @@
       "icon": "📋",
       "image": "environmental-policy-analyst-ai-hero.jpg",
       "holland": "I+C",
-      "description": "정부가 만든 환경 규칙이 자연을 정말 잘 지키고 있는지 살펴보고, 더 좋은 새 규칙을 제안하는 전문가예요. AI가 알려주는 자료를 보고 어떤 정책이 효과적인지 분석한답니다.",
-      "shortDesc": "환경을 지키는 규칙을 만드는 사람",
+      "description": "정부가 만든 환경 규칙이 자연을 정말 잘 지키고 있는지 살펴보고, 더 좋은 새 규칙을 제안하는 전문가예요. ==AI가 알려주는 자료를 보고 어떤 정책이 효과적인지 분석한답니다==.",
+      "shortDesc": "==환경을 지키는 규칙을 만드는== 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -13805,7 +13805,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "환경 정책 분석·제안",
-        "afterAI": "AI 정책 영향 분석 해석 + 환경 정책 설계 + 이해관계자 조율",
+        "afterAI": "==AI 정책 영향 분석 해석== + 환경 정책 설계 + 이해관계자 조율",
         "replacementRisk": "medium",
         "aiTools": [
           "정책 분석 AI",
@@ -14304,8 +14304,8 @@
       "icon": "⛰️",
       "image": "natural-resource-manager-ai-hero.jpg",
       "holland": "R+I",
-      "description": "땅, 물, 숲, 광물처럼 자연이 우리에게 준 자원을 너무 많이 사용하지 않도록 잘 관리하는 사람이에요. AI가 알려주는 자원 자료를 보고 미래에도 자연을 함께 누릴 방법을 정한답니다.",
-      "shortDesc": "자연 자원을 잘 쓰도록 관리하는 사람",
+      "description": "땅, 물, 숲, 광물처럼 자연이 우리에게 준 자원을 너무 많이 사용하지 않도록 잘 관리하는 사람이에요. ==AI가 알려주는 자원 자료를 보고 미래에도 자연을 함께 누릴 방법을 정한답니다==.",
+      "shortDesc": "==자연 자원을 잘 쓰도록 관리하는== 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -14313,7 +14313,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "자연자원 조사·관리",
-        "afterAI": "AI 자원 모니터링 감독 + 관리 전략 설계 + 지속가능 이용 설계",
+        "afterAI": "==AI 자원 모니터링 감독== + 관리 전략 설계 + 지속가능 이용 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "자원 모니터링 AI",
@@ -14812,8 +14812,8 @@
       "icon": "📊",
       "image": "environmental-impact-assessor-ai-hero.jpg",
       "holland": "I+C",
-      "description": "도로나 공장 같은 큰 시설을 지을 때 자연이 얼마나 영향을 받을지 미리 살펴보는 전문가예요. AI가 알려주는 예측 자료를 보고 자연을 덜 해치는 방법을 제안한답니다.",
-      "shortDesc": "공사가 자연에 주는 영향을 미리 살피는 사람",
+      "description": "도로나 공장 같은 큰 시설을 지을 때 자연이 얼마나 영향을 받을지 미리 살펴보는 전문가예요. ==AI가 알려주는 예측 자료를 보고 자연을 덜 해치는 방법을 제안한답니다==.",
+      "shortDesc": "==공사가 자연에 주는 영향을 미리 살피는== 사람",
       "salaryRange": "4,500~8,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -14821,7 +14821,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "환경 영향 평가 수작업",
-        "afterAI": "AI 영향 예측 해석 + 환경 평가 전략 + 저감 방안 설계",
+        "afterAI": "==AI 영향 예측 해석== + 환경 평가 전략 + 저감 방안 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "환경 영향 예측 AI",

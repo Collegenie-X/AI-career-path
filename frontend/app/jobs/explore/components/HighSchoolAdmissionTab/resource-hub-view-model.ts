@@ -12,4 +12,7 @@ export type ResourceListItem = {
   tags: string[];
   markdownPath?: string;
   content?: string;
+  difficultyLevel?: number;
+  estimatedReadTime?: string;
+  isNew?: boolean;
 };

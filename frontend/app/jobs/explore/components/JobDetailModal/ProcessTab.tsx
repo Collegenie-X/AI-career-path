@@ -5,6 +5,7 @@ import { Clock, Briefcase, Zap, Brain, Gamepad2, List } from 'lucide-react';
 import { LABELS, HOLLAND_CODE_LABELS } from '../../config';
 import { ProcessQuizGame } from './ProcessQuizGame';
 import type { Job, StarData, WorkPhase } from '../../types';
+import { GlossaryText, GlossaryChip } from '@/components/shared/GlossaryText';
 
 type ProcessViewMode = 'quiz' | 'full';
 
@@ -59,7 +60,9 @@ function ProcessHeaderCard({
         </div>
       </div>
       {description && (
-        <p className="text-sm text-gray-300 leading-relaxed">{description}</p>
+        <p className="text-sm text-gray-300 leading-relaxed">
+          <GlossaryText>{description}</GlossaryText>
+        </p>
       )}
     </div>
   );
@@ -121,7 +124,9 @@ function ProcessTreeNode({
 
         <h4 className="font-extrabold text-white text-base mb-2 leading-snug">{phase.title}</h4>
 
-        <p className="text-sm text-gray-300 leading-relaxed mb-3">{phase.description}</p>
+        <p className="text-sm text-gray-300 leading-relaxed mb-3">
+          <GlossaryText>{phase.description}</GlossaryText>
+        </p>
 
         {phase.example && (
           <div
@@ -137,7 +142,9 @@ function ProcessTreeNode({
                 실제 예시
               </span>
             </div>
-            <p className="text-sm text-gray-200 leading-relaxed">{phase.example}</p>
+            <p className="text-sm text-gray-200 leading-relaxed">
+              <GlossaryText>{phase.example}</GlossaryText>
+            </p>
           </div>
         )}
 
@@ -159,7 +166,7 @@ function ProcessTreeNode({
                       border: '1px solid rgba(255,255,255,0.12)',
                     }}
                   >
-                    {tool}
+                    <GlossaryChip token={tool} />
                   </span>
                 ))}
               </div>
@@ -182,7 +189,7 @@ function ProcessTreeNode({
                       color: '#fbbf24',
                     }}
                   >
-                    ⚡ {skill}
+                    ⚡ <GlossaryChip token={skill} />
                   </span>
                 ))}
               </div>

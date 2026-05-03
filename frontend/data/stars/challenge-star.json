@@ -6,14 +6,14 @@
   "color": "#EF4444",
   "bgColor": "#2a0808",
   "gradient": "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
-  "description": "한계를 넘어서 새로운 길을 개척하고, 어려운 문제에도 용감하게 도전하는 사람들이 모여 있는 별이에요.",
+  "description": "==한계를 넘어== 새로운 길을 ==개척==하고, 어려운 문제에 도전하는 사람들의 별이에요",
   "riasecTypes": [
     "E",
     "R"
   ],
   "jobCount": 32,
   "starProfile": {
-    "tagline": "한계를 깨고 새 길을 만들어 내는 모험가들의 별이에요",
+    "tagline": "==처음 가는 길==이 더 설레는 친구들의 별이에요",
     "coreTraits": [
       {
         "icon": "🚀",
@@ -80,7 +80,7 @@
       "image": "entrepreneur-ai-hero.jpg",
       "holland": "E",
       "description": "세상에 없는 새로운 사업과 서비스에 도전하는 사람으로, 아이디어를 직접 실현해서 사람들의 생활을 더 편하고 재미있게 만들어요.",
-      "shortDesc": "새 사업에 도전하는 사람",
+      "shortDesc": "==새 사업에 도전하는== 사람",
       "salaryRange": "0~100,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -88,7 +88,7 @@
       "entryProcess": "다양한 경로 가능 + 창업 실무 → AI 협업 마스터 + 비즈니스 전략 강화",
       "aiTransformation": {
         "beforeAI": "비즈니스 기획·실행 전체",
-        "afterAI": "AI 비즈니스 분석 해석 + 창업 전략 설계 + 팀 리더십",
+        "afterAI": "==AI 비즈니스 분석 해석== + 창업 전략 설계 + 팀 리더십",
         "replacementRisk": "low",
         "aiTools": [
           "ChatGPT",
@@ -199,7 +199,7 @@
               "사용자 피드백 수집 채널 구축",
               "린 스타트업 이터레이션 사이클 운영"
             ],
-            "aiRole": "GitHub Copilot/Cursor AI로 코드 80% 자동 생성, Bubble/Webflow AI로 No-Code MVP 빠른 구축, AI로 랜딩 페이지 자동 생성",
+            "aiRole": "GitHub Copilot/Cursor로 코드 80% 자동 생성, Bubble/Webflow AI로 No-Code MVP 빠른 구축, AI로 랜딩 페이지 자동 생성",
             "humanRole": "MVP 범위 결정 (무엇을 안 만들 것인가), 기술 선택의 장기 확장성 판단",
             "output": [
               "MVP 개발",
@@ -579,7 +579,7 @@
       "image": "business-consultant-ai-hero.jpg",
       "holland": "I+E",
       "description": "기업이 풀지 못한 어려운 문제를 함께 고민하고 해결책을 설계해 주는 사람으로, 회사가 더 잘 굴러가도록 도와줘요.",
-      "shortDesc": "회사 문제를 풀어 주는 사람",
+      "shortDesc": "==회사 문제를 풀어 주는== 사람",
       "salaryRange": "6,000~25,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -587,7 +587,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "비즈니스 분석·전략 수립",
-        "afterAI": "AI 비즈니스 분석 해석 + 경영 전략 설계 + 조직 변화 관리",
+        "afterAI": "==AI 비즈니스 분석 해석== + 경영 전략 설계 + 조직 변화 관리",
         "replacementRisk": "medium",
         "aiTools": [
           "McKinsey AI",
@@ -1083,7 +1083,7 @@
       "image": "strategy-consultant-ai-hero.jpg",
       "holland": "I+E",
       "description": "회사가 앞으로 어떤 방향으로 나아가야 할지 큰 그림을 그려 주는 사람으로, 회사의 미래를 함께 설계해요.",
-      "shortDesc": "회사의 미래를 그리는 사람",
+      "shortDesc": "==회사의 미래를 그리는== 사람",
       "salaryRange": "7,000~30,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -1586,7 +1586,7 @@
       "image": "venture-capitalist-ai-hero.jpg",
       "holland": "I+E",
       "description": "성장 가능성이 큰 스타트업을 발견해 투자하고 함께 성장에 도전하는 사람으로, 새로운 기업이 세상에 나오도록 도와요.",
-      "shortDesc": "유망 스타트업에 투자하는 사람",
+      "shortDesc": "==유망 스타트업에 투자하는== 사람",
       "salaryRange": "8,000~50,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -1594,7 +1594,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "투자 분석·실사",
-        "afterAI": "AI 투자 분석 해석 + 투자 전략 설계 + 창업가 관계",
+        "afterAI": "==AI 투자 분석 해석== + 투자 전략 설계 + 창업가 관계",
         "replacementRisk": "low",
         "aiTools": [
           "투자 분석 AI",
@@ -2090,7 +2090,7 @@
       "image": "investment-banker-ai-hero.jpg",
       "holland": "I+E+C",
       "description": "기업이 큰돈을 모으거나 다른 회사와 합치는 어려운 거래를 도와주는 사람으로, 복잡한 금융 문제에 도전해요.",
-      "shortDesc": "기업의 큰 거래를 돕는 사람",
+      "shortDesc": "==기업의 큰 거래를 돕는== 사람",
       "salaryRange": "8,000~40,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -2594,7 +2594,7 @@
       "image": "management-consultant-ai-hero.jpg",
       "holland": "I+E",
       "description": "회사의 경영 문제를 진단하고 더 좋은 운영 방법을 제안해 주는 사람으로, 어려운 경영 과제에 함께 도전해요.",
-      "shortDesc": "경영 문제를 풀어 주는 사람",
+      "shortDesc": "==경영 문제를 풀어 주는== 사람",
       "salaryRange": "6,000~25,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -2602,7 +2602,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "경영 분석·전략 수립",
-        "afterAI": "AI 경영 분석 해석 + 경영 전략 설계 + 조직 변화 관리",
+        "afterAI": "==AI 경영 분석 해석== + 경영 전략 설계 + 조직 변화 관리",
         "replacementRisk": "medium",
         "aiTools": [
           "경영 분석 AI"
@@ -3108,7 +3108,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "비즈니스 총괄",
-        "afterAI": "AI 비즈니스 총괄 + 비전 설계 + 팀 AI 협업 설계",
+        "afterAI": "==AI 비즈니스 총괄== + 비전 설계 + 팀 AI 협업 설계",
         "replacementRisk": "low",
         "aiTools": [
           "모든 비즈니스 AI 통합 활용"
@@ -4107,7 +4107,7 @@
       "image": "growth-hacker-ai-hero.jpg",
       "holland": "E+I",
       "description": "제품과 서비스가 더 빨리 자라도록 새로운 방법을 끊임없이 실험하는 사람으로, 성장의 열쇠를 찾아 도전해요.",
-      "shortDesc": "회사 성장을 이끄는 사람",
+      "shortDesc": "==회사 성장을 이끄는== 사람",
       "salaryRange": "5,000~15,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -4115,7 +4115,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "그로스 실험·분석",
-        "afterAI": "AI 그로스 분석 해석 + 성장 전략 설계 + 실험 설계",
+        "afterAI": "==AI 그로스 분석 해석== + 성장 전략 설계 + 실험 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "그로스 분석 AI",
@@ -4611,7 +4611,7 @@
       "image": "business-analyst-ai-hero.jpg",
       "holland": "I+C",
       "description": "회사 안팎의 정보를 모아 숨어 있는 의미를 찾아내는 사람으로, 더 좋은 결정을 위해 데이터에 도전해요.",
-      "shortDesc": "데이터로 답을 찾는 사람",
+      "shortDesc": "==데이터로 답을 찾는== 사람",
       "salaryRange": "4,500~11,000만원/년",
       "aiRisk": "높음",
       "futureGrowth": 3,
@@ -4619,7 +4619,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "비즈니스 데이터 분석",
-        "afterAI": "AI 비즈니스 분석 해석 + 인사이트 도출 + 전략 제안",
+        "afterAI": "==AI 비즈니스 분석 해석== + 인사이트 도출 + 전략 제안",
         "replacementRisk": "high",
         "aiTools": [
           "Tableau AI",
@@ -5115,7 +5115,7 @@
       "image": "operations-manager-ai-hero.jpg",
       "holland": "E+C",
       "description": "회사가 매일 매끄럽게 돌아가도록 모든 일의 흐름을 관리하는 사람으로, 더 효율적인 운영에 끊임없이 도전해요.",
-      "shortDesc": "회사 운영을 챙기는 사람",
+      "shortDesc": "==회사 운영을 챙기는== 사람",
       "salaryRange": "5,000~13,000만원/년",
       "aiRisk": "높음",
       "futureGrowth": 3,
@@ -5619,7 +5619,7 @@
       "image": "supply-chain-manager-ai-hero.jpg",
       "holland": "I+C",
       "description": "재료가 만들어져서 고객에게 도착할 때까지의 모든 길목을 관리하는 사람으로, 끊김 없는 흐름을 위해 도전해요.",
-      "shortDesc": "물건의 흐름을 관리하는 사람",
+      "shortDesc": "==물건의 흐름을 관리하는== 사람",
       "salaryRange": "5,000~13,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -5627,7 +5627,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "공급망 관리 수작업",
-        "afterAI": "AI 공급망 최적화 감독 + 공급망 전략 설계 + 리스크 관리",
+        "afterAI": "==AI 공급망 최적화 감독== + 공급망 전략 설계 + 리스크 관리",
         "replacementRisk": "medium",
         "aiTools": [
           "공급망 최적화 AI",
@@ -6131,7 +6131,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "영업 관리·전략",
-        "afterAI": "AI 영업 데이터 해석 + 영업 전략 설계 + 고객 관계",
+        "afterAI": "==AI 영업 데이터 해석== + 영업 전략 설계 + 고객 관계",
         "replacementRisk": "low",
         "aiTools": [
           "Salesforce AI",
@@ -6627,7 +6627,7 @@
       "image": "business-development-manager-ai-hero.jpg",
       "holland": "E+I+S",
       "description": "새로운 사업 기회와 파트너를 찾아 회사를 키우는 사람으로, 아직 가 보지 않은 길을 열어 가는 일에 도전해요.",
-      "shortDesc": "새 사업 기회를 여는 사람",
+      "shortDesc": "==새 사업 기회를 여는== 사람",
       "salaryRange": "5,000~15,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -6635,7 +6635,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "시장 분석·파트너십 개발",
-        "afterAI": "AI 시장 분석 해석 + 사업 전략 설계 + 파트너 관계",
+        "afterAI": "==AI 시장 분석 해석== + 사업 전략 설계 + 파트너 관계",
         "replacementRisk": "low",
         "aiTools": [
           "시장 분석 AI"
@@ -7138,7 +7138,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "혁신 전략 수립",
-        "afterAI": "AI 혁신 분석 해석 + 혁신 전략 설계 + 조직 변화 관리",
+        "afterAI": "==AI 혁신 분석 해석== + 혁신 전략 설계 + 조직 변화 관리",
         "replacementRisk": "low",
         "aiTools": [
           "혁신 분석 AI"
@@ -7633,7 +7633,7 @@
       "image": "market-researcher-ai-hero.jpg",
       "holland": "I+C",
       "description": "사람들이 무엇을 좋아하고 무엇을 사고 싶어 하는지 깊이 파헤치는 사람으로, 시장의 비밀을 찾아내는 일에 도전해요.",
-      "shortDesc": "시장과 소비자를 살피는 사람",
+      "shortDesc": "==시장과 소비자를 살피는== 사람",
       "salaryRange": "4,000~9,000만원/년",
       "aiRisk": "높음",
       "futureGrowth": 3,
@@ -7641,7 +7641,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "시장 데이터 수집·분석",
-        "afterAI": "AI 시장 데이터 해석 + 시장 전략 설계 + 인사이트 도출",
+        "afterAI": "==AI 시장 데이터 해석== + 시장 전략 설계 + 인사이트 도출",
         "replacementRisk": "high",
         "aiTools": [
           "시장 분석 AI"
@@ -8136,7 +8136,7 @@
       "image": "change-management-consultant-ai-hero.jpg",
       "holland": "S+I+E",
       "description": "회사가 큰 변화를 잘 받아들이도록 사람들의 마음과 일하는 방식을 함께 바꿔 가는 사람이에요.",
-      "shortDesc": "조직 변화를 이끄는 사람",
+      "shortDesc": "==조직 변화를 이끄는== 사람",
       "salaryRange": "6,000~16,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -8144,7 +8144,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "변화 관리 전략 수립",
-        "afterAI": "AI 조직 데이터 해석 + 변화 전략 설계 + 조직 설득",
+        "afterAI": "==AI 조직 데이터 해석== + 변화 전략 설계 + 조직 설득",
         "replacementRisk": "low",
         "aiTools": [
           "조직 분석 AI"
@@ -8647,7 +8647,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "HR 전략 수립",
-        "afterAI": "AI HR 데이터 해석 + HR 전략 설계 + 조직 문화 전략",
+        "afterAI": "==AI HR 데이터 해석== + HR 전략 설계 + 조직 문화 전략",
         "replacementRisk": "medium",
         "aiTools": [
           "HR 분석 AI",
@@ -9143,7 +9143,7 @@
       "image": "corporate-trainer-ai-hero.jpg",
       "holland": "S",
       "description": "회사 직원들이 새로운 기술과 지식을 배워 더 잘 일할 수 있도록 교육 프로그램을 만들어 가르치는 사람이에요.",
-      "shortDesc": "직원 교육을 이끄는 사람",
+      "shortDesc": "==직원 교육을 이끄는== 사람",
       "salaryRange": "4,000~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -9151,7 +9151,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "기업 교육 직접 진행",
-        "afterAI": "AI 교육 콘텐츠 감독 + 학습 경험 설계 + 학습 동기 부여",
+        "afterAI": "==AI 교육 콘텐츠 감독== + 학습 경험 설계 + 학습 동기 부여",
         "replacementRisk": "medium",
         "aiTools": [
           "교육 콘텐츠 생성 AI"
@@ -9646,7 +9646,7 @@
       "image": "organizational-psychologist-ai-hero.jpg",
       "holland": "I+S",
       "description": "회사 안에서 사람들이 어떻게 느끼고 어떻게 협력하는지 연구해 더 건강한 조직을 만들도록 돕는 사람이에요.",
-      "shortDesc": "조직 마음을 연구하는 사람",
+      "shortDesc": "==조직 마음을 연구하는== 사람",
       "salaryRange": "5,000~13,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -9654,7 +9654,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "조직 심리 연구·자문",
-        "afterAI": "AI 조직 데이터 해석 + 조직 전략 설계 + 조직 문화 설계",
+        "afterAI": "==AI 조직 데이터 해석== + 조직 전략 설계 + 조직 문화 설계",
         "replacementRisk": "low",
         "aiTools": [
           "조직 분석 AI"
@@ -10157,7 +10157,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "임원 코칭 전체",
-        "afterAI": "AI 리더십 데이터 해석 + 코칭 관계 형성 + 리더십 전략",
+        "afterAI": "==AI 리더십 데이터 해석== + 코칭 관계 형성 + 리더십 전략",
         "replacementRisk": "low",
         "aiTools": [
           "리더십 분석 AI"
@@ -10652,7 +10652,7 @@
       "image": "corporate-strategist-ai-hero.jpg",
       "holland": "I+E",
       "description": "회사 전체가 어디로 나아가야 하는지 큰 지도를 그리는 사람으로, 미래 시장에 발맞춰 끊임없이 전략에 도전해요.",
-      "shortDesc": "회사 전략을 짜는 사람",
+      "shortDesc": "==회사 전략을 짜는== 사람",
       "salaryRange": "8,000~30,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -10660,7 +10660,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "기업 전략 분석·수립",
-        "afterAI": "AI 전략 분석 해석 + 기업 전략 설계 + 경영진 설득",
+        "afterAI": "==AI 전략 분석 해석== + 기업 전략 설계 + 경영진 설득",
         "replacementRisk": "low",
         "aiTools": [
           "전략 분석 AI"
@@ -11155,7 +11155,7 @@
       "image": "m-and-a-specialist-ai-hero.jpg",
       "holland": "I+E+C",
       "description": "두 회사가 합쳐지거나 한 회사가 다른 회사를 사는 큰 거래를 처음부터 끝까지 이끄는 사람이에요.",
-      "shortDesc": "기업 인수합병을 이끄는 사람",
+      "shortDesc": "==기업 인수합병을 이끄는== 사람",
       "salaryRange": "8,000~40,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -11667,7 +11667,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "투자 분석·실사",
-        "afterAI": "AI 투자 분석 해석 + 투자 전략 설계 + 투자 최종 판단",
+        "afterAI": "==AI 투자 분석 해석== + 투자 전략 설계 + 투자 최종 판단",
         "replacementRisk": "medium",
         "aiTools": [
           "투자 분석 AI",
@@ -12171,7 +12171,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "스타트업 자문",
-        "afterAI": "AI 비즈니스 분석 해석 + 스타트업 전략 설계 + 창업가 멘토링",
+        "afterAI": "==AI 비즈니스 분석 해석== + 스타트업 전략 설계 + 창업가 멘토링",
         "replacementRisk": "low",
         "aiTools": [
           "비즈니스 분석 AI"
@@ -12666,7 +12666,7 @@
       "image": "franchise-consultant-ai-hero.jpg",
       "holland": "E+I",
       "description": "프랜차이즈 가게가 잘되도록 사업 모델을 점검하고, 본사와 가맹점이 함께 성장하도록 돕는 사람이에요.",
-      "shortDesc": "프랜차이즈 사업을 돕는 사람",
+      "shortDesc": "==프랜차이즈 사업을 돕는== 사람",
       "salaryRange": "4,500~12,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -12674,7 +12674,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "프랜차이즈 분석·자문",
-        "afterAI": "AI 프랜차이즈 데이터 해석 + 전략 설계 + 가맹점 관계",
+        "afterAI": "==AI 프랜차이즈 데이터 해석== + 전략 설계 + 가맹점 관계",
         "replacementRisk": "medium",
         "aiTools": [
           "프랜차이즈 분석 AI"
@@ -13169,7 +13169,7 @@
       "image": "business-intelligence-analyst-ai-hero.jpg",
       "holland": "I+C",
       "description": "회사 안에 흩어진 수많은 데이터를 한눈에 보이게 만들어, 더 똑똑한 결정을 내릴 수 있게 도와주는 사람이에요.",
-      "shortDesc": "데이터를 보기 쉽게 만드는 사람",
+      "shortDesc": "==데이터를 보기 쉽게 만드는== 사람",
       "salaryRange": "5,000~12,000만원/년",
       "aiRisk": "높음",
       "futureGrowth": 3,
@@ -13177,7 +13177,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "BI 데이터 분석",
-        "afterAI": "AI 데이터 분석 해석 + BI 전략 설계 + 인사이트 도출",
+        "afterAI": "==AI 데이터 분석 해석== + BI 전략 설계 + 인사이트 도출",
         "replacementRisk": "high",
         "aiTools": [
           "Tableau AI",
@@ -14184,7 +14184,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2023년 이후 출현)",
-        "afterAI": "AI 전환 전략 설계 + 조직 변화 관리 + AI 도입 로드맵",
+        "afterAI": "==AI 전환 전략 설계== + 조직 변화 관리 + AI 도입 로드맵",
         "replacementRisk": "low",
         "aiTools": [
           "AI 전환 분석 툴"
@@ -14679,7 +14679,7 @@
       "image": "digital-transformation-consultant-ai-hero.jpg",
       "holland": "I+E",
       "description": "오래된 방식으로 일하는 회사를 디지털 시대에 맞게 바꿔 주는 사람으로, 새로운 변화에 함께 도전해요.",
-      "shortDesc": "디지털로 회사를 바꾸는 사람",
+      "shortDesc": "==디지털로 회사를 바꾸는== 사람",
       "salaryRange": "7,000~20,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -14687,7 +14687,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "디지털 전환 전략 수립",
-        "afterAI": "AI 디지털 분석 해석 + 디지털 전략 설계 + 조직 변화 관리",
+        "afterAI": "==AI 디지털 분석 해석== + 디지털 전략 설계 + 조직 변화 관리",
         "replacementRisk": "low",
         "aiTools": [
           "디지털 분석 AI"
@@ -15182,7 +15182,7 @@
       "image": "business-model-designer-ai-hero.jpg",
       "holland": "I+E+A",
       "description": "어떻게 돈을 벌고 어떻게 가치를 만들지를 새롭게 설계하는 사람으로, 아무도 시도하지 않은 사업 모델에 도전해요.",
-      "shortDesc": "새 사업 모델을 만드는 사람",
+      "shortDesc": "==새 사업 모델을 만드는== 사람",
       "salaryRange": "6,000~18,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -15190,7 +15190,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 비즈니스 분석 해석 + 비즈니스 모델 설계 + 수익 모델 전략",
+        "afterAI": "==AI 비즈니스 분석 해석== + 비즈니스 모델 설계 + 수익 모델 전략",
         "replacementRisk": "low",
         "aiTools": [
           "비즈니스 분석 AI"
@@ -15685,7 +15685,7 @@
       "image": "ecosystem-strategist-ai-hero.jpg",
       "holland": "I+E+S",
       "description": "여러 회사와 사용자들이 서로 도움을 주고받는 거대한 비즈니스 생태계를 설계해 함께 성장하게 만드는 사람이에요.",
-      "shortDesc": "비즈니스 생태계를 설계하는 사람",
+      "shortDesc": "==비즈니스 생태계를 설계하는== 사람",
       "salaryRange": "7,000~22,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -15693,7 +15693,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 생태계 분석 해석 + 생태계 전략 설계 + 파트너십 전략",
+        "afterAI": "==AI 생태계 분석 해석== + 생태계 전략 설계 + 파트너십 전략",
         "replacementRisk": "low",
         "aiTools": [
           "생태계 분석 AI"

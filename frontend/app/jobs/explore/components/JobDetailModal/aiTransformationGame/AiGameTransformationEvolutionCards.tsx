@@ -2,6 +2,7 @@
 
 import { ArrowDown, ArrowRight, Sparkles, Timer } from 'lucide-react';
 import { AI_ERA_GAME_UI_LABELS } from '../../../config/aiEraGameUiLabels';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 interface AiGameTransformationEvolutionCardsProps {
   starColor: string;
@@ -34,7 +35,9 @@ export function AiGameTransformationEvolutionCards({
             <Timer className="h-3 w-3" />
             {AI_ERA_GAME_UI_LABELS.jobModalEvolutionBeforeLabel}
           </div>
-          <p className="text-sm leading-relaxed text-gray-300">{beforeAI}</p>
+          <p className="text-sm leading-relaxed text-gray-300">
+            <GlossaryText>{beforeAI}</GlossaryText>
+          </p>
         </div>
 
         <div className="flex items-center justify-center py-1 sm:py-0">
@@ -69,7 +72,9 @@ export function AiGameTransformationEvolutionCards({
             <Sparkles className="h-3 w-3" />
             {AI_ERA_GAME_UI_LABELS.jobModalEvolutionAfterLabel}
           </div>
-          <p className="text-sm font-medium leading-relaxed text-white">{afterAI}</p>
+          <p className="text-sm font-medium leading-relaxed text-white">
+            <GlossaryText>{afterAI}</GlossaryText>
+          </p>
         </div>
       </div>
     </section>

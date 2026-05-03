@@ -5,6 +5,7 @@ import type { StarData } from '../types';
 import { LABELS } from '../config';
 import { ChevronRight, User, BarChart2, Clock } from 'lucide-react';
 import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 interface StarInfoBannerProps {
   star: StarData;
@@ -60,7 +61,7 @@ export function StarInfoBanner({ star, onOpenDetail, compact }: StarInfoBannerPr
 
         {/* 간단 설명 */}
         <p className={`text-gray-400 leading-relaxed ${compact ? 'text-xs mb-3' : 'text-sm mb-4'}`}>
-          {star.description}
+          <GlossaryText>{star.description}</GlossaryText>
         </p>
 
         {/* 직무 성향 · 난이도 · 준비 기간 (세로 배치 + 아이콘) */}

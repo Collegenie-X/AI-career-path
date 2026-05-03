@@ -3,6 +3,7 @@
 import { Star, Play } from 'lucide-react';
 import { JOB_ILLUSTRATIONS } from '../constants/jobIllustrations';
 import type { Job } from '../types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 interface JobCardProps {
   job: Job;
@@ -59,7 +60,9 @@ export function JobCard({ job, color, onClick }: JobCardProps) {
 
       <div className="flex-1 min-w-0 relative">
         <div className="font-bold text-white text-sm mb-0.5">{job.name}</div>
-        <div className="text-xs text-gray-400 line-clamp-1 mb-1.5">{job.shortDesc}</div>
+        <div className="text-xs text-gray-400 line-clamp-1 mb-1.5">
+          <GlossaryText>{job.shortDesc}</GlossaryText>
+        </div>
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="text-[11px] px-1.5 py-0.5 rounded-full font-semibold" style={{ backgroundColor: `${color}22`, color }}>
             {job.holland}

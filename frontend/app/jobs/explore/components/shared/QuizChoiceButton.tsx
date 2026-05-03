@@ -10,6 +10,8 @@ type QuizChoiceButtonProps = {
   disabled: boolean;
   accentColor?: string;
   onSelect: () => void;
+  prefixEmoji?: string;
+  trailingBadge?: { label: string; color: string };
 };
 
 export function QuizChoiceButton({
@@ -20,6 +22,8 @@ export function QuizChoiceButton({
   disabled,
   accentColor = '#845ef7',
   onSelect,
+  prefixEmoji,
+  trailingBadge,
 }: QuizChoiceButtonProps) {
   return (
     <button
@@ -44,12 +48,21 @@ export function QuizChoiceButton({
       >
         <span className="text-sm font-bold">{LETTERS[index] ?? String(index + 1)}</span>
       </div>
-      <div className="flex-1 pt-1.5">
+      <div className="flex-1 pt-1.5 min-w-0">
         <span
-          className="text-[14px] leading-relaxed transition-colors duration-200"
+          className="text-[14px] leading-relaxed transition-colors duration-200 inline-flex items-start gap-1.5"
           style={{ color: selected ? '#fff' : 'rgba(255,255,255,0.65)' }}
         >
-          {text}
+          {prefixEmoji ? (
+            <span
+              className="text-base leading-none flex-shrink-0"
+              style={{ filter: selected ? 'drop-shadow(0 0 4px rgba(255,255,255,0.5))' : 'none' }}
+              aria-hidden
+            >
+              {prefixEmoji}
+            </span>
+          ) : null}
+          <span className="flex-1">{text}</span>
         </span>
         {hint && (
           <p className="text-[12px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
@@ -57,6 +70,14 @@ export function QuizChoiceButton({
           </p>
         )}
       </div>
+      {trailingBadge ? (
+        <span
+          className="text-[10px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0 self-center"
+          style={{ background: `${trailingBadge.color}20`, color: trailingBadge.color, border: `1px solid ${trailingBadge.color}50` }}
+        >
+          {trailingBadge.label}
+        </span>
+      ) : null}
     </button>
   );
 }

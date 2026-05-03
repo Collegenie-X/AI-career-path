@@ -5,9 +5,10 @@
     "detailDescription": "이 자료실은 2028학년도 대입 개편(내신 5등급제·통합형 수능·심화수학 미포함·면접 비중 확대)과 AI 시대(직무 자동화·문제정의·AI 협업 역량)의 두 축을 모두 반영해 재구성되었습니다. 일반 루트(정시·학종·투트랙·지방국립)와 특수 루트(과학고·사관·경찰대·로스쿨·행시·해외·의대) 외에 'AI 시대 대응 가이드'와 '2028 개편 변화 정리'를 추가했어요. 목록에서는 핵심 요약만 보여주고, 상세 내용(표·체크리스트·Mermaid 다이어그램)은 다이얼로그에서 분리해 확인하도록 했습니다.",
     "policyContext": "2028 개편 핵심: ① 내신 5등급제(상위 10%=1등급)로 학종 진입 폭 확대 ② 통합형 수능(국·수·탐구 공통+선택 폐지)으로 일반고 유리·자사고 차별화 약화 ③ 심화수학 미포함 → 과학고도 수능 단독 변별 어려움 ④ 의대 정원 확대 + 학종 면접 비중 ↑",
     "aiEraContext": "AI 시대 대응 핵심: ① 단순 암기·계산·번역·코딩은 AI 대체 → '문제 정의·맥락 판단·창의적 융합'이 차별화 ② 학종·면접에서 'AI를 어떻게 도구로 썼고 무엇을 직접 했는가' 설명 능력이 변별력 ③ 사양 직무·신흥 직무 구분 → 진로 선택의 첫 번째 기준",
-    "totalDocuments": 22,
-    "lastUpdated": "2026-04-28",
-    "tip": "📌 카테고리 필터로 필요한 자료를 빠르게 찾으세요. 2028·AI 표시가 있는 자료를 우선 확인하세요. 상세 내용은 클릭하면 열려요!"
+    "totalDocuments": 25,
+    "lastUpdated": "2026-05-03",
+    "tip": "📌 카테고리 필터로 필요한 자료를 빠르게 찾으세요. 2028·AI 표시가 있는 자료를 우선 확인하세요. 상세 내용은 클릭하면 열려요!",
+    "highlightTags": ["2028개편", "AI시대", "의대증원", "면접확대"]
   },
   "categories": [
     {
@@ -335,6 +336,45 @@
       "difficultyLevel": 2,
       "estimatedReadTime": "10분",
       "priority": 3
+    },
+    {
+      "id": "policy-2028-medical-school-expansion-impact",
+      "categoryId": "policy_2028",
+      "title": "2026 의대 증원 후속 영향과 학종 변화",
+      "summary": "의대 정원 확대(2025~) 이후 학군지·자사고·과학고의 학종/정시 진입 변화와 N수 추세",
+      "markdownPath": "/resource-hub/policy_2028_medical_school_expansion_impact.md",
+      "tags": ["의대증원", "2028입시", "학종", "정시", "N수"],
+      "keyTopics": ["의대 증원 후 학군지 일반고 정시 유리도 변화", "자사고·과학고 학종 면접 비중 변화", "N수 비율 증가와 재수 전략", "지방의대 지역인재 전형 확대 대응"],
+      "difficultyLevel": 4,
+      "estimatedReadTime": "14분",
+      "priority": 1,
+      "isNew": true
+    },
+    {
+      "id": "interview-prep-ai-era-questions",
+      "categoryId": "interview_prep",
+      "title": "AI 시대 면접 질문 30선 + 합격생 답변 프레임",
+      "summary": "'AI를 어떻게 썼나?' '왜 인간이 해야 하나?' 등 2026 면접에서 실제 출제된 질문과 답변 구조",
+      "markdownPath": "/resource-hub/interview_prep_ai_era_questions.md",
+      "tags": ["면접", "AI시대", "합격생", "면접확대", "2026"],
+      "keyTopics": ["AI 활용 경험을 설명하는 STAR 프레임", "AI vs 인간 가치 질문 답변법", "데이터로 답하는 윤리 질문", "면접관이 찾는 '진짜 자기 사고' 신호"],
+      "difficultyLevel": 3,
+      "estimatedReadTime": "11분",
+      "priority": 1,
+      "isNew": true
+    },
+    {
+      "id": "mental-health-comparison-detox",
+      "categoryId": "mental_health",
+      "title": "비교 디톡스 — SNS·AI·친구 비교에서 살아남기",
+      "summary": "2026 청소년 비교 스트레스 데이터 + 7일 디톡스 챌린지 + 회복 루틴",
+      "markdownPath": "/resource-hub/mental_health_comparison_detox.md",
+      "tags": ["멘탈관리", "비교스트레스", "SNS", "디지털디톡스"],
+      "keyTopics": ["7일 SNS·AI 사용 절제 챌린지", "비교 충동이 올 때 30초 리셋 루틴", "친구 비교를 협력 관계로 전환하는 대화법", "회복 일지 템플릿"],
+      "difficultyLevel": 1,
+      "estimatedReadTime": "6분",
+      "priority": 2,
+      "isNew": true
     }
   ]
 }

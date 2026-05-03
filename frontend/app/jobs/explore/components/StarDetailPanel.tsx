@@ -9,6 +9,7 @@ import { AiKingdomOccupationChangeGamePanel } from './AiKingdomOccupationChangeG
 import { LABELS } from '../config';
 import { STAR_PANEL_AI_ERA_INTRO } from '../config/aiEraTransformationLabels';
 import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 import type { StarData, Job } from '../types';
 
 interface StarDetailPanelProps {
@@ -245,7 +246,7 @@ export function StarDetailPanel({
         >
           <div className="absolute -right-4 -top-4 text-7xl opacity-10 select-none">{star.emoji}</div>
           <p className="text-xs text-gray-400 leading-relaxed relative z-10">
-            {star.description}
+            <GlossaryText>{star.description}</GlossaryText>
           </p>
         </div>
 

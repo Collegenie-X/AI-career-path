@@ -4,6 +4,7 @@ import { useState, useMemo, useCallback } from 'react';
 import { Briefcase, Zap, Target, Sparkles, RotateCcw } from 'lucide-react';
 import { LABELS } from '../../config';
 import type { WorkPhase } from '../../types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -291,7 +292,9 @@ export function ProcessQuizGame({ phases, starColor, jobName, onViewFull }: Proc
                 borderColor: 'rgba(255,255,255,0.08)',
               }}
             >
-              <p className="text-sm text-gray-400 leading-relaxed mb-3">{phase.description}</p>
+              <p className="text-sm text-gray-400 leading-relaxed mb-3">
+                <GlossaryText>{phase.description}</GlossaryText>
+              </p>
               {phase.example && (
                 <div
                   className="rounded-lg p-3 border-l-4 mb-3"
@@ -301,7 +304,9 @@ export function ProcessQuizGame({ phases, starColor, jobName, onViewFull }: Proc
                   }}
                 >
                   <span className="text-xs font-bold text-gray-500">{LABELS.modal_example}</span>
-                  <p className="text-sm text-gray-300 mt-1">{phase.example}</p>
+                  <p className="text-sm text-gray-300 mt-1">
+                    <GlossaryText>{phase.example}</GlossaryText>
+                  </p>
                 </div>
               )}
               <div className="flex flex-wrap gap-1.5">

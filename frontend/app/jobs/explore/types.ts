@@ -508,11 +508,22 @@ export type IdentityChallengeQuestion = {
   themeIcon: string;
   context: string;
   question: string;
+  expertTip?: string;
   choices: IdentityChallengeChoice[];
 };
 
 export type IdentityChallengeData = {
-  meta: { title: string; subtitle: string; description: string; totalQuestions: number };
+  meta: {
+    title: string;
+    subtitle: string;
+    description: string;
+    totalQuestions: number;
+    policyContext?: string;
+    aiEraContext?: string;
+    lastUpdated?: string;
+    playEstimateMinutes?: number;
+    scoringNote?: string;
+  };
   questions: IdentityChallengeQuestion[];
   resultMessages: { single: string; multiple: string; neutral: string };
 };
@@ -521,6 +532,8 @@ export type MentalChallengeChoice = {
   text: string;
   mentalScore: number;
   feedback: string;
+  gainEffect?: string;
+  realAction?: string;
 };
 
 export type MentalChallengeScenario = {
@@ -530,12 +543,37 @@ export type MentalChallengeScenario = {
   context: string;
   question: string;
   choices: MentalChallengeChoice[];
+  coachTip?: string;
+  recoveryStrategy?: { immediate?: string; shortTerm?: string; longTerm?: string };
+  realWorldInsight?: string;
+  bossInsight?: string;
+};
+
+export type MentalChallengeResultTier = {
+  minScore: number;
+  label: string;
+  emoji: string;
+  message: string;
+  tagline?: string;
+  actionPlan?: string[];
+  recommendedResources?: string[];
+  weeklyHabit?: string;
 };
 
 export type MentalChallengeData = {
-  meta: { title: string; subtitle: string; description: string; totalScenarios: number };
+  meta: {
+    title: string;
+    subtitle: string;
+    description: string;
+    totalScenarios: number;
+    policyContext?: string;
+    aiEraContext?: string;
+    lastUpdated?: string;
+    playEstimateMinutes?: number;
+  };
   scenarios: MentalChallengeScenario[];
-  resultTiers: { minScore: number; label: string; emoji: string; message: string }[];
+  resultTiers: MentalChallengeResultTier[];
+  mentalHealthTips?: { icon: string; title: string; tip: string }[];
 };
 
 export type HighSchoolAdmissionV2Data = {

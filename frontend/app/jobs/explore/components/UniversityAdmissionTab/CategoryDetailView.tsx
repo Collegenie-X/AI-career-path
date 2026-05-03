@@ -334,7 +334,7 @@ function AdmissionOfficerTab({ category, playbook }: { category: AdmissionCatego
             </div>
             <h4 className="text-sm font-bold" style={{ color: category.color }}>{point.label}</h4>
           </div>
-          <p className="text-xs text-white/85 leading-relaxed pl-8">{point.detail}</p>
+          <HighlightText className="text-xs text-white/85 leading-relaxed pl-8 block">{point.detail}</HighlightText>
         </div>
       ))}
 
@@ -345,7 +345,7 @@ function AdmissionOfficerTab({ category, playbook }: { category: AdmissionCatego
           {category.keyFeatures.map((feature, index) => (
             <div key={index} className="flex items-start gap-2 text-xs text-white/80">
               <span style={{ color: category.color }} className="flex-shrink-0">▸</span>
-              <span>{feature}</span>
+              <HighlightText>{feature}</HighlightText>
             </div>
           ))}
         </div>
@@ -358,7 +358,7 @@ function AdmissionOfficerTab({ category, playbook }: { category: AdmissionCatego
           {category.targetStudents.map((student, index) => (
             <div key={index} className="flex items-start gap-2 text-xs text-white/80">
               <span style={{ color: category.color }} className="flex-shrink-0">•</span>
-              <span>{student}</span>
+              <HighlightText>{student}</HighlightText>
             </div>
           ))}
         </div>
