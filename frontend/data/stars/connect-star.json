@@ -6,14 +6,14 @@
   "color": "#F97316",
   "bgColor": "#2a1008",
   "gradient": "linear-gradient(135deg, #f97316 0%, #fb923c 100%)",
-  "description": "==사람과 사람을 따뜻하게 이어주고==, 누군가의 ==성장과 마음을 돕는== 직업들의 별이에요",
+  "description": "사람과 사람을 따뜻하게 이어주고, 누군가의 성장과 마음을 돕는 직업들의 별이에요",
   "riasecTypes": [
     "S",
     "E"
   ],
   "jobCount": 31,
   "starProfile": {
-    "tagline": "==누군가의 변화에 함께하는 일==이 가장 즐거운 친구들의 별이에요",
+    "tagline": "누군가의 변화에 함께하는 일이 가장 즐거운 친구들의 별이에요",
     "coreTraits": [
       {
         "icon": "❤️",
@@ -80,7 +80,7 @@
       "image": "teacher-ai-hero.jpg",
       "holland": "S",
       "description": "학생 한 명 한 명을 잘 알고, 어떻게 배우면 좋을지 함께 길을 찾아주는 사람이에요. AI 시대에는 학습을 기획하고 학생의 마음까지 챙기는 역할이 점점 더 중요해진답니다.",
-      "shortDesc": "==학생의 배움을 돕는== 사람",
+      "shortDesc": "학생의 배움을 돕는 사람",
       "salaryRange": "3,500~6,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -88,7 +88,7 @@
       "entryProcess": "교육대학 4년 + 임용고시 → 학습 설계 전문성 강화 + AI 교육 툴 마스터",
       "aiTransformation": {
         "beforeAI": "강의·숙제 채점·학생 관리 전체",
-        "afterAI": "==AI 학습 콘텐츠 감독== + 학습 설계 + 학생 동기 부여 + 감정 돌봄",
+        "afterAI": "AI 학습 콘텐츠 감독 + 학습 설계 + 학생 동기 부여 + 감정 돌봄",
         "replacementRisk": "medium",
         "aiTools": [
           "Khan Academy AI",
@@ -505,8 +505,8 @@
       "icon": "💬",
       "image": "counselor-ai-hero.jpg",
       "holland": "S",
-      "description": "마음이 힘든 사람들의 이야기를 잘 들어주고, 함께 해결 방법을 찾아주는 사람이에요. 사람의 진짜 마음은 ==AI가 대신할 수 없기에 따뜻한 신뢰 관계를 만드는 일이 가장 중요하답니다==.",
-      "shortDesc": "==마음을 들어주는== 사람",
+      "description": "마음이 힘든 사람들의 이야기를 잘 들어주고, 함께 해결 방법을 찾아주는 사람이에요. 사람의 진짜 마음은 AI가 대신할 수 없기에 따뜻한 신뢰 관계를 만드는 일이 가장 중요하답니다.",
+      "shortDesc": "마음을 들어주는 사람",
       "salaryRange": "3,000~7,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -514,7 +514,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "상담·심리검사 전체",
-        "afterAI": "==AI 심리검사 해석== + 치료 관계 형성 + 복합 문제 판단",
+        "afterAI": "AI 심리검사 해석 + 치료 관계 형성 + 복합 문제 판단",
         "replacementRisk": "low",
         "aiTools": [
           "Woebot",
@@ -576,7 +576,7 @@
       },
       "workProcess": {
         "title": "상담사의 직무 프로세스",
-        "description": "마음이 힘든 사람들의 이야기를 잘 들어주고, 함께 해결 방법을 찾아주는 사람이에요. 사람의 진짜 마음은 ==AI가 대신할 수 없기에 따뜻한 신뢰 관계를 만드는 일이 가장 중요하답니다==.",
+        "description": "마음이 힘든 사람들의 이야기를 잘 들어주고, 함께 해결 방법을 찾아주는 사람이에요. 사람의 진짜 마음은 AI가 대신할 수 없기에 따뜻한 신뢰 관계를 만드는 일이 가장 중요하답니다.",
         "phases": [
           {
             "id": 1,
@@ -932,7 +932,7 @@
       "image": "psychologist-ai-hero.jpg",
       "holland": "I+S",
       "description": "사람들의 마음과 행동을 깊이 연구하고, 어려움을 겪는 사람을 직접 만나서 도와주는 사람이에요. 깊이 있는 검사와 진심 어린 대화로 사람의 변화를 이끌어낸답니다.",
-      "shortDesc": "==마음을 연구하고 돕는== 사람",
+      "shortDesc": "마음을 연구하고 돕는 사람",
       "salaryRange": "4,000~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -940,7 +940,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "심리 연구·상담·치료",
-        "afterAI": "==AI 심리 데이터 해석== + 치료 관계 형성 + 복합 심리 판단",
+        "afterAI": "AI 심리 데이터 해석 + 치료 관계 형성 + 복합 심리 판단",
         "replacementRisk": "low",
         "aiTools": [
           "심리검사 AI",
@@ -1353,7 +1353,7 @@
       "image": "social-worker-ai-hero.jpg",
       "holland": "S",
       "description": "도움이 필요한 사람들이 더 잘 살아갈 수 있도록 다양한 지원과 자원을 연결해주는 사람이에요. 사람들의 사정을 깊이 이해하고 신뢰 관계를 만드는 것이 일의 핵심이랍니다.",
-      "shortDesc": "==필요한 도움을 연결해주는== 사람",
+      "shortDesc": "필요한 도움을 연결해주는 사람",
       "salaryRange": "3,000~5,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -1361,7 +1361,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "복지 대상자 발굴·지원 전체",
-        "afterAI": "==AI 복지 데이터 해석== + 관계 형성 + 복지 전략 설계",
+        "afterAI": "AI 복지 데이터 해석 + 관계 형성 + 복지 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "복지 데이터 분석 AI"
@@ -1773,7 +1773,7 @@
       "image": "career-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "어떤 일을 하면 좋을지 고민하는 사람들이 자신에게 맞는 길을 찾도록 함께 고민해주는 사람이에요. 적성검사와 깊은 대화로 그 사람만의 진로 전략을 설계해준답니다.",
-      "shortDesc": "==진로의 길을 함께 찾는== 사람",
+      "shortDesc": "진로의 길을 함께 찾는 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -1781,7 +1781,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "적성검사·진로 상담",
-        "afterAI": "==AI 적성 분석 해석== + 진로 전략 설계 + 학생 동기 부여",
+        "afterAI": "AI 적성 분석 해석 + 진로 전략 설계 + 학생 동기 부여",
         "replacementRisk": "medium",
         "aiTools": [
           "적성검사 AI",
@@ -2194,7 +2194,7 @@
       "image": "special-education-teacher-ai-hero.jpg",
       "holland": "S",
       "description": "장애가 있거나 특별한 도움이 필요한 학생을 한 명 한 명에게 딱 맞게 가르쳐주는 선생님이에요. 학생의 작은 변화에도 함께 기뻐하며 성장을 도와준답니다.",
-      "shortDesc": "==특별한 학생을 가르치는== 사람",
+      "shortDesc": "특별한 학생을 가르치는 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -2202,7 +2202,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "특수교육 전체 직접 진행",
-        "afterAI": "==AI 학습 데이터 해석== + 개인화 교육 설계 + 감정 돌봄",
+        "afterAI": "AI 학습 데이터 해석 + 개인화 교육 설계 + 감정 돌봄",
         "replacementRisk": "low",
         "aiTools": [
           "특수교육 AI",
@@ -2615,7 +2615,7 @@
       "image": "instructional-designer-ai-hero.jpg",
       "holland": "I+S",
       "description": "어떻게 가르치면 사람들이 가장 잘 배울 수 있을지 고민해서 학습 자료와 수업 흐름을 만드는 사람이에요. 좋은 학습 경험을 디자인해 모두가 함께 성장하도록 돕는답니다.",
-      "shortDesc": "==학습 콘텐츠를 만드는== 사람",
+      "shortDesc": "학습 콘텐츠를 만드는 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -2623,7 +2623,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "교육 콘텐츠 직접 제작",
-        "afterAI": "==AI 콘텐츠 생성 감독== + 학습 경험 설계 + 학습 전략 수립",
+        "afterAI": "AI 콘텐츠 생성 감독 + 학습 경험 설계 + 학습 전략 수립",
         "replacementRisk": "medium",
         "aiTools": [
           "ChatGPT",
@@ -3036,7 +3036,7 @@
       "image": "early-childhood-educator-ai-hero.jpg",
       "holland": "S",
       "description": "어린아이들이 즐겁게 놀면서 배우고 자랄 수 있게 돌봐주고 가르치는 선생님이에요. 아이들과 따뜻한 관계를 만들며 첫 사회생활을 도와준답니다.",
-      "shortDesc": "==어린아이를 가르치는== 사람",
+      "shortDesc": "어린아이를 가르치는 사람",
       "salaryRange": "2,500~4,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -3456,7 +3456,7 @@
       "image": "learning-experience-designer-ai-hero.jpg",
       "holland": "I+A+S",
       "description": "사람들이 더 재미있고 깊이 있게 배울 수 있도록 학습 경험 전체를 새롭게 디자인하는 사람이에요. AI 시대에 새로 떠오르는 꼭 필요한 직업이랍니다.",
-      "shortDesc": "==학습 경험을 디자인하는== 사람",
+      "shortDesc": "학습 경험을 디자인하는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -3464,7 +3464,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "==AI 학습 콘텐츠 감독== + 학습 경험 설계 + 학습 동기 전략",
+        "afterAI": "AI 학습 콘텐츠 감독 + 학습 경험 설계 + 학습 동기 전략",
         "replacementRisk": "low",
         "aiTools": [
           "교육 콘텐츠 생성 AI",
@@ -3877,7 +3877,7 @@
       "image": "speech-therapist-ai-hero.jpg",
       "holland": "S",
       "description": "말이나 발음에 어려움을 겪는 사람들이 잘 말할 수 있도록 도와주는 사람이에요. 따뜻한 관계 속에서 한 단어 한 단어 함께 연습하며 변화를 만들어간답니다.",
-      "shortDesc": "==말하기를 도와주는== 사람",
+      "shortDesc": "말하기를 도와주는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -3885,7 +3885,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "언어 평가·치료 전체",
-        "afterAI": "==AI 언어 분석 감독== + 치료 관계 형성 + 개인화 치료 설계",
+        "afterAI": "AI 언어 분석 감독 + 치료 관계 형성 + 개인화 치료 설계",
         "replacementRisk": "low",
         "aiTools": [
           "언어 분석 AI",
@@ -4298,7 +4298,7 @@
       "image": "occupational-therapist-ai-hero.jpg",
       "holland": "S",
       "description": "다치거나 아파서 일상생활이 힘든 사람들이 다시 스스로 옷 입고 식사할 수 있게 도와주는 사람이에요. 한 동작씩 함께 연습하며 일상으로 돌아갈 수 있도록 응원해준답니다.",
-      "shortDesc": "==일상으로 돌아오게 돕는== 사람",
+      "shortDesc": "일상으로 돌아오게 돕는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -4306,7 +4306,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "활동 평가·치료 전체",
-        "afterAI": "==AI 활동 분석 감독== + 치료 관계 형성 + 개인화 치료 설계",
+        "afterAI": "AI 활동 분석 감독 + 치료 관계 형성 + 개인화 치료 설계",
         "replacementRisk": "low",
         "aiTools": [
           "활동 분석 AI",
@@ -4719,7 +4719,7 @@
       "image": "physical-therapist-ai-hero.jpg",
       "holland": "S+R",
       "description": "허리, 무릎, 어깨처럼 아픈 곳을 운동과 손길로 치료해 다시 잘 움직일 수 있도록 도와주는 사람이에요. 한 동작씩 함께 연습하며 다시 건강한 일상으로 이끌어준답니다.",
-      "shortDesc": "==몸을 다시 움직이게 돕는== 사람",
+      "shortDesc": "몸을 다시 움직이게 돕는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
@@ -4727,7 +4727,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "운동 평가·치료 전체",
-        "afterAI": "==AI 운동 분석 감독== + 치료 관계 형성 + 개인화 치료 설계",
+        "afterAI": "AI 운동 분석 감독 + 치료 관계 형성 + 개인화 치료 설계",
         "replacementRisk": "medium",
         "aiTools": [
           "운동 분석 AI",
@@ -5140,7 +5140,7 @@
       "image": "nurse-educator-ai-hero.jpg",
       "holland": "S+I",
       "description": "병원에서 일할 간호사들을 가르치고 임상 현장에서 잘 일할 수 있게 키워주는 사람이에요. 환자를 돌볼 사람을 길러내는 아주 중요한 역할을 한답니다.",
-      "shortDesc": "==간호사를 길러내는== 사람",
+      "shortDesc": "간호사를 길러내는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -5560,7 +5560,7 @@
       "image": "community-organizer-ai-hero.jpg",
       "holland": "S",
       "description": "한 동네나 지역의 사람들이 함께 모여 문제를 풀고 더 나은 공동체를 만들도록 이끌어주는 사람이에요. 사람과 사람을 잇는 진짜 연결자랍니다.",
-      "shortDesc": "==동네를 함께 만드는== 사람",
+      "shortDesc": "동네를 함께 만드는 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -5568,7 +5568,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "커뮤니티 조직·활동 기획",
-        "afterAI": "==AI 커뮤니티 데이터 해석== + 관계 형성 + 커뮤니티 전략 설계",
+        "afterAI": "AI 커뮤니티 데이터 해석 + 관계 형성 + 커뮤니티 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "커뮤니티 분석 AI"
@@ -5980,7 +5980,7 @@
       "image": "youth-worker-ai-hero.jpg",
       "holland": "S",
       "description": "청소년들의 고민을 들어주고 건강하게 자랄 수 있도록 활동과 프로그램으로 도와주는 사람이에요. 청소년의 마음을 가장 잘 이해하는 친구 같은 어른이랍니다.",
-      "shortDesc": "==청소년의 성장을 돕는== 사람",
+      "shortDesc": "청소년의 성장을 돕는 사람",
       "salaryRange": "2,500~5,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -6400,7 +6400,7 @@
       "image": "elderly-care-specialist-ai-hero.jpg",
       "holland": "S",
       "description": "어르신들이 건강하고 외롭지 않게 생활하실 수 있도록 돌보고 지원해드리는 사람이에요. 따뜻한 말동무이자 든든한 도우미가 되어 드린답니다.",
-      "shortDesc": "==어르신을 돌보는== 사람",
+      "shortDesc": "어르신을 돌보는 사람",
       "salaryRange": "2,500~5,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -6408,7 +6408,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "노인 돌봄·복지 서비스",
-        "afterAI": "==AI 건강 모니터링 감독== + 관계 형성 + 케어 전략 설계",
+        "afterAI": "AI 건강 모니터링 감독 + 관계 형성 + 케어 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "노인 건강 모니터링 AI",
@@ -6821,7 +6821,7 @@
       "image": "disability-support-specialist-ai-hero.jpg",
       "holland": "S",
       "description": "장애가 있는 분들이 일상생활과 사회생활을 더 잘할 수 있도록 도구와 도움을 연결해주는 사람이에요. 누구나 함께 살아갈 수 있는 사회를 만드는 일을 한답니다.",
-      "shortDesc": "==장애인의 일상을 돕는== 사람",
+      "shortDesc": "장애인의 일상을 돕는 사람",
       "salaryRange": "2,500~5,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -7242,7 +7242,7 @@
       "image": "mental-health-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "마음의 병이나 깊은 불안으로 힘들어하는 사람들이 다시 일어설 수 있도록 곁에서 함께해주는 사람이에요. 진심 어린 신뢰 관계로 회복을 도와준답니다.",
-      "shortDesc": "==마음 건강을 돕는== 사람",
+      "shortDesc": "마음 건강을 돕는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -7663,7 +7663,7 @@
       "image": "family-therapist-ai-hero.jpg",
       "holland": "S+I",
       "description": "가족 사이의 갈등이나 어려움을 풀어내고 다시 따뜻한 관계로 돌아갈 수 있도록 도와주는 사람이에요. 가족 모두의 마음을 듣고 연결해준답니다.",
-      "shortDesc": "==가족을 다시 잇는== 사람",
+      "shortDesc": "가족을 다시 잇는 사람",
       "salaryRange": "3,500~7,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -7671,7 +7671,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "가족 상담·치료",
-        "afterAI": "==AI 가족 데이터 해석== + 치료 관계 형성 + 가족 전략 설계",
+        "afterAI": "AI 가족 데이터 해석 + 치료 관계 형성 + 가족 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "가족 관계 분석 AI"
@@ -8083,7 +8083,7 @@
       "image": "addiction-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "술, 게임, 도박 같은 중독에서 벗어나려는 사람들 옆에 서서 회복의 길을 함께 걸어주는 사람이에요. 진심 어린 신뢰 관계가 회복의 시작이랍니다.",
-      "shortDesc": "==중독에서 회복을 돕는== 사람",
+      "shortDesc": "중독에서 회복을 돕는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -8091,7 +8091,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "중독 상담·치료",
-        "afterAI": "==AI 중독 데이터 해석== + 치료 관계 형성 + 재발 방지 전략",
+        "afterAI": "AI 중독 데이터 해석 + 치료 관계 형성 + 재발 방지 전략",
         "replacementRisk": "low",
         "aiTools": [
           "중독 모니터링 AI",
@@ -8504,7 +8504,7 @@
       "image": "life-coach-ai-hero.jpg",
       "holland": "S",
       "description": "인생의 방향이나 목표를 고민하는 사람들이 자기다운 삶을 찾아가도록 곁에서 응원하고 안내해주는 사람이에요. 함께 성장 계획을 세우고 실천을 돕는답니다.",
-      "shortDesc": "==인생 목표를 함께 찾는== 사람",
+      "shortDesc": "인생 목표를 함께 찾는 사람",
       "salaryRange": "3,000~10,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -8512,7 +8512,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "라이프 코칭 전체",
-        "afterAI": "==AI 라이프 데이터 해석== + 코칭 관계 형성 + 목표 전략 설계",
+        "afterAI": "AI 라이프 데이터 해석 + 코칭 관계 형성 + 목표 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "라이프 분석 AI"
@@ -8924,7 +8924,7 @@
       "image": "learning-coach-ai-hero.jpg",
       "holland": "S",
       "description": "공부가 잘 안 되거나 어떻게 공부해야 할지 모르는 학생들이 자기에게 맞는 학습 방법을 찾도록 도와주는 사람이에요. 학습 습관과 자신감을 함께 키워준답니다.",
-      "shortDesc": "==공부 방법을 알려주는== 사람",
+      "shortDesc": "공부 방법을 알려주는 사람",
       "salaryRange": "3,000~7,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -8932,7 +8932,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "학습 코칭 전체",
-        "afterAI": "==AI 학습 데이터 해석== + 학습 전략 설계 + 학습 동기 부여",
+        "afterAI": "AI 학습 데이터 해석 + 학습 전략 설계 + 학습 동기 부여",
         "replacementRisk": "medium",
         "aiTools": [
           "학습 분석 AI",
@@ -9345,7 +9345,7 @@
       "image": "parent-educator-ai-hero.jpg",
       "holland": "S",
       "description": "아이를 키우며 고민이 많은 부모님들이 자녀와 더 좋은 관계를 만들도록 가르치고 코칭해주는 사람이에요. 아이도 부모도 함께 자랄 수 있게 도와준답니다.",
-      "shortDesc": "==부모를 코칭하는== 사람",
+      "shortDesc": "부모를 코칭하는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -9353,7 +9353,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "부모 교육 프로그램 진행",
-        "afterAI": "==AI 양육 데이터 해석== + 부모 코칭 + 양육 전략 설계",
+        "afterAI": "AI 양육 데이터 해석 + 부모 코칭 + 양육 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "양육 데이터 분석 AI"
@@ -9765,7 +9765,7 @@
       "image": "career-coach-ai-hero.jpg",
       "holland": "S",
       "description": "직장 생활이나 진로 전환을 고민하는 사람들이 자기에게 맞는 커리어 길을 만들어가도록 함께 전략을 짜주는 사람이에요. 일하는 사람의 든든한 길잡이랍니다.",
-      "shortDesc": "==직업의 길을 코칭하는== 사람",
+      "shortDesc": "직업의 길을 코칭하는 사람",
       "salaryRange": "3,500~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
@@ -9773,7 +9773,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "커리어 코칭 전체",
-        "afterAI": "==AI 커리어 데이터 해석== + 커리어 전략 설계 + 관계 형성",
+        "afterAI": "AI 커리어 데이터 해석 + 커리어 전략 설계 + 관계 형성",
         "replacementRisk": "medium",
         "aiTools": [
           "커리어 분석 AI",
@@ -10186,7 +10186,7 @@
       "image": "employee-assistance-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "직장에서 스트레스나 인간관계로 힘들어하는 직원들의 이야기를 들어주고 마음을 돌볼 수 있도록 도와주는 사람이에요. 일하는 사람들의 마음 지킴이랍니다.",
-      "shortDesc": "==직장 스트레스를 돌보는== 사람",
+      "shortDesc": "직장 스트레스를 돌보는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -10194,7 +10194,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "직장인 상담 전체",
-        "afterAI": "==AI 직무 스트레스 분석 해석== + 상담 관계 형성 + 조직 전략 제안",
+        "afterAI": "AI 직무 스트레스 분석 해석 + 상담 관계 형성 + 조직 전략 제안",
         "replacementRisk": "low",
         "aiTools": [
           "직무 스트레스 분석 AI"
@@ -10606,7 +10606,7 @@
       "image": "hospice-care-specialist-ai-hero.jpg",
       "holland": "S",
       "description": "삶의 마지막 시간을 보내는 분들과 그 가족 곁에서 따뜻하게 함께해주는 사람이에요. 마지막까지 존엄하고 평안할 수 있도록 정성으로 돌본답니다.",
-      "shortDesc": "==마지막을 함께해주는== 사람",
+      "shortDesc": "마지막을 함께해주는 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -11026,7 +11026,7 @@
       "image": "child-welfare-specialist-ai-hero.jpg",
       "holland": "S",
       "description": "위험한 환경이나 어려움 속에 있는 아이들이 안전하고 행복하게 자랄 수 있도록 보호해주는 사람이에요. 아이의 든든한 편이 되어주는 일이랍니다.",
-      "shortDesc": "==아이를 지켜주는== 사람",
+      "shortDesc": "아이를 지켜주는 사람",
       "salaryRange": "2,500~5,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -11034,7 +11034,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "아동 보호·복지 서비스",
-        "afterAI": "==AI 아동 데이터 해석== + 관계 형성 + 보호 전략 설계",
+        "afterAI": "AI 아동 데이터 해석 + 관계 형성 + 보호 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "아동 위험 예측 AI"
@@ -11446,7 +11446,7 @@
       "image": "rehabilitation-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "장애나 큰 병에서 회복 중인 사람들이 다시 사회로 잘 돌아갈 수 있도록 마음과 일상을 함께 챙겨주는 사람이에요. 회복의 든든한 동반자랍니다.",
-      "shortDesc": "==재활을 함께 걷는== 사람",
+      "shortDesc": "재활을 함께 걷는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
@@ -11454,7 +11454,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "재활 상담·계획",
-        "afterAI": "==AI 재활 데이터 해석== + 관계 형성 + 재활 전략 설계",
+        "afterAI": "AI 재활 데이터 해석 + 관계 형성 + 재활 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "재활 모니터링 AI"
@@ -11866,7 +11866,7 @@
       "image": "grief-counselor-ai-hero.jpg",
       "holland": "S",
       "description": "사랑하는 사람을 잃고 깊은 슬픔에 빠진 사람들의 마음을 들어주고 회복을 돕는 사람이에요. 슬픔의 시간을 혼자 견디지 않도록 곁에 있어준답니다.",
-      "shortDesc": "==슬픔을 함께 견디는== 사람",
+      "shortDesc": "슬픔을 함께 견디는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -11874,7 +11874,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "애도 상담 전체",
-        "afterAI": "==AI 애도 데이터 해석== + 관계 형성 + 애도 전략 설계",
+        "afterAI": "AI 애도 데이터 해석 + 관계 형성 + 애도 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "애도 분석 AI"
@@ -12286,7 +12286,7 @@
       "image": "peer-support-specialist-ai-hero.jpg",
       "holland": "S",
       "description": "비슷한 어려움을 겪어본 자신의 경험을 살려서 같은 길을 걷는 사람들을 응원하고 돕는 사람이에요. ‘나도 그랬어’라는 진심으로 큰 힘을 준답니다.",
-      "shortDesc": "==내 경험으로 돕는== 사람",
+      "shortDesc": "내 경험으로 돕는 사람",
       "salaryRange": "2,500~5,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
@@ -12294,7 +12294,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "동료 지원 전체",
-        "afterAI": "==AI 동료 데이터 해석== + 관계 형성 + 지원 전략 설계",
+        "afterAI": "AI 동료 데이터 해석 + 관계 형성 + 지원 전략 설계",
         "replacementRisk": "low",
         "aiTools": [
           "동료 지원 분석 AI"
@@ -12714,7 +12714,7 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "신생 직종 (2023년 이후 출현)",
-        "afterAI": "==인간 중심 AI 설계== + AI 윤리 감독 + 사용자 경험 전략",
+        "afterAI": "인간 중심 AI 설계 + AI 윤리 감독 + 사용자 경험 전략",
         "replacementRisk": "low",
         "aiTools": [
           "AI 윤리 분석 툴"
