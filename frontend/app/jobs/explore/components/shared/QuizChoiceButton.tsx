@@ -46,11 +46,11 @@ export function QuizChoiceButton({
           boxShadow: selected ? `0 0 12px ${accentColor}40` : 'none',
         }}
       >
-        <span className="text-sm font-bold">{LETTERS[index] ?? String(index + 1)}</span>
+        <span className="text-base font-bold">{LETTERS[index] ?? String(index + 1)}</span>
       </div>
       <div className="flex-1 pt-1.5 min-w-0">
         <span
-          className="text-[14px] leading-relaxed transition-colors duration-200 inline-flex items-start gap-1.5"
+          className="text-[16px] leading-relaxed transition-colors duration-200 inline-flex items-start gap-1.5"
           style={{ color: selected ? '#fff' : 'rgba(255,255,255,0.65)' }}
         >
           {prefixEmoji ? (
@@ -65,7 +65,7 @@ export function QuizChoiceButton({
           <span className="flex-1">{text}</span>
         </span>
         {hint && (
-          <p className="text-[12px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
+          <p className="text-[14px] mt-1" style={{ color: 'rgba(255,255,255,0.3)' }}>
             {hint}
           </p>
         )}
