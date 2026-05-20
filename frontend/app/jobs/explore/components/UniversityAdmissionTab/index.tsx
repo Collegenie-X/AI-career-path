@@ -154,7 +154,7 @@ export function UniversityAdmissionTab() {
             style={EXPLORE_PAGE_LAYOUT_CLASS.starGridListPanelStyle}
           >
             <div className="relative z-[1] space-y-3">
-              <p className="admission-orbit-callout text-center text-[11px] font-black uppercase tracking-wide text-teal-200/90">
+              <p className="admission-orbit-callout text-center text-[12px] font-black uppercase tracking-wide text-teal-200/90">
                 {admissionExploreOrbitCallout('university')}
               </p>
               <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />

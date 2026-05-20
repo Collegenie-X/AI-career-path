@@ -70,7 +70,7 @@ export function CareerMajorConnectionView({
             <Briefcase className="w-5 h-5 text-emerald-400 flex-shrink-0" />
             <div>
               <h2 className="text-sm font-bold text-white leading-tight">직업(과)별 대입 준비 전략</h2>
-              <p className="text-[10px] text-emerald-300/80 mt-0.5">직업별 학과·세특 전략을 확인하세요</p>
+              <p className="text-[12px] text-emerald-300/80 mt-0.5">직업별 학과·세특 전략을 확인하세요</p>
             </div>
           </div>
           {onClose && (
@@ -143,11 +143,11 @@ export function CareerMajorConnectionView({
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5 flex-wrap">
                     <h4 className="text-sm font-bold text-white">{career.name}</h4>
-                    <span className="text-[10px] text-white/40">{career.kingdom}</span>
+                    <span className="text-[12px] text-white/40">{career.kingdom}</span>
                   </div>
                   <p className="text-xs text-emerald-400 mb-1">{career.targetMajor}</p>
                   <div className="flex flex-wrap gap-1">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    <span className="text-[12px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                       {career.admissionType}
                     </span>
                   </div>
@@ -273,20 +273,20 @@ export function CareerMajorConnectionView({
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
                           <h4 className="text-sm font-bold text-white">{career.name}</h4>
-                          <span className="text-[10px] text-white/50">{career.kingdom}</span>
+                          <span className="text-[12px] text-white/50">{career.kingdom}</span>
                           {career.successStories && career.successStories.length > 0 && (
-                            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30">
+                            <span className="text-[12px] px-1.5 py-0.5 rounded-full bg-yellow-400/20 text-yellow-300 border border-yellow-400/30">
                               실전사례
                             </span>
                           )}
                         </div>
                         <p className="text-xs text-emerald-400 mb-1.5">{career.targetMajor}</p>
                         <div className="flex flex-wrap gap-1.5">
-                          <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                          <span className="text-[12px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
                             {career.admissionType}
                           </span>
                           {career.keySubjects.slice(0, 2).map((subject, idx) => (
-                            <span key={idx} className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/70">
+                            <span key={idx} className="text-[12px] px-2 py-0.5 rounded-full bg-white/10 text-white/70">
                               {subject}
                             </span>
                           ))}
@@ -297,7 +297,7 @@ export function CareerMajorConnectionView({
                           →
                         </span>
                         {career.universityDetails && career.universityDetails.length > 0 && (
-                          <span className="text-[9px] text-blue-400">{career.universityDetails.length}개교</span>
+                          <span className="text-[12px] text-blue-400">{career.universityDetails.length}개교</span>
                         )}
                       </div>
                     </div>

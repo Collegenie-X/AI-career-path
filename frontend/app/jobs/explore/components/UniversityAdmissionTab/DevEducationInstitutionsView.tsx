@@ -107,7 +107,7 @@ export function DevEducationInstitutionsView({
             <Building2 className="w-5 h-5 flex-shrink-0" style={{ color: rightPanelColor }} />
             <div>
               <h2 className="text-sm font-bold text-white leading-tight">{rightPanelTitle}</h2>
-              <p className="text-[10px] mt-0.5" style={{ color: `${rightPanelColor}cc` }}>{rightPanelSubtitle}</p>
+              <p className="text-[12px] mt-0.5" style={{ color: `${rightPanelColor}cc` }}>{rightPanelSubtitle}</p>
             </div>
           </div>
           {onClose && (
@@ -157,10 +157,10 @@ export function DevEducationInstitutionsView({
                     <p className="text-xs text-white/50 mb-0.5">{institution.fullName}</p>
                   )}
                   <div className="flex flex-wrap gap-1.5 mt-1">
-                    <span className="text-[10px] px-2 py-0.5 rounded-full" style={{ background: `${institution.color}30`, color: 'white' }}>
+                    <span className="text-[12px] px-2 py-0.5 rounded-full" style={{ background: `${institution.color}30`, color: 'white' }}>
                       {institution.type}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/10 text-white/70">
+                    <span className="text-[12px] px-2 py-0.5 rounded-full bg-white/10 text-white/70">
                       {institution.duration}
                     </span>
                   </div>

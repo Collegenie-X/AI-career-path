@@ -235,11 +235,11 @@ function OverviewTab({
             </a>
           )}
         </div>
-        <p className="text-xs text-gray-200 leading-relaxed">
+        <p className="text-sm text-gray-200 leading-relaxed">
           <HL text={school.description || school.specialCertification || '학교 소개 정보가 준비 중입니다.'} />
         </p>
         {school.middleSchoolGuide && (
-          <p className="mt-2 pt-2 text-xs text-white leading-relaxed border-t" style={{ borderColor: `${categoryColor}30` }}>
+          <p className="mt-2 pt-2 text-sm text-white leading-relaxed border-t" style={{ borderColor: `${categoryColor}30` }}>
             <span className="font-semibold" style={{ color: categoryColor }}>📖 한 줄 요약 · </span>
             <HL text={school.middleSchoolGuide.oneLineAbout} />
           </p>
@@ -279,7 +279,7 @@ function OverviewTab({
               <p className="text-xs font-bold mb-1.5 text-green-300">✅ 이런 친구한테 잘 맞아요</p>
               <ul className="space-y-1">
                 {school.middleSchoolGuide.goodFor.map((item, i) => (
-                  <li key={i} className="text-xs text-gray-200 leading-snug pl-3 relative">
+                  <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                     <span className="absolute left-0 text-green-400">·</span>
                     <HL text={item} />
                   </li>
@@ -290,7 +290,7 @@ function OverviewTab({
               <p className="text-xs font-bold mb-1.5 text-red-300">⚠️ 이런 친구는 다시 생각해 봐요</p>
               <ul className="space-y-1">
                 {school.middleSchoolGuide.notForYouIf.map((item, i) => (
-                  <li key={i} className="text-xs text-gray-200 leading-snug pl-3 relative">
+                  <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                     <span className="absolute left-0 text-red-400">·</span>
                     <HL text={item} />
                   </li>
@@ -304,7 +304,7 @@ function OverviewTab({
             <p className="text-xs font-bold mb-1.5" style={{ color: categoryColor }}>📋 지금(중학생 때) 뭘 해야 해요?</p>
             <ul className="space-y-1">
               {school.middleSchoolGuide.whatToDoNow.map((item, i) => (
-                <li key={i} className="text-xs text-gray-200 leading-snug pl-4 relative">
+                <li key={i} className="text-sm text-gray-200 leading-snug pl-4 relative">
                   <span className="absolute left-0 text-xs" style={{ color: categoryColor }}>{i + 1}.</span>
                   <HL text={item} />
                 </li>
@@ -316,11 +316,11 @@ function OverviewTab({
           <div className="grid grid-cols-2 gap-2">
             <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <p className="text-xs text-gray-500 mb-0.5">📅 입시 일정</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug"><HL text={school.middleSchoolGuide.admissionTimeline} /></p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={school.middleSchoolGuide.admissionTimeline} /></p>
             </div>
             <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
               <p className="text-xs text-gray-500 mb-0.5">📊 경쟁률</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug"><HL text={school.middleSchoolGuide.competitionRate} /></p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={school.middleSchoolGuide.competitionRate} /></p>
             </div>
           </div>
 
@@ -329,7 +329,7 @@ function OverviewTab({
             <p className="text-xs font-bold mb-1.5" style={{ color: categoryColor }}>🔍 학교가 뭘 봐요?</p>
             <ul className="space-y-1">
               {school.middleSchoolGuide.whatTheyCheck.map((item, i) => (
-                <li key={i} className="text-xs text-gray-200 leading-snug pl-3 relative">
+                <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                   <span className="absolute left-0">·</span>
                   <HL text={item} />
                 </li>
@@ -340,9 +340,9 @@ function OverviewTab({
           {/* AI 팁 + 홈페이지에서 확인할 것 */}
           <div className="rounded-xl p-3" style={{ background: 'rgba(168,85,247,0.10)', border: '1px solid rgba(168,85,247,0.30)' }}>
             <p className="text-xs font-bold mb-1 text-purple-300">🤖 AI 시대 한 줄 조언</p>
-            <p className="text-xs text-gray-200 leading-relaxed mb-2"><HL text={school.middleSchoolGuide.aiTipForMiddleSchooler} /></p>
+            <p className="text-sm text-gray-200 leading-relaxed mb-2"><HL text={school.middleSchoolGuide.aiTipForMiddleSchooler} /></p>
             <p className="text-xs font-bold mb-1 text-blue-300">🌐 홈페이지에서 꼭 확인하세요</p>
-            <p className="text-xs text-gray-200 leading-relaxed"><HL text={school.middleSchoolGuide.homepageMustCheck} /></p>
+            <p className="text-sm text-gray-200 leading-relaxed"><HL text={school.middleSchoolGuide.homepageMustCheck} /></p>
           </div>
 
           {/* 마지막 홈페이지 버튼 */}
@@ -375,17 +375,17 @@ function OverviewTab({
           </p>
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(234,179,8,0.10)', border: '1px solid rgba(234,179,8,0.25)' }}>
             <p className="text-xs font-bold mb-1 text-yellow-300">📰 2028 개편 영향</p>
-            <p className="text-xs text-gray-200 leading-relaxed"><HL text={school.update2028AI.policy2028} /></p>
+            <p className="text-sm text-gray-200 leading-relaxed"><HL text={school.update2028AI.policy2028} /></p>
           </div>
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(16,185,129,0.10)', border: '1px solid rgba(16,185,129,0.25)' }}>
             <p className="text-xs font-bold mb-1 text-emerald-300">🤖 AI 시대 영향</p>
-            <p className="text-xs text-gray-200 leading-relaxed"><HL text={school.update2028AI.aiEra} /></p>
+            <p className="text-sm text-gray-200 leading-relaxed"><HL text={school.update2028AI.aiEra} /></p>
           </div>
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
             <p className="text-xs font-bold mb-1.5 text-red-300">🚨 꼭 챙겨야 할 점</p>
             <ul className="space-y-1">
               {school.update2028AI.cautionPoints.map((item, i) => (
-                <li key={i} className="text-xs text-gray-200 leading-snug pl-3 relative">
+                <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                   <span className="absolute left-0 text-red-400">·</span>
                   <HL text={item} />
                 </li>
@@ -412,7 +412,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.regionScope}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.regionScope}</p>
             </div>
             {/* 정원 */}
             <div
@@ -420,7 +420,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.capacity}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.capacity}</p>
             </div>
             {/* 남녀 비율 */}
             <div
@@ -428,7 +428,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">⚖️ 남녀 비율</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.genderRatio}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.genderRatio}</p>
             </div>
             {/* 기숙사 */}
             <div
@@ -436,7 +436,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.dormitoryType}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.dormitoryType}</p>
             </div>
             {/* 연간 비용 */}
             <div
@@ -444,7 +444,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.costPerYear}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.costPerYear}</p>
             </div>
             {/* 장학금 */}
             <div
@@ -452,7 +452,7 @@ function OverviewTab({
               style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
             >
               <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
-              <p className="text-xs font-semibold text-gray-200 leading-snug">{infoCard.scholarship}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.scholarship}</p>
             </div>
           </div>
           {/* 저소득 가정 조언 */}
@@ -462,7 +462,7 @@ function OverviewTab({
               style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
             >
               <p className="text-xs font-bold text-yellow-400 mb-0.5">💡 소득 하위 가정 조언</p>
-              <p className="text-xs text-gray-200 leading-relaxed">{infoCard.lowIncomeAdvice}</p>
+              <p className="text-sm text-gray-200 leading-relaxed">{infoCard.lowIncomeAdvice}</p>
             </div>
           )}
         </div>
@@ -483,7 +483,7 @@ function OverviewTab({
             <p className="text-xs font-bold text-red-400 mb-1">✅ 필수 조건 (없으면 불합격)</p>
             <ul className="space-y-1">
               {qualifications.mandatory.map((item, i) => (
-                <li key={i} className="flex items-start gap-1.5 text-xs text-gray-200 leading-snug">
+                <li key={i} className="flex items-start gap-1.5 text-sm text-gray-200 leading-snug">
                   <span className="text-red-400 flex-shrink-0 mt-0.5">▸</span>
                   <span><HL text={item} /></span>
                 </li>
@@ -530,7 +530,7 @@ function OverviewTab({
               style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)' }}
             >
               <p className="text-xs font-bold text-purple-400 mb-0.5">🤖 AI 세특 전형 팁</p>
-              <p className="text-xs text-gray-200 leading-relaxed"><HL text={qualifications.aiTip} /></p>
+              <p className="text-sm text-gray-200 leading-relaxed"><HL text={qualifications.aiTip} /></p>
             </div>
           )}
         </div>
@@ -638,7 +638,7 @@ function AdmissionTab({
             ))}
           </div>
         ) : (
-          <p className="text-xs text-gray-200 leading-relaxed"><HL text={admissionProcess as string} /></p>
+          <p className="text-sm text-gray-200 leading-relaxed"><HL text={admissionProcess as string} /></p>
         )}
       </div>
 
@@ -686,7 +686,7 @@ function AdmissionTab({
             <Lightbulb className="w-3.5 h-3.5" />
             합격 전략 TIP
           </p>
-          <p className="text-xs text-gray-200 leading-relaxed"><HL text={school.admissionTip} /></p>
+          <p className="text-sm text-gray-200 leading-relaxed"><HL text={school.admissionTip} /></p>
         </div>
       )}
     </div>
@@ -783,7 +783,7 @@ function CareerPathTab({
                     }}
                   >
                     <p className="text-xs font-bold text-yellow-400 mb-0.5">💡 이 시기의 핵심</p>
-                    <p className="text-xs text-gray-200 leading-relaxed"><HL text={step.keyPoint} /></p>
+                    <p className="text-sm text-gray-200 leading-relaxed"><HL text={step.keyPoint} /></p>
                   </div>
                 </div>
               </div>
@@ -875,7 +875,7 @@ function SurvivalTab({
           </p>
           <ul className="space-y-1.5">
             {school.pros.map((pro, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-gray-200 leading-relaxed">
+              <li key={i} className="flex items-start gap-2 text-sm text-gray-200 leading-relaxed">
                 <span className="text-green-400 flex-shrink-0">✓</span>
                 <span><HL text={pro} /></span>
               </li>
@@ -898,7 +898,7 @@ function SurvivalTab({
           </p>
           <ul className="space-y-1.5">
             {school.cons.map((con, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-gray-200 leading-relaxed">
+              <li key={i} className="flex items-start gap-2 text-sm text-gray-200 leading-relaxed">
                 <span className="text-red-400 flex-shrink-0">✗</span>
                 <span><HL text={con} /></span>
               </li>
@@ -937,7 +937,7 @@ function SurvivalTab({
                   >
                     {emoji}
                   </div>
-                  <p className="text-xs text-gray-200 leading-relaxed"><HL text={typeof text === 'string' ? text : String(text)} /></p>
+                  <p className="text-sm text-gray-200 leading-relaxed"><HL text={typeof text === 'string' ? text : String(text)} /></p>
                 </div>
               );
             })}
@@ -1002,7 +1002,7 @@ function RealLifeTab({
             <p className="text-xs font-bold text-white">{item.title}</p>
           </div>
           <div className="px-3 py-2.5" style={{ background: 'rgba(255,255,255,0.02)' }}>
-            <p className="text-xs text-gray-200 leading-relaxed"><HL text={item.content} /></p>
+            <p className="text-sm text-gray-200 leading-relaxed"><HL text={item.content} /></p>
           </div>
         </div>
       ))}

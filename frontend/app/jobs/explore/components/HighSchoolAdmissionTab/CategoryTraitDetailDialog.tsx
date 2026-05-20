@@ -8,33 +8,14 @@ import { CATEGORY_TRAIT_DETAIL } from './category-trait-detail-config';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { HighSchoolAiEraStrategyContent } from './HighSchoolAiEraStrategyContent';
 import { HIGH_SCHOOL_LABELS } from '../../config';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
-/** ==text== 마크업을 형광펜 효과로 렌더링 */
+/**
+ * ==text== 형광펜 + 입시 약자 말풍선 툴팁을 함께 렌더링.
+ * 클릭/호버 시 토큰 위치에서 풀어 쓴 이름·설명이 말풍선으로 표시됩니다.
+ */
 function HL({ text }: { text: string }) {
-  const parts = text.split(/==(.+?)==/g);
-  return (
-    <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? (
-          <mark
-            key={i}
-            className="rounded-sm px-0.5 not-italic"
-            style={{
-              background: 'linear-gradient(120deg, rgba(250,204,21,0.4) 0%, rgba(250,204,21,0.65) 100%)',
-              color: 'inherit',
-              fontWeight: 700,
-              boxDecorationBreak: 'clone',
-              WebkitBoxDecorationBreak: 'clone',
-            } as React.CSSProperties}
-          >
-            {part}
-          </mark>
-        ) : (
-          part
-        )
-      )}
-    </>
-  );
+  return <GlossaryText>{text}</GlossaryText>;
 }
 
 // ── 타입 ──────────────────────────────────────────────────────
@@ -140,8 +121,8 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
                 {category.emoji}
               </div>
               <div>
-                <h2 className="text-base font-bold text-white">{category.name}</h2>
-                <p className="text-xs text-gray-500 mt-0.5"><HL text={category.description} /></p>
+                <h2 className="text-lg font-bold text-white">{category.name}</h2>
+                <p className="text-sm text-gray-300 mt-1 leading-relaxed"><HL text={category.description} /></p>
               </div>
             </div>
             <button
@@ -165,12 +146,12 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
                 className="flex-1 py-2.5 rounded-lg font-semibold transition-all flex flex-col items-center gap-0.5"
                 style={{
                   background: activeTab === tab.id ? `${categoryColor}40` : 'transparent',
-                  color: activeTab === tab.id ? categoryColor : '#6b7280',
+                  color: activeTab === tab.id ? '#ffffff' : '#9ca3af',
                   boxShadow: activeTab === tab.id ? `0 2px 8px ${categoryColor}30` : 'none',
                 }}
               >
-                <span className="text-base">{tab.emoji}</span>
-                <span className="text-xs leading-tight">{tab.label}</span>
+                <span className="text-lg">{tab.emoji}</span>
+                <span className="text-sm font-semibold leading-tight">{tab.label}</span>
               </button>
             ))}
           </div>
@@ -240,26 +221,26 @@ function TraitsTab({
     <div className="px-4 py-4 space-y-4">
       {/* 6개 특성 2열 그리드 */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: categoryColor }}>
+        <p className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: categoryColor }}>
           📋 이 유형의 6가지 특성
         </p>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2.5">
           {TRAIT_ITEMS.map((item) => (
             <div
               key={item.key}
-              className="rounded-2xl p-3 flex flex-col gap-1.5"
+              className="rounded-2xl p-3.5 flex flex-col gap-2"
               style={{
-                background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.2) 100%)`,
-                border: `1px solid ${categoryColor}30`,
+                background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.25) 100%)`,
+                border: `1px solid ${categoryColor}40`,
               }}
             >
-              <div className="flex items-center gap-1.5">
-                <span className="text-xl">{item.emoji}</span>
-                <span className="text-xs font-bold" style={{ color: categoryColor }}>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl">{item.emoji}</span>
+                <span className="text-sm font-bold" style={{ color: categoryColor }}>
                   {item.label.replace(/^[^ ]+ /, '')}
                 </span>
               </div>
-              <p className="text-xs text-gray-300 leading-relaxed">
+              <p className="text-sm text-gray-100 leading-relaxed">
                 <HL text={category.categoryTraits[item.key]} />
               </p>
             </div>
@@ -275,15 +256,15 @@ function TraitsTab({
           border: '1px solid rgba(239,68,68,0.4)',
         }}
       >
-        <p className="text-xs font-bold text-red-400 mb-2 flex items-center gap-1.5">
+        <p className="text-sm font-bold text-red-300 mb-2 flex items-center gap-1.5">
           ❤️‍🔥 자존감이 낮으면 위험해요
         </p>
-        <p className="text-xs text-gray-200 leading-relaxed">{selfEsteemEmphasis}</p>
-        <div className="mt-3 flex flex-wrap gap-1.5">
+        <p className="text-sm text-gray-100 leading-relaxed"><HL text={selfEsteemEmphasis} /></p>
+        <div className="mt-3 flex flex-wrap gap-2">
           {['성적 하락', '자신감 상실', '악순환 주의'].map((tag) => (
             <span
               key={tag}
-              className="text-xs font-bold px-2 py-0.5 rounded-full"
+              className="text-xs font-bold px-2.5 py-1 rounded-full"
               style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171' }}
             >
               ⚠️ {tag}

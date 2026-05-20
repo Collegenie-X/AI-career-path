@@ -95,7 +95,7 @@ export function TopStrategyHubQAItem({
                     className="flex items-start gap-2"
                   >
                     <div className="w-5 h-5 rounded-md bg-indigo-500/25 flex items-center justify-center border border-indigo-400/40 mt-0.5 shrink-0">
-                      <span className="text-[10px] font-bold text-indigo-200">{stepIndex + 1}</span>
+                      <span className="text-[12px] font-bold text-indigo-200">{stepIndex + 1}</span>
                     </div>
                     <p className="text-xs text-indigo-100 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
                       <HighlightText>{step}</HighlightText>
@@ -141,7 +141,7 @@ export function TopStrategyHubQAItem({
                     className="flex items-start gap-2"
                   >
                     <div className="w-4 h-4 rounded bg-blue-500/25 flex items-center justify-center border border-blue-400/40 mt-0.5 shrink-0">
-                      <span className="text-[9px]">✓</span>
+                      <span className="text-[12px]">✓</span>
                     </div>
                     <p className="text-xs text-blue-100 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
                       <HighlightText>{checkItem}</HighlightText>

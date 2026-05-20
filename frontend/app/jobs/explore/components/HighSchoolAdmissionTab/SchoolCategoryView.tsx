@@ -20,33 +20,14 @@ import { HIGH_SCHOOL_LABELS } from '../../config';
 import { CATEGORY_TRAIT_DETAIL, type QuizQuestion } from './category-trait-detail-config';
 import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
-/** ==text== 마크업을 형광펜 효과로 렌더링 */
+/**
+ * ==text== 형광펜 + 입시 약자 말풍선 툴팁을 함께 렌더링.
+ * GlossaryText가 ==highlight== 마크업과 등록된 용어(R&E·학종·세특·KMO 등) 호버/탭 툴팁을 모두 처리.
+ */
 function HL({ text }: { text: string }) {
-  const parts = text.split(/==(.+?)==/g);
-  return (
-    <>
-      {parts.map((part, i) =>
-        i % 2 === 1 ? (
-          <mark
-            key={i}
-            className="rounded-sm px-0.5 not-italic"
-            style={{
-              background: 'linear-gradient(120deg, rgba(250,204,21,0.4) 0%, rgba(250,204,21,0.65) 100%)',
-              color: 'inherit',
-              fontWeight: 700,
-              boxDecorationBreak: 'clone',
-              WebkitBoxDecorationBreak: 'clone',
-            } as React.CSSProperties}
-          >
-            {part}
-          </mark>
-        ) : (
-          part
-        )
-      )}
-    </>
-  );
+  return <GlossaryText>{text}</GlossaryText>;
 }
 
 type SchoolCategoryViewProps = {
@@ -123,8 +104,8 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
           >
             <span className="text-3xl flex-shrink-0">{category.emoji}</span>
             <div className="min-w-0 flex-1">
-              <p className="text-base font-bold text-white leading-tight">{category.name}</p>
-              <p className="text-xs mt-1 leading-snug" style={{ color: category.color }}><HL text={category.description} /></p>
+              <p className="text-lg font-bold text-white leading-tight">{category.name}</p>
+              <p className="text-sm mt-1.5 leading-relaxed text-gray-100"><HL text={category.description} /></p>
             </div>
             {variant === 'rightDetail' && (
               <button
@@ -149,7 +130,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
           }}
         >
           <div className="px-4 pt-4 pb-3">
-            <p className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: category.color }}>
+            <p className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: category.color }}>
               {HIGH_SCHOOL_LABELS.school_trait_detail_title}
             </p>
           <div className="space-y-3">
@@ -168,7 +149,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
         <button
           type="button"
           onClick={() => setCategoryTraitDialogOpen(true)}
-          className="w-full py-3 flex items-center justify-center gap-2 text-xs font-bold transition-all active:scale-[0.99]"
+          className="w-full py-3.5 flex items-center justify-center gap-2 text-sm font-bold transition-all active:scale-[0.99]"
           style={{
             background: `${category.color}18`,
             borderTop: `1.5px solid ${category.color}30`,
@@ -195,7 +176,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
               setShowAptitudeQuiz(prev => !prev);
               if (!showAptitudeQuiz) setQuizPhase({ phase: 'intro' });
             }}
-            className="w-full py-3 flex items-center justify-center gap-2 text-xs font-bold transition-all active:scale-[0.99]"
+            className="w-full py-3.5 flex items-center justify-center gap-2 text-sm font-bold transition-all active:scale-[0.99]"
             style={{
               background: `${category.color}18`,
               color: category.color,
@@ -230,7 +211,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
 
       {/* ── 학교 목록 (단순화) ── */}
       <div>
-        <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+        <p className="text-sm font-bold text-gray-300 uppercase tracking-wider mb-2">
           {category.schools.length}{HIGH_SCHOOL_LABELS.school_list_section_title} · {HIGH_SCHOOL_LABELS.school_list_click_hint}
         </p>
         <div className={variant === 'rightDetail' ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
@@ -271,13 +252,13 @@ function TraitRow({
   return (
     <div className="flex items-start gap-2">
       <div
-        className="flex items-center gap-1 flex-shrink-0 mt-0.5 px-1.5 py-0.5 rounded-lg"
-        style={{ background: `${color}15` }}
+        className="flex items-center gap-1 flex-shrink-0 mt-0.5 px-2 py-1 rounded-lg"
+        style={{ background: `${color}20` }}
       >
-        <span className="text-xs">{emoji}</span>
-        <span className="text-xs font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
+        <span className="text-sm">{emoji}</span>
+        <span className="text-sm font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
       </div>
-      <p className="text-xs text-gray-300 leading-relaxed"><HL text={value} /></p>
+      <p className="text-sm text-gray-100 leading-relaxed"><HL text={value} /></p>
     </div>
   );
 }

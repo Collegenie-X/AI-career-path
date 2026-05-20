@@ -52,7 +52,7 @@ export function TopStrategyHubCard({ card, index, sectionId, gradeId }: TopStrat
             className="flex items-start gap-2"
           >
             <div className="w-5 h-5 rounded-md bg-emerald-500/20 flex items-center justify-center border border-emerald-400/40 mt-0.5 shrink-0">
-              <span className="text-[10px] font-bold text-emerald-300">{stepIndex + 1}</span>
+              <span className="text-[12px] font-bold text-emerald-300">{stepIndex + 1}</span>
             </div>
             <p className="text-xs text-slate-200 leading-relaxed flex-1" style={{ fontSize: '12px' }}>
               <HighlightText>{step}</HighlightText>

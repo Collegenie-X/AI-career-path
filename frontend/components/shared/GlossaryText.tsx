@@ -116,6 +116,18 @@ const GLOSSARY: Record<string, GlossaryEntry> = {
 
   // ── 그 외 ────────────────────────────────────────────────────
   'R&E': { full: 'Research & Education', meaning: '학생이 교수·교사 지도로 진행하는 연구 활동', emoji: '🔬' },
+  'KPhO': { full: '한국물리올림피아드 (Korean Physics Olympiad)', meaning: '대한물리학회가 주관하는 국내 물리 올림피아드. 국제물리올림피아드(IPhO) 대표 선발 관문', emoji: '⚛️' },
+  'KChO': { full: '한국화학올림피아드 (Korean Chemistry Olympiad)', meaning: '대한화학회가 주관하는 국내 화학 올림피아드', emoji: '🧪' },
+  'KBO': { full: '한국생물올림피아드 (Korean Biology Olympiad)', meaning: '한국생물올림피아드위원회가 주관하는 국내 생물 올림피아드', emoji: '🧬' },
+  'KAO': { full: '한국천문올림피아드 (Korean Astronomy Olympiad)', meaning: '한국천문학회가 주관하는 국내 천문 올림피아드', emoji: '🔭' },
+  'Wolfram': { full: 'Wolfram Alpha / Mathematica', meaning: '수식 계산·기호 연산·과학 데이터 분석에 특화된 컴퓨팅 도구', emoji: '🧮' },
+  'RPA': { full: 'Robotic Process Automation', meaning: '반복 사무 업무(엑셀·전표·문서 입력 등)를 봇이 자동 수행하는 기술', emoji: '🤖' },
+  '통합형 수능': { full: '2028 통합형 수능 개편', meaning: '문·이과 통합, 심화수학 미포함, 절대평가 확대 등을 포함한 2028학년 수능 개편', emoji: '📐' },
+  '심화수학': { full: '심화수학 영역', meaning: '미적분·기하 등 이공계 심화 수학. 2028 수능 개편으로 본시험에서 제외', emoji: '➗' },
+  '변별력': { full: '변별력', meaning: '시험이 상위권 학생을 얼마나 잘 가려내는지의 정도. 높을수록 점수 편차가 크다', emoji: '📊' },
+  '면접': { full: '면접 전형', meaning: '학생부·서류만으로 판단하기 어려운 인성·논리·전공적합성을 평가하는 구술 평가', emoji: '🎤' },
+  '번아웃': { full: 'Burnout (소진증후군)', meaning: '장기간 누적된 학습·스트레스로 동기·집중력·체력이 한꺼번에 무너지는 상태', emoji: '🪫' },
+  '선행': { full: '선행학습', meaning: '현재 학년 진도보다 앞서 배우는 학습. 과학고·영재고 대비에 흔히 사용', emoji: '⏩' },
   '아포스티유': { full: 'Apostille', meaning: '해외 발급 서류를 한국에서도 인정받게 하는 국제 인증', emoji: '🛂' },
   '공증': { full: '공증', meaning: '서류가 진짜임을 공식적으로 증명하는 절차', emoji: '✅' },
   '동아리': { full: '동아리', meaning: '학교 안 학생 활동 모임. 정규 동아리만 학생부 1순위', emoji: '🎪' },
@@ -1093,22 +1105,17 @@ export function GlossaryText({
     <span className={className}>
       {segments.map((seg, i) =>
         seg.highlight ? (
-          <mark
+          <span
             key={`h-${i}`}
+            className="font-semibold"
             style={{
-              // 전체 노란색 fill + 검정 글자 — 가장 읽기 좋음
-              background: 'rgb(253, 224, 71)',
-              color: 'rgb(24, 24, 27)',
-              fontWeight: 'inherit',
-              padding: '1px 4px',
-              borderRadius: 3,
-              boxDecorationBreak: 'clone',
-              WebkitBoxDecorationBreak: 'clone',
-              textDecoration: 'none',
+              background: 'linear-gradient(180deg, transparent 62%, rgba(250,204,21,0.28) 62%)',
+              color: '#ffffff',
+              padding: '0 1px',
             }}
           >
             {renderWithGlossary(seg.text, `h${i}`)}
-          </mark>
+          </span>
         ) : (
           <span key={`p-${i}`}>{renderWithGlossary(seg.text, `p${i}`)}</span>
         )

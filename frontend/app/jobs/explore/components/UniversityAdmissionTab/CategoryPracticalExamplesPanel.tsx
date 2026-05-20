@@ -60,7 +60,7 @@ export function CategoryPracticalExamplesPanel({
           <Crosshair className="w-4 h-4" style={{ color: category.color }} />
           <h3 className="text-sm font-bold text-white">입학사정관 설득 어필 전략</h3>
         </div>
-        <p className="text-[11px] text-white/65">단계별 행동 플랜으로 합격을 설계하세요</p>
+        <p className="text-[12px] text-white/65">단계별 행동 플랜으로 합격을 설계하세요</p>
       </div>
 
       {/* 어필 단계 아코디언 */}
@@ -108,7 +108,7 @@ export function CategoryPracticalExamplesPanel({
                       >
                         <div className="flex items-start gap-1.5">
                           <MessageSquareQuote className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: category.color }} />
-                          <p className="text-[11px] text-white/75 leading-relaxed">{s.tip}</p>
+                          <p className="text-[12px] text-white/75 leading-relaxed">{s.tip}</p>
                         </div>
                       </div>
                     </div>

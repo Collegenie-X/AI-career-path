@@ -225,13 +225,13 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
                 <GraduationCap className="w-4 h-4" style={{ color: category.color }} />
                 <p className="text-[12px] font-bold text-white">주요 지원 대학</p>
                 <span
-                  className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full"
+                  className="text-[12px] font-semibold px-1.5 py-0.5 rounded-full"
                   style={{ background: `${category.color}25`, color: category.color, border: `1px solid ${category.color}40` }}
                 >
                   {category.universities.length}곳
                 </span>
               </div>
-              <span className="text-[10px] text-white/50">클릭하면 자세히 보기</span>
+              <span className="text-[12px] text-white/50">클릭하면 자세히 보기</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 panel-pop-stagger-fast">
               {category.universities.map((university, index) => (
@@ -316,7 +316,7 @@ function AdmissionOfficerTab({ category, playbook }: { category: AdmissionCatego
           <Eye className="w-4 h-4" style={{ color: category.color }} />
           <h3 className="text-sm font-bold text-white">{view?.title ?? '입학사정관이 보는 핵심 3가지'}</h3>
         </div>
-        <p className="text-[11px] text-white/65">입학사정관의 시선으로 내 준비를 점검하세요</p>
+        <p className="text-[12px] text-white/65">입학사정관의 시선으로 내 준비를 점검하세요</p>
       </div>
 
       {/* 3가지 관점 카드 */}
@@ -381,7 +381,7 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
 
   return (
     <div className="space-y-1">
-      <p className="text-[11px] text-white/60 mb-2 px-1">학년별 트리 — 탭하여 펼치기/접기</p>
+      <p className="text-[12px] text-white/60 mb-2 px-1">학년별 트리 — 탭하여 펼치기/접기</p>
       {playbook.gradeRoadmap.map((gradePlan) => {
         const isOpen = expandedGrades[gradePlan.grade] ?? true;
         return (
@@ -410,7 +410,7 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
               <div className="space-y-0" style={{ background: 'rgba(15,23,42,0.45)' }}>
                 {/* 1단계: 핵심 목표 */}
                 <div className="px-4 py-2 pl-8 border-t border-white/5">
-                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
+                  <p className="text-[12px] font-bold uppercase tracking-wider mb-1" style={{ color: category.color }}>
                     핵심 목표
                   </p>
                   <p className="text-xs text-white/90">{gradePlan.goal}</p>
@@ -418,7 +418,7 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
 
                 {/* 2단계: 미션 체크리스트 */}
                 <div className="px-4 py-2 pl-8 border-t border-white/5">
-                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                  <p className="text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
                     미션 체크리스트
                   </p>
                   <ul className="space-y-1">
@@ -433,13 +433,13 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
 
                 {/* 3단계: 실전 결과물 예시 */}
                 <div className="px-4 py-2 pl-8 border-t border-white/5">
-                  <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                  <p className="text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
                     실전 결과물 예시
                   </p>
                   <ul className="space-y-1">
                     {gradePlan.outputExamples.map((item, idx) => (
                       <li key={idx} className="text-xs text-white/80 flex items-start gap-2">
-                        <span className="text-[10px] opacity-70">▸</span>
+                        <span className="text-[12px] opacity-70">▸</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -449,7 +449,7 @@ function GradeRoadmapTab({ category, playbook }: { category: AdmissionCategory; 
                 {/* 4단계: AI 프로젝트 */}
                 {gradePlan.aiProject && (
                   <div className="px-4 py-2 pl-8 border-t border-white/5">
-                    <p className="text-[10px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
+                    <p className="text-[12px] font-bold uppercase tracking-wider mb-1.5" style={{ color: category.color }}>
                       🤖 AI 프로젝트
                     </p>
                     <div
@@ -506,7 +506,7 @@ function Ai2028StrategyTab({ category, playbook }: { category: AdmissionCategory
                 className="rounded px-2 py-1"
                 style={{ background: 'rgba(0,0,0,0.3)', border: `1px solid ${category.color}25` }}
               >
-                <p className="text-[11px] text-white/65">💡 예시: {item.example}</p>
+                <p className="text-[12px] text-white/65">💡 예시: {item.example}</p>
               </div>
             </div>
           ))}
@@ -521,7 +521,7 @@ function Ai2028StrategyTab({ category, playbook }: { category: AdmissionCategory
             <div key={idx} className="rounded-lg p-2.5 bg-black/20 border border-white/8">
               <div className="flex items-center gap-2 mb-1">
                 <span
-                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                  className="text-[12px] font-bold px-2 py-0.5 rounded-full"
                   style={{ background: category.bgColor, color: category.color, border: `1px solid ${category.color}` }}
                 >
                   {proj.grade}
@@ -529,7 +529,7 @@ function Ai2028StrategyTab({ category, playbook }: { category: AdmissionCategory
                 <p className="text-xs font-semibold text-white/90">{proj.focus}</p>
               </div>
               <p className="text-xs text-white/80 mb-1 pl-1">▸ {proj.project}</p>
-              <p className="text-[11px] text-white/55 pl-1">📌 {proj.note}</p>
+              <p className="text-[12px] text-white/55 pl-1">📌 {proj.note}</p>
             </div>
           ))}
         </div>

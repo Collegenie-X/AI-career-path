@@ -29,7 +29,7 @@ const CONTENT_TAB_ITEMS: ReadonlyArray<{
 
 function ControlGroupLabel({ children }: { readonly children: string }) {
   return (
-    <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wide text-slate-500 w-9 sm:w-10">
+    <span className="shrink-0 text-[12px] font-semibold uppercase tracking-wide text-slate-500 w-9 sm:w-10">
       {children}
     </span>
   );
@@ -61,7 +61,7 @@ export function TopStrategyHubDetailControlBar({
                 type="button"
                 onClick={() => onSelectSection(section.id)}
                 className={[
-                  'shrink-0 px-2.5 py-1 rounded-lg text-[11px] sm:text-xs font-medium transition-colors border',
+                  'shrink-0 px-2.5 py-1 rounded-lg text-[12px] sm:text-xs font-medium transition-colors border',
                   isOn
                     ? 'bg-violet-500/15 text-violet-100 border-violet-400/35'
                     : 'bg-transparent text-slate-400 border-transparent hover:text-slate-200 hover:bg-white/[0.06]',
@@ -93,7 +93,7 @@ export function TopStrategyHubDetailControlBar({
                   type="button"
                   onClick={() => onSelectGrade(g.id)}
                   className={[
-                    'flex-1 min-w-0 px-2 py-1 rounded-md text-[11px] sm:text-xs font-semibold transition-colors',
+                    'flex-1 min-w-0 px-2 py-1 rounded-md text-[12px] sm:text-xs font-semibold transition-colors',
                     isOn
                       ? 'bg-emerald-500/20 text-emerald-100'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.05]',
@@ -123,7 +123,7 @@ export function TopStrategyHubDetailControlBar({
                   aria-selected={isOn}
                   onClick={() => onSelectContentTab(id)}
                   className={[
-                    'flex-1 min-w-0 inline-flex items-center justify-center gap-0.5 px-1.5 py-1 rounded-md text-[11px] sm:text-xs font-semibold transition-colors',
+                    'flex-1 min-w-0 inline-flex items-center justify-center gap-0.5 px-1.5 py-1 rounded-md text-[12px] sm:text-xs font-semibold transition-colors',
                     isOn
                       ? 'bg-violet-500/20 text-violet-100'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-white/[0.05]',

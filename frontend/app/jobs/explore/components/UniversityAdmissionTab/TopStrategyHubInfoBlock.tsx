@@ -39,7 +39,7 @@ export function TopStrategyHubInfoBlock({
               className="w-5 h-5 rounded-md flex items-center justify-center border mt-0.5 shrink-0"
               style={{ background: `${accentColor}40`, borderColor: accentColor }}
             >
-              <span className="text-[10px] font-bold">{index + 1}</span>
+              <span className="text-[12px] font-bold">{index + 1}</span>
             </div>
             <p className="text-xs leading-relaxed flex-1" style={{ fontSize: '12px' }}>
               <HighlightText>{item}</HighlightText>

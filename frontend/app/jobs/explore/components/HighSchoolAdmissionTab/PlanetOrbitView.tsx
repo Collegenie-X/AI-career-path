@@ -199,10 +199,10 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
             whileHover={{ scale: 1.02, x: 3 }}
             whileTap={{ scale: 0.97 }}
           >
-            <span className="text-base">{cat.emoji}</span>
+            <span className="text-xl">{cat.emoji}</span>
             <div className="min-w-0">
-              <p className="text-[12px] font-bold text-white truncate">{cat.name}</p>
-              <p className="text-[12px] truncate" style={{ color: cat.color }}>
+              <p className="text-sm font-bold text-white truncate">{cat.name}</p>
+              <p className="text-sm truncate" style={{ color: cat.color }}>
                 {cat.schools.length}개 학교
               </p>
             </div>

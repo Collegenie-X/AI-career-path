@@ -183,7 +183,7 @@ export function TopStrategyHubSection({ sections, onRequestOpenDetail }: TopStra
               {activeGrade.practicalExamples.slice(0, 2).map((example, index) => (
                 <div key={`${activeSection.id}-${activeGrade.id}-quick-example-${index}`} className="flex items-start gap-2">
                   <div className="w-4 h-4 rounded-md bg-emerald-500/20 flex items-center justify-center border border-emerald-400/40 mt-0.5 shrink-0">
-                    <span className="text-[10px] font-bold text-emerald-300">{index + 1}</span>
+                    <span className="text-[12px] font-bold text-emerald-300">{index + 1}</span>
                   </div>
                   <p className="text-xs text-emerald-100 leading-relaxed flex-1">
                     {example}
