@@ -4,9 +4,10 @@ import { useEffect, useState } from 'react';
 
 const STEPS = [
   { label: '적성 발견', color: '#3B82F6', emoji: '🧭' },
-  { label: '커리어 탐색', color: '#FBBF24', emoji: '🗺️' },
-  { label: 'AI 패스 설계', color: '#6C5CE7', emoji: '🤖' },
-  { label: '실행 계획', color: '#22C55E', emoji: '🚀' },
+  { label: '커리어 탐색', color: '#A855F7', emoji: '🗺️' },
+  { label: '패스 설계', color: '#22C55E', emoji: '🤖' },
+  { label: '실행 계획', color: '#FBBF24', emoji: '⚡' },
+  { label: '포트폴리오', color: '#EF4444', emoji: '🏅' },
 ];
 
 export function JourneyFlowSVG() {

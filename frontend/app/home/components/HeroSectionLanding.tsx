@@ -109,10 +109,10 @@ export function HeroSectionLanding() {
               className="mb-4 max-w-lg"
             >
               <p className="text-sm text-white/35 leading-relaxed mb-3 font-medium uppercase tracking-widest">
-                — 당신의 진로 여정은 4단계로 시작됩니다
+                — AI 시대, 진짜 문제를 찾고·기획하고·디버깅하는 5단계 여정
               </p>
               <div className="flex flex-wrap gap-2 mb-4 justify-center lg:justify-start">
-                {['🧭 적성검사', '🗺️ 커리어 탐색', '🤖 AI 패스 설계', '📋 실행 계획'].map((step, i) => (
+                {['🧭 적성 발견', '🗺️ 커리어 탐색', '🤖 패스 설계', '⚡ 실행 계획', '🏅 포트폴리오'].map((step, i) => (
                   <span
                     key={step}
                     className="text-xs font-semibold px-3 py-1.5 rounded-full border"

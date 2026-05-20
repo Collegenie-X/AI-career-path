@@ -10,7 +10,7 @@ const FOOTER_SECTIONS = [
       { label: '사업자번호: 760-57-00294', href: '#' },
       // { label: '통신판매업: 2025-서울강남-0001', href: '#' },
       { label:'경기도 하남시 풍산동 미사강변서로 16, 하우스디스마트벨리 10층 1046호', href: '#' },
-      { label: '대표번호: 010-2708-0051', href: '#' },
+      // { label: '대표번호: 010-2708-0051', href: '#' },
     ],
   },
   {
@@ -20,7 +20,7 @@ const FOOTER_SECTIONS = [
       { label: '평일 09:00~18:00', href: '#' },
       { label: '(점심시간 12:30~13:30)', href: '#' },
       // { label: '02-1234-5678', href: '#' },
-      { label: 'support@aicareerpath.co.kr', href: 'mailto:support@aicareerpath.co.kr' },
+      { label: 'jpdarrencompany@gmail.com', href: 'mailto:jpdarrencompany@gmail.com' },
     ],
   },
   {
@@ -29,7 +29,7 @@ const FOOTER_SECTIONS = [
       { label: '이용약관', href: '/terms' },
       { label: '개인정보취급방침', href: '/privacy' },
       { label: '이메일무단수집거부', href: '/email-policy' },
-      { label: '법적 고지', href: '/legal' },
+      // { label: '법적 고지', href: '/legal' },
     ],
   },
 ] as const;

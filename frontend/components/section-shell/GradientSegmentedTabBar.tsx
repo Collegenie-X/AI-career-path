@@ -1,6 +1,7 @@
 'use client';
 
 import type { ReactNode } from 'react';
+import { useState, useRef, useEffect, useId } from 'react';
 
 export type GradientSegmentedTabItem<TId extends string> = {
   readonly id: TId;
@@ -37,6 +38,21 @@ export function GradientSegmentedTabBar<TId extends string>({
   compact = false,
   ariaLabel,
 }: GradientSegmentedTabBarProps<TId>) {
+  const uid = useId();
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [isOpen]);
+
   const shellClassName = embeddedInSectionShell
     ? compact
       ? 'grid gap-2.5 pl-1 pt-1 pb-1 pr-0 rounded-none'
@@ -51,48 +67,136 @@ export function GradientSegmentedTabBar<TId extends string>({
     ? `repeat(${tabs.length}, auto)`
     : `repeat(${tabs.length}, minmax(0, 1fr))`;
 
-  return (
-    <div
-      className={compact ? `${shellClassName} w-fit ml-auto` : shellClassName}
-      style={{
-        ...shellStyle,
-        gridTemplateColumns: gridCols,
-      }}
-      role="tablist"
-      aria-label={ariaLabel}
-    >
-      {tabs.map((tab) => {
-        const isActive = activeTab === tab.id;
-        const leading = tab.icon ?? (tab.emoji ? <span>{tab.emoji}</span> : null);
+  const activeTabItem = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];
 
-        return (
-          <button
-            key={tab.id}
-            type="button"
-            onClick={() => onTabChange(tab.id)}
-            className={`flex items-center justify-center gap-2 rounded-none py-3 text-[13px] font-bold transition-all ${compact ? 'px-6 md:px-8 min-w-0' : ''}`}
-            style={
-              isActive
-                ? {
-                    background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
-                    color: '#fff',
-                    boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
-                  }
-                : {
-                    backgroundColor: 'rgba(255,255,255,0.04)',
-                    color: 'rgba(255,255,255,0.65)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                  }
-            }
-            role="tab"
-            aria-selected={isActive}
-            aria-current={isActive ? 'page' : undefined}
+  const handleSelect = (id: TId) => {
+    onTabChange(id);
+    setIsOpen(false);
+  };
+
+  return (
+    <>
+      {/* 모바일: 커스텀 드롭다운 */}
+      <div className="md:hidden w-full relative" ref={containerRef}>
+        {/* 트리거 버튼 */}
+        <button
+          type="button"
+          aria-haspopup="listbox"
+          aria-expanded={isOpen}
+          aria-label={ariaLabel}
+          onClick={() => setIsOpen((v) => !v)}
+          className="w-full flex items-center justify-between gap-2 py-3 px-4 text-[13px] font-bold text-white"
+          style={{
+            background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+            boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
+          }}
+        >
+          <span className="flex items-center gap-2">
+            {activeTabItem?.icon}
+            {activeTabItem?.emoji && <span>{activeTabItem.emoji}</span>}
+            <span>{activeTabItem?.label}</span>
+          </span>
+          <span
+            aria-hidden
+            className="transition-transform duration-200"
+            style={{ fontSize: 11, transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
           >
-            {leading}
-            <span className="truncate">{tab.label}</span>
-          </button>
-        );
-      })}
-    </div>
+            ▾
+          </span>
+        </button>
+
+        {/* 드롭다운 옵션 목록 */}
+        {isOpen && (
+          <ul
+            role="listbox"
+            aria-label={ariaLabel}
+            className="absolute left-0 right-0 z-40 mt-1 overflow-hidden"
+            style={{
+              backgroundColor: 'rgba(20,14,40,0.98)',
+              border: '1px solid rgba(108,92,231,0.4)',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.6)',
+            }}
+          >
+            {tabs.map((tab) => {
+              const isActive = tab.id === activeTab;
+              return (
+                <li
+                  key={tab.id}
+                  role="option"
+                  aria-selected={isActive}
+                  onClick={() => handleSelect(tab.id)}
+                  className="flex items-center gap-2 px-4 py-3 text-[13px] font-bold cursor-pointer transition-colors"
+                  style={
+                    isActive
+                      ? {
+                          background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                          color: '#fff',
+                        }
+                      : {
+                          color: 'rgba(255,255,255,0.7)',
+                        }
+                  }
+                  onMouseEnter={(e) => {
+                    if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = 'rgba(108,92,231,0.15)';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) (e.currentTarget as HTMLElement).style.backgroundColor = '';
+                  }}
+                >
+                  {tab.icon}
+                  {tab.emoji && <span>{tab.emoji}</span>}
+                  <span>{tab.label}</span>
+                  {isActive && <span className="ml-auto" style={{ color: '#a855f7' }}>✓</span>}
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+
+      {/* md 이상: 기존 세그먼트 탭 */}
+      <div
+        className={`hidden md:grid ${compact ? `${shellClassName} w-fit ml-auto` : shellClassName}`}
+        style={{
+          ...shellStyle,
+          gridTemplateColumns: gridCols,
+        }}
+        role="tablist"
+        aria-label={ariaLabel}
+      >
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.id;
+          const leading = tab.icon ?? (tab.emoji ? <span>{tab.emoji}</span> : null);
+
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => onTabChange(tab.id)}
+              className={`flex items-center justify-center gap-2 rounded-none py-3 text-[13px] font-bold transition-all ${compact ? 'px-6 md:px-8 min-w-0' : ''}`}
+              style={
+                isActive
+                  ? {
+                      background: 'linear-gradient(135deg, #6C5CE7, #a855f7)',
+                      color: '#fff',
+                      boxShadow: '0 4px 16px rgba(108,92,231,0.35)',
+                    }
+                  : {
+                      backgroundColor: 'rgba(255,255,255,0.04)',
+                      color: 'rgba(255,255,255,0.65)',
+                      border: '1px solid rgba(255,255,255,0.08)',
+                    }
+              }
+              role="tab"
+              aria-selected={isActive}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {leading}
+              <span className="truncate">{tab.label}</span>
+            </button>
+          );
+        })}
+      </div>
+    </>
   );
 }

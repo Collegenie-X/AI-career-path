@@ -9,12 +9,13 @@
       "line2": "나만의 커리어 패스",
       "icons": { "line1": [], "line2": [] }
     },
-    "description": "적성검사 → 커리어 경험 → AI 커리어 패스 → AI 실행 계획, 4단계 여정",
+    "description": "적성 발견 → 커리어 탐색 → 패스 설계 → 실행 계획 → 포트폴리오, 5단계 여정",
     "rotatingDescriptions": [
-      "적성검사 → 커리어 경험 → AI 커리어 패스 → AI 실행 계획, 4단계 여정",
+      "적성 발견 → 커리어 탐색 → 패스 설계 → 실행 계획 → 포트폴리오, 5단계 여정",
+      "AI 시대, 실행은 쉬워집니다. 진짜 문제를 찾고·정의하고·디버깅하는 힘이 차이를 만듭니다.",
+      "기획과 계획이 곧 경쟁력. AI CareerPath는 그 사고 과정을 함께 설계합니다.",
       "200개 직업 우주에서 AI가 나만의 궤적을 함께 찾아줍니다.",
-      "기본 기능 무료 · AI 협업 기능은 쓴 만큼 결제 (Cursor 방식)",
-      "AI와 템플릿 제작 · 나만의 패스 점검 · 실행 계획까지 함께 완성하세요."
+      "기본 기능 무료 · AI 협업 기능은 쓴 만큼 결제 (Cursor 방식)"
     ],
     "rotatingDescriptionIntervalMs": 5200,
     "cta": {
@@ -275,14 +276,14 @@
   "processSteps": {
     "header": {
       "badge": "🎮 How it works",
-      "title": "4단계 퀘스트",
-      "subtitle": "찾고 → 세우고 → 실행하고 → 완성하세요"
+      "title": "5단계 퀘스트",
+      "subtitle": "발견 → 탐색 → 설계 → 실행 → 포트폴리오 · 진짜 문제를 찾고, 기획하고, 디버깅하는 과정"
     },
     "steps": [
       {
         "number": "01",
         "emoji": "🔭",
-        "title": "찾다",
+        "title": "적성 발견",
         "subtitle": "직업 적성검사",
         "href": "/quiz",
         "ctaLabel": "적성검사 시작하기",
@@ -296,7 +297,7 @@
       {
         "number": "02",
         "emoji": "🗺️",
-        "title": "세우다",
+        "title": "커리어 탐색",
         "subtitle": "커리어 경험",
         "href": "/jobs/explore",
         "ctaLabel": "커리어 경험 탐색하기",
@@ -309,9 +310,9 @@
       },
       {
         "number": "03",
-        "emoji": "⚡",
-        "title": "실행하다",
-        "subtitle": "커리어 패스",
+        "emoji": "🤖",
+        "title": "패스 설계",
+        "subtitle": "AI 커리어 패스",
         "href": "/career",
         "ctaLabel": "커리어 패스 세우기",
         "icons": ["🤖", "💡", "🔥"],
@@ -319,21 +320,35 @@
         "colorBg": "rgba(34,197,94,0.1)",
         "colorBorder": "rgba(34,197,94,0.3)",
         "glow": "rgba(34,197,94,0.4)",
-        "bullets": ["AI와 템플릿 공동 제작", "나만의 패스 점검","원 클릭 패스 완성"]
+        "bullets": ["AI와 템플릿 공동 제작", "나만의 패스 점검", "원 클릭 패스 완성"]
       },
       {
         "number": "04",
-        "emoji": "🏅",
-        "title": "완성",
-        "subtitle": "커리어 실행",
+        "emoji": "⚡",
+        "title": "실행 계획",
+        "subtitle": "AI 실행 플랜",
         "href": "/dreammate",
-        "ctaLabel": "커리어 실행 시작하기",
-        "icons": ["📁", "🌟", "🎓"],
+        "ctaLabel": "실행 계획 시작하기",
+        "icons": ["📋", "🔥", "✅"],
         "color": "#FBBF24",
         "colorBg": "rgba(251,191,36,0.1)",
         "colorBorder": "rgba(251,191,36,0.3)",
         "glow": "rgba(251,191,36,0.4)",
-        "bullets": ["AI와 실행 계획 제작", "실행 기록 자동 정리", "원 클릭 실행 계획 완성"]
+        "bullets": ["AI와 실행 계획 제작", "주간·월간 액션 정리", "원 클릭 실행 계획 완성"]
+      },
+      {
+        "number": "05",
+        "emoji": "🏅",
+        "title": "포트폴리오",
+        "subtitle": "자동 기록 · 입시 자료",
+        "href": "/portfolio",
+        "ctaLabel": "포트폴리오 만들기",
+        "icons": ["📁", "🌟", "🎓"],
+        "color": "#EF4444",
+        "colorBg": "rgba(239,68,68,0.1)",
+        "colorBorder": "rgba(239,68,68,0.3)",
+        "glow": "rgba(239,68,68,0.4)",
+        "bullets": ["실행 기록 자동 정리", "생기부·자소서 연동", "원 클릭 포트폴리오 완성"]
       }
     ]
   },

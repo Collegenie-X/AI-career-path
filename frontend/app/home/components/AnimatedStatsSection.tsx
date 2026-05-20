@@ -13,10 +13,10 @@ const STATS = [
     emoji: '🗺️',
   },
   {
-    value: 4,
+    value: 5,
     suffix: '단계',
     label: '여정',
-    desc: '적성 → 탐색 → 설계 → 실행, 4단계로 완성하는 커리어',
+    desc: '적성 → 탐색 → 설계 → 실행 → 포트폴리오, 5단계로 완성하는 커리어',
     color: '#3B82F6',
     emoji: '🚀',
   },
@@ -167,14 +167,15 @@ export function AnimatedStatsSection() {
           className="text-center mb-12"
         >
           <p className="text-sm font-semibold text-purple-400 uppercase tracking-widest mb-3">
-            📊 숫자로 보는 AI CareerPath
+            📊 AI 시대의 진로 설계
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            진로 설계, 이제 숫자가 증명합니다
+            실행은 AI가, <span className="text-purple-300">기획·계획·디버깅</span>은 당신이
           </h2>
-          <p className="text-white/40 text-base max-w-md mx-auto leading-relaxed">
-            복잡하게 시작하지 않아도 됩니다. 무료로 시작해서,
-            필요할 때만 AI 협업을 추가하면 됩니다.
+          <p className="text-white/45 text-base max-w-xl mx-auto leading-relaxed">
+            AI 시대에는 누구나 빠르게 만들 수 있습니다. 차이는 <b className="text-white/80">진짜 문제를 찾고 정의하는 힘</b>,
+            그리고 <b className="text-white/80">계획을 끊임없이 디버깅하는 사고력</b>에서 갈립니다.
+            AI CareerPath는 그 과정 자체에 최적화된 플랫폼입니다.
           </p>
         </motion.div>
 
