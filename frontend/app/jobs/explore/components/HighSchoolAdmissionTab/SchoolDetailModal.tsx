@@ -58,13 +58,13 @@ export function SchoolDetailModal({ school, categoryColor, categoryBgColor, onCl
               <div className="flex items-center gap-1.5 flex-wrap">
                 <h2 className="text-base font-bold text-white break-words">{school.name}</h2>
                 {school.ibCertified && (
-                  <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
+                  <span className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(16,185,129,0.25)', color: '#10b981' }}>
                     🌐 IB인증
                   </span>
                 )}
                 {school.dormitory && (
-                  <span className="text-[11px] font-bold px-1.5 py-0.5 rounded-full"
+                  <span className="text-[12px] font-bold px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
                     🏠 기숙사
                   </span>
@@ -161,7 +161,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
           className="rounded-2xl p-3"
           style={{ background: categoryBgColor, border: `1px solid ${categoryColor}30` }}
         >
-          <p className="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-2">핵심 수치</p>
+          <p className="text-[12px] font-bold text-gray-400 uppercase tracking-wider mb-2">핵심 수치</p>
           <div className="grid grid-cols-2 gap-2">
             {school.highlightStats.map((stat) => (
               <div
@@ -262,7 +262,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
               <div key={prog} className="flex items-center gap-2 p-2 rounded-xl"
                 style={{ background: 'rgba(255,255,255,0.04)' }}>
                 <span
-                  className="text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                  className="text-[12px] font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
                   style={{ background: `${categoryColor}30`, color: categoryColor }}
                 >
                   {i + 1}
@@ -322,7 +322,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
       <SectionCard title="졸업 후 주로 어디로 가나요?" icon="🎓" color={categoryColor}>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {school.targetUniversities.map((uni) => (
-            <span key={uni} className="text-[11px] px-2.5 py-1 rounded-full font-semibold"
+            <span key={uni} className="text-[12px] px-2.5 py-1 rounded-full font-semibold"
               style={{ background: `${categoryColor}20`, color: categoryColor }}>
               {uni}
             </span>
@@ -330,7 +330,7 @@ function OverviewTab({ school, categoryColor, categoryBgColor }: TabProps) {
         </div>
         <div className="flex flex-wrap gap-1">
           {school.alumniCareers.map((career) => (
-            <span key={career} className="text-[11px] px-2 py-0.5 rounded-full text-gray-300"
+            <span key={career} className="text-[12px] px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.08)' }}>
               {career}
             </span>
@@ -402,7 +402,7 @@ function AdmissionTab({ school, categoryColor, categoryBgColor }: TabProps) {
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-2">
               <span className="text-base flex-shrink-0">{item.emoji}</span>
-              <span className="text-[11px] font-bold text-gray-400 w-16 flex-shrink-0">{item.label}</span>
+              <span className="text-[12px] font-bold text-gray-400 w-16 flex-shrink-0">{item.label}</span>
               <span className="text-[12px] text-gray-200">{item.value}</span>
             </div>
           ))}
@@ -673,7 +673,7 @@ function SchoolBasicLifeInfo({ school, categoryColor }: { school: HighSchoolDeta
       className="p-3 rounded-2xl space-y-2"
       style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
     >
-      <p className="text-[11px] font-bold text-gray-400">📋 학교 생활 기본 정보</p>
+      <p className="text-[12px] font-bold text-gray-400">📋 학교 생활 기본 정보</p>
       {[
         { emoji: '🏠', label: '기숙사', value: school.dormitory ? '전원 기숙사 생활' : '통학 (기숙사 없음)' },
         { emoji: '💰', label: '학비', value: school.tuition },
@@ -681,7 +681,7 @@ function SchoolBasicLifeInfo({ school, categoryColor }: { school: HighSchoolDeta
       ].map((item) => (
         <div key={item.label} className="flex items-start gap-2">
           <span className="text-base flex-shrink-0">{item.emoji}</span>
-          <span className="text-[11px] font-bold text-gray-400 flex-shrink-0 w-12 mt-0.5">{item.label}</span>
+          <span className="text-[12px] font-bold text-gray-400 flex-shrink-0 w-12 mt-0.5">{item.label}</span>
           <span className="text-[12px] text-gray-300 leading-relaxed">{item.value}</span>
         </div>
       ))}
@@ -852,7 +852,7 @@ function SectionCard({
 function InfoBadge({ label, color }: { label: string; color: string }) {
   return (
     <span
-      className="text-[11px] font-semibold px-2 py-0.5 rounded-full"
+      className="text-[12px] font-semibold px-2 py-0.5 rounded-full"
       style={{ background: `${color}20`, color }}
     >
       {label}

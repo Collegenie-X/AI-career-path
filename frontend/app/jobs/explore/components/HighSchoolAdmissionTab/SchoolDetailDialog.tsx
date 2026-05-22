@@ -32,7 +32,7 @@ export function SchoolDetailDialog({
 
   const panelInner = (
     <div
-      className="w-full max-w-[32rem] md:max-w-[36rem] h-[94dvh] md:max-h-[92vh] overflow-hidden rounded-2xl flex flex-col"
+      className="w-full max-w-[680px] h-[94dvh] md:max-h-[92vh] overflow-hidden rounded-2xl flex flex-col"
       style={{
         background: 'linear-gradient(180deg, rgba(15,23,42,0.98), rgba(17,24,39,0.98))',
         border: `1px solid ${categoryColor}55`,

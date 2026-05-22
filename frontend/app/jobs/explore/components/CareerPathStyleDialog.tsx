@@ -25,7 +25,7 @@ export function CareerPathStyleDialog({ onClose, children }: CareerPathStyleDial
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[580px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
+        className="w-full max-w-[680px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
         style={{
           backgroundColor: '#0d0d24',
           border: '1px solid rgba(255,255,255,0.08)',

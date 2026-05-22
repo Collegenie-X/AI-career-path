@@ -65,10 +65,10 @@ export function HighSchoolAiEraStrategyContent({
               border: '1px solid rgba(239,68,68,0.3)',
             }}
           >
-            <p className="text-[11px] font-bold text-red-400 mb-2">❌ AI가 대체하는 것</p>
+            <p className="text-[12px] font-bold text-red-400 mb-2">❌ AI가 대체하는 것</p>
             <ul className="space-y-1">
               {aiStrategy.keyInsights[0].aiReplaces?.map((item, i) => (
-                <li key={i} className="text-[11px] text-gray-300 flex items-start gap-2">
+                <li key={i} className="text-[12px] text-gray-300 flex items-start gap-2">
                   <span className="text-red-400 flex-shrink-0">•</span>
                   <span>{item}</span>
                 </li>
@@ -83,10 +83,10 @@ export function HighSchoolAiEraStrategyContent({
               border: '1px solid rgba(34,197,94,0.3)',
             }}
           >
-            <p className="text-[11px] font-bold text-green-400 mb-2">✅ 인간이 해야 할 것</p>
+            <p className="text-[12px] font-bold text-green-400 mb-2">✅ 인간이 해야 할 것</p>
             <ul className="space-y-1">
               {aiStrategy.keyInsights[0].humanMustDo?.map((item, i) => (
-                <li key={i} className="text-[11px] text-gray-300 flex items-start gap-2">
+                <li key={i} className="text-[12px] text-gray-300 flex items-start gap-2">
                   <span className="text-green-400 flex-shrink-0">•</span>
                   <span>{item}</span>
                 </li>
@@ -144,16 +144,16 @@ export function HighSchoolAiEraStrategyContent({
                     >
                       {step.stage}
                     </span>
-                    <p className="text-[11px] font-bold text-white mb-2">{step.focus}</p>
+                    <p className="text-[12px] font-bold text-white mb-2">{step.focus}</p>
 
                     {step.tools && step.tools.length > 0 && (
                       <div className="mb-2">
-                        <p className="text-[10px] font-bold text-gray-400 mb-1">🛠️ 추천 도구</p>
+                        <p className="text-[12px] font-bold text-gray-400 mb-1">🛠️ 추천 도구</p>
                         <div className="flex flex-wrap gap-1">
                           {step.tools.map((tool, j) => (
                             <span
                               key={j}
-                              className="text-[10px] px-2 py-0.5 rounded-full"
+                              className="text-[12px] px-2 py-0.5 rounded-full"
                               style={{ background: `${categoryColor}20`, color: categoryColor }}
                             >
                               {tool}
@@ -165,10 +165,10 @@ export function HighSchoolAiEraStrategyContent({
 
                     {step.projects && step.projects.length > 0 && (
                       <div className="mb-2">
-                        <p className="text-[10px] font-bold text-gray-400 mb-1">💡 프로젝트</p>
+                        <p className="text-[12px] font-bold text-gray-400 mb-1">💡 프로젝트</p>
                         <ul className="space-y-0.5">
                           {step.projects.map((project, j) => (
-                            <li key={j} className="text-[11px] text-gray-300 flex items-start gap-1.5">
+                            <li key={j} className="text-[12px] text-gray-300 flex items-start gap-1.5">
                               <span className="text-gray-500 flex-shrink-0">•</span>
                               <span>{project}</span>
                             </li>
@@ -185,7 +185,7 @@ export function HighSchoolAiEraStrategyContent({
                           border: '1px solid rgba(251,191,36,0.3)',
                         }}
                       >
-                        <p className="text-[10px] text-yellow-400 leading-relaxed">{step.keyPoint}</p>
+                        <p className="text-[12px] text-yellow-400 leading-relaxed">{step.keyPoint}</p>
                       </div>
                     )}
 
@@ -197,7 +197,7 @@ export function HighSchoolAiEraStrategyContent({
                           border: '1px solid rgba(239,68,68,0.3)',
                         }}
                       >
-                        <p className="text-[10px] text-red-400 leading-relaxed">{step.warning}</p>
+                        <p className="text-[12px] text-red-400 leading-relaxed">{step.warning}</p>
                       </div>
                     )}
                   </div>
@@ -224,15 +224,15 @@ export function HighSchoolAiEraStrategyContent({
                 border: `1px solid ${categoryColor}30`,
               }}
             >
-              <p className="text-[11px] font-bold text-white mb-1.5">{strat.strategy}</p>
-              <p className="text-[10px] text-gray-400 mb-2 italic">{strat.why}</p>
+              <p className="text-[12px] font-bold text-white mb-1.5">{strat.strategy}</p>
+              <p className="text-[12px] text-gray-400 mb-2 italic">{strat.why}</p>
 
               {strat.how && strat.how.length > 0 && (
                 <div className="mb-2">
-                  <p className="text-[10px] font-bold text-gray-400 mb-1">방법</p>
+                  <p className="text-[12px] font-bold text-gray-400 mb-1">방법</p>
                   <ul className="space-y-0.5">
                     {strat.how.map((method, j) => (
-                      <li key={j} className="text-[10px] text-gray-300 flex items-start gap-1.5">
+                      <li key={j} className="text-[12px] text-gray-300 flex items-start gap-1.5">
                         <span className="flex-shrink-0" style={{ color: categoryColor }}>
                           →
                         </span>
@@ -245,7 +245,7 @@ export function HighSchoolAiEraStrategyContent({
 
               {strat.example && (
                 <div className="p-2 rounded-lg mt-2" style={{ background: `${categoryColor}10` }}>
-                  <p className="text-[10px] text-gray-300">{strat.example}</p>
+                  <p className="text-[12px] text-gray-300">{strat.example}</p>
                 </div>
               )}
             </div>
@@ -278,11 +278,11 @@ export function HighSchoolAiEraStrategyContent({
                     {tip.emoji}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[11px] font-bold text-white mb-0.5">{tip.category}</p>
-                    <p className="text-[11px] font-semibold" style={{ color: categoryColor }}>
+                    <p className="text-[12px] font-bold text-white mb-0.5">{tip.category}</p>
+                    <p className="text-[12px] font-semibold" style={{ color: categoryColor }}>
                       {tip.tip}
                     </p>
-                    <p className="text-[10px] text-gray-400 mt-1 leading-relaxed">{tip.detail}</p>
+                    <p className="text-[12px] text-gray-400 mt-1 leading-relaxed">{tip.detail}</p>
                   </div>
                 </div>
               </div>
@@ -308,8 +308,8 @@ export function HighSchoolAiEraStrategyContent({
                   border: '1px solid rgba(255,255,255,0.08)',
                 }}
               >
-                <p className="text-[11px] text-red-400 mb-1.5">{mistake.mistake}</p>
-                <p className="text-[11px] text-green-400">{mistake.correct}</p>
+                <p className="text-[12px] text-red-400 mb-1.5">{mistake.mistake}</p>
+                <p className="text-[12px] text-green-400">{mistake.correct}</p>
               </div>
             ))}
           </div>
@@ -328,16 +328,16 @@ export function HighSchoolAiEraStrategyContent({
             <span className="text-lg">🔮</span>
             {aiStrategy.futureCareerInsight.title}
           </p>
-          <p className="text-[11px] text-gray-300 mb-3 leading-relaxed">{aiStrategy.futureCareerInsight.reality}</p>
+          <p className="text-[12px] text-gray-300 mb-3 leading-relaxed">{aiStrategy.futureCareerInsight.reality}</p>
 
           {aiStrategy.futureCareerInsight.newCareers && aiStrategy.futureCareerInsight.newCareers.length > 0 && (
             <div className="mb-3">
-              <p className="text-[10px] font-bold text-gray-400 mb-1.5">새로운 직업</p>
+              <p className="text-[12px] font-bold text-gray-400 mb-1.5">새로운 직업</p>
               <div className="space-y-1">
                 {aiStrategy.futureCareerInsight.newCareers.map((career, i) => (
                   <div
                     key={i}
-                    className="text-[10px] text-gray-300 px-2 py-1 rounded-lg"
+                    className="text-[12px] text-gray-300 px-2 py-1 rounded-lg"
                     style={{ background: 'rgba(255,255,255,0.05)' }}
                   >
                     • {career}
@@ -349,12 +349,12 @@ export function HighSchoolAiEraStrategyContent({
 
           {aiStrategy.futureCareerInsight.preparation && aiStrategy.futureCareerInsight.preparation.length > 0 && (
             <div>
-              <p className="text-[10px] font-bold text-gray-400 mb-1.5">준비 방법</p>
+              <p className="text-[12px] font-bold text-gray-400 mb-1.5">준비 방법</p>
               <div className="space-y-1">
                 {aiStrategy.futureCareerInsight.preparation.map((prep, i) => (
                   <div
                     key={i}
-                    className="text-[10px] px-2 py-1 rounded-lg"
+                    className="text-[12px] px-2 py-1 rounded-lg"
                     style={{ background: `${categoryColor}15`, color: categoryColor }}
                   >
                     → {prep}

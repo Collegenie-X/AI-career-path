@@ -489,7 +489,7 @@ function SchoolListCard({
   onClick: () => void;
 }) {
   const difficultyText = HIGH_SCHOOL_LABELS.school_difficulty_levels[String(school.difficulty)] ?? '';
-  const shortDesc = school.teachingMethod.split(',')[0].trim();
+  const shortDesc = (school.teachingMethod ?? '').split(',')[0].trim();
 
   return (
     <button
@@ -524,7 +524,7 @@ function SchoolListCard({
               </span>
             )}
           </div>
-          <p className="text-xs text-gray-400 line-clamp-1 mb-1">{shortDesc}</p>
+          <p className="text-xs text-gray-400 line-clamp-1 mb-1"><HL text={shortDesc} /></p>
           
           {/* 하단: 지역·난이도·정원 */}
           <div className="flex items-center gap-2 flex-wrap">
@@ -566,7 +566,7 @@ function SchoolListCard({
               className="text-xs px-2 py-0.5 rounded-full text-gray-300"
               style={{ background: 'rgba(255,255,255,0.06)' }}
             >
-              {prog}
+              <HL text={prog} />
             </span>
           ))}
         </div>

@@ -1,0 +1,2385 @@
+{
+  "id": "general",
+  "name": "일반고",
+  "emoji": "📖",
+  "color": "#94a3b8",
+  "bgColor": "rgba(148,163,184,0.15)",
+  "description": "==전국 보편 일반고==. 학군지(대치·목동·중계·분당·평촌)와 달리 학원 인프라가 약하지만, ==내신·교과전형 안정형== 입시 트랙. 2028 5등급제로 내신 부담 완화 — 모집단이 학군지보다 약해 ==상위 10%(1등급) 진입은 오히려 유리==할 수 있습니다. AI 시대엔 '학원 의존 없이 자기주도 학습'과 '학교 세특·탐구 활동을 자기 손으로 채우는 능력'이 더더욱 중요.",
+  "policyContext2028": "2028 대입 개편의 ==최대 수혜 카테고리 중 하나==. 내신 5등급제로 상위 10%가 1등급이 되면서, 모집단이 약한 비학군지 일반고에서 ==1등급 진입 장벽이 학군지보다 낮아짐== — 교과전형·지역균형 트랙이 한층 선명해집니다. 통합형 수능으로 선택과목 유불리가 사라지면서 일반고 수능 부담도 줄어듭니다. 단, 면접·세특 비중이 늘어 =='학원이 떠먹여 주지 않는 환경에서 스스로 탐구를 만든 흔적'이 결정적==.",
+  "aiEraContext": "비학군지 일반고생에게 AI는 ==기울어진 정보·인프라 운동장을 평평하게 만드는 도구==. 학군지 학원이 떠먹여주던 ① 첨삭 ② 모의면접 ③ 탐구 주제 ④ 오답 분석을 ChatGPT·Claude·Khan Academy로 대체할 수 있어요. 단, AI가 만들어준 산출물을 그대로 제출하면 입학사정관·교사가 즉시 알아챕니다 — 핵심은 'AI로 학습 효율을 끌어올리되, 손과 입으로 다시 정리하는 능력'. 학원 정보망이 약한 만큼 ==온라인 커뮤니티·EBS·교육청 진학자료==를 적극 활용하세요.",
+  "admissionStrategy2028": {
+    "title": "2028 개편 대응 전략 — 비학군지 일반고",
+    "summary": "내신 5등급제 + 모집단 약함 → 교과전형 최적 — 지역균형·교과전형 집중",
+    "points": [
+      "내신 5등급제 도입 → 학군지보다 1등급(상위 10%) 진입 유리",
+      "선택과목 폐지·통합형 수능 → 일반고 수능 준비 부담 감소",
+      "지역균형선발(서울대·연·고대)·교과전형이 최대 트랙",
+      "세특 비중 증가(35~40%) → 학원 없이 학교 수업·탐구로 승부",
+      "면접 비중 최대 40% → 발표·토론·모의면접 자가 훈련 필수",
+      "수시 6장 = 교과 3 + 지역균형/학종 2 + 안정 1 권장"
+    ]
+  },
+  "planet": {
+    "size": "medium",
+    "orbitRadius": 120,
+    "orbitSpeed": 24,
+    "glowColor": "#94a3b8"
+  },
+  "categoryTraits": {
+    "aptitude": "==자기주도 학습 능력== + 교과 전반 균형. AI 시대 핵심 적성은 '학원 없이도 스스로 커리큘럼·노트·오답을 설계하는 능력'.",
+    "studyStyle": "==학교 수업 + 자습 + EBS·인강·AI 도구 혼합==. 학군지처럼 '학원에 맡기는' 방식이 아니라 '나만의 학습 시스템을 만드는' 방식. AI는 1차 풀이 후 오답 분석·요약·면접 코칭에 활용.",
+    "identity": "또래 경쟁이 학군지보다 낮다 보니 ==스스로 동기·목표를 끌고 가는 정체성==이 필수. 1년에 한 번 '내 질문이 무엇인가'를 점검하고, 외로움이 들 땐 온라인 학습 커뮤니티·진로 멘토링 활용.",
+    "mentalStrength": "==학원 정보·또래 정보가 약한 정보 비대칭==이 가장 큰 스트레스 요인. 학군지 친구들과 비교 불안 대신, =='내 페이스로 1등급 진입'이라는 목표 설정==. 디지털 커뮤니티 의존을 줄이고 진학교사·EBS 진학상담 활용.",
+    "gradeRequirement": "교과전형 SKY 목표 시 ==내신 1.0~1.5등급== 권장 (학군지보다 진입 폭은 조금 유리). 지역균형선발은 학교장 추천 + 내신 1.2 내외. 2028 5등급제 적용 후 1등급=상위 10%.",
+    "aptitudeTest": "별도 입학시험 없음(거주지 학군 배정). 학종 면접에서 '학원·과외 없이 본인이 자기주도로 한 것'이 ==최대 변별 요소==.",
+    "internalGradeStrategy": "전 과목 균형 내신 + 학교 수업 중심 + 깊이 있는 자기 탐구 1~2개(독서·소논문·동아리 프로젝트) + AI 도구 학습 일지로 자기주도 흔적 누적 + 교내 대회·발표 적극 참가(모집단이 약해 수상·발표 기회 많음)."
+  },
+  "careerLadder": {
+    "title": "비학군지 일반고 진학 사다리",
+    "steps": [
+      {
+        "stage": "중1",
+        "focus": "전 과목 기초 다지기 + 독서 습관 (AI 도구 탐색 시작)"
+      },
+      {
+        "stage": "중2~3",
+        "focus": "수학·영어 선행 + 자기주도 학습 시스템 구축"
+      },
+      {
+        "stage": "고1",
+        "focus": "내신 1등급 진입 + 동아리·세특 주제 1개 정함"
+      },
+      {
+        "stage": "고2",
+        "focus": "내신 유지 + 탐구 보고서 + 교과 vs 학종 트랙 결정"
+      },
+      {
+        "stage": "고3",
+        "focus": "교과전형/지역균형 집중 + 수능 최저 충족 + 모의면접 자가 훈련"
+      },
+      {
+        "stage": "졸업 후",
+        "focus": "SKY 지역균형·교과전형 / 인서울 중상위 / 지방 거점국립대(부산·경북·전남·충남·전북대 등)"
+      }
+    ]
+  },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — 비학군지 일반고생이 반드시 알아야 할 것",
+    "summary": "정보·인프라 격차를 AI 도구로 좁히고, 자기주도 학습 시스템을 무기로 만드세요",
+    "keyInsights": [
+      {
+        "title": "AI가 메우는 비학군지의 약점",
+        "aiReplaces": [
+          "학원 1대1 첨삭 → ChatGPT/Claude 첨삭",
+          "고가 모의면접 → AI 모의면접(음성·텍스트)",
+          "탐구 주제 컨설팅 → AI 브레인스토밍",
+          "오답 분석 → AI 오답 패턴 분석"
+        ],
+        "humanMustDo": [
+          "내신 1등급 진입 전략 (어느 과목·시기에 집중할지)",
+          "세특 활동의 진정성 (학교 수업과 실제 연결)",
+          "지역균형·교과전형 트랙 결정",
+          "면접에서 자기 언어로 재구성",
+          "학원 없는 외로움 견디는 멘탈 관리"
+        ]
+      },
+      {
+        "title": "AI 학습 도구 활용 로드맵 — 비학군지 버전",
+        "roadmap": [
+          {
+            "stage": "중학교",
+            "focus": "AI로 학군지 격차 따라잡기",
+            "tools": [
+              "ChatGPT/Claude: 개념 첨삭",
+              "Khan Academy: 수학 무료 선행",
+              "EBS 단추·EBSi: 무료 인강",
+              "Notion AI: 학습 계획 자동화"
+            ],
+            "projects": [
+              "과목별 오답 노트 자동화",
+              "AI 기반 주 단위 학습 계획"
+            ],
+            "warning": "⚠️ AI에게 '답'만 받지 말고 '왜 그런지'를 물어 정리하세요"
+          },
+          {
+            "stage": "고등학교",
+            "focus": "AI로 학종 탐구·면접까지 자력 구축",
+            "tools": [
+              "AI 오답 분석 + 세특 주제 발굴",
+              "AI 모의면접(음성)",
+              "수능 약점 분석"
+            ],
+            "projects": [
+              "세특용 자기 탐구 보고서 1~2개",
+              "AI 모의면접 30회 누적"
+            ],
+            "keyPoint": "💡 학원이 없다는 건 단점이 아니라 '자기주도 흔적'을 만들 기회예요"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "📚",
+        "category": "학습",
+        "tip": "AI로 약점 분석 → 집중 학습",
+        "detail": "EBSi·기출 풀이 후 AI에게 오답 패턴을 분석시키고, 약점 단원을 1~2주 집중 보완하세요."
+      },
+      {
+        "emoji": "🎤",
+        "category": "면접",
+        "tip": "AI 모의면접을 30회 이상 돌리세요",
+        "detail": "학원 모의면접이 없는 만큼, AI 음성 모의면접으로 빈도를 채우세요. 녹음 후 자기 표정·말투를 점검."
+      },
+      {
+        "emoji": "✍️",
+        "category": "세특",
+        "tip": "AI는 아이디어, 탐구는 본인 손",
+        "detail": "AI에게 탐구 주제 후보를 받되, 실험·자료조사·결론은 반드시 본인이 직접 수행해 학교 수업과 연결하세요."
+      },
+      {
+        "emoji": "🤝",
+        "category": "정보",
+        "tip": "온라인 진학 커뮤니티 적극 활용",
+        "detail": "비학군지는 학원·또래 정보가 약합니다. 오르비·수만휘·EBS 진로진학·교육청 진학자료실을 정기 모니터링."
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, 비학군지 일반고 출신의 미래는?",
+      "reality": "AI 도구가 학습·면접·탐구를 보조하면서, =='학원 인프라가 약해도 자기주도 학습자로 성장한 학생'==이 오히려 대학·기업이 선호하는 인재가 되고 있습니다. 비학군지 일반고생의 '스스로 만든 흔적'은 학종·면접·기업 채용에서 강한 스토리가 돼요.",
+      "newCareers": [
+        "AI 기반 자기주도 학습 코치",
+        "지역 교육 격차 해소 에듀테크 창업가",
+        "데이터 기반 진학 컨설턴트",
+        "비대면·원격 분야 전문가"
+      ]
+    }
+  },
+  "schools": [
+    {
+      "id": "incheon_high",
+      "name": "인천고등학교",
+      "shortName": "인천고",
+      "location": "인천광역시 남동구",
+      "type": "일반고",
+      "districtFact": "인천 비학군지 보편 일반고 (전통 명문 공립)",
+      "emoji": "⚓",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미(schoolinfo.go.kr) 공시 확인",
+      "tuition": "고교 무상교육 적용 — 수업료 면제",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 인천 지역 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 수업 중심 + 자기주도 학습 + 진학 지도 (학원 인프라 약함, 교내 보충학습·방과후 비중 높음)",
+      "famousPrograms": [
+        "[일반적] 자기주도 학습실 운영",
+        "[일반적] 진학 지도·모의면접 프로그램",
+        "[일반적] 동아리 활동·교내 탐구대회",
+        "[일반적] 방과후 수능·내신 보충"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습실",
+          "emoji": "📚",
+          "description": "[일반적] 야간 자율학습·주말 개방을 통해 학원 의존도가 낮은 환경에서 학습 시간을 확보",
+          "benefit": "비학군지 일반고의 핵심 자원 — 자기주도 학습 흔적이 학종에서 강점"
+        },
+        {
+          "name": "교내 탐구·발표대회",
+          "emoji": "🏆",
+          "description": "[일반적] 학군지 대비 모집단이 약해 수상·발표 기회 상대적으로 많음",
+          "benefit": "세특·자율활동 기록 채우기에 유리"
+        }
+      ],
+      "studentLevel": "[일반적] 인천 지역 학업 의지 높은 학생들이 다수, 자기주도형 상위권 분포",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "인천 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 기초 + 독서 습관",
+        "middle2": "수학·영어 선행 + 자기주도 시스템",
+        "middle3": "내신 전략 + 진학 트랙 탐색"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "전 과목 기초 다지기",
+            "독서 습관 (월 2권 이상)",
+            "AI 도구 탐색 (ChatGPT·Khan Academy)",
+            "수학 선행 (중2 과정 미리)"
+          ],
+          "keyPoint": "비학군지는 '미리 시작'이 가장 큰 무기. 학원이 없어도 EBS·AI로 충분히 따라잡아요."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행 (고1 공통수학)",
+            "영어 어휘·문법 정리",
+            "관심 진로 탐색 (자기소개·진로 노트)",
+            "교내 대회 1~2개 참가"
+          ],
+          "keyPoint": "고1 진입 전에 '내가 1등급 진입 가능한 과목군'을 파악해두면 고교 내신 설계가 수월해요."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 내신 시뮬레이션",
+            "자기주도 학습 루틴 확립",
+            "진로 동아리 후보 조사",
+            "지역 입시 설명회·교육청 자료 점검"
+          ],
+          "keyPoint": "비학군지 일반고는 정보가 약하므로 ==교육청 진학자료실·학교 진학실==을 직접 활용하세요."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "인천 남동구",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형 안정형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "없음(통학)",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "학군지 학원 인프라는 ==기대하기 어려워요==. 학원 셔틀이 줄지어 오는 동네가 아닙니다. 대신 ==1등급 진입은 학군지보다 유리==할 수 있어요."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "모집단이 약해 ==교내 수상·발표 기회가 많아요==. 자기주도로 흔적을 만들면 학종에서 강력한 스토리가 됩니다."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "또래 자극·정보가 약합니다. 학원에 모여 떠드는 입시 정보를 ==혼자 EBS·교육청·온라인 커뮤니티에서 찾아야 해요==."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "==자기주도 학습이 가능한 학생==, ==교과전형·지역균형 트랙==으로 SKY/거점국립대를 노리는 학생, 학원 의존 없이 AI 도구로 학습을 설계할 수 있는 학생."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학 중심입니다. 통학 시간이 짧다면 ==학원 이동시간을 자기주도 학습으로 전환==할 수 있어요."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "고교 무상교육으로 수업료는 면제. 사교육비는 학군지 대비 ==월 1/3 이하==로도 운영 가능 (EBS·AI 도구 활용 시)."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "==1등급 진입 폭이 학군지보다 넓을 수 있음== — 모집단이 강한 학군지에서 3등급 받을 실력이 비학군지에선 1등급이 되는 경우도 있어요."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] SKY 지역균형선발·교과전형, 인서울 중상위, 부산·경북·전남·충남대 등 거점국립대로 다수 진학."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 도구로 학군지 학원을 대체하는 ==자기 커리큘럼==을 고1 1학기에 완성하세요."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회·발표를 ==학군지보다 적은 경쟁률==에서 적극 활용. 수상·발표 기록은 세특·자율활동의 핵심."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "==AI 모의면접을 30회 이상== 누적하세요. 학원 모의면접이 없는 만큼 자가 훈련이 절대적."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "오르비·수만휘·교육청 진학자료실을 ==월 1회 정기 점검==해 정보 격차를 좁히세요."
+        }
+      ],
+      "competitionLevel": "[일반적] 인천 지역 비학군지 일반고 상위권 분포",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학 중심 — 학교·집·도서관 동선",
+      "mentalHealthNote": "==학원·정보 부족 스트레스==가 가장 큰 요인. 또래 비교보다 ==자기 페이스 유지==가 핵심.",
+      "pros": [
+        "수업료 면제(고교 무상교육)",
+        "[일반적] 1등급 진입 폭이 학군지보다 유리할 수 있음",
+        "교과전형·지역균형 트랙 적합",
+        "교내 수상·발표 기회 다수",
+        "사교육비 부담 낮음"
+      ],
+      "cons": [
+        "학원·또래 정보 인프라 약함",
+        "[일반적] 정시(수능) 최상위권 진학에선 학군지 대비 불리",
+        "자기주도 학습 실패 시 격차 커짐"
+      ],
+      "admissionTip": "지역 학군 배정이므로 거주지가 전제. 입학 후엔 ==교과전형 + 지역균형== 트랙을 1순위로 설계하세요.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형선발",
+        "[일반적] 인서울 중상위 교과전형",
+        "[일반적] 부산·경북·전남·충남·인하·아주대 등 거점·중상위"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 졸업생 진로 공시 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "비학군지 일반고에서 SKY 가능한가요?",
+          "answer": "[일반적] 교과전형·지역균형선발 트랙으로 가능합니다. 내신 1.2~1.5 내외 + 수능 최저 충족이 핵심. 모집단이 약해 1등급 진입은 학군지보다 유리할 수 있습니다."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이 공부가 가능한가요?",
+          "answer": "EBS·EBSi·Khan Academy·ChatGPT/Claude 등 무료·저비용 도구로 충분히 가능합니다. 단, ==자기 커리큘럼을 직접 설계==해야 합니다."
+        },
+        {
+          "category": "진로",
+          "question": "정시 수능으로 SKY 가능한가요?",
+          "answer": "[일반적] 학군지 대비 불리합니다. 비학군지 일반고는 ==교과+학종 중심==이 현실적인 트랙. 정시는 보조 전략으로 가져가세요."
+        },
+        {
+          "category": "정보",
+          "question": "입시 정보는 어디서 얻나요?",
+          "answer": "교육청 진학자료실, EBS 진로진학, 오르비·수만휘, 학교 진학실·진학교사 상담을 ==정기적으로== 활용하세요."
+        }
+      ],
+      "websiteUrl": "https://incheon.icehs.kr/",
+      "description": "인천고는 인천 지역의 전통 공립 일반고. 학군지가 아닌 비학군지 보편 일반고로 ==교과전형·지역균형 트랙==이 적합합니다. [일반적] 자기주도 학습 환경과 진학 지도 체계가 강점.",
+      "schoolInfoCard": {
+        "regionScope": "인천 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "기숙사 없음 (통학)",
+        "costPerYear": "고교 무상교육 — 수업료 면제 (교재·체험학습 등 별도)",
+        "scholarship": "교육청·교내 장학금 (저소득·성적 우수자)",
+        "lowIncomeAdvice": "고교 무상교육 적용. 저소득 가정은 교육청·지자체 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "인천 거주 (학군 배정 전제)",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습 습관",
+          "독서·탐구 경험"
+        ],
+        "interviewFormat": "별도 입학 면접 없음 (학군 배정)",
+        "competitionRate": "학군 배정 (경쟁률 개념 없음)",
+        "aiTip": "AI 도구 활용 학습 일지를 중학교 때부터 누적하면 고교 입학 후 세특·면접에서 강점"
+      },
+      "studyStyleDetail": "교과 수업 + 야간 자율학습 + 방과후 보충 + 자기주도(EBS·인강·AI). 학원 의존도 낮음 — 자기 커리큘럼이 핵심.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제로 1등급(상위 10%) 진입이 학군지보다 유리할 수 있어요. 교과전형·지역균형선발이 비학군지 일반고의 ==주력 트랙==. 통합형 수능으로 정시 부담도 줄지만, 정시 최상위권은 여전히 학군지 우위.",
+        "aiEra": "AI 도구가 ==학원 부재의 빈자리를 메워주는== 시대. 학원 대신 ChatGPT·Claude·Khan Academy·EBSi로 자기 커리큘럼 구축 가능. 다만 'AI가 만들어준 산출물'을 그대로 제출하면 입학사정관이 즉시 알아챕니다 — 손과 입으로 재구성 필수.",
+        "cautionPoints": [
+          "학원·또래 정보 부족 → 온라인 커뮤니티·교육청 자료실 정기 모니터링",
+          "정시 최상위권은 학군지 대비 불리 → 교과·학종 중심 트랙 설계",
+          "자기주도 실패 시 격차 가속 → 고1 1학기에 자기 커리큘럼 확정",
+          "AI 산출물 그대로 제출 금지 → '나만의 언어'로 재구성",
+          "지역균형선발 활용 = 학교장 추천 + 내신 안정"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "==자기주도 학습으로 교과전형·지역균형== 트랙을 노리는 친구들이 모이는 학교예요.",
+        "goodFor": [
+          "==자기주도 학습이 가능==한 친구",
+          "==교과전형·지역균형==으로 SKY/거점국립대를 노리는 친구",
+          "학원 의존 없이 ==AI·EBS로 학습 설계==할 수 있는 친구",
+          "==사교육비 부담을 줄이고 싶은== 가정"
+        ],
+        "notForYouIf": [
+          "==정시 수능 최상위권==(서울대 정시·의대)을 1순위로 노리는 경우",
+          "또래 자극·학원 인프라가 절대적으로 필요한 경우",
+          "==자기 커리큘럼 설계 의지가 약한== 경우"
+        ],
+        "whatToDoNow": [
+          "==수학 선행== (중3까지 고1 공통수학 1회독)",
+          "==영어 어휘 3000== 정도 누적",
+          "==독서== 월 2권 + 진로 노트 작성",
+          "==AI 도구 사용 습관== (ChatGPT·Claude로 개념 첨삭)",
+          "==EBS·EBSi 무료 강의== 한 학기에 1과목 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정 — 거주지 기반 자동 배정",
+        "competitionRate": "학군 배정 (경쟁률 개념 없음)",
+        "whatTheyCheck": [
+          "==거주지== (학군 배정 전제)",
+          "별도 시험 없음"
+        ],
+        "aiTipForMiddleSchooler": "비학군지 일반고는 학원이 없는 만큼 ==AI·EBS를 학원처럼 활용==하는 습관을 중학교 때 완성하세요. 고교 입학 후 격차의 90%가 이 습관에서 결정돼요.",
+        "homepageMustCheck": "학교 홈페이지에서 ① 진학 실적 공시 ② 동아리·자율활동 목록 ③ 야간 자율학습·방과후 운영 현황을 확인하세요.",
+        "homepageUrl": "https://incheon.icehs.kr/"
+      },
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://incheon.icehs.kr/)"
+    },
+    {
+      "id": "busan_high",
+      "name": "부산고등학교",
+      "shortName": "부산고",
+      "location": "부산광역시 동구",
+      "type": "일반고",
+      "districtFact": "부산 원도심 비학군지 전통 공립 일반고",
+      "emoji": "🌊",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 부산 지역 전통 공립 일반고 (해운대 신시가지 학군 아님)",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 수업 + 자기주도 학습 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습 운영",
+        "[일반적] 진학 지도·논술 지도",
+        "[일반적] 동아리·교내 탐구활동"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 비학군지 일반고 표준 — 야자·주말 자율학습 운영",
+          "benefit": "학원 의존도 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권 분포",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "부산 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 기초 + 독서",
+        "middle2": "수학·영어 선행 + 진로 탐색",
+        "middle3": "자기주도 학습 루틴 확립"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "전 과목 기초",
+            "독서 습관",
+            "AI 도구 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "비학군지는 '미리 시작'이 가장 큰 무기예요."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 고1 선행",
+            "영어 어휘·문법",
+            "진로 노트",
+            "교내 대회 1~2개"
+          ],
+          "keyPoint": "1등급 진입 가능 과목군을 파악하세요."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 내신 시뮬레이션",
+            "자기주도 루틴",
+            "동아리 후보",
+            "교육청 자료 점검"
+          ],
+          "keyPoint": "교육청 진학자료실·학교 진학실을 직접 활용하세요."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "부산 동구",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "없음",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "==해운대 신시가지 학군과 다른 원도심 비학군지==. 학원 인프라가 약하지만 1등급 진입은 유리할 수 있어요."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "==전통 공립의 안정적 분위기==와 진학 지도 노하우."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "또래·학원 정보 부족, 정시 수능 최상위는 학군지 대비 불리."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 학습자 + 교과전형/지역균형 트랙 희망자."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학 중심."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제 + 사교육비 학군지의 1/3 수준 가능."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상·발표 기회 많음 — 세특 채우기 유리."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 부산대·경북대 등 거점국립대, SKY 지역균형, 인서울 중상위 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 도구로 자기 커리큘럼을 고1 1학기에 완성."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회·발표 적극 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접 30회 누적."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 진학 커뮤니티 월 1회 점검."
+        }
+      ],
+      "competitionLevel": "[일반적] 부산 지역 비학군지 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학 중심",
+      "mentalHealthNote": "정보·인프라 격차 스트레스 — 자기 페이스 유지가 핵심.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 진입 유리",
+        "교과전형 적합",
+        "사교육비 낮음"
+      ],
+      "cons": [
+        "학원·정보 인프라 약함",
+        "[일반적] 정시 최상위는 학군지 대비 불리"
+      ],
+      "admissionTip": "거주지가 전제. 교과·지역균형 트랙 1순위 설계.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형",
+        "[일반적] 부산대·경북대 등 거점국립대",
+        "[일반적] 인서울 중상위 교과전형"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "비학군지에서 SKY 가능한가요?",
+          "answer": "[일반적] 교과·지역균형 트랙으로 가능. 내신 1.2~1.5 + 수능 최저 충족 핵심."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이 공부 가능한가요?",
+          "answer": "EBS·AI 도구로 가능. 자기 커리큘럼 설계가 핵심."
+        },
+        {
+          "category": "진로",
+          "question": "정시 수능 최상위 가능한가요?",
+          "answer": "[일반적] 학군지 대비 불리. 교과·학종 중심이 현실적."
+        },
+        {
+          "category": "정보",
+          "question": "입시 정보는?",
+          "answer": "교육청 진학자료실, EBS, 오르비·수만휘 정기 활용."
+        }
+      ],
+      "websiteUrl": "https://www.busan.hs.kr/",
+      "description": "부산고는 부산 원도심의 전통 공립 일반고. 해운대 신시가지 학군과 구분되는 비학군지 보편 일반고. [일반적] 자기주도 학습 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "부산 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "기숙사 없음 (통학)",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 부산교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "부산 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습 습관",
+          "독서·탐구 경험"
+        ],
+        "interviewFormat": "별도 입학 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "중학교 때부터 AI 학습 일지 누적"
+      },
+      "studyStyleDetail": "교과 수업 + 야자 + 자기주도. 학원 의존도 낮음.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제로 1등급 진입 유리. 교과·지역균형 주력. 정시 최상위는 학군지 우위.",
+        "aiEra": "AI가 학원 부재의 빈자리를 메워주는 시대. EBS·ChatGPT·Claude로 자기 커리큘럼.",
+        "cautionPoints": [
+          "학원·또래 정보 부족 → 온라인 커뮤니티 정기 점검",
+          "정시 최상위는 학군지 우위 → 교과·학종 트랙",
+          "자기주도 실패 시 격차 가속",
+          "AI 산출물 그대로 제출 금지",
+          "지역균형선발 적극 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "==자기주도 학습으로 교과·지역균형== 트랙을 노리는 친구들의 학교.",
+        "goodFor": [
+          "자기주도 가능",
+          "교과전형/지역균형 희망",
+          "AI·EBS 활용 가능",
+          "사교육비 절감 희망"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 절대 필요",
+          "자기 커리큘럼 의지 약함"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘 3000",
+          "독서 월 2권",
+          "AI 도구 습관",
+          "EBS 완강 1과목"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "비학군지는 AI·EBS를 학원처럼 활용하는 습관이 결정적.",
+        "homepageMustCheck": "진학 실적, 동아리, 야자·방과후 현황 확인.",
+        "homepageUrl": "https://www.busan.hs.kr/"
+      },
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://www.busan.hs.kr/)"
+    },
+    {
+      "id": "daejeon_high",
+      "name": "대전고등학교",
+      "shortName": "대전고",
+      "location": "대전광역시 중구",
+      "type": "일반고",
+      "districtFact": "대전 원도심 전통 공립 일반고 (둔산 학군 아님)",
+      "emoji": "🏯",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 대전 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 수업 + 자기주도 학습 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리·탐구활동"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자·주말 자율학습",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권 분포",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "대전 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "전 과목 기초 + 독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "비학군지는 미리 시작이 무기."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어 어휘",
+            "진로 노트",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 가능 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "자기주도 루틴",
+            "동아리 후보",
+            "교육청 자료"
+          ],
+          "keyPoint": "교육청 자료실·진학실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "대전 중구",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "없음",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "둔산 학군과 다른 비학군지. 학원 인프라 약함."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "전통 공립 안정적 분위기."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "정보·또래 자극 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 + 교과/지역균형 트랙."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제 + 사교육비 낮음."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상 기회 많음."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 충남대·KAIST(이공계)·SKY 지역균형 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI로 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 적극 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접 30회."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 진학 커뮤니티 활용."
+        }
+      ],
+      "competitionLevel": "[일반적] 대전 비학군지 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학 중심",
+      "mentalHealthNote": "정보 격차 스트레스 — 자기 페이스 유지.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "교과전형 적합",
+        "사교육비 낮음"
+      ],
+      "cons": [
+        "학원·정보 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 교과·지역균형 1순위.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형",
+        "[일반적] 충남대·KAIST(이공계 일부)",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "비학군지에서 SKY 가능?",
+          "answer": "[일반적] 교과·지역균형 트랙으로 가능."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이 가능?",
+          "answer": "EBS·AI 도구로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시 최상위?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·온라인 커뮤니티."
+        }
+      ],
+      "websiteUrl": "https://djhs.djsch.kr/",
+      "description": "대전고는 대전 중구의 전통 공립 일반고. 둔산 학군과 다른 비학군지 보편 일반고. [일반적] 자기주도 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "대전 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "기숙사 없음",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 대전교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "대전 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습 습관"
+        ],
+        "interviewFormat": "별도 입학 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지 누적"
+      },
+      "studyStyleDetail": "교과 수업 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 교과·지역균형 주력.",
+        "aiEra": "AI가 학원 빈자리 보완.",
+        "cautionPoints": [
+          "정보 부족 보완",
+          "정시 최상위 어려움",
+          "자기주도 실패 위험",
+          "AI 산출물 재구성",
+          "지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도로 교과·지역균형을 노리는 학교.",
+        "goodFor": [
+          "자기주도 가능",
+          "교과·지역균형 희망",
+          "AI·EBS 활용",
+          "사교육비 절감"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘 3000",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼 활용.",
+        "homepageMustCheck": "진학 실적·동아리·야자 현황.",
+        "homepageUrl": "https://djhs.djsch.kr/"
+      },
+      "verifiedNote": "대전교육청 표준 도메인(djsch.kr) — 학교알리미 교차 확인 권장"
+    },
+    {
+      "id": "gwangju_jeil",
+      "name": "광주제일고등학교",
+      "shortName": "광주제일고",
+      "location": "광주광역시 북구",
+      "type": "일반고",
+      "districtFact": "광주 전통 공립 일반고",
+      "emoji": "🏛️",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 광주 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 + 자기주도 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자 운영",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "광주 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "기초+독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "미리 시작이 무기."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어 어휘",
+            "진로",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "루틴",
+            "동아리",
+            "교육청 자료"
+          ],
+          "keyPoint": "교육청 자료실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "광주 북구",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "없음",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "비학군지 보편 일반고. 학원 인프라 약함."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "전통 명문 + 자기주도 분위기."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "또래·정보 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 + 교과/지역균형."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상 기회 많음."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 전남대·SKY 지역균형 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접 30회."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 커뮤니티 활용."
+        }
+      ],
+      "competitionLevel": "[일반적] 광주 비학군지 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학 중심",
+      "mentalHealthNote": "정보 격차 스트레스.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "교과전형 적합"
+      ],
+      "cons": [
+        "학원·정보 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 교과·지역균형 1순위.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형",
+        "[일반적] 전남대·조선대",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "SKY 가능?",
+          "answer": "[일반적] 교과·지역균형 트랙으로 가능."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이?",
+          "answer": "EBS·AI로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시 최상위?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·커뮤니티."
+        }
+      ],
+      "websiteUrl": "http://ilgo.gen.hs.kr/",
+      "description": "광주제일고는 광주의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "광주 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "기숙사 없음",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 광주교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "광주 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습"
+        ],
+        "interviewFormat": "별도 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지"
+      },
+      "studyStyleDetail": "교과 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 교과·지역균형 주력.",
+        "aiEra": "AI가 학원 부재 보완.",
+        "cautionPoints": [
+          "정보 부족",
+          "정시 어려움",
+          "자기주도 실패 위험",
+          "AI 재구성",
+          "지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도 + 교과·지역균형의 학교.",
+        "goodFor": [
+          "자기주도",
+          "교과/지역균형",
+          "AI·EBS",
+          "사교육비 절감"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
+        "homepageMustCheck": "진학 실적·동아리·야자.",
+        "homepageUrl": "http://ilgo.gen.hs.kr/"
+      },
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://ilgo.gen.hs.kr/)"
+    },
+    {
+      "id": "jeonju_high",
+      "name": "전주고등학교",
+      "shortName": "전주고",
+      "location": "전라북도 전주시",
+      "type": "일반고",
+      "districtFact": "전북 전통 공립 일반고",
+      "emoji": "🏘️",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 전북 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 + 자기주도 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "전주 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "기초+독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "미리 시작."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어",
+            "진로",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "루틴",
+            "동아리",
+            "교육청 자료"
+          ],
+          "keyPoint": "진학실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "전북 전주",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "[추정] 없음/일부",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "비학군지 보편 일반고. 학원 약함."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "전통 명문 + 자기주도."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "정보 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 + 교과/지역균형."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학 중심."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상 기회."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 전북대·SKY 지역균형 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 커뮤니티."
+        }
+      ],
+      "competitionLevel": "[일반적] 전북 비학군지 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학",
+      "mentalHealthNote": "정보 격차 스트레스.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "교과전형 적합"
+      ],
+      "cons": [
+        "학원 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 교과·지역균형 1순위.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형",
+        "[일반적] 전북대",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "SKY 가능?",
+          "answer": "[일반적] 교과·지역균형으로 가능."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이?",
+          "answer": "EBS·AI로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·커뮤니티."
+        }
+      ],
+      "websiteUrl": "https://school.jbedu.kr/jeonju-h",
+      "description": "전주고는 전북의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "전주 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 전북교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "전주 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습"
+        ],
+        "interviewFormat": "별도 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지"
+      },
+      "studyStyleDetail": "교과 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 교과·지역균형 주력.",
+        "aiEra": "AI가 학원 빈자리 보완.",
+        "cautionPoints": [
+          "정보 부족",
+          "정시 어려움",
+          "자기주도 실패 위험",
+          "AI 재구성",
+          "지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도 + 교과·지역균형 학교.",
+        "goodFor": [
+          "자기주도",
+          "교과/지역균형",
+          "AI·EBS",
+          "사교육비 절감"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
+        "homepageMustCheck": "진학 실적·동아리·야자.",
+        "homepageUrl": "https://school.jbedu.kr/jeonju-h"
+      },
+      "verifiedNote": "전북교육청 표준 도메인(jbedu.kr) — 학교알리미 교차 확인 권장"
+    },
+    {
+      "id": "cheongju_high",
+      "name": "청주고등학교",
+      "shortName": "청주고",
+      "location": "충청북도 청주시",
+      "type": "일반고",
+      "districtFact": "충북 청주 전통 공립 일반고",
+      "emoji": "🌾",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 충북 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 + 자기주도 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "청주 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "기초+독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "미리 시작."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어",
+            "진로",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "루틴",
+            "동아리",
+            "교육청 자료"
+          ],
+          "keyPoint": "진학실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "충북 청주",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과전형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "[추정] 없음/일부",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "비학군지 보편 일반고. 학원 약함."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "전통 명문 + 자기주도."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "정보 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 + 교과/지역균형."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학 중심."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상 기회."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 충북대·SKY 지역균형 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 커뮤니티."
+        }
+      ],
+      "competitionLevel": "[일반적] 청주 비학군지 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학",
+      "mentalHealthNote": "정보 격차 스트레스.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "교과전형 적합"
+      ],
+      "cons": [
+        "학원 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 교과·지역균형 1순위.",
+      "targetUniversities": [
+        "[일반적] SKY 지역균형",
+        "[일반적] 충북대",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "SKY 가능?",
+          "answer": "[일반적] 교과·지역균형 트랙으로 가능."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이?",
+          "answer": "EBS·AI로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·커뮤니티."
+        }
+      ],
+      "websiteUrl": "https://school.cbe.go.kr/cheongju-h",
+      "description": "청주고는 충북의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "청주 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "남학교 (전통)",
+        "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 충북교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "청주 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습"
+        ],
+        "interviewFormat": "별도 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지"
+      },
+      "studyStyleDetail": "교과 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 교과·지역균형 주력.",
+        "aiEra": "AI가 학원 부재 보완.",
+        "cautionPoints": [
+          "정보 부족",
+          "정시 어려움",
+          "자기주도 실패 위험",
+          "AI 재구성",
+          "지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도 + 교과·지역균형 학교.",
+        "goodFor": [
+          "자기주도",
+          "교과/지역균형",
+          "AI·EBS",
+          "사교육비 절감"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
+        "homepageMustCheck": "진학 실적·동아리·야자.",
+        "homepageUrl": "https://school.cbe.go.kr/cheongju-h"
+      },
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.cbe.go.kr/cheongju-h)"
+    },
+    {
+      "id": "gangneung_high",
+      "name": "강릉고등학교",
+      "shortName": "강릉고",
+      "location": "강원특별자치도 강릉시",
+      "type": "일반고",
+      "districtFact": "강원 영동권 비학군지 일반고",
+      "emoji": "🌅",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 강원 영동권 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 + 자기주도 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "강릉 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "기초+독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "미리 시작."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어",
+            "진로",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "루틴",
+            "동아리",
+            "교육청 자료"
+          ],
+          "keyPoint": "진학실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "강원 강릉",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과·지역균형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "[추정] 없음/일부",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "도심권 비학군지. 학원 인프라 약함."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "지역 특성상 ==강원권 지역인재 트랙==을 강력히 활용 가능."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "정보·또래 자극 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "지역균형·강원권 지역인재로 SKY/거점국립대 노리는 학생."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학 중심."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "강원권 지역인재 전형 활용 유리."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 강원대·SKY 지역균형·강원권 지역인재 의대 트랙 일부."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "강원권 지역인재 전형 활용 검토."
+        }
+      ],
+      "competitionLevel": "[일반적] 강릉 일반고 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학",
+      "mentalHealthNote": "정보 격차 스트레스.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "강원권 지역인재 활용 가능"
+      ],
+      "cons": [
+        "학원 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 강원권 지역인재·지역균형 적극 활용.",
+      "targetUniversities": [
+        "[일반적] 강원대(의대 포함)",
+        "[일반적] SKY 지역균형",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "강원 의대 가능?",
+          "answer": "[일반적] 강원권 지역인재 전형으로 가능 — 내신·수능 최저 충족 필수."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이?",
+          "answer": "EBS·AI로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·커뮤니티."
+        }
+      ],
+      "websiteUrl": "https://ganggo.gwe.hs.kr/",
+      "description": "강릉고는 강원 영동권 일반고. 비학군지 보편 일반고로 [일반적] 강원권 지역인재 전형 활용에 강점.",
+      "schoolInfoCard": {
+        "regionScope": "강릉 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "[추정] 남학교 — 홈페이지 확인",
+        "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 강원교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "강릉 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습"
+        ],
+        "interviewFormat": "별도 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지"
+      },
+      "studyStyleDetail": "교과 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 강원권 지역인재 + 지역균형 주력.",
+        "aiEra": "AI가 학원 부재 보완.",
+        "cautionPoints": [
+          "정보 부족",
+          "정시 어려움",
+          "자기주도 실패 위험",
+          "AI 재구성",
+          "지역인재·지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도 + 강원권 지역인재의 학교.",
+        "goodFor": [
+          "자기주도",
+          "강원권 지역인재 희망",
+          "교과/지역균형",
+          "AI·EBS 활용"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
+        "homepageMustCheck": "진학 실적·동아리·야자.",
+        "homepageUrl": "https://ganggo.gwe.hs.kr/"
+      },
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ganggo.gwe.hs.kr/)"
+    },
+    {
+      "id": "masan_high",
+      "name": "마산고등학교",
+      "shortName": "마산고",
+      "location": "경상남도 창원시 마산합포구",
+      "type": "일반고",
+      "districtFact": "경남 마산권 전통 공립 일반고",
+      "emoji": "⛰️",
+      "color": "#94a3b8",
+      "difficulty": 3,
+      "annualAdmission": null,
+      "annualAdmissionNote": "학교알리미 공시 확인",
+      "tuition": "고교 무상교육 적용",
+      "dormitory": false,
+      "ibCertified": false,
+      "specialCertification": "[일반적] 경남 마산권 전통 공립 일반고",
+      "operatorFact": "[일반적] 공립.",
+      "teachingMethod": "교과 + 자기주도 + 진학 지도",
+      "famousPrograms": [
+        "[일반적] 야간 자율학습",
+        "[일반적] 진학 지도",
+        "[일반적] 동아리"
+      ],
+      "famousProgramDetails": [
+        {
+          "name": "자기주도 학습관",
+          "emoji": "📚",
+          "description": "[일반적] 야자",
+          "benefit": "학원 의존 낮춤"
+        }
+      ],
+      "studentLevel": "[일반적] 자기주도형 상위권",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "학군 배정",
+          "detail": "창원 후기 일반고 학군 배정",
+          "icon": "🏠"
+        }
+      ],
+      "careerPath": {
+        "middle1": "기초+독서",
+        "middle2": "수학·영어 선행",
+        "middle3": "자기주도 루틴"
+      },
+      "careerPathDetails": [
+        {
+          "grade": "중학교 1학년",
+          "icon": "🌱",
+          "tasks": [
+            "기초",
+            "독서",
+            "AI 탐색",
+            "수학 선행"
+          ],
+          "keyPoint": "미리 시작."
+        },
+        {
+          "grade": "중학교 2학년",
+          "icon": "🌿",
+          "tasks": [
+            "수학 선행",
+            "영어",
+            "진로",
+            "교내 대회"
+          ],
+          "keyPoint": "1등급 과목 파악."
+        },
+        {
+          "grade": "중학교 3학년",
+          "icon": "🌳",
+          "tasks": [
+            "고1 시뮬레이션",
+            "루틴",
+            "동아리",
+            "교육청 자료"
+          ],
+          "keyPoint": "진학실 활용."
+        }
+      ],
+      "highlightStats": [
+        {
+          "label": "지역",
+          "value": "경남 창원 마산",
+          "emoji": "📍",
+          "color": "#94a3b8"
+        },
+        {
+          "label": "비용",
+          "value": "수업료 면제",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "트랙",
+          "value": "교과·지역균형",
+          "emoji": "🎯",
+          "color": "#60a5fa"
+        },
+        {
+          "label": "기숙사",
+          "value": "[추정] 없음/일부",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        }
+      ],
+      "realTalk": [
+        {
+          "emoji": "😤",
+          "title": "솔직히 말하면...",
+          "content": "비학군지 보편 일반고."
+        },
+        {
+          "emoji": "🤩",
+          "title": "이런 점은 진짜 좋아요",
+          "content": "전통 명문 + 자기주도."
+        },
+        {
+          "emoji": "😰",
+          "title": "힘든 점은...",
+          "content": "정보 부족."
+        },
+        {
+          "emoji": "💡",
+          "title": "이런 학생에게 딱!",
+          "content": "자기주도 + 교과/지역균형."
+        },
+        {
+          "emoji": "🏠",
+          "title": "기숙사 생활 현실",
+          "content": "통학."
+        },
+        {
+          "emoji": "💰",
+          "title": "비용 현실은...",
+          "content": "수업료 면제."
+        },
+        {
+          "emoji": "📚",
+          "title": "비학군지만의 특별한 점",
+          "content": "교내 수상 기회."
+        },
+        {
+          "emoji": "🎓",
+          "title": "졸업 후 현실은...",
+          "content": "[일반적] 경상국립대·부산대·SKY 지역균형 다수."
+        }
+      ],
+      "survivalTips": [
+        {
+          "emoji": "📚",
+          "tip": "EBS·AI 자기 커리큘럼."
+        },
+        {
+          "emoji": "🏆",
+          "tip": "교내 대회 참가."
+        },
+        {
+          "emoji": "🎤",
+          "tip": "AI 모의면접."
+        },
+        {
+          "emoji": "🤝",
+          "tip": "온라인 커뮤니티."
+        }
+      ],
+      "competitionLevel": "[일반적] 마산권 상위권",
+      "studyHoursPerDay": "[일반적] 6~8시간",
+      "selfStudyRatio": "[일반적] 60~70%",
+      "socialLife": "통학",
+      "mentalHealthNote": "정보 격차 스트레스.",
+      "pros": [
+        "수업료 면제",
+        "[일반적] 1등급 유리",
+        "교과전형 적합"
+      ],
+      "cons": [
+        "학원 약함",
+        "[일반적] 정시 최상위 불리"
+      ],
+      "admissionTip": "거주지 전제. 교과·지역균형 1순위.",
+      "targetUniversities": [
+        "[일반적] 경상국립대·부산대",
+        "[일반적] SKY 지역균형",
+        "[일반적] 인서울 중상위 교과"
+      ],
+      "alumniCareers": [
+        "* 학교별 편차 — 학교알리미 확인"
+      ],
+      "faq": [
+        {
+          "category": "입시",
+          "question": "SKY 가능?",
+          "answer": "[일반적] 교과·지역균형 트랙으로 가능."
+        },
+        {
+          "category": "학습",
+          "question": "학원 없이?",
+          "answer": "EBS·AI로 가능."
+        },
+        {
+          "category": "진로",
+          "question": "정시?",
+          "answer": "[일반적] 학군지 대비 불리."
+        },
+        {
+          "category": "정보",
+          "question": "정보 출처?",
+          "answer": "교육청·EBS·커뮤니티."
+        }
+      ],
+      "websiteUrl": "https://masan-h.gne.go.kr/",
+      "description": "마산고는 경남 마산권의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
+      "schoolInfoCard": {
+        "regionScope": "창원 후기 일반고 학군 배정",
+        "capacity": "학교알리미 공시 확인",
+        "genderRatio": "[추정] 남학교 — 홈페이지 확인",
+        "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
+        "costPerYear": "고교 무상교육 — 수업료 면제",
+        "scholarship": "교육청·교내 장학금",
+        "lowIncomeAdvice": "고교 무상교육 적용. 경남교육청 학습 지원 사업 별도 신청 가능"
+      },
+      "admissionQualifications": {
+        "mandatory": [
+          "창원 거주",
+          "후기 일반고 지원"
+        ],
+        "recommended": [
+          "자기주도 학습"
+        ],
+        "interviewFormat": "별도 면접 없음",
+        "competitionRate": "학군 배정",
+        "aiTip": "AI 학습 일지"
+      },
+      "studyStyleDetail": "교과 + 야자 + 자기주도.",
+      "update2028AI": {
+        "policy2028": "내신 5등급제 유리. 교과·지역균형 주력.",
+        "aiEra": "AI가 학원 부재 보완.",
+        "cautionPoints": [
+          "정보 부족",
+          "정시 어려움",
+          "자기주도 실패 위험",
+          "AI 재구성",
+          "지역균형 활용"
+        ]
+      },
+      "middleSchoolGuide": {
+        "oneLineAbout": "자기주도 + 교과·지역균형 학교.",
+        "goodFor": [
+          "자기주도",
+          "교과/지역균형",
+          "AI·EBS",
+          "사교육비 절감"
+        ],
+        "notForYouIf": [
+          "정시 최상위 1순위",
+          "학원 인프라 필수"
+        ],
+        "whatToDoNow": [
+          "수학 선행",
+          "영어 어휘",
+          "독서",
+          "AI 습관",
+          "EBS 완강"
+        ],
+        "admissionTimeline": "후기 일반고 학군 배정",
+        "competitionRate": "학군 배정",
+        "whatTheyCheck": [
+          "거주지"
+        ],
+        "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
+        "homepageMustCheck": "진학 실적·동아리·야자.",
+        "homepageUrl": "https://masan-h.gne.go.kr/"
+      },
+      "verifiedNote": "경남교육청 표준 도메인(gne.go.kr) — 학교알리미 교차 확인 권장"
+    }
+  ]
+}
