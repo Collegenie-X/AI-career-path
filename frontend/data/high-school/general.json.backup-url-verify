@@ -705,7 +705,7 @@
           "answer": "교육청 진학자료실, EBS, 오르비·수만휘 정기 활용."
         }
       ],
-      "websiteUrl": "https://school.busanedu.net/",
+      "websiteUrl": "https://www.busan.hs.kr/",
       "description": "부산고는 부산 원도심의 전통 공립 일반고. 해운대 신시가지 학군과 구분되는 비학군지 보편 일반고. [일반적] 자기주도 학습 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "부산 후기 일반고 학군 배정",
@@ -768,9 +768,9 @@
         ],
         "aiTipForMiddleSchooler": "비학군지는 AI·EBS를 학원처럼 활용하는 습관이 결정적.",
         "homepageMustCheck": "진학 실적, 동아리, 야자·방과후 현황 확인.",
-        "homepageUrl": "https://school.busanedu.net/"
+        "homepageUrl": "https://www.busan.hs.kr/"
       },
-      "verifiedNote": "https://school.busanedu.net/"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://www.busan.hs.kr/)"
     },
     {
       "id": "daejeon_high",
@@ -1536,7 +1536,7 @@
           "answer": "교육청·EBS·커뮤니티."
         }
       ],
-      "websiteUrl": "https://school.jbedu.kr/jeonjugo/",
+      "websiteUrl": "https://school.jbedu.kr/jeonju-h",
       "description": "전주고는 전북의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "전주 후기 일반고 학군 배정",
@@ -1597,9 +1597,9 @@
         ],
         "aiTipForMiddleSchooler": "AI·EBS를 학원처럼.",
         "homepageMustCheck": "진학 실적·동아리·야자.",
-        "homepageUrl": "https://school.jbedu.kr/jeonjugo/"
+        "homepageUrl": "https://school.jbedu.kr/jeonju-h"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.jbedu.kr/jeonjugo/)"
+      "verifiedNote": "전북교육청 표준 도메인(jbedu.kr) — 학교알리미 교차 확인 권장"
     },
     {
       "id": "cheongju_high",

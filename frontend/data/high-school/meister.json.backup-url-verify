@@ -1212,7 +1212,7 @@
         "aiTip": "포항제철공고 마이스터 AI 세특 전략: 중학교 기술·가정 세특에 '스마트 철강 제조 공정 탐구 (AI 품질 검사 시스템)' 주제 기재 + 과학 세특에 '금속 소재의 강도·연성 원리와 AI 소재 설계' 연계. 포스코 스마트팩토리 유튜브 영상 시청 후 감상 보고서를 자기소개서에 반영하면 면접에서 강점이 됩니다."
       },
       "studyStyleDetail": "포항제철공고는 이론과 실습이 5:5로 균형을 이룹니다. 오전에는 수학·과학·영어 등 기초학문, 오후에는 철강 공정·금속 재료·CAD/CAM 실습이 진행됩니다. 포스코 현장에서 직접 용광로·압연·도금 라인을 배우는 현장실습은 고2~3 필수 과정으로, 실제 직원과 함께 일하는 경험을 제공합니다.",
-      "websiteUrl": "http://school.gyo6.net/pocheoltechhs",
+      "websiteUrl": "http://apply.pocheoltech.hs.kr/",
       "update2028AI": {
         "policy2028": "대입 개편 영향은 적지만, 후진학(취업 후 대학) 길이 더 넓어졌어요. 삼성·SK 같은 대기업이 사내 학위 프로그램(취업하면서 학사 학위 받기)을 운영해서 4~6년에 \"취업+학위\"를 동시에 갖출 수 있어요. 2028 의대 정원 확대·이공계 정시 확대로 마이스터고 졸업 후 \"대학 재진학\" 노리는 친구도 늘어요.",
         "aiEra": "마이스터고는 AI·자동화의 영향을 가장 빨리 받는 학교예요. 사라지는 일: 단순 조작·반복 가공·기초 데이터 입력. 살아남는 일: 공정 분석·이상 진단·복합 설비 제어·AI/로봇 운영. 새로 생기는 일: 스마트팩토리 운영자, MLOps 엔지니어, 산업 데이터 분석가.",
@@ -2083,7 +2083,7 @@
         "aiTip": "대일마이스터고 AI 세특 전략: 기술·가정 세특에 'CNC 가공의 수치 제어 원리와 AI 최적화' 탐구 기재 + 수학 세특에 '기어비·토크 계산의 수학 원리' 추가. 대구 스마트공장 견학 경험이나 관련 보고서를 자기소개서에 반영하면 합격 가능성이 높아집니다."
       },
       "studyStyleDetail": "대일마이스터고는 기계·전기·전자 3개 학과를 운영합니다. 오전: 수학·물리·재료공학 이론 수업. 오후: CNC 선반·밀링·와이어 방전가공(기계), 배선·제어반 조립(전기), PCB 납땜·회로 설계(전자) 실습. 전국기능올림픽 출전 준비반이 운영되어 최고 기능인 양성을 목표로 합니다.",
-      "websiteUrl": "http://dgmeister.dge.hs.kr/",
+      "websiteUrl": "https://dgmeister.dge.hs.kr/",
       "careerPathDetails": [
         {
           "grade": "중학교 1학년",
@@ -2194,7 +2194,7 @@
         ],
         "aiTipForMiddleSchooler": "\"AI가 시키는 대로 하는 사람\"이 아니라 \"AI를 도구로 부리는 명장\"이 되어야 해요. 자기 GitHub·작품 포트폴리오를 입학 직후부터 만드세요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 기업 목록 ② 졸업생 평균 연봉·취업률 ③ 후진학 학위 연계 프로그램을 꼭 확인하세요.",
-        "homepageUrl": "http://dgmeister.dge.hs.kr/"
+        "homepageUrl": "http://dgmeister.dge.hs.kr"
       },
       "verifiedNote": "공식 홈페이지로 실재 확인 (https://dgmeister.dge.hs.kr/)"
     },
@@ -3195,12 +3195,12 @@
         ],
         "aiTipForMiddleSchooler": "\"AI가 시키는 대로 하는 사람\"이 아니라 \"AI를 도구로 부리는 명장\"이 되어야 해요. 자기 GitHub·작품 포트폴리오를 입학 직후부터 만드세요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 기업 목록 ② 졸업생 평균 연봉·취업률 ③ 후진학 학위 연계 프로그램을 꼭 확인하세요.",
-        "homepageUrl": "http://maritime.hs.kr/"
+        "homepageUrl": "https://www.maritime.hs.kr/"
       },
       "verifiedNote": "공식 홈페이지로 실재 확인 (http://maritime.hs.kr/)"
     },
     {
-      "id": "gangwon_energy_meister",
+      "id": "jeonnam_energy_meister",
       "name": "한국에너지마이스터고등학교",
       "shortName": "한국에너지마이스터고",
       "location": "강원도 삼척시 근덕면",
@@ -3418,7 +3418,7 @@
         "aiTip": "전남에너지마이스터고 AI 세특 전략: 과학 세특에 '태양광 발전 효율 최적화를 위한 AI 예측 모델(기상 데이터 기반)' 탐구 기재 + 수학 세특에 '전력망 수요 예측의 통계·확률 원리' 주제 추가. 나주 한전 에너지밸리 관련 보고서 또는 한전 'K-에너지 캠프' 참가 경험을 자기소개서에 반영하면 매우 유리합니다."
       },
       "studyStyleDetail": "전남에너지마이스터고는 신재생에너지·전기 2개 트랙을 운영합니다. 신재생에너지 트랙: 태양광 패널 설치·인버터 연결·풍력 발전 원리 실습. 전기 트랙: 배선·수변전 설비·전기공사기사 자격증 준비. 고2~3 현장실습은 한전·태양광 발전소·풍력 발전 단지에서 진행되며, 전기기사·태양광 발전 자격증 취득이 지원됩니다.",
-      "websiteUrl": "https://energy.gwe.hs.kr/",
+      "websiteUrl": "https://www.gvhs.kr/",
       "careerPathDetails": [
         {
           "grade": "중학교 1학년",
@@ -3529,7 +3529,7 @@
         ],
         "aiTipForMiddleSchooler": "\"AI가 시키는 대로 하는 사람\"이 아니라 \"AI를 도구로 부리는 명장\"이 되어야 해요. 자기 GitHub·작품 포트폴리오를 입학 직후부터 만드세요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 기업 목록 ② 졸업생 평균 연봉·취업률 ③ 후진학 학위 연계 프로그램을 꼭 확인하세요.",
-        "homepageUrl": "https://energy.gwe.hs.kr/"
+        "homepageUrl": "https://naju.hs.jne.kr/"
       },
       "verifiedNote": "공식 홈페이지로 실재 확인 (https://www.gvhs.kr/)"
     }

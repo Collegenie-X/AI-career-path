@@ -255,30 +255,16 @@ function OverviewTab({
             border: `1px solid ${categoryColor}40`,
           }}
         >
-          <div className="flex items-center justify-between">
-            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
-              🎯 중학생을 위한 고입 가이드
-            </p>
-            <a
-              href={school.middleSchoolGuide.homepageUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold transition-all hover:opacity-80 active:scale-95"
-              style={{
-                background: categoryColor,
-                color: '#000',
-              }}
-            >
-              🏫 학교 홈페이지 →
-            </a>
-          </div>
+          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
+            🎯 중학생을 위한 고입 가이드
+          </p>
 
           {/* 잘 맞는 친구 / 다시 생각해 봐요 */}
           <div className="grid grid-cols-1 gap-2">
             <div className="rounded-xl p-2.5" style={{ background: 'rgba(34,197,94,0.10)', border: '1px solid rgba(34,197,94,0.30)' }}>
               <p className="text-xs font-bold mb-1.5 text-green-300">✅ 이런 친구한테 잘 맞아요</p>
               <ul className="space-y-1">
-                {school.middleSchoolGuide.goodFor.map((item, i) => (
+                {(school.middleSchoolGuide.goodFor ?? []).map((item, i) => (
                   <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                     <span className="absolute left-0 text-green-400">·</span>
                     <HL text={item} />
@@ -289,7 +275,7 @@ function OverviewTab({
             <div className="rounded-xl p-2.5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
               <p className="text-xs font-bold mb-1.5 text-red-300">⚠️ 이런 친구는 다시 생각해 봐요</p>
               <ul className="space-y-1">
-                {school.middleSchoolGuide.notForYouIf.map((item, i) => (
+                {(school.middleSchoolGuide.notForYouIf ?? []).map((item, i) => (
                   <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                     <span className="absolute left-0 text-red-400">·</span>
                     <HL text={item} />
@@ -303,7 +289,7 @@ function OverviewTab({
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}30` }}>
             <p className="text-xs font-bold mb-1.5" style={{ color: categoryColor }}>📋 지금(중학생 때) 뭘 해야 해요?</p>
             <ul className="space-y-1">
-              {school.middleSchoolGuide.whatToDoNow.map((item, i) => (
+              {(school.middleSchoolGuide.whatToDoNow ?? []).map((item, i) => (
                 <li key={i} className="text-sm text-gray-200 leading-snug pl-4 relative">
                   <span className="absolute left-0 text-xs" style={{ color: categoryColor }}>{i + 1}.</span>
                   <HL text={item} />
@@ -328,7 +314,7 @@ function OverviewTab({
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}30` }}>
             <p className="text-xs font-bold mb-1.5" style={{ color: categoryColor }}>🔍 학교가 뭘 봐요?</p>
             <ul className="space-y-1">
-              {school.middleSchoolGuide.whatTheyCheck.map((item, i) => (
+              {(school.middleSchoolGuide.whatTheyCheck ?? []).map((item, i) => (
                 <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                   <span className="absolute left-0">·</span>
                   <HL text={item} />
@@ -345,19 +331,6 @@ function OverviewTab({
             <p className="text-sm text-gray-200 leading-relaxed"><HL text={school.middleSchoolGuide.homepageMustCheck} /></p>
           </div>
 
-          {/* 마지막 홈페이지 버튼 */}
-          <a
-            href={school.middleSchoolGuide.homepageUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block w-full text-center px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all hover:opacity-80 active:scale-95"
-            style={{
-              background: `linear-gradient(135deg, ${categoryColor} 0%, ${categoryColor}cc 100%)`,
-              color: '#000',
-            }}
-          >
-            🏫 {school.name} 공식 홈페이지에서 자세히 보기 →
-          </a>
         </div>
       )}
 
@@ -384,7 +357,7 @@ function OverviewTab({
           <div className="rounded-xl p-2.5" style={{ background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.25)' }}>
             <p className="text-xs font-bold mb-1.5 text-red-300">🚨 꼭 챙겨야 할 점</p>
             <ul className="space-y-1">
-              {school.update2028AI.cautionPoints.map((item, i) => (
+              {(school.update2028AI.cautionPoints ?? []).map((item, i) => (
                 <li key={i} className="text-sm text-gray-200 leading-snug pl-3 relative">
                   <span className="absolute left-0 text-red-400">·</span>
                   <HL text={item} />
