@@ -1,0 +1,1585 @@
+{
+  "id": "ib",
+  "name": "IB 인증학교",
+  "emoji": "🎓",
+  "color": "#06b6d4",
+  "bgColor": "rgba(6,182,212,0.15)",
+  "description": "==국제 바칼로레아(IB) 인증 학교== — ==비판적 사고·에세이·프로젝트 기반 교육, 해외 명문대 직결==. ==2028 국내 개편의 영향을 가장 적게 받는== 학교 유형이지만 국내 SKY 학종 병행 시엔 한국 학생부 관리도 동시에 필요. AI 시대엔 IB의 핵심 가치(비판적 사고·논증·자기 탐구)가 가장 큰 무기 — AI가 '평균 답안'을 빠르게 생성하는 시대에 '근거 있는 자기 논증'은 인간의 영역으로 남습니다.",
+  "policyContext2028": "IB 학교는 IB 디플로마·IB 점수가 입시 중심이라 2028 통합형 수능·내신 5등급제 영향은 미미. 단, 공교육 IB 인증 학교(대구·제주·경기 등 확대 중) 졸업생이 국내 SKY 학종 지원 시엔 한국 학생부·면접의 비중이 동일. 의대 진학 노릴 경우엔 IB 과목 선택(생물·화학 HL)과 함께 별도 수능 준비 부담이 큼.",
+  "aiEraContext": "AI 시대 IB의 가장 큰 강점은 '에세이를 직접 쓰고 토론하고 자기 입장을 변호하는 훈련'을 매일 한다는 점 — ChatGPT가 답을 대신 써주는 시대에 가장 희소한 능력. 단, IB 학교는 'AI 사용 윤리' 규정이 매우 엄격해 EE·IA에 AI 사용이 적발되면 디플로마 무효. 면접·대학 지원에서 'AI를 어떻게 검토자로만 썼는가'를 정직하게 설명할 수 있어야 합니다.",
+  "categoryOverview": {
+    "whyClassified": {
+      "title": "왜 'IB 인증학교'를 별도로 분류하는가",
+      "reason": "IB(International Baccalaureate)는 스위스 제네바 본부의 국제 교육과정으로, 국내 교육부 교육과정과 완전히 다릅니다. 서술·토론·논술 100% 평가, EE(소논문)·IA(내부평가)·TOK(지식론)·CAS(봉사) 4대 과제 의무. 2028 국내 개편(수능·내신 5등급제)의 영향을 가장 적게 받는 유형이지만, 수능 응시가 사실상 불가능하다는 치명적 한계가 있습니다.",
+      "vsOtherCategories": "외고가 '국내 교육과정 + 어학 특화'라면 IB는 '국제 교육과정 채택'. 자사고가 '입시 명문'이라면 IB는 '사고력 교육 명문'. 단, IB과정과 수능은 출제 방식이 완전히 달라 병행이 극도로 어려움."
+    },
+    "uniqueFeatures": [
+      "공교육 IB 인증 학교 확대 중 (대구·제주·경기 등 50개+)",
+      "EE(4,000단어 소논문)·IA(과목별 내부 탐구)·TOK(지식론) 필수",
+      "IB 점수 38+ (45점 만점)시 해외 명문대 직접 지원 가능",
+      "국내 연세대·고려대·서울대 일부 전형 IB 성적 반영 확대 추세",
+      "AI 사용 윤리 규정 매우 엄격 — EE·IA AI 활용 적발 시 디플로마 무효"
+    ],
+    "examTrackAnalysis": {
+      "naesin": {
+        "level": "어려움",
+        "score": 4,
+        "detail": "IB 학교 내 우수 학생 집중. 단, IB 점수 자체가 대학 지원 핵심."
+      },
+      "suneung": {
+        "level": "사실상 불가",
+        "score": 1,
+        "detail": "IB 과정은 수능 출제 방식과 완전히 단절. 수능 병행은 극도로 어려움."
+      },
+      "hakjong": {
+        "level": "최강 (국내 학종 + 해외 직접 인정)",
+        "score": 5,
+        "detail": "EE·CAS·TOK가 학종 정성평가 최상위 자원. 해외 명문대 IB 점수 직접 인정."
+      },
+      "bestTrack": "학종 + 해외대학 직행 — 수능은 포기, 에세이·논술 기반 전형 집중"
+    }
+  },
+  "dormitoryAndTuition": {
+    "dormitory": {
+      "available": true,
+      "mandatory": false,
+      "summary": "학교별 상이 (공립 IB 통학 / 사립 IB 기숙사 있음)",
+      "detail": "공립 IB 인증 학교는 통학 기본 (무상교육). 사립 IB 학교는 기숙사 운영 (월 50~100만원+). 입학 전 해당 학교 확인 필수."
+    },
+    "tuition": {
+      "annualCost": "공립 IB 무상 / 사립 IB 연 3,000~6,000만원+",
+      "summary": "공립 IB = 무상, 사립 IB = 고비용 (해외 사립학교 수준)",
+      "scholarshipInfo": "공립 IB는 무상교육 적용. 사립 IB는 장학금 있으나 학교별 상이.",
+      "isFree": false,
+      "note": "공립 IB(대구·제주 등)는 0원으로 가성비 우수. 사립 IB는 연 3,000만원+ 고비용 각오 필요"
+    }
+  },
+  "oneLiner": "서술·논술로 학종·해외 진학 — 정시는 불가, 수능 포기가 전제",
+  "admissionMatrix2028": {
+    "naesinDifficulty": {
+      "level": "어려움",
+      "score": 4,
+      "detail": "IB 학교 내 우수 학생 집중. 2028 개편 영향 미미."
+    },
+    "hakjongResources": {
+      "level": "최강",
+      "score": 5,
+      "detail": "EE·CAS·TOK가 학종 정성평가 최강 자원. 해외 명문대 IB 점수 직접 인정."
+    },
+    "suneungStrength": {
+      "level": "불가",
+      "score": 1,
+      "detail": "IB 과정과 수능 출제 방식 완전히 다름. 수능 병행 극도로 어려움."
+    },
+    "tuitionBurden": {
+      "level": "무상~고비용 (학교별 상이)",
+      "score": 3,
+      "detail": "공립 IB 무상, 사립 IB 연 3,000만원+."
+    },
+    "medicalPossibility": {
+      "level": "제한적",
+      "score": 3,
+      "detail": "IB 과정에서 수능 병행이 어려워 의약학 정시 불리. 의약학 목표라면 일반고·자사고 권장.",
+      "warning": "⚠️ 의약학 목표라면 IB보다 갓반고·정시형 자사고로 방향 전환 검토"
+    }
+  },
+  "planet": {
+    "size": "medium",
+    "orbitRadius": 115,
+    "orbitSpeed": 22,
+    "glowColor": "#06b6d4"
+  },
+  "categoryTraits": {
+    "aptitude": "==비판적 사고력 + 에세이 작성 능력== + 자기주도 탐구 역량 + 영어 실력 + 다학문적 사고. AI 시대 핵심 적성은 'AI가 만든 답안을 의심하고 근거를 따져볼 수 있는 능력'.",
+    "studyStyle": "암기 중심 탈피 — ==EE(소논문)·IA(내부평가)·TOK(지식론)·CAS(봉사) 4대 핵심 과제==. 영어 에세이 필수. AI 사용은 자료 수집·문법 검토에 한정, 본문 작성·논증은 100% 본인.",
+    "identity": "지식 탐구 자체를 즐기는 학생 — '왜?'를 끊임없이 묻고 스스로 답을 찾는 사람. AI 시대에 가장 강한 인간 유형.",
+    "mentalStrength": "==IB 과정 자체가 매우 어렵고 시간 소모가 큼==. ==수능 병행 매우 어려움== — 진로 확신 없으면 중도 포기 위험. 'AI에게 의존하면 편할 텐데'라는 유혹과 싸워야 함(부정행위 시 디플로마 박탈).",
+    "gradeRequirement": "전 과목 A등급(특히 영어), 수학·과학 상위권(이공계 IB 선택 시). IB 점수 38+ 권장(45점 만점).",
+    "aptitudeTest": "영어 에세이·구술 면접 + 비판적 사고 문제 + 국제 이슈 토론. 'AI를 학습에 어떻게 활용하고 어디서 멈추는가'에 대한 자기 기준이 합격 면접의 변별 요소가 되는 추세.",
+    "internalGradeStrategy": "IB 과목 선택 전략이 핵심 — HL(상위 과목) 3개 선택이 대학 진학에 직결. EE 주제는 '나만의 질문'으로 잡고, IA·TOK는 사례·경험 기반으로. AI 도구 사용 일지를 따로 관리해 면접에서 정직하게 설명."
+  },
+  "admissionStrategy2028": {
+    "title": "2028 개편 대응 전략",
+    "summary": "IB 학교는 2028 수능 개편의 영향을 가장 적게 받음 — 해외 대학 진학 루트 강화 전략",
+    "points": [
+      "IB 디플로마 취득 시 국내 수능 없이 해외 명문대 직접 지원 가능",
+      "국내 대학도 IB 성적 반영 확대 추세 (연세대·고려대·서울대 일부 전형)",
+      "2028 내신 5등급제 도입 → IB 학교 내신 부담 완화 효과",
+      "세특 비중 증가 (35~40%) → IB EE(소논문)·CAS 활동이 세특 최강 소재",
+      "면접 비중 확대 → IB TOK(지식론) 훈련이 면접 논리력에 직결"
+    ]
+  },
+  "universitySixCardStrategy": {
+    "title": "수시 6장 배분 전략 (IB 인증 학교)",
+    "cards": [
+      {
+        "type": "해외",
+        "university": "아이비리그·옥스퍼드·캠브리지",
+        "admission": "IB 디플로마 (38점 이상)",
+        "note": "IB 최고 점수 목표"
+      },
+      {
+        "type": "상향",
+        "university": "연세대 국제학부·언더우드학부",
+        "admission": "활동우수전형",
+        "note": "IB EE·CAS 활동 강점"
+      },
+      {
+        "type": "상향",
+        "university": "고려대 국제학부",
+        "admission": "학교추천전형",
+        "note": "영어 면접 대비 필수"
+      },
+      {
+        "type": "적정",
+        "university": "성균관대 글로벌경영·소프트웨어",
+        "admission": "학생부종합",
+        "note": "IB HL 수학·과학 강점"
+      },
+      {
+        "type": "적정",
+        "university": "서강대 국제인문학부",
+        "admission": "학생부종합",
+        "note": "글로벌 역량 강조"
+      },
+      {
+        "type": "안정",
+        "university": "한양대 국제학부·ERICA",
+        "admission": "학생부종합",
+        "note": "면접 없음 서류 중심"
+      }
+    ]
+  },
+  "aiEraStrategy": {
+    "title": "🤖 AI 시대 생존 전략 — IB 학생이 반드시 알아야 할 것",
+    "summary": "AI가 정보 처리를 자동화하는 시대, IB 학생은 '비판적 사고'와 '학제 간 융합'으로 차별화해야 합니다",
+    "keyInsights": [
+      {
+        "title": "AI가 대체하는 것 vs 인간이 해야 할 것",
+        "aiReplaces": [
+          "정보 검색·요약 (문헌 리뷰 자동화)",
+          "기초 에세이 초안 작성",
+          "데이터 분석 및 시각화",
+          "번역 및 문법 교정"
+        ],
+        "humanMustDo": [
+          "비판적 사고 ('이 주장이 정말 타당한가?')",
+          "학제 간 융합 (서로 다른 분야를 연결하는 통찰)",
+          "윤리적 판단 (AI 윤리, 생명윤리, 사회적 책임)",
+          "창의적 문제 정의 ('무엇이 진짜 문제인가?')",
+          "글로벌 맥락 이해 (문화·정치·경제 융합 판단)"
+        ]
+      },
+      {
+        "title": "AI 도구 활용 로드맵 (중1~고3)",
+        "roadmap": [
+          {
+            "stage": "중학교 1~2학년 (IB MYP)",
+            "focus": "AI 도구로 탐구 효율 높이기",
+            "tools": [
+              "ChatGPT/Claude: 개념 이해, 탐구 질문 생성",
+              "Perplexity: 학술 자료 검색·요약",
+              "Notion AI: 탐구 일지 정리",
+              "Grammarly: 영어 에세이 문법 교정"
+            ],
+            "projects": [
+              "MYP Personal Project (AI로 자료 수집, 인간이 분석)",
+              "학제 간 탐구 프로젝트 (예: 기후변화 × 경제학)"
+            ],
+            "warning": "⚠️ AI는 '정보 제공'만, '비판적 분석'은 스스로 해야 합니다"
+          },
+          {
+            "stage": "중학교 3학년 ~ 고1 (IB DP 준비)",
+            "focus": "IB EE·TOK 준비 — AI와 협업",
+            "tools": [
+              "Elicit/Consensus: AI 논문 리뷰",
+              "ChatGPT: TOK 에세이 아이디어 브레인스토밍",
+              "Zotero + AI: 논문 관리",
+              "Overleaf: LaTeX 에세이 작성"
+            ],
+            "projects": [
+              "EE 주제 탐색 (AI로 문헌 리뷰, 인간이 연구 질문 정의)",
+              "TOK 에세이 초안 (AI로 구조 제안, 인간이 논리 전개)",
+              "CAS 프로젝트 (AI 도구 활용 사례)"
+            ],
+            "keyPoint": "💡 IB EE는 'AI를 어떻게 활용했는가'를 명시해야 학문적 정직성을 인정받습니다"
+          },
+          {
+            "stage": "고등학교 2~3학년 (IB DP)",
+            "focus": "AI 시대 비판적 사고 역량 극대화",
+            "tools": [
+              "ChatGPT Advanced: 복잡한 논증 분석",
+              "AI 윤리 프레임워크 학습",
+              "Mermaid + AI: 논리 구조 시각화",
+              "AI 기반 데이터 분석 (Python/R)"
+            ],
+            "projects": [
+              "EE 완성 (4,000단어 소논문 — AI 활용 투명하게 공개)",
+              "TOK 에세이 (AI 윤리·인식론 주제 탐구)",
+              "CAS 프로젝트 (AI 사회적 영향 탐구)"
+            ],
+            "keyPoint": "💡 IB 최종 평가에서 'AI를 비판적으로 활용한 경험'이 큰 강점이 됩니다"
+          },
+          {
+            "stage": "대학 지원 (IB 졸업 후)",
+            "focus": "AI 시대 글로벌 인재로서의 차별화",
+            "tools": [
+              "AI 기반 자소서 초안 작성 (스토리는 본인)",
+              "면접 준비: AI 활용 경험 스토리텔링"
+            ],
+            "projects": [
+              "IB 포트폴리오 정리 (AI 협업 프로젝트 강조)",
+              "대학 에세이: 'AI 시대 비판적 사고의 중요성' 주제"
+            ],
+            "keyPoint": "💡 해외 명문대 입학 사정에서 'AI를 비판적으로 활용한 경험'이 차별화 포인트입니다"
+          }
+        ]
+      },
+      {
+        "title": "AI 시대 IB 학생의 3대 차별화 전략",
+        "strategies": [
+          {
+            "strategy": "1. 비판적 사고 — AI가 제공한 정보를 '의심'하는 능력",
+            "why": "AI는 정보를 제공하지만, 그 정보가 타당한지 판단하는 것은 인간의 몫입니다",
+            "how": [
+              "AI가 제공한 자료를 읽고 '이 주장의 근거는 무엇인가?', '반론은 없는가?'를 스스로 묻기",
+              "TOK 에세이에서 'AI가 생성한 지식은 진짜 지식인가?'를 탐구",
+              "EE 작성 시 AI 자료를 인용하되, 반드시 원문 확인 후 비판적 분석"
+            ],
+            "example": "예: AI가 '기후변화는 인간 활동 때문'이라고 하면, '그 근거는?', '반론은?'을 스스로 찾기"
+          },
+          {
+            "strategy": "2. 학제 간 융합 — AI가 연결하지 못하는 '서로 다른 분야'",
+            "why": "AI는 단일 분야에서 강하지만, 서로 다른 분야를 융합하는 것은 인간만이 할 수 있습니다",
+            "how": [
+              "IB 과목 선택 시 HL을 다양한 분야로 (예: 수학 HL + 역사 HL + 생물 HL)",
+              "EE 주제를 학제 간 융합으로 (예: '수학 모델링으로 본 난민 이동 패턴')",
+              "CAS 프로젝트를 융합 주제로 (예: '환경 보호 × 지역 경제 활성화')"
+            ],
+            "example": "예: 경제학 × 생물학 = '생태계 서비스의 경제적 가치 평가'"
+          },
+          {
+            "strategy": "3. 윤리적 판단 — AI가 대체할 수 없는 '가치 판단'",
+            "why": "AI는 데이터를 분석하지만, '무엇이 옳은가?'를 판단하는 것은 인간의 영역입니다",
+            "how": [
+              "TOK 에세이에서 'AI 윤리'를 주제로 탐구",
+              "EE에서 '기술의 사회적 영향'을 비판적으로 분석",
+              "CAS 프로젝트로 'AI 편향성 문제' 해결 시도"
+            ],
+            "example": "예: 'AI 의료 진단 시스템이 특정 인종에 편향되어 있다면, 어떻게 해결할 것인가?'"
+          }
+        ]
+      }
+    ],
+    "practicalTips": [
+      {
+        "emoji": "🧠",
+        "category": "TOK (지식론)",
+        "tip": "AI를 TOK 탐구 주제로 삼으세요",
+        "detail": "'AI가 생성한 지식은 진짜 지식인가?', 'AI는 창의적일 수 있는가?', 'AI 편향성은 지식의 신뢰성에 어떤 영향을 미치는가?' 등 AI 관련 TOK 질문을 탐구하세요."
+      },
+      {
+        "emoji": "📝",
+        "category": "EE (소논문)",
+        "tip": "AI를 활용했다면 투명하게 공개하세요",
+        "detail": "EE에 'AI 활용 방법론' 섹션을 추가하여 '어떤 AI 도구를 어떻게 사용했는가'를 명시하세요. 이것이 학문적 정직성이며, IB 평가에서 높이 평가됩니다."
+      },
+      {
+        "emoji": "🎨",
+        "category": "CAS (창의성·활동·봉사)",
+        "tip": "AI 사회적 영향을 CAS 프로젝트로 만드세요",
+        "detail": "'AI 편향성 교육 캠페인', 'AI 윤리 토론 동아리', 'AI를 활용한 지역 사회 문제 해결' 등 AI 관련 CAS 프로젝트가 해외 명문대 입학 사정에서 강력한 차별화 포인트가 됩니다."
+      },
+      {
+        "emoji": "📚",
+        "category": "독서",
+        "tip": "AI 윤리·철학 관련 책을 읽으세요",
+        "detail": "'Life 3.0' (Max Tegmark), 'Weapons of Math Destruction' (Cathy O'Neil) 등 AI 윤리·사회적 영향을 다룬 책을 읽고 TOK·EE에 활용하세요."
+      },
+      {
+        "emoji": "🌍",
+        "category": "글로벌 이슈",
+        "tip": "AI가 글로벌 불평등에 미치는 영향을 탐구하세요",
+        "detail": "'AI 기술 격차가 선진국과 개발도상국의 불평등을 심화시키는가?'를 EE 주제로 삼으면, 학제 간 융합 + 글로벌 이슈 + AI 윤리를 모두 다룰 수 있습니다."
+      },
+      {
+        "emoji": "🎯",
+        "category": "대학 지원",
+        "tip": "대학 에세이에 'AI 시대 비판적 사고'를 강조하세요",
+        "detail": "해외 명문대 입학 에세이에서 'AI가 정보를 제공하지만, 나는 그것을 비판적으로 분석한다'는 스토리를 만드세요. 이것이 AI 시대 인재의 핵심 역량입니다."
+      }
+    ],
+    "commonMistakes": [
+      {
+        "mistake": "❌ AI가 작성한 EE 초안을 그대로 제출",
+        "correct": "✅ AI 초안을 보고 구조를 참고하되, 본인의 분석과 비판적 사고로 재작성"
+      },
+      {
+        "mistake": "❌ AI가 제공한 자료를 검증 없이 인용",
+        "correct": "✅ AI 자료를 인용하기 전에 반드시 원문 확인 및 비판적 분석"
+      },
+      {
+        "mistake": "❌ TOK 에세이에서 AI를 단순히 '도구'로만 언급",
+        "correct": "✅ TOK에서 'AI가 지식의 본질에 미치는 영향'을 철학적으로 탐구"
+      },
+      {
+        "mistake": "❌ AI 활용 사실을 숨기고 모든 것을 스스로 한 것처럼 포장",
+        "correct": "✅ AI 활용을 투명하게 공개하고, '어떻게 비판적으로 활용했는가'를 강조"
+      }
+    ],
+    "futureCareerInsight": {
+      "title": "AI 시대, IB 출신의 미래는?",
+      "reality": "AI가 정보 처리를 자동화하면서 '단순 지식 전달자'는 사라지고 있습니다. 하지만 '비판적 사고', '학제 간 융합', '윤리적 판단'을 할 수 있는 인재는 오히려 수요가 증가하고 있습니다.",
+      "newCareers": [
+        "AI 윤리 컨설턴트 (AI 기업·정부 자문)",
+        "학제 간 융합 연구자 (AI × 사회과학, AI × 인문학)",
+        "글로벌 정책 분석가 (AI 정책·규제 전문)",
+        "크리에이티브 디렉터 (AI 도구를 활용한 창의적 콘텐츠)",
+        "교육 혁신가 (AI 시대 교육 설계)"
+      ],
+      "preparation": [
+        "IB 비판적 사고 + AI 도구 활용 능력",
+        "IB 학제 간 융합 + 데이터 분석 (Python 기초)",
+        "IB 글로벌 이슈 이해 + AI 정책 지식",
+        "IB 창의성 + AI 크리에이티브 도구 (Midjourney, Runway 등)"
+      ]
+    }
+  },
+  "schoolsRebuildNotice": {
+    "rebuildDate": "2026-05-22",
+    "rebuildReason": "기존 schools[] 15개 중 11개가 실제 IB DP 인증학교가 아니거나 공/사립·등록금 정보가 사실과 달라 사실 기반 전면 재구성. 출처(sources), 검증 상태(verificationStatus), 추측 필드(speculativeFields), 사실 확인 일자(lastFactCheckedAt)를 학교별로 부착.",
+    "scopeOfRebuild": "한국 내 IB DP(Diploma Programme) 인증 정규 고등학교만 포함. PYP·MYP 단계 학교, 후보 단계 학교, 외국인학교/국제학교(채드윅·NLCS·Branksome 등)는 별도 카테고리(international)로 분리 예정이라 본 카테고리에서 제외.",
+    "primarySources": [
+      {
+        "label": "한국 IB 학교 지도 (IBO World School 디렉토리 기반)",
+        "url": "https://korea-ib-school-map-hosting.vercel.app/",
+        "accessedAt": "2026-05-22"
+      },
+      {
+        "label": "교육을 비추다 — IB 도입 7년차 (대구·제주 안착)",
+        "url": "https://www.kyobit.com/news/articleView.html?idxno=3142",
+        "accessedAt": "2026-05-22"
+      }
+    ],
+    "removedSchools": [
+      {
+        "id": "daegu_ib_old",
+        "name": "대구국제학교 (DGIB)",
+        "reason": "이름·소재지 오류. '대구국제학교(DIS)'는 별도 외국인학교(사립, 등록금 연 2~3천만원). 실제 IB DP 인증 공립은 '대구국제고등학교(북구)'이며 새 ID daegu_intl_dp로 교체."
+      },
+      {
+        "id": "gyeonggi_intl_ib",
+        "name": "경기국제고등학교 (IB 인증)",
+        "reason": "수원 경기국제고는 IB DP 인증 학교 아님. 경기 공립 IB DP 인증은 '죽산고(안성)'."
+      },
+      {
+        "id": "busan_ib",
+        "name": "부산국제외국어고등학교 (IB)",
+        "reason": "IB World School DP 인증 목록에 없음. 사립 외고."
+      },
+      {
+        "id": "seoul_global_ib",
+        "name": "서울글로벌고등학교 (IB 인증)",
+        "reason": "서울 자공고 중 IB DP 인증 일반 고교 사실상 없음. 위치(강남구)도 오류."
+      },
+      {
+        "id": "ulsan_foreign_ib",
+        "name": "울산외국어고등학교 (IB 인증)",
+        "reason": "사립 외고이며 IB DP 인증 사실 없음."
+      },
+      {
+        "id": "sejong_intl_ib",
+        "name": "세종국제고등학교 (IB 인증)",
+        "reason": "세종 IB는 후보 단계 일부 학교만 존재, DP 정규 인증 고교 없음."
+      },
+      {
+        "id": "gwangju_foreign_ib",
+        "name": "광주외국어고등학교 (IB 인증)",
+        "reason": "사립 외고이며 IB DP 인증 사실 없음."
+      },
+      {
+        "id": "incheon_haneul_ib",
+        "name": "인천하늘고등학교 (IB 인증)",
+        "reason": "자공고 맞으나 IB DP 인증 학교 아님."
+      },
+      {
+        "id": "jeonju_foreign_ib",
+        "name": "전주외국어고등학교 (IB 인증)",
+        "reason": "사립 외고이며 IB DP 인증 사실 없음."
+      },
+      {
+        "id": "daejeon_foreign_ib",
+        "name": "대전외국어고등학교 (IB 인증)",
+        "reason": "사립 외고이며 IB DP 인증 사실 없음. '대전외국인학교(외국인학교)'와 혼동 추정."
+      },
+      {
+        "id": "gangwon_foreign_ib",
+        "name": "강원외국어고등학교 (IB 인증)",
+        "reason": "사립 외고이며 IB DP 인증 사실 없음."
+      },
+      {
+        "id": "jeju_nangnam_ib",
+        "name": "제주 남녕고등학교 (IB 인증)",
+        "reason": "사립이며 IB DP 인증 사실 없음. 제주 공립 IB DP 인증은 '표선고'."
+      },
+      {
+        "id": "yongin_foreign_ib",
+        "name": "용인외국어고등학교 (IB 인증)",
+        "reason": "사립 외고(단국학원 산하)이며 IB DP 인증 사실 없음."
+      }
+    ]
+  },
+  "schools": [
+    {
+      "id": "jeju_pyoseon_ib",
+      "name": "제주 표선고등학교 (IB DP 월드스쿨)",
+      "shortName": "표선고",
+      "location": "제주특별자치도 서귀포시 표선면",
+      "type": "일반고 (공립)",
+      "emoji": "🏝️",
+      "color": "#06b6d4",
+      "difficulty": 4,
+      "publicPrivate": "공립",
+      "ibCertified": true,
+      "ibCertifiedYear": 2021,
+      "ibProgramme": "DP (한국어·영어 이중언어)",
+      "specialCertification": "전국 최초 학교 단위 IB DP 월드스쿨 인증 (한국 17번째 IB DP 인증 고교)",
+      "tuition": "공립 무상교육 (IB 시험 응시료는 제주특별자치도교육청 부담)",
+      "dormitory": true,
+      "dormitoryDetail": "기숙사 '송림학사' 운영 (지상 3층 — 거주공간·학습실 포함)",
+      "annualAdmission": "미공개 (2026학년도 전년 대비 +5명 증원, 2026학년도 일반전형 경쟁률 0.95:1)",
+      "competitionRate": "2026학년도 0.95:1 · 2025학년도 1.39:1",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 내신·학교생활기록부",
+          "detail": "중학교 내신 + 학교생활기록부 검토",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접·자기소개서",
+          "detail": "IB 적합성 면접 + 자기소개서",
+          "icon": "🎤"
+        },
+        {
+          "step": 3,
+          "title": "특별전형",
+          "detail": "지역(표선) 우선 + 제주 전역 + 농어촌 학생 전국 모집 가능",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "표선면 우선 + 제주 전역 + 농어촌 전형으로 전국 모집",
+        "capacity": "학년당 ~100명 (2026학년도 +5명 증원)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "기숙사 운영 (송림학사)",
+        "costPerYear": "공립 무상 (식비·기숙사비 별도, IB 응시료 교육청 부담)",
+        "scholarship": "제주교육청 IB 응시료 전액 지원",
+        "lowIncomeAdvice": "공립 무상교육 + 응시료 지원으로 저소득층에게도 가장 진입장벽 낮은 IB DP 루트"
+      },
+      "highlightStats": [
+        {
+          "label": "IB 인증",
+          "value": "2021년 학교 단위",
+          "emoji": "🎓",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "비용",
+          "value": "공립 무상",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "기숙사",
+          "value": "송림학사",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "농어촌 전형",
+          "value": "전국 모집",
+          "emoji": "🌾",
+          "color": "#a78bfa"
+        }
+      ],
+      "pros": [
+        "공립 무상 + IB DP 응시료 교육청 부담 (사실)",
+        "농어촌 특별전형 자격 + IB 디플로마 조합 가능",
+        "한국어 DP 운영으로 영어 부담 완화",
+        "기숙사 제공으로 육지 학생 수용 가능"
+      ],
+      "cons": [
+        "제주 동남쪽 외곽 — 접근성 낮음",
+        "최근 외부 유입 증가로 지역 학생 입학 압박 논란 (제주의소리 2024)",
+        "수능 병행 매우 어려움 — 진로 확신 필요"
+      ],
+      "description": "전국에서 최초로 학교 단위 IB DP 월드스쿨 인증을 받은 공립 일반고. 농어촌 특별전형 자격 + IB DP 조합은 '공립 무상으로 수능 없이 명문대를 노리는' 가장 현실적 루트로 평가됩니다.",
+      "websiteUrl": "https://school.jje.go.kr/jjps/main.do",
+      "factCheck": {
+        "verificationStatus": "verified",
+        "speculativeFields": [
+          "annualAdmission.정확수치",
+          "highlightStats.label/value 일부"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "위치·공립·IB DP 인증·기숙사·응시료 지원·2026 경쟁률 0.95:1은 헤드라인제주·나무위키·학교 홈피로 교차확인. 연간 모집인원 정확 수치는 학교 입학요강 직접 확인 필요.",
+        "sources": [
+          {
+            "label": "헤드라인제주 — 표선고 전국 최초 학교단위 IB DP 운영",
+            "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=470413",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "표선고등학교 공식 홈페이지",
+            "url": "https://school.jje.go.kr/jjps/main.do",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "나무위키 — 표선고등학교",
+            "url": "https://namu.wiki/w/%ED%91%9C%EC%84%A0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "헤드라인제주 — 2026 표선고 IB 입시 경쟁률",
+            "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=560088",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "한국어·영어 이중언어 IB DP 운영 (전국 최초 학교단위 인증), 농어촌 전형 + IB 조합 가능, 송림학사 기숙",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "gyeonggi_ib",
+      "name": "경기외국어고등학교 (IB DP 인증)",
+      "shortName": "경기외고",
+      "location": "경기도 의왕시 고천동",
+      "type": "외국어고 (사립 — 대교그룹 산하)",
+      "emoji": "🌐",
+      "color": "#a78bfa",
+      "difficulty": 5,
+      "publicPrivate": "사립",
+      "ibCertified": true,
+      "ibCertifiedYear": 2011,
+      "ibProgramme": "DP (영어, 일부 IB반은 일본어 제2전공)",
+      "specialCertification": "국내 최초 IB DP 도입 외국어고 (2011년)",
+      "tuition": "연 ≈ 1,956만원 (기숙사·급식 포함 연 2,000만원 초과). IB반은 기본 학비 외 월 ~100만원 추가",
+      "dormitory": true,
+      "dormitoryDetail": "기숙사 4인 1실, 화장실·샤워실 공용",
+      "annualAdmission": "학년당 ~250명 (전체 정원 기준, 정확 수치 학교 요강 확인 필요)",
+      "competitionRate": "외고 최상위권 — 정확 수치 매년 변동",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 성적 (160점)",
+          "detail": "중학교 영어 내신 + 출결 등 정량 평가 160점",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접 (40점)",
+          "detail": "심층 면접 40점 (1단계+2단계 합산 200점 만점)",
+          "icon": "🎤"
+        },
+        {
+          "step": 3,
+          "title": "IB반 별도 선발",
+          "detail": "IB반의 경우 제2전공어 일본어 지정",
+          "icon": "🌐"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "경기도 전역 + 전국 모집(외고 광역 단위)",
+        "capacity": "학년당 ~250명 (IB반은 별도 소수 선발)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "기숙사 운영 (4인 1실)",
+        "costPerYear": "연 ≈ 1,956만원 + 기숙사·급식 → 실 부담 2,000만원+, IB반 추가 월 ~100만원",
+        "scholarship": "성적 우수·소득 분위 장학금 (학교 요강 확인 필요)",
+        "lowIncomeAdvice": "사립 외고로 학비 부담 큼. 사회배려대상자 전형·교육비 지원 확인 필요"
+      },
+      "highlightStats": [
+        {
+          "label": "IB 도입",
+          "value": "2011년 (국내 최초 외고)",
+          "emoji": "🎓",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "기숙사",
+          "value": "4인 1실",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "연 학비",
+          "value": "약 1,956만원",
+          "emoji": "💰",
+          "color": "#ef4444"
+        },
+        {
+          "label": "유형",
+          "value": "사립 외고",
+          "emoji": "🏫",
+          "color": "#06b6d4"
+        }
+      ],
+      "pros": [
+        "국내에서 가장 오래된 IB DP 운영 노하우 (2011~)",
+        "해외 대학 진학 실적 다수",
+        "다국어 환경(영어 + 일본어 등)"
+      ],
+      "cons": [
+        "전국 외고 중 학비 최고 수준 (베리타스알파 2024 1인당 교육비 3,231만원 보도)",
+        "IB반은 추가 비용 부담 (월 ~100만원)",
+        "기숙사 4인 1실, 욕실 공용"
+      ],
+      "description": "2011년 국내 최초로 IB DP를 도입한 사립 외국어고로, 해외 명문대 진학 실적이 다수입니다. 단, 사립 외고로 학비 부담이 매우 크며 IB반은 추가 비용이 발생합니다.",
+      "websiteUrl": "https://www.gafl.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "verified",
+        "speculativeFields": [
+          "annualAdmission.정확수치",
+          "competitionRate.수치",
+          "scholarship.세부조건"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "사립·의왕 위치·2011 IB 도입·연 학비 1,956만원·1단계 160점+면접 40점·4인 1실 기숙사·IB반 월 100만원 추가는 베리타스알파·나무위키·EDU Story·학교 입학 홈피로 교차확인. 단, 베리타스알파 보도의 '1인당 교육비 3,231만원'은 기숙사·급식 등 모든 비용 합산 기준이라 '등록금 1,956만원'과 다른 정의임을 주의.",
+        "sources": [
+          {
+            "label": "베리타스알파 — 2024 외고 1인당 교육비 분석",
+            "url": "https://www.veritas-a.com/news/articleView.html?idxno=478741",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "베리타스알파 — 2022 경기외고 IB원조",
+            "url": "http://www.veritas-a.com/news/articleView.html?idxno=395033",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "경기외국어고등학교 입학홈페이지",
+            "url": "https://admission.gafl.hs.kr/",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "나무위키 — 경기외국어고등학교",
+            "url": "https://namu.wiki/w/%EA%B2%BD%EA%B8%B0%EC%99%B8%EA%B5%AD%EC%96%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "국내 최초(2011) IB DP 도입 사립 외고, 영어 DP + 다국어 심화, 4인 1실 기숙",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "daegu_intl_dp",
+      "name": "대구국제고등학교 (IB DP 인증)",
+      "shortName": "대구국제고",
+      "location": "대구광역시 북구",
+      "type": "국제고 (공립)",
+      "emoji": "🏫",
+      "color": "#06b6d4",
+      "difficulty": 4,
+      "publicPrivate": "공립",
+      "ibCertified": true,
+      "ibProgramme": "DP",
+      "specialCertification": "대구 공립 IB DP 인증 국제고 (대구시교육청 IB 거점)",
+      "tuition": "공립 무상교육 (급식·방과후 수익자 부담)",
+      "dormitory": true,
+      "dormitoryDetail": "전원 의무 입사 (2·3·4인실), 월 ₩55,000 (식비 별도 ₩6,210/식)",
+      "annualAdmission": "120명 (일반전형 96 + 사회통합전형 24)",
+      "competitionRate": "2025학년도 1.76:1 (지원 211명 / 모집 120명)",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 영어 내신·출결 (160점)",
+          "detail": "중학교 영어 성적 160점 + 출결 감점",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접 (40점)",
+          "detail": "자기주도학습·인성 평가 면접 40점",
+          "icon": "🎤"
+        },
+        {
+          "step": 3,
+          "title": "총점 200점 합산 선발",
+          "detail": "1+2단계 합산으로 최종 선발",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "대구 광역 모집 + 일부 전국",
+        "capacity": "학년당 120명, 전교생 ~324명, 평균 한 반 18명, 학생:교원 6.8:1",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "기숙사 전원 의무 입사",
+        "costPerYear": "공립 무상 + 기숙사 월 ₩55,000 + 식비 ₩6,210/식",
+        "scholarship": "공립 무상교육 + 저소득 지원 (별도 확인)",
+        "lowIncomeAdvice": "사회통합전형 24석 운영. 공립·무상이라 사립 IB 대비 진입장벽 매우 낮음"
+      },
+      "highlightStats": [
+        {
+          "label": "경쟁률(2025)",
+          "value": "1.76:1",
+          "emoji": "📈",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "기숙사",
+          "value": "전원 의무",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "월 기숙사비",
+          "value": "55,000원",
+          "emoji": "💰",
+          "color": "#34d399"
+        },
+        {
+          "label": "학생:교원",
+          "value": "6.8:1",
+          "emoji": "👥",
+          "color": "#06b6d4"
+        }
+      ],
+      "pros": [
+        "공립 무상 + 저렴한 기숙사비 (월 5.5만원)",
+        "사회통합전형 24석 — 저소득층 접근성 우수",
+        "소규모 학급 (한 반 18명, 학생:교원 6.8:1)"
+      ],
+      "cons": [
+        "1단계가 영어 내신 단일 비중으로 매우 큼 — 영어 절대평가 학생에게 불리할 수 있음",
+        "전원 기숙사 의무 — 통학 선택 불가"
+      ],
+      "description": "대구시교육청이 운영하는 공립 IB DP 인증 국제고. 공립·무상교육 + 월 5.5만원 기숙사비로 사립 IB 학교 대비 진입장벽이 매우 낮으며, 사회통합전형 24석을 운영합니다.",
+      "websiteUrl": "https://dhi.dge.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "verified",
+        "speculativeFields": [],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "위치(북구)·공립·전교생 324명·기숙사 월 55,000원·식비 6,210원·2025 경쟁률 1.76:1·1단계 영어 160점+면접 40점은 입학전형 시스템 및 score analytics 블로그로 교차확인.",
+        "sources": [
+          {
+            "label": "대구국제고 2026학년도 신입생 전형 시스템",
+            "url": "https://dhi.myapply.kr/",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "대구국제고 기숙사 소개",
+            "url": "https://dhi.myapply.kr/Page/Dormitory",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "Score Analytics — 대구국제고(DHI) 입시 총정리",
+            "url": "https://blog.scoreanalytics.net/entry/%EB%8C%80%EA%B5%AC%EA%B5%AD%EC%A0%9C%EA%B3%A0",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "공립 국제고 IB DP, 영어 내신 1단계(160점)+면접(40점) 선발, 전원 의무 기숙(월 5.5만원)",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "chungnam_samsung_ib",
+      "name": "충남삼성고등학교 (IB DP 인증)",
+      "shortName": "충남삼성고",
+      "location": "충청남도 아산시 탕정면",
+      "type": "자율형 사립고 (삼성 출연)",
+      "emoji": "🏆",
+      "color": "#f59e0b",
+      "difficulty": 5,
+      "publicPrivate": "자율형사립(자사고)",
+      "ibCertified": true,
+      "ibCertifiedYear": 2020,
+      "ibProgramme": "DP (영어, 1학년 Pre-DP → 2·3학년 DP1·DP2, 3학년 11월 응시)",
+      "specialCertification": "국내 자사고 최초 IB 인증 (2020년) — 국내 IB 인증 외고/자사고 중 2번째",
+      "tuition": "자사고 학비 수준 (정확 수치 학교 공시 확인 필요)",
+      "dormitory": true,
+      "dormitoryDetail": "신입생 1년간 기숙사 의무, 4인 1실 (방마다 욕실 2개)",
+      "annualAdmission": "학년당 ~350명 (전체 정원 ~1,000명 추정, 정확 수치 학교 요강 확인 필요)",
+      "competitionRate": "자사고 상위권 (정확 수치 확인 필요)",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 서류·성적",
+          "detail": "내신 + 학교생활기록부 종합 평가",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접",
+          "detail": "1단계 합격자 대상 심층 면접",
+          "icon": "🎤"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "전국 모집(자사고)",
+        "capacity": "신입생 ~350명 추정 (학교 요강 확인 필요)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "기숙사 1년 의무 (4인 1실, 욕실 2개)",
+        "costPerYear": "자사고 수준 (학교 공시 확인 필요)",
+        "scholarship": "삼성 출연 학교 — 학비 지원 제도 운영 (확인 필요)",
+        "lowIncomeAdvice": "사회통합전형·삼성 장학 제도 확인 필요"
+      },
+      "highlightStats": [
+        {
+          "label": "IB 인증",
+          "value": "2020년 (자사고 최초)",
+          "emoji": "🎓",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "기숙사",
+          "value": "1년 의무",
+          "emoji": "🏠",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "고교학점제",
+          "value": "10년차 롤모델",
+          "emoji": "📚",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "유형",
+          "value": "삼성 출연 자사고",
+          "emoji": "🏆",
+          "color": "#ef4444"
+        }
+      ],
+      "pros": [
+        "국내 자사고 최초 IB 인증 (2020) — 운영 경험 누적",
+        "고교학점제 10년차 롤모델 (베리타스알파 2025)",
+        "Pre-DP → DP1 → DP2 단계별 점진 운영"
+      ],
+      "cons": [
+        "정확한 학비/지원 제도가 공개 자료로 명확하지 않아 학교 요강 확인 필수",
+        "전국 모집 자사고 — 경쟁률 높음"
+      ],
+      "description": "삼성이 출연한 자율형 사립고로, 2020년 국내 자사고 최초로 IB DP 인증을 받았습니다. 1학년 Pre-DP 후 2·3학년에 DP1·DP2를 수행하며, 신입생은 1년간 기숙사 의무입니다.",
+      "websiteUrl": "https://www.cnsa.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "tuition.정확금액",
+          "annualAdmission.정확수치",
+          "competitionRate"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "IB 인증 연도(2020)·아산 탕정면 위치·1년 기숙사 의무·4인 1실 욕실 2개·Pre-DP→DP1→DP2 운영은 학교 공식 공지·나무위키·베리타스알파로 교차확인. 단, 자사고 정확 학비 금액과 모집 정원 수치는 학교 입학요강 직접 확인 필요.",
+        "sources": [
+          {
+            "label": "충남삼성고 공식 — IB 인증교 승인 공지(2020)",
+            "url": "https://www.cnsa.hs.kr/bbs/board.php?tbl=bbs52&mode=VIEW&num=549",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "베리타스알파 — 2025 충남삼성고 추천고교",
+            "url": "https://www.veritas-a.com/news/articleView.html?idxno=528187",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "나무위키 — 충남삼성고등학교",
+            "url": "https://namu.wiki/w/%EC%B6%A9%EB%82%A8%EC%82%BC%EC%84%B1%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "자사고 최초(2020) IB 인증, Pre-DP→DP1→DP2 단계 운영, 신입생 1년 기숙 의무",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "anseong_juksan_ib",
+      "name": "죽산고등학교 (IB DP 인증)",
+      "shortName": "죽산고",
+      "location": "경기도 안성시 죽산면",
+      "type": "일반고 (공립, 중·고 통합운영학교)",
+      "emoji": "🌾",
+      "color": "#34d399",
+      "difficulty": 3,
+      "publicPrivate": "공립",
+      "ibCertified": true,
+      "ibCertifiedYear": 2025,
+      "ibProgramme": "DP (한국어)",
+      "specialCertification": "경기도 공립고 최초 IB DP 월드스쿨 인증 (2025년 1월). 죽산중(MYP) + 죽산고(DP) 결합으로 전국 최초 공립 중·고 통합 IB 학교",
+      "tuition": "공립 무상교육",
+      "dormitory": false,
+      "dormitoryDetail": "기숙사 여부 학교 공식 자료로 확인되지 않음 — 학교 문의 권장",
+      "annualAdmission": "농어촌 지역 소규모 학교 (정확 수치 학교 요강 확인 필요)",
+      "competitionRate": "공립 일반고 + 신규 IB 인증 — 수치 미공개",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "일반고 배정",
+          "detail": "안성 죽산면 권역 일반고 배정 절차 적용",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "IB DP반 선발",
+          "detail": "교내 IB DP반 별도 운영, 선발 기준 학교 안내 따름",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "안성·죽산권 + 농어촌 지역(타지역 일부 가능, 학교 문의)",
+        "capacity": "농어촌 소규모 (학교 요강 확인 필요)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "확인 필요 (학교 문의 권장)",
+        "costPerYear": "공립 무상",
+        "scholarship": "경기도교육청 IB 지원 (응시료 등)",
+        "lowIncomeAdvice": "공립 무상 + 농어촌 권역 — 진입장벽 낮음"
+      },
+      "highlightStats": [
+        {
+          "label": "IB DP 인증",
+          "value": "2025년 1월",
+          "emoji": "🎓",
+          "color": "#34d399"
+        },
+        {
+          "label": "공립 최초(경기)",
+          "value": "도내 공립고 1호",
+          "emoji": "🏛️",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "중·고 연계",
+          "value": "죽산중+죽산고",
+          "emoji": "🔗",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "비용",
+          "value": "공립 무상",
+          "emoji": "💰",
+          "color": "#f59e0b"
+        }
+      ],
+      "pros": [
+        "경기도 공립고 최초 IB DP 인증 (희소성)",
+        "중학교(MYP)부터 고교(DP)까지 통합 운영",
+        "공립 무상교육"
+      ],
+      "cons": [
+        "신규 인증(2025) — 운영 경험·졸업 실적 데이터 부족",
+        "농어촌 외곽 지역으로 통학·기숙사 정보 사전 확인 필요"
+      ],
+      "description": "2025년 1월 경기도 공립고 최초로 IB DP 월드스쿨 인증을 받은 안성 죽산면의 공립 일반고. 죽산중학교(MYP 인증)와 함께 전국 최초 공립 중·고 통합 IB 학교 체제를 구성합니다.",
+      "websiteUrl": "https://juksan-mh.goean.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "dormitory",
+          "annualAdmission",
+          "competitionRate"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "경기 공립고 최초 IB DP 인증(2025년 1월)·죽산중 MYP 인증·중·고 통합운영학교 사실은 다수 언론 보도로 확인. 단, 기숙사 운영·세부 모집 정원·경쟁률은 공식 자료에서 확인되지 않아 speculative 처리.",
+        "sources": [
+          {
+            "label": "다음 뉴스 — 경기 최초 초중고 연계 IB 안성서 완성",
+            "url": "https://v.daum.net/v/20250827050121905",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "안성신문 — 죽산고 경기 공립 최초 IB 월드스쿨 인증",
+            "url": "http://www.assm.co.kr/30706",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "기호일보 — 안성 죽산중학교 IB 월드스쿨 지정",
+            "url": "https://www.kihoilbo.co.kr/news/articleView.html?idxno=1140499",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "NSP통신 — 경기도교육청 죽산고 경기공립고 최초 월드스쿨 인증",
+            "url": "https://www.nspna.com/country/?mode=view&newsid=744707",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "경기 공립고 최초(2025) IB DP, 죽산중(MYP)+죽산고(DP) 중·고 통합 운영, 한국어 DP",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "knu_sadabu_ib",
+      "name": "경북대학교 사범대학 부설고등학교 (IB DP 인증)",
+      "shortName": "경북대사대부고",
+      "location": "대구광역시 중구 대봉동",
+      "type": "국립 일반고 (경북대 사범대 부설)",
+      "emoji": "🏛️",
+      "color": "#06b6d4",
+      "difficulty": 4,
+      "publicPrivate": "국립",
+      "ibCertified": true,
+      "ibCertifiedYear": 2021,
+      "ibProgramme": "DP (한국어·영어 이중언어, Bilingual DP)",
+      "specialCertification": "전국 공교육 최초 한국어·영어 이중언어 IB DP 운영 (2021년 9월 IB 월드스쿨 도입)",
+      "tuition": "국립 — 공립 무상교육 준용",
+      "dormitory": false,
+      "dormitoryDetail": "기숙사 운영 여부 공식 자료로 확인되지 않음 — 학교 문의 권장",
+      "annualAdmission": "학년당 ~300명 (대구 일반고 배정 — 정확 수치 학교 요강 확인 필요)",
+      "competitionRate": "대구 일반고 배정 + IB반 별도 선발",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "일반고 배정",
+          "detail": "대구 일반고 배정 절차에 따라 입학",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "IB DP반 별도 선발",
+          "detail": "1학년 또는 진학 시 IB DP반 별도 신청·선발 (학교 안내 따름)",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "대구 광역(일반고 배정) + IB반 별도 선발",
+        "capacity": "학년당 ~300명 (IB반은 소수 별도 운영)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "확인 필요",
+        "costPerYear": "공립 무상교육 준용",
+        "scholarship": "공립 무상 + 대구시교육청 IB 지원",
+        "lowIncomeAdvice": "공립·무상으로 진입장벽 낮음"
+      },
+      "highlightStats": [
+        {
+          "label": "공교육 최초",
+          "value": "이중언어 IB DP(2021)",
+          "emoji": "🥇",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "이수 성적",
+          "value": "30명 전원 디플로마/이수증",
+          "emoji": "🎓",
+          "color": "#34d399"
+        },
+        {
+          "label": "유형",
+          "value": "국립(경북대 부설)",
+          "emoji": "🏛️",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "비용",
+          "value": "공립 무상 준용",
+          "emoji": "💰",
+          "color": "#f59e0b"
+        }
+      ],
+      "pros": [
+        "전국 공교육 최초 이중언어 IB DP — 영어 부담 완화",
+        "첫 졸업생 30명 전원 디플로마/이수증 취득 (매일신문 2024)",
+        "국립으로 안정적 운영"
+      ],
+      "cons": [
+        "IB반은 별도 소수 선발 — 진입 경쟁 존재",
+        "기숙사 운영 여부 확인 필요"
+      ],
+      "description": "경북대 사범대학 부설 국립고로, 2021년 9월 전국 공교육 최초로 한국어·영어 이중언어 IB DP를 도입. 2024년 첫 졸업생 30명이 전원 디플로마 또는 과목별 이수증을 취득해 실적이 입증되었습니다.",
+      "websiteUrl": "http://www.knu.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "dormitory",
+          "annualAdmission.정확수치",
+          "IB반 모집 세부"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "대봉동 위치·국립·이중언어 DP 도입(2021년 9월)·첫 졸업생 30명 전원 이수는 매일신문·위키백과·학교 홈피로 교차확인. 기숙사·IB반 모집 정원은 학교 공식 자료에서 확인되지 않음.",
+        "sources": [
+          {
+            "label": "매일신문 — 경북대사대부고 IB 수업 명문대 5명 배출",
+            "url": "https://www.imaeil.com/page/view/2024010417294935702",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "경북대학교 사범대학 부설고등학교 공식",
+            "url": "http://www.knu.hs.kr/index.do",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "위키백과 — 경북대학교 사범대학 부설고등학교",
+            "url": "https://ko.wikipedia.org/wiki/%EA%B2%BD%EB%B6%81%EB%8C%80%ED%95%99%EA%B5%90_%EC%82%AC%EB%B2%94%EB%8C%80%ED%95%99_%EB%B6%80%EC%84%A4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "전국 공교육 최초(2021) 한국어·영어 이중언어 IB DP, 첫 졸업생 30명 전원 디플로마/이수증",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "posan_ib",
+      "name": "포산고등학교 (IB DP 인증)",
+      "shortName": "포산고",
+      "location": "대구광역시 달성군 현풍읍",
+      "type": "자율형 공립 일반고 (기숙형)",
+      "emoji": "🌳",
+      "color": "#34d399",
+      "difficulty": 4,
+      "publicPrivate": "공립(자율형)",
+      "ibCertified": true,
+      "ibCertifiedYear": 2021,
+      "ibProgramme": "DP (한국어·영어 이중언어, Bilingual)",
+      "specialCertification": "달성군 IB 거점 학교, 기숙형 자율형공립고",
+      "tuition": "공립 무상교육 (기숙사·식비 별도)",
+      "dormitory": true,
+      "dormitoryDetail": "포산학사 — 창의관·미래관·자율관 3동 (각 지상 5층, 자율관 2018 증축)",
+      "annualAdmission": "기숙형 공립 — 학년당 ~200명 (학교 요강 확인 필요)",
+      "competitionRate": "대구 기숙형 자공고 중상위권 (정확 수치 학교 공시 확인 필요)",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 내신·서류",
+          "detail": "내신 + 학교생활기록부 정량·정성 평가",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접",
+          "detail": "IB 교육 적합성 면접",
+          "icon": "🎤"
+        },
+        {
+          "step": 3,
+          "title": "IB반 별도 선발",
+          "detail": "교내 IB DP반 별도 운영 — 학교 안내 따름",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "대구 광역 + 기숙형 (전국 일부 가능)",
+        "capacity": "기숙형 학년당 ~200명 (IB반은 소수 별도)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "포산학사 (창의·미래·자율관 3동)",
+        "costPerYear": "공립 무상 + 기숙사·식비 (학교 공시)",
+        "scholarship": "대구시교육청 IB 지원",
+        "lowIncomeAdvice": "공립 + 기숙형으로 비용 효율 우수"
+      },
+      "highlightStats": [
+        {
+          "label": "DP 이수",
+          "value": "21명 중 15명 풀 디플로마",
+          "emoji": "🎓",
+          "color": "#34d399"
+        },
+        {
+          "label": "이중언어 DP",
+          "value": "Bilingual 디플로마",
+          "emoji": "🌐",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "기숙사",
+          "value": "포산학사 3동",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "유형",
+          "value": "자율형 공립",
+          "emoji": "🏫",
+          "color": "#a78bfa"
+        }
+      ],
+      "pros": [
+        "한국어·영어 이중언어 DP로 영어 부담 완화",
+        "기숙형 자공고로 학습 집중도 우수",
+        "달성군 IB 거점 학교 — 지역 IB 인프라 강점"
+      ],
+      "cons": [
+        "달성군 외곽 — 접근성",
+        "IB반 별도 선발 — 진입 경쟁"
+      ],
+      "description": "달성군에 위치한 자율형 공립 기숙형 일반고로, 2021년 IB 월드스쿨 인증. 첫 IB DP 응시생 21명 중 15명이 풀 디플로마를 취득하고 대부분이 이중언어 디플로마를 획득해 운영 실적이 입증되었습니다.",
+      "websiteUrl": "https://posan.dge.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "annualAdmission.정확수치",
+          "competitionRate",
+          "websiteUrl(도메인 추정)"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "달성군 현풍읍·자율형 공립·IB 월드스쿨 인증·포산학사 3동·DP 첫 이수 21중 15 풀디플로마·이중언어 DP는 마인풀뉴스·푸른신문 등 다수 보도와 나무위키로 교차확인. 모집 정원·경쟁률·URL 도메인은 학교 공식 확인 필요.",
+        "sources": [
+          {
+            "label": "마인풀 뉴스 — 포산고 첫 IB 교육 성과",
+            "url": "http://www.mindfullnews.com/news/articleView.html?idxno=324",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "푸른신문 — 포산고 달성군 IB 거점 학교",
+            "url": "https://prsinmun.co.kr/m/view.php?idx=74912",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "나무위키 — 포산고등학교",
+            "url": "https://namu.wiki/w/%ED%8F%AC%EC%82%B0%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "자율형 공립 기숙형 일반고, 한국어·영어 이중언어 IB DP, 포산학사 3동 운영",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "daegu_foreign_ib",
+      "name": "대구외국어고등학교 (IB DP 인증)",
+      "shortName": "대구외고",
+      "location": "대구광역시 달서구",
+      "type": "외국어고 (공립)",
+      "emoji": "🌐",
+      "color": "#a78bfa",
+      "difficulty": 4,
+      "publicPrivate": "공립",
+      "ibCertified": true,
+      "ibProgramme": "DP",
+      "specialCertification": "공립 외고 + IB DP 인증 (드문 조합)",
+      "tuition": "공립 외고 (외고 가운데 비교적 저렴, 학교 공시 확인 필요)",
+      "dormitory": true,
+      "dormitoryDetail": "전교생 기숙사 생활",
+      "annualAdmission": "학년당 ~200명 (외고 정원 기준, 학교 요강 확인 필요)",
+      "competitionRate": "공립 외고 — 사립 대비 학비 메리트로 안정적 경쟁률",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "1단계: 영어 내신·출결",
+          "detail": "중학교 영어 성적 + 출결",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "2단계: 면접",
+          "detail": "심층 면접",
+          "icon": "🎤"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "대구 광역 + 일부 전국",
+        "capacity": "학년당 ~200명 (전원 기숙사)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "전교생 의무 입사",
+        "costPerYear": "공립 외고 + 기숙사비 (학교 공시)",
+        "scholarship": "공립 + 대구시교육청 IB 지원",
+        "lowIncomeAdvice": "공립 외고로 사립 외고 대비 학비 부담 적음"
+      },
+      "highlightStats": [
+        {
+          "label": "유형",
+          "value": "공립 외고",
+          "emoji": "🏛️",
+          "color": "#a78bfa"
+        },
+        {
+          "label": "개교",
+          "value": "1997년",
+          "emoji": "📅",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "기숙사",
+          "value": "전원 의무",
+          "emoji": "🏠",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "IB DP",
+          "value": "인증",
+          "emoji": "🎓",
+          "color": "#34d399"
+        }
+      ],
+      "pros": [
+        "공립 외고로 사립 외고(연 2,000만원+) 대비 학비 부담 적음",
+        "전원 기숙사로 학습 집중도 우수",
+        "IB DP 인증 외고 (희소 조합)"
+      ],
+      "cons": [
+        "IB반은 별도 선발 — 학교 요강 확인 필요",
+        "정확한 학비·정원 수치 공개 자료에서 확인 제한"
+      ],
+      "description": "1997년 개교한 대구 공립 외국어고로, 전교생이 기숙사 생활을 하며 IB DP 인증을 운영합니다. 공립 외고 + IB DP는 국내에서 매우 드문 조합입니다.",
+      "websiteUrl": "https://dgfl.dge.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "tuition.정확금액",
+          "annualAdmission.정확수치",
+          "competitionRate",
+          "IB반 모집 세부"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "달서구 위치·1997 개교·공립 외고·전교생 기숙사·IB DP 인증은 한국 IB 학교 지도(IBO 디렉토리 기반)와 나무위키로 교차확인. 학비 정확 금액·모집 정원·경쟁률은 학교 공식 입학요강 직접 확인 필요.",
+        "sources": [
+          {
+            "label": "한국 IB 학교 지도 (IBO World School 디렉토리 기반)",
+            "url": "https://korea-ib-school-map-hosting.vercel.app/",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "나무위키 — 대구외국어고등학교",
+            "url": "https://namu.wiki/w/%EB%8C%80%EA%B5%AC%EC%99%B8%EA%B5%AD%EC%96%B4%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "공립 외고 IB DP (드문 조합), 1997년 개교, 전교생 기숙사 생활",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    },
+    {
+      "id": "daegu_seobu_ib",
+      "name": "대구서부고등학교 (IB DP 인증)",
+      "shortName": "대구서부고",
+      "location": "대구광역시 서구",
+      "type": "일반고 (공립)",
+      "emoji": "🏫",
+      "color": "#34d399",
+      "difficulty": 3,
+      "publicPrivate": "공립",
+      "ibCertified": true,
+      "ibCertifiedYear": 2025,
+      "ibProgramme": "DP",
+      "specialCertification": "대구 서구 지역 최초 IB DP 월드스쿨 인증 (2025년)",
+      "tuition": "공립 무상교육",
+      "dormitory": false,
+      "dormitoryDetail": "공식 자료로 기숙사 운영 확인되지 않음 — 학교 문의 권장",
+      "annualAdmission": "대구 일반고 배정 정원 (학교 요강 확인 필요)",
+      "competitionRate": "공립 일반고 + 신규 IB 인증 — 수치 미공개",
+      "admissionProcess": [
+        {
+          "step": 1,
+          "title": "일반고 배정",
+          "detail": "대구 서구 권역 일반고 배정",
+          "icon": "📊"
+        },
+        {
+          "step": 2,
+          "title": "IB DP반 별도 선발",
+          "detail": "교내 IB DP반 별도 운영 — 학교 안내 따름",
+          "icon": "🎯"
+        }
+      ],
+      "schoolInfoCard": {
+        "regionScope": "대구 서구 권역 일반고 배정",
+        "capacity": "일반고 정원 (IB반은 소수 별도)",
+        "genderRatio": "남녀공학",
+        "dormitoryType": "확인 필요",
+        "costPerYear": "공립 무상",
+        "scholarship": "대구시교육청 IB 지원 (응시료 등)",
+        "lowIncomeAdvice": "공립 무상 + 신규 IB 인증으로 진입장벽 낮음"
+      },
+      "highlightStats": [
+        {
+          "label": "IB DP 인증",
+          "value": "2025년",
+          "emoji": "🎓",
+          "color": "#34d399"
+        },
+        {
+          "label": "서구 최초",
+          "value": "지역 1호",
+          "emoji": "🥇",
+          "color": "#06b6d4"
+        },
+        {
+          "label": "비용",
+          "value": "공립 무상",
+          "emoji": "💰",
+          "color": "#f59e0b"
+        },
+        {
+          "label": "유형",
+          "value": "공립 일반고",
+          "emoji": "🏛️",
+          "color": "#a78bfa"
+        }
+      ],
+      "pros": [
+        "공립 무상 + 일반고 배정 — 진입장벽 최저",
+        "서구 지역 최초 인증으로 학교 차원 IB 투자 집중"
+      ],
+      "cons": [
+        "신규 인증(2025) — 운영 경험·졸업 실적 데이터 미축적",
+        "기숙사·정원·경쟁률 정보 미공개"
+      ],
+      "description": "2025년 대구 서구 지역 최초로 IB DP 월드스쿨 인증을 받은 공립 일반고. 공립 무상 + 일반고 배정으로 IB DP 진입장벽이 가장 낮은 학교 중 하나입니다.",
+      "websiteUrl": "https://daeguseobu.dge.hs.kr/",
+      "factCheck": {
+        "verificationStatus": "partial",
+        "speculativeFields": [
+          "dormitory",
+          "annualAdmission",
+          "competitionRate",
+          "websiteUrl(도메인 추정)"
+        ],
+        "lastFactCheckedAt": "2026-05-22",
+        "factCheckerNote": "서구 위치·공립·2025년 서구 첫 IB DP 인증은 매일대구일보 보도와 한국 IB 학교 지도로 확인. 기숙사·정원·경쟁률·도메인 URL은 학교 공식 확인 필요.",
+        "sources": [
+          {
+            "label": "매일대구일보 — 대구서부고 서구지역 첫 IB 월드스쿨 인증",
+            "url": "https://www.idaegu.co.kr/news/articleView.html?idxno=441625",
+            "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "한국 IB 학교 지도 (IBO World School 디렉토리 기반)",
+            "url": "https://korea-ib-school-map-hosting.vercel.app/",
+            "accessedAt": "2026-05-22"
+          }
+        ]
+      },
+      "teachingMethod": "서구 최초(2025) IB DP 월드스쿨 인증 공립 일반고, 일반고 배정 + IB반 별도 선발",
+      "famousPrograms": [],
+      "famousProgramDetails": [],
+      "targetUniversities": [],
+      "alumniCareers": [],
+      "careerPathDetails": [],
+      "dailySchedule": [],
+      "realTalk": [],
+      "survivalTips": [],
+      "careerPath": {},
+      "studyStyleDetail": "IB DP 전 과목 운영. CAS(창의·활동·봉사), TOK(지식론), EE(소논문) 포함 종합 탐구 교육.",
+      "competitionLevel": "확인 필요 (학교 입학요강 직접 조회 권장)",
+      "studyHoursPerDay": "7~9시간 (IB DP 일반)",
+      "selfStudyRatio": "50~60% (IB 자기주도 학습 비중)",
+      "socialLife": "확인 필요",
+      "mentalHealthNote": "IB DP 과제량(EE·TOK·CAS) 큼 — 진로 확신 필수. 수능 병행 매우 어려움.",
+      "admissionTip": "학교별 입학요강을 매년 직접 확인하고, IB 적합성(탐구 경험·영어 에세이)을 자소서·면접에서 진정성 있게 드러낼 것.",
+      "studentLevel": "IB 적성(탐구·에세이·자기주도) + 영어 운용 능력 갖춘 학생 (학교별 상세 기준은 입학요강 확인)"
+    }
+  ]
+}

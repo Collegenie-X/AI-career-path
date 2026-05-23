@@ -7,6 +7,50 @@
   "description": "==경영·회계·금융·IT 특화 직업 교육== — ==초봉 2,500만~==, 선취업 후진학 가능. 2028 대입 개편 영향은 적지만 후진학 시 ==일반대 정시·재직자 특별전형이 점차 표준화==. AI 시대엔 단순 회계·문서 작업·고객응대가 RPA·AI 챗봇으로 빠르게 대체되므로 '자격증 + 데이터 도구(엑셀·SQL·BI·파이썬) + 산업 이해'를 함께 갖춘 졸업생만 살아남습니다 — 단순 사무 전문가가 아니라 '데이터로 의사결정하는 직원'으로 진화해야 합니다.",
   "policyContext2028": "비즈니스고(상업·정보·금융계열 특성화고)는 2028 대입 개편의 직접 영향이 크지 않습니다. 주된 진로는 재직자 특별전형(공기업·대기업 채용형 인턴)과 후진학(전문대·산업체 협약 학위). 내신 5등급제는 후진학 시 일반대 정시 진입에 유리하게 작용. 핀테크·이커머스·디지털 마케팅 분야는 신설 학과 확대 추세.",
   "aiEraContext": "AI·자동화가 가장 빠르게 닿는 영역입니다. ① 사라지는 직무: 단순 회계 입력, 기본 세무 신고, 표준 보고서 작성, 콜센터 1차 응대. ② 살아남는 직무: 핀테크 운영, 이커머스 데이터 분석, 디지털 마케팅 자동화, B2B 영업, 회계·세무 검증. ③ 신생 직무: AI 회계 어시스턴트 운영자, 디지털 자산 관리, RPA(업무 자동화) 운영자, 이커머스 셀러 매니저. ChatGPT·Excel Copilot·Tableau·Notion AI 등 사무용 AI 도구를 능숙하게 다루면 신입에서도 즉시 실무 투입 가능.",
+  "dormitoryAndTuition": {
+    "dormitory": {
+      "available": false,
+      "mandatory": false,
+      "summary": "기숙사 없음 (통학)",
+      "detail": "상업고·비즈니스고는 기숙사가 없고 통학이 기본."
+    },
+    "tuition": {
+      "annualCost": "무상 (0원)",
+      "summary": "무상교육 적용 — 자격증 취득 비용만 발생",
+      "scholarshipInfo": "성적 우수 장학금 있으나 학교별 상이.",
+      "isFree": true,
+      "note": "전산회계·세무·금융 자격증 취득 비용 연 20~50만원 수준 추가 발생"
+    }
+  },
+  "oneLiner": "전산회계·금융 자격증으로 고졸 취업 직결 — 상경계 특성화고 전형 대학 진학 병행 가능",
+  "admissionMatrix2028": {
+    "naesinDifficulty": {
+      "level": "보통",
+      "score": 3,
+      "detail": "내신 관리는 특성화고 대학 진학에 필요한 수준."
+    },
+    "hakjongResources": {
+      "level": "약함",
+      "score": 1,
+      "detail": "학종 자원 없음. 실무 자격증 취득에 집중."
+    },
+    "suneungStrength": {
+      "level": "해당 없음",
+      "score": 1,
+      "detail": "수능 준비 불필요. 동일계 특성화고 전형으로 대학 진학."
+    },
+    "tuitionBurden": {
+      "level": "무상",
+      "score": 1,
+      "detail": "학비 0원."
+    },
+    "medicalPossibility": {
+      "level": "불가",
+      "score": 1,
+      "detail": "비즈니스고 트랙에서 의약학 진학 불가.",
+      "warning": null
+    }
+  },
   "admissionStrategy2028": {
     "title": "비즈니스고 2028 입시·취업 전략",
     "summary": "취업 우선 + 디지털 전환 대응 — 후진학 정시 확대 흐름이 보너스",
@@ -461,9 +505,39 @@
         ],
         "aiTipForMiddleSchooler": "\"회계 자격증 + 엑셀\"만으론 부족해요. SQL·BI·파이썬 자동화까지 함께 배우면 졸업 후 임금·승진이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 금융기관·기업 목록 ② 졸업생 평균 연봉·취업률 ③ 데이터 도구 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "https://gyeongbok.sen.hs.kr/"
+        "homepageUrl": "https://kbb.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kbb.sen.hs.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kbb.sen.hs.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://kbb.sen.hs.kr/",
+        "homepageVerified": true,
+        "classificationNote": "서울형 마이스터고(2019 지정) — 비즈니스·AI·디자인 융합형 특성화고",
+        "clubsAndSeteuk": {
+          "summary": "AI융합콘텐츠과 신설로 '청소년 비즈쿨'·'중소기업 인력양성' 트랙이 가장 활성화 — 비즈니스+AI 융합이 차별점.",
+          "signatureClubs": [
+            "청소년 비즈쿨 창업동아리",
+            "AI·IoT 메이커 동아리",
+            "글로벌 인턴십반"
+          ],
+          "seteukAngle": "AI 도구를 활용한 마케팅·콘텐츠 제작 프로젝트가 세특 단골 소재. 2025년 남녀공학 전환으로 활동 폭 확대."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "6년 연속 공무원(9급 행정·세무) 합격자 배출"
+          ],
+          "networkStrength": "2024학년도 대학 진학 233건(성균관·한양·이화·경희 등) — 진학과 취업 모두 강함."
+        },
+        "teachingDifferentiator": "서울형 마이스터고로 지정되어 중소기업 인력양성사업 산학맞춤반 운영. 글로벌인턴십(해외 연수) 메뉴가 홈페이지에 명시.",
+        "tuitionDetail": "특성화고 무상교육 — 입학금·수업료·교과서비 면제. 학교운영지원비 일부 자부담.",
+        "dormitoryLife": "기숙사 없음(통학형). 강서구 화곡동 입지로 5호선·9호선 접근 양호.",
+        "skyAndOverseas": "재직자 특별전형으로 SKY 경영·경제 진학 사례. 글로벌인턴십을 통한 해외(일본·동남아) 현장연수 운영.",
+        "departments": [
+          "국제관광비즈니스과",
+          "스마트경영과(경영·무역·회계+빅데이터)",
+          "AI융합콘텐츠과(AI·IoT·SW)",
+          "콘텐츠디자인과"
+        ]
+      }
     },
     {
       "id": "ansan_international_business",
@@ -772,9 +846,49 @@
         ],
         "aiTipForMiddleSchooler": "\"회계 자격증 + 엑셀\"만으론 부족해요. SQL·BI·파이썬 자동화까지 함께 배우면 졸업 후 임금·승진이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 금융기관·기업 목록 ② 졸업생 평균 연봉·취업률 ③ 데이터 도구 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "https://ansan-ib.goean.kr/"
+        "homepageUrl": "https://ansanib-h.goeas.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ansanib-h.goeas.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ansanib-h.goeas.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://ansanib-h.goeas.kr/",
+        "homepageVerified": true,
+        "classificationNote": "사립 특성화고 — 외국어 비즈니스 + 미용·간호·부사관까지 8개 학과 종합형",
+        "clubsAndSeteuk": {
+          "summary": "전국 비즈니스고 중 유일하게 '비즈니스 중국어/일본어' 학과를 분리 운영 — 외국어 비즈니스가 핵심 차별점.",
+          "signatureClubs": [
+            "바리스타부",
+            "뷰티아트부",
+            "제과·제빵 데코레이션부",
+            "치어리더 '아테나'",
+            "축구부 '아레스'",
+            "랩동아리 'Line-up'",
+            "댄스부 'First Meet'",
+            "단비국악관현악단",
+            "취타대"
+          ],
+          "seteukAngle": "일본어과 신입생 미래비전 캠프, 중국어 비즈니스 매너·HSK 자격증 트랙이 세특 소재. 국악·치어 등 비교과 동아리 종류가 전국 최다급."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "무역·항공·호텔·여행업·뷰티·부사관·간호조무 등 학과 직결 취업 분포"
+          ],
+          "networkStrength": "일본 자매학교 교류 프로그램(비즈니스일본어과)이 가장 활발."
+        },
+        "teachingDifferentiator": "비즈니스 외국어 학과(중·일) 보유 + 부사관·간호·미용까지 진로 스펙트럼 가장 넓음. 2019년 국제통상과 폐지, 이후 학과 다양화 가속.",
+        "tuitionDetail": "사립이지만 특성화고 무상교육 적용 — 수업료 면제. 학과별 실습비(미용 도구·일본어 교재) 일부 부담.",
+        "dormitoryLife": "원거리 학생 대상 기숙사 일부 운영(상록구 장상동 입지, 4호선 한대앞역 도보권 외 통학).",
+        "skyAndOverseas": "비즈니스일본어과는 일본 전문대 진학(JLPT N2 이상) 사례 다수. SKY 직행보다 일본·중국 자매학교 연수가 차별점.",
+        "departments": [
+          "경영사무과",
+          "쇼핑몰제작과",
+          "비즈니스콘텐츠과",
+          "비즈니스중국어과",
+          "비즈니스일본어과",
+          "미용과",
+          "부사관과",
+          "보건간호과"
+        ]
+      }
     },
     {
       "id": "sinil_business",
@@ -1083,9 +1197,43 @@
         ],
         "aiTipForMiddleSchooler": "\"회계 자격증 + 엑셀\"만으론 부족해요. SQL·BI·파이썬 자동화까지 함께 배우면 졸업 후 임금·승진이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 금융기관·기업 목록 ② 졸업생 평균 연봉·취업률 ③ 데이터 도구 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "https://sinil.sen.hs.kr/"
+        "homepageUrl": "https://i-shinil-h.goegy.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://i-shinil-h.goegy.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://i-shinil-h.goegy.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://i-shinil-h.goegy.kr/",
+        "homepageVerified": true,
+        "classificationNote": "사립 특성화고 — 금융·세무·디자인·간호 6개 학과 (2027 쇼핑라이브커머스과 재편 예정)",
+        "clubsAndSeteuk": {
+          "summary": "학과별 단계형 자격증 로드맵이 가장 정교 — 세특에서 자격증 취득 과정 자체를 학습 서사로 활용.",
+          "signatureClubs": [
+            "국가공무원 준비반",
+            "부사관 준비반",
+            "직무맞춤 취업 엘리트반",
+            "상업정보 기능영재반",
+            "디자인 연구반"
+          ],
+          "seteukAngle": "금융자산운용과: 증권·펀드투자권유대행인·전산세무회계·ERP·MOS. 보건간호과: 졸업 전 간호조무사. → 학년별 자격증 단계가 세특 시계열로 기록됨."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "대기업·금융기관 현장방문 연계 → 농협·신한 등 금융권 취업"
+          ],
+          "networkStrength": "킨텍스 인접 입지로 박람회·전시회 현장학습 빈도 높음."
+        },
+        "teachingDifferentiator": "전국 비즈니스고 중 학과별 자격증 로드맵이 가장 체계적. 스마트IT경영과 4단계(ITQ→전산회계→TAT→금융NCS).",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 자격증 응시료는 학교 일부 보조.",
+        "dormitoryLife": "기숙사 미운영(통학형). 일산서구 킨텍스로 입지로 경의중앙선·3호선 접근.",
+        "skyAndOverseas": "재직자 특별전형으로 고려대·서울시립대 경영·세무 진학 사례. 해외 연수보다 국내 자격증 트랙 강점.",
+        "departments": [
+          "금융자산운용과",
+          "스토어기획과",
+          "세무회계과",
+          "시각디자인과",
+          "모션그래픽디자인과",
+          "보건간호과"
+        ]
+      }
     },
     {
       "id": "seoul_finance_business",
@@ -1374,9 +1522,41 @@
         ],
         "aiTipForMiddleSchooler": "\"회계 자격증 + 엑셀\"만으론 부족해요. SQL·BI·파이썬 자동화까지 함께 배우면 졸업 후 임금·승진이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 금융기관·기업 목록 ② 졸업생 평균 연봉·취업률 ③ 데이터 도구 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "https://seoulfin.sen.hs.kr/"
+        "homepageUrl": "https://seoulfc.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://seoulfc.sen.hs.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://seoulfc.sen.hs.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://seoulfc.sen.hs.kr/",
+        "homepageVerified": true,
+        "classificationNote": "2025 서울형 마이스터고 선도학교 — '비즈니스고'가 아닌 **금융 특화 마이스터고**",
+        "clubsAndSeteuk": {
+          "summary": "전국 유일 '경제사관학교'·'실전투자반' 운영 — 모의주식투자·금융권 직무체험이 다른 비즈니스고와 가장 큰 차별점.",
+          "signatureClubs": [
+            "경제사관학교",
+            "실전투자반(모의주식)",
+            "공무원·공기업반",
+            "청소년비즈쿨",
+            "IT 미래인재 메이커스페이스"
+          ],
+          "seteukAngle": "실전투자반 모의주식 성과·증권사 직무체험·경제사관학교 토론 기록이 금융·경제 학과 진학 세특 핵심 소재."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "국민·신한·하나·우리은행 등 시중은행 고졸채용 정기 합격자"
+          ],
+          "networkStrength": "금융감독원·한국거래소·증권사 직무체험 협약 — 비즈니스고 중 금융권 네트워크 1위."
+        },
+        "teachingDifferentiator": "마이스터고 트랙으로 '선취업 후진학' 모델 적용. 금융권 고졸채용 시장에서 가장 인지도 높음. 양천구 신월동 입지(목동 학원가 인접).",
+        "tuitionDetail": "마이스터고 — 입학금·수업료·실습복·교과서 전액 면제. 장학금 지원 폭 가장 넓음.",
+        "dormitoryLife": "홈페이지 '기숙사 및 라온카페 운영' 명시 — 원거리 학생 기숙 가능. 라온카페는 학생 운영 실습 카페.",
+        "skyAndOverseas": "선취업 후 재직자 전형으로 고려대·서강대 경영·경제 진학 다수. KAIST 금융전문대학원 연계 사례. 해외 유학보다 CFA·AICPA 트랙 추천.",
+        "departments": [
+          "금융과",
+          "소프트웨어과",
+          "세무회계과",
+          "행정서비스과(스타트업·브랜딩디자인 개편)"
+        ]
+      }
     },
     {
       "id": "incheon_business",
@@ -1683,9 +1863,40 @@
         ],
         "aiTipForMiddleSchooler": "\"회계 자격증 + 엑셀\"만으론 부족해요. SQL·BI·파이썬 자동화까지 함께 배우면 졸업 후 임금·승진이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 협약 금융기관·기업 목록 ② 졸업생 평균 연봉·취업률 ③ 데이터 도구 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "https://incheon-biz.icehs.kr/"
+        "homepageUrl": "https://ibg.icehs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ibg.icehs.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ibg.icehs.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://ibg.icehs.kr/",
+        "homepageVerified": true,
+        "classificationNote": "공립 특성화고 — 명칭은 '비즈니스고'이나 실질은 **서비스·콘텐츠 특성화** (금융·회계 학과 없음, 2009년 인천여상에서 교명변경)",
+        "clubsAndSeteuk": {
+          "summary": "전국 비즈니스고 중 가장 이질적 — 항공+부사관+SNS+디자인 4개 학과로 상업·금융 트랙은 사실상 없음.",
+          "signatureClubs": [
+            "항공서비스 체험반",
+            "호텔식음료 서비스반",
+            "부사관 임관 특강반",
+            "SNS 마케팅 콘텐츠 제작반"
+          ],
+          "seteukAngle": "항공·서비스직 인적성 시뮬레이션, 부사관 체력·인성평가 대비, SNS 마케팅 캠페인 운영 기록이 세특 차별점."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "대한항공·아시아나 객실승무원, 공군·해군 부사관, 인천공항 지상직 취업 다수"
+          ],
+          "networkStrength": "인천공항공사·항공사·인천지역 군부대 연계 — 항공 서비스 직군 네트워크 강함."
+        },
+        "teachingDifferentiator": "전국 비즈니스고 중 유일하게 항공+부사관 동시 운영. '비즈니스고' 명칭과 달리 금융·회계는 학습하지 않음 — 진학 시 사전 확인 필수.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 항공서비스과 유니폼·헤어메이크업 실습비 일부 자부담.",
+        "dormitoryLife": "기숙사 미운영(통학형). 미추홀구 도화동 입지, 1호선 도화역 인근.",
+        "skyAndOverseas": "한서대·인하공전·연성대 항공운항·서비스 학과로 진학. 해외 유학보다 항공사 해외 베이스 취업이 차별점.",
+        "departments": [
+          "항공서비스과",
+          "부사관경영과",
+          "SNS마케팅과",
+          "콘텐츠디자인과"
+        ]
+      }
     },
     {
       "id": "gwangju_girls_commerce",
@@ -1979,7 +2190,37 @@
         "homepageMustCheck": "학교 홈페이지에서 ① 학과별 협약 기업·금융기관 ② 졸업생 취업률·취업처 ③ 자격증 취득률을 꼭 확인하세요.",
         "homepageUrl": "http://ggc.gen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://ggc.gen.hs.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://ggc.gen.hs.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "http://ggc.gen.hs.kr/",
+        "homepageVerified": true,
+        "classificationNote": "사립 여자 특성화고 (2008 광주 최초 특성화고 전환) — 금융·재산경영 중심 정통 상업계",
+        "clubsAndSeteuk": {
+          "summary": "전국 비즈니스고 중 금융교육 실적 1위 — 학생 동아리가 경제금융인증시험 전국 1위, 전국투자자협회 공식 협력교.",
+          "signatureClubs": [
+            "전국 1위 경제금융인증 동아리",
+            "특성화고 창업동아리(교육부장관상 수상)",
+            "디자인·회계 특기반"
+          ],
+          "seteukAngle": "전국투자자협회 금융교육 협력교 활동·CEO 초청 강연·금융권 직무체험이 세특 단골 소재. 17개 학생동아리 활동 폭 넓음."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "광주은행·전남·NH농협 등 지역 금융권 취업 다수",
+            "공기업(한국전력·한전KPS) 합격"
+          ],
+          "networkStrength": "광주 지역 은행·공기업 취업 네트워크 호남권 1위."
+        },
+        "teachingDifferentiator": "전국투자자협회 협력교 — 외부 전문 금융교육 정기 운영. 특성화고 창업대회 교육부장관상 수상 이력.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 사립이나 학비 부담 없음.",
+        "dormitoryLife": "기숙사 미운영(통학형). 광주 남구 진월동 입지로 광주 시내 접근 양호.",
+        "skyAndOverseas": "전남대·조선대 경영·경제 진학 다수. SKY 직행은 재직자 전형 활용. 해외 유학보다 호남권 금융권 정착이 주류.",
+        "departments": [
+          "글로벌비즈니스과",
+          "스마트재산경영과",
+          "스마트금융과"
+        ]
+      }
     },
     {
       "id": "daejeon_girls_commerce",
@@ -2273,12 +2514,39 @@
         "homepageMustCheck": "학교 홈페이지에서 ① 학과별 협약 기관·기업 ② 졸업생 취업률·취업처 ③ 자격증 취득률 통계를 꼭 확인하세요.",
         "homepageUrl": "https://aramhs.djsch.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://aramhs.djsch.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://aramhs.djsch.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://aramhs.djsch.kr/",
+        "homepageVerified": true,
+        "classificationNote": "1948 개교 사립 여자 특성화고 — 자격증 취득 실적 전국 상위권",
+        "clubsAndSeteuk": {
+          "summary": "직업계 고교학점제 적극 도입 — 학과 구분 없이 진로별 전공코스 선택 가능. 자격증 1인 평균 9개+ 취득.",
+          "signatureClubs": [
+            "전공심화 동아리(자격증·경진대회 트랙)",
+            "상업경진대회 출전반"
+          ],
+          "seteukAngle": "2022 전국 상업경진대회 22개 메달 중 18개 수상, 전국 1등 3명 — 경진대회 메달과 자격증 취득 과정이 세특 핵심."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "매년 취업률 70%+ — 대전 지역 금융·회계 사무직 취업"
+          ],
+          "networkStrength": "충청권 사립 여상 최강 동문 네트워크(1948년 개교)."
+        },
+        "teachingDifferentiator": "직업계 고교학점제 코스과정 — 1학년 공통, 2~3학년 진로별 전공코스 선택. 자격증 단계별 트랙 명확.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 자격증 응시료 학교 보조.",
+        "dormitoryLife": "기숙사 미운영(통학형). 대전 중구 선화동 입지로 대전 도심 접근 양호.",
+        "skyAndOverseas": "재직자 특별전형 활용 — 충남대·한밭대 경영·회계 진학. 해외 유학 사례는 드묾.",
+        "departments": [
+          "IT콘텐츠과",
+          "스마트경영과"
+        ]
+      }
     },
     {
-      "id": "busan_girls_commerce",
-      "name": "부산여자상업고등학교",
-      "shortName": "부산여상",
+      "id": "haeyeon_girls",
+      "name": "해연여자고등학교",
+      "shortName": "해연여고",
       "location": "부산광역시 수영구 망미동",
       "type": "비즈니스고",
       "emoji": "💼",
@@ -2500,7 +2768,7 @@
           "answer": "[일반적]으로 이커머스 운영, SNS 마케팅 보조, 영상 편집 보조 등으로 진출할 수 있어요. 단, 안정성을 원하면 ==회계·사무 자격증을 함께==따두는 것이 안전합니다."
         }
       ],
-      "websiteUrl": "http://psgch.hs.kr/",
+      "websiteUrl": "https://school.busanedu.net/psgch-h/main.do",
       "description": "부산여자상업고는 부산광역시 수영구 망미동 소재 사립 여자 상업계 특성화고로, 경영·정보·크리에이터 분야를 운영합니다. [일반적] 부산권 중견·중소기업 사무직 및 디지털 콘텐츠 분야 진출이 강점이며, 자격증 + 콘텐츠 포트폴리오 조합 교육이 특징입니다.",
       "schoolInfoCard": {
         "regionScope": "부산광역시 단위 모집",
@@ -2566,14 +2834,44 @@
         ],
         "aiTipForMiddleSchooler": "\"자격증 + 포트폴리오\"가 핵심. ==생성 AI 도구(ChatGPT·캔바 AI·런웨이)==를 함께 익히면 졸업 후 경쟁력이 달라져요.",
         "homepageMustCheck": "학교 홈페이지에서 ① 학과별 협약 기업 ② 졸업생 취업률·취업처 ③ 콘텐츠·자격증 교육 과정을 꼭 확인하세요.",
-        "homepageUrl": "http://psgch.hs.kr/"
+        "homepageUrl": "https://school.busanedu.net/psgch-h/main.do"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://psgch.hs.kr/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://psgch.hs.kr/)",
+      "differentiators": {
+        "verifiedHomepage": "https://school.busanedu.net/psgch-h/main.do",
+        "homepageVerified": true,
+        "classificationNote": "공립 여자 특성화고 — 2026.3.1 부산여자상업고에서 교명 변경(현판식 개최). 무역금융·IT사무행정·웹툰디자인 3개 학과로 재편.",
+        "clubsAndSeteuk": {
+          "summary": "2026 교명변경과 함께 학과 재편 — 무역금융 + IT사무행정 + 웹툰디자인의 3축으로 차별화.",
+          "signatureClubs": [
+            "무역금융 자격증 트랙(컴활·전산회계·무역영어)",
+            "웹툰디자인 포트폴리오반(마케팅 크리에이터 트랙)",
+            "전통 합창단·가야금부(부산여상 시절 유산)"
+          ],
+          "seteukAngle": "교명변경 첫 해(2026) 신규 학과 정착 과정·웹툰 콘텐츠 제작 기록이 세특 차별 소재. 부산여상 시절 인성교육(명곡감상·5분생활영어) 자산도 유지."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "공기업·금융기관 14명, 대기업 8명, 중소기업 36명(연도 미상)",
+            "동문 4만2천여 명 — 부산 최대 여상 동문회"
+          ],
+          "networkStrength": "부산 지역 무역·금융 동문 네트워크 영남권 1위."
+        },
+        "teachingDifferentiator": "2026 교명변경 + 학과 재편. 기존 무역·금융 정통 + 신설 웹툰디자인(마케팅 크리에이터) 융합형으로 전환. 1교사 1기업 방문 산학협력 전통 유지.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 사립이나 학비 부담 없음.",
+        "dormitoryLife": "기숙사 미운영(통학형). 부산 수영구 망미동 입지, 3호선 망미역 도보권.",
+        "skyAndOverseas": "부산대·동아대 경영·무역 진학 다수. 해외 유학보다 부산항·해운대 무역회사 취업 트랙.",
+        "departments": [
+          "무역금융과",
+          "IT사무행정과",
+          "웹툰디자인과(마케팅크리에이터과)"
+        ]
+      }
     },
     {
-      "id": "jeonju_commerce_info",
-      "name": "전주상업정보고등학교",
-      "shortName": "전주상업정보고",
+      "id": "jeonju_girls_commerce",
+      "name": "전주여자상업고등학교",
+      "shortName": "전주여상",
       "location": "전북특별자치도 전주시 완산구",
       "type": "비즈니스고",
       "emoji": "📊",
@@ -2863,7 +3161,37 @@
         "homepageMustCheck": "학교 홈페이지에서 ① 학과별 협약 기업 ② 졸업생 취업률·취업처 ③ 자격증 취득률을 꼭 확인하세요.",
         "homepageUrl": "https://school.jbedu.kr/jgch/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.jbedu.kr/jgch/)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.jbedu.kr/jgch/)",
+      "differentiators": {
+        "verifiedHomepage": "https://school.jbedu.kr/jgch/",
+        "homepageVerified": true,
+        "classificationNote": "공립 여자 특성화고 — '전주상업정보고'에서 '전주여자상업고등학교'로 명칭 환원. 회계·금융·e-비즈니스에 가장 정통하게 특화.",
+        "clubsAndSeteuk": {
+          "summary": "10개교 중 회계·금융 학과 비중이 가장 높음 — 자격증 트랙이 핵심 동아리.",
+          "signatureClubs": [
+            "전산회계운용사반",
+            "기업회계·세무회계 심화반",
+            "금융정보 직무체험반"
+          ],
+          "seteukAngle": "회계정보과: 전산회계운용사·기업회계·세무회계 단계 취득. 금융정보과: 증권·은행 NCS 직무 트랙. → 세특이 자격증 단계 그대로 기록됨."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "금융(증권·은행·보험)·회계세무·법무·특허법인·공공기관 사무직 취업 다수"
+          ],
+          "networkStrength": "전북 지역 회계법인·금융권 동문 네트워크. 전북은행·NH농협 정기 채용."
+        },
+        "teachingDifferentiator": "기본 자격증(컴활·워드·전산회계운용사) + 회계정보과 심화(전산회계·기업회계·세무회계) — 학과 트랙이 자격증 단계와 1:1 매칭.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 자격증 응시료 학교 보조.",
+        "dormitoryLife": "기숙사 미운영 또는 제한 운영(공시 자료 확인 필요). 전주 완산구 따박골2길 입지.",
+        "skyAndOverseas": "회계정보과 → 전북대·원광대 경영·회계 진학. 재직자 전형으로 SKY 경영 가능. 해외 유학 사례는 드묾.",
+        "departments": [
+          "회계정보과",
+          "금융정보과",
+          "e-비지니스과",
+          "사무행정과"
+        ]
+      }
     },
     {
       "id": "ulsan_commerce",
@@ -3164,7 +3492,38 @@
         "homepageMustCheck": "학교 홈페이지에서 ① 학과별 협약 기관·기업 ② 졸업생 진로 통계(특히 군사경영과 부사관 진로율) ③ 자격증 취득률을 꼭 확인하세요.",
         "homepageUrl": "https://school.use.go.kr/ulsan-h/M01"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.use.go.kr/ulsan-h/M01)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.use.go.kr/ulsan-h/M01)",
+      "differentiators": {
+        "verifiedHomepage": "https://school.use.go.kr/ulsan-h/M01",
+        "homepageVerified": true,
+        "classificationNote": "공립 특성화고 — 전국 비즈니스고 중 유일하게 **군사경영과** 정규 학과 운영",
+        "clubsAndSeteuk": {
+          "summary": "군사경영과 보유가 전국 유일급 차별점 — 부사관·장교 양성 트랙을 상업계 안에 정규로 둠.",
+          "signatureClubs": [
+            "국방체육반",
+            "군 리더십·군대윤리반(군사경영과)",
+            "물류관리 실무반",
+            "희망7품제 인성 프로그램"
+          ],
+          "seteukAngle": "NCS 기반 사무행정·인사·총무·물류관리 실무교과 + 군사경영과 국방체육·군 리더십이 세특 차별 소재."
+        },
+        "alumniConnection": {
+          "famousAlumni": [
+            "군사경영과: 부사관·장교·군무원·보안·경호 다수",
+            "물류경영과: 울산항·현대중공업 협력사 물류·운송 직군"
+          ],
+          "networkStrength": "울산 군부대·울산항만공사·현대그룹 협력 — 산업도시 울산 특화 네트워크."
+        },
+        "teachingDifferentiator": "전국 상업고 중 유일한 군사경영과. 부사관 양성을 정규 학과로 운영 — 군 진로 희망자에게 최적화. NCS 기반 실무교과 비중 높음.",
+        "tuitionDetail": "특성화고 무상교육 — 수업료 면제. 국방체육 실습복 일부 자부담.",
+        "dormitoryLife": "기숙사 운영 여부 공시 확인 필요. 울주군 범서읍 장검길 입지(시 외곽).",
+        "skyAndOverseas": "군사경영과 → 육군·해군·공군 부사관학교 진학. 일부 학사장교 트랙으로 4년제 진학. 해외 유학 사례 드묾.",
+        "departments": [
+          "군사경영과",
+          "물류경영과",
+          "상공경영과"
+        ]
+      }
     }
   ]
 }
