@@ -7,6 +7,7 @@ import type { HighSchoolCategory } from '../../types';
 type PlanetOrbitViewProps = {
   categories: HighSchoolCategory[];
   onSelectCategory: (category: HighSchoolCategory) => void;
+  selectedCategoryId?: string | null;
 };
 
 const PLANET_SIZES: Record<string, number> = {
@@ -18,7 +19,7 @@ const PLANET_SIZES: Record<string, number> = {
 const CENTER_X = 160;
 const CENTER_Y = 160;
 
-export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitViewProps) {
+export function PlanetOrbitView({ categories, onSelectCategory, selectedCategoryId = null }: PlanetOrbitViewProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [angles, setAngles] = useState<Record<string, number>>(() => {
     const initial: Record<string, number> = {};
@@ -181,14 +182,21 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
 
       {/* 행성 범례 */}
       <div className="w-full mt-2 grid grid-cols-2 gap-1.5 px-1">
-        {categories.map((cat, legendIndex) => (
+        {categories.map((cat, legendIndex) => {
+          const isSelected = selectedCategoryId === cat.id;
+          const isActive = isSelected || hoveredId === cat.id;
+          return (
           <motion.button
             key={`legend-${cat.id}`}
             type="button"
-            className="flex items-center gap-2 px-2.5 py-2 rounded-xl text-left"
+            aria-pressed={isSelected}
+            className="relative flex items-center gap-2 px-2.5 py-2 rounded-xl text-left"
             style={{
-              background: hoveredId === cat.id ? cat.bgColor : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${hoveredId === cat.id ? cat.color : 'rgba(255,255,255,0.08)'}`,
+              background: isActive ? cat.bgColor : 'rgba(255,255,255,0.04)',
+              border: `${isSelected ? 2 : 1}px solid ${isActive ? cat.color : 'rgba(255,255,255,0.08)'}`,
+              boxShadow: isSelected
+                ? `0 0 0 2px ${cat.color}55, 0 0 16px ${cat.planet?.glowColor ?? cat.color}66`
+                : undefined,
             }}
             onMouseEnter={() => setHoveredId(cat.id)}
             onMouseLeave={() => setHoveredId(null)}
@@ -199,15 +207,28 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
             whileHover={{ scale: 1.02, x: 3 }}
             whileTap={{ scale: 0.97 }}
           >
+            {isSelected && (
+              <span
+                aria-hidden
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1 h-6 w-1 rounded-r"
+                style={{ background: cat.color, boxShadow: `0 0 8px ${cat.color}` }}
+              />
+            )}
             <span className="text-xl">{cat.emoji}</span>
-            <div className="min-w-0">
-              <p className="text-sm font-bold text-white truncate">{cat.name}</p>
+            <div className="min-w-0 flex-1">
+              <p
+                className="text-sm font-bold truncate"
+                style={{ color: isSelected ? cat.color : '#ffffff' }}
+              >
+                {cat.name}
+              </p>
               <p className="text-sm truncate" style={{ color: cat.color }}>
                 {cat.schools.length}개 학교
               </p>
             </div>
           </motion.button>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

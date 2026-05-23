@@ -109,6 +109,7 @@ export function HighSchoolAdmissionTab() {
               <PlanetOrbitView
                 categories={typedData.categories}
                 onSelectCategory={handleSelectCategory}
+                selectedCategoryId={selectedCategory?.id ?? null}
               />
             </div>
           </div>
