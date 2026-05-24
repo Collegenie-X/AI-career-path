@@ -16,11 +16,10 @@ function HL({ text }: { text: string }) {
         i % 2 === 1 ? (
           <mark
             key={i}
-            className="rounded-sm px-0.5 font-bold not-italic"
+            className="rounded-sm px-0.5 font-medium not-italic"
             style={{
-              background: 'rgba(250,204,21,0.28)',
-              color: '#fde68a',
-              boxShadow: '0 1px 0 rgba(250,204,21,0.5)',
+              background: 'rgba(250,204,21,0.10)',
+              color: 'inherit',
             }}
           >
             {part}
@@ -168,10 +167,10 @@ export function StrategyHubView({
           }}
         >
           <div className="flex items-center gap-2.5">
-            <span className="text-xl" aria-hidden>{masterDetailLabels.listIntroEmoji}</span>
+            <span className="text-2xl" aria-hidden>{masterDetailLabels.listIntroEmoji}</span>
             <div>
-              <h2 className="text-sm font-bold text-white leading-tight">{masterDetailLabels.listIntroTitle}</h2>
-              <p className="text-xs text-indigo-300/80 mt-0.5">{masterDetailLabels.listIntroDescription}</p>
+              <h2 className="text-base font-bold text-white leading-tight">{masterDetailLabels.listIntroTitle}</h2>
+              <p className="text-sm text-indigo-300/80 mt-0.5">{masterDetailLabels.listIntroDescription}</p>
             </div>
           </div>
           {onClose && (
@@ -197,7 +196,7 @@ export function StrategyHubView({
                 key={grade.id}
                 type="button"
                 onClick={() => setSelectedGradeId(grade.id)}
-                className="flex-1 py-2 rounded-xl text-sm font-bold transition-all"
+                className="flex-1 py-2.5 rounded-xl text-base font-bold transition-all"
                 style={{
                   background: isActive ? gc.accent : 'rgba(255,255,255,0.04)',
                   border: `2px solid ${isActive ? gc.border : 'rgba(255,255,255,0.1)'}`,
@@ -233,13 +232,13 @@ export function StrategyHubView({
                   }}
                   aria-expanded={openSectionIds.has(section.id)}
                 >
-                  <span className="text-xl shrink-0" aria-hidden>{section.emoji}</span>
+                  <span className="text-2xl shrink-0" aria-hidden>{section.emoji}</span>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-sm font-bold text-white">{section.label}</h3>
-                    <p className="text-xs mt-0.5 leading-relaxed" style={{ color: gradeColor.text }}><HL text={section.summary} /></p>
+                    <h3 className="text-base font-bold text-white">{section.label}</h3>
+                    <p className="text-sm mt-1 leading-relaxed" style={{ color: gradeColor.text }}><HL text={section.summary} /></p>
                   </div>
                   <ChevronDown
-                    className="shrink-0 w-4 h-4 transition-transform duration-200"
+                    className="shrink-0 w-5 h-5 transition-transform duration-200"
                     style={{
                       color: gradeColor.text,
                       transform: openSectionIds.has(section.id) ? 'rotate(0deg)' : 'rotate(-90deg)',
@@ -254,10 +253,10 @@ export function StrategyHubView({
                       className="rounded-xl px-3 py-3"
                       style={{ background: `${gradeColor.accent}`, border: `1px solid ${gradeColor.border}` }}
                     >
-                      <p className="text-xs font-bold mb-1.5" style={{ color: gradeColor.text }}>
+                      <p className="text-sm font-bold mb-2" style={{ color: gradeColor.text }}>
                         🎯 {grade.label} 핵심 목표
                       </p>
-                      <p className="text-xs text-white/90 leading-relaxed"><HL text={grade.objective} /></p>
+                      <p className="text-sm text-white/90 leading-relaxed"><HL text={grade.objective} /></p>
                     </div>
 
                     {/* 액션 카드 */}
@@ -270,25 +269,25 @@ export function StrategyHubView({
                         >
                           <div className="flex items-start gap-2.5 mb-2.5">
                             <span
-                              className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold mt-0.5"
+                              className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-sm font-bold mt-0.5"
                               style={{ background: gradeColor.accent, color: gradeColor.text, border: `1.5px solid ${gradeColor.border}` }}
                             >
                               {ci + 1}
                             </span>
                             <div>
-                              <h4 className="text-sm font-bold text-white leading-tight"><HL text={card.title} /></h4>
-                              <p className="text-xs text-white/65 mt-1 leading-relaxed"><HL text={card.description} /></p>
+                              <h4 className="text-base font-bold text-white leading-tight"><HL text={card.title} /></h4>
+                              <p className="text-sm text-white/65 mt-1.5 leading-relaxed"><HL text={card.description} /></p>
                             </div>
                           </div>
-                          <ul className="space-y-1.5 ml-8">
+                          <ul className="space-y-2 ml-9">
                             {card.actionSteps.map((step, si) => (
-                              <li key={si} className="flex items-start gap-2 text-xs text-white/80 leading-relaxed">
+                              <li key={si} className="flex items-start gap-2 text-sm text-white/80 leading-relaxed">
                                 <span className="flex-shrink-0 font-bold mt-0.5" style={{ color: gradeColor.text }}>✓</span>
                                 <span><HL text={step} /></span>
                               </li>
                             ))}
                           </ul>
-                          <p className="text-xs mt-2.5 ml-8 font-medium" style={{ color: `${gradeColor.text}cc` }}>{card.recommendedTiming}</p>
+                          <p className="text-sm mt-3 ml-9 font-medium" style={{ color: `${gradeColor.text}cc` }}>{card.recommendedTiming}</p>
                         </div>
                       ))}
                     </div>
@@ -299,10 +298,10 @@ export function StrategyHubView({
                         className="rounded-xl p-3.5"
                         style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
                       >
-                        <p className="text-xs font-bold mb-2.5 text-white/60">💡 이렇게 해봐!</p>
+                        <p className="text-sm font-bold mb-2.5 text-white/60">💡 이렇게 해봐!</p>
                         <ul className="space-y-2">
                           {grade.practicalExamples.map((ex, ei) => (
-                            <li key={ei} className="text-xs text-white/70 leading-relaxed">
+                            <li key={ei} className="text-sm text-white/70 leading-relaxed">
                               <HL text={ex} />
                             </li>
                           ))}
@@ -313,11 +312,11 @@ export function StrategyHubView({
                     {/* 체크리스트 */}
                     {grade.detailChecklist.length > 0 && (
                       <div className="space-y-1.5">
-                        <p className="text-xs font-bold text-white/60 mb-2">✅ 나 잘 하고 있나?</p>
+                        <p className="text-sm font-bold text-white/60 mb-2">✅ 나 잘 하고 있나?</p>
                         {grade.detailChecklist.map((item, di) => (
                           <div key={di} className="flex items-start gap-2">
-                            <span className="flex-shrink-0 text-sm mt-0.5" style={{ color: gradeColor.text }}>□</span>
-                            <p className="text-xs text-white/70 leading-relaxed"><HL text={item} /></p>
+                            <span className="flex-shrink-0 text-base mt-0.5" style={{ color: gradeColor.text }}>□</span>
+                            <p className="text-sm text-white/70 leading-relaxed"><HL text={item} /></p>
                           </div>
                         ))}
                       </div>

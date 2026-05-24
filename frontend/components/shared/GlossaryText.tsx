@@ -1107,10 +1107,9 @@ export function GlossaryText({
         seg.highlight ? (
           <span
             key={`h-${i}`}
-            className="font-semibold"
+            className="font-medium"
             style={{
-              background: 'linear-gradient(180deg, transparent 62%, rgba(250,204,21,0.28) 62%)',
-              color: '#ffffff',
+              background: 'linear-gradient(180deg, transparent 78%, rgba(250,204,21,0.14) 78%)',
               padding: '0 1px',
             }}
           >

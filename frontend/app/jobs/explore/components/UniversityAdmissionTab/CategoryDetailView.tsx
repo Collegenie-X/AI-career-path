@@ -95,7 +95,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
   const [activeTab, setActiveTab] = useState<TabId>('core');
   const [mounted, setMounted] = useState(false);
   /** 3단계: 개별 대학 포커스 다이얼로그 */
-  const [selectedUniversity, setSelectedUniversity] = useState<string | null>(null);
+  const [selectedUniversity, setSelectedUniversity] = useState<{ label: string; url?: string } | null>(null);
   useEffect(() => setMounted(true), []);
 
   const tabs: Array<{ id: TabId; label: string; icon: any }> = [
@@ -108,7 +108,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
   const panelScrollClass =
     variant === 'inline'
       ? 'w-full min-w-0 max-w-full overflow-x-hidden rounded-2xl p-3 sm:p-4 space-y-3'
-      : 'w-full min-w-0 max-w-full md:max-w-[28rem] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4';
+      : 'w-full min-w-0 max-w-full md:max-w-[680px] h-[94dvh] md:h-auto md:max-h-[92vh] overflow-y-auto overflow-x-hidden rounded-t-2xl md:rounded-2xl p-3 sm:p-4 space-y-3 pb-[max(1rem,env(safe-area-inset-bottom))] md:pb-4';
 
   /** 카테고리가 바뀔 때마다 stagger 애니메이션 새로 트리거 */
   const animationKey = `category-${category.id}`;
@@ -248,7 +248,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
                   >
                     <button
                       type="button"
-                      onClick={() => setSelectedUniversity(label)}
+                      onClick={() => setSelectedUniversity({ label, url })}
                       className="flex-1 text-left"
                     >
                       <span className="text-[12px] font-semibold text-white/90 leading-tight">{label}</span>
@@ -283,7 +283,8 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
 
   const universityDialog = selectedUniversity ? (
     <UniversityFocusDialog
-      universityLabel={selectedUniversity}
+      universityLabel={selectedUniversity.label}
+      universityUrl={selectedUniversity.url}
       categoryName={category.name}
       categoryShortName={category.shortName}
       categoryEmoji={category.emoji}

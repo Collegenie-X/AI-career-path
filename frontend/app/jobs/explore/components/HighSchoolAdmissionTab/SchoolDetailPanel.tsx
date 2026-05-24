@@ -385,7 +385,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.regionScope}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.regionScope} /></p>
             </div>
             {/* 정원 */}
             <div
@@ -393,7 +393,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.capacity}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.capacity} /></p>
             </div>
             {/* 남녀 비율 */}
             <div
@@ -401,7 +401,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">⚖️ 남녀 비율</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.genderRatio}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.genderRatio} /></p>
             </div>
             {/* 기숙사 */}
             <div
@@ -409,7 +409,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.dormitoryType}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.dormitoryType} /></p>
             </div>
             {/* 연간 비용 */}
             <div
@@ -417,7 +417,7 @@ function OverviewTab({
               style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
             >
               <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.costPerYear}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.costPerYear} /></p>
             </div>
             {/* 장학금 */}
             <div
@@ -425,7 +425,7 @@ function OverviewTab({
               style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
             >
               <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug">{infoCard.scholarship}</p>
+              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.scholarship} /></p>
             </div>
           </div>
           {/* 저소득 가정 조언 */}
@@ -435,7 +435,7 @@ function OverviewTab({
               style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
             >
               <p className="text-xs font-bold text-yellow-400 mb-0.5">💡 소득 하위 가정 조언</p>
-              <p className="text-sm text-gray-200 leading-relaxed">{infoCard.lowIncomeAdvice}</p>
+              <p className="text-sm text-gray-200 leading-relaxed"><HL text={infoCard.lowIncomeAdvice} /></p>
             </div>
           )}
         </div>

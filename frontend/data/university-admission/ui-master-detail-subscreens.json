@@ -18,7 +18,7 @@
     },
     "innovativeInstitutions": {
       "title": "혁신 교육기관",
-      "subtitle": "미네르바 대학·태재대·42 경산 등 新대학 모델"
+      "subtitle": "미네르바·태재대·42·방통대·사이버대·학점은행·Coursera·Udacity·Domestika·클래스101까지"
     }
   },
   "strategyHub": {
@@ -35,7 +35,7 @@
   "innovativeInstitutions": {
     "listIntroEmoji": "🌐",
     "listIntroTitle": "혁신 교육기관",
-    "listIntroDescription": "대학 대신, 또는 대학과 함께 선택할 수 있는 새로운 교육 모델입니다. 미네르바 대학·태재대학교·42 경산·POSTECH·KAIST 특수 트랙 — 수능 없이 입학 가능한 경로를 포함합니다.",
+    "listIntroDescription": "대학 대신, 또는 대학과 함께 선택할 수 있는 다양한 교육 경로입니다. 미네르바·태재대·42·POSTECH/KAIST 특수 트랙 같은 新대학 모델, 방통대·사이버대·학점은행제·독학학위제 같은 한국 평생학습 학위, University of London(Coursera)·edX MicroBachelors 같은 글로벌 온라인 학사, Udacity·Google/Meta/IBM Certificates·Domestika·클래스101·패스트캠퍼스 같은 비개발 직무·창작 자격까지 — 개발자 외에도 마케터·디자이너·PM·창작자·직무 전환자를 위한 경로를 폭넓게 포함합니다.",
     "emptyDetailTitle": "기관을 선택하세요",
     "emptyDetailSubText": "왼쪽에서 혁신 교육기관을 선택하면 소개와 진학·진로 정보를 확인할 수 있습니다"
   },

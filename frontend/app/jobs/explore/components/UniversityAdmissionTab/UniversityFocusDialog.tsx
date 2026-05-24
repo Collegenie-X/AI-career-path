@@ -2,11 +2,12 @@
 
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { CheckCircle2, GraduationCap, Lightbulb, Target, X } from 'lucide-react';
+import { CheckCircle2, ExternalLink, GraduationCap, Lightbulb, Target, X } from 'lucide-react';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type UniversityFocusDialogProps = {
   readonly universityLabel: string;
+  readonly universityUrl?: string;
   readonly categoryName: string;
   readonly categoryShortName: string;
   readonly categoryEmoji: string;
@@ -23,6 +24,7 @@ type UniversityFocusDialogProps = {
  */
 export function UniversityFocusDialog({
   universityLabel,
+  universityUrl,
   categoryName,
   categoryShortName,
   categoryEmoji,
@@ -51,7 +53,7 @@ export function UniversityFocusDialog({
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[28rem] md:max-w-[34rem] h-[94dvh] md:max-h-[88vh] overflow-y-auto rounded-2xl flex flex-col"
+        className="w-full max-w-[28rem] md:max-w-[680px] h-[94dvh] md:max-h-[88vh] overflow-y-auto rounded-2xl flex flex-col"
         style={{
           background: 'linear-gradient(180deg, #0f172a, #111827)',
           border: `1px solid ${categoryColor}55`,
@@ -100,6 +102,23 @@ export function UniversityFocusDialog({
               </p>
               <h2 className="text-xl font-bold text-white leading-tight">{universityLabel}</h2>
               <p className="text-[13px] text-white/60 mt-1">이 전형으로 지원할 때 알아야 할 핵심 포인트</p>
+              {universityUrl && (
+                <a
+                  href={universityUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="inline-flex items-center gap-1.5 mt-2 px-2.5 py-1 rounded-md text-[12px] font-semibold transition-all hover:scale-[1.02]"
+                  style={{
+                    color: categoryColor,
+                    background: `${categoryColor}18`,
+                    border: `1px solid ${categoryColor}55`,
+                  }}
+                  title={universityUrl}
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  입학처 공식 홈페이지 바로가기
+                </a>
+              )}
             </div>
           </div>
         </div>
