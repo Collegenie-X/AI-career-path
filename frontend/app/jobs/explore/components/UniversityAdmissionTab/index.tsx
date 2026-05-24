@@ -62,7 +62,7 @@ type AdmissionCategory = {
   targetStudents: string[];
   preparationGuide: any;
   cautions: string[];
-  universities: string[];
+  universities: Array<string | { name: string; url?: string }>;
 };
 
 type SubView = 'strategy-hub' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
@@ -157,7 +157,11 @@ export function UniversityAdmissionTab() {
               <p className="admission-orbit-callout text-center text-[12px] font-black uppercase tracking-wide text-teal-200/90">
                 {admissionExploreOrbitCallout('university')}
               </p>
-              <PlanetOrbitView categories={categories} onSelectCategory={handleSelectCategory} />
+              <PlanetOrbitView
+                categories={categories}
+                onSelectCategory={handleSelectCategory}
+                selectedCategoryId={selectedCategory?.id ?? null}
+              />
 
               <div className="space-y-2">
                 {/* 전략 실행 허브 */}

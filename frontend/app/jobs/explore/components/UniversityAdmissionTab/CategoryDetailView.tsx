@@ -18,7 +18,7 @@ type AdmissionCategory = {
   keyFeatures: string[];
   targetStudents: string[];
   cautions: string[];
-  universities: string[];
+  universities: Array<string | { name: string; url?: string }>;
 };
 
 type CategoryPlaybook = {
@@ -234,24 +234,45 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
               <span className="text-[12px] text-white/50">클릭하면 자세히 보기</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 panel-pop-stagger-fast">
-              {category.universities.map((university, index) => (
-                <button
-                  key={`${university}-${index}`}
-                  type="button"
-                  onClick={() => setSelectedUniversity(university)}
-                  className="group flex items-center justify-between gap-2 text-left px-3 py-2 rounded-xl transition-all hover:scale-[1.01] active:scale-[0.99]"
-                  style={{
-                    background: 'rgba(255,255,255,0.05)',
-                    border: `1px solid ${category.color}30`,
-                  }}
-                >
-                  <span className="text-[12px] font-semibold text-white/90 leading-tight">{university}</span>
-                  <ChevronRight
-                    className="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:translate-x-0.5"
-                    style={{ color: category.color }}
-                  />
-                </button>
-              ))}
+              {category.universities.map((university, index) => {
+                const label = typeof university === 'string' ? university : university.name;
+                const url = typeof university === 'string' ? undefined : university.url;
+                return (
+                  <div
+                    key={`${label}-${index}`}
+                    className="group flex items-center justify-between gap-2 px-3 py-2 rounded-xl transition-all hover:scale-[1.01] active:scale-[0.99]"
+                    style={{
+                      background: 'rgba(255,255,255,0.05)',
+                      border: `1px solid ${category.color}30`,
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setSelectedUniversity(label)}
+                      className="flex-1 text-left"
+                    >
+                      <span className="text-[12px] font-semibold text-white/90 leading-tight">{label}</span>
+                    </button>
+                    {url ? (
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="text-[11px] font-semibold px-2 py-0.5 rounded-md hover:underline flex-shrink-0"
+                        style={{ color: category.color, background: `${category.color}15`, border: `1px solid ${category.color}40` }}
+                        title={url}
+                      >
+                        입학처 ↗
+                      </a>
+                    ) : (
+                      <ChevronRight
+                        className="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:translate-x-0.5"
+                        style={{ color: category.color }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -539,15 +560,27 @@ function Ai2028StrategyTab({ category, playbook }: { category: AdmissionCategory
       <div className="rounded-xl p-3 bg-white/5 border border-white/10">
         <h3 className="text-sm font-bold text-white mb-2">🏫 주요 지원 대학</h3>
         <div className="flex flex-wrap gap-1.5">
-          {category.universities.map((university, index) => (
-            <span
-              key={index}
-              className="text-xs px-2 py-1 rounded-full"
-              style={{ background: category.bgColor, border: `1px solid ${category.color}40`, color: 'white' }}
-            >
-              {university}
-            </span>
-          ))}
+          {category.universities.map((university, index) => {
+            const label = typeof university === 'string' ? university : university.name;
+            const url = typeof university === 'string' ? undefined : university.url;
+            const baseStyle = { background: category.bgColor, border: `1px solid ${category.color}40`, color: 'white' };
+            return url ? (
+              <a
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-xs px-2 py-1 rounded-full hover:underline"
+                style={baseStyle}
+              >
+                {label} ↗
+              </a>
+            ) : (
+              <span key={index} className="text-xs px-2 py-1 rounded-full" style={baseStyle}>
+                {label}
+              </span>
+            );
+          })}
         </div>
       </div>
     </div>

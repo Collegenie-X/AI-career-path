@@ -35,7 +35,7 @@ interface UniversityAdmissionDetailPanelProps {
       major2028Changes?: Major2028Change[];
     };
     cautions?: string[];
-    universities?: string[];
+    universities?: Array<string | { name: string; url?: string }>;
   };
   onClose: () => void;
 }
@@ -375,19 +375,31 @@ export function UniversityAdmissionDetailPanel({
               <h3 className="text-lg font-bold text-white">주요 대학 전형</h3>
             </div>
             <div className="flex flex-wrap gap-2">
-              {category.universities.map((university, index) => (
-                <div
-                  key={index}
-                  className="px-3 py-2 rounded-lg text-sm font-medium"
-                  style={{
-                    backgroundColor: `${category.color}20`,
-                    color: category.color,
-                    border: `1px solid ${category.color}40`,
-                  }}
-                >
-                  {university}
-                </div>
-              ))}
+              {category.universities.map((university, index) => {
+                const label = typeof university === 'string' ? university : university.name;
+                const url = typeof university === 'string' ? undefined : university.url;
+                const baseStyle = {
+                  backgroundColor: `${category.color}20`,
+                  color: category.color,
+                  border: `1px solid ${category.color}40`,
+                };
+                return url ? (
+                  <a
+                    key={index}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="px-3 py-2 rounded-lg text-sm font-medium hover:underline"
+                    style={baseStyle}
+                  >
+                    {label} ↗
+                  </a>
+                ) : (
+                  <div key={index} className="px-3 py-2 rounded-lg text-sm font-medium" style={baseStyle}>
+                    {label}
+                  </div>
+                );
+              })}
             </div>
           </section>
         )}

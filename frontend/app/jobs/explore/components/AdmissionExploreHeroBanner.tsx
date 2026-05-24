@@ -87,13 +87,23 @@ export function AdmissionExploreHeroBanner({ variant }: AdmissionExploreHeroBann
         </div>
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3 self-end sm:gap-4 lg:justify-end">
           <div className="text-center">
-            <div className="text-[15px] font-black text-white">{copy.stat1Value}</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">{copy.stat1Label}</div>
+            <div
+              className="text-[18px] font-black"
+              style={{ color: accent }}
+            >
+              {copy.stat1Value}
+            </div>
+            <div className="-mt-0.5 text-[12px] font-semibold text-gray-400">{copy.stat1Label}</div>
           </div>
           <div className="hidden h-7 w-px bg-white/10 sm:block" />
           <div className="text-center">
-            <div className="text-[15px] font-black text-white">{copy.stat2Value}</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">{copy.stat2Label}</div>
+            <div
+              className="text-[18px] font-black"
+              style={{ color: accent }}
+            >
+              {copy.stat2Value}
+            </div>
+            <div className="-mt-0.5 text-[12px] font-semibold text-gray-400">{copy.stat2Label}</div>
           </div>
         </div>
       </div>

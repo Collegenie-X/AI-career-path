@@ -22,6 +22,7 @@ type AdmissionCategory = {
 type PlanetOrbitViewProps = {
   categories: AdmissionCategory[];
   onSelectCategory: (category: AdmissionCategory) => void;
+  selectedCategoryId?: string | null;
 };
 
 const PLANET_SIZES: Record<string, number> = {
@@ -33,7 +34,7 @@ const PLANET_SIZES: Record<string, number> = {
 const CENTER_X = 160;
 const CENTER_Y = 160;
 
-export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitViewProps) {
+export function PlanetOrbitView({ categories, onSelectCategory, selectedCategoryId = null }: PlanetOrbitViewProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [angles, setAngles] = useState<Record<string, number>>(() => {
     const initial: Record<string, number> = {};
@@ -149,6 +150,8 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
           const pos = getPlanetPosition(cat, angle);
           const size = PLANET_SIZES[cat.planet?.size ?? 'medium'] ?? 50;
           const isHovered = hoveredId === cat.id;
+          const isSelected = selectedCategoryId === cat.id;
+          const isActive = isHovered || isSelected;
           const left = Number.isFinite(pos.x) ? pos.x - size / 2 : CENTER_X - size / 2;
           const top = Number.isFinite(pos.y) ? pos.y - size / 2 : CENTER_Y - size / 2;
 
@@ -163,11 +166,11 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
                 width: size,
                 height: size,
                 background: cat.bgColor,
-                border: `2px solid ${cat.color}`,
-                boxShadow: isHovered
+                border: `${isSelected ? 3 : 2}px solid ${cat.color}`,
+                boxShadow: isActive
                   ? `0 0 20px ${cat.planet?.glowColor ?? cat.color}80, 0 0 40px ${cat.planet?.glowColor ?? cat.color}40`
                   : `0 0 10px ${cat.planet?.glowColor ?? cat.color}40`,
-                zIndex: isHovered ? 20 : 5,
+                zIndex: isActive ? 20 : 5,
               }}
               onMouseEnter={() => setHoveredId(cat.id)}
               onMouseLeave={() => setHoveredId(null)}
@@ -196,14 +199,18 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
 
       {/* 행성 범례 */}
       <div className="w-full mt-2 grid grid-cols-2 gap-1.5 px-1">
-        {categories.map((cat, legendIndex) => (
+        {categories.map((cat, legendIndex) => {
+          const isLegendSelected = selectedCategoryId === cat.id;
+          const isLegendActive = hoveredId === cat.id || isLegendSelected;
+          return (
           <motion.button
             key={`legend-${cat.id}`}
             type="button"
             className="flex items-center gap-2 px-2.5 py-2 rounded-xl text-left"
             style={{
-              background: hoveredId === cat.id ? cat.bgColor : 'rgba(255,255,255,0.04)',
-              border: `1px solid ${hoveredId === cat.id ? cat.color : 'rgba(255,255,255,0.08)'}`,
+              background: isLegendActive ? cat.bgColor : 'rgba(255,255,255,0.04)',
+              border: `1px solid ${isLegendActive ? cat.color : 'rgba(255,255,255,0.08)'}`,
+              boxShadow: isLegendSelected ? `0 0 14px ${cat.color}55` : undefined,
             }}
             onMouseEnter={() => setHoveredId(cat.id)}
             onMouseLeave={() => setHoveredId(null)}
@@ -222,7 +229,8 @@ export function PlanetOrbitView({ categories, onSelectCategory }: PlanetOrbitVie
               </p>
             </div>
           </motion.button>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

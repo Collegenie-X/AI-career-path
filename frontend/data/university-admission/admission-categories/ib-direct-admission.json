@@ -6,7 +6,7 @@
     "emoji": "🎓",
     "color": "#06b6d4",
     "bgColor": "rgba(6,182,212,0.16)",
-    "description": "IB는 ==수능 없이== IB 점수로 국내 상위권 직행! ==소논문·에세이 강한 학생==의 무기",
+    "description": "==하나의 커리큘럼, 두 개의 세계== — IB 디플로마 하나로 ==국내 SKY 학종==과 ==글로벌 아이비리그==를 동시에 노린다",
     "planet": {
       "size": "medium",
       "orbitRadius": 112,
@@ -14,22 +14,23 @@
       "glowColor": "#06b6d4"
     },
     "keyFeatures": [
-      "==IB 36~40점 이상==이면 국내 상위권 대학 지원 가능",
-      "==EE·TOK·CAS==가 학생부와 면접의 ==핵심 증빙==",
-      "==수능 비중 0%==인 경로도 가능",
-      "==전공 연계 HL 3과목 선택==이 합격을 좌우",
-      "==국내·해외 동시지원== 가능",
-      "==한국어 + 영어 면접==을 같이 보는 대학이 많아요",
-      "==5월 외부시험 한 번==으로 점수 확정. ==재시험 없음, 백업 없음=="
+      "==Dual-Track 전략==: IB 하나로 국내 SKY 학종 + 글로벌 Ivy League 동시 도전 — 수능으로는 불가능한 전략",
+      "==수능 없이 SKY·KAIST 합격== — IA·EE·CAS가 생활기록부 최강 증빙, 정성평가 100% 장악",
+      "==Global IB Passport==: 75개국 2,000개 이상 대학 인정 (미국 982교·영국 78교·캐나다·아시아 명문대)",
+      "==EE 4,000단어 소논문==이 국내 학종 서류 + 해외 Personal Statement 동시 해결하는 최강 무기",
+      "==CAS 협업 프로젝트==: 최소 1개월 이상 기획·운영으로 리더십·팀워크·이니셔티브 완벽 증명",
+      "==TOK 비판적 사고 + EE 학술 탐구==: Oxford·Cambridge가 인정하는 고차원적 지적 탐구력",
+      "==K-IB 공교육 급확산==: 경기도 295개교 참여, 표선고 서울대·SKY·KAIST 합격으로 공교육 모델 증명",
+      "==2028 대입 개편== 후 KB(한국형 바칼로레아) 연계로 IB의 국내 대학 인정 체계 구축 중 — 선점 전략이 핵심"
     ],
     "targetStudents": [
-      "==IB 인증학교==(KIS·채드윅·NLCS·BHA·SJA Jeju 등) 재학생",
-      "==수능보다 에세이·탐구==가 강점인 학생",
-      "==국내 + 해외 동시지원==을 노리는 학생",
-      "==HL 3과목을 전공과 연결==할 수 있는 학생",
-      "==4,000단어짜리 EE==를 직접 쓸 수 있는 학생",
-      "==CAS 150시간==을 진심으로 채울 수 있는 학생",
-      "==한국어·영어 둘 다 자유로운== 학생"
+      "==IB 인증학교==(공립 K-IB 포함) 재학 중이거나 입학 예정인 학생",
+      "==수능보다 탐구·에세이·토론==이 강점이어서 정성평가로 승부하고 싶은 학생",
+      "==국내 SKY + 해외 Ivy League 동시지원==으로 선택지를 극대화하고 싶은 학생",
+      "==HL 3과목을 지원 전공과 완벽히 연결==하여 학문적 깊이를 증명할 수 있는 학생",
+      "==4,000단어 EE==를 독창적 연구 주제로 직접 집필하고 싶은 학생",
+      "==CAS 1개월+ 협업 프로젝트==를 직접 기획·운영할 수 있는 학생",
+      "==한국어·영어 둘 다 자유로운== 학생 (국내 면접 + 해외 에세이 동시 준비)"
     ],
     "admissionOfficerPerspective": {
       "title": "입학사정관이 보는 핵심 3가지",
@@ -37,17 +38,17 @@
         {
           "no": 1,
           "label": "IB 총점과 HL 과목의 전공 정합성",
-          "detail": "==IB 36점 이상이 기본==이지만 ==HL 3과목과 전공의 연결==이 더 중요해요. ==이공계 지원자가 HL에 수학·물리·화학==을, ==인문계 지원자가 언어·사회 HL==을 골랐는지 면밀히 봐요."
+          "detail": "==IB 36점 이상이 기본==이지만 ==HL 3과목과 전공의 연결==이 더 중요해요. ==이공계 지원자가 HL에 수학·물리·화학==을, ==인문계 지원자가 언어·사회 HL==을 골랐는지 면밀히 봐요. 표선고 사례처럼 순수 공교육 IB 생기부가 사교육 스펙보다 강력하게 작동합니다."
         },
         {
           "no": 2,
           "label": "EE의 탐구 깊이와 독창성",
-          "detail": "==4,000단어 영문 EE==가 IB 전형 ==최강 평가 자료==. ==주제 독창성·연구 방법론·논리적 결론==을 입학사정관이 직접 읽고 평가해요. ==고2 1학기까지 주제 확정==이 마지노선."
+          "detail": "==4,000단어 영문 EE==가 IB 전형 ==최강 평가 자료==. ==주제 독창성·연구 방법론·논리적 결론==을 입학사정관이 직접 읽고 평가해요. ==고2 1학기까지 주제 확정==이 마지노선. 영국 Oxford·Cambridge는 TOK·EE가 당락을 좌우하는 핵심 요소입니다."
         },
         {
           "no": 3,
-          "label": "TOK·CAS의 인성 및 사고력 증명",
-          "detail": "==TOK는 비판적 사고==, ==CAS 150시간은 공동체 기여==를 증명해요. ==점수로 안 보이는 인성·성숙도==를 이 둘로 평가. ==CAS 활동을 사진·기록·반성문==으로 남기세요."
+          "label": "CAS의 리더십·협업·사회기여 증명",
+          "detail": "==CAS는 단순 봉사시간 채우기가 아닙니다==. ==최소 1개월 이상의 협업 프로젝트(Collaborative Project)==여야 미국 명문대 Personal Statement와 UK 자기소개서의 강력한 소재가 됩니다. ==리더십·이니셔티브·팀워크==를 완벽히 증명하세요."
         }
       ]
     },
@@ -72,29 +73,29 @@
           "example": "초등학생 대상 AI 윤리 수업 설계·진행 → CAS 활동 기록 + 세특 연계"
         },
         {
-          "criterion": "국내 대학 IB 환산 전략적 이해",
-          "description": "대학별 IB 총점 환산 방식을 AI 데이터 분석으로 비교하여 최적 지원 대학 조합 설계",
-          "example": "서울대·연세대·고려대·KAIST IB 환산 기준 비교표 → AI로 내 점수 기반 최적 지원 조합 계산"
+          "criterion": "국내·해외 지원 전략 AI 데이터 분석",
+          "description": "대학별 IB 총점 환산 방식과 해외 합격자 평균 점수를 AI로 비교하여 국내·해외 최적 지원 조합 설계",
+          "example": "국내 서울대·연세대·KAIST + 해외 UC Berkeley·NUS IB 기준 비교표 → 최적 Dual-Track 지원 조합 계산"
         }
       ],
       "keyProjects": [
         {
           "grade": "고1 (IB 1년차)",
-          "focus": "HL 과목 선택 + EE 주제 초안",
-          "project": "AI 관련 선행 탐구 2~3편으로 EE 주제 방향 설정",
-          "note": "TOK 기초 개념 + AI 인식론 입문 독서"
+          "focus": "HL 과목 선택 + EE 주제 초안 + 해외 타겟 점수 역산",
+          "project": "AI 관련 선행 탐구 2~3편으로 EE 주제 방향 설정, Dual-Track 목표 대학 리스트업",
+          "note": "TOK 기초 개념 + AI 인식론 입문 독서, 국내·해외 IB 기준 비교표 초안 작성"
         },
         {
           "grade": "고2 (IB 2년차)",
-          "focus": "EE 집필 + CAS AI 봉사 시작",
-          "project": "EE 1~2차 초안 완성, AI 리터러시 CAS 봉사 활동 시작",
-          "note": "국내 대학 IB 환산 기준 비교표 작성"
+          "focus": "EE 집필 + CAS 협업 프로젝트 + 해외 에세이 초안",
+          "project": "EE 1~2차 초안 완성, AI 리터러시 CAS 봉사 활동 기획·운영 시작, Common App 초안 작업",
+          "note": "국내 대학 IB 환산 기준 + 해외 합격자 평균 점수 비교 완료"
         },
         {
           "grade": "고3 (IB 최종)",
-          "focus": "EE 최종 + TOK 완성 + 지원 전략",
-          "project": "EE 최종 제출, TOK 에세이 완성, 지원 대학 최종 확정",
-          "note": "면접 대비 — EE·TOK 내용 한국어로 설명 연습"
+          "focus": "EE 최종 + TOK 완성 + 국내·해외 동시 지원 전략 확정",
+          "project": "EE 최종 제출, TOK 에세이 완성, 국내 면접 + 해외 Personal Statement 동시 완성",
+          "note": "국내 면접: EE·TOK 내용 한국어 설명 연습. 해외: UCAS/Common App 제출"
         }
       ]
     },
@@ -105,93 +106,526 @@
           "step": 1,
           "title": "EE 주제를 AI + 전공 연계로 설정 (고1 하반기)",
           "action": "EE 주제를 지원 전공과 AI를 교차하는 방향으로 설정한다. 이공계라면 AI 알고리즘 분석, 인문계라면 AI와 사회문화 이슈를 연결한다",
-          "tip": "EE는 IB 전형에서 가장 강력한 '나만의 무기'다. 독창적인 연구 질문이 있어야 사정관의 기억에 남는다"
+          "tip": "EE는 국내 IB 전형 최강 무기이자 해외 Personal Statement의 핵심 소재. 독창적인 연구 질문이 있어야 사정관의 기억에 남는다"
         },
         {
           "step": 2,
           "title": "TOK를 AI 윤리 관점으로 연결",
           "action": "TOK 에세이와 발표에서 AI가 만들어내는 지식의 신뢰성, 편향, 윤리 문제를 인식론적으로 분석한다",
-          "tip": "2028년 대학은 'AI를 쓸 줄 아는 학생'이 아닌 'AI를 비판적으로 이해하는 학생'을 원한다"
+          "tip": "Oxford·Cambridge는 TOK를 통해 증명된 깊은 지적 탐구력으로 당락을 판단한다. 2028년 국내 대학도 AI 비판적 이해 역량을 핵심으로 본다"
         },
         {
           "step": 3,
-          "title": "CAS에서 AI 교육 봉사 활동 기획",
-          "action": "지역 도서관, 청소년 센터 등에서 AI 활용법·AI 윤리를 가르치는 CAS 서비스 활동을 직접 기획·운영한다",
-          "tip": "봉사 시간만 채우는 CAS보다, 학생이 직접 기획하고 운영한 프로그램이 입학사정관에게 훨씬 강하게 어필된다"
+          "title": "CAS에서 실질적 협업 프로젝트 기획",
+          "action": "최소 1개월 이상의 협업 프로젝트를 직접 기획·운영한다. 예: 소외계층 AI 리터러시 교육 프로그램, 지역사회 문제 해결 융합 프로젝트",
+          "tip": "봉사 시간만 채우는 CAS보다, 학생이 직접 기획하고 운영한 Collaborative Project가 미국·영국 입학사정관에게 훨씬 강하게 어필된다"
         },
         {
           "step": 4,
-          "title": "국내 대학 면접 한국어 답변 훈련",
-          "action": "IB EE·TOK 내용을 한국어로 요약·설명하는 연습을 반복하여 면접에서 유창하게 자신의 탐구를 표현할 수 있도록 준비한다",
-          "tip": "국내 IB 전형 면접에서 영어로만 답하는 학생보다 한·영 자유롭게 전환하며 설명하는 학생이 더 유리하다"
+          "title": "국내 면접 + 해외 에세이 동시 완성",
+          "action": "IB EE·TOK 내용을 한국어로 요약·설명하는 면접 연습과 동시에 Common App/UCAS Personal Statement를 EE 연구를 기반으로 완성한다",
+          "tip": "Dual-Track 전략의 핵심: 하나의 탐구 내용(EE)이 국내 면접 답변과 해외 에세이를 동시에 해결한다"
         }
       ],
       "doList": [
-        "✅ EE 주제를 AI + 전공 교차 방향으로 설정",
-        "✅ TOK 에세이에 AI 인식론·윤리 관점 반영",
-        "✅ CAS AI 교육 봉사 활동 직접 기획·운영",
-        "✅ 대학별 IB 환산 기준 비교표 작성 및 최적 조합 설계",
-        "✅ 면접 대비 EE·TOK 내용 한국어 설명 반복 훈련"
+        "✅ HL 3과목을 지원 전공과 완벽히 연결하여 전공 정합성 확보",
+        "✅ EE 주제를 AI + 전공 교차 방향으로 고1 하반기에 설정",
+        "✅ CAS 최소 1개월 이상 협업 프로젝트 직접 기획·운영",
+        "✅ 국내 면접 대비 EE·TOK 내용 한국어 설명 반복 훈련",
+        "✅ 해외 Common App/UCAS EE 연구 기반 Personal Statement 작성",
+        "✅ 국내·해외 타겟 점수 역산 후 Dual-Track 최적 지원 조합 설계"
       ],
       "dontList": [
-        "❌ IB 점수 미달 상태에서 수능 백업 플랜 없이 국내 IB 전형만 준비",
+        "❌ IB 점수 미달 상태에서 수능 백업 플랜 없이 IB 전형만 준비",
         "❌ EE 주제를 너무 광범위하게 잡아 깊이 없는 소논문 작성",
-        "❌ CAS 시간만 채우는 형식적 활동",
-        "❌ 영어면접만 준비하고 한국어 소통 역량 소홀",
-        "❌ IB 총점에만 집중하고 HL 과목 전공 정합성 무시"
+        "❌ CAS 시간만 채우는 형식적 활동 (최소 요구 충족만 노리는 방식)",
+        "❌ 영어 면접만 준비하고 한국어 소통 역량 소홀",
+        "❌ IB 총점에만 집중하고 HL 과목 전공 정합성 무시",
+        "❌ 해외 지원 포기하고 국내 IB 전형만 준비 (Dual-Track 기회 포기)"
       ]
     },
     "preparationGuide": {
       "essential": [
         {
-          "title": "IB 점수 목표 설정",
-          "description": "지원 대학별 최소/안정 점수 역산",
-          "timeline": "고1~고3",
+          "title": "IB 점수 목표 설정 — 국내·해외 역산",
+          "description": "지원 대학별 최소/경쟁선 점수 역산: 국내 36+, Ivy League 43+, Oxford 42+, NUS 43+, UBC 38+",
+          "timeline": "고1 초반",
           "actions": [
-            "목표 대학 IB 기준표 작성",
-            "HL 3과목 전공 정합성 점검",
-            "EE 주제 전공 + AI 연계 설정",
-            "국내 대학 IB 환산 기준 비교"
+            "목표 대학 국내·해외 IB 기준표 동시 작성",
+            "HL 3과목 전공 정합성 점검 (이공계: 수학·물리·화학 / 인문계: 언어·역사·경제)",
+            "EE 주제 전공 + AI 연계 방향 설정",
+            "Dual-Track 지원 조합 초안 수립"
           ]
         },
         {
           "title": "EE·TOK·CAS 통합 관리",
-          "description": "IB 3대 핵심 요소를 AI 연계로 통합",
+          "description": "IB 3대 핵심 요소를 AI 연계로 통합하고 국내·해외 입시 자료로 동시 활용",
           "timeline": "고1~고3",
           "actions": [
-            "EE: AI 연계 독창적 연구 주제 선정",
-            "TOK: AI 인식론·윤리 관점 에세이 작성",
-            "CAS: AI 교육 봉사 활동 기획·운영",
-            "세 요소를 면접 자료로 연결"
+            "EE: AI 연계 독창적 연구 주제 선정 → 국내 서류 + 해외 Personal Statement 동시 활용",
+            "TOK: AI 인식론·윤리 관점 에세이 작성 → Oxford·Cambridge 핵심 평가 자료",
+            "CAS: 최소 1개월 협업 프로젝트 기획·운영 → 미국 대학 Holistic Review 핵심 소재",
+            "세 요소를 국내 면접 + 해외 에세이에 동시 연결"
           ]
         }
       ]
     },
+    "dualTrackAdvantage": {
+      "title": "하나의 커리큘럼, 두 개의 세계 (The Dual-Track Advantage)",
+      "subtitle": "고가의 국제학교를 가지 않고도, 공교육 내에서 국내외 최상위 대학의 문을 동시에 엽니다",
+      "oldLimit": {
+        "label": "기존 한계 (전통적 수능)",
+        "problem": "국내 입시와 해외 입시 동시 준비 불가 — 수능은 국내에서만 인정되는 폐쇄적 시스템"
+      },
+      "tracks": [
+        {
+          "id": "track1",
+          "name": "Track 1: 국내 SKY 학종",
+          "icon": "🇰🇷",
+          "color": "#06b6d4",
+          "description": "수능의 굴레에서 벗어나, IA/EE/CAS로 무장된 독보적인 생활기록부로 합격",
+          "keyAdvantage": "수능최저 없는 전형 집중 → IB 역량만으로 합격 가능",
+          "howItWorks": "IA(개인 탐구), EE(소논문), CAS 활동이 생활기록부에 심도 있게 기록되어 입학사정관에게 고차원적 탐구 역량 100% 증명",
+          "targetUniversities": ["서울대 학종·글로벌인재특별전형", "연세대 활동우수형·국제형", "고려대 학업우수형·국제학부", "KAIST·POSTECH·UNIST 일반전형"]
+        },
+        {
+          "id": "track2",
+          "name": "Track 2: 글로벌 아이비리그·명문대",
+          "icon": "🌍",
+          "color": "#8b5cf6",
+          "description": "내신 변환의 불이익 없이, 글로벌 표준 점수 하나로 동시 지원 가능",
+          "keyAdvantage": "75개국 2,000개 이상 대학 공통 인정 → 복잡한 내신 환산 절차 불필요",
+          "howItWorks": "IB 디플로마 하나로 미국 Ivy League부터 영국 Oxbridge, 캐나다·싱가포르 명문대까지 동일한 기준으로 지원",
+          "targetUniversities": ["Harvard / Yale / MIT (미국 Ivy 43+)", "Oxford / Cambridge (영국 42+)", "NUS / NTU (싱가포르 41~43+)", "UBC / McGill / Toronto (캐나다 38+)"]
+        }
+      ],
+      "publicSchoolProof": "표선고는 고가의 사교육 인프라 없이 순수 공교육 IB만으로 서울대·연세대·고려대·KAIST를 동시에 합격시킨 살아있는 증거입니다"
+    },
+    "ibEngineCore": {
+      "title": "IB 3대 엔진: 암기를 넘어선 지식의 탐구",
+      "subtitle": "정해진 정답을 찾는 훈련이 아닌, 불확정성에 대한 열린 질문을 던지는 개방형 탐구학습",
+      "engines": [
+        {
+          "name": "TOK (Theory of Knowledge)",
+          "korean": "지식론",
+          "icon": "⚙️",
+          "role": "비판적 이성 훈련",
+          "description": "학습에 대한 성찰 및 비판적 이성 훈련. 6개월 이상의 철학적 고민과 일상적 사례 도출",
+          "keyQuestion": "'지식을 탐구하는 데 재현 가능성은 필수적인가?' — 이런 열린 질문에 6개월+ 답하는 훈련",
+          "admissionValue": "Oxford·Cambridge가 TOK를 통해 증명된 전공에 대한 깊은 지적 탐구력으로 당락 판단. 국내 대학 면접의 고차원적 사고력 증빙",
+          "ibScore": "A~E 등급, TOK+EE 합산 최대 3점 보너스"
+        },
+        {
+          "name": "EE (Extended Essay)",
+          "korean": "소논문",
+          "icon": "📄",
+          "role": "독립적 학술 연구 역량",
+          "description": "학생의 관심 주제에 대해 4,000단어 분량의 독립적 연구 논문. 대학 학술 논문과 동일한 수준의 논리적 글쓰기 및 연구 역량 증명",
+          "keyQuestion": "나만의 연구 질문으로 세계에 없던 분석을 해내는 것 — 독창성이 핵심",
+          "admissionValue": "국내 IB 전형 최강 평가 자료 + 미국 Common App·영국 UCAS Personal Statement의 핵심 소재로 동시 활용",
+          "ibScore": "A~E 등급, TOK+EE 합산 최대 3점 보너스"
+        },
+        {
+          "name": "CAS (Creativity, Activity, Service)",
+          "korean": "창의성·활동·봉사",
+          "icon": "🤝",
+          "role": "전인적 성장·리더십 증명",
+          "description": "단순한 방과후 활동이 아닌, 최소 1개월 이상의 협업 프로젝트(Collaborative Project)",
+          "keyQuestion": "내가 직접 기획하고 팀을 이끌어서 사회에 기여한 것이 무엇인가?",
+          "admissionValue": "미국 명문대 Personal Statement와 UK 자기소개서의 가장 강력한 소재 → 리더십·이니셔티브·팀워크를 완벽히 증명",
+          "casExamples": [
+            {
+              "type": "융합형 (추천)",
+              "example": "폐자원 활용 가방 제작 및 기부 — Service(소외계층 튜터링) + Creativity(벽화 기획·제작) 동시 달성",
+              "duration": "1개월+ Collaborative Project"
+            },
+            {
+              "type": "AI 리터러시형",
+              "example": "초등학생 대상 AI 윤리 수업 설계·진행 → CAS 활동 기록 + 세특 연계",
+              "duration": "6주+ 지속 운영"
+            }
+          ]
+        }
+      ]
+    },
+    "domesticAdmissionRoute": {
+      "title": "국내 대입 경로: 수능 최저 없이 SKY와 KAIST를 뚫다",
+      "subtitle": "IB 커리큘럼은 수시 학생부종합전형(학종)과 가장 완벽한 상보적 관계(정합성)를 형성합니다",
+      "whyIBWinsHakjong": [
+        {
+          "no": 1,
+          "reason": "압도적인 정성 평가 요소",
+          "detail": "IA(개인 탐구), EE(소논문), CAS 활동이 생활기록부에 심도 있게 기록. 입학사정관에게 고차원적 탐구 역량 100% 증명"
+        },
+        {
+          "no": 2,
+          "reason": "수능 면제 경로 존재",
+          "detail": "서울대, 연세대, KAIST 등 수능 최저학력기준을 요구하지 않는 전형을 통해 IB 역량만으로 합격 가능"
+        },
+        {
+          "no": 3,
+          "reason": "공교육 모델의 실증된 증명",
+          "detail": "사교육 인프라가 집중된 제주시 명문고 대비, 표선고는 순수 공교육 활동만으로 최상위권 대학 합격생 지속 배출 (서울대·연세대·고려대·KAIST)"
+        }
+      ],
+      "changes2028": [
+        {
+          "change": "내신 5등급제 도입",
+          "impact": "상위 10% 이내면 1등급 — 기존 9등급 상위 4%보다 2.5배 더 많은 학생이 최상위 등급 진입 가능",
+          "strategy": "IB HL 과목 우수자의 국내 내신 환산 시 유리. HL 7점 = 국내 내신 최상위급 인정 확대 논의 중"
+        },
+        {
+          "change": "수능 절대평가 확대 (자격고사화 방향)",
+          "impact": "정시 변별력 약화 → 수시(학종) 비중 더욱 증가. IB 학종 전략이 더욱 유리해지는 방향",
+          "strategy": "EE·TOK 탐구 역량이 학종 정성평가에서 압도적 차별점. 2028 이후 IB 선점 효과 극대화"
+        },
+        {
+          "change": "KB(한국형 바칼로레아) 연계 논의",
+          "impact": "IB의 장점을 한국 교육 환경에 맞게 최적화하는 국내 대학 IB 인정 체계 구축 중",
+          "strategy": "현재 IB 이수자에게 선제적으로 유리 — KB 정착 전 IB 선점이 2028 핵심 전략"
+        }
+      ],
+      "hakjongLinkage": {
+        "title": "IB ↔ 학종 연계 포인트",
+        "mappings": [
+          { "ib": "EE (소논문)", "hakjong": "세특(세부능력 및 특기사항) — 탐구 주제 심화 기록" },
+          { "ib": "TOK (지식론)", "hakjong": "교과 세특 — 비판적 사고력·고차원적 질문 역량 기록" },
+          { "ib": "CAS 협업 프로젝트", "hakjong": "창체(창의적 체험활동) — 자율·동아리·봉사·진로 통합 기록" },
+          { "ib": "HL 과목 IA(내부 탐구)", "hakjong": "교과 세특 — 전공 연계 심화 탐구 증빙" }
+        ]
+      }
+    },
+    "globalIBPassport": {
+      "title": "Global IB Passport: 내신 환산의 장벽을 허무는 전 세계 공용 학위",
+      "subtitle": "75개국 2,000개 이상의 대학에서 인정. 복잡한 고교 내신 환산 절차 없이 세계 명문대 직접 지원 가능",
+      "regions": [
+        {
+          "region": "미국",
+          "flag": "🇺🇸",
+          "universityCount": "982개 대학",
+          "highlight": "하버드, 예일 등 아이비리그 포함",
+          "admissionStyle": "전인적 평가 (Holistic Review) — CAS 리더십이 Personal Statement 핵심",
+          "scoreGuide": {
+            "ivyLeague": "43~44점 (합격자 평균 — Harvard·Yale·Princeton·MIT)",
+            "topUC": "40점 이상 (UC Berkeley·UCLA 합격자 평균)",
+            "safetyUC": "38점 이상 (UC 안전 지원선)"
+          },
+          "strategy": "HL 심화 과목에서 6~7점 필수. 수학·과학 전공 희망 시 HL 7점은 결정적 요소",
+          "hiddenBenefits": [
+            "대학 학점 인정(AP 대체): HL 과목 5~7점 획득 시 대학 기초 과목 이수 면제",
+            "IB 전용 장학금: WPI 최소 $20,000, SMU 최대 $12,000, 네브라스카-링컨 최대 $15,000"
+          ]
+        },
+        {
+          "region": "영국",
+          "flag": "🇬🇧",
+          "universityCount": "78개 대학",
+          "highlight": "옥스퍼드, 케임브리지 포함",
+          "admissionStyle": "학업적 엄밀성(Academic Rigor) 중심 — IB 점수 자체의 완벽성 요구",
+          "scoreGuide": {
+            "oxbridge": "42점 이상 (실제 경쟁선 — 최소 38~40점이나 경쟁력 있는 합격선은 42+)",
+            "hlRequirement": "전공 직결 HL 과목에서 7, 7, 6 이상 압도적 성취 필수"
+          },
+          "strategy": "CAS나 비교과 활동보다 TOK와 EE를 통해 증명된 전공에 대한 깊은 지적 탐구력이 당락을 좌우",
+          "hiddenBenefits": [
+            "미국과 달리 추천서·과외활동 비중 낮음 — 순수 학문적 역량 증명이 전부",
+            "UCAS(영국 통합 지원 시스템) Personal Statement에 EE 연구 직접 활용 가능"
+          ]
+        },
+        {
+          "region": "캐나다",
+          "flag": "🇨🇦",
+          "universityCount": "입학 가산점·학점 인정 혜택 최고 수준",
+          "highlight": "UBC, McGill, Toronto — IB 이수자 최대 혜택 제공",
+          "admissionStyle": "IB 디플로마 전용 우대 체계 — 어학 면제 + 선이수 학점 인정 + 예상 점수 조기합격",
+          "scoreGuide": {
+            "ubc_mcgill_toronto": "38점 이상 (3대 명문대 공통 목표선)",
+            "earlyOffer": "Predicted Grade만으로 조기합격(Conditional Offer) 달성 가능"
+          },
+          "strategy": "최종 시험 전에 예상 점수만으로 합격 확정 가능 — 타 국가 대비 가장 전략적 지름길",
+          "hiddenBenefits": [
+            "어학 성적 면제: IB English 이수 또는 이중언어 디플로마 취득 시 IELTS/TOEFL 불필요",
+            "선이수 학점 인정: UBC HL 5점 이상 → 대학 1학년 학점 부여. Bishop's 디플로마 완주 시 30학점 추가",
+            "내신 환산 불필요: 복잡한 고교 내신 환산 절차 없이 IB 점수 그대로 인정"
+          ]
+        },
+        {
+          "region": "아시아",
+          "flag": "🌏",
+          "universityCount": "싱가포르·홍콩 세계 Top 10~30위권",
+          "highlight": "NUS (세계 Top 11), NTU, HKU — 글로벌에서 가장 IB 경쟁이 치열한 곳",
+          "admissionStyle": "최소 조건에 방심 금물 — 표면적 Minimum 점수와 실제 합격선 간 큰 괴리",
+          "scoreGuide": {
+            "nus": "43점 이상 (실제 경쟁 합격선 — 공식 최소 38점과 다름)",
+            "ntu": "41~42점 이상",
+            "sutd": "38점 이상",
+            "hku": "36점 이상 (일반학과 안정권), 의대·법대 42~44점 요구",
+            "hkuMinimum": "32점 (서류 통과를 위한 최소 자격 — 실제 합격선 아님)"
+          },
+          "strategy": "국제 학생(International Student) 커트라인이 자국민보다 현저히 높아 압도적인 고득점 필요",
+          "hiddenBenefits": [
+            "영어 몰입 교육 환경으로 국제적 네트워크 구축 최적",
+            "아시아 취업 시장 진출 시 NUS·NTU 학위의 압도적 브랜드 가치"
+          ]
+        }
+      ]
+    },
+    "scoreTargets": {
+      "title": "IB 점수별 공략 가능 대학 매트릭스",
+      "note": "합격자 경쟁선 기준. 최소 요구 점수에 방심 금물 — 실제 경쟁선은 항상 더 높게 형성됩니다",
+      "tiers": [
+        {
+          "score": "43~45점",
+          "label": "World Class",
+          "color": "#f59e0b",
+          "icon": "👑",
+          "domestic": ["서울대 글로벌인재특별전형"],
+          "global": ["Harvard · Yale · Princeton · MIT (미국 Ivy)", "Oxford · Cambridge (영국 42+)", "NUS 경쟁학과 (싱가포르)"]
+        },
+        {
+          "score": "40~42점",
+          "label": "Top Tier",
+          "color": "#06b6d4",
+          "icon": "⭐",
+          "domestic": ["KAIST · POSTECH 일반전형", "서울대 학종 (안정권)"],
+          "global": ["UC Berkeley · UCLA 40점 (미국)", "Oxford · Cambridge 최소선 40점", "NTU 41~42점 (싱가포르)", "HKU 의대·법대 42점+"]
+        },
+        {
+          "score": "36~39점",
+          "label": "Upper Tier",
+          "color": "#8b5cf6",
+          "icon": "🎯",
+          "domestic": ["연세대 · 고려대 IB 우대 학과", "한양대 · 성균관대 · 이화여대 국제학부"],
+          "global": ["미국 상위 리버럴아츠 칼리지 38점+", "HKU 홍콩대학 36점+ 안정", "UBC · McGill · Toronto 캐나다 38점+"]
+        },
+        {
+          "score": "32~35점",
+          "label": "Mid-Upper",
+          "color": "#10b981",
+          "icon": "📚",
+          "domestic": ["국내 중상위권 대학 IB 전형 (경희대·중앙대 등)"],
+          "global": ["캐나다 중상위권 대학", "HKU 최소 지원 자격 32점 (서류 통과선)"]
+        }
+      ]
+    },
+    "kIBExpansion": {
+      "title": "K-IB 공교육 혁명: 폐교 위기에서 명문고로",
+      "subtitle": "일부 엘리트가 아닌, 대한민국 최초 전교생 대상 '학교 단위(Whole School)' IB 도입의 결과",
+      "whoSchoolVsSelectiveTrack": {
+        "selectiveTrack": {
+          "label": "선택형 모델 (Selective Track)",
+          "description": "주로 국제학교·자사고·특목고에서 해외 대학 진학 희망자만을 위해 '학급 단위'로 별도 운영",
+          "problem": "높은 학비와 선별된 인원으로 인한 교육 양극화 우려"
+        },
+        "wholeSchoolModel": {
+          "label": "학교 단위 모델 (Whole-School Model)",
+          "description": "일반 공립고등학교 전교생(중하위권 포함)이 무상교육으로 IB DP 필수 이수",
+          "advantage": "수능 문제풀이식 수업을 완전히 배제하고, 학교 생태계 전체가 비판적 탐구 중심으로 전환"
+        }
+      },
+      "successCase": {
+        "school": "제주 표선고 (Whole-School Model 대표 사례)",
+        "before": {
+          "year": "2019",
+          "studentCount": "240명",
+          "topStudents": "내신 상위 4% 이내 0명"
+        },
+        "after": {
+          "year": "2025",
+          "studentCount": "461명 (지역 인구 500명 이상 증가)",
+          "topStudents": "신입생 학업 역량 8명 (경쟁률 1.39:1)",
+          "ibAvgScore": "평균 29점 (세계 평균 29.06점과 대등)"
+        },
+        "admissionResults": [
+          "2024학년도 1기: 서울대(1), 연세대(1), 고려대(1), UNIST(2), DGIST(2)",
+          "2025학년도 2기: 서울대(1), 연세대(2), 고려대(2), KAIST(1)"
+        ],
+        "proof": "사교육 인프라가 집중된 제주시 명문고 대비, 표선고는 순수 공교육 활동만으로 최상위권 대학 합격생 지속 배출"
+      },
+      "gyeonggiExpansion": {
+        "title": "경기도 295개교 전면 확장 (2026년 기준)",
+        "scale": "남부(수원·화성·용인)와 북부(고양·파주)를 가리지 않는 전방위적 공교육 혁신",
+        "stages": [
+          {
+            "stage": "관심학교",
+            "count": "232교",
+            "phase": "탐색 단계",
+            "description": "교육 철학 이해 및 교사 연수 시작"
+          },
+          {
+            "stage": "후보학교",
+            "count": "33교",
+            "phase": "준비 단계",
+            "description": "본격적인 IB 커리큘럼 수업 적용"
+          },
+          {
+            "stage": "인증학교 (World School)",
+            "count": "30교",
+            "phase": "완성 단계",
+            "description": "IBO 최종 승인, 고교생 공식 IB 시험 응시 가능"
+          }
+        ]
+      },
+      "kIBNextChallenges": [
+        {
+          "challenge": "영어 몰입 수업의 벽",
+          "description": "외국어·예술 과목 등 영어 기반 수업(쓰기·말하기)에 대한 중하위권 학생들의 부담. 수능 영어(읽기·듣기)와의 괴리 극복 필요"
+        },
+        {
+          "challenge": "역차별 및 쏠림 현상",
+          "description": "명문고화 되면서 정작 지역 학생이 입학하지 못하는 부작용 발생. 지역 학생 참여를 보장할 제도적 장치 마련 시급"
+        },
+        {
+          "challenge": "제도적 정합성",
+          "description": "정시 확대 기조 속에서 절대평가인 IB가 수능 상대평가 체제와 충돌. 국내 대학들의 적극적인 IB 점수 인정 체계(KB 연계) 구축 필요"
+        }
+      ]
+    },
+    "educationMatrix": {
+      "title": "교육 패러다임 비교: 수능 vs IB vs KB",
+      "subtitle": "The Education Matrix: 평가 체제의 진화",
+      "systems": [
+        {
+          "name": "전통적 수능",
+          "color": "#6b7280",
+          "evaluationMethod": "5지 선다형 객관식, 상대평가 (1-9등급), 단편적 지식 암기",
+          "philosophy": "공정성과 객관성 담보, 치열한 입시 경쟁",
+          "weakness": "파행적 교육과정, 사교육 의존도 심화",
+          "admissionRoute": "정시(수능 성적 위주) — 해외 대학 지원 불가"
+        },
+        {
+          "name": "IB (국제 바칼로레아)",
+          "color": "#06b6d4",
+          "evaluationMethod": "논·서술형, 구술 시험, 절대평가 (45점 만점), 비판적·고차원적 사고력",
+          "philosophy": "질문하는 학생, 토론하는 수업, 열린 결말을 통한 창의력 발현",
+          "weakness": "높은 로열티, 영어 몰입 수업 부담, 수능 상대평가와의 충돌",
+          "admissionRoute": "학종(학생부종합) + 글로벌 명문대 Dual-Track 동시 도전"
+        },
+        {
+          "name": "KB (한국형 바칼로레아)",
+          "color": "#f59e0b",
+          "evaluationMethod": "한국형 절대논술평가 (수능의 자격고사화 등 대입 제도 개선과 연계 추진 중)",
+          "philosophy": "IB의 장점을 한국의 교육 환경(KBO 기구 등)에 맞게 최적화",
+          "weakness": "(개발 중인 체제로 검증 시간 필요 — 2028 이후 순차 도입)",
+          "admissionRoute": "2028 이후 국내 대입 시스템과 연계 예정 — IB 선점자에게 선제적 유리"
+        }
+      ]
+    },
+    "ibSurvivalChecklist": {
+      "title": "2028 IB Dual-Track 생존 체크리스트",
+      "subtitle": "국내 SKY + 글로벌 명문대 동시 합격을 위한 8가지 필수 확인",
+      "items": [
+        {
+          "check": "HL 3과목 전공 정합성 확보",
+          "detail": "이공계: 수학(HL)·물리/화학(HL) 필수. 인문계: 언어·역사·경제(HL) 선택. HL에서 6~7점 목표",
+          "deadline": "고1 초반",
+          "status": "critical"
+        },
+        {
+          "check": "Dual-Track 타겟 점수 역산",
+          "detail": "국내 36+ / Ivy League 43+ / Oxford 42+ / NUS 43+ / UBC 38+ 동시 목표 설정",
+          "deadline": "고1 초반",
+          "status": "critical"
+        },
+        {
+          "check": "EE 주제 확정 (AI + 전공 교차)",
+          "detail": "4,000단어 소논문 주제를 전공과 AI를 교차하는 방향으로. 고2 1학기가 마지노선",
+          "deadline": "고2 1학기",
+          "status": "critical"
+        },
+        {
+          "check": "CAS 협업 프로젝트 기획·운영",
+          "detail": "최소 1개월 이상 협업 프로젝트. 단순 봉사시간 채우기 금지 — Holistic Review 핵심 소재",
+          "deadline": "고1~고2",
+          "status": "important"
+        },
+        {
+          "check": "TOK 에세이 AI 인식론 연계",
+          "detail": "AI가 생성하는 지식의 신뢰성·편향·윤리를 인식론적으로 분석 — Oxford·Cambridge 핵심 평가",
+          "deadline": "고2~고3",
+          "status": "important"
+        },
+        {
+          "check": "국내 IB 환산 기준 + 해외 Predicted Grade 관리",
+          "detail": "국내 대학별 IB 환산 방식 비교 + 해외 Conditional Offer용 예상 점수 관리",
+          "deadline": "고2 하반기",
+          "status": "important"
+        },
+        {
+          "check": "수능 백업 플랜 확보",
+          "detail": "IB 점수 미달 시 국내 지원 가능 대학 급감. 최소한의 수능 준비 병행 — 보험 필수",
+          "deadline": "고2",
+          "status": "caution"
+        },
+        {
+          "check": "국내 한국어 면접 + 해외 Personal Statement 동시 완성",
+          "detail": "EE 연구 내용을 한국어 면접 답변 + Common App/UCAS 에세이 양쪽에 모두 활용",
+          "deadline": "고3 초반",
+          "status": "important"
+        }
+      ],
+      "finalQuote": "IB는 만병통치약이 아닙니다. 하지만 정해진 답을 외우는 낡은 시스템을 부수고, 아이들이 세계와 직접 소통할 수 있도록 돕는 가장 확실하게 검증된 미래 교육의 청사진입니다. 공교육 혁신은 이미 시작되었습니다."
+    },
     "cautions": [
-      "대학별 IB 환산 방식이 다름 (점수 → 등급 환산 공식 상이)",
-      "IB 점수 미달 시 지원 가능 대학 급감 — 수능 백업 루트 필수",
-      "영어면접 + 한국어 면접 동시 요구 대학 존재",
-      "EE AI 활용 시 IB 표절 기준(Academic Honesty) 반드시 준수",
-      "CAS 150시간 미충족 시 IB 디플로마 미취득 → 모든 IB 트랙 봉쇄",
-      "5월 외부시험 한 번으로 점수 확정 — 재시험 일정 매우 제한적",
-      "국내 IB 인증학교 학비 부담 (연 1,500~3,000만원 수준)"
+      "대학별 IB 환산 방식이 다름 — 반드시 대학별 기준 확인. 점수 → 등급 환산 공식 상이",
+      "최소 요구 점수 ≠ 실제 경쟁선: HKU 공식 최소 32점이나 실제 경쟁 합격선은 36점+ (의대·법대 42~44점)",
+      "IB 점수 미달 시 지원 가능 대학 급감 — 수능 백업 루트 필수 (특히 국내 정시 대비)",
+      "영어 몰입 수업(논술·쓰기·말하기) 부담 — 수능 영어(읽기·듣기)와 방향이 달라 별도 준비 필요",
+      "CAS 150시간 미충족 시 IB 디플로마 미취득 → 국내·해외 모든 IB 트랙 완전 봉쇄",
+      "5월 외부시험 한 번으로 점수 확정 — 재시험 기회 매우 제한적. 백업 없음을 반드시 인지",
+      "아시아 명문대(NUS·NTU) 국제 학생 커트라인: 자국민보다 현저히 높아 43점+ 압도적 고득점 필요",
+      "EE·TOK에서 생성 AI 무분별 사용 시 Academic Honesty 위반 — IB 점수 취소 위험",
+      "K-IB 인증학교 간 운영 격차 존재 — 학교별 교사 역량·IB 지원 인프라 사전 확인 필수"
     ],
     "universities": [
-      "서울대 일반전형 (IB 점수를 학생부 환산 자료로 인정)",
-      "서울대 글로벌인재특별전형 (IB 36+, 영어능력 + 면접)",
-      "연세대 언더우드학부 UIC (IB 38+, 전 과목 영어 강의)",
-      "연세대 글로벌인재학부 (IB 38+, 인문·사회 융합)",
-      "고려대 국제학부 (IB 36+, 영어 에세이·면접)",
-      "성균관대 글로벌리더·글로벌경영 (IB·AP 인정)",
-      "한양대 국제학부 (IB 36+, 영어 100% 강의)",
-      "이화여대 스크랜튼 (IB 36+, 영어 면접)",
-      "경희대 국제학과 (IB 36+ 또는 SAT 1450+)",
-      "중앙대 글로벌인재 (IB·AP 환산 인정)",
-      "KAIST 일반전형 (IB 만점 도전 수준 + 수학·과학 심화)",
-      "POSTECH 일반전형 (IB 인정, 수학·과학 심화)",
-      "UNIST 국제전형 (IB 36+, 영어 강의 비중 높음)",
-      "DGIST/GIST 일반전형 (IB 검토 + 면접)",
-      "제주국제학교 (KIS·NLCS·BHA·SJA Jeju) → 국내 IB 우대 대학 직결"
+      {
+        "name": "서울대 학종·글로벌인재특별전형 (IB 36+, 수능최저 없음 전형 존재)",
+        "url": "https://admission.snu.ac.kr"
+      },
+      {
+        "name": "연세대 활동우수형·국제형·UIC (IB 38+, 제시문 면접 40%)",
+        "url": "https://admission.yonsei.ac.kr"
+      },
+      {
+        "name": "고려대 학업우수형·국제학부 (IB 36+, 수능최저 있음 — 인문 4합8)",
+        "url": "https://oku.korea.ac.kr"
+      },
+      {
+        "name": "KAIST 일반전형 (IB 인정, 수학·과학 HL 7점 권장, 수능 불요)",
+        "url": "https://admission.kaist.ac.kr"
+      },
+      {
+        "name": "POSTECH·UNIST·DGIST·GIST 이공계 특성화 (IB + 면접 중심)",
+        "url": "https://admission.postech.ac.kr"
+      },
+      {
+        "name": "성균관대·한양대·이화여대·경희대 국제학부 (IB 36+)",
+        "url": "https://admission.skku.edu"
+      },
+      {
+        "name": "🇺🇸 Harvard · Yale · Princeton · MIT — Ivy League (IB 43~44점 합격자 평균)",
+        "url": "https://www.commonapp.org"
+      },
+      {
+        "name": "🇺🇸 UC Berkeley · UCLA (IB 40점 이상, 38점+ 안전권 / HL 학점 면제 혜택)",
+        "url": "https://admission.universityofcalifornia.edu"
+      },
+      {
+        "name": "🇬🇧 Oxford · Cambridge (IB 42점+, HL 7·7·6 이상, TOK·EE 당락 좌우)",
+        "url": "https://www.ucas.com"
+      },
+      {
+        "name": "🇨🇦 UBC · McGill · Toronto (IB 38점+, 어학 면제·선이수 학점 인정·Predicted Grade 조기합격)",
+        "url": "https://you.ubc.ca"
+      },
+      {
+        "name": "🇸🇬 NUS (IB 43점+ 경쟁선) · NTU (41~42점+) · SUTD (38점+) 싱가포르",
+        "url": "https://www.nus.edu.sg/oam"
+      },
+      {
+        "name": "🇭🇰 HKU 홍콩대학 (IB 36점+ 안정, 의대·법대 42~44점 / 최소 32점은 서류 통과선만)",
+        "url": "https://aal.hku.hk"
+      }
     ]
   }
 }

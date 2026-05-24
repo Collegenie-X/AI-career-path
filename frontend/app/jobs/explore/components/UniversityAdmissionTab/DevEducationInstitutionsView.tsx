@@ -129,7 +129,7 @@ export function DevEducationInstitutionsView({
         )}
 
         {/* 기관 목록 */}
-        <div className="panel-pop-stagger p-4 pt-3 space-y-2 overflow-y-auto max-h-[68vh]">
+        <div className="panel-pop-stagger p-4 pt-3 space-y-2">
           {institutions.map((institution) => (
             <button
               key={institution.id}
