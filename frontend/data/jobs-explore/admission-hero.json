@@ -4,10 +4,10 @@
     "title": "어떤 고등학교가 나한테 딱 맞을까?",
     "highlight": "유형별로 직접 탐방!",
     "description": "특목고·자사고·일반고까지 12가지 유형, 182개 학교를 직접 탐방해봐요 — 입시요강·합격 전략·학교 분위기까지 한눈에!",
-    "stat1Value": "182",
-    "stat1Label": "학교 탐방",
-    "stat2Value": "12",
-    "stat2Label": "학교 유형"
+    "stat1Value": "12",
+    "stat1Label": "학교 유형",
+    "stat2Value": "182",
+    "stat2Label": "학교 탐방"
   },
   "university": {
     "eyebrow": "대입 탐색",
