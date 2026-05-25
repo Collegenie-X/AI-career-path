@@ -6,7 +6,7 @@
   "color": "#22C55E",
   "bgColor": "#0a2010",
   "gradient": "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)",
-  "description": "자연과 생명을 가까이서 보고 지키는 직업들의 별이에요",
+  "description": "자연과 생명을 가까이서 보고 지키는 직업들의 별이에요. 동물·식물·바다·숲처럼 살아 있는 모든 것과 함께 일하며, 지구의 균형을 지키는 일을 하죠. 책상보다는 들판과 자연 속에서 일할 때 가장 살아 있다고 느끼는 사람들의 우주랍니다.",
   "riasecTypes": [
     "R",
     "I"
@@ -16,49 +16,49 @@
     "tagline": "밖에서 일하고 살아 있는 것을 다루는 일이 더 자연스러운 친구들의 별이에요",
     "coreTraits": [
       {
-        "icon": "🌿",
-        "label": "자연 친화성",
-        "desc": "동물, 식물, 자연 환경을 진심으로 좋아하고 아끼는 마음을 가지고 있어요"
-      },
-      {
-        "icon": "🔬",
-        "label": "관찰력",
-        "desc": "자연에서 일어나는 작은 변화도 놓치지 않고 꼼꼼히 살펴보고 기록하는 힘이 있어요"
-      },
-      {
         "icon": "🌍",
-        "label": "지속가능 사고",
-        "desc": "지금뿐 아니라 미래의 친구들에게도 좋은 지구를 물려주려고 멀리 보고 생각해요"
+        "label": "생태적 사고",
+        "desc": "한 종의 멸종이 100년 후 식량·기후에 어떤 도미노를 일으킬지, AI 시뮬레이션으로 읽어내고 사람의 결정으로 막아내는 긴 호흡의 사고예요."
       },
       {
-        "icon": "🧪",
-        "label": "과학적 접근",
-        "desc": "환경 문제를 만나면 직접 자료를 모으고 실험해서 답을 찾아내려고 해요"
+        "icon": "🛰️",
+        "label": "센서·데이터 활용",
+        "desc": "드론·위성·수중 IoT·생체 센서로 지구를 24시간 관측하고, 디지털 트윈으로 미래 생태계를 미리 보는 피지털 시대의 새 자연 감각이에요."
+      },
+      {
+        "icon": "🤖",
+        "label": "현장 + AI 분석",
+        "desc": "흙·바다·동물을 직접 만지며 얻은 현장 감각과, AI가 분석한 수십억 건 환경 데이터를 합쳐야 진짜 답이 나와요. 둘 중 하나만으론 부족해요."
+      },
+      {
+        "icon": "♻️",
+        "label": "지속가능 설계",
+        "desc": "탄소중립·생물다양성·재생에너지 시대에, 사람·AI·자연이 100년 함께 살 방법을 직접 설계하는 미래 세대의 책임이에요."
       }
     ],
     "fitPersonality": {
       "title": "이런 사람에게 딱 맞아요",
       "traits": [
-        "동물이나 식물, 자연을 평소에도 좋아하고 관심이 많은 사람",
-        "생물 시간이나 지구과학 시간이 즐겁고 더 알고 싶은 사람",
-        "쓰레기, 미세먼지, 기후 변화 같은 문제를 보면 마음이 쓰이는 사람",
-        "교실보다 밖에 나가서 직접 살펴보고 탐험하는 걸 좋아하는 사람",
-        "지구와 생명을 위해 내가 할 수 있는 일을 해보고 싶은 사람"
+        "기후 변화·멸종 같은 큰 문제를 외면할 수 없는 사람",
+        "자연 속에서 직접 관찰·기록하는 게 즐거운 사람",
+        "드론·센서·바이오 같은 새 도구를 자연 일에 써 보고 싶은 사람",
+        "동물·식물·해양 생물을 진심으로 좋아하는 사람",
+        "단기 성과보다 100년 가는 변화를 만들고 싶은 사람"
       ],
       "notFit": [
-        "야외보다는 책상 앞에서 조용히 일하는 걸 더 좋아하는 사람",
-        "빠르게 성공하고 많은 돈을 버는 게 가장 중요한 사람"
+        "야외·체력을 쓰는 일을 부담스러워하는 사람",
+        "결과가 빨리 안 나오면 답답해서 못 견디는 사람"
       ]
     },
     "whyThisGroup": {
       "title": "왜 이 직업들을 묶었나요?",
-      "reason": "이 별에 모인 직업들은 자연과 생명을 직접 만나서 돌보고, 과학적인 방법으로 문제를 풀어가며, 미래에도 지구가 건강하게 유지되도록 노력한다는 공통점이 있어요. 그래서 진짜로 손과 발을 움직여 자연을 살피는 일을 좋아하고, 궁금한 것을 끝까지 파고드는 친구들에게 잘 어울려요. 한마디로, 지구의 내일을 함께 만들어 가는 사람들의 모임이랍니다.",
+      "reason": "기후 위기·생물 다양성 손실이 인류 최대 과제가 된 시대예요. 수의사·해양학자·식물학자·환경 엔지니어 모두 드론·AI·바이오 기술을 도구로 쓰면서, 사람과 자연이 함께 사는 미래를 직접 설계하는 책임을 진 직업이라는 공통점이 있어요. 첨단 기술이 발달할수록 자연을 깊이 아는 사람이 더 필요해진답니다.",
       "commonDNA": [
-        "자연/생명 직접 접촉",
-        "현장 중심 업무",
-        "과학적 분석",
-        "지속가능성 추구",
-        "생태계 이해"
+        "생태 시스템 사고",
+        "첨단 관측 도구 활용",
+        "현장 + 데이터 융합",
+        "장기·지속가능 책임",
+        "글로벌 협업 가능"
       ]
     },
     "hollandCode": "R+I (현실형+탐구형)",
@@ -79,73 +79,71 @@
       "icon": "🌍",
       "image": "environmental-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "흙, 물, 공기, 동식물 같은 자연 환경을 직접 조사하고 어떻게 지킬지 계획을 세우는 과학자예요. 요즘에는 AI가 모은 환경 데이터를 사람이 알아보기 쉽게 풀어서 알려주는 일도 함께 한답니다.",
-      "shortDesc": "자연을 지키는 길을 찾는 과학자",
+      "description": "지구의 환경 변화를 과학적으로 연구해 사회와 정책을 바꾸도록 돕는 과학자예요. AI·위성·디지털 트윈이 환경을 24시간 자동 관측하는 시대에는, 현장 통찰·정책 결단·다학제 통합이 핵심으로 진화해요.",
+      "shortDesc": "AI 트윈 위에 진짜 정책을 결단하는 과학자",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "환경공학 전공 + 실무 3년 → 보전 전략가 전환 + AI 데이터 분석 교육",
       "aiTransformation": {
-        "beforeAI": "환경 데이터 수집·분석 수작업",
-        "afterAI": "AI 환경 데이터 해석 + 보전 전략 설계 + 정책 제안",
-        "replacementRisk": "medium",
+        "beforeAI": "현장 표본·분석·논문 수작업",
+        "afterAI": "AI 위성·센서·디지털 트윈이 24시간 자동 + 과학자는 정책·다학제·현장 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
           "Google Earth Engine",
-          "환경 모니터링 AI",
-          "위성 데이터 AI"
+          "Planet AI",
+          "Microsoft AI for Earth",
+          "Climate AI",
+          "NASA Worldview",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 환경 데이터의 생태학적 의미 해석",
-          "보전 전략 설계 (우선순위 판단)",
-          "정책 제안 및 설득",
-          "지역사회 참여 프로그램 설계",
-          "환경 영향 평가"
+          "현장 직관 (AI가 못 보는 현장 신호)",
+          "정책 결단 (과학을 정책·법으로)",
+          "다학제 (기후·생물·정책·AI)",
+          "지역사회 동반",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Environmental Scientist 상황 분석 및 목표 설정",
-            "humanRole": "Environmental Scientist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Environmental Scientist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 관측",
+            "humanRole": "현장 직접 표본",
+            "aiRole": "위성·드론 자동",
+            "scenarioExample": "AI 자동 → 과학자 현장",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Google Earth Engine",
+              "Planet AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Environmental Scientist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석",
+            "humanRole": "환각 검증",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 분석 → 과학자 검증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Climate AI",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Environmental Scientist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Environmental Scientist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "결단",
+            "aiRole": "정책 시뮬",
+            "scenarioExample": "AI 시뮬 → 과학자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Environmental Scientist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 전파",
+            "humanRole": "지역 동반",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 과학자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -588,72 +586,71 @@
       "icon": "🌡️",
       "image": "climate-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "지구의 날씨와 기온이 왜 점점 변해 가는지 연구하는 과학자예요. AI가 만든 기후 예측 결과를 사람이 알아보기 쉽게 풀어서, 어떻게 대응해야 할지 알려준답니다.",
-      "shortDesc": "지구 기후 변화를 연구하는 과학자",
+      "description": "지구 기후 시스템을 연구하고 기후 위기 대응을 설계하는 과학자예요. AI 기후 모델·디지털 트윈이 발달하는 시대에는, 정책 결단·지정학 협력·다학제 통합이 기후과학자의 새 핵심이에요.",
+      "shortDesc": "AI 기후 모델 위에 정책·정의를 결단하는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "기후 데이터 수집·모델링",
-        "afterAI": "AI 기후 모델 해석 + 정책 제안 + 기후 전략 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "관측·모델·논문 수작업",
+        "afterAI": "AI가 기후 모델·시뮬 자동 + 과학자는 정책 결단·국제 협력·기후 정의에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "ClimateAI",
-          "기후 예측 모델 AI"
+          "NVIDIA Earth-2",
+          "Climate AI",
+          "ClimaCell",
+          "NASA AI",
+          "Microsoft Project Eden",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 기후 모델 해석",
-          "기후 정책 제안",
-          "기후 전략 설계",
-          "정부·기업 설득",
-          "기후 영향 평가"
+          "기후 정의 (취약국·계층 동반)",
+          "정책 결단 (탄소중립·적응)",
+          "국제 협력 (IPCC·COP)",
+          "지정학 감각 (기후 안보)",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Climate Scientist 상황 분석 및 목표 설정",
-            "humanRole": "Climate Scientist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Climate Scientist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 관측·모델",
+            "humanRole": "기후 시스템 통찰",
+            "aiRole": "AI 모델 자동",
+            "scenarioExample": "AI 모델 → 과학자 통찰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "NVIDIA Earth-2",
+              "NASA AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Climate Scientist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 시뮬",
+            "humanRole": "정책 영향 결단",
+            "aiRole": "디지털 트윈 자동",
+            "scenarioExample": "AI 트윈 → 과학자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Microsoft Project Eden",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Climate Scientist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Climate Scientist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "정책·국제 협력",
+            "aiRole": "정책 시뮬 자동",
+            "scenarioExample": "AI 시뮬 → 과학자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "ClimaCell",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Climate Scientist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정의·전파",
+            "humanRole": "취약국 동반",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 과학자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -1096,72 +1093,71 @@
       "icon": "🌾",
       "image": "agricultural-scientist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "농작물을 더 건강하고 맛있게 키울 수 있는 방법을 연구하는 과학자예요. AI가 모은 농업 자료를 살펴서 어떤 작물을 어떻게 키워야 할지 농부들에게 알려준답니다.",
-      "shortDesc": "농작물을 잘 키우는 법을 연구하는 과학자",
+      "description": "식량·작물·축산 시스템을 과학적으로 연구해 인류 먹거리를 책임지는 과학자예요. AI 디지털 농업·로봇·유전체가 발달하는 시대에는, 기후 적응 작물·식량 안보·다학제 통합이 농업과학자의 핵심으로 진화해요.",
+      "shortDesc": "AI 디지털 농업 위에 식량 안보를 책임지는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "작물 연구·재배 실험 수작업",
-        "afterAI": "AI 농업 데이터 해석 + 재배 전략 설계 + 스마트팜 감독",
-        "replacementRisk": "medium",
+        "beforeAI": "현장·실험·분석 수작업",
+        "afterAI": "AI·드론·로봇이 농업 자동화 + 과학자는 기후 적응·식량 안보·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "스마트팜 AI",
-          "작물 생육 예측 AI"
+          "John Deere AI",
+          "Climate FieldView",
+          "Indigo Ag",
+          "Plenty AI",
+          "Tropic Biosciences",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 농업 데이터 해석",
-          "재배 전략 설계",
-          "스마트팜 감독",
-          "작물 품종 개발",
-          "농업 정책 제안"
+          "기후 적응 작물 (기후 위기 적응 품종)",
+          "식량 안보 (취약국 식량 정책)",
+          "지속가능 농업 (탄소·생물다양성)",
+          "유전체 결단 (GMO·CRISPR 윤리)",
+          "다학제 통합"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Agricultural Scientist 상황 분석 및 목표 설정",
-            "humanRole": "Agricultural Scientist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Agricultural Scientist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 연구 설계",
+            "humanRole": "기후·식량 통찰",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 자동 → 과학자 통찰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Climate FieldView",
+              "Indigo Ag"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Agricultural Scientist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 실험",
+            "humanRole": "현장 검증",
+            "aiRole": "자율 로봇 실험",
+            "scenarioExample": "AI 실험 → 과학자 검증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Tropic Biosciences",
+              "Plenty AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Agricultural Scientist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Agricultural Scientist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "정책 권고",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 과학자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "John Deere AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Agricultural Scientist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 확산",
+            "humanRole": "농민 동반",
+            "aiRole": "맞춤 자료",
+            "scenarioExample": "AI 자료 → 과학자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Indigo Ag",
+              "Claude"
             ]
           }
         ]
@@ -1604,72 +1600,71 @@
       "icon": "🍽️",
       "image": "food-scientist-ai-hero.jpg",
       "holland": "I",
-      "description": "사람들이 더 맛있고 안전하게 먹을 수 있는 음식을 연구하고 새롭게 만들어 내는 과학자예요. AI가 추천하는 새로운 식품을 직접 맛보고 검증하면서 더 좋은 맛과 영양을 설계한답니다.",
-      "shortDesc": "맛있고 안전한 음식을 연구하는 사람",
+      "description": "식품의 영양·안전·미래를 과학적으로 연구하는 과학자예요. AI 단백질 설계·세포배양·디지털 미각이 발달하는 시대에는, 식품 안전·지속가능 단백질·정책 결단이 핵심으로 진화해요.",
+      "shortDesc": "AI 식품 위에 안전·지속가능을 결단하는 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "식품 성분 분석·레시피 개발 수작업",
-        "afterAI": "AI 식품 개발 감독 + 맛 설계 + 영양 전략",
-        "replacementRisk": "medium",
+        "beforeAI": "실험·분석·QA 수작업",
+        "afterAI": "AI가 단백질·향미 자동 설계 + 과학자는 안전·지속가능·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
+          "AlphaFold 3",
+          "Climax Foods AI",
           "NotCo AI",
-          "식품 개발 AI"
+          "Air Protein",
+          "Spoonshot AI",
+          "Claude"
         ],
         "survivalStrategy": [
-          "맛 설계 (어떤 맛이 좋은가)",
-          "AI 식품 개발 검증",
-          "영양 전략 설계",
-          "식품 안전 판단",
-          "소비자 선호 해석"
+          "식품 안전 (전세계 안전 책임)",
+          "지속가능 단백질 (대체육·배양육)",
+          "디지털 미각 (AI+사람)",
+          "규제 (FDA·MFDS)",
+          "다학제 (화학·생물·AI)"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Food Scientist 상황 분석 및 목표 설정",
-            "humanRole": "Food Scientist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Food Scientist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 연구",
+            "humanRole": "현장 미각·문화",
+            "aiRole": "AI 자동 설계",
+            "scenarioExample": "AI 자동 → 과학자 미각",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "AlphaFold 3",
+              "Climax Foods AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Food Scientist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 시제품",
+            "humanRole": "관능 평가",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 과학자 관능",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "NotCo AI",
+              "Air Protein"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Food Scientist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Food Scientist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 안전·규제",
+            "humanRole": "규제 결단",
+            "aiRole": "자동 안전 점검",
+            "scenarioExample": "AI 자동 → 과학자 규제",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Spoonshot AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Food Scientist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 상용화",
+            "humanRole": "지속가능 확장",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 과학자 확장",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Climax Foods AI"
             ]
           }
         ]
@@ -2112,73 +2107,71 @@
       "icon": "🌲",
       "image": "forestry-specialist-ai-hero.jpg",
       "holland": "R+I",
-      "description": "산과 숲을 직접 둘러보며 나무들이 잘 자라고 있는지 살피고, 숲을 오래오래 지킬 방법을 찾는 사람이에요. AI가 알려주는 산불 위험이나 숲의 변화 자료를 보고 어떻게 대응할지 결정한답니다.",
-      "shortDesc": "숲과 나무를 지키는 사람",
+      "description": "숲을 가꾸고 산림 자원·생물다양성·탄소를 관리하는 전문가예요. AI 위성·드론·산불 예측이 발달하는 시대에는, 산불 위기 대응·탄소 정책·다학제 통합이 산림 전문가의 핵심으로 진화해요.",
+      "shortDesc": "AI 위성 위에 산불·탄소를 책임지는 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "산림 조사·관리 수작업",
-        "afterAI": "AI 산림 모니터링 감독 + 보전 전략 설계 + 산불 예측 해석",
-        "replacementRisk": "medium",
+        "beforeAI": "조사·식재·관리 수작업",
+        "afterAI": "AI 위성·드론이 24시간 자동 모니터 + 전문가는 산불·탄소·다학제 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "드론 AI",
-          "산림 모니터링 AI",
-          "산불 예측 AI"
+          "Pano AI (산불)",
+          "Planet AI",
+          "Forest 500",
+          "SilviaTerra",
+          "Google Earth Engine",
+          "Microsoft AI for Earth"
         ],
         "survivalStrategy": [
-          "AI 산림 데이터 해석",
-          "보전 전략 설계",
-          "산불 예측 해석 및 대응",
-          "산림 복원 설계",
-          "지역사회 협력"
+          "산불 대응 (즉시 결단)",
+          "탄소 정책 (REDD+ 등)",
+          "생물다양성 (생태계 통합)",
+          "현장 식재 (직접 손)",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Forestry Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Forestry Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Forestry Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 모니터",
+            "humanRole": "현장 직접 점검",
+            "aiRole": "위성·드론 자동",
+            "scenarioExample": "AI 자동 → 전문가 현장",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Planet AI",
+              "SilviaTerra"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Forestry Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 위기 대응",
+            "humanRole": "산불·병해 결단",
+            "aiRole": "Pano AI 자동 감지",
+            "scenarioExample": "AI 감지 → 전문가 즉시",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Pano AI",
+              "Google Earth Engine"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Forestry Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Forestry Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 식재·복원",
+            "humanRole": "직접 식재",
+            "aiRole": "AI 최적 위치",
+            "scenarioExample": "AI 위치 → 전문가 식재",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "SilviaTerra",
+              "Forest 500"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Forestry Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "탄소 정책",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 전문가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Forest 500"
             ]
           }
         ]
@@ -2621,73 +2614,71 @@
       "icon": "🦋",
       "image": "conservation-biologist-ai-hero.jpg",
       "holland": "I",
-      "description": "사라져 가는 동물과 식물을 지키기 위해 어디에 어떤 생물이 살고 있는지 살펴보고, 그 생명들이 잘 살 수 있도록 보호 계획을 세우는 생물학자예요.",
-      "shortDesc": "사라져 가는 생명을 지키는 생물학자",
+      "description": "멸종 위기 종과 생태계를 보전하는 생물학자예요. AI 종 식별·서식지 매핑이 자동화되는 시대에는, 현장 보전·정책·지역사회 동반이 핵심으로 진화해요.",
+      "shortDesc": "AI 매핑 위에 진짜 보전을 결단하는 사람",
       "salaryRange": "3,500~7,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "생물 종 조사·개체 수 측정 수작업",
-        "afterAI": "AI 생물 다양성 분석 해석 + 보전 전략 설계 + 복원 우선순위 판단",
-        "replacementRisk": "medium",
+        "beforeAI": "관찰·표본·논문 수작업",
+        "afterAI": "AI 카메라·드론·DNA 자동 분석 + 생물학자는 보전 결단·정책·지역 동반에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "iNaturalist",
-          "eBird",
-          "생물 인식 AI"
+          "Wildlife Insights AI",
+          "EarthRanger",
+          "iNaturalist AI",
+          "Conservation Metrics",
+          "Microsoft AI for Earth",
+          "SMART Conservation"
         ],
         "survivalStrategy": [
-          "AI 분석의 생태학적 의미 해석",
-          "보전 우선순위 판단",
-          "복원 전략 설계",
-          "지역사회 참여 프로그램",
-          "보전 정책 제안"
+          "현장 보전 (직접 보전 활동)",
+          "정책·법안 (멸종위기종 보호)",
+          "지역사회 동반 (현지인 협력)",
+          "다학제 (생물·기후·AI·정책)",
+          "AI 식별 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Conservation Biologist 상황 분석 및 목표 설정",
-            "humanRole": "Conservation Biologist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Conservation Biologist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 종 모니터",
+            "humanRole": "현장 직접 관찰",
+            "aiRole": "AI 식별 자동",
+            "scenarioExample": "AI 식별 → 생물학자 현장",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Wildlife Insights AI",
+              "EarthRanger"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Conservation Biologist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 보전 설계",
+            "humanRole": "현장 결단",
+            "aiRole": "AI 매핑 자동",
+            "scenarioExample": "AI 매핑 → 생물학자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "iNaturalist AI",
+              "Conservation Metrics"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Conservation Biologist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Conservation Biologist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "정책·법안",
+            "aiRole": "정책 시뮬",
+            "scenarioExample": "AI 시뮬 → 생물학자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "SMART Conservation",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Conservation Biologist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 지역 동반",
+            "humanRole": "현지 협력",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 생물학자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -3130,72 +3121,71 @@
       "icon": "🪨",
       "image": "soil-scientist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "땅속 흙이 얼마나 건강한지, 어떤 작물이 잘 자라는지 살펴보고 흙을 잘 관리하는 방법을 연구하는 과학자예요. AI가 알려주는 토양 자료를 보고 농부에게 어떤 비료가 맞는지 알려준답니다.",
-      "shortDesc": "흙을 살피고 살리는 과학자",
+      "description": "흙의 물리·화학·생물 특성을 연구해 농업·환경·기후를 책임지는 과학자예요. AI 토양 센서·드론·디지털 트윈이 발달하는 시대에는, 탄소 농업·복원·정책 결단이 새 핵심으로 떠올라요.",
+      "shortDesc": "AI 센서 위에 탄소·복원을 결단하는 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "토양 샘플 수집·분석 수작업",
-        "afterAI": "AI 토양 데이터 해석 + 토양 관리 전략 설계 + 농업 자문",
-        "replacementRisk": "medium",
+        "beforeAI": "현장 표본·실험 수작업",
+        "afterAI": "AI IoT 센서·드론이 토양 24시간 자동 + 과학자는 탄소·복원·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "토양 센서 AI",
-          "토양 분석 AI"
+          "Trace Genomics",
+          "Climate FieldView",
+          "Indigo Carbon",
+          "John Deere AI",
+          "Google Earth Engine",
+          "Microsoft AI for Earth"
         ],
         "survivalStrategy": [
-          "AI 토양 데이터 해석",
-          "토양 관리 전략 설계",
-          "농업 자문 (어떤 작물이 적합한가)",
-          "토양 복원 설계",
-          "지속가능 농업 전략"
+          "탄소 농업 (토양 탄소 저장)",
+          "복원 결단 (사막화·오염 복원)",
+          "기후 통합",
+          "AI 센서 검증",
+          "다학제 (농업·기후·생물)"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Soil Scientist 상황 분석 및 목표 설정",
-            "humanRole": "Soil Scientist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Soil Scientist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 측정",
+            "humanRole": "현장 표본",
+            "aiRole": "IoT 센서 자동",
+            "scenarioExample": "AI 센서 → 과학자 표본",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Trace Genomics",
+              "Climate FieldView"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Soil Scientist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석",
+            "humanRole": "패턴 결단",
+            "aiRole": "AI 분석 자동",
+            "scenarioExample": "AI 자동 → 과학자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Indigo Carbon",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Soil Scientist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Soil Scientist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 복원·농업",
+            "humanRole": "복원 결단",
+            "aiRole": "AI 최적 설계",
+            "scenarioExample": "AI 설계 → 과학자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "John Deere AI",
+              "Climate FieldView"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Soil Scientist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "탄소·정책",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 과학자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Google Earth Engine",
+              "Indigo Carbon"
             ]
           }
         ]
@@ -3638,72 +3628,71 @@
       "icon": "💧",
       "image": "water-resource-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "강과 호수, 우리가 마시는 물이 깨끗하고 충분한지 살펴보고, 물을 잘 쓰고 지킬 수 있도록 계획을 세우는 사람이에요. AI가 모은 수질 자료를 보고 어떤 곳을 빨리 고쳐야 할지 결정한답니다.",
-      "shortDesc": "깨끗한 물을 지키는 사람",
+      "description": "강·호수·지하수의 양과 질을 관리해 물 안보를 책임지는 전문가예요. AI 수질 센서·디지털 트윈·기후 모델이 발달하는 시대에는, 물 위기 대응·정책·국제 협력이 핵심으로 진화해요.",
+      "shortDesc": "AI 수질 위에 물 안보를 결단하는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "수질 측정·관리 수작업",
-        "afterAI": "AI 수질 모니터링 감독 + 수자원 전략 설계 + 수질 오염 대응",
-        "replacementRisk": "medium",
+        "beforeAI": "측정·관리 수작업",
+        "afterAI": "AI IoT·위성·디지털 트윈이 24시간 자동 + 전문가는 물 위기·정책·국제 협력에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "IoT 센서 AI",
-          "수질 모니터링 AI"
+          "Hydrowise AI",
+          "Aquasense AI",
+          "Climate AI",
+          "Microsoft AI for Earth",
+          "NASA SWOT",
+          "Source Global AI"
         ],
         "survivalStrategy": [
-          "AI 수질 데이터 해석",
-          "수자원 전략 설계",
-          "수질 오염 원인 판단",
-          "수자원 보전 정책",
-          "지역사회 협력"
+          "물 위기 대응 (가뭄·홍수 즉시)",
+          "정책 결단 (수자원법)",
+          "국제 협력 (국경 물 분쟁)",
+          "기후 통합",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Water Resource Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Water Resource Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Water Resource Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 모니터",
+            "humanRole": "현장 점검",
+            "aiRole": "AI IoT 자동",
+            "scenarioExample": "AI 자동 → 전문가 점검",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Hydrowise AI",
+              "Aquasense AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Water Resource Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 위기 대응",
+            "humanRole": "가뭄·홍수 결단",
+            "aiRole": "AI 예측 자동",
+            "scenarioExample": "AI 예측 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Climate AI",
+              "NASA SWOT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Water Resource Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Water Resource Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "수자원 정책",
+            "aiRole": "정책 시뮬",
+            "scenarioExample": "AI 시뮬 → 전문가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Source Global AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Water Resource Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 국제 협력",
+            "humanRole": "국경 협력",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 전문가 협력",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -4146,72 +4135,71 @@
       "icon": "☀️",
       "image": "renewable-energy-engineer-ai-hero.jpg",
       "holland": "R+I",
-      "description": "햇빛, 바람, 물처럼 자연에서 얻을 수 있는 깨끗한 에너지를 모아 전기를 만드는 시스템을 설계하는 엔지니어예요. AI가 알려주는 에너지 자료를 보고 발전소를 가장 효율적으로 운영하는 방법을 정한답니다.",
-      "shortDesc": "깨끗한 에너지를 만드는 엔지니어",
+      "description": "태양광·풍력·수소 같은 재생에너지를 설계·운영해 탄소중립 시대를 만드는 엔지니어예요. AI가 발전 예측·그리드 운영을 자동화하는 시대에는, 시스템 통합 설계·지역사회·정책 대응이 핵심으로 진화해요.",
+      "shortDesc": "AI 발전 위에 탄소중립을 설계하는 엔지니어",
       "salaryRange": "4,500~10,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "태양광·풍력 시스템 설계",
-        "afterAI": "AI 에너지 최적화 감독 + 재생에너지 전략 설계 + 그리드 통합 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "설계·시공·운영 수작업",
+        "afterAI": "AI가 발전 예측·그리드·O&M 자동 + 엔지니어는 시스템 통합·지역·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "에너지 예측 AI",
-          "그리드 최적화 AI"
+          "Tesla Autobidder",
+          "Google DeepMind Wind",
+          "Octopus Kraken",
+          "OpenSolar AI",
+          "Aurora Solar AI",
+          "Climate AI"
         ],
         "survivalStrategy": [
-          "재생에너지 전략 설계",
-          "AI 에너지 예측 해석",
-          "그리드 통합 설계",
-          "에너지 저장 전략",
-          "재생에너지 정책 제안"
+          "시스템 통합 (재생+ESS+그리드)",
+          "지역사회 동반 (수용성)",
+          "정책 대응 (탄소·보조금)",
+          "AI 운영 검증 (안전성)",
+          "다학제 (전기·기계·환경)"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Renewable Energy Engineer 상황 분석 및 목표 설정",
-            "humanRole": "Renewable Energy Engineer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Renewable Energy Engineer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 입지·설계",
+            "humanRole": "현장 검토",
+            "aiRole": "AI 입지 자동",
+            "scenarioExample": "AI 입지 → 엔지니어 설계",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "OpenSolar AI",
+              "Aurora Solar AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Renewable Energy Engineer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 시공",
+            "humanRole": "현장 시공 관리",
+            "aiRole": "AI 자동화",
+            "scenarioExample": "AI 자동 → 엔지니어 시공",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Tesla Autobidder",
+              "Octopus Kraken"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Renewable Energy Engineer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Renewable Energy Engineer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영·예측",
+            "humanRole": "이상 결단",
+            "aiRole": "AI 자동 예측",
+            "scenarioExample": "AI 자동 → 엔지니어 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Google DeepMind Wind",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Renewable Energy Engineer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책·확장",
+            "humanRole": "정책 대응",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 엔지니어 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Octopus Kraken",
+              "Aurora Solar AI"
             ]
           }
         ]
@@ -4654,72 +4642,71 @@
       "icon": "🏙️",
       "image": "urban-farmer-ai-hero.jpg",
       "holland": "R",
-      "description": "건물 옥상이나 작은 도시 공간에서도 채소와 작물을 키울 수 있도록 도와주는 사람이에요. AI가 알려주는 스마트팜 자료를 보고 도시 사람들이 신선한 먹거리를 가까이서 즐길 수 있게 한답니다.",
-      "shortDesc": "도시에서 작물을 키우는 사람",
+      "description": "도시 안에서 식량을 직접 키우는 새 농업인이에요. AI 수직농장·로봇·LED가 자동화된 시대에는, 도시 식량 안보·커뮤니티·교육이 도시농업 전문가의 새 핵심이에요.",
+      "shortDesc": "AI 수직농장 위에 도시 식량을 책임지는 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "도시 농업 직접 재배·관리",
-        "afterAI": "AI 스마트팜 감독 + 도시농업 전략 설계 + 커뮤니티 교육",
-        "replacementRisk": "medium",
+        "beforeAI": "재배·수확 직접 수작업",
+        "afterAI": "AI 수직농장·로봇이 자동 + 도시농부는 안보·커뮤니티·교육·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "스마트팜 AI",
-          "작물 생육 AI"
+          "Plenty AI",
+          "AppHarvest AI",
+          "Bowery Farming",
+          "Iron Ox",
+          "Infarm",
+          "Square Roots"
         ],
         "survivalStrategy": [
-          "AI 스마트팜 데이터 해석",
-          "도시농업 전략 설계",
-          "커뮤니티 교육 및 참여",
-          "도시 공간 활용 설계",
-          "지속가능 농업 전략"
+          "도시 식량 안보",
+          "커뮤니티 (도시 농업 공동체)",
+          "교육 (시민 교육)",
+          "지속가능 설계",
+          "AI 운영"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Urban Farmer 상황 분석 및 목표 설정",
-            "humanRole": "Urban Farmer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Urban Farmer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 농장 설계",
+            "humanRole": "공간·작물 결단",
+            "aiRole": "AI 최적화",
+            "scenarioExample": "AI 자동 → 농부 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Plenty AI",
+              "Bowery Farming"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Urban Farmer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 재배",
+            "humanRole": "직접 관찰",
+            "aiRole": "로봇 자동",
+            "scenarioExample": "AI 자동 → 농부 관찰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Iron Ox",
+              "AppHarvest AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Urban Farmer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Urban Farmer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 유통",
+            "humanRole": "고객 동반",
+            "aiRole": "AI 매칭",
+            "scenarioExample": "AI 매칭 → 농부 고객",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Infarm",
+              "Square Roots"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Urban Farmer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 교육·커뮤니티",
+            "humanRole": "커뮤니티 동반",
+            "aiRole": "자료 자동",
+            "scenarioExample": "AI 자료 → 농부 커뮤니티",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Plenty AI"
             ]
           }
         ]
@@ -5162,72 +5149,71 @@
       "icon": "🌱",
       "image": "organic-farming-consultant-ai-hero.jpg",
       "holland": "R+I",
-      "description": "농약을 쓰지 않고 자연 그대로의 방법으로 작물을 키우는 유기농 농사를 농부에게 알려주는 전문가예요. AI가 알려주는 농업 자료를 보고 어떤 작물에 어떤 자연 비료가 잘 맞는지 조언한답니다.",
-      "shortDesc": "농약 없이 작물 키우는 법을 알려주는 사람",
+      "description": "농가가 유기·친환경 농업으로 전환하도록 동반하는 컨설턴트예요. AI 토양·해충 진단이 발달하는 시대에는, 농가 동반·인증·정책 권고가 핵심으로 진화해요.",
+      "shortDesc": "AI 진단 위에 농가를 동반하는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "유기농 재배 자문",
-        "afterAI": "AI 농업 데이터 해석 + 유기농 전략 설계 + 농가 교육",
-        "replacementRisk": "medium",
+        "beforeAI": "현장 컨설팅·자료 수작업",
+        "afterAI": "AI가 토양·해충·시장 자동 + 컨설턴트는 농가 동반·인증·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "농업 데이터 AI",
-          "병해충 예측 AI"
+          "Trace Genomics",
+          "Indigo Ag",
+          "Plantix",
+          "Climate FieldView",
+          "Hivetracks AI",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 농업 데이터 해석",
-          "유기농 전략 설계",
-          "농가 교육 및 설득",
-          "병해충 대응 전략",
-          "유기농 인증 자문"
+          "농가 동반 (전환 동반)",
+          "인증·법무 (유기 인증)",
+          "시장 (직거래 동반)",
+          "AI 진단 큐레이션",
+          "정책 권고"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Organic Farming Consultant 상황 분석 및 목표 설정",
-            "humanRole": "Organic Farming Consultant로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Organic Farming Consultant이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 농가 진단",
+            "humanRole": "현장 인터뷰",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 컨설턴트 진단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Trace Genomics",
+              "Plantix"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Organic Farming Consultant이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 전환 설계",
+            "humanRole": "맞춤 결단",
+            "aiRole": "AI 자료",
+            "scenarioExample": "AI 자료 → 컨설턴트 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Indigo Ag",
+              "Climate FieldView"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Organic Farming Consultant 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Organic Farming Consultant이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영 동반",
+            "humanRole": "1:1 동반",
+            "aiRole": "AI 자동 모니터",
+            "scenarioExample": "AI 자동 → 컨설턴트 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Hivetracks AI",
+              "Plantix"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Organic Farming Consultant이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 인증·시장",
+            "humanRole": "인증·시장",
+            "aiRole": "AI 매칭",
+            "scenarioExample": "AI 매칭 → 컨설턴트 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Indigo Ag"
             ]
           }
         ]
@@ -5670,72 +5656,71 @@
       "icon": "🌳",
       "image": "landscape-architect-ai-hero.jpg",
       "holland": "A",
-      "description": "공원, 학교, 아파트 같은 공간에 나무와 꽃, 산책길을 어떻게 배치하면 더 아름답고 자연 친화적일지 설계하는 사람이에요. AI 시뮬레이션으로 미리 풍경을 그려 보면서 더 좋은 정원을 만들어 낸답니다.",
-      "shortDesc": "정원과 공원을 그려서 만드는 사람",
+      "description": "공원·도시·정원을 자연과 사람이 함께 사는 공간으로 설계하는 디자이너예요. AI 디자인 생성·디지털 트윈이 발달하는 시대에는, 생태 통찰·지역 동반·기후 적응 설계가 핵심으로 진화해요.",
+      "shortDesc": "AI 설계 위에 사람과 자연을 잇는 사람",
       "salaryRange": "3,500~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "조경 설계 도면 수작업",
-        "afterAI": "AI 조경 시뮬레이션 감독 + 생태 설계 + 공간 경험 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "도면·설계 수작업",
+        "afterAI": "AI가 도면·생태 분석 자동 + 조경가는 통찰·지역·기후 적응에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "조경 설계 AI",
-          "생태 시뮬레이션 AI"
+          "Lumion AI",
+          "Spacemaker AI",
+          "Autodesk Forma",
+          "Google Earth Engine",
+          "Climate AI",
+          "Claude"
         ],
         "survivalStrategy": [
-          "생태 설계 (생태계 건강 고려)",
-          "AI 조경 시뮬레이션 큐레이션",
-          "공간 경험 설계",
-          "지역 생태 맥락 이해",
-          "조경 철학 정의"
+          "생태 통찰 (AI가 못 보는 생태 관계)",
+          "지역 동반 (시민과 함께)",
+          "기후 적응 설계 (폭염·홍수)",
+          "정책 (조경법)",
+          "AI 시뮬 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Landscape Architect 상황 분석 및 목표 설정",
-            "humanRole": "Landscape Architect로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Landscape Architect이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장·시민 인터뷰",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 자동 → 조경가 인터뷰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Google Earth Engine",
+              "Spacemaker AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Landscape Architect이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "통찰 결단",
+            "aiRole": "AI 시뮬 자동",
+            "scenarioExample": "AI 시뮬 → 조경가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Lumion AI",
+              "Autodesk Forma"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Landscape Architect 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Landscape Architect이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 시공",
+            "humanRole": "현장 관리",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 조경가 관리",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Spacemaker AI",
+              "Autodesk Forma"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Landscape Architect이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정착·진화",
+            "humanRole": "지역 동반",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 자동 → 조경가 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Climate AI",
+              "Claude"
             ]
           }
         ]
@@ -6178,72 +6163,71 @@
       "icon": "♻️",
       "image": "environmental-engineer-ai-hero.jpg",
       "holland": "I+R",
-      "description": "오염된 물이나 공기, 흙을 깨끗하게 만드는 시설과 기계를 설계하고 운영하는 엔지니어예요. AI가 모은 환경 자료를 보고 시설이 가장 잘 돌아가도록 도와준답니다.",
-      "shortDesc": "환경 문제를 기술로 해결하는 사람",
+      "description": "환경 오염을 막고 정화하는 기술을 설계하는 엔지니어예요. AI 모니터링·자율 정화 로봇이 발달하는 시대에는, 정책·다학제·위기 대응이 환경공학자의 핵심으로 진화해요.",
+      "shortDesc": "AI 자동화 위에 환경 위기를 결단하는 엔지니어",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "환경 시설 설계·운영",
-        "afterAI": "AI 환경 시스템 최적화 감독 + 환경 전략 설계 + 지속가능성 판단",
-        "replacementRisk": "medium",
+        "beforeAI": "설계·시공·운영 수작업",
+        "afterAI": "AI 센서·로봇이 자동 + 엔지니어는 정책·다학제·위기 대응에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "환경 모니터링 AI",
-          "시설 최적화 AI"
+          "Aquasense AI",
+          "Earth.AI",
+          "Trace Genomics",
+          "Google AI for Earth",
+          "Microsoft Sustainability",
+          "Climate AI"
         ],
         "survivalStrategy": [
-          "환경 전략 설계",
-          "AI 시스템 최적화 검증",
-          "지속가능성 판단",
-          "환경 영향 평가",
-          "환경 정책 제안"
+          "위기 대응 (오염 사고)",
+          "정책 (환경법)",
+          "다학제 (화학·생물·AI·정책)",
+          "지속가능 설계",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Environmental Engineer 상황 분석 및 목표 설정",
-            "humanRole": "Environmental Engineer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Environmental Engineer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 표본",
+            "aiRole": "AI 센서 자동",
+            "scenarioExample": "AI 자동 → 엔지니어 표본",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Aquasense AI",
+              "Trace Genomics"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Environmental Engineer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 엔지니어 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Earth.AI",
+              "Microsoft Sustainability"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Environmental Engineer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Environmental Engineer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영",
+            "humanRole": "이상 결단",
+            "aiRole": "AI 자동 모니터",
+            "scenarioExample": "AI 자동 → 엔지니어 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Aquasense AI",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Environmental Engineer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "법·정책",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 엔지니어 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Google AI for Earth",
+              "Claude"
             ]
           }
         ]
@@ -6686,72 +6670,71 @@
       "icon": "🗑️",
       "image": "waste-management-specialist-ai-hero.jpg",
       "holland": "R+I",
-      "description": "우리가 버린 쓰레기를 어떻게 잘 모으고 재활용할 수 있을지 계획을 세우는 전문가예요. AI 분류 시스템을 보고 쓰레기를 다시 자원으로 바꾸는 방법을 찾는답니다.",
-      "shortDesc": "쓰레기를 자원으로 바꾸는 사람",
+      "description": "쓰레기를 줄이고 재활용·자원순환을 만드는 전문가예요. AI 분류 로봇·디지털 트윈이 발달하는 시대에는, 정책·도시 시스템·소비자 동반이 폐기물 관리자의 핵심으로 진화해요.",
+      "shortDesc": "AI 분류 위에 자원순환을 설계하는 사람",
       "salaryRange": "3,500~6,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "폐기물 분류·처리 관리",
-        "afterAI": "AI 분류 시스템 감독 + 순환경제 전략 설계 + 재활용 최적화",
-        "replacementRisk": "medium",
+        "beforeAI": "수거·분류·처리 수작업",
+        "afterAI": "AI 로봇이 분류 자동 + 전문가는 정책·도시 시스템·소비자 교육에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "폐기물 분류 AI",
-          "재활용 최적화 AI"
+          "AMP Robotics",
+          "Bin-e AI",
+          "Greyparrot",
+          "ZenRobotics",
+          "Sortera Alloys",
+          "Microsoft Sustainability"
         ],
         "survivalStrategy": [
-          "순환경제 전략 설계",
-          "AI 분류 시스템 감독",
-          "재활용 최적화 전략",
-          "폐기물 정책 제안",
-          "지역사회 교육"
+          "순환경제 설계 (자원순환)",
+          "정책 (재활용법)",
+          "소비자 교육",
+          "다학제 (도시·제조·정책)",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Waste Management Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Waste Management Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Waste Management Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 점검",
+            "aiRole": "AI 데이터 자동",
+            "scenarioExample": "AI 자동 → 전문가 점검",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "AMP Robotics",
+              "Greyparrot"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Waste Management Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 시스템 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Bin-e AI",
+              "ZenRobotics"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Waste Management Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Waste Management Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영",
+            "humanRole": "이상 대응",
+            "aiRole": "로봇 자동",
+            "scenarioExample": "AI 자동 → 전문가 대응",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Sortera Alloys",
+              "AMP Robotics"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Waste Management Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책·교육",
+            "humanRole": "정책·시민 교육",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 전문가 교육",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft Sustainability",
+              "Claude"
             ]
           }
         ]
@@ -7194,72 +7177,71 @@
       "icon": "🌫️",
       "image": "carbon-credit-analyst-ai-hero.jpg",
       "holland": "I+C",
-      "description": "기업이나 나라가 내뿜는 이산화탄소의 양을 계산하고, 그 양을 줄이도록 도와주는 전문가예요. AI가 모은 탄소 자료를 보고 어떤 곳이 환경에 좋은 결정을 했는지 알려준답니다.",
-      "shortDesc": "이산화탄소를 줄이도록 돕는 분석가",
+      "description": "기업·국가의 탄소배출권을 분석하고 거래·정책을 설계하는 새 분석가예요. AI MRV·블록체인이 발달하는 시대에 가장 빠르게 성장하는 직업 중 하나로, 정량성·규제·국제 협력이 핵심이에요.",
+      "shortDesc": "AI MRV 위에 탄소 정의를 분석하는 사람",
       "salaryRange": "5,000~10,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "탄소 배출량 측정·분석",
-        "afterAI": "AI 탄소 데이터 해석 + 탄소 전략 설계 + 배출권 거래 전략",
-        "replacementRisk": "medium",
+        "beforeAI": "(2020년 이후 폭발적으로 성장한 신생 직업)",
+        "afterAI": "AI가 MRV·정량 자동 + 분석가는 규제·국제 협력·정의 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "탄소 측정 AI",
-          "배출권 거래 AI"
+          "Pachama AI (MRV)",
+          "Sylvera",
+          "Climate AI",
+          "BeZero Carbon",
+          "S&P Carbon",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 탄소 데이터 해석",
-          "탄소 감축 전략 설계",
-          "배출권 거래 전략",
-          "탄소 정책 자문",
-          "기업 탄소 중립 전략"
+          "탄소 정량성 (MRV 검증)",
+          "규제 (탄소법·CBAM)",
+          "국제 협력",
+          "윤리 (탄소 정의)",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Carbon Credit Analyst 상황 분석 및 목표 설정",
-            "humanRole": "Carbon Credit Analyst로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Carbon Credit Analyst이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "프로젝트 검증",
+            "aiRole": "AI MRV 자동",
+            "scenarioExample": "AI 자동 → 분석가 검증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Pachama AI",
+              "Sylvera"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Carbon Credit Analyst이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 거래",
+            "humanRole": "거래 결단",
+            "aiRole": "AI 매칭",
+            "scenarioExample": "AI 매칭 → 분석가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "BeZero Carbon",
+              "S&P Carbon"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Carbon Credit Analyst 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Carbon Credit Analyst이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 규제",
+            "humanRole": "규제 대응",
+            "aiRole": "자동 점검",
+            "scenarioExample": "AI 자동 → 분석가 규제",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "S&P Carbon",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Carbon Credit Analyst이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "국제 정책",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 분석가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Sylvera"
             ]
           }
         ]
@@ -7702,72 +7684,71 @@
       "icon": "♻️",
       "image": "sustainability-consultant-ai-hero.jpg",
       "holland": "I+E",
-      "description": "기업이 환경을 해치지 않으면서도 오래도록 잘 운영될 수 있도록 도와주는 컨설턴트예요. AI가 모은 환경·사회 자료를 보고 회사가 더 좋은 결정을 내리도록 알려준답니다.",
-      "shortDesc": "기업이 자연과 함께 성장하도록 돕는 사람",
+      "description": "기업이 ESG·지속가능 경영을 실천하도록 동반하는 컨설턴트예요. AI ESG 데이터·보고가 자동화되는 시대에는, 임원 동반·정책 대응·진짜 변화 실행이 핵심으로 진화해요.",
+      "shortDesc": "AI ESG 위에 진짜 변화를 만드는 컨설턴트",
       "salaryRange": "5,000~12,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "ESG 데이터 수집·분석",
-        "afterAI": "AI 지속가능성 분석 해석 + ESG 전략 설계 + 기업 설득",
-        "replacementRisk": "medium",
+        "beforeAI": "컨설팅·보고서 수작업",
+        "afterAI": "AI가 ESG 데이터·보고 자동 + 컨설턴트는 임원 동반·실행·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "ESG 분석 AI",
-          "지속가능성 플랫폼"
+          "Sphera AI",
+          "EcoVadis",
+          "Watershed",
+          "Persefoni",
+          "Microsoft Sustainability",
+          "Workiva ESG"
         ],
         "survivalStrategy": [
-          "AI 지속가능성 분석 해석",
-          "ESG 전략 설계",
-          "기업 설득 (ROI 설명)",
-          "지속가능성 정책 자문",
-          "이해관계자 조율"
+          "임원 동반 (CEO·이사회)",
+          "진짜 변화 실행 (그린워싱 방지)",
+          "규제 (EU·SEC ESG)",
+          "다학제 (재무·법무·환경)",
+          "AI 데이터 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Sustainability Consultant 상황 분석 및 목표 설정",
-            "humanRole": "Sustainability Consultant로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Sustainability Consultant이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "임원 인터뷰",
+            "aiRole": "AI ESG 자동",
+            "scenarioExample": "AI 자동 → 컨설턴트 진단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Watershed",
+              "Persefoni"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Sustainability Consultant이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 전략",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 컨설턴트 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Microsoft Sustainability",
+              "Sphera AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Sustainability Consultant 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Sustainability Consultant이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실행",
+            "humanRole": "변화 동반",
+            "aiRole": "AI 자동 추적",
+            "scenarioExample": "AI 추적 → 컨설턴트 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "EcoVadis",
+              "Workiva ESG"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Sustainability Consultant이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 보고·정책",
+            "humanRole": "이사회·규제",
+            "aiRole": "보고서 자동",
+            "scenarioExample": "AI 자동 → 컨설턴트 보고",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Workiva ESG",
+              "Claude"
             ]
           }
         ]
@@ -8210,71 +8191,71 @@
       "icon": "🏞️",
       "image": "eco-tourism-planner-ai-hero.jpg",
       "holland": "S",
-      "description": "자연을 해치지 않으면서도 사람들이 즐겁게 자연을 즐길 수 있는 여행 코스를 만드는 전문가예요. AI가 알려주는 관광 자료를 보고 어디에 어떤 체험 프로그램을 운영하면 좋을지 정한답니다.",
-      "shortDesc": "자연을 즐기는 여행을 만드는 사람",
+      "description": "자연을 해치지 않으면서 사람이 자연을 경험하도록 여행을 설계하는 기획자예요. AI가 관광 동선·환경 영향을 자동 분석하는 시대에는, 지역 동반·문화 통찰·지속가능 설계가 핵심이에요.",
+      "shortDesc": "AI 분석 위에 지역과 자연을 잇는 사람",
       "salaryRange": "3,000~6,500만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "생태관광 프로그램 기획",
-        "afterAI": "AI 관광 데이터 해석 + 생태 경험 설계 + 지역사회 협력",
+        "beforeAI": "현장 답사·기획·운영 수작업",
+        "afterAI": "AI가 영향·동선 자동 + 기획자는 지역 동반·문화·지속가능에 집중",
         "replacementRisk": "low",
         "aiTools": [
-          "관광 데이터 분석 AI"
+          "Booking AI",
+          "Airbnb Experiences AI",
+          "Google Travel AI",
+          "Climate AI",
+          "EarthRanger",
+          "Claude"
         ],
         "survivalStrategy": [
-          "생태 경험 설계 (감동·교육)",
-          "AI 관광 데이터 해석",
-          "지역사회 협력 (주민 소득)",
-          "생태 보전과 관광 균형",
-          "관광객 교육 프로그램"
+          "지역 동반 (현지 주민·문화)",
+          "지속가능 설계 (탄소·생태)",
+          "문화 통찰 (다문화)",
+          "정책 (관광 규제)",
+          "AI 큐레이션"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Eco Tourism Planner 상황 분석 및 목표 설정",
-            "humanRole": "Eco Tourism Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Eco Tourism Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현지 인터뷰",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 기획자 현지",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Google Travel AI",
+              "EarthRanger"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Eco Tourism Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 동선 자동",
+            "scenarioExample": "AI 자동 → 기획자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Booking AI",
+              "Airbnb Experiences AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Eco Tourism Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Eco Tourism Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영",
+            "humanRole": "지역 동반",
+            "aiRole": "AI 관리 자동",
+            "scenarioExample": "AI 자동 → 기획자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Booking AI",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Eco Tourism Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 영향 측정",
+            "humanRole": "영향 결단",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 기획자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Climate AI"
             ]
           }
         ]
@@ -8717,71 +8698,71 @@
       "icon": "🎓",
       "image": "environmental-educator-ai-hero.jpg",
       "holland": "S",
-      "description": "학생이나 시민에게 자연이 왜 소중한지, 어떻게 환경을 지킬 수 있는지 가르쳐 주는 선생님이에요. AI가 만든 교육 자료를 살펴보고 더 재미있는 환경 수업을 만들어 낸답니다.",
-      "shortDesc": "환경의 소중함을 가르치는 사람",
+      "description": "어린이부터 시민까지 환경·기후를 가르치고 행동을 만드는 교육가예요. 생성 AI가 환경 콘텐츠를 자동 제작하는 시대에는, 진짜 행동 변화·지역 동반·과학 통찰이 핵심으로 진화해요.",
+      "shortDesc": "AI 콘텐츠 위에 진짜 행동 변화를 만드는 사람",
       "salaryRange": "3,000~5,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "환경 교육 프로그램 직접 진행",
-        "afterAI": "AI 교육 콘텐츠 감독 + 환경 경험 설계 + 학습자 동기 부여",
-        "replacementRisk": "medium",
+        "beforeAI": "강의·자료·캠프 수작업",
+        "afterAI": "AI가 콘텐츠·맞춤 학습 자동 + 교육가는 행동 변화·지역·정책에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "교육 콘텐츠 생성 AI"
+          "Khan Academy AI",
+          "Synthesia",
+          "iNaturalist AI",
+          "ChatGPT EDU",
+          "Microsoft AI for Earth",
+          "Claude"
         ],
         "survivalStrategy": [
-          "환경 경험 설계 (체험·감동)",
-          "AI 교육 콘텐츠 큐레이션",
-          "학습자 동기 부여",
-          "환경 행동 변화 설계",
-          "지역사회 참여 프로그램"
+          "행동 변화 설계 (지식→행동)",
+          "지역 동반 (시민 과학)",
+          "과학 통찰 (최신 연구 반영)",
+          "다문화 (다세대·다언어)",
+          "AI 콘텐츠 큐레이션"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Environmental Educator 상황 분석 및 목표 설정",
-            "humanRole": "Environmental Educator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Environmental Educator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 학습자 인터뷰",
+            "aiRole": "AI 자동 진단",
+            "scenarioExample": "AI 자동 → 교육가 인터뷰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Khan Academy AI",
+              "ChatGPT EDU"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Environmental Educator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 콘텐츠 설계",
+            "humanRole": "큐레이션",
+            "aiRole": "AI 자동 제작",
+            "scenarioExample": "AI 자동 → 교육가 큐레이션",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Synthesia",
+              "iNaturalist AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Environmental Educator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Environmental Educator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영",
+            "humanRole": "현장 동반",
+            "aiRole": "AI 일상 보조",
+            "scenarioExample": "AI 일상 → 교육가 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "iNaturalist AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Environmental Educator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 행동 측정",
+            "humanRole": "행동 변화 결단",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 교육가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Khan Academy AI"
             ]
           }
         ]
@@ -9224,73 +9205,71 @@
       "icon": "🚜",
       "image": "precision-agriculture-specialist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "드론과 AI 기계를 이용해서 농지를 한 곳 한 곳 자세히 살피며, 작물에 필요한 만큼만 물과 비료를 주는 똑똑한 농업을 만드는 전문가예요.",
-      "shortDesc": "AI로 똑똑한 농사를 만드는 사람",
+      "description": "GPS·드론·AI로 농업을 정밀하게 운영하는 새 농업 전문가예요. 자율 트랙터·로봇·기후 예측이 발달하는 시대에는, 통합 운영·기후 적응·데이터 윤리가 정밀농업의 핵심으로 진화해요.",
+      "shortDesc": "AI 디지털 농업 위에 통합 운영을 책임지는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 정밀농업 시스템 설계 + 농업 전략 + 농가 교육",
+        "beforeAI": "현장·수작업·관리",
+        "afterAI": "AI·드론·자율 트랙터 자동 + 전문가는 통합·기후·데이터 결단에 집중",
         "replacementRisk": "low",
         "aiTools": [
-          "스마트팜 AI",
-          "드론 AI",
-          "정밀농업 플랫폼"
+          "John Deere AI",
+          "Climate FieldView",
+          "Indigo Ag",
+          "Blue River",
+          "Plenty AI",
+          "Trimble"
         ],
         "survivalStrategy": [
-          "정밀농업 시스템 설계",
-          "AI 농업 데이터 해석",
-          "농업 전략 자문",
-          "농가 교육 및 지원",
-          "정밀농업 ROI 분석"
+          "통합 운영 (드론·AI·로봇 통합)",
+          "기후 적응",
+          "데이터 윤리 (농가 데이터 보호)",
+          "현장 결단",
+          "다학제"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Precision Agriculture Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Precision Agriculture Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Precision Agriculture Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 표본",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 전문가 표본",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Climate FieldView",
+              "Trimble"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Precision Agriculture Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "John Deere AI",
+              "Indigo Ag"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Precision Agriculture Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Precision Agriculture Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 운영",
+            "humanRole": "이상 결단",
+            "aiRole": "자율 로봇 자동",
+            "scenarioExample": "AI 자동 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Blue River",
+              "John Deere AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Precision Agriculture Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 측정",
+            "humanRole": "효과 결단",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 전문가 진화",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Plenty AI",
+              "Indigo Ag"
             ]
           }
         ]
@@ -9733,72 +9712,71 @@
       "icon": "📊",
       "image": "biodiversity-data-analyst-ai-hero.jpg",
       "holland": "I+C",
-      "description": "여러 곳에서 모은 동식물 자료를 컴퓨터로 분석해서, 어떤 생물이 어디에 얼마나 살고 있는지 알아내는 전문가예요. 그 결과를 바탕으로 생명을 어떻게 지킬지 제안한답니다.",
-      "shortDesc": "동식물 자료를 분석해 자연을 지키는 사람",
+      "description": "생물다양성 데이터를 모으고 분석해 보전 정책에 활용하는 새 분석가예요. AI 영상·DNA 식별이 발달하는 시대에 가장 폭발적으로 성장하는 직업 중 하나예요.",
+      "shortDesc": "AI 식별 위에 보전 정책을 분석하는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "생물 다양성 데이터 수집·분석",
-        "afterAI": "AI 생물 데이터 해석 + 보전 전략 설계 + 정책 제안",
-        "replacementRisk": "medium",
+        "beforeAI": "(2020년 이후 빠르게 성장하는 직업)",
+        "afterAI": "AI 영상·DNA·eDNA 자동 분석 + 분석가는 정책·다학제·현장 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "GBIF",
-          "생물 다양성 분석 AI"
+          "Wildlife Insights AI",
+          "iNaturalist AI",
+          "GBIF AI",
+          "Conservation Metrics",
+          "eDNA AI",
+          "Microsoft AI for Earth"
         ],
         "survivalStrategy": [
-          "AI 생물 데이터 해석",
-          "보전 우선순위 판단",
-          "보전 전략 설계",
-          "정책 제안",
-          "국제 협력"
+          "정책 적용 (정책으로 연결)",
+          "현장 검증",
+          "AI 식별 검증",
+          "다학제 (생물·통계·AI·정책)",
+          "오픈 사이언스"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Biodiversity Data Analyst 상황 분석 및 목표 설정",
-            "humanRole": "Biodiversity Data Analyst로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Biodiversity Data Analyst이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 데이터 수집",
+            "humanRole": "현장 표본",
+            "aiRole": "AI 카메라·DNA 자동",
+            "scenarioExample": "AI 자동 → 분석가 검증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Wildlife Insights AI",
+              "eDNA AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Biodiversity Data Analyst이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석",
+            "humanRole": "패턴 결단",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 자동 → 분석가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "iNaturalist AI",
+              "GBIF AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Biodiversity Data Analyst 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Biodiversity Data Analyst이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책 권고",
+            "humanRole": "정책 결단",
+            "aiRole": "정책 시뮬",
+            "scenarioExample": "AI 시뮬 → 분석가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Conservation Metrics",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Biodiversity Data Analyst이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 전파",
+            "humanRole": "오픈 사이언스",
+            "aiRole": "데이터 공유 자동",
+            "scenarioExample": "AI 자동 → 분석가 공유",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "GBIF AI",
+              "Claude"
             ]
           }
         ]
@@ -10241,72 +10219,71 @@
       "icon": "🌦️",
       "image": "climate-adaptation-planner-ai-hero.jpg",
       "holland": "I",
-      "description": "더위, 폭우, 가뭄 같은 기후 변화로부터 사람과 도시를 안전하게 지킬 수 있는 방법을 미리 계획하는 전문가예요. AI가 알려주는 기후 예측 자료를 보고 어떤 대비책이 필요할지 정한답니다.",
-      "shortDesc": "기후 변화로부터 도시를 지키는 사람",
+      "description": "기후 위기에 도시·지역이 적응하도록 인프라·정책을 설계하는 기획자예요. AI 기후 모델·디지털 트윈이 발달하는 시대에 가장 빠르게 성장하는 직업이에요.",
+      "shortDesc": "AI 기후 트윈 위에 도시 적응을 설계하는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 기후 예측 해석 + 적응 전략 설계 + 지역사회 협력",
+        "beforeAI": "(2020년 이후 빠르게 성장)",
+        "afterAI": "AI 모델·디지털 트윈이 시뮬 자동 + 기획자는 정책·지역 동반·다학제에 집중",
         "replacementRisk": "low",
         "aiTools": [
-          "기후 예측 AI",
-          "적응 계획 AI"
+          "NVIDIA Earth-2",
+          "Climate AI",
+          "Jupiter Intelligence",
+          "ClimaCell",
+          "Microsoft AI for Earth",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 기후 예측 해석",
-          "적응 전략 설계 (홍수·가뭄 대응)",
-          "지역사회 협력",
-          "적응 정책 제안",
-          "취약 계층 보호 전략"
+          "정책 결단 (도시 적응법)",
+          "지역 동반 (취약계층)",
+          "다학제 (도시·인프라·생태)",
+          "기후 정의",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Climate Adaptation Planner 상황 분석 및 목표 설정",
-            "humanRole": "Climate Adaptation Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Climate Adaptation Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "지역 인터뷰",
+            "aiRole": "AI 자동 모델",
+            "scenarioExample": "AI 모델 → 기획자 인터뷰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Climate AI",
+              "Jupiter Intelligence"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Climate Adaptation Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 적응 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 기획자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "NVIDIA Earth-2",
+              "ClimaCell"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Climate Adaptation Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Climate Adaptation Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실행",
+            "humanRole": "지역 동반",
+            "aiRole": "AI 자동 모니터",
+            "scenarioExample": "AI 자동 → 기획자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Jupiter Intelligence"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Climate Adaptation Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "법·정책",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 기획자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Climate AI"
             ]
           }
         ]
@@ -10749,72 +10726,71 @@
       "icon": "🏢",
       "image": "green-building-consultant-ai-hero.jpg",
       "holland": "I",
-      "description": "건물을 지을 때 에너지를 적게 쓰고 자연에 부담을 덜 주는 방법을 알려주는 전문가예요. AI 시뮬레이션으로 미리 살펴서 더 시원하고 따뜻하면서도 친환경적인 건물을 만든답니다.",
-      "shortDesc": "환경에 좋은 건물을 만드는 사람",
+      "description": "건물이 탄소·에너지·물을 적게 쓰도록 친환경 설계·인증을 동반하는 컨설턴트예요. AI 건물 시뮬이 발달하는 시대에는, 인증·정책·임원 동반이 새 핵심이에요.",
+      "shortDesc": "AI 건물 시뮬 위에 인증을 책임지는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "에너지 효율 분석·인증 자문",
-        "afterAI": "AI 에너지 시뮬레이션 해석 + 친환경 전략 설계 + 인증 전략",
-        "replacementRisk": "medium",
+        "beforeAI": "도면·인증 수작업",
+        "afterAI": "AI가 시뮬·인증 자동 + 컨설턴트는 인증 결단·정책·임원 동반에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "건물 에너지 시뮬레이션 AI",
-          "LEED 분석 AI"
+          "Autodesk Forma",
+          "Spacemaker AI",
+          "USGBC LEED AI",
+          "Cove.tool",
+          "EnergyPlus AI",
+          "BREEAM AI"
         ],
         "survivalStrategy": [
-          "AI 에너지 시뮬레이션 해석",
-          "친환경 전략 설계",
-          "인증 전략 (LEED·BREEAM)",
-          "건축주 설득",
-          "친환경 ROI 분석"
+          "인증 결단 (LEED·BREEAM)",
+          "정책 (탄소·건축법)",
+          "임원 동반",
+          "다학제 (건축·HVAC·에너지)",
+          "AI 시뮬 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Green Building Consultant 상황 분석 및 목표 설정",
-            "humanRole": "Green Building Consultant로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Green Building Consultant이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 점검",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 자동 → 컨설턴트 점검",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Autodesk Forma",
+              "Cove.tool"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Green Building Consultant이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 컨설턴트 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Spacemaker AI",
+              "EnergyPlus AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Green Building Consultant 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Green Building Consultant이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 시공",
+            "humanRole": "현장 관리",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 컨설턴트 관리",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Autodesk Forma",
+              "Spacemaker AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Green Building Consultant이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 인증·정책",
+            "humanRole": "인증 결단",
+            "aiRole": "자동 데이터",
+            "scenarioExample": "AI 자동 → 컨설턴트 인증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "USGBC LEED AI",
+              "BREEAM AI"
             ]
           }
         ]
@@ -11257,72 +11233,71 @@
       "icon": "🏙️",
       "image": "urban-ecology-planner-ai-hero.jpg",
       "holland": "I",
-      "description": "건물과 길로 가득한 도시에도 나무와 동물이 함께 살 수 있도록 공원, 가로수, 녹지 공간을 어디에 둘지 계획하는 전문가예요. AI 자료를 보고 도시 속에 자연이 더 잘 어우러지게 만든답니다.",
-      "shortDesc": "도시에 자연을 들여오는 사람",
+      "description": "도시 속 생태계를 살리고 시민이 자연과 함께 살도록 설계하는 새 기획자예요. AI 도시·생태 데이터가 발달하는 시대에 빠르게 성장하는 직업이에요.",
+      "shortDesc": "AI 도시 생태 위에 사람·자연을 잇는 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "도시 생태 조사·계획",
-        "afterAI": "AI 도시 생태 데이터 해석 + 도시 전략 설계 + 주민 참여 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "현장·도면·정책 수작업",
+        "afterAI": "AI가 생태·도시 데이터 자동 + 기획자는 통합 설계·정책·지역 동반에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "도시 생태 분석 AI",
-          "GIS AI"
+          "Google Earth Engine",
+          "iNaturalist AI",
+          "Microsoft AI for Earth",
+          "Spacemaker AI",
+          "EarthRanger",
+          "Climate AI"
         ],
         "survivalStrategy": [
-          "AI 도시 생태 데이터 해석",
-          "도시 생태 전략 설계",
-          "주민 참여 프로그램",
-          "도시 정책 제안",
-          "생태와 개발 균형"
+          "통합 설계 (도시+생태+기후)",
+          "지역 동반 (시민과학)",
+          "정책 (도시 생태법)",
+          "기후 적응 (폭염·홍수·생물)",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Urban Ecology Planner 상황 분석 및 목표 설정",
-            "humanRole": "Urban Ecology Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Urban Ecology Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장·시민 인터뷰",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 자동 → 기획자 인터뷰",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Google Earth Engine",
+              "iNaturalist AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Urban Ecology Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "통찰 결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 기획자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Spacemaker AI",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Urban Ecology Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Urban Ecology Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실행",
+            "humanRole": "지역 동반",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 기획자 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "EarthRanger",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Urban Ecology Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 정책",
+            "humanRole": "정책·진화",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 기획자 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Google Earth Engine"
             ]
           }
         ]
@@ -11765,71 +11740,71 @@
       "icon": "🌻",
       "image": "permaculture-designer-ai-hero.jpg",
       "holland": "R+I",
-      "description": "사람과 동식물이 자연 속에서 서로 도와 가며 살 수 있는 텃밭이나 작은 마을을 설계하는 디자이너예요. AI 시뮬레이션으로 자연이 오래도록 잘 어우러지는 공간을 그려 본답니다.",
-      "shortDesc": "자연이 함께 사는 공간을 그리는 사람",
+      "description": "자연과 함께하는 지속가능 농장·정원·공동체를 설계하는 디자이너예요. AI 생태 시뮬이 발달하는 시대에는, 통찰·지역 동반·시민 교육이 핵심이에요.",
+      "shortDesc": "AI 시뮬 위에 자연과 함께 사는 설계를 만드는 사람",
       "salaryRange": "3,000~6,000만원/년",
       "aiRisk": "낮음",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "퍼머컬처 시스템 설계",
-        "afterAI": "AI 생태 시뮬레이션 해석 + 퍼머컬처 설계 + 지역사회 교육",
+        "beforeAI": "현장·도면·교육 수작업",
+        "afterAI": "AI가 시뮬·자료 자동 + 디자이너는 통찰·지역·교육에 집중",
         "replacementRisk": "low",
         "aiTools": [
-          "생태 시뮬레이션 AI"
+          "Spacemaker AI",
+          "Climate AI",
+          "iNaturalist AI",
+          "Trace Genomics",
+          "Microsoft AI for Earth",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 생태 시뮬레이션 해석",
-          "퍼머컬처 설계",
-          "지역사회 교육",
-          "생태 복원 설계",
-          "지속가능 농업 전략"
+          "생태 통찰 (자연 관계)",
+          "지역 동반 (공동체)",
+          "교육 (실천 시민)",
+          "기후 적응",
+          "AI 시뮬 큐레이션"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Permaculture Designer 상황 분석 및 목표 설정",
-            "humanRole": "Permaculture Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Permaculture Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 직접",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 디자이너 현장",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "iNaturalist AI",
+              "Trace Genomics"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Permaculture Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 디자이너 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Spacemaker AI",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Permaculture Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Permaculture Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실행",
+            "humanRole": "지역 동반",
+            "aiRole": "AI 자동 모니터",
+            "scenarioExample": "AI 자동 → 디자이너 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "iNaturalist AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Permaculture Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 교육",
+            "humanRole": "공동체 교육",
+            "aiRole": "자료 자동",
+            "scenarioExample": "AI 자료 → 디자이너 교육",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Spacemaker AI"
             ]
           }
         ]
@@ -12272,72 +12247,71 @@
       "icon": "🌊",
       "image": "ocean-conservation-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "바다와 그곳에 사는 물고기, 산호, 해양 식물을 지키기 위해 바다 상태를 직접 살펴보고 보호 계획을 세우는 전문가예요. AI가 알려주는 해양 자료로 어디부터 보호해야 할지 정한답니다.",
-      "shortDesc": "바다와 바다 생물을 지키는 사람",
+      "description": "바다 생태계와 어업 자원을 지키는 보전 전문가예요. AI 수중 드론·해양 IoT·디지털 트윈이 바다를 24시간 관측하는 시대에는, 정책·국제 협력·현장 결단이 핵심으로 진화해요.",
+      "shortDesc": "AI 해양 관측 위에 진짜 보전을 결단하는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "해양 조사·보전 활동",
-        "afterAI": "AI 해양 데이터 해석 + 보전 전략 설계 + 정책 제안",
-        "replacementRisk": "medium",
+        "beforeAI": "관측·잠수·정책 수작업",
+        "afterAI": "AI 드론·IoT가 24시간 자동 + 전문가는 정책·국제 협력·현장 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "해양 모니터링 AI",
-          "수중 드론 AI"
+          "Ocean Vision AI",
+          "Saildrone",
+          "Reef Cloud",
+          "OceanWise AI",
+          "NOAA AI",
+          "Microsoft Project Eden"
         ],
         "survivalStrategy": [
-          "AI 해양 데이터 해석",
-          "보전 전략 설계",
-          "정책 제안",
-          "어업·보전 균형",
-          "국제 협력"
+          "현장 잠수·관찰",
+          "정책 (해양 보호구역)",
+          "국제 협력 (해양법·CITES)",
+          "지역 어민 동반",
+          "AI 분석 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Ocean Conservation Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Ocean Conservation Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Ocean Conservation Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 관측",
+            "humanRole": "현장 잠수",
+            "aiRole": "AI 자동 관측",
+            "scenarioExample": "AI 자동 → 전문가 잠수",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Saildrone",
+              "Ocean Vision AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Ocean Conservation Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석·정책",
+            "humanRole": "패턴 결단",
+            "aiRole": "AI 자동 분석",
+            "scenarioExample": "AI 분석 → 전문가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Reef Cloud",
+              "NOAA AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Ocean Conservation Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Ocean Conservation Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실행",
+            "humanRole": "지역 동반",
+            "aiRole": "AI 자동 추적",
+            "scenarioExample": "AI 추적 → 전문가 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "OceanWise AI",
+              "Microsoft Project Eden"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Ocean Conservation Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 국제",
+            "humanRole": "협약 결단",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 전문가 협력",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -12780,72 +12754,71 @@
       "icon": "💨",
       "image": "air-quality-specialist-ai-hero.jpg",
       "holland": "I",
-      "description": "우리가 마시는 공기가 얼마나 깨끗한지 살피고, 미세먼지나 매연 같은 오염을 줄일 방법을 찾는 전문가예요. AI가 알려주는 공기 자료를 보고 어디부터 빨리 고쳐야 할지 정한답니다.",
-      "shortDesc": "공기를 깨끗하게 지키는 사람",
+      "description": "대기 오염을 측정·분석하고 정책으로 시민 건강을 지키는 전문가예요. AI 위성·IoT 센서가 대기를 실시간 관측하는 시대에는, 정책 결단·시민 동반·국제 협력이 핵심이에요.",
+      "shortDesc": "AI 위성 위에 시민 건강을 지키는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "대기질 측정·분석",
-        "afterAI": "AI 대기질 예측 해석 + 정책 전략 설계 + 오염원 관리",
-        "replacementRisk": "medium",
+        "beforeAI": "측정·분석·정책 수작업",
+        "afterAI": "AI 위성·IoT가 24시간 자동 + 전문가는 정책·시민 동반·국제 협력에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "대기질 예측 AI",
-          "IoT 센서 AI"
+          "BreezoMeter AI",
+          "Plume Labs AI",
+          "NASA AQ AI",
+          "Google AQ",
+          "Climate AI",
+          "Microsoft AI for Earth"
         ],
         "survivalStrategy": [
-          "AI 대기질 예측 해석",
-          "정책 전략 설계",
-          "오염원 관리 전략",
-          "대기질 개선 정책 제안",
-          "주민 건강 보호 전략"
+          "정책 결단 (대기법)",
+          "시민 동반 (취약계층)",
+          "국제 협력 (월경 오염)",
+          "기후 통합",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Air Quality Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Air Quality Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Air Quality Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 측정",
+            "humanRole": "현장 검증",
+            "aiRole": "AI 위성·IoT 자동",
+            "scenarioExample": "AI 자동 → 전문가 검증",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "BreezoMeter AI",
+              "Plume Labs AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Air Quality Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석",
+            "humanRole": "원인 결단",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "NASA AQ AI",
+              "Google AQ"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Air Quality Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Air Quality Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 정책",
+            "humanRole": "정책 결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 전문가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Climate AI",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Air Quality Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 시민·국제",
+            "humanRole": "시민·국제 동반",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 전문가 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "DeepL"
             ]
           }
         ]
@@ -13288,72 +13261,71 @@
       "icon": "🌿",
       "image": "ecosystem-restoration-specialist-ai-hero.jpg",
       "holland": "I+R",
-      "description": "사람의 활동이나 재해 때문에 망가진 숲, 강, 갯벌 같은 자연을 다시 건강하게 되돌리는 일을 하는 전문가예요. AI 시뮬레이션으로 어떻게 복원해야 잘 회복될지 미리 살펴본답니다.",
-      "shortDesc": "망가진 자연을 되살리는 사람",
+      "description": "훼손된 생태계를 복원하는 전문가예요. AI 시뮬·드론 식재·디지털 트윈이 발달하는 시대에는, 정책·지역 동반·다학제 통합이 새 핵심으로 진화해요.",
+      "shortDesc": "AI 시뮬 위에 진짜 생태계를 복원하는 사람",
       "salaryRange": "4,000~8,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "생태 복원 계획·실행",
-        "afterAI": "AI 생태 시뮬레이션 해석 + 복원 전략 설계 + 복원 효과 모니터링",
-        "replacementRisk": "medium",
+        "beforeAI": "현장 복원·관리 수작업",
+        "afterAI": "AI 드론·시뮬이 식재·모니터 자동 + 전문가는 정책·지역·다학제에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "생태 시뮬레이션 AI",
-          "복원 모니터링 AI"
+          "DroneSeed AI",
+          "Planet AI",
+          "iNaturalist AI",
+          "EarthRanger",
+          "Microsoft AI for Earth",
+          "Climate AI"
         ],
         "survivalStrategy": [
-          "AI 생태 시뮬레이션 해석",
-          "복원 전략 설계",
-          "복원 우선순위 판단",
-          "복원 효과 모니터링",
-          "지역사회 협력"
+          "현장 복원 (직접 식재·관찰)",
+          "정책 (복원법)",
+          "지역사회 동반",
+          "다학제 (생물·기후·정책)",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Ecosystem Restoration Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Ecosystem Restoration Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Ecosystem Restoration Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 표본",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 전문가 표본",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Planet AI",
+              "iNaturalist AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Ecosystem Restoration Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 설계",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 전문가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "EarthRanger",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Ecosystem Restoration Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Ecosystem Restoration Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 복원",
+            "humanRole": "직접 식재",
+            "aiRole": "DroneSeed 자동",
+            "scenarioExample": "AI 자동 → 전문가 식재",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "DroneSeed AI",
+              "Microsoft AI for Earth"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Ecosystem Restoration Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 추적·정책",
+            "humanRole": "정책·진화",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 전문가 정책",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Climate AI",
+              "Claude"
             ]
           }
         ]
@@ -13796,72 +13768,71 @@
       "icon": "📋",
       "image": "environmental-policy-analyst-ai-hero.jpg",
       "holland": "I+C",
-      "description": "정부가 만든 환경 규칙이 자연을 정말 잘 지키고 있는지 살펴보고, 더 좋은 새 규칙을 제안하는 전문가예요. AI가 알려주는 자료를 보고 어떤 정책이 효과적인지 분석한답니다.",
-      "shortDesc": "환경을 지키는 규칙을 만드는 사람",
+      "description": "환경 정책을 과학적으로 분석하고 정부·기업에 권고하는 전문가예요. AI가 정책 데이터·시뮬을 자동화하는 시대에는, 정치 감각·국제 협력·취약계층 동반이 핵심이에요.",
+      "shortDesc": "AI 정책 위에 정치·정의를 결단하는 사람",
       "salaryRange": "4,500~9,000만원/년",
       "aiRisk": "중간",
       "futureGrowth": 5,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "환경 정책 분석·제안",
-        "afterAI": "AI 정책 영향 분석 해석 + 환경 정책 설계 + 이해관계자 조율",
-        "replacementRisk": "medium",
+        "beforeAI": "분석·보고 수작업",
+        "afterAI": "AI가 데이터·시뮬 자동 + 분석가는 정치·국제·정의 결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "정책 분석 AI",
-          "영향 평가 AI"
+          "Climate AI",
+          "Microsoft AI for Earth",
+          "Palantir Environment",
+          "AlphaSense",
+          "Hebbia",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 정책 영향 분석 해석",
-          "환경 정책 설계",
-          "이해관계자 조율 (기업·주민·정부)",
-          "정책 설득 및 발표",
-          "환경 법규 전문성"
+          "정치 감각 (입법·실행)",
+          "국제 협력 (COP·UNEP)",
+          "기후 정의 (취약계층)",
+          "다학제 (법·경제·과학)",
+          "AI 모델 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Environmental Policy Analyst 상황 분석 및 목표 설정",
-            "humanRole": "Environmental Policy Analyst로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Environmental Policy Analyst이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 정책 진단",
+            "humanRole": "정치·맥락",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 분석가 정치",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "AlphaSense",
+              "Hebbia"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Environmental Policy Analyst이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 시뮬·분석",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 분석가 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Climate AI",
+              "Palantir Environment"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Environmental Policy Analyst 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Environmental Policy Analyst이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 권고",
+            "humanRole": "임원·정치인 동반",
+            "aiRole": "보고서 자동",
+            "scenarioExample": "AI 자동 → 분석가 동반",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Environmental Policy Analyst이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 국제",
+            "humanRole": "국제 협력",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 분석가 협력",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "AlphaSense"
             ]
           }
         ]
@@ -14304,72 +14275,71 @@
       "icon": "⛰️",
       "image": "natural-resource-manager-ai-hero.jpg",
       "holland": "R+I",
-      "description": "땅, 물, 숲, 광물처럼 자연이 우리에게 준 자원을 너무 많이 사용하지 않도록 잘 관리하는 사람이에요. AI가 알려주는 자원 자료를 보고 미래에도 자연을 함께 누릴 방법을 정한답니다.",
-      "shortDesc": "자연 자원을 잘 쓰도록 관리하는 사람",
+      "description": "산림·물·광물·토지 같은 자연자원을 지속가능하게 관리하는 전문가예요. AI 위성·디지털 트윈이 자원을 자동 모니터하는 시대에는, 다이해관계자 조정·정책·국제 협력이 핵심으로 진화해요.",
+      "shortDesc": "AI 모니터 위에 자원·이해관계자를 조정하는 사람",
       "salaryRange": "4,000~7,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "자연자원 조사·관리",
-        "afterAI": "AI 자원 모니터링 감독 + 관리 전략 설계 + 지속가능 이용 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "관리·점검·정책 수작업",
+        "afterAI": "AI 위성·IoT가 자동 모니터 + 관리자는 이해관계 조정·정책·국제 협력에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "자원 모니터링 AI",
-          "GIS AI"
+          "Planet AI",
+          "Google Earth Engine",
+          "EarthRanger",
+          "Sphera AI",
+          "Microsoft AI for Earth",
+          "Climate AI"
         ],
         "survivalStrategy": [
-          "AI 자원 데이터 해석",
-          "관리 전략 설계",
-          "지속가능 이용 설계",
-          "이해관계자 조율",
-          "자원 정책 제안"
+          "이해관계자 조정 (기업·정부·시민)",
+          "정책·법무 (자원법)",
+          "국제 협력",
+          "지속가능 결단",
+          "AI 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Natural Resource Manager 상황 분석 및 목표 설정",
-            "humanRole": "Natural Resource Manager로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Natural Resource Manager이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 모니터",
+            "humanRole": "현장 점검",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 관리자 점검",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Planet AI",
+              "EarthRanger"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Natural Resource Manager이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 분석",
+            "humanRole": "패턴 결단",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 관리자 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Google Earth Engine",
+              "Sphera AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Natural Resource Manager 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Natural Resource Manager이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 조정·정책",
+            "humanRole": "이해관계 조정",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 관리자 조정",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Climate AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Natural Resource Manager이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 국제·진화",
+            "humanRole": "협력·진화",
+            "aiRole": "다국어 자료",
+            "scenarioExample": "AI 자료 → 관리자 협력",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Claude",
+              "Sphera AI"
             ]
           }
         ]
@@ -14812,72 +14782,71 @@
       "icon": "📊",
       "image": "environmental-impact-assessor-ai-hero.jpg",
       "holland": "I+C",
-      "description": "도로나 공장 같은 큰 시설을 지을 때 자연이 얼마나 영향을 받을지 미리 살펴보는 전문가예요. AI가 알려주는 예측 자료를 보고 자연을 덜 해치는 방법을 제안한답니다.",
-      "shortDesc": "공사가 자연에 주는 영향을 미리 살피는 사람",
+      "description": "개발 사업이 환경에 어떤 영향을 주는지 평가하고 완화 방안을 권고하는 전문가예요. AI 시뮬·디지털 트윈이 발달하는 시대에는, 정책 결단·이해관계자 조정·다학제가 핵심으로 진화해요.",
+      "shortDesc": "AI 시뮬 위에 진짜 환경 영향을 결단하는 사람",
       "salaryRange": "4,500~8,500만원/년",
       "aiRisk": "중간",
       "futureGrowth": 4,
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "환경 영향 평가 수작업",
-        "afterAI": "AI 영향 예측 해석 + 환경 평가 전략 + 저감 방안 설계",
-        "replacementRisk": "medium",
+        "beforeAI": "현장 조사·평가서 수작업",
+        "afterAI": "AI가 데이터·시뮬 자동 + 평가사는 정책·이해관계자·결단에 집중",
+        "replacementRisk": "low",
         "aiTools": [
-          "환경 영향 예측 AI",
-          "평가 분석 AI"
+          "Planet AI",
+          "Climate AI",
+          "Sphera AI",
+          "Microsoft AI for Earth",
+          "Spacemaker AI",
+          "Claude"
         ],
         "survivalStrategy": [
-          "AI 영향 예측 해석",
-          "환경 평가 전략",
-          "저감 방안 설계",
-          "이해관계자 조율",
-          "환경 법규 전문성"
+          "정책 결단 (EIA 규제)",
+          "이해관계자 조정 (시민·기업·정부)",
+          "다학제 (생물·물·대기·소음)",
+          "현장 검증",
+          "AI 시뮬 검증"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Environmental Impact Assessor 상황 분석 및 목표 설정",
-            "humanRole": "Environmental Impact Assessor로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Environmental Impact Assessor이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 진단",
+            "humanRole": "현장 조사",
+            "aiRole": "AI 자동",
+            "scenarioExample": "AI 자동 → 평가사 조사",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석"
+              "Planet AI",
+              "Sphera AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Environmental Impact Assessor이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 영향 평가",
+            "humanRole": "결단",
+            "aiRole": "AI 시뮬",
+            "scenarioExample": "AI 시뮬 → 평가사 결단",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI"
+              "Climate AI",
+              "Spacemaker AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Environmental Impact Assessor 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Environmental Impact Assessor이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 권고·청문",
+            "humanRole": "이해관계 조정",
+            "aiRole": "AI 자료",
+            "scenarioExample": "AI 자료 → 평가사 청문",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Microsoft AI for Earth",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Environmental Impact Assessor이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 추적·진화",
+            "humanRole": "정책·진화",
+            "aiRole": "데이터 자동",
+            "scenarioExample": "AI 데이터 → 평가사 진화",
             "recommendedTools": [
-              "GIS AI(ArcGIS)",
-              "Python 환경 분석",
-              "위성 데이터 AI",
-              "기후 모델 AI"
+              "Sphera AI",
+              "Planet AI"
             ]
           }
         ]

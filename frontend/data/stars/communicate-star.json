@@ -6,7 +6,7 @@
   "color": "#EC4899",
   "bgColor": "#2a0818",
   "gradient": "linear-gradient(135deg, #ec4899 0%, #be185d 100%)",
-  "description": "글·말·영상으로 사람들에게 이야기를 전하고 마음을 움직이는 직업들의 별이에요",
+  "description": "글·말·영상으로 사람들에게 이야기를 전하고 마음을 움직이는 직업들의 별이에요. 어려운 내용도 쉽게, 평범한 일도 흥미롭게 풀어내며 세상에 새로운 시선을 던지죠. 자신의 목소리와 콘텐츠로 누군가의 하루를 바꾸고 싶은 이들의 우주랍니다.",
   "riasecTypes": [
     "A",
     "E"
@@ -16,49 +16,49 @@
     "tagline": "말과 글로 사람을 모으는 일이 즐거운 친구들의 별이에요",
     "coreTraits": [
       {
-        "icon": "📢",
-        "label": "전달력",
-        "desc": "어려운 이야기도 쉽고 또렷하게 풀어서 전해 주는 힘이에요."
-      },
-      {
         "icon": "🎙️",
-        "label": "설득력",
-        "desc": "듣는 사람의 마음을 움직이도록 말과 이야기를 잘 짜내는 힘이에요."
+        "label": "진짜 시선",
+        "desc": "AI가 절대 가질 수 없는 '나만의 관점·경험'을 콘텐츠로 만드는 힘이에요."
       },
       {
-        "icon": "🔎",
-        "label": "취재력",
-        "desc": "남들이 모르는 이야기를 끝까지 파고들어 찾아내는 호기심이에요."
+        "icon": "🤖",
+        "label": "AI 활용 제작",
+        "desc": "영상·글·이미지 AI 도구를 자유롭게 다루며 혼자서 스튜디오가 되는 능력이에요."
       },
       {
-        "icon": "⚡",
-        "label": "순발력",
-        "desc": "갑자기 바뀌는 상황에서도 빠르게 알아채고 바로 움직이는 힘이에요."
+        "icon": "❤️",
+        "label": "신뢰 자산",
+        "desc": "팔로워·청중과 진정성으로 오래 관계 맺는 힘, AI가 가장 못 따라 하는 영역이에요."
+      },
+      {
+        "icon": "🛡️",
+        "label": "사실 검증",
+        "desc": "가짜뉴스·AI 생성 정보가 넘치는 시대, 진위를 가려내는 비판적 감각이에요."
       }
     ],
     "fitPersonality": {
       "title": "이런 사람에게 딱 맞아요",
       "traits": [
-        "글쓰기와 말하기, 발표하는 시간이 즐거운 사람",
-        "사회 이슈와 새로운 뉴스에 호기심이 많은 사람",
-        "여러 사람 앞에 서는 것이 떨리지 않는 사람",
-        "다양한 사람을 만나서 이야기 듣는 걸 좋아하는 사람",
-        "SNS나 유튜브, 영상 만드는 일에 관심이 많은 사람"
+        "내 생각·경험을 사람들과 나누는 게 진짜 즐거운 사람",
+        "AI 영상·이미지 도구로 빠르게 만들어 보는 게 재미있는 사람",
+        "같은 이야기도 더 쉽게·더 흥미롭게 풀어내는 사람",
+        "누군가의 하루를 바꾸는 한 마디를 던지고 싶은 사람",
+        "가짜 정보·딥페이크를 보면 그냥 못 넘어가는 사람"
       ],
       "notFit": [
-        "조용하고 똑같은 일이 반복되는 환경을 더 좋아하는 사람",
-        "남의 평가나 지적에 마음이 크게 흔들리는 사람"
+        "카메라·무대·사람들 앞이 너무 부담스러운 사람",
+        "매일 새 콘텐츠를 꾸준히 만들어 내는 부지런함이 힘든 사람"
       ]
     },
     "whyThisGroup": {
       "title": "왜 이 직업들을 묶었나요?",
-      "reason": "기자, PD, 마케터 같은 직업은 모두 ‘예술형(A)+기업형(E)’이라는 같은 성향을 가지고 있어요. 세 직업 모두 ① 어떤 이야기를 전할지 기획하고, ② 많은 사람에게 잘 전달하고, ③ 사람들이 어떻게 반응했는지 살펴보는 일을 한답니다. 미디어와 이야기로 사람들과 소통한다는 점에서 한 가족 같은 직업들이에요.",
+      "reason": "AI가 글·영상·이미지를 무한히 찍어내는 시대일수록, '믿을 만한 사람의 관점'이 더 귀해져요. 기자·작가·아나운서·크리에이터 모두 AI 도구로 생산성을 올리면서도, 자기 이름과 신뢰를 걸고 메시지를 책임지는 직업이라는 공통점이 있답니다. 콘텐츠는 흔해져도 진짜 시선은 더 비싸지죠.",
       "commonDNA": [
-        "메시지 기획",
-        "대중 커뮤니케이션",
-        "스토리텔링",
-        "영향력 측정",
-        "트렌드 민감성"
+        "자기 관점 + 신뢰",
+        "AI 도구 생산성",
+        "사실 검증 책임",
+        "청중과 장기 관계",
+        "멀티 포맷(글·말·영상)"
       ]
     },
     "hollandCode": "A+E (예술형+기업형)",
@@ -87,65 +87,65 @@
       "admissionPath": "학종+정시",
       "entryProcess": "언론학 전공 + 기자 시험 → 실무 5년 → 탐사 전문 기자 + AI 협업 마스터",
       "aiTransformation": {
-        "beforeAI": "취재·기사 작성 전체 수작업",
-        "afterAI": "AI 기사 생성 감독 + 탐사 보도 + 팩트체크 + 인터뷰",
+        "beforeAI": "현장 취재부터 기사 작성·편집까지 기자가 전 과정을 수작업으로 처리했고, 속보 경쟁에서 속도가 곧 경쟁력이었어요.",
+        "afterAI": "2026~2030년, AI가 스포츠 결과·주가·날씨 등 정형화된 속보를 초 단위로 생성하면서 기자의 역할이 근본적으로 이동해요. 이제 기자는 AI가 생성한 수백 건의 기사 중 어떤 것이 딥페이크·오류인지 사실 검증하고, AI가 절대 접근할 수 없는 현장 인물 인터뷰와 내부 고발자 네트워크를 통해 탐사 보도를 이끌어요. 독자와의 신뢰 자산—이름·byline의 신용—이 기자의 핵심 경쟁력이 됩니다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Jasper AI",
-          "기사 생성 AI",
-          "팩트체크 AI"
+          "Perplexity",
+          "Claude",
+          "NotebookLM",
+          "Otter.ai",
+          "ChatGPT",
+          "Grammarly"
         ],
         "survivalStrategy": [
-          "탐사 보도 (AI는 단순 보도만)",
-          "심층 인터뷰 (사람만 가능)",
-          "AI 기사 팩트체크 및 검증",
-          "스토리 발굴 (무엇이 뉴스인가)",
-          "저널리즘 윤리 준수"
+          "현장 1차 취재·내부 고발자 인터뷰 등 AI 접근 불가 독점 취재력 확보",
+          "AI 생성 기사·딥페이크 영상의 사실 검증 책임자로 포지셔닝",
+          "byline 신뢰 자산 구축—독자가 기사보다 기자 이름을 먼저 찾도록",
+          "데이터 저널리즘: 공공 데이터 분석으로 AI가 못 보는 패턴 발굴",
+          "탐사 보도 장르 특화—수개월 장기 프로젝트 독점 서사 구성력"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Journalist 상황 분석 및 목표 설정",
-            "humanRole": "Journalist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Journalist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 취재 아이템 발굴 및 가설 수립",
+            "humanRole": "기자가 소식통·제보·현장 관찰로 남들이 모르는 이슈를 포착하고 탐사 가설 설정",
+            "aiRole": "Perplexity로 공개 데이터·해외 보도 신속 수집, NotebookLM으로 방대한 문서 요약",
+            "scenarioExample": "서울 기자가 Perplexity로 해외 유사 사건 50건 스캔 후, 제보자 직접 인터뷰로 국내 독점 각도 확정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Journalist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 현장 취재 및 인터뷰 진행",
+            "humanRole": "기자가 직접 현장을 방문해 증인·당사자 인터뷰, 감정·맥락·신뢰 관계 형성",
+            "aiRole": "Otter.ai로 인터뷰 실시간 전사, Claude로 핵심 발언 자동 요약",
+            "scenarioExample": "탐사 기자가 내부 고발자와 대면 인터뷰 후 Otter.ai로 2시간 녹취 전사, Claude로 팩트 체크 포인트 추출",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Otter.ai",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Journalist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Journalist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 사실 검증 및 기사 작성",
+            "humanRole": "기자가 AI 생성 초안의 오류·편향 검토, 법적·윤리적 판단, 최종 문장 책임",
+            "aiRole": "ChatGPT로 기사 초안 생성, Grammarly로 문체 교정, Claude로 법적 민감 표현 검토",
+            "scenarioExample": "AI 초안에서 잘못된 날짜 발견 후 기자가 직접 1차 자료 대조 검증, 최종 byline 책임 서명",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "ChatGPT",
+              "Grammarly",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Journalist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 독자 신뢰 유지 및 후속 보도",
+            "humanRole": "독자 댓글·제보 직접 응대, 보도 파장 모니터링, 후속 보도 방향 결정",
+            "aiRole": "Perplexity로 보도 이후 반응 동향 추적, NotebookLM으로 누적 취재 자료 체계화",
+            "scenarioExample": "탐사 보도 게재 후 기자가 SNS 독자 질문에 직접 답하며 신뢰 자산 쌓고, AI로 관련 후속 자료 정리",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           }
         ]
@@ -594,65 +594,65 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "콘텐츠 기획·작성",
-        "afterAI": "AI 콘텐츠 생성 감독 + 콘텐츠 전략 설계 + 브랜드 스토리",
+        "beforeAI": "콘텐츠 주제 발굴부터 편집 캘린더 관리까지 전략가가 직접 기획하고, 외주 작가에게 브리핑하며 완성까지 수개월이 걸렸어요.",
+        "afterAI": "2026~2030년, AI 자율 콘텐츠 에이전트가 하루 수십 편의 블로그·소셜 포스트를 자동 생성해요. 콘텐츠 전략가의 역할은 '무엇을 만드느냐'가 아니라 '왜 이 이야기여야 하는가'의 의미 설계로 이동해요. 브랜드의 장기 서사를 설계하고, AI가 쏟아내는 콘텐츠 중 브랜드 정체성에 맞는 것을 큐레이션하며, AI가 읽어내지 못하는 타깃 청중의 감정·문화적 맥락을 전략에 반영하는 일이 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Jasper AI",
+          "Claude",
+          "Jasper",
+          "Perplexity",
+          "Notion AI",
           "Copy.ai",
-          "콘텐츠 생성 AI"
+          "ChatGPT"
         ],
         "survivalStrategy": [
-          "콘텐츠 전략 설계 (무엇을 전달할 것인가)",
-          "AI 콘텐츠 큐레이션",
-          "브랜드 스토리 설계",
-          "타겟 인사이트 해석",
-          "콘텐츠 효과 분석"
+          "브랜드 장기 서사(narrative arc) 설계—AI가 흉내 낼 수 없는 일관된 세계관 구축",
+          "AI 생성 콘텐츠 큐레이션·편집 책임자로서 브랜드 보이스 수호",
+          "타깃 청중의 문화적 코드·감정 맥락을 전략에 내장하는 인사이트 역량",
+          "콘텐츠 퍼포먼스 데이터 해석 후 전략 피벗 의사결정권 행사",
+          "에디토리얼 캘린더와 AI 에이전트 운영 체계를 통합 설계하는 오케스트레이션 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Content Strategist 상황 분석 및 목표 설정",
-            "humanRole": "Content Strategist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Content Strategist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 서사 및 청중 인사이트 수립",
+            "humanRole": "콘텐츠 전략가가 브랜드 장기 포지셔닝과 핵심 청중의 문화·감정 코드를 정의",
+            "aiRole": "Perplexity로 트렌드·경쟁사 콘텐츠 스캔, Claude로 청중 페르소나 초안 생성",
+            "scenarioExample": "스타트업 콘텐츠 전략가가 Perplexity로 경쟁사 콘텐츠 100건 분석 후 차별화 서사 방향 수립",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Content Strategist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 콘텐츠 캘린더 및 AI 에이전트 설계",
+            "humanRole": "전략가가 에디토리얼 방향을 확정하고 AI에 줄 프롬프트 가이드라인 직접 설계",
+            "aiRole": "Jasper로 주제별 콘텐츠 초안 대량 생성, Notion AI로 캘린더 자동 구조화",
+            "scenarioExample": "전략가가 3개월 콘텐츠 테마 정의 후 Jasper에 브랜드 가이드라인 입력, 주 20편 초안 자동 생산 파이프라인 구축",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Notion AI",
+              "Copy.ai"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Content Strategist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Content Strategist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 콘텐츠 큐레이션 및 브랜드 보이스 감수",
+            "humanRole": "AI 생성 초안 중 브랜드 정체성과 맞지 않는 것을 걸러내고 감성·뉘앙스 최종 편집",
+            "aiRole": "Claude로 초안 품질 스코어링, ChatGPT로 톤앤매너 일관성 체크",
+            "scenarioExample": "전략가가 Claude 생성 초안 30편 중 브랜드 보이스 기준으로 12편 선별, 나머지는 프롬프트 재설계",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Content Strategist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 분석 및 전략 피벗",
+            "humanRole": "콘텐츠 성과 데이터에서 청중 반응 패턴을 해석하고 다음 분기 전략 방향 결정",
+            "aiRole": "Perplexity로 경쟁사 성과 벤치마킹, Notion AI로 성과 데이터 대시보드 자동 생성",
+            "scenarioExample": "전략가가 3개월 퍼포먼스 데이터 보고 '스토리 형식' 콘텐츠 CTR이 2배 높음을 발견, 다음 분기 전략 전환",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Notion AI"
             ]
           }
         ]
@@ -1101,65 +1101,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "광고 카피 직접 작성",
-        "afterAI": "AI 카피 생성 감독 + 크리에이티브 전략 설계 + 브랜드 톤 정의",
+        "beforeAI": "헤드라인·광고 문구·슬로건을 카피라이터가 직접 수십 개씩 손으로 써가며 클라이언트에게 제안했어요.",
+        "afterAI": "2026~2030년, AI가 단 30초에 카피 100개를 뽑아내요. 카피라이터는 AI가 생성한 대량의 후보 중 '왜 이 문장이 이 브랜드여야 하는가'를 판단하는 크리에이티브 큐레이터가 돼요. 문화적 뉘앙스·금기어·감정 트리거를 인식하고, 법적·윤리적 리스크를 걸러내며, 클라이언트의 브랜드 영혼에 맞는 한 줄을 골라내는 인간 판단이 핵심이에요. 특히 딥페이크 광고 범람 시대에 '진짜 브랜드 메시지 인증'이 카피라이터의 새로운 책임이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "Jasper AI",
           "Copy.ai",
-          "카피 생성 AI"
+          "Jasper",
+          "Claude",
+          "ChatGPT",
+          "Midjourney",
+          "DALL-E 3"
         ],
         "survivalStrategy": [
-          "크리에이티브 전략 설계",
-          "AI 카피 큐레이션 (100개 중 1개 선택)",
-          "브랜드 톤앤매너 정의",
-          "감정 메시지 설계",
-          "클라이언트 설득"
+          "문화 코드·감정 트리거·금기어 인식—AI가 놓치는 인간 감수성으로 카피 판별",
+          "브랜드 톤앤매너 정의서 직접 작성—AI 프롬프트 설계의 원천 제공자",
+          "클라이언트 앞에서 '왜 이 카피인가' 스토리로 설득하는 프레젠테이션 역량",
+          "딥페이크·AI 생성 광고 범람 시대, 브랜드 진정성 메시지 인증 책임",
+          "롱폼 브랜드 스토리 집필—AI가 못하는 일관된 감성 서사 구성력"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Copywriter 상황 분석 및 목표 설정",
-            "humanRole": "Copywriter로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Copywriter이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 DNA 및 감성 코드 정의",
+            "humanRole": "카피라이터가 클라이언트와 직접 인터뷰해 브랜드의 감정·가치·금기 언어를 정의",
+            "aiRole": "Claude로 브랜드 관련 소비자 언어 패턴 분석, Perplexity로 경쟁사 카피 레퍼런스 수집",
+            "scenarioExample": "식품 브랜드 카피라이터가 창업자 인터뷰 후 Claude에 '절대 쓰지 말아야 할 단어' 리스트와 브랜드 보이스 가이드 입력",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Copywriter이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 카피 대량 생성 및 1차 필터링",
+            "humanRole": "카피라이터가 AI 출력물 100개 중 브랜드 DNA에 맞는 10개를 1차 선별",
+            "aiRole": "Copy.ai·Jasper로 헤드라인 변형 100개 생성, DALL-E 3로 비주얼 컨셉 시각화",
+            "scenarioExample": "카피라이터가 Jasper로 SNS 광고 카피 80개 생성 후 문화적 어색함·브랜드 위반 표현 즉시 탈락",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Copy.ai",
+              "DALL-E 3"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Copywriter 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Copywriter이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 최종 카피 다듬기 및 감성 조율",
+            "humanRole": "선별된 후보를 카피라이터가 직접 손질—리듬·어감·감정 임팩트 최적화",
+            "aiRole": "Claude로 문장 변형 옵션 제안, ChatGPT로 A/B 테스트용 버전 분기 생성",
+            "scenarioExample": "카피라이터가 Claude 제안 3가지 중 가장 감성적인 버전 선택 후 마지막 단어 직접 교체로 완성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Copywriter이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 클라이언트 설득 및 카피 론칭",
+            "humanRole": "카피라이터가 클라이언트에게 '이 문장이어야 하는 이유' 스토리로 설득 발표",
+            "aiRole": "Midjourney로 카피-비주얼 합성 목업 제작, Claude로 발표자료 논리 구조 초안",
+            "scenarioExample": "카피라이터가 Midjourney 목업과 함께 '이 카피가 경쟁사와 다른 3가지 이유' 발표로 클라이언트 최종 승인 획득",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Midjourney",
+              "Claude"
             ]
           }
         ]
@@ -1608,65 +1607,65 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "소셜미디어 콘텐츠 직접 제작·게시",
-        "afterAI": "AI 콘텐츠 생성 감독 + 커뮤니티 관계 형성 + 소셜 전략",
+        "beforeAI": "플랫폼별 게시물을 매니저가 직접 작성하고 최적 시간대를 수동으로 골라 올리며 하루 종일 댓글을 관찰했어요.",
+        "afterAI": "2026~2030년, AI 소셜 에이전트가 24시간 게시·댓글·DM 응답을 자동 처리해요. 하지만 팔로워가 진짜 사람과 소통하는지를 느끼는 순간, 신뢰가 결정돼요. 소셜미디어 매니저는 AI가 처리한 수천 건의 대화 중 브랜드 위기의 씨앗을 조기 감지하고, 진정성 있는 커뮤니티 이벤트와 팬 참여를 직접 설계해요. AI 딥페이크 계정이 브랜드를 사칭하는 사태도 직접 대응해야 하는 새로운 역할이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "Hootsuite AI",
-          "Buffer AI",
-          "소셜 콘텐츠 생성 AI"
+          "ChatGPT",
+          "Canva AI",
+          "Claude",
+          "Jasper",
+          "CapCut AI",
+          "Perplexity"
         ],
         "survivalStrategy": [
-          "커뮤니티 관계 형성 (진정성)",
-          "AI 콘텐츠 큐레이션",
-          "소셜 전략 설계",
-          "위기 대응 (악플·논란)",
-          "인플루언서 협업"
+          "팔로워와 진정성 기반 장기 관계 구축—AI 자동화 DM과 구별되는 인간 감성 응대",
+          "소셜 위기(논란·딥페이크 사칭·악성 댓글 폭발) 조기 감지 및 즉각 대응",
+          "인플루언서·팬 커뮤니티 협업 설계—AI가 만들 수 없는 신뢰 기반 파트너십",
+          "플랫폼 알고리즘 변화를 빠르게 파악해 AI 운영 전략 실시간 수정",
+          "브랜드 소셜 보이스의 일관성 감수—AI 게시물 중 톤 이탈 즉시 차단"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Social Media Manager 상황 분석 및 목표 설정",
-            "humanRole": "Social Media Manager로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Social Media Manager이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 소셜 전략 및 콘텐츠 캘린더 설계",
+            "humanRole": "매니저가 브랜드 소셜 목표·타깃 청중·플랫폼별 전략 방향 직접 정의",
+            "aiRole": "Perplexity로 트렌드 해시태그·바이럴 콘텐츠 패턴 분석, Claude로 월간 캘린더 초안 생성",
+            "scenarioExample": "뷰티 브랜드 매니저가 Perplexity로 인스타그램 트렌드 스캔 후 Claude에 3개월 캘린더 초안 요청, 브랜드 맞게 수정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude",
+              "Jasper"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Social Media Manager이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 콘텐츠 제작 및 AI 게시 파이프라인 운영",
+            "humanRole": "AI 생성 게시물 최종 감수, 브랜드 보이스 이탈 여부 판단 후 승인",
+            "aiRole": "Canva AI·CapCut AI로 이미지·쇼츠 자동 제작, Jasper로 캡션 초안 생성",
+            "scenarioExample": "매니저가 Canva AI 생성 카드뉴스 10장 중 브랜드 색상 위반 2장 거부, 나머지 승인 후 예약 게시",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Canva AI",
+              "CapCut AI",
+              "Jasper"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Social Media Manager 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Social Media Manager이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 커뮤니티 대응 및 위기 감지",
+            "humanRole": "매니저가 부정 댓글·사칭 계정·브랜드 위기 신호를 직접 판단하고 즉각 대응",
+            "aiRole": "Claude로 댓글 감성 분석·위험 분류, ChatGPT로 위기 대응 메시지 초안 생성",
+            "scenarioExample": "제품 리콜 논란 발생 시 매니저가 Claude 감성 분석 알림 받고 30분 내 공식 입장 직접 작성·게시",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Social Media Manager이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 분석 및 팬 커뮤니티 이벤트 기획",
+            "humanRole": "데이터 이면의 팬 감정 파악, 진정성 있는 오프라인·온라인 이벤트 직접 기획",
+            "aiRole": "Perplexity로 채널별 성과 벤치마킹, Claude로 성과 요약 보고서 초안 작성",
+            "scenarioExample": "매니저가 팬 댓글 직접 읽고 가장 요청 많은 주제로 라이브 Q&A 기획, AI는 행사 홍보 문구 초안 담당",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Claude"
             ]
           }
         ]
@@ -2115,64 +2114,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "보도자료 작성·언론 관계 관리",
-        "afterAI": "AI 보도자료 생성 감독 + PR 전략 설계 + 언론 관계 형성",
+        "beforeAI": "보도자료 작성부터 기자 개별 연락·미디어 리스트 관리까지 PR 전문가가 수작업으로 모든 언론 관계를 직접 챙겼어요.",
+        "afterAI": "2026~2030년, AI가 보도자료 초안을 5분 만에 작성하고 미디어 리스트를 자동 구성해요. PR 전문가의 핵심은 기자·편집장과의 '인간 신뢰 관계'로 이동해요. AI가 뿌린 수천 건의 보도자료 홍수 속에서 기자가 가장 먼저 전화하는 사람—그것이 PR 전문가의 진짜 자산이에요. 딥페이크로 인한 브랜드 명예훼손 위기 대응, AI가 잘못 생성한 보도자료의 법적 리스크 차단도 새로운 핵심 업무예요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Jasper AI",
-          "보도자료 생성 AI"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Jasper",
+          "Notion AI",
+          "Otter.ai"
         ],
         "survivalStrategy": [
-          "PR 전략 설계 (어떤 메시지를 전달할 것인가)",
-          "AI 보도자료 검증 및 정교화",
-          "언론 관계 형성 (기자와 신뢰)",
-          "위기 대응 전략 (이슈 관리)",
-          "브랜드 평판 관리"
+          "기자·편집장과 직접 쌓은 인간 신뢰 네트워크—AI 보도자료 홍수 속 독점 픽업 경쟁력",
+          "딥페이크·AI 생성 허위 정보로 인한 브랜드 명예훼손 위기 조기 감지 및 대응",
+          "AI 생성 보도자료의 법적·윤리적 오류 사전 검토 책임자 역할",
+          "브랜드 서사의 일관성 관리—AI가 만든 수십 건의 메시지 간 충돌 방지",
+          "위기 상황 시 경영진 미디어 트레이닝·언론 인터뷰 준비 코칭"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Pr Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Pr Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Pr Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: PR 메시지 전략 및 타깃 미디어 선정",
+            "humanRole": "PR 전문가가 브랜드 핵심 메시지와 접촉할 기자·매체를 직접 선별",
+            "aiRole": "Perplexity로 타깃 기자 최신 관심사·기사 스타일 분석, Claude로 맞춤 메시지 초안 생성",
+            "scenarioExample": "스타트업 PR 전문가가 Perplexity로 IT 전문 기자 5명의 최근 기사 분석 후 각자 맞춤 피칭 메시지 작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Pr Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 보도자료 작성 및 사실 검증",
+            "humanRole": "PR 전문가가 AI 초안의 사실 오류·법적 리스크·표현 논란 직접 점검 후 최종 승인",
+            "aiRole": "Jasper로 보도자료 초안 생성, Notion AI로 배포 이력·미디어 리스트 체계화",
+            "scenarioExample": "제약사 PR 전문가가 Jasper 생성 보도자료에서 승인 전 임상 데이터 오인 표현 발견, 의학팀 교차 검증 후 수정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Notion AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Pr Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Pr Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 기자 관계 구축 및 미디어 피칭",
+            "humanRole": "PR 전문가가 기자와 직접 전화·미팅으로 신뢰 관계 형성, 독점 인터뷰 기회 제공",
+            "aiRole": "Otter.ai로 기자 미팅 내용 전사·요약, Claude로 후속 이메일 초안 작성",
+            "scenarioExample": "PR 전문가가 기자와 점심 미팅 후 Otter.ai로 대화 요약, 이틀 후 Claude로 후속 독점 자료 이메일 발송",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Otter.ai",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Pr Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 위기 대응 및 미디어 모니터링",
+            "humanRole": "부정 기사·딥페이크 사칭 등 위기 발생 시 PR 전문가가 즉각 판단하고 언론 대응 주도",
+            "aiRole": "Perplexity로 실시간 언급 모니터링, ChatGPT로 위기 대응 성명서 초안 작성",
+            "scenarioExample": "경쟁사 허위 정보 유포 감지 시 Perplexity 알림 받고 PR 전문가가 30분 내 반박 성명 직접 작성·배포",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "ChatGPT"
             ]
           }
         ]
@@ -2621,65 +2620,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "마케팅 기획·실행 전체",
-        "afterAI": "AI 마케팅 자동화 감독 + 마케팅 전략 설계 + 고객 인사이트 해석",
+        "beforeAI": "마케팅 캠페인 기획·집행·성과 분석을 마케터가 스프레드시트와 수동 보고로 전 과정 처리했어요.",
+        "afterAI": "2026~2030년, AI가 타깃팅·광고 입찰·이메일 자동화·A/B 테스트를 실시간으로 최적화해요. 마케터는 AI가 뽑아낸 숫자 뒤의 인간 감정과 사회적 맥락을 해석하는 '의미 생산자'로 진화해요. AI가 최적화한 캠페인이 브랜드 장기 가치를 훼손하지 않는지 판단하고, 소비자와의 진정성 있는 관계 구축을 위해 인간 스토리를 마케팅에 주입하는 역할이 핵심이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "HubSpot AI",
-          "Meta Advantage+",
-          "마케팅 자동화 AI"
+          "ChatGPT",
+          "Claude",
+          "Jasper",
+          "Canva AI",
+          "Perplexity",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "마케팅 전략 설계 (무엇을 전달할 것인가)",
-          "AI 마케팅 자동화 감독",
-          "고객 인사이트 해석 (AI 데이터 의미)",
-          "브랜드 전략 설계",
-          "마케팅 ROI 분석 및 최적화"
+          "AI 최적화 결과가 브랜드 장기 가치·윤리와 상충할 때 제동 거는 전략적 판단력",
+          "소비자 감정·문화 트렌드를 읽어 AI가 놓치는 마케팅 각도 발굴",
+          "캠페인 전체 서사 설계—AI가 실행하는 개별 터치포인트를 하나의 이야기로 묶기",
+          "마케팅 데이터 이면의 '왜'를 설명하고 경영진을 설득하는 스토리텔링 역량",
+          "AI 생성 광고 소재의 브랜드 안전성·법적 리스크 최종 검토 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Marketer 상황 분석 및 목표 설정",
-            "humanRole": "Marketer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Marketer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 시장 인사이트 및 캠페인 전략 수립",
+            "humanRole": "마케터가 소비자 심리·시장 트렌드·경쟁 환경을 해석해 캠페인 핵심 각도 결정",
+            "aiRole": "Perplexity로 시장 트렌드·소비자 담론 스캔, Claude로 타깃 페르소나 시나리오 생성",
+            "scenarioExample": "음료 브랜드 마케터가 Perplexity로 Z세대 건강 음료 트렌드 분석 후 '진짜 재료' 서사로 캠페인 방향 확정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Marketer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 크리에이티브 소재 제작 및 AI 운영 설계",
+            "humanRole": "마케터가 크리에이티브 방향 감수·브랜드 안전성 검토, AI 자동화 운영 파라미터 설정",
+            "aiRole": "Jasper로 광고 카피 대량 생성, Canva AI로 비주얼 에셋 제작, ChatGPT로 이메일 시퀀스 초안 작성",
+            "scenarioExample": "마케터가 Canva AI 생성 배너 20종 중 브랜드 가이드라인 위반 5종 제거, 나머지로 A/B 테스트 세팅",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Canva AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Marketer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Marketer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 캠페인 실행 중 이상 신호 감지",
+            "humanRole": "마케터가 AI 자동화 결과 모니터링 중 브랜드 가치 훼손·윤리 이슈 발생 시 즉각 개입",
+            "aiRole": "Claude로 성과 지표 실시간 요약, Perplexity로 소비자 반응 모니터링",
+            "scenarioExample": "AI 타깃팅 알고리즘이 의도치 않게 특정 집단 배제하는 패턴 감지, 마케터가 즉시 파라미터 수동 수정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Marketer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 해석 및 다음 캠페인 전략 보고",
+            "humanRole": "마케터가 데이터 이면의 소비자 감정 맥락 해석, 경영진에 '왜 이 결과인가' 스토리로 보고",
+            "aiRole": "Notion AI로 성과 대시보드 자동 생성, Claude로 임원 보고용 요약 초안 작성",
+            "scenarioExample": "마케터가 CTR이 높지만 브랜드 인지도 하락하는 역설을 발견, Claude 요약본에 직접 문화적 맥락 해석 추가 후 임원 보고",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           }
         ]
@@ -3128,64 +3126,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "브랜드 관리·마케팅",
-        "afterAI": "AI 브랜드 데이터 해석 + 브랜드 전략 설계 + 브랜드 경험 설계",
+        "beforeAI": "브랜드 가이드라인 수립과 광고·패키지 관리를 브랜드 매니저가 부서 간 조율하며 수개월 단위로 진행했어요.",
+        "afterAI": "2026~2030년, AI가 소셜 리스닝으로 브랜드 언급을 24시간 수집하고, 자동 리포트로 감성 점수를 실시간 산출해요. 브랜드 매니저는 AI 수치 뒤에 숨은 소비자의 감정적 의미—왜 이 브랜드를 사랑하거나 이탈하는가—를 해석하고, 장기 브랜드 정체성이 AI 자동화 속에서 흔들리지 않도록 지키는 역할을 맡아요. 딥페이크 브랜드 사칭 콘텐츠 대응도 새 핵심 업무예요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "브랜드 분석 AI",
-          "소셜 리스닝 AI"
+          "Claude",
+          "Perplexity",
+          "ChatGPT",
+          "Midjourney",
+          "Notion AI",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "브랜드 본질 정의 (브랜드가 전달할 가치)",
-          "AI 브랜드 데이터 해석",
-          "브랜드 전략 설계",
-          "브랜드 경험 설계",
-          "브랜드 위기 대응"
+          "브랜드 본질(why·가치관) 정의—AI 분석이 수치화 못 하는 브랜드 영혼 수호",
+          "소비자 감성 데이터 이면의 문화적 맥락 해석으로 브랜드 전략 방향 결정",
+          "딥페이크·AI 생성 브랜드 사칭 콘텐츠 감지 및 법적 대응 프로세스 운영",
+          "크로스 부서 AI 콘텐츠 일관성 감독—브랜드 가이드라인 실질 집행자",
+          "브랜드 경험 설계—온·오프라인 고객 접점에서 인간 감성 터치 포인트 직접 기획"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Brand Manager 상황 분석 및 목표 설정",
-            "humanRole": "Brand Manager로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Brand Manager이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 건강도 진단 및 포지셔닝 재정의",
+            "humanRole": "브랜드 매니저가 소비자·내부 스테이크홀더 인터뷰로 브랜드 감정 자산 파악",
+            "aiRole": "Perplexity로 소셜 언급·리뷰 감성 스캔, Claude로 경쟁 브랜드 포지셔닝 비교 분석",
+            "scenarioExample": "패션 브랜드 매니저가 Perplexity로 온라인 리뷰 5,000건 감성 분석 후 'MZ 신뢰 하락' 원인 직접 인터뷰로 확인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Brand Manager이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 브랜드 가이드라인 업데이트 및 AI 크리에이티브 감수",
+            "humanRole": "브랜드 매니저가 AI 생성 비주얼·카피가 브랜드 정체성과 맞는지 최종 판단",
+            "aiRole": "Midjourney로 새 비주얼 컨셉 시각화, Canva AI로 가이드라인 템플릿 자동 제작",
+            "scenarioExample": "브랜드 매니저가 Midjourney 생성 비주얼 30종 중 브랜드 정서와 어긋난 10종 탈락, 나머지로 가이드라인 업데이트",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Midjourney",
+              "Canva AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Brand Manager 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Brand Manager이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 브랜드 위기 및 딥페이크 대응",
+            "humanRole": "브랜드 매니저가 사칭·딥페이크·논란 발생 시 법무팀 협력하여 즉각 대응 주도",
+            "aiRole": "Perplexity로 사칭 콘텐츠 확산 경로 추적, ChatGPT로 공식 입장 초안 작성",
+            "scenarioExample": "AI 생성 딥페이크 광고 발견 시 브랜드 매니저가 플랫폼 신고·법무 협의 주도, ChatGPT로 소비자 공지 초안 작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Brand Manager이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 브랜드 성과 해석 및 장기 전략 보고",
+            "humanRole": "브랜드 매니저가 AI 성과 데이터를 경영진이 이해할 브랜드 스토리로 번역·발표",
+            "aiRole": "Notion AI로 브랜드 KPI 대시보드 자동 생성, Claude로 경영진 보고서 초안 작성",
+            "scenarioExample": "브랜드 인지도 점수 상승에도 구매 전환율 하락하는 역설을 브랜드 매니저가 '신뢰 vs 접근성 갭'으로 해석, 임원 보고",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           }
         ]
@@ -3634,65 +3632,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "광고 기획·제작",
-        "afterAI": "AI 광고 생성 감독 + 광고 전략 설계 + 크리에이티브 디렉션",
+        "beforeAI": "TV·디지털 광고 캠페인의 콘셉트 개발부터 제작사 선정까지 광고기획자가 수개월에 걸쳐 수동으로 진행했어요.",
+        "afterAI": "2026~2030년, AI가 광고 소재를 수십 개 자동 생성하고 타깃별 최적 버전을 실시간 A/B 테스트해요. 광고기획자는 '이 캠페인이 왜 이 사람의 마음을 건드려야 하는가'라는 인간 통찰에서 출발하는 빅 아이디어 설계자가 돼요. AI가 최적화한 소재 중 브랜드 안전·사회적 민감성·법적 리스크를 판별하고, 클라이언트의 비즈니스 맥락을 살린 크리에이티브 방향을 제시하는 역할이 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Meta Advantage+",
-          "Google AI 광고",
-          "광고 생성 AI"
+          "Claude",
+          "ChatGPT",
+          "Midjourney",
+          "Sora",
+          "Runway",
+          "DALL-E 3"
         ],
         "survivalStrategy": [
-          "광고 전략 설계 (무엇을 전달할 것인가)",
-          "AI 광고 큐레이션",
-          "크리에이티브 디렉션",
-          "타겟 인사이트 해석",
-          "광고 효과 분석"
+          "빅 아이디어 발상—AI가 최적화하는 실행 이전에 '왜 이 이야기인가'를 먼저 정의",
+          "AI 생성 광고 소재의 사회적 민감성·문화적 금기 검토로 브랜드 리스크 차단",
+          "클라이언트 비즈니스 맥락과 소비자 감정을 동시에 이해하는 전략적 통찰력",
+          "크리에이티브 디렉션—AI 결과물들 사이에서 캠페인 통일성 유지하는 편집 안목",
+          "새 광고 포맷(AI 인터랙티브 광고·숏폼·생성 아바타) 선제적 실험 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Advertising Planner 상황 분석 및 목표 설정",
-            "humanRole": "Advertising Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Advertising Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 소비자 인사이트 및 빅 아이디어 발굴",
+            "humanRole": "광고기획자가 클라이언트 사업 맥락 심층 이해, 소비자 심리에서 캠페인 핵심 통찰 도출",
+            "aiRole": "Perplexity로 타깃 소비자 담론·트렌드 분석, Claude로 인사이트 가설 체계화",
+            "scenarioExample": "자동차 브랜드 광고기획자가 Claude로 Z세대 이동 개념 인사이트 분석 후 '자유보다 연결'이라는 빅 아이디어 도출",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Advertising Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 크리에이티브 소재 대량 생성 및 1차 선별",
+            "humanRole": "광고기획자가 AI 생성 비주얼·카피 중 빅 아이디어와 맞는 것, 브랜드 안전 기준 충족하는 것 선별",
+            "aiRole": "Midjourney·DALL-E 3로 광고 비주얼 대량 생성, Sora·Runway로 영상 콘셉트 시각화",
+            "scenarioExample": "광고기획자가 Midjourney 비주얼 50종 검토 후 특정 인종 고정관념 재현하는 이미지 즉시 탈락, 10종으로 압축",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Midjourney",
+              "DALL-E 3",
+              "Sora"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Advertising Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Advertising Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 크리에이티브 정교화 및 클라이언트 발표",
+            "humanRole": "광고기획자가 선별된 소재를 캠페인 스토리로 엮어 클라이언트에게 설득력 있게 발표",
+            "aiRole": "Claude로 발표자료 논리 구조 초안, Runway로 최종 캠페인 영상 편집 지원",
+            "scenarioExample": "광고기획자가 Runway로 30초 광고 시퀀스 편집 후 직접 스토리보드 해설 발표, 클라이언트 첫 회의에서 승인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Runway",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Advertising Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 캠페인 론칭 후 크리에이티브 최적화",
+            "humanRole": "광고기획자가 AI A/B 테스트 결과를 해석해 크리에이티브 방향 피벗 여부 최종 결정",
+            "aiRole": "ChatGPT로 A/B 테스트 결과 요약, Claude로 다음 라운드 크리에이티브 변형 제안",
+            "scenarioExample": "감성 소구 버전 CTR이 높지만 브랜드 인지도 하락 시 광고기획자가 '장기 브랜드 유지' 판단으로 원안 고수 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "ChatGPT",
+              "Claude"
             ]
           }
         ]
@@ -4141,64 +4138,63 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "매체 분석·집행",
-        "afterAI": "AI 매체 분석 해석 + 매체 전략 설계 + 예산 최적화",
+        "beforeAI": "TV·신문·디지털 매체별 GRP·CPM을 수동 계산하며 예산 배분표를 직접 작성했어요.",
+        "afterAI": "2026~2030년, AI 자동 입찰 시스템이 실시간으로 수천 개 지면의 가격을 최적화해요. 매체기획자는 AI가 추천한 매체 믹스가 클라이언트의 장기 브랜드 목표와 맞는지, 특정 커뮤니티에 광고가 몰려 역풍이 될 위험은 없는지 판단하는 전략 감독자가 돼요. 매체사와의 파트너십 협상, 신규 플랫폼(AI 생성 미디어 채널 포함)의 가치 평가는 인간 네트워크와 판단이 필요한 영역이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "매체 분석 AI",
-          "광고 최적화 AI"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Notion AI",
+          "Canva AI",
+          "Google Gemini"
         ],
         "survivalStrategy": [
-          "AI 매체 분석 해석",
-          "매체 전략 설계",
-          "예산 최적화 전략",
-          "매체 협상",
-          "매체 효과 분석"
+          "AI 자동 매체 믹스를 브랜드 전략·사회적 맥락 기준으로 검토하는 전략 감독 역량",
+          "매체사·플랫폼사와 직접 파트너십 협상—AI가 대행 못 하는 인간 관계 자산",
+          "신규 AI 생성 미디어 채널의 광고 효율·브랜드 안전성 직접 평가 역량",
+          "AI 최적화가 특정 집단 집중 노출 등 윤리 문제 만들 때 제동 거는 판단력",
+          "클라이언트 사업 성장과 단기 KPI 사이 균형 잡는 장기 매체 전략 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Media Planner 상황 분석 및 목표 설정",
-            "humanRole": "Media Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Media Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 캠페인 목표 분석 및 매체 전략 방향 수립",
+            "humanRole": "매체기획자가 클라이언트 비즈니스 목표와 타깃 행동 패턴을 직접 분석해 매체 전략 방향 결정",
+            "aiRole": "Perplexity로 타깃 미디어 소비 행태 조사, Claude로 채널별 전략 시나리오 초안 생성",
+            "scenarioExample": "식품 브랜드 매체기획자가 Claude로 30대 맞벌이 부부 미디어 소비 패턴 분석, 유튜브+인스타그램 중심 전략 확정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Media Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 매체 믹스 최적화 및 예산 배분 검토",
+            "humanRole": "매체기획자가 AI 제안 예산 배분의 브랜드 안전성·윤리 리스크 검토 후 최종 승인",
+            "aiRole": "ChatGPT로 채널별 예산 시나리오 비교 생성, Notion AI로 플랜 문서 자동 구조화",
+            "scenarioExample": "AI가 특정 정치 성향 채널 집중 노출 추천 시 매체기획자가 브랜드 중립성 이유로 배분 수동 조정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Media Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Media Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 매체사 협상 및 파트너십 체결",
+            "humanRole": "매체기획자가 주요 매체사와 직접 미팅·협상해 독점 노출·특가 조건 확보",
+            "aiRole": "Claude로 협상 전 매체사 배경·협상 레버리지 포인트 분석, Perplexity로 시장 단가 조사",
+            "scenarioExample": "매체기획자가 네이버 담당자와 직접 점심 미팅 후 경쟁사 대비 30% 낮은 CPM 계약 체결",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Media Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 캠페인 성과 해석 및 전략 리포트",
+            "humanRole": "매체기획자가 수치 뒤 소비자 행동 패턴 해석, 다음 캠페인 매체 전략 방향 제안",
+            "aiRole": "Claude로 채널별 성과 데이터 요약, Notion AI로 클라이언트 보고서 자동 초안 생성",
+            "scenarioExample": "유튜브 CPV 낮지만 구매 전환 높은 역설 발견, 매체기획자가 '인지→구매 시차' 가설로 클라이언트 설득하여 예산 유지",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Notion AI"
             ]
           }
         ]
@@ -4647,65 +4643,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "영상 기획·촬영·편집 전체",
-        "afterAI": "AI 영상 생성 감독 + 스토리 전략 설계 + 연출 디렉션",
+        "beforeAI": "영상 프로듀서가 기획·섭외·촬영·편집·납품까지 수개월에 걸쳐 대형 제작진과 함께 직접 총괄했어요.",
+        "afterAI": "2026~2030년, Sora·Runway 같은 AI가 대본만 넣으면 영상 초안을 자동 생성하고, ElevenLabs가 성우 없이 내레이션을 완성해요. 영상 프로듀서는 AI가 못 하는 현장 촬영의 '살아있는 순간'—다큐멘터리 현장의 감정·기업 영상의 내부 분위기—을 포착하는 연출력을 발휘하고, AI 생성 영상의 품질·윤리·저작권 리스크를 최종 감독해요. 클라이언트의 비전을 AI가 이해할 수 있는 영상 언어로 번역하는 것도 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Runway ML",
+          "Runway",
+          "Sora",
           "Descript",
-          "영상 생성 AI"
+          "ElevenLabs",
+          "CapCut AI",
+          "Premiere Pro AI"
         ],
         "survivalStrategy": [
-          "스토리 전략 설계",
-          "AI 영상 큐레이션",
-          "연출 디렉션",
-          "감정 스토리텔링",
-          "클라이언트 협업"
+          "현장 촬영의 '살아있는 순간' 포착—AI 생성 영상이 복제 못 하는 현장 감성 연출",
+          "클라이언트 비전을 AI 영상 프롬프트 언어로 번역하는 '프로듀서-AI 통역' 역량",
+          "AI 생성 영상의 저작권·딥페이크·초상권 법적 리스크 최종 감독 책임",
+          "다큐·기업 영상·광고 등 장르별 감성 스토리텔링 특화—AI 생성 영상과 차별화",
+          "멀티 포맷(숏폼·장편·인터랙티브) 제작 파이프라인 AI와 통합 설계 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Video Producer 상황 분석 및 목표 설정",
-            "humanRole": "Video Producer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Video Producer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 기획 및 스토리보드 설계",
+            "humanRole": "프로듀서가 클라이언트 비전 청취, 핵심 감성 메시지와 영상 구조 직접 설계",
+            "aiRole": "Claude로 기획안 초안 생성, Runway로 장면별 비주얼 무드 시각화",
+            "scenarioExample": "기업 홍보영상 프로듀서가 CEO 인터뷰로 회사 비전 파악 후 Claude로 3분 영상 스토리보드 초안, Runway로 각 장면 무드 시각화",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Runway"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Video Producer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 영상 생성 및 현장 촬영 병행",
+            "humanRole": "프로듀서가 현장 촬영 지휘—AI가 만들 수 없는 실제 공간·표정·분위기 직접 촬영",
+            "aiRole": "Sora로 B-roll 영상 생성, ElevenLabs로 내레이션 초안 자동 생성",
+            "scenarioExample": "다큐 프로듀서가 인터뷰 현장 직접 촬영, 공장 B-roll은 Sora로 생성하여 예산 30% 절감하면서 현장감 보존",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Sora",
+              "ElevenLabs",
+              "CapCut AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Video Producer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Video Producer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 편집 및 저작권·윤리 검토",
+            "humanRole": "프로듀서가 AI 생성 클립의 저작권·딥페이크·초상권 리스크 직접 확인 후 편집 승인",
+            "aiRole": "Descript로 대화 기반 편집 자동화, Premiere Pro AI로 색보정·노이즈 제거 자동 처리",
+            "scenarioExample": "Descript로 40분 인터뷰 자동 편집 후 프로듀서가 AI가 잘라낸 주요 발언 복원, 법적 민감 내용 삭제",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Descript",
+              "Premiere Pro AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Video Producer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 납품 및 클라이언트 피드백 반영",
+            "humanRole": "프로듀서가 최종본 감수·클라이언트 피드백 해석, 영상 활용 전략 조언",
+            "aiRole": "CapCut AI로 SNS용 숏폼 버전 자동 리사이즈, Claude로 클라이언트 피드백 대응 초안 작성",
+            "scenarioExample": "클라이언트가 '더 따뜻하게' 요청 시 프로듀서가 감성 의도 해석해 색보정 방향 직접 지시, CapCut AI로 플랫폼별 포맷 자동 생성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "CapCut AI",
+              "Claude"
             ]
           }
         ]
@@ -5154,65 +5149,63 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "팟캐스트 기획·녹음·편집 전체",
-        "afterAI": "AI 편집 감독 + 콘텐츠 전략 설계 + 게스트 관계",
+        "beforeAI": "팟캐스트 기획·녹음·편집·자막 작업까지 프로듀서가 수작업으로 처리하고, 게스트 섭외도 직접 연락했어요.",
+        "afterAI": "2026~2030년, AI가 편집·자막·노이즈 제거를 자동 처리하고 ElevenLabs로 AI 진행자까지 만들 수 있어요. 팟캐스트 프로듀서는 AI 진행자가 줄 수 없는 진짜 인간의 호기심과 공감 대화를 설계해요. 독보적인 게스트 네트워크, 청취자가 제보하고 참여하는 커뮤니티 감각, 에피소드 간 서사를 연결하는 장편 스토리 구성력이 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
           "Descript",
-          "Riverside AI",
-          "팟캐스트 편집 AI"
+          "Riverside",
+          "ElevenLabs",
+          "Otter.ai",
+          "NotebookLM",
+          "Claude"
         ],
         "survivalStrategy": [
-          "콘텐츠 전략 설계",
-          "AI 편집 감독 (자막·노이즈 제거)",
-          "게스트 관계 형성",
-          "스토리 구성",
-          "청취자 커뮤니티 관리"
+          "게스트 인적 네트워크—AI 진행자가 섭외할 수 없는 독보적 인터뷰이 확보력",
+          "청취자 커뮤니티 직접 운영—제보·참여·피드백으로 콘텐츠 방향 살아있게 유지",
+          "시즌 단위 장편 서사 구성—에피소드 간 연결 고리와 감정 흐름 설계",
+          "AI 편집 결과물의 맥락 오류·표현 리스크 최종 감수 책임",
+          "멀티 플랫폼 오디오 전략—팟캐스트·유튜브·클립 숏폼 동시 운영 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Podcast Producer 상황 분석 및 목표 설정",
-            "humanRole": "Podcast Producer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Podcast Producer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 시즌 기획 및 게스트 라인업 구성",
+            "humanRole": "프로듀서가 시즌 테마 확정, 인적 네트워크 활용해 독점 게스트 직접 섭외",
+            "aiRole": "Perplexity로 트렌드 주제 조사, NotebookLM으로 게스트 배경 자료 빠르게 요약",
+            "scenarioExample": "IT 팟캐스트 프로듀서가 Perplexity로 AI 규제 동향 파악 후 관련 전문가 직접 LinkedIn 연락으로 3명 독점 섭외",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "NotebookLM",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Podcast Producer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 인터뷰 준비 및 녹음",
+            "humanRole": "프로듀서가 게스트별 맞춤 질문 설계, 대화 흐름을 이끄는 인간 진행자 역할 직접 담당",
+            "aiRole": "Otter.ai로 사전 인터뷰 메모 정리, Riverside로 원격 고음질 녹음 진행",
+            "scenarioExample": "프로듀서가 NotebookLM으로 게스트 저서 30분 만에 소화 후 핵심 질문 5개 직접 작성, Riverside로 원격 녹음 진행",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Riverside",
+              "Otter.ai"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Podcast Producer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Podcast Producer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 편집 감독 및 에피소드 완성",
+            "humanRole": "프로듀서가 Descript 자동 편집 결과 검토, 맥락 오류·표현 논란 구간 직접 수정",
+            "aiRole": "Descript로 침묵 제거·자동 편집·자막 생성, ElevenLabs로 광고 멘트 음성 자동 생성",
+            "scenarioExample": "프로듀서가 Descript 편집본에서 게스트가 미공개 정보 언급한 구간 발견해 직접 삭제, 나머지 자동 편집 승인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Descript",
+              "ElevenLabs"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Podcast Producer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 배포 및 청취자 커뮤니티 관계 유지",
+            "humanRole": "프로듀서가 청취자 댓글·메시지 직접 읽고 응대, 다음 에피소드 아이디어 청취자 피드백으로 결정",
+            "aiRole": "Claude로 에피소드 쇼노트·소셜 카피 자동 생성, Otter.ai로 에피소드 하이라이트 클립 추천",
+            "scenarioExample": "청취자 DM에서 다음 에피소드 주제 직접 발굴한 프로듀서, Claude로 쇼노트 초안 받아 감성 문구 직접 다듬어 배포",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Otter.ai"
             ]
           }
         ]
@@ -5661,63 +5654,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "인플루언서 관리·협업",
-        "afterAI": "AI 데이터 분석 해석 + 인플루언서 관계 형성 + 협업 전략",
+        "beforeAI": "인플루언서 발굴부터 계약·콘텐츠 방향 조율·성과 보고까지 매니저가 수동으로 각 크리에이터와 소통했어요.",
+        "afterAI": "2026~2030년, AI가 수십만 인플루언서의 팔로워 진위·허위 팔로워·브랜드 적합도를 자동 스캐닝해요. 인플루언서 매니저는 AI 수치가 포착 못 하는 크리에이터의 '진짜 팬덤 온도'—댓글 감성·팬과의 유대감 깊이—를 직접 읽고 브랜드 장기 파트너십을 설계해요. AI 딥페이크 인플루언서가 등장하면서 진짜 인간 크리에이터의 신뢰성 검증도 새 핵심 역할이에요.",
         "replacementRisk": "low",
         "aiTools": [
-          "인플루언서 분석 AI"
+          "Perplexity",
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "인플루언서 관계 형성 (신뢰)",
-          "AI 데이터 분석 해석",
-          "협업 전략 설계",
-          "인플루언서 브랜드 매칭",
-          "협업 협상"
+          "AI 분석 너머 크리에이터 팬덤 온도 직접 평가—댓글·라이브 반응·커뮤니티 문화 독해",
+          "AI 딥페이크 가상 인플루언서와 진짜 크리에이터 구별, 신뢰성 검증 책임",
+          "인플루언서와 장기 신뢰 관계 구축—단발 광고 대신 브랜드 앰배서더 파트너십 설계",
+          "협찬 콘텐츠 법적 공시·과대광고 규제 대응 등 컴플라이언스 관리",
+          "크리에이터 이코노미 새 플랫폼(숏폼·라이브커머스·AI 채널) 선제 탐색 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Influencer Manager 상황 분석 및 목표 설정",
-            "humanRole": "Influencer Manager로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Influencer Manager이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 캠페인 목표 및 인플루언서 후보 발굴",
+            "humanRole": "매니저가 브랜드 캠페인 목표 파악, 후보 크리에이터의 팬덤 문화·진정성 직접 검토",
+            "aiRole": "Perplexity로 카테고리별 인플루언서 후보 리스트업, Claude로 허위 팔로워 비율·참여율 분석",
+            "scenarioExample": "뷰티 브랜드 매니저가 Claude 분석으로 팔로워 50만 인플루언서의 허위 계정 30% 발견, 15만 팔로워 진성 크리에이터로 교체 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Influencer Manager이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 크리에이터 직접 소통 및 계약 협상",
+            "humanRole": "매니저가 크리에이터와 직접 미팅해 브랜드 적합성 확인, 협찬 조건·창의적 자율도 협상",
+            "aiRole": "Notion AI로 계약 조건 초안 생성, ChatGPT로 제안서 초안 작성",
+            "scenarioExample": "매니저가 크리에이터와 카페 미팅으로 '이 브랜드를 진심으로 좋아하는지' 직접 확인 후 장기 앰배서더 계약 체결",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Influencer Manager 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Influencer Manager이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 콘텐츠 방향 가이드 및 법적 컴플라이언스 확인",
+            "humanRole": "매니저가 크리에이터에게 브랜드 방향 전달, 협찬 공시·과대광고 법적 요건 준수 확인",
+            "aiRole": "Claude로 콘텐츠 브리프 초안 작성, Perplexity로 최신 광고 규제 동향 조사",
+            "scenarioExample": "매니저가 Claude 브리프에 '이 성분 효과 과장 금지' 직접 추가, 크리에이터 게시 전 협찬 표시 여부 직접 확인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Influencer Manager이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 해석 및 장기 파트너십 진화",
+            "humanRole": "매니저가 캠페인 결과를 크리에이터와 함께 리뷰, 다음 협업 방향 인간적 대화로 설계",
+            "aiRole": "Claude로 캠페인 성과 데이터 요약, Canva AI로 성과 보고서 자동 시각화",
+            "scenarioExample": "매니저가 크리에이터와 화상통화로 성과 리뷰, AI 수치 너머 '팬들이 왜 반응했는지' 맥락 공유하며 장기 콜라보 기획",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Canva AI"
             ]
           }
         ]
@@ -6166,65 +6158,63 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "키워드 분석·콘텐츠 최적화 수작업",
-        "afterAI": "AI SEO 자동화 감독 + SEO 전략 설계 + 검색 의도 해석",
+        "beforeAI": "SEO 전문가가 수백 개 키워드를 수동으로 조사하고 스프레드시트로 경쟁도·검색량을 분석했어요.",
+        "afterAI": "2026~2030년, AI가 키워드 리서치·콘텐츠 최적화·기술 SEO 감사를 자동화해요. 특히 Google AI Overview로 검색 결과 형태가 바뀌면서 SEO 전문가는 '검색 엔진 최적화'가 아닌 '사람이 진짜 원하는 답을 주는 콘텐츠 신뢰도 설계'로 역할이 이동해요. AI 생성 콘텐츠 홍수 속에서 E-E-A-T(경험·전문성·권위·신뢰)를 실질적으로 구현하는 방법을 아는 SEO 전문가가 살아남아요.",
         "replacementRisk": "high",
         "aiTools": [
-          "Surfer SEO",
-          "Clearscope",
-          "SEO AI"
+          "Perplexity",
+          "Claude",
+          "ChatGPT",
+          "Jasper",
+          "Notion AI",
+          "Semrush AI"
         ],
         "survivalStrategy": [
-          "검색 의도 해석 (사용자가 원하는 것)",
-          "AI SEO 결과 검증",
-          "SEO 전략 설계",
-          "콘텐츠 전략 통합",
-          "SEO 트렌드 대응"
+          "E-E-A-T 실질 구현 전략—저자 신뢰도·실경험 증거를 콘텐츠에 내장하는 설계",
+          "AI Overview 시대 검색 의도 재해석—'답을 주는 신뢰 콘텐츠' 전략 수립",
+          "AI 생성 콘텐츠 홍수 속 사람이 직접 쓴 1차 경험 콘텐츠의 차별화 전략",
+          "기술 SEO(사이트 구조·코어 웹 바이탈)와 콘텐츠 전략의 통합 설계 역량",
+          "알고리즘 변화 조기 감지 및 클라이언트 전략 신속 피벗 능력"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Seo Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Seo Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Seo Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 검색 의도 분석 및 SEO 전략 수립",
+            "humanRole": "SEO 전문가가 타깃 사용자의 실제 궁금증·문제 맥락을 해석해 콘텐츠 전략 방향 결정",
+            "aiRole": "Perplexity로 경쟁사 상위 노출 페이지 분석, Claude로 검색 의도 클러스터링 초안 생성",
+            "scenarioExample": "IT 기업 SEO 전문가가 Perplexity로 '생성 AI 도입 비용' 검색 상위 10개 분석 후 E-E-A-T 각도로 차별화 전략 수립",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Seo Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 콘텐츠 브리프 설계 및 제작 감독",
+            "humanRole": "SEO 전문가가 저자의 1차 경험·전문성이 드러나는 콘텐츠 브리프 직접 작성",
+            "aiRole": "Jasper로 SEO 최적화 초안 생성, Semrush AI로 키워드 밀도·내부 링크 자동 점검",
+            "scenarioExample": "SEO 전문가가 Jasper 초안에 실제 고객 사례·전문가 인용 추가 지시, E-E-A-T 기준 충족 여부 직접 검토",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Seo Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Seo Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 기술 SEO 감사 및 사이트 최적화",
+            "humanRole": "SEO 전문가가 AI 감사 결과 중 비즈니스 우선순위 기준으로 수정 순서 판단",
+            "aiRole": "Claude로 크롤링 오류·페이지 속도 이슈 자동 분류, Perplexity로 최신 Core Web Vitals 기준 조사",
+            "scenarioExample": "300개 이슈 중 SEO 전문가가 구매 전환에 직접 영향하는 15개 우선 수정 결정, 개발팀에 명확한 우선순위 전달",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Seo Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 분석 및 알고리즘 변화 대응",
+            "humanRole": "SEO 전문가가 순위 변동 패턴에서 알고리즘 변화 신호 해석, 클라이언트 전략 수정 주도",
+            "aiRole": "Notion AI로 월간 성과 대시보드 자동 생성, Claude로 알고리즘 업데이트 영향 분석",
+            "scenarioExample": "Google 알고리즘 업데이트 후 SEO 전문가가 Claude 분석 보고 'AI 생성 콘텐츠 페널티' 패턴 발견, 즉시 클라이언트에 인간 저자 콘텐츠 전환 권고",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           }
         ]
@@ -6673,64 +6663,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "광고 집행·최적화 수작업",
-        "afterAI": "AI 광고 자동화 감독 + 최적화 전략 설계 + ROI 분석",
+        "beforeAI": "퍼포먼스 마케터가 광고 소재·입찰가·타깃을 수동 조정하며 A/B 테스트를 일일이 설정했어요.",
+        "afterAI": "2026~2030년, Meta Advantage+·Google Performance Max 같은 AI가 광고 전체를 자동 최적화해요. 퍼포먼스 마케터는 AI가 최적화한 결과가 비즈니스 목표와 진짜 일치하는지 검증하고, 단기 ROAS 최대화가 장기 브랜드 가치를 훼손하지 않는지 판단하는 전략 감독자가 돼요. AI가 사각지대로 두는 신규 플랫폼·신규 오디언스를 직접 실험하고 개척하는 역량이 핵심이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "Meta Advantage+",
-          "Google AI 광고"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Canva AI",
+          "Jasper",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "최적화 전략 설계",
-          "AI 광고 결과 해석",
-          "ROI 분석 및 개선",
-          "광고 전략 수립",
-          "예산 최적화"
+          "AI 자동화 결과가 비즈니스 전략·브랜드 가치와 맞는지 검증하는 전략 감독 역량",
+          "AI 사각지대 신규 오디언스·플랫폼 직접 실험—선점 경쟁력 확보",
+          "퍼스트파티 데이터 전략—쿠키리스 시대 AI 학습 데이터 품질 관리 책임",
+          "광고 성과 데이터를 사업 의사결정 언어로 번역해 경영진 설득하는 커뮤니케이션",
+          "AI 광고 자동화의 윤리·개인정보 리스크 감시 및 규제 대응 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Performance Marketer 상황 분석 및 목표 설정",
-            "humanRole": "Performance Marketer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Performance Marketer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 캠페인 목표 설정 및 AI 자동화 파라미터 설계",
+            "humanRole": "퍼포먼스 마케터가 비즈니스 목표를 광고 KPI로 번역, AI에 줄 최적화 방향 직접 설정",
+            "aiRole": "Claude로 유사 캠페인 사례 분석, Perplexity로 경쟁사 광고 전략 조사",
+            "scenarioExample": "이커머스 퍼포먼스 마케터가 '신규 고객 LTV 극대화' 목표로 단기 ROAS 기준이 아닌 60일 LTV 기준 최적화 파라미터 직접 설정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Performance Marketer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 광고 소재 생성 및 브랜드 안전 검토",
+            "humanRole": "퍼포먼스 마케터가 AI 생성 광고 소재의 브랜드 안전·법적 규제 위반 여부 최종 확인",
+            "aiRole": "Canva AI·Jasper로 광고 소재 대량 생성, Claude로 소재별 클릭 유도 문구 초안 작성",
+            "scenarioExample": "퍼포먼스 마케터가 Jasper 생성 광고 문구 중 '최저가 보장' 과대광고 문구 발견, 즉시 수정 후 집행 승인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Canva AI",
+              "Jasper",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Performance Marketer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Performance Marketer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 최적화 모니터링 및 이상 개입",
+            "humanRole": "퍼포먼스 마케터가 AI 자동화 결과 실시간 모니터링, 브랜드 위험·예산 낭비 신호 시 즉각 개입",
+            "aiRole": "Claude로 캠페인 성과 실시간 요약, Perplexity로 경쟁사 캠페인 동향 트래킹",
+            "scenarioExample": "AI가 특정 뉴스 사이트에 광고를 과집중 배정한 것을 퍼포먼스 마케터가 발견, 브랜드 이미지 리스크로 즉시 제외 조치",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Performance Marketer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 성과 해석 및 경영진 보고",
+            "humanRole": "퍼포먼스 마케터가 데이터를 사업 성과 언어로 번역, 다음 분기 예산 결정에 근거 제시",
+            "aiRole": "Notion AI로 성과 대시보드 자동 생성, ChatGPT로 임원 보고서 초안 작성",
+            "scenarioExample": "ROAS 3.2로 좋아 보이지만 신규 고객 비율 5% 하락 발견, 퍼포먼스 마케터가 '단기 수익 vs 장기 성장' 딜레마를 임원에게 직접 설명해 전략 전환 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           }
         ]
@@ -7179,64 +7169,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "커뮤니티 관리·소통",
-        "afterAI": "AI 커뮤니티 데이터 해석 + 관계 형성 + 커뮤니티 전략",
+        "beforeAI": "커뮤니티 매니저가 포럼·SNS 그룹·오픈채팅방의 댓글과 DM을 하루 종일 직접 읽으며 응대했어요.",
+        "afterAI": "2026~2030년, AI 챗봇이 일반 문의의 80%를 자동 응답하고 커뮤니티 감성을 실시간 분석해요. 커뮤니티 매니저는 AI가 감지 못 하는 '멤버 이탈 신호'—갑자기 조용해진 핵심 멤버, 서서히 변하는 분위기—를 인간 감각으로 읽어요. 멤버들이 서로를 돕는 문화를 설계하고, 갈등·논란 발생 시 중재자 역할을 맡으며, AI 봇이 만들어낸 가짜 참여(봇 인플레이션)를 걸러내는 것도 새 역할이에요.",
         "replacementRisk": "low",
         "aiTools": [
-          "커뮤니티 분석 AI",
-          "챗봇 (보조용)"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Notion AI",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "관계 형성 (진정성·공감)",
-          "AI 커뮤니티 데이터 해석",
-          "커뮤니티 전략 설계",
-          "위기 대응 (논란·갈등)",
-          "커뮤니티 문화 형성"
+          "멤버 이탈 신호·분위기 변화를 AI 이전에 인간 감각으로 먼저 감지하는 공감 역량",
+          "커뮤니티 문화 설계—멤버 간 자율적 돌봄이 일어나는 규범과 의례 직접 구축",
+          "갈등·논란 발생 시 중립적 중재자 역할—AI 모더레이션과 차별화되는 감성 판단",
+          "AI 봇 참여 인플레이션 식별—진짜 사람 멤버와 봇 계정 구별 역량",
+          "오프라인·온라인 결합 커뮤니티 이벤트 설계로 인간 유대감 강화"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Community Manager 상황 분석 및 목표 설정",
-            "humanRole": "Community Manager로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Community Manager이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 커뮤니티 건강 진단 및 문화 방향 설계",
+            "humanRole": "매니저가 핵심 멤버와 직접 대화, 커뮤니티 온도·숨겨진 니즈 파악 후 문화 방향 결정",
+            "aiRole": "Claude로 커뮤니티 댓글 감성 패턴 분석, Perplexity로 유사 커뮤니티 운영 사례 조사",
+            "scenarioExample": "게임 커뮤니티 매니저가 Claude 분석으로 '초보자 질문에 베테랑 멤버가 냉담' 패턴 발견, 직접 베테랑 멤버에게 메시지로 환경 개선 부탁",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Community Manager이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 멤버 참여 이벤트 및 콘텐츠 기획",
+            "humanRole": "매니저가 멤버 직접 인터뷰로 관심사 파악, 자발적 참여 유도하는 이벤트 구조 설계",
+            "aiRole": "Notion AI로 이벤트 일정·규칙 문서화, Canva AI로 커뮤니티 공지 비주얼 자동 제작",
+            "scenarioExample": "매니저가 멤버 설문 직접 진행 후 '팀 대결 챌린지' 형식 이벤트 기획, Canva AI로 홍보 배너 제작",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Notion AI",
+              "Canva AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Community Manager 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Community Manager이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 갈등·논란 중재 및 AI 봇 필터링",
+            "humanRole": "매니저가 갈등 당사자와 개별 대화로 맥락 파악, 공정한 중재 결정 직접 내림",
+            "aiRole": "Claude로 갈등 게시물 맥락 요약, ChatGPT로 중재 메시지 초안 작성",
+            "scenarioExample": "매니저가 Claude 분석으로 봇 의심 계정 5개 발견, 직접 개별 메시지로 진위 확인 후 2개 봇 계정 퇴출",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Community Manager이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 커뮤니티 성장 보고 및 전략 조정",
+            "humanRole": "매니저가 수치 너머 멤버 감정 변화 해석, 다음 분기 커뮤니티 성장 전략 방향 결정",
+            "aiRole": "Notion AI로 월간 성장 지표 자동 집계, Claude로 멤버 유형별 기여 패턴 분석",
+            "scenarioExample": "매니저가 활성 멤버 수 증가에도 '피상적 댓글' 증가 감지, '깊은 대화 스레드' 장려 프로그램 직접 기획",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           }
         ]
@@ -7685,63 +7673,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "강연 준비·발표",
-        "afterAI": "AI 강연 콘텐츠 감독 + 감정 전달 + 청중 관계",
+        "beforeAI": "강연자가 주제 조사부터 슬라이드 제작·연습까지 모든 강연 준비를 혼자 수작업으로 했어요.",
+        "afterAI": "2026~2030년, AI 아바타 강연자가 온라인 콘퍼런스에 등장하고 AI가 슬라이드·대본을 자동 생성해요. 실제 강연자의 핵심 자산은 자기 이름과 얼굴로 전달하는 '진짜 경험의 무게'예요. AI가 생성한 정보가 넘치는 시대, 청중은 살아온 이야기·실패·통찰이 있는 인간에게 더 큰 감동을 받아요. 청중과 즉흥적으로 주고받는 Q&A, 강연 후 개인 네트워킹이 강연자 신뢰 자산의 핵심이에요.",
         "replacementRisk": "low",
         "aiTools": [
-          "강연 콘텐츠 생성 AI (보조용)"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "NotebookLM",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "감정 전달 (AI는 불가)",
-          "AI 강연 콘텐츠 큐레이션",
-          "청중 관계 형성",
-          "스토리텔링",
-          "강연 연출"
+          "자기 이름과 실제 경험의 신뢰 자산—AI 아바타가 대체 못 하는 진짜 인간 스피커",
+          "청중과의 즉흥 Q&A·현장 에너지 교환—강연의 '살아있음' 제공",
+          "강연 후 개인 네트워킹으로 청중과 장기 관계 구축",
+          "AI 생성 정보를 비판적으로 검증·재해석하는 관점 제시 역량",
+          "특정 분야 심층 전문성 구축—AI가 아는 것과 다른 1차 경험 서사"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Public Speaker 상황 분석 및 목표 설정",
-            "humanRole": "Public Speaker로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Public Speaker이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 강연 주제 설계 및 청중 분석",
+            "humanRole": "강연자가 주최 측과 직접 소통해 청중 맥락·기대 파악, 자기 경험 기반 핵심 메시지 결정",
+            "aiRole": "Perplexity로 해당 주제 최신 동향 조사, NotebookLM으로 관련 자료 빠르게 소화",
+            "scenarioExample": "AI 시대 커리어 강연자가 Perplexity로 최신 자동화 동향 파악 후 자신의 3년 전 직업 전환 실경험과 결합해 핵심 메시지 설계",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Public Speaker이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 강연 구조 및 슬라이드 제작",
+            "humanRole": "강연자가 자기 관점·경험이 담긴 이야기 흐름 직접 설계, AI 초안에 개인 서사 추가",
+            "aiRole": "Claude로 강연 구조 초안 생성, Canva AI로 슬라이드 비주얼 자동 제작",
+            "scenarioExample": "강연자가 Claude 구조 초안 받아 '내가 실패했던 2023년의 그 순간' 실화 슬라이드 직접 추가, Canva AI로 배경 자동 완성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "Canva AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Public Speaker 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Public Speaker이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 강연 리허설 및 AI 피드백 활용",
+            "humanRole": "강연자가 실제 목소리·몸짓·눈맞춤으로 연습, 청중 반응 예측 시나리오 직접 대비",
+            "aiRole": "ChatGPT로 예상 Q&A 시뮬레이션, Claude로 메시지 명확성·설득력 피드백",
+            "scenarioExample": "강연자가 ChatGPT로 '가장 어려운 반박 질문 10개' 시뮬레이션 후 즉흥 답변 훈련, 현장에서 어떤 질문에도 자신감 있게 대응",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "ChatGPT",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Public Speaker이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 강연 후 콘텐츠 확산 및 네트워킹",
+            "humanRole": "강연자가 청중과 직접 명함 교환·후속 대화로 장기 관계 구축, 강연 경험을 콘텐츠로 재활용",
+            "aiRole": "Claude로 강연 핵심 내용 블로그·소셜 포스트 초안 변환, Canva AI로 인용구 카드뉴스 제작",
+            "scenarioExample": "강연자가 강연 후 1주일 내 Claude로 핵심 메시지 3편 소셜 포스트로 변환, 강연 현장에서 연결된 청중과 LinkedIn으로 후속 교류",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Canva AI"
             ]
           }
         ]
@@ -8190,64 +8177,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "이벤트 기획·실행 전체",
-        "afterAI": "AI 이벤트 시뮬레이션 감독 + 경험 설계 + 이해관계자 조율",
+        "beforeAI": "이벤트 기획자가 장소 섭외·타임라인 관리·공급업체 협상·현장 진행까지 수동으로 전 과정 총괄했어요.",
+        "afterAI": "2026~2030년, AI가 타임라인 자동 생성·예산 시뮬레이션·참가자 분석을 처리해요. 이벤트 기획자의 핵심은 AI가 시뮬레이션 못 하는 '현장의 돌발'—VIP 불참·기기 오류·날씨 변수—에 순간 판단으로 대응하는 능력이에요. 참가자가 이벤트에서 느끼는 감동·연결감·놀라움은 인간 기획자의 감성 설계에서 나와요. 공급업체·아티스트·스폰서와의 신뢰 기반 협상도 AI 대행 불가 영역이에요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "이벤트 기획 AI",
-          "참가자 분석 AI"
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Canva AI",
+          "Midjourney"
         ],
         "survivalStrategy": [
-          "이벤트 경험 설계 (감동·재미)",
-          "AI 시뮬레이션 해석",
-          "이해관계자 조율",
-          "이벤트 연출",
-          "위기 대응"
+          "현장 돌발 상황 즉각 판단력—AI 시뮬레이션을 벗어난 변수에 5분 내 대안 결정",
+          "감동·연결·놀라움을 설계하는 이벤트 경험 건축가—AI가 만든 타임라인 너머 감성 설계",
+          "공급업체·스폰서·아티스트와 신뢰 기반 장기 파트너십—AI 대행 불가 인간 협상",
+          "하이브리드(온오프라인 동시) 이벤트 설계 전문성—AI 디지털 경험과 물리 공간 통합",
+          "이벤트 후 참가자 관계 유지—설문·후속 콘텐츠로 커뮤니티로 연결"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Event Planner 상황 분석 및 목표 설정",
-            "humanRole": "Event Planner로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Event Planner이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 이벤트 컨셉 및 경험 설계",
+            "humanRole": "기획자가 클라이언트와 직접 소통해 이벤트의 감정적 목표와 참가자 경험 곡선 설계",
+            "aiRole": "Claude로 유사 이벤트 사례 조사, Midjourney로 공간 무드 비주얼 시각화",
+            "scenarioExample": "기업 신제품 런칭 기획자가 클라이언트 임원과 인터뷰 후 '참가자가 떠날 때 느낄 한 가지 감정' 정의, Midjourney로 공간 분위기 컨셉 시각화",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Event Planner이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 타임라인·예산 계획 및 공급업체 협상",
+            "humanRole": "기획자가 AI 예산 시뮬레이션 검토, 핵심 공급업체와 직접 협상으로 최적 조건 확보",
+            "aiRole": "Notion AI로 타임라인·체크리스트 자동 구조화, ChatGPT로 공급업체 비교 분석 초안",
+            "scenarioExample": "기획자가 Notion AI 자동 생성 타임라인 검토 후 '기술 리허설 시간 부족' 발견, 직접 스케줄 재조정하고 AV팀과 협상",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Event Planner 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Event Planner이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 현장 진행 및 돌발 대응",
+            "humanRole": "기획자가 현장에서 모든 이해관계자 조율, 예상치 못한 변수에 즉각 판단으로 대응",
+            "aiRole": "Claude로 진행 중 체크리스트 실시간 업데이트, Canva AI로 현장 사이니지 즉석 수정",
+            "scenarioExample": "주요 발표자 30분 지각 시 기획자가 즉시 Q&A 순서 재배치 결정, Canva AI로 당일 프로그램 변경 안내 즉석 제작",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Canva AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Event Planner이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 이벤트 후 분석 및 참가자 관계 유지",
+            "humanRole": "기획자가 참가자 직접 인터뷰로 감동 포인트·아쉬움 파악, 다음 이벤트 방향 결정",
+            "aiRole": "Claude로 참가자 설문 결과 패턴 분석, Notion AI로 성과 보고서 자동 초안",
+            "scenarioExample": "기획자가 VIP 참가자 3명과 직접 통화 인터뷰, Claude 설문 분석이 잡아내지 못한 '네트워킹 시간 부족' 인사이트 발굴",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Notion AI"
             ]
           }
         ]
@@ -8696,63 +8681,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "방송 진행 전체",
-        "afterAI": "AI 대본 감독 + 감정 전달 + 시청자 관계",
+        "beforeAI": "방송인이 대본 암기·리서치·진행을 직접 준비하고, 촬영 후 편집 방향까지 일일이 제작팀에 전달했어요.",
+        "afterAI": "2026~2030년, AI 아나운서·AI 진행자가 등장하고 자동 대본 생성·AI 더빙이 확산해요. 그러나 시청자는 딥페이크와 진짜 인간의 차이를 느끼기 시작해요. 방송인의 강점은 돌발 상황에서도 무너지지 않는 즉흥 대처력, 시청자와 눈빛·목소리로 만드는 '살아있는 연결감', 자기 이름과 얼굴을 걸고 말하는 신뢰 자산이에요. 딥페이크 방송인이 자신을 사칭하는 위협도 직접 대응해야 해요.",
         "replacementRisk": "low",
         "aiTools": [
-          "대본 생성 AI (보조용)"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "NotebookLM",
+          "Descript",
+          "ElevenLabs"
         ],
         "survivalStrategy": [
-          "감정 전달 (AI는 불가)",
-          "AI 대본 큐레이션",
-          "시청자 관계 형성",
-          "방송 연출",
-          "개인 브랜드 구축"
+          "얼굴·이름·목소리 신뢰 자산 구축—딥페이크 방송인이 대체 못 하는 진정성",
+          "돌발 상황 즉흥 대처력—예상 밖 뉴스·패널 갈등·기기 오류를 살아있게 넘기는 능력",
+          "시청자와 장기 신뢰 관계—구독·팬덤을 단순 시청자 이상의 커뮤니티로 발전",
+          "딥페이크 자신 사칭 계정 모니터링 및 즉각 법적 대응 역량",
+          "멀티 포맷 진행력—TV·유튜브·숏폼·팟캐스트 형식별 방송 스타일 전환"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Broadcaster 상황 분석 및 목표 설정",
-            "humanRole": "Broadcaster로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Broadcaster이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 방송 주제 리서치 및 대본 준비",
+            "humanRole": "방송인이 핵심 메시지와 자기 관점 직접 결정, AI 초안에 경험·의견 추가",
+            "aiRole": "Perplexity로 최신 이슈 빠른 조사, NotebookLM으로 복잡한 배경 자료 요약",
+            "scenarioExample": "시사 토크 방송인이 Perplexity로 AI 규제 이슈 5분 파악, NotebookLM으로 법안 원문 요약 후 자신의 비판적 시각으로 대본 직접 작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Broadcaster이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 방송 진행 및 즉흥 대응",
+            "humanRole": "방송인이 카메라 앞에서 감정·에너지·눈맞춤으로 시청자와 연결, 돌발 상황 즉각 판단",
+            "aiRole": "Claude로 사전 Q&A 시뮬레이션, ChatGPT로 논란 키워드 대응 멘트 예상",
+            "scenarioExample": "라이브 방송 중 예상 밖 논란 발언 패널 등장 시 방송인이 즉흥으로 진행 방향 전환, AI 예상 대응집 참고하여 침착하게 중재",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Broadcaster 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Broadcaster이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 콘텐츠 클리핑 및 멀티 플랫폼 배포",
+            "humanRole": "방송인이 핵심 클립 선별 기준 결정, 플랫폼별 자기 브랜드 톤 유지 감수",
+            "aiRole": "Descript로 방송 자동 클리핑·자막 생성, ElevenLabs로 숏폼 추가 멘트 음성 생성",
+            "scenarioExample": "방송인이 Descript 자동 클립 10개 중 자신의 핵심 관점이 잘린 클립 3개 직접 재편집, 유튜브·인스타그램 동시 배포",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Descript",
+              "ElevenLabs"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Broadcaster이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 시청자 소통 및 딥페이크 사칭 모니터링",
+            "humanRole": "방송인이 팬 댓글 직접 읽고 선별 응대, 딥페이크 사칭 계정 발견 시 즉각 공지",
+            "aiRole": "Perplexity로 자신 이름 관련 허위 콘텐츠 모니터링, Claude로 사칭 대응 공지 초안 작성",
+            "scenarioExample": "방송인이 Perplexity 알림으로 딥페이크 사칭 광고 영상 발견, Claude로 공식 부인 성명 초안 작성 후 자신 채널에 즉각 게시",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Claude"
             ]
           }
         ]
@@ -9201,64 +9187,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "시나리오 전체 수작업",
-        "afterAI": "AI 시나리오 생성 감독 + 스토리 창작 + 캐릭터 설계",
+        "beforeAI": "시나리오 작가가 트리트먼트·대본·수정본을 수개월에 걸쳐 혼자 작업했어요.",
+        "afterAI": "2026~2030년, AI가 장르별 플롯 구조·대화 초안을 빠르게 생성해요. 그러나 시청자가 강하게 연결되는 이야기는 결국 '인간만이 아는 감정의 아이러니'—배신의 씁쓸함, 포기의 아름다움, 자기기만의 우스움—에서 나와요. 시나리오 작가는 AI가 생성한 1,000개의 플롯 중 실제로 관객을 울고 웃게 만들 1개를 골라내는 판단력과, 독창적 설정·세계관을 처음부터 설계하는 창작력이 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
+          "Claude",
           "ChatGPT",
-          "시나리오 생성 AI"
+          "Perplexity",
+          "NotebookLM",
+          "Jasper"
         ],
         "survivalStrategy": [
-          "독창적 스토리 창작 (AI는 진부한 스토리)",
-          "AI 시나리오 큐레이션",
-          "캐릭터 설계 (깊이·복잡성)",
-          "감정 스토리텔링",
-          "감독과 협업"
+          "인간 감정의 역설·아이러니를 포착하는 원초적 창작력—AI 플롯의 진부함을 뛰어넘는 아이디어",
+          "독창적 세계관·설정 설계—AI가 학습 데이터 너머로 가지 못하는 전혀 새로운 이야기 우주",
+          "AI 생성 대본 수천 개 중 실제 관객 감동시킬 것 골라내는 편집 판단력",
+          "감독·배우·제작사와 인간 협업 관계—IP 개발 파트너십 구축",
+          "법적 저작권 보호—AI 학습에 사용된 자신의 작품 출처 확인 및 계약 보호"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Scriptwriter 상황 분석 및 목표 설정",
-            "humanRole": "Scriptwriter로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Scriptwriter이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 아이디어 발굴 및 세계관 설계",
+            "humanRole": "작가가 자신의 경험·관찰·감정에서 출발한 원초적 아이디어와 세계관 직접 설계",
+            "aiRole": "Perplexity로 장르 트렌드 조사, Claude로 설정 관련 리서치 자료 요약",
+            "scenarioExample": "시나리오 작가가 자신의 이민 경험을 모티프로 '이중 정체성 AI 로봇' 설정 착상, Claude로 관련 철학 자료 조사해 세계관 심화",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Scriptwriter이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 플롯 생성 및 핵심 큐레이션",
+            "humanRole": "작가가 AI 생성 플롯 변형 100개 중 감정적으로 진짜 울리는 것 선별, 감정 곡선 직접 설계",
+            "aiRole": "Claude로 플롯 변형 100개 생성, ChatGPT로 캐릭터 대사 초안 작성",
+            "scenarioExample": "작가가 Claude 플롯 100개 검토 후 '주인공이 승리 직전 포기하는' 역설 구조 선택, 그 감정 메커니즘을 직접 설계",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Scriptwriter 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Scriptwriter이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 대본 집필 및 감정 심화",
+            "humanRole": "작가가 씬별 감정 리듬·대사 뉘앙스·침묵의 무게를 직접 집필—AI 초안의 진부함 제거",
+            "aiRole": "Claude로 대사 초안 생성·문체 점검, Jasper로 지문 서술 초안 작성",
+            "scenarioExample": "작가가 Claude 대사 초안에서 '너무 설명적인' 대화 삭제, 침묵과 표정으로만 전달되는 장면으로 직접 대체",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Jasper"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Scriptwriter이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 수정 및 제작사 피칭",
+            "humanRole": "작가가 감독·프로듀서 피드백을 자신의 창작 의도와 협상하며 최종본 완성",
+            "aiRole": "NotebookLM으로 피드백 메모 체계화, Claude로 피칭용 시놉시스 초안 작성",
+            "scenarioExample": "작가가 제작사 '엔딩 바꿔달라' 요청에 자신의 주제 의식 설명, NotebookLM으로 대안 엔딩 3가지 정리 후 협상",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "NotebookLM",
+              "Claude"
             ]
           }
         ]
@@ -9707,64 +9691,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "콘텐츠 편집 수작업",
-        "afterAI": "AI 편집 감독 + 콘텐츠 전략 설계 + 편집 방향 설정",
+        "beforeAI": "편집자가 원고의 문법·논리·표현을 전부 수동으로 검토하고, 작가와 수십 차례 이메일 교신으로 수정 방향을 조율했어요.",
+        "afterAI": "2026~2030년, AI가 문법·표절·가독성을 자동으로 교정하고, AI 생성 글이 넘쳐나요. 편집자의 역할은 '교정'이 아니라 '큐레이션'과 '의미 판단'으로 이동해요. AI가 쓴 글 1,000편 중 진짜 독자의 마음을 건드릴 작품을 골라내고, 작가의 고유 목소리를 AI 교정이 뭉개지 않도록 지키며, 출판·미디어 생태계에서 신뢰 있는 콘텐츠와 AI 쓰레기를 분리하는 게이트키퍼가 돼요.",
         "replacementRisk": "high",
         "aiTools": [
+          "Claude",
           "Grammarly",
-          "편집 AI"
+          "ChatGPT",
+          "Perplexity",
+          "NotebookLM"
         ],
         "survivalStrategy": [
-          "편집 방향 설정 (무엇을 강조할 것인가)",
-          "AI 편집 결과 검증",
-          "콘텐츠 전략 설계",
-          "작가와 협업",
-          "독자 경험 설계"
+          "AI 생성 글과 인간 작가의 글 판별—진정성·독창성 게이트키퍼 역할",
+          "작가의 고유 목소리 보전—AI 교정이 개성을 지우지 않도록 보호하는 편집 판단",
+          "독자 경험 설계—구조·흐름·감정 곡선을 AI가 교정 못 하는 감각으로 조율",
+          "AI 생성 콘텐츠의 사실 오류·편향·저작권 침해 감지 책임",
+          "작가와 장기 신뢰 관계—원고 뒤의 의도를 대화로 이해하는 편집 파트너십"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Editor 상황 분석 및 목표 설정",
-            "humanRole": "Editor로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Editor이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 원고 방향 설정 및 편집 전략 수립",
+            "humanRole": "편집자가 작가와 직접 대화, 원고의 핵심 메시지·독자 타깃·편집 방향 합의",
+            "aiRole": "Claude로 원고 초안 구조 분석, Perplexity로 유사 장르 트렌드 조사",
+            "scenarioExample": "편집자가 신인 작가와 화상통화로 '이 글이 독자에게 전달하고 싶은 단 하나의 감정' 확인 후 편집 방향 합의",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Editor이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 교정 후 목소리 보전 감수",
+            "humanRole": "편집자가 AI 교정 결과 검토, 작가 고유 표현이 삭제된 곳 복원 및 감성 뉘앙스 최종 판단",
+            "aiRole": "Grammarly로 문법·표현 오류 자동 교정, Claude로 논리 구조 일관성 점검",
+            "scenarioExample": "Grammarly가 '비문법적' 표현으로 수정한 구어체 문장들을 편집자가 복원—작가의 개성이 담긴 의도적 문체 판별",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Grammarly",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Editor 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Editor이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 사실 검증 및 AI 생성 의혹 콘텐츠 판별",
+            "humanRole": "편집자가 핵심 사실 주장 검증, AI 생성 의심 문단의 출처 추적 및 삭제 결정",
+            "aiRole": "Perplexity로 주요 사실 클레임 교차 검증, Claude로 AI 생성 패턴 분석",
+            "scenarioExample": "편집자가 Claude로 AI 생성 의심 문단 식별 후 작가에게 직접 출처 요청, 확인 불가 단락 삭제 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Editor이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 최종 원고 완성 및 작가 성장 피드백",
+            "humanRole": "편집자가 작가에게 이번 원고에서 배울 점과 다음 작업을 위한 방향 직접 피드백",
+            "aiRole": "NotebookLM으로 편집 내역 정리, ChatGPT로 작가 피드백 레터 초안 작성",
+            "scenarioExample": "편집자가 ChatGPT 초안 받아 작가의 강점(감정 묘사)과 약점(구조 설계) 개인화 피드백으로 직접 수정해 보냄",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "NotebookLM",
+              "ChatGPT"
             ]
           }
         ]
@@ -10213,65 +10195,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "번역 전체 수작업",
-        "afterAI": "AI 번역 감독 + 문화 번역 + 맥락 해석",
+        "beforeAI": "번역가가 사전·용어집을 참조하며 단어 하나하나를 수작업으로 번역하고 전문 용어를 일일이 확인했어요.",
+        "afterAI": "2026~2030년, DeepL·ChatGPT가 일반 문서 번역의 90%를 처리해요. 번역가의 생존 영역은 AI가 오역하는 지점—문화적 금기어·정치적 함의·유머의 뉘앙스·법적 책임 언어·문학적 운율—을 정확히 판단하는 포스트에디팅 전문가예요. 의료·법률·특허 번역에서의 오역은 법적 책임으로 이어지므로 인간 번역가의 최종 검토 책임이 오히려 높아져요.",
         "replacementRisk": "high",
         "aiTools": [
+          "Claude",
+          "ChatGPT",
           "DeepL",
-          "Google Translate",
-          "번역 AI"
+          "Perplexity",
+          "NotebookLM"
         ],
         "survivalStrategy": [
-          "문화 번역 (문화적 맥락 고려)",
-          "AI 번역 검증 및 정교화",
-          "맥락 해석 (뉘앙스·의도)",
-          "전문 용어 번역",
-          "문학 번역 (감정·스타일)"
+          "AI 오역 핫스팟 판별—문화적 함의·법적 책임어·정치적 뉘앙스 교정 전문성",
+          "의료·법률·특허 분야 특화—오역 시 법적 책임이 있는 영역의 인간 감수 책임",
+          "문학 번역—원문 감성·운율·작가 목소리를 다른 언어로 재창조하는 창작 역량",
+          "AI 번역 품질 평가 전문가—번역 회사·기관의 AI 출력물 품질 감사 역할",
+          "특정 언어 쌍 희소성—소수 언어·방언 번역은 AI 학습 데이터 부족으로 인간 독점"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Translator 상황 분석 및 목표 설정",
-            "humanRole": "Translator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Translator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 번역 의뢰 분석 및 전략 수립",
+            "humanRole": "번역가가 원문 장르·목적·독자·법적 리스크 수준 파악 후 번역 접근 전략 결정",
+            "aiRole": "Perplexity로 분야별 최신 용어·트렌드 조사, NotebookLM으로 전문 용어 사전 체계화",
+            "scenarioExample": "의료기기 설명서 번역가가 Perplexity로 최신 FDA 용어 기준 확인, NotebookLM으로 이전 번역 용어집 빠르게 검색",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Translator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 번역 생성 및 오역 포인트 1차 검토",
+            "humanRole": "번역가가 AI 출력물에서 문화·법적·뉘앙스 오역 위험 구간 선별 표시",
+            "aiRole": "DeepL·Claude로 초안 번역 생성, ChatGPT로 용어 대안 목록 제시",
+            "scenarioExample": "번역가가 DeepL 의료 번역 초안 검토 중 '치료 가능성' vs '치료 보장' 혼용 위험 발견, 즉시 법적 책임 표현으로 수정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "DeepL",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Translator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Translator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 문화·맥락 번역 및 최종 감수",
+            "humanRole": "번역가가 AI 직역 너머 문화적 자연스러움·감성 뉘앙스 직접 조율, 최종 번역 책임 서명",
+            "aiRole": "Claude로 번역문 자연스러움 체크, Perplexity로 타깃 언어 최신 표현 트렌드 확인",
+            "scenarioExample": "마케팅 캠페인 번역가가 AI 직역 '정직한 가격' 표현이 타깃 언어권에서 '저품질 암시'로 읽힘을 파악, 현지 관용어로 대체",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Translator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 납품 및 번역 품질 피드백",
+            "humanRole": "번역가가 클라이언트에게 오역 수정 근거와 번역 선택 이유 직접 설명, 장기 용어 일관성 관리",
+            "aiRole": "NotebookLM으로 프로젝트별 용어 결정 이력 자동 정리, ChatGPT로 피드백 레터 초안 작성",
+            "scenarioExample": "번역가가 법률 클라이언트에게 '특정 조항 번역 변경 이유'를 직접 설명하며 신뢰 구축, NotebookLM으로 프로젝트 용어집 업데이트",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "NotebookLM",
+              "ChatGPT"
             ]
           }
         ]
@@ -10720,63 +10699,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "통역 전체",
-        "afterAI": "AI 통역 감독 + 문화 중재 + 맥락 해석",
+        "beforeAI": "통역사가 현장에서 양방향 대화를 실시간으로 모두 혼자 처리하고, 특수 용어도 사전 암기했어요.",
+        "afterAI": "2026~2030년, AI 이어폰 통역(Google Pixel Buds·Meta AI 등)이 일상 대화 수준을 처리해요. 통역사의 생존 영역은 AI가 실수할 때 외교적 파장을 막는 '문화 중재자' 역할이에요. 정상회담·법정·의료 수술실에서 AI 오통역 한 마디가 외교 사태·법적 오판·환자 위험으로 이어지므로 인간 통역사의 책임 영역이 오히려 좁아지되 더 중요해져요. AI가 통역하기 어려운 소수 언어·방언·수화도 핵심 영역이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "AI 동시통역"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "NotebookLM",
+          "Otter.ai"
         ],
         "survivalStrategy": [
-          "문화 중재 (문화적 차이 설명)",
-          "AI 통역 검증",
-          "맥락 해석 (뉘앙스)",
-          "고급 통역 (정상회담·법정)",
-          "관계 형성"
+          "외교·법정·의료 현장 특화—AI 오통역이 파장을 만드는 고위험 현장의 인간 통역 독점",
+          "문화 중재자 역할—언어 너머 제스처·침묵·맥락을 해석하는 비언어 통역",
+          "소수 언어·수화 통역—AI 학습 데이터 부족 영역의 희소 전문성",
+          "감정 통역—협상·중재 상황에서 화자의 감정 상태를 정확히 전달하는 공감 역량",
+          "AI 통역 실시간 감수—국제 콘퍼런스에서 AI 통역 오류를 즉각 수정하는 백업 역할"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Interpreter 상황 분석 및 목표 설정",
-            "humanRole": "Interpreter로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Interpreter이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 통역 현장 사전 준비 및 맥락 파악",
+            "humanRole": "통역사가 회의 의제·참석자 배경·민감 이슈를 직접 파악해 문화적 지뢰 미리 확인",
+            "aiRole": "Perplexity로 회의 주제 관련 전문 용어 조사, NotebookLM으로 관련 문서 빠른 숙지",
+            "scenarioExample": "국제 의료학회 통역사가 Perplexity로 최신 임상 용어 확인, NotebookLM으로 연사 논문 요약 후 현장 통역 대비",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Interpreter이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 현장 통역 및 AI 보조 활용",
+            "humanRole": "통역사가 실시간 현장 통역 담당, AI 이어피스 오통역 즉각 감지 후 수정 개입",
+            "aiRole": "Otter.ai로 발언 실시간 전사, Claude로 특수 용어 즉석 참조",
+            "scenarioExample": "외교 협상 통역사가 AI 통역이 '무역 제재'를 '무역 지원'으로 잘못 번역하는 것을 즉각 감지, 외교관에게 직접 수정 전달",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Otter.ai",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Interpreter 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Interpreter이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 문화 중재 및 갈등 완화",
+            "humanRole": "통역사가 언어 너머 문화적 오해 발생 시 양측에 맥락 설명으로 갈등 예방",
+            "aiRole": "Claude로 양국 문화적 금기 사전 조사, ChatGPT로 대안 표현 옵션 제시",
+            "scenarioExample": "한국-아랍 비즈니스 협상에서 통역사가 상대방 침묵의 '동의 아닌 거부' 의미를 한국팀에 직접 설명, 오해로 인한 협상 결렬 방지",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Interpreter이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 통역 후 기록 정리 및 후속 자문",
+            "humanRole": "통역사가 주요 발언의 미묘한 뉘앙스 차이를 클라이언트에게 직접 설명, 후속 커뮤니케이션 자문",
+            "aiRole": "Otter.ai로 전사 자동 정리, NotebookLM으로 핵심 발언 요약 보고",
+            "scenarioExample": "협상 종료 후 통역사가 '합의처럼 들렸지만 조건부 동의였음' 맥락을 클라이언트에게 직접 설명해 후속 협상 방향 결정에 기여",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Otter.ai",
+              "NotebookLM"
             ]
           }
         ]
@@ -11225,64 +11203,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "UX 문구 직접 작성",
-        "afterAI": "AI 문구 생성 감독 + UX 전략 설계 + 사용자 감정 설계",
+        "beforeAI": "UX 라이터가 버튼 문구·에러 메시지·온보딩 텍스트를 일일이 손으로 작성하고 디자이너·개발자와 수많은 슬랙 메시지로 조율했어요.",
+        "afterAI": "2026~2030년, AI가 UX 카피 변형 수십 개를 즉석 생성하고 A/B 테스트로 최적 문구를 자동 선택해요. UX 라이터는 AI 생성 문구가 사용자에게 어떤 감정을 일으키는지—불안·안도·신뢰·짜증—를 예측하고 설계하는 감성 설계자가 돼요. AI가 놓치는 접근성(시각장애·인지장애 사용자), 문화적 금기, 법적 리스크 언어를 최종 검토하는 역할도 핵심이에요.",
         "replacementRisk": "medium",
         "aiTools": [
+          "Claude",
           "ChatGPT",
-          "UX 문구 생성 AI"
+          "Jasper",
+          "Perplexity",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "사용자 감정 설계 (어떤 감정을 전달할 것인가)",
-          "AI 문구 큐레이션",
-          "UX 전략 설계",
-          "브랜드 톤앤매너 정의",
-          "접근성 고려"
+          "AI 생성 문구가 사용자에게 만드는 감정 예측·설계—불안 제거·신뢰 구축 마이크로카피",
+          "접근성 전문성—시각장애·인지장애 사용자를 위한 AI 문구 검토 및 수정",
+          "문화적 금기·법적 리스크 언어 감지—AI가 놓치는 표현 위험 최종 차단",
+          "UX 라이팅 콘텐츠 전략—앱 전체 언어의 일관성과 감성 흐름 설계",
+          "사용자 리서치 해석—정성 인터뷰에서 AI 분석 너머 언어 인사이트 직접 발굴"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Ux Writer 상황 분석 및 목표 설정",
-            "humanRole": "Ux Writer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Ux Writer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 사용자 감성 목표 및 UX 라이팅 전략 수립",
+            "humanRole": "UX 라이터가 사용자 여정별 원하는 감정 상태 정의, AI 문구 생성 방향 가이드라인 직접 작성",
+            "aiRole": "Perplexity로 동종 앱 UX 카피 사례 조사, Claude로 사용자 페르소나별 언어 패턴 분석",
+            "scenarioExample": "금융앱 UX 라이터가 '이체 오류 순간 사용자 불안 최소화' 목표로 Claude 분석, 불안 유발 단어 금지 리스트 직접 작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Ux Writer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 문구 생성 및 감성 필터링",
+            "humanRole": "UX 라이터가 AI 생성 문구 중 의도한 감정 전달하는 것 선별, 접근성·법적 언어 위반 교정",
+            "aiRole": "Jasper·Claude로 버튼·에러·온보딩 문구 변형 50개 생성, ChatGPT로 접근성 기준 초안 체크",
+            "scenarioExample": "UX 라이터가 Jasper 생성 에러 메시지 30개 검토, '실패했습니다' 계열 부정적 언어 전부 탈락, '다시 시도해 보세요' 계열 선택",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Jasper",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Ux Writer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Ux Writer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 팀 협업 및 콘텐츠 일관성 조율",
+            "humanRole": "UX 라이터가 디자이너·개발자·PM과 직접 대화, 앱 전체 언어 일관성 수호자 역할",
+            "aiRole": "Notion AI로 UX 라이팅 가이드라인 문서 자동 구조화, Claude로 기존 문구와 새 문구 일관성 체크",
+            "scenarioExample": "신규 기능 출시 전 UX 라이터가 Claude로 기존 앱 문구 스타일 분석, 새 문구가 기존 톤과 맞는지 교차 검토 후 PM 최종 승인 요청",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Ux Writer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 사용자 피드백 해석 및 문구 최적화",
+            "humanRole": "UX 라이터가 사용자 인터뷰·지원팀 리포트에서 언어 관련 불만 직접 파악, 문구 개선 주도",
+            "aiRole": "Claude로 지원팀 티켓에서 언어 혼란 패턴 자동 분류, Perplexity로 유사 케이스 해결 사례 조사",
+            "scenarioExample": "'버튼 누르고 아무것도 안 됨'이라는 지원 티켓 급증, UX 라이터가 Claude 분석으로 '처리 중' 문구 부재 발견 후 로딩 상태 문구 즉시 추가",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           }
         ]
@@ -11731,64 +11707,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "기술 문서 직접 작성",
-        "afterAI": "AI 문서 생성 감독 + 사용자 이해 설계 + 기술 번역",
+        "beforeAI": "기술 커뮤니케이터가 엔지니어를 인터뷰하며 기술 사양서를 수동으로 사용자 매뉴얼·도움말로 번역했어요.",
+        "afterAI": "2026~2030년, AI가 코드·API 문서를 자동 생성하고 매뉴얼 초안을 즉석에서 뽑아내요. 기술 커뮤니케이터의 핵심은 AI가 생성한 기술 문서의 오류·불완전성·접근성 문제를 잡아내고, '사용자가 실제로 어디서 막히는가'를 사용자 테스트로 직접 파악하는 역량이에요. AI 생성 코드 문서에 법적 책임·안전 경고가 누락된 것을 발견하는 감시 역할도 중요해져요.",
         "replacementRisk": "high",
         "aiTools": [
+          "Claude",
           "ChatGPT",
-          "기술 문서 생성 AI"
+          "Perplexity",
+          "NotebookLM",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "사용자 이해 설계 (어떻게 설명할 것인가)",
-          "AI 문서 검증",
-          "기술 번역 (전문 용어→일반 언어)",
-          "사용자 피드백 반영",
-          "문서 전략"
+          "AI 생성 기술 문서의 오류·누락·접근성 문제 감지—최종 품질 감수 책임",
+          "사용자 실제 막힘 포인트 파악—사용자 테스트 직접 진행으로 AI 문서 개선",
+          "법적 안전 경고·컴플라이언스 언어 검토—AI가 누락하는 책임 표현 추가",
+          "복잡한 기술 개념의 비전문가 언어 번역—AI 초안을 실제 사용자 수준으로 재조정",
+          "영상·인터랙티브 튜토리얼 설계—텍스트 문서 너머 멀티미디어 학습 콘텐츠 제작"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Technical Communicator 상황 분석 및 목표 설정",
-            "humanRole": "Technical Communicator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Technical Communicator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 사용자 이해 분석 및 문서 전략 수립",
+            "humanRole": "기술 커뮤니케이터가 타깃 사용자 수준 파악, 어떤 정보를 어떤 순서로 제공할지 직접 설계",
+            "aiRole": "Perplexity로 유사 제품 문서 구조 조사, NotebookLM으로 엔지니어 기술 사양 빠르게 소화",
+            "scenarioExample": "SaaS 기술 커뮤니케이터가 고객지원팀 티켓에서 가장 많은 혼란 포인트 파악 후 NotebookLM으로 엔지니어 스펙 요약, 도움말 우선순위 직접 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Technical Communicator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 문서 초안 생성 및 오류 감수",
+            "humanRole": "기술 커뮤니케이터가 AI 초안의 기술적 오류·누락 안전 경고·법적 책임 표현 직접 교정",
+            "aiRole": "Claude로 API 문서·매뉴얼 초안 자동 생성, ChatGPT로 단계별 설명 구조 초안 작성",
+            "scenarioExample": "기술 커뮤니케이터가 Claude 생성 의료기기 매뉴얼에서 '부작용 주의' 경고문 누락 발견, 직접 추가 후 법무팀 검토 요청",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Technical Communicator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Technical Communicator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 사용자 테스트 및 문서 개선",
+            "humanRole": "기술 커뮤니케이터가 실제 사용자와 직접 테스트—어디서 헤매는지 관찰하며 문서 약점 파악",
+            "aiRole": "Claude로 사용자 테스트 피드백 패턴 분석, Notion AI로 개선 사항 자동 정리",
+            "scenarioExample": "기술 커뮤니케이터가 5명의 사용자 화면 공유 관찰 중 '3단계에서 모두 멈춤' 발견, Claude 분석 확인 후 그 단계 설명 전면 재작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Technical Communicator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 문서 배포 및 지속적 업데이트 체계 구축",
+            "humanRole": "기술 커뮤니케이터가 제품 업데이트와 문서 동기화 체계 설계, 핵심 변경 사항 직접 판단",
+            "aiRole": "Notion AI로 문서 버전 이력 자동 관리, Claude로 업데이트 릴리즈노트 초안 작성",
+            "scenarioExample": "기술 커뮤니케이터가 Claude 릴리즈노트 초안 받아 '비전문가에게 가장 중요한 변경' 3가지 직접 선별해 사용자 언어로 재작성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "Claude"
             ]
           }
         ]
@@ -12237,64 +12211,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "위기 대응 전략 수립",
-        "afterAI": "AI 위기 예측 해석 + 위기 대응 전략 설계 + 이해관계자 소통",
+        "beforeAI": "위기소통 전문가가 위기 매뉴얼을 사전에 수동 작성하고, 위기 발생 시 언론·고객 대응 메시지를 긴급하게 직접 썼어요.",
+        "afterAI": "2026~2030년, 딥페이크 영상·AI 생성 허위 정보·소셜 봇 공격이 위기의 새로운 주역이 돼요. AI가 소셜 미디어 위기 신호를 24시간 감지하지만, '지금이 공식 대응을 할 타이밍인가'를 판단하는 것은 인간이에요. 위기소통 전문가는 C레벨 경영진에게 위기 국면에서 '무엇을 말하고 무엇을 침묵할지'를 코칭하는 수습 불가 판단력이 핵심이에요.",
         "replacementRisk": "low",
         "aiTools": [
-          "위기 모니터링 AI",
-          "소셜 리스닝 AI"
+          "Perplexity",
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Otter.ai"
         ],
         "survivalStrategy": [
-          "AI 위기 예측 해석",
-          "위기 대응 전략 설계",
-          "이해관계자 소통 (언론·고객)",
-          "위기 메시지 설계",
-          "평판 회복 전략"
+          "딥페이크·AI 허위 정보 유포 위기—진짜와 가짜를 판별하고 대응 타이밍 결정",
+          "경영진 위기 코칭—'무엇을 말하고 침묵할지' 순간 판단하는 고위험 자문 역량",
+          "이해관계자 신뢰 재건 설계—AI가 대신할 수 없는 대면 사과·진정성 회복 전략",
+          "법적·윤리적 경계 안에서 위기 메시지 설계—법무팀과 직접 협력하는 인간 조율",
+          "위기 사전 시뮬레이션—딥페이크 사칭·해킹·AI 오정보 시나리오 대비 매뉴얼 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Crisis Communication Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Crisis Communication Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Crisis Communication Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 위기 신호 조기 감지 및 상황 평가",
+            "humanRole": "위기소통 전문가가 AI 알림 중 실제 위기로 발전할 신호와 소음을 구별하여 경보 수준 결정",
+            "aiRole": "Perplexity로 소셜 미디어 위기 언급 실시간 모니터링, Claude로 과거 유사 위기 사례 빠른 분석",
+            "scenarioExample": "Perplexity가 브랜드 관련 부정 트윗 급증 알림 발송, 위기소통 전문가가 '딥페이크 사칭 캠페인'으로 판단 후 즉시 법무팀 소집",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Crisis Communication Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 위기 대응 전략 결정 및 메시지 설계",
+            "humanRole": "위기소통 전문가가 법적·윤리적 경계 안에서 대응 타이밍·채널·메시지 톤 결정",
+            "aiRole": "Claude로 대응 메시지 초안 시나리오 생성, ChatGPT로 이해관계자별 커뮤니케이션 초안 작성",
+            "scenarioExample": "위기소통 전문가가 Claude 초안 3가지 중 법적 책임 인정 없이 진정성 보여주는 메시지 선택, 법무팀 검토 후 최종 확정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Crisis Communication Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Crisis Communication Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 경영진 코칭 및 언론 대응 총괄",
+            "humanRole": "위기소통 전문가가 CEO·임원에게 발언 내용·태도·금지 표현 직접 코칭, 언론 브리핑 총괄",
+            "aiRole": "Otter.ai로 미디어 인터뷰 리허설 전사·분석, Notion AI로 Q&A 대응 매뉴얼 자동 정리",
+            "scenarioExample": "위기소통 전문가가 CEO 기자회견 전 1시간 리허설 코칭, Otter.ai로 발언 패턴 분석해 '방어적 어조' 구간 직접 교정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Otter.ai",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Crisis Communication Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 위기 수습 후 평판 회복 전략 설계",
+            "humanRole": "위기소통 전문가가 이해관계자와 직접 대화로 신뢰 회복 상태 파악, 장기 평판 회복 로드맵 설계",
+            "aiRole": "Perplexity로 위기 이후 언론·소셜 반응 추적, Claude로 평판 회복 전략 문서 초안 작성",
+            "scenarioExample": "위기 수습 2주 후 위기소통 전문가가 주요 언론인과 개별 오찬으로 신뢰 재건, Perplexity로 언론 논조 변화 추적해 회복 속도 확인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Claude"
             ]
           }
         ]
@@ -12743,63 +12715,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "사내 소통 콘텐츠 제작",
-        "afterAI": "AI 콘텐츠 생성 감독 + 조직 문화 전략 설계 + 직원 관계",
+        "beforeAI": "사내 커뮤니케이션 전문가가 뉴스레터·공지·이벤트 내용을 모두 직접 작성하고 배포 시스템을 수동 관리했어요.",
+        "afterAI": "2026~2030년, AI가 사내 뉴스레터 초안·공지 번역·FAQ 자동 응답을 처리해요. 사내 커뮤니케이션 전문가는 AI가 측정 못 하는 조직 내 '분위기 온도'—대규모 구조조정 전 직원 불안감, AI 도입으로 인한 직무 불안—를 먼저 감지하고 경영진에게 알리는 역할이 핵심이에요. 경영진 메시지가 직원에게 진심으로 닿도록 인간 감성으로 번역하는 것도 AI가 대신할 수 없어요.",
         "replacementRisk": "medium",
         "aiTools": [
-          "사내 콘텐츠 생성 AI"
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Canva AI",
+          "Perplexity"
         ],
         "survivalStrategy": [
-          "조직 문화 전략 설계",
-          "AI 콘텐츠 큐레이션",
-          "직원 관계 형성",
-          "조직 소통 전략",
-          "직원 참여 프로그램"
+          "조직 내 분위기 온도 감지—AI 설문 너머 직원 감정 흐름을 인간 감각으로 파악",
+          "경영진 메시지 감성 번역—CEO 공지가 직원에게 진심으로 닿도록 언어 재설계",
+          "AI 도입·구조조정 등 민감한 변화 관리 커뮤니케이션 전략 수립",
+          "직원 참여 프로그램 설계—AI 자동화 속 인간 연결감을 유지하는 이벤트·의례 기획",
+          "다국적 조직 문화 차이 조율—AI 번역 너머 문화 맥락 반영 커뮤니케이션 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Internal Communication Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Internal Communication Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Internal Communication Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 조직 커뮤니케이션 니즈 진단 및 전략 수립",
+            "humanRole": "전문가가 직원 설문 너머 팀장·직원과 직접 대화로 숨겨진 불만·불안 파악 후 전략 방향 결정",
+            "aiRole": "Claude로 직원 설문 결과 패턴 분석, Perplexity로 유사 기업 내부 커뮤니케이션 사례 조사",
+            "scenarioExample": "AI 도입 발표 앞두고 사내 커뮤니케이션 전문가가 주요 팀장 5명 면담으로 '직무 대체 두려움' 주제 파악, Claude 설문 분석으로 규모 확인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Internal Communication Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 커뮤니케이션 콘텐츠 제작 및 감수",
+            "humanRole": "전문가가 AI 생성 공지·뉴스레터의 감성 톤·경영진 진정성·직원 언어 수준 적합성 최종 감수",
+            "aiRole": "Claude로 사내 뉴스레터 초안 생성, Canva AI로 내부 커뮤니케이션 비주얼 자동 제작",
+            "scenarioExample": "전문가가 Claude 생성 구조조정 공지 초안에서 '효율화'라는 경영 용어를 '팀 재편성'으로 교체, 직원 수용성 높이는 언어로 조정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "Canva AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Internal Communication Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Internal Communication Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 민감한 변화 관리 커뮤니케이션 총괄",
+            "humanRole": "전문가가 경영진 발표 전략 코칭, 직원 반응 예측하며 Q&A 대응 시나리오 직접 준비",
+            "aiRole": "ChatGPT로 직원 예상 질문·우려 시뮬레이션, Notion AI로 FAQ 자동 정리",
+            "scenarioExample": "AI 도입 전사 설명회 전날 전문가가 ChatGPT로 '내 직업이 없어지나요?' 같은 예상 질문 50개 생성, 경영진 답변 코칭에 활용",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Internal Communication Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 직원 참여 프로그램 및 문화 활성화",
+            "humanRole": "전문가가 직원 간 인간 연결감 강화하는 이벤트·의례·인정 프로그램 직접 설계",
+            "aiRole": "Claude로 참여 프로그램 아이디어 초안, Canva AI로 사내 행사 홍보물 자동 제작",
+            "scenarioExample": "전문가가 'AI 시대 우리 팀의 인간 강점' 테마 타운홀 직접 기획, Claude 아이디어 중 현장감 있는 것 선별해 경영진 승인 획득",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Canva AI"
             ]
           }
         ]
@@ -13248,63 +13219,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "언론 관계 관리",
-        "afterAI": "AI 미디어 모니터링 해석 + 언론 관계 형성 + 미디어 전략",
+        "beforeAI": "미디어 관계 전문가가 기자 리스트를 직접 관리하고 각 기자의 관심사를 수동으로 파악해 개별 연락했어요.",
+        "afterAI": "2026~2030년, AI가 기자별 관심 주제·최근 기사를 자동 분석하고 맞춤 피칭 메시지 초안을 생성해요. 미디어 관계 전문가의 핵심 자산은 기자와 편집장이 '먼저 전화하는 사람'이 되는 인간 신뢰 관계예요. AI가 뿌리는 수천 건의 자동 피칭 노이즈 속에서 기자가 직접 선별해 픽업하는 관계를 만드는 것이 생존의 조건이에요. AI 생성 콘텐츠의 급증으로 미디어 관계 전문가가 클라이언트 콘텐츠의 진정성을 보증하는 역할도 부각돼요.",
         "replacementRisk": "low",
         "aiTools": [
-          "미디어 모니터링 AI"
+          "Perplexity",
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Otter.ai"
         ],
         "survivalStrategy": [
-          "언론 관계 형성 (기자와 신뢰)",
-          "AI 미디어 모니터링 해석",
-          "미디어 전략 설계",
-          "보도 방향 설득",
-          "위기 대응"
+          "기자·편집장과 '먼저 전화하고 싶은 관계' 구축—AI 자동 피칭 홍수 속 독점 신뢰",
+          "클라이언트 콘텐츠 진정성 보증—AI 생성 정보 범람 시대 인간 신뢰 서명 역할",
+          "AI 미디어 모니터링 너머 언론 분위기 온도 직접 파악—기자 개인 관심사 변화 감지",
+          "신규 미디어 플랫폼·유튜브 저널리스트 관계 개척—전통 미디어 너머 영역 확장",
+          "독점 취재 기회 제공 설계—기자가 클라이언트 이야기를 자기 특종으로 만들도록 돕기"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Media Relations Specialist 상황 분석 및 목표 설정",
-            "humanRole": "Media Relations Specialist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Media Relations Specialist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 타깃 미디어 분석 및 관계 전략 수립",
+            "humanRole": "미디어 관계 전문가가 타깃 기자의 관심사·최근 기사 직접 읽고 맞춤 관계 전략 설계",
+            "aiRole": "Perplexity로 타깃 기자 최근 6개월 기사 패턴 분석, Claude로 맞춤 피칭 각도 초안 생성",
+            "scenarioExample": "전문가가 Perplexity로 IT 기자 A씨의 최근 AI 규제 기사 10편 분석 후 클라이언트 프로덕트의 '규제 준수 각도' 연결점 발견",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Media Relations Specialist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 기자 직접 관계 형성 및 피칭",
+            "humanRole": "전문가가 전화·이메일·미팅으로 기자와 직접 소통, AI 피칭 봇과 다른 인간 대화 제공",
+            "aiRole": "Claude로 맞춤 피칭 이메일 초안 작성, Notion AI로 기자별 연락 이력 자동 관리",
+            "scenarioExample": "전문가가 AI 초안 이메일을 기자의 최근 관심사로 직접 맞춤화, 전화 후속 연락으로 독점 인터뷰 기회 제안",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Media Relations Specialist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Media Relations Specialist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 미디어 브리핑 및 취재 지원",
+            "humanRole": "전문가가 기자 현장 취재를 직접 동행·지원, 클라이언트 경영진과 기자 간 직접 연결",
+            "aiRole": "Otter.ai로 브리핑 내용 자동 전사, Claude로 기자 예상 질문 시뮬레이션",
+            "scenarioExample": "미디어 관계 전문가가 공장 투어 취재 직접 기획·동행, 기자가 현장에서 못 찾는 각도를 전문가가 즉석에서 제안해 독점 기사 각도 제공",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Otter.ai",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Media Relations Specialist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 보도 모니터링 및 관계 장기 유지",
+            "humanRole": "전문가가 보도 후 기자에게 직접 감사 연락, 다음 취재 아이디어 지속 제공으로 장기 파트너십 유지",
+            "aiRole": "Perplexity로 보도 후 반응·파급 효과 모니터링, Notion AI로 기자별 관계 이력 체계화",
+            "scenarioExample": "기사 게재 후 전문가가 기자에게 직접 전화로 피드백 교환, 다음 분기 독점 기사 아이디어 2개 사전 제안으로 파트너십 강화",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "Notion AI"
             ]
           }
         ]
@@ -13753,64 +13723,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "마케팅 데이터 분석 수작업",
-        "afterAI": "AI 마케팅 데이터 해석 + 최적화 전략 설계 + 인사이트 도출",
+        "beforeAI": "디지털 마케팅 분석가가 GA·광고 플랫폼 데이터를 직접 추출하고 수작업으로 엑셀 보고서를 만들었어요.",
+        "afterAI": "2026~2030년, AI가 데이터 수집·대시보드 자동화·이상 감지를 처리해요. 디지털 마케팅 분석가는 AI가 뽑아낸 숫자를 비즈니스 의사결정 언어로 번역하는 '이야기 짜는 사람'이 돼요. 숫자가 아니라 '왜 이 패턴이 나타났는가'와 '다음에 무엇을 해야 하는가'를 판단하는 비즈니스 감각, 그리고 AI 분석의 오류·편향을 발견하는 비판적 사고가 핵심이에요.",
         "replacementRisk": "high",
         "aiTools": [
-          "Google Analytics AI",
-          "마케팅 분석 AI"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Notion AI",
+          "Google Gemini"
         ],
         "survivalStrategy": [
-          "AI 마케팅 데이터 해석 (의미 도출)",
-          "최적화 전략 설계",
-          "인사이트 도출",
-          "마케팅 전략 제안",
-          "A/B 테스트 설계"
+          "AI 대시보드 수치를 비즈니스 스토리로 번역—경영진이 실행 결정 내리도록 인사이트 전달",
+          "AI 분석 결과의 오류·데이터 편향 발견—'왜 이 숫자가 틀렸는가' 비판적 감사 역량",
+          "마케팅 데이터 너머 소비자 행동 맥락 해석—숫자가 말 못 하는 이유 발굴",
+          "다부서 데이터 연결—마케팅·영업·CS 데이터 통합해 AI 단일 채널 분석이 못 보는 전체 그림",
+          "개인정보·쿠키리스 전환 대응—퍼스트파티 데이터 전략 설계 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Digital Marketing Analyst 상황 분석 및 목표 설정",
-            "humanRole": "Digital Marketing Analyst로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Digital Marketing Analyst이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 분석 질문 설계 및 데이터 전략 수립",
+            "humanRole": "분석가가 비즈니스 목표에서 출발한 '올바른 질문' 먼저 정의, AI에게 줄 분석 방향 설계",
+            "aiRole": "Claude로 유사 비즈니스 분석 사례 조사, Perplexity로 업계 벤치마크 데이터 수집",
+            "scenarioExample": "이커머스 분석가가 '매출이 왜 떨어졌나'가 아닌 '신규 고객 재방문율이 왜 하락했나'로 질문 재정의, Claude로 관련 패턴 분석 방향 설계",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Digital Marketing Analyst이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 분석 결과 검토 및 편향 감사",
+            "humanRole": "분석가가 AI 자동 인사이트 중 데이터 편향·잘못된 인과관계·표본 오류 직접 식별",
+            "aiRole": "Google Gemini로 마케팅 데이터 자동 분석, Claude로 이상 패턴 탐지 초안 생성",
+            "scenarioExample": "AI가 '광고 A가 전환 최고'로 보고했지만 분석가가 특정 기간 데이터 편향 발견, 계절 조정 후 광고 B가 실제 최고임을 확인",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Google Gemini",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Digital Marketing Analyst 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Digital Marketing Analyst이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 인사이트 스토리 구성 및 경영진 보고",
+            "humanRole": "분석가가 데이터를 '무엇을 해야 하는가' 행동 권고안으로 번역, 경영진 설득 스토리 직접 구성",
+            "aiRole": "Notion AI로 보고서 자동 구조화, ChatGPT로 임원 요약 초안 작성",
+            "scenarioExample": "분석가가 ChatGPT 요약 초안에 '이 데이터가 틀릴 수 있는 이유'와 '행동 권고 3가지' 직접 추가해 임원 발표용 완성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Digital Marketing Analyst이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 개인정보·쿠키리스 대응 데이터 전략 조정",
+            "humanRole": "분석가가 서드파티 쿠키 소멸 영향 평가, 퍼스트파티 데이터 수집 전략 직접 설계",
+            "aiRole": "Claude로 쿠키리스 전환 후 측정 gap 분석, Perplexity로 업계 대응 사례 조사",
+            "scenarioExample": "분석가가 Claude 분석으로 서드파티 쿠키 소멸 후 리타게팅 효율 40% 하락 예측, 이메일 퍼스트파티 데이터 강화 전략 직접 설계",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "Perplexity"
             ]
           }
         ]
@@ -14259,64 +14227,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "브랜드 스토리 직접 창작",
-        "afterAI": "AI 스토리 생성 감독 + 브랜드 스토리 창작 + 감정 스토리텔링",
+        "beforeAI": "브랜드 스토리텔러가 창업자를 인터뷰하고 브랜드 역사를 직접 수집해 감동적인 기원 이야기를 혼자 써냈어요.",
+        "afterAI": "2026~2030년, AI가 브랜드 스토리 초안·고객 사례 스토리·소셜 이야기를 대량 생성해요. 브랜드 스토리텔러의 핵심은 AI가 생성한 수백 개의 이야기 중 '이 브랜드만이 가진 진짜 원석—창업자의 실패·고객의 변화 순간·직원의 헌신—을 찾아내는 채굴자' 역할이에요. AI가 아는 것은 학습 데이터 속 평균적 브랜드 이야기지만, 진짜 브랜드의 아이러니와 모순을 담은 이야기는 브랜드 스토리텔러가 직접 발굴해요.",
         "replacementRisk": "low",
         "aiTools": [
+          "Claude",
           "ChatGPT",
-          "스토리 생성 AI"
+          "Perplexity",
+          "NotebookLM",
+          "Canva AI",
+          "Midjourney"
         ],
         "survivalStrategy": [
-          "독창적 브랜드 스토리 창작",
-          "AI 스토리 큐레이션",
-          "감정 스토리텔링",
-          "브랜드 본질 발굴",
-          "스토리 전략 설계"
+          "브랜드 원석 발굴—창업자·직원·고객 직접 인터뷰로 AI가 모르는 진짜 이야기 채굴",
+          "AI 생성 이야기 홍수 속 진정성 필터—'이것이 우리 브랜드인가' 최종 판단 역량",
+          "브랜드 서사 일관성 수호—여러 AI 콘텐츠 간 이야기 모순 감지 및 통합",
+          "고객 감정 이야기 전환—고객 성공 사례를 마케팅 서사로 재구성하는 인터뷰 역량",
+          "멀티 포맷 스토리 적용—같은 핵심 이야기를 영상·글·숏폼·발표로 다르게 변환"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Brand Storyteller 상황 분석 및 목표 설정",
-            "humanRole": "Brand Storyteller로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Brand Storyteller이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 본질 발굴 및 핵심 이야기 채굴",
+            "humanRole": "스토리텔러가 창업자·직원·고객과 직접 인터뷰, AI가 모르는 브랜드 고유 이야기 발굴",
+            "aiRole": "Perplexity로 브랜드 관련 외부 언급 조사, NotebookLM으로 인터뷰 자료 체계화",
+            "scenarioExample": "스토리텔러가 창업자와 3시간 인터뷰 중 '첫 번째 제품이 실패한 날의 깨달음' 발굴, NotebookLM으로 핵심 발언 정리",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Brand Storyteller이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 스토리 초안 생성 및 진정성 필터링",
+            "humanRole": "스토리텔러가 AI 생성 이야기 중 브랜드 진정성 담긴 것 선별, 평균적 스토리 탈락 결정",
+            "aiRole": "Claude로 발굴된 소재를 다양한 스토리 구조로 변형, ChatGPT로 감정 곡선 초안 작성",
+            "scenarioExample": "스토리텔러가 Claude 초안 10개 중 '성공 서사'만 담긴 8개 탈락, '실패와 피벗' 담긴 2개 선택해 브랜드 진정성 강화",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Brand Storyteller 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Brand Storyteller이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 핵심 스토리 정교화 및 멀티 포맷 변환",
+            "humanRole": "스토리텔러가 핵심 이야기를 브랜드 보이스로 최종 다듬고, 각 포맷별 감성 최적화",
+            "aiRole": "Canva AI로 스토리 비주얼 카드뉴스 제작, Midjourney로 브랜드 세계관 이미지 생성",
+            "scenarioExample": "스토리텔러가 창업자 이야기를 영상 인터뷰·인스타그램 카드뉴스·뉴스레터 세 가지로 변환, 각 포맷에 맞는 감성 다르게 조율",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Canva AI",
+              "Midjourney",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Brand Storyteller이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 고객 스토리 발굴 및 사회적 증거 구축",
+            "humanRole": "스토리텔러가 실제 고객 변화 이야기를 직접 인터뷰로 수집, 마케팅 서사로 재구성",
+            "aiRole": "Claude로 고객 인터뷰 녹취를 스토리 구조로 정리, NotebookLM으로 고객 사례 라이브러리 관리",
+            "scenarioExample": "스토리텔러가 '이 제품으로 인생이 바뀐' 고객 5명 직접 인터뷰, Claude로 공통 감정 패턴 분석 후 브랜드 중심 서사로 재구성",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Claude",
+              "NotebookLM"
             ]
           }
         ]
@@ -14765,63 +14733,68 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "커뮤니케이션 전략 수립",
-        "afterAI": "AI 커뮤니케이션 총괄 + 전략 설계 + 이해관계자 조율",
+        "beforeAI": "조직의 메시지 방향·채널·이해관계자 소통 방식을 수동 리서치와 경험적 판단으로 수립하고, 모든 커뮤니케이션 실행 계획을 팀이 직접 조율하던 시대",
+        "afterAI": "2026-2030년 커뮤니케이션 전략가의 핵심 가치는 'AI가 만드는 메시지의 홍수 속에서 조직의 진짜 목소리를 지키는 것'이다. AI는 수천 개의 메시지 초안·채널 분석·경쟁사 모니터링을 처리하지만, 전략가는 이해관계자의 심리적 맥락 파악·조직의 가치관과 메시지의 일치성 판단·갈등 상황에서의 중재적 커뮤니케이션 설계·장기 신뢰 관계 구축을 독점한다. 특히 AI 생성 콘텐츠가 넘쳐나는 환경에서 '어떤 말을 하지 않을 것인가'를 결정하는 전략적 침묵과 타이밍 판단이 인간 전략가의 고유 영역이 된다.",
         "replacementRisk": "low",
         "aiTools": [
-          "모든 커뮤니케이션 AI 통합 활용"
+          "Perplexity",
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "NotebookLM",
+          "Otter.ai"
         ],
         "survivalStrategy": [
-          "커뮤니케이션 전략 설계",
-          "AI 결과물 총괄 큐레이션",
-          "이해관계자 조율",
-          "메시지 전략 수립",
-          "평판 관리 전략"
+          "이해관계자별 심리적 맥락과 신뢰 지형도를 직접 파악하는 현장 감각 유지",
+          "AI 생성 메시지의 진정성·일관성·조직 가치관 부합 여부를 최종 판단하는 큐레이터 역할 강화",
+          "위기·갈등 상황에서 AI가 제시하지 못하는 인간적 중재와 관계 회복 커뮤니케이션 역량 심화",
+          "딥페이크·AI 조작 정보 환경에서 조직의 진짜 목소리를 입증하는 신뢰 자산 구축",
+          "멀티채널 AI 실행 결과를 통합해 전략적 방향성을 재조정하는 메타 전략가로 포지셔닝"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Communication Strategist 상황 분석 및 목표 설정",
-            "humanRole": "Communication Strategist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Communication Strategist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 환경 스캔 및 이해관계자 맥락 파악",
+            "humanRole": "경영진·내부 팀·외부 파트너와 직접 대화하며 공식 데이터에 드러나지 않는 조직 내 긴장·기대·우려를 감지하고 커뮤니케이션 우선순위 정의",
+            "aiRole": "경쟁사 커뮤니케이션 동향, 업계 이슈, 미디어 트렌드, SNS 여론 자동 모니터링 및 요약 보고서 생성",
+            "scenarioExample": "신제품 출시 전 커뮤니케이션 전략가가 Perplexity로 경쟁사 3곳의 최근 6개월 메시지 전략을 분석하고, 내부 팀장들과 직접 면담해 조직이 강조해야 할 진짜 가치를 도출",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI"
+              "Perplexity",
+              "NotebookLM",
+              "Otter.ai"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Communication Strategist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 핵심 메시지 아키텍처 설계",
+            "humanRole": "조직의 가치관·장기 브랜드 방향·이해관계자 감수성을 통합해 핵심 메시지 계층 구조를 확정하고, AI가 제안한 초안의 진정성과 전략적 일관성 최종 판단",
+            "aiRole": "타깃 청중별 메시지 변형 초안 다수 생성, 어조·어휘 톤 분석, 예상 반응 시뮬레이션 작성",
+            "scenarioExample": "커뮤니케이션 전략가가 Claude로 경영진용·직원용·미디어용 메시지 초안 15개를 생성한 뒤, 조직의 실제 문화와 CEO의 소통 스타일을 반영해 3개의 최종 메시지 아키텍처로 압축 결정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI"
+              "Claude",
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Communication Strategist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Communication Strategist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 채널별 실행 계획 및 이해관계자 조율",
+            "humanRole": "각 채널과 이해관계자 그룹의 관계 역학을 고려해 실행 순서·타이밍·메신저를 결정하고, 예상 저항이나 오해를 선제적으로 차단할 조율 커뮤니케이션 직접 수행",
+            "aiRole": "채널별 콘텐츠 형식 자동 변환, 발송 일정 최적화 제안, 과거 유사 캠페인 성과 데이터 분석",
+            "scenarioExample": "조직 구조조정 커뮤니케이션 시, 전략가가 Notion AI로 부서별 Q&A 시나리오를 구성하고 경영진 브리핑 자료를 ChatGPT 초안 기반으로 제작한 뒤 직접 민감한 표현을 교정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Notion AI",
+              "ChatGPT",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Communication Strategist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 실행 모니터링 및 전략 조정",
+            "humanRole": "실시간 반응을 해석해 단순 지표 너머의 질적 신호(신뢰 훼손 조짐, 예상치 못한 반발, 오해의 확산)를 포착하고 전략 방향을 즉각 수정하는 인간적 판단 수행",
+            "aiRole": "미디어·SNS 반응 자동 수집, 감성 분석 대시보드 생성, 키 메시지 도달률 및 픽업률 측정",
+            "scenarioExample": "캠페인 런칭 후 Perplexity와 NotebookLM으로 미디어 커버리지를 분석한 커뮤니케이션 전략가가, 특정 메시지가 왜곡 해석되는 조짐을 발견해 AI 보고서가 '긍정 반응'으로 분류한 댓글들의 아이러니를 직접 재독해하고 대응 전략 즉시 수정",
             "recommendedTools": [
-              "ChatGPT/Claude",
-              "Jasper AI",
-              "Hootsuite AI",
-              "Google Analytics AI"
+              "Perplexity",
+              "NotebookLM",
+              "Otter.ai",
+              "Notion AI"
             ]
           }
         ]

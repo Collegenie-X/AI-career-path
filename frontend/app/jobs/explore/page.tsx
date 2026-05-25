@@ -42,6 +42,19 @@ const EXPLORE_SEGMENT_TABS: readonly GradientSegmentedTabItem<ExploreTabId>[] = 
   { id: 'star', label: LABELS.explore_tab_star },
 ];
 
+const ALL_STARS = [
+  exploreStar,
+  createStar,
+  techStar,
+  connectStar,
+  natureStar,
+  orderStar,
+  communicateStar,
+  challengeStar,
+] as StarData[];
+
+const TOTAL_JOB_COUNT = ALL_STARS.reduce((sum, s) => sum + (s.jobs?.length ?? 0), 0);
+
 /* ── 히어로 배너 (직업 탐색 탭 전용) — 패스·실행 히어로와 동일 레이아웃 ── */
 function StarTabHeroBanner() {
   const accent = '#c4b5fd';
@@ -91,13 +104,13 @@ function StarTabHeroBanner() {
         </div>
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3 self-end sm:gap-4 lg:justify-end">
           <div className="text-center">
-            <div className="text-[15px] font-black text-white">8</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">직업 세계</div>
+            <div className="text-[15px] font-black text-white">{ALL_STARS.length}</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500">모험 별 ⭐</div>
           </div>
           <div className="hidden h-7 w-px bg-white/10 sm:block" />
           <div className="text-center">
-            <div className="text-[15px] font-black text-white">25+</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">직업 체험</div>
+            <div className="text-[15px] font-black text-white">{TOTAL_JOB_COUNT}</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500">직업 퀘스트 🎯</div>
           </div>
         </div>
       </div>
@@ -112,16 +125,7 @@ function JobsExploreContent() {
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showStarProfile, setShowStarProfile] = useState(false);
 
-  const stars = [
-    exploreStar,
-    createStar,
-    techStar,
-    connectStar,
-    natureStar,
-    orderStar,
-    communicateStar,
-    challengeStar,
-  ] as StarData[];
+  const stars = ALL_STARS;
 
   useEffect(() => {
     const starId = searchParams.get('starId');

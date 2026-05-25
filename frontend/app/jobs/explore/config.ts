@@ -62,11 +62,11 @@ export const LABELS = {
   /** 상단 우측 pill (데스크톱) — 패스·실행 헤더와 동일 톤 */
   page_header_trailing_badge: '🌌 별 8개 직업 모험',
   star_selected_subtitle: '개 직업이 기다리는 중!',
-  intro_banner_title: '🚀 직업 우주 탐험',
-  intro_banner_subtitle: '별 하나 골라서 직업 체험 가보자!',
+  intro_banner_title: '🎮 직업 우주 대모험',
+  intro_banner_subtitle: '별 콕! 골라서 직업 모험',
   /** 히어로 제목 그라데이션 강조 구문 */
-  intro_banner_highlight: '직업 체험',
-  intro_banner_description: '진짜 직장에서 하는 일을 게임처럼 따라가 보는 거예요 — 부담 없이 둘러봐요!',
+  intro_banner_highlight: '떠나볼까? 🚀',
+  intro_banner_description: '진짜 직장에서 일하는 모습을 게임처럼 미리 체험! 클릭 한 번으로 직업 세계 입장 완료예요 ✨',
   star_grid_title: '🌟 어느 별로 갈까?',
   /** 별 그리드 패널: 패스·커리어와 동일한 그룹 테두리 느낌 */
   star_grid_panel_caption: '8개 별이 하나의 모험으로 이어져 있어요 ✨',
@@ -165,22 +165,6 @@ export const LABELS = {
   process_phase_badge: '단계 프로세스',
   process_step_prefix: 'STEP',
 
-  // Process Quiz Game (중·고등학생용)
-  process_quiz_mode: '퀴즈로 배우기',
-  process_full_mode: '전체 보기',
-  process_quiz_welcome_title: '이 직업의 작업 과정을 퀴즈로 배워볼까요?',
-  process_quiz_welcome_subtitle: '각 단계를 맞히면서 자연스럽게 익혀보세요!',
-  process_quiz_start: '시작하기',
-  process_quiz_next: '다음 단계',
-  process_quiz_complete: '모두 완료!',
-  process_quiz_correct: '정답이에요!',
-  process_quiz_wrong: '아쉬워요, 다시 한번 확인해볼까요?',
-  process_quiz_retry: '다시 도전',
-  process_quiz_question_tool: '이 단계에서 사용하는 도구는?',
-  process_quiz_question_skill: '이 단계에서 필요한 스킬은?',
-  process_quiz_question_purpose: '이 단계의 목적은?',
-  process_quiz_score: '점',
-  process_quiz_phase_complete: '단계 완료!',
 
   timeline_key_success: '핵심 성공 지표',
   timeline_total_cost: '총 예상 비용',

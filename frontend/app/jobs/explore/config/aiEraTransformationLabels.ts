@@ -8,23 +8,23 @@ export const STAR_PANEL_AI_ERA_INTRO =
   '각 직업 카드를 열면「AI 변화」탭에서 5점 척도(대체 압력·협업 설계 역량), 단계별 인간/AI 역할, 예시, 추천 도구가 더 길게 정리되어 있습니다. 아래 숫자는 대체 위험도(low/medium/high) 직업 개수 요약입니다.';
 
 export const AI_ERA_SECTION_LABELS = {
-  replacementPressureTitle: 'AI 대체 압력 (1~5)',
+  replacementPressureTitle: '얼마나 AI로 대체되나요? (1~5)',
   replacementPressureHint:
-    '루틴·패턴화된 업무가 AI·자동화에 넘어가기 쉬운 정도입니다. 1에 가까울수록 판단·관계·현장 맥락이 강하고, 5에 가까울수록 표준 절차·문서·코딩의 자동화 압력이 큽니다.',
-  collaborationDesignTitle: 'AI 협업 설계 역량 요구 (1~5)',
+    '반복적이고 정해진 절차로 할 수 있는 일일수록 AI에 넘어갑니다. 1점이면 사람의 판단·관계·현장 감각이 더 중요하고, 5점이면 표준화된 산출물 대부분을 AI가 빠르게 대신할 수 있습니다.',
+  collaborationDesignTitle: 'AI를 얼마나 잘 다뤄야 하나요? (1~5)',
   collaborationDesignHint:
-    '프롬프트·워크플로·검증·윤리 감독까지 AI를 \'도구\'가 아니라 \'시스템\'으로 다루어야 하는 난이도입니다. 1은 가끔 활용, 5는 매일 오케스트레이션·품질 책임이 핵심입니다.',
+    'AI를 그냥 쓰는 게 아니라, 일에 맞게 \'설계·검증·관리\'할 수 있어야 하는 정도입니다. 1점은 가끔 검색·요약 수준, 5점은 팀 전체의 AI 사용 규칙·품질·윤리까지 책임지는 수준입니다.',
   scaleAxisLow: '낮음',
   scaleAxisHigh: '높음',
-  collaborationHowToTitle: 'AI와 협업하는 방법 (단계별)',
+  collaborationHowToTitle: '내 직업에 AI를 적용하는 4단계',
   collaborationHowToIntro:
-    '아래는 대표적인 협업 루프입니다. 실제 직장·병원·스튜디오마다 도구 이름은 다르지만, \'인간이 무엇을 끝까지 책임질지\'와 \'AI에게 무엇을 맡길지\'를 나누는 방식은 비슷합니다.',
-  humanColumn: '인간이 하는 일',
-  aiColumn: 'AI가 하는 일',
-  exampleColumn: '현장 예시',
-  toolsColumn: '추천 도구·스택 (예시)',
+    '아래 4단계는 어떤 직업이든 통하는 \'AI 사용 순서\'입니다. ① 무엇을 사람이 책임질지 정하고 → ② 초안은 AI에 맡기고 → ③ 사람이 검증하고 → ④ 잘된 점·실수를 모아 다시 개선하는 흐름입니다.',
+  humanColumn: '사람이 해야 할 일',
+  aiColumn: 'AI에게 맡길 일',
+  exampleColumn: '실제 예시',
+  toolsColumn: '이 단계에서 쓰는 도구',
   beforeAfterTitle: '역할 변화',
-  survivalTitle: 'AI 시대 생존 전략',
+  survivalTitle: '이 직업으로 살아남는 핵심 전략',
   mainToolsTitle: '이 직업에서 자주 쓰는 AI·도구',
 } as const;
 

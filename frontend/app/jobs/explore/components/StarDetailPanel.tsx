@@ -71,7 +71,7 @@ function AccordionSection({
         >
           <Icon className="w-4 h-4" style={{ color }} />
         </div>
-        <span className="flex-1 text-left text-sm font-bold text-white">{title}</span>
+        <span className="flex-1 text-left text-base md:text-lg font-bold text-white">{title}</span>
         {!isOpen && hintBadge && (
           <span
             className="text-[10px] font-bold px-2 py-0.5 rounded-full mr-1"
@@ -245,7 +245,7 @@ export function StarDetailPanel({
           }}
         >
           <div className="absolute -right-4 -top-4 text-7xl opacity-10 select-none">{star.emoji}</div>
-          <p className="text-xs text-gray-400 leading-relaxed relative z-10">
+          <p className="text-sm md:text-base text-gray-300 leading-relaxed relative z-10">
             <GlossaryText>{star.description}</GlossaryText>
           </p>
         </div>
@@ -261,19 +261,26 @@ export function StarDetailPanel({
                 color={star.color}
                 defaultOpen
               >
-                <div className="grid grid-cols-2 gap-2 mt-2">
+                <div className="grid grid-cols-1 gap-2.5 mt-2">
                   {coreTraits.map((trait, idx) => (
                     <div
                       key={idx}
-                      className="rounded-xl p-3 text-center transition-all hover:scale-105"
+                      className="rounded-xl p-3.5 flex items-center gap-3.5 transition-all hover:scale-[1.02]"
                       style={{
                         background: `${star.color}10`,
                         border: `1px solid ${star.color}20`,
                       }}
                     >
-                      <div className="text-2xl mb-1">{trait.icon}</div>
-                      <div className="text-xs font-bold text-white mb-0.5">{trait.label}</div>
-                      <div className="text-[10px] text-gray-500 leading-snug">{trait.desc}</div>
+                      <div
+                        className="text-3xl flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center"
+                        style={{ backgroundColor: `${star.color}18` }}
+                      >
+                        {trait.icon}
+                      </div>
+                      <div className="flex-1 min-w-0 text-left">
+                        <div className="text-sm md:text-base font-bold text-white mb-1">{trait.label}</div>
+                        <div className="text-xs md:text-sm text-gray-400 leading-relaxed">{trait.desc}</div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -292,7 +299,7 @@ export function StarDetailPanel({
                   {fitItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2 text-xs text-gray-300 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
+                      className="flex items-start gap-2 text-sm md:text-base text-gray-200 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
                     >
                       <span className="flex-shrink-0">✨</span>
                       <span>{item}</span>
@@ -302,14 +309,14 @@ export function StarDetailPanel({
                 {notFitItems.length > 0 && (
                   <>
                     <div className="h-px bg-white/10 my-3" />
-                    <div className="text-[11px] font-bold text-gray-500 mb-2">
+                    <div className="text-xs md:text-sm font-bold text-gray-400 mb-2">
                       {LABELS.star_fit_not_recommend_title}
                     </div>
                     <div className="space-y-2">
                       {notFitItems.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-start gap-2 text-xs text-gray-400 leading-relaxed p-2 rounded-lg"
+                          className="flex items-start gap-2 text-sm md:text-base text-gray-300 leading-relaxed p-2 rounded-lg"
                           style={{ backgroundColor: 'rgba(255,100,100,0.08)' }}
                         >
                           <span className="flex-shrink-0">⚠️</span>

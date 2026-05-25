@@ -6,7 +6,7 @@
   "color": "#F59E0B",
   "bgColor": "#2a1a08",
   "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-  "description": "머릿속 상상을 진짜로 만들어 내는 창작자들이 모인 별이에요",
+  "description": "머릿속 상상을 진짜로 만들어 내는 창작자들이 모인 별이에요. 빈 종이와 빈 화면 위에 색과 글과 이야기를 채워 넣으며 세상에 없던 작품을 탄생시키죠. 자신만의 감성과 개성으로 사람들의 마음을 움직이고 싶은 이들의 우주랍니다.",
   "riasecTypes": [
     "A"
   ],
@@ -15,49 +15,49 @@
     "tagline": "한 번도 본 적 없는 것을 새로 만들고 싶은 친구들의 별이에요",
     "coreTraits": [
       {
-        "icon": "🎨",
-        "label": "창의력",
-        "desc": "지금까지 없던 새로운 아이디어를 떠올리는 힘이에요"
+        "icon": "🧭",
+        "label": "감성 디렉팅",
+        "desc": "AI가 100가지를 만들어도, '어떤 감정을 전할지' 방향을 정하는 건 사람의 몫이에요"
+      },
+      {
+        "icon": "🤖",
+        "label": "AI 공동 창작",
+        "desc": "Midjourney·ChatGPT·Sora 같은 도구를 자기 스타일로 길들여 1인 스튜디오가 되는 능력이에요"
       },
       {
         "icon": "👁️",
-        "label": "심미안",
-        "desc": "예쁘고 잘 어울리는 모습을 알아보는 눈썰미가 있어요"
+        "label": "아이디어 큐레이션",
+        "desc": "AI가 쏟아내는 수많은 결과 중 진짜 마음을 흔드는 한 장면을 골라내는 안목이에요"
       },
       {
-        "icon": "✍️",
-        "label": "표현력",
-        "desc": "마음속 생각을 그림이나 글로 잘 전달할 수 있어요"
-      },
-      {
-        "icon": "🔄",
-        "label": "반복 개선",
-        "desc": "더 좋은 작품을 만들려고 계속 고치고 다듬어요"
+        "icon": "💎",
+        "label": "나만의 색깔",
+        "desc": "AI가 따라 만들 수 없는 자기만의 시선·취향을 작품으로 쌓아 가는 힘이에요"
       }
     ],
     "fitPersonality": {
       "title": "이런 사람에게 딱 맞아요",
       "traits": [
-        "그림 그리기, 디자인, 글쓰기 같은 활동이 즐거운 사람이에요",
-        "나만의 스타일과 개성을 보여주고 싶은 사람이에요",
-        "미술, 음악, 책 같은 예술 분야에 관심이 많은 사람이에요",
-        "새로운 아이디어가 머릿속에 자주 떠오르는 사람이에요",
-        "완성한 작품을 보면서 뿌듯함을 느끼는 사람이에요"
+        "새로 나온 AI 도구를 일단 써 보고 자기 것으로 만드는 게 즐거운 사람이에요",
+        "AI가 만든 1000장 중 진짜 좋은 한 장을 알아보는 안목을 가진 사람이에요",
+        "내가 좋아하는 스타일·취향을 분명하게 설명할 수 있는 사람이에요",
+        "작품을 보고 '왜 마음이 움직였는지' 분석해 보는 사람이에요",
+        "평균이 아닌 나만의 시각을 끝까지 지키고 싶은 사람이에요"
       ],
       "notFit": [
-        "정해진 규칙과 공식대로 따라가는 게 더 편한 사람이라면 잘 안 맞아요",
-        "빨리 취업해서 안정적인 월급을 받는 게 가장 중요한 사람이라면 어울리지 않아요"
+        "정해진 템플릿을 그대로 따라가는 게 마음 편한 사람이라면 잘 안 맞아요",
+        "새 도구·기술 익히는 걸 부담스러워하는 사람이라면 어울리지 않아요"
       ]
     },
     "whyThisGroup": {
       "title": "왜 이 직업들을 묶었나요?",
-      "reason": "UX 디자이너, 웹툰 작가, 건축가, 영화감독은 모두 '예술형(A)' 성격을 가진 사람들이에요. 화면, 종이, 공간, 영상처럼 작품을 만드는 무대는 다르지만, 모두 보는 사람의 마음을 움직이는 작품을 상상하고, 그 아이디어를 눈에 보이게 만들고, 더 좋아질 때까지 계속 다듬는다는 공통점이 있답니다.",
+      "reason": "생성 AI가 그림·글·영상·음악을 무한히 찍어내는 시대에도, '무엇을 만들지'·'어떤 감정을 전할지'를 결정하는 건 사람이에요. UX 디자이너·웹툰 작가·건축가·영화감독 모두 AI를 손발처럼 쓰면서도, 작품의 메시지와 감성 디렉팅, 자기 이름의 신뢰는 직접 책임지는 직업이라는 공통점이 있답니다.",
       "commonDNA": [
-        "시각적 사고",
-        "사용자 공감 설계",
-        "아이디어 시각화",
-        "포트폴리오 중심",
-        "감성적 표현"
+        "AI 공동 창작",
+        "감성 디렉팅 책임",
+        "자기 스타일 자산화",
+        "포트폴리오 + 팬덤",
+        "끊임없는 도구 학습"
       ]
     },
     "hollandCode": "A (예술형)",
@@ -86,66 +86,67 @@
       "admissionPath": "학종+정시",
       "entryProcess": "디자인 전공 + 실무 3년 → 아트 디렉터 전환 + AI 디자인 툴 마스터",
       "aiTransformation": {
-        "beforeAI": "디자인 전 과정 직접 제작 (로고·포스터·웹)",
-        "afterAI": "AI 생성 디자인 감독 + 브랜드 전략 설계 + 크리에이티브 디렉션",
+        "beforeAI": "로고·포스터·웹 디자인 전 과정을 디자이너가 직접 손으로 제작했고, 반복 수정에 수십 시간이 소요됐다.",
+        "afterAI": "Midjourney·Adobe Firefly가 시안을 수십 초 만에 쏟아내는 시대. 그래픽 디자이너의 핵심 가치는 '어떤 감정을 전달할 브랜드인가'를 먼저 정의하고, AI 결과물 수백 장 중 브랜드 본질에 맞는 단 하나를 선별하며, 클라이언트의 말 뒤에 숨은 진짜 니즈를 AI에게 번역해 주는 감성 디렉팅·큐레이션 역할로 이동한다.",
         "replacementRisk": "high",
         "aiTools": [
           "Midjourney",
           "Adobe Firefly",
           "Canva AI",
-          "Figma AI"
+          "Figma AI",
+          "DALL-E 3",
+          "Photoshop AI"
         ],
         "survivalStrategy": [
-          "아트 디렉터로 전환 (AI에 정확한 지시)",
-          "브랜드 전략 설계 (브랜드 본질 정의)",
-          "AI 생성물 큐레이션 및 최종 선택",
-          "클라이언트 요구 해석 및 번역",
-          "디자인의 전략적 의미 설명"
+          "브랜드 페르소나 정의 능력 — AI가 카피할 수 없는 '이 브랜드가 전달할 감정'을 문장으로 먼저 쓸 수 있어야 한다",
+          "프롬프트 디렉팅 숙련 — 원하는 시각 감성을 AI에게 정확히 번역하는 언어 능력이 새 핵심 기술이다",
+          "AI 생성물 윤리·저작권 검수 책임 — 클라이언트에게 납품 전 학습 데이터 출처·상업 라이선스를 직접 확인한다",
+          "클라이언트 관계 자산화 — 반복 프로젝트·신뢰 네트워크는 AI가 대체 불가한 인간 디자이너의 해자다",
+          "아트 디렉터 포지셔닝 — 실무 제작보다 전략·방향 설정 역할로 단계를 높여 AI와 역할을 분리한다"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: 그래픽 디자이너 상황 분석 및 목표 설정",
-            "humanRole": "그래픽 디자이너로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → 그래픽 디자이너이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 본질 발굴 및 창작 방향 정의",
+            "humanRole": "클라이언트 인터뷰를 통해 브랜드가 전달해야 할 감정·가치·페르소나를 언어로 정의한다",
+            "aiRole": "경쟁사 비주얼 레퍼런스 50건 수집, 트렌드 분석, 무드보드 초안 자동 생성",
+            "scenarioExample": "스타트업 로고 의뢰 — ChatGPT로 '이 브랜드의 한 줄 감정 태그' 10개 도출 후 디자이너가 3개로 압축, Midjourney에 방향 프롬프트 작성",
             "recommendedTools": [
-              "Adobe Firefly",
-              "Midjourney"
+              "ChatGPT",
+              "Midjourney",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "그래픽 디자이너이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 시안 생성 및 감성 큐레이션",
+            "humanRole": "AI가 생성한 수십 장의 시안 중 브랜드 본질과 정합한 3개를 선별하고 그 이유를 언어화한다",
+            "aiRole": "Adobe Firefly·Midjourney로 다양한 스타일·컬러 팔레트 시안 대량 생성",
+            "scenarioExample": "Midjourney로 로고 후보 40장 생성 → 그래픽 디자이너가 브랜드 페르소나 기준으로 3장 선별 → 클라이언트에 '왜 이 3장인가' 발표",
             "recommendedTools": [
-              "Adobe Firefly",
               "Midjourney",
-              "Canva AI"
+              "Adobe Firefly",
+              "DALL-E 3"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 그래픽 디자이너 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → 그래픽 디자이너이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 선택 시안 정밀 완성 및 브랜드 가이드 제작",
+            "humanRole": "선별된 시안을 브랜드 일관성·가독성·인쇄 규격에 맞게 직접 조정하고 가이드라인을 작성한다",
+            "aiRole": "Photoshop AI로 배경 제거·리터칭 자동화, Figma AI로 컴포넌트 세트 자동 구성",
+            "scenarioExample": "AI 생성 로고를 Photoshop AI로 벡터 최적화 → 디자이너가 색상·여백·폰트 조화를 수작업으로 미세조정 → Figma AI로 브랜드 가이드 자동 레이아웃",
             "recommendedTools": [
-              "Adobe Firefly",
-              "Midjourney",
+              "Photoshop AI",
+              "Figma AI",
+              "Adobe Firefly"
+            ]
+          },
+          {
+            "stepTitle": "4단계: 저작권 검수 및 클라이언트 최종 승인",
+            "humanRole": "AI 생성물의 학습 데이터 출처·상업 라이선스를 확인하고 클라이언트에게 수정 의도를 설득한다",
+            "aiRole": "Canva AI로 다양한 포맷(SNS·인쇄·웹) 자동 리사이징, 납품 체크리스트 자동 생성",
+            "scenarioExample": "Adobe Firefly(상업 라이선스 보장) 생성물 활용 → 디자이너가 저작권 확인서 작성 → 클라이언트 피드백 '더 따뜻하게'를 구체 수정 지시로 번역해 Canva AI에 재적용",
+            "recommendedTools": [
               "Canva AI",
-              "Figma AI"
-            ]
-          },
-          {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "그래픽 디자이너이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
-            "recommendedTools": [
               "Adobe Firefly",
-              "Midjourney",
-              "Canva AI",
-              "Figma AI"
+              "Notion AI"
             ]
           }
         ]
@@ -696,66 +697,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "와이어프레임·UI 직접 제작 + 사용자 테스트",
-        "afterAI": "AI UI 생성 감독 + 사용자 리서치 설계 + UX 전략 수립",
+        "beforeAI": "와이어프레임을 손으로 그리고, 사용성 테스트를 직접 섭외·진행하며 UI 화면 하나하나를 수작업으로 설계했다.",
+        "afterAI": "Figma AI·v0.dev가 텍스트 설명만으로 UI 시안을 순식간에 만들어낸다. UX/UI 디자이너의 독보적 영역은 '사용자가 이 화면에서 무엇을 느끼는가'를 묻는 리서치 질문 설계, AI가 생성한 수십 개 시안의 사용성 판단, 그리고 장애인·노인·비모국어 사용자까지 고려하는 포용적 접근성 설계로 이동한다.",
         "replacementRisk": "medium",
         "aiTools": [
           "Figma AI",
-          "Uizard",
-          "Galileo AI",
-          "v0.dev"
+          "v0.dev",
+          "Perplexity",
+          "Claude",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "사용자 리서치 설계 (어떤 질문을 할 것인가)",
-          "AI 생성 UI 사용성 판단",
-          "사용자 감정 여정 설계",
-          "브랜드 경험 일관성 감독",
-          "접근성·포용성 설계"
+          "사용자 리서치 질문 설계 능력 — '어떤 것을 묻는가'가 AI가 못 하는 진짜 UX 전문성이다",
+          "감정 여정 지도 작성 — 화면 전환마다 사용자가 느낄 감정·기대·좌절을 언어로 정의하는 역량",
+          "접근성·포용성 설계 책임 — WCAG 기준 적합성 판단과 소수자 사용 시나리오 검토는 디자이너가 직접 수행한다",
+          "AI UI 생성물 사용성 검증 — 눈에 보기 좋은 시안과 실제 쓰기 편한 시안을 구별하는 현장 감각",
+          "개발팀·PM과의 협상력 — AI가 제안한 디자인이 기술적으로 구현 가능한지 판단하고 우선순위를 조율한다"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: UX/UI 디자이너 상황 분석 및 목표 설정",
-            "humanRole": "UX/UI 디자이너로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → UX/UI 디자이너이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 사용자 문제 정의 및 리서치 설계",
+            "humanRole": "인터뷰·설문 질문을 설계하고 사용자의 진짜 불편함이 무엇인지 직접 관찰·해석한다",
+            "aiRole": "Perplexity·Claude로 경쟁 앱 UX 패턴 분석, 인터뷰 질문 초안 생성, 리서치 결과 요약",
+            "scenarioExample": "배달앱 리뉴얼 프로젝트 — Claude로 경쟁사 UX 리포트 10건 요약 → UX 디자이너가 '주문 완료 후 불안감'이라는 핵심 고통 포인트를 리서치 질문으로 설계",
             "recommendedTools": [
-              "Figma AI",
-              "Uizard"
+              "Perplexity",
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "UX/UI 디자이너이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 와이어프레임 생성 및 사용성 큐레이션",
+            "humanRole": "AI가 생성한 와이어프레임 중 사용자 감정 여정과 실제 행동 흐름에 맞는 구조를 선별한다",
+            "aiRole": "v0.dev·Figma AI로 텍스트 설명 기반 와이어프레임 20개 자동 생성, 레이아웃 패턴 추천",
+            "scenarioExample": "v0.dev에 '주문 완료 후 사용자 불안 해소 화면' 프롬프트 입력 → 20개 시안 생성 → UX 디자이너가 심리적 안정감 기준으로 3개 선별",
             "recommendedTools": [
-              "Figma AI",
-              "Uizard",
-              "Galileo AI"
+              "v0.dev",
+              "Figma AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 UX/UI 디자이너 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → UX/UI 디자이너이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 접근성 검토 및 인터랙션 정밀 설계",
+            "humanRole": "선택된 시안의 접근성 기준(명도 대비·탭 순서·스크린리더 호환) 직접 검토 및 인터랙션 상세 정의",
+            "aiRole": "Figma AI로 다크모드·반응형 자동 적용, 색상 접근성 자동 검사, 컴포넌트 세트 자동 구성",
+            "scenarioExample": "Figma AI로 반응형 레이아웃 자동 생성 후 시각 장애 사용자 탭 순서를 디자이너가 직접 재배열, 명도 대비 4.5:1 기준 수동 검증",
             "recommendedTools": [
               "Figma AI",
-              "Uizard",
-              "Galileo AI",
-              "UserTesting AI"
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "UX/UI 디자이너이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 사용성 테스트 해석 및 개발 핸드오프",
+            "humanRole": "테스트 참가자 반응을 해석해 개선 우선순위를 결정하고 개발팀에 디자인 의도를 정확히 전달한다",
+            "aiRole": "테스트 녹화본 자동 전사, 클릭 히트맵 분석, 개선 제안 요약 리포트 자동 생성",
+            "scenarioExample": "사용성 테스트 영상 5건을 Claude로 자동 전사·요약 → UX 디자이너가 '버튼 위치 혼란' 패턴을 발견하고 수정 우선순위 결정 후 개발팀에 Figma 스펙 전달",
             "recommendedTools": [
+              "Claude",
               "Figma AI",
-              "Uizard",
-              "Galileo AI",
-              "UserTesting AI"
+              "Notion AI"
             ]
           }
         ]
@@ -1116,66 +1115,65 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "컷 편집·색보정·자막 전체 수작업",
-        "afterAI": "AI 자동 편집 감독 + 스토리 연출 + 감정 리듬 설계",
+        "beforeAI": "컷 편집·색보정·자막 삽입까지 모든 과정을 편집자가 직접 수작업으로 진행해 영상 1분에 수 시간이 걸렸다.",
+        "afterAI": "Descript·CapCut AI가 대본만 있으면 자동 자막·컷 편집을 해주는 시대. 영상 편집자의 핵심 역할은 'AI가 만든 편집의 감정 리듬이 맞는가'를 판단하는 것 — 언제 숨을 참게 하고 언제 웃음을 터트릴지, 음악과 컷의 타이밍이 관객의 감정을 어떻게 조율하는지 설계하는 스토리텔링 연출 능력이 핵심 생존 자산이다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Runway ML",
           "Descript",
-          "Adobe Premiere AI",
-          "CapCut AI"
+          "CapCut AI",
+          "Premiere Pro AI",
+          "Runway",
+          "Suno",
+          "ElevenLabs"
         ],
         "survivalStrategy": [
-          "스토리 구조 설계 (기승전결·감정 흐름)",
-          "AI 편집 결과 큐레이션",
-          "감정 리듬 설계 (언제 긴장·이완)",
-          "브랜드 톤앤매너 감독",
-          "클라이언트 의도 해석 및 번역"
+          "감정 리듬 설계 능력 — 컷 타이밍·음악·사운드 효과가 관객 감정에 미치는 영향을 직관적으로 판단하는 편집 감각",
+          "스토리 구조 재설계 — AI가 자동 편집한 결과물의 기승전결·긴장-이완 흐름이 의도와 맞는지 검토하고 재구성",
+          "AI 자동 편집 오류 검수 책임 — 얼굴 인식 오류·문맥 무시 컷 등 AI 편집 실수를 최종 납품 전 발견하는 책임",
+          "클라이언트 감정 언어 번역 — '더 역동적으로'처럼 추상적 요청을 구체적 편집 지시(BPM·컷 길이 등)로 전환",
+          "멀티 플랫폼 컷 전략 — YouTube 15초·Instagram Reels·TikTok 각각의 시청 패턴에 맞는 편집 버전 기획"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Video Editor 상황 분석 및 목표 설정",
-            "humanRole": "Video Editor로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Video Editor이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 스토리 구조 설계 및 편집 방향 정의",
+            "humanRole": "원본 영상의 핵심 감정 메시지를 정의하고 기승전결·감정 곡선을 스토리보드로 구성한다",
+            "aiRole": "Descript으로 인터뷰·강의 영상 자동 전사, 핵심 발언 타임스탬프 추출, 편집 포인트 제안",
+            "scenarioExample": "30분 인터뷰 영상 — Descript 자동 전사 후 편집자가 '3분 감동 스토리'로 압축할 핵심 발언 7개를 직접 선별하고 감정 순서 재배열",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Descript",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Video Editor이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 초벌 편집 감독 및 컷 큐레이션",
+            "humanRole": "AI 자동 편집 결과물을 보며 감정 흐름이 어긋난 컷·음악 타이밍 오류를 찾아 재배치한다",
+            "aiRole": "CapCut AI·Premiere Pro AI로 자동 컷 편집·자막 생성·배경음악 추천 및 적용",
+            "scenarioExample": "CapCut AI 자동 편집본 확인 → 편집자가 클라이맥스 컷이 3초 빨리 들어간 것을 발견, Premiere Pro에서 타이밍 직접 수정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "CapCut AI",
+              "Premiere Pro AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Video Editor 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Video Editor이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 음악·사운드 디자인 및 감정 리듬 조율",
+            "humanRole": "배경음악 선택, BGM과 컷 전환 동기화, 사운드 효과 배치로 관객 감정 흐름을 정밀 조율한다",
+            "aiRole": "Suno로 영상 분위기에 맞는 배경음악 생성, ElevenLabs로 내레이션 음성 제작",
+            "scenarioExample": "제품 광고 영상 — Suno로 '따뜻하고 신뢰감 있는' 배경음악 5개 생성 → 편집자가 제품 등장 컷 타이밍에 맞는 1개 선택, 비트 포인트 수동 정렬",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Suno",
+              "ElevenLabs",
+              "Premiere Pro AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Video Editor이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 플랫폼별 최적화 컷 및 최종 검수",
+            "humanRole": "YouTube·Instagram·TikTok 각 플랫폼 시청 습관에 맞게 컷 버전을 재편집하고 전체 품질 최종 확인",
+            "aiRole": "Runway로 세로형·가로형 자동 리프레이밍, CapCut AI로 플랫폼별 자막 스타일 자동 적용",
+            "scenarioExample": "YouTube 3분 영상 완성 후 Runway 자동 리프레이밍으로 Instagram용 세로 영상 생성 → 편집자가 화면 구도 잘림 부분 직접 수정 후 최종 납품",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Runway",
+              "CapCut AI",
+              "Descript"
             ]
           }
         ]
@@ -1541,65 +1539,63 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "일러스트 전체 수작업 제작",
-        "afterAI": "AI 일러스트 감독 + 스타일 정의 + 감정 표현 디렉션",
+        "beforeAI": "책 표지·캐릭터·그림책 등 모든 일러스트를 작가가 직접 펜과 태블릿으로 처음부터 끝까지 그렸다.",
+        "afterAI": "Midjourney·Stable Diffusion이 수초 만에 그림체를 흉내내는 시대가 왔다. 일러스트레이터의 생존 자산은 'AI가 따라 만들 수 없는 자기만의 시선과 서사' — 독창적 스타일 자산화, 그림에 담긴 감정의 뉘앙스 디렉팅, 그리고 팬·독자와 쌓아온 신뢰 관계가 AI로 대체 불가한 핵심 경쟁력이다.",
         "replacementRisk": "high",
         "aiTools": [
           "Midjourney",
           "Stable Diffusion",
-          "Adobe Firefly"
+          "Adobe Firefly",
+          "Photoshop AI",
+          "DALL-E 3"
         ],
         "survivalStrategy": [
-          "독창적 스타일 정의 (브랜드 고유 비주얼)",
-          "AI 생성 일러스트 큐레이션",
-          "감정 표현 디렉션",
-          "스토리 비주얼 설계",
-          "클라이언트 의도 시각화"
+          "시그니처 스타일 자산화 — '이 그림은 OOO의 것'임을 알아볼 수 있는 독창적 선·색·구도 언어를 지속적으로 강화한다",
+          "감정 표현 디렉팅 정밀도 — AI 생성 그림에서 캐릭터 표정·몸짓의 미묘한 감정 오류를 발견하고 수작업으로 수정하는 감각",
+          "스토리텔링 비주얼 설계 — 그림책·웹툰·광고 일러스트에서 한 장면이 전달할 이야기 흐름을 그림 구성으로 연출하는 능력",
+          "팬·독자 커뮤니티 신뢰 구축 — SNS 활동·작업 과정 공유로 'AI가 아닌 사람이 그린 작품'에 가치를 두는 팬층 형성",
+          "AI 일러스트 저작권 윤리 검수 — 학습 데이터 논란 있는 모델 사용 시 클라이언트에게 리스크를 설명하고 상업 라이선스 도구로 전환"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Illustrator 상황 분석 및 목표 설정",
-            "humanRole": "Illustrator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Illustrator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 스토리 콘셉트 및 감정 톤 정의",
+            "humanRole": "클라이언트의 그림 의뢰 의도를 분석해 '이 그림이 보는 사람에게 전달할 감정'을 한 문장으로 정의한다",
+            "aiRole": "ChatGPT로 비슷한 분위기의 레퍼런스 작품 목록 수집, 색감 팔레트 키워드 제안",
+            "scenarioExample": "그림책 의뢰 — ChatGPT로 '따뜻함·그리움·어린 시절' 감정 레퍼런스 20건 수집 → 일러스트레이터가 '해질녘 노란빛·둥근 선'으로 방향 확정",
             "recommendedTools": [
-              "Adobe AI",
+              "ChatGPT",
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Illustrator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 러프 시안 생성 및 감성 큐레이션",
+            "humanRole": "Midjourney 생성 시안 중 스타일 방향에 맞는 구도·색감 요소를 선별해 작가 특유의 감각으로 재해석한다",
+            "aiRole": "Midjourney·DALL-E 3으로 다양한 구도·색감·캐릭터 포즈 시안 수십 장 생성",
+            "scenarioExample": "Midjourney로 러프 구도 30장 생성 → 일러스트레이터가 '눈빛 표현이 살아있는' 2장 선택 후 캐릭터 표정을 직접 태블릿으로 재드로잉",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "DALL-E 3",
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Illustrator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Illustrator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 작가 스타일 수작업 완성 및 감정 미세 조정",
+            "humanRole": "AI 시안을 바탕으로 선·질감·표정의 미묘한 감정 뉘앙스를 수작업으로 완성해 시그니처 스타일을 입힌다",
+            "aiRole": "Adobe Firefly로 배경 텍스처 자동 생성, Photoshop AI로 색상 조화·조명 효과 자동 적용",
+            "scenarioExample": "AI 생성 배경에 Photoshop AI로 조명 추가 → 일러스트레이터가 주인공 눈빛·손 떨림 표현을 직접 태블릿 드로잉으로 수정해 '이 작가만의 감성' 완성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Photoshop AI",
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Illustrator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 저작권 검수 및 팬 공개·피드백 반영",
+            "humanRole": "AI 활용 범위를 클라이언트에게 투명하게 고지하고, SNS에 작업 과정을 공유해 독자 신뢰를 쌓는다",
+            "aiRole": "Adobe Firefly로 최종 이미지 다양한 포맷 자동 내보내기, Canva AI로 SNS 포스팅 레이아웃 자동 생성",
+            "scenarioExample": "완성 일러스트 Adobe Firefly(상업 라이선스 보장) 활용 명시 → 인스타그램에 '스케치→AI 러프→수작업 완성' 과정 영상 공개 → 팬들 반응으로 다음 작품 방향 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "Canva AI"
             ]
           }
         ]
@@ -1965,66 +1961,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "3D 모델링·텍스처링·리깅 전체 수작업",
-        "afterAI": "AI 3D 생성 감독 + 게임 엔진 최적화 + 아트 디렉션",
+        "beforeAI": "3D 모델 하나를 폴리곤 단위로 손으로 쌓고, 텍스처 페인팅·리깅까지 모두 수작업으로 제작해 캐릭터 한 개에 수주가 걸렸다.",
+        "afterAI": "Meshy·Luma AI가 텍스트나 사진 한 장으로 3D 모델을 수분 내 생성하는 시대. 3D 아티스트의 역할은 AI가 만든 메시의 토폴로지 오류를 수정하고, 게임 엔진에서 실시간으로 움직여도 끊기지 않도록 최적화하며, 아트 디렉터의 세계관 기준에 맞게 스타일 일관성을 감독하는 기술·판단 전문가로 진화한다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Luma AI",
           "Meshy",
-          "Kaedim",
-          "Blender AI"
+          "Luma AI",
+          "Midjourney",
+          "Stable Diffusion",
+          "Adobe Firefly"
         ],
         "survivalStrategy": [
-          "AI 3D 생성 지시 및 감독",
-          "게임 엔진 최적화 (폴리곤 감소·LOD)",
-          "아트 스타일 일관성 감독",
-          "애니메이션 리깅 전문성",
-          "실시간 렌더링 최적화"
+          "AI 3D 메시 토폴로지 검수 능력 — 생성된 모델의 폴리곤 오류·UV 왜곡·리깅 불가 구조를 찾아내고 수정하는 기술",
+          "게임 엔진 실시간 최적화 전문성 — LOD 설정·폴리곤 감소·텍스처 압축으로 실시간 렌더링 성능을 유지하는 역량",
+          "아트 스타일 일관성 감독 — AI가 생성한 수십 개 에셋이 동일 세계관 안에서 통일감을 갖는지 판단하는 아트 디렉팅",
+          "리깅·애니메이션 연결 전문성 — AI 생성 모델을 캐릭터가 자연스럽게 움직이도록 뼈대(rig) 구조를 설계하는 기술",
+          "실사 합성 판단 능력 — 영화·광고에서 AI 3D 생성물과 실사 영상을 합성할 때 물리적 자연스러움을 최종 검수"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: 3D Artist 상황 분석 및 목표 설정",
-            "humanRole": "3D Artist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → 3D Artist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 아트 스타일 방향 정의 및 레퍼런스 수집",
+            "humanRole": "게임·영화의 세계관 설정서를 바탕으로 '이 에셋이 갖춰야 할 스타일·감성 규칙'을 문서로 정의한다",
+            "aiRole": "Midjourney로 비슷한 아트 스타일 레퍼런스 이미지 30장 자동 수집, 색상 팔레트 키워드 제안",
+            "scenarioExample": "판타지 게임 캐릭터 개발 — Midjourney로 '중세 스팀펑크' 아트 스타일 레퍼런스 수집 → 3D 아티스트가 '광택 없는 금속·낡은 가죽' 텍스처 규칙 문서 작성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Midjourney",
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "3D Artist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 3D 모델 생성 및 토폴로지 검수",
+            "humanRole": "Meshy 생성 3D 모델의 폴리곤 오류·UV 왜곡·리깅 불가 부위를 찾아 Blender에서 직접 수정한다",
+            "aiRole": "Meshy·Luma AI로 레퍼런스 이미지 기반 3D 메시 자동 생성, 텍스처 초안 자동 적용",
+            "scenarioExample": "Meshy로 갑옷 3D 모델 생성 → 3D 아티스트가 어깨 관절 부위 폴리곤 겹침 오류 발견, Blender에서 수작업 수정 후 리깅 가능한 구조로 재설계",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Meshy",
+              "Luma AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 3D Artist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → 3D Artist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 텍스처 완성 및 게임 엔진 최적화",
+            "humanRole": "텍스처 세부 감성(긁힘·마모·광택)을 수작업으로 완성하고 엔진 성능 기준에 맞게 폴리곤·텍스처를 최적화한다",
+            "aiRole": "Adobe Firefly로 텍스처 패턴 자동 생성, AI 텍스처 업스케일링으로 고해상도 변환",
+            "scenarioExample": "Adobe Firefly로 금속 텍스처 패턴 자동 생성 → 3D 아티스트가 '전투 흔적' 긁힘을 수작업으로 추가 → 모바일 게임 기준 LOD 3단계·폴리곤 5000개로 최적화",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "Meshy"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "3D Artist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 세계관 스타일 일관성 검수 및 팀 납품",
+            "humanRole": "AI가 생성한 모든 에셋이 동일 세계관 안에서 조화를 이루는지 최종 아트 디렉팅 검수 후 팀에 납품한다",
+            "aiRole": "Midjourney로 완성 에셋 게임 씬 내 배치 시뮬레이션 이미지 자동 생성, 에셋 목록 관리 자동화",
+            "scenarioExample": "20개 캐릭터 에셋 완성 후 Midjourney 씬 시뮬레이션으로 배치 테스트 → 3D 아티스트가 '이 캐릭터 갑옷이 세계관 중세감에서 이탈' 발견 후 텍스처 재수정 지시",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Meshy"
             ]
           }
         ]
@@ -2390,65 +2382,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "프레임별 수작업 애니메이션",
-        "afterAI": "AI 애니메이션 감독 + 감정 연출 + 타이밍 디렉션",
+        "beforeAI": "캐릭터 움직임 하나하나를 프레임별로 직접 그리는 전통 키프레임 애니메이션 방식이 기본이었고, 1초 분량에 수십 장의 그림이 필요했다.",
+        "afterAI": "Runway·Pika가 이미지나 짧은 영상을 입력하면 자동으로 움직임을 생성하는 시대. 애니메이터의 독보적 영역은 AI가 만든 움직임에서 '12가지 애니메이션 원리(스쿼시·스트레치·타이밍 등)'의 위반을 발견하고, 캐릭터 감정이 관객에게 정확히 전달되도록 눈 깜빡임 한 번의 타이밍까지 조율하는 감성 연출 능력이다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Runway Gen-2",
-          "Pika Labs",
-          "Wonder Dynamics"
+          "Runway",
+          "Pika",
+          "Midjourney",
+          "Adobe Firefly",
+          "Suno"
         ],
         "survivalStrategy": [
-          "감정 연출 (캐릭터 감정 표현 디렉션)",
-          "타이밍 디렉션 (언제 빠르게·느리게)",
-          "AI 애니메이션 큐레이션",
-          "스토리 비주얼 설계",
-          "애니메이션 원리 감독"
+          "12가지 애니메이션 원리 감수 능력 — AI 생성 움직임의 스쿼시·스트레치·이즈인아웃 위반을 즉각 발견하는 전문 감각",
+          "캐릭터 감정 타이밍 연출 — 눈 깜빡임·손 떨림·발걸음 리듬이 관객에게 전달하는 심리적 효과를 정밀 조율하는 역량",
+          "AI 애니메이션 캐릭터 일관성 유지 — 씬이 바뀌어도 같은 캐릭터 움직임 스타일·무게감을 유지하도록 AI 출력 감독",
+          "스토리텔링 비주얼 설계 — 씬 전환·카메라 앵글·속도 변화로 관객의 감정을 이끄는 연출 구조 기획",
+          "실사·AI 애니메이션 합성 감독 — Wonder Dynamics 등으로 생성한 AI 캐릭터와 실사 배우가 같은 공간에 있는 것처럼 자연스럽게 통합"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Animator 상황 분석 및 목표 설정",
-            "humanRole": "Animator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Animator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 씬 감정 목표 정의 및 무드 레퍼런스 수집",
+            "humanRole": "이 씬에서 관객이 느껴야 할 감정·긴장감을 정의하고 참조할 움직임 레퍼런스를 선정한다",
+            "aiRole": "Midjourney로 씬 분위기 레퍼런스 이미지 생성, ChatGPT로 유사 애니메이션 씬 사례 수집",
+            "scenarioExample": "주인공 이별 씬 제작 — ChatGPT로 유사 애니메이션 이별 씬 10개 감정 분석 → 애니메이터가 '3초 침묵 후 느린 돌아봄'을 감정 연출 방향으로 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Midjourney",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Animator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 움직임 생성 및 애니메이션 원리 검수",
+            "humanRole": "Runway 생성 움직임의 타이밍·이즈·스쿼시 오류를 12가지 원리 기준으로 검수하고 수정 지시한다",
+            "aiRole": "Runway·Pika로 캐릭터 기본 움직임 자동 생성, 여러 타이밍 옵션 변형 제공",
+            "scenarioExample": "Runway로 주인공 걷는 동작 생성 → 애니메이터가 '발뒤꿈치가 먼저 떨어져 무게감 없음' 오류 발견, 타이밍 프레임 직접 수정 지시",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Runway",
+              "Pika"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Animator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Animator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 감정 타이밍 정밀 조율 및 씬 완성",
+            "humanRole": "눈 깜빡임·호흡·손 떨림 등 세밀한 감정 타이밍을 직접 조정해 캐릭터 심리가 관객에게 전달되도록 완성한다",
+            "aiRole": "Suno로 씬 배경음악 생성해 움직임 타이밍 기준점 제공, Adobe Firefly로 배경 텍스처 자동 생성",
+            "scenarioExample": "Suno로 이별 씬 배경음악 생성 → 음악 최고조 3초 전에 캐릭터 눈 깜빡임이 들어가도록 애니메이터가 프레임 단위 조정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Suno",
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Animator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 씬 연속성 검수 및 최종 렌더링 감독",
+            "humanRole": "모든 씬의 캐릭터 움직임 일관성·무게감·스타일이 통일됐는지 최종 감독하고 렌더링 품질을 확인한다",
+            "aiRole": "Runway로 씬 간 전환 자동 블렌딩, 렌더링 설정 최적화 자동 추천",
+            "scenarioExample": "30개 씬 완성 후 Runway 자동 연결 → 애니메이터가 씬 17과 18 사이 캐릭터 팔 위치 불연속 발견, 해당 씬 직접 재수정 후 최종 납품 승인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Runway",
+              "Pika"
             ]
           }
         ]
@@ -2814,65 +2803,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "스토리·그림·채색 전체 수작업",
-        "afterAI": "스토리 창작 + AI 그림 생성 감독 + 연출 디렉션",
+        "beforeAI": "스토리 구상부터 콘티·펜터치·채색까지 모든 과정을 작가 혼자 수행해 주 1회 연재에 수십 시간이 소요됐다.",
+        "afterAI": "AI가 배경·채색·중간 컷 생성을 지원해 1인 작가의 제작 속도가 비약적으로 빨라진다. 웹툰 작가의 핵심 자산은 AI가 쏟아내지 못하는 독창적 세계관과 캐릭터 내면의 이야기, 그리고 수백 회 연재를 통해 쌓아온 독자와의 팬덤 관계다. AI를 어시스턴트로 활용하면서 작가 고유의 서사와 연출 감각에 집중하는 것이 중요하다.",
         "replacementRisk": "medium",
         "aiTools": [
           "Midjourney",
-          "ComfyUI",
-          "웹툰 AI 어시스턴트"
+          "Stable Diffusion",
+          "ChatGPT",
+          "Claude",
+          "Photoshop AI"
         ],
         "survivalStrategy": [
-          "독창적 스토리 창작 (AI는 진부한 스토리)",
-          "캐릭터 감정 연출",
-          "AI 그림 생성 감독 및 큐레이션",
-          "독자와의 소통 (댓글·피드백)",
-          "웹툰 세계관 일관성 유지"
+          "독창적 세계관 설계 능력 — AI가 평균적 클리셰를 쏟아낼 때, 이 작품만의 세계 규칙·역사·사건을 깊이 설계하는 작가 역량",
+          "캐릭터 내면 일관성 유지 — 수백 화 연재 동안 캐릭터가 보여온 감정·성격 일관성을 AI 어시스트 사용 중에도 지켜내는 책임",
+          "독자 댓글·반응 직접 읽기 — 독자가 어떤 씬에 열광하는지, 어떤 서사에 이탈하는지를 데이터가 아닌 감각으로 해석해 다음 화에 반영",
+          "연재 브랜드 자산화 — 작가 이름·고유 화풍·세계관이 플랫폼을 초월하는 IP가 되도록 캐릭터 굿즈·2차 창작 커뮤니티 관리",
+          "AI 배경·채색 활용 효율화 — 창작 에너지를 핵심 서사·감정 씬에 집중하기 위해 반복 배경·채색 작업을 AI에 위임하는 워크플로"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Webtoon Artist 상황 분석 및 목표 설정",
-            "humanRole": "Webtoon Artist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Webtoon Artist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 회차 서사 설계 및 감정 클라이맥스 정의",
+            "humanRole": "이번 화의 핵심 감정 전환점을 정의하고 독자가 다음 화를 기다리게 할 클리프행어를 직접 설계한다",
+            "aiRole": "Claude로 스토리 흐름 일관성 검토, 이전 화 복선 정리, 대사 초안 생성",
+            "scenarioExample": "웹툰 50화 — Claude에 1~49화 요약 입력 후 '이번 화에 회수할 복선 목록' 자동 추출 → 작가가 핵심 감정 씬 배치와 대사를 직접 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Webtoon Artist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 콘티·레이아웃 설계 및 AI 배경 생성",
+            "humanRole": "각 칸의 시선 흐름·여백·극적 효과를 설계한 콘티를 직접 작성하고 AI 배경 생성 방향을 지시한다",
+            "aiRole": "Midjourney·Stable Diffusion으로 배경 이미지 자동 생성, 날씨·시간대·계절 변형 제공",
+            "scenarioExample": "도시 밤거리 배경 씬 — Midjourney로 '비 오는 네온 서울 골목' 배경 10장 생성 → 작가가 캐릭터 감정과 어울리는 조명 구도 1장 선택 후 콘티에 배치",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Webtoon Artist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Webtoon Artist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 핵심 감정 씬 수작업 작화 및 채색",
+            "humanRole": "클라이맥스·감정 폭발 씬의 캐릭터 표정·포즈는 직접 드로잉해 'AI가 못 내는 이 작가만의 선'을 유지한다",
+            "aiRole": "Photoshop AI로 배경 채색·조명 효과 자동 적용, 반복 컷 자동 복제·변형",
+            "scenarioExample": "주인공 절규 씬 — 얼굴·손 표현은 작가 직접 드로잉, Photoshop AI로 배경 빛번짐·그림자 자동 적용 → 전체 채색 시간 60% 단축",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Photoshop AI",
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Webtoon Artist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 독자 반응 분석 및 다음 화 서사 조정",
+            "humanRole": "댓글·조회수·이탈률을 직접 읽고, 독자가 어떤 씬에 반응했는지 해석해 다음 화 서사 방향을 조율한다",
+            "aiRole": "Claude로 독자 댓글 감성 분석·패턴 요약, 인기 씬 키워드 추출",
+            "scenarioExample": "50화 댓글 500개를 Claude로 감성 분석 → '조연 B의 과거 서사 원한다' 패턴 발견 → 작가가 52화에 B의 회상 씬 추가 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           }
         ]
@@ -3238,66 +3224,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "작곡·편곡·믹싱 전체 수작업",
-        "afterAI": "AI 음악 생성 감독 + 감정 연출 + 아티스트 협업",
+        "beforeAI": "아티스트와의 대화를 바탕으로 작곡·편곡·보컬 디렉션·믹싱·마스터링까지 전 과정을 직접 수행했고, 앨범 한 장에 수개월이 걸렸다.",
+        "afterAI": "Suno·Udio가 텍스트 프롬프트만으로 2분짜리 곡을 수초에 생성하는 시대. 뮤직 프로듀서의 생존 자산은 AI가 흉내 낼 수 없는 '아티스트의 내면 이야기를 음악으로 번역하는 능력' — 어떤 BPM이 이 아티스트의 슬픔을 가장 잘 표현하는지, 어떤 화성 진행이 이 계절의 외로움을 담는지를 직관적으로 결정하는 감성 판단이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Suno AI",
+          "Suno",
           "Udio",
-          "AIVA",
-          "Soundraw"
+          "ElevenLabs",
+          "Descript",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "감정 연출 (어떤 감정을 전달할 것인가)",
-          "AI 음악 큐레이션 및 선택",
-          "아티스트와의 협업 (의도 해석)",
-          "음악 스타일 정의",
-          "믹싱·마스터링 최종 감독"
+          "아티스트 내면 해석 능력 — 아티스트가 말하는 '이 곡이 담아야 할 감정'을 구체적 사운드 언어(BPM·조성·악기 선택)로 번역",
+          "AI 음악 큐레이션 정밀도 — Suno·Udio가 생성한 수십 개 변형 중 아티스트 정체성과 가장 잘 맞는 방향을 선별하는 감각",
+          "보컬 디렉션 불가 대체 영역 — 아티스트의 호흡·발음·감정 표현을 녹음 현장에서 직접 이끌어내는 것은 인간 프로듀서만 가능",
+          "음악 저작권·AI 생성물 윤리 관리 — AI 학습 데이터 출처 논란 없는 도구 선택과 최종 곡의 저작권 소유 구조를 명확히 설계",
+          "레이블·브랜드 협상력 — 음악이 완성된 후 플랫폼·광고·영화 음악으로 수익화할 때 계약 조건을 유리하게 협상하는 비즈니스 감각"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Music Producer 상황 분석 및 목표 설정",
-            "humanRole": "Music Producer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Music Producer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 아티스트 감정 인터뷰 및 사운드 방향 정의",
+            "humanRole": "아티스트와 대화해 이 앨범·곡이 담아야 할 감정·경험·메시지를 언어로 추출하고 사운드 방향을 결정한다",
+            "aiRole": "Claude로 아티스트 이전 곡 가사·분위기 분석, 장르 트렌드 조사 요약",
+            "scenarioExample": "신보 작업 — Claude로 아티스트 전 앨범 가사 키워드 분석 → 프로듀서가 '성장의 두려움과 설렘'을 이번 앨범 핵심 감정으로 정의",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Music Producer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 데모 생성 및 감정 방향 큐레이션",
+            "humanRole": "Suno·Udio 생성 데모 중 아티스트 페르소나·감정 목표와 맞는 방향을 선별하고 그 이유를 아티스트에게 설명한다",
+            "aiRole": "Suno·Udio로 다양한 장르·BPM·조성의 데모 10~20개 자동 생성",
+            "scenarioExample": "Suno로 '성장·두려움' 키워드 데모 15개 생성 → 프로듀서가 120BPM 미디엄 템포 단조 2개를 선별, 아티스트와 함께 최종 방향 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Suno",
+              "Udio"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Music Producer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Music Producer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 보컬 디렉션 및 편곡 완성",
+            "humanRole": "녹음 현장에서 아티스트의 호흡·발음·감정 표현을 직접 이끌고, AI 생성 데모를 기반으로 편곡을 완성한다",
+            "aiRole": "ElevenLabs로 가이드 보컬 시뮬레이션, Descript으로 녹음본 자동 전사·편집",
+            "scenarioExample": "아티스트 녹음 세션 — ElevenLabs 가이드 보컬로 감정 방향 먼저 공유 → 프로듀서가 '3절 후렴 직전 호흡 참기'를 현장에서 직접 디렉팅",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ElevenLabs",
+              "Descript"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Music Producer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 믹싱 감독 및 플랫폼 최적화 마스터링",
+            "humanRole": "믹싱 엔지니어에게 각 악기 밸런스·공간감 방향을 지시하고, 스트리밍 플랫폼별 라우드니스 기준으로 마스터링을 감독한다",
+            "aiRole": "Descript으로 믹싱 전후 파형 비교 분석, 스트리밍 플랫폼 볼륨 기준 자동 체크",
+            "scenarioExample": "믹싱 완료 후 Descript 파형 분석으로 '보컬이 브리지에서 악기에 묻힘' 확인 → 프로듀서가 엔지니어에게 보컬 2dB 올림 지시 후 Spotify 기준 -14 LUFS 마스터링 확인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Descript",
+              "Notion AI"
             ]
           }
         ]
@@ -3663,65 +3645,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "게임 시스템 설계 + 밸런스 조정 + 레벨 디자인",
-        "afterAI": "AI 밸런스 시뮬레이션 감독 + 재미 설계 + 플레이어 경험 전략",
+        "beforeAI": "게임의 모든 규칙·레벨·밸런스 수치를 게임 디자이너가 스프레드시트와 직관으로 직접 설계하고 수백 번 수작업 테스트를 반복했다.",
+        "afterAI": "AI 에이전트가 게임 내 수천 시간 분량의 밸런스 시뮬레이션을 자동 실행하고 데이터를 쏟아낸다. 게임 디자이너의 역할은 AI가 '밸런스상 최적'이라고 제안한 수치가 왜 재미없는지를 설명하고, 플레이어가 성취감을 느끼는 난이도 곡선의 심리적 원리를 설계하는 창작·판단 영역으로 이동한다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Unity ML-Agents",
-          "게임 밸런스 AI",
-          "플레이 데이터 분석 AI"
+          "ChatGPT",
+          "Claude",
+          "Midjourney",
+          "Perplexity",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "재미의 본질 정의 (무엇이 재미있는가)",
-          "AI 밸런스 시뮬레이션 해석",
-          "플레이어 감정 여정 설계",
-          "게임 경제 시스템 설계",
-          "플레이 데이터 전략적 해석"
+          "'재미의 본질' 언어화 능력 — 이 게임이 주는 재미가 무엇인지(성취감·탐험·사회적 경쟁 등)를 명확히 정의하고 설계에 반영",
+          "AI 밸런스 데이터 전략적 해석 — 'AI가 최적이라고 제안한 수치'가 왜 플레이어에게 재미없는지를 심리학적으로 설명하는 능력",
+          "플레이어 감정 여정 설계 — 게임 시작부터 엔딩까지 좌절·성취·기대·놀라움이 적절히 배치된 감정 곡선 설계",
+          "게임 경제·메타 시스템 윤리 설계 — 과금 유도·중독성 설계의 윤리 기준을 직접 판단하고 지속 가능한 수익 모델을 설계",
+          "플레이어 커뮤니티 직접 읽기 — 유저 피드백·커뮤니티 불만을 직접 읽고 '어떤 게임 요소가 이탈을 만드는가'를 데이터 전에 직관으로 파악"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Game Designer 상황 분석 및 목표 설정",
-            "humanRole": "Game Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Game Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 게임 핵심 재미 정의 및 플레이어 감정 목표 설정",
+            "humanRole": "'이 게임을 통해 플레이어가 느껴야 할 핵심 감정'을 정의하고 비슷한 장르 게임의 재미 요소를 분석한다",
+            "aiRole": "Perplexity로 경쟁 게임 리뷰·유저 반응 수집, Claude로 게임 디자인 원리 문서 요약",
+            "scenarioExample": "모바일 RPG 신규 개발 — Claude로 하스스톤·포켓몬GO 재미 요소 분석 → 게임 디자이너가 '5분 안에 성취감 한 번'을 핵심 경험 목표로 정의",
             "recommendedTools": [
-              "Adobe AI",
+              "Perplexity",
+              "Claude"
+            ]
+          },
+          {
+            "stepTitle": "2단계: 게임 메카닉 설계 및 AI 밸런스 시뮬레이션 감독",
+            "humanRole": "핵심 메카닉 규칙을 직접 설계하고 AI 밸런스 시뮬레이션 결과 중 '재미를 해치는 최적값'을 걸러낸다",
+            "aiRole": "ChatGPT로 게임 수치 변형 시나리오 시뮬레이션, 난이도 곡선 옵션 자동 계산",
+            "scenarioExample": "보스 HP 설정 — ChatGPT로 10가지 HP 시나리오 시뮬레이션 → '통계상 최적' 수치가 실제로는 플레이어에게 '운 게임' 느낌을 준다고 판단, 디자이너가 다른 수치 선택",
+            "recommendedTools": [
+              "ChatGPT",
+              "Notion AI"
+            ]
+          },
+          {
+            "stepTitle": "3단계: 레벨 디자인 및 플레이어 감정 흐름 검증",
+            "humanRole": "레벨 순서·보상 타이밍·난이도 스파이크가 설계한 감정 곡선대로 작동하는지 직접 플레이하며 검증한다",
+            "aiRole": "Claude로 레벨 설계 문서 검토·일관성 체크, Midjourney로 레벨 분위기 비주얼 레퍼런스 생성",
+            "scenarioExample": "레벨 1~10 검증 — 디자이너가 직접 플레이 후 레벨 7이 '난이도 스파이크'로 이탈 포인트 됨을 발견 → Claude로 수정 방안 3가지 도출, 디자이너가 최적안 선택",
+            "recommendedTools": [
+              "Claude",
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Game Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "4단계: 플레이어 피드백 해석 및 시스템 개선 우선순위 결정",
+            "humanRole": "출시 후 커뮤니티 반응과 이탈 데이터를 직접 읽고 '어떤 게임 요소를 먼저 수정할지' 우선순위를 판단한다",
+            "aiRole": "Claude로 스팀·구글플레이 리뷰 감성 분석, 이탈 구간 패턴 요약",
+            "scenarioExample": "출시 2주 후 스팀 리뷰 500개를 Claude로 분석 → '반복 전투 지루함' 패턴 발견 → 게임 디자이너가 레벨 10 이후 신규 메카닉 추가를 다음 업데이트 1순위로 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
-            ]
-          },
-          {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Game Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Game Designer이 핵심 전문 판단 20%에 집중",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
-            ]
-          },
-          {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Game Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Notion AI"
             ]
           }
         ]
@@ -4087,65 +4066,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "스케치·패턴 제작·샘플 제작 전체",
-        "afterAI": "AI 디자인 생성 감독 + 브랜드 스토리 설계 + 트렌드 예측 해석",
+        "beforeAI": "시즌별 컬렉션 스케치부터 패턴 제작·샘플 제작·피팅까지 모든 과정을 디자이너가 직접 수행해 컬렉션 하나에 수개월이 필요했다.",
+        "afterAI": "AI가 수천 장의 트렌드 데이터를 분석해 다음 시즌 예측 컬러·실루엣을 제안하고, 가상 피팅 시뮬레이션으로 샘플 제작 전 시각화가 가능해진다. 패션 디자이너의 핵심 영역은 AI가 분석한 트렌드 데이터를 브랜드 철학의 언어로 재해석하고, 실제 소재를 손으로 만지며 착용감·드레이프를 판단하며, 패션쇼 무대 위에서 브랜드 세계관을 연출하는 감각적 책임이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Cala",
-          "Resleeve",
-          "패션 디자인 AI"
+          "Midjourney",
+          "Adobe Firefly",
+          "ChatGPT",
+          "Canva AI",
+          "Perplexity"
         ],
         "survivalStrategy": [
-          "브랜드 스토리 및 철학 정의",
-          "AI 디자인 큐레이션",
-          "소재·착용감 최종 판단",
-          "트렌드 예측 AI 결과 해석",
-          "패션쇼 연출 및 브랜드 경험"
+          "브랜드 철학 정의 및 수호 — '이 브랜드는 누구를 위한 것인가, 어떤 가치를 입는가'를 AI 트렌드 데이터와 무관하게 유지하는 역할",
+          "소재·착용감 물성 최종 판단 — 스크린 위 AI 시뮬레이션이 재현 못 하는 실제 원단의 드레이프·무게·촉감을 직접 평가",
+          "AI 트렌드 예측 비판적 해석 — AI가 제안한 '유행할 색·실루엣'이 이 브랜드 고객에게 맞는지 판단하고 취사선택",
+          "패션쇼·룩북 연출 감각 — 의상이 무대·모델·조명·음악과 결합했을 때 전달되는 세계관을 설계하는 경험 디렉팅",
+          "지속가능성 소재 전략 — 친환경 소재·업사이클링·탄소 발자국 기준을 디자인 의사결정에 직접 통합하는 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Fashion Designer 상황 분석 및 목표 설정",
-            "humanRole": "Fashion Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Fashion Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 시즌 브랜드 테마 정의 및 트렌드 해석",
+            "humanRole": "이번 시즌 컬렉션이 전달할 브랜드 감성·메시지를 먼저 정의하고, AI 트렌드 데이터를 브랜드 필터로 해석한다",
+            "aiRole": "Perplexity로 글로벌 패션위크 트렌드 수집, ChatGPT로 색상·소재·실루엣 트렌드 요약",
+            "scenarioExample": "2027 SS 컬렉션 준비 — Perplexity로 파리·밀라노 트렌드 수집 → 디자이너가 '이 브랜드는 과거 트렌드와 반대로 간다'고 결정해 '슬로우 패션' 테마 확정",
             "recommendedTools": [
-              "Adobe AI",
+              "Perplexity",
+              "ChatGPT"
+            ]
+          },
+          {
+            "stepTitle": "2단계: AI 스케치 생성 및 소재 감성 큐레이션",
+            "humanRole": "Midjourney 생성 스케치 중 브랜드 철학·시즌 테마와 맞는 실루엣을 선별하고 실제 소재 물성과의 궁합을 판단한다",
+            "aiRole": "Midjourney·Adobe Firefly로 다양한 실루엣·컬러·패턴 스케치 자동 생성",
+            "scenarioExample": "Midjourney로 '슬로우 패션·내추럴' 테마 스케치 20장 생성 → 디자이너가 '린넨 드레이프가 살릴 수 있는 실루엣' 3장 선별, 소재 샘플 실물 확인 후 최종 결정",
+            "recommendedTools": [
+              "Midjourney",
+              "Adobe Firefly"
+            ]
+          },
+          {
+            "stepTitle": "3단계: 소재·패턴 완성 및 착용감 최종 검증",
+            "humanRole": "선택된 디자인을 실물 패턴으로 제작하고 모델 피팅으로 착용감·실루엣·드레이프를 직접 검증·수정한다",
+            "aiRole": "Canva AI로 룩북·라인시트 레이아웃 자동 구성, 패턴 변형 시뮬레이션",
+            "scenarioExample": "린넨 재킷 샘플 피팅 → 디자이너가 어깨 솔기 위치 1.5cm 조정 결정(AI 시뮬레이션에서 보이지 않았던 실착 이슈) → 수정 패턴 재제작",
+            "recommendedTools": [
+              "Canva AI",
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Fashion Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "4단계: 패션쇼·룩북 연출 및 지속가능성 검증",
+            "humanRole": "패션쇼 무대 구성·모델 선정·음악을 총괄 연출하고, 컬렉션 소재의 환경 영향을 최종 검토해 공개 커뮤니케이션한다",
+            "aiRole": "ChatGPT로 지속가능성 보고서 초안 작성, Canva AI로 SNS 컬렉션 홍보 콘텐츠 자동 생성",
+            "scenarioExample": "컬렉션 런웨이 준비 — 디자이너가 음악·조명·모델 등장 순서 직접 연출 → ChatGPT로 사용 소재 탄소 발자국 보고서 초안 생성, 디자이너가 검토 후 브랜드 사이트에 공개",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
-            ]
-          },
-          {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Fashion Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Fashion Designer이 핵심 전문 판단 20%에 집중",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
-            ]
-          },
-          {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Fashion Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Canva AI"
             ]
           }
         ]
@@ -4511,65 +4487,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "도면 작성·3D 모델링·자재 선택 전체",
-        "afterAI": "AI 공간 시뮬레이션 감독 + 클라이언트 소통 + 공간 경험 설계",
+        "beforeAI": "평면도 수작업·3D 모델링·자재 샘플 수집까지 실내 디자이너가 직접 처음부터 끝까지 수행해 제안서 하나에 수주가 걸렸다.",
+        "afterAI": "AI가 평면 사진 한 장으로 3D 공간 시뮬레이션을 생성하고, 조명 변화·가구 배치 옵션을 실시간으로 보여주는 시대. 인테리어 디자이너의 핵심 가치는 클라이언트가 '이 공간에서 어떻게 살고 싶은지'를 말 뒤에서 읽어내는 라이프스타일 인터뷰, 실물 자재의 촉감·내구성·시공 가능성 판단, 그리고 시공 현장에서 예상치 못한 문제를 즉시 해결하는 경험이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Planner 5D AI",
-          "Homestyler",
-          "공간 디자인 AI"
+          "Midjourney",
+          "ChatGPT",
+          "Adobe Firefly",
+          "Canva AI",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "클라이언트 라이프스타일 이해",
-          "AI 공간 시뮬레이션 큐레이션",
-          "공간 경험 설계 (동선·감정)",
-          "자재·조명 최종 선택",
-          "시공 현장 감독"
+          "클라이언트 라이프스타일 심층 인터뷰 — 가족 구성·생활 패턴·숨겨진 불편함을 발굴해 AI가 제안 못 하는 맞춤 공간 철학 수립",
+          "실물 자재 물성 최종 판단 — 스크린으로 확인 불가한 자재 내구성·시공 난이도·실물 색상 편차를 현장에서 직접 검증",
+          "동선·빛·감정 흐름 설계 — 낮·밤·계절에 따라 달라지는 자연광과 동선이 거주자 감정에 미치는 영향을 직관적으로 설계",
+          "시공 현장 즉흥 판단 능력 — 벽 위치·배관 위치 등 도면과 현장 불일치 발생 시 즉각 대안을 결정하는 경험",
+          "클라이언트 장기 신뢰 관계 — 이사·리모델링 반복 의뢰로 이어지는 신뢰는 AI가 대체할 수 없는 인간 관계 자산"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Interior Designer 상황 분석 및 목표 설정",
-            "humanRole": "Interior Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Interior Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 라이프스타일 인터뷰 및 공간 철학 정의",
+            "humanRole": "클라이언트의 생활 습관·가족 동선·감성적 취향을 인터뷰로 발굴해 이 공간이 담아야 할 핵심 가치를 정의한다",
+            "aiRole": "ChatGPT로 인터뷰 질문 초안 생성, Notion AI로 클라이언트 요구사항 정리 및 우선순위 분류",
+            "scenarioExample": "30평 아파트 리모델링 — ChatGPT로 '라이프스타일 인터뷰 20문항' 생성 → 인테리어 디자이너가 면담에서 '새벽 독서·아이 그림 공간 필요'를 발굴해 공간 방향 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Interior Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 공간 시뮬레이션 생성 및 감성 큐레이션",
+            "humanRole": "Midjourney 시뮬레이션 중 클라이언트 라이프스타일과 실제 시공 가능성이 맞는 안을 선별해 제안서를 구성한다",
+            "aiRole": "Midjourney로 다양한 가구 배치·조명·색상 조합 공간 시뮬레이션 이미지 20장 생성",
+            "scenarioExample": "Midjourney로 '새벽 독서 코너' 라이팅 시뮬레이션 10장 생성 → 디자이너가 '이 조명은 실제 설치 위치 불가' 2장 제외, 현실 시공 가능한 3장으로 제안서 구성",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Interior Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Interior Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 자재 실물 검증 및 시공 계획 확정",
+            "humanRole": "제안 자재의 실물 샘플을 클라이언트와 함께 직접 확인하고 내구성·시공 난이도·비용을 종합해 최종 선택한다",
+            "aiRole": "Canva AI로 자재 보드·제안서 레이아웃 자동 구성, ChatGPT로 자재별 유지보수 특성 정보 정리",
+            "scenarioExample": "타일 3종 실물 샘플 클라이언트 방문 확인 → '스크린과 실물 색상 다름' 확인 → 디자이너가 조명 아래 실물 색상 기준으로 최종 타일 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Canva AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Interior Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 시공 현장 감독 및 완공 후 고객 케어",
+            "humanRole": "도면과 현장 불일치 발생 시 즉각 대안을 결정하고, 완공 후 사용 방법·유지보수를 안내해 장기 신뢰를 구축한다",
+            "aiRole": "Notion AI로 시공 진행 체크리스트 자동 생성, ChatGPT로 완공 후 하자 점검 가이드 초안 작성",
+            "scenarioExample": "시공 중 배관 위치가 도면과 달라 붙박이장 위치 변경 필요 → 디자이너가 현장에서 즉시 대안 레이아웃 결정 → 완공 후 고객에게 조명·자재 관리 매뉴얼 전달",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           }
         ]
@@ -4935,65 +4908,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "설계 도면·구조 계산·3D 모델링 전체",
-        "afterAI": "AI 설계 감독 + 건축 철학 정의 + 안전성 최종 판단",
+        "beforeAI": "부지 분석·구조 계산·도면 작성·3D 모델링까지 건축가가 모두 직접 수행했고, 설계안 하나에 수개월이 소요됐다.",
+        "afterAI": "AI가 부지 조건·일조량·법규를 분석해 최적 배치 시뮬레이션을 수분 내 제안하고, 에너지 효율 예측까지 자동화된다. 건축가의 본질적 역할은 AI 설계 최적안이 '인간이 그 공간에서 어떻게 느끼고 살아갈지'를 담아내지 못할 때 이를 발견해 방향을 수정하고, 구조 안전성에 법적·윤리적 최종 책임을 지는 전문가 판단이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Autodesk AI",
-          "Spacemaker",
-          "건축 설계 AI"
+          "Midjourney",
+          "ChatGPT",
+          "Claude",
+          "Perplexity",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "건축 철학 및 콘셉트 정의",
-          "AI 설계안 큐레이션",
-          "구조 안전성 최종 판단",
-          "건축주 요구 해석",
-          "건축 법규 및 윤리 준수"
+          "건축 철학 및 장소 정체성 정의 — 이 대지가 가진 역사·문화·자연 맥락을 읽고 건물이 주변과 어떻게 대화할지를 설계에 담는 능력",
+          "구조 안전성 최종 법적 책임 — AI 구조 계산 결과를 검토하고 실제 시공 안전성에 건축사로서 최종 서명 책임",
+          "건축주 요구 뒤의 진짜 니즈 발굴 — '넓게 만들어달라'는 요청 뒤에 '가족이 함께할 공간이 필요하다'를 읽어내는 심층 인터뷰 역량",
+          "건축 법규·지구단위계획 해석 — AI가 제안한 안이 복잡한 지역 법규와 충돌하는지 판단하고 실현 가능한 대안을 설계",
+          "지속가능 건축 통합 설계 능력 — 패시브하우스·제로에너지 건축 기준을 설계 초기부터 적용해 에너지·환경 목표를 달성하는 전문성"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Architect 상황 분석 및 목표 설정",
-            "humanRole": "Architect로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Architect이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 대지 맥락 분석 및 건축 철학 정의",
+            "humanRole": "대지 현장을 직접 방문해 주변 맥락·역사·자연 조건을 읽고 이 건물이 담아야 할 건축 철학을 정의한다",
+            "aiRole": "Perplexity로 지역 건축 역사·법규·유사 사례 수집, ChatGPT로 일조량·바람 방향 시뮬레이션 기초 분석",
+            "scenarioExample": "서울 북촌 근린생활시설 설계 — Perplexity로 북촌 지구단위계획 분석 → 건축가가 현장 방문 후 '골목길 시선과의 대화'를 이 건물의 핵심 건축 철학으로 설정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Perplexity",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Architect이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 배치 시뮬레이션 감독 및 설계 방향 결정",
+            "humanRole": "AI가 제안한 최적 배치 시뮬레이션 중 법규 준수·건축 철학·거주자 경험 기준으로 최적안을 선택하거나 수정한다",
+            "aiRole": "Midjourney로 다양한 매스 배치 시뮬레이션 이미지 생성, Claude로 에너지 효율 시나리오 비교",
+            "scenarioExample": "AI가 일조 최적 배치 3안 제안 → 건축가가 '1안은 골목 위압감 유발' 판단, 2안 선택 후 입면 각도 수정하여 보행자 시선 배려한 수정안 확정",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Claude"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Architect 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Architect이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 공간 경험 설계 및 구조 안전성 검토",
+            "humanRole": "사람이 이 건물을 걸어다닐 때 느낄 공간 시퀀스를 설계하고, 구조 계산 결과를 검토해 안전성을 최종 판단한다",
+            "aiRole": "Claude로 구조 계산 초안 검토 지원, ChatGPT로 유사 건물 구조 사례 비교",
+            "scenarioExample": "건물 내부 동선 설계 — 건축가가 '입구에서 마당을 향해 점진적으로 열리는 공간 경험' 직접 설계, 구조 계산 AI 초안에서 기둥 간격 오류 발견 후 구조기술사에 수정 지시",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Architect이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 법규 검토·허가 신청 및 시공 감리 준비",
+            "humanRole": "완성 설계안의 건축 법규 준수 여부를 최종 검토하고 건축사로서 허가 신청·시공 감리 책임을 수행한다",
+            "aiRole": "Perplexity로 최신 건축 법규 개정사항 확인, Notion AI로 허가 서류 체크리스트 자동 생성",
+            "scenarioExample": "허가 도면 완성 후 Perplexity로 최신 소방법 개정 확인 → 건축가가 설계 변경 필요 부위 발견, 수정 후 건축사 직인 날인해 허가 신청",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Perplexity",
+              "Notion AI"
             ]
           }
         ]
@@ -5359,65 +5329,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "스케치·3D 모델링·프로토타입 제작 전체",
-        "afterAI": "AI 프로토타입 생성 감독 + 사용성 판단 + 제품 전략 설계",
+        "beforeAI": "제품 아이디어를 스케치→3D 모델링→목업→프로토타입 순서로 모두 직접 제작해 시제품 하나에 수개월이 걸렸다.",
+        "afterAI": "AI가 텍스트 설명으로 3D 형태를 제안하고 제조 가능성까지 초기 검토해주는 시대. 제품 디자이너의 핵심 역할은 AI가 기술적으로 최적화한 형태가 '사람이 손에 쥐었을 때 어떤 감각을 주는가'를 판단하는 인체공학·감성 품질 책임이다. 실제 물건을 들어보고 쥐어보는 촉감·무게·그립 판단은 디자이너가 독점하는 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Fusion 360 AI",
-          "제품 디자인 AI",
-          "3D 프린팅 AI"
+          "Midjourney",
+          "ChatGPT",
+          "Claude",
+          "Adobe Firefly",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "사용자 니즈 해석 (무엇이 필요한가)",
-          "AI 프로토타입 큐레이션",
-          "사용성 최종 판단 (실제 사용 테스트)",
-          "제조 가능성 검토",
-          "제품 전략 설계"
+          "인체공학·그립감 실물 검증 능력 — AI가 만든 3D 형태를 손으로 직접 쥐어보며 무게·곡률·소재 감촉이 사용자에게 맞는지 판단",
+          "사용자 맥락 현장 관찰 — 제품이 실제로 쓰이는 공간·상황을 직접 관찰해 AI가 발견 못 하는 숨겨진 불편함을 발굴",
+          "제조 가능성 실무 협상 — AI가 제안한 형태가 실제 금형·사출·조립 공정에서 가능한지 제조사와 직접 협의하는 실무 경험",
+          "제품 감성 품질 언어화 — '프리미엄 느낌'·'따뜻한 느낌' 같은 감성 목표를 소재·마감·형태 스펙으로 번역하는 능력",
+          "지속가능성 설계 통합 — 재활용 가능 소재·모듈형 수리 구조를 제품 초기 설계에 적용하는 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Product Designer 상황 분석 및 목표 설정",
-            "humanRole": "Product Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Product Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 사용자 맥락 관찰 및 핵심 문제 정의",
+            "humanRole": "제품이 실제 사용되는 현장을 직접 관찰·인터뷰해 AI가 발견 못 하는 맥락적 불편함과 진짜 니즈를 정의한다",
+            "aiRole": "Claude로 기존 유사 제품 리뷰 분석, 경쟁 제품 스펙 비교 요약",
+            "scenarioExample": "노인용 약통 디자인 — 실버타운 현장 방문 관찰 → '손 떨림으로 뚜껑 열기 어려움' 문제 발견(리뷰 데이터에 없던 인사이트) → 디자이너가 핵심 과제로 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Product Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 형태 시안 생성 및 인체공학 감성 큐레이션",
+            "humanRole": "AI 생성 형태 시안 중 그립감·사용 맥락·감성 품질 기준으로 방향을 선별하고 실물 검증 우선순위를 정한다",
+            "aiRole": "Midjourney·Adobe Firefly로 다양한 제품 형태·색상·소재 시각화 이미지 생성",
+            "scenarioExample": "Midjourney로 약통 그립 형태 15개 생성 → 디자이너가 '노인 손 크기 기준 파지 가능한 직경' 필터로 5개 선별, 3D 프린팅으로 실물 시제품 제작 결정",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Product Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Product Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 시제품 실물 검증 및 인체공학 수정",
+            "humanRole": "3D 프린팅 시제품을 실제 사용자에게 쥐어보게 하고, 그립·무게·개폐 조작성을 직접 평가해 형태를 수정한다",
+            "aiRole": "ChatGPT로 인체공학 기준 치수 데이터 조회, 수정 방향 스펙 문서 초안 작성",
+            "scenarioExample": "약통 시제품을 65세 이상 10명에게 직접 사용 테스트 → '뚜껑 개폐 토크 너무 강함' 발견 → 디자이너가 스프링 장력 조정 수치를 직접 결정, 2차 시제품 제작",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Product Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 제조 협상 및 지속가능성 최종 설계 확정",
+            "humanRole": "제조사와 금형·소재·단가를 협의하고, 재활용 가능성·수리 구조를 최종 설계에 통합해 양산 확정한다",
+            "aiRole": "Claude로 친환경 소재 대안 조사, ChatGPT로 제조사 협상 포인트 정리",
+            "scenarioExample": "제조사 미팅 — 디자이너가 '재활용 PP 소재로 변경 시 금형 비용 차이' 직접 협상 → 지속가능성 기준 소재 확정 후 Claude로 제품 지속가능성 보고서 초안 작성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           }
         ]
@@ -5783,63 +5750,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "크리에이티브 방향 설정 + 팀 관리",
-        "afterAI": "AI 크리에이티브 총괄 + 브랜드 전략 설계 + 팀 AI 협업 설계",
+        "beforeAI": "광고·캠페인의 크리에이티브 방향을 설정하고 디자이너·카피라이터·촬영 팀을 오프라인 회의로 총괄 관리했다.",
+        "afterAI": "AI가 크리에이티브 시안을 빠르게 생성하고 A/B 테스트 결과를 실시간으로 분석하는 시대. 크리에이티브 디렉터의 최고 가치는 AI가 '데이터상 최적'이라고 제안한 크리에이티브가 왜 감동을 주지 못하는지를 설명하고, 브랜드 정체성에 비추어 어떤 방향이 10년 후에도 유효한지를 판단하는 역할이다. 팀의 AI 협업 워크플로를 설계하고 클라이언트를 설득하는 것도 핵심 책임이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "모든 AI 크리에이티브 툴 통합 활용"
+          "Midjourney",
+          "ChatGPT",
+          "Claude",
+          "Adobe Firefly",
+          "Runway",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "브랜드 본질 정의 (브랜드가 전달할 감정)",
-          "크리에이티브 전략 수립",
-          "AI 결과물 최종 큐레이션",
-          "팀 AI 협업 프로세스 설계",
-          "클라이언트 설득 및 발표"
+          "브랜드 본질·페르소나 수호자 역할 — AI가 유행에 맞춰 제안하는 크리에이티브를 브랜드 10년 정체성 기준으로 걸러내는 최종 판단",
+          "팀 AI 협업 워크플로 설계 능력 — 각 팀원(디자이너·카피라이터·영상팀)이 어떤 AI 도구를 어떤 단계에서 쓸지 프로세스를 설계하는 역할",
+          "클라이언트 설득·프레젠테이션 리더십 — AI가 만든 크리에이티브 50개 중 선택한 3개의 '왜'를 비즈니스 언어로 설득하는 스토리텔링",
+          "AI 크리에이티브 윤리 감독 책임 — 팀이 제출한 AI 생성물의 저작권·허위 정보·차별적 묘사 문제를 최종 검토하는 책임",
+          "크리에이티브 데이터-직관 통합 판단 — A/B 테스트 데이터가 '이 카피가 낫다'고 해도 브랜드 장기 가치와 충돌할 때 직관으로 오버라이딩하는 용기"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Creative Director 상황 분석 및 목표 설정",
-            "humanRole": "Creative Director로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Creative Director이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 크리에이티브 전략 정의 및 팀 브리핑",
+            "humanRole": "클라이언트 브랜드 본질·캠페인 목표·타겟 감정을 정의하고 팀이 AI를 어떻게 활용할지 워크플로를 지시한다",
+            "aiRole": "Claude로 브랜드 과거 캠페인 분석, 타겟 오디언스 특성 요약, 경쟁 브랜드 크리에이티브 비교",
+            "scenarioExample": "음료 브랜드 여름 캠페인 — Claude로 경쟁사 캠페인 20개 분석 → CD가 '이 브랜드는 청량감이 아닌 연결감'으로 차별화 방향 정의, 팀에 Midjourney·ChatGPT 활용 단계 배분",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Creative Director이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 크리에이티브 생성 감독 및 방향 큐레이션",
+            "humanRole": "팀이 AI로 생성한 다양한 크리에이티브 시안을 브랜드 정체성·캠페인 목표 기준으로 최종 3개 방향으로 압축한다",
+            "aiRole": "Midjourney로 비주얼 시안 50개 생성, ChatGPT로 카피 방향 30개 초안, Adobe Firefly로 광고 이미지 생성",
+            "scenarioExample": "Midjourney 비주얼 50개·ChatGPT 카피 30개 → CD가 '연결감' 기준으로 15개 압축, 팀 검토 후 최종 3방향 확정 → 클라이언트 프레젠테이션 준비 지시",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "ChatGPT",
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Creative Director 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Creative Director이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 클라이언트 설득 발표 및 최종 방향 결정",
+            "humanRole": "3개 크리에이티브 방향의 '왜'를 브랜드 전략·소비자 심리 근거로 스토리텔링하여 클라이언트를 설득하고 최종 방향을 확정한다",
+            "aiRole": "Claude로 프레젠테이션 스크립트 초안 작성, Notion AI로 제안서 레이아웃 구성",
+            "scenarioExample": "클라이언트가 '데이터상 더 높은 CTR 방향을 선택하고 싶다'고 할 때 → CD가 '그 방향은 3개월 단기 성과에는 좋지만 브랜드 10년 정체성을 훼손한다'고 직접 설득",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Creative Director이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 실행 감독 및 AI 크리에이티브 윤리 최종 검수",
+            "humanRole": "캠페인 실행 중 팀의 AI 활용 결과물에서 저작권·허위 묘사·차별적 표현 문제를 최종 검토하고 납품 승인한다",
+            "aiRole": "Runway로 영상 광고 초안 편집 지원, Claude로 카피 법적·윤리적 문제 1차 스크리닝",
+            "scenarioExample": "최종 광고 영상 납품 전 — Claude로 카피 1차 법적 스크리닝 → CD가 '이 표현은 특정 집단 고정관념 강화 우려' 발견해 수정 지시, 최종 승인 후 납품",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Runway"
             ]
           }
         ]
@@ -6205,65 +6173,60 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "촬영·편집 전체 수작업",
-        "afterAI": "진짜 순간 포착 + AI 편집 감독 + 사진 스토리텔링",
+        "beforeAI": "촬영 현장에서 수백 장을 찍고 밝기·색보정·리터칭까지 사진가가 직접 수작업으로 보정해 납품했다.",
+        "afterAI": "Midjourney·DALL-E 3로 사진처럼 보이는 가짜 이미지를 무한 생성하는 시대. 사진가의 독보적 자산은 '그 순간, 그 장소, 그 사람'의 진짜 감정이 담긴 현실 이미지다. 광고 촬영에서도 피사체와의 신뢰 관계를 통해 인위적이지 않은 표정을 이끌어내는 디렉팅 역량, 그리고 '이 1000장 중 어느 1장이 진짜 이야기를 담는가'를 고르는 사진 큐레이션이 핵심 전문성이다.",
         "replacementRisk": "medium",
         "aiTools": [
+          "Photoshop AI",
           "Adobe Lightroom AI",
-          "Luminar AI",
-          "Topaz AI"
+          "Midjourney",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "진짜 순간 포착 (AI는 가짜 이미지)",
-          "사진 스토리텔링",
-          "AI 편집 감독 (색보정·리터칭)",
-          "클라이언트 감정 해석",
-          "사진 큐레이션 (수백 장 중 베스트 선택)"
+          "피사체 신뢰 관계 디렉팅 능력 — 인물 사진에서 자연스러운 표정을 이끌어내기 위한 대화·유머·공감 능력은 AI가 대체 불가",
+          "사진 큐레이션 정밀도 — 수천 장 중 '진짜 이야기가 담긴 한 장'을 알아보는 눈은 장시간 현장 경험에서 나오는 전문 감각",
+          "뉴스·다큐멘터리 현장 접근성 — 전쟁터·재난 현장·역사적 순간에 직접 있어야 찍을 수 있는 이미지는 AI가 생성 불가",
+          "AI 편집 결과물 사실 왜곡 검수 — 광고·보도 사진에서 AI 리터칭이 인물을 실제와 다르게 변형하지 않는지 윤리적으로 감독",
+          "사진 작가 브랜드 자산화 — 포트폴리오 스타일·촬영 철학으로 AI 생성 이미지와 차별화되는 작가 인지도와 팬층 구축"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Photographer 상황 분석 및 목표 설정",
-            "humanRole": "Photographer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Photographer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 촬영 기획 및 현장 맥락 리서치",
+            "humanRole": "클라이언트 의도·피사체 특성·촬영 장소의 빛·분위기 조건을 사전 답사로 직접 파악하고 촬영 콘셉트를 확정한다",
+            "aiRole": "Midjourney로 촬영 전 무드보드 레퍼런스 생성, ChatGPT로 촬영 체크리스트·타임라인 초안 작성",
+            "scenarioExample": "패션 화보 촬영 준비 — Midjourney로 '골든아워 자연광·도심 루프탑' 무드보드 생성 → 사진가가 직접 현장 답사, 빛 각도·반사판 위치 사전 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Midjourney",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Photographer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 현장 촬영 및 피사체 감정 디렉팅",
+            "humanRole": "피사체와의 대화·유머로 자연스러운 표정을 이끌어내고, 결정적 순간을 포착하기 위해 현장 구도·빛을 직접 판단한다",
+            "aiRole": "(이 단계는 인간 사진가의 독점 영역 — AI는 현장 촬영 불가)",
+            "scenarioExample": "인물 화보 촬영 — 사진가가 '지금 떠오르는 노래가 뭐예요?'라고 물어 자연스러운 미소 표정 유도 → 결정적 표정 순간 셔터 포착",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Adobe Lightroom AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Photographer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Photographer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 편집 감독 및 사진 큐레이션",
+            "humanRole": "수천 장 중 '진짜 감정이 담긴 한 장'을 선별하고, AI 자동 보정 결과가 원본 감성을 해치지 않는지 감독한다",
+            "aiRole": "Adobe Lightroom AI로 자동 노출·화이트밸런스 보정, Photoshop AI로 배경 클리닝·잡티 제거",
+            "scenarioExample": "화보 촬영 1200장 → 사진가가 200장으로 1차 컷 → Adobe Lightroom AI 자동 보정 적용 → 사진가가 '이 장은 AI 보정이 인물 피부 과도하게 평탄화했다'고 발견해 수동 보정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Lightroom AI",
+              "Photoshop AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Photographer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: AI 편집 윤리 검수 및 클라이언트 납품",
+            "humanRole": "AI 리터칭이 인물을 실제와 과도하게 다르게 변형하지 않았는지 윤리적으로 검토하고 클라이언트에게 최종 납품한다",
+            "aiRole": "Canva AI로 납품 포맷(웹·인쇄·SNS) 자동 리사이징, 이미지 파일 정리 자동화",
+            "scenarioExample": "최종 보정본 검토 — 사진가가 '이 인물 사진의 AI 피부 보정이 실제 인물 특징을 삭제했다' 판단, 원본 질감 살린 보정으로 재작업 후 클라이언트 납품",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Canva AI",
+              "Photoshop AI"
             ]
           }
         ]
@@ -6629,65 +6592,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "VFX 프레임별 수작업 제작",
-        "afterAI": "AI VFX 생성 감독 + 연출 디렉션 + 실사 통합 최적화",
+        "beforeAI": "폭발·물·불·우주선 같은 CG 효과를 프레임별로 수작업 렌더링해 VFX 씬 하나에 수십 명의 아티스트가 수개월을 작업했다.",
+        "afterAI": "Runway·Pika가 텍스트 설명만으로 사실적인 VFX 영상을 생성하는 시대. VFX 아티스트의 핵심 역할은 AI가 만든 효과에서 '물리 법칙 위반'과 '실사 합성 오류'를 발견하는 시각 전문성, 그리고 감독의 연출 의도를 VFX로 번역하는 크리에이티브 커뮤니케이션이다. AI가 아무리 빠르게 생성해도 '이 씬에서 불꽃이 이렇게 움직이면 관객이 믿지 않는다'를 판단하는 것은 인간 VFX 아티스트의 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Runway ML",
-          "Wonder Dynamics",
-          "VFX AI"
+          "Runway",
+          "Pika",
+          "Adobe Firefly",
+          "Midjourney",
+          "Premiere Pro AI"
         ],
         "survivalStrategy": [
-          "VFX 연출 디렉션 (어떤 효과가 필요한가)",
-          "AI VFX 큐레이션",
-          "실사 영상과의 통합 최적화",
-          "물리 법칙 감독 (불·물·폭발 사실성)",
-          "감독과의 협업 (의도 해석)"
+          "물리 시뮬레이션 사실성 판단 — AI 생성 불·물·연기가 실제 물리 법칙과 다른 부분을 발견해 수정 지시하는 전문 시각 감각",
+          "실사-CG 합성 오류 검수 능력 — 색 매칭·그림자 방향·피사계심도 불일치 등 실사 영상과 AI CG 합성 오류를 프레임 단위로 발견",
+          "감독 연출 의도 VFX 번역 능력 — '더 압도적으로'·'두려움을 주는 효과'를 구체적인 VFX 파라미터(입자 수·속도·색온도)로 번역",
+          "AI VFX 생성 프롬프트 전략 — 원하는 사실적 효과를 Runway·Pika에 정확히 지시하는 세부 프롬프트 엔지니어링 역량",
+          "대규모 VFX 파이프라인 감독 능력 — 수백 개 씬의 AI 생성 VFX 작업을 팀과 함께 체계적으로 관리하고 일관성을 유지하는 프로덕션 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Vfx Artist 상황 분석 및 목표 설정",
-            "humanRole": "Vfx Artist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Vfx Artist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 씬 VFX 요구사항 분석 및 연출 의도 해석",
+            "humanRole": "감독의 씬 연출 의도를 인터뷰로 파악하고 'VFX가 이 씬에서 관객에게 전달해야 할 감정'을 구체적으로 정의한다",
+            "aiRole": "ChatGPT로 유사 VFX 씬 사례 분석, 기술적 구현 옵션 요약",
+            "scenarioExample": "전투 씬 VFX 브리핑 — 감독이 '압도적·혼란스럽지 않은 폭발' 요청 → VFX 아티스트가 '3초 이내 정리되는 연기 컬럼' 방향으로 해석해 AI 프롬프트 설계",
             "recommendedTools": [
-              "Adobe AI",
+              "ChatGPT",
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Vfx Artist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI VFX 생성 및 물리 사실성 검수",
+            "humanRole": "Runway 생성 VFX에서 물리 법칙 위반(연기 방향·중력 오류 등)을 발견하고 수정 지시 또는 직접 보정한다",
+            "aiRole": "Runway·Pika로 폭발·연기·파티클 VFX 효과 자동 생성, 다양한 강도·색상 변형 제공",
+            "scenarioExample": "Runway로 폭발 VFX 20개 생성 → VFX 아티스트가 '이 연기 상승 속도는 실제 화염에서 불가능한 물리값' 발견, 프롬프트 수정 후 재생성 지시",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Runway",
+              "Pika"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Vfx Artist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Vfx Artist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실사-CG 합성 및 색 통합 검수",
+            "humanRole": "AI CG 효과와 실사 영상의 색온도·그림자 방향·피사계심도 불일치를 프레임 단위로 검수하고 수정한다",
+            "aiRole": "Adobe Firefly·Premiere Pro AI로 색 매칭 자동 적용, 합성 레이어 자동 생성",
+            "scenarioExample": "폭발 VFX를 실사 배경에 합성 → VFX 아티스트가 '그림자 방향이 태양 위치와 30도 불일치' 발견, Premiere Pro AI 색 매칭 후 수동으로 그림자 각도 수정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "Premiere Pro AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Vfx Artist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 전체 VFX 씬 일관성 감독 및 최종 납품",
+            "humanRole": "영화 전체의 모든 VFX 씬이 통일된 시각 언어를 유지하는지 감독하고 색보정·음향 팀과 최종 합성을 조율한다",
+            "aiRole": "Runway로 씬 간 전환 VFX 자동 블렌딩, 렌더링 품질 자동 체크",
+            "scenarioExample": "120개 VFX 씬 최종 검수 — VFX 아티스트가 씬 87의 파티클 색상이 전체 영화 팔레트에서 이탈했음을 발견, 수정 지시 후 사운드 팀과 폭발음 타이밍 최종 조율",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Runway",
+              "Premiere Pro AI"
             ]
           }
         ]
@@ -7053,65 +7013,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "로고·가이드라인 제작 전체",
-        "afterAI": "브랜드 본질 정의 + AI 디자인 감독 + 브랜드 경험 전략",
+        "beforeAI": "로고·컬러 시스템·타이포그래피·가이드라인을 디자이너가 처음부터 끝까지 직접 제작했고, 브랜드 아이덴티티 작업 하나에 수개월이 소요됐다.",
+        "afterAI": "AI가 로고 초안을 수초 만에 수십 개 생성하는 시대. 브랜드 디자이너의 핵심 자산은 AI가 생성한 수십 개 로고 중 '이 기업의 30년 후 모습과 어울리는 것'을 찾아내는 안목, 그리고 클라이언트가 말하지 않은 브랜드의 진짜 이야기를 발굴해 시각 언어로 전환하는 발굴·번역 능력이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Looka",
-          "Brandmark",
-          "브랜드 AI"
+          "Midjourney",
+          "Adobe Firefly",
+          "ChatGPT",
+          "Figma AI",
+          "Canva AI"
         ],
         "survivalStrategy": [
-          "브랜드 본질 정의 (브랜드가 전달할 가치)",
-          "AI 디자인 큐레이션",
-          "브랜드 경험 전략 설계",
-          "클라이언트 브랜드 스토리 발굴",
-          "브랜드 일관성 감독"
+          "브랜드 스토리 발굴 인터뷰 능력 — 창업자 인터뷰에서 '이 브랜드가 왜 존재해야 하는가'라는 진짜 이야기를 끌어내는 질문 설계",
+          "10년 후 브랜드 일관성 상상력 — AI가 제안한 트렌디한 로고가 5년 후 시대에 뒤떨어질지, 10년이 지나도 유효할지를 판단하는 역사적 안목",
+          "브랜드 터치포인트 경험 설계 능력 — 로고·컬러가 명함·간판·앱·포장지에서 모두 의도한 감성을 전달하는지 통합적으로 감독",
+          "AI 로고 저작권·독창성 검수 — 유사 기존 로고와 AI 생성물이 충돌하지 않는지 확인하고 상표 등록 가능성을 직접 검토",
+          "클라이언트 브랜드 교육 능력 — 납품 후 클라이언트 팀이 브랜드 가이드라인을 올바르게 적용하도록 교육하는 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Brand Designer 상황 분석 및 목표 설정",
-            "humanRole": "Brand Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Brand Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 본질 발굴 및 포지셔닝 정의",
+            "humanRole": "창업자·경영진 인터뷰로 브랜드의 '왜'·가치관·목표 고객을 발굴하고 경쟁 브랜드와의 차별화 포지셔닝을 정의한다",
+            "aiRole": "ChatGPT로 경쟁 브랜드 아이덴티티 비교 분석, 업계 브랜드 트렌드 요약",
+            "scenarioExample": "스타트업 브랜딩 의뢰 — ChatGPT로 동종업계 30개 브랜드 비주얼 패턴 분석 → 브랜드 디자이너가 창업자 인터뷰에서 '기술이 아닌 관계'라는 진짜 브랜드 가치 발굴",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Brand Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 로고 시안 생성 및 브랜드 본질 큐레이션",
+            "humanRole": "Midjourney 생성 로고 시안 중 브랜드 본질·10년 지속성·상표 가능성 기준으로 3개 방향을 선별한다",
+            "aiRole": "Midjourney·Adobe Firefly로 다양한 스타일·심볼·타이포 조합 로고 50개 자동 생성",
+            "scenarioExample": "Midjourney로 로고 50개 생성 → 브랜드 디자이너가 '기술·트렌드 느낌 과다' 30개 제외, '관계·따뜻함' 기준 3개 선별 후 클라이언트와 방향 협의",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Brand Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Brand Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 브랜드 가이드라인 완성 및 터치포인트 적용",
+            "humanRole": "선택된 방향으로 컬러·타이포·여백 시스템을 완성하고 모든 터치포인트에서 일관성이 유지되는지 직접 검수한다",
+            "aiRole": "Figma AI로 컴포넌트 라이브러리 자동 구성, Canva AI로 명함·SNS·패키지 적용 목업 자동 생성",
+            "scenarioExample": "로고 확정 후 Figma AI로 컴포넌트 세트 자동 구성 → 브랜드 디자이너가 앱 아이콘·명함·간판 각각에서 컬러 재현 정확성 직접 점검",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Figma AI",
+              "Canva AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Brand Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 상표 검토·납품 및 클라이언트 브랜드 교육",
+            "humanRole": "AI 생성 로고의 기존 상표 유사성을 검토하고, 납품 후 클라이언트 팀이 가이드라인을 올바르게 쓸 수 있도록 교육한다",
+            "aiRole": "ChatGPT로 유사 상표 사전 검색 지원, 가이드라인 사용법 FAQ 초안 작성",
+            "scenarioExample": "로고 납품 전 유사 상표 사전 조회 → 브랜드 디자이너가 '유사 상표 70% 이상 일치' 발견, 형태 수정 후 재확인 → 납품 후 클라이언트 팀에 2시간 가이드라인 적용 교육 진행",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Canva AI"
             ]
           }
         ]
@@ -7477,64 +7434,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "모션 그래픽 프레임별 제작",
-        "afterAI": "AI 모션 생성 감독 + 타이밍 연출 + 감정 리듬 설계",
+        "beforeAI": "글자·도형·캐릭터의 움직임을 After Effects에서 키프레임 하나하나 직접 설정해 30초 인트로 영상 하나에 이틀이 소요됐다.",
+        "afterAI": "Runway·Pika가 텍스트 설명으로 모션 시퀀스를 자동 생성하고, After Effects AI가 반복 애니메이션을 자동화하는 시대. 모션 그래픽 디자이너의 핵심 자산은 'AI가 만든 움직임이 브랜드 감성과 맞는가'를 판단하는 타이밍·이즈 감각이다. 0.5초의 이즈인 차이가 브랜드를 '세련되게' 보이게 하거나 '싸구려'로 느끼게 하는 것을 아는 것은 오직 숙련된 모션 디자이너만의 능력이다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Adobe After Effects AI",
-          "Runway ML"
+          "Runway",
+          "Pika",
+          "Adobe Firefly",
+          "Premiere Pro AI",
+          "Suno"
         ],
         "survivalStrategy": [
-          "타이밍 연출 (언제 빠르게·느리게)",
-          "감정 리듬 설계",
-          "AI 모션 큐레이션",
-          "브랜드 톤앤매너 감독",
-          "스토리 비주얼 설계"
+          "브랜드 모션 언어 설계 능력 — 이 브랜드의 움직임이 갖춰야 할 이즈·속도·방향·리듬을 문서로 정의하는 역량",
+          "타이밍·이즈 정밀 감각 — AI 생성 모션에서 0.1초 타이밍 차이가 감성에 미치는 영향을 발견하고 수정하는 숙련 감각",
+          "스토리 비주얼 설계 능력 — 정보나 감정을 시간의 흐름으로 전달하는 모션 내러티브 구조를 직접 기획",
+          "음악·사운드와 모션 동기화 전문성 — BGM 비트 포인트에 모션 클라이맥스를 맞추는 음악-영상 타이밍 통합 역량",
+          "AI 모션 저작권·AI 생성 영상 표시 의무 준수 — 클라이언트 납품물이 AI 생성 영상을 포함할 때 관련 공시 의무를 직접 확인"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Motion Graphic Designer 상황 분석 및 목표 설정",
-            "humanRole": "Motion Graphic Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Motion Graphic Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 모션 방향 정의 및 레퍼런스 큐레이션",
+            "humanRole": "브랜드 감성·전달 메시지에 맞는 모션 언어(속도·이즈·리듬·방향)를 정의하고 참조할 레퍼런스를 선별한다",
+            "aiRole": "Midjourney로 비슷한 브랜드 모션 스틸 이미지 레퍼런스 수집, ChatGPT로 모션 방향 옵션 요약",
+            "scenarioExample": "핀테크 앱 온보딩 모션 설계 — ChatGPT로 '신뢰감·미래지향적' 모션 레퍼런스 15건 수집 → 모션 디자이너가 '부드러운 이즈인아웃·곡선 경로' 방향으로 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Midjourney",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Motion Graphic Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 모션 시안 생성 및 타이밍 큐레이션",
+            "humanRole": "Runway·Pika 생성 모션 시안 중 브랜드 모션 언어에 맞는 타이밍·이즈 감각을 가진 것을 선별하고 개선 지시한다",
+            "aiRole": "Runway·Pika로 다양한 모션 시퀀스 자동 생성, 속도·이즈·방향 변형 옵션 제공",
+            "scenarioExample": "Runway로 로고 등장 모션 10개 생성 → 모션 디자이너가 '이 이즈아웃이 너무 빨라 고급감 없음' 발견, 이즈 커브 조정 방향 직접 지시 후 재생성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Runway",
+              "Pika"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Motion Graphic Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Motion Graphic Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 음악-모션 동기화 및 정밀 타이밍 조율",
+            "humanRole": "배경음악 비트 포인트와 모션 클라이맥스를 프레임 단위로 맞추고 전체 영상의 감정 리듬을 직접 조율한다",
+            "aiRole": "Suno로 영상 분위기 맞는 배경음악 생성, Premiere Pro AI로 자동 음악-영상 타이밍 정렬 제안",
+            "scenarioExample": "Suno로 '신뢰감·설레는' 배경음악 생성 → 모션 디자이너가 드럼 비트 포인트에 핵심 텍스트 등장 타이밍 직접 조정 (0.3초 앞당김)",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Suno",
+              "Premiere Pro AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Motion Graphic Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 브랜드 일관성 최종 검수 및 포맷 납품",
+            "humanRole": "완성 모션이 브랜드 가이드라인·색상·타이포와 일관되는지 전체 검수하고 다양한 포맷으로 납품한다",
+            "aiRole": "Adobe Firefly로 다양한 화면비·해상도 자동 변환, Premiere Pro AI로 최종 렌더링 설정 최적화",
+            "scenarioExample": "최종 모션 완성 후 브랜드 가이드라인과 대조 → '이 씬의 컬러 헥스값이 가이드라인 색상과 3% 편차' 발견, 수정 후 16:9·9:16·1:1 포맷 자동 납품",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "Premiere Pro AI"
             ]
           }
         ]
@@ -7900,64 +7855,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "캐릭터 스케치·설정 전체 수작업",
-        "afterAI": "AI 캐릭터 생성 감독 + 캐릭터 성격 설계 + 세계관 일관성",
+        "beforeAI": "캐릭터 외모·표정 시트·의상·배색까지 모두 수작업으로 설계해 캐릭터 하나 완성에 수주가 걸렸다.",
+        "afterAI": "Midjourney·Stable Diffusion이 프롬프트 한 줄로 수십 개의 캐릭터 외형 변형을 생성하는 시대. 캐릭터 디자이너의 독보적 영역은 캐릭터의 '내면' — 이 캐릭터가 왜 이런 표정을 짓는지, 과거에 어떤 상처를 입었는지, 어떤 말을 들으면 눈빛이 흔들리는지를 설계하는 심리적 입체감이다. AI가 외형을 만들어도 관객이 그 캐릭터를 '사람처럼 느끼게' 만드는 서사 설계는 인간 디자이너의 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
           "Midjourney",
-          "캐릭터 생성 AI"
+          "Stable Diffusion",
+          "ChatGPT",
+          "Adobe Firefly",
+          "Photoshop AI"
         ],
         "survivalStrategy": [
-          "캐릭터 성격 및 배경 스토리 설계",
-          "AI 캐릭터 큐레이션",
-          "세계관 일관성 유지",
-          "캐릭터 감정 표현 디렉션",
-          "IP 전략 설계"
+          "캐릭터 심리 프로파일 설계 능력 — 외모가 아닌 내면(공포·욕망·상처·성장 목표)을 먼저 정의하고 그것이 외모와 말투에 드러나도록 설계",
+          "세계관 일관성 수호자 역할 — 수십 화 연재나 게임 시리즈에서 캐릭터 성격·기억·말투가 일관되게 유지되는지 감독",
+          "AI 캐릭터 외형 큐레이션 정밀도 — Midjourney 생성 100개 중 '이 캐릭터의 내면이 외모에서 느껴지는' 것을 발견하는 안목",
+          "캐릭터 IP 전략 기획 능력 — 캐릭터가 굿즈·애니메이션·게임·웹툰으로 확장될 때 각 매체에서 일관성을 유지하는 IP 설계",
+          "다양성·포용성 캐릭터 설계 책임 — 문화적 클리셰·고정관념을 피하고 다양한 배경의 독자가 공감할 수 있는 캐릭터 표현"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Character Designer 상황 분석 및 목표 설정",
-            "humanRole": "Character Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Character Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 캐릭터 심리 프로파일 및 세계관 설계",
+            "humanRole": "캐릭터의 내면(공포·욕망·상처·말투)과 세계관 속 역할을 먼저 문서로 설계하고 외모 방향을 도출한다",
+            "aiRole": "Claude·ChatGPT로 비슷한 장르 캐릭터 아키타입 분석, 캐릭터 배경 스토리 초안 생성",
+            "scenarioExample": "RPG 게임 주인공 설계 — Claude로 '영웅 여정 12단계' 분석 → 캐릭터 디자이너가 '유년기 상실로 인한 신뢰 두려움'을 내면으로 설정, 외모에 '눈 밑 흉터·닫힌 자세' 반영 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Character Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 외형 시안 생성 및 내면 정합성 큐레이션",
+            "humanRole": "Midjourney 생성 시안 중 설계한 심리 프로파일이 외모에서 느껴지는 것을 선별하고 수정 방향을 지시한다",
+            "aiRole": "Midjourney·Stable Diffusion으로 다양한 외모·의상·표정 시트 자동 생성",
+            "scenarioExample": "Midjourney로 주인공 외형 50장 생성 → 캐릭터 디자이너가 '이 얼굴은 배경 설정의 상처가 느껴지지 않는다' 판단, '눈빛이 어두운 버전' 프롬프트 추가 후 재생성",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Character Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Character Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 표정 시트·의상 완성 및 감정 표현 직접 드로잉",
+            "humanRole": "캐릭터의 주요 감정 표정(기쁨·분노·두려움·혼란) 시트를 직접 드로잉해 미묘한 심리 뉘앙스를 완성한다",
+            "aiRole": "Adobe Firefly로 배경·장식 요소 자동 생성, Photoshop AI로 컬러링 및 채색 자동화",
+            "scenarioExample": "표정 시트 32종 제작 — AI로 기본 컬러링 적용 후 캐릭터 디자이너가 '두려움과 분노가 섞인 복합 감정' 표정을 수작업 드로잉으로 추가",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Photoshop AI",
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Character Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 세계관 일관성 검수 및 IP 확장 설계",
+            "humanRole": "완성된 캐릭터가 세계관의 다른 인물·배경과 일관성이 있는지 감독하고, 굿즈·애니메이션 확장을 위한 IP 가이드를 작성한다",
+            "aiRole": "Claude로 캐릭터 설정 문서 일관성 체크, ChatGPT로 IP 확장 전략 옵션 정리",
+            "scenarioExample": "20인 캐릭터 완성 후 Claude로 설정 일관성 검토 → '캐릭터 B의 출생지가 2화와 15화에서 다름' 오류 발견, 수정 후 굿즈·애니화 기준 IP 디자인 가이드 작성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           }
         ]
@@ -8323,65 +8276,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "사운드 녹음·편집·믹싱 전체",
-        "afterAI": "AI 사운드 생성 감독 + 음향 연출 + 감정 사운드 설계",
+        "beforeAI": "영화 속 발걸음 소리·환경음·폭발음을 폴리 스튜디오에서 직접 녹음하고 레이어를 수작업으로 믹싱했다.",
+        "afterAI": "ElevenLabs·Suno가 환경음·효과음·음악을 텍스트 설명만으로 생성하는 시대. 사운드 디자이너의 독보적 영역은 '이 소리가 관객의 신체에 어떤 반응을 일으키는가' — 불안감을 주는 고주파의 미묘한 사용, 발소리 타이밍 0.2초로 달라지는 위협감, 공간 음향 설계로 관객이 영화 속 공간에 있는 것처럼 느끼게 하는 감각 연출이다.",
         "replacementRisk": "medium",
         "aiTools": [
           "ElevenLabs",
-          "Soundraw",
-          "사운드 생성 AI"
+          "Suno",
+          "Descript",
+          "Udio",
+          "Premiere Pro AI"
         ],
         "survivalStrategy": [
-          "음향 연출 (어떤 소리가 감정을 전달하는가)",
-          "AI 사운드 큐레이션",
-          "감정 사운드 설계",
-          "공간 음향 설계",
-          "사운드 브랜딩"
+          "감정 사운드 심리학적 설계 능력 — 어떤 주파수·리듬·공간감이 관객에게 불안·안도·흥분·슬픔을 일으키는지 이해하고 설계",
+          "AI 사운드 생성물 현실감 큐레이션 — AI가 만든 효과음이 실제 물리적 소리와 얼마나 다른지 발견하는 훈련된 청각 감각",
+          "공간 음향 설계 전문성 — 돌비 애트모스·Auro-3D 등 입체 음향 포맷에서 소리 위치를 설계해 관객에게 공간 몰입감을 제공",
+          "사운드 브랜딩 전략 능력 — 기업·앱·게임의 청각 정체성(알림음·로딩음·브랜드 사운드 로고)을 전략적으로 설계",
+          "AI 보이스 생성 윤리·법적 검수 — ElevenLabs로 생성한 AI 목소리가 실존 인물의 음성을 무단 사용하지 않는지 확인하는 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Sound Designer 상황 분석 및 목표 설정",
-            "humanRole": "Sound Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Sound Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 씬 감정 목표 분석 및 사운드 방향 정의",
+            "humanRole": "감독·연출의 씬 의도를 청취하고 '이 사운드가 관객에게 전달해야 할 감각적 경험'을 심리학적으로 정의한다",
+            "aiRole": "Claude로 비슷한 장르 영화 사운드 디자인 사례 분석, 사운드 방향 옵션 요약",
+            "scenarioExample": "공포 영화 복도 씬 — Claude로 공포 영화 사운드 패턴 10개 분석 → 사운드 디자이너가 '시각적 위협 없이 고주파 드론음으로 불안 유발'을 이 씬 방향으로 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "Descript"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Sound Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 사운드 생성 및 현실감·감정 큐레이션",
+            "humanRole": "ElevenLabs·Suno 생성 사운드에서 실제 물리적 소리와 다른 인위성을 발견하고 씬 감정 목표에 맞는 것을 선별한다",
+            "aiRole": "ElevenLabs로 환경음·효과음 자동 생성, Suno·Udio로 배경 분위기 음악 생성",
+            "scenarioExample": "ElevenLabs로 복도 발소리 10가지 생성 → 사운드 디자이너가 '이 발소리는 콘크리트 반향이 없어 비현실적' 발견, 공간 반향 추가 지시 후 재생성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "ElevenLabs",
+              "Suno"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Sound Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Sound Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 공간 음향 설계 및 레이어 믹싱",
+            "humanRole": "선별된 사운드를 입체 음향 포맷으로 배치하고, 레이어 믹싱으로 씬의 감각적 몰입감을 설계한다",
+            "aiRole": "Premiere Pro AI로 오디오 레벨 자동 정규화, Descript으로 대사 자동 전사 및 타이밍 정렬",
+            "scenarioExample": "공포 씬 음향 믹싱 — 고주파 드론음(좌전방)·발소리(우후방)·심장박동음(정면)을 돌비 애트모스 공간으로 수동 배치, 관객이 포위감 느끼도록 설계",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Premiere Pro AI",
+              "Descript"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Sound Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: AI 보이스 윤리 검수 및 최종 사운드 납품",
+            "humanRole": "AI 생성 음성이 실존 인물 목소리를 무단 복제하지 않는지 확인하고, 플랫폼 사양에 맞게 최종 마스터링하여 납품한다",
+            "aiRole": "Premiere Pro AI로 플랫폼별 라우드니스 기준 자동 체크, 포맷 변환 자동화",
+            "scenarioExample": "AI 내레이션 음성 사용 전 ElevenLabs 생성 데이터 출처 확인 → 기존 계약 배우 음성 미사용 확인 후 허가 → Premiere Pro AI로 스트리밍 기준 -14 LUFS 마스터링 후 납품",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Premiere Pro AI",
+              "Descript"
             ]
           }
         ]
@@ -8747,64 +8697,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "전시 공간 설계·3D 모델링 전체",
-        "afterAI": "AI 공간 시뮬레이션 감독 + 관람 경험 설계 + 스토리 동선 설계",
+        "beforeAI": "전시 평면도·조명 계획·3D 공간 시뮬레이션을 모두 수작업으로 제작해 전시 설계에 수개월이 걸렸다.",
+        "afterAI": "AI가 공간 조건을 분석해 관람 동선·조명 배치를 자동 제안하는 시대. 전시 디자이너의 핵심 자산은 '관람객이 이 공간을 걸을 때 느낄 감정의 시간적 흐름'을 설계하는 서사 능력이다. 입구에서 메인 작품까지 관람객의 기대감이 어떻게 쌓이고, 클라이맥스 작품 앞에서 얼마나 오래 머물게 할지는 현장 경험과 공감 능력으로 설계하는 것이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "SketchUp AI",
-          "전시 공간 시뮬레이션 AI"
+          "Midjourney",
+          "ChatGPT",
+          "Adobe Firefly",
+          "Canva AI",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "관람 경험 설계 (감정 여정)",
-          "AI 공간 시뮬레이션 큐레이션",
-          "스토리 동선 설계",
-          "전시 콘셉트 정의",
-          "관람객 인터랙션 설계"
+          "관람객 감정 여정 서사 설계 — 입구→동선→클라이맥스→출구까지 관람객이 느낄 감정의 변화 흐름을 시간 순서로 설계",
+          "전시 콘셉트와 작품 해석 통합 능력 — 큐레이터의 작품 의도를 공간적 경험으로 번역하는 커뮤니케이션·해석 역량",
+          "현장 공간 물성 판단 — AI 시뮬레이션이 재현 못 하는 실제 벽 질감·천장 높이·자연광 변화가 작품에 미치는 영향 직접 판단",
+          "관람객 인터랙션 설계 창의성 — 체험형 전시에서 관람객이 참여할 수 있는 방식을 새롭게 기획하는 창의적 경험 설계",
+          "시공·설치 현장 즉흥 판단 — 설계와 현장 불일치 발생 시 작품 손상 없이 즉각 대안 배치를 결정하는 경험과 판단력"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Exhibition Designer 상황 분석 및 목표 설정",
-            "humanRole": "Exhibition Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Exhibition Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 전시 콘셉트 정의 및 감정 여정 서사 설계",
+            "humanRole": "큐레이터와 함께 전시의 핵심 메시지를 정의하고 관람객이 공간에서 경험할 감정의 시간적 흐름을 스토리보드로 설계한다",
+            "aiRole": "ChatGPT로 유사 전시 관람 경험 사례 분석, 감정 여정 단계 옵션 요약",
+            "scenarioExample": "현대미술 개인전 설계 — ChatGPT로 '불안에서 해방으로' 감정 여정 전시 사례 10개 분석 → 전시 디자이너가 '입구 어둠→중간 혼돈→출구 빛' 서사 동선 직접 설계",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Exhibition Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 공간 배치 시뮬레이션 및 동선 큐레이션",
+            "humanRole": "AI 생성 배치 시뮬레이션 중 감정 여정 서사와 관람객 자연 동선 기준에 맞는 안을 선별하고 수정 지시한다",
+            "aiRole": "Midjourney로 다양한 작품 배치·조명·동선 공간 시뮬레이션 이미지 생성",
+            "scenarioExample": "Midjourney로 배치 시뮬레이션 15장 생성 → 전시 디자이너가 '메인 작품이 입구에서 직접 보여 긴장감 소멸' 발견, 진입각 변경 지시",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Exhibition Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Exhibition Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 현장 공간 검증 및 조명·작품 배치 확정",
+            "humanRole": "실제 전시 공간을 방문해 AI 시뮬레이션이 재현 못 한 자연광·벽 질감·천장 반향을 직접 체감하고 최종 배치를 결정한다",
+            "aiRole": "Canva AI로 전시 그래픽·설명판 레이아웃 자동 구성, ChatGPT로 작품 설명 텍스트 초안 작성",
+            "scenarioExample": "현장 답사 — 오전 10시 자연광이 메인 작품에 반사되어 관람 방해 발견 → 전시 디자이너가 조명 각도 15도 조정 현장 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Canva AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Exhibition Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 설치 감독 및 관람객 경험 최종 점검",
+            "humanRole": "작품 설치 과정을 총감독하고 완료 후 실제 관람 동선을 직접 걸으며 감정 여정이 설계대로 작동하는지 최종 확인한다",
+            "aiRole": "Notion AI로 설치 진행 체크리스트 자동 관리, ChatGPT로 전시 가이드 오디오 스크립트 초안",
+            "scenarioExample": "전시 완성 후 디자이너가 일반 관람객처럼 직접 동선 체험 → '어둠 구간이 너무 길어 관람객 불안 과도' 판단 → 조명 10% 상향 조정 후 재체험으로 확인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Notion AI",
+              "ChatGPT"
             ]
           }
         ]
@@ -9170,65 +9118,61 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "기획·촬영·편집 전체 직접",
-        "afterAI": "AI 콘텐츠 생성 감독 + 커뮤니티 관계 + 브랜드 스토리",
+        "beforeAI": "콘텐츠 기획부터 촬영·편집·업로드·댓글 관리까지 크리에이터가 혼자 모두 수행해 주 1~2개 업로드가 한계였다.",
+        "afterAI": "CapCut AI·Descript이 자동 편집·자막을 처리해 콘텐츠 제작 속도가 크게 빨라진다. 하지만 AI로 만든 콘텐츠가 범람하는 시대에 크리에이터의 진짜 자산은 '이 사람의 이야기'를 보러 오는 팬과의 진정성 있는 관계다. 촬영 중 실수·고민·성장 과정을 공유하는 인간적 순간은 AI 콘텐츠가 절대 대체하지 못하는 크리에이터 독점 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
           "CapCut AI",
           "Descript",
-          "콘텐츠 생성 AI"
+          "ChatGPT",
+          "Canva AI",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "진정성 있는 스토리 (AI는 진부한 콘텐츠)",
-          "커뮤니티와의 관계 형성",
-          "AI 콘텐츠 큐레이션",
-          "개인 브랜드 구축",
-          "팬과의 소통"
+          "크리에이터 퍼스널 브랜드 고유성 강화 — AI가 흉내 못 내는 자기만의 말투·세계관·반복 등장 요소로 '이 사람만의 콘텐츠' 정체성 구축",
+          "팬·커뮤니티 직접 관계 관리 — 댓글 읽기·라이브 방송·팬 DM 응대로 AI 콘텐츠가 만들 수 없는 1:1 연결감 형성",
+          "진정성 있는 순간 공유 — 실수·고민·도전 과정의 날것 경험을 공유하는 인간적 스토리텔링은 AI 생성 콘텐츠와 차별화되는 무기",
+          "AI 콘텐츠 생성물 사실 검증 책임 — ChatGPT로 작성한 스크립트의 사실 오류·저작권 문제를 게시 전 직접 확인하는 책임",
+          "멀티 플랫폼 콘텐츠 전략 설계 — YouTube·Instagram·TikTok·Shorts 각각의 알고리즘·시청 패턴에 맞는 콘텐츠 변형 전략 직접 수립"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Content Creator 상황 분석 및 목표 설정",
-            "humanRole": "Content Creator로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Content Creator이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 콘텐츠 아이디어 발굴 및 기획",
+            "humanRole": "자신의 경험·관심·팬 반응에서 진정성 있는 콘텐츠 아이디어를 발굴하고 제작 방향을 결정한다",
+            "aiRole": "ChatGPT로 최근 트렌드 키워드 분석, Notion AI로 콘텐츠 캘린더 초안 작성, 제목 옵션 생성",
+            "scenarioExample": "요리 크리에이터 — ChatGPT로 이번 주 인기 레시피 트렌드 분석 → 크리에이터가 '실패했던 나의 첫 요리 재도전' 주제 선택(트렌드보다 개인 스토리 우선)",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Content Creator이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 영상 촬영 및 진정성 있는 순간 포착",
+            "humanRole": "실수·고민·완성의 날것 과정을 카메라 앞에서 직접 경험하고, 대본 없는 자연스러운 반응을 포착한다",
+            "aiRole": "(이 단계는 크리에이터의 실제 경험이 핵심 — AI로 대체 불가)",
+            "scenarioExample": "재도전 요리 촬영 중 또 실패 → 크리에이터가 그 좌절 표정과 멘트를 그대로 촬영에 포함 → 후에 '이 순간에 가장 많이 공감했다'는 팬 반응",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "CapCut AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Content Creator 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Content Creator이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 편집 및 콘텐츠 사실 검증",
+            "humanRole": "AI 자동 편집 결과를 검토하고 진정성 있는 순간이 살아있는지 확인하며, 스크립트·정보의 사실 오류를 직접 검증한다",
+            "aiRole": "CapCut AI·Descript으로 자동 자막·편집, ChatGPT로 스크립트 맞춤법·사실 1차 검토",
+            "scenarioExample": "CapCut AI 자동 편집 완료 → 크리에이터가 '실패 순간이 편집으로 잘렸다' 발견, 직접 복원 → ChatGPT 사실 검토에서 요리 온도 오류 발견, 자막 수정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "CapCut AI",
+              "Descript"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Content Creator이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 멀티 플랫폼 배포 및 팬 소통",
+            "humanRole": "업로드 후 댓글을 직접 읽고 팬의 반응에 감사를 표하며, 다음 콘텐츠 방향을 팬 피드백에서 결정한다",
+            "aiRole": "Canva AI로 플랫폼별 썸네일·카드 자동 생성, ChatGPT로 SNS 캡션 초안 작성",
+            "scenarioExample": "영상 업로드 후 댓글 100개 직접 읽기 → '다음엔 한식 도전 보고 싶다' 요청 다수 확인 → 크리에이터가 다음 화 방향 결정, 댓글에 직접 답글로 예고",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Canva AI",
+              "ChatGPT"
             ]
           }
         ]
@@ -9594,65 +9538,61 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "UI 모션 프레임별 제작",
-        "afterAI": "AI 모션 생성 감독 + 인터랙션 연출 + 사용자 감정 설계",
+        "beforeAI": "앱·웹의 버튼 클릭·화면 전환 모션을 After Effects·Principle에서 프레임별로 수작업으로 설계하고 개발팀에 스펙을 전달했다.",
+        "afterAI": "Figma AI가 화면 간 트랜지션을 자동 생성하고 프로토타입을 즉시 만드는 시대. UI 모션 디자이너의 핵심 역할은 'AI가 만든 모션이 사용자에게 직관적으로 느껴지는가'를 판단하는 것이다. 애니메이션이 0.1초 빠르면 사용자가 버튼 피드백을 못 느끼고, 0.1초 느리면 앱이 답답하게 느껴진다 — 이 0.1초의 차이를 아는 것이 UI 모션 디자이너만의 전문 감각이다.",
         "replacementRisk": "medium",
         "aiTools": [
           "Figma AI",
-          "Framer AI",
-          "Principle"
+          "Claude",
+          "ChatGPT",
+          "Notion AI",
+          "Perplexity"
         ],
         "survivalStrategy": [
-          "인터랙션 연출 (어떤 모션이 직관적인가)",
-          "AI 모션 큐레이션",
-          "사용자 감정 설계",
-          "브랜드 모션 언어 정의",
-          "접근성 고려"
+          "인터랙션 타이밍 정밀 감각 — 버튼 피드백·화면 전환 지속시간이 0.1초 차이로 사용자 경험에 미치는 영향을 판단하는 숙련 감각",
+          "브랜드 모션 언어 시스템 설계 — 이 앱의 모든 인터랙션이 통일된 '개성'으로 느껴지도록 이즈·속도·방향 가이드라인 정의",
+          "접근성 모션 설계 책임 — 전정 장애·광과민성 사용자를 위한 모션 감소 옵션(prefers-reduced-motion)을 설계에 기본 통합",
+          "개발팀 모션 스펙 번역 능력 — 디자인 의도를 CSS 애니메이션·Swift 코드로 구현 가능한 수치로 정확히 번역하는 기술 언어 역량",
+          "성능-시각 품질 균형 판단 — 모션 품질과 앱 성능(배터리·프레임률) 사이 트레이드오프를 직접 판단하고 우선순위 결정"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Ui Motion Designer 상황 분석 및 목표 설정",
-            "humanRole": "Ui Motion Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Ui Motion Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 모션 원칙 정의 및 인터랙션 목표 설정",
+            "humanRole": "이 앱의 사용자가 인터랙션에서 느껴야 할 감성(민첩·안정·친근 등)과 모션 원칙을 정의한다",
+            "aiRole": "Perplexity로 비슷한 앱의 모션 트렌드 조사, Claude로 브랜드 모션 가이드라인 초안 구조 설계",
+            "scenarioExample": "금융 앱 모션 시스템 설계 — Perplexity로 '신뢰감 주는 금융 앱 모션' 트렌드 조사 → UI 모션 디자이너가 '안정적이고 빠른, 과장 없는 이즈인아웃' 원칙 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Ui Motion Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 모션 프로토타입 생성 및 타이밍 큐레이션",
+            "humanRole": "Figma AI가 자동 생성한 트랜지션 중 브랜드 모션 원칙·사용자 직관성 기준으로 최적 안을 선별하고 타이밍을 수정한다",
+            "aiRole": "Figma AI로 화면 간 트랜지션·마이크로인터랙션 자동 프로토타입 생성",
+            "scenarioExample": "로그인→홈 화면 전환 — Figma AI로 5가지 트랜지션 자동 생성 → UI 모션 디자이너가 '200ms가 가장 반응 빠른 느낌' 선별, 이즈 커브 직접 조정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Figma AI"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Ui Motion Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Ui Motion Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 접근성 검토 및 개발 스펙 정밀 작성",
+            "humanRole": "전정 장애·광과민성 사용자를 위한 모션 감소 버전을 설계하고, 개발팀이 구현할 수 있는 수치 스펙으로 번역한다",
+            "aiRole": "Claude로 접근성 WCAG 모션 기준 조회, Notion AI로 개발 스펙 문서 자동 정리",
+            "scenarioExample": "모든 트랜지션에 prefers-reduced-motion 대응 설계 추가 → Claude로 WCAG 2.1 기준 확인 → CSS 이즈·duration 수치를 개발팀 스펙으로 정밀 작성",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Ui Motion Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 개발 구현 검수 및 성능 최적화 판단",
+            "humanRole": "개발팀이 구현한 모션을 실기기에서 직접 테스트하고 설계 의도와 다른 부분을 발견해 수정을 요청한다",
+            "aiRole": "ChatGPT로 개발팀 수정 요청 정리, 성능-품질 트레이드오프 옵션 비교",
+            "scenarioExample": "실기기 테스트 → '이 모션이 구형 폰에서 프레임 드롭' 발견 → UI 모션 디자이너가 '시각 품질 10% 희생, 성능 40% 개선' 트레이드오프 직접 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Figma AI"
             ]
           }
         ]
@@ -10018,64 +9958,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "글자 하나하나 수작업 디자인",
-        "afterAI": "AI 폰트 생성 감독 + 타이포그래피 전략 + 브랜드 폰트 설계",
+        "beforeAI": "알파벳 26자·한글 수천 자를 글자 하나하나 수작업으로 디자인해 폰트 하나 완성에 수년이 걸렸다.",
+        "afterAI": "AI가 기존 폰트 스타일을 학습해 새 글리프를 자동 생성하는 시대. 폰트 디자이너의 핵심 자산은 AI가 만든 글자들 사이의 '광학적 균형 오류'를 발견하는 정밀한 시각, 그리고 이 폰트가 작은 화면에서도·큰 간판에서도 동일한 감성을 전달하는지 판단하는 타이포그래피 전문 감각이다. 한글처럼 수천 개의 조합 글자 간 일관성 유지는 특히 인간 전문가가 필요한 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Fontjoy",
-          "폰트 생성 AI"
+          "ChatGPT",
+          "Midjourney",
+          "Claude",
+          "Adobe Firefly",
+          "Perplexity"
         ],
         "survivalStrategy": [
-          "브랜드 폰트 전략 설계",
-          "AI 폰트 큐레이션",
-          "가독성 최종 판단",
-          "타이포그래피 감정 설계",
-          "폰트 라이선스 전략"
+          "광학 균형 정밀 감수 능력 — AI 생성 글리프에서 획 굵기·공간·비율의 시각적 불균형을 발견하는 훈련된 타이포그래피 시각",
+          "다언어·스크립트 일관성 설계 능력 — 한글·영문·숫자·특수문자가 같은 폰트 내에서 통일된 감성과 비율을 유지하도록 감독",
+          "크기 독립 가독성 판단 — 8pt 소형부터 72pt 대형까지 폰트가 다양한 크기에서 동일한 가독성과 감성을 유지하는지 직접 검증",
+          "브랜드 폰트 전략 설계 능력 — 기업 전용 서체 개발 시 이 폰트가 브랜드 개성을 어떻게 표현하고 경쟁 서체와 차별화할지를 전략적으로 설계",
+          "폰트 라이선스·저작권 설계 책임 — AI 생성 글리프의 기존 폰트 저작권 침해 여부 확인 및 상업 라이선스 구조 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Typeface Designer 상황 분석 및 목표 설정",
-            "humanRole": "Typeface Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Typeface Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 폰트 철학 정의 및 타이포그래피 방향 설계",
+            "humanRole": "이 폰트가 전달해야 할 감성·용도·브랜드 포지셔닝을 정의하고 스트로크·비율·획 끝 처리 방향을 결정한다",
+            "aiRole": "Perplexity로 비슷한 감성의 기존 서체 분류 및 비교 분석, ChatGPT로 타이포그래피 역사 맥락 정리",
+            "scenarioExample": "한국 기업 전용 서체 개발 — Perplexity로 유사 기업 서체 20개 분석 → 폰트 디자이너가 '모던하지만 온기 있는, 둥근 끝·미디엄 웨이트' 방향 확정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Perplexity",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Typeface Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 핵심 글리프 수작업 설계 및 AI 보조 생성",
+            "humanRole": "A·a·H·n·g·p 등 폰트 DNA를 결정하는 핵심 글리프를 직접 설계하고, 나머지 글자는 AI 보조 생성으로 효율화한다",
+            "aiRole": "Adobe Firefly·Midjourney로 폰트 스타일 시각화 레퍼런스 생성, AI로 반복 글리프 패턴 초안 자동 생성",
+            "scenarioExample": "'R'·'a'·'g' 핵심 6글자 직접 드로잉 → 디자이너가 이 6자 비율·스트로크를 AI에 학습 방향으로 제공, 나머지 알파벳 초안 AI 생성 후 검수",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Typeface Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Typeface Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 광학 균형 정밀 검수 및 다크기 가독성 검증",
+            "humanRole": "AI 생성 글리프들의 획 굵기·공간·비율 불균형을 글자 쌍별로 검수하고 8~72pt 다양한 크기에서 가독성을 직접 테스트한다",
+            "aiRole": "Claude로 폰트 품질 기준(OpenType 스펙, 커닝 값) 관련 자료 정리",
+            "scenarioExample": "'AV' 조합 광학 균형 체크 → 디자이너가 '시각적으로 V가 좁아 보임' 발견, 커닝 값 수동 조정 → 8pt·14pt·48pt 세 크기로 실제 인쇄 테스트 진행",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Typeface Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 저작권 검수 및 폰트 라이선스 구조 설계",
+            "humanRole": "완성 폰트의 기존 서체 저작권 침해 여부를 검토하고 상업·개인·기업 전용 라이선스 구조를 설계한다",
+            "aiRole": "Claude로 유사 폰트 저작권 사례 조사, ChatGPT로 라이선스 계약서 초안 작성",
+            "scenarioExample": "완성 폰트를 기존 유명 서체 10개와 비교 검수 → '이 글리프 형태가 특정 서체와 80% 유사' 발견, 수정 후 재검수 → 상업 라이선스·기업 전용 라이선스 구조 설계 완료",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           }
         ]
@@ -10441,64 +10379,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "패키지 디자인·목업 제작 전체",
-        "afterAI": "AI 패키지 생성 감독 + 언박싱 경험 설계 + 지속가능성 전략",
+        "beforeAI": "패키지 구조 설계·그래픽 디자인·목업 제작까지 패키지 디자이너가 처음부터 끝까지 직접 수행했다.",
+        "afterAI": "AI가 패키지 비주얼 시안을 빠르게 생성하고 3D 목업을 자동 렌더링하는 시대. 패키지 디자이너의 핵심 자산은 소비자가 매장 선반 앞에서 0.3초 만에 집어 들게 만드는 '시선 포착 설계', 그리고 택배 상자를 열 때 첫 번째 감동이 터지도록 설계하는 언박싱 경험 연출이다. 실물 소재의 인쇄 색상 편차·접힘 구조·개봉 편의성은 실물 시제품으로만 검증 가능한 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "패키지 디자인 AI",
-          "3D 목업 AI"
+          "Midjourney",
+          "Adobe Firefly",
+          "ChatGPT",
+          "Canva AI",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "언박싱 경험 설계 (소비자 감정 여정)",
-          "AI 패키지 큐레이션",
-          "지속가능성 전략 (친환경 소재)",
-          "브랜드 패키지 전략",
-          "소비자 인사이트 해석"
+          "언박싱 감정 여정 설계 능력 — 택배 박스 수령→개봉→내용물 첫 확인까지 소비자가 느낄 감정 흐름을 순서대로 설계",
+          "매장 선반 시선 포착 전략 — 수십 개 경쟁 제품 사이에서 0.3초 만에 눈길을 끄는 컬러·형태·그래픽 우선순위를 결정하는 판단",
+          "실물 인쇄 색상 편차 검수 능력 — 스크린 CMYK와 실제 인쇄 결과의 색상 차이를 실물 프린트 확인으로 직접 검증하는 경험",
+          "지속가능성 소재 설계 전략 — 재생지·생분해 소재·재사용 가능 구조를 비용·브랜드 이미지와 균형 있게 설계하는 역량",
+          "소비자 행동 인사이트 적용 능력 — 마트·편의점·온라인 각 판매 채널에서 소비자가 패키지와 어떻게 상호작용하는지 현장 관찰 기반 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Packaging Designer 상황 분석 및 목표 설정",
-            "humanRole": "Packaging Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Packaging Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 소비자 구매 맥락 분석 및 패키지 전략 정의",
+            "humanRole": "이 제품이 팔릴 채널(마트·편의점·온라인)에서 소비자가 패키지를 어떻게 인지하는지 분석하고 핵심 설계 목표를 정의한다",
+            "aiRole": "ChatGPT로 경쟁 제품 패키지 전략 분석, Perplexity로 소비자 패키지 선택 심리 조사",
+            "scenarioExample": "건강음료 신제품 패키지 — ChatGPT로 동종 제품 20개 패키지 색상 전략 분석 → 패키지 디자이너가 현장 마트 관찰 후 '녹색 계열 과포화, 흰색 배경 차별화' 방향 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "ChatGPT",
+              "Notion AI"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Packaging Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 패키지 시안 생성 및 시각 매력도 큐레이션",
+            "humanRole": "Midjourney 생성 시안 중 매장 선반 환경에서 경쟁 제품 대비 가장 눈에 띄는 것을 선별하고 언박싱 경험 방향을 결정한다",
+            "aiRole": "Midjourney·Adobe Firefly로 다양한 컬러·그래픽·구조 패키지 시안 자동 생성",
+            "scenarioExample": "Midjourney로 패키지 시안 30장 생성 → 패키지 디자이너가 '이 흰 배경·초록 포인트가 마트 선반에서 유일하게 튄다' 판단, 3개 방향으로 압축",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Packaging Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Packaging Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 실물 시제품 제작 및 인쇄·구조 검증",
+            "humanRole": "디지털 시안을 실제 인쇄·접기 구조로 만들어 색상 편차·개봉 편의성·소재 촉감을 직접 검증하고 수정한다",
+            "aiRole": "Canva AI로 패키지 다이라인 레이아웃 구성, ChatGPT로 인쇄 스펙 체크리스트 작성",
+            "scenarioExample": "시제품 제작 후 디지털 Pantone 색상이 실제 인쇄에서 20% 더 어두워짐 확인 → 패키지 디자이너가 색상 값 수동 보정, 재인쇄 후 최종 확인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Canva AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Packaging Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 언박싱 경험 최종 설계 및 지속가능성 검증",
+            "humanRole": "완성 패키지의 언박싱 순서·감동 포인트를 직접 체험하고 지속가능성 소재 기준을 충족하는지 최종 확인한다",
+            "aiRole": "ChatGPT로 지속가능성 소재 대안 비교, Canva AI로 패키지 홍보 이미지 자동 생성",
+            "scenarioExample": "완성 패키지 언박싱 테스트 — 내부 포장지가 제품을 가려 첫 눈길 감동 부족 → 배치 순서 변경 → 재생 종이 사용 비율·탄소 발자국 수치 ChatGPT로 정리 후 제품 패키지에 인쇄",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Canva AI"
             ]
           }
         ]
@@ -10864,63 +10800,61 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "비주얼 방향 설정 + 팀 관리",
-        "afterAI": "AI 비주얼 총괄 + 크리에이티브 전략 + 팀 AI 협업 설계",
+        "beforeAI": "광고·매거진·브랜드 캠페인의 비주얼 방향을 설정하고 포토그래퍼·디자이너·스타일리스트 팀을 현장에서 직접 지휘했다.",
+        "afterAI": "AI가 촬영 전 비주얼 시뮬레이션을 생성하고 후보정 결과를 즉시 보여주는 시대. 아트 디렉터의 핵심 자산은 팀이 AI로 생성한 수백 개의 비주얼 결과물 중 '이 브랜드가 다음 3년간 전달해야 할 감성에 맞는 단 하나'를 골라내는 비주얼 큐레이팅 안목이다. 촬영 현장에서 배우·모델·포토그래퍼에게 원하는 감정을 끌어내는 현장 리더십도 AI가 대체하지 못하는 영역이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "모든 AI 디자인 툴 통합 활용"
+          "Midjourney",
+          "ChatGPT",
+          "Claude",
+          "Adobe Firefly",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "비주얼 전략 수립",
-          "AI 결과물 최종 큐레이션",
-          "팀 AI 협업 프로세스 설계",
-          "클라이언트 설득",
-          "브랜드 비주얼 일관성 감독"
+          "비주얼 감성 큐레이팅 안목 — AI가 생성한 수백 개 비주얼 중 브랜드 3년 방향성과 정합한 '한 장'을 발견하는 경험 기반 안목",
+          "촬영 현장 팀 감정 디렉팅 — 모델·배우·스태프에게 원하는 감정·분위기를 이끌어내는 현장 리더십과 커뮤니케이션",
+          "브랜드 비주얼 일관성 10년 관점 — 트렌드에 흔들리지 않고 이 브랜드의 비주얼 정체성을 장기적으로 수호하는 역할",
+          "팀 AI 워크플로 설계 및 교육 — 포토그래퍼·그래픽 디자이너·영상 팀이 AI를 생산적으로 활용하도록 워크플로를 설계하고 교육",
+          "AI 생성 이미지 윤리 감독 책임 — 팀 제출 비주얼의 저작권·딥페이크·특정 인물 동의 여부를 최종 검토하고 승인하는 책임"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Art Director 상황 분석 및 목표 설정",
-            "humanRole": "Art Director로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Art Director이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 브랜드 비주얼 방향 정의 및 팀 브리핑",
+            "humanRole": "클라이언트 브랜드의 다음 시즌 비주얼 감성을 정의하고 팀(포토그래퍼·디자이너·영상)이 AI를 어떻게 활용할지 역할을 배분한다",
+            "aiRole": "Claude로 브랜드 과거 캠페인 비주얼 패턴 분석, 경쟁 브랜드 비주얼 트렌드 요약",
+            "scenarioExample": "뷰티 브랜드 시즌 캠페인 — Claude로 경쟁사 5개 브랜드 비주얼 언어 분석 → 아트 디렉터가 '무결점보다 진짜 피부의 아름다움' 방향 정의, 팀별 Midjourney·Adobe Firefly 역할 배분",
             "recommendedTools": [
-              "Adobe AI",
+              "Claude",
+              "Notion AI"
+            ]
+          },
+          {
+            "stepTitle": "2단계: AI 비주얼 시뮬레이션 감독 및 촬영 전 큐레이션",
+            "humanRole": "팀이 AI로 생성한 사전 시뮬레이션 비주얼 중 브랜드 방향·감성 기준으로 3개 방향을 선별해 촬영 가이드를 확정한다",
+            "aiRole": "Midjourney·Adobe Firefly로 촬영 전 무드·라이팅·구도 시뮬레이션 이미지 대량 생성",
+            "scenarioExample": "Midjourney 촬영 시뮬레이션 60장 생성 → 아트 디렉터가 '이 자연광 역광 구도가 브랜드 철학과 정합' 판단 → 촬영팀에 가이드 사진 3장 확정 전달",
+            "recommendedTools": [
+              "Midjourney",
+              "Adobe Firefly"
+            ]
+          },
+          {
+            "stepTitle": "3단계: 촬영 현장 팀 지휘 및 실시간 방향 판단",
+            "humanRole": "촬영 현장에서 모델·포토그래퍼와 직접 소통해 AI 시뮬레이션과 실제 환경의 차이를 즉흥적으로 조율한다",
+            "aiRole": "(이 단계는 현장 인간 리더십이 핵심 — AI는 현장 대체 불가, 사전 시뮬레이션 참조 역할)",
+            "scenarioExample": "촬영 현장 자연광이 시뮬레이션과 달리 강한 역광 → 아트 디렉터가 즉석에서 '반사판 추가·모델 각도 30도 조정' 결정 → 원하는 분위기 실현",
+            "recommendedTools": [
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Art Director이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "4단계: 후보정 감독 및 AI 이미지 윤리 최종 검수",
+            "humanRole": "후보정 결과물이 브랜드 방향과 맞는지 최종 승인하고, AI 보정이 인물을 과도하게 변형하지 않았는지 윤리적으로 검토한다",
+            "aiRole": "Adobe Firefly로 배경 수정·색보정 자동화, ChatGPT로 최종 납품 체크리스트 작성",
+            "scenarioExample": "후보정 완료 이미지 검토 → 아트 디렉터가 'AI 피부 보정이 과도해 모델 실제 특징 삭제' 발견, 원본 질감 살린 재보정 지시 → 딥페이크 규정 준수 확인 후 최종 승인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
-            ]
-          },
-          {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Art Director 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Art Director이 핵심 전문 판단 20%에 집중",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
-            ]
-          },
-          {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Art Director이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "ChatGPT"
             ]
           }
         ]
@@ -11286,65 +11220,61 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "연출·촬영·편집 전 과정 감독",
-        "afterAI": "AI 촬영·편집 감독 + 스토리 비전 설계 + 배우 연기 디렉션",
+        "beforeAI": "시나리오 분석·캐스팅·촬영 지휘·편집 감독·후반 작업까지 영화감독이 수년에 걸쳐 모든 창작 결정을 직접 내렸다.",
+        "afterAI": "AI가 VFX·배경 생성·초벌 편집을 처리해 제작 속도와 비용이 변화하는 시대. 영화감독의 절대적 독점 영역은 배우와 마주 앉아 '이 장면에서 네가 느끼는 두려움의 색깔은 뭐야?'라고 물으며 진짜 감정을 이끌어내는 현장 연출, 그리고 관객이 2시간 동안 영화 속 현실을 믿게 만드는 스토리 비전의 총체적 책임이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "Runway ML",
-          "Wonder Dynamics",
-          "AI 시나리오 분석"
+          "Runway",
+          "Midjourney",
+          "ChatGPT",
+          "Claude",
+          "Descript"
         ],
         "survivalStrategy": [
-          "스토리 비전 설계 (영화가 전달할 메시지)",
-          "배우 연기 디렉션 (AI는 불가)",
-          "AI 촬영·편집 감독",
-          "감정 연출",
-          "관객 경험 설계"
+          "배우 감정 디렉팅 능력 — 배우의 내면에서 진짜 감정을 끌어내는 대화·관계·연기 방법론은 AI가 절대 대체 불가한 인간 연출 영역",
+          "영화 스토리 비전 총체적 책임 — 이 영화가 관객에게 남길 '한 문장의 경험'을 정의하고 모든 씬·대사·음악이 그것을 향하도록 총감독",
+          "촬영 현장 즉흥 판단력 — 날씨 변화·배우 컨디션·기술 오류 등 예상치 못한 상황에서 즉각 창의적 대안을 결정하는 경험",
+          "AI VFX·편집 크리에이티브 감독 — AI가 생성한 VFX와 편집 초안이 감독의 비전에 맞는지 판단하고 구체적 수정 방향을 지시",
+          "영화 윤리적 책임 — 배우·스태프의 권리 보호, AI 생성 딥페이크 사용 윤리, 특정 커뮤니티 묘사의 책임을 감독으로서 직접 수행"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Film Director 상황 분석 및 목표 설정",
-            "humanRole": "Film Director로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Film Director이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 시나리오 분석 및 씬별 비전 정의",
+            "humanRole": "시나리오 각 씬이 관객에게 전달해야 할 감정·의미를 정의하고 배우·촬영·편집 팀에게 비전을 명확히 전달한다",
+            "aiRole": "Claude로 시나리오 서사 구조·캐릭터 아크 분석, ChatGPT로 유사 장르 영화 씬 연출 사례 수집",
+            "scenarioExample": "독립영화 시나리오 분석 — Claude로 씬별 감정 흐름 맵 자동 생성 → 감독이 '이 씬은 슬픔이 아닌 체념'으로 해석해 배우 디렉팅 방향 수정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Film Director이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 촬영 전 AI 시각화 및 배우 감정 준비",
+            "humanRole": "AI 사전 시각화로 촬영 구도를 미리 확인하고, 배우와 씬별 감정·동기를 깊이 논의해 실제 감정 준비를 이끈다",
+            "aiRole": "Midjourney로 씬별 조명·구도·분위기 사전 시각화 생성, Runway로 스토리보드 애니메이션 프리비주얼",
+            "scenarioExample": "클라이맥스 대결 씬 — Midjourney로 조명 시뮬레이션 10개 생성, 감독 선택 후 → 배우 2명과 3시간 캐릭터 동기 논의 세션, 촬영 준비",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Runway"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Film Director 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Film Director이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 촬영 현장 연출 지휘 및 즉흥 판단",
+            "humanRole": "배우의 실제 감정 반응을 실시간으로 읽고 테이크마다 연출 방향을 즉각 조정하며 진짜 순간을 포착한다",
+            "aiRole": "(이 단계는 감독의 현장 인간 연출이 핵심 — 촬영 후 Descript으로 러시 필름 자동 전사·분류)",
+            "scenarioExample": "배우가 대본에 없는 울음을 터뜨림 → 감독이 즉각 '계속 찍어' 신호, 그 테이크를 최종 선택 → 이 '사고'가 영화의 명장면이 됨",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Descript"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Film Director이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: AI 편집 감독 및 후반 작업 비전 유지",
+            "humanRole": "AI 초벌 편집과 VFX를 검토해 전체 영화의 감정 흐름과 비전이 유지되는지 최종 감독하고 완성 책임을 진다",
+            "aiRole": "Runway로 VFX 씬 자동 생성, Descript으로 편집 초안 타임라인 자동 구성, Claude로 편집 흐름 분석",
+            "scenarioExample": "AI 초벌 편집 검토 → 감독이 '이 씬 배치가 캐릭터 성장 아크를 역행시킨다' 판단, 씬 순서 재배치 지시 → 최종 편집 완료 후 감독 책임 하 AI VFX 사용 크레딧 표기",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Runway",
+              "Descript"
             ]
           }
         ]
@@ -11710,65 +11640,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "게임 에셋 수작업 제작",
-        "afterAI": "AI 에셋 생성 감독 + 아트 스타일 정의 + 게임 엔진 최적화",
+        "beforeAI": "게임 배경·아이템·환경 에셋을 아티스트가 처음부터 수작업으로 제작해 대형 게임 하나에 수백 명의 아트 팀이 수년을 작업했다.",
+        "afterAI": "Midjourney·Stable Diffusion이 컨셉 아트를 수초 만에 생성하고, AI 에셋 도구가 텍스처·배경을 자동 생성하는 시대. 게임 아티스트의 핵심 자산은 AI가 만든 수백 개 에셋이 같은 게임 세계관 안에서 통일된 '분위기와 물성'을 유지하는지 감독하는 능력이다. 플레이어가 '이 게임의 세계는 진짜처럼 느껴진다'고 느끼게 만드는 아트 일관성 판단은 숙련 게임 아티스트의 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Scenario",
-          "Rosebud AI",
-          "게임 에셋 생성 AI"
+          "Midjourney",
+          "Stable Diffusion",
+          "Adobe Firefly",
+          "ChatGPT",
+          "Photoshop AI"
         ],
         "survivalStrategy": [
-          "게임 아트 스타일 정의",
-          "AI 에셋 큐레이션",
-          "게임 엔진 최적화",
-          "아트 일관성 감독",
-          "게임 세계관 비주얼 설계"
+          "게임 아트 스타일 성문화 능력 — '이 게임 세계의 빛·그림자·소재 질감의 규칙'을 아트 바이블 문서로 정의하는 역량",
+          "AI 에셋 아트 일관성 감독 — AI가 생성한 수백 개 에셋이 동일 세계관에서 통일감을 갖는지 판단하고 이탈 에셋을 발견하는 안목",
+          "게임 엔진 최적화 실무 전문성 — AI 생성 고해상도 에셋을 엔진 성능 기준에 맞게 폴리곤·텍스처 압축하는 기술적 판단",
+          "세계관 문화적 고증 책임 — 특정 문화·역사를 배경으로 한 게임에서 AI 생성 에셋이 문화적 오류·고정관념을 포함하지 않는지 검수",
+          "플레이어 몰입 아트 연출 능력 — UI·HUD·환경 아트가 게임 몰입을 방해하지 않고 자연스럽게 세계관에 녹아들도록 연출"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Game Artist 상황 분석 및 목표 설정",
-            "humanRole": "Game Artist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Game Artist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 게임 세계관 아트 바이블 정의",
+            "humanRole": "게임 디렉터·시나리오팀과 협의해 이 게임 세계의 빛·그림자·소재 질감·색상 팔레트·시대감 규칙을 아트 바이블로 문서화한다",
+            "aiRole": "Midjourney로 아트 스타일 레퍼런스 이미지 수집, ChatGPT로 유사 장르 게임 아트 스타일 분석",
+            "scenarioExample": "포스트아포칼립스 RPG 개발 — ChatGPT로 유사 장르 10개 게임 아트 분석 → 게임 아티스트가 '녹슨 금속·먼지·균열 콘크리트·오렌지 노을' 규칙을 아트 바이블 문서로 작성",
             "recommendedTools": [
-              "Adobe AI",
+              "Midjourney",
+              "ChatGPT"
+            ]
+          },
+          {
+            "stepTitle": "2단계: AI 에셋 대량 생성 및 세계관 일관성 큐레이션",
+            "humanRole": "Midjourney·Stable Diffusion 생성 에셋 중 아트 바이블 기준에 맞는 것을 선별하고 이탈 에셋은 수정 지시한다",
+            "aiRole": "Midjourney·Stable Diffusion으로 배경·아이템·환경 에셋 대량 자동 생성, Adobe Firefly로 텍스처 패턴 생성",
+            "scenarioExample": "폐허 배경 에셋 50개 생성 → 게임 아티스트가 '이 건물 창문 유리가 너무 깨끗해 세계관 이탈' 5개 발견, 파손 질감 추가 프롬프트로 재생성 지시",
+            "recommendedTools": [
+              "Midjourney",
+              "Stable Diffusion"
+            ]
+          },
+          {
+            "stepTitle": "3단계: 에셋 텍스처 완성 및 엔진 최적화",
+            "humanRole": "선별 에셋의 텍스처 세부 완성도를 직접 조정하고 게임 엔진 성능 기준에 맞게 폴리곤·해상도를 최적화한다",
+            "aiRole": "Photoshop AI로 텍스처 업스케일링·노이즈 제거, Adobe Firefly로 디테일 텍스처 자동 보완",
+            "scenarioExample": "메인 배경 건물 에셋 — Photoshop AI로 텍스처 4K 업스케일 → 게임 아티스트가 PC 기준 4K·모바일 기준 512×512로 최적화, 폴리곤 8000개로 직접 감소 작업",
+            "recommendedTools": [
+              "Photoshop AI",
+              "Adobe Firefly"
+            ]
+          },
+          {
+            "stepTitle": "4단계: 문화적 고증 검수 및 전체 아트 일관성 최종 감독",
+            "humanRole": "완성 에셋의 문화적 오류·고정관념을 검수하고 게임 전체 아트가 통일된 세계관으로 느껴지는지 최종 아트 디렉팅을 수행한다",
+            "aiRole": "ChatGPT로 문화적 고증 이슈 사전 리서치, Midjourney로 완성 에셋 인게임 씬 배치 시뮬레이션",
+            "scenarioExample": "에셋 완성 후 Midjourney 씬 배치 시뮬레이션 → 게임 아티스트가 '이 사원 건축 양식이 실제 역사와 혼합 오류' 발견 → 문화 고증 수정 후 전체 아트 최종 승인",
+            "recommendedTools": [
+              "ChatGPT",
               "Midjourney"
-            ]
-          },
-          {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Game Artist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
-            ]
-          },
-          {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Game Artist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Game Artist이 핵심 전문 판단 20%에 집중",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
-            ]
-          },
-          {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Game Artist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
-            "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
             ]
           }
         ]
@@ -12134,65 +12061,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "컨셉 아트 수작업 제작",
-        "afterAI": "AI 컨셉 생성 감독 + 세계관 설계 + 비주얼 디렉션",
+        "beforeAI": "영화·게임의 존재하지 않는 세계·캐릭터·탈것을 상상해서 수작업으로 그려 팀에게 비주얼 방향을 제시했다.",
+        "afterAI": "Midjourney·Stable Diffusion이 컨셉 아트 후보를 수초 만에 무한 생성하는 시대. 컨셉 아티스트의 핵심 자산은 AI가 생성한 수백 개 이미지 중 '이 세계의 물리적 규칙과 감성 일관성에 맞는 것'을 발견하는 능력이다. 동시에 '이 건물은 중력을 어떻게 버티는가', '이 생명체는 어떻게 움직이는가'처럼 세계관의 내적 논리를 구성하는 설계 사고는 인간 컨셉 아티스트만의 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
           "Midjourney",
           "Stable Diffusion",
-          "컨셉 아트 AI"
+          "Adobe Firefly",
+          "ChatGPT",
+          "Photoshop AI"
         ],
         "survivalStrategy": [
-          "세계관 설계 (세계의 규칙·분위기)",
-          "AI 컨셉 큐레이션",
-          "비주얼 디렉션",
-          "스토리와 비주얼 일관성",
-          "감독과의 협업"
+          "세계관 내적 논리 설계 능력 — 이 세계의 중력·재료·문화·생태계 규칙을 정의해 시각 일관성의 기반을 만드는 지적 설계",
+          "AI 컨셉 아트 비주얼 논리 검수 — Midjourney 생성 이미지에서 세계관 규칙을 위반하는 디테일(물리 오류·문화 혼재 등)을 발견하는 감각",
+          "감독·디자인 디렉터와의 의도 번역 능력 — 추상적인 '느낌'을 구체적인 비주얼 형태로 번역하는 아트 커뮤니케이션 전문성",
+          "수작업 강조 완성 드로잉 능력 — AI 생성 러프를 바탕으로 세계관 핵심 오브젝트를 수작업으로 정밀 완성해 작가 전문성을 증명",
+          "크로스 미디어 IP 비주얼 일관성 — 게임·영화·굿즈로 확장되는 IP에서 컨셉 아트 원본의 비주얼 언어가 일관되게 유지되도록 감독"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Concept Artist 상황 분석 및 목표 설정",
-            "humanRole": "Concept Artist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Concept Artist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 세계관 물리·문화 규칙 정의 및 비주얼 언어 설계",
+            "humanRole": "시나리오·게임 디자이너와 함께 이 세계의 내적 규칙(중력·재료·생태·사회)을 정의하고 비주얼 언어로 번역한다",
+            "aiRole": "ChatGPT로 유사 세계관 SF·판타지 레퍼런스 수집, 세계관 내적 논리 일관성 체크리스트 생성",
+            "scenarioExample": "수중 문명 세계관 게임 개발 — ChatGPT로 '수압·빛 굴절·부력' 물리 규칙 분석 → 컨셉 아티스트가 '이 세계 건물은 수압을 버티는 돔 구조·투명 소재'로 비주얼 규칙 확정",
             "recommendedTools": [
-              "Adobe AI",
+              "ChatGPT",
               "Midjourney"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Concept Artist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: AI 컨셉 대량 생성 및 세계관 논리 큐레이션",
+            "humanRole": "Midjourney 생성 이미지 중 세계관 물리 규칙과 비주얼 언어를 준수한 것을 선별하고 논리 오류를 발견해 수정 지시한다",
+            "aiRole": "Midjourney·Stable Diffusion으로 건물·캐릭터·탈것·환경 컨셉 이미지 대량 자동 생성",
+            "scenarioExample": "수중 도시 건물 컨셉 50장 생성 → 컨셉 아티스트가 '이 탑은 수압 물리학상 불가능한 구조' 10장 제외, 돔·구형 구조 기반 5장 선별",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Stable Diffusion"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Concept Artist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Concept Artist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 핵심 오브젝트 수작업 정밀 완성 및 디렉터 협업",
+            "humanRole": "세계관을 대표하는 핵심 캐릭터·건물·탈것은 직접 수작업으로 정밀 드로잉해 완성하고 감독에게 세계관 논리를 설명한다",
+            "aiRole": "Adobe Firefly로 배경 텍스처·분위기 자동 생성, Photoshop AI로 조명·색상 효과 자동 적용",
+            "scenarioExample": "주인공 수중 전투기 컨셉 — AI 러프 구도 선택 후 컨셉 아티스트가 수압 저항 구조·부력 제어 장치를 수작업 드로잉으로 추가, 감독에게 '이 날개가 이 세계에서 이렇게 작동한다' 직접 설명",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Adobe Firefly",
+              "Photoshop AI"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Concept Artist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 3D·애니메이션 팀 핸드오프 및 비주얼 일관성 감독",
+            "humanRole": "3D 아티스트·애니메이터 팀이 컨셉 아트를 구현할 때 세계관 비주얼 규칙을 준수하는지 감독하고 일관성을 유지한다",
+            "aiRole": "ChatGPT로 3D·애니메이션 팀 핸드오프 가이드 문서 초안 작성, Midjourney로 완성 컨셉의 다양한 각도 뷰 생성",
+            "scenarioExample": "3D 팀이 건물 구현 후 '원래 컨셉과 재질 다름' 발견 → 컨셉 아티스트가 '이 소재는 반투명 발광 소재'임을 재설명, 수정 감독 후 전체 비주얼 일관성 확인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "ChatGPT",
+              "Midjourney"
             ]
           }
         ]
@@ -12558,64 +12482,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 경험 시뮬레이션 감독 + 감정 여정 설계 + 브랜드 경험 전략",
+        "beforeAI": "2020년대에 출현한 신생 직종으로, 브랜드·제품·서비스와 사용자의 총체적 접촉 경험을 설계하는 역할이 형성되기 시작했다.",
+        "afterAI": "AI가 사용자 행동 데이터를 분석해 경험 패턴을 자동 생성하고, 개인화 경험을 실시간으로 제공하는 시대. 경험 디자이너의 핵심 역할은 AI가 최적화한 경험이 '효율적이지만 차갑게 느껴지는 이유'를 설명하고, 데이터가 포착 못 하는 인간의 감정적 고통·기쁨을 직접 관찰해 AI가 놓친 경험 설계 문제를 발견하는 것이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "경험 시뮬레이션 AI",
-          "사용자 데이터 분석 AI"
+          "Claude",
+          "ChatGPT",
+          "Perplexity",
+          "Notion AI",
+          "Midjourney"
         ],
         "survivalStrategy": [
-          "감정 여정 설계 (사용자가 느낄 감정 흐름)",
-          "AI 경험 시뮬레이션 해석",
-          "브랜드 경험 전략 수립",
-          "사용자 인사이트 발굴",
-          "경험 일관성 감독"
+          "경험 에스노그라피 관찰 능력 — 사용자가 브랜드와 접촉하는 현장을 직접 관찰해 데이터에 잡히지 않는 감정적 마찰·기쁨을 발굴",
+          "AI 경험 최적화 결과의 감성 검증 — 데이터상 최적화된 경험이 실제 사람에게 '차갑게 느껴지는 이유'를 심리학적으로 설명하는 역량",
+          "크로스 채널 경험 일관성 설계 — 온라인·오프라인·모바일·AI 채봇 모두에서 동일한 브랜드 감성이 느껴지도록 통합 설계",
+          "경험 데이터-직관 통합 해석 능력 — AI 분석 데이터와 현장 관찰에서 얻은 직관을 결합해 경험 설계 우선순위를 결정",
+          "AI 개인화 경험의 프라이버시 윤리 — 과도한 개인화가 사용자에게 감시당하는 느낌을 줄 때의 경계를 판단하는 윤리적 역량"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Experience Designer 상황 분석 및 목표 설정",
-            "humanRole": "Experience Designer로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Experience Designer이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 현장 사용자 관찰 및 경험 고통 지점 발굴",
+            "humanRole": "사용자가 브랜드·제품을 실제로 사용하는 현장을 직접 관찰하고, 데이터가 포착하지 못한 감정적 마찰 지점을 발굴한다",
+            "aiRole": "Claude로 기존 사용자 인터뷰·리뷰 데이터 분석, Perplexity로 유사 브랜드 경험 연구 사례 수집",
+            "scenarioExample": "은행 앱 경험 설계 — Claude로 앱 스토어 리뷰 1000개 분석 → 경험 디자이너가 직접 은행 방문 관찰에서 '직원에게 말하기 전 앱 먼저 열었다가 포기하는 패턴' 발견(데이터에 없던 인사이트)",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "Perplexity"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Experience Designer이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 감정 여정 지도 설계 및 경험 원칙 정의",
+            "humanRole": "발굴된 고통 지점을 바탕으로 사용자가 브랜드와 처음 만나는 순간부터 이탈까지 느끼는 감정의 흐름을 지도로 설계한다",
+            "aiRole": "Notion AI로 감정 여정 지도 템플릿 자동 구성, ChatGPT로 각 접점별 개선 아이디어 초안 생성",
+            "scenarioExample": "앱 첫 사용 경험 감정 여정 지도 작성 — Notion AI 템플릿으로 7개 접점 구조화 → 경험 디자이너가 '가입 4단계에서 신뢰 불안' 감정 고점을 직접 정의하고 개선 방향 결정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Notion AI",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Experience Designer 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Experience Designer이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 개인화 경험 설계 감독 및 감성 검증",
+            "humanRole": "AI 개인화 알고리즘이 제안한 경험이 사용자에게 차갑게 느껴지지 않는지, 과도한 감시감을 주지 않는지 직접 검증한다",
+            "aiRole": "Claude로 개인화 경험 시나리오 자동 생성, ChatGPT로 프라이버시 침해 우려 시나리오 분석",
+            "scenarioExample": "AI가 사용자 위치 기반 초개인화 알림 제안 → 경험 디자이너가 '이 수준의 개인화는 감시당하는 느낌 유발' 판단 → 허용 범위 재설정 후 테스트",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Experience Designer이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 크로스 채널 경험 일관성 감독 및 성과 해석",
+            "humanRole": "온라인·오프라인·AI 챗봇 모든 채널에서 동일한 브랜드 감성이 전달되는지 검수하고 성과 데이터를 경험 개선으로 해석한다",
+            "aiRole": "Perplexity로 크로스 채널 경험 측정 방법론 조사, Notion AI로 성과 리포트 자동 정리",
+            "scenarioExample": "6개 채널 경험 검수 → 경험 디자이너가 '챗봇 응대가 오프라인 직원보다 3배 차갑게 느껴짐' 발견 → 챗봇 언어 톤 수정 지시, 1개월 후 재측정",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Perplexity",
+              "Notion AI"
             ]
           }
         ]
@@ -12981,65 +12903,64 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "신생 직종 (2023년 이후 출현)",
-        "afterAI": "AI 크리에이티브 지시 + 결과 큐레이션 + 프롬프트 전략 설계",
+        "beforeAI": "2023년 이후 생성 AI 도구가 보편화되면서 AI를 효과적으로 지시해 창작 결과물을 얻는 전문 직종으로 부상했다.",
+        "afterAI": "AI 도구가 자연어 이해 능력을 높이면서 단순 프롬프트 입력의 진입 장벽은 낮아지고 있다. AI 크리에이티브 프롬프트 엔지니어의 생존 자산은 '어떤 AI 도구를 어떤 창작 목표에 써야 하는가'를 전략적으로 판단하는 메타 지식, 클라이언트의 모호한 감성 요청을 AI가 이해할 수 있는 구체적 언어로 번역하는 능력, 그리고 AI 생성물의 품질·윤리·저작권을 전문적으로 검수하는 큐레이팅 역량이다.",
         "replacementRisk": "low",
         "aiTools": [
           "Midjourney",
-          "Runway ML",
-          "모든 생성 AI"
+          "Claude",
+          "ChatGPT",
+          "Runway",
+          "Adobe Firefly",
+          "Suno"
         ],
         "survivalStrategy": [
-          "정확한 프롬프트 작성 (원하는 결과 정의)",
-          "AI 결과 큐레이션 전문성",
-          "프롬프트 전략 설계",
-          "AI 툴 최신 트렌드 학습",
-          "클라이언트 의도 AI 번역"
+          "AI 도구 생태계 전략적 선택 능력 — 이미지·영상·음악·텍스트 각 창작 목표에 최적인 AI 도구를 선택하고 조합하는 메타 전문성",
+          "클라이언트 감성 언어 → AI 프롬프트 번역 — '따뜻하고 신뢰가 가는 느낌'을 AI가 이해하는 구체적 파라미터로 번역하는 언어 능력",
+          "프롬프트 라이브러리 자산화 — 반복 사용 가능한 고품질 프롬프트 패턴을 체계적으로 정리해 클라이언트별·용도별로 재활용하는 시스템",
+          "AI 생성물 저작권·윤리 전문 검수 — 학습 데이터 출처 논란·실존 인물 유사성·문화 전용 문제를 식별하는 법적·윤리적 검수 역량",
+          "멀티모달 AI 워크플로 설계 능력 — 텍스트→이미지→영상→음악이 순차적으로 연결되는 복합 AI 파이프라인을 설계하고 최적화"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Ai Prompt Engineer Creative 상황 분석 및 목표 설정",
-            "humanRole": "Ai Prompt Engineer Creative로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Ai Prompt Engineer Creative이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 클라이언트 의도 분석 및 AI 도구 전략 설계",
+            "humanRole": "클라이언트의 창작 목표·타겟·감성을 분석해 어떤 AI 도구를 어떤 순서로 활용할지 전략적 워크플로를 설계한다",
+            "aiRole": "Claude로 클라이언트 브랜드·과거 캠페인 분석, ChatGPT로 유사 사례 AI 활용 패턴 조사",
+            "scenarioExample": "브랜드 광고 제작 의뢰 — Claude로 브랜드 감성 분석 → 프롬프트 엔지니어가 '이미지는 Midjourney, 음악은 Suno, 영상 편집은 Runway' 워크플로 설계",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Ai Prompt Engineer Creative이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 프롬프트 정밀 설계 및 반복 최적화",
+            "humanRole": "클라이언트 감성 목표를 AI가 이해할 프롬프트 언어로 번역하고 결과를 보며 프롬프트를 반복 조정해 원하는 결과에 수렴한다",
+            "aiRole": "Midjourney·Adobe Firefly·Runway로 프롬프트 결과물 자동 생성, 변형 옵션 제공",
+            "scenarioExample": "클라이언트 '따뜻하고 고급스러운' 요청 → 프롬프트 엔지니어가 'warm amber tones, cinematic lighting, premium material, shallow depth of field' 번역 → 결과 확인 후 'less warm more neutral' 방향으로 반복 조정",
             "recommendedTools": [
-              "Adobe AI",
               "Midjourney",
-              "Runway ML"
+              "Adobe Firefly"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Ai Prompt Engineer Creative 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Ai Prompt Engineer Creative이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: AI 생성물 큐레이션 및 저작권·윤리 검수",
+            "humanRole": "생성된 결과물 중 클라이언트 목표에 맞는 것을 선별하고, 저작권 문제·실존 인물 유사성·문화 전용 이슈를 전문적으로 검수한다",
+            "aiRole": "Claude로 저작권·윤리 이슈 1차 스크리닝, ChatGPT로 유사 이미지 법적 사례 조사",
+            "scenarioExample": "Midjourney 생성 이미지 50장 큐레이션 → '이 이미지의 캐릭터가 특정 유명 일러스트레이터 스타일과 90% 유사' 발견 → 프롬프트 수정 후 재생성, 최종 선별",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Ai Prompt Engineer Creative이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 멀티모달 파이프라인 완성 및 클라이언트 납품",
+            "humanRole": "이미지·영상·음악이 하나의 캠페인으로 통합되도록 파이프라인을 완성하고 클라이언트에게 AI 활용 범위를 투명하게 공개한다",
+            "aiRole": "Runway로 이미지→영상 변환, Suno로 영상 배경음악 생성, Adobe Firefly로 최종 포맷 변환",
+            "scenarioExample": "광고 캠페인 완성 — Midjourney 이미지→Runway 영상→Suno 음악 파이프라인 완성 → 클라이언트에게 'AI 생성물 사용 비율·도구·저작권 라이선스 현황' 문서 투명 공개",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Runway",
+              "Suno",
+              "Adobe Firefly"
             ]
           }
         ]
@@ -13405,65 +13326,62 @@
       "admissionPath": "학종+정시",
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
-        "beforeAI": "신생 직종 (2020년대 출현)",
-        "afterAI": "AI 크리에이티브 기술 융합 + 인터랙티브 경험 설계 + 신기술 도입",
+        "beforeAI": "2020년대에 출현한 직종으로, 코딩과 창작 예술을 동시에 다루며 인터랙티브 설치·생성 아트·실험적 디지털 경험을 구현했다.",
+        "afterAI": "자율 AI 에이전트·피지컬 컴퓨팅·생성 AI가 빠르게 발전하면서 크리에이티브 테크놀로지스트의 역할이 더욱 확장된다. 핵심 자산은 '이 기술로 이런 감성적 경험을 만들 수 있다'는 창작-기술 양방향 상상력과 번역 능력이다. 예술가팀에게는 기술을 설명하고, 개발팀에게는 창작 의도를 설명하는 가교 역할은 순수 AI가 할 수 없는 인간 커뮤니케이션이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "Three.js",
-          "WebGL",
-          "AI API 통합"
+          "Claude",
+          "ChatGPT",
+          "Midjourney",
+          "Perplexity",
+          "Notion AI"
         ],
         "survivalStrategy": [
-          "기술과 예술 융합 (코드로 예술 구현)",
-          "인터랙티브 경험 설계",
-          "신기술 도입 (AR·VR·AI)",
-          "크리에이티브 기술 전략",
-          "팀 기술 교육"
+          "기술-창작 양방향 번역 능력 — 예술가에게는 기술 가능성을, 개발자에게는 창작 의도를 모두 이해 가능하게 설명하는 가교 역할",
+          "신기술 실험적 프로토타입 능력 — AR·VR·생성 AI API·물리 컴퓨팅을 직접 연결해 아무도 만든 적 없는 경험 프로토타입을 빠르게 구현",
+          "AI 에이전트 창작 파이프라인 설계 — 여러 AI 도구를 순차적으로 연결한 자동화 창작 워크플로를 설계하고 구현",
+          "팀 AI 기술 온보딩 교육 능력 — 디자이너·아티스트 팀이 새 AI 도구를 빠르게 익히도록 적합한 교육 방식을 설계하고 전달",
+          "창작 기술 프로젝트 윤리 판단 — AI 생성 예술·인터랙티브 설치에서 개인정보·얼굴 인식·데이터 수집의 윤리적 경계를 판단하고 설계"
         ],
         "collaborationPlaybook": [
           {
-            "stepTitle": "1단계: Creative Technologist 상황 분석 및 목표 설정",
-            "humanRole": "Creative Technologist로서 의뢰인·고객·현장의 맥락을 직접 파악하고 핵심 목표 정의",
-            "aiRole": "관련 사례·판례·데이터 검색, 상황 분석 초안, 체크리스트 자동 생성",
-            "scenarioExample": "실제 현장: AI가 유사 사례 10건 요약 → Creative Technologist이 이 상황에 맞는 맥락으로 재해석",
+            "stepTitle": "1단계: 창작 목표와 기술 가능성 탐색 및 아이디어 정의",
+            "humanRole": "예술가·디자이너팀의 창작 목표를 청취하고 현재 기술로 무엇이 가능한지 탐색해 실현 가능한 인터랙티브 아이디어를 함께 정의한다",
+            "aiRole": "Perplexity로 최신 인터랙티브 아트·생성 AI 기술 트렌드 조사, Claude로 유사 프로젝트 사례 분석",
+            "scenarioExample": "미술관 인터랙티브 설치 의뢰 — 작가가 '관람객 호흡이 그림을 바꾸는 경험' 원함 → 크리에이티브 테크놀로지스트가 호흡 센서+생성 AI API 연결 가능성 확인 후 구현 방향 제안",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney"
+              "Perplexity",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "2단계: 전략 수립 및 실행 계획",
-            "humanRole": "전문가적 판단으로 최선의 전략 결정, 리스크 요소 평가 후 최종 방향 확정",
-            "aiRole": "다양한 전략 시나리오 생성, 비용·시간 추정, 장단점 비교 분석",
-            "scenarioExample": "Creative Technologist이 AI 제안 중 이 케이스의 특수성을 반영해 최적 전략 선택",
+            "stepTitle": "2단계: 기술 프로토타입 빠른 구현 및 감성 검증",
+            "humanRole": "아이디어를 24~48시간 내 작동하는 프로토타입으로 구현하고 예술가팀과 함께 감성적 경험이 의도대로 작동하는지 검증한다",
+            "aiRole": "Claude·ChatGPT로 코드 초안 생성·디버깅 지원, Midjourney로 생성 AI API 연결 테스트용 이미지 생성",
+            "scenarioExample": "호흡 센서 연결 — ChatGPT로 아두이노+Python 연결 코드 초안 생성 → 크리에이티브 테크놀로지스트가 직접 수정·테스트 → 작가에게 프로토타입 보여주며 '이 호흡 강도에서 그림이 이렇게 변한다' 확인",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML"
+              "Claude",
+              "ChatGPT"
             ]
           },
           {
-            "stepTitle": "3단계: 핵심 업무 수행 및 전문적 판단",
-            "humanRole": "AI가 대체할 수 없는 Creative Technologist 고유 전문 영역 직접 수행 및 책임",
-            "aiRole": "보고서 초안 작성, 반복적 문서 처리, 데이터 분석 자동화",
-            "scenarioExample": "AI가 기초 작업 80% 처리 → Creative Technologist이 핵심 전문 판단 20%에 집중",
+            "stepTitle": "3단계: 창작-기술 팀 브리징 및 최종 구현 지휘",
+            "humanRole": "예술가·개발·설치 팀 사이에서 창작 의도와 기술 구현의 불일치를 발견하고 중재하며 최종 작품 완성을 지휘한다",
+            "aiRole": "Notion AI로 팀별 기술 스펙·창작 의도 통합 문서 자동 정리, Claude로 구현 이슈 트러블슈팅 지원",
+            "scenarioExample": "설치 전날 개발팀이 '이 기능 구현 불가' 통보 → 크리에이티브 테크놀로지스트가 작가에게 기술 한계 설명, 대안 '바람 센서로 대체' 즉시 제안 → 24시간 내 대안 구현 완료",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Notion AI",
+              "Claude"
             ]
           },
           {
-            "stepTitle": "4단계: 검토·완료 및 다음 단계 설계",
-            "humanRole": "최종 결과물 품질 판단, 의뢰인·팀에 결과 전달, 후속 전략 수립",
-            "aiRole": "결과 보고서 초안 생성, 성과 지표 대시보드, 개선 제안 요약",
-            "scenarioExample": "Creative Technologist이 AI 보고서를 클라이언트·조직 언어로 번역하여 실질적 의사결정 지원",
+            "stepTitle": "4단계: 팀 AI 기술 교육 및 프로젝트 윤리 검수",
+            "humanRole": "프로젝트 완료 후 팀이 다음 프로젝트에 스스로 AI 기술을 활용할 수 있도록 교육하고, 데이터 수집·얼굴 인식 사용의 윤리를 최종 검수한다",
+            "aiRole": "Claude로 팀 AI 교육 커리큘럼 초안 작성, Perplexity로 인터랙티브 아트 프라이버시 법규 조사",
+            "scenarioExample": "설치 완료 후 작가팀 4명에게 생성 AI API 직접 활용 2일 교육 → 관람객 얼굴 인식 데이터 수집 범위 확인 → '얼굴 인식 대신 동작 인식으로 변경' 결정으로 프라이버시 리스크 해소",
             "recommendedTools": [
-              "Adobe AI",
-              "Midjourney",
-              "Runway ML",
-              "Suno AI"
+              "Claude",
+              "Perplexity"
             ]
           }
         ]

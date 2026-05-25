@@ -1,13 +1,10 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { Clock, Briefcase, Zap, Brain, Gamepad2, List } from 'lucide-react';
+import { useCallback } from 'react';
+import { Clock, Briefcase, Zap, Brain } from 'lucide-react';
 import { LABELS, HOLLAND_CODE_LABELS } from '../../config';
-import { ProcessQuizGame } from './ProcessQuizGame';
 import type { Job, StarData, WorkPhase } from '../../types';
 import { GlossaryText, GlossaryChip } from '@/components/shared/GlossaryText';
-
-type ProcessViewMode = 'quiz' | 'full';
 
 function parseHolland(code: string): string {
   return code
@@ -233,7 +230,6 @@ function ProcessTree({ phases, starColor }: { phases: WorkPhase[]; starColor: st
 
 export function ProcessTab({ job, star }: ProcessTabProps) {
   const workProcess = job.workProcess;
-  const [viewMode, setViewMode] = useState<ProcessViewMode>('full');
 
   if (!workProcess?.phases?.length) {
     return (
@@ -273,65 +269,11 @@ export function ProcessTab({ job, star }: ProcessTabProps) {
           </div>
         </div>
 
-        {/* 퀴즈 / 전체 보기 모드 전환 */}
-        <div
-          className="flex rounded-xl overflow-hidden border mb-4"
-          style={{
-            backgroundColor: 'rgba(255,255,255,0.04)',
-            borderColor: 'rgba(255,255,255,0.1)',
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => setViewMode('quiz')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-colors ${
-              viewMode === 'quiz' ? 'text-white' : 'text-gray-500'
-            }`}
-            style={
-              viewMode === 'quiz'
-                ? {
-                    backgroundColor: `${star.color}25`,
-                    color: star.color,
-                  }
-                : {}
-            }
-          >
-            <Gamepad2 className="w-4 h-4" />
-            {LABELS.process_quiz_mode}
-          </button>
-          <button
-            type="button"
-            onClick={() => setViewMode('full')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-bold transition-colors ${
-              viewMode === 'full' ? 'text-white' : 'text-gray-500'
-            }`}
-            style={
-              viewMode === 'full'
-                ? {
-                    backgroundColor: `${star.color}25`,
-                    color: star.color,
-                  }
-                : {}
-            }
-          >
-            <List className="w-4 h-4" />
-            {LABELS.process_full_mode}
-          </button>
-        </div>
       </div>
 
-      {viewMode === 'quiz' ? (
-        <ProcessQuizGame
-          phases={phases}
-          starColor={star.color}
-          jobName={job.name}
-          onViewFull={() => setViewMode('full')}
-        />
-      ) : (
-        <div className="px-4">
-          <ProcessTree phases={phases} starColor={star.color} />
-        </div>
-      )}
+      <div className="px-4">
+        <ProcessTree phases={phases} starColor={star.color} />
+      </div>
     </div>
   );
 }
