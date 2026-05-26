@@ -5,6 +5,7 @@ import { Heart, Users, ChevronRight, Globe, Bookmark, BookmarkCheck } from 'luci
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan } from './community/types';
 import careerPathTemplates from '@/data/career-path-templates-index';
+import { AiGeneratedNoticeChip } from './AiGeneratedNotice';
 
 export type TemplateCardItem = typeof careerPathTemplates[0];
 
@@ -62,6 +63,11 @@ export function TemplateRow({
 
         <div className="flex-1 min-w-0 flex items-center gap-3">
           <div className="flex-1 min-w-0 flex flex-col gap-1">
+            {template.isAiGenerated && (
+              <div className="flex items-center gap-1">
+                <AiGeneratedNoticeChip />
+              </div>
+            )}
             <div className="font-bold text-white text-sm leading-snug line-clamp-2">{template.title}</div>
             {template.description && (
               <div className="text-[12px] text-gray-500 leading-snug line-clamp-1">{template.description}</div>

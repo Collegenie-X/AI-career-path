@@ -245,7 +245,7 @@ export function StarDetailPanel({
           }}
         >
           <div className="absolute -right-4 -top-4 text-7xl opacity-10 select-none">{star.emoji}</div>
-          <p className="text-sm md:text-base text-gray-300 leading-relaxed relative z-10">
+          <p className="text-[13px] text-gray-300 leading-relaxed relative z-10">
             <GlossaryText>{star.description}</GlossaryText>
           </p>
         </div>
@@ -279,7 +279,7 @@ export function StarDetailPanel({
                       </div>
                       <div className="flex-1 min-w-0 text-left">
                         <div className="text-sm md:text-base font-bold text-white mb-1">{trait.label}</div>
-                        <div className="text-xs md:text-sm text-gray-400 leading-relaxed">{trait.desc}</div>
+                        <div className="text-[13px] text-gray-400 leading-relaxed">{trait.desc}</div>
                       </div>
                     </div>
                   ))}
@@ -299,7 +299,7 @@ export function StarDetailPanel({
                   {fitItems.map((item, idx) => (
                     <div
                       key={idx}
-                      className="flex items-start gap-2 text-sm md:text-base text-gray-200 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
+                      className="flex items-start gap-2 text-[13px] text-gray-200 leading-relaxed p-2 rounded-lg transition-all hover:bg-white/5"
                     >
                       <span className="flex-shrink-0">✨</span>
                       <span>{item}</span>
@@ -316,7 +316,7 @@ export function StarDetailPanel({
                       {notFitItems.map((item, idx) => (
                         <div
                           key={idx}
-                          className="flex items-start gap-2 text-sm md:text-base text-gray-300 leading-relaxed p-2 rounded-lg"
+                          className="flex items-start gap-2 text-[13px] text-gray-300 leading-relaxed p-2 rounded-lg"
                           style={{ backgroundColor: 'rgba(255,100,100,0.08)' }}
                         >
                           <span className="flex-shrink-0">⚠️</span>

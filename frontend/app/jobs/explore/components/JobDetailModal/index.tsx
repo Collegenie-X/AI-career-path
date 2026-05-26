@@ -37,7 +37,18 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
             <ProcessTab job={job} star={star} />
           )}
           {activeTab === 'ai' && (
-            <AiTransformationTab job={job} star={star} />
+            <>
+              <div
+                className="flex items-center gap-2 px-4 py-2"
+                style={{ background: 'rgba(255, 200, 50, 0.08)', borderBottom: '1px solid rgba(255, 200, 50, 0.15)' }}
+              >
+                <span style={{ fontSize: 13 }}>⚠️</span>
+                <p className="text-xs" style={{ color: 'rgba(255, 200, 50, 0.85)', lineHeight: 1.4 }}>
+                  이 내용은 AI가 생성한 정보입니다. 실제와 다를 수 있으니 참고용으로만 활용해 주세요.
+                </p>
+              </div>
+              <AiTransformationTab job={job} star={star} />
+            </>
           )}
           {activeTab === 'organization' && (
             <OrganizationStructureTab job={job} star={star} />

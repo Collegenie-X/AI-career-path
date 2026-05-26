@@ -14,6 +14,7 @@ import { AdmissionTypeStrategiesSection, SuccessStoriesSection } from './CareerP
 import { UseTemplateDialog } from './UseTemplateDialog';
 import { CareerPathDetailExpandHeaderButton } from './expandable-detail';
 import { toggleCollapseSetKey } from '../utils/careerPathTimelineCollapseSet';
+import { AiGeneratedNoticeBanner } from './AiGeneratedNotice';
 
 type Template = CareerPathTemplate;
 
@@ -174,6 +175,19 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
                     ✓ 공식
                   </span>
                 )}
+                {template.isAiGenerated && (
+                  <span
+                    className="text-[12px] font-bold px-2 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(168,85,247,0.16)',
+                      border: '1px solid rgba(168,85,247,0.45)',
+                      color: '#c4b5fd',
+                    }}
+                    title="AI가 가상으로 생성한 참조용 패스"
+                  >
+                    ✨ AI 생성
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -256,6 +270,9 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
       {/* ── Body ── */}
       <div>
         <div className="px-5 py-4 space-y-5">
+          {template.isAiGenerated && (
+            <AiGeneratedNoticeBanner note={template.aiGeneratedNote} />
+          )}
           <p className="text-[13px] text-gray-400 leading-relaxed">{template.description}</p>
 
           <DetailRichInfoSection template={template} />

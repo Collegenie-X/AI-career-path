@@ -12,6 +12,7 @@ import type { CareerPathTemplate } from '@/data/career-path-templates-index';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
 import { CareerPathExpandBottomSheetDialog } from './expandable-detail';
+import { AiGeneratedNoticeBanner } from './AiGeneratedNotice';
 
 type Template = CareerPathTemplate;
 
@@ -341,6 +342,19 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                     ✓ 공식
                   </span>
                 )}
+                {template.isAiGenerated && (
+                  <span
+                    className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                    style={{
+                      backgroundColor: 'rgba(168,85,247,0.16)',
+                      border: '1px solid rgba(168,85,247,0.45)',
+                      color: '#c4b5fd',
+                    }}
+                    title="AI가 가상으로 생성한 참조용 패스"
+                  >
+                    ✨ AI 생성
+                  </span>
+                )}
               </div>
             </div>
             <button
@@ -445,6 +459,11 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
         {/* ── Scrollable body ── */}
         <div className="flex-1 overflow-y-auto">
           <div className="px-5 py-4 space-y-5">
+
+            {/* AI 생성 경고 — isAiGenerated 템플릿 전용 */}
+            {template.isAiGenerated && (
+              <AiGeneratedNoticeBanner note={template.aiGeneratedNote} />
+            )}
 
             {/* Description */}
             <p className="text-sm text-gray-400 leading-relaxed">{template.description}</p>
