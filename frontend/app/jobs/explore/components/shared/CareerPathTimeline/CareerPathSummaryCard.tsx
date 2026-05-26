@@ -9,7 +9,7 @@ type CareerPathSummaryCardProps = {
 };
 
 export function CareerPathSummaryCard({ summary, theme }: CareerPathSummaryCardProps) {
-  const { title, totalYears, totalCost } = summary;
+  const { title, totalYears } = summary;
   const { accentColor } = theme;
 
   return (
@@ -34,18 +34,6 @@ export function CareerPathSummaryCard({ summary, theme }: CareerPathSummaryCardP
           <span className="text-sm">📅</span>
           <span className="text-sm font-extrabold" style={{ color: accentColor }}>
             <GlossaryText>{totalYears}</GlossaryText>
-          </span>
-        </div>
-        <div
-          className="flex items-center gap-1.5 px-3 py-2 rounded-xl"
-          style={{
-            backgroundColor: `${accentColor}18`,
-            border: `1px solid ${accentColor}35`,
-          }}
-        >
-          <span className="text-sm">💰</span>
-          <span className="text-sm font-extrabold" style={{ color: accentColor }}>
-            총 <GlossaryText>{totalCost}</GlossaryText>
           </span>
         </div>
       </div>

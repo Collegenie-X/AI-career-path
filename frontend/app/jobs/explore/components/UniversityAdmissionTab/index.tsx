@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Building2, Briefcase, Target } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useExploreUrlState } from '../../utils/useExploreUrlState';
 
 import studentRecordComprehensiveCategory from '@/data/university-admission/admission-categories/student-record-comprehensive.json';
 import studentRecordAcademicCategory from '@/data/university-admission/admission-categories/student-record-academic.json';
@@ -67,7 +68,15 @@ type AdmissionCategory = {
 
 type SubView = 'strategy-hub' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
 
+const VALID_SUB_VIEWS: NonNullable<SubView>[] = [
+  'strategy-hub',
+  'career-major',
+  'dev-institutions',
+  'innovative-institutions',
+];
+
 export function UniversityAdmissionTab() {
+  const { searchParams, patchUrl } = useExploreUrlState();
   const [selectedCategory, setSelectedCategory] = useState<AdmissionCategory | null>(null);
   const [showCategoryDialog, setShowCategoryDialog] = useState(false);
   const [selectedSubView, setSelectedSubView] = useState<SubView>(null);
@@ -120,10 +129,42 @@ export function UniversityAdmissionTab() {
 
   const hasRightPanelDetail = selectedCategory !== null || selectedSubView !== null;
 
+  // URL → 상태 동기화 (?category=&subView=)
+  useEffect(() => {
+    if (!searchParams) return;
+    const categoryId = searchParams.get('category');
+    const subViewParam = searchParams.get('subView') as SubView;
+
+    if (subViewParam && VALID_SUB_VIEWS.includes(subViewParam)) {
+      if (selectedSubView !== subViewParam) {
+        setSelectedSubView(subViewParam);
+        setSelectedCategory(null);
+        setSubViewAnimKey((k) => k + 1);
+      }
+      return;
+    }
+    if (categoryId) {
+      const cat = categories.find((c) => c.id === categoryId) ?? null;
+      if (cat && selectedCategory?.id !== cat.id) {
+        setSelectedCategory(cat);
+        setSelectedSubView(null);
+        setSubViewAnimKey((k) => k + 1);
+      }
+      return;
+    }
+    // 둘 다 없으면 클리어
+    if (selectedCategory || selectedSubView) {
+      setSelectedCategory(null);
+      setSelectedSubView(null);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
+
   const handleClearRightPanelSelection = () => {
     setSelectedCategory(null);
     setShowCategoryDialog(false);
     setSelectedSubView(null);
+    patchUrl({ category: null, subView: null });
   };
 
   const handleSelectCategory = (category: AdmissionCategory) => {
@@ -131,6 +172,7 @@ export function UniversityAdmissionTab() {
     setShowCategoryDialog(false);
     setSelectedSubView(null);
     setSubViewAnimKey((k) => k + 1);
+    patchUrl({ tab: 'university', category: category.id, subView: null });
   };
 
   const handleSelectSubView = (sub: NonNullable<SubView>) => {
@@ -138,6 +180,7 @@ export function UniversityAdmissionTab() {
     setShowCategoryDialog(false);
     setSelectedSubView(sub);
     setSubViewAnimKey((k) => k + 1);
+    patchUrl({ tab: 'university', category: null, subView: sub });
   };
 
   return (

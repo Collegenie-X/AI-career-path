@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useExploreUrlState } from './utils/useExploreUrlState';
 import { Star, Sparkles } from 'lucide-react';
 import { StarProfilePanel } from '@/components/star-profile-panel';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
@@ -118,35 +118,81 @@ function StarTabHeroBanner() {
   );
 }
 
+const VALID_EXPLORE_TABS: ExploreTabId[] = ['star', 'admission', 'university'];
+
 function JobsExploreContent() {
-  const searchParams = useSearchParams();
-  const [activeTab, setActiveTab] = useState<ExploreTabId>('star');
+  const { searchParams, patchUrl } = useExploreUrlState();
+  const urlTab = searchParams?.get('tab') as ExploreTabId | null;
+  const initialTab: ExploreTabId =
+    urlTab && VALID_EXPLORE_TABS.includes(urlTab) ? urlTab : 'star';
+
+  const [activeTab, setActiveTab] = useState<ExploreTabId>(initialTab);
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showStarProfile, setShowStarProfile] = useState(false);
 
   const stars = ALL_STARS;
 
+  // URL → 상태: tab/starId/jobId 변경 시 동기화
   useEffect(() => {
+    if (!searchParams) return;
+    const nextTab = searchParams.get('tab') as ExploreTabId | null;
+    if (nextTab && VALID_EXPLORE_TABS.includes(nextTab) && nextTab !== activeTab) {
+      setActiveTab(nextTab);
+    }
     const starId = searchParams.get('starId');
-    const jobId  = searchParams.get('jobId');
-    if (starId && jobId) {
-      const star = stars.find(s => s.id === starId);
-      if (star) {
-        setSelectedStar(star);
+    const jobId = searchParams.get('jobId');
+    if (starId) {
+      const star = stars.find((s) => s.id === starId);
+      if (star && selectedStar?.id !== star.id) setSelectedStar(star);
+      if (star && jobId) {
         const job = star.jobs.find((j: Job) => j.id === jobId);
-        if (job) setSelectedJob(job);
+        if (job && selectedJob?.id !== job.id) setSelectedJob(job);
+      } else if (!jobId && selectedJob) {
+        setSelectedJob(null);
       }
+    } else if (selectedStar) {
+      setSelectedStar(null);
+      setSelectedJob(null);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const handleTabChange = (tabId: ExploreTabId) => {
     setActiveTab(tabId);
+    const patch: Record<string, string | null> = {
+      tab: tabId === 'star' ? null : tabId, // star가 기본이라 명시 안 함
+    };
     if (tabId !== 'star') {
       setSelectedStar(null);
       setSelectedJob(null);
+      patch.starId = null;
+      patch.jobId = null;
     }
+    // 탭 전환 시 다른 탭 전용 파라미터는 정리
+    if (tabId !== 'admission') {
+      patch.category = patch.category ?? null;
+      patch.school = null;
+    }
+    if (tabId !== 'university') {
+      patch.subView = null;
+    }
+    patchUrl(patch);
+  };
+
+  const handleSelectStar = (star: StarData | null) => {
+    setSelectedStar(star);
+    if (!star) {
+      setSelectedJob(null);
+      patchUrl({ starId: null, jobId: null });
+    } else {
+      patchUrl({ starId: star.id, jobId: null });
+    }
+  };
+
+  const handleSelectJob = (job: Job | null) => {
+    setSelectedJob(job);
+    patchUrl({ jobId: job?.id ?? null });
   };
 
   return (
@@ -191,7 +237,7 @@ function JobsExploreContent() {
             {activeTab === 'star' && (
               <TwoColumnPanelLayout
                 hasSelection={selectedStar !== null}
-                onClearSelection={() => setSelectedStar(null)}
+                onClearSelection={() => handleSelectStar(null)}
                 emptyPlaceholderText="별을 선택하세요"
                 emptyPlaceholderSubText="왼쪽에서 별을 클릭하면 직업 목록이 여기에 표시됩니다"
                 listSlot={
@@ -215,7 +261,7 @@ function JobsExploreContent() {
                             star={s}
                             index={i}
                             isSelected={selectedStar?.id === s.id}
-                            onClick={() => setSelectedStar(prev => prev?.id === s.id ? null : s)}
+                            onClick={() => handleSelectStar(selectedStar?.id === s.id ? null : s)}
                           />
                         ))}
                         {[...Array(8 - stars.length)].map((_, i) => (
@@ -236,8 +282,8 @@ function JobsExploreContent() {
                   selectedStar ? (
                     <StarDetailPanel
                       star={selectedStar}
-                      onClose={() => setSelectedStar(null)}
-                      onOpenJob={(job) => setSelectedJob(job)}
+                      onClose={() => handleSelectStar(null)}
+                      onOpenJob={(job) => handleSelectJob(job)}
                     />
                   ) : null
                 }
@@ -258,7 +304,7 @@ function JobsExploreContent() {
         <JobDetailModal
           job={selectedJob}
           star={selectedStar}
-          onClose={() => setSelectedJob(null)}
+          onClose={() => handleSelectJob(null)}
         />
       )}
 

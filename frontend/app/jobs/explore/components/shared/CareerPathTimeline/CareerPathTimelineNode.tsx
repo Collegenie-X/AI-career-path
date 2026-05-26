@@ -17,7 +17,7 @@ export function CareerPathTimelineNode({
   theme,
   setakLabel = '세특 포인트',
 }: CareerPathTimelineNodeProps) {
-  const { period, semester, icon, title, activities, awards, achievement, cost, setak } = milestone;
+  const { period, semester, icon, title, activities, awards, achievement, setak } = milestone;
   const { accentColor, costColor, successColor, setakBgColor, setakBorderColor, setakLabelColor } =
     theme;
   const hasAwards = awards && awards.length > 0;
@@ -56,13 +56,6 @@ export function CareerPathTimelineNode({
             }}
           >
             {period} {semester}
-          </span>
-          <span
-            className="text-xs font-semibold flex items-center gap-1"
-            style={{ color: costColor }}
-          >
-            <span>💰</span>
-            {cost ?? '무료'}
           </span>
         </div>
 

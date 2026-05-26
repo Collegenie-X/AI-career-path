@@ -6,23 +6,19 @@ import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type CareerPathKeySuccessCardProps = {
   keySuccess: string[];
-  totalCost: string;
   theme: CareerPathTimelineTheme;
   labels?: {
     title?: string;
-    totalCost?: string;
   };
 };
 
 export function CareerPathKeySuccessCard({
   keySuccess,
-  totalCost,
   theme,
   labels = {},
 }: CareerPathKeySuccessCardProps) {
   const { accentColor, successColor } = theme;
   const titleLabel = labels.title ?? '핵심 성공 지표';
-  const totalCostLabel = labels.totalCost ?? '총 예상 비용';
 
   return (
     <div
@@ -39,7 +35,7 @@ export function CareerPathKeySuccessCard({
         />
         <span className="text-sm font-extrabold text-white">{titleLabel}</span>
       </div>
-      <div className="space-y-2 mb-3">
+      <div className="space-y-2">
         {keySuccess.map((item) => (
           <div key={item} className="flex items-start gap-2">
             <span className="text-sm flex-shrink-0" style={{ color: successColor }}>
@@ -50,12 +46,6 @@ export function CareerPathKeySuccessCard({
             </span>
           </div>
         ))}
-      </div>
-      <div className="pt-3 border-t border-white/10 flex items-center justify-between text-sm">
-        <span className="text-gray-400">{totalCostLabel}</span>
-        <span className="font-extrabold text-white">
-          <GlossaryText>{totalCost}</GlossaryText>
-        </span>
       </div>
     </div>
   );

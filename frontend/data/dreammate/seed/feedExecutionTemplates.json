@@ -1802,86 +1802,86 @@
       {
         "id": "t012-i1",
         "type": "activity",
-        "title": "해초 기반 포장재 배경 조사 및 아이디어 설계",
+        "title": "해초 기반 포장재 배경 조사 및 실험 설계",
         "months": [
           3
         ],
         "difficulty": 2,
         "targetOutput": "소재 조사 노트 + 실험 설계서",
-        "successCriteria": "한천 필름 제작 원리 이해 및 재료 목록 완성",
+        "successCriteria": "한천 필름 제작 원리 이해 및 재료·도구 목록 완성",
         "subItems": [
           {
             "id": "t012-i1-w1",
             "weekNumber": 1,
             "weekLabel": "1주차",
             "entryType": "goal",
-            "title": "확증 편향 개념 정리 및 실제 사례 5가지 조사",
+            "title": "해조류 바이오플라스틱 자료 5건 정리 (국립과학관·논문 요약·기사)",
             "isDone": true,
-            "note": "유튜브 'TED 심리학'에서 확증 편향 영상 2개 시청. 정치, 의학, 일상에서 나타나는 사례 정리.",
-            "reviewNote": "유튜브로 공부하는 게 빠른데, 이게 학습인지 의심이 들었는데 노트 정리까지 하니까 진짜 공부가 됐어."
+            "note": "국내 한천 필름 연구 기사 2건, 영문 리뷰 논문 초록 1편, 유튜브 'NotPla' 영상 2편 요약. 한천의 다당류 구조가 핵심.",
+            "reviewNote": "기사만 보다가 논문 초록까지 읽어보니 '왜 글리세린이 필요한지'가 처음 이해됐어."
           },
           {
             "id": "t012-i1-w2",
             "weekNumber": 1,
             "weekLabel": "1주차",
             "entryType": "task",
-            "title": "'내 일상에서 확증 편향이 일어난 순간' 사례 3가지 직접 기록",
+            "title": "재료·도구 목록 확정 (한천 가루 / 글리세린 / 식초 / 실리콘 매트)",
             "isDone": true,
-            "note": "'좋아하는 팀이 지면 심판 탓한 것', '공부 잘 하는 애는 다 모범생일 거라 생각한 것' 등 솔직히 씀.",
-            "reviewNote": "자기 편견을 쓰는 게 처음엔 창피했는데, 쓰고 나니까 더 객관적으로 볼 수 있게 됐어."
+            "note": "한천 가루는 마트에서 2,800원, 글리세린은 약국에서 4,500원. 비용 총 1만원 이내로 가능해 보임.",
+            "reviewNote": "재료비를 미리 적어두니까 부모님께 설명하기도 쉬웠고, 실험 규모를 현실적으로 잡을 수 있었어."
           },
           {
             "id": "t012-i1-w3",
             "weekNumber": 2,
             "weekLabel": "2주차",
             "entryType": "task",
-            "title": "심리학 관련 도서 1권 선정 후 확증 편향 챕터 독서 노트 작성",
+            "title": "실험 변인표 작성 (한천:글리세린 비율 5가지 / 건조 시간 24h 통제)",
             "isDone": true,
-            "note": "『생각에 관한 생각』(대니얼 카너먼) 관련 챕터 읽음. '시스템1, 시스템2' 개념이 인상 깊었어.",
-            "reviewNote": "한 챕터만 깊이 읽었는데 생각보다 내용이 풍부했어. 깊게 파는 것의 가치를 느꼈어."
+            "note": "비율: 4:0, 4:1, 3:1, 2:1, 1:1. 종속변인은 '7일 후 찢김 여부'와 '내용물(과자 1조각) 손상 여부'로 단순화.",
+            "reviewNote": "처음엔 변수가 너무 많아서 헷갈렸는데, '한 번에 하나만' 원칙을 지키니 비교가 가능해졌어."
           }
         ]
       },
       {
         "id": "t012-i2",
         "type": "project",
-        "title": "한천 필름 제작 실험 (3회 시도)",
+        "title": "한천 필름 제작 실험 (3회 시도, 5가지 배합 비교)",
         "months": [
           3
         ],
         "difficulty": 4,
-        "targetOutput": "시제품 필름 + 실험 과정 사진",
-        "successCriteria": "7일 내용물 보호 가능한 필름 완성",
+        "targetOutput": "시제품 필름 5종 + 실험 과정 사진·동영상",
+        "successCriteria": "7일 내용물 보호 가능한 배합 1개 이상 도출",
         "subItems": [
           {
             "id": "t012-i2-w1",
             "weekNumber": 3,
             "weekLabel": "3주차",
             "entryType": "goal",
-            "title": "'나의 확증 편향 패턴 분석' 보고서 초안 A4 2장 작성",
-            "isDone": false,
-            "note": "개인적 사례 3가지 + 이론 연결 + 극복 방법 제안 구성으로 쓸 예정.",
-            "reviewNote": ""
+            "title": "1차 시도 — 한천만으로 필름 제작 (대조군)",
+            "isDone": true,
+            "note": "물 200ml + 한천 4g 끓여 실리콘 매트에 부었음. 24h 건조 후 너무 잘 부서져서 손에 닿자마자 깨짐.",
+            "reviewNote": "예상은 했지만 진짜로 부서지니까 '왜 글리세린이 필요한지' 몸으로 알게 됐어."
           },
           {
             "id": "t012-i2-w2",
-            "weekNumber": 4,
-            "weekLabel": "4주차",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
             "entryType": "task",
-            "title": "친구 2명과 편향 탐구 결과 공유 후 피드백 받기",
-            "isDone": false,
-            "note": "서로 다른 편향 유형이 나올 수 있어서 비교 분석 아이디어도 생겼어.",
-            "reviewNote": ""
+            "title": "2차 시도 — 한천:글리세린 2:1 비율 (글리세린 과다)",
+            "isDone": true,
+            "note": "끈적임이 너무 심해 매트에서 떼기 어려웠고, 5일째 곰팡이 발생. 글리세린이 수분을 끌어들이는 듯.",
+            "reviewNote": "실패도 데이터라는 말이 맞다. '왜' 실패했는지 적어두니 다음 시도 방향이 명확해졌어."
           },
           {
             "id": "t012-i2-w3",
             "weekNumber": 4,
             "weekLabel": "4주차",
             "entryType": "task",
-            "title": "보고서 최종본 완성 후 독서기록부에 기록할 내용 정리",
-            "isDone": false,
-            "note": "생기부에 '비판적 사고력 향상' 관련 활동으로 연결할 것.",
-            "reviewNote": ""
+            "title": "3차 시도 — 한천:글리세린 3:1 비율 + 식초 1ml (보존)",
+            "isDone": true,
+            "note": "찢김 없이 접히는 수준의 필름 완성. 안에 과자 1조각 넣고 7일 보관 → 곰팡이 없음, 눅눅함 약함.",
+            "reviewNote": "세 번 만에 성공했지만, 실패한 두 번이 없었으면 왜 이 배합이 되는지 절대 몰랐을 것 같다."
           }
         ]
       },
@@ -1894,17 +1894,17 @@
           4
         ],
         "difficulty": 3,
-        "targetOutput": "보고서 A4 5장 + 에세이 A4 1장",
-        "successCriteria": "기술가정 선생님 제출 + 진로 에세이 완성",
+        "targetOutput": "보고서 A4 5장 + 진로 에세이 A4 1장",
+        "successCriteria": "기술가정 선생님 제출 + 5분 학급 발표 완료",
         "subItems": [
           {
             "id": "t012-i3-w1",
             "weekNumber": 5,
             "weekLabel": "5주차",
             "entryType": "goal",
-            "title": "심리 탐구 발표 5분: 개념 → 사례 → 나의 분석 → 극복 방법",
+            "title": "보고서 초안: 동기 → 선행 자료 → 3차 실험 기록 → 한계 → 진로 연결",
             "isDone": false,
-            "note": "발표에 청중 참여 요소 넣기: '여러분도 이런 적 있으신가요?' 질문 던지기.",
+            "note": "'실패 2회 → 성공 1회' 흐름을 그대로 본문에 넣을 것. 사진 6장 + 비율 비교표 1개 포함 예정.",
             "reviewNote": ""
           },
           {
@@ -1912,9 +1912,9 @@
             "weekNumber": 5,
             "weekLabel": "5주차",
             "entryType": "task",
-            "title": "발표 후 Q&A 답변 준비 (예상 질문 3개 미리 정리)",
+            "title": "학급 발표 5분 + Q&A 준비 (예상 질문 3개 답변 메모)",
             "isDone": false,
-            "note": "'확증 편향 없애는 게 가능한가요?', '뉴스 볼 때 어떻게 편향 줄이나요?' 등 준비.",
+            "note": "예상 질문: '냄새는 안 나요?', '대량생산 가능?', '왜 한천이지 다른 해조류는 안 되나요?' — 솔직하게 답할 수 있는 범위만 답하기.",
             "reviewNote": ""
           }
         ]
@@ -3012,6 +3012,1692 @@
             "title": "커리어 맵 A3 시각화 (핸드드로잉 또는 Canva 활용)",
             "isDone": false,
             "note": "타임라인 형식 + 목표별 아이콘. 벽에 붙여놓고 매일 볼 수 있도록 제작할 것.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T021",
+    "ownerId": "demo-user-t021",
+    "ownerName": "강리아",
+    "ownerEmoji": "🦁",
+    "ownerGrade": "mid3",
+    "title": "[프로젝트] 링고팡 따라잡기 — 우리 반 영단어 게임 카드 50장 만들기",
+    "description": "수상 청소년 창업 '링고팡' 컨셉을 보고 시작했어요. 거창한 앱 대신 종이 카드로 우리 반 친구 12명이 일주일 동안 매일 5분씩 게임처럼 단어를 외운 4주 기록입니다.",
+    "period": "afterschool",
+    "starColor": "#F59E0B",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 91,
+    "bookmarks": 47,
+    "viewCount": 1120,
+    "commentCount": 3,
+    "sharedAt": "2026-04-08T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t021-c1",
+        "authorName": "이서윤",
+        "authorEmoji": "📚",
+        "content": "앱 안 만들고 종이 카드로 한 게 오히려 좋아요. 우리 반도 따라해보고 싶어요!",
+        "createdAt": "2026-04-09T10:00:00.000Z"
+      },
+      {
+        "id": "t021-c2",
+        "authorName": "박재현",
+        "authorEmoji": "🎮",
+        "content": "친구 12명한테 실제로 써본 데이터까지 있어서 신뢰감 가요.",
+        "createdAt": "2026-04-10T13:00:00.000Z"
+      },
+      {
+        "id": "t021-c3",
+        "authorName": "윤하늘",
+        "authorEmoji": "🦁",
+        "content": "링고팡 보고 같이 영감 받았어요. 카드 디자인 공유 가능할까요?",
+        "createdAt": "2026-04-11T15:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t021-ms1",
+        "title": "1주 사용자 테스트 — 12명 중 10명이 '재미있어서 계속 했다' 응답",
+        "description": "수능 영단어 빈출 50개를 카드로 만들어 점심시간 5분 게임. 일평균 사용 시간 4.8분, 1주 후 단어 회상률 평균 78%.",
+        "monthWeekLabel": "3주차",
+        "recordedAt": "2026-04-01T17:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "영단어 카드 50장 + 사용자 후기 12명 분 + 회고록",
+    "finalResultDescription": "Canva로 만든 인쇄용 PDF + 친구 후기 카톡 캡처 모음 + '왜 종이가 앱보다 잘 통했는가' A4 2장 회고.",
+    "items": [
+      {
+        "id": "t021-i1",
+        "type": "activity",
+        "title": "벤치마킹 — 링고팡·퀴즐렛·듀오링고 비교 분석",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "비교 분석 노트 A4 2장",
+        "successCriteria": "각 서비스의 게임 요소 3개씩 추출 + 종이 카드에 적용 가능한 요소 5개 선정",
+        "subItems": [
+          {
+            "id": "t021-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "링고팡 수상작 자료(modoo.or.kr) + 듀오링고·퀴즐렛 1시간씩 직접 사용",
+            "isDone": true,
+            "note": "링고팡은 '단어를 잡는다'는 행동이 핵심. 듀오링고는 연속일수, 퀴즐렛은 매치 게임. 종이에서 살릴 수 있는 건 '잡는 행동'과 '매치'.",
+            "reviewNote": "직접 써보지 않았으면 절대 못 뽑았을 차이점들이라 1시간이 아깝지 않았어."
+          },
+          {
+            "id": "t021-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "우리 반 영단어 실태 미니 설문 (10문항, 응답 18명)",
+            "isDone": true,
+            "note": "'단어장 매일 보는 사람 2명, 일주일에 한 번 11명, 안 본다 5명'. '재미없다'가 가장 큰 이유.",
+            "reviewNote": "'재미없다'는 문제를 풀어야 한다는 게 명확해져서 다음 단계가 쉬워졌어."
+          }
+        ]
+      },
+      {
+        "id": "t021-i2",
+        "type": "project",
+        "title": "단어 카드 50장 제작 + 게임 규칙 설계",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "Canva 인쇄용 PDF 50장 + 게임 규칙서 A4 1장",
+        "successCriteria": "5분 안에 한 판이 끝나는 규칙 + 점심시간에 즉시 가능한 형태",
+        "subItems": [
+          {
+            "id": "t021-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "수능 빈출 단어 50개 선정 (영어 선생님 추천 리스트 기반)",
+            "isDone": true,
+            "note": "고1·고2 둘 다 만나는 단어로 압축. 학원 자료 출처 명시(저작권 주의).",
+            "reviewNote": "선생님께 한 번 컨펌받았더니 학원 자료 베끼는 문제가 사라졌어."
+          },
+          {
+            "id": "t021-i2-w2",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "task",
+            "title": "카드 앞면(단어+그림 1컷) / 뒷면(뜻+예문) 디자인 — Canva 무료 템플릿",
+            "isDone": true,
+            "note": "그림은 Canva의 무료 일러스트만 사용. 50장 × 2면 작업이라 손목 아팠지만 인쇄해보니 너무 예뻐서 보람 있었음.",
+            "reviewNote": "디자인이 학원 단어장보다 깔끔하다는 친구 평이 진심 같았어."
+          },
+          {
+            "id": "t021-i2-w3",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "게임 규칙 1차 설계: '뜻 듣고 단어 카드 먼저 잡기' (2~4인용)",
+            "isDone": true,
+            "note": "처음엔 6인용으로 만들었는데 책상 좁아서 4인으로 줄임. '잡기' 동작이 링고팡 영감.",
+            "reviewNote": "사용자 환경(책상 크기)을 고려 안 하면 좋은 규칙도 안 통한다는 걸 배웠어."
+          }
+        ]
+      },
+      {
+        "id": "t021-i3",
+        "type": "paper",
+        "title": "1주 사용자 테스트 + 회고 보고서",
+        "months": [
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "후기 12명분 정리 + 회고록 A4 2장",
+        "successCriteria": "1주 후 단어 회상률 측정 + 영어 선생님 피드백 1회",
+        "subItems": [
+          {
+            "id": "t021-i3-w1",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "12명 친구에게 1주일 사용 부탁 + 매일 끝나고 1줄 후기 받기",
+            "isDone": true,
+            "note": "카톡으로 매일 저녁 8시 후기 받기. '오늘은 졌어 분하다 ㅋㅋ' 같은 후기가 가장 진심 같았음.",
+            "reviewNote": "데이터보다 친구들이 진짜 매일 했다는 사실 자체가 가장 중요한 증거였어."
+          },
+          {
+            "id": "t021-i3-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "1주 후 단어 회상 테스트 (50문항 객관식)",
+            "isDone": false,
+            "note": "공정성 위해 영어 선생님께 채점 부탁. 평균 78%면 학원 단어장 대비 우수한 수치라고 들음.",
+            "reviewNote": ""
+          },
+          {
+            "id": "t021-i3-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "회고록 — '왜 종이 카드가 앱보다 통했는가' A4 2장",
+            "isDone": false,
+            "note": "점심시간에 폰을 못 꺼내는 학교 규정 + 친구와 눈 마주치며 노는 재미가 이긴 듯.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T022",
+    "ownerId": "demo-user-t022",
+    "ownerName": "정유진",
+    "ownerEmoji": "👵",
+    "ownerGrade": "high1",
+    "title": "[프로젝트] 어르신 키오스크 안내 영상 5편 — 우리 동네 빵집·약국에서 직접 촬영",
+    "description": "할머니가 빵집 키오스크 앞에서 5분 동안 머뭇거리시는 걸 봤어요. 거창한 앱 대신 1분짜리 안내 영상을 직접 찍고 QR로 가게에 붙이는 활동을 6주간 했습니다.",
+    "period": "semester",
+    "starColor": "#EC4899",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 124,
+    "bookmarks": 58,
+    "viewCount": 1380,
+    "commentCount": 3,
+    "sharedAt": "2026-04-15T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t022-c1",
+        "authorName": "한지수",
+        "authorEmoji": "🥖",
+        "content": "할머니 한 분을 위한 영상이라는 시작이 너무 좋아요. 진정성이 느껴져요.",
+        "createdAt": "2026-04-16T10:00:00.000Z"
+      },
+      {
+        "id": "t022-c2",
+        "authorName": "오민재",
+        "authorEmoji": "📱",
+        "content": "QR로 가게에 붙인 게 진짜 실행력 끝판왕이네요!",
+        "createdAt": "2026-04-17T12:00:00.000Z"
+      },
+      {
+        "id": "t022-c3",
+        "authorName": "서가람",
+        "authorEmoji": "🎬",
+        "content": "어르신 인터뷰 부분이 인상적이에요. 사회복지학과 지망에 도움 될 것 같아요.",
+        "createdAt": "2026-04-18T15:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t022-ms1",
+        "title": "동네 가게 3곳 QR 부착 완료 — 빵집·약국·세탁소",
+        "description": "사장님 동의 받고 키오스크 옆에 A5 안내문 + QR. 한 달 누적 조회 218회, 어르신 후기 6건.",
+        "monthWeekLabel": "5주차",
+        "recordedAt": "2026-04-12T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "1분 안내 영상 5편 + 어르신 후기 6건 + 봉사확인서",
+    "finalResultDescription": "YouTube 비공개 링크 + QR 인쇄 PDF + 동주민센터 봉사 14시간 확인서.",
+    "items": [
+      {
+        "id": "t022-i1",
+        "type": "activity",
+        "title": "동네 가게 5곳 현장 조사 — 키오스크가 있는 곳 + 사장님 인터뷰",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "조사 노트 A4 2장 + 동의서 양식 1장",
+        "successCriteria": "협조 가능한 가게 3곳 이상 확보",
+        "subItems": [
+          {
+            "id": "t022-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "동네 반경 500m 안 키오스크 보유 가게 5곳 직접 방문",
+            "isDone": true,
+            "note": "빵집 2곳, 약국 1곳, 세탁소 1곳, 카페 1곳. 사장님께 '봉사 활동으로 안내 영상을 만들고 싶다' 설명.",
+            "reviewNote": "처음엔 거절당할까봐 무서웠는데, 5곳 중 4곳이 '좋다'고 하셨어. 어른들도 어르신 손님 어려움 알고 계셨음."
+          },
+          {
+            "id": "t022-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "촬영·게시 동의서 양식 제작 (개인정보·초상권 보호 포함)",
+            "isDone": true,
+            "note": "동주민센터에 양식 예시 받음. 사장님께 서명받고 가게당 1장 보관.",
+            "reviewNote": "동의서를 정식으로 만드니까 사장님께도 더 신뢰가 갔어. '학생인데 야무지다'는 칭찬받음."
+          }
+        ]
+      },
+      {
+        "id": "t022-i2",
+        "type": "project",
+        "title": "1분 안내 영상 5편 촬영·편집 (CapCut 무료)",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "YouTube 비공개 영상 5편 + QR 인쇄 PDF",
+        "successCriteria": "60대 이상 모니터 3분 진행 + '이해된다' 응답 80%+",
+        "subItems": [
+          {
+            "id": "t022-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "영상 스크립트 작성 — 큰 글자 자막·천천히·전라도 사투리 한 줄 포함",
+            "isDone": true,
+            "note": "할머니께 직접 읽어드리고 막히는 부분 빨간펜으로 표시. '결제' 같은 단어는 '돈 내기'로 바꿈.",
+            "reviewNote": "어르신이 막힌 단어가 내가 평소 쓰는 단어였다는 게 충격이었어."
+          },
+          {
+            "id": "t022-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "촬영 + 자막 + 화살표 큰 그래픽 추가 (CapCut)",
+            "isDone": true,
+            "note": "키오스크 화면을 폰으로 직접 찍고, 손가락 클로즈업 추가. 자막 폰트는 56pt 이상.",
+            "reviewNote": "큰 자막이 핵심이라는 걸 배웠어. 작게 만들면 어르신께 전혀 안 보임."
+          },
+          {
+            "id": "t022-i2-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "어르신 3명 모니터 테스트 → 이해 안 되는 구간 재편집",
+            "isDone": true,
+            "note": "할머니, 옆집 어르신, 동주민센터 한 분. '결제 화면에서 잠시 멈춤'이 가장 좋다는 피드백.",
+            "reviewNote": "내가 만든 걸 어르신께 보여드리는 게 처음엔 떨렸는데, 직접 피드백 들으니 진짜 어려움이 보였어."
+          }
+        ]
+      },
+      {
+        "id": "t022-i3",
+        "type": "paper",
+        "title": "가게 게시 + 1개월 사용 모니터링 + 봉사 보고서",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 3,
+        "targetOutput": "보고서 A4 4장 + 어르신 후기 6건",
+        "successCriteria": "QR 한 달 조회 100회+ / 어르신 후기 5건+",
+        "subItems": [
+          {
+            "id": "t022-i3-w1",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "goal",
+            "title": "가게 3곳에 A5 안내문 + QR 부착 + 매일 가게 들러 후기 수집",
+            "isDone": true,
+            "note": "방과 후 들러 어르신께 '도움 됐어요?' 직접 여쭤봄. 6분의 후기 받음.",
+            "reviewNote": "내가 만든 게 동네에 진짜 붙어 있는 걸 보고 자존감이 올랐어."
+          },
+          {
+            "id": "t022-i3-w2",
+            "weekNumber": 6,
+            "weekLabel": "6주차",
+            "entryType": "task",
+            "title": "동주민센터 봉사확인 신청 (14시간) + 활동 보고서 제출",
+            "isDone": false,
+            "note": "사장님 협조 서명 + 시간 기록표 첨부. 사회복지학과 자소서에도 인용할 예정.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T023",
+    "ownerId": "demo-user-t023",
+    "ownerName": "노시현",
+    "ownerEmoji": "🍱",
+    "ownerGrade": "mid3",
+    "title": "[프로젝트] 학교 급식 잔반 줄이기 — 4주 캠페인으로 잔반 22% 감소",
+    "description": "급식실 잔반통이 매일 가득 차는 걸 보고 시작한 4주 캠페인. 영양사 선생님과 협업해 ‘잔반 무게 측정 → 시각화 포스터 → 1주 인기 메뉴 투표’를 실행했고, 학교 차원에서 처음으로 잔반량이 줄었습니다.",
+    "period": "afterschool",
+    "starColor": "#10B981",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 105,
+    "bookmarks": 49,
+    "viewCount": 990,
+    "commentCount": 3,
+    "sharedAt": "2026-04-02T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t023-c1",
+        "authorName": "최은서",
+        "authorEmoji": "🥗",
+        "content": "학교 영양사 선생님이랑 협업했다는 게 정말 인상적이에요. 어떻게 처음 말 꺼내셨어요?",
+        "createdAt": "2026-04-03T10:00:00.000Z"
+      },
+      {
+        "id": "t023-c2",
+        "authorName": "장도현",
+        "authorEmoji": "📊",
+        "content": "22% 감소면 학교 신문에도 실려야 할 결과네요!",
+        "createdAt": "2026-04-04T14:00:00.000Z"
+      },
+      {
+        "id": "t023-c3",
+        "authorName": "강민준",
+        "authorEmoji": "♻️",
+        "content": "잔반 무게를 직접 잰 데이터가 진짜 강력해 보여요.",
+        "createdAt": "2026-04-05T11:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t023-ms1",
+        "title": "4주차 잔반 평균 22% 감소 (영양사 선생님 측정값 기준)",
+        "description": "1주차 평균 38kg → 4주차 평균 29.6kg. 인기 메뉴 투표 결과를 식단표에 반영 후 가장 큰 감소.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-03-28T13:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "캠페인 보고서 + 잔반 데이터 + 학교 식단 반영 메모",
+    "finalResultDescription": "데이터 그래프 4주분 + 시각화 포스터 3장 + 영양사 선생님 후기 1장.",
+    "items": [
+      {
+        "id": "t023-i1",
+        "type": "activity",
+        "title": "현황 조사 — 일주일치 잔반 무게 측정 + 친구 30명 설문",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "잔반 데이터 1주 + 설문 결과 시트",
+        "successCriteria": "잔반 원인 상위 3개 도출 (맛·양·메뉴 선호)",
+        "subItems": [
+          {
+            "id": "t023-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "영양사 선생님께 협업 제안 메일 + 면담 1회",
+            "isDone": true,
+            "note": "'잔반 데이터 공유 + 캠페인 협업' 요청. 처음엔 부담스러워하셨지만 측정값 공유는 OK 받음.",
+            "reviewNote": "어른께 정식 메일로 부탁드리니 진지하게 응답해주셨어. 카톡으로만 했으면 안 됐을 듯."
+          },
+          {
+            "id": "t023-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "구글폼 설문 30명 — '오늘 남긴 이유' 객관식 + 자유 1문항",
+            "isDone": true,
+            "note": "'양이 너무 많아서' 47%, '맛이 안 맞아서' 31%, '시간 부족' 14%, '기타' 8%.",
+            "reviewNote": "양 문제가 1위라는 게 의외였어. 메뉴를 바꿀 게 아니라 '선택 배식'을 제안할 근거가 됐어."
+          }
+        ]
+      },
+      {
+        "id": "t023-i2",
+        "type": "project",
+        "title": "캠페인 실행 — 포스터·인기 메뉴 투표·선택 배식 제안",
+        "months": [
+          3
+        ],
+        "difficulty": 3,
+        "targetOutput": "포스터 3장 + 투표 결과 + 영양사 협의 메모",
+        "successCriteria": "다음 주 식단에 1개 이상 반영",
+        "subItems": [
+          {
+            "id": "t023-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "캔바로 잔반 시각화 포스터 3장 (1주 분 그래프 포함)",
+            "isDone": true,
+            "note": "'어제 우리 학교가 버린 잔반 = 김치찌개 80인분'처럼 비유. 학생들이 충격 받았다는 반응 다수.",
+            "reviewNote": "숫자만 보여주면 무감각해진다는 걸 알게 됐어. 비유가 감정을 움직이는 듯."
+          },
+          {
+            "id": "t023-i2-w2",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "task",
+            "title": "구글폼 ‘이번 주 좋아하는 메뉴 TOP3 투표’ + 결과 영양사 전달",
+            "isDone": true,
+            "note": "응답 142명. 결과 PDF를 인쇄해서 직접 급식실에 전달 — 영양사 선생님이 좋아하셨음.",
+            "reviewNote": "데이터를 종이로 들고 가서 전달하는 게 메일보다 훨씬 진심 같다는 걸 느꼈어."
+          },
+          {
+            "id": "t023-i2-w3",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "선택 배식 제안서 작성 (밥·국·반찬 양 선택지)",
+            "isDone": true,
+            "note": "A4 1장으로 간결하게. 학년부장님께도 전달.",
+            "reviewNote": "3주차에 시범 적용된 날 잔반이 가장 많이 줄어서 데이터로 효과 증명됨."
+          }
+        ]
+      },
+      {
+        "id": "t023-i3",
+        "type": "paper",
+        "title": "결과 보고서 + 진로 연결 에세이",
+        "months": [
+          4
+        ],
+        "difficulty": 2,
+        "targetOutput": "보고서 A4 4장 + 에세이 1장",
+        "successCriteria": "잔반 감소율 명시 + 다음 학기 지속 계획",
+        "subItems": [
+          {
+            "id": "t023-i3-w1",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "보고서 구성: 동기 → 데이터 → 캠페인 → 결과(22% 감소) → 한계",
+            "isDone": false,
+            "note": "한계: 4주는 짧고, 인기 메뉴 위주 식단은 영양 균형에 문제 가능성 있음 — 솔직히 적기.",
+            "reviewNote": ""
+          },
+          {
+            "id": "t023-i3-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "식품영양·환경 진로 연결 에세이 1장 — 데이터의 힘",
+            "isDone": false,
+            "note": "'캠페인은 데이터가 있어야 진심이 통한다'를 핵심 문장으로 쓰고 싶음.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T024",
+    "ownerId": "demo-user-t024",
+    "ownerName": "임소민",
+    "ownerEmoji": "🥤",
+    "ownerGrade": "high1",
+    "title": "[프로젝트] 텀블러 할인 카페 지도 — 우리 동네 30곳을 직접 찾아 만든 A4 한 장",
+    "description": "텀블러 들고 다녀도 할인되는 곳을 모르겠다는 친구 말에 시작한 프로젝트. 동네 카페 30곳을 직접 방문해서 할인 여부를 확인하고, A4 한 장 지도와 카카오맵 즐겨찾기 링크로 정리했습니다.",
+    "period": "afterschool",
+    "starColor": "#06B6D4",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 78,
+    "bookmarks": 41,
+    "viewCount": 720,
+    "commentCount": 2,
+    "sharedAt": "2026-04-20T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t024-c1",
+        "authorName": "유다은",
+        "authorEmoji": "🗺️",
+        "content": "30곳 다 발로 뛴 게 진짜 대단해요. 우리 동네도 만들고 싶어요.",
+        "createdAt": "2026-04-21T10:00:00.000Z"
+      },
+      {
+        "id": "t024-c2",
+        "authorName": "박재이",
+        "authorEmoji": "♻️",
+        "content": "카카오맵 즐겨찾기 링크로 공유한 발상이 좋네요.",
+        "createdAt": "2026-04-22T13:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t024-ms1",
+        "title": "30곳 중 22곳 할인 확인 — A4 지도 1차 인쇄 완료",
+        "description": "300원~1000원 할인 22곳 / 무할인 8곳 / 텀블러 음료 제공 거부 2곳. 카카오맵 폴더로 공유 링크 생성.",
+        "monthWeekLabel": "3주차",
+        "recordedAt": "2026-04-15T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "텀블러 할인 지도 A4 + 카카오맵 즐겨찾기 링크 + 카페 인터뷰 5건",
+    "finalResultDescription": "Canva 지도 PDF + 카카오맵 폴더 공유 URL + 사장님 인터뷰 메모.",
+    "items": [
+      {
+        "id": "t024-i1",
+        "type": "activity",
+        "title": "동네 카페 30곳 리스트업 + 방문 일정 계획",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "카페 리스트 시트 + 방문 체크리스트",
+        "successCriteria": "위치·전화번호·예상 방문일 모두 채우기",
+        "subItems": [
+          {
+            "id": "t024-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "카카오맵에서 반경 1km 카페 50곳 추출 → 30곳 선별",
+            "isDone": true,
+            "note": "체인 20곳, 개인 10곳. 너무 멀거나 24시간만 야간 운영하는 곳은 제외.",
+            "reviewNote": "리스트만 만들었는데도 동네에 카페가 이렇게 많은지 처음 알았어."
+          },
+          {
+            "id": "t024-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "방문 체크리스트 양식 — 할인 금액·텀블러 수용 여부·세척 가능 여부",
+            "isDone": true,
+            "note": "3개 항목으로 줄여서 즉석 체크 가능하게.",
+            "reviewNote": "현장에서 묻기 쉽게 3문항으로 줄인 게 신의 한 수."
+          }
+        ]
+      },
+      {
+        "id": "t024-i2",
+        "type": "project",
+        "title": "30곳 직접 방문 + 데이터 수집",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 4,
+        "targetOutput": "방문 데이터 시트 + 사장님 인터뷰 5건",
+        "successCriteria": "30곳 중 25곳 이상 답변 확보",
+        "subItems": [
+          {
+            "id": "t024-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "주 3회 방학 오후, 한 번에 10곳씩 도보 방문",
+            "isDone": true,
+            "note": "혼자 가기 무서운 가게는 친구와 동행. 거절당해도 친절히 인사하고 나오기.",
+            "reviewNote": "처음엔 들어가는 게 떨렸는데, 5곳 지나니 익숙해졌어. 발품의 힘을 느낌."
+          },
+          {
+            "id": "t024-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "사장님 5명 짧은 인터뷰(2~3분) — '왜 할인을 하시나요?'",
+            "isDone": true,
+            "note": "'쓰레기 줄이려고' 3명, '본사 정책' 1명, '단골 만드는 효과' 1명.",
+            "reviewNote": "사장님들이 의외로 환경 얘기 많이 하셨어. 인터뷰가 데이터보다 따뜻한 정보였음."
+          }
+        ]
+      },
+      {
+        "id": "t024-i3",
+        "type": "paper",
+        "title": "지도 제작 + 학교 게시 + 카카오맵 공유",
+        "months": [
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "A4 지도 인쇄본 + 카카오맵 폴더 공유 링크",
+        "successCriteria": "학교 게시판 부착 + 학년 단톡방 공유",
+        "subItems": [
+          {
+            "id": "t024-i3-w1",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "Canva로 동네 지도 디자인 (할인 금액 색상 구분)",
+            "isDone": true,
+            "note": "1000원↑ 빨강, 500원↑ 주황, 300원↑ 노랑. 한눈에 보이게.",
+            "reviewNote": "색 구분 덕분에 친구들이 '한 번에 이해된다'고 했어."
+          },
+          {
+            "id": "t024-i3-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "카카오맵 즐겨찾기 폴더 → 공유 링크 학년 단톡방 배포",
+            "isDone": false,
+            "note": "처음엔 인스타에 올리려 했지만 친구들은 카카오톡을 더 쓴다는 걸 고려.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T025",
+    "ownerId": "demo-user-t025",
+    "ownerName": "백지호",
+    "ownerEmoji": "🎒",
+    "ownerGrade": "mid3",
+    "title": "[프로젝트] 폐교복 업사이클 — 졸업 선배 교복 12벌로 만든 필통 키트 30개",
+    "description": "졸업 선배들 교복이 매년 버려지는 게 아까워 시작한 프로젝트. 12벌을 모아 미싱 동아리와 협업해 1학년 후배용 필통 키트 30개로 만들어 학기 초에 무료 배포했습니다.",
+    "period": "semester",
+    "starColor": "#A78BFA",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 87,
+    "bookmarks": 36,
+    "viewCount": 810,
+    "commentCount": 2,
+    "sharedAt": "2026-04-10T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t025-c1",
+        "authorName": "조하린",
+        "authorEmoji": "🧵",
+        "content": "교복으로 필통이라니, 발상도 좋고 후배한테 의미도 깊을 것 같아요.",
+        "createdAt": "2026-04-11T10:00:00.000Z"
+      },
+      {
+        "id": "t025-c2",
+        "authorName": "권시아",
+        "authorEmoji": "♻️",
+        "content": "12벌 수거 + 30개 제작 + 무료 배포까지 — 진짜 끝까지 했네요.",
+        "createdAt": "2026-04-12T13:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t025-ms1",
+        "title": "필통 키트 30개 배포 완료 — 1학년 신입생 만족도 96%",
+        "description": "수거 12벌 → 제작 30개. 학기 초 신입생 환영회에서 배포, 30명 중 29명이 '좋다' 응답.",
+        "monthWeekLabel": "8주차",
+        "recordedAt": "2026-03-30T17:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "필통 30개 + 제작 매뉴얼 PDF + 봉사확인서 24시간",
+    "finalResultDescription": "재단패턴·바느질 단계 사진 매뉴얼 + 학생회 공식 봉사 확인.",
+    "items": [
+      {
+        "id": "t025-i1",
+        "type": "activity",
+        "title": "교복 수거 캠페인 — 2주 + 동아리 협업 제안",
+        "months": [
+          1,
+          2
+        ],
+        "difficulty": 2,
+        "targetOutput": "수거 교복 12벌 + 협업 동아리 1개",
+        "successCriteria": "졸업생 또는 학부모 동의 받고 수거",
+        "subItems": [
+          {
+            "id": "t025-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "학교 게시판 + 학부모 단톡방에 수거 안내문 배포",
+            "isDone": true,
+            "note": "‘교복 1벌 = 필통 2~3개’라는 메시지를 핵심으로. 회수함 위치는 학생회실.",
+            "reviewNote": "구체적 변환 수치를 적었더니 부모님들이 실감을 더 가지셨어."
+          },
+          {
+            "id": "t025-i1-w2",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "task",
+            "title": "미싱 동아리에 협업 제안 — 30개 한 학기 분량",
+            "isDone": true,
+            "note": "동아리 회장과 1시간 미팅. 우리는 디자인·재단, 동아리는 미싱 — 역할 분담.",
+            "reviewNote": "혼자 안 한 게 가장 잘한 결정. 동아리가 없었다면 30개 절대 못 만들었어."
+          }
+        ]
+      },
+      {
+        "id": "t025-i2",
+        "type": "project",
+        "title": "재단 + 미싱 + 품질 검수 (6주)",
+        "months": [
+          2,
+          3
+        ],
+        "difficulty": 4,
+        "targetOutput": "필통 30개 + 제작 사진 기록",
+        "successCriteria": "지퍼·바느질 검수 통과 + 불량 0개",
+        "subItems": [
+          {
+            "id": "t025-i2-w1",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "goal",
+            "title": "교복 1벌로 시제품 2개 제작 → 디자인 확정",
+            "isDone": true,
+            "note": "처음엔 3개 만들려 했으나 안감이 부족. 2개로 조정.",
+            "reviewNote": "시제품 단계에서 실수가 가장 많이 나옴. 본 제작 들어가기 전 꼭 만들어야 함을 배움."
+          },
+          {
+            "id": "t025-i2-w2",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "30개 본 제작 — 주 2회 동아리실 작업, 1회 6개 목표",
+            "isDone": true,
+            "note": "주에 12개 페이스로 5주에 완료. 손목 통증 때문에 휴식일 필수.",
+            "reviewNote": "양산은 체력 싸움이라는 걸 처음 알았어. 분업의 중요성도 체감."
+          },
+          {
+            "id": "t025-i2-w3",
+            "weekNumber": 7,
+            "weekLabel": "7주차",
+            "entryType": "task",
+            "title": "품질 검수 — 지퍼 동작·실밥 처리 30개 모두 점검",
+            "isDone": true,
+            "note": "3개에서 실밥 정리 부족 발견 → 동아리에서 재작업.",
+            "reviewNote": "후배에게 주는 거니까 검수는 무조건 통과해야 한다는 책임감이 있었어."
+          }
+        ]
+      },
+      {
+        "id": "t025-i3",
+        "type": "paper",
+        "title": "신입생 배포 + 만족도 설문 + 매뉴얼 정리",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "배포 사진 + 만족도 시트 + PDF 매뉴얼",
+        "successCriteria": "만족도 90%+ / 매뉴얼 PDF 공개",
+        "subItems": [
+          {
+            "id": "t025-i3-w1",
+            "weekNumber": 8,
+            "weekLabel": "8주차",
+            "entryType": "goal",
+            "title": "1학년 신입생 환영회 부스 운영 — 30개 무료 배포",
+            "isDone": true,
+            "note": "직접 만든 카드 한 장씩 같이 동봉. 카드에 '교복의 두 번째 인생' 문구.",
+            "reviewNote": "후배가 '선배 진짜 멋있어요'라고 한 말이 1년치 보람이었어."
+          },
+          {
+            "id": "t025-i3-w2",
+            "weekNumber": 8,
+            "weekLabel": "8주차",
+            "entryType": "task",
+            "title": "Notion으로 제작 매뉴얼 PDF 공개 — 후배 동아리 인수인계",
+            "isDone": false,
+            "note": "재단 패턴·바느질 단계·체크리스트까지 포함. 다음 학기 후배가 이어받을 수 있도록.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T026",
+    "ownerId": "demo-user-t026",
+    "ownerName": "송하윤",
+    "ownerEmoji": "☁️",
+    "ownerGrade": "mid3",
+    "title": "[프로젝트] 우리 반 마음 날씨 — 익명 1줄 감정 일지 카드 4주 운영",
+    "description": "친구가 힘들었던 시기를 늦게 안 게 미안해서 시작한 프로젝트. 교실 뒤편에 익명 ‘마음 날씨’ 카드함을 두고 4주간 매일 하나씩 꺼내 함께 읽었습니다. 담임 선생님과 상담 선생님이 함께 봐주셨습니다.",
+    "period": "afterschool",
+    "starColor": "#FBBF24",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 142,
+    "bookmarks": 66,
+    "viewCount": 1580,
+    "commentCount": 3,
+    "sharedAt": "2026-04-05T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t026-c1",
+        "authorName": "윤혜원",
+        "authorEmoji": "🌤️",
+        "content": "상담 선생님이 함께 보신다는 안전장치가 정말 중요한 것 같아요.",
+        "createdAt": "2026-04-06T10:00:00.000Z"
+      },
+      {
+        "id": "t026-c2",
+        "authorName": "정은우",
+        "authorEmoji": "🫂",
+        "content": "친구 한 명을 위한 시작이라는 게 마음이 묵직해져요.",
+        "createdAt": "2026-04-07T13:00:00.000Z"
+      },
+      {
+        "id": "t026-c3",
+        "authorName": "강유진",
+        "authorEmoji": "📮",
+        "content": "익명성 보호 가이드라인까지 만든 게 인상적입니다.",
+        "createdAt": "2026-04-08T15:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t026-ms1",
+        "title": "4주간 카드 누적 152장 — 학급 분위기 자가 평가 +1.2점",
+        "description": "1주차 학급 분위기 자가 평가 평균 6.4 → 4주차 7.6 (10점 만점, 익명 설문 28명).",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-04-01T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "운영 보고서 + 익명성 가이드라인 + 상담 선생님 후기 1장",
+    "finalResultDescription": "카드 분류 통계 + 운영 가이드 PDF + 학교 차원 확대 제안서.",
+    "items": [
+      {
+        "id": "t026-i1",
+        "type": "activity",
+        "title": "기획 + 익명성·안전성 가이드라인 작성",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "가이드라인 PDF + 담임·상담 선생님 승인",
+        "successCriteria": "익명성 침해 위험 0 + 자해 키워드 대응 매뉴얼 포함",
+        "subItems": [
+          {
+            "id": "t026-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "상담 선생님과 30분 면담 — 자해/심각 키워드 신고 절차 확정",
+            "isDone": true,
+            "note": "‘죽고 싶다’·‘죽이고 싶다’·반복적 무력감 표현은 즉시 상담 선생님께 전달하기로 합의.",
+            "reviewNote": "혼자 짊어지지 않고 어른과 안전망을 미리 짠 게 가장 잘한 결정."
+          },
+          {
+            "id": "t026-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "카드 양식 디자인 — 날씨 아이콘 5종 + 1줄 자유 글",
+            "isDone": true,
+            "note": "☀️🌤️⛅🌧️⛈️ 5단계로 단순화. 글은 안 써도 됨(보호 장치).",
+            "reviewNote": "선택 폭을 너무 넓게 두면 안 쓰니까, 5개로 줄인 게 좋았어."
+          }
+        ]
+      },
+      {
+        "id": "t026-i2",
+        "type": "project",
+        "title": "4주 운영 — 매일 1장 함께 읽기 + 분류",
+        "months": [
+          3
+        ],
+        "difficulty": 3,
+        "targetOutput": "카드 152장 + 일별 분류 시트",
+        "successCriteria": "응답률 70%+ / 위험 신호 전달 0~3건",
+        "subItems": [
+          {
+            "id": "t026-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "매일 종례 후 카드함 정리 → 익명성 유지하며 통계만 기록",
+            "isDone": true,
+            "note": "글씨 알아보지 못하게 OCR 안 쓰고 손으로 분류만. 내용은 익명 처리.",
+            "reviewNote": "사적 내용 보지 않는 원칙을 지키니 친구들이 더 솔직히 써줬어."
+          },
+          {
+            "id": "t026-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "주 1회 종례 5분 — '이번 주 가장 많은 날씨' 공유 (내용 X)",
+            "isDone": true,
+            "note": "내용은 절대 공유 안 함, 통계만. 반 분위기가 가시화되는 효과.",
+            "reviewNote": "'우리 반 이번 주 흐림 많네' 한 마디에 친구들이 서로 챙기는 분위기가 생겼어."
+          },
+          {
+            "id": "t026-i2-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "위험 신호 카드 → 상담 선생님께 즉시 전달 (2건 발생)",
+            "isDone": true,
+            "note": "두 건 모두 선생님 개별 상담으로 연결. 내가 본 부분은 카드함을 정리하며 본 통계뿐.",
+            "reviewNote": "안전망이 진짜로 작동했어. 가이드라인 미리 만들어둔 게 결정적이었음."
+          }
+        ]
+      },
+      {
+        "id": "t026-i3",
+        "type": "paper",
+        "title": "운영 보고서 + 다음 학기 확대 제안서",
+        "months": [
+          4
+        ],
+        "difficulty": 2,
+        "targetOutput": "보고서 A4 4장 + 확대 제안서 A4 2장",
+        "successCriteria": "다른 반 1곳 이상 도입 의향 확보",
+        "subItems": [
+          {
+            "id": "t026-i3-w1",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "goal",
+            "title": "4주 통계 정리 + 학급 분위기 자가 평가 변화 분석",
+            "isDone": false,
+            "note": "1주차 6.4 → 4주차 7.6 (28명 익명 설문).",
+            "reviewNote": ""
+          },
+          {
+            "id": "t026-i3-w2",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "다른 반 학급회장 3명에게 운영 노하우 공유 미팅",
+            "isDone": false,
+            "note": "익명성 가이드라인 + 위험 신호 매뉴얼이 핵심 — 따라 만들 때 꼭 필요한 부분.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T027",
+    "ownerId": "demo-user-t027",
+    "ownerName": "지서영",
+    "ownerEmoji": "🚸",
+    "ownerGrade": "mid2",
+    "title": "[프로젝트] 등굣길 안전 지도 — 학교 앞 위험구간 30곳을 사진으로 기록한 1장",
+    "description": "동생이 등굣길에 다칠 뻔한 사건 이후 시작한 프로젝트. 3주간 학교 반경 500m를 매일 다른 길로 다니며 위험 지점 30곳을 사진과 좌표로 기록하고, 학교운영위와 자치회에 전달했습니다.",
+    "period": "afterschool",
+    "starColor": "#EF4444",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 96,
+    "bookmarks": 39,
+    "viewCount": 880,
+    "commentCount": 2,
+    "sharedAt": "2026-04-12T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t027-c1",
+        "authorName": "민서윤",
+        "authorEmoji": "🛑",
+        "content": "30곳 위치를 좌표로까지 정리한 게 신뢰감 줘요. 운영위에서 진지하게 받았겠네요.",
+        "createdAt": "2026-04-13T10:00:00.000Z"
+      },
+      {
+        "id": "t027-c2",
+        "authorName": "남유준",
+        "authorEmoji": "🗺️",
+        "content": "동생 사건이 시작이었다는 게 와닿네요. 동기가 진짜라는 게 보여요.",
+        "createdAt": "2026-04-14T13:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t027-ms1",
+        "title": "운영위 보고 → 3곳 즉시 개선 약속 (가로등·횡단보도·요철)",
+        "description": "위험구간 30곳 중 3곳은 학교 차원 즉시 개선, 5곳은 구청 민원 접수 대상으로 분류.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-04-08T17:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "위험구간 지도 A3 + 사진 30장 + 학교운영위 회의록",
+    "finalResultDescription": "구청 민원 접수 양식 첨부 + 학교 외벽 게시용 인쇄본.",
+    "items": [
+      {
+        "id": "t027-i1",
+        "type": "activity",
+        "title": "위험 유형 분류표 + 조사 경로 설계",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "분류표 + 경로 지도",
+        "successCriteria": "5개 카테고리 × 6경로 매트릭스 완성",
+        "subItems": [
+          {
+            "id": "t027-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "위험 카테고리 5종 정의: 가로등 부재 / 횡단보도 미설치 / 노면 요철 / 사각지대 / 불법주정차",
+            "isDone": true,
+            "note": "동주민센터에 자문 — '구청 민원 분류 기준'을 그대로 차용.",
+            "reviewNote": "공공 기준 차용하니까 나중에 제안서 쓸 때도 매끄러웠어."
+          },
+          {
+            "id": "t027-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "조사 경로 6개 설계 — 학교 반경 500m × 6방향",
+            "isDone": true,
+            "note": "방학 첫주에 모든 경로 1번씩 사전 답사.",
+            "reviewNote": "친구 1명과 동행 원칙 — 혼자 다니다 위험할 수 있는 곳도 있다는 걸 깨달음."
+          }
+        ]
+      },
+      {
+        "id": "t027-i2",
+        "type": "project",
+        "title": "3주 현장 조사 + 사진·좌표 기록",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "위험 지점 30곳 데이터 + 사진",
+        "successCriteria": "좌표·사진·카테고리 모두 기재 / 시간대 별 1회 이상 방문",
+        "subItems": [
+          {
+            "id": "t027-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "주간 1회·야간 1회 — 같은 지점 시간대별 안전도 차이 비교",
+            "isDone": true,
+            "note": "야간 사진은 부모님 동행 필수. 가로등 없는 골목 8곳 확인.",
+            "reviewNote": "야간에 가보지 않았으면 절대 못 봤을 위험들이 보였어."
+          },
+          {
+            "id": "t027-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "Google 시트로 30개 행 정리 — 좌표·사진 URL·카테고리·시간대",
+            "isDone": true,
+            "note": "좌표는 카카오맵에서 우클릭 → 위도경도 복사.",
+            "reviewNote": "정리 양식이 일관되니 운영위 제출 자료가 바로 만들어졌어."
+          },
+          {
+            "id": "t027-i2-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "Canva로 A3 지도 디자인 — 카테고리별 색상 핀",
+            "isDone": true,
+            "note": "학교 외벽 게시용으로 큰 사이즈 인쇄(2,500원). 색상 5종으로 한눈에 분류.",
+            "reviewNote": "지도가 학교 외벽에 붙어 있는 걸 보니까 보람이 컸어."
+          }
+        ]
+      },
+      {
+        "id": "t027-i3",
+        "type": "paper",
+        "title": "학교운영위 보고 + 구청 민원 접수",
+        "months": [
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "보고 자료 + 구청 민원 5건",
+        "successCriteria": "운영위 안건 채택 + 민원 접수 번호 확보",
+        "subItems": [
+          {
+            "id": "t027-i3-w1",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "학교운영위 정기회의 5분 발표 (담임 선생님 추천)",
+            "isDone": true,
+            "note": "위원장님이 '학생이 이렇게까지 정리한 적 처음'이라며 회의록에 명기.",
+            "reviewNote": "어른들 회의에 참여한 게 인생 첫 경험. 자료의 힘을 실감."
+          },
+          {
+            "id": "t027-i3-w2",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "구청 안전관리과 민원 5건 접수 (사진·좌표 첨부)",
+            "isDone": false,
+            "note": "민원 접수 번호 받은 뒤 일정 추적 — '안전신문고' 앱으로 진행 상황 확인.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T028",
+    "ownerId": "demo-user-t028",
+    "ownerName": "주민채",
+    "ownerEmoji": "🐾",
+    "ownerGrade": "high1",
+    "title": "[프로젝트] 우리 동네 길고양이 급식소 안내 QR 지도 — 캣맘과 함께 만든 4곳",
+    "description": "갈등이 잦은 길고양이 급식소 문제를 ‘위치 정리 + 동네 안내’로 풀어보고 싶었어요. 동네 캣맘 3분과 협업해 급식소 4곳 위치·시간·관리자 연락처를 QR 지도로 정리했습니다.",
+    "period": "semester",
+    "starColor": "#F472B6",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 73,
+    "bookmarks": 31,
+    "viewCount": 690,
+    "commentCount": 2,
+    "sharedAt": "2026-04-18T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t028-c1",
+        "authorName": "한도연",
+        "authorEmoji": "🐈",
+        "content": "캣맘 분들과 직접 협업한 게 인상적이에요. 갈등을 줄이는 방식이 좋네요.",
+        "createdAt": "2026-04-19T10:00:00.000Z"
+      },
+      {
+        "id": "t028-c2",
+        "authorName": "이아윤",
+        "authorEmoji": "🗺️",
+        "content": "QR로 만든 게 깔끔해 보여요. 어떻게 인쇄하셨어요?",
+        "createdAt": "2026-04-20T13:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t028-ms1",
+        "title": "QR 지도 부착 4곳 + 민원 1건 → 0건 (1개월)",
+        "description": "급식소 4곳·동주민센터·구청·동물병원에 QR 게시. 부착 전 월 평균 민원 1건 → 부착 후 0건(캣맘 3분 인터뷰 기준).",
+        "monthWeekLabel": "7주차",
+        "recordedAt": "2026-04-15T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "QR 안내 지도 A5 + 캣맘 인터뷰 3건 + 동물복지 진로 에세이",
+    "finalResultDescription": "급식소 4곳 위치·관리자 연락처 + 인쇄 안내문 + 진로 연결 에세이.",
+    "items": [
+      {
+        "id": "t028-i1",
+        "type": "activity",
+        "title": "동네 캣맘 3분 섭외 + 급식소 4곳 현장 확인",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "협조 동의서 + 위치 좌표 4개",
+        "successCriteria": "캣맘 3분 모두 안내문 게시 동의",
+        "subItems": [
+          {
+            "id": "t028-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "지역 동물보호 커뮤니티 게시판 글 → 캣맘 3분 답변",
+            "isDone": true,
+            "note": "‘갈등을 줄이는 정리 프로젝트’라는 표현이 신뢰감을 줬다고 직접 들음.",
+            "reviewNote": "어른들께 부탁드릴 때 ‘갈등 줄이기’라는 단어가 핵심이었어."
+          },
+          {
+            "id": "t028-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "캣맘 한 분과 동행해 급식소 4곳 위치·시간 직접 확인",
+            "isDone": true,
+            "note": "오전 7시·저녁 8시 사료 교체 시간. 시간 외 사료가 남으면 민원이 생기는 패턴 학습.",
+            "reviewNote": "현장 동행이 없었으면 절대 알 수 없는 정보들이었어."
+          }
+        ]
+      },
+      {
+        "id": "t028-i2",
+        "type": "project",
+        "title": "QR 지도 제작 + 부착 협의 (3주)",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "A5 안내문 PDF + 부착 동의 4곳",
+        "successCriteria": "동주민센터·구청·동물병원·급식소 모두 부착",
+        "subItems": [
+          {
+            "id": "t028-i2-w1",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "goal",
+            "title": "Canva로 A5 안내문 — 위치 지도 + QR + ‘민원 시 연락처’ 명시",
+            "isDone": true,
+            "note": "‘이 위치에서만 사료를 주세요’ 메시지로 갈등 예방 의도 명시.",
+            "reviewNote": "단순 안내가 아니라 갈등 예방 의도를 적은 게 어른들 동의를 얻는 핵심이었어."
+          },
+          {
+            "id": "t028-i2-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "동주민센터·구청 환경위생과 협의 → 게시 허락",
+            "isDone": true,
+            "note": "‘학생 봉사’ 프레임으로 신청. 안내문은 공식 도장 받기 전엔 못 붙인다는 점 배움.",
+            "reviewNote": "공공기관 절차를 처음 밟아봐서 시간이 걸렸지만, 공식 게시는 신뢰감이 달랐어."
+          },
+          {
+            "id": "t028-i2-w3",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "동물병원 1곳에 부착 협조 요청 → 수의사 인터뷰 15분 동시 진행",
+            "isDone": true,
+            "note": "TNR(중성화) 절차에 대한 짧은 설명도 들음 → 동물복지 진로 에세이의 단단한 근거가 됨.",
+            "reviewNote": "한 번의 방문에 부착 + 인터뷰 두 가지를 묶은 게 효율적이었어."
+          }
+        ]
+      },
+      {
+        "id": "t028-i3",
+        "type": "paper",
+        "title": "1개월 모니터링 + 진로 에세이",
+        "months": [
+          5
+        ],
+        "difficulty": 2,
+        "targetOutput": "민원 변화 인터뷰 + 진로 에세이 A4 1장",
+        "successCriteria": "캣맘 3분 후속 인터뷰 + 진로 에세이 완성",
+        "subItems": [
+          {
+            "id": "t028-i3-w1",
+            "weekNumber": 7,
+            "weekLabel": "7주차",
+            "entryType": "goal",
+            "title": "1개월 후 캣맘 3분 후속 인터뷰 — 민원 변화 정리",
+            "isDone": true,
+            "note": "3분 모두 ‘민원 줄었고 길고양이 보호 인식도 조금 좋아진 듯’이라고 답하셨음.",
+            "reviewNote": "수치보다 ‘인식이 좋아졌다’는 말이 가장 큰 보상이었어."
+          },
+          {
+            "id": "t028-i3-w2",
+            "weekNumber": 8,
+            "weekLabel": "8주차",
+            "entryType": "task",
+            "title": "동물복지·수의학 진로 에세이 A4 1장 — TNR과 도시 공존을 주제로",
+            "isDone": false,
+            "note": "내가 직접 만난 수의사 한 분 이야기에서 출발해 도시 공존 정책으로 확장.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T029",
+    "ownerId": "demo-user-t029",
+    "ownerName": "차예린",
+    "ownerEmoji": "♿",
+    "ownerGrade": "high2",
+    "title": "[프로젝트] 시각장애 친구를 위한 점자 카드뉴스 5편 — 도서관 협업으로 제작",
+    "description": "같은 반 시각장애 친구가 ‘쉬는 시간 잡담을 따라가기 어렵다’고 한 말이 출발이었어요. 점자 도서관과 협업해 학교 행사 안내 카드뉴스 5편을 점자·큰 글씨 동시 제작했습니다.",
+    "period": "semester",
+    "starColor": "#0EA5E9",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 134,
+    "bookmarks": 57,
+    "viewCount": 1240,
+    "commentCount": 3,
+    "sharedAt": "2026-04-22T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t029-c1",
+        "authorName": "조하준",
+        "authorEmoji": "📖",
+        "content": "점자도서관 협업이라는 발상이 정말 좋아요. 어떻게 처음 연결하셨나요?",
+        "createdAt": "2026-04-23T10:00:00.000Z"
+      },
+      {
+        "id": "t029-c2",
+        "authorName": "이지안",
+        "authorEmoji": "👀",
+        "content": "친구 한 명을 위한 시작이 학교 전체에 도움을 준 사례네요.",
+        "createdAt": "2026-04-24T13:00:00.000Z"
+      },
+      {
+        "id": "t029-c3",
+        "authorName": "박서이",
+        "authorEmoji": "🤲",
+        "content": "특수교육·복지 진로에 정말 좋은 활동인 것 같아요!",
+        "createdAt": "2026-04-25T15:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t029-ms1",
+        "title": "점자 카드뉴스 5편 제작 + 학교 게시 — 친구 자체 평가 ‘처음으로 행사 정보를 혼자 안다’",
+        "description": "점자도서관 점역 1주 + 큰 글씨 5편 동시 인쇄. 시각장애 친구 1명, 저시력 친구 2명 모두 ‘도움됐다’ 응답.",
+        "monthWeekLabel": "6주차",
+        "recordedAt": "2026-04-18T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "점자 카드뉴스 5편 + 점자도서관 협력 확인서 + 특수교육 진로 에세이",
+    "finalResultDescription": "큰 글씨/점자 동시 제작 + 협력 확인서 + 에세이 A4 1장.",
+    "items": [
+      {
+        "id": "t029-i1",
+        "type": "activity",
+        "title": "친구 인터뷰 + 점자도서관 협업 제안",
+        "months": [
+          3
+        ],
+        "difficulty": 2,
+        "targetOutput": "인터뷰 노트 + 협업 확인 회신",
+        "successCriteria": "친구가 가장 필요로 하는 정보 3가지 도출",
+        "subItems": [
+          {
+            "id": "t029-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "친구와 점심시간 1시간 — ‘어떤 정보가 가장 답답한가’ 솔직 인터뷰",
+            "isDone": true,
+            "note": "‘체육대회 종목’, ‘급식 메뉴’, ‘쉬는 시간 잡담의 맥락’이 가장 답답하다고 함.",
+            "reviewNote": "직접 묻기 전엔 ‘교과서 점역만 필요할 거’라고 짐작했는데, 실제 필요는 훨씬 일상적이었어."
+          },
+          {
+            "id": "t029-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "지역 점자도서관에 협업 메일 — 학교 행사 안내 5편 점역 요청",
+            "isDone": true,
+            "note": "‘월 5편 분량’이라는 구체 수치를 적은 게 회신 받는 데 도움 됐다고 함.",
+            "reviewNote": "구체적인 분량 제시가 어른 기관 대응에서 핵심이라는 걸 배웠어."
+          }
+        ]
+      },
+      {
+        "id": "t029-i2",
+        "type": "project",
+        "title": "카드뉴스 5편 제작 + 점역 협업",
+        "months": [
+          3,
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "큰 글씨 PDF 5편 + 점자 인쇄본 5편",
+        "successCriteria": "원문·점자·큰 글씨 3종 동시 게시",
+        "subItems": [
+          {
+            "id": "t029-i2-w1",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "goal",
+            "title": "큰 글씨 카드뉴스 5편(체육대회·중간고사·축제·동아리·급식) Canva 제작",
+            "isDone": true,
+            "note": "글자 40pt 이상, 명도 대비 7:1 이상. 저시력 친구 2명에게 사전 검토 받음.",
+            "reviewNote": "디자인 가이드를 미리 정한 게 제작 속도를 크게 올렸어."
+          },
+          {
+            "id": "t029-i2-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "원고 점자도서관에 송부 → 점역본 회신 받기 (1주 소요)",
+            "isDone": true,
+            "note": "초안이 한 번 반려됨 — ‘약어를 풀어 써달라’는 피드백. 시각장애인이 읽기엔 약어가 더 어려움.",
+            "reviewNote": "전문가 피드백이 없었으면 사용자에게 안 통할 자료를 만들 뻔했어."
+          },
+          {
+            "id": "t029-i2-w3",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "학교 행정실·정보부 협의 → 게시판 3곳에 점자/큰 글씨 동시 부착",
+            "isDone": true,
+            "note": "행정실 담당 선생님이 ‘공식 안내문에 점자 추가’ 정례화 검토.",
+            "reviewNote": "내 활동이 학교 시스템을 한 칸 움직였다는 게 진로에 큰 의미였어."
+          }
+        ]
+      },
+      {
+        "id": "t029-i3",
+        "type": "paper",
+        "title": "사용자 평가 + 특수교육 진로 에세이",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 2,
+        "targetOutput": "사용자 평가 시트 + 에세이 A4 1장",
+        "successCriteria": "친구 1명 + 저시력 친구 2명 평가 + 에세이 완성",
+        "subItems": [
+          {
+            "id": "t029-i3-w1",
+            "weekNumber": 6,
+            "weekLabel": "6주차",
+            "entryType": "goal",
+            "title": "3명 사용자 평가 — ‘처음으로 행사 정보를 혼자 안다’는 답변 확보",
+            "isDone": true,
+            "note": "친구가 ‘체육대회 종목을 미리 안 게 처음’이라고 한 말이 가장 기억에 남음.",
+            "reviewNote": "기능 성공보다 그 한 문장이 모든 과정을 가치 있게 만들었어."
+          },
+          {
+            "id": "t029-i3-w2",
+            "weekNumber": 7,
+            "weekLabel": "7주차",
+            "entryType": "task",
+            "title": "특수교육 진로 에세이 A4 1장 — ‘약어를 풀어쓰라는 한 마디’",
+            "isDone": false,
+            "note": "전문가의 단 한 줄 피드백이 어떻게 사용자 경험을 바꿨는지를 중심에 둘 예정.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T030",
+    "ownerId": "demo-user-t030",
+    "ownerName": "임도건",
+    "ownerEmoji": "🌾",
+    "ownerGrade": "high2",
+    "title": "[프로젝트] 농촌 시골 가게 메뉴판 새로 만들기 — 외할머니 가게에서 시작한 디자인 봉사",
+    "description": "외할머니가 운영하시는 시골 마트의 손글씨 메뉴판이 사진 찍기 어렵고 어르신 손님도 잘 못 읽는 걸 보고 시작했어요. 한 마을 5곳 가게의 메뉴판·가격표를 새로 디자인해드린 여름방학 봉사 기록입니다.",
+    "period": "afterschool",
+    "starColor": "#84CC16",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 88,
+    "bookmarks": 35,
+    "viewCount": 760,
+    "commentCount": 2,
+    "sharedAt": "2026-04-25T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t030-c1",
+        "authorName": "유태경",
+        "authorEmoji": "📋",
+        "content": "5곳을 다 해드린 게 진짜 봉사예요. 외할머니께서 좋아하셨겠어요.",
+        "createdAt": "2026-04-26T10:00:00.000Z"
+      },
+      {
+        "id": "t030-c2",
+        "authorName": "정연우",
+        "authorEmoji": "🏪",
+        "content": "디자인학과 자소서 소재로 정말 좋을 것 같아요.",
+        "createdAt": "2026-04-27T13:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t030-ms1",
+        "title": "5곳 메뉴판 교체 완료 — 사장님 5분 모두 ‘다시 사진 찍어달라’ 요청",
+        "description": "마트·국밥집·이용원·정육점·다방 5곳. 1주에 1곳 페이스로 5주 진행. 사장님들이 가게 SNS·블로그에 사진 새로 올리겠다고 요청.",
+        "monthWeekLabel": "5주차",
+        "recordedAt": "2026-04-23T16:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "메뉴판 5종 + 디자인 매뉴얼 + 봉사 38시간 확인서",
+    "finalResultDescription": "Canva 템플릿 5종 PDF + 글자 크기·색 대비 가이드 + 동주민센터 봉사 확인.",
+    "items": [
+      {
+        "id": "t030-i1",
+        "type": "activity",
+        "title": "외할머니 가게 → 5곳 협조 받기",
+        "months": [
+          7
+        ],
+        "difficulty": 2,
+        "targetOutput": "협조 가게 5곳 + 사장님별 메뉴 사진",
+        "successCriteria": "방학 첫 주 동의 확보",
+        "subItems": [
+          {
+            "id": "t030-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "외할머니 가게 메뉴판부터 시작 — 1차 시안 만들고 동네 자랑",
+            "isDone": true,
+            "note": "외할머니가 손글씨가 더 정겹다 하셔서 손글씨 + 큰 글자 조합으로 절충.",
+            "reviewNote": "어르신의 ‘정서’를 무시하면 디자인이 ‘좋지만 안 쓰이는’ 결과가 됨을 느꼈어."
+          },
+          {
+            "id": "t030-i1-w2",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "task",
+            "title": "외할머니가 동네 사장님 4분께 ‘우리 손주가 해준다’ 소개 → 4곳 동의",
+            "isDone": true,
+            "note": "마을에서 신뢰 기반이 있는 사람을 통하는 게 가장 빨랐다.",
+            "reviewNote": "어른 한 분의 연결이 인터넷보다 강했어. 시골 봉사는 관계가 핵심."
+          }
+        ]
+      },
+      {
+        "id": "t030-i2",
+        "type": "project",
+        "title": "메뉴판 5종 디자인 + 출력 + 부착 (5주)",
+        "months": [
+          7,
+          8
+        ],
+        "difficulty": 3,
+        "targetOutput": "Canva PDF 5종 + 인쇄·부착 완료",
+        "successCriteria": "사장님 5분 모두 ‘즉시 사용’ 답변",
+        "subItems": [
+          {
+            "id": "t030-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "글자 크기 36pt 이상 + 색 대비 가이드 적용 → 5개 시안 1차",
+            "isDone": true,
+            "note": "어르신 손님이 많은 점 고려. 정육점은 ‘부위 그림’ 추가 요청 반영.",
+            "reviewNote": "각 가게의 ‘진짜 손님’을 떠올리면서 디자인하는 게 핵심이라는 걸 깨달았어."
+          },
+          {
+            "id": "t030-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "task",
+            "title": "사장님 5분 1차 피드백 → 가격 위치·메뉴 순서 조정",
+            "isDone": true,
+            "note": "‘비싼 메뉴 위로’가 매출에 좋다는 사장님 노하우 반영.",
+            "reviewNote": "디자인은 미적 감각보다 사용자 노하우를 듣는 일이라는 걸 배웠어."
+          },
+          {
+            "id": "t030-i2-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "읍내 출력소에서 A2 출력 + 직접 부착 + 사진 촬영",
+            "isDone": true,
+            "note": "출력 비용은 외할머니가 ‘동네 사장님들 몫까지’ 한 번에 결제 — 6만원.",
+            "reviewNote": "결과물을 직접 가서 부착해드린 게 모든 과정의 정점이었어."
+          }
+        ]
+      },
+      {
+        "id": "t030-i3",
+        "type": "paper",
+        "title": "디자인 매뉴얼 + 봉사확인 + 진로 에세이",
+        "months": [
+          8
+        ],
+        "difficulty": 2,
+        "targetOutput": "매뉴얼 PDF + 봉사확인서 + 에세이 A4 1장",
+        "successCriteria": "다음 학기 후배가 따라할 수 있는 매뉴얼 완성",
+        "subItems": [
+          {
+            "id": "t030-i3-w1",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "goal",
+            "title": "Canva 템플릿 5종 + 글자 크기·색 대비 가이드 PDF",
+            "isDone": true,
+            "note": "후배가 다음 방학에 같은 활동을 할 수 있도록 가이드 우선 작성.",
+            "reviewNote": "내 활동이 1회성이 아니라 이어질 수 있게 만드는 게 진짜 봉사의 마무리라는 걸 느꼈어."
+          },
+          {
+            "id": "t030-i3-w2",
+            "weekNumber": 5,
+            "weekLabel": "5주차",
+            "entryType": "task",
+            "title": "동주민센터 봉사 확인 38시간 + 디자인학과 진로 에세이",
+            "isDone": false,
+            "note": "에세이는 ‘디자인은 도시에서만 쓰이는 게 아니다’를 핵심 문장으로.",
             "reviewNote": ""
           }
         ]

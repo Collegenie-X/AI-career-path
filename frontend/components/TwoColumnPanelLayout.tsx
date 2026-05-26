@@ -3,28 +3,29 @@
 import { useEffect, useRef } from 'react';
 import { Map, Sparkles } from 'lucide-react';
 
-/** 선택 변경 시 상단으로 스크롤하는 디테일 패널 스크롤 컨테이너 */
+/**
+ * 디테일 패널 컨테이너.
+ * 자체 최대 높이를 두지 않고 페이지 스크롤로 전체 내용을 볼 수 있도록 한다.
+ * scrollKey 변경 시 패널 상단이 뷰포트로 들어오도록 스크롤한다.
+ */
 export function DetailPanelScrollContainer({
   children,
   scrollKey,
 }: {
   readonly children: React.ReactNode;
-  /** 이 값이 변경될 때마다 스크롤을 상단으로 이동 */
+  /** 이 값이 변경될 때마다 패널 상단으로 스크롤 */
   readonly scrollKey: string | null;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (scrollKey) {
-      scrollRef.current?.scrollTo({ top: 0, behavior: 'auto' });
+      scrollRef.current?.scrollIntoView({ block: 'start', behavior: 'auto' });
     }
   }, [scrollKey]);
 
   return (
-    <div
-      ref={scrollRef}
-      className="max-h-[min(85vh,920px)] overflow-y-auto overflow-x-hidden"
-    >
+    <div ref={scrollRef} className="overflow-x-hidden">
       {children}
     </div>
   );

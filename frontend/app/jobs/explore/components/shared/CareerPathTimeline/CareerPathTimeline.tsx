@@ -66,11 +66,9 @@ export function CareerPathTimeline({
 
       <CareerPathKeySuccessCard
         keySuccess={keySuccess}
-        totalCost={summary.totalCost}
         theme={theme}
         labels={{
           title: labels.keySuccessTitle,
-          totalCost: labels.totalCost,
         }}
       />
     </div>

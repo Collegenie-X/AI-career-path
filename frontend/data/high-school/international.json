@@ -350,6 +350,18 @@
           "emoji": "🌐",
           "description": "국제 이슈를 영어로 토론하는 모의 유엔 — 전국 최고 수준의 국제고 MUN",
           "benefit": "연세대·고려대 국제학부 입학사정관이 가장 중요시하는 활동"
+        },
+        {
+          "name": "SIHMUN — 외교부 청소년외교아카데미 연계 모의UN",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
+        },
+        {
+          "name": "Junior Diplomat Program (외교부 위탁)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "서울·수도권 영어 최상위 + IB DP 6과목 풀이수 가능한 학생, 국내 SKY 학종+해외대 병행 지망생",
@@ -1016,7 +1028,33 @@
           "overseasTrack": "Top 30 미국대 연 5~10명. 홍콩대·NUS·도쿄대 등 아시아 명문대 진학률 국제고 중 상위. 항공 관련 전공(임페리얼·델프트 등) 진학자 다수.",
           "uniqueStrength": "아시아권 대학 진학률이 국제고 중 가장 높음 — 인천공항·다국적 환경에서 일찍 형성된 글로벌 네트워크 영향."
         }
-      }
+      },
+      "famousProgramDetails": [
+        {
+          "name": "IB DP 부분 운영",
+          "emoji": "🎓",
+          "description": "IB DP 핵심 과목 도입 — 해외대 직접 지원 트랙",
+          "benefit": "미·영 명문대 + 국내 학종 우대"
+        },
+        {
+          "name": "모의 UN·국제 외교 시뮬레이션",
+          "emoji": "🌐",
+          "description": "인천공항·자유무역지역 활용 글로벌 시뮬",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 강력"
+        },
+        {
+          "name": "글로벌 봉사·해외 교환",
+          "emoji": "🤝",
+          "description": "동남아·중국 봉사 + 자매학교 교환",
+          "benefit": "글로벌 시민의식 + 진로 일관성"
+        },
+        {
+          "name": "AP·SAT 병행 학습",
+          "emoji": "📊",
+          "description": "AP 8+ 과목 + SAT 1450+ 평균",
+          "benefit": "해외대 + 국내 학종 동시 어드밴티지"
+        }
+      ]
     },
     {
       "id": "cheongshim_international",
@@ -1051,6 +1089,18 @@
           "emoji": "🏠",
           "description": "24시간 영어 사용 환경 — 외국인 교사와 함께 생활",
           "benefit": "영어 실력 폭발적 성장, 해외 대학 생활 미리 경험"
+        },
+        {
+          "name": "CSIAMUN — 자체 국제 모의UN, 해외학교 초청",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
+        },
+        {
+          "name": "FIRST Tech Challenge 한국 대표 다수 배출",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "전국 영어 최상위 + IB HL 3과목+AP 동시 가능, 해외 명문대(아이비·Oxbridge) 직진 의지 학생",
@@ -1405,6 +1455,18 @@
           "emoji": "🌐",
           "description": "국제 이슈를 영어로 토론하는 모의 유엔 — 전국 최고 수준의 국제고 MUN",
           "benefit": "연세대·고려대 국제학부 입학사정관이 가장 중요시하는 활동"
+        },
+        {
+          "name": "GIH Times (영자신문 정규 발간)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
+        },
+        {
+          "name": "Literature & Translation Society",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "수도권·경기 북부 영어 상위 + 인문·언론·미디어·통일외교 진로 관심 학생",
@@ -1768,6 +1830,18 @@
           "emoji": "✍️",
           "description": "토론·에세이 능력 집중 교육",
           "benefit": "학종 면접·에세이에서 강력한 증거"
+        },
+        {
+          "name": "경북대 사회과학대 연계 R&E",
+          "emoji": "🎓",
+          "description": "서울대 국제대학원·연세대 언더우드 연계 진로 특강",
+          "benefit": "학종 진로 일관성 + 대학 연계 활동 가산점"
+        },
+        {
+          "name": "DGIH MUN (영남권 합동)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "영남권(대구·경북·울산) 영어 상위 + 신설교 1~3기 프리미엄을 노리는 학종 지망 학생",
@@ -2118,6 +2192,18 @@
           "emoji": "🌐",
           "description": "국제 이슈를 영어로 토론하는 모의 유엔 — 전국 최고 수준의 국제고 MUN",
           "benefit": "연세대·고려대 국제학부 입학사정관이 가장 중요시하는 활동"
+        },
+        {
+          "name": "삼성전자·SK하이닉스 화성캠퍼스 인턴십",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
+        },
+        {
+          "name": "판교 스타트업 인턴십 (고2 겨울)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "수도권·경기 남부 영어 상위 + SW/AI/이공계 진로 관심 + KAIST·POSTECH·해외 공대 지망생",
@@ -2481,6 +2567,18 @@
           "emoji": "🌏",
           "description": "국제 관계·경제 심화 교육",
           "benefit": "국제학부·경제학과 입시에서 강점"
+        },
+        {
+          "name": "Port & Trade Club (부산항만공사 연계)",
+          "emoji": "🎓",
+          "description": "서울대 국제대학원·연세대 언더우드 연계 진로 특강",
+          "benefit": "학종 진로 일관성 + 대학 연계 활동 가산점"
+        },
+        {
+          "name": "JLPT·HSK·TORFL 자격증 정규 동아리",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "영남권 영어 상위 + 제2외국어 학습 의지 + 일본/중국/홍콩 대학 또는 SKY 인문 지망생",
@@ -2831,6 +2929,18 @@
           "emoji": "🌍",
           "description": "국제 관계·정책 심화 교육",
           "benefit": "국제학부·정치외교학과 입시에서 강점"
+        },
+        {
+          "name": "Policy Lab (세종청사 부처 견학·시뮬레이션)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
+        },
+        {
+          "name": "KDI 청소년 경제캠프 (우선 선발)",
+          "emoji": "🌐",
+          "description": "국제 분쟁·환경·인권 이슈 영어 토론·결의안 작성",
+          "benefit": "서울대 정치외교·연·고대 국제학부 학종 핵심"
         }
       ],
       "studentLevel": "충청권 영어 상위 + 행정·외교·정책·국제기구 진로 관심 학생, 행시·외시 장기 목표 학생",
@@ -3187,5 +3297,74 @@
       },
       "note": "사용자 직접 확인 URL로 최종 확정 (2026-05-23)"
     }
+  },
+  "categoryAlumniInsight": {
+    "trackType": "학종 트랙 (글로벌)",
+    "summary": "국제 정치·외교·경영 인재 양성 — IB DP나 AP 기반으로 학종+해외대 동시 공략",
+    "studentRecordPrograms": [
+      {
+        "name": "IB Diploma Programme",
+        "emoji": "🎓",
+        "description": "전 세계 대학이 인정하는 국제 졸업 자격",
+        "admissionImpact": "아이비리그 직접 지원 + 국내 학종 우대"
+      },
+      {
+        "name": "모의 UN·외교 시뮬레이션",
+        "emoji": "🌐",
+        "description": "국제 분쟁·환경·인권 이슈 토론·결의안",
+        "admissionImpact": "서울대 정치외교·연세대 국제학부 학종 핵심"
+      },
+      {
+        "name": "글로벌 봉사·해외 연수",
+        "emoji": "🤝",
+        "description": "캄보디아·라오스 등 개발도상국 봉사",
+        "admissionImpact": "글로벌 시민 의식 + 진로 연계성 입증"
+      },
+      {
+        "name": "AP·SAT 병행 학습",
+        "emoji": "📊",
+        "description": "미국 대학 학점 인정 시험 (Calculus·Bio·Econ 등)",
+        "admissionImpact": "해외대 + 국내 학종 어드밴티지"
+      }
+    ],
+    "admissionPattern": {
+      "domestic": [
+        "서울대 정치외교·자유전공·국제학부",
+        "연세대 언더우드·국제학부",
+        "고려대 국제학부·정외"
+      ],
+      "overseas": [
+        "아이비리그 (IB 38+ / SAT 1500+)",
+        "옥브리지·임페리얼",
+        "도쿄대·게이오 (영어 트랙)"
+      ],
+      "averageRate": "민사고·서울국제고: 졸업생의 50%+ 서·연·고·해외 명문 진학"
+    },
+    "alumniSocialRole": [
+      {
+        "role": "외교관·국제 공무원",
+        "emoji": "🌐",
+        "description": "외교부·UN·세계은행·OECD",
+        "salary": "연 6,000만~9,000만 + 해외 수당"
+      },
+      {
+        "role": "국제 NGO·재단",
+        "emoji": "🌱",
+        "description": "유니세프·세이브더칠드런·게이츠재단",
+        "salary": "연 5,000만~1억"
+      },
+      {
+        "role": "글로벌 IB·컨설팅",
+        "emoji": "💼",
+        "description": "맥킨지·골드만삭스·JP모건 IB",
+        "salary": "연 1.2억~2억 (신입)"
+      },
+      {
+        "role": "해외 정책 연구",
+        "emoji": "🔬",
+        "description": "Harvard Kennedy School, Oxford PPE",
+        "salary": "박사 후 학계·정책 연구"
+      }
+    ]
   }
 }

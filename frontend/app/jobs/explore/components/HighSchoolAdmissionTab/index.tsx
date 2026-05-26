@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
+import { useExploreUrlState } from '../../utils/useExploreUrlState';
 import metaData from '@/data/high-school/meta.json';
 import scienceHigh from '@/data/high-school/science_high.json';
 import foreignLanguage from '@/data/high-school/foreign_language.json';
@@ -51,6 +52,8 @@ const typedData: HighSchoolAdmissionV2Data = {
 };
 
 export function HighSchoolAdmissionTab() {
+  const { searchParams, patchUrl } = useExploreUrlState();
+
   /** 2단계: 오른쪽 패널에 표시할 카테고리 (학교 유형) */
   const [selectedCategory, setSelectedCategory] = useState<HighSchoolCategory | null>(null);
   /** 3단계: 다이얼로그로 표시할 개별 학교 */
@@ -58,29 +61,59 @@ export function HighSchoolAdmissionTab() {
   const [openOrbitHubChallengeTabId, setOpenOrbitHubChallengeTabId] =
     useState<HighSchoolOrbitHubChallengeTabId | null>(null);
 
+  // URL → 상태 동기화 (?category=&school=)
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const schoolId = new URLSearchParams(window.location.search).get('school');
-    if (!schoolId) return;
+    if (!searchParams) return;
+    const categoryId = searchParams.get('category');
+    const schoolId = searchParams.get('school');
 
-    for (const category of typedData.categories) {
-      const matchedSchool = category.schools.find((school) => school.id === schoolId);
-      if (!matchedSchool) continue;
-      setSelectedCategory(category);
-      setSelectedSchool(matchedSchool);
+    if (!categoryId) {
+      if (selectedCategory) setSelectedCategory(null);
+      if (selectedSchool) setSelectedSchool(null);
       return;
     }
-  }, []);
+
+    const category = typedData.categories.find((c) => c.id === categoryId) ?? null;
+    if (category && selectedCategory?.id !== category.id) {
+      setSelectedCategory(category);
+    }
+    if (!category) return;
+
+    if (schoolId) {
+      const school = category.schools.find((s) => s.id === schoolId) ?? null;
+      if (school && selectedSchool?.id !== school.id) {
+        setSelectedSchool(school);
+      } else if (!school && selectedSchool) {
+        setSelectedSchool(null);
+      }
+    } else if (selectedSchool) {
+      setSelectedSchool(null);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   /** 1단계 → 2단계: 카테고리 선택 → 오른쪽 패널 노출 */
   const handleSelectCategory = (category: HighSchoolCategory) => {
     setSelectedCategory(category);
     setSelectedSchool(null);
+    patchUrl({ tab: 'admission', category: category.id, school: null });
   };
 
   /** 2단계 → 3단계: 학교 선택 → 다이얼로그 노출 */
   const handleSelectSchool = (school: HighSchoolDetail) => {
     setSelectedSchool(school);
+    patchUrl({ school: school.id });
+  };
+
+  const handleClearAll = () => {
+    setSelectedCategory(null);
+    setSelectedSchool(null);
+    patchUrl({ category: null, school: null });
+  };
+
+  const handleCloseSchool = () => {
+    setSelectedSchool(null);
+    patchUrl({ school: null });
   };
 
   /** 2컬럼 레이아웃: 왼쪽 = 항상 카테고리 그리드, 오른쪽 = 카테고리 상세 + 학교 목록 */
@@ -90,10 +123,7 @@ export function HighSchoolAdmissionTab() {
     <>
       <TwoColumnPanelLayout
         hasSelection={hasDetailSelection}
-        onClearSelection={() => {
-          setSelectedCategory(null);
-          setSelectedSchool(null);
-        }}
+        onClearSelection={handleClearAll}
         emptyPlaceholderText="학교 유형을 선택하세요"
         emptyPlaceholderSubText="왼쪽에서 학교 유형(행성)을 클릭하면 카테고리 설명과 학교 목록이 여기에 표시됩니다"
         listSlot={
@@ -120,10 +150,7 @@ export function HighSchoolAdmissionTab() {
               <SchoolCategoryView
                 variant="rightDetail"
                 category={selectedCategory}
-                onBack={() => {
-                  setSelectedCategory(null);
-                  setSelectedSchool(null);
-                }}
+                onBack={handleClearAll}
                 onSelectSchool={handleSelectSchool}
               />
             </div>
@@ -136,7 +163,7 @@ export function HighSchoolAdmissionTab() {
           school={selectedSchool}
           categoryColor={selectedCategory.color}
           categoryBgColor={selectedCategory.bgColor}
-          onClose={() => setSelectedSchool(null)}
+          onClose={handleCloseSchool}
         />
       )}
 

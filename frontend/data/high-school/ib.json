@@ -442,40 +442,40 @@
       "publicPrivate": "공립",
       "ibCertified": true,
       "ibCertifiedYear": 2021,
-      "ibProgramme": "DP (한국어·영어 이중언어)",
+      "ibProgramme": "DP (한국어 IB 교육프로그램 운영)",
       "specialCertification": "==대한민국 최초 학교 단위(Whole-School) IB DP 월드스쿨 인증== — 일반 공립고 전교생이 무상교육으로 IB DP 필수 이수하는 ==유일무이한 모델==. 폐교 위기에서 ==전교생 IB 도입으로 학교·지역 부활==한 상징적 사례.",
       "tuition": "==공립 고교 무상교육 — 수업료 면제==. IB DP 운영비도 교육청 지원으로 학생 부담 없음 (사교육 인프라 부재로 ==사실상 사교육비 0==). 일반 국제학교 IB 대비 [일반적] 연 3,000~5,000만원 절감 효과.",
       "dormitory": true,
       "dormitoryDetail": "기숙사 운영 — ==제주 본섬·도외 학생 수용==. 농어촌 특별전형 자격 유지를 위해 표선면 거주(주소 이전)도 병행 가능 [학교 공식 입학요강 확인].",
-      "annualAdmission": "학년당 약 50~80명 (소규모 농어촌고)",
-      "competitionRate": "[일반적] 1.39:1 (2025학년도 신입생 — PDF 인용). 전교생 IB 모델로 전국·도내 지원자 몰리며 매년 경쟁률 상승 추세.",
+      "annualAdmission": 150,
+      "competitionRate": "[일반적] 1.39:1 (2025학년도 신입생 — PDF 인용). 전교생 IB 모델로 도내 지원자 몰리며 매년 경쟁률 상승 추세.",
       "admissionProcess": [
         {
           "step": 1,
-          "title": "원서 접수 + 자기소개서",
-          "detail": "지원 동기·IB 적합성·자기주도 학습 의지 기술. 전국·도내 모집.",
+          "title": "원서 접수 (2025.12.11~12.15)",
+          "detail": "==도내 모집== — 제주특별자치도 소재 중학교 졸업(예정)자 + 도내 거주자. 단, 제주혁신도시 이전 기관 종사자 자녀·제주영어교육도시 국제학교 중학교 과정 이수자는 예외 지원 가능. (특례입학 별도: 12.1~12.5)",
           "icon": "📋"
         },
         {
           "step": 2,
-          "title": "면접 + 학습 의지 평가",
-          "detail": "영어 기초·논리적 사고·협업 경험·자기주도성 평가.",
-          "icon": "🎤"
+          "title": "내신성적 100% 선발",
+          "detail": "==면접·자기소개서 없음==. 중학교 학교생활기록부 ==내신성적 개인석차백분율 100%==로 전형 (모집정원의 100% 남녀 구분 없이 선발). 내신성적 산출 기준일: 2025.11.21.",
+          "icon": "📊"
         },
         {
           "step": 3,
-          "title": "합격 + 기숙사 배정",
-          "detail": "합격 후 기숙사 입주 또는 거주지 이전(농어촌 특별전형 자격 시).",
+          "title": "합격자 발표 (2025.12.19) + 등록",
+          "detail": "합격자 발표 12.19(금) 10:00, 등록 12.22~12.23. 동점자 사정: ①출결 ②봉사활동 ③교과 성적 순. 표선고는 ==한국어 IB 교육프로그램 운영 학교임을 명확히 인지하고 지원==.",
           "icon": "🏠"
         }
       ],
       "schoolInfoCard": {
-        "regionScope": "==전국 단위 지원 가능== (제주 도내·도외 모두) — 공립 일반고이지만 IB 운영 거점",
-        "capacity": "[일반적] 학년당 50~80명 (소규모 농어촌 공립)",
-        "genderRatio": "남녀공학",
+        "regionScope": "==도내 모집 (제주특별자치도 거주자 한정)== — 정원 내는 도내 중학교 졸업예정자 + 도내 거주자. 단, 제주혁신도시 이전 기관 종사자 자녀·제주영어교육도시 국제학교 중학교 과정 이수자는 예외 지원 가능",
+        "capacity": "==1학년 150명 (6학급 × 25명)== — 일반 147명 + 체육특기자 3명",
+        "genderRatio": "남녀공학 (모집정원 100% 남녀 구분 없이 선발)",
         "dormitoryType": "==기숙사 운영== — 제주 본섬·도외 학생 수용 [공식 홈페이지 확인]",
         "costPerYear": "==공립 무상교육 + IB 운영비 교육청 지원==. 기숙사비·식비·자료비 등 [일반적] 연 200~400만원 수준",
-        "scholarship": "농어촌 특별전형 자격 학생·저소득층 장학금 + 제주도 교육청 IB 운영 지원",
+        "scholarship": "농어촌 특별전형(==대입== 활용) 자격 학생·저소득층 장학금 + 제주도 교육청 IB 운영 지원",
         "lowIncomeAdvice": "==저소득층에게 가장 유리한 IB 모델==. 사교육 없이 공교육만으로 SKY·KAIST 진학이 가능한 유일한 학교."
       },
       "highlightStats": [
@@ -498,9 +498,9 @@
           "color": "#f59e0b"
         },
         {
-          "label": "농어촌 전형",
-          "value": "전국 모집",
-          "emoji": "🌾",
+          "label": "모집정원",
+          "value": "150명 (6학급)",
+          "emoji": "🎒",
           "color": "#a78bfa"
         }
       ],
@@ -508,8 +508,8 @@
         "==공립 무상교육 + IB 운영비 교육청 지원== — 사교육 거의 0",
         "==전국 최초 학교 단위 IB DP 월드스쿨== — 상징성·인지도 최상",
         "==1기·2기 SKY·KAIST 진학 실적 검증==",
-        "==농어촌 특별전형 + IB DP 학종 콤보==",
-        "==기숙사 운영== — 전국 어디서나 지원 가능",
+        "==농어촌 특별전형 + IB DP 학종 콤보== (대입 활용)",
+        "==기숙사 운영== — 제주 도내·본섬 거주자 수용",
         "==자기주도 학습 환경== — 학원 의존 없이 공교육 완결"
       ],
       "cons": [
@@ -517,18 +517,19 @@
         "==수능 상대평가와 충돌== — 정시 트랙 불리",
         "==사교육 인프라 부재== — 학원 도움 받기 어려움",
         "==명문고화로 모집단 상향== — 초기 가성비 점점 줄어드는 중",
-        "농어촌 특별전형 자격 확보 위해 거주지 이전 필요할 수도"
+        "==도내 모집 한정== — 타시도 거주자는 원칙적으로 지원 불가 (혁신도시·영어교육도시 예외)",
+        "농어촌 특별전형 자격(대입) 확보 위해 거주지 이전 필요할 수도"
       ],
       "description": "==전국 최초 학교 단위 IB DP 월드스쿨== 인증 공립 일반고. 폐교 위기였던 농어촌 학교가 ==전교생 IB DP 도입==으로 부활, 1기·2기 졸업생에서 ==서울대·연세대·고려대·KAIST·UNIST·DGIST 등 최상위권 진학==을 ==순수 공교육 + 무상교육==으로 증명. ==농어촌 특별전형 + IB DP의 압도적 학종 생기부== 조합이 표선고만의 무기.",
       "websiteUrl": "https://jjps.jje.hs.kr/",
       "factCheck": {
         "verificationStatus": "verified",
         "speculativeFields": [
-          "annualAdmission.정확수치",
-          "highlightStats.label/value 일부"
+          "competitionRate.2025수치",
+          "dormitoryDetail.본섬·도외 수용 범위"
         ],
-        "lastFactCheckedAt": "2026-05-22",
-        "factCheckerNote": "위치·공립·IB DP 인증·기숙사·응시료 지원·2026 경쟁률 0.95:1은 헤드라인제주·나무위키·학교 홈피로 교차확인. 연간 모집인원 정확 수치는 학교 입학요강 직접 확인 필요.",
+        "lastFactCheckedAt": "2026-05-26",
+        "factCheckerNote": "2026학년도 신입생 전형 실시 계획 PDF(2025.9.1.) 원문으로 모집정원 150명(6학급×25명, 일반 147명+체육특기자 3명), 도내 모집 단위, 내신 100% 전형, 한국어 IB 교육프로그램 운영 학교 등 핵심 사실 교차확인. 기존 데이터의 '학년당 50~80명', '전국 모집' 오류 정정.",
         "sources": [
           {
             "label": "헤드라인제주 — 표선고 전국 최초 학교단위 IB DP 운영",
@@ -549,6 +550,11 @@
             "label": "헤드라인제주 — 2026 표선고 IB 입시 경쟁률",
             "url": "https://www.headlinejeju.co.kr/news/articleView.html?idxno=560088",
             "accessedAt": "2026-05-22"
+          },
+          {
+            "label": "2026학년도 표선고등학교 신입생 전형 실시 계획 (학교 공식 발행)",
+            "url": "https://jjps.jje.hs.kr/",
+            "accessedAt": "2026-05-26"
           }
         ],
         "verifiedNote": "공식 홈페이지(pyoseon.school) 확인 + PDF 'The IB Education Blueprint' 출처 인용",
@@ -3313,5 +3319,74 @@
       "admissionTip": "대구서부고는 ==대구 도심·인근 통학 가능한 학생== 중심 모집. 자기소개서·면접에서 ==IB 적합성 + 자기주도성==을 강조. 도심 학원 의존 줄이고 자율학습 비중 확보가 핵심.",
       "studentLevel": "==대구 서구·인근 도심 모집단==. 통학 가능한 학생 중심. IB 적합성 + 자기주도성."
     }
-  ]
+  ],
+  "categoryAlumniInsight": {
+    "trackType": "학종 트랙 (국내+해외)",
+    "summary": "EE·TOK·CAS 등 IB 6대 평가 활동 자체가 학종 정성평가의 황금 소재 — 사교육 없이도 명문대 가능",
+    "studentRecordPrograms": [
+      {
+        "name": "EE (Extended Essay)",
+        "emoji": "📝",
+        "description": "관심 분야 4,000단어 독립 연구 논문 (18개월)",
+        "admissionImpact": "==학종 생기부 압도적 정성평가== + 미·영 명문대 PS 최강"
+      },
+      {
+        "name": "TOK (Theory of Knowledge)",
+        "emoji": "🤔",
+        "description": "지식의 본질 탐구 — 철학적 비판 사고",
+        "admissionImpact": "서울대 자유전공·연세대 언더우드 학종 차별화"
+      },
+      {
+        "name": "CAS (Creativity·Activity·Service)",
+        "emoji": "🤝",
+        "description": "창의·운동·봉사 150시간 + 프로젝트",
+        "admissionImpact": "전인적 인성·리더십 입증 — 학종 비교과 완성"
+      },
+      {
+        "name": "IA (Internal Assessment)",
+        "emoji": "🔬",
+        "description": "6개 과목별 자기주도 탐구 과제",
+        "admissionImpact": "교과별 심화 탐구 — 진로 연계 학종 강력"
+      }
+    ],
+    "admissionPattern": {
+      "domestic": [
+        "서울대·연세대·고려대 (==수능 최저 X 학종==)",
+        "KAIST·UNIST·DGIST 이공계 학종",
+        "해외고 전형으로 별도 트랙"
+      ],
+      "overseas": [
+        "미국 아이비리그 (IB 38+ 권장)",
+        "영국 옥브리지·LSE (IB 40+)",
+        "캐나다 UBC·Toronto·McGill"
+      ],
+      "averageRate": "표선고 1·2기: 졸업생의 ~40%가 서·연·고·KAIST·UNIST 진학"
+    },
+    "alumniSocialRole": [
+      {
+        "role": "글로벌 연구자·교수",
+        "emoji": "🎓",
+        "description": "MIT·Stanford·Oxford 박사 후 학계",
+        "salary": "연 8,000만~2억 (해외 교수)"
+      },
+      {
+        "role": "국제 변호사·로펌",
+        "emoji": "⚖️",
+        "description": "Kim&Chang, Skadden 등 국제 로펌",
+        "salary": "연 1억~3억 (파트너급)"
+      },
+      {
+        "role": "해외 연구소·테크",
+        "emoji": "🔬",
+        "description": "Google Research, OpenAI, DeepMind 연구원",
+        "salary": "연 1.5억~3억"
+      },
+      {
+        "role": "IB 교사·교육 컨설턴트",
+        "emoji": "📚",
+        "description": "IB 인증 교사 양성, 국제 학교 교사",
+        "salary": "연 5,000만~1억"
+      }
+    ]
+  }
 }

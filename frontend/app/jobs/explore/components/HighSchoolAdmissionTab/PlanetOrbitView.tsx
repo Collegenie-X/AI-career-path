@@ -59,9 +59,10 @@ export function PlanetOrbitView({ categories, onSelectCategory, selectedCategory
     const deg = Number.isFinite(angleDeg) ? angleDeg : 0;
     const rad = (deg * Math.PI) / 180;
     const orbitR = (category.planet?.orbitRadius ?? 100) * 0.75;
+    // 정수 픽셀로 고정 — SSR/CSR 직렬화 차이로 인한 hydration mismatch 방지
     return {
-      x: CENTER_X + orbitR * Math.cos(rad),
-      y: CENTER_Y + orbitR * Math.sin(rad),
+      x: Math.round(CENTER_X + orbitR * Math.cos(rad)),
+      y: Math.round(CENTER_Y + orbitR * Math.sin(rad)),
     };
   };
 

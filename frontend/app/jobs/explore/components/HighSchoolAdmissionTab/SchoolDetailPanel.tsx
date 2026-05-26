@@ -4,12 +4,13 @@ import { useState } from 'react';
 import {
   X, Star, MapPin, Users, BookOpen, Lightbulb, TrendingUp,
   CheckCircle, XCircle, Clock, Heart, MessageCircle, Calendar,
-  Zap, Shield, Coffee, Target, Maximize2,
+  Zap, Shield, Coffee, Target, Maximize2, Share2, Check,
 } from 'lucide-react';
 import type { HighSchoolDetail } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
 import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
 import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
+import { copyCurrentUrl } from '../../utils/useExploreUrlState';
 
 /** ==text==는 형광펜, 약자(IB·EE·CAS·HL·TOK·AP·SAT·SKY 등)는 말풍선 툴팁 */
 function HL({ text }: { text: string }) {
@@ -38,6 +39,15 @@ const DETAIL_TABS: { id: DetailTabId; label: string; emoji: string }[] = [
  */
 export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose, onOpenDetailDialog, variant = 'panel' }: SchoolDetailPanelProps) {
   const [activeTab, setActiveTab] = useState<DetailTabId>('intro');
+  const [shareCopied, setShareCopied] = useState(false);
+
+  const handleShare = async () => {
+    const ok = await copyCurrentUrl();
+    if (ok) {
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2000);
+    }
+  };
 
   return (
     <div
@@ -109,11 +119,30 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
                 <span className="text-[12px] text-gray-400">입학 난이도</span>
                 <span className="text-[12px] text-gray-600">|</span>
                 <Users className="w-3 h-3 text-gray-400" />
-                <span className="text-[12px] text-gray-400">연 {school.annualAdmission}명</span>
+                <span className="text-[12px] text-gray-400">
+                  <HL text={`==연 ${school.annualAdmission}명==`} />
+                </span>
               </div>
             </div>
           </div>
           <div className="flex items-center gap-1.5 flex-shrink-0 relative z-10">
+            <button
+              type="button"
+              onClick={handleShare}
+              className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+              style={{
+                background: shareCopied ? 'rgba(16,185,129,0.25)' : `${categoryColor}25`,
+                border: `1px solid ${shareCopied ? 'rgba(16,185,129,0.55)' : `${categoryColor}55`}`,
+              }}
+              title={shareCopied ? '링크가 복사되었어요' : '학교 링크 복사'}
+              aria-label={shareCopied ? '링크 복사 완료' : '학교 링크 공유'}
+            >
+              {shareCopied ? (
+                <Check className="w-3.5 h-3.5" style={{ color: '#10b981' }} />
+              ) : (
+                <Share2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
+              )}
+            </button>
             {onOpenDetailDialog && (
               <button
                 type="button"
@@ -172,8 +201,9 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
       >
         {activeTab === 'intro' && (
           <>
-            <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+            <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} section="priority" />
             <AdmissionTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
+            <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} section="extra" />
           </>
         )}
         {activeTab === 'roadmap' && (
@@ -196,55 +226,219 @@ function OverviewTab({
   school,
   categoryColor,
   categoryBgColor,
+  section = 'priority',
 }: {
   school: HighSchoolDetail;
   categoryColor: string;
   categoryBgColor: string;
+  section?: 'priority' | 'extra';
 }) {
   const infoCard = school.schoolInfoCard;
   const qualifications = school.admissionQualifications;
 
-  return (
-    <div className="px-5 py-4 space-y-3">
+  if (section === 'priority') {
+    return (
+      <div className="px-5 py-4 space-y-3">
 
-      {/* ── 학교 소개 ── */}
-      <div
-        className="rounded-2xl p-4"
-        style={{
-          background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.3) 100%)`,
-          border: `1px solid ${categoryColor}30`,
-        }}
-      >
-        <div className="flex items-center justify-between mb-2">
-          <p className="text-xs font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
-            🏫 학교 소개
+        {/* ── 1. 학교 소개 ── */}
+        <div
+          className="rounded-2xl p-4"
+          style={{
+            background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.3) 100%)`,
+            border: `1px solid ${categoryColor}30`,
+          }}
+        >
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs font-bold uppercase tracking-wider" style={{ color: categoryColor }}>
+              🏫 학교 소개
+            </p>
+            {(school.middleSchoolGuide?.homepageUrl || school.websiteUrl) && (
+              <a
+                href={school.middleSchoolGuide?.homepageUrl || school.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold transition-all hover:opacity-80 active:scale-95"
+                style={{
+                  background: `${categoryColor}25`,
+                  color: categoryColor,
+                  border: `1px solid ${categoryColor}50`,
+                }}
+              >
+                🌐 홈페이지
+              </a>
+            )}
+          </div>
+          <p className="text-sm text-gray-200 leading-relaxed">
+            <HL text={school.description || school.specialCertification || '학교 소개 정보가 준비 중입니다.'} />
           </p>
-          {(school.middleSchoolGuide?.homepageUrl || school.websiteUrl) && (
-            <a
-              href={school.middleSchoolGuide?.homepageUrl || school.websiteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold transition-all hover:opacity-80 active:scale-95"
-              style={{
-                background: `${categoryColor}25`,
-                color: categoryColor,
-                border: `1px solid ${categoryColor}50`,
-              }}
-            >
-              🌐 홈페이지
-            </a>
+          {school.middleSchoolGuide && (
+            <p className="mt-2 pt-2 text-sm text-white leading-relaxed border-t" style={{ borderColor: `${categoryColor}30` }}>
+              <span className="font-semibold" style={{ color: categoryColor }}>📖 한 줄 요약 · </span>
+              <HL text={school.middleSchoolGuide.oneLineAbout} />
+            </p>
           )}
         </div>
-        <p className="text-sm text-gray-200 leading-relaxed">
-          <HL text={school.description || school.specialCertification || '학교 소개 정보가 준비 중입니다.'} />
-        </p>
-        {school.middleSchoolGuide && (
-          <p className="mt-2 pt-2 text-sm text-white leading-relaxed border-t" style={{ borderColor: `${categoryColor}30` }}>
-            <span className="font-semibold" style={{ color: categoryColor }}>📖 한 줄 요약 · </span>
-            <HL text={school.middleSchoolGuide.oneLineAbout} />
-          </p>
+
+        {/* ── 2. 학교 기본 정보 그리드 ── */}
+        {infoCard && (
+          <div
+            className="rounded-2xl p-3"
+            style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}25` }}
+          >
+            <p className="text-xs font-bold mb-3 flex items-center gap-1.5" style={{ color: categoryColor }}>
+              <Users className="w-3.5 h-3.5" />
+              학교 기본 정보
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              <div
+                className="rounded-xl p-2.5"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.regionScope} /></p>
+              </div>
+              <div
+                className="rounded-xl p-2.5"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.capacity} /></p>
+              </div>
+              <div
+                className="rounded-xl p-2.5"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <p className="text-xs text-gray-500 mb-0.5">⚖️ 남녀 비율</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.genderRatio} /></p>
+              </div>
+              <div
+                className="rounded-xl p-2.5"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.dormitoryType} /></p>
+              </div>
+              <div
+                className="rounded-xl p-2.5 col-span-2"
+                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              >
+                <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.costPerYear} /></p>
+              </div>
+              <div
+                className="rounded-xl p-2.5 col-span-2"
+                style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
+              >
+                <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
+                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.scholarship} /></p>
+              </div>
+            </div>
+            {infoCard.lowIncomeAdvice && (
+              <div
+                className="mt-2 p-2.5 rounded-xl"
+                style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
+              >
+                <p className="text-xs font-bold text-yellow-400 mb-0.5">💡 소득 하위 가정 조언</p>
+                <p className="text-sm text-gray-200 leading-relaxed"><HL text={infoCard.lowIncomeAdvice} /></p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── 3. 대표 프로그램 ── */}
+        {school.famousPrograms && school.famousPrograms.length > 0 && (
+          <div
+            className="rounded-2xl p-3"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            <p className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5">
+              <Lightbulb className="w-3.5 h-3.5" />
+              대표 프로그램
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {school.famousPrograms.map((prog, i) => (
+                <span
+                  key={i}
+                  className="text-xs px-2 py-1 rounded-full font-semibold"
+                  style={{ background: `${categoryColor}20`, color: categoryColor }}
+                >
+                  {prog}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* ── 4. 입학 자격 요약 ── */}
+        {qualifications && (
+          <div
+            className="rounded-2xl p-3"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            <p className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5">
+              <CheckCircle className="w-3.5 h-3.5" />
+              입학 자격 요약
+            </p>
+            <div className="mb-2">
+              <p className="text-xs font-bold text-red-400 mb-1">✅ 필수 조건 (없으면 불합격)</p>
+              <ul className="space-y-1">
+                {qualifications.mandatory.map((item, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-sm text-gray-200 leading-snug">
+                    <span className="text-red-400 flex-shrink-0 mt-0.5">▸</span>
+                    <span><HL text={item} /></span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {qualifications.recommended && qualifications.recommended.length > 0 && (
+              <div className="mb-2">
+                <p className="text-xs font-bold text-blue-400 mb-1">⭐ 우대 조건 (있으면 유리)</p>
+                <ul className="space-y-1">
+                  {qualifications.recommended.map((item, i) => (
+                    <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300 leading-snug">
+                      <span className="text-blue-400 flex-shrink-0 mt-0.5">▸</span>
+                      <span><HL text={item} /></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            <div className="flex flex-wrap gap-2 mt-2">
+              {qualifications.interviewFormat && (
+                <span
+                  className="text-xs px-2 py-1 rounded-full font-semibold"
+                  style={{ background: 'rgba(255,255,255,0.08)', color: '#d1d5db' }}
+                >
+                  🎤 {qualifications.interviewFormat}
+                </span>
+              )}
+              {qualifications.competitionRate && (
+                <span
+                  className="text-xs px-2 py-1 rounded-full font-semibold"
+                  style={{ background: `${categoryColor}20`, color: categoryColor }}
+                >
+                  🏆 경쟁률 {qualifications.competitionRate}
+                </span>
+              )}
+            </div>
+            {qualifications.aiTip && (
+              <div
+                className="mt-2 p-2.5 rounded-xl"
+                style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)' }}
+              >
+                <p className="text-xs font-bold text-purple-400 mb-0.5">🤖 AI 세특 전형 팁</p>
+                <p className="text-sm text-gray-200 leading-relaxed"><HL text={qualifications.aiTip} /></p>
+              </div>
+            )}
+          </div>
         )}
       </div>
+    );
+  }
+
+  // section === 'extra' : 세부 정보 (입학 전형 이후에 표시)
+  return (
+    <div className="px-5 py-4 space-y-3">
 
       {/* ── 중학생을 위한 고입 가이드 (2028 + AI) ── */}
       {school.middleSchoolGuide && (
@@ -368,147 +562,6 @@ function OverviewTab({
         </div>
       )}
 
-      {/* ── 학교 기본 정보 그리드 ── */}
-      {infoCard && (
-        <div
-          className="rounded-2xl p-3"
-          style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}25` }}
-        >
-          <p className="text-xs font-bold mb-3 flex items-center gap-1.5" style={{ color: categoryColor }}>
-            <Users className="w-3.5 h-3.5" />
-            학교 기본 정보
-          </p>
-          <div className="grid grid-cols-2 gap-2">
-            {/* 선발 범위 */}
-            <div
-              className="rounded-xl p-2.5"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.regionScope} /></p>
-            </div>
-            {/* 정원 */}
-            <div
-              className="rounded-xl p-2.5"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.capacity} /></p>
-            </div>
-            {/* 남녀 비율 */}
-            <div
-              className="rounded-xl p-2.5"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <p className="text-xs text-gray-500 mb-0.5">⚖️ 남녀 비율</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.genderRatio} /></p>
-            </div>
-            {/* 기숙사 */}
-            <div
-              className="rounded-xl p-2.5"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.dormitoryType} /></p>
-            </div>
-            {/* 연간 비용 */}
-            <div
-              className="rounded-xl p-2.5 col-span-2"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-            >
-              <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.costPerYear} /></p>
-            </div>
-            {/* 장학금 */}
-            <div
-              className="rounded-xl p-2.5 col-span-2"
-              style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
-            >
-              <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
-              <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.scholarship} /></p>
-            </div>
-          </div>
-          {/* 저소득 가정 조언 */}
-          {infoCard.lowIncomeAdvice && (
-            <div
-              className="mt-2 p-2.5 rounded-xl"
-              style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
-            >
-              <p className="text-xs font-bold text-yellow-400 mb-0.5">💡 소득 하위 가정 조언</p>
-              <p className="text-sm text-gray-200 leading-relaxed"><HL text={infoCard.lowIncomeAdvice} /></p>
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* ── 입학 자격 요약 ── */}
-      {qualifications && (
-        <div
-          className="rounded-2xl p-3"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          <p className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5">
-            <CheckCircle className="w-3.5 h-3.5" />
-            입학 자격 요약
-          </p>
-          {/* 필수 조건 */}
-          <div className="mb-2">
-            <p className="text-xs font-bold text-red-400 mb-1">✅ 필수 조건 (없으면 불합격)</p>
-            <ul className="space-y-1">
-              {qualifications.mandatory.map((item, i) => (
-                <li key={i} className="flex items-start gap-1.5 text-sm text-gray-200 leading-snug">
-                  <span className="text-red-400 flex-shrink-0 mt-0.5">▸</span>
-                  <span><HL text={item} /></span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* 우대 조건 */}
-          {qualifications.recommended && qualifications.recommended.length > 0 && (
-            <div className="mb-2">
-              <p className="text-xs font-bold text-blue-400 mb-1">⭐ 우대 조건 (있으면 유리)</p>
-              <ul className="space-y-1">
-                {qualifications.recommended.map((item, i) => (
-                  <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300 leading-snug">
-                    <span className="text-blue-400 flex-shrink-0 mt-0.5">▸</span>
-                    <span><HL text={item} /></span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {/* 면접 형식 + 경쟁률 */}
-          <div className="flex flex-wrap gap-2 mt-2">
-            {qualifications.interviewFormat && (
-              <span
-                className="text-xs px-2 py-1 rounded-full font-semibold"
-                style={{ background: 'rgba(255,255,255,0.08)', color: '#d1d5db' }}
-              >
-                🎤 {qualifications.interviewFormat}
-              </span>
-            )}
-            {qualifications.competitionRate && (
-              <span
-                className="text-xs px-2 py-1 rounded-full font-semibold"
-                style={{ background: `${categoryColor}20`, color: categoryColor }}
-              >
-                🏆 경쟁률 {qualifications.competitionRate}
-              </span>
-            )}
-          </div>
-          {/* AI 전형 팁 */}
-          {qualifications.aiTip && (
-            <div
-              className="mt-2 p-2.5 rounded-xl"
-              style={{ background: 'rgba(139,92,246,0.1)', border: '1px solid rgba(139,92,246,0.3)' }}
-            >
-              <p className="text-xs font-bold text-purple-400 mb-0.5">🤖 AI 세특 전형 팁</p>
-              <p className="text-sm text-gray-200 leading-relaxed"><HL text={qualifications.aiTip} /></p>
-            </div>
-          )}
-        </div>
-      )}
-
       {/* ── 교육 방식 ── */}
       {school.teachingMethod && (
         <InfoBlock
@@ -527,30 +580,6 @@ function OverviewTab({
           content={school.studyStyleDetail}
           color={categoryColor}
         />
-      )}
-
-      {/* ── 대표 프로그램 ── */}
-      {school.famousPrograms && school.famousPrograms.length > 0 && (
-        <div
-          className="rounded-2xl p-3"
-          style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
-        >
-          <p className="text-xs font-bold text-gray-400 mb-2 flex items-center gap-1.5">
-            <Lightbulb className="w-3.5 h-3.5" />
-            대표 프로그램
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {school.famousPrograms.map((prog, i) => (
-              <span
-                key={i}
-                className="text-xs px-2 py-1 rounded-full font-semibold"
-                style={{ background: `${categoryColor}20`, color: categoryColor }}
-              >
-                {prog}
-              </span>
-            ))}
-          </div>
-        </div>
       )}
 
       {/* ── 미래 전망 ── */}
