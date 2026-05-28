@@ -593,6 +593,15 @@ body::before {
   }
 }
 
+/* ── Twemoji (Twitter 이모티콘) ── */
+img.twemoji {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  margin: 0 0.05em;
+}
+
 /* ── About 페이지 게임스러운 애니메이션 ── */
 @keyframes fadeInUp {
   from {

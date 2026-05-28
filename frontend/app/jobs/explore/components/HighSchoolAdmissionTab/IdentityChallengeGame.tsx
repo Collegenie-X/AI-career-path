@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { ChevronLeft, Sparkles, ChevronRight } from 'lucide-react';
 import type { HighSchoolCategory, IdentityChallengeData, IdentityChallengeChoice } from '../../types';
 import { QuizProgressBar, QuizChoiceButton, QuizFeedbackSheet } from '../shared';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 // 테마별 강조색 — 15개 영역을 시각적으로 구분
 const THEME_COLORS: Record<string, string> = {
@@ -230,7 +231,7 @@ export function IdentityChallengeGame({
                   <p className="text-base font-bold text-white">{cat.name}</p>
                 </div>
               </div>
-              <p className="text-[14px] text-gray-300 leading-relaxed mb-3">{cat.description}</p>
+              <p className="text-[14px] text-gray-300 leading-relaxed mb-3"><GlossaryText>{cat.description}</GlossaryText></p>
               <button
                 onClick={() => onSelectCategory(cat)}
                 className="w-full py-2.5 rounded-xl text-[14px] font-medium flex items-center justify-center gap-2"
