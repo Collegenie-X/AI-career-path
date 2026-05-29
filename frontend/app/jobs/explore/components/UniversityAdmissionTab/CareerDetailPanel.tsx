@@ -53,6 +53,11 @@ export type CareerMajorCareer = {
       competition: string;
       keyRequirements: string[];
     }>;
+    requiredSubjects?: {
+      core: string[];
+      recommended?: string[];
+      note?: string;
+    };
   }>;
   monthlyPreparation?: Array<{
     period: string;
@@ -559,6 +564,56 @@ export function CareerDetailPanel({ career, onClose, variant = 'inline', onOpenD
 
                           {isOpen && (
                             <div className="p-3 space-y-2" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                              {univDetail.requiredSubjects && (
+                                <div
+                                  className="rounded-lg p-2.5"
+                                  style={{
+                                    background: 'rgba(16,185,129,0.1)',
+                                    border: '1px solid rgba(16,185,129,0.3)',
+                                  }}
+                                >
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <BookOpen className="w-3.5 h-3.5 text-emerald-300" />
+                                    <p className="text-xs font-bold text-emerald-200">필수 이수 과목</p>
+                                  </div>
+                                  <div className="space-y-2">
+                                    <div>
+                                      <p className="text-xs text-white/60 font-semibold mb-1">핵심 과목</p>
+                                      <div className="flex flex-wrap gap-1.5">
+                                        {univDetail.requiredSubjects.core.map((subject, sIdx) => (
+                                          <span
+                                            key={sIdx}
+                                            className="text-xs px-2 py-0.5 rounded-full bg-emerald-400/20 text-emerald-100 border border-emerald-400/30"
+                                          >
+                                            {subject}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    </div>
+                                    {univDetail.requiredSubjects.recommended &&
+                                      univDetail.requiredSubjects.recommended.length > 0 && (
+                                        <div>
+                                          <p className="text-xs text-white/60 font-semibold mb-1">권장 과목</p>
+                                          <div className="flex flex-wrap gap-1.5">
+                                            {univDetail.requiredSubjects.recommended.map((subject, sIdx) => (
+                                              <span
+                                                key={sIdx}
+                                                className="text-xs px-2 py-0.5 rounded-full bg-teal-400/15 text-teal-100 border border-teal-400/25"
+                                              >
+                                                {subject}
+                                              </span>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      )}
+                                    {univDetail.requiredSubjects.note && (
+                                      <p className="text-[11px] text-emerald-200/70 italic mt-1">
+                                        {univDetail.requiredSubjects.note}
+                                      </p>
+                                    )}
+                                  </div>
+                                </div>
+                              )}
                               {univDetail.admissionTypes.map((admType, idx) => (
                                 <div
                                   key={idx}

@@ -72,6 +72,7 @@ export function GoalTemplateSelector({
   const [confirmingGoal, setConfirmingGoal] = useState<string | null>(null);
   const [editingIdx, setEditingIdx] = useState<number | null>(null);
   const [editLabel, setEditLabel] = useState<string>('');
+  const [customInput, setCustomInput] = useState<string>('');
 
   const startEdit = (idx: number, label: string) => {
     setEditingIdx(idx);
@@ -206,6 +207,41 @@ export function GoalTemplateSelector({
                 exit={{ opacity: 0, x: -20 }}
                 className="pt-4 space-y-4"
               >
+                {/* 직접 입력 — 카테고리 위 최상단 */}
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <Pencil className="w-4 h-4" style={{ color }} />
+                    <span className="text-xs font-bold text-gray-400">직접 입력</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="text"
+                      value={customInput}
+                      onChange={(e) => setCustomInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' && customInput.trim() && !confirmingGoal) {
+                          handleSelectGoal(customInput.trim());
+                        }
+                      }}
+                      disabled={!!confirmingGoal}
+                      placeholder="목표를 내 말로 적어보세요"
+                      maxLength={60}
+                      className="flex-1 min-w-0 px-3 py-2.5 rounded-xl text-sm text-white placeholder-gray-500 outline-none"
+                      style={{ backgroundColor: 'rgba(0,0,0,0.35)', border: `1px solid ${color}55` }}
+                    />
+                    <button
+                      type="button"
+                      disabled={!customInput.trim() || !!confirmingGoal}
+                      onClick={() => { if (customInput.trim()) handleSelectGoal(customInput.trim()); }}
+                      className="flex-shrink-0 flex items-center gap-1 px-3 py-2.5 rounded-xl text-xs font-bold disabled:opacity-40"
+                      style={{ backgroundColor: color, color: '#0b0820', boxShadow: `0 0 12px ${color}55` }}
+                    >
+                      <Check className="w-3.5 h-3.5" strokeWidth={3} />
+                      추가
+                    </button>
+                  </div>
+                </div>
+
                 {/* 이전 선택된 목표 — 카테고리 목록 상단 */}
                 {currentLinkedGoal && (
                   <div className="space-y-2">

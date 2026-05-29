@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useRef, type CSSProperties } from 'react';
+import { useState, useRef, useMemo, type CSSProperties } from 'react';
 import {
   X, ChevronRight, ChevronLeft, Check, Plus, Trash2,
   Wand2, Pencil, Target, Lightbulb, Sparkles,
   Calendar, ArrowRight,
   CheckCircle2, ChevronDown, ChevronUp, Flame,
-  FileText, DollarSign, Building2
+  FileText, DollarSign, Building2, Search, ArrowLeft
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ITEM_TYPES, GRADE_YEARS, SEMESTER_OPTIONS, CAREER_PATH_BUILDER_DIALOG, GOAL_TEMPLATE_SELECTOR_DIALOG, LABELS } from '../config';
@@ -14,6 +14,7 @@ import { CAREER_PATH_NESTED_OVERLAY_Z_INDEX } from './expandable-detail/careerPa
 import { CareerPathBuilderDawnSky } from './CareerPathBuilderDawnSky';
 import type { ShareType, ShareChannel } from './community/types';
 import careerMaker from '@/data/career-maker.json';
+import { loadKingdomJobsByKingdomId, type JobData } from '@/lib/data/loadAllKingdomJobs';
 import portfolioItems from '@/data/portfolio-items.json';
 import goalRecommendedItems from '@/data/goal-recommended-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
@@ -22,6 +23,9 @@ import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActiv
 
 /* ─── Types ─── */
 export type ItemType = 'activity' | 'award' | 'portfolio' | 'certification';
+
+/** 빌더에서 다루는 직업 표시용 최소 형태 (전체 카탈로그·대표 직업 공통) */
+type BuilderJob = { id: string; name: string; icon: string; description: string };
 
 /** 학기 옵션: both=통합, first=1학기, second=2학기, split=분리, ''=미선택 */
 export type SemesterOption = 'both' | 'first' | 'second' | 'split' | '';
@@ -120,10 +124,10 @@ type Props = {
 
 /* ─── Step config ─── */
 const STEPS = [
-  { id: 1, title: '왕국 선택',   emoji: '🌟' },
-  { id: 2, title: '직업 선택',   emoji: '🎯' },
-  { id: 3, title: '계획 세우기', emoji: '📋' },
-  { id: 4, title: '완성!',       emoji: '🎉' },
+  { id: 1, title: '왕국',  emoji: '🌟' },
+  { id: 2, title: '직업',  emoji: '🎯' },
+  { id: 3, title: '여정',  emoji: '🗺️' },
+  { id: 4, title: '완성',  emoji: '🏆' },
 ] as const;
 
 /* ─── Tip box ─── */
@@ -139,14 +143,64 @@ function TipBox({ text }: { text: string }) {
   );
 }
 
-/* ─── Step dots ─── */
-function StepDots({ current, total, color }: { current: number; total: number; color: string }) {
+/* ─── Quest journey track (stage map) ─── */
+function QuestTrack({ current, color }: { current: number; color: string }) {
   return (
-    <div className="flex items-center gap-1.5">
-      {Array.from({ length: total }, (_, i) => (
-        <div key={i} className="rounded-full transition-all duration-300"
-          style={{ width: i + 1 === current ? 20 : 7, height: 7, backgroundColor: i + 1 <= current ? color : 'rgba(255,255,255,0.15)' }} />
-      ))}
+    <div className="flex items-end justify-center">
+      {STEPS.map((s, i) => {
+        const stepNum = i + 1;
+        const done = stepNum < current;
+        const active = stepNum === current;
+        return (
+          <div key={s.id} className="flex items-end">
+            <div className="flex flex-col items-center gap-1" style={{ width: 50 }}>
+              <motion.div
+                className="rounded-full flex items-center justify-center flex-shrink-0"
+                animate={{ scale: active ? 1.12 : 1 }}
+                transition={{ type: 'spring', stiffness: 420, damping: 18 }}
+                style={{
+                  width: 28, height: 28, fontSize: 13, lineHeight: 1,
+                  background: done || active ? `linear-gradient(135deg, ${color}, ${color}bb)` : 'rgba(255,255,255,0.07)',
+                  border: active ? '2px solid #fff' : done ? `1.5px solid ${color}` : '1.5px solid rgba(255,255,255,0.14)',
+                  boxShadow: active ? `0 0 14px ${color}aa, 0 0 28px ${color}55` : 'none',
+                }}
+              >
+                {done ? <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} /> : <span>{s.emoji}</span>}
+              </motion.div>
+              <span
+                className="text-[10px] font-bold leading-none whitespace-nowrap transition-colors"
+                style={{ color: active ? '#fff' : done ? `${color}dd` : 'rgba(255,255,255,0.32)' }}
+              >
+                {s.title}
+              </span>
+            </div>
+            {i < STEPS.length - 1 && (
+              <div
+                className="rounded-full mb-[18px] transition-colors duration-300"
+                style={{ width: 16, height: 3, background: done ? color : 'rgba(255,255,255,0.14)' }}
+              />
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ─── Journey path connector (between quest stations) ─── */
+function JourneyConnector({ color, filled }: { color: string; filled?: boolean }) {
+  return (
+    <div className="relative h-3.5" aria-hidden>
+      <div
+        className="absolute top-0 rounded-full"
+        style={{
+          left: 37,
+          width: 2,
+          height: '100%',
+          background: filled ? `linear-gradient(${color}, ${color}aa)` : 'rgba(255,255,255,0.12)',
+          boxShadow: filled ? `0 0 8px ${color}55` : 'none',
+        }}
+      />
     </div>
   );
 }
@@ -330,8 +384,23 @@ function Step1Kingdom({ selectedId, onSelect }: { selectedId: string; onSelect: 
    STEP 2 — Job
 ══════════════════════════════════════════ */
 function Step2Job({ kingdom, selectedJobId, onSelect }: { kingdom: typeof careerMaker.kingdoms[0]; selectedJobId: string; onSelect: (id: string) => void }) {
+  const [query, setQuery] = useState('');
+
+  const allJobs = useMemo<JobData[]>(() => loadKingdomJobsByKingdomId(kingdom.id), [kingdom.id]);
+  const repIds = useMemo(() => new Set(kingdom.representativeJobs.map(j => j.id)), [kingdom]);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return allJobs;
+    return allJobs.filter(j =>
+      j.name.toLowerCase().includes(q) ||
+      (j.shortDescription ?? '').toLowerCase().includes(q) ||
+      (j.description ?? '').toLowerCase().includes(q)
+    );
+  }, [allJobs, query]);
+
   return (
-    <div className="space-y-5">
+    <div className="space-y-4">
       <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl"
         style={{ background: `linear-gradient(135deg, ${kingdom.color}22, ${kingdom.color}08)`, border: `1px solid ${kingdom.color}33` }}>
         <span className="text-xl">{kingdom.emoji}</span>
@@ -340,28 +409,62 @@ function Step2Job({ kingdom, selectedJobId, onSelect }: { kingdom: typeof career
           <div className="text-xs text-gray-400">{kingdom.description}</div>
         </div>
       </div>
-      <TipBox text={`${kingdom.name}의 대표 직업이에요. 가장 흥미로운 직업을 하나 선택하세요!`} />
+
+      <div className="relative">
+        <Search className="w-4 h-4 text-gray-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+        <input
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          placeholder={`${kingdom.name} 직업 ${allJobs.length}개 검색`}
+          className="w-full h-11 pl-10 pr-3 rounded-xl text-sm text-white placeholder:text-gray-500 outline-none transition-colors"
+          style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1.5px solid rgba(255,255,255,0.1)' }}
+        />
+      </div>
+
+      <div className="flex items-center justify-between px-1">
+        <span className="text-xs text-gray-500">{filtered.length}개 직업 · 마음에 드는 직업을 하나 골라보세요</span>
+        <span className="text-[11px] font-bold flex items-center gap-1" style={{ color: `${kingdom.color}cc` }}>
+          <Sparkles className="w-3 h-3" /> 추천
+        </span>
+      </div>
+
       <div className="space-y-2.5">
-        {kingdom.representativeJobs.map(job => (
-          <button key={job.id} onClick={() => onSelect(job.id)}
-            className="w-full flex items-center gap-3.5 p-4 rounded-2xl text-left transition-all duration-200 active:scale-[0.99]"
-            style={selectedJobId === job.id
-              ? { background: `linear-gradient(135deg, ${kingdom.color}25, ${kingdom.color}10)`, border: `2px solid ${kingdom.color}` }
-              : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1.5px solid rgba(255,255,255,0.08)' }}>
-            <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-              style={{ background: selectedJobId === job.id ? `linear-gradient(135deg, ${kingdom.color}33, ${kingdom.color}18)` : 'rgba(255,255,255,0.06)' }}>
-              {job.icon}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="font-bold text-base" style={{ color: selectedJobId === job.id ? kingdom.color : 'white' }}>{job.name}</div>
-              <div className="text-xs text-gray-400 mt-0.5 line-clamp-2 leading-relaxed">{job.description}</div>
-            </div>
-            <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
-              style={selectedJobId === job.id ? { backgroundColor: kingdom.color } : { border: '1.5px solid rgba(255,255,255,0.15)' }}>
-              {selectedJobId === job.id ? <Check className="w-4 h-4 text-white" /> : <ChevronRight className="w-3.5 h-3.5 text-gray-500" />}
-            </div>
-          </button>
-        ))}
+        {filtered.map(job => {
+          const selected = selectedJobId === job.id;
+          return (
+            <button key={job.id} onClick={() => onSelect(job.id)}
+              className="w-full flex items-center gap-3.5 p-3.5 rounded-2xl text-left transition-all duration-200 active:scale-[0.99]"
+              style={selected
+                ? { background: `linear-gradient(135deg, ${kingdom.color}25, ${kingdom.color}10)`, border: `2px solid ${kingdom.color}` }
+                : { backgroundColor: 'rgba(255,255,255,0.04)', border: '1.5px solid rgba(255,255,255,0.08)' }}>
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+                style={{ background: selected ? `linear-gradient(135deg, ${kingdom.color}33, ${kingdom.color}18)` : 'rgba(255,255,255,0.06)' }}>
+                {job.icon}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-base truncate" style={{ color: selected ? kingdom.color : 'white' }}>{job.name}</span>
+                  {repIds.has(job.id) && (
+                    <span className="flex items-center gap-0.5 px-1.5 py-0.5 rounded-md text-[10px] font-bold flex-shrink-0"
+                      style={{ backgroundColor: `${kingdom.color}22`, color: `${kingdom.color}dd` }}>
+                      <Sparkles className="w-2.5 h-2.5" /> 추천
+                    </span>
+                  )}
+                </div>
+                <div className="text-xs text-gray-400 mt-0.5 line-clamp-2 leading-relaxed">{job.shortDescription || job.description}</div>
+              </div>
+              <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0"
+                style={selected ? { backgroundColor: kingdom.color } : { border: '1.5px solid rgba(255,255,255,0.15)' }}>
+                {selected ? <Check className="w-4 h-4 text-white" /> : <ChevronRight className="w-3.5 h-3.5 text-gray-500" />}
+              </div>
+            </button>
+          );
+        })}
+        {filtered.length === 0 && (
+          <div className="text-center text-sm text-gray-500 py-8">
+            ‘{query}’에 맞는 직업이 없어요. 다른 검색어를 입력해 보세요.
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1371,14 +1474,317 @@ function EditItemSheet({
 }
 
 /* ══════════════════════════════════════════
-   ActivityItemCard — 세부활동 하나 + 하위활동 아코디언
+   ActivityBuildSheet — 활동 클릭 시 열리는 빌드 탭
+   (① 연계 목표 다시 고르기 ② 활동 퀘스트 템플릿 고르기 ③ 직접 수정)
 ══════════════════════════════════════════ */
-function ActivityItemCard({
-  item, color, onUpdate, onRemove,
+type ActivityRecItem = {
+  id?: string;
+  type?: ItemType;
+  title: string;
+  months?: number[];
+  difficulty?: number;
+  cost?: string;
+  organizer?: string;
+  description?: string;
+};
+
+const ACTIVITY_TIER_BY_DIFFICULTY: Record<number, { label: string; color: string; glow: string }> = {
+  1: { label: 'E', color: '#94A3B8', glow: 'rgba(148,163,184,0.45)' },
+  2: { label: 'D', color: '#34D399', glow: 'rgba(52,211,153,0.45)' },
+  3: { label: 'C', color: '#60A5FA', glow: 'rgba(96,165,250,0.5)' },
+  4: { label: 'B', color: '#A78BFA', glow: 'rgba(167,139,250,0.55)' },
+  5: { label: 'A', color: '#FBBF24', glow: 'rgba(251,191,36,0.7)' },
+};
+
+function ActivityBuildSheet({
+  item, color, starId, linkedGoalText, onUpdate, onChangeGoal, onClose,
 }: {
   item: PlanItem;
   color: string;
+  starId: string;
+  linkedGoalText: string;
   onUpdate: (updated: PlanItem) => void;
+  onChangeGoal: (goal: string) => void;
+  onClose: () => void;
+}) {
+  const [view, setView] = useState<'hub' | 'goal' | 'form'>('hub');
+  const [confirmingId, setConfirmingId] = useState<string | null>(null);
+  const dialogTheme = GOAL_TEMPLATE_SELECTOR_DIALOG;
+
+  /** 연계 목표에 맞는 추천 활동 그룹 (goal-recommended-items.json) */
+  const recGroups = useMemo<{ label: string; items: ActivityRecItem[] }[]>(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data = goalRecommendedItems as any;
+    const goals = data.goals ?? {};
+    const key = linkedGoalText.trim();
+    let entry = key ? goals[key] : undefined;
+    if (!entry && key) {
+      const found = Object.keys(goals).find((k) => key.includes(k) || k.includes(key));
+      if (found) entry = goals[found];
+    }
+    if (entry?.groups) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return Object.values(entry.groups).map((g: any) => ({
+        label: g.label as string,
+        items: (g.items ?? []) as ActivityRecItem[],
+      }));
+    }
+    // 폴백: 왕국 추천 활동
+    const kingdom = careerMaker.kingdoms.find((k) => k.id === starId);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const items = ((kingdom?.careerItems ?? []) as any[]).slice(0, 12).map((it) => ({
+      id: it.id, type: it.type, title: it.title, months: it.months,
+      difficulty: it.difficulty, cost: it.cost, organizer: it.organizer, description: it.description,
+    })) as ActivityRecItem[];
+    return items.length ? [{ label: `${kingdom?.name ?? '추천'} 활동`, items }] : [];
+  }, [linkedGoalText, starId]);
+
+  const applyTemplate = (rec: ActivityRecItem) => {
+    if (confirmingId) return;
+    const cid = rec.id ?? rec.title;
+    setConfirmingId(cid);
+    setTimeout(() => {
+      onUpdate(buildStructuredCareerItem({
+        ...item,
+        type: (rec.type as ItemType) ?? item.type,
+        title: rec.title,
+        months: rec.months && rec.months.length > 0 ? rec.months : item.months,
+        difficulty: rec.difficulty ?? item.difficulty,
+        cost: rec.cost ?? item.cost,
+        organizer: rec.organizer ?? item.organizer,
+        description: rec.description ?? item.description,
+      }) as PlanItem);
+      onClose();
+    }, 360);
+  };
+
+  if (view === 'goal') {
+    return (
+      <GoalTemplateSelector
+        color={color}
+        previouslySelected={linkedGoalText ? [linkedGoalText] : []}
+        onSelect={(g) => { onChangeGoal(g); setView('hub'); }}
+        onClose={() => setView('hub')}
+      />
+    );
+  }
+
+  if (view === 'form') {
+    return (
+      <EditItemSheet
+        item={item}
+        color={color}
+        onUpdate={(updated) => { onUpdate(updated); onClose(); }}
+        onClose={() => setView('hub')}
+      />
+    );
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[70] flex items-end justify-center"
+      style={{
+        backgroundColor: `rgba(0,0,0,${dialogTheme.backdropOverlayOpacity})`,
+        backdropFilter: `blur(${dialogTheme.backdropBlurPx}px)`,
+        WebkitBackdropFilter: `blur(${dialogTheme.backdropBlurPx}px)`,
+      }}
+      onClick={onClose}
+    >
+      <motion.div
+        initial={{ y: '100%' }}
+        animate={{ y: 0 }}
+        exit={{ y: '100%' }}
+        transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+        className="w-full rounded-t-3xl overflow-hidden relative"
+        style={{
+          maxWidth: `min(100%, ${dialogTheme.maxWidthPx}px)`,
+          maxHeight: '85vh',
+          background: `linear-gradient(180deg, ${dialogTheme.skyGradientTop} 0%, ${dialogTheme.skyGradientBottom} 100%)`,
+          border: `1px solid ${dialogTheme.panelBorderGlow}`,
+          boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 0 60px rgba(124,77,255,0.12), 0 20px 50px rgba(0,0,0,0.5)',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div
+          className="flex items-center justify-between px-5 py-4 border-b relative z-10"
+          style={{
+            borderColor: 'rgba(255,255,255,0.1)',
+            backgroundColor: 'rgba(12, 6, 32, 0.75)',
+            backdropFilter: 'blur(12px)',
+            WebkitBackdropFilter: 'blur(12px)',
+          }}
+        >
+          <div className="flex items-center gap-2 min-w-0">
+            <Sparkles className="w-5 h-5 flex-shrink-0" style={{ color }} />
+            <div className="flex flex-col leading-tight min-w-0">
+              <h3 className="text-lg font-bold text-white truncate">활동 빌드</h3>
+              <span className="text-[10.5px] text-gray-400 truncate">{item.title || '활동을 다듬어 보자!'}</span>
+            </div>
+          </div>
+          <button
+            onClick={onClose}
+            className="w-9 h-9 rounded-full flex items-center justify-center transition-colors flex-shrink-0"
+            style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+            title="닫기"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="overflow-y-auto px-5 pb-5 relative z-10" style={{ maxHeight: 'calc(85vh - 72px)' }}>
+          {/* 현재 연계 목표 + 바꾸기 */}
+          <div className="pt-4 space-y-2">
+            <div className="flex items-center gap-2">
+              <Check className="w-4 h-4" style={{ color }} />
+              <span className="text-xs font-bold text-gray-400">현재 연계 목표</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span
+                className="flex-1 min-w-0 truncate px-3 py-2 rounded-xl text-sm font-medium text-white"
+                style={{ backgroundColor: `${color}18`, border: `1px solid ${color}40` }}
+              >
+                {linkedGoalText || '연계 목표 없음'}
+              </span>
+              <button
+                onClick={() => setView('goal')}
+                className="flex-shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-colors"
+                style={{ backgroundColor: `${color}25`, border: `1px solid ${color}55`, color }}
+              >
+                <Pencil className="w-3.5 h-3.5" />
+                목표 바꾸기
+              </button>
+            </div>
+          </div>
+
+          {/* 직접 수정 진입 */}
+          <button
+            onClick={() => setView('form')}
+            className="w-full mt-4 flex items-center justify-between px-4 py-3 rounded-2xl transition-colors"
+            style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+          >
+            <div className="flex items-center gap-2.5">
+              <FileText className="w-4 h-4 text-gray-300" />
+              <span className="text-sm font-semibold text-white">직접 수정하기</span>
+              <span className="text-[11px] text-gray-400">유형·월·난이도·URL 등</span>
+            </div>
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          </button>
+
+          {/* 활동 퀘스트 템플릿 */}
+          <div className="mt-5 space-y-4">
+            <div className="flex items-center gap-2 text-[11px] text-gray-400 px-1">
+              <span>⚡ 추천 활동 퀘스트를 누르면 이 활동이 바로 교체돼요</span>
+            </div>
+            {recGroups.length === 0 ? (
+              <div className="text-center text-xs text-gray-500 py-6">
+                이 목표에 맞는 추천 활동이 아직 없어요. <br />‘직접 수정하기’로 자유롭게 채워보세요.
+              </div>
+            ) : (
+              recGroups.map((group, gi) => (
+                <div key={gi} className="space-y-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-black tracking-wide" style={{ color: `${color}cc` }}>
+                      {group.label}
+                    </span>
+                    <div className="flex-1 h-px" style={{ backgroundColor: `${color}1f` }} />
+                    <span className="text-[10px] font-bold text-gray-500">{group.items.length} 퀘스트</span>
+                  </div>
+                  <div className="space-y-2">
+                    {group.items.map((rec, ri) => {
+                      const tier = ACTIVITY_TIER_BY_DIFFICULTY[rec.difficulty ?? 2] ?? ACTIVITY_TIER_BY_DIFFICULTY[2];
+                      const tc = ITEM_TYPES.find((t) => t.value === (rec.type ?? 'activity'));
+                      const cid = rec.id ?? rec.title;
+                      const isConfirming = confirmingId === cid;
+                      return (
+                        <motion.button
+                          key={ri}
+                          type="button"
+                          disabled={!!confirmingId}
+                          whileHover={!confirmingId ? { scale: 1.005, boxShadow: `0 0 16px ${color}33` } : {}}
+                          onClick={() => applyTemplate(rec)}
+                          animate={isConfirming ? { scale: [1, 1.02, 1.01], boxShadow: ['0 0 0 transparent', `0 0 20px ${color}55`, `0 0 14px ${color}44`] } : {}}
+                          transition={{ duration: isConfirming ? 0.36 : 0.2 }}
+                          className="relative w-full text-left rounded-xl transition-[box-shadow,border-color] disabled:opacity-95"
+                          style={{
+                            backgroundColor: isConfirming ? `${color}15` : 'rgba(255,255,255,0.04)',
+                            border: `1px solid ${isConfirming ? `${color}66` : 'rgba(255,255,255,0.08)'}`,
+                          }}
+                        >
+                          {isConfirming && (
+                            <motion.span
+                              initial={{ scale: 0, rotate: -45 }}
+                              animate={{ scale: 1, rotate: 0 }}
+                              transition={{ type: 'spring', stiffness: 520, damping: 20 }}
+                              className="absolute top-2.5 right-2.5 z-10 w-5 h-5 rounded-full flex items-center justify-center"
+                              style={{ backgroundColor: color, boxShadow: `0 0 12px ${color}` }}
+                            >
+                              <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                            </motion.span>
+                          )}
+                          <div className="flex items-start gap-3 p-3.5">
+                            <div
+                              className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                              style={{ backgroundColor: `${color}18`, border: `1px solid ${color}30` }}
+                            >
+                              {tc?.emoji ?? '⚡'}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5 flex-wrap">
+                                <span
+                                  className="inline-flex items-center justify-center w-5 h-5 rounded-md text-[10px] font-black flex-shrink-0"
+                                  style={{ background: `linear-gradient(135deg, ${tier.color}, ${tier.color}cc)`, color: '#0b0820', boxShadow: `0 0 8px ${tier.glow}` }}
+                                  title={`${tier.label}티어`}
+                                >
+                                  {tier.label}
+                                </span>
+                                <span className="text-sm font-bold text-white leading-snug">{rec.title}</span>
+                                {tc && (
+                                  <span
+                                    className="text-[10.5px] px-1.5 py-0.5 rounded-md font-medium"
+                                    style={{ backgroundColor: `${tc.color}22`, color: '#e9e6ff' }}
+                                  >
+                                    {tc.label}
+                                  </span>
+                                )}
+                              </div>
+                              {rec.description && (
+                                <div className="mt-1 leading-relaxed" style={{ fontSize: '11px', color: 'rgba(255,255,255,0.42)', letterSpacing: '0.1px' }}>
+                                  {rec.description}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </motion.button>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+/* ══════════════════════════════════════════
+   ActivityItemCard — 세부활동 하나 + 하위활동 아코디언
+══════════════════════════════════════════ */
+function ActivityItemCard({
+  item, color, starId, linkedGoalText, onUpdate, onChangeGoal, onRemove,
+}: {
+  item: PlanItem;
+  color: string;
+  starId: string;
+  linkedGoalText: string;
+  onUpdate: (updated: PlanItem) => void;
+  onChangeGoal: (goal: string) => void;
   onRemove: () => void;
 }) {
   const tc = ITEM_TYPES.find(t => t.value === item.type)!;
@@ -1387,7 +1793,7 @@ function ActivityItemCard({
   const [subInput, setSubInput] = useState('');
   const [editingSubId, setEditingSubId] = useState<string | null>(null);
   const [editingSubText, setEditingSubText] = useState('');
-  const [showEditSheet, setShowEditSheet] = useState(false);
+  const [showBuildSheet, setShowBuildSheet] = useState(false);
 
   const monthLabel =
     item.months.length === 1
@@ -1439,12 +1845,12 @@ function ActivityItemCard({
       className="rounded-xl overflow-hidden transition-all"
       style={{ backgroundColor: `${tc.color}0e`, border: `1px solid ${tc.color}28` }}
     >
-      {/* 활동 헤더 행 — 클릭 시 수정 다이얼로그 */}
+      {/* 활동 헤더 행 — 클릭 시 빌드 탭 */}
       <div className="flex items-center gap-2.5 px-3 py-2.5">
         <button
           type="button"
-          onClick={() => setShowEditSheet(true)}
-          title="클릭하여 수정"
+          onClick={() => setShowBuildSheet(true)}
+          title="클릭하여 빌드 탭 열기"
           className="flex-1 min-w-0 text-left cursor-pointer rounded-lg -m-1 p-1 transition-colors hover:bg-white/5 active:bg-white/8"
         >
           <div className="text-sm font-semibold text-white line-clamp-1">{item.title}</div>
@@ -1608,12 +2014,15 @@ function ActivityItemCard({
         )}
       </AnimatePresence>
 
-      {showEditSheet && (
-        <EditItemSheet
+      {showBuildSheet && (
+        <ActivityBuildSheet
           item={item}
           color={color}
-          onUpdate={(updated) => { onUpdate(updated); setShowEditSheet(false); }}
-          onClose={() => setShowEditSheet(false)}
+          starId={starId}
+          linkedGoalText={linkedGoalText}
+          onUpdate={(updated) => { onUpdate(updated); setShowBuildSheet(false); }}
+          onChangeGoal={onChangeGoal}
+          onClose={() => setShowBuildSheet(false)}
         />
       )}
     </div>
@@ -1624,9 +2033,10 @@ function ActivityItemCard({
    GoalActivityGroupCard — 목표 + 연결된 세부활동 아코디언
 ══════════════════════════════════════════ */
 function GoalActivityGroupCard({
-  group, color, starId, onUpdate, onRemove,
+  group, index, color, starId, onUpdate, onRemove,
 }: {
   group: GoalActivityGroup;
+  index?: number;
   color: string;
   starId: string;
   onUpdate: (updated: GoalActivityGroup) => void;
@@ -1634,16 +2044,8 @@ function GoalActivityGroupCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(group.isExpanded ?? true);
   const [showAddItem, setShowAddItem] = useState(false);
-  const [editingGoal, setEditingGoal] = useState(false);
-  const [goalText, setGoalText] = useState(group.goal);
+  const [showGoalPicker, setShowGoalPicker] = useState(false);
   const [celebrateItemId, setCelebrateItemId] = useState<string | null>(null);
-
-  const handleGoalSave = () => {
-    if (goalText.trim()) {
-      onUpdate({ ...group, goal: goalText.trim() });
-    }
-    setEditingGoal(false);
-  };
 
   const handleAddItem = (item: Omit<PlanItem, 'id'>) => {
     const newItem: PlanItem = { ...item, id: `item-${Date.now()}-${Math.random().toString(36).slice(2)}`, subItems: [] };
@@ -1681,30 +2083,20 @@ function GoalActivityGroupCard({
             className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
             style={{ backgroundColor: `${color}25`, border: `1px solid ${color}44` }}
           >
-            <Target className="w-3.5 h-3.5" style={{ color }} />
+            {typeof index === 'number' ? (
+              <span className="text-[11px] font-black" style={{ color }}>{index + 1}</span>
+            ) : (
+              <Target className="w-3.5 h-3.5" style={{ color }} />
+            )}
           </div>
 
-          {editingGoal ? (
-            <input
-              type="text"
-              value={goalText}
-              onChange={(e) => setGoalText(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') handleGoalSave();
-                if (e.key === 'Escape') { setGoalText(group.goal); setEditingGoal(false); }
-              }}
-              onBlur={handleGoalSave}
-              autoFocus
-              className="flex-1 bg-transparent text-sm font-bold text-white outline-none"
-            />
-          ) : (
-            <span
-              className="flex-1 text-sm font-bold text-white cursor-pointer leading-snug truncate"
-              onClick={() => setEditingGoal(true)}
-            >
-              {group.goal}
-            </span>
-          )}
+          <span
+            className="flex-1 text-sm font-bold text-white cursor-pointer leading-snug truncate"
+            onClick={() => setShowGoalPicker(true)}
+            title="클릭하여 목표 빌드 탭 열기"
+          >
+            {group.goal}
+          </span>
 
           <span
             className="text-[10px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0"
@@ -1776,7 +2168,10 @@ function GoalActivityGroupCard({
                           <ActivityItemCard
                             item={item}
                             color={color}
+                            starId={starId}
+                            linkedGoalText={group.goal}
                             onUpdate={handleUpdateItem}
+                            onChangeGoal={(g) => onUpdate({ ...group, goal: g })}
                             onRemove={() => handleRemoveItem(item.id)}
                           />
                         </motion.div>
@@ -1813,6 +2208,15 @@ function GoalActivityGroupCard({
           onClose={() => setShowAddItem(false)}
         />
       )}
+
+      {showGoalPicker && (
+        <GoalTemplateSelector
+          color={color}
+          previouslySelected={group.goal ? [group.goal] : []}
+          onSelect={(g) => { onUpdate({ ...group, goal: g }); setShowGoalPicker(false); }}
+          onClose={() => setShowGoalPicker(false)}
+        />
+      )}
     </>
   );
 }
@@ -1833,42 +2237,32 @@ function SemesterSection({
 }) {
   const [goalInput, setGoalInput] = useState('');
   const [showGoalTemplates, setShowGoalTemplates] = useState(false);
-  const [showGoalChange, setShowGoalChange] = useState(false);
-  const linkedGoalGroups = goalGroups.slice(0, 1);
-  const linkedGoalGroup = linkedGoalGroups[0];
+  const [showGoalInput, setShowGoalInput] = useState(false);
+
+  const hasGoals = goalGroups.length > 0;
+  // 목표가 없으면 입력창을 바로 보여주고, 있으면 '목표 추가' 버튼을 눌렀을 때만 펼친다.
+  const inputOpen = !hasGoals || showGoalInput;
 
   const addGoalGroup = (goalText: string) => {
     const trimmedGoalText = goalText.trim();
     if (!trimmedGoalText) return;
-
-    if (linkedGoalGroup) {
-      onUpdateGoalGroups([{ ...linkedGoalGroup, goal: trimmedGoalText, isExpanded: true }]);
-      setGoalInput('');
-      setShowGoalChange(false);
-      return;
-    }
-
     const newGroup: GoalActivityGroup = {
       id: `goal-${Date.now()}-${Math.random().toString(36).slice(2)}`,
       goal: trimmedGoalText,
       items: [],
       isExpanded: true,
     };
-    onUpdateGoalGroups([newGroup]);
+    onUpdateGoalGroups([...goalGroups, newGroup]);
     setGoalInput('');
-    setShowGoalChange(false);
+    setShowGoalInput(false);
   };
 
   const updateGoalGroup = (updated: GoalActivityGroup) => {
-    onUpdateGoalGroups([updated]);
+    onUpdateGoalGroups(goalGroups.map((g) => (g.id === updated.id ? updated : g)));
   };
 
   const removeGoalGroup = (groupId: string) => {
-    if (linkedGoalGroup?.id === groupId) {
-      onUpdateGoalGroups([]);
-      return;
-    }
-    onUpdateGoalGroups(linkedGoalGroups);
+    onUpdateGoalGroups(goalGroups.filter((g) => g.id !== groupId));
   };
 
   return (
@@ -1879,15 +2273,15 @@ function SemesterSection({
           <span className="text-sm">{semesterEmoji}</span>
           <span className="text-xs font-bold text-white">{semesterLabel}</span>
           <div className="flex-1 h-px" style={{ backgroundColor: `${color}25` }} />
-          <span className="text-[12px] text-gray-500">{linkedGoalGroups.length}개 목표</span>
+          <span className="text-[12px] text-gray-500">{goalGroups.length}개 목표</span>
         </div>
       )}
 
       {/* 목표-활동 그룹 목록 */}
-      {linkedGoalGroups.length > 0 && (
+      {hasGoals && (
         <div className="space-y-2">
           <AnimatePresence mode="popLayout">
-            {linkedGoalGroups.map((group) => (
+            {goalGroups.map((group, idx) => (
               <motion.div
                 key={group.id}
                 layout
@@ -1898,6 +2292,7 @@ function SemesterSection({
               >
                 <GoalActivityGroupCard
                   group={group}
+                  index={idx}
                   color={color}
                   starId={starId}
                   onUpdate={updateGoalGroup}
@@ -1909,15 +2304,15 @@ function SemesterSection({
         </div>
       )}
 
-      {/* 목표 추가/변경 입력 — 목표 있을 땐 토글로 숨김 */}
-      {linkedGoalGroup && !showGoalChange ? (
+      {/* 목표 추가 — 목표가 있으면 버튼, 없거나 추가 중이면 입력창 */}
+      {hasGoals && !showGoalInput ? (
         <button
-          onClick={() => setShowGoalChange(true)}
-          className="w-full flex items-center justify-center gap-1.5 py-2 rounded-lg text-[11px] font-medium transition-colors"
-          style={{ color: `${color}aa`, backgroundColor: `${color}08`, border: `1px dashed ${color}25` }}
+          onClick={() => setShowGoalInput(true)}
+          className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold transition-colors"
+          style={{ color: `${color}cc`, backgroundColor: `${color}10`, border: `1.5px dashed ${color}40` }}
         >
-          <Pencil className="w-3 h-3" />
-          다른 목표로 바꾸기
+          <Plus className="w-3.5 h-3.5" />
+          목표 추가
         </button>
       ) : (
         <div className="space-y-2">
@@ -1928,10 +2323,10 @@ function SemesterSection({
               onChange={e => setGoalInput(e.target.value)}
               onKeyDown={e => {
                 if (e.key === 'Enter') addGoalGroup(goalInput);
-                if (e.key === 'Escape' && linkedGoalGroup) { setGoalInput(''); setShowGoalChange(false); }
+                if (e.key === 'Escape' && hasGoals) { setGoalInput(''); setShowGoalInput(false); }
               }}
-              autoFocus={!!linkedGoalGroup && showGoalChange}
-              placeholder={linkedGoalGroup ? '새 목표를 입력하면 현재 목표가 바뀝니다' : '목표를 입력하거나 템플릿에서 선택하세요'}
+              autoFocus={hasGoals && showGoalInput}
+              placeholder={hasGoals ? '추가할 목표를 입력하세요' : '목표를 입력하거나 템플릿에서 선택하세요'}
               className="flex-1 min-w-0 h-12 px-4 rounded-xl text-base text-white placeholder-gray-500 outline-none transition-all focus:border-2"
               style={{
                 backgroundColor: 'rgba(255,255,255,0.08)',
@@ -1960,16 +2355,16 @@ function SemesterSection({
             </motion.button>
           </div>
 
-          {linkedGoalGroup && showGoalChange && (
+          {hasGoals && showGoalInput && (
             <button
-              onClick={() => { setGoalInput(''); setShowGoalChange(false); }}
+              onClick={() => { setGoalInput(''); setShowGoalInput(false); }}
               className="w-full text-[11px] text-gray-500 hover:text-gray-300 transition-colors py-1"
             >
               취소
             </button>
           )}
 
-          {linkedGoalGroups.length === 0 && (
+          {!hasGoals && (
             <div
               className="rounded-xl py-4 flex flex-col items-center gap-1.5"
               style={{ border: `1.5px dashed ${color}25`, backgroundColor: `${color}05` }}
@@ -1986,7 +2381,7 @@ function SemesterSection({
           onSelect={(goal) => { addGoalGroup(goal); setShowGoalTemplates(false); }}
           onClose={() => setShowGoalTemplates(false)}
           color={color}
-          previouslySelected={linkedGoalGroups.map((group) => group.goal)}
+          previouslySelected={goalGroups.map((group) => group.goal)}
         />
       )}
     </div>
@@ -2007,6 +2402,7 @@ function YearPlanCard({
   const semesterPlans = yearPlan.semesterPlans ?? [];
   const semesterConf = SEMESTER_OPTIONS.find(s => s.id === yearPlan.semester);
   const needsSemesterPick = !yearPlan.semester;
+  const gradeShortLabel = GRADE_YEARS.find(g => g.id === yearPlan.gradeId)?.label ?? yearPlan.gradeLabel;
 
   const totalGoals = yearPlan.semester === 'split'
     ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).length, 0)
@@ -2015,6 +2411,8 @@ function YearPlanCard({
   const totalItems = yearPlan.semester === 'split'
     ? semesterPlans.reduce((s, sp) => s + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
     : goalGroups.reduce((s, g) => s + (g.items ?? []).length, 0);
+
+  const hasContent = totalGoals > 0 || totalItems > 0;
 
   const handleSemesterSelect = (semester: SemesterOption) => {
     const newSemesterPlans: SemesterPlan[] = semester === 'split'
@@ -2045,9 +2443,51 @@ function YearPlanCard({
       }}>
       {/* Card header — 항상 표시 */}
       <div className="flex items-center gap-3 px-4 py-3.5 cursor-pointer" onClick={onToggle}>
-        <div className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-black flex-shrink-0"
-          style={{ background: `linear-gradient(135deg, ${color}, ${color}bb)`, color: '#fff' }}>
-          {yearPlan.gradeLabel}
+        <div className="relative flex-shrink-0">
+          <motion.div
+            className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-black overflow-hidden relative z-10"
+            style={
+              hasContent || isExpanded
+                ? { background: `linear-gradient(135deg, ${color}, ${color}bb)`, color: '#fff', border: '2px solid rgba(255,255,255,0.25)' }
+                : { background: `${color}20`, color: '#fff', border: `1.5px dashed ${color}66` }
+            }
+            initial={{ scale: 0.6, opacity: 0 }}
+            animate={{
+              scale: 1,
+              opacity: 1,
+              boxShadow: isExpanded
+                ? [`0 0 0 0 ${color}66`, `0 0 0 6px ${color}00`, `0 0 0 0 ${color}00`]
+                : hasContent
+                ? `0 0 14px ${color}66`
+                : '0 0 0 transparent',
+            }}
+            transition={
+              isExpanded
+                ? { boxShadow: { duration: 1.6, repeat: Infinity, ease: 'easeOut' }, scale: { type: 'spring', stiffness: 520, damping: 18 } }
+                : { type: 'spring', stiffness: 520, damping: 18 }
+            }
+          >
+            <motion.span
+              key={gradeShortLabel}
+              initial={{ scale: 0.2, y: 8, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 600, damping: 14, delay: 0.08 }}
+              className="leading-none"
+            >
+              {gradeShortLabel}
+            </motion.span>
+          </motion.div>
+          {hasContent && (
+            <motion.div
+              initial={{ scale: 0, rotate: -40 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: 'spring', stiffness: 500, damping: 20 }}
+              className="absolute -bottom-0.5 -right-0.5 z-20 w-4 h-4 rounded-full flex items-center justify-center ring-2 ring-[#0f0f23]"
+              style={{ backgroundColor: '#22c55e' }}
+            >
+              <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+            </motion.div>
+          )}
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-bold text-white text-sm">
@@ -2179,7 +2619,7 @@ function Step3Planner({
   yearPlans: YearPlan[];
   onUpdateYears: (years: YearPlan[]) => void;
   starId: string; color: string;
-  job: typeof careerMaker.kingdoms[0]['representativeJobs'][0] | undefined;
+  job: BuilderJob | undefined;
 }) {
   const [expandedId, setExpandedId] = useState<string | null>(
     yearPlans.length > 0 ? yearPlans[yearPlans.length - 1].gradeId : null
@@ -2238,152 +2678,189 @@ function Step3Planner({
     return s + (y.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0);
   }, 0);
 
+  const kingdom = careerMaker.kingdoms.find(k => k.id === starId);
+  const filledStations = yearPlans.filter(y =>
+    y.semester === 'split'
+      ? (y.semesterPlans ?? []).some(sp => (sp.goalGroups ?? []).length > 0)
+      : (y.goalGroups ?? []).length > 0
+  ).length;
+  const journeyPct = yearPlans.length > 0 ? Math.round((filledStations / yearPlans.length) * 100) : 0;
+
   return (
     <div className="space-y-4">
-      <TipBox text={`${job?.name ?? ''}의 커리어를 학년별로 쌓아가 보세요. 목표를 먼저 세우고 세부활동을 연결하세요!`} />
+      <TipBox text="각 학년이 여정의 정거장이에요. 정거장을 추가하고 눌러서 목표와 활동을 채워보세요!" />
 
-      {yearPlans.length === 0 && (
-        <div className="rounded-2xl py-8 flex flex-col items-center gap-3"
-          style={{ border: '1.5px dashed rgba(108,92,231,0.35)', backgroundColor: 'rgba(108,92,231,0.05)' }}>
-          <div className="text-4xl">📅</div>
-          <div className="text-sm font-bold text-white">첫 번째 학년을 추가해요</div>
-          <div className="text-xs text-gray-500">아래에서 시작 학년을 선택하세요</div>
-        </div>
-      )}
-
-      {/* Stacked grade cards */}
-      {yearPlans.length > 0 && (
-        <div className="space-y-0">
-          <AnimatePresence mode="popLayout">
-            {yearPlans.map((year, idx) => (
-              <motion.div
-                key={year.gradeId}
-                layout
-                initial={{ opacity: 0, y: 24, scale: 0.94 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -24, scale: 0.92 }}
-                transition={{ type: 'spring', stiffness: 380, damping: 26 }}
-                className="relative"
-              >
-                {idx < yearPlans.length - 1 && (
-                  <div className="absolute left-[21px] top-full z-10"
-                    style={{ width: 2, height: 12, backgroundColor: `${color}40` }} />
-                )}
-                <div className={idx > 0 ? 'mt-3' : ''}>
-                  <YearPlanCard
-                    yearPlan={year} color={color} starId={starId}
-                    isExpanded={expandedId === year.gradeId}
-                    onToggle={() => setExpandedId(expandedId === year.gradeId ? null : year.gradeId)}
-                    onUpdate={updateYear}
-                    onRemove={() => removeYear(year.gradeId)}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      )}
-
-      {/* Add grade section */}
-      <div className="rounded-2xl overflow-hidden transition-all"
-        style={{
-          border: showGradePicker ? `1.5px solid ${color}40` : '1.5px dashed rgba(255,255,255,0.1)',
-          backgroundColor: showGradePicker ? `${color}08` : 'transparent',
-        }}>
-        {!showGradePicker ? (
-          <button
-            onClick={() => setShowGradePicker(true)}
-            disabled={usedIds.length >= GRADE_YEARS.length}
-            className="w-full flex items-center justify-center gap-2 py-4 text-sm font-bold transition-all active:scale-[0.99]"
-          >
-            <div className="w-7 h-7 rounded-full flex items-center justify-center"
-              style={{ border: `1.5px dashed ${color}60` }}>
-              <Plus className="w-3.5 h-3.5" style={{ color }} />
-            </div>
-            <span style={{ color }}>{usedIds.length === 0 ? '학년 선택하기' : '다음 학년 추가하기'}</span>
-          </button>
-        ) : (
-          <div className="p-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="text-xs font-bold text-white flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5" style={{ color }} />
-                어떤 학년을 추가할까요?
-              </div>
-              {yearPlans.length > 0 && (
-                <button onClick={() => setShowGradePicker(false)}>
-                  <X className="w-4 h-4 text-gray-500" />
-                </button>
-              )}
-            </div>
-            {[
-              { label: '초등', emoji: '🏫', grades: GRADE_YEARS.filter(g => g.id.startsWith('elem')) },
-              { label: '중학교', emoji: '🎒', grades: GRADE_YEARS.filter(g => g.id.startsWith('mid')) },
-              { label: '고등학교', emoji: '🎓', grades: GRADE_YEARS.filter(g => g.id.startsWith('high')) },
-              { label: '일반', emoji: '👔', grades: GRADE_YEARS.filter(g => g.id === 'univ' || g.id === 'general') },
-            ].map(group => {
-              const available = group.grades.filter(g => !usedIds.includes(g.id));
-              if (available.length === 0) return null;
-              return (
-                <div key={group.label}>
-                  <div className="text-[12px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
-                  <div className="flex gap-2 flex-wrap">
-                    {available.map(g => {
-                      const isPending = pendingGradeId === g.id;
-                      return (
-                        <motion.button
-                          key={g.id}
-                          onClick={() => handleGradeSelect(g.id)}
-                          disabled={!!pendingGradeId}
-                          initial={false}
-                          animate={{
-                            scale: isPending ? [1, 1.08, 1.02] : 1,
-                            boxShadow: isPending
-                              ? `0 0 20px ${color}66, 0 0 40px ${color}33`
-                              : `0 0 0 transparent`,
-                          }}
-                          transition={{ duration: 0.32, ease: 'easeOut' }}
-                          className="relative flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-black transition-colors disabled:opacity-90"
-                          style={{
-                            background: isPending
-                              ? `linear-gradient(135deg, ${color}55, ${color}35)`
-                              : `linear-gradient(135deg, ${color}30, ${color}18)`,
-                            border: `1.5px solid ${isPending ? color : `${color}50`}`,
-                            color: '#fff',
-                          }}
-                        >
-                          {isPending && (
-                            <motion.span
-                              initial={{ scale: 0, rotate: -30 }}
-                              animate={{ scale: 1, rotate: 0 }}
-                              transition={{ type: 'spring', stiffness: 500, damping: 22 }}
-                              className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center"
-                              style={{ backgroundColor: color, boxShadow: `0 0 8px ${color}` }}
-                            >
-                              <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
-                            </motion.span>
-                          )}
-                          {g.label}
-                        </motion.button>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            })}
+      {/* ── Quest journey map ── */}
+      <div className="relative">
+        {/* 출발 */}
+        <div className="flex items-center gap-3 pl-4">
+          <div className="w-11 h-11 rounded-full flex items-center justify-center text-lg flex-shrink-0"
+            style={{ background: `linear-gradient(135deg, ${color}, ${color}aa)`, border: '2px solid rgba(255,255,255,0.25)', boxShadow: `0 0 16px ${color}66` }}>
+            🚩
           </div>
-        )}
+          <div className="min-w-0">
+            <div className="text-[11px] font-bold" style={{ color: `${color}cc` }}>여정 시작</div>
+            <div className="text-sm font-black text-white truncate">{kingdom?.emoji} {kingdom?.name ?? '나의 왕국'}에서 출발</div>
+          </div>
+        </div>
+        <JourneyConnector color={color} filled={yearPlans.length > 0} />
+
+        {/* 정거장(학년) 카드 */}
+        <AnimatePresence mode="popLayout">
+          {yearPlans.map((year) => (
+            <motion.div
+              key={year.gradeId}
+              layout
+              initial={{ opacity: 0, y: 24, scale: 0.94 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, x: -24, scale: 0.92 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 26 }}
+            >
+              <YearPlanCard
+                yearPlan={year} color={color} starId={starId}
+                isExpanded={expandedId === year.gradeId}
+                onToggle={() => setExpandedId(expandedId === year.gradeId ? null : year.gradeId)}
+                onUpdate={updateYear}
+                onRemove={() => removeYear(year.gradeId)}
+              />
+              <JourneyConnector color={color} filled />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+
+        {/* 정거장 추가 */}
+        <div className="rounded-2xl overflow-hidden transition-all"
+          style={{
+            border: showGradePicker ? `1.5px solid ${color}40` : '1.5px dashed rgba(255,255,255,0.12)',
+            backgroundColor: showGradePicker ? `${color}08` : 'transparent',
+          }}>
+          {!showGradePicker ? (
+            <button
+              onClick={() => setShowGradePicker(true)}
+              disabled={usedIds.length >= GRADE_YEARS.length}
+              className="w-full flex items-center gap-3 py-3 pl-4 pr-4 text-sm font-bold transition-all active:scale-[0.99] disabled:opacity-40"
+            >
+              <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                style={{ border: `1.5px dashed ${color}70`, background: `${color}12` }}>
+                <Plus className="w-4 h-4" style={{ color }} />
+              </div>
+              <span style={{ color }}>{usedIds.length === 0 ? '첫 정거장(학년) 추가' : '다음 정거장 추가'}</span>
+            </button>
+          ) : (
+            <div className="p-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="text-xs font-bold text-white flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5" style={{ color }} />
+                  어떤 학년을 정거장에 추가할까요?
+                </div>
+                {yearPlans.length > 0 && (
+                  <button onClick={() => setShowGradePicker(false)}>
+                    <X className="w-4 h-4 text-gray-500" />
+                  </button>
+                )}
+              </div>
+              {[
+                { label: '초등', emoji: '🏫', grades: GRADE_YEARS.filter(g => g.id.startsWith('elem')) },
+                { label: '중학교', emoji: '🎒', grades: GRADE_YEARS.filter(g => g.id.startsWith('mid')) },
+                { label: '고등학교', emoji: '🎓', grades: GRADE_YEARS.filter(g => g.id.startsWith('high')) },
+                { label: '일반', emoji: '👔', grades: GRADE_YEARS.filter(g => g.id === 'univ' || g.id === 'general') },
+              ].map(group => {
+                const available = group.grades.filter(g => !usedIds.includes(g.id));
+                if (available.length === 0) return null;
+                return (
+                  <div key={group.label}>
+                    <div className="text-[12px] text-gray-600 font-semibold mb-1.5">{group.emoji} {group.label}</div>
+                    <div className="flex gap-2 flex-wrap">
+                      {available.map(g => {
+                        const isPending = pendingGradeId === g.id;
+                        return (
+                          <motion.button
+                            key={g.id}
+                            onClick={() => handleGradeSelect(g.id)}
+                            disabled={!!pendingGradeId}
+                            initial={false}
+                            animate={{
+                              scale: isPending ? [1, 1.08, 1.02] : 1,
+                              boxShadow: isPending
+                                ? `0 0 20px ${color}66, 0 0 40px ${color}33`
+                                : `0 0 0 transparent`,
+                            }}
+                            transition={{ duration: 0.32, ease: 'easeOut' }}
+                            className="relative flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-black transition-colors disabled:opacity-90"
+                            style={{
+                              background: isPending
+                                ? `linear-gradient(135deg, ${color}55, ${color}35)`
+                                : `linear-gradient(135deg, ${color}30, ${color}18)`,
+                              border: `1.5px solid ${isPending ? color : `${color}50`}`,
+                              color: '#fff',
+                            }}
+                          >
+                            {isPending && (
+                              <motion.span
+                                initial={{ scale: 0, rotate: -30 }}
+                                animate={{ scale: 1, rotate: 0 }}
+                                transition={{ type: 'spring', stiffness: 500, damping: 22 }}
+                                className="absolute -top-1 -right-1 w-4 h-4 rounded-full flex items-center justify-center"
+                                style={{ backgroundColor: color, boxShadow: `0 0 8px ${color}` }}
+                              >
+                                <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
+                              </motion.span>
+                            )}
+                            {g.label}
+                          </motion.button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        <JourneyConnector color={color} filled={filledStations > 0} />
+
+        {/* 도착: 최종 목표 */}
+        <div className="flex items-center gap-3 pl-4">
+          <div className="w-11 h-11 rounded-full flex items-center justify-center text-lg flex-shrink-0"
+            style={filledStations > 0
+              ? { background: `linear-gradient(135deg, ${color}, ${color}aa)`, border: '2px solid rgba(255,255,255,0.3)', boxShadow: `0 0 16px ${color}66` }
+              : { background: 'rgba(255,255,255,0.05)', border: '1.5px dashed rgba(255,255,255,0.2)' }}>
+            🏆
+          </div>
+          <div className="min-w-0">
+            <div className="text-[11px] font-bold" style={{ color: filledStations > 0 ? `${color}cc` : 'rgba(255,255,255,0.4)' }}>최종 목표</div>
+            <div className="text-sm font-black text-white truncate">{job?.icon} {job?.name ?? '목표 직업'}</div>
+          </div>
+        </div>
       </div>
 
-      {/* Progress bar */}
-      {(totalItems > 0 || totalGoals > 0) && (
-        <div className="flex items-center gap-3 px-4 py-3 rounded-xl"
-          style={{ background: 'linear-gradient(135deg, rgba(34,197,94,0.14), rgba(34,197,94,0.05))', border: '1px solid rgba(34,197,94,0.22)' }}>
-          <Flame className="w-4 h-4 text-green-400 flex-shrink-0" />
-          <div className="flex-1">
-            <div className="text-xs font-bold text-green-300">
-              {yearPlans.length}개 학년 · {totalGoals}개 목표 · {totalItems}개 활동
+      {/* 여정 진행도 (XP 바) */}
+      {yearPlans.length > 0 && (
+        <div className="px-4 py-3 rounded-xl space-y-2"
+          style={{ background: `linear-gradient(135deg, ${color}1c, ${color}08)`, border: `1px solid ${color}30` }}>
+          <div className="flex items-center justify-between">
+            <div className="text-xs font-bold text-white flex items-center gap-1.5">
+              <Flame className="w-3.5 h-3.5" style={{ color }} />
+              여정 진행도
             </div>
-            <div className="text-[12px] text-green-500 mt-0.5">완성 버튼을 눌러 저장하세요!</div>
+            <div className="text-[12px] font-semibold" style={{ color: `${color}dd` }}>
+              정거장 {yearPlans.length} · 목표 {totalGoals} · 활동 {totalItems}
+            </div>
+          </div>
+          <div className="h-2 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.08)' }}>
+            <motion.div
+              className="h-full rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: `${journeyPct}%` }}
+              transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+              style={{ background: `linear-gradient(90deg, ${color}, ${color}cc)`, boxShadow: `0 0 10px ${color}88` }}
+            />
+          </div>
+          <div className="text-[12px]" style={{ color: `${color}aa` }}>
+            {filledStations === yearPlans.length
+              ? '모든 정거장에 목표가 있어요! 완성으로 넘어가세요 🎉'
+              : `${yearPlans.length - filledStations}개 정거장에 목표를 더 채워보세요`}
           </div>
         </div>
       )}
@@ -2398,43 +2875,71 @@ function Step3Planner({
 ══════════════════════════════════════════ */
 function Step4Summary({ plan, color }: { plan: Partial<CareerPlan>; color: string }) {
   const years = plan.years ?? [];
-  const allItems = years.flatMap(y => [
-    ...(y.items ?? []),
-    ...(y.groups ?? []).flatMap(g => g.items ?? []),
-  ]);
+  const totalGoals = years.reduce((s, y) =>
+    y.semester === 'split'
+      ? s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + (sp.goalGroups ?? []).length, 0)
+      : s + (y.goalGroups ?? []).length, 0);
+  const totalActs = years.reduce((s, y) =>
+    y.semester === 'split'
+      ? s + (y.semesterPlans ?? []).reduce((ss, sp) => ss + (sp.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0)
+      : s + (y.goalGroups ?? []).reduce((gs, g) => gs + (g.items ?? []).length, 0), 0);
+
+  const stats = [
+    { emoji: '🚩', label: '정거장', value: years.length },
+    { emoji: '🎯', label: '목표', value: totalGoals },
+    { emoji: '⚡', label: '활동', value: totalActs },
+  ];
 
   return (
     <div className="space-y-5">
-      {/* 헤더: 완성 안내 */}
-      <div className="rounded-2xl p-5 text-center"
-        style={{ background: `linear-gradient(135deg, ${color}22, ${color}08)`, border: `1px solid ${color}33` }}>
-        <div className="text-5xl mb-3">🎉</div>
-        <div className="text-xl font-black text-white">커리어 패스 완성!</div>
-        <div className="text-sm text-gray-400 mt-1.5">저장 후 타임라인에서 전체 로드맵을 확인하세요</div>
+      {/* 헤더: 승리 연출 */}
+      <div className="relative rounded-2xl p-5 text-center overflow-hidden"
+        style={{ background: `linear-gradient(135deg, ${color}28, ${color}08)`, border: `1px solid ${color}44` }}>
+        <motion.div
+          className="text-5xl mb-3 inline-block"
+          initial={{ scale: 0.3, rotate: -20, opacity: 0 }}
+          animate={{ scale: 1, rotate: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 360, damping: 14 }}
+        >
+          🏆
+        </motion.div>
+        <div className="text-xl font-black text-white">여정 지도 완성!</div>
+        <div className="text-sm text-gray-400 mt-1.5">저장하면 타임라인에서 전체 로드맵을 볼 수 있어요</div>
+        <div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
+            style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}>
+            {plan.starEmoji} {plan.starName}
+          </span>
+          <ArrowRight className="w-4 h-4 text-gray-500" />
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
+            style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}>
+            {plan.jobEmoji} {plan.jobName}
+          </span>
+        </div>
       </div>
 
-      {/* 왕국 → 직업 플로우 */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <span
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
-          style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}
-        >
-          {plan.starEmoji} {plan.starName}
-        </span>
-        <ArrowRight className="w-4 h-4 text-gray-500" />
-        <span
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold"
-          style={{ backgroundColor: `${color}20`, color, border: `1px solid ${color}33` }}
-        >
-          {plan.jobEmoji} {plan.jobName}
-        </span>
+      {/* 여정 요약 스탯 */}
+      <div className="grid grid-cols-3 gap-2.5">
+        {stats.map((st, i) => (
+          <motion.div
+            key={st.label}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 + i * 0.07, type: 'spring', stiffness: 420, damping: 24 }}
+            className="rounded-2xl py-3 flex flex-col items-center gap-0.5"
+            style={{ background: `${color}12`, border: `1px solid ${color}2a` }}
+          >
+            <span className="text-lg leading-none">{st.emoji}</span>
+            <span className="text-xl font-black text-white leading-tight">{st.value}</span>
+            <span className="text-[11px] text-gray-400 font-semibold">{st.label}</span>
+          </motion.div>
+        ))}
       </div>
 
       {/* 상세 타임라인 (CareerPathDetailDialog와 동일 구조) — 상하 여백 확보로 하위 상세 잘림 방지 */}
       <div className="pb-12">
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">학년별 계획</span>
-          <span className="text-[12px] text-gray-600">{years.length}개 학년 · {allItems.length}개 항목</span>
+          <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">여정 미리보기</span>
         </div>
         <CareerPathTimelinePreview years={years} color={color} />
       </div>
@@ -2467,7 +2972,15 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const [yearPlans, setYearPlans] = useState<YearPlan[]>(() => normalizeYearPlans(initialPlan?.years));
 
   const kingdom = careerMaker.kingdoms.find(k => k.id === starId);
-  const job = kingdom?.representativeJobs.find(j => j.id === jobId);
+  // 전체 왕국 직업 카탈로그에서 우선 조회하고, 없으면 대표 직업(구버전 저장 패스 호환)으로 폴백한다.
+  const job = useMemo<BuilderJob | undefined>(() => {
+    if (!kingdom || !jobId) return undefined;
+    const full = loadKingdomJobsByKingdomId(kingdom.id).find(j => j.id === jobId);
+    if (full) return { id: full.id, name: full.name, icon: full.icon, description: full.shortDescription || full.description };
+    const rep = kingdom.representativeJobs.find(j => j.id === jobId);
+    if (rep) return { id: rep.id, name: rep.name, icon: rep.icon, description: rep.description };
+    return undefined;
+  }, [kingdom, jobId]);
   const color = kingdom?.color ?? '#6C5CE7';
 
   const canProceed = () => {
@@ -2515,13 +3028,12 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   };
 
   const headings: Record<number, { title: string; desc: string }> = {
-    1: { title: '어떤 왕국이 끌리나요?',    desc: '관심 분야에 가까운 별을 선택하세요' },
-    2: { title: '목표 직업을 선택하세요',   desc: `${kingdom?.name ?? ''}에서 원하는 직업을 골라보세요` },
-    3: { title: '학년별 계획을 세워요',     desc: '학년 추가 → 목표·활동·작품·자격증을 채워가세요' },
-    4: { title: '커리어 패스 완성!',        desc: '저장 후 타임라인에서 전체 로드맵을 확인하세요' },
+    1: { title: '어떤 왕국으로 떠날까요?',  desc: '모험을 시작할 관심 분야의 별을 선택하세요' },
+    2: { title: '함께할 직업을 정해요',     desc: `${kingdom?.name ?? ''}에서 목표로 삼을 직업을 골라보세요` },
+    3: { title: '학년별 여정을 그려요',     desc: '각 학년 정거장을 눌러 목표와 활동을 채우세요' },
+    4: { title: '여정 완성!',               desc: '저장하면 타임라인에서 전체 로드맵을 볼 수 있어요' },
   };
 
-  const stepConf = STEPS[step - 1];
   const careerPathBuilderDialogTheme = CAREER_PATH_BUILDER_DIALOG;
 
   return (
@@ -2569,9 +3081,8 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
             style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
             <ChevronLeft className="w-5 h-5 text-gray-300" />
           </button>
-          <div className="text-center space-y-1.5">
-            <div className="text-xs text-gray-500 font-semibold">{stepConf.emoji} {stepConf.title}</div>
-            <StepDots current={step} total={4} color={color || '#6C5CE7'} />
+          <div className="flex-1 flex justify-center px-2">
+            <QuestTrack current={step} color={color || '#6C5CE7'} />
           </div>
           <button onClick={onClose} className="w-9 h-9 rounded-xl flex items-center justify-center active:scale-90"
             style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
@@ -2632,15 +3143,15 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
             ? { background: `linear-gradient(135deg, ${color}, ${color}bb)`, boxShadow: `0 6px 24px ${color}44` }
             : { backgroundColor: 'rgba(255,255,255,0.08)' }}>
           {step === 4 ? (
-            <><CheckCircle2 className="w-5 h-5" />저장하고 타임라인 보기</>
+            <><CheckCircle2 className="w-5 h-5" />여정 저장하기</>
           ) : step === 3 ? (
-            <><span>미리보기</span><ChevronRight className="w-5 h-5" /></>
+            <><span>여정 미리보기</span><ChevronRight className="w-5 h-5" /></>
           ) : (
             <><span>다음으로</span><ChevronRight className="w-5 h-5" /></>
           )}
         </button>
         {step === 3 && (
-          <p className="text-center text-xs text-gray-600">학년을 1개 이상 추가해야 다음으로 넘어갈 수 있어요</p>
+          <p className="text-center text-xs text-gray-600">정거장(학년)을 1개 이상 추가하면 다음으로 넘어갈 수 있어요</p>
         )}
       </div>
         </div>
