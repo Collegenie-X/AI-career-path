@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { QueryProvider } from '@/components/providers/QueryProvider';
+import { TwemojiProvider } from '@/components/providers/TwemojiProvider';
 import { WebLayout } from './WebLayout';
 
 const HIDE_HEADER_FOOTER_PATHS = ['/', '/onboarding'];
@@ -15,9 +16,11 @@ export function RootLayoutClient({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryProvider>
-      <WebLayout hideHeaderFooter={hideHeaderFooter}>
-        {children}
-      </WebLayout>
+      <TwemojiProvider>
+        <WebLayout hideHeaderFooter={hideHeaderFooter}>
+          {children}
+        </WebLayout>
+      </TwemojiProvider>
     </QueryProvider>
   );
 }

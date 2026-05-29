@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Target } from 'lucide-react';
 import type { HighSchoolAdmissionV2Data, HighSchoolCategory } from '../../types';
+import { GlossaryText } from '@/components/shared/GlossaryText';
 
 type AptitudeCheckSectionProps = {
   data: HighSchoolAdmissionV2Data['aptitudeCheckList'];
@@ -185,7 +186,7 @@ export function AptitudeCheckSection({ data, categories, onBack, onSelectCategor
                 <div className="text-4xl mb-2">{resultCategory.emoji}</div>
                 <p className="text-[12px] text-gray-400 mb-1">추천 학교 유형</p>
                 <h3 className="text-base font-bold text-white mb-1">{resultCategory.name}</h3>
-                <p className="text-[12px] text-gray-300 leading-relaxed">{resultCategory.description}</p>
+                <p className="text-[12px] text-gray-300 leading-relaxed"><GlossaryText>{resultCategory.description}</GlossaryText></p>
               </div>
 
               {/* 특성 미리보기 */}
