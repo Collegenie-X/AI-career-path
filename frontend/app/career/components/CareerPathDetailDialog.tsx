@@ -11,6 +11,7 @@ import { ITEM_TYPES, GRADE_YEARS, LABELS } from '../config';
 import type { CareerPathTemplate } from '@/data/career-path-templates-index';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
+import { RecommendedActivitiesSection } from './CareerPathDetailPanelSections';
 import { CareerPathExpandBottomSheetDialog } from './expandable-detail';
 import { AiGeneratedNoticeBanner } from './AiGeneratedNotice';
 
@@ -528,6 +529,9 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
               </div>
             ) : null}
 
+            {/* 봉사·캠프·수상·전시 추천 활동 */}
+            <RecommendedActivitiesSection template={template} />
+
             {/* Timeline */}
             <div className="relative">
               <div
@@ -957,7 +961,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             }}
           />
           <div
-            className="relative w-full max-w-[580px] rounded-t-3xl p-5 space-y-4"
+            className="relative w-full max-w-[680px] rounded-t-3xl p-5 space-y-4"
             style={{ backgroundColor: '#0d0d24', border: '1px solid rgba(255,255,255,0.1)' }}
             onClick={(event) => event.stopPropagation()}
           >

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Building2, Briefcase, Target } from 'lucide-react';
+import { Building2, Briefcase, Target, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useExploreUrlState } from '../../utils/useExploreUrlState';
 
@@ -33,6 +33,7 @@ import strategy2028Data from '@/data/university-admission/strategy-hub/strategy-
 import aiProjectLearningData from '@/data/university-admission/strategy-hub/ai-project-learning.json';
 import paperMakerActivitiesData from '@/data/university-admission/strategy-hub/paper-maker-activities.json';
 import gradeRoadmapOverviewData from '@/data/university-admission/strategy-hub/grade-roadmap-overview.json';
+import recommendedActivitiesData from '@/data/university-admission/strategy-hub/recommended-activities.json';
 import admissionSubscreenMasterDetailUi from '@/data/university-admission/ui-master-detail-subscreens.json';
 
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
@@ -43,6 +44,7 @@ import { DevEducationInstitutionsView } from './DevEducationInstitutionsView';
 import { CareerMajorConnectionView } from './CareerMajorConnectionView';
 import { InnovativeInstitutionsListIntroBlock } from './InnovativeInstitutionsListIntroBlock';
 import { StrategyHubView } from './StrategyHubView';
+import { RecommendedActivitiesDirectory } from './RecommendedActivitiesDirectory';
 import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
 type AdmissionCategory = {
@@ -66,10 +68,11 @@ type AdmissionCategory = {
   universities: Array<string | { name: string; url?: string }>;
 };
 
-type SubView = 'strategy-hub' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
+type SubView = 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
 
 const VALID_SUB_VIEWS: NonNullable<SubView>[] = [
   'strategy-hub',
+  'recommended-activities',
   'career-major',
   'dev-institutions',
   'innovative-institutions',
@@ -126,6 +129,8 @@ export function UniversityAdmissionTab() {
     paperMakerActivitiesData,
     gradeRoadmapOverviewData,
   ];
+
+  const recommendedActivitySections = recommendedActivitiesData;
 
   const hasRightPanelDetail = selectedCategory !== null || selectedSubView !== null;
 
@@ -230,6 +235,34 @@ export function UniversityAdmissionTab() {
                     <div className="flex-1 text-left">
                       <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.title}</h3>
                       <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.strategyHub.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
+
+                {/* 봉사·캠프·수상·전시 허브 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('recommended-activities')}
+                  className="w-full rounded-xl p-4"
+                  style={{
+                    background: selectedSubView === 'recommended-activities'
+                      ? 'linear-gradient(135deg, rgba(236,72,153,0.35) 0%, rgba(168,85,247,0.35) 100%)'
+                      : 'linear-gradient(135deg, rgba(236,72,153,0.2) 0%, rgba(168,85,247,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'recommended-activities' ? 'rgba(236,72,153,0.7)' : 'rgba(236,72,153,0.3)'}`,
+                    boxShadow: selectedSubView === 'recommended-activities' ? '0 0 20px rgba(236,72,153,0.3)' : undefined,
+                  }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(236,72,153,0.25)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: 'rgba(236,72,153,0.3)', border: '2px solid rgba(236,72,153,0.5)' }}>
+                      <Sparkles className="w-6 h-6 text-pink-400" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admissionSubscreenMasterDetailUi.planetEntranceButtons.recommendedActivities.title}</h3>
+                      <p className="text-xs text-white/70">{admissionSubscreenMasterDetailUi.planetEntranceButtons.recommendedActivities.subtitle}</p>
                     </div>
                     <span className="text-white/40">→</span>
                   </div>
@@ -348,6 +381,26 @@ export function UniversityAdmissionTab() {
               }}
               onClose={() => setSelectedSubView(null)}
             />
+          ) : selectedSubView === 'recommended-activities' ? (
+            <>
+              <StrategyHubView
+                key={`activities-${subViewAnimKey}`}
+                mode="right-panel"
+                sections={recommendedActivitySections}
+                masterDetailLabels={{
+                  backToMainLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.label,
+                  backToMainAriaLabel: admissionSubscreenMasterDetailUi.backToAdmissionExploreMain.ariaLabel,
+                  emptyDetailTitle: admissionSubscreenMasterDetailUi.recommendedActivities.emptyDetailTitle,
+                  emptyDetailSubText: admissionSubscreenMasterDetailUi.recommendedActivities.emptyDetailSubText,
+                  listIntroEmoji: admissionSubscreenMasterDetailUi.recommendedActivities.listIntroEmoji,
+                  listIntroTitle: admissionSubscreenMasterDetailUi.recommendedActivities.listIntroTitle,
+                  listIntroDescription: admissionSubscreenMasterDetailUi.recommendedActivities.listIntroDescription,
+                }}
+                onClose={() => setSelectedSubView(null)}
+              />
+              {/* 가장 하단: 봉사·캠프·수상·전시 상세 디렉토리 (공식 홈페이지 링크 필수) */}
+              <RecommendedActivitiesDirectory />
+            </>
           ) : selectedSubView === 'career-major' ? (
             <CareerMajorConnectionView
               key={`career-${subViewAnimKey}`}

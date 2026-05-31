@@ -8,6 +8,10 @@
       "title": "전략 실행 허브",
       "subtitle": "학년별 입시 전략·AI 프로젝트·로드맵 가이드"
     },
+    "recommendedActivities": {
+      "title": "봉사·캠프·수상·전시 허브",
+      "subtitle": "학년별 봉사·캠프·대회·메이커 활동 로드맵"
+    },
     "careerMajor": {
       "title": "직업(과)별 대입 준비",
       "subtitle": "32개 직업별 학과 연계 및 세특 작성 전략"
@@ -27,6 +31,13 @@
     "listIntroDescription": "학년별 입시 전략·AI 프로젝트 학습·논문형 활동·로드맵 가이드를 한곳에서 확인하세요. 왼쪽에서 전략 섹션을 한 번만 선택하고, 고1·고2·고3은 오른쪽 상세 패널 상단에서 전환합니다.",
     "emptyDetailTitle": "가이드를 선택하세요",
     "emptyDetailSubText": "왼쪽 목록에서 전략 섹션을 선택하면 상세 실행 가이드가 여기에 표시됩니다. 학년은 오른쪽 패널에서 바꿀 수 있습니다."
+  },
+  "recommendedActivities": {
+    "listIntroEmoji": "🌟",
+    "listIntroTitle": "봉사·캠프·수상·전시 허브",
+    "listIntroDescription": "봉사·캠프·수상(대회)·전시회 활동을 학년별 로드맵으로 정리했어요. 왼쪽에서 활동 영역을 선택하고, 고1·고2·고3은 오른쪽 상세 패널 상단에서 전환합니다.",
+    "emptyDetailTitle": "활동 영역을 선택하세요",
+    "emptyDetailSubText": "왼쪽 목록에서 봉사·캠프·수상·전시 중 하나를 선택하면 학년별 실행 가이드가 표시됩니다."
   },
   "developerInstitutions": {
     "emptyDetailTitle": "교육기관을 선택하세요",

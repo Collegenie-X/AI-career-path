@@ -93,7 +93,7 @@ export function GradientSegmentedTabBar<TId extends string>({
         >
           <span className="flex items-center gap-2">
             {activeTabItem?.icon}
-            {activeTabItem?.emoji && <span>{activeTabItem.emoji}</span>}
+            {activeTabItem?.emoji ? <span suppressHydrationWarning>{activeTabItem.emoji}</span> : null}
             <span>{activeTabItem?.label}</span>
           </span>
           <span
@@ -144,7 +144,7 @@ export function GradientSegmentedTabBar<TId extends string>({
                   }}
                 >
                   {tab.icon}
-                  {tab.emoji && <span>{tab.emoji}</span>}
+                  {tab.emoji ? <span suppressHydrationWarning>{tab.emoji}</span> : null}
                   <span>{tab.label}</span>
                   {isActive && <span className="ml-auto" style={{ color: '#a855f7' }}>✓</span>}
                 </li>

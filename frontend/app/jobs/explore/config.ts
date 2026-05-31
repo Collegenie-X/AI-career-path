@@ -172,10 +172,10 @@ export const LABELS = {
   timeline_fallback_caption:
     '학년·학기별 상세 타임라인이 없을 때는, 아래 단계는 입사·준비 경로(entryProcess)를 나눈 예시예요.',
 
-  // Explore tab navigations
-  explore_tab_star: '🌌 취업',
-  explore_tab_admission: '🏫 고입',
-  explore_tab_university: '🎓 대입',
+  // Explore tab navigations (이모지 제거 — emoji 필드로 분리)
+  explore_tab_star: '취업',
+  explore_tab_admission: '고입',
+  explore_tab_university: '대입',
 };
 
 // ─── High School Admission Labels ─────────────────────────────

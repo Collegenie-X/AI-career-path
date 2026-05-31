@@ -37,9 +37,9 @@ import type { StarData, Job } from './types';
 type ExploreTabId = 'star' | 'admission' | 'university';
 
 const EXPLORE_SEGMENT_TABS: readonly GradientSegmentedTabItem<ExploreTabId>[] = [
-  { id: 'admission', label: LABELS.explore_tab_admission },
-  { id: 'university', label: LABELS.explore_tab_university },
-  { id: 'star', label: LABELS.explore_tab_star },
+  { id: 'admission', emoji: '🏫', label: LABELS.explore_tab_admission },
+  { id: 'university', emoji: '🎓', label: LABELS.explore_tab_university },
+  { id: 'star', emoji: '🌌', label: LABELS.explore_tab_star },
 ];
 
 const ALL_STARS = [
@@ -122,11 +122,12 @@ const VALID_EXPLORE_TABS: ExploreTabId[] = ['star', 'admission', 'university'];
 
 function JobsExploreContent() {
   const { searchParams, patchUrl } = useExploreUrlState();
-  const urlTab = searchParams?.get('tab') as ExploreTabId | null;
-  const initialTab: ExploreTabId =
-    urlTab && VALID_EXPLORE_TABS.includes(urlTab) ? urlTab : 'star';
 
-  const [activeTab, setActiveTab] = useState<ExploreTabId>(initialTab);
+  // SSR-safe 초기값: useSearchParams는 서버 렌더 시 비어 있어, URL에서 읽은 값을
+  // useState 초기값에 쓰면 서버('star')와 클라이언트('?tab=…')의 첫 렌더가 어긋나
+  // hydration 불일치가 발생한다. 항상 'star'로 통일하고, 아래 useEffect가
+  // 마운트 직후 URL의 ?tab= 값으로 동기화한다.
+  const [activeTab, setActiveTab] = useState<ExploreTabId>('star');
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showStarProfile, setShowStarProfile] = useState(false);

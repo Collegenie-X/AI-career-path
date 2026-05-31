@@ -20,6 +20,13 @@ export type CareerPathTemplate = (typeof admissionTemplates)[0] & {
   isAiGenerated?: boolean;
   /** AI 생성 경고 문구 (참조용임을 명시) */
   aiGeneratedNote?: string;
+  /** 봉사·캠프·수상(대회)·전시회 등 비교과 활동 (대입 추천 활동) */
+  recommendedActivities?: {
+    volunteer?: Array<{ title: string; hours?: string; description?: string; url?: string }>;
+    camp?: Array<{ title: string; period?: string; host?: string; outcome?: string; url?: string }>;
+    award?: Array<{ title: string; host?: string; result?: string; url?: string }>;
+    exhibition?: Array<{ title: string; venue?: string; period?: string; description?: string; url?: string }>;
+  };
   years: Array<
     ((typeof admissionTemplates)[0]['years'][number] & {
       items: Array<

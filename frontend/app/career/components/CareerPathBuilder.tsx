@@ -144,16 +144,21 @@ function TipBox({ text }: { text: string }) {
 }
 
 /* ─── Quest journey track (stage map) ─── */
-function QuestTrack({ current, color }: { current: number; color: string }) {
+function QuestTrack({ current, color, onStepClick }: { current: number; color: string; onStepClick?: (step: number) => void }) {
   return (
     <div className="flex items-end justify-center">
       {STEPS.map((s, i) => {
         const stepNum = i + 1;
         const done = stepNum < current;
         const active = stepNum === current;
+        const clickable = done && !!onStepClick;
         return (
           <div key={s.id} className="flex items-end">
-            <div className="flex flex-col items-center gap-1" style={{ width: 50 }}>
+            <div
+              className={`flex flex-col items-center gap-1${clickable ? ' cursor-pointer' : ''}`}
+              style={{ width: 50 }}
+              onClick={clickable ? () => onStepClick(stepNum) : undefined}
+            >
               <motion.div
                 className="rounded-full flex items-center justify-center flex-shrink-0"
                 animate={{ scale: active ? 1.12 : 1 }}
@@ -162,7 +167,7 @@ function QuestTrack({ current, color }: { current: number; color: string }) {
                   width: 28, height: 28, fontSize: 13, lineHeight: 1,
                   background: done || active ? `linear-gradient(135deg, ${color}, ${color}bb)` : 'rgba(255,255,255,0.07)',
                   border: active ? '2px solid #fff' : done ? `1.5px solid ${color}` : '1.5px solid rgba(255,255,255,0.14)',
-                  boxShadow: active ? `0 0 14px ${color}aa, 0 0 28px ${color}55` : 'none',
+                  boxShadow: active ? `0 0 14px ${color}aa, 0 0 28px ${color}55` : clickable ? `0 0 8px ${color}66` : 'none',
                 }}
               >
                 {done ? <Check className="w-3.5 h-3.5 text-white" strokeWidth={3} /> : <span>{s.emoji}</span>}
@@ -3082,7 +3087,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
             <ChevronLeft className="w-5 h-5 text-gray-300" />
           </button>
           <div className="flex-1 flex justify-center px-2">
-            <QuestTrack current={step} color={color || '#6C5CE7'} />
+            <QuestTrack current={step} color={color || '#6C5CE7'} onStepClick={setStep} />
           </div>
           <button onClick={onClose} className="w-9 h-9 rounded-xl flex items-center justify-center active:scale-90"
             style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>

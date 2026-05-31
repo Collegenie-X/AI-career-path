@@ -55,7 +55,7 @@
   "careerPathBuilderDialog": {
     "baseWidthPx": 430,
     "widthScale": 1.5,
-    "maxWidthPx": 560,
+    "maxWidthPx": 640,
     "panelMaxHeightDvh": 98,
     "panelMaxHeightPx": 1000,
     "backdropBlurPx": 16,

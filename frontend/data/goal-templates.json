@@ -118,7 +118,20 @@
       { "label": "청소년 모의국회·모의재판 대표", "icon": "🏛️", "tagline": "정치·법학 진로 검증", "tier": "B", "description": "청소년 모의국회·법무부 모의재판 참가. 입상하면 정치·법학·행정 학종에서 결정적 진로 적합성 증명!" },
       { "label": "청소년 통계활용대회 도전", "icon": "📈", "tagline": "데이터로 사회 보기", "tier": "B", "description": "통계청 주최 청소년 통계활용대회. 자료 수집·분석·정책 제안 전 과정. 사회·경제·통계학 계열 차별화 수상!" },
       { "label": "전국 영어 토론·디베이트 대회", "icon": "🗣️", "tagline": "영어+논리 동시 증명", "tier": "A", "description": "전국 단위 영어 디베이트 대회 참가. 국제·외교·법학·경영 계열 지망자 어학+논리력 두 마리 토끼 잡기!" },
-      { "label": "청소년 사회혁신·SDGs 공모전 출품", "icon": "🌐", "tagline": "사회문제 해결 어필", "tier": "B", "description": "UN SDGs·사회혁신 청소년 공모전. 사회복지·국제개발·정책 계열 지망자 자소서 절정 스토리!" }
+      { "label": "청소년 사회혁신·SDGs 공모전 출품", "icon": "🌐", "tagline": "사회문제 해결 어필", "tier": "B", "description": "UN SDGs·사회혁신 청소년 공모전. 사회복지·국제개발·정책 계열 지망자 자소서 절정 스토리!" },
+
+      { "label": "전국학생과학발명품경진대회 출품", "icon": "🛠️", "tagline": "국가대표 발명 대회", "tier": "A", "description": "한국발명진흥회·과기정통부 주최 전국대회. 시·도 예선→전국 본선. 대통령상까지! 발명·공학·디자인 계열 최강 수상." },
+      { "label": "전국과학전람회 도전", "icon": "🔭", "tagline": "최장수 과학탐구 전람회", "tier": "A", "description": "1949년 시작한 국립중앙과학관 주최 탐구작품 전람회. 가설-검증-개선 구조의 탐구로 전국 본선 진출 시 학종 최상급!" },
+      { "label": "FIRST LEGO League(FLL) 한국대회", "icon": "🤖", "tagline": "세계 최대 청소년 로봇 챌린지", "tier": "A", "description": "미국 FIRST·LEGO 제휴 세계 최대 로봇대회. 한국대회 우승 시 글로벌 챔피언십 진출! 로봇·기계공학 계열 최강 어필." },
+      { "label": "WRO 국제로봇올림피아드 도전", "icon": "🦾", "tagline": "글로벌 로봇 영재 인증", "tier": "A", "description": "World Robot Olympiad 한국대회. 초·중·고 부문별 미션 수행. 입상 시 인도·미국·크로아티아 국제 결선 진출 자격!" },
+      { "label": "RoboCup Junior 참가", "icon": "⚙️", "tagline": "AI·자율로봇 국제 무대", "tier": "A", "description": "로보컵 주니어 한국대회(축구·구조·댄스 로봇). 상위팀은 아시아퍼시픽·유럽 챔피언십 출전. AI·로봇 계열 차별화!" },
+      { "label": "Regeneron ISEF 국제과학경진대회", "icon": "🔬", "tagline": "세계 최고 권위 과학대회", "tier": "S", "description": "세계 75개국 참가하는 최고 권위 고교 과학경진대회. 국내 예선 통과 시 미국 본선 진출. 의·이공계 글로벌 최상급 스펙!" },
+      { "label": "국제 수학·과학 올림피아드 국가대표 도전", "icon": "🥇", "tagline": "글로벌 학문 최정점", "tier": "S", "description": "KMO·KPhO·KBO 등 국내 올림피아드 최상위 입상 후 IMO·IPhO·IBO 국가대표 선발. 세계 최고 수준 학업역량 증명!" },
+      { "label": "NASA 스페이스앱 챌린지 참가", "icon": "🚀", "tagline": "세계 최대 글로벌 해커톤", "tier": "A", "description": "NASA 주최 세계 최대 해커톤. 서울 등 전세계 동시 개최. NASA 오픈데이터로 우주·지구 문제 해결! SW·AI·우주항공 계열 어필." },
+      { "label": "국제 해커톤·프로그래밍 대회 참가", "icon": "🌐", "tagline": "글로벌 개발 실전 경험", "tier": "A", "description": "Junction·ICPC 등 국제 해커톤·코딩 대회. 제한 시간 내 협업 개발 경험 + 글로벌 개발자 네트워크. SW·컴공 계열 강력 어필!" },
+      { "label": "Conrad Challenge 글로벌 창업 도전", "icon": "💼", "tagline": "국제 혁신·창업 대회", "tier": "A", "description": "NASA·휴스턴대 연계 국제 청소년 혁신·창업 대회. 항공·헬스·에너지·환경 분야 사회문제 해결(팀 최대 5명+멘토). 창업·공학 계열!" },
+      { "label": "Technovation Girls 앱 개발 도전", "icon": "📱", "tagline": "여학생 AI·앱 국제대회", "tier": "A", "description": "여학생 대상 글로벌 AI·앱 개발 대회. 지역사회 문제를 직접 만든 앱으로 해결. SW·창업·사회혁신 계열 차별화 수상!" },
+      { "label": "청소년 SW·앱 창작대회 참가", "icon": "💻", "tagline": "SW 창작 실전 경험", "tier": "B", "description": "전국 학생 코딩경진대회 등 청소년 SW 창작대회. 사회문제 해결형 앱·SW를 기획·개발. SW·컴공 계열 자소서 핵심 소재!" }
     ]
   },
   "portfolio": {

@@ -10,7 +10,7 @@ import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
 import { CareerPathDetailPanelTimeline } from './CareerPathDetailPanelTimeline';
 import { CareerPathDetailPanelComment, type DetailPanelComment } from './CareerPathDetailPanelComment';
-import { AdmissionTypeStrategiesSection, SuccessStoriesSection } from './CareerPathDetailPanelSections';
+import { AdmissionTypeStrategiesSection, SuccessStoriesSection, RecommendedActivitiesSection } from './CareerPathDetailPanelSections';
 import { UseTemplateDialog } from './UseTemplateDialog';
 import { CareerPathDetailExpandHeaderButton } from './expandable-detail';
 import { toggleCollapseSetKey } from '../utils/careerPathTimelineCollapseSet';
@@ -278,6 +278,7 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
           <DetailRichInfoSection template={template} />
 
           <AdmissionTypeStrategiesSection template={template} />
+          <RecommendedActivitiesSection template={template} />
           <SuccessStoriesSection template={template} />
 
           <CareerPathDetailPanelTimeline
