@@ -166,7 +166,7 @@ export function GradientSegmentedTabBar<TId extends string>({
       >
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id;
-          const leading = tab.icon ?? (tab.emoji ? <span>{tab.emoji}</span> : null);
+          const leading = tab.icon ?? (tab.emoji ? <span suppressHydrationWarning>{tab.emoji}</span> : null);
 
           return (
             <button

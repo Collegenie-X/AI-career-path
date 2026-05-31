@@ -429,7 +429,7 @@
               "difficulty": 5,
               "cost": "무료",
               "organizer": "한국물리학회",
-              "url": "https://newkpho.kps.or.kr/",
+              "url": "https://www.kpho.or.kr",
               "description": "물리 1차 시험 응시 후 통과 시 여름학교 캠프 참여."
             },
             {
@@ -456,8 +456,7 @@
               "difficulty": 5,
               "cost": "무료",
               "organizer": "대한화학회",
-              "description": "화학 이론·문제풀이 4시간 시험으로 본선 진출 도전.",
-              "url": "https://olympiad.kchem.org/"
+              "description": "화학 이론·문제풀이 4시간 시험으로 본선 진출 도전."
             },
             {
               "id": "rec-oly-comp-05",
@@ -469,8 +468,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "한국생물올림피아드위원회",
-              "url": "https://kbo.bioedu.kr/",
+              "organizer": "한국생물과학협회",
+              "url": "https://www.kbo-biology.or.kr",
               "description": "생명과학 이론 시험으로 본선 진출 자격 획득."
             }
           ],
@@ -586,15 +585,14 @@
             {
               "id": "rec-mc-comp-02",
               "type": "award",
-              "title": "성균관대 전국 영어·수학 학력경시대회",
+              "title": "성균관대 SKKU 수학경시",
               "months": [
                 10
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "글로벌영재학회",
-              "description": "대학 주최 수학 경시 출전.",
-              "url": "https://test.edusky.co.kr/"
+              "organizer": "성균관대",
+              "description": "대학 주최 수학 경시 출전."
             },
             {
               "id": "rec-mc-comp-03",
@@ -606,7 +604,7 @@
               "difficulty": 4,
               "cost": "5만원",
               "organizer": "MAA",
-              "url": "https://maa.org/student-programs/amc/",
+              "url": "https://www.maa.org/math-competitions",
               "description": "미국수학경시대회로 글로벌 실력 측정."
             }
           ],
@@ -855,15 +853,27 @@
             {
               "id": "rec-hack-comp-01",
               "type": "award",
-              "title": "Junction Asia 해커톤",
+              "title": "Junction Asia 청소년 해커톤",
               "months": [
                 8
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "Junction (Hack Junction)",
-              "description": "글로벌 해커톤 청소년 부문 출전. (참고: 별도 청소년 부문 없음 — 주로 대학생·개발자 대상)",
-              "url": "https://asia.hackjunction.com/"
+              "organizer": "Junction",
+              "description": "글로벌 해커톤 청소년 부문 출전."
+            },
+            {
+              "id": "rec-hack-comp-02",
+              "type": "award",
+              "title": "SK 사회적 가치 해커톤",
+              "months": [
+                10,
+                11
+              ],
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "SK",
+              "description": "사회 문제 해결 아이디어 + 프로토타입 제출."
             },
             {
               "id": "rec-hack-comp-03",
@@ -964,9 +974,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "과학기술정보통신부·정보통신산업진흥원",
-              "description": "오픈소스 기반 앱·서비스로 출품.",
-              "url": "https://www.oss.kr/"
+              "organizer": "정보통신산업진흥원",
+              "description": "오픈소스 기반 앱·서비스로 출품."
             }
           ],
           "phase": "compete"
@@ -1544,30 +1553,28 @@
             {
               "id": "rec-deb-comp-01",
               "type": "award",
-              "title": "대한민국 열린 토론대회",
+              "title": "전국 청소년 토론대회",
               "months": [
                 8,
                 9
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "중앙선거관리위원회",
-              "description": "예선·본선 통과 도전.",
-              "url": "https://www.debates.go.kr/2018_debate/debate_info_2025.php"
+              "organizer": "교육부",
+              "description": "예선·본선 통과 도전."
             },
             {
               "id": "rec-deb-comp-02",
               "type": "award",
-              "title": "YTN·한국외대 영어디베이트 챔피언십",
+              "title": "영어 디베이트 대회 (NEAD 등)",
               "months": [
                 5,
                 6
               ],
               "difficulty": 4,
               "cost": "무료~5만원",
-              "organizer": "YTN·한국외국어대학교",
-              "description": "영어 디베이트 형식 대회 출전.",
-              "url": "https://www.englishdebatingchampionship.com/ch_info/01_info.php"
+              "organizer": "NEAD 등",
+              "description": "영어 디베이트 형식 대회 출전."
             }
           ],
           "phase": "compete"
@@ -1619,7 +1626,7 @@
             {
               "id": "rec-write-comp-01",
               "type": "award",
-              "title": "대산청소년문학상",
+              "title": "전국청소년문학상",
               "months": [
                 8,
                 9,
@@ -1627,9 +1634,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "대산문화재단",
-              "description": "수필·시·소설 부문 출품.",
-              "url": "https://www.daesan.or.kr/daesan-award/2025/teenager.html"
+              "organizer": "한국문화예술위원회",
+              "description": "수필·시·소설 부문 출품."
             },
             {
               "id": "rec-write-comp-02",
@@ -1642,8 +1648,7 @@
               "difficulty": 2,
               "cost": "무료",
               "organizer": "각 출판사·도서관",
-              "description": "독서 감상문 공모전 출품.",
-              "url": "https://lib.yongin.go.kr/gugal/menu/10460/contents/41261/contents.do"
+              "description": "독서 감상문 공모전 출품."
             }
           ],
           "phase": "compete"
@@ -2337,7 +2342,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "국립중앙과학관",
-              "url": "https://www.science.go.kr/mps/1078/bbs/157/moveBbsNttList.do",
+              "url": "https://www.science.go.kr",
               "description": "탐구 주제를 보고서·전시로 출품하는 전국 단위 과학 대회."
             },
             {
@@ -2352,8 +2357,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "교육부·국립중앙과학관",
-              "description": "발명 아이디어를 시제품·도면으로 제출, 시·도 예선 후 전국.",
-              "url": "https://www.science.go.kr/mps/1074/bbs/154/moveBbsNttList.do"
+              "description": "발명 아이디어를 시제품·도면으로 제출, 시·도 예선 후 전국."
             },
             {
               "id": "rec-nat-sci-03",
@@ -2365,9 +2369,8 @@
               ],
               "difficulty": 4,
               "cost": "무료~3만원",
-              "organizer": "한국수학교육평가원(KMC)",
-              "description": "고등 1~3학년 대상 전국 수학 경시.",
-              "url": "https://www.kmath.co.kr/"
+              "organizer": "한국수학교육학회",
+              "description": "고등 1~3학년 대상 전국 수학 경시."
             },
             {
               "id": "rec-nat-sci-04",
@@ -2380,9 +2383,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "각 시·도 교육청",
-              "description": "⚠️ [미검증] 팀 단위 창의 문제 해결 대회.",
-              "verified": false,
-              "verifyNote": "정확한 명칭의 단일 전국대회 미확인 — 대학·교육청별 개별 대회로 분산 존재"
+              "description": "팀 단위 창의 문제 해결 대회."
             }
           ],
           "phase": "compete"
@@ -2402,9 +2403,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "한국교육방송공사 외",
-              "description": "⚠️ [미검증] 지역 예선 후 전국 본선 진출 도전.",
-              "verified": false,
-              "verifyNote": "EBS 주최 전국 학생 토론대회 확인 불가 — 대한민국 열린 토론대회(선관위) 등으로 대체 권장"
+              "description": "지역 예선 후 전국 본선 진출 도전."
             },
             {
               "id": "rec-nat-arts-02",
@@ -2430,9 +2429,8 @@
               ],
               "difficulty": 3,
               "cost": "무료~5만원",
-              "organizer": "국제청소년연합(IYF)",
-              "description": "주제 발표·즉석 질문 형식의 영어 스피치 대회.",
-              "url": "https://www.iyf.or.kr/esc/"
+              "organizer": "각 대학",
+              "description": "주제 발표·즉석 질문 형식의 영어 스피치 대회."
             },
             {
               "id": "rec-nat-arts-04",
@@ -2445,8 +2443,7 @@
               "difficulty": 4,
               "cost": "5~10만원",
               "organizer": "음악협회",
-              "description": "악기·성악 부문별 전국 단위 경연.",
-              "url": "https://www.youthmusic.co.kr/"
+              "description": "악기·성악 부문별 전국 단위 경연."
             },
             {
               "id": "rec-nat-arts-05",
@@ -2461,8 +2458,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "한국만화영상진흥원",
-              "description": "단편 만화·웹툰 부문 출품.",
-              "url": "https://www.komacon.kr/"
+              "description": "단편 만화·웹툰 부문 출품."
             }
           ],
           "phase": "compete"
@@ -2473,16 +2469,15 @@
             {
               "id": "rec-nat-tech-01",
               "type": "award",
-              "title": "청소년 IT경시대회 (KITPA)",
+              "title": "전국청소년 ICT 경진대회",
               "months": [
                 9,
                 10
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "한국IT전문가협회",
-              "description": "IoT·앱·웹 작품 출품.",
-              "url": "https://kitpa.org/contest/4"
+              "organizer": "정보통신산업진흥원",
+              "description": "IoT·앱·웹 작품 출품."
             },
             {
               "id": "rec-nat-tech-02",
@@ -2494,9 +2489,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "과학기술정보통신부·정보통신산업진흥원",
-              "description": "오픈소스 기반 작품 출품, 본선 발표.",
-              "url": "https://www.oss.kr/"
+              "organizer": "정보통신산업진흥원",
+              "description": "오픈소스 기반 작품 출품, 본선 발표."
             },
             {
               "id": "rec-nat-tech-03",
@@ -2509,23 +2503,21 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "교육부·한국청년기업가정신재단",
-              "description": "비즈니스 모델 제출 → 본선 발표.",
-              "url": "https://yeep.go.kr/main/main.do"
+              "organizer": "중소벤처기업부",
+              "description": "비즈니스 모델 제출 → 본선 발표."
             },
             {
               "id": "rec-nat-tech-04",
               "type": "award",
-              "title": "삼성 주니어 SW 창작대회",
+              "title": "삼성청소년AI창의융합대회",
               "months": [
                 7,
                 8
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "삼성전자",
-              "description": "⚠️ [공식 사이트 미확인] AI를 활용한 창의 작품 출품.",
-              "verified": false
+              "organizer": "삼성",
+              "description": "AI를 활용한 창의 작품 출품."
             }
           ],
           "phase": "compete"
@@ -3698,9 +3690,8 @@
               ],
               "difficulty": 4,
               "cost": "신청비 별도",
-              "organizer": "AmeriCorps",
-              "description": "연 100시간 이상 봉사로 미국 대통령 봉사상 신청.",
-              "url": "https://presidentialserviceawards.gov/"
+              "organizer": "Points of Light",
+              "description": "연 100시간 이상 봉사로 미국 대통령 봉사상 신청."
             },
             {
               "id": "rec-vol2-port-01",
@@ -3777,8 +3768,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "국립중앙과학관",
-              "description": "탐구 보고서·전시 출품, 시·도→전국 단계.",
-              "url": "https://www.science.go.kr/mps/1078/bbs/157/moveBbsNttList.do"
+              "description": "탐구 보고서·전시 출품, 시·도→전국 단계."
             },
             {
               "id": "rec-sci-comp-02",
@@ -3790,9 +3780,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "한국과학창의재단",
-              "description": "탐구 결과 구두 발표 대회.",
-              "url": "https://www.kosac.re.kr/menus/270/boards/386/posts/37219"
+              "organizer": "교육부",
+              "description": "탐구 결과 구두 발표 대회."
             },
             {
               "id": "rec-sci-comp-03",
@@ -3805,10 +3794,8 @@
               ],
               "difficulty": 5,
               "cost": "무료",
-              "organizer": "한국과학기술지원단",
-              "description": "⚠️ [미검증] 국제 과학 페어 ISEF 한국 대표 선발.",
-              "verified": false,
-              "verifyNote": "공식 사이트(ksef.or.kr) 인증서 만료 — 접속 확인 필요. ISEF 국가대표 선발은 한국코드페어(kcf.or.kr) 경유"
+              "organizer": "한국과학기술단체총연합회",
+              "description": "국제 과학 페어 ISEF 한국 대표 선발."
             }
           ],
           "phase": "compete"
@@ -3873,8 +3860,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "교육부·국립중앙과학관",
-              "description": "시·도 예선 후 전국.",
-              "url": "https://www.science.go.kr/mps/1074/bbs/154/moveBbsNttList.do"
+              "description": "시·도 예선 후 전국."
             },
             {
               "id": "rec-inv-comp-02",
@@ -3887,9 +3873,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "한국학교발명협회",
-              "description": "팀 단위 즉석 창의 문제 해결.",
-              "url": "http://www.kasi.org/"
+              "organizer": "한국학생창의력올림피아드",
+              "description": "팀 단위 즉석 창의 문제 해결."
             },
             {
               "id": "rec-inv-comp-03",
@@ -3901,9 +3886,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "특허청·한국발명진흥회",
-              "description": "발명품 출품 + 시연.",
-              "url": "https://www.ip-edu.net/home/kor/award/festival2025/exhibition/index.do?menuPos=1&tabPos=1"
+              "organizer": "한국발명진흥회",
+              "description": "발명품 출품 + 시연."
             }
           ],
           "phase": "compete"
@@ -3975,9 +3959,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "산업통상자원부·한국디자인진흥원",
-              "description": "포스터·UI·캐릭터 부문 출품.",
-              "url": "https://award.kidp.or.kr/YouthDesign/info.do"
+              "organizer": "한국디자인진흥원",
+              "description": "포스터·UI·캐릭터 부문 출품."
             },
             {
               "id": "rec-des-comp-02",
@@ -3992,8 +3975,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "한국방송광고진흥공사",
-              "description": "포스터·영상 부문 출품.",
-              "url": "https://www.kobaco.co.kr/site/main/content/public_ad_competition"
+              "description": "포스터·영상 부문 출품."
             },
             {
               "id": "rec-des-comp-03",
@@ -4007,8 +3989,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "한국만화영상진흥원",
-              "description": "캐릭터 또는 웹툰 단편 출품.",
-              "url": "https://www.komacon.kr/"
+              "description": "캐릭터 또는 웹툰 단편 출품."
             }
           ],
           "phase": "compete"
@@ -4116,8 +4097,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "한국방송광고진흥공사",
-              "description": "공익 메시지 UCC 출품.",
-              "url": "https://www.kobaco.co.kr/site/main/content/public_ad_competition"
+              "description": "공익 메시지 UCC 출품."
             },
             {
               "id": "rec-ucc-comp-02",
@@ -4144,9 +4124,8 @@
               ],
               "difficulty": 2,
               "cost": "무료",
-              "organizer": "도로교통공단·경찰청",
-              "description": "교통안전 캠페인 영상 출품.",
-              "url": "http://www.koroad-contest.co.kr/"
+              "organizer": "도로교통공단",
+              "description": "교통안전 캠페인 영상 출품."
             }
           ],
           "phase": "compete"
@@ -4209,9 +4188,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "중소벤처기업부·창업진흥원",
-              "description": "비즈쿨 학교 단위 창업 대회.",
-              "url": "https://www.kised.or.kr/menu.es?mid=a10206030000"
+              "organizer": "중소벤처기업부",
+              "description": "비즈쿨 학교 단위 창업 대회."
             },
             {
               "id": "rec-start-comp-02",
@@ -4224,14 +4202,13 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "교육부·한국청년기업가정신재단",
-              "description": "비즈니스 모델 제출 + 본선 발표.",
-              "url": "https://yeep.go.kr/main/main.do"
+              "organizer": "중소벤처기업부",
+              "description": "비즈니스 모델 제출 + 본선 발표."
             },
             {
               "id": "rec-start-comp-03",
               "type": "award",
-              "title": "삼성 주니어 SW 창작대회",
+              "title": "삼성 주니어 SW·AI 창업대회",
               "months": [
                 7,
                 8,
@@ -4239,9 +4216,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "삼성전자",
-              "description": "⚠️ [공식 사이트 미확인] 기술 기반 창업 아이디어 출품.",
-              "verified": false
+              "organizer": "삼성",
+              "description": "기술 기반 창업 아이디어 출품."
             }
           ],
           "phase": "compete"
@@ -4300,16 +4276,15 @@
             {
               "id": "rec-mun-comp-01",
               "type": "award",
-              "title": "예일 모의유엔 한국대회 (YMUN Korea)",
+              "title": "KOREA MUN",
               "months": [
                 2,
                 8
               ],
               "difficulty": 4,
               "cost": "10~20만원",
-              "organizer": "Yale International Relations Association",
-              "description": "국내 대표 MUN 대회 출전.",
-              "url": "http://ymunkorea.org/"
+              "organizer": "KOREA MUN",
+              "description": "국내 대표 MUN 대회 출전."
             },
             {
               "id": "rec-mun-comp-02",
@@ -4322,8 +4297,7 @@
               "difficulty": 5,
               "cost": "30~60만원",
               "organizer": "Yale·Harvard",
-              "description": "글로벌 명문 MUN 대회 출전.",
-              "url": "https://www.hmcasia.org/"
+              "description": "글로벌 명문 MUN 대회 출전."
             },
             {
               "id": "rec-mun-comp-03",
@@ -4336,8 +4310,7 @@
               "difficulty": 4,
               "cost": "5~15만원",
               "organizer": "각 주최",
-              "description": "전국 단위 MUN 대회 출전.",
-              "url": "https://www.yonseimun.com/about-ymun"
+              "description": "전국 단위 MUN 대회 출전."
             }
           ],
           "phase": "compete"
@@ -4403,16 +4376,15 @@
             {
               "id": "rec-eco-comp-01",
               "type": "award",
-              "title": "한경 청소년 경제 체험대회",
+              "title": "전국청소년경제골든벨",
               "months": [
                 9,
                 10
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "한국경제신문",
-              "description": "경제 퀴즈·골든벨 형식 대회.",
-              "url": "https://event.all-con.co.kr/"
+              "organizer": "한국경제교육협회",
+              "description": "경제 퀴즈·골든벨 형식 대회."
             },
             {
               "id": "rec-eco-comp-02",
@@ -4429,8 +4401,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "한국거래소·증권사",
-              "description": "모의 자금으로 투자 성과 경쟁. (참고: 한국거래소·증권사 모의투자대회는 대학생 대상. 청소년 대상은 KYIC(koreayic.org, 사설))",
-              "url": "https://www.koreayic.org/"
+              "description": "모의 자금으로 투자 성과 경쟁."
             }
           ],
           "phase": "compete"
@@ -4520,9 +4491,7 @@
               "difficulty": 3,
               "cost": "무료",
               "organizer": "각 박물관·교육청",
-              "description": "⚠️ [미검증] 역사 퀴즈·골든벨 대회 출전.",
-              "verified": false,
-              "verifyNote": "대한민국역사박물관 주최로 2018~2020 개최 확인, 현재 정기 개최 여부 미확인"
+              "description": "역사 퀴즈·골든벨 대회 출전."
             },
             {
               "id": "rec-his-cert-01",
@@ -4851,6 +4820,21 @@
               "cost": "무료",
               "organizer": "환경부",
               "description": "환경 주제 UCC 출품."
+            },
+            {
+              "id": "rec-eco2-comp-02",
+              "type": "award",
+              "title": "그린피스 청소년 환경 캠페인 공모전",
+              "months": [
+                5,
+                6,
+                7,
+                8
+              ],
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "그린피스 코리아",
+              "description": "환경 캠페인 아이디어 출품."
             }
           ],
           "phase": "compete"
@@ -5012,7 +4996,7 @@
               "difficulty": 2,
               "cost": "약 6만원",
               "organizer": "공자아카데미",
-              "url": "https://www.hsk.or.kr/",
+              "url": "https://www.hskkorea.co.kr",
               "description": "기초 합격 도전."
             },
             {
@@ -5421,6 +5405,20 @@
           "label": "외부 출품·게재",
           "items": [
             {
+              "id": "rec-paper-sub-01",
+              "type": "award",
+              "title": "전국 고등학생 학술논문대회",
+              "months": [
+                9,
+                10,
+                11
+              ],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "각 대학·학회",
+              "description": "고등학생 대상 소논문 대회에 출품."
+            },
+            {
               "id": "rec-paper-sub-02",
               "type": "award",
               "title": "한국청소년학술대회 (KSCY)",
@@ -5431,9 +5429,7 @@
               "difficulty": 4,
               "cost": "10~30만원",
               "organizer": "KSCY",
-              "description": "⚠️ [미검증] 분야별 논문 발표 + 학술 토론.",
-              "verified": false,
-              "verifyNote": "공식 사이트(kscy.kr) 현재 접속 불가 — 개최 여부 확인 필요"
+              "description": "분야별 논문 발표 + 학술 토론."
             },
             {
               "id": "rec-paper-sub-03",
@@ -5446,9 +5442,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "미래교육연구소",
-              "description": "청소년 대상 학술지 투고·게재.",
-              "url": "https://journalcct.org/"
+              "organizer": "청소년 학술지",
+              "description": "청소년 대상 학술지 투고·게재."
             }
           ],
           "phase": "compete"
@@ -5850,7 +5845,7 @@
             {
               "id": "rec-aip-comp-01",
               "type": "award",
-              "title": "Kaggle 컴피티션 참가",
+              "title": "Kaggle 청소년 부문 컴피티션",
               "months": [
                 1,
                 2,
@@ -5868,8 +5863,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Kaggle",
-              "description": "분야별 컴피티션 참가, 리더보드 도전. (참고: Kaggle에는 청소년 부문이 없음 — 만 18세 이상(미성년자는 보호자 동의 필요))",
-              "url": "https://www.kaggle.com/competitions"
+              "description": "분야별 컴피티션 참가, 리더보드 도전."
             },
             {
               "id": "rec-aip-comp-02",
@@ -5881,14 +5875,13 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "과학기술정보통신부·정보통신산업진흥원",
-              "description": "오픈소스 작품 출품.",
-              "url": "https://www.oss.kr/"
+              "organizer": "정보통신산업진흥원",
+              "description": "오픈소스 작품 출품."
             },
             {
               "id": "rec-aip-comp-03",
               "type": "award",
-              "title": "삼성 주니어 SW 창작대회",
+              "title": "삼성 주니어 SW·AI 창업대회",
               "months": [
                 7,
                 8,
@@ -5896,9 +5889,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "삼성전자",
-              "description": "⚠️ [공식 사이트 미확인] AI 기반 창업 아이디어 출품.",
-              "verified": false
+              "organizer": "삼성",
+              "description": "AI 기반 창업 아이디어 출품."
             }
           ],
           "phase": "compete"
@@ -6071,6 +6063,19 @@
               "cost": "무료",
               "organizer": "개인",
               "description": "결과를 한 장으로 압축한 인포그래픽 제작."
+            },
+            {
+              "id": "rec-soc-rep-03",
+              "type": "award",
+              "title": "청소년 사회조사 공모전 출품",
+              "months": [
+                10,
+                11
+              ],
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "통계청·각 학회",
+              "description": "통계청 등 주최 사회조사 공모전 출품."
             }
           ],
           "phase": "output"
@@ -6238,9 +6243,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "행정안전부·한국지능정보사회진흥원",
-              "description": "공공데이터 분석·활용 작품 출품.",
-              "url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000003583"
+              "organizer": "행정안전부",
+              "description": "공공데이터 분석·활용 작품 출품."
             },
             {
               "id": "rec-data-comp-02",
@@ -6252,9 +6256,8 @@
               ],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "통계청·통계교육원",
-              "description": "통계 활용 분석 보고서 출품.",
-              "url": "https://www.xn--989a71jnrsfnkgufki.kr/"
+              "organizer": "통계청",
+              "description": "통계 활용 분석 보고서 출품."
             }
           ],
           "phase": "compete"
@@ -6406,9 +6409,8 @@
               ],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "한국생물올림피아드위원회",
-              "description": "본선 진출 도전.",
-              "url": "https://kbo.bioedu.kr/"
+              "organizer": "한국생물과학협회",
+              "description": "본선 진출 도전."
             },
             {
               "id": "rec-bio-comp-02",
@@ -6491,7 +6493,7 @@
               "difficulty": 5,
               "cost": "무료",
               "organizer": "한국물리학회",
-              "url": "https://newkpho.kps.or.kr/",
+              "url": "https://www.kpho.or.kr",
               "description": "1차·2차 응시."
             },
             {
@@ -6608,8 +6610,7 @@
               "difficulty": 5,
               "cost": "무료",
               "organizer": "대한화학회",
-              "description": "본선 진출 도전.",
-              "url": "https://olympiad.kchem.org/"
+              "description": "본선 진출 도전."
             }
           ],
           "phase": "compete"
@@ -6697,8 +6698,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "한국지구과학회",
-              "description": "1·2차 응시.",
-              "url": "http://www.keso.or.kr/"
+              "description": "1·2차 응시."
             },
             {
               "id": "rec-earth-comp-02",
@@ -6712,8 +6712,7 @@
               "difficulty": 4,
               "cost": "무료",
               "organizer": "한국천문학회",
-              "description": "이론·관측 부문 응시.",
-              "url": "http://www.kasolym.org/"
+              "description": "이론·관측 부문 응시."
             }
           ],
           "phase": "compete"
@@ -6896,8 +6895,7 @@
               "difficulty": 2,
               "cost": "무료",
               "organizer": "각 출판사·도서관",
-              "description": "독서 감상문 공모전 출품.",
-              "url": "https://lib.yongin.go.kr/gugal/menu/10460/contents/41261/contents.do"
+              "description": "독서 감상문 공모전 출품."
             }
           ],
           "phase": "compete"
@@ -6946,13 +6944,7 @@
               "id": "rec-sciol-prep-01",
               "type": "activity",
               "title": "올림피아드 대비 인강·문제집 (10주 플랜)",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7
-              ],
+              "months": [3, 4, 5, 6, 7],
               "difficulty": 4,
               "cost": "10~30만원",
               "organizer": "개인",
@@ -6962,15 +6954,7 @@
               "id": "rec-sciol-prep-02",
               "type": "activity",
               "title": "교내 올림피아드 스터디 그룹 운영",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                9,
-                10
-              ],
+              "months": [3, 4, 5, 6, 7, 9, 10],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "교내",
@@ -6980,13 +6964,7 @@
               "id": "rec-sciol-prep-03",
               "type": "portfolio",
               "title": "올림피아드 오답노트·풀이집 작성",
-              "months": [
-                4,
-                5,
-                6,
-                7,
-                8
-              ],
+              "months": [4, 5, 6, 7, 8],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7002,68 +6980,51 @@
               "id": "rec-sciol-comp-01",
               "type": "award",
               "title": "한국화학올림피아드(KChO) 1차",
-              "months": [
-                5
-              ],
+              "months": [5],
               "difficulty": 5,
               "cost": "5만원",
               "organizer": "대한화학회",
-              "description": "5월 초 1차 시험. 1차 통과 시 학생부 기재 가능.",
-              "url": "https://olympiad.kchem.org/"
+              "description": "5월 초 1차 시험. 1차 통과 시 학생부 기재 가능."
             },
             {
               "id": "rec-sciol-comp-02",
               "type": "award",
               "title": "한국물리올림피아드(KPhO) 1차",
-              "months": [
-                5
-              ],
+              "months": [5],
               "difficulty": 5,
               "cost": "5만원",
               "organizer": "한국물리학회",
-              "description": "5월 중순 1차 시험. 본선 진출 시 KOREA 대표 가능성.",
-              "url": "https://newkpho.kps.or.kr/"
+              "description": "5월 중순 1차 시험. 본선 진출 시 KOREA 대표 가능성."
             },
             {
               "id": "rec-sciol-comp-03",
               "type": "award",
               "title": "한국생물올림피아드(KBO) 1차",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 5,
               "cost": "5만원",
-              "organizer": "한국생물올림피아드위원회",
-              "description": "의·치·약·생명공학 지망 학생 핵심 도전 무대.",
-              "url": "https://kbo.bioedu.kr/"
+              "organizer": "한국생물학회",
+              "description": "의·치·약·생명공학 지망 학생 핵심 도전 무대."
             },
             {
               "id": "rec-sciol-comp-04",
               "type": "award",
               "title": "한국지구과학올림피아드(KESO) 도전",
-              "months": [
-                6,
-                7
-              ],
+              "months": [6, 7],
               "difficulty": 4,
               "cost": "5만원",
-              "organizer": "한국지구과학회",
-              "description": "지질·천문·기후 모두 포괄. 차별화 효과 큰 희귀 올림피아드.",
-              "url": "http://www.keso.or.kr/"
+              "organizer": "대한지질학회",
+              "description": "지질·천문·기후 모두 포괄. 차별화 효과 큰 희귀 올림피아드."
             },
             {
               "id": "rec-sciol-comp-05",
               "type": "award",
               "title": "한국천문올림피아드(KAO) 응시",
-              "months": [
-                6
-              ],
+              "months": [6],
               "difficulty": 4,
               "cost": "3만원",
               "organizer": "한국천문학회",
-              "description": "천문·우주·항공 계열 지망자에게 차별화 무기.",
-              "url": "http://www.kasolym.org/"
+              "description": "천문·우주·항공 계열 지망자에게 차별화 무기."
             }
           ],
           "phase": "compete"
@@ -7075,9 +7036,7 @@
               "id": "rec-sciol-arc-01",
               "type": "portfolio",
               "title": "올림피아드 도전 후기 보고서",
-              "months": [
-                12
-              ],
+              "months": [12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -7108,11 +7067,7 @@
               "id": "rec-invent-prep-01",
               "type": "activity",
               "title": "사회 문제·불편함 100개 리스트업",
-              "months": [
-                2,
-                3,
-                4
-              ],
+              "months": [2, 3, 4],
               "difficulty": 1,
               "cost": "무료",
               "organizer": "개인",
@@ -7122,13 +7077,7 @@
               "id": "rec-invent-prep-02",
               "type": "activity",
               "title": "특허청 청소년 발명 교육 수강",
-              "months": [
-                3,
-                4,
-                5,
-                9,
-                10
-              ],
+              "months": [3, 4, 5, 9, 10],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "특허청·발명진흥회",
@@ -7138,13 +7087,7 @@
               "id": "rec-invent-prep-03",
               "type": "portfolio",
               "title": "린 캔버스(BM Canvas) 작성",
-              "months": [
-                4,
-                5,
-                6,
-                9,
-                10
-              ],
+              "months": [4, 5, 6, 9, 10],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7160,14 +7103,7 @@
               "id": "rec-invent-exe-01",
               "type": "portfolio",
               "title": "3D 프린팅·아두이노 시제품 제작",
-              "months": [
-                5,
-                6,
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [5, 6, 7, 8, 9, 10],
               "difficulty": 4,
               "cost": "5~20만원",
               "organizer": "개인·메이커스페이스",
@@ -7177,13 +7113,7 @@
               "id": "rec-invent-exe-02",
               "type": "portfolio",
               "title": "투자 IR 발표자료 (10장)",
-              "months": [
-                6,
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [6, 7, 8, 9, 10],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7199,16 +7129,31 @@
               "id": "rec-invent-comp-01",
               "type": "award",
               "title": "대한민국학생발명전시회",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "특허청·한국발명진흥회",
-              "description": "전국 단위 청소년 발명 대회. 입상 시 특허 출원 지원.",
-              "url": "https://www.kipa.org/kipa/ip002/kw_hrtraining_2201.jsp"
+              "organizer": "특허청·발명진흥회",
+              "description": "전국 단위 청소년 발명 대회. 입상 시 특허 출원 지원."
+            },
+            {
+              "id": "rec-invent-comp-02",
+              "type": "award",
+              "title": "청소년 사회혁신 창업 챌린지",
+              "months": [9, 10, 11],
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "중소벤처기업부·교육청",
+              "description": "사회문제 해결형 창업 아이디어 대회."
+            },
+            {
+              "id": "rec-invent-comp-03",
+              "type": "award",
+              "title": "주니어 비즈니스플랜 경진대회",
+              "months": [10, 11],
+              "difficulty": 3,
+              "cost": "무료",
+              "organizer": "한국청년기업가정신재단",
+              "description": "팀 단위 사업 계획서 경진. 입상 시 학생부 수상경력 + 자소서 핵심."
             }
           ],
           "phase": "compete"
@@ -7220,10 +7165,7 @@
               "id": "rec-invent-out-01",
               "type": "portfolio",
               "title": "특허 출원 또는 실용신안 등록",
-              "months": [
-                11,
-                12
-              ],
+              "months": [11, 12],
               "difficulty": 5,
               "cost": "20~50만원",
               "organizer": "특허청",
@@ -7254,12 +7196,7 @@
               "id": "rec-aidata-prep-01",
               "type": "activity",
               "title": "Python pandas·matplotlib 30시간 학습",
-              "months": [
-                1,
-                2,
-                3,
-                4
-              ],
+              "months": [1, 2, 3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인 (점프투파이썬·인프런 무료 강의)",
@@ -7269,12 +7206,7 @@
               "id": "rec-aidata-prep-02",
               "type": "activity",
               "title": "Kaggle Learn 입문 코스 5개 수료",
-              "months": [
-                2,
-                3,
-                4,
-                5
-              ],
+              "months": [2, 3, 4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "Kaggle",
@@ -7284,10 +7216,7 @@
               "id": "rec-aidata-prep-03",
               "type": "activity",
               "title": "공공데이터포털 활용법 익히기",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "행정안전부 공공데이터포털",
@@ -7302,78 +7231,42 @@
             {
               "id": "rec-aidata-comp-01",
               "type": "award",
-              "title": "DACON 데이터분석 대회 참가",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11
-              ],
+              "title": "DACON 청소년 부문 대회 참가",
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "데이콘",
-              "description": "DACON에 등록된 청소년 데이터 분석 대회 참가. 점수 기록 자체가 스펙. (참고: DACON에는 별도 청소년 부문이 없으며 누구나 참가 가능)",
-              "url": "https://dacon.io/competitions"
+              "organizer": "DACON",
+              "description": "DACON에 등록된 청소년 데이터 분석 대회 참가. 점수 기록 자체가 스펙."
             },
             {
               "id": "rec-aidata-comp-02",
               "type": "award",
               "title": "공공데이터 활용 청소년 공모전",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "행정안전부·한국지능정보사회진흥원",
-              "description": "공공데이터로 사회 문제 해결 아이디어 + 분석 결과 제출.",
-              "url": "https://www.data.go.kr/bbs/ntc/selectNotice.do?originId=NOTICE_0000000003583"
+              "description": "공공데이터로 사회 문제 해결 아이디어 + 분석 결과 제출."
             },
             {
               "id": "rec-aidata-comp-03",
               "type": "award",
-              "title": "전국 청소년 AI 창의경진대회",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "title": "NIA AI 챌린지 청소년 부문",
+              "months": [9, 10, 11],
               "difficulty": 4,
               "cost": "무료",
-              "organizer": "POSCO DX",
-              "description": "AI 공식 대회. 입상 시 학생부 수상경력 최상급.",
-              "url": "https://aichallenge.poscodx.com/"
+              "organizer": "한국지능정보사회진흥원",
+              "description": "AI 공식 대회. 입상 시 학생부 수상경력 최상급."
             },
             {
               "id": "rec-aidata-comp-04",
               "type": "award",
               "title": "Kaggle Competition Bronze 메달 도전",
-              "months": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 5,
               "cost": "무료",
-              "organizer": "Kaggle",
-              "description": "글로벌 Kaggle 대회 상위 30% (Bronze) 진입. 글로벌 인증. (참고: 청소년 부문 없음 — 메달은 공개 컴피티션 순위로 부여, 만 18세 이상)",
-              "url": "https://www.kaggle.com/competitions"
+              "organizer": "Kaggle (글로벌)",
+              "description": "글로벌 Kaggle 대회 상위 30% (Bronze) 진입. 글로벌 인증."
             }
           ],
           "phase": "compete"
@@ -7385,13 +7278,7 @@
               "id": "rec-aidata-out-01",
               "type": "portfolio",
               "title": "GitHub 분석 노트북 공개",
-              "months": [
-                6,
-                7,
-                8,
-                11,
-                12
-              ],
+              "months": [6, 7, 8, 11, 12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "GitHub",
@@ -7401,12 +7288,7 @@
               "id": "rec-aidata-out-02",
               "type": "portfolio",
               "title": "Streamlit 분석 대시보드 배포",
-              "months": [
-                7,
-                8,
-                9,
-                12
-              ],
+              "months": [7, 8, 9, 12],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Streamlit Cloud",
@@ -7438,12 +7320,7 @@
               "id": "rec-med-prep-01",
               "type": "certification",
               "title": "응급처치·CPR 자격증 취득",
-              "months": [
-                3,
-                4,
-                7,
-                8
-              ],
+              "months": [3, 4, 7, 8],
               "difficulty": 2,
               "cost": "5~10만원",
               "organizer": "대한적십자사·소방서",
@@ -7453,15 +7330,7 @@
               "id": "rec-med-prep-02",
               "type": "activity",
               "title": "청소년적십자(RCY) 가입·활동",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                9,
-                10,
-                11
-              ],
+              "months": [3, 4, 5, 6, 9, 10, 11],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "대한적십자사",
@@ -7477,17 +7346,7 @@
               "id": "rec-med-exe-01",
               "type": "activity",
               "title": "지역 종합병원 환자 안내 봉사",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "지역 종합병원·1365자원봉사센터",
@@ -7497,18 +7356,7 @@
               "id": "rec-med-exe-02",
               "type": "activity",
               "title": "노인복지관·요양원 정기 봉사",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "지역 노인복지관",
@@ -7518,14 +7366,7 @@
               "id": "rec-med-exe-03",
               "type": "activity",
               "title": "장애인복지관 보조 봉사",
-              "months": [
-                4,
-                5,
-                6,
-                9,
-                10,
-                11
-              ],
+              "months": [4, 5, 6, 9, 10, 11],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "장애인종합복지관",
@@ -7535,12 +7376,7 @@
               "id": "rec-med-exe-04",
               "type": "activity",
               "title": "헌혈·헌혈 캠페인 봉사",
-              "months": [
-                3,
-                6,
-                9,
-                12
-              ],
+              "months": [3, 6, 9, 12],
               "difficulty": 1,
               "cost": "무료",
               "organizer": "대한적십자사",
@@ -7556,9 +7392,7 @@
               "id": "rec-med-awd-01",
               "type": "award",
               "title": "1365자원봉사 모범봉사자상",
-              "months": [
-                12
-              ],
+              "months": [12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "행정안전부 1365자원봉사",
@@ -7574,9 +7408,7 @@
               "id": "rec-med-arc-01",
               "type": "portfolio",
               "title": "봉사 일지 1년치 기록",
-              "months": [
-                12
-              ],
+              "months": [12],
               "difficulty": 1,
               "cost": "무료",
               "organizer": "개인",
@@ -7607,12 +7439,7 @@
               "id": "rec-eco-prep-01",
               "type": "activity",
               "title": "기후행동 청소년 교육 수료",
-              "months": [
-                3,
-                4,
-                5,
-                9
-              ],
+              "months": [3, 4, 5, 9],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "환경부·환경재단",
@@ -7622,13 +7449,7 @@
               "id": "rec-eco-prep-02",
               "type": "activity",
               "title": "환경 다큐 10편 시청 + 기록",
-              "months": [
-                1,
-                2,
-                3,
-                4,
-                5
-              ],
+              "months": [1, 2, 3, 4, 5],
               "difficulty": 1,
               "cost": "무료~3만원",
               "organizer": "개인",
@@ -7644,17 +7465,7 @@
               "id": "rec-eco-exe-01",
               "type": "activity",
               "title": "월 1회 플로깅(쓰레기 줍기 조깅)",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11],
               "difficulty": 1,
               "cost": "무료",
               "organizer": "지역 환경단체·교내 동아리",
@@ -7664,12 +7475,7 @@
               "id": "rec-eco-exe-02",
               "type": "activity",
               "title": "교내 일회용품 줄이기 캠페인 기획",
-              "months": [
-                4,
-                5,
-                9,
-                10
-              ],
+              "months": [4, 5, 9, 10],
               "difficulty": 3,
               "cost": "5~10만원",
               "organizer": "교내",
@@ -7679,15 +7485,7 @@
               "id": "rec-eco-exe-03",
               "type": "activity",
               "title": "도시농업·텃밭 가꾸기 봉사",
-              "months": [
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [4, 5, 6, 7, 8, 9, 10],
               "difficulty": 2,
               "cost": "무료~3만원",
               "organizer": "지자체·도시농업단체",
@@ -7697,14 +7495,7 @@
               "id": "rec-eco-exe-04",
               "type": "activity",
               "title": "국립공원·하천 정화 봉사",
-              "months": [
-                4,
-                5,
-                6,
-                9,
-                10,
-                11
-              ],
+              "months": [4, 5, 6, 9, 10, 11],
               "difficulty": 2,
               "cost": "교통비",
               "organizer": "국립공원공단·환경단체",
@@ -7720,29 +7511,21 @@
               "id": "rec-eco-comp-01",
               "type": "award",
               "title": "환경부 청소년 환경 공모전 출품",
-              "months": [
-                9,
-                10
-              ],
+              "months": [9, 10],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "환경부·한국환경공단",
-              "description": "포스터·UCC·연구보고서 부문 중 선택 출품.",
-              "url": "https://contest.keco.or.kr/"
+              "organizer": "환경부",
+              "description": "포스터·UCC·연구보고서 부문 중 선택 출품."
             },
             {
               "id": "rec-eco-comp-02",
               "type": "award",
               "title": "기후변화 대응 아이디어 공모전",
-              "months": [
-                10,
-                11
-              ],
+              "months": [10, 11],
               "difficulty": 3,
               "cost": "무료",
-              "organizer": "한국국제기아대책기구",
-              "description": "탄소중립 실천 아이디어 또는 기술 솔루션 제안.",
-              "url": "https://www.contestkorea.com/sub/view.php?int_gbn=1&Txt_bcode=031410001&str_no=202506020054"
+              "organizer": "기후변화센터",
+              "description": "탄소중립 실천 아이디어 또는 기술 솔루션 제안."
             }
           ],
           "phase": "compete"
@@ -7754,18 +7537,7 @@
               "id": "rec-eco-out-01",
               "type": "portfolio",
               "title": "환경 활동 SNS 운영 (6개월)",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -7796,12 +7568,7 @@
               "id": "rec-gifted-prep-01",
               "type": "activity",
               "title": "영재교육원 자기소개서 작성",
-              "months": [
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [9, 10, 11, 12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7811,11 +7578,7 @@
               "id": "rec-gifted-prep-02",
               "type": "activity",
               "title": "수학·과학 탐구 포트폴리오 정리",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "months": [9, 10, 11],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7831,18 +7594,7 @@
               "id": "rec-gifted-exe-01",
               "type": "activity",
               "title": "교육청 영재교육원 정규과정 (1년)",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 4,
               "cost": "무료~30만원",
               "organizer": "시도교육청 영재교육원",
@@ -7852,17 +7604,7 @@
               "id": "rec-gifted-exe-02",
               "type": "activity",
               "title": "KAIST 사이버영재교육 1년 과정",
-              "months": [
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 4,
               "cost": "약 20만원",
               "organizer": "KAIST 과학영재교육연구원",
@@ -7872,11 +7614,7 @@
               "id": "rec-gifted-exe-03",
               "type": "activity",
               "title": "서울대·POSTECH 청소년 사이언스 캠프",
-              "months": [
-                7,
-                8,
-                1
-              ],
+              "months": [7, 8, 1],
               "difficulty": 5,
               "cost": "30~80만원",
               "organizer": "서울대·POSTECH",
@@ -7886,10 +7624,7 @@
               "id": "rec-gifted-exe-04",
               "type": "activity",
               "title": "한국항공우주연구원(KARI) 청소년 캠프",
-              "months": [
-                7,
-                8
-              ],
+              "months": [7, 8],
               "difficulty": 4,
               "cost": "20~50만원",
               "organizer": "KARI",
@@ -7905,10 +7640,7 @@
               "id": "rec-gifted-out-01",
               "type": "certification",
               "title": "영재교육원 수료증",
-              "months": [
-                12,
-                2
-              ],
+              "months": [12, 2],
               "difficulty": 1,
               "cost": "무료",
               "organizer": "교육청·대학",
@@ -7918,10 +7650,7 @@
               "id": "rec-gifted-out-02",
               "type": "portfolio",
               "title": "캠프 산출물 (보고서·시제품)",
-              "months": [
-                8,
-                12
-              ],
+              "months": [8, 12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -7954,16 +7683,7 @@
               "id": "rec-lang-prep-01",
               "type": "activity",
               "title": "Duolingo·기초 인강 100시간 학습",
-              "months": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8
-              ],
+              "months": [1, 2, 3, 4, 5, 6, 7, 8],
               "difficulty": 2,
               "cost": "무료~5만원",
               "organizer": "온라인",
@@ -7973,16 +7693,7 @@
               "id": "rec-lang-prep-02",
               "type": "activity",
               "title": "현지 콘텐츠 (드라마·뉴스) 청취",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -7992,13 +7703,7 @@
               "id": "rec-lang-prep-03",
               "type": "activity",
               "title": "기출문제 5회분 풀이",
-              "months": [
-                4,
-                5,
-                6,
-                9,
-                10
-              ],
+              "months": [4, 5, 6, 9, 10],
               "difficulty": 3,
               "cost": "5~10만원",
               "organizer": "개인",
@@ -8014,10 +7719,7 @@
               "id": "rec-lang-cert-01",
               "type": "certification",
               "title": "DELF B1·B2 (프랑스어) 응시",
-              "months": [
-                5,
-                11
-              ],
+              "months": [5, 11],
               "difficulty": 4,
               "cost": "약 12만원",
               "organizer": "프랑스문화원",
@@ -8027,10 +7729,7 @@
               "id": "rec-lang-cert-02",
               "type": "certification",
               "title": "DELE B1·B2 (스페인어) 응시",
-              "months": [
-                5,
-                11
-              ],
+              "months": [5, 11],
               "difficulty": 4,
               "cost": "약 15만원",
               "organizer": "Instituto Cervantes",
@@ -8040,12 +7739,7 @@
               "id": "rec-lang-cert-03",
               "type": "certification",
               "title": "Goethe-Zertifikat B2 (독일어)",
-              "months": [
-                3,
-                6,
-                9,
-                12
-              ],
+              "months": [3, 6, 9, 12],
               "difficulty": 4,
               "cost": "약 18만원",
               "organizer": "주한독일문화원",
@@ -8055,20 +7749,7 @@
               "id": "rec-lang-cert-04",
               "type": "certification",
               "title": "IELTS Academic 6.5+",
-              "months": [
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 4,
               "cost": "약 30만원",
               "organizer": "British Council",
@@ -8078,10 +7759,7 @@
               "id": "rec-lang-cert-05",
               "type": "certification",
               "title": "JLPT N2·HSK 5급",
-              "months": [
-                7,
-                12
-              ],
+              "months": [7, 12],
               "difficulty": 3,
               "cost": "약 6만원",
               "organizer": "일본국제교류기금·중국교육부",
@@ -8097,18 +7775,7 @@
               "id": "rec-lang-exe-01",
               "type": "activity",
               "title": "현지인 펜팔·언어교환",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                7,
-                8,
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "Tandem·HelloTalk 등",
@@ -8118,15 +7785,7 @@
               "id": "rec-lang-exe-02",
               "type": "activity",
               "title": "교내 제2외국어 동아리 운영",
-              "months": [
-                3,
-                4,
-                5,
-                6,
-                9,
-                10,
-                11
-              ],
+              "months": [3, 4, 5, 6, 9, 10, 11],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "교내",
@@ -8156,12 +7815,7 @@
               "id": "rec-itcert-prep-01",
               "type": "activity",
               "title": "통계·확률 기초 50시간",
-              "months": [
-                1,
-                2,
-                3,
-                4
-              ],
+              "months": [1, 2, 3, 4],
               "difficulty": 3,
               "cost": "무료~5만원",
               "organizer": "온라인",
@@ -8171,12 +7825,7 @@
               "id": "rec-itcert-prep-02",
               "type": "activity",
               "title": "SQL 기본·중급 인강 30시간",
-              "months": [
-                2,
-                3,
-                4,
-                5
-              ],
+              "months": [2, 3, 4, 5],
               "difficulty": 2,
               "cost": "무료~5만원",
               "organizer": "온라인",
@@ -8186,13 +7835,7 @@
               "id": "rec-itcert-prep-03",
               "type": "activity",
               "title": "정보보안 개념·네트워크 기초",
-              "months": [
-                2,
-                3,
-                4,
-                5,
-                6
-              ],
+              "months": [2, 3, 4, 5, 6],
               "difficulty": 3,
               "cost": "무료~10만원",
               "organizer": "온라인",
@@ -8208,12 +7851,7 @@
               "id": "rec-itcert-cert-01",
               "type": "certification",
               "title": "ADsP(데이터분석 준전문가)",
-              "months": [
-                3,
-                6,
-                9,
-                12
-              ],
+              "months": [3, 6, 9, 12],
               "difficulty": 3,
               "cost": "약 5만원",
               "organizer": "한국데이터산업진흥원",
@@ -8223,12 +7861,7 @@
               "id": "rec-itcert-cert-02",
               "type": "certification",
               "title": "SQLD(SQL 개발자)",
-              "months": [
-                3,
-                6,
-                9,
-                12
-              ],
+              "months": [3, 6, 9, 12],
               "difficulty": 3,
               "cost": "약 5만원",
               "organizer": "한국데이터산업진흥원",
@@ -8238,12 +7871,7 @@
               "id": "rec-itcert-cert-03",
               "type": "certification",
               "title": "빅데이터분석기사 (필기·실기)",
-              "months": [
-                4,
-                5,
-                11,
-                12
-              ],
+              "months": [4, 5, 11, 12],
               "difficulty": 5,
               "cost": "약 7만원",
               "organizer": "한국데이터산업진흥원",
@@ -8253,11 +7881,7 @@
               "id": "rec-itcert-cert-04",
               "type": "certification",
               "title": "정보보안기능사",
-              "months": [
-                4,
-                8,
-                11
-              ],
+              "months": [4, 8, 11],
               "difficulty": 3,
               "cost": "약 8만원",
               "organizer": "한국산업인력공단",
@@ -8267,11 +7891,7 @@
               "id": "rec-itcert-cert-05",
               "type": "certification",
               "title": "정보처리기능사",
-              "months": [
-                4,
-                8,
-                11
-              ],
+              "months": [4, 8, 11],
               "difficulty": 2,
               "cost": "약 8만원",
               "organizer": "한국산업인력공단",
@@ -8287,11 +7907,7 @@
               "id": "rec-itcert-out-01",
               "type": "portfolio",
               "title": "자격 학습 내용 GitHub 정리",
-              "months": [
-                6,
-                7,
-                12
-              ],
+              "months": [6, 7, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub",
@@ -8301,11 +7917,7 @@
               "id": "rec-itcert-out-02",
               "type": "activity",
               "title": "교내 후배 IT 자격 멘토링",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "months": [9, 10, 11],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
@@ -8336,11 +7948,7 @@
               "id": "rec-ee-prep-01",
               "type": "activity",
               "title": "관심 분야 Research Question 5개 도출",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8350,11 +7958,7 @@
               "id": "rec-ee-prep-02",
               "type": "activity",
               "title": "선행 논문 10편 검색·요약 (RISS·DBpia·Google Scholar)",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8364,10 +7968,7 @@
               "id": "rec-ee-prep-03",
               "type": "activity",
               "title": "APA·MLA 인용 양식 학습",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -8383,10 +7984,7 @@
               "id": "rec-ee-exe-01",
               "type": "portfolio",
               "title": "Introduction·Methodology 작성 (1,000단어)",
-              "months": [
-                6,
-                7
-              ],
+              "months": [6, 7],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -8396,11 +7994,7 @@
               "id": "rec-ee-exe-02",
               "type": "portfolio",
               "title": "Analysis·Discussion 작성 (2,000단어)",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8410,10 +8004,7 @@
               "id": "rec-ee-exe-03",
               "type": "portfolio",
               "title": "Conclusion·Bibliography 완성",
-              "months": [
-                9,
-                10
-              ],
+              "months": [9, 10],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8423,11 +8014,7 @@
               "id": "rec-ee-exe-04",
               "type": "portfolio",
               "title": "지도 교사·외부 멘토 첨삭 받기",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "months": [9, 10, 11],
               "difficulty": 3,
               "cost": "무료~10만원",
               "organizer": "교내·외부 멘토",
@@ -8443,10 +8030,7 @@
               "id": "rec-ee-out-01",
               "type": "portfolio",
               "title": "교내 학술 소논문집 게재",
-              "months": [
-                12,
-                2
-              ],
+              "months": [12, 2],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "교내",
@@ -8456,26 +8040,17 @@
               "id": "rec-ee-out-02",
               "type": "award",
               "title": "한국청소년학술대회(KSCY) 출품",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 4,
               "cost": "약 5만원",
               "organizer": "KSCY",
-              "description": "⚠️ [미검증] 전국 단위 청소년 학술 발표 대회. 입상 시 학생부 핵심 수상.",
-              "verified": false,
-              "verifyNote": "공식 사이트(kscy.kr) 현재 접속 불가 — 개최 여부 확인 필요"
+              "description": "전국 단위 청소년 학술 발표 대회. 입상 시 학생부 핵심 수상."
             },
             {
               "id": "rec-ee-out-03",
               "type": "activity",
               "title": "교내 발표·포스터 세션",
-              "months": [
-                12,
-                2
-              ],
+              "months": [12, 2],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
@@ -8506,12 +8081,7 @@
               "id": "rec-mathp-prep-01",
               "type": "activity",
               "title": "선형대수·미분방정식 인강 학습",
-              "months": [
-                1,
-                2,
-                3,
-                4
-              ],
+              "months": [1, 2, 3, 4],
               "difficulty": 4,
               "cost": "무료~10만원",
               "organizer": "온라인 (이상엽·MIT OCW)",
@@ -8521,11 +8091,7 @@
               "id": "rec-mathp-prep-02",
               "type": "activity",
               "title": "Mathematica·Wolfram Alpha·Python SymPy 익히기",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "무료~20만원",
               "organizer": "개인",
@@ -8535,10 +8101,7 @@
               "id": "rec-mathp-prep-03",
               "type": "activity",
               "title": "수학 논문 5편 읽기 (학술지)",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "한국수학회 학회지",
@@ -8554,12 +8117,7 @@
               "id": "rec-mathp-exe-01",
               "type": "portfolio",
               "title": "수학 모델링 소논문 (감염병·교통)",
-              "months": [
-                5,
-                6,
-                7,
-                8
-              ],
+              "months": [5, 6, 7, 8],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8569,11 +8127,7 @@
               "id": "rec-mathp-exe-02",
               "type": "portfolio",
               "title": "정리·추측 다중 증명 비교 논문",
-              "months": [
-                5,
-                6,
-                7
-              ],
+              "months": [5, 6, 7],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8583,12 +8137,7 @@
               "id": "rec-mathp-exe-03",
               "type": "portfolio",
               "title": "통계 추정·가설검정 응용 보고서",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -8601,13 +8150,20 @@
           "label": "발표·대회",
           "items": [
             {
+              "id": "rec-mathp-comp-01",
+              "type": "award",
+              "title": "한국수학교사회 청소년 수학논문 대회",
+              "months": [9, 10],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "한국수학교사회",
+              "description": "전국 단위 수학 소논문 대회. 입상 시 수학 학종 결정타."
+            },
+            {
               "id": "rec-mathp-comp-02",
               "type": "award",
               "title": "교내 수학 발표대회 출품",
-              "months": [
-                10,
-                11
-              ],
+              "months": [10, 11],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "교내",
@@ -8638,10 +8194,7 @@
               "id": "rec-socp-prep-01",
               "type": "activity",
               "title": "Research Question + 가설 도출",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8651,11 +8204,7 @@
               "id": "rec-socp-prep-02",
               "type": "activity",
               "title": "선행연구 10편 검토 (RISS·KISS)",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8665,10 +8214,7 @@
               "id": "rec-socp-prep-03",
               "type": "activity",
               "title": "Likert 5점 설문지 30문항 설계",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8684,11 +8230,7 @@
               "id": "rec-socp-exe-01",
               "type": "activity",
               "title": "100명 이상 설문 응답 수집",
-              "months": [
-                5,
-                6,
-                7
-              ],
+              "months": [5, 6, 7],
               "difficulty": 3,
               "cost": "무료~5만원",
               "organizer": "개인",
@@ -8698,11 +8240,7 @@
               "id": "rec-socp-exe-02",
               "type": "portfolio",
               "title": "SPSS·R로 통계 분석",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 4,
               "cost": "무료~30만원",
               "organizer": "개인",
@@ -8712,11 +8250,7 @@
               "id": "rec-socp-exe-03",
               "type": "portfolio",
               "title": "정책 제안 포함 논문 (5,000자+)",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -8729,13 +8263,20 @@
           "label": "발표·출품",
           "items": [
             {
+              "id": "rec-socp-out-01",
+              "type": "award",
+              "title": "전국 청소년 사회과학 논문대회",
+              "months": [10, 11],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "사회과학협의회·교육청",
+              "description": "전국 단위 논문 대회 출품."
+            },
+            {
               "id": "rec-socp-out-02",
               "type": "portfolio",
               "title": "교내 학술 소논문집 게재",
-              "months": [
-                12,
-                2
-              ],
+              "months": [12, 2],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
@@ -8766,11 +8307,7 @@
               "id": "rec-hump-prep-01",
               "type": "activity",
               "title": "1차 텍스트 정독 (작품·사료 5편)",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "5~15만원",
               "organizer": "개인",
@@ -8780,11 +8317,7 @@
               "id": "rec-hump-prep-02",
               "type": "activity",
               "title": "비평 이론 학습 (포스트모더니즘·구조주의 등)",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 4,
               "cost": "무료~10만원",
               "organizer": "개인",
@@ -8794,10 +8327,7 @@
               "id": "rec-hump-prep-03",
               "type": "activity",
               "title": "선행 연구 논문 10편 검색·요약",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -8813,12 +8343,7 @@
               "id": "rec-hump-exe-01",
               "type": "portfolio",
               "title": "두 작가·시대 비교 분석 논문",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -8828,12 +8353,7 @@
               "id": "rec-hump-exe-02",
               "type": "portfolio",
               "title": "1차 사료 비판 역사 논문",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8843,11 +8363,7 @@
               "id": "rec-hump-exe-03",
               "type": "portfolio",
               "title": "현대 이슈 윤리적 분석 논문",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -8860,13 +8376,20 @@
           "label": "발표·출품",
           "items": [
             {
+              "id": "rec-hump-out-01",
+              "type": "award",
+              "title": "전국 청소년 인문학 논문대회",
+              "months": [10, 11],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "교육청·인문학단체",
+              "description": "전국 인문학 논문 대회 출품."
+            },
+            {
               "id": "rec-hump-out-02",
               "type": "activity",
               "title": "독서·인문 동아리 발표회",
-              "months": [
-                11,
-                12
-              ],
+              "months": [11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
@@ -8897,11 +8420,7 @@
               "id": "rec-medp-prep-01",
               "type": "activity",
               "title": "역학 입문 인강 (Coursera 'Epidemiology')",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Coursera (Johns Hopkins)",
@@ -8911,11 +8430,7 @@
               "id": "rec-medp-prep-02",
               "type": "activity",
               "title": "PubMed 논문 5편 정독",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "PubMed",
@@ -8925,10 +8440,7 @@
               "id": "rec-medp-prep-03",
               "type": "activity",
               "title": "공공 보건 데이터 탐색 (KOSIS·KDCA·WHO)",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "통계청·질병관리청·WHO",
@@ -8944,11 +8456,7 @@
               "id": "rec-medp-exe-01",
               "type": "portfolio",
               "title": "특정 질병 발병률·위험요인 분석",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8958,11 +8466,7 @@
               "id": "rec-medp-exe-02",
               "type": "portfolio",
               "title": "IMRaD 형식 정통 의학논문 작성",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8972,12 +8476,7 @@
               "id": "rec-medp-exe-03",
               "type": "portfolio",
               "title": "메타분석 또는 종설(리뷰) 논문",
-              "months": [
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [7, 8, 9, 10],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "개인",
@@ -8993,27 +8492,17 @@
               "id": "rec-medp-out-01",
               "type": "award",
               "title": "한국청소년학술대회(KSCY) 의생명 부문",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 4,
               "cost": "약 5만원",
               "organizer": "KSCY",
-              "description": "⚠️ [미검증] 전국 단위 의생명 부문 발표.",
-              "verified": false,
-              "verifyNote": "공식 사이트(kscy.kr) 현재 접속 불가 — 개최 여부 확인 필요"
+              "description": "전국 단위 의생명 부문 발표."
             },
             {
               "id": "rec-medp-out-02",
               "type": "portfolio",
               "title": "교내 의·생명 동아리 발표·출판",
-              "months": [
-                11,
-                12,
-                2
-              ],
+              "months": [11, 12, 2],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
@@ -9044,11 +8533,7 @@
               "id": "rec-envp-prep-01",
               "type": "activity",
               "title": "기후과학 기초 학습 (IPCC 보고서 챕터)",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "IPCC",
@@ -9058,11 +8543,7 @@
               "id": "rec-envp-prep-02",
               "type": "activity",
               "title": "Python pandas·시계열 분석 학습",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인",
@@ -9072,10 +8553,7 @@
               "id": "rec-envp-prep-03",
               "type": "activity",
               "title": "기상청·NASA·NOAA 데이터 탐색",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "공공기관",
@@ -9091,12 +8569,7 @@
               "id": "rec-envp-exe-01",
               "type": "portfolio",
               "title": "30년 기온·강수량 시계열 분석",
-              "months": [
-                5,
-                6,
-                7,
-                8
-              ],
+              "months": [5, 6, 7, 8],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -9106,12 +8579,7 @@
               "id": "rec-envp-exe-02",
               "type": "portfolio",
               "title": "지역 생태 변화 영향 분석 논문",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 4,
               "cost": "무료~5만원",
               "organizer": "개인",
@@ -9121,12 +8589,7 @@
               "id": "rec-envp-exe-03",
               "type": "portfolio",
               "title": "탄소 배출·재생에너지 정책 효과 논문",
-              "months": [
-                6,
-                7,
-                8,
-                9
-              ],
+              "months": [6, 7, 8, 9],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -9139,14 +8602,20 @@
           "label": "출품·확산",
           "items": [
             {
+              "id": "rec-envp-out-01",
+              "type": "award",
+              "title": "환경부 청소년 환경 논문 공모전",
+              "months": [9, 10],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "환경부",
+              "description": "전국 단위 환경 논문 대회."
+            },
+            {
               "id": "rec-envp-out-02",
               "type": "activity",
               "title": "교내 발표 + SNS 인포그래픽 공유",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인·교내",
@@ -9178,12 +8647,7 @@
               "id": "rec-mobile-prep-01",
               "type": "activity",
               "title": "Flutter 또는 React Native 50시간 학습",
-              "months": [
-                1,
-                2,
-                3,
-                4
-              ],
+              "months": [1, 2, 3, 4],
               "difficulty": 3,
               "cost": "무료~10만원",
               "organizer": "온라인 (인프런·Udemy)",
@@ -9193,10 +8657,7 @@
               "id": "rec-mobile-prep-02",
               "type": "activity",
               "title": "사용자 인터뷰·페인포인트 정의",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -9206,11 +8667,7 @@
               "id": "rec-mobile-prep-03",
               "type": "portfolio",
               "title": "Figma 와이어프레임·프로토타입",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -9226,12 +8683,7 @@
               "id": "rec-mobile-exe-01",
               "type": "portfolio",
               "title": "MVP 기능 개발 + Firebase 연동",
-              "months": [
-                4,
-                5,
-                6,
-                7
-              ],
+              "months": [4, 5, 6, 7],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -9241,11 +8693,7 @@
               "id": "rec-mobile-exe-02",
               "type": "portfolio",
               "title": "베타 테스터 20명+ 피드백 수렴",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -9261,11 +8709,7 @@
               "id": "rec-mobile-out-01",
               "type": "portfolio",
               "title": "Play Store 또는 App Store 정식 출시",
-              "months": [
-                8,
-                9,
-                10
-              ],
+              "months": [8, 9, 10],
               "difficulty": 4,
               "cost": "약 12만원 (Apple 개발자 비용)",
               "organizer": "Apple·Google",
@@ -9275,12 +8719,7 @@
               "id": "rec-mobile-out-02",
               "type": "portfolio",
               "title": "다운로드 100+ 달성 + 리뷰 응대",
-              "months": [
-                9,
-                10,
-                11,
-                12
-              ],
+              "months": [9, 10, 11, 12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -9290,11 +8729,7 @@
               "id": "rec-mobile-out-03",
               "type": "portfolio",
               "title": "GitHub 공개 + README·시연 영상",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub",
@@ -9310,10 +8745,7 @@
               "id": "rec-mobile-comp-01",
               "type": "award",
               "title": "청소년 앱 공모전·해커톤",
-              "months": [
-                10,
-                11
-              ],
+              "months": [10, 11],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "삼성·카카오·NIPA",
@@ -9344,11 +8776,7 @@
               "id": "rec-cv-prep-01",
               "type": "activity",
               "title": "CNN·ResNet 이론 학습",
-              "months": [
-                1,
-                2,
-                3
-              ],
+              "months": [1, 2, 3],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Stanford CS231n (YouTube)",
@@ -9358,11 +8786,7 @@
               "id": "rec-cv-prep-02",
               "type": "activity",
               "title": "PyTorch·OpenCV 실습 30시간",
-              "months": [
-                2,
-                3,
-                4
-              ],
+              "months": [2, 3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인",
@@ -9372,10 +8796,7 @@
               "id": "rec-cv-prep-03",
               "type": "activity",
               "title": "Kaggle CV 데이터셋 5개 분석",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "Kaggle",
@@ -9391,11 +8812,7 @@
               "id": "rec-cv-exe-01",
               "type": "portfolio",
               "title": "사용자 정의 데이터셋 1,000장 수집·라벨링",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 4,
               "cost": "무료~5만원",
               "organizer": "개인",
@@ -9405,11 +8822,7 @@
               "id": "rec-cv-exe-02",
               "type": "portfolio",
               "title": "YOLO·MobileNet 파인튜닝",
-              "months": [
-                5,
-                6,
-                7
-              ],
+              "months": [5, 6, 7],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "Colab",
@@ -9419,11 +8832,7 @@
               "id": "rec-cv-exe-03",
               "type": "portfolio",
               "title": "실시간 데모 웹앱 (Streamlit·Gradio)",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "Streamlit Cloud·HuggingFace",
@@ -9439,10 +8848,7 @@
               "id": "rec-cv-out-01",
               "type": "portfolio",
               "title": "GitHub 코드+논문 형식 보고서 공개",
-              "months": [
-                8,
-                9
-              ],
+              "months": [8, 9],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "GitHub",
@@ -9452,19 +8858,11 @@
               "id": "rec-cv-out-02",
               "type": "award",
               "title": "DACON·Kaggle 비전 대회 도전",
-              "months": [
-                6,
-                7,
-                8,
-                9,
-                10,
-                11
-              ],
+              "months": [6, 7, 8, 9, 10, 11],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "DACON·Kaggle",
-              "description": "이미지 대회 참가 + 점수 기록. (참고: 별도 청소년 부문 없는 공개 플랫폼)",
-              "url": "https://dacon.io/competitions"
+              "description": "이미지 대회 참가 + 점수 기록."
             }
           ],
           "phase": "output"
@@ -9491,11 +8889,7 @@
               "id": "rec-nlp-prep-01",
               "type": "activity",
               "title": "Transformer·BERT 이론 학습",
-              "months": [
-                1,
-                2,
-                3
-              ],
+              "months": [1, 2, 3],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "HuggingFace Course",
@@ -9505,10 +8899,7 @@
               "id": "rec-nlp-prep-02",
               "type": "activity",
               "title": "한국어 NLP 도구 (KoNLPy·KoBERT) 실습",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -9518,10 +8909,7 @@
               "id": "rec-nlp-prep-03",
               "type": "activity",
               "title": "OpenAI/Claude API 사용법 학습",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 2,
               "cost": "약 1~5만원 (API 비용)",
               "organizer": "OpenAI·Anthropic",
@@ -9537,11 +8925,7 @@
               "id": "rec-nlp-exe-01",
               "type": "portfolio",
               "title": "한국어 감정 분석 모델 (네이버 영화·쇼핑 리뷰)",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Colab",
@@ -9551,12 +8935,7 @@
               "id": "rec-nlp-exe-02",
               "type": "portfolio",
               "title": "도메인 특화 챗봇 (학습·진로·심리)",
-              "months": [
-                5,
-                6,
-                7,
-                8
-              ],
+              "months": [5, 6, 7, 8],
               "difficulty": 4,
               "cost": "무료~10만원",
               "organizer": "개인",
@@ -9566,11 +8945,7 @@
               "id": "rec-nlp-exe-03",
               "type": "portfolio",
               "title": "한국어 요약·번역 모델 비교 실험",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "HuggingFace",
@@ -9586,11 +8961,7 @@
               "id": "rec-nlp-out-01",
               "type": "portfolio",
               "title": "HuggingFace Spaces 데모 배포",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "HuggingFace",
@@ -9600,11 +8971,7 @@
               "id": "rec-nlp-out-02",
               "type": "portfolio",
               "title": "GitHub 모델 카드 + 데모 영상",
-              "months": [
-                8,
-                9,
-                10
-              ],
+              "months": [8, 9, 10],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub",
@@ -9614,16 +8981,11 @@
               "id": "rec-nlp-out-03",
               "type": "award",
               "title": "DACON·NIA NLP 대회 도전",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "months": [9, 10, 11],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "DACON·NIA",
-              "description": "한국어 NLP 대회 참가 + 등수 기록. (참고: 별도 청소년 부문 없는 공개 플랫폼)",
-              "url": "https://dacon.io/competitions"
+              "description": "한국어 NLP 대회 참가 + 등수 기록."
             }
           ],
           "phase": "output"
@@ -9650,10 +9012,7 @@
               "id": "rec-iot-prep-01",
               "type": "activity",
               "title": "Arduino·라즈베리파이 키트 구매·셋업",
-              "months": [
-                2,
-                3
-              ],
+              "months": [2, 3],
               "difficulty": 2,
               "cost": "10~20만원",
               "organizer": "개인",
@@ -9663,10 +9022,7 @@
               "id": "rec-iot-prep-02",
               "type": "activity",
               "title": "C/C++·Python GPIO 제어 학습",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인",
@@ -9676,10 +9032,7 @@
               "id": "rec-iot-prep-03",
               "type": "activity",
               "title": "MQTT·HTTP 통신 학습",
-              "months": [
-                4,
-                5
-              ],
+              "months": [4, 5],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인",
@@ -9695,11 +9048,7 @@
               "id": "rec-iot-exe-01",
               "type": "portfolio",
               "title": "센서 시스템 설계 (예: 미세먼지·온습도·소음)",
-              "months": [
-                4,
-                5,
-                6
-              ],
+              "months": [4, 5, 6],
               "difficulty": 4,
               "cost": "5~15만원",
               "organizer": "개인",
@@ -9709,11 +9058,7 @@
               "id": "rec-iot-exe-02",
               "type": "portfolio",
               "title": "데이터 수집 서버 + 대시보드 구축",
-              "months": [
-                5,
-                6,
-                7
-              ],
+              "months": [5, 6, 7],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Firebase·Supabase",
@@ -9723,11 +9068,7 @@
               "id": "rec-iot-exe-03",
               "type": "portfolio",
               "title": "3D 프린팅 케이스 제작",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 3,
               "cost": "5~10만원",
               "organizer": "메이커스페이스",
@@ -9743,25 +9084,27 @@
               "id": "rec-iot-out-01",
               "type": "portfolio",
               "title": "교내 메이커 페어 전시·시연",
-              "months": [
-                9,
-                10,
-                11
-              ],
+              "months": [9, 10, 11],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "교내",
               "description": "동작 시연 + 발표 자료."
             },
             {
+              "id": "rec-iot-out-02",
+              "type": "award",
+              "title": "청소년 메이커톤·발명대회 출품",
+              "months": [9, 10, 11],
+              "difficulty": 4,
+              "cost": "무료",
+              "organizer": "발명진흥회·과기부",
+              "description": "메이커톤·청소년 발명대회 출품."
+            },
+            {
               "id": "rec-iot-out-03",
               "type": "portfolio",
               "title": "프로젝트 회로도·코드 GitHub 공개",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub",
@@ -9792,11 +9135,7 @@
               "id": "rec-web-prep-01",
               "type": "activity",
               "title": "Next.js·TypeScript 학습 50시간",
-              "months": [
-                1,
-                2,
-                3
-              ],
+              "months": [1, 2, 3],
               "difficulty": 3,
               "cost": "무료~10만원",
               "organizer": "온라인",
@@ -9806,11 +9145,7 @@
               "id": "rec-web-prep-02",
               "type": "activity",
               "title": "DB 설계·Supabase·Prisma 실습",
-              "months": [
-                2,
-                3,
-                4
-              ],
+              "months": [2, 3, 4],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "Supabase·Prisma",
@@ -9820,10 +9155,7 @@
               "id": "rec-web-prep-03",
               "type": "portfolio",
               "title": "사용자 페르소나·서비스 기획서",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -9839,12 +9171,7 @@
               "id": "rec-web-exe-01",
               "type": "portfolio",
               "title": "MVP 개발 + Vercel 배포",
-              "months": [
-                4,
-                5,
-                6,
-                7
-              ],
+              "months": [4, 5, 6, 7],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "Vercel·Supabase",
@@ -9854,11 +9181,7 @@
               "id": "rec-web-exe-02",
               "type": "portfolio",
               "title": "사용자 인증·결제·알림 통합",
-              "months": [
-                6,
-                7,
-                8
-              ],
+              "months": [6, 7, 8],
               "difficulty": 4,
               "cost": "무료~5만원",
               "organizer": "개인",
@@ -9868,11 +9191,7 @@
               "id": "rec-web-exe-03",
               "type": "portfolio",
               "title": "Google Analytics·로그 모니터링",
-              "months": [
-                7,
-                8,
-                9
-              ],
+              "months": [7, 8, 9],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "Google·Sentry",
@@ -9888,12 +9207,7 @@
               "id": "rec-web-out-01",
               "type": "portfolio",
               "title": "사용자 100명+ 모집 (SNS·커뮤니티)",
-              "months": [
-                8,
-                9,
-                10,
-                11
-              ],
+              "months": [8, 9, 10, 11],
               "difficulty": 4,
               "cost": "무료~10만원",
               "organizer": "개인",
@@ -9903,11 +9217,7 @@
               "id": "rec-web-out-02",
               "type": "portfolio",
               "title": "사용자 인터뷰 + 개선 보고서",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "개인",
@@ -9917,10 +9227,7 @@
               "id": "rec-web-out-03",
               "type": "portfolio",
               "title": "GitHub README + 사례 연구 글",
-              "months": [
-                11,
-                12
-              ],
+              "months": [11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub·블로그",
@@ -9951,10 +9258,7 @@
               "id": "rec-oss-prep-01",
               "type": "activity",
               "title": "Git·GitHub 워크플로우 마스터",
-              "months": [
-                1,
-                2
-              ],
+              "months": [1, 2],
               "difficulty": 3,
               "cost": "무료",
               "organizer": "온라인",
@@ -9964,10 +9268,7 @@
               "id": "rec-oss-prep-02",
               "type": "activity",
               "title": "관심 OSS 5개 선정 + Contributing 가이드 정독",
-              "months": [
-                2,
-                3
-              ],
+              "months": [2, 3],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "개인",
@@ -9977,10 +9278,7 @@
               "id": "rec-oss-prep-03",
               "type": "activity",
               "title": "코드베이스 1개 깊이 읽기",
-              "months": [
-                3,
-                4
-              ],
+              "months": [3, 4],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "개인",
@@ -9996,11 +9294,7 @@
               "id": "rec-oss-exe-01",
               "type": "activity",
               "title": "문서 개선 PR 3건",
-              "months": [
-                3,
-                4,
-                5
-              ],
+              "months": [3, 4, 5],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub",
@@ -10010,11 +9304,7 @@
               "id": "rec-oss-exe-02",
               "type": "portfolio",
               "title": "버그 수정 PR 머지 1건",
-              "months": [
-                5,
-                6,
-                7
-              ],
+              "months": [5, 6, 7],
               "difficulty": 4,
               "cost": "무료",
               "organizer": "GitHub",
@@ -10024,12 +9314,7 @@
               "id": "rec-oss-exe-03",
               "type": "portfolio",
               "title": "신규 기능 추가 PR 머지 1건",
-              "months": [
-                7,
-                8,
-                9,
-                10
-              ],
+              "months": [7, 8, 9, 10],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "GitHub",
@@ -10045,11 +9330,7 @@
               "id": "rec-oss-out-01",
               "type": "portfolio",
               "title": "기여 내역 정리 README/블로그",
-              "months": [
-                10,
-                11,
-                12
-              ],
+              "months": [10, 11, 12],
               "difficulty": 2,
               "cost": "무료",
               "organizer": "GitHub·블로그",
@@ -10059,10 +9340,7 @@
               "id": "rec-oss-out-02",
               "type": "portfolio",
               "title": "직접 만든 라이브러리 npm·PyPI 배포",
-              "months": [
-                11,
-                12
-              ],
+              "months": [11, 12],
               "difficulty": 5,
               "cost": "무료",
               "organizer": "npm·PyPI",
