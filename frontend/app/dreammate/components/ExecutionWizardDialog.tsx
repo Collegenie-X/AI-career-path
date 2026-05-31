@@ -11,6 +11,8 @@ interface WeeklyGoal {
   weekLabel: string;
   title: string;
   tasks: string[];
+  /** 이 주차에 남기는 결과물·사진 (포트폴리오 근거) */
+  output?: string;
 }
 
 interface ExecutionTemplate {
@@ -82,6 +84,7 @@ function buildSubItems(weeklyGoals: WeeklyGoal[], startMonth: number): RoadmapTo
       entryType: 'goal',
       title: wg.title,
       isDone: false,
+      plannedOutput: wg.output,
     });
     // 세부 태스크
     wg.tasks.forEach(task => {
@@ -302,8 +305,16 @@ function StepWeekly({
                   {month}월 {week}주차 · {wg.weekLabel}
                 </span>
                 <div className="text-xs text-white leading-snug truncate">{wg.title}</div>
+                {wg.output && (
+                  <div className="mt-1 flex items-center gap-1 min-w-0">
+                    <span className="text-[10px] flex-shrink-0" aria-hidden>📸</span>
+                    <span className="text-[10px] text-gray-400 leading-snug truncate" title={wg.output}>
+                      결과물 · {wg.output}
+                    </span>
+                  </div>
+                )}
               </div>
-              <span className="text-[10px] text-gray-600 flex-shrink-0">{wg.tasks.length}개 태스크</span>
+              <span className="text-[10px] text-gray-600 flex-shrink-0 self-start mt-0.5">{wg.tasks.length}개 태스크</span>
             </motion.button>
           );
         })}

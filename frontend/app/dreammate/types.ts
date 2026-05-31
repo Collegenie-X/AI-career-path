@@ -27,10 +27,14 @@ export interface RoadmapTodoItem {
   entryType?: 'goal' | 'task';
   title: string;
   isDone?: boolean;
+  /** 계획 단계에서 정한 이 주차의 산출물·사진 (포트폴리오 근거). 템플릿의 weeklyGoals[].output에서 옴 */
+  plannedOutput?: string;
   /** 실행 중 작성한 진행 메모 또는 업무 기록 */
   note?: string;
   /** 완료 후 산출물 링크 또는 파일명 (예: "탐구계획서_v1.pdf", "https://github.com/...") */
   outputRef?: string;
+  /** 이 주차 결과물 사진 (data URL 또는 이미지 링크) — 포트폴리오 갤러리에 모임 */
+  outputImageUrl?: string;
   /** 완료 후 회고 (잘된 점·개선점·다음 주 반영 사항) */
   reviewNote?: string;
 }
@@ -259,7 +263,7 @@ export interface DreamSpace {
   updatedAt?: string;
 }
 
-export type DreamTabId = 'feed' | 'library' | 'space' | 'my';
+export type DreamTabId = 'feed' | 'library' | 'space' | 'my' | 'portfolio';
 
 export interface UserDreamReactions {
   likedRoadmapIds: string[];

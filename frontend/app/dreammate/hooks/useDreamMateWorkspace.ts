@@ -879,6 +879,119 @@ export function useDreamMateWorkspace({
     [useRoadmapBackend, roadmapBackend],
   );
 
+  const handleUpdateTodoOutput = useCallback(
+    (
+      roadmapId: string,
+      itemId: string,
+      todoId: string,
+      patch: { outputRef?: string; outputImageUrl?: string; note?: string },
+    ) => {
+      const applyToSubItem = (subItem: RoadmapTodoItem): RoadmapTodoItem => ({
+        ...subItem,
+        ...(patch.outputRef !== undefined ? { outputRef: patch.outputRef } : {}),
+        ...(patch.outputImageUrl !== undefined ? { outputImageUrl: patch.outputImageUrl } : {}),
+        ...(patch.note !== undefined ? { note: patch.note } : {}),
+      });
+
+      if (useRoadmapBackend) {
+        const target = roadmaps.find(r => r.id === roadmapId);
+        if (!target) return;
+        const payload: RoadmapEditorPayload = {
+          title: target.title,
+          description: target.description,
+          period: target.period,
+          starColor: target.starColor,
+          focusItemTypes: target.focusItemTypes ?? ['award', 'activity', 'project', 'paper'],
+          milestoneResults: target.milestoneResults ?? [],
+          finalResultTitle: target.finalResultTitle ?? '',
+          finalResultDescription: target.finalResultDescription ?? '',
+          finalResultUrl: target.finalResultUrl ?? '',
+          finalResultImageUrl: target.finalResultImageUrl ?? '',
+          groupIds: target.groupIds ?? [],
+          items: target.items.map(item =>
+            item.id !== itemId
+              ? item
+              : {
+                  ...item,
+                  subItems: (item.subItems ?? []).map(subItem =>
+                    subItem.id === todoId ? applyToSubItem(subItem) : subItem,
+                  ),
+                },
+          ),
+        };
+        roadmapBackend.updateRoadmapMutation.mutate({ roadmapId, payload });
+        return;
+      }
+
+      setLocalRoadmaps(previousRoadmaps =>
+        previousRoadmaps.map(roadmap => {
+          if (roadmap.id !== roadmapId) return roadmap;
+          return {
+            ...roadmap,
+            items: roadmap.items.map(item => {
+              if (item.id !== itemId) return item;
+              return {
+                ...item,
+                subItems: (item.subItems ?? []).map(subItem =>
+                  subItem.id === todoId ? applyToSubItem(subItem) : subItem,
+                ),
+              };
+            }),
+          };
+        }),
+      );
+    },
+    [useRoadmapBackend, roadmaps, roadmapBackend.updateRoadmapMutation],
+  );
+
+  const handleUpdateFinalResult = useCallback(
+    (
+      roadmapId: string,
+      patch: {
+        finalResultTitle?: string;
+        finalResultDescription?: string;
+        finalResultUrl?: string;
+        finalResultImageUrl?: string;
+      },
+    ) => {
+      if (useRoadmapBackend) {
+        const target = roadmaps.find(r => r.id === roadmapId);
+        if (!target) return;
+        const payload: RoadmapEditorPayload = {
+          title: target.title,
+          description: target.description,
+          period: target.period,
+          starColor: target.starColor,
+          focusItemTypes: target.focusItemTypes ?? ['award', 'activity', 'project', 'paper'],
+          milestoneResults: target.milestoneResults ?? [],
+          finalResultTitle: patch.finalResultTitle ?? target.finalResultTitle ?? '',
+          finalResultDescription: patch.finalResultDescription ?? target.finalResultDescription ?? '',
+          finalResultUrl: patch.finalResultUrl ?? target.finalResultUrl ?? '',
+          finalResultImageUrl: patch.finalResultImageUrl ?? target.finalResultImageUrl ?? '',
+          groupIds: target.groupIds ?? [],
+          items: target.items,
+        };
+        roadmapBackend.updateRoadmapMutation.mutate({ roadmapId, payload });
+        return;
+      }
+
+      setLocalRoadmaps(previousRoadmaps =>
+        previousRoadmaps.map(roadmap =>
+          roadmap.id !== roadmapId
+            ? roadmap
+            : {
+                ...roadmap,
+                ...(patch.finalResultTitle !== undefined ? { finalResultTitle: patch.finalResultTitle } : {}),
+                ...(patch.finalResultDescription !== undefined ? { finalResultDescription: patch.finalResultDescription } : {}),
+                ...(patch.finalResultUrl !== undefined ? { finalResultUrl: patch.finalResultUrl } : {}),
+                ...(patch.finalResultImageUrl !== undefined ? { finalResultImageUrl: patch.finalResultImageUrl } : {}),
+              },
+        ),
+      );
+    },
+    [useRoadmapBackend, roadmaps, roadmapBackend.updateRoadmapMutation],
+  );
+
   const handleCreateSpace = useCallback((payload: CareerGroupFormSubmitPayload) => {
     const { name, description, emoji, category, mode, maxMembers, tags, isPublic } = payload;
     const color = getCategoryColorForCareerGroup(category);
@@ -1095,6 +1208,8 @@ export function useDreamMateWorkspace({
     handleCreateRoadmapComment,
     handleShareRoadmap,
     handleToggleTodoItem,
+    handleUpdateTodoOutput,
+    handleUpdateFinalResult,
     handleCreateSpace,
     handleToggleSpaceRecruitmentStatus,
     handleCreateSpaceNotice,

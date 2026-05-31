@@ -31,6 +31,14 @@
       "highlight": "함께 만들어요",
       "description": "탐구 보고서·프로젝트 템플릿·학습 가이드를 공유하고, 댓글로 피드백을 주고받으세요.",
       "cta": "자료 올리기"
+    },
+    "portfolio": {
+      "headlineIcon": "Sparkles",
+      "eyebrow": "실행 결과 포트폴리오",
+      "title": "실행한 결과물을",
+      "highlight": "포트폴리오로 정리하세요",
+      "description": "주차별 산출물과 사진이 자동으로 모여 결과 리포트가 됩니다. 실행하면서 바로 포트폴리오를 완성하세요.",
+      "cta": "실행계획 만들기"
     }
   },
   "visualStyles": {
@@ -61,6 +69,13 @@
       "glowTopColor": "#fbbf24",
       "glowBottomColor": "#eab308",
       "accentColor": "#fde047"
+    },
+    "portfolio": {
+      "background": "linear-gradient(135deg, rgba(236,72,153,0.20) 0%, rgba(168,85,247,0.16) 50%, rgba(108,92,231,0.15) 100%)",
+      "border": "1.5px solid rgba(236,72,153,0.35)",
+      "glowTopColor": "#ec4899",
+      "glowBottomColor": "#6c5ce7",
+      "accentColor": "#f9a8d4"
     }
   },
   "statIcons": {
@@ -154,6 +169,29 @@
         "label": "함께 학습",
         "iconBackground": "rgba(234,179,8,0.2)",
         "iconColor": "#facc15"
+      }
+    ],
+    "portfolio": [
+      {
+        "icon": "ListChecks",
+        "valueKey": "totalMyRoadmaps",
+        "label": "내 실행",
+        "iconBackground": "rgba(236,72,153,0.2)",
+        "iconColor": "#f9a8d4"
+      },
+      {
+        "icon": "Share2",
+        "valueKey": "totalMySharedRoadmaps",
+        "label": "공개중",
+        "iconBackground": "rgba(108,92,231,0.25)",
+        "iconColor": "#c4b5fd"
+      },
+      {
+        "icon": "Bookmark",
+        "valueKey": "totalBookmarkedRoadmaps",
+        "label": "북마크",
+        "iconBackground": "rgba(168,85,247,0.2)",
+        "iconColor": "#d8b4fe"
       }
     ]
   },

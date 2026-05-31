@@ -21,6 +21,13 @@
     "routeHint": "tab=my"
   },
   {
+    "id": "portfolio",
+    "label": "포트폴리오",
+    "emoji": "🎨",
+    "description": "실행 결과물·결과 리포트",
+    "routeHint": "tab=portfolio"
+  },
+  {
     "id": "library",
     "label": "자료실",
     "emoji": "📚",

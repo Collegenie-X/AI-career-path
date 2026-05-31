@@ -9,6 +9,8 @@ import { RoadmapFeedTab } from './components/RoadmapFeedTab';
 import { DreamLibraryTab } from './components/DreamLibraryTab';
 import { DreamSpaceTab } from './components/DreamSpaceTab';
 import { MyDreamMateTab } from './components/MyDreamMateTab';
+import { PortfolioTab } from './components/PortfolioTab';
+import { PortfolioReportDialog } from './components/PortfolioReportDialog';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
 import { ExecutionWizardDialog } from './components/ExecutionWizardDialog';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
@@ -60,6 +62,7 @@ function DreamMatePageContent() {
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [showLibraryCreateDialog, setShowLibraryCreateDialog] = useState(false);
   const [showSpaceCreateDialog, setShowSpaceCreateDialog] = useState(false);
+  const [portfolioReportRoadmapId, setPortfolioReportRoadmapId] = useState<string | null>(null);
 
   const workspace = useDreamMateWorkspaceContext();
 
@@ -277,6 +280,16 @@ function DreamMatePageContent() {
                   workspace.handleToggleTodoItem(roadmapId, itemId, todoId);
                 }}
               />
+            ) : activeTab === 'portfolio' ? (
+              <PortfolioTab
+                myRoadmaps={workspace.myRoadmaps}
+                allowMutations={canMutate}
+                onOpenReport={(roadmap) => setPortfolioReportRoadmapId(roadmap.id)}
+                onCreateRoadmap={() => {
+                  if (!requireAuthForMutation()) return;
+                  workspace.setShowCreateRoadmapDialog(true);
+                }}
+              />
             ) : null}
           </div>
         </div>
@@ -385,6 +398,30 @@ function DreamMatePageContent() {
           }}
         />
       )}
+
+      {portfolioReportRoadmapId && (() => {
+        const reportRoadmap = workspace.myRoadmaps.find((rm) => rm.id === portfolioReportRoadmapId);
+        if (!reportRoadmap) return null;
+        return (
+          <PortfolioReportDialog
+            roadmap={reportRoadmap}
+            onClose={() => setPortfolioReportRoadmapId(null)}
+            onEdit={() => {
+              if (!requireAuthForMutation()) return;
+              setPortfolioReportRoadmapId(null);
+              workspace.setEditingRoadmapId(reportRoadmap.id);
+            }}
+            onUpdateTodoOutput={(itemId, todoId, patch) => {
+              if (!requireAuthForMutation()) return;
+              workspace.handleUpdateTodoOutput(reportRoadmap.id, itemId, todoId, patch);
+            }}
+            onUpdateFinalResult={(patch) => {
+              if (!requireAuthForMutation()) return;
+              workspace.handleUpdateFinalResult(reportRoadmap.id, patch);
+            }}
+          />
+        );
+      })()}
 
     </div>
   );
