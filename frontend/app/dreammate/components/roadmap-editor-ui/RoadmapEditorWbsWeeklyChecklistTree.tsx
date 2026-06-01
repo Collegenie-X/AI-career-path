@@ -79,7 +79,11 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
                 <div key={groupKey} className="relative flex gap-2">
                   <div className="flex w-3 flex-shrink-0 flex-col items-center pt-3">
                     <div
-                      className="z-[1] h-2 w-2 flex-shrink-0 rounded-full bg-violet-400/80 ring-2 ring-violet-500/25"
+                      className={`z-[1] h-2 w-2 flex-shrink-0 rounded-full ring-2 ${
+                        isPlaceholderOnly
+                          ? 'bg-violet-400/40 ring-violet-500/15'
+                          : 'bg-violet-400/80 ring-violet-500/25'
+                      }`}
                       aria-hidden
                     />
                   </div>
@@ -90,7 +94,7 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
                   >
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-sm font-black text-violet-200">
+                        <span className={`text-sm font-black ${isPlaceholderOnly ? 'text-violet-200/60' : 'text-violet-200'}`}>
                           {group.sequentialWeek}
                           주차
                         </span>
@@ -117,7 +121,7 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
                       </div>
                       <p
                         className={`mt-0.5 truncate text-[12px] ${
-                          hasGoalText ? 'text-gray-200' : isMissingGoal ? 'text-red-300' : 'text-gray-500'
+                          hasGoalText ? 'text-gray-200' : isMissingGoal ? 'text-red-300' : 'text-gray-600'
                         }`}
                       >
                         {hasGoalText ? group.goal!.title : labels.emptyGoalRowLabel}

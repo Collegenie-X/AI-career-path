@@ -48,6 +48,13 @@ export function RoadmapEditorWeekEditPopup({
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
+  // 빈 주차를 열면 goal 행을 즉시 생성해 산출물·상태·코멘트 섹션을 바로 표시
+  useEffect(() => {
+    if (!group.goal) {
+      onUpsertWeekGoal(group.groupKey, '');
+    }
+  }, [group.goal, group.groupKey, onUpsertWeekGoal]);
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();

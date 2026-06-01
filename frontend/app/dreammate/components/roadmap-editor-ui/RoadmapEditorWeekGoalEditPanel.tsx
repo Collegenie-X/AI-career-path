@@ -88,8 +88,8 @@ export function RoadmapEditorWeekGoalEditPanel({
         />
         {isMissingGoal && <p className="mt-0.5 text-[10px] text-red-300">{labels.weekGoalRequiredHint}</p>}
 
-        {/* 상태(Jira) — 목표가 있을 때만. 변경 시 상태 전이가 코멘트에 자동 기록됨 */}
-        {hasGoalText && (
+        {/* 상태(Jira) — goal 행이 생성된 뒤 바로 표시. 변경 시 상태 전이가 코멘트에 자동 기록됨 */}
+        {group.goal && (
           <div className="mt-1.5 space-y-1">
             <label className="block text-[13px] text-gray-500">{labels.statusSectionLabel}</label>
             <div className="flex flex-wrap gap-1">
@@ -174,48 +174,49 @@ export function RoadmapEditorWeekGoalEditPanel({
         )}
       </div>
 
-      {(group.goal || group.tasks.length > 0) && (
-        <>
-          <div className="flex items-center justify-between pt-1">
-            <span className="text-[13px] font-semibold text-gray-500">{labels.subItemSectionLabel}</span>
-            <button type="button" onClick={() => onAddWeekTask(groupKey)} className={wbsSubToolbarButtonClassName}>
-              + {labels.addSubItemButton}
-            </button>
-          </div>
+      <>
+        <div className="flex items-center justify-between pt-1">
+          <span className="text-[13px] font-semibold text-gray-500">{labels.subItemSectionLabel}</span>
+          <button type="button" onClick={() => onAddWeekTask(groupKey)} className={wbsSubToolbarButtonClassName}>
+            + {labels.addSubItemButton}
+          </button>
+        </div>
 
-          <div className="space-y-1.5">
-            {group.tasks.map(subItem => (
-              <div
-                key={subItem.id}
-                className="flex items-center gap-1.5 rounded-lg bg-white/[0.04] py-1 pl-1 pr-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+        <div className="space-y-1.5">
+          {group.tasks.map(subItem => (
+            <div
+              key={subItem.id}
+              className="flex items-center gap-1.5 rounded-lg bg-white/[0.04] py-1 pl-1 pr-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+            >
+              <input
+                value={subItem.title}
+                onChange={event => onUpdateSubItem(subItem.id, { title: event.target.value })}
+                placeholder={weekTaskPlaceholderTemplate
+                  .replaceAll('{month}', String(group.month))
+                  .replaceAll('{week}', String(group.week))}
+                list={autocompleteListId}
+                className={`${softField} h-8 flex-1 px-2.5 text-[11px]`}
+              />
+              <button
+                type="button"
+                onClick={() => onRemoveSubItem(subItem.id)}
+                className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-red-500/15 text-red-400 transition-colors hover:bg-red-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/35"
               >
-                <input
-                  value={subItem.title}
-                  onChange={event => onUpdateSubItem(subItem.id, { title: event.target.value })}
-                  placeholder={weekTaskPlaceholderTemplate
-                    .replaceAll('{month}', String(group.month))
-                    .replaceAll('{week}', String(group.week))}
-                  list={autocompleteListId}
-                  className={`${softField} h-8 flex-1 px-2.5 text-[11px]`}
-                />
-                <button
-                  type="button"
-                  onClick={() => onRemoveSubItem(subItem.id)}
-                  className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-red-500/15 text-red-400 transition-colors hover:bg-red-500/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/35"
-                >
-                  <Trash2 className="h-3.5 w-3.5" />
-                </button>
-              </div>
-            ))}
-          </div>
+                <Trash2 className="h-3.5 w-3.5" />
+              </button>
+            </div>
+          ))}
+          {group.tasks.length === 0 && (
+            <p className="py-1 text-[11px] text-gray-600">항목 없음</p>
+          )}
+        </div>
 
-          <datalist id={autocompleteListId}>
-            {autocompleteSuggestions.map(suggestion => (
-              <option key={suggestion} value={suggestion} />
-            ))}
-          </datalist>
-        </>
-      )}
+        <datalist id={autocompleteListId}>
+          {autocompleteSuggestions.map(suggestion => (
+            <option key={suggestion} value={suggestion} />
+          ))}
+        </datalist>
+      </>
     </div>
   );
 }
