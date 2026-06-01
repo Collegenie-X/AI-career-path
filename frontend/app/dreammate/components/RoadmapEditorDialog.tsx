@@ -1,9 +1,8 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { ExecutionPlanAiGenerateDialog } from './execution-plan-ai/ExecutionPlanAiGenerateDialog';
-import { Sparkles, ChevronDown, ChevronUp, ChevronRight, ArrowLeft, Plus, Trash2, X, SlidersHorizontal, CalendarDays, Package } from 'lucide-react';
+import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react';
 import { RoadmapEditorColorSwatchRow } from './roadmap-editor-ui/RoadmapEditorColorSwatchRow';
 import { RoadmapEditorDreamItemTypeToggleGrid } from './roadmap-editor-ui/RoadmapEditorDreamItemTypeToggleGrid';
 import { RoadmapEditorLabeledFieldRow } from './roadmap-editor-ui/RoadmapEditorLabeledFieldRow';
@@ -21,6 +20,8 @@ import {
 } from './roadmap-editor-ui/roadmapEditorUiTokens';
 import type { WeekGroupViewModel } from './roadmap-editor-ui/roadmapEditorWbsTypes';
 import { RoadmapEditorWbsWeeklyChecklistTree } from './roadmap-editor-ui/RoadmapEditorWbsWeeklyChecklistTree';
+import { RoadmapEditorWeekEditPopup } from './roadmap-editor-ui/RoadmapEditorWeekEditPopup';
+import { buildStatusChangeComment } from '../utils/roadmapGoalStatus';
 import {
   DREAM_ITEM_TYPES,
   LABELS,
@@ -30,7 +31,7 @@ import {
   ROADMAP_TITLE_AUTOCOMPLETE_TEMPLATES,
   WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE,
 } from '../config';
-import type { DreamItemType, PeriodType, RoadmapItem, RoadmapMilestoneResult, RoadmapTodoItem } from '../types';
+import type { DreamItemType, PeriodType, RoadmapGoalStatus, RoadmapItem, RoadmapMilestoneResult, RoadmapTodoItem } from '../types';
 import {
   buildMonthWeekLabel,
   createWeeklyGoalSubItem,
@@ -38,7 +39,6 @@ import {
   extractMonthWeek,
   extractWeekNumber,
   isGoalTodoEntry,
-  normalizeSubItemsToAvailableMonths,
 } from '../utils/roadmapWeeklySubItemBuilders';
 
 interface RoadmapEditorPayload {
@@ -66,63 +66,111 @@ interface RoadmapEditorDialogProps {
 
 const COLOR_OPTIONS = ['#6C5CE7', '#3B82F6', '#EC4899', '#22C55E', '#F97316', '#EAB308'];
 const MONTH_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const WEEK_OPTIONS = [1, 2, 3, 4, 5];
+/** 한 달을 4주로 보고 순차 주차(1주차~N주차)를 월·주차로 매핑한다. */
+const WEEKS_PER_MONTH = 4;
+/** 항목마다 최소로 깔아 두는 순차 주차 수 (빈칸으로 채워나가는 방식). */
+const DEFAULT_PLAN_WEEKS = 4;
 
-function createEmptyItem(selectedMonths: number[]): RoadmapItem {
-  const months = selectedMonths.length > 0 ? [...selectedMonths].sort((a, b) => a - b) : [3];
+/** 순차 주차(seq) → 시작 월 기준 월·주차 */
+function sequentialToMonthWeek(startMonth: number, seq: number): { month: number; week: number } {
+  const normalizedSeq = Math.max(seq, 1);
+  const offset = Math.floor((normalizedSeq - 1) / WEEKS_PER_MONTH);
+  const month = Math.min(startMonth + offset, 12);
+  const week = ((normalizedSeq - 1) % WEEKS_PER_MONTH) + 1;
+  return { month, week };
+}
+
+/** 월·주차 → 시작 월 기준 순차 주차(seq, 1 이상) */
+function monthWeekToSequential(startMonth: number, month: number, week: number): number {
+  const seq = (month - startMonth) * WEEKS_PER_MONTH + week;
+  return seq >= 1 ? seq : 1;
+}
+
+function getSequentialKey(seq: number): string {
+  return `seq-${seq}`;
+}
+
+function parseSequentialKey(groupKey: string): number | null {
+  const matched = groupKey.match(/^seq-(\d+)$/);
+  if (!matched) return null;
+  const seq = Number(matched[1]);
+  return Number.isInteger(seq) && seq >= 1 ? seq : null;
+}
+
+/** 항목 subItems가 실제로 걸친 월 목록 (item.months 호환용) */
+function deriveItemMonths(subItems: RoadmapTodoItem[], startMonth: number): number[] {
+  const months = new Set<number>();
+  subItems.forEach(subItem => {
+    const { month } = extractMonthWeek(subItem, startMonth);
+    months.add(month);
+  });
+  const sorted = [...months].sort((a, b) => a - b);
+  return sorted.length > 0 ? sorted : [startMonth];
+}
+
+function createEmptyItem(startMonth: number): RoadmapItem {
   return {
     id: `draft-item-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     type: 'activity',
     title: '',
-    months,
+    months: [startMonth],
     difficulty: 3,
     subItems: [],
   };
 }
 
-function getWeekGroupKey(month: number, week: number): string {
-  return `${month}-${week}`;
-}
-
-function parseWeekGroupKey(groupKey: string): { month: number; week: number } | null {
-  const matched = groupKey.match(/^(\d+)-(\d+)$/);
-  if (!matched) return null;
-  const month = Number(matched[1]);
-  const week = Number(matched[2]);
-  if (!Number.isInteger(month) || !Number.isInteger(week)) return null;
-  return { month, week };
-}
-
-function getWeekGroupKeyFromTodo(todoItem: RoadmapTodoItem, fallbackMonth: number): string {
-  const monthWeek = extractMonthWeek(todoItem, fallbackMonth);
-  return getWeekGroupKey(monthWeek.month, monthWeek.week);
-}
-
-function buildSortedWeekGroups(subItems: RoadmapTodoItem[], fallbackMonth: number): WeekGroupViewModel[] {
-  const weekGroups = new Map<string, WeekGroupViewModel>();
+/**
+ * 항목의 주차를 1주차~N주차 순차로 만든 그리드. 기존 데이터는 (월·주차)에서 순차 위치를 역산해 배치하고,
+ * 최소 DEFAULT_PLAN_WEEKS 주차까지 빈 슬롯을 깔아 채워나가게 한다.
+ * weekLabel은 'N월 M주차'를 유지해 피드·상세·타임라인과 호환된다.
+ */
+function buildSequentialWeekGrid(subItems: RoadmapTodoItem[], startMonth: number): WeekGroupViewModel[] {
+  const groupBySeq = new Map<string, WeekGroupViewModel>();
+  let maxSeq = 0;
 
   subItems.forEach(subItem => {
-    const monthWeek = extractMonthWeek(subItem, fallbackMonth);
-    const groupKey = getWeekGroupKey(monthWeek.month, monthWeek.week);
-    const currentGroup = weekGroups.get(groupKey) ?? {
+    const { month, week } = extractMonthWeek(subItem, startMonth);
+    const seq = monthWeekToSequential(startMonth, month, week);
+    maxSeq = Math.max(maxSeq, seq);
+    const groupKey = getSequentialKey(seq);
+    const mapped = sequentialToMonthWeek(startMonth, seq);
+    const current = groupBySeq.get(groupKey) ?? {
       groupKey,
-      month: monthWeek.month,
-      week: monthWeek.week,
+      sequentialWeek: seq,
+      month: mapped.month,
+      week: mapped.week,
       goal: undefined,
       tasks: [],
     };
-    if (isGoalTodoEntry(subItem)) {
-      currentGroup.goal = subItem;
-    } else {
-      currentGroup.tasks.push(subItem);
-    }
-    weekGroups.set(groupKey, currentGroup);
+    if (isGoalTodoEntry(subItem)) current.goal = subItem;
+    else current.tasks.push(subItem);
+    groupBySeq.set(groupKey, current);
   });
 
-  return [...weekGroups.values()].sort((left, right) => {
-    if (left.month !== right.month) return left.month - right.month;
-    return left.week - right.week;
-  });
+  const shownWeeks = Math.max(maxSeq, DEFAULT_PLAN_WEEKS);
+  for (let seq = 1; seq <= shownWeeks; seq += 1) {
+    const groupKey = getSequentialKey(seq);
+    if (!groupBySeq.has(groupKey)) {
+      const mapped = sequentialToMonthWeek(startMonth, seq);
+      groupBySeq.set(groupKey, {
+        groupKey,
+        sequentialWeek: seq,
+        month: mapped.month,
+        week: mapped.week,
+        goal: undefined,
+        tasks: [],
+      });
+    }
+  }
+
+  return [...groupBySeq.values()].sort((left, right) => left.sequentialWeek - right.sequentialWeek);
+}
+
+/** 내용 있는 하위 항목이 있는데 주차 목표가 비어 있으면 저장을 막는다. 완전히 빈 주차는 통과. */
+function isWeekGroupMissingGoal(group: WeekGroupViewModel): boolean {
+  const hasGoalText = (group.goal?.title.trim().length ?? 0) > 0;
+  const hasTaskText = group.tasks.some(task => task.title.trim().length > 0);
+  return hasTaskText && !hasGoalText;
 }
 
 export function RoadmapEditorDialog({
@@ -132,7 +180,6 @@ export function RoadmapEditorDialog({
   onClose,
   onSubmit,
 }: RoadmapEditorDialogProps) {
-  const [view, setView] = useState<'hub' | 'basics' | 'items'>('hub');
   const [roadmapTitle, setRoadmapTitle] = useState(initialValues.title);
   const [description, setDescription] = useState(initialValues.description);
   const [period, setPeriod] = useState<PeriodType>(initialValues.period);
@@ -151,15 +198,15 @@ export function RoadmapEditorDialog({
   const [items, setItems] = useState<RoadmapItem[]>(
     initialValues.items.length > 0 ? initialValues.items : [],
   );
-  const [selectedMonths, setSelectedMonths] = useState<number[]>(() => {
-    const monthsFromItems = [...new Set(initialValues.items.flatMap(item => item.months ?? []))]
-      .filter(month => month >= 1 && month <= 12)
-      .sort((a, b) => a - b);
-    return monthsFromItems.length > 0 ? monthsFromItems : [3];
+  const [startMonth, setStartMonth] = useState<number>(() => {
+    const monthsFromItems = initialValues.items
+      .flatMap(item => item.months ?? [])
+      .filter(month => month >= 1 && month <= 12);
+    return monthsFromItems.length > 0 ? Math.min(...monthsFromItems) : 3;
   });
   const [itemAccordionOpenMap, setItemAccordionOpenMap] = useState<Record<string, boolean>>({});
-  const [monthAccordionOpenMap, setMonthAccordionOpenMap] = useState<Record<string, boolean>>({});
-  const [weekAccordionOpenMap, setWeekAccordionOpenMap] = useState<Record<string, boolean>>({});
+  /** 클릭해서 편집 팝업을 연 주차 (전체펼침 개요 → 주차 클릭) */
+  const [selectedWeek, setSelectedWeek] = useState<{ itemId: string; groupKey: string } | null>(null);
   const periodOptions = useMemo(
     () => PERIOD_FILTERS.filter(option => option.id !== 'all') as { id: PeriodType; label: string; emoji: string }[],
     [],
@@ -168,13 +215,8 @@ export function RoadmapEditorDialog({
   const hasMissingRequiredWeekGoal = useMemo(() => {
     return items
       .filter(item => item.title.trim().length > 0)
-      .some(item => {
-        const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-        const fallbackMonth = availableMonths[0] ?? 3;
-        return buildSortedWeekGroups(item.subItems ?? [], fallbackMonth)
-          .some(group => (group.goal?.title.trim().length ?? 0) === 0);
-      });
-  }, [items, selectedMonths]);
+      .some(item => buildSequentialWeekGrid(item.subItems ?? [], startMonth).some(isWeekGroupMissingGoal));
+  }, [items, startMonth]);
 
   const isSubmitEnabled = roadmapTitle.trim().length > 1
     && items.some(item => item.title.trim().length > 1)
@@ -191,42 +233,12 @@ export function RoadmapEditorDialog({
     });
   };
 
-  const toggleSelectedMonth = (month: number) => {
-    setSelectedMonths(previous => {
-      const exists = previous.includes(month);
-      if (exists) {
-        const next = previous.filter(value => value !== month);
-        return next.length > 0 ? next : previous;
-      }
-      return [...previous, month].sort((a, b) => a - b);
-    });
-  };
-
   const addRoadmapItem = () => {
-    setItems(previous => [...previous, createEmptyItem(selectedMonths)]);
+    setItems(previous => [...previous, createEmptyItem(startMonth)]);
   };
 
   const updateItem = (itemId: string, patch: Partial<RoadmapItem>) => {
     setItems(prev => prev.map(item => item.id === itemId ? { ...item, ...patch } : item));
-  };
-
-  const toggleItemMonth = (itemId: string, month: number) => {
-    setItems(previousItems => previousItems.map(item => {
-      if (item.id !== itemId) return item;
-
-      const hasMonth = item.months.includes(month);
-      const nextMonths = hasMonth
-        ? item.months.filter(value => value !== month)
-        : [...item.months, month].sort((a, b) => a - b);
-
-      if (nextMonths.length === 0) return item;
-
-      return {
-        ...item,
-        months: nextMonths,
-        subItems: normalizeSubItemsToAvailableMonths(item.subItems ?? [], nextMonths),
-      };
-    }));
   };
 
   const removeItem = (itemId: string) => {
@@ -255,112 +267,116 @@ export function RoadmapEditorDialog({
     }));
   };
 
+  /** 항목 subItem이 시작 월 기준 몇 번째 순차 주차인지 */
+  const subItemSequential = (subItem: RoadmapTodoItem): number => {
+    const { month, week } = extractMonthWeek(subItem, startMonth);
+    return monthWeekToSequential(startMonth, month, week);
+  };
+
   const addWeekGroup = (itemId: string) => {
     setItems(previousItems => previousItems.map(item => {
       if (item.id !== itemId) return item;
-
-      const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-      const firstMonth = availableMonths[0] ?? 3;
       const currentSubItems = item.subItems ?? [];
-
-      const usedGroupKeys = new Set(
-        currentSubItems.map(subItem => getWeekGroupKeyFromTodo(subItem, firstMonth)),
-      );
-
-      let nextMonth = firstMonth;
-      let nextWeek = 1;
-      let hasEmptyGroupSlot = false;
-      for (const month of availableMonths) {
-        for (const week of WEEK_OPTIONS) {
-          const groupKey = getWeekGroupKey(month, week);
-          if (!usedGroupKeys.has(groupKey)) {
-            nextMonth = month;
-            nextWeek = week;
-            hasEmptyGroupSlot = true;
-            break;
-          }
-        }
-        if (hasEmptyGroupSlot) break;
-      }
-
-      const fallbackWeek = WEEK_OPTIONS[Math.max(WEEK_OPTIONS.length - 1, 0)] ?? 1;
-      const targetWeek = hasEmptyGroupSlot ? nextWeek : fallbackWeek;
-      const nextSubItems: RoadmapTodoItem[] = [
-        ...currentSubItems,
-        createWeeklyGoalSubItem(nextMonth, targetWeek),
-      ];
-
-      return {
-        ...item,
-        subItems: normalizeSubItemsToAvailableMonths(nextSubItems, availableMonths),
-      };
+      // 1주차~N주차 중 다음 순차 주차에 빈 목표를 추가 (최소 DEFAULT_PLAN_WEEKS 다음 칸)
+      const maxSeq = currentSubItems.reduce((max, subItem) => Math.max(max, subItemSequential(subItem)), 0);
+      const nextSeq = Math.max(maxSeq, DEFAULT_PLAN_WEEKS) + 1;
+      const { month, week } = sequentialToMonthWeek(startMonth, nextSeq);
+      const nextSubItems: RoadmapTodoItem[] = [...currentSubItems, createWeeklyGoalSubItem(month, week)];
+      return { ...item, months: deriveItemMonths(nextSubItems, startMonth), subItems: nextSubItems };
     }));
   };
 
   const addWeekTask = (itemId: string, groupKey: string) => {
-    const parsedGroup = parseWeekGroupKey(groupKey);
-    if (!parsedGroup) return;
+    const seq = parseSequentialKey(groupKey);
+    if (!seq) return;
+    const { month, week } = sequentialToMonthWeek(startMonth, seq);
     setItems(previousItems => previousItems.map(item => {
       if (item.id !== itemId) return item;
-      const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-      const nextSubItems: RoadmapTodoItem[] = [
-        ...(item.subItems ?? []),
-        createWeeklyTaskSubItem(parsedGroup.month, parsedGroup.week),
-      ];
-      return {
-        ...item,
-        subItems: normalizeSubItemsToAvailableMonths(nextSubItems, availableMonths),
-      };
+      const nextSubItems: RoadmapTodoItem[] = [...(item.subItems ?? []), createWeeklyTaskSubItem(month, week)];
+      return { ...item, months: deriveItemMonths(nextSubItems, startMonth), subItems: nextSubItems };
     }));
   };
 
   const upsertWeekGoal = (itemId: string, groupKey: string, goalTitle: string) => {
-    const parsedGroup = parseWeekGroupKey(groupKey);
-    if (!parsedGroup) return;
+    const seq = parseSequentialKey(groupKey);
+    if (!seq) return;
+    const { month, week } = sequentialToMonthWeek(startMonth, seq);
     setItems(previousItems => previousItems.map(item => {
       if (item.id !== itemId) return item;
       const currentSubItems = item.subItems ?? [];
-      const availableMonths = item.months.length > 0 ? item.months : selectedMonths;
-      const rawGoalTitle = goalTitle;
-      const targetWeekLabel = buildMonthWeekLabel(parsedGroup.month, parsedGroup.week);
       const existingGoal = currentSubItems.find(subItem => (
-        isGoalTodoEntry(subItem)
-        && getWeekGroupKeyFromTodo(subItem, parsedGroup.month) === groupKey
+        isGoalTodoEntry(subItem) && subItemSequential(subItem) === seq
       ));
 
       const nextSubItems = existingGoal
         ? currentSubItems.map(subItem => (
-          subItem.id === existingGoal.id ? { ...subItem, title: rawGoalTitle } : subItem
+          subItem.id === existingGoal.id ? { ...subItem, title: goalTitle } : subItem
         ))
         : [
           {
-            ...createWeeklyGoalSubItem(parsedGroup.month, parsedGroup.week, rawGoalTitle),
-            weekLabel: targetWeekLabel,
+            ...createWeeklyGoalSubItem(month, week, goalTitle),
+            weekLabel: buildMonthWeekLabel(month, week),
           },
           ...currentSubItems,
         ];
 
-      return {
-        ...item,
-        subItems: normalizeSubItemsToAvailableMonths(nextSubItems, availableMonths),
-      };
+      return { ...item, months: deriveItemMonths(nextSubItems, startMonth), subItems: nextSubItems };
     }));
   };
 
   const removeWeekGroup = (itemId: string, groupKey: string) => {
-    const parsedGroup = parseWeekGroupKey(groupKey);
-    if (!parsedGroup) return;
+    const seq = parseSequentialKey(groupKey);
+    if (!seq) return;
     setItems(previousItems => previousItems.map(item => {
       if (item.id !== itemId) return item;
+      const nextSubItems = (item.subItems ?? []).filter(subItem => subItemSequential(subItem) !== seq);
+      return { ...item, months: deriveItemMonths(nextSubItems, startMonth), subItems: nextSubItems };
+    }));
+  };
+
+  /** 목표 상태(Jira)를 바꾸고, 상태 전이를 코멘트 스레드 맨 앞에 자동 기록한다. */
+  const setGoalStatus = (itemId: string, groupKey: string, nextStatus: RoadmapGoalStatus) => {
+    const seq = parseSequentialKey(groupKey);
+    if (!seq) return;
+    const nowIso = new Date().toISOString();
+    setItems(previousItems => previousItems.map(item => {
+      if (item.id !== itemId) return item;
+      const currentSubItems = item.subItems ?? [];
+      const existingGoal = currentSubItems.find(subItem => (
+        isGoalTodoEntry(subItem) && subItemSequential(subItem) === seq
+      ));
+      if (!existingGoal) return item; // 목표가 있어야 상태를 둘 수 있음
+      const fromStatus = existingGoal.goalStatus ?? 'todo';
+      if (fromStatus === nextStatus) return item;
+      const statusComment = buildStatusChangeComment(fromStatus, nextStatus, nowIso);
+      const nextComments = statusComment
+        ? [statusComment, ...(existingGoal.comments ?? [])]
+        : (existingGoal.comments ?? []);
       return {
         ...item,
-        subItems: (item.subItems ?? []).filter(subItem => {
-          const monthWeek = extractMonthWeek(subItem, parsedGroup.month);
-          return getWeekGroupKey(monthWeek.month, monthWeek.week) !== groupKey;
-        }),
+        subItems: currentSubItems.map(subItem => (
+          subItem.id === existingGoal.id
+            ? { ...subItem, goalStatus: nextStatus, isDone: nextStatus === 'done', comments: nextComments }
+            : subItem
+        )),
       };
     }));
   };
+
+  const weekGoalPlaceholderTemplate = LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (선택)';
+  const weekTaskPlaceholderTemplate = LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목';
+
+  /** 클릭한 주차의 활동/그룹 컨텍스트 (편집 팝업용) */
+  const selectedWeekContext = useMemo(() => {
+    if (!selectedWeek) return null;
+    const item = items.find(currentItem => currentItem.id === selectedWeek.itemId);
+    if (!item) return null;
+    const group = buildSequentialWeekGrid(item.subItems ?? [], startMonth).find(
+      candidate => candidate.groupKey === selectedWeek.groupKey,
+    );
+    if (!group) return null;
+    return { item, group };
+  }, [selectedWeek, items, startMonth]);
 
   const handleSubmit = () => {
     const validItems = items
@@ -440,13 +456,15 @@ export function RoadmapEditorDialog({
     [executionPlanAiItemId, items],
   );
 
-  /** AI 실행계획은 해당 활동 행의 적용 월 기준(비어 있으면 에디터 상단 월 선택과 동일 로직). */
+  /** AI 실행계획은 해당 활동이 걸친 월 기준(비어 있으면 시작 월부터 기본 주 수만큼). */
   const executionPlanAiSelectedMonths = useMemo(() => {
-    if (!executionPlanAiTargetItem) return [...selectedMonths].sort((a, b) => a - b);
-    const fromItem = executionPlanAiTargetItem.months;
-    const raw = fromItem.length > 0 ? fromItem : selectedMonths;
-    return [...raw].sort((a, b) => a - b);
-  }, [executionPlanAiTargetItem, selectedMonths]);
+    const fromItem = executionPlanAiTargetItem?.months ?? [];
+    if (fromItem.length > 0) return [...fromItem].sort((a, b) => a - b);
+    const lastMonth = sequentialToMonthWeek(startMonth, DEFAULT_PLAN_WEEKS).month;
+    const months: number[] = [];
+    for (let month = startMonth; month <= lastMonth; month += 1) months.push(month);
+    return months;
+  }, [executionPlanAiTargetItem, startMonth]);
 
   /** 프롬프트용 제목: 로드맵 전체 제목이 아니라 활동 항목(목표) 한 줄. */
   const executionPlanAiDefaultTitle = useMemo(() => {
@@ -458,10 +476,9 @@ export function RoadmapEditorDialog({
     if (!executionPlanAiItemId) return;
     setItems(previousItems => previousItems.map(item => {
       if (item.id !== executionPlanAiItemId) return item;
-      const months = item.months.length > 0 ? item.months : selectedMonths;
       return {
         ...item,
-        months,
+        months: deriveItemMonths(subItems, startMonth),
         subItems,
       };
     }));
@@ -478,19 +495,7 @@ export function RoadmapEditorDialog({
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-3 flex-shrink-0">
           <div className="flex items-center gap-2 min-w-0">
-            {view !== 'hub' && (
-              <button
-                onClick={() => setView('hub')}
-                aria-label="뒤로"
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-              >
-                <ArrowLeft className="w-4 h-4 text-gray-300" />
-              </button>
-            )}
-            <h3 className="text-lg font-black text-white truncate">
-              {view === 'hub' ? title : view === 'basics' ? '기본 설정' : '주차 항목 편집'}
-            </h3>
+            <h3 className="text-lg font-black text-white truncate">{title}</h3>
           </div>
           <button
             onClick={onClose}
@@ -501,17 +506,7 @@ export function RoadmapEditorDialog({
           </button>
         </div>
 
-        <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-4">
-          <AnimatePresence mode="wait" initial={false}>
-          {view === 'hub' && (
-          <motion.div
-            key="hub"
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -16 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-            className="space-y-4"
-          >
+        <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-4 space-y-5">
           <section className="space-y-4">
             <RoadmapEditorLabeledFieldRow
               label={LABELS.roadmapEditorTitleLabel ?? '로드맵 제목'}
@@ -549,72 +544,6 @@ export function RoadmapEditorDialog({
             </RoadmapEditorLabeledFieldRow>
           </section>
 
-          {/* 허브 네비게이션 카드 — 세부 편집은 팝업(서브뷰)으로 */}
-          <div className="space-y-2">
-            <motion.button
-              type="button"
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setView('basics')}
-              className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left transition-colors"
-              style={{ background: `linear-gradient(135deg, ${starColor}1f, ${starColor}0a)`, border: `1px solid ${starColor}33` }}
-            >
-              <span className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${starColor}26` }}>
-                <SlidersHorizontal className="w-5 h-5" style={{ color: starColor }} />
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-bold text-white">기본 설정</div>
-                <div className="text-[11px] text-gray-400 truncate">
-                  {periodOptions.find(o => o.id === period)?.label ?? period}
-                  {' · '}
-                  {focusItemTypes.map(t => DREAM_ITEM_TYPES.find(d => d.value === t)?.emoji).filter(Boolean).join(' ') || '카테고리 미선택'}
-                </div>
-              </div>
-              <span className="w-3.5 h-3.5 rounded-full flex-shrink-0" style={{ backgroundColor: starColor, boxShadow: `0 0 8px ${starColor}` }} />
-              <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
-            </motion.button>
-
-            <motion.button
-              type="button"
-              whileTap={{ scale: 0.98 }}
-              onClick={() => setView('items')}
-              className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left transition-colors"
-              style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.14), rgba(108,92,231,0.05))', border: '1px solid rgba(108,92,231,0.3)' }}
-            >
-              <span className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(108,92,231,0.22)' }}>
-                <CalendarDays className="w-5 h-5" style={{ color: '#c4b5fd' }} />
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-bold text-white">주차 항목</div>
-                <div className="text-[11px] text-gray-400 truncate">
-                  {items.length}개 항목 · 주차 목표 {items.reduce((n, it) => n + (it.subItems ?? []).filter(isGoalTodoEntry).length, 0)}개
-                </div>
-              </div>
-              <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
-            </motion.button>
-
-            {/* 결과물·사진은 포트폴리오 결과 리포트로 일원화 */}
-            <div className="flex items-center gap-3 p-3.5 rounded-2xl" style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px dashed rgba(255,255,255,0.12)' }}>
-              <span className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(236,72,153,0.18)' }}>
-                <Package className="w-5 h-5" style={{ color: '#f9a8d4' }} />
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="text-sm font-bold text-white">결과물 · 사진</div>
-                <div className="text-[11px] text-gray-400 leading-snug">포트폴리오 탭의 결과 리포트에서 주차별로 기록해요</div>
-              </div>
-            </div>
-          </div>
-          </motion.div>
-          )}
-
-
-          {view === 'basics' && (
-          <motion.div
-            key="basics"
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 16 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-          >
           {/* 기본 설정 그룹 — 활동시기·색상 한 줄, 카테고리 그 아래 */}
           <section className="space-y-3">
             <span className={roadmapEditorSectionLabelClassName}>⚙ 기본 설정</span>
@@ -658,20 +587,10 @@ export function RoadmapEditorDialog({
               <p className="text-xs text-gray-500">{LABELS.roadmapCategoryHint}</p>
             </div>
           </section>
-          </motion.div>
-          )}
 
-          {view === 'items' && (
-          <motion.div
-            key="items"
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 16 }}
-            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-          >
           <section className="space-y-3">
             <div className="flex items-center justify-between">
-              <label className="text-sm font-bold text-gray-400">{LABELS.roadmapEditorMonthSectionLabel ?? '월 선택 (멀티)'}</label>
+              <label className="text-sm font-bold text-gray-400">{LABELS.roadmapEditorStartMonthSectionLabel ?? '시작 월'}</label>
               <button
                 onClick={addRoadmapItem}
                 className="flex items-center gap-1 text-sm font-bold px-3 py-2 rounded-lg"
@@ -684,11 +603,11 @@ export function RoadmapEditorDialog({
 
             <div className="flex flex-wrap gap-1">
               {MONTH_OPTIONS.map(month => {
-                const selected = selectedMonths.includes(month);
+                const selected = startMonth === month;
                 return (
                   <button
                     key={month}
-                    onClick={() => toggleSelectedMonth(month)}
+                    onClick={() => setStartMonth(month)}
                     className="px-2.5 py-1.5 rounded-md text-sm font-bold"
                     style={selected
                       ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
@@ -701,15 +620,13 @@ export function RoadmapEditorDialog({
             </div>
 
             <p className="text-sm text-gray-500">
-              선택 월: {selectedMonths.map(month => `${month}월`).join(', ')}
+              {startMonth}월부터 시작 · 주차는 1주차→N주차 순서로 추가/편집해요.
             </p>
 
             {items.map(item => {
               const isItemOpen = itemAccordionOpenMap[item.id] ?? true;
-              const itemMonths = item.months.length > 0 ? item.months : selectedMonths;
-              const fallbackMonth = itemMonths[0] ?? 3;
-              const sortedWeekGroups = buildSortedWeekGroups(item.subItems ?? [], fallbackMonth);
-              const hasMissingGoalInItem = sortedWeekGroups.some(group => (group.goal?.title.trim().length ?? 0) === 0);
+              const sortedWeekGroups = buildSequentialWeekGrid(item.subItems ?? [], startMonth);
+              const hasMissingGoalInItem = sortedWeekGroups.some(isWeekGroupMissingGoal);
               return (
                 <div
                   key={item.id}
@@ -749,7 +666,7 @@ export function RoadmapEditorDialog({
 
                   {isItemOpen && (
                     <div className="space-y-2">
-                      <div className="text-sm text-gray-500">카테고리 · 적용 월</div>
+                      <div className="text-sm text-gray-500">카테고리</div>
                       <div className="flex flex-wrap gap-1.5">
                         {DREAM_ITEM_TYPES.map(type => {
                           const isActiveType = item.type === type.value;
@@ -768,28 +685,6 @@ export function RoadmapEditorDialog({
                         })}
                       </div>
 
-                      <div className="flex flex-wrap gap-1">
-                        {(selectedMonths.length > 0 ? selectedMonths : MONTH_OPTIONS).map(month => {
-                          const isActive = item.months.includes(month);
-                          return (
-                            <button
-                              key={`${item.id}-month-${month}`}
-                              onClick={() => toggleItemMonth(item.id, month)}
-                              className="px-2.5 py-1.5 rounded-md text-sm font-bold"
-                              style={isActive
-                                ? { backgroundColor: 'rgba(59,130,246,0.25)', color: '#93c5fd' }
-                                : { backgroundColor: 'rgba(255,255,255,0.05)', color: 'rgba(255,255,255,0.45)' }}
-                            >
-                              {month}월
-                            </button>
-                          );
-                        })}
-                      </div>
-
-                      <p className="text-sm text-gray-500">
-                        적용 월: {itemMonths.map(month => `${month}월`).join(', ')}
-                      </p>
-
                       <button
                         type="button"
                         onClick={() => setExecutionPlanAiItemId(item.id)}
@@ -807,42 +702,12 @@ export function RoadmapEditorDialog({
                           sectionTitle: `${LABELS.todoSectionLabel} · ${LABELS.weeklyChecklistLabel}`,
                           addWeekGroupButton: LABELS.roadmapEditorAddWeekGroupButtonLabel ?? '주 추가',
                           noWeekGroupHint: LABELS.roadmapEditorNoWeekGroupHint ?? '주차 그룹을 추가하면 목표/항목을 자유롭게 관리할 수 있어요.',
-                          deleteWeekGroupButton: LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '삭제',
-                          weekGoalLabel: LABELS.roadmapEditorWeekGoalTreeFieldLabel ?? '목표',
                           weekGoalEditHelpHint: LABELS.roadmapEditorWeekGoalEditHelpHint,
-                          weekGoalRequiredHint: LABELS.roadmapEditorWeekGoalRequiredHint ?? '주차 목표는 필수입니다.',
-                          weekGoalValidationHint: LABELS.roadmapEditorWeekGoalValidationHint ?? '저장하려면 모든 주차 그룹에 목표를 입력해 주세요. 항목은 선택입니다.',
-                          goalOutputLabel: LABELS.roadmapEditorWeekGoalOutputFieldLabel ?? '산출물 (URL 또는 파일명) — 주당 1개',
-                          subItemSectionLabel: LABELS.roadmapEditorSubItemSectionLabel ?? '하위 항목',
-                          addSubItemButton: LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가',
-                          todoAutoCompleteHint: LABELS.todoAutoCompleteHint,
-                        }}
-                        weekGoalPlaceholderTemplate={LABELS.roadmapEditorWeekGoalPlaceholder ?? '{month}월 {week}주차 목표 (필수)'}
-                        weekTaskPlaceholderTemplate={LABELS.roadmapEditorWeekTaskPlaceholder ?? '{month}월 {week}주차 항목'}
-                        monthAccordionOpenMap={monthAccordionOpenMap}
-                        weekAccordionOpenMap={weekAccordionOpenMap}
-                        onToggleMonthAccordion={monthAccordionKey => {
-                          setMonthAccordionOpenMap(previous => ({
-                            ...previous,
-                            [monthAccordionKey]: !(previous[monthAccordionKey] ?? true),
-                          }));
-                        }}
-                        onToggleWeekAccordion={weekAccordionKey => {
-                          setWeekAccordionOpenMap(previous => ({
-                            ...previous,
-                            [weekAccordionKey]: !(previous[weekAccordionKey] ?? true),
-                          }));
+                          weekGoalValidationHint: LABELS.roadmapEditorWeekGoalValidationHint ?? '하위 항목을 추가한 주차에는 목표를 입력해 주세요. 빈 주차는 비워 두어도 저장됩니다.',
+                          emptyGoalRowLabel: LABELS.roadmapEditorWeekGoalEmptyRowLabel ?? '탭하여 목표·상태·산출물을 입력하세요',
                         }}
                         onAddWeekGroup={() => addWeekGroup(item.id)}
-                        onRemoveWeekGroup={groupKey => removeWeekGroup(item.id, groupKey)}
-                        onUpsertWeekGoal={(groupKey, title) => upsertWeekGoal(item.id, groupKey, title)}
-                        onUpdateSubItem={(subItemId, patch) => updateSubItem(item.id, subItemId, patch)}
-                        onRemoveSubItem={subItemId => removeSubItem(item.id, subItemId)}
-                        onAddWeekTask={groupKey => addWeekTask(item.id, groupKey)}
-                        autocompleteListId={`todo-autocomplete-${item.id}`}
-                        autocompleteSuggestions={
-                          WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === item.type)?.suggestions ?? []
-                        }
+                        onSelectWeek={groupKey => setSelectedWeek({ itemId: item.id, groupKey })}
                         hasMissingGoalInItem={hasMissingGoalInItem}
                       />
                     </div>
@@ -851,9 +716,6 @@ export function RoadmapEditorDialog({
               );
             })}
           </section>
-          </motion.div>
-          )}
-          </AnimatePresence>
 
         </div>
 
@@ -863,24 +725,14 @@ export function RoadmapEditorDialog({
             paddingBottom: 'max(1rem, env(safe-area-inset-bottom, 0px))',
           }}
         >
-          {view === 'hub' ? (
-            <button
-              onClick={handleSubmit}
-              disabled={!isSubmitEnabled}
-              className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
-              style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
-            >
-              {submitLabel || LABELS.createRoadmapButton}
-            </button>
-          ) : (
-            <button
-              onClick={() => setView('hub')}
-              className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98]"
-              style={{ background: `linear-gradient(135deg, ${starColor}, ${starColor}cc)` }}
-            >
-              완료
-            </button>
-          )}
+          <button
+            onClick={handleSubmit}
+            disabled={!isSubmitEnabled}
+            className="w-full h-12 rounded-2xl font-bold text-white text-sm transition-all active:scale-[0.98] disabled:opacity-40"
+            style={{ background: 'linear-gradient(135deg, #6C5CE7, #a855f7)' }}
+          >
+            {submitLabel || LABELS.createRoadmapButton}
+          </button>
         </div>
       </div>
     </div>
@@ -891,6 +743,34 @@ export function RoadmapEditorDialog({
       defaultPlanTitle={executionPlanAiDefaultTitle}
       onApplySubItems={applyExecutionPlanAiSubItems}
     />
+    {selectedWeekContext && (
+      <RoadmapEditorWeekEditPopup
+        group={selectedWeekContext.group}
+        deleteWeekGroupButton={LABELS.roadmapEditorDeleteWeekGroupButtonLabel ?? '삭제'}
+        labels={{
+          weekGoalLabel: LABELS.roadmapEditorWeekGoalTreeFieldLabel ?? '목표',
+          weekGoalEditHelpHint: LABELS.roadmapEditorWeekGoalEditHelpHint,
+          weekGoalRequiredHint: LABELS.roadmapEditorWeekGoalRequiredHint ?? '하위 항목이 있는 주차는 목표가 필요해요.',
+          goalOutputLabel: LABELS.roadmapEditorWeekGoalOutputFieldLabel ?? '산출물 (이미지 · 내용) — 주당 1개',
+          subItemSectionLabel: LABELS.roadmapEditorSubItemSectionLabel ?? '하위 항목',
+          addSubItemButton: LABELS.roadmapEditorAddSubItemButtonLabel ?? '하위 항목 추가',
+          statusSectionLabel: LABELS.roadmapEditorWeekGoalStatusLabel ?? '상태 (Jira)',
+        }}
+        weekGoalPlaceholderTemplate={weekGoalPlaceholderTemplate}
+        weekTaskPlaceholderTemplate={weekTaskPlaceholderTemplate}
+        onClose={() => setSelectedWeek(null)}
+        onUpsertWeekGoal={(groupKey, goalTitle) => upsertWeekGoal(selectedWeekContext.item.id, groupKey, goalTitle)}
+        onSetGoalStatus={(groupKey, nextStatus) => setGoalStatus(selectedWeekContext.item.id, groupKey, nextStatus)}
+        onUpdateSubItem={(subItemId, patch) => updateSubItem(selectedWeekContext.item.id, subItemId, patch)}
+        onRemoveSubItem={subItemId => removeSubItem(selectedWeekContext.item.id, subItemId)}
+        onAddWeekTask={groupKey => addWeekTask(selectedWeekContext.item.id, groupKey)}
+        onRemoveWeekGroup={groupKey => removeWeekGroup(selectedWeekContext.item.id, groupKey)}
+        autocompleteListId={`todo-autocomplete-${selectedWeekContext.item.id}`}
+        autocompleteSuggestions={
+          WEEKLY_TODO_AUTOCOMPLETE_BY_ITEM_TYPE.find(template => template.itemType === selectedWeekContext.item.type)?.suggestions ?? []
+        }
+      />
+    )}
     </>
   );
 }

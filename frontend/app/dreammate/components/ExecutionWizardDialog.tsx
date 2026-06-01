@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronRight, ArrowLeft, Check, Calendar } from 'lucide-react';
+import { X, ChevronRight, ArrowLeft, Check, Calendar, Pencil } from 'lucide-react';
 import templatesData from '@/data/execution/templates.json';
+import projectFieldsData from '@/data/execution/templates-project-fields.json';
 import type { DreamItemType, PeriodType, RoadmapItem, RoadmapTodoItem } from '../types';
 
 /* ── Types ─────────────────────────────────── */
@@ -26,13 +27,24 @@ interface ExecutionTemplate {
   weeklyGoals: WeeklyGoal[];
 }
 
+/** 카테고리 하위 분야(도메인) 그룹 — project 10분야, activity/paper 보강 그룹 */
+interface Subgroup {
+  id: string;
+  label: string;
+  emoji: string;
+  templates: ExecutionTemplate[];
+}
+
 interface Category {
   id: string;
   label: string;
   emoji: string;
   color: string;
   tagline: string;
-  templates: ExecutionTemplate[];
+  /** 평면 카테고리(award 등) */
+  templates?: ExecutionTemplate[];
+  /** 그룹 카테고리(project/activity/paper) */
+  subgroups?: Subgroup[];
 }
 
 interface ExecutionWizardPayload {
@@ -53,6 +65,8 @@ interface ExecutionWizardPayload {
 interface ExecutionWizardDialogProps {
   onClose: () => void;
   onSubmit: (payload: ExecutionWizardPayload) => void;
+  /** "처음부터 직접 만들기" — 빈 로드맵 생성 후 에디터 열기 (페이지에서 배선) */
+  onStartBlank?: () => void;
 }
 
 const DIFFICULTY_LABEL: Record<number, string> = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
@@ -64,7 +78,13 @@ const CATEGORY_COLOR_MAP: Record<string, string> = {
   paper: '#EC4899',
 };
 
-const categories = templatesData.categories as Category[];
+/** project 카테고리는 분야 파일(templates-project-fields.json)의 subgroups로 합성 */
+const projectFields = ((projectFieldsData as { fields?: Subgroup[] }).fields ?? []) as Subgroup[];
+const categories: Category[] = (templatesData.categories as unknown as Category[]).map((c) =>
+  c.id === 'project' ? { ...c, subgroups: projectFields } : c
+);
+
+type StepKey = 'category' | 'group' | 'template' | 'weekly';
 
 function makeId() {
   return `wizard-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
@@ -102,9 +122,20 @@ function buildSubItems(weeklyGoals: WeeklyGoal[], startMonth: number): RoadmapTo
 }
 
 /* ═══════════════════════════════════════════
-   Step 1: 카테고리 선택
+   Step: 카테고리 선택 (+ 직접 만들기)
 ═══════════════════════════════════════════ */
-function StepCategory({ onSelect }: { onSelect: (cat: Category) => void }) {
+function StepCategory({
+  onSelect,
+  onStartBlank,
+}: {
+  onSelect: (cat: Category) => void;
+  onStartBlank?: () => void;
+}) {
+  const countOf = (cat: Category) =>
+    cat.subgroups
+      ? cat.subgroups.reduce((sum, g) => sum + g.templates.length, 0)
+      : cat.templates?.length ?? 0;
+
   return (
     <motion.div
       key="step-category"
@@ -140,7 +171,81 @@ function StepCategory({ onSelect }: { onSelect: (cat: Category) => void }) {
               className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
               style={{ backgroundColor: `${cat.color}22`, color: cat.color }}
             >
-              {cat.templates.length}개 템플릿
+              {cat.subgroups ? `${cat.subgroups.length}개 분야 · ` : ''}{countOf(cat)}개 템플릿
+            </span>
+          </motion.button>
+        ))}
+      </div>
+
+      {/* 처음부터 직접 만들기 */}
+      {onStartBlank && (
+        <motion.button
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: categories.length * 0.05, type: 'spring', stiffness: 400, damping: 24 }}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={onStartBlank}
+          className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left mt-1"
+          style={{
+            background: 'rgba(255,255,255,0.04)',
+            border: '1.5px dashed rgba(255,255,255,0.18)',
+          }}
+        >
+          <div
+            className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+            style={{ backgroundColor: 'rgba(255,255,255,0.06)' }}
+          >
+            <Pencil className="w-4 h-4 text-gray-300" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-bold text-white">처음부터 직접 만들기</div>
+            <div className="text-[11px] text-gray-400 mt-0.5 leading-snug">템플릿 없이 빈 계획에서 시작해요</div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
+        </motion.button>
+      )}
+    </motion.div>
+  );
+}
+
+/* ═══════════════════════════════════════════
+   Step: 분야(그룹) 선택
+═══════════════════════════════════════════ */
+function StepGroup({ category, onSelect }: { category: Category; onSelect: (g: Subgroup) => void }) {
+  const groups = category.subgroups ?? [];
+  return (
+    <motion.div
+      key="step-group"
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: 20 }}
+      className="pt-4 space-y-3"
+    >
+      <p className="text-xs text-gray-400 px-1">어떤 분야에 도전할까요?</p>
+      <div className="grid grid-cols-2 gap-2.5">
+        {groups.map((g, idx) => (
+          <motion.button
+            key={g.id}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.04, type: 'spring', stiffness: 400, damping: 24 }}
+            whileHover={{ scale: 1.03, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={() => onSelect(g)}
+            className="flex flex-col items-start gap-1.5 p-3.5 rounded-2xl text-left"
+            style={{
+              background: `linear-gradient(135deg, ${category.color}18, ${category.color}06)`,
+              border: `1.5px solid ${category.color}30`,
+            }}
+          >
+            <span className="text-2xl">{g.emoji}</span>
+            <div className="text-sm font-bold text-white leading-snug">{g.label}</div>
+            <span
+              className="text-[10px] font-bold px-1.5 py-0.5 rounded-full"
+              style={{ backgroundColor: `${category.color}22`, color: category.color }}
+            >
+              {g.templates.length}개 템플릿
             </span>
           </motion.button>
         ))}
@@ -150,9 +255,23 @@ function StepCategory({ onSelect }: { onSelect: (cat: Category) => void }) {
 }
 
 /* ═══════════════════════════════════════════
-   Step 2: 템플릿 선택
+   Step: 템플릿 선택 (그룹이면 분야 칩으로 이동)
 ═══════════════════════════════════════════ */
-function StepTemplate({ category, onSelect }: { category: Category; onSelect: (t: ExecutionTemplate) => void }) {
+function StepTemplate({
+  category,
+  templates,
+  siblingGroups,
+  activeGroupId,
+  onPickGroup,
+  onSelect,
+}: {
+  category: Category;
+  templates: ExecutionTemplate[];
+  siblingGroups?: Subgroup[];
+  activeGroupId?: string;
+  onPickGroup?: (g: Subgroup) => void;
+  onSelect: (t: ExecutionTemplate) => void;
+}) {
   return (
     <motion.div
       key="step-template"
@@ -161,8 +280,29 @@ function StepTemplate({ category, onSelect }: { category: Category; onSelect: (t
       exit={{ opacity: 0, x: 20 }}
       className="pt-4 space-y-2"
     >
+      {/* 분야 칩 — 뒤로가기 없이 다른 분야로 이동 */}
+      {siblingGroups && siblingGroups.length > 1 && onPickGroup && (
+        <div className="flex gap-1.5 overflow-x-auto pb-1.5 -mx-1 px-1 scrollbar-hide">
+          {siblingGroups.map((g) => {
+            const active = g.id === activeGroupId;
+            return (
+              <button
+                key={g.id}
+                onClick={() => onPickGroup(g)}
+                className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1.5 rounded-full whitespace-nowrap transition-all flex-shrink-0"
+                style={active
+                  ? { backgroundColor: category.color, color: '#fff', boxShadow: `0 0 10px ${category.color}55` }
+                  : { backgroundColor: `${category.color}14`, color: 'rgba(255,255,255,0.6)', border: `1px solid ${category.color}25` }}
+              >
+                <span>{g.emoji}</span>{g.label}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       <p className="text-xs text-gray-400 px-1">어떤 활동을 할 건가요?</p>
-      {category.templates.map((tmpl, idx) => (
+      {templates.map((tmpl, idx) => (
         <motion.button
           key={tmpl.id}
           initial={{ opacity: 0, y: 8 }}
@@ -207,7 +347,7 @@ function StepTemplate({ category, onSelect }: { category: Category; onSelect: (t
 }
 
 /* ═══════════════════════════════════════════
-   Step 3: 주별 목표 확인 & 시작 월 선택
+   Step: 주별 목표 확인 & 시작 월 선택
 ═══════════════════════════════════════════ */
 function StepWeekly({
   template,
@@ -338,24 +478,51 @@ function StepWeekly({
 /* ═══════════════════════════════════════════
    Main Wizard
 ═══════════════════════════════════════════ */
-export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDialogProps) {
-  const [step, setStep] = useState<0 | 1 | 2>(0);
+export function ExecutionWizardDialog({ onClose, onSubmit, onStartBlank }: ExecutionWizardDialogProps) {
+  const [step, setStep] = useState<StepKey>('category');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [selectedGroup, setSelectedGroup] = useState<Subgroup | null>(null);
   const [selectedTemplate, setSelectedTemplate] = useState<ExecutionTemplate | null>(null);
+
+  const isGrouped = !!selectedCategory?.subgroups;
+  const stepOrder: StepKey[] = isGrouped
+    ? ['category', 'group', 'template', 'weekly']
+    : ['category', 'template', 'weekly'];
+  const stepIndex = stepOrder.indexOf(step);
 
   const handleSelectCategory = (cat: Category) => {
     setSelectedCategory(cat);
-    setStep(1);
+    setSelectedGroup(null);
+    setSelectedTemplate(null);
+    setStep(cat.subgroups ? 'group' : 'template');
+  };
+
+  const handleSelectGroup = (g: Subgroup) => {
+    setSelectedGroup(g);
+    setStep('template');
   };
 
   const handleSelectTemplate = (tmpl: ExecutionTemplate) => {
     setSelectedTemplate(tmpl);
-    setStep(2);
+    setStep('weekly');
   };
 
   const handleBack = () => {
-    if (step === 2) { setStep(1); setSelectedTemplate(null); }
-    else if (step === 1) { setStep(0); setSelectedCategory(null); }
+    if (step === 'weekly') {
+      setStep('template');
+      setSelectedTemplate(null);
+    } else if (step === 'template') {
+      if (isGrouped) {
+        setStep('group');
+        setSelectedGroup(null);
+      } else {
+        setStep('category');
+        setSelectedCategory(null);
+      }
+    } else if (step === 'group') {
+      setStep('category');
+      setSelectedCategory(null);
+    }
   };
 
   const handleConfirm = (enabled: boolean[], startMonth: number, chosenColor: string) => {
@@ -364,10 +531,7 @@ export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDial
     const activeGoals = selectedTemplate.weeklyGoals.filter((_, i) => enabled[i]);
     const subItems = buildSubItems(activeGoals, startMonth);
 
-    const allMonths = activeGoals.map((_, i) => {
-      const month = startMonth + Math.floor(i / 4);
-      return month;
-    });
+    const allMonths = activeGoals.map((_, i) => startMonth + Math.floor(i / 4));
     const uniqueMonths = [...new Set(allMonths)].sort((a, b) => a - b);
 
     const item: RoadmapItem = {
@@ -398,17 +562,23 @@ export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDial
   };
 
   const headerTitle =
-    step === 0 ? '실행 카테고리 선택' :
-    step === 1 ? (selectedCategory?.label ?? '') :
+    step === 'category' ? '실행 카테고리 선택' :
+    step === 'group' ? (selectedCategory?.label ?? '') :
+    step === 'template' ? (selectedGroup?.label ?? selectedCategory?.label ?? '') :
     (selectedTemplate?.title ?? '');
 
   const categoryColor = selectedCategory?.color ?? '#6C5CE7';
 
-  const stepDots = [0, 1, 2].map(i => (
+  // 평면 카테고리는 templates, 그룹 카테고리는 선택한 분야의 templates
+  const templateList = isGrouped
+    ? selectedGroup?.templates ?? []
+    : selectedCategory?.templates ?? [];
+
+  const stepDots = stepOrder.map((_, i) => (
     <span
       key={i}
       className="w-1.5 h-1.5 rounded-full transition-all"
-      style={{ backgroundColor: i <= step ? categoryColor : 'rgba(255,255,255,0.2)', width: i === step ? 16 : 6 }}
+      style={{ backgroundColor: i <= stepIndex ? categoryColor : 'rgba(255,255,255,0.2)', width: i === stepIndex ? 16 : 6 }}
     />
   ));
 
@@ -428,7 +598,7 @@ export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDial
         transition={{ type: 'spring', damping: 30, stiffness: 300 }}
         className="w-full rounded-t-3xl overflow-hidden flex flex-col"
         style={{
-          maxWidth: 645,
+          maxWidth: 680,
           maxHeight: '88vh',
           background: 'linear-gradient(180deg, #1a1035 0%, #12122a 100%)',
           border: '1px solid rgba(255,255,255,0.08)',
@@ -442,7 +612,7 @@ export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDial
           style={{ borderBottom: '1px solid rgba(255,255,255,0.08)', backgroundColor: 'rgba(12,6,32,0.7)', backdropFilter: 'blur(12px)' }}
         >
           <div className="flex items-center gap-2.5 min-w-0">
-            {step > 0 && (
+            {step !== 'category' && (
               <button
                 onClick={handleBack}
                 className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
@@ -468,13 +638,23 @@ export function ExecutionWizardDialog({ onClose, onSubmit }: ExecutionWizardDial
         {/* Content */}
         <div className="flex-1 overflow-y-auto px-5 pb-6">
           <AnimatePresence mode="wait">
-            {step === 0 && (
-              <StepCategory onSelect={handleSelectCategory} />
+            {step === 'category' && (
+              <StepCategory onSelect={handleSelectCategory} onStartBlank={onStartBlank} />
             )}
-            {step === 1 && selectedCategory && (
-              <StepTemplate category={selectedCategory} onSelect={handleSelectTemplate} />
+            {step === 'group' && selectedCategory && (
+              <StepGroup category={selectedCategory} onSelect={handleSelectGroup} />
             )}
-            {step === 2 && selectedTemplate && (
+            {step === 'template' && selectedCategory && (
+              <StepTemplate
+                category={selectedCategory}
+                templates={templateList}
+                siblingGroups={isGrouped ? selectedCategory.subgroups : undefined}
+                activeGroupId={selectedGroup?.id}
+                onPickGroup={isGrouped ? handleSelectGroup : undefined}
+                onSelect={handleSelectTemplate}
+              />
+            )}
+            {step === 'weekly' && selectedTemplate && (
               <StepWeekly
                 template={selectedTemplate}
                 color={CATEGORY_COLOR_MAP[selectedCategory?.id ?? ''] ?? '#6C5CE7'}

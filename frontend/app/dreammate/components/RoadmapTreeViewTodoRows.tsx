@@ -5,6 +5,8 @@ import type { RoadmapTodoItem } from '../types';
 import type { RoadmapGoalBlock } from '../utils/roadmapTreeGoalBlocks';
 import type { RoadmapTreeTodoRowVisualMode } from '../config/roadmap-timeline-display.config';
 import { RoadmapTimelineGoalBlockFrame } from './roadmap-timeline/RoadmapTimelineSectionChrome';
+import { getRoadmapGoalStatusMeta } from '../utils/roadmapGoalStatus';
+import { RoadmapGoalCommentsReadonly } from './RoadmapGoalCommentsReadonly';
 
 function TreeGoalOrTaskRow({
   todoItem,
@@ -75,6 +77,18 @@ function TreeGoalOrTaskRow({
         </span>
       )}
 
+      {mode !== 'task' && (() => {
+        const statusMeta = getRoadmapGoalStatusMeta(todoItem.goalStatus);
+        return (
+          <span
+            className="mt-0.5 flex-shrink-0 rounded-full px-1.5 py-0.5 text-[11px] font-bold"
+            style={{ backgroundColor: `${statusMeta.color}22`, color: statusMeta.color }}
+          >
+            {statusMeta.emoji} {statusMeta.label}
+          </span>
+        );
+      })()}
+
       <span className={titleClass}>{todoItem.title}</span>
     </Wrapper>
   );
@@ -114,6 +128,9 @@ export function WeekGoalBlock({
             todoRowVisualMode={todoRowVisualMode}
             onToggleTodoItem={onToggleTodoItem}
           />
+        )}
+        {block.goal?.comments && block.goal.comments.length > 0 && (
+          <RoadmapGoalCommentsReadonly comments={block.goal.comments} />
         )}
         {block.tasks.map(task => (
           <div

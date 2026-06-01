@@ -9,7 +9,11 @@
     "description": "방과후 3개월(3~6월) 동안 SW 공모전, 코딩 동아리 운영, AI 동아리 메이커 활동을 병행하는 8주 실행 계획입니다. 주차 목표를 먼저 정하고, 필요한 항목만 추가해 관리합니다.",
     "period": "afterschool",
     "starColor": "#6C5CE7",
-    "focusItemTypes": ["project", "activity", "award"],
+    "focusItemTypes": [
+      "project",
+      "activity",
+      "award"
+    ],
     "shareScope": "public",
     "groupIds": [],
     "likes": 58,
@@ -57,7 +61,11 @@
         "id": "rm001-i1",
         "type": "award",
         "title": "학교 급식 리뷰 앱 개발 (React Native)",
-        "months": [3, 4, 5],
+        "months": [
+          3,
+          4,
+          5
+        ],
         "difficulty": 4,
         "targetOutput": "GitHub 저장소 URL + APK 파일 + 시연 영상 3분",
         "successCriteria": "공모전 제출 마감 48시간 전 최종본 업로드, 실사용자 테스트 5명 이상 피드백 수렴",
@@ -71,7 +79,30 @@
             "isDone": true,
             "note": "Figma로 메인 화면 3개 설계, 사용자 플로우 정의",
             "outputRef": "figma_design_v1.pdf",
-            "reviewNote": "화면 수를 5개에서 3개로 줄여 개발 시간 단축"
+            "reviewNote": "화면 수를 5개에서 3개로 줄여 개발 시간 단축",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "rm001-i1-w1-goal-c3",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-07T18:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "rm001-i1-w1-goal-c2",
+                "kind": "change",
+                "body": "화면을 5개 → 3개(로그인·리뷰작성·평점)로 축소. 댓글 기능은 2차 개발로 미뤄 3개월 안에 끝낼 수 있게 범위를 잘랐다.",
+                "createdAt": "2026-03-06T15:30:00.000Z"
+              },
+              {
+                "id": "rm001-i1-w1-goal-c1",
+                "kind": "problem",
+                "body": "진짜 문제: 화면 5개를 다 만들려다 핵심 기능도 못 끝낼 위험. 친구 3명에게 물어보니 \"리뷰만 빠르게 쓰고 싶다\"가 공통 의견이었다.",
+                "createdAt": "2026-03-05T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "rm001-i1-w1-t1",
@@ -93,7 +124,24 @@
             "isDone": true,
             "note": "Expo 기반 프로젝트 생성, Firebase Auth 연동 완료",
             "outputRef": "https://github.com/example/lunch-review-app/commit/abc123",
-            "reviewNote": "Firebase 설정이 예상보다 빨리 완료되어 다음 주 일정 앞당김"
+            "reviewNote": "Firebase 설정이 예상보다 빨리 완료되어 다음 주 일정 앞당김",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "rm001-i1-w2-goal-c2",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-14T17:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "rm001-i1-w2-goal-c1",
+                "kind": "debug",
+                "body": "Firebase Auth 토큰 만료 처리를 빼먹어 재로그인 루프가 돌았다. onAuthStateChanged로 세션 복구 로직을 넣어 해결.",
+                "createdAt": "2026-03-13T20:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "rm001-i1-w2-t1",
@@ -119,7 +167,30 @@
             "weekLabel": "3월 3주차",
             "entryType": "goal",
             "title": "리뷰 작성 기능 및 Firestore DB 연동",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress",
+            "comments": [
+              {
+                "id": "rm001-i1-w3-goal-c3",
+                "kind": "status",
+                "body": "할 일 → 진행 중",
+                "createdAt": "2026-03-18T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "inprogress"
+              },
+              {
+                "id": "rm001-i1-w3-goal-c2",
+                "kind": "progress",
+                "body": "Firestore onSnapshot 실시간 구독으로 전환 중. 작성 즉시 목록에 반영되도록 리스너를 붙이는 작업.",
+                "createdAt": "2026-03-18T09:05:00.000Z"
+              },
+              {
+                "id": "rm001-i1-w3-goal-c1",
+                "kind": "problem",
+                "body": "진짜 문제: 리뷰를 써도 목록에 바로 안 보이고 새로고침해야 나온다. get() 단발 호출이 원인.",
+                "createdAt": "2026-03-17T21:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "rm001-i1-w3-t1",
@@ -143,7 +214,8 @@
             "weekLabel": "4월 4주차",
             "entryType": "goal",
             "title": "Firebase 연동 및 리뷰 목록 화면 구현",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm001-i1-w4-t1",
@@ -159,7 +231,16 @@
             "weekLabel": "5월 1주차",
             "entryType": "goal",
             "title": "실사용자 테스트 및 버그 수정",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "rm001-i1-w5-goal-c1",
+                "kind": "note",
+                "body": "친구 5명 베타 테스트 일정 잡기 — 평점 입력 흐름이 직관적인지 집중해서 볼 것.",
+                "createdAt": "2026-03-19T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "rm001-i1-w5-t1",
@@ -183,7 +264,12 @@
         "id": "rm001-i2",
         "type": "activity",
         "title": "코딩 동아리 운영 및 세미나 진행",
-        "months": [3, 4, 5, 6],
+        "months": [
+          3,
+          4,
+          5,
+          6
+        ],
         "difficulty": 3,
         "subItems": [
           {
@@ -193,7 +279,8 @@
             "entryType": "goal",
             "title": "동아리 운영 계획 수립 및 부원 모집",
             "isDone": true,
-            "note": "부원 12명 모집 완료, 매주 수요일 방과후 활동으로 확정"
+            "note": "부원 12명 모집 완료, 매주 수요일 방과후 활동으로 확정",
+            "goalStatus": "done"
           },
           {
             "id": "rm001-i2-w2-goal",
@@ -202,7 +289,8 @@
             "entryType": "goal",
             "title": "1차 세미나: Python 기초 문법 강의",
             "isDone": true,
-            "outputRef": "python_basic_slides.pdf"
+            "outputRef": "python_basic_slides.pdf",
+            "goalStatus": "done"
           },
           {
             "id": "rm001-i2-w3-goal",
@@ -210,7 +298,8 @@
             "weekLabel": "3월 3주차",
             "entryType": "goal",
             "title": "2차 세미나: 알고리즘 문제 풀이 워크샵",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress"
           },
           {
             "id": "rm001-i2-w4-goal",
@@ -218,7 +307,8 @@
             "weekLabel": "4월 1주차",
             "entryType": "goal",
             "title": "3차 세미나: 웹 크롤링 실습",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       },
@@ -226,7 +316,10 @@
         "id": "rm001-i3",
         "type": "project",
         "title": "AI 챗봇 프로젝트 (OpenAI API 활용)",
-        "months": [5, 6],
+        "months": [
+          5,
+          6
+        ],
         "difficulty": 5,
         "targetOutput": "GitHub 저장소 + README 문서 + 시연 영상",
         "successCriteria": "실제 대화 10회 이상 테스트, API 비용 $5 이내 관리",
@@ -237,7 +330,8 @@
             "weekLabel": "5월 1주차",
             "entryType": "goal",
             "title": "OpenAI API 연동 및 기본 대화 기능 구현",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm001-i3-w1-t1",
@@ -253,7 +347,8 @@
             "weekLabel": "5월 2주차",
             "entryType": "goal",
             "title": "프롬프트 엔지니어링 및 대화 품질 개선",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm001-i3-w3-goal",
@@ -261,7 +356,8 @@
             "weekLabel": "6월 1주차",
             "entryType": "goal",
             "title": "웹 UI 제작 및 배포 준비",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       }
@@ -277,9 +373,14 @@
     "description": "중2 여름방학 6주 동안 과학고 입시 준비를 위한 탐구 대회, 논문 작성, 면접 준비를 병행합니다. 주차 목표(필수)를 중심으로 실행하고, 세부 항목은 필요시 추가합니다.",
     "period": "vacation",
     "starColor": "#3B82F6",
-    "focusItemTypes": ["award", "paper"],
+    "focusItemTypes": [
+      "award",
+      "paper"
+    ],
     "shareScope": "public",
-    "groupIds": ["space-001"],
+    "groupIds": [
+      "space-001"
+    ],
     "likes": 47,
     "bookmarks": 23,
     "sharedAt": "2026-03-08T14:30:00.000Z",
@@ -306,7 +407,10 @@
         "id": "rm002-i1",
         "type": "award",
         "title": "교내 과학탐구대회 출전",
-        "months": [7, 8],
+        "months": [
+          7,
+          8
+        ],
         "difficulty": 4,
         "targetOutput": "탐구 보고서 PDF + 발표 자료 PPT + 모의발표 영상",
         "successCriteria": "제출 마감 24시간 전 최종본 완료, 모의발표 2회 이상, 예상 질문 20개 대비",
@@ -320,7 +424,8 @@
             "isDone": true,
             "note": "심사 기준에서 창의성/재현성 우선 확인",
             "outputRef": "contest_analysis.md",
-            "reviewNote": "주제 난이도를 낮춰 실험 반복 가능성 확보"
+            "reviewNote": "주제 난이도를 낮춰 실험 반복 가능성 확보",
+            "goalStatus": "done"
           },
           {
             "id": "rm002-i1-w1-t1",
@@ -348,7 +453,8 @@
             "title": "실험 설계 및 사전 조사 완료",
             "isDone": true,
             "note": "실험 반복 3회, 오차 허용범위 5%로 정의",
-            "outputRef": "experiment_design_v2.docx"
+            "outputRef": "experiment_design_v2.docx",
+            "goalStatus": "done"
           },
           {
             "id": "rm002-i1-w2-t1",
@@ -374,7 +480,8 @@
             "weekLabel": "7월 3주차",
             "entryType": "goal",
             "title": "실험 1차 수행 및 데이터 수집",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress"
           },
           {
             "id": "rm002-i1-w3-t1",
@@ -390,7 +497,8 @@
             "weekLabel": "7월 4주차",
             "entryType": "goal",
             "title": "보고서 초안 작성 및 발표 자료 제작",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm002-i1-w4-t1",
@@ -406,7 +514,8 @@
             "weekLabel": "8월 1주차",
             "entryType": "goal",
             "title": "모의 발표 및 피드백 반영",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm002-i1-w5-t1",
@@ -422,7 +531,8 @@
             "weekLabel": "8월 2주차",
             "entryType": "goal",
             "title": "최종 제출 및 대회 당일 준비",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       },
@@ -430,7 +540,10 @@
         "id": "rm002-i2",
         "type": "paper",
         "title": "자유 탐구 보고서 작성",
-        "months": [7, 8],
+        "months": [
+          7,
+          8
+        ],
         "difficulty": 3,
         "subItems": [
           {
@@ -440,7 +553,8 @@
             "entryType": "goal",
             "title": "탐구 주제 및 가설 확정",
             "isDone": true,
-            "note": "광합성 효율 측정 주제로 확정"
+            "note": "광합성 효율 측정 주제로 확정",
+            "goalStatus": "done"
           },
           {
             "id": "rm002-i2-w2-goal",
@@ -448,7 +562,8 @@
             "weekLabel": "7월 2주차",
             "entryType": "goal",
             "title": "자료 조사 및 참고 문헌 수집",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress"
           },
           {
             "id": "rm002-i2-w3-goal",
@@ -456,7 +571,8 @@
             "weekLabel": "7월 3주차",
             "entryType": "goal",
             "title": "본론 초안 작성",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm002-i2-w4-goal",
@@ -464,7 +580,8 @@
             "weekLabel": "7월 4주차",
             "entryType": "goal",
             "title": "결론·참고문헌 작성 및 교정",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       }
@@ -480,7 +597,11 @@
     "description": "중2 여름방학 8주 동안 과학고 입시 준비. 주차 목표를 먼저 정하고 필요한 항목만 추가해 실행합니다.",
     "period": "vacation",
     "starColor": "#22C55E",
-    "focusItemTypes": ["award", "paper", "activity"],
+    "focusItemTypes": [
+      "award",
+      "paper",
+      "activity"
+    ],
     "shareScope": "public",
     "groupIds": [],
     "likes": 34,
@@ -512,7 +633,10 @@
         "id": "rm003-i1",
         "type": "award",
         "title": "전국 과학탐구대회 준비",
-        "months": [7, 8],
+        "months": [
+          7,
+          8
+        ],
         "difficulty": 5,
         "targetOutput": "탐구 보고서 + 발표 자료 + 실험 영상",
         "successCriteria": "예선 제출 완료, 실험 재현 3회 이상 성공",
@@ -526,7 +650,8 @@
             "isDone": true,
             "note": "광합성 효율 측정 주제로 확정, 실험 도구 확보 완료",
             "outputRef": "topic_final.md",
-            "reviewNote": "실험실 사용 가능 시간이 제한적이라 주말 활용 계획 추가"
+            "reviewNote": "실험실 사용 가능 시간이 제한적이라 주말 활용 계획 추가",
+            "goalStatus": "done"
           },
           {
             "id": "rm003-i1-w1-t1",
@@ -554,7 +679,8 @@
             "title": "실험 설계 및 예비 실험 1차 수행",
             "isDone": true,
             "note": "예비 실험에서 측정 오차 10% 발생, 장비 교정 필요",
-            "outputRef": "pilot_experiment_log.xlsx"
+            "outputRef": "pilot_experiment_log.xlsx",
+            "goalStatus": "done"
           },
           {
             "id": "rm003-i1-w2-t1",
@@ -582,7 +708,8 @@
             "title": "본 실험 3회 반복 및 데이터 정리",
             "isDone": true,
             "note": "측정 오차 5% 이내로 개선, 데이터 신뢰도 확보",
-            "outputRef": "experiment_data_final.xlsx"
+            "outputRef": "experiment_data_final.xlsx",
+            "goalStatus": "done"
           },
           {
             "id": "rm003-i1-w3-t1",
@@ -599,7 +726,8 @@
             "weekLabel": "7월 4주차",
             "entryType": "goal",
             "title": "탐구 보고서 초안 작성",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress"
           },
           {
             "id": "rm003-i1-w4-t1",
@@ -615,7 +743,8 @@
             "weekLabel": "8월 1주차",
             "entryType": "goal",
             "title": "발표 자료 제작 및 모의 발표 1차",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm003-i1-w5-t1",
@@ -639,7 +768,8 @@
             "weekLabel": "8월 2주차",
             "entryType": "goal",
             "title": "최종 제출 및 예선 발표 준비",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       },
@@ -647,7 +777,10 @@
         "id": "rm003-i2",
         "type": "paper",
         "title": "과학 탐구 논문 작성",
-        "months": [7, 8],
+        "months": [
+          7,
+          8
+        ],
         "difficulty": 4,
         "subItems": [
           {
@@ -657,7 +790,8 @@
             "entryType": "goal",
             "title": "논문 주제 및 연구 질문 설정",
             "isDone": true,
-            "note": "광합성 효율 측정 연구 질문 3개 도출"
+            "note": "광합성 효율 측정 연구 질문 3개 도출",
+            "goalStatus": "done"
           },
           {
             "id": "rm003-i2-w2-goal",
@@ -665,7 +799,8 @@
             "weekLabel": "7월 2주차",
             "entryType": "goal",
             "title": "문헌 조사 및 이론적 배경 정리",
-            "isDone": true
+            "isDone": true,
+            "goalStatus": "done"
           },
           {
             "id": "rm003-i2-w3-goal",
@@ -673,7 +808,8 @@
             "weekLabel": "7월 3주차",
             "entryType": "goal",
             "title": "연구 방법론 작성 및 데이터 분석",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "inprogress"
           },
           {
             "id": "rm003-i2-w4-goal",
@@ -681,7 +817,8 @@
             "weekLabel": "7월 4주차",
             "entryType": "goal",
             "title": "논문 초안 완성 및 교사 검토",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       },
@@ -689,7 +826,9 @@
         "id": "rm003-i3",
         "type": "activity",
         "title": "과학고 입시 면접 준비",
-        "months": [8],
+        "months": [
+          8
+        ],
         "difficulty": 4,
         "subItems": [
           {
@@ -698,7 +837,8 @@
             "weekLabel": "8월 1주차",
             "entryType": "goal",
             "title": "면접 예상 질문 리스트 작성 및 답변 준비",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           },
           {
             "id": "rm003-i3-w1-t1",
@@ -714,7 +854,8 @@
             "weekLabel": "8월 2주차",
             "entryType": "goal",
             "title": "모의 면접 3회 이상 진행 및 피드백 반영",
-            "isDone": false
+            "isDone": false,
+            "goalStatus": "todo"
           }
         ]
       }

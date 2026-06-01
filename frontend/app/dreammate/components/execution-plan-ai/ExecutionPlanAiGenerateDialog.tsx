@@ -184,7 +184,7 @@ export function ExecutionPlanAiGenerateDialog({
         onClick={onClose}
       />
       <div
-        className="relative w-full max-w-[580px] my-auto rounded-2xl flex flex-col shadow-2xl max-h-[min(94vh,920px)] min-h-0 border-2 border-violet-500/35"
+        className="relative w-full max-w-[680px] my-auto rounded-2xl flex flex-col shadow-2xl max-h-[min(94vh,920px)] min-h-0 border-2 border-violet-500/35"
         style={{
           background: 'linear-gradient(180deg, #101528 0%, #0a0e1a 45%, #080c14 100%)',
           boxShadow: '0 0 0 1px rgba(167,139,250,0.12), 0 24px 80px rgba(0,0,0,0.55), 0 0 48px rgba(124,58,237,0.12)',

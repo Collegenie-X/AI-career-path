@@ -70,7 +70,24 @@
             "title": "산화 반응 관련 교과서·인터넷 자료 3건 이상 정리",
             "isDone": true,
             "note": "화학1 교과서 102~105쪽이랑 국립과학관 사이트 자료 찾았어. 폴리페놀옥시다제라는 효소가 핵심인 것 같아.",
-            "reviewNote": "선행 조사를 먼저 해보니까 실험 변인 설계가 훨씬 쉬워졌어. 다음엔 논문도 찾아볼게."
+            "reviewNote": "선행 조사를 먼저 해보니까 실험 변인 설계가 훨씬 쉬워졌어. 다음엔 논문도 찾아볼게.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t001-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-08T10:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t001-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘사과 갈변 속도’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-05T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t001-i1-w2",
@@ -113,7 +130,24 @@
             "title": "9가지 조건(온도 3×처리 3) 실험 세팅 및 1차 사진 촬영",
             "isDone": true,
             "note": "집 냉장고, 상온, 따뜻한 곳(전기장판 위)으로 온도 구분. 10분·20분·30분 경과 후 사진 찍기로 했어.",
-            "reviewNote": "냉장보관 조건에서 갈변이 정말 느렸어! 육안으로도 차이가 확실히 보였음."
+            "reviewNote": "냉장보관 조건에서 갈변이 정말 느렸어! 육안으로도 차이가 확실히 보였음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t001-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-08T10:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t001-i2-w1-cn",
+                "kind": "change",
+                "body": "‘사과 갈변 속도’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-05T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t001-i2-w2",
@@ -156,7 +190,16 @@
             "title": "탐구 보고서 초안 작성 (서론~결론 전체 구조)",
             "isDone": false,
             "note": "학교 보고서 양식에 맞게 작성. 서론에 탐구 동기·선행 연구, 본론에 실험 과정·결과, 결론에 느낀 점 포함.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t001-i3-w1-cp",
+                "kind": "note",
+                "body": "‘사과 갈변 속도’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-03-07T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t001-i3-w2",
@@ -243,7 +286,24 @@
             "title": "관심 진로 분야 도서 3권 목록 작성 후 1권 선정",
             "isDone": true,
             "note": "의생명공학에 관심 있어서 『닥터 지바고』, 『게놈 익스프레스』, 『세포의 노래』 후보. 최종 『게놈 익스프레스』 선택.",
-            "reviewNote": "저자가 유전체학자라 실제 연구 현장 이야기가 생생해서 골랐어. 목차부터 읽어보길 잘했다."
+            "reviewNote": "저자가 유전체학자라 실제 연구 현장 이야기가 생생해서 골랐어. 목차부터 읽어보길 잘했다.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t002-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-02-20T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t002-i1-w1-cn",
+                "kind": "change",
+                "body": "‘환경부 공무원을’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-02-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t002-i1-w2",
@@ -276,7 +336,24 @@
             "title": "챕터별 핵심 개념 3개 + 나만의 질문 1개 독서 노트 기록",
             "isDone": true,
             "note": "ch.3 읽다가 '크리스퍼 유전자 가위가 실제로 치료에 쓰이려면 얼마나 걸릴까?' 라는 궁금증이 생겼어. 메모해뒀다.",
-            "reviewNote": "나중에 서울대 유전공학 연구실 인터뷰 기사 찾아보니까 10~15년 후 상용화 예측이 있었어. 질문이 공부가 됐다."
+            "reviewNote": "나중에 서울대 유전공학 연구실 인터뷰 기사 찾아보니까 10~15년 후 상용화 예측이 있었어. 질문이 공부가 됐다.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t002-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-02-20T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t002-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘환경부 공무원을’에선 혼자 붙잡기보다 물어보는 게 훨씬 빨랐다.",
+                "createdAt": "2026-02-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t002-i2-w2",
@@ -319,7 +396,16 @@
             "title": "A4 2장 분량 독서감상문 작성 (줄거리·인상 구절·진로 연결)",
             "isDone": false,
             "note": "독서감상문은 단순 요약보다 '이 책이 내 진로 선택에 미친 영향'을 중심으로 쓸 계획.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t002-i3-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘환경부 공무원을’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-02-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t002-i3-w2",
@@ -414,7 +500,24 @@
             "title": "데이터 사이언티스트 현직자 3명 SNS·링크드인에서 탐색",
             "isDone": true,
             "note": "트위터, 링크드인, 유튜브 검색으로 현직자 5명 찾았어. 이 중 블로그 운영하는 분 2명이 더 연락하기 좋을 것 같아.",
-            "reviewNote": "처음엔 연락하기 무서웠는데 정중하게 학생임을 밝히고 짧은 인터뷰 부탁드리니까 2분이 응해주셨어!"
+            "reviewNote": "처음엔 연락하기 무서웠는데 정중하게 학생임을 밝히고 짧은 인터뷰 부탁드리니까 2분이 응해주셨어!",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t003-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-15T08:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t003-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘『감정을 코딩하다』’를 끝내고 보니 과정을 기록해 둔 게 가장 큰 자산이었다.",
+                "createdAt": "2026-03-12T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t003-i1-w2",
@@ -457,7 +560,24 @@
             "title": "화상 인터뷰 30분 진행 및 주요 내용 실시간 메모",
             "isDone": true,
             "note": "줌으로 30분 진행. 핵심 답변은 노트북에 바로 타이핑하고, 이후 정리할 때 보충함.",
-            "reviewNote": "현직자 분이 '파이썬보다 통계 개념이 더 중요하다'고 하셔서 충격받았어. 완전 관점이 바뀐 인터뷰였음."
+            "reviewNote": "현직자 분이 '파이썬보다 통계 개념이 더 중요하다'고 하셔서 충격받았어. 완전 관점이 바뀐 인터뷰였음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t003-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-15T08:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t003-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘『감정을 코딩하다』’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-03-12T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t003-i2-w2",
@@ -490,7 +610,16 @@
             "title": "인터뷰 내용 기반 직업 탐구 보고서 A4 2장 작성",
             "isDone": false,
             "note": "구성: 직업 개요 → 인터뷰 내용 요약 → 내가 준비해야 할 것 → 느낀 점",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t003-i3-w1-cp",
+                "kind": "note",
+                "body": "‘『감정을 코딩하다』’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-03-14T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t003-i3-w2",
@@ -588,7 +717,24 @@
             "title": "미적분 단원 중 '실생활 응용' 심화 문제 유형 5가지 조사",
             "isDone": true,
             "note": "속도·가속도 문제, 넓이 계산, 최솟값·최댓값 응용, 경제학 모델, 물리 법칙 유도 5가지로 범위 잡았어.",
-            "reviewNote": "생각보다 범위가 넓어서 '물의 탱크 문제'처럼 구체적인 유형 하나에 집중하기로 했어."
+            "reviewNote": "생각보다 범위가 넓어서 '물의 탱크 문제'처럼 구체적인 유형 하나에 집중하기로 했어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t004-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-20T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t004-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘수처리 시설’ 경험으로 ‘왜?’를 먼저 묻는 습관이 생겼다.",
+                "createdAt": "2026-03-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t004-i1-w2",
@@ -631,7 +777,24 @@
             "title": "제동 거리 모델 수식 설정 및 3가지 시나리오 계산",
             "isDone": true,
             "note": "v(t) = v₀ - at 형태로 설정. 100km/h, 60km/h, 40km/h 초기 속도에서 제동 거리 각각 계산.",
-            "reviewNote": "실제 도로 데이터랑 비교해봤더니 오차가 있었어. 마찰계수를 변인으로 넣어야 한다는 걸 배웠음."
+            "reviewNote": "실제 도로 데이터랑 비교해봤더니 오차가 있었어. 마찰계수를 변인으로 넣어야 한다는 걸 배웠음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t004-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-20T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t004-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘수처리 시설’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t004-i2-w2",
@@ -674,7 +837,16 @@
             "title": "탐구 노트 최종 정리 및 선생님 확인 (첨삭)",
             "isDone": false,
             "note": "수학 선생님께 계산 오류 없는지 검토 부탁드릴 예정. 수식 표현이 맞는지도 확인해달라고 할 것.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t004-i3-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘수처리 시설’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t004-i3-w2",
@@ -761,7 +933,24 @@
             "title": "환경·기후 관련 영어 원서·기사 3개 후보 선정",
             "isDone": true,
             "note": "'The Uninhabitable Earth'(책), National Geographic 기사, BBC Future 기사 후보로 놓고 난이도 비교함.",
-            "reviewNote": "원서 책은 너무 어려워서 BBC Future의 'Climate Solutions' 시리즈로 바꿨어. 현실적인 선택!"
+            "reviewNote": "원서 책은 너무 어려워서 BBC Future의 'Climate Solutions' 시리즈로 바꿨어. 현실적인 선택!",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t005-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-01T08:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t005-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘수면 시간과 학업 성취도’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-29T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t005-i1-w2",
@@ -804,7 +993,24 @@
             "title": "기사 2~3편 독해 후 영어 요약문 각 100단어 작성",
             "isDone": true,
             "note": "요약할 때 '원문 그대로 쓰지 말고 내 말로 바꾸기' 규칙 정함. 처음엔 어려웠지만 점점 익숙해졌어.",
-            "reviewNote": "영어로 쓰다 보면 한국어로 생각하는 것보다 훨씬 오래 걸리는데, 확실히 실력이 느는 게 느껴져."
+            "reviewNote": "영어로 쓰다 보면 한국어로 생각하는 것보다 훨씬 오래 걸리는데, 확실히 실력이 느는 게 느껴져.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t005-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-01T08:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t005-i2-w1-cn",
+                "kind": "change",
+                "body": "‘수면 시간과 학업 성취도’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-29T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t005-i2-w2",
@@ -838,7 +1044,16 @@
             "title": "독해한 기사들로 환경 이슈 영어 포스터 제작 (A3 1장)",
             "isDone": false,
             "note": "Canva로 이미지+핵심 문장 조합 포스터 만들기. 영어 문장 5개 + 한국어 설명 병기.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t005-i3-w1-cp",
+                "kind": "note",
+                "body": "‘수면 시간과 학업 성취도’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-03-31T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t005-i3-w2",
@@ -938,7 +1153,24 @@
             "title": "우리 동네 현안 3가지 선정 (뉴스·구청 홈페이지 참고)",
             "isDone": true,
             "note": "노인 인구 증가, 빈 상가 문제, 쓰레기 무단투기 중 '빈 상가 문제'가 데이터가 많아서 선택.",
-            "reviewNote": "뉴스 기사 5개와 구청 공개 데이터를 쓸 수 있다는 걸 알게 돼서 주제 선정이 쉬웠어."
+            "reviewNote": "뉴스 기사 5개와 구청 공개 데이터를 쓸 수 있다는 걸 알게 돼서 주제 선정이 쉬웠어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t006-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-25T10:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t006-i1-w1-cn",
+                "kind": "change",
+                "body": "‘노인복지관 스마트폰 교실’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-22T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t006-i1-w2",
@@ -981,7 +1213,16 @@
             "title": "탐구 보고서 초안 A4 3장 작성 (문제→원인→해결방안 구조)",
             "isDone": false,
             "note": "원인 분석: 온라인 쇼핑 증가 + 임대료 상승 + 코로나 영향. 해결방안: 팝업 임시 임대 제도 제안.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t006-i2-w1-cp",
+                "kind": "note",
+                "body": "‘노인복지관 스마트폰 교실’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-03-24T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t006-i2-w2",
@@ -1070,7 +1311,24 @@
             "title": "식물 성장에 영향 주는 변인 조사 및 탐구 가설 설정",
             "isDone": true,
             "note": "빛의 양, 물의 양, 비료 유무, 흙 종류 4가지 변인 후보. '빛의 파장(적색/청색/백색)'으로 좁힘.",
-            "reviewNote": "처음엔 너무 많은 변인을 보려 했는데, 하나에 집중하니까 설계가 훨씬 깔끔해졌어."
+            "reviewNote": "처음엔 너무 많은 변인을 보려 했는데, 하나에 집중하니까 설계가 훨씬 깔끔해졌어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t007-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-05T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t007-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘과학탐구반’를 끝내고 보니 과정을 기록해 둔 게 가장 큰 자산이었다.",
+                "createdAt": "2026-04-02T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t007-i1-w2",
@@ -1114,7 +1372,24 @@
             "title": "2주 동안 매일 줄기 길이·잎 수 측정 및 사진 기록",
             "isDone": true,
             "note": "아침에 일어나면 제일 먼저 측정. 하루도 안 빠지고 14일 데이터 수집 완료.",
-            "reviewNote": "처음 5일은 변화가 없어서 '실패한 건가?' 했는데, 6일째부터 적색 LED 조건이 확 자라기 시작했어!"
+            "reviewNote": "처음 5일은 변화가 없어서 '실패한 건가?' 했는데, 6일째부터 적색 LED 조건이 확 자라기 시작했어!",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t007-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-05T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t007-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘과학탐구반’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-04-02T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t007-i2-w2",
@@ -1157,7 +1432,16 @@
             "title": "탐구 보고서 최종 작성 (사진 4장·그래프 1개 포함)",
             "isDone": false,
             "note": "'예상과 다른 결과'를 오히려 하이라이트로 써서 탐구 과정의 진정성을 보여줄 계획.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t007-i3-w1-cp",
+                "kind": "note",
+                "body": "‘과학탐구반’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-04-04T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t007-i3-w2",
@@ -1245,7 +1529,24 @@
             "title": "탐구 주제 선정: '1920년대 물산장려운동의 의의와 한계'",
             "isDone": true,
             "note": "교과서 밖의 주제를 찾다가 '경제적 민족운동' 쪽이 흥미로웠어. 선생님도 좋은 주제라 하심.",
-            "reviewNote": "주제 선정할 때 '내가 진짜 궁금한 것'을 기준으로 잡으니까 탐구 내내 흥미가 유지됐어."
+            "reviewNote": "주제 선정할 때 '내가 진짜 궁금한 것'을 기준으로 잡으니까 탐구 내내 흥미가 유지됐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t008-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-18T10:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t008-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘젠트리피케이션’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-03-15T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t008-i1-w2",
@@ -1288,7 +1589,16 @@
             "title": "사료 비교 분석표 작성 (주체·입장·목적·한계 항목으로 정리)",
             "isDone": false,
             "note": "동아일보(찬성 입장) vs 총독부(감시·통제 입장) 비교 분석 예정.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t008-i2-w1-cp",
+                "kind": "note",
+                "body": "‘젠트리피케이션’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-03-17T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t008-i2-w2",
@@ -1383,7 +1693,24 @@
             "title": "음악과 집중력/감정 관계 논문·기사 3건 조사",
             "isDone": true,
             "note": "구글 학술검색에서 'music concentration study', '음악 심리 효과' 검색. 3건 찾아서 요약함.",
-            "reviewNote": "논문 영어라서 번역기+직접 해석 병행. 어렵지만 할 만해."
+            "reviewNote": "논문 영어라서 번역기+직접 해석 병행. 어렵지만 할 만해.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t009-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-03T08:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t009-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘파이썬으로 우리 반’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-31T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t009-i1-w2",
@@ -1427,7 +1754,16 @@
             "title": "28일(4주) 자기 실험 완수 및 데이터 표 작성",
             "isDone": false,
             "note": "날마다 조건, 정답 수, 풀이 시간, 주관적 집중도(1~5점) 모두 기록.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t009-i2-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘파이썬으로 우리 반’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-04-02T08:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t009-i2-w2",
@@ -1507,7 +1843,24 @@
             "title": "한 달 용돈 지출 카테고리 5개 설정 및 가계부 앱 시작",
             "isDone": true,
             "note": "식비, 교통, 문화(게임/웹툰), 학용품, 기타로 분류. '뱅크샐러드' 앱으로 기록 시작.",
-            "reviewNote": "앱 쓰니까 영수증 사진 찍으면 자동 분류돼서 편해. 며칠만 하면 습관이 돼."
+            "reviewNote": "앱 쓰니까 영수증 사진 찍으면 자동 분류돼서 편해. 며칠만 하면 습관이 돼.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t010-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-28T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t010-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘AI 반도체 국산화 정책’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-25T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t010-i1-w2",
@@ -1550,7 +1903,16 @@
             "title": "월 저축 목표 금액 설정 및 3개월 저축 계획서 작성",
             "isDone": false,
             "note": "용돈 5만원 중 1만원(20%) 저축 목표. 100일 후 사고 싶은 것 목표로 동기 부여.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t010-i2-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘AI 반도체 국산화 정책’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-27T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t010-i2-w2",
@@ -1637,7 +1999,24 @@
             "title": "학교 내 환경 문제 실태 조사 (분리수거 현황·일회용품 사용량)",
             "isDone": true,
             "note": "급식실 분리수거 현황 직접 관찰, 일주일간 일회용 컵 수거통 확인. 하루 평균 45개 발생.",
-            "reviewNote": "데이터를 직접 눈으로 확인하니까 문제 심각성이 와닿았어. 수치가 설득력을 만들어."
+            "reviewNote": "데이터를 직접 눈으로 확인하니까 문제 심각성이 와닿았어. 수치가 설득력을 만들어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t011-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-12T10:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t011-i1-w1-cn",
+                "kind": "change",
+                "body": "‘화학 선생님과의 15분’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-09T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t011-i1-w2",
@@ -1680,7 +2059,16 @@
             "title": "학생회 협력으로 캠페인 실행 (포스터 5장 부착, 홍보 방송 1회)",
             "isDone": false,
             "note": "포스터는 미술 시간에 만든 거 활용. 교내 방송 대본 30초짜리 준비 중.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t011-i2-w1-cp",
+                "kind": "note",
+                "body": "‘화학 선생님과의 15분’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-03-11T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t011-i2-w2",
@@ -1723,7 +2111,16 @@
             "title": "활동 성찰 일지 작성 (잘된 점·아쉬운 점·다음에 해보고 싶은 것)",
             "isDone": false,
             "note": "'기획에서 실행까지 혼자 해봤다'는 경험 자체가 가장 큰 배움이 될 것 같아.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t011-i3-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘화학 선생님과의 15분’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-11T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t011-i3-w2",
@@ -1818,7 +2215,24 @@
             "title": "해조류 바이오플라스틱 자료 5건 정리 (국립과학관·논문 요약·기사)",
             "isDone": true,
             "note": "국내 한천 필름 연구 기사 2건, 영문 리뷰 논문 초록 1편, 유튜브 'NotPla' 영상 2편 요약. 한천의 다당류 구조가 핵심.",
-            "reviewNote": "기사만 보다가 논문 초록까지 읽어보니 '왜 글리세린이 필요한지'가 처음 이해됐어."
+            "reviewNote": "기사만 보다가 논문 초록까지 읽어보니 '왜 글리세린이 필요한지'가 처음 이해됐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t012-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-30T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t012-i1-w1-cn",
+                "kind": "change",
+                "body": "‘해초로 만드는 포장재’를 거치며 순서를 바꿨다 — 조사보다 ‘질문 정의’가 먼저였다.",
+                "createdAt": "2026-03-27T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t012-i1-w2",
@@ -1861,7 +2275,24 @@
             "title": "1차 시도 — 한천만으로 필름 제작 (대조군)",
             "isDone": true,
             "note": "물 200ml + 한천 4g 끓여 실리콘 매트에 부었음. 24h 건조 후 너무 잘 부서져서 손에 닿자마자 깨짐.",
-            "reviewNote": "예상은 했지만 진짜로 부서지니까 '왜 글리세린이 필요한지' 몸으로 알게 됐어."
+            "reviewNote": "예상은 했지만 진짜로 부서지니까 '왜 글리세린이 필요한지' 몸으로 알게 됐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t012-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-30T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t012-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘해초로 만드는 포장재’ 경험으로 ‘왜?’를 먼저 묻는 습관이 생겼다.",
+                "createdAt": "2026-03-27T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t012-i2-w2",
@@ -1905,7 +2336,16 @@
             "title": "보고서 초안: 동기 → 선행 자료 → 3차 실험 기록 → 한계 → 진로 연결",
             "isDone": false,
             "note": "'실패 2회 → 성공 1회' 흐름을 그대로 본문에 넣을 것. 사진 6장 + 비율 비교표 1개 포함 예정.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t012-i3-w1-cp",
+                "kind": "note",
+                "body": "‘해초로 만드는 포장재’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-03-29T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t012-i3-w2",
@@ -2001,7 +2441,24 @@
             "title": "파이썬 기초 문법 학습 (변수·조건문·반복문·함수) 완료",
             "isDone": true,
             "note": "생활코딩 유튜브 강의 4개 완강. 노트에 직접 코드 쳐보면서 배움. 반복문이 제일 헷갈려.",
-            "reviewNote": "영상만 보면 아는 것 같지만 직접 치면 모른다는 걸 깨달았어. 꼭 타이핑해봐야 해."
+            "reviewNote": "영상만 보면 아는 것 같지만 직접 치면 모른다는 걸 깨달았어. 꼭 타이핑해봐야 해.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t013-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-02-15T10:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t013-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘수학 올림피아드’에서 배운 건, 작게 시작해 빨리 확인하는 게 결국 빠르다는 것.",
+                "createdAt": "2026-02-12T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t013-i1-w2",
@@ -2044,7 +2501,16 @@
             "title": "용돈 관리 프로그램 기능 3개 구현 및 테스트",
             "isDone": false,
             "note": "1. 수입/지출 입력, 2. 잔액 계산, 3. 카테고리별 합계 출력 기능 구현 예정.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t013-i2-w1-cp",
+                "kind": "note",
+                "body": "‘수학 올림피아드’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-02-14T10:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t013-i2-w2",
@@ -2124,7 +2590,24 @@
             "title": "우리 지역 문화재 5개 목록 작성 및 방문 계획 수립",
             "isDone": true,
             "note": "문화재청 사이트에서 우리 시 문화재 검색. 가까운 곳 5개 선정. 자전거로 갈 수 있는 거리.",
-            "reviewNote": "평소에 그냥 지나쳤던 곳들인데 문화재인 걸 이번에 처음 알았어."
+            "reviewNote": "평소에 그냥 지나쳤던 곳들인데 문화재인 걸 이번에 처음 알았어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t014-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-22T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t014-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘엘리베이터에서 귀가 먹먹한’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t014-i1-w2",
@@ -2157,7 +2640,16 @@
             "title": "5곳 직접 방문하여 크로키·스케치 각 2~3점씩 그리기",
             "isDone": false,
             "note": "A5 스케치북 가지고 현장에서 30분씩 그리기. 사진도 함께 찍어서 비교 자료로 활용.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t014-i2-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘엘리베이터에서 귀가 먹먹한’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-21T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t014-i2-w2",
@@ -2252,7 +2744,24 @@
             "title": "체력 진단 테스트(팔굽혀펴기·앉아윗몸앞으로굽히기·오래달리기) 측정",
             "isDone": true,
             "note": "팔굽혀펴기 11개, 유연성 7cm, 오래달리기 2100m. 팔 힘이 제일 부족했어.",
-            "reviewNote": "숫자로 현재 상태를 파악하니까 목표 설정이 자연스럽게 됐어. 기준 없이 시작하면 발전 여부를 모름."
+            "reviewNote": "숫자로 현재 상태를 파악하니까 목표 설정이 자연스럽게 됐어. 기준 없이 시작하면 발전 여부를 모름.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t015-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-06T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t015-i1-w1-cn",
+                "kind": "change",
+                "body": "‘고1 1학기 중간’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-04-03T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t015-i1-w2",
@@ -2295,7 +2804,16 @@
             "title": "4주 경과 중간 체력 재측정 및 초기 대비 변화 분석",
             "isDone": false,
             "note": "팔굽혀펴기 목표 20개, 달리기 2600m. 어느 정도 늘었는지 기대됨.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t015-i2-w1-cp",
+                "kind": "note",
+                "body": "‘고1 1학기 중간’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-04-05T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t015-i2-w2",
@@ -2383,7 +2901,24 @@
             "title": "발효 과정(유산균·효모) 교과서 및 유튜브 자료 정리",
             "isDone": true,
             "note": "생명과학1 미생물 단원 + 유튜브 '발효 원리' 영상 2개. 유산균의 젖산 생성 반응식 정리.",
-            "reviewNote": "교과서 개념을 실험과 연결하니까 훨씬 이해가 잘 됐어."
+            "reviewNote": "교과서 개념을 실험과 연결하니까 훨씬 이해가 잘 됐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t016-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-26T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t016-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘최저임금은 충분할까?’에선 혼자 붙잡기보다 물어보는 게 훨씬 빨랐다.",
+                "createdAt": "2026-03-23T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t016-i1-w2",
@@ -2426,7 +2961,16 @@
             "title": "실험 결과 표 정리 및 온도별 발효 속도 비교 분석",
             "isDone": false,
             "note": "굳기·산도·맛 3가지 측정값 평균 내서 비교. 왜 차이가 나는지 이론과 연결.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t016-i2-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘최저임금은 충분할까?’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-25T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t016-i2-w2",
@@ -2514,7 +3058,24 @@
             "title": "동네 특성 주제 선정: '세대별 이용 공간 비교' + 조사 범위 확정",
             "isDone": true,
             "note": "학교 반경 500m를 조사 구역으로 설정. 카페·공원·편의점·경로당 등을 세대별로 분류.",
-            "reviewNote": "범위를 좁히니까 실제로 걸어다니며 조사할 수 있을 것 같아."
+            "reviewNote": "범위를 좁히니까 실제로 걸어다니며 조사할 수 있을 것 같아.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t017-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-16T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t017-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘모네는 왜 건초더미를’에서 배운 건, 작게 시작해 빨리 확인하는 게 결국 빠르다는 것.",
+                "createdAt": "2026-03-13T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t017-i1-w2",
@@ -2557,7 +3118,16 @@
             "title": "조사 데이터 기반 테마 지도 2장 제작 (청소년용·노인용 공간 분포)",
             "isDone": false,
             "note": "구글 마이맵스 활용. 아이콘 색깔로 세대 구분. 손그림 지도와 병행 제작 예정.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t017-i2-w1-cp",
+                "kind": "note",
+                "body": "‘모네는 왜 건초더미를’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-03-15T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t017-i2-w2",
@@ -2600,7 +3170,16 @@
             "title": "사회 수업 중 탐구 결과 발표 (지도 실물 보여주며 8분 발표)",
             "isDone": false,
             "note": "발표 구성: 조사 동기 → 방법 → 지도 설명 → 문제 제안 → Q&A",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t017-i3-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘모네는 왜 건초더미를’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-15T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t017-i3-w2",
@@ -2697,7 +3276,24 @@
             "title": "청소년 수면 관련 선행 연구 논문 3편 요약 정리",
             "isDone": true,
             "note": "RISS에서 '청소년 수면 시간', '수면 부족 학업 영향' 검색. 3편 PDF 저장 후 초록+결론 요약.",
-            "reviewNote": "논문 처음 읽어봤는데 서론·방법·결과·결론 구조 알고 보니까 생각보다 읽기 쉬웠어."
+            "reviewNote": "논문 처음 읽어봤는데 서론·방법·결과·결론 구조 알고 보니까 생각보다 읽기 쉬웠어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t018-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-10T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t018-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘의학 논문을 읽기 위한’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-07T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t018-i1-w2",
@@ -2740,7 +3336,16 @@
             "title": "설문 데이터 분석 (학년별·성별 수면 시간 평균, 상관관계 계산)",
             "isDone": false,
             "note": "엑셀로 평균·최솟값·최댓값 계산. 수면 시간과 자기 평가 집중력 상관관계 분석 예정.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t018-i2-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘의학 논문을 읽기 위한’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-03-09T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t018-i2-w2",
@@ -2829,7 +3434,24 @@
             "title": "10대 소비 트렌드 관련 뉴스·보고서 5건 수집 및 키워드 정리",
             "isDone": true,
             "note": "대학내일20대연구소, 트렌드코리아, 중앙일보 10대 소비 기사 등 수집. 키워드: 숏폼, 팝업, 한정판.",
-            "reviewNote": "공식 기관 보고서가 가장 신뢰성 있는 데이터 소스라는 걸 알게 됐어."
+            "reviewNote": "공식 기관 보고서가 가장 신뢰성 있는 데이터 소스라는 걸 알게 됐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t019-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-02T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t019-i1-w1-cn",
+                "kind": "change",
+                "body": "‘일제강점기 경제’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-30T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t019-i1-w2",
@@ -2872,7 +3494,16 @@
             "title": "트렌드 분석 리포트 A4 4장 작성 (데이터·그래프·인사이트 포함)",
             "isDone": false,
             "note": "표지 + 목차 + 본문 구성. 그래프 최소 3개 포함. 인사이트마다 예시 2개씩 제시.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t019-i2-w1-cp",
+                "kind": "note",
+                "body": "‘일제강점기 경제’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-04-01T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t019-i2-w2",
@@ -2959,7 +3590,24 @@
             "title": "강점·약점·관심사·가치관 자기 분석 (SWOT 형식으로 정리)",
             "isDone": true,
             "note": "강점: 꼼꼼함·수학, 약점: 발표 불안·체력, 관심: 데이터 분석·경제, 가치: 안정+성장.",
-            "reviewNote": "솔직하게 약점 쓰는 게 어려웠는데, 쓰고 보니까 어떤 걸 보완해야 할지 명확해졌어."
+            "reviewNote": "솔직하게 약점 쓰는 게 어려웠는데, 쓰고 보니까 어떤 걸 보완해야 할지 명확해졌어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t020-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-07T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t020-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘기후변화 연구원의 하루’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-04-04T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t020-i1-w2",
@@ -3002,7 +3650,16 @@
             "title": "5년 커리어 로드맵 작성 (고2~대학 입학 후 2년까지 타임라인)",
             "isDone": false,
             "note": "고2: 수학·영어 강화 + 데이터 탐구 활동, 고3: 수능 집중 + 포트폴리오, 대1: 통계학 수강 + 인턴 탐색.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t020-i2-w1-cp",
+                "kind": "note",
+                "body": "‘기후변화 연구원의 하루’는 완벽보다 ‘일단 1차 완성’을 기준으로 간다.",
+                "createdAt": "2026-04-06T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t020-i2-w2",
@@ -3097,7 +3754,30 @@
             "title": "링고팡 수상작 자료(modoo.or.kr) + 듀오링고·퀴즐렛 1시간씩 직접 사용",
             "isDone": true,
             "note": "링고팡은 '단어를 잡는다'는 행동이 핵심. 듀오링고는 연속일수, 퀴즐렛은 매치 게임. 종이에서 살릴 수 있는 건 '잡는 행동'과 '매치'.",
-            "reviewNote": "직접 써보지 않았으면 절대 못 뽑았을 차이점들이라 1시간이 아깝지 않았어."
+            "reviewNote": "직접 써보지 않았으면 절대 못 뽑았을 차이점들이라 1시간이 아깝지 않았어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t021-i1-w1-c3",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-03-04T19:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t021-i1-w1-c2",
+                "kind": "change",
+                "body": "벤치마킹 결론: 듀오링고의 \"연속 출석 보상\"이 몰입의 핵심. 카드 뒷면에 7일 도장칸을 추가하기로 설계 변경.",
+                "createdAt": "2026-03-04T16:00:00.000Z"
+              },
+              {
+                "id": "t021-i1-w1-c1",
+                "kind": "problem",
+                "body": "진짜 문제: 우리 반 애들은 단어 앱을 3일이면 질려한다. 왜 링고팡은 계속 하게 되는지부터 분석.",
+                "createdAt": "2026-03-03T13:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t021-i1-w2",
@@ -3131,7 +3811,24 @@
             "title": "수능 빈출 단어 50개 선정 (영어 선생님 추천 리스트 기반)",
             "isDone": true,
             "note": "고1·고2 둘 다 만나는 단어로 압축. 학원 자료 출처 명시(저작권 주의).",
-            "reviewNote": "선생님께 한 번 컨펌받았더니 학원 자료 베끼는 문제가 사라졌어."
+            "reviewNote": "선생님께 한 번 컨펌받았더니 학원 자료 베끼는 문제가 사라졌어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t021-i2-w1-c2",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-11T18:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t021-i2-w1-c1",
+                "kind": "change",
+                "body": "50단어를 그냥 나열하니 게임이 안 됐다. 난이도 3단계 색 구분 + 짝맞추기 규칙을 도입해 \"게임\"으로 만들었다.",
+                "createdAt": "2026-03-10T15:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t021-i2-w2",
@@ -3174,7 +3871,24 @@
             "title": "12명 친구에게 1주일 사용 부탁 + 매일 끝나고 1줄 후기 받기",
             "isDone": true,
             "note": "카톡으로 매일 저녁 8시 후기 받기. '오늘은 졌어 분하다 ㅋㅋ' 같은 후기가 가장 진심 같았음.",
-            "reviewNote": "데이터보다 친구들이 진짜 매일 했다는 사실 자체가 가장 중요한 증거였어."
+            "reviewNote": "데이터보다 친구들이 진짜 매일 했다는 사실 자체가 가장 중요한 증거였어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t021-i3-w1-c2",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-03-25T20:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t021-i3-w1-c1",
+                "kind": "reflection",
+                "body": "배운 점: 12명 중 8명이 3일 뒤 흥미가 떨어졌다. 단어 수가 많았던 게 원인 — 다음엔 한 세트를 20개로 줄여 완주율을 높이자.",
+                "createdAt": "2026-03-24T19:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t021-i3-w2",
@@ -3279,7 +3993,24 @@
             "title": "동네 반경 500m 안 키오스크 보유 가게 5곳 직접 방문",
             "isDone": true,
             "note": "빵집 2곳, 약국 1곳, 세탁소 1곳, 카페 1곳. 사장님께 '봉사 활동으로 안내 영상을 만들고 싶다' 설명.",
-            "reviewNote": "처음엔 거절당할까봐 무서웠는데, 5곳 중 4곳이 '좋다'고 하셨어. 어른들도 어르신 손님 어려움 알고 계셨음."
+            "reviewNote": "처음엔 거절당할까봐 무서웠는데, 5곳 중 4곳이 '좋다'고 하셨어. 어른들도 어르신 손님 어려움 알고 계셨음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t022-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-15T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t022-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘어르신 키오스크 안내 영상’ 경험으로 ‘왜?’를 먼저 묻는 습관이 생겼다.",
+                "createdAt": "2026-04-12T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t022-i1-w2",
@@ -3313,7 +4044,24 @@
             "title": "영상 스크립트 작성 — 큰 글자 자막·천천히·전라도 사투리 한 줄 포함",
             "isDone": true,
             "note": "할머니께 직접 읽어드리고 막히는 부분 빨간펜으로 표시. '결제' 같은 단어는 '돈 내기'로 바꿈.",
-            "reviewNote": "어르신이 막힌 단어가 내가 평소 쓰는 단어였다는 게 충격이었어."
+            "reviewNote": "어르신이 막힌 단어가 내가 평소 쓰는 단어였다는 게 충격이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t022-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-15T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t022-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘어르신 키오스크 안내 영상’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-04-12T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t022-i2-w2",
@@ -3357,7 +4105,24 @@
             "title": "가게 3곳에 A5 안내문 + QR 부착 + 매일 가게 들러 후기 수집",
             "isDone": true,
             "note": "방과 후 들러 어르신께 '도움 됐어요?' 직접 여쭤봄. 6분의 후기 받음.",
-            "reviewNote": "내가 만든 게 동네에 진짜 붙어 있는 걸 보고 자존감이 올랐어."
+            "reviewNote": "내가 만든 게 동네에 진짜 붙어 있는 걸 보고 자존감이 올랐어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t022-i3-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-15T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t022-i3-w1-cn",
+                "kind": "change",
+                "body": "‘어르신 키오스크 안내 영상’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-04-12T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t022-i3-w2",
@@ -3452,7 +4217,24 @@
             "title": "영양사 선생님께 협업 제안 메일 + 면담 1회",
             "isDone": true,
             "note": "'잔반 데이터 공유 + 캠페인 협업' 요청. 처음엔 부담스러워하셨지만 측정값 공유는 OK 받음.",
-            "reviewNote": "어른께 정식 메일로 부탁드리니 진지하게 응답해주셨어. 카톡으로만 했으면 안 됐을 듯."
+            "reviewNote": "어른께 정식 메일로 부탁드리니 진지하게 응답해주셨어. 카톡으로만 했으면 안 됐을 듯.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t023-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-02T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t023-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘학교 급식 잔반 줄이기’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-03-30T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t023-i1-w2",
@@ -3485,7 +4267,24 @@
             "title": "캔바로 잔반 시각화 포스터 3장 (1주 분 그래프 포함)",
             "isDone": true,
             "note": "'어제 우리 학교가 버린 잔반 = 김치찌개 80인분'처럼 비유. 학생들이 충격 받았다는 반응 다수.",
-            "reviewNote": "숫자만 보여주면 무감각해진다는 걸 알게 됐어. 비유가 감정을 움직이는 듯."
+            "reviewNote": "숫자만 보여주면 무감각해진다는 걸 알게 됐어. 비유가 감정을 움직이는 듯.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t023-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-02T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t023-i2-w1-cn",
+                "kind": "change",
+                "body": "‘학교 급식 잔반 줄이기’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-03-30T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t023-i2-w2",
@@ -3528,7 +4327,16 @@
             "title": "보고서 구성: 동기 → 데이터 → 캠페인 → 결과(22% 감소) → 한계",
             "isDone": false,
             "note": "한계: 4주는 짧고, 인기 메뉴 위주 식단은 영양 균형에 문제 가능성 있음 — 솔직히 적기.",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t023-i3-w1-cp",
+                "kind": "note",
+                "body": "‘학교 급식 잔반 줄이기’는 범위가 커 보인다 — 가장 작은 첫 걸음부터 잡자.",
+                "createdAt": "2026-04-01T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t023-i3-w2",
@@ -3616,7 +4424,24 @@
             "title": "카카오맵에서 반경 1km 카페 50곳 추출 → 30곳 선별",
             "isDone": true,
             "note": "체인 20곳, 개인 10곳. 너무 멀거나 24시간만 야간 운영하는 곳은 제외.",
-            "reviewNote": "리스트만 만들었는데도 동네에 카페가 이렇게 많은지 처음 알았어."
+            "reviewNote": "리스트만 만들었는데도 동네에 카페가 이렇게 많은지 처음 알았어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t024-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-20T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t024-i1-w1-cn",
+                "kind": "change",
+                "body": "‘텀블러 할인 카페 지도’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-04-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t024-i1-w2",
@@ -3650,7 +4475,24 @@
             "title": "주 3회 방학 오후, 한 번에 10곳씩 도보 방문",
             "isDone": true,
             "note": "혼자 가기 무서운 가게는 친구와 동행. 거절당해도 친절히 인사하고 나오기.",
-            "reviewNote": "처음엔 들어가는 게 떨렸는데, 5곳 지나니 익숙해졌어. 발품의 힘을 느낌."
+            "reviewNote": "처음엔 들어가는 게 떨렸는데, 5곳 지나니 익숙해졌어. 발품의 힘을 느낌.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t024-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-20T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t024-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘텀블러 할인 카페 지도’에선 혼자 붙잡기보다 물어보는 게 훨씬 빨랐다.",
+                "createdAt": "2026-04-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t024-i2-w2",
@@ -3683,7 +4525,24 @@
             "title": "Canva로 동네 지도 디자인 (할인 금액 색상 구분)",
             "isDone": true,
             "note": "1000원↑ 빨강, 500원↑ 주황, 300원↑ 노랑. 한눈에 보이게.",
-            "reviewNote": "색 구분 덕분에 친구들이 '한 번에 이해된다'고 했어."
+            "reviewNote": "색 구분 덕분에 친구들이 '한 번에 이해된다'고 했어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t024-i3-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-20T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t024-i3-w1-cn",
+                "kind": "problem",
+                "body": "‘텀블러 할인 카페 지도’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-04-17T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t024-i3-w2",
@@ -3772,7 +4631,24 @@
             "title": "학교 게시판 + 학부모 단톡방에 수거 안내문 배포",
             "isDone": true,
             "note": "‘교복 1벌 = 필통 2~3개’라는 메시지를 핵심으로. 회수함 위치는 학생회실.",
-            "reviewNote": "구체적 변환 수치를 적었더니 부모님들이 실감을 더 가지셨어."
+            "reviewNote": "구체적 변환 수치를 적었더니 부모님들이 실감을 더 가지셨어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t025-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-10T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t025-i1-w1-cn",
+                "kind": "change",
+                "body": "‘폐교복 업사이클’를 거치며 순서를 바꿨다 — 조사보다 ‘질문 정의’가 먼저였다.",
+                "createdAt": "2026-04-07T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t025-i1-w2",
@@ -3806,7 +4682,24 @@
             "title": "교복 1벌로 시제품 2개 제작 → 디자인 확정",
             "isDone": true,
             "note": "처음엔 3개 만들려 했으나 안감이 부족. 2개로 조정.",
-            "reviewNote": "시제품 단계에서 실수가 가장 많이 나옴. 본 제작 들어가기 전 꼭 만들어야 함을 배움."
+            "reviewNote": "시제품 단계에서 실수가 가장 많이 나옴. 본 제작 들어가기 전 꼭 만들어야 함을 배움.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t025-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-10T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t025-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘폐교복 업사이클’에서 배운 건, 작게 시작해 빨리 확인하는 게 결국 빠르다는 것.",
+                "createdAt": "2026-04-07T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t025-i2-w2",
@@ -3849,7 +4742,24 @@
             "title": "1학년 신입생 환영회 부스 운영 — 30개 무료 배포",
             "isDone": true,
             "note": "직접 만든 카드 한 장씩 같이 동봉. 카드에 '교복의 두 번째 인생' 문구.",
-            "reviewNote": "후배가 '선배 진짜 멋있어요'라고 한 말이 1년치 보람이었어."
+            "reviewNote": "후배가 '선배 진짜 멋있어요'라고 한 말이 1년치 보람이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t025-i3-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-10T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t025-i3-w1-cn",
+                "kind": "problem",
+                "body": "‘폐교복 업사이클’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-04-07T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t025-i3-w2",
@@ -3944,7 +4854,24 @@
             "title": "상담 선생님과 30분 면담 — 자해/심각 키워드 신고 절차 확정",
             "isDone": true,
             "note": "‘죽고 싶다’·‘죽이고 싶다’·반복적 무력감 표현은 즉시 상담 선생님께 전달하기로 합의.",
-            "reviewNote": "혼자 짊어지지 않고 어른과 안전망을 미리 짠 게 가장 잘한 결정."
+            "reviewNote": "혼자 짊어지지 않고 어른과 안전망을 미리 짠 게 가장 잘한 결정.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t026-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-05T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t026-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘우리 반 마음 날씨’ 경험으로 ‘왜?’를 먼저 묻는 습관이 생겼다.",
+                "createdAt": "2026-04-02T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t026-i1-w2",
@@ -3977,7 +4904,24 @@
             "title": "매일 종례 후 카드함 정리 → 익명성 유지하며 통계만 기록",
             "isDone": true,
             "note": "글씨 알아보지 못하게 OCR 안 쓰고 손으로 분류만. 내용은 익명 처리.",
-            "reviewNote": "사적 내용 보지 않는 원칙을 지키니 친구들이 더 솔직히 써줬어."
+            "reviewNote": "사적 내용 보지 않는 원칙을 지키니 친구들이 더 솔직히 써줬어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t026-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-05T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t026-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘우리 반 마음 날씨’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-04-02T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t026-i2-w2",
@@ -4020,7 +4964,16 @@
             "title": "4주 통계 정리 + 학급 분위기 자가 평가 변화 분석",
             "isDone": false,
             "note": "1주차 6.4 → 4주차 7.6 (28명 익명 설문).",
-            "reviewNote": ""
+            "reviewNote": "",
+            "goalStatus": "todo",
+            "comments": [
+              {
+                "id": "t026-i3-w1-cp",
+                "kind": "problem",
+                "body": "미리 걱정되는 점: ‘우리 반 마음 날씨’에서 시간이 부족할 수 있어 우선순위부터 정해두자.",
+                "createdAt": "2026-04-04T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t026-i3-w2",
@@ -4108,7 +5061,24 @@
             "title": "위험 카테고리 5종 정의: 가로등 부재 / 횡단보도 미설치 / 노면 요철 / 사각지대 / 불법주정차",
             "isDone": true,
             "note": "동주민센터에 자문 — '구청 민원 분류 기준'을 그대로 차용.",
-            "reviewNote": "공공 기준 차용하니까 나중에 제안서 쓸 때도 매끄러웠어."
+            "reviewNote": "공공 기준 차용하니까 나중에 제안서 쓸 때도 매끄러웠어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t027-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-12T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t027-i1-w1-cn",
+                "kind": "problem",
+                "body": "‘등굣길 안전 지도’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-04-09T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t027-i1-w2",
@@ -4142,7 +5112,24 @@
             "title": "주간 1회·야간 1회 — 같은 지점 시간대별 안전도 차이 비교",
             "isDone": true,
             "note": "야간 사진은 부모님 동행 필수. 가로등 없는 골목 8곳 확인.",
-            "reviewNote": "야간에 가보지 않았으면 절대 못 봤을 위험들이 보였어."
+            "reviewNote": "야간에 가보지 않았으면 절대 못 봤을 위험들이 보였어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t027-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-12T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t027-i2-w1-cn",
+                "kind": "change",
+                "body": "‘등굣길 안전 지도’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-04-09T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t027-i2-w2",
@@ -4185,7 +5172,24 @@
             "title": "학교운영위 정기회의 5분 발표 (담임 선생님 추천)",
             "isDone": true,
             "note": "위원장님이 '학생이 이렇게까지 정리한 적 처음'이라며 회의록에 명기.",
-            "reviewNote": "어른들 회의에 참여한 게 인생 첫 경험. 자료의 힘을 실감."
+            "reviewNote": "어른들 회의에 참여한 게 인생 첫 경험. 자료의 힘을 실감.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t027-i3-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-12T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t027-i3-w1-cn",
+                "kind": "reflection",
+                "body": "‘등굣길 안전 지도’를 끝내고 보니 과정을 기록해 둔 게 가장 큰 자산이었다.",
+                "createdAt": "2026-04-09T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t027-i3-w2",
@@ -4273,7 +5277,24 @@
             "title": "지역 동물보호 커뮤니티 게시판 글 → 캣맘 3분 답변",
             "isDone": true,
             "note": "‘갈등을 줄이는 정리 프로젝트’라는 표현이 신뢰감을 줬다고 직접 들음.",
-            "reviewNote": "어른들께 부탁드릴 때 ‘갈등 줄이기’라는 단어가 핵심이었어."
+            "reviewNote": "어른들께 부탁드릴 때 ‘갈등 줄이기’라는 단어가 핵심이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t028-i1-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-18T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t028-i1-w1-cn",
+                "kind": "change",
+                "body": "‘우리 동네 길고양이 급식소’에서 받은 피드백으로 방향을 한 번 틀었다.",
+                "createdAt": "2026-04-15T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t028-i1-w2",
@@ -4307,7 +5328,24 @@
             "title": "Canva로 A5 안내문 — 위치 지도 + QR + ‘민원 시 연락처’ 명시",
             "isDone": true,
             "note": "‘이 위치에서만 사료를 주세요’ 메시지로 갈등 예방 의도 명시.",
-            "reviewNote": "단순 안내가 아니라 갈등 예방 의도를 적은 게 어른들 동의를 얻는 핵심이었어."
+            "reviewNote": "단순 안내가 아니라 갈등 예방 의도를 적은 게 어른들 동의를 얻는 핵심이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t028-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-18T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t028-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘우리 동네 길고양이 급식소’에선 혼자 붙잡기보다 물어보는 게 훨씬 빨랐다.",
+                "createdAt": "2026-04-15T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t028-i2-w2",
@@ -4350,7 +5388,24 @@
             "title": "1개월 후 캣맘 3분 후속 인터뷰 — 민원 변화 정리",
             "isDone": true,
             "note": "3분 모두 ‘민원 줄었고 길고양이 보호 인식도 조금 좋아진 듯’이라고 답하셨음.",
-            "reviewNote": "수치보다 ‘인식이 좋아졌다’는 말이 가장 큰 보상이었어."
+            "reviewNote": "수치보다 ‘인식이 좋아졌다’는 말이 가장 큰 보상이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t028-i3-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-18T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t028-i3-w1-cn",
+                "kind": "problem",
+                "body": "‘우리 동네 길고양이 급식소’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-04-15T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t028-i3-w2",
@@ -4445,7 +5500,24 @@
             "title": "친구와 점심시간 1시간 — ‘어떤 정보가 가장 답답한가’ 솔직 인터뷰",
             "isDone": true,
             "note": "‘체육대회 종목’, ‘급식 메뉴’, ‘쉬는 시간 잡담의 맥락’이 가장 답답하다고 함.",
-            "reviewNote": "직접 묻기 전엔 ‘교과서 점역만 필요할 거’라고 짐작했는데, 실제 필요는 훨씬 일상적이었어."
+            "reviewNote": "직접 묻기 전엔 ‘교과서 점역만 필요할 거’라고 짐작했는데, 실제 필요는 훨씬 일상적이었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t029-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-22T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t029-i1-w1-cn",
+                "kind": "reflection",
+                "body": "‘시각장애 친구를 위한 점자’를 끝내고 보니 과정을 기록해 둔 게 가장 큰 자산이었다.",
+                "createdAt": "2026-04-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t029-i1-w2",
@@ -4479,7 +5551,24 @@
             "title": "큰 글씨 카드뉴스 5편(체육대회·중간고사·축제·동아리·급식) Canva 제작",
             "isDone": true,
             "note": "글자 40pt 이상, 명도 대비 7:1 이상. 저시력 친구 2명에게 사전 검토 받음.",
-            "reviewNote": "디자인 가이드를 미리 정한 게 제작 속도를 크게 올렸어."
+            "reviewNote": "디자인 가이드를 미리 정한 게 제작 속도를 크게 올렸어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t029-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-22T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t029-i2-w1-cn",
+                "kind": "problem",
+                "body": "‘시각장애 친구를 위한 점자’ 자료가 흩어져 있어 무엇부터 볼지 정하는 게 진짜 문제였다.",
+                "createdAt": "2026-04-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t029-i2-w2",
@@ -4523,7 +5612,24 @@
             "title": "3명 사용자 평가 — ‘처음으로 행사 정보를 혼자 안다’는 답변 확보",
             "isDone": true,
             "note": "친구가 ‘체육대회 종목을 미리 안 게 처음’이라고 한 말이 가장 기억에 남음.",
-            "reviewNote": "기능 성공보다 그 한 문장이 모든 과정을 가치 있게 만들었어."
+            "reviewNote": "기능 성공보다 그 한 문장이 모든 과정을 가치 있게 만들었어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t029-i3-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-22T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t029-i3-w1-cn",
+                "kind": "change",
+                "body": "‘시각장애 친구를 위한 점자’를 거치며 순서를 바꿨다 — 조사보다 ‘질문 정의’가 먼저였다.",
+                "createdAt": "2026-04-19T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t029-i3-w2",
@@ -4611,7 +5717,24 @@
             "title": "외할머니 가게 메뉴판부터 시작 — 1차 시안 만들고 동네 자랑",
             "isDone": true,
             "note": "외할머니가 손글씨가 더 정겹다 하셔서 손글씨 + 큰 글자 조합으로 절충.",
-            "reviewNote": "어르신의 ‘정서’를 무시하면 디자인이 ‘좋지만 안 쓰이는’ 결과가 됨을 느꼈어."
+            "reviewNote": "어르신의 ‘정서’를 무시하면 디자인이 ‘좋지만 안 쓰이는’ 결과가 됨을 느꼈어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t030-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-25T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t030-i1-w1-cn",
+                "kind": "change",
+                "body": "‘농촌 시골 가게 메뉴판’를 거치며 순서를 바꿨다 — 조사보다 ‘질문 정의’가 먼저였다.",
+                "createdAt": "2026-04-22T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t030-i1-w2",
@@ -4645,7 +5768,24 @@
             "title": "글자 크기 36pt 이상 + 색 대비 가이드 적용 → 5개 시안 1차",
             "isDone": true,
             "note": "어르신 손님이 많은 점 고려. 정육점은 ‘부위 그림’ 추가 요청 반영.",
-            "reviewNote": "각 가게의 ‘진짜 손님’을 떠올리면서 디자인하는 게 핵심이라는 걸 깨달았어."
+            "reviewNote": "각 가게의 ‘진짜 손님’을 떠올리면서 디자인하는 게 핵심이라는 걸 깨달았어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t030-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-04-25T09:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t030-i2-w1-cn",
+                "kind": "reflection",
+                "body": "‘농촌 시골 가게 메뉴판’ 경험으로 ‘왜?’를 먼저 묻는 습관이 생겼다.",
+                "createdAt": "2026-04-22T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t030-i2-w2",
@@ -4688,7 +5828,24 @@
             "title": "Canva 템플릿 5종 + 글자 크기·색 대비 가이드 PDF",
             "isDone": true,
             "note": "후배가 다음 방학에 같은 활동을 할 수 있도록 가이드 우선 작성.",
-            "reviewNote": "내 활동이 1회성이 아니라 이어질 수 있게 만드는 게 진짜 봉사의 마무리라는 걸 느꼈어."
+            "reviewNote": "내 활동이 1회성이 아니라 이어질 수 있게 만드는 게 진짜 봉사의 마무리라는 걸 느꼈어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t030-i3-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-25T09:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t030-i3-w1-cn",
+                "kind": "problem",
+                "body": "‘농촌 시골 가게 메뉴판’ 진행 중 예상 못 한 변수에 부딪혀 방법을 다시 짰다.",
+                "createdAt": "2026-04-22T09:00:00.000Z"
+              }
+            ]
           },
           {
             "id": "t030-i3-w2",

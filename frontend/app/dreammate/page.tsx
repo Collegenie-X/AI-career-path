@@ -302,6 +302,10 @@ function DreamMatePageContent() {
             if (!requireAuthForMutation()) return;
             workspace.handleCreateRoadmap(payload);
           }}
+          onStartBlank={() => {
+            if (!requireAuthForMutation()) return;
+            workspace.handleCreateBlankRoadmap();
+          }}
         />
       )}
 

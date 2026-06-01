@@ -207,7 +207,7 @@ export function RoadmapDetailDialog({
   const wrapperClass = isInlineVariant
     ? 'w-full flex flex-col min-h-0'
     : isPageVariant
-      ? 'min-h-screen w-full max-w-[645px] mx-auto flex flex-col'
+      ? 'min-h-screen w-full max-w-[680px] mx-auto flex flex-col'
       : 'fixed inset-0 flex items-center justify-center p-4 sm:p-6';
 
   const innerClass = isInlineVariant
@@ -814,7 +814,7 @@ function RoadmapUseCustomizeDialog({
     <div className="fixed inset-0 z-[60] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[645px] rounded-t-3xl px-5 pt-6 pb-6"
+        className="relative w-full max-w-[680px] rounded-t-3xl px-5 pt-6 pb-6"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)' }}
       >
         <div className="flex flex-col items-center text-center gap-3 mb-5">

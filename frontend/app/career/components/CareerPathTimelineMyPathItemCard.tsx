@@ -3,7 +3,7 @@
 import {
   Trash2,
   CheckCircle2, Circle, MoreHorizontal,
-  ChevronDown, ChevronUp,
+  ChevronDown, ChevronUp, BookOpen,
 } from 'lucide-react';
 import { ITEM_TYPES } from '../config';
 import type { PlanItem } from './CareerPathBuilder';
@@ -159,6 +159,15 @@ export function CareerPathTimelineMyPathItemCard({
                     ))}
                   </div>
                 ) : null}
+                <button
+                  type="button"
+                  onClick={(e) => { e.stopPropagation(); onInfoClick(); }}
+                  className="mt-2 flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1.5 rounded-lg transition-all hover:opacity-90 active:scale-95"
+                  style={{ backgroundColor: `${typeAccent}18`, color: typeAccent, border: `1px solid ${typeAccent}30` }}
+                >
+                  <BookOpen style={{ width: 11, height: 11 }} />
+                  연구 노트 보기
+                </button>
               </CareerPathTimelineItemDetailTree>
             ) : null}
           </CareerPathTimelineItemCardShell>

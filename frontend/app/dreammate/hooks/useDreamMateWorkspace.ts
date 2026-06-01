@@ -656,6 +656,60 @@ export function useDreamMateWorkspace({
     [useRoadmapBackend, roadmapBackend.createRoadmapMutation],
   );
 
+  const handleCreateBlankRoadmap = useCallback(() => {
+    const blank: RoadmapEditorPayload = {
+      title: '새 실행 계획',
+      description: '',
+      period: 'semester',
+      starColor: '#6C5CE7',
+      focusItemTypes: ['project'],
+      milestoneResults: [],
+      finalResultTitle: '',
+      finalResultDescription: '',
+      finalResultUrl: '',
+      finalResultImageUrl: '',
+      groupIds: [],
+      items: [],
+    };
+    if (useRoadmapBackend) {
+      roadmapBackend.createRoadmapMutation.mutate(blank, {
+        onSuccess: created => {
+          setShowCreateRoadmapDialog(false);
+          setEditingRoadmapId(created.id);
+        },
+      });
+      return;
+    }
+    const newRoadmap: SharedRoadmap = {
+      id: createId('roadmap'),
+      ownerId: CURRENT_USER.id,
+      ownerName: CURRENT_USER.name,
+      ownerEmoji: CURRENT_USER.emoji,
+      ownerGrade: CURRENT_USER.grade,
+      title: blank.title,
+      description: blank.description,
+      period: blank.period,
+      starColor: blank.starColor,
+      focusItemTypes: blank.focusItemTypes,
+      milestoneResults: [],
+      finalResultTitle: blank.finalResultTitle,
+      finalResultDescription: blank.finalResultDescription,
+      finalResultUrl: blank.finalResultUrl,
+      finalResultImageUrl: blank.finalResultImageUrl,
+      shareScope: 'private',
+      shareChannels: [],
+      items: [],
+      groupIds: [],
+      likes: 0,
+      bookmarks: 0,
+      sharedAt: new Date().toISOString(),
+      comments: [],
+    };
+    setLocalRoadmaps(prev => [newRoadmap, ...prev]);
+    setShowCreateRoadmapDialog(false);
+    setEditingRoadmapId(newRoadmap.id);
+  }, [useRoadmapBackend, roadmapBackend.createRoadmapMutation]);
+
   const handleUpdateRoadmap = useCallback(
     (roadmapId: string, payload: RoadmapEditorPayload) => {
       if (useRoadmapBackend) {
@@ -1202,6 +1256,7 @@ export function useDreamMateWorkspace({
     handleJoinSpace,
     handleLeaveSpace,
     handleCreateRoadmap,
+    handleCreateBlankRoadmap,
     handleUpdateRoadmap,
     handleDeleteRoadmap,
     handleUseRoadmap,

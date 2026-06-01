@@ -2,7 +2,7 @@
  * DreamMate 로드맵 편집기 공통 표면 스타일 (테두리 최소화, 음영·내부 하이라이트로 구분).
  */
 export const roadmapEditorDialogShellClassName =
-  'relative w-full max-w-[645px] rounded-t-3xl overflow-hidden flex flex-col shadow-2xl shadow-black/45 ring-1 ring-white/[0.07]';
+  'relative w-full max-w-[680px] rounded-t-3xl overflow-hidden flex flex-col shadow-2xl shadow-black/45 ring-1 ring-white/[0.07]';
 
 export const roadmapEditorDialogFooterClassName =
   'flex-shrink-0 px-5 pt-3 bg-gradient-to-t from-[#12122a] via-[#12122a]/95 to-transparent';

@@ -33,10 +33,40 @@ export interface RoadmapTodoItem {
   note?: string;
   /** 완료 후 산출물 링크 또는 파일명 (예: "탐구계획서_v1.pdf", "https://github.com/...") */
   outputRef?: string;
+  /** 산출물 전체 내용 컨텐츠 (글·설명 등 텍스트 본문) — 산출물 입력란의 "내용" */
+  outputContent?: string;
   /** 이 주차 결과물 사진 (data URL 또는 이미지 링크) — 포트폴리오 갤러리에 모임 */
   outputImageUrl?: string;
   /** 완료 후 회고 (잘된 점·개선점·다음 주 반영 사항) */
   reviewNote?: string;
+  /** 목표별 Jira 스타일 코멘트 스레드 (진짜 문제·바뀐 변화 등을 시간순으로 기록) */
+  comments?: RoadmapGoalComment[];
+  /** 목표(goal)의 Jira식 진행 상태. entryType === 'goal'에서만 사용. 미지정 시 'todo'로 간주 */
+  goalStatus?: RoadmapGoalStatus;
+}
+
+/** 주차 목표의 Jira식 진행 상태 — 할 일 / 진행 중 / 완료 / 막힘 */
+export type RoadmapGoalStatus = 'todo' | 'inprogress' | 'done' | 'blocked';
+
+/** 목표 코멘트 종류 — 진짜 문제·바뀐 변화를 우선으로 추적. 'status'는 상태 변경 자동 기록 */
+export type RoadmapGoalCommentKind =
+  | 'problem'
+  | 'change'
+  | 'debug'
+  | 'progress'
+  | 'reflection'
+  | 'note'
+  | 'status';
+
+/** 주차 목표에 시간순으로 쌓이는 코멘트 한 건 */
+export interface RoadmapGoalComment {
+  id: string;
+  kind: RoadmapGoalCommentKind;
+  body: string;
+  createdAt: string;
+  /** kind === 'status'일 때 상태 전이(이전→이후) 자동 기록용 */
+  statusFrom?: RoadmapGoalStatus;
+  statusTo?: RoadmapGoalStatus;
 }
 
 export type RoadmapShareScope = 'private' | 'public' | 'space';

@@ -73,7 +73,7 @@ export function RoadmapShareDialog({
     <div className="fixed inset-0 z-[70] flex items-end justify-center">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
       <div
-        className="relative w-full max-w-[645px] rounded-t-3xl overflow-hidden"
+        className="relative w-full max-w-[680px] rounded-t-3xl overflow-hidden"
         style={{ backgroundColor: '#12122a', border: '1px solid rgba(255,255,255,0.1)', marginBottom: 56 }}
       >
         <div className="px-5 pt-5 pb-3 flex items-center justify-between">
