@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
@@ -56,6 +56,8 @@ function StarField() {
 /* ─── Main page content ─── */
 function DreamMatePageContent() {
   const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
@@ -73,15 +75,47 @@ function DreamMatePageContent() {
     return true;
   }, []);
 
+  /** URL 쿼리 동기화 — 새로고침·공유 시 같은 화면이 복원되도록 */
+  const updateUrlParams = useCallback((updates: Record<string, string | null>) => {
+    const params = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries(updates)) {
+      if (value === null || value === '') params.delete(key);
+      else params.set(key, value);
+    }
+    const queryString = params.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+  }, [router, pathname, searchParams]);
+
+  /** 탭 전환 + URL 반영 */
+  const changeTab = useCallback((tabId: DreamTabId) => {
+    setActiveTab(tabId);
+    updateUrlParams({ tab: tabId });
+  }, [updateUrlParams]);
+
+  /** 포트폴리오 결과 리포트 열기/닫기 + URL 반영 (공유용) */
+  const openPortfolioReport = useCallback((roadmapId: string) => {
+    setPortfolioReportRoadmapId(roadmapId);
+    updateUrlParams({ report: roadmapId });
+  }, [updateUrlParams]);
+
+  const closePortfolioReport = useCallback(() => {
+    setPortfolioReportRoadmapId(null);
+    updateUrlParams({ report: null });
+  }, [updateUrlParams]);
+
   useEffect(() => {
     setMounted(true);
     const tabParam = searchParams.get('tab') as DreamTabId | null;
     const editParam = searchParams.get('edit');
+    const reportParam = searchParams.get('report');
     if (tabParam && DREAM_TABS.some(t => t.id === tabParam)) {
       setActiveTab(tabParam);
     }
     if (editParam && typeof editParam === 'string' && editParam.trim()) {
       workspace.setEditingRoadmapId(editParam.trim());
+    }
+    if (reportParam && reportParam.trim()) {
+      setPortfolioReportRoadmapId(reportParam.trim());
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps -- workspace.setEditingRoadmapId is stable
   }, [searchParams]);
@@ -100,7 +134,7 @@ function DreamMatePageContent() {
             <GradientSegmentedTabBar
               tabs={DREAM_TABS.map((tab) => ({ id: tab.id, label: tab.label, emoji: tab.emoji }))}
               activeTab={activeTab}
-              onTabChange={setActiveTab}
+              onTabChange={changeTab}
               embeddedInSectionShell
               compact
               ariaLabel="커리어 실행 탭 전환"
@@ -146,7 +180,7 @@ function DreamMatePageContent() {
                   onUseRoadmap: (roadmap) => {
                     if (!requireAuthForMutation()) return;
                     workspace.handleUseRoadmap(roadmap);
-                    setActiveTab('my');
+                    changeTab('my');
                   },
                   onEdit: (roadmap) => {
                     if (!requireAuthForMutation()) return;
@@ -172,7 +206,7 @@ function DreamMatePageContent() {
                     workspace.handleCreateRoadmapComment(roadmap.id, comment, parentId);
                   },
                 }}
-                onTabChange={(tabId) => setActiveTab(tabId as DreamTabId)}
+                onTabChange={(tabId) => changeTab(tabId as DreamTabId)}
               />
             ) : activeTab === 'library' ? (
               <DreamLibraryTab
@@ -284,7 +318,7 @@ function DreamMatePageContent() {
               <PortfolioTab
                 myRoadmaps={workspace.myRoadmaps}
                 allowMutations={canMutate}
-                onOpenReport={(roadmap) => setPortfolioReportRoadmapId(roadmap.id)}
+                onOpenReport={(roadmap) => openPortfolioReport(roadmap.id)}
                 onCreateRoadmap={() => {
                   if (!requireAuthForMutation()) return;
                   workspace.setShowCreateRoadmapDialog(true);
@@ -350,7 +384,7 @@ function DreamMatePageContent() {
             if (!requireAuthForMutation()) return;
             setSelectedRoadmapOpenedFromTab('my');
             workspace.handleUseRoadmap(workspace.selectedRoadmap!);
-            setActiveTab('my');
+            changeTab('my');
           }}
           onEdit={() => {
             if (!requireAuthForMutation()) return;
@@ -409,10 +443,10 @@ function DreamMatePageContent() {
         return (
           <PortfolioReportDialog
             roadmap={reportRoadmap}
-            onClose={() => setPortfolioReportRoadmapId(null)}
+            onClose={closePortfolioReport}
             onEdit={() => {
               if (!requireAuthForMutation()) return;
-              setPortfolioReportRoadmapId(null);
+              closePortfolioReport();
               workspace.setEditingRoadmapId(reportRoadmap.id);
             }}
             onUpdateTodoOutput={(itemId, todoId, patch) => {

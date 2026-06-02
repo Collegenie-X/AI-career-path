@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Camera, FileText, Sparkles, Plus, ChevronRight } from 'lucide-react';
 import type { SharedRoadmap } from '../types';
 import { buildPortfolioReport } from '../utils/buildPortfolioReport';
@@ -12,11 +11,24 @@ const PERIOD_LABEL: Record<string, string> = {
   semester: '학기중',
 };
 
+const PERIOD_LABEL_COLORS: Record<string, string> = {
+  afterschool: '#F59E0B',
+  vacation: '#22C55E',
+  semester: '#3B82F6',
+};
+
 interface PortfolioTabProps {
   myRoadmaps: SharedRoadmap[];
   allowMutations: boolean;
   onOpenReport: (roadmap: SharedRoadmap) => void;
   onCreateRoadmap: () => void;
+}
+
+/** 진행률 → 상태 배지(라벨·색상) */
+function getPortfolioStatus(pct: number): { label: string; color: string } {
+  if (pct >= 100) return { label: '완료', color: '#34d399' };
+  if (pct > 0) return { label: '진행 중', color: '#fbbf24' };
+  return { label: '시작 전', color: '#94a3b8' };
 }
 
 export function PortfolioTab({ myRoadmaps, allowMutations, onOpenReport, onCreateRoadmap }: PortfolioTabProps) {
@@ -49,68 +61,102 @@ export function PortfolioTab({ myRoadmaps, allowMutations, onOpenReport, onCreat
       <p className="text-[12px] text-gray-400 px-0.5">
         실행한 계획이 곧 포트폴리오입니다. 카드를 눌러 <span className="text-white font-semibold">결과 리포트</span>를 확인하고 결과물·사진을 정리하세요.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {myRoadmaps.map((roadmap) => {
           const report = buildPortfolioReport(roadmap);
           const typeMeta = DREAM_ITEM_TYPES.find((t) => t.value === report.type);
           const accent = report.starColor || typeMeta?.color || '#6C5CE7';
-          const cover = report.photos[0]?.src;
+          const periodColor = PERIOD_LABEL_COLORS[report.period] ?? '#6B7280';
+          const status = getPortfolioStatus(report.progress.pct);
+          const thumb = report.photos[0]?.src;
+          const descriptionPreview = (roadmap.description ?? '').trim().slice(0, 60);
 
           return (
-            <motion.button
+            <button
               key={roadmap.id}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.99 }}
+              type="button"
               onClick={() => onOpenReport(roadmap)}
-              className="text-left rounded-2xl overflow-hidden flex flex-col"
-              style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}
+              aria-label={`${roadmap.title} — 결과 리포트 보기`}
+              className="group w-full rounded-xl border p-3.5 text-left transition-colors hover:bg-white/[0.05] active:scale-[0.995] flex flex-col"
+              style={{ backgroundColor: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.1)' }}
             >
-              {/* 커버 */}
-              <div className="relative h-24 w-full overflow-hidden" style={{ background: `linear-gradient(135deg, ${accent}55, ${accent}22)` }}>
-                {cover ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={cover} alt="" className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-3xl opacity-80">{typeMeta?.emoji ?? '🚀'}</div>
-                )}
-                <span
-                  className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold text-white"
-                  style={{ backgroundColor: 'rgba(0,0,0,0.45)' }}
+              {/* ── 상단: 타입 타일 + 메타 배지 ── */}
+              <div className="flex items-start gap-3 mb-2.5">
+                <div
+                  className="flex-shrink-0 flex h-10 w-10 items-center justify-center overflow-hidden text-xl leading-none"
+                  style={{ backgroundColor: `${accent}22`, border: `1px solid ${accent}44`, borderRadius: '2px' }}
                 >
-                  {typeMeta?.emoji} {typeMeta?.label}
-                </span>
-              </div>
-
-              {/* 본문 */}
-              <div className="p-3.5 flex-1 flex flex-col">
-                <div className="text-[13px] font-bold text-white leading-snug line-clamp-2">{roadmap.title}</div>
-                <div className="mt-1 text-[10px] text-gray-500">{PERIOD_LABEL[report.period] ?? report.period}</div>
-
-                {/* 진행률 */}
-                <div className="mt-2.5">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-[10px] text-gray-400">진행률</span>
-                    <span className="text-[10px] font-bold" style={{ color: accent }}>{report.progress.pct}%</span>
-                  </div>
-                  <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}>
-                    <div className="h-full rounded-full" style={{ width: `${report.progress.pct}%`, backgroundColor: accent }} />
-                  </div>
+                  {thumb ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={thumb} alt="" className="h-full w-full object-cover" />
+                  ) : (
+                    typeMeta?.emoji ?? '🚀'
+                  )}
                 </div>
-
-                {/* 결과 자산 카운트 */}
-                <div className="mt-3 flex items-center gap-3 text-[10px] text-gray-400">
-                  <span className="inline-flex items-center gap-1"><Camera className="w-3 h-3" /> 사진 {report.photos.length}</span>
-                  <span className="inline-flex items-center gap-1"><FileText className="w-3 h-3" /> 산출물 {report.collectedOutputs.length}</span>
-                  <span className="ml-auto inline-flex items-center gap-0.5 font-semibold" style={{ color: accent }}>
-                    리포트 <ChevronRight className="w-3 h-3" />
+                <div className="flex flex-wrap items-center gap-1 pt-0.5">
+                  <span className="text-[11px] font-bold" style={{ color: accent }}>
+                    {typeMeta?.label}
+                  </span>
+                  <span
+                    className="px-1.5 py-0.5 text-[11px] font-bold"
+                    style={{ borderRadius: '2px', backgroundColor: `${periodColor}18`, color: periodColor }}
+                  >
+                    {PERIOD_LABEL[report.period] ?? report.period}
+                  </span>
+                  <span className="inline-flex items-center gap-0.5 text-[11px] font-semibold" style={{ color: status.color }}>
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: status.color }} />
+                    {status.label}
                   </span>
                 </div>
-
-                {!report.hasAnyResultAsset && (
-                  <p className="mt-2 text-[10px] text-gray-600">결과물·사진을 기록하면 리포트가 채워져요</p>
-                )}
               </div>
-            </motion.button>
+
+              {/* ── 제목 + 설명 ── */}
+              <h4 className="mb-1 line-clamp-2 text-[14px] font-black leading-snug text-white flex-1">{roadmap.title}</h4>
+              {descriptionPreview.length > 0 && (
+                <p className="mb-2 line-clamp-1 text-[11px] leading-relaxed text-gray-500">{descriptionPreview}</p>
+              )}
+
+              {/* ── 진행률 막대 ── */}
+              <div className="mb-2">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[11px] text-gray-500">진행률</span>
+                  <span className="text-[11px] font-bold" style={{ color: accent }}>
+                    {report.progress.done}/{report.progress.total} · {report.progress.pct}%
+                  </span>
+                </div>
+                <div className="h-1 rounded-full overflow-hidden" style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
+                  <div
+                    className="h-full rounded-full transition-all"
+                    style={{ width: `${report.progress.pct}%`, backgroundColor: accent }}
+                  />
+                </div>
+              </div>
+
+              {/* ── 하단: 사진·산출물·화살표 ── */}
+              <div className="flex items-center justify-between border-t border-white/[0.06] pt-2.5 mt-auto">
+                <div className="flex items-center gap-2.5 text-[11px] text-gray-400">
+                  <span className="inline-flex items-center gap-0.5">
+                    <Camera className="h-3 w-3 text-sky-400/90" aria-hidden />
+                    <span className="text-gray-500">사진</span>{' '}
+                    <span className="font-semibold text-gray-300">{report.photos.length}</span>
+                  </span>
+                  <span className="text-white/20">|</span>
+                  <span className="inline-flex items-center gap-0.5">
+                    <FileText className="h-3 w-3 text-emerald-400/90" aria-hidden />
+                    <span className="text-gray-500">산출물</span>{' '}
+                    <span className="font-semibold text-gray-300">{report.collectedOutputs.length}</span>
+                  </span>
+                </div>
+                <div
+                  className="flex h-7 w-7 flex-shrink-0 items-center justify-center transition-colors group-hover:border-white/30"
+                  style={{ border: '2px solid rgba(255,255,255,0.14)', backgroundColor: 'rgba(0,0,0,0.25)', borderRadius: '9999px' }}
+                  aria-hidden
+                >
+                  <ChevronRight className="h-4 w-4 translate-x-px text-white/70 transition-transform group-hover:translate-x-0.5" strokeWidth={2.25} />
+                </div>
+              </div>
+            </button>
           );
         })}
       </div>

@@ -910,7 +910,15 @@
         "createdAt": "2026-04-05T11:00:00.000Z"
       }
     ],
-    "milestoneResults": [],
+    "milestoneResults": [
+      {
+        "id": "t005-ms1",
+        "title": "우리 반 28명 설문 응답 수집 완료 (회수율 90%)",
+        "description": "평일 평균 수면 시간과 중간고사 점수를 구글폼으로 수집해 엑셀로 1차 정리했어요. 결측 응답 3건을 제외하고 분석용 25명 데이터를 확보했습니다.",
+        "monthWeekLabel": "2주차",
+        "recordedAt": "2026-04-14T14:00:00.000Z"
+      }
+    ],
     "finalResultTitle": "소논문 완성본 A4 8장 + 엑셀 분석 파일",
     "finalResultDescription": "산점도·상관계수 포함 통계 분석 결과. 지도 선생님 검토 완료 예정.",
     "items": [
@@ -1820,7 +1828,15 @@
         "createdAt": "2026-03-31T14:00:00.000Z"
       }
     ],
-    "milestoneResults": [],
+    "milestoneResults": [
+      {
+        "id": "t010-ms1",
+        "title": "팹리스·파운드리·IDM 차이 한 장 정리 완료",
+        "description": "기사에 나온 용어를 추가 자료로 보완해, 설계 전문 팹리스와 위탁생산 파운드리, 둘을 합친 IDM 구조를 표로 비교 정리했어요.",
+        "monthWeekLabel": "1주차",
+        "recordedAt": "2026-03-10T14:00:00.000Z"
+      }
+    ],
     "finalResultTitle": "반도체 산업 구조 정리 노트 + 진로 탐색 기록",
     "finalResultDescription": "팹리스 설계 엔지니어 진로 방향 구체화.",
     "items": [
@@ -2567,7 +2583,15 @@
         "createdAt": "2026-03-25T13:00:00.000Z"
       }
     ],
-    "milestoneResults": [],
+    "milestoneResults": [
+      {
+        "id": "t014-ms1",
+        "title": "1층→15층 기압차 직접 계산 완료 (약 5 hPa)",
+        "description": "고도 약 45m 상승 기준으로 기압 변화를 계산했어요. 계산값만으로는 먹먹함이 다 설명되지 않아, 밀폐 공간 공기 압축이라는 추가 원인 조사로 이어졌습니다.",
+        "monthWeekLabel": "2주차",
+        "recordedAt": "2026-03-12T14:00:00.000Z"
+      }
+    ],
     "finalResultTitle": "일상 탐구 노트 — 기압·압력 개념 교과 연계 정리",
     "finalResultDescription": "물리 교과서 기압·부력 단원과 연결한 개념 노트 1페이지.",
     "items": [
@@ -3567,7 +3591,15 @@
         "createdAt": "2026-04-09T16:00:00.000Z"
       }
     ],
-    "milestoneResults": [],
+    "milestoneResults": [
+      {
+        "id": "t020-ms1",
+        "title": "상상한 하루 vs 실제 인터뷰 비교표 작성",
+        "description": "내가 상상한 기후 연구원의 하루와 실제 연구원 인터뷰 기사를 항목별로 비교했어요. '과학과 정치 사이에서 고민한다'는 대목이 가장 큰 차이였습니다.",
+        "monthWeekLabel": "2주차",
+        "recordedAt": "2026-04-12T14:00:00.000Z"
+      }
+    ],
     "finalResultTitle": "미래 직업 시뮬레이션 노트 + 지금 준비 계획",
     "finalResultDescription": "기후 연구원을 위한 중학교 준비 로드맵 초안.",
     "items": [

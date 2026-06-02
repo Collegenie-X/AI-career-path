@@ -1,7 +1,7 @@
 /**
  * 로드맵 상세 — 인라인 패널에서 확대 시 표시되는 모달 너비 (px)
  */
-export const ROADMAP_DETAIL_EXPAND_DIALOG_WIDTH_PX = 560 as const;
+export const ROADMAP_DETAIL_EXPAND_DIALOG_WIDTH_PX = 680 as const;
 
 /**
  * `variant="dialog"` 를 document.body 로 포털할 때 — WebHeader(z-50) 및 레이아웃 flex 쌓임보다 위

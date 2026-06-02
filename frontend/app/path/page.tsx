@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { XPBar } from '@/components/xp-bar';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -20,8 +20,14 @@ const ICON_MAP: Record<string, any> = {
 
 type ProjectType = 'all' | 'solo' | 'team';
 
-export default function PathPage() {
+function isProjectType(value: string | null): value is ProjectType {
+  return value === 'all' || value === 'solo' || value === 'team';
+}
+
+function PathPageContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<ProjectType>('all');
   const [userXP, setUserXP] = useState(0);
@@ -31,6 +37,20 @@ export default function PathPage() {
     const xpLog = storage.xp.get();
     setUserXP(xpLog?.totalXP || 0);
   }, []);
+
+  /** URL ?tab= 를 읽어 상태 복원 (새로고침·공유) */
+  useEffect(() => {
+    const tabParam = searchParams.get('tab');
+    if (isProjectType(tabParam)) setActiveTab(tabParam);
+  }, [searchParams]);
+
+  /** 탭 전환 + URL 반영 */
+  const handleTabChange = (next: ProjectType) => {
+    setActiveTab(next);
+    const params = new URLSearchParams(searchParams.toString());
+    params.set('tab', next);
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
 
   if (!mounted) return null;
 
@@ -91,7 +111,7 @@ export default function PathPage() {
         <div className="flex gap-2">
           <Button
             variant={activeTab === 'all' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('all')}
+            onClick={() => handleTabChange('all')}
             className={`flex-1 h-11 ${activeTab === 'all' ? 'gradient-purple' : 'glass hover:bg-white/5'}`}
           >
             <Target className="w-4 h-4 mr-2" />
@@ -99,7 +119,7 @@ export default function PathPage() {
           </Button>
           <Button
             variant={activeTab === 'solo' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('solo')}
+            onClick={() => handleTabChange('solo')}
             className={`flex-1 h-11 ${activeTab === 'solo' ? 'gradient-purple' : 'glass hover:bg-white/5'}`}
           >
             <User className="w-4 h-4 mr-2" />
@@ -107,7 +127,7 @@ export default function PathPage() {
           </Button>
           <Button
             variant={activeTab === 'team' ? 'default' : 'outline'}
-            onClick={() => setActiveTab('team')}
+            onClick={() => handleTabChange('team')}
             className={`flex-1 h-11 ${activeTab === 'team' ? 'gradient-purple' : 'glass hover:bg-white/5'}`}
           >
             <Users className="w-4 h-4 mr-2" />
@@ -300,5 +320,13 @@ export default function PathPage() {
       </div>
 
     </div>
+  );
+}
+
+export default function PathPage() {
+  return (
+    <Suspense fallback={null}>
+      <PathPageContent />
+    </Suspense>
   );
 }

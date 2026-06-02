@@ -12,6 +12,12 @@ export interface PortfolioWeek {
   itemId: string;
   /** 목표 todo id (인라인 수정 시 타겟) */
   todoId: string;
+  /** 부모 RoadmapItem 제목 */
+  itemTitle: string;
+  /** 부모 항목의 최종 산출물 (RoadmapItem.targetOutput) */
+  itemTargetOutput?: string;
+  /** 부모 항목의 완료 기준 (RoadmapItem.successCriteria) */
+  itemSuccessCriteria?: string;
   weekLabel: string;
   goalTitle: string;
   /** 계획 단계 산출물 (템플릿 output) */
@@ -67,6 +73,9 @@ export function buildPortfolioReport(roadmap: SharedRoadmap): PortfolioReport {
           key: `${itemIdx}-${todoIdx}`,
           itemId: item.id,
           todoId: todo.id,
+          itemTitle: item.title,
+          itemTargetOutput: item.targetOutput,
+          itemSuccessCriteria: item.successCriteria,
           weekLabel: todo.weekLabel ?? `${weeks.length + 1}주차`,
           goalTitle: todo.title,
           plannedOutput: todo.plannedOutput,

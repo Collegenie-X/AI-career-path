@@ -1,8 +1,10 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ChangeEvent } from 'react';
 import { ExecutionPlanAiGenerateDialog } from './execution-plan-ai/ExecutionPlanAiGenerateDialog';
 import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react';
+import { RoadmapEditorAccordionHeaderButton } from './roadmap-editor-ui/RoadmapEditorAccordionHeaderButton';
+import { RoadmapEditorGradientAccordionShell } from './roadmap-editor-ui/RoadmapEditorGradientAccordionShell';
 import { RoadmapEditorColorSwatchRow } from './roadmap-editor-ui/RoadmapEditorColorSwatchRow';
 import { RoadmapEditorDreamItemTypeToggleGrid } from './roadmap-editor-ui/RoadmapEditorDreamItemTypeToggleGrid';
 import { RoadmapEditorLabeledFieldRow } from './roadmap-editor-ui/RoadmapEditorLabeledFieldRow';
@@ -22,6 +24,7 @@ import type { WeekGroupViewModel } from './roadmap-editor-ui/roadmapEditorWbsTyp
 import { RoadmapEditorWbsWeeklyChecklistTree } from './roadmap-editor-ui/RoadmapEditorWbsWeeklyChecklistTree';
 import { RoadmapEditorWeekEditPopup } from './roadmap-editor-ui/RoadmapEditorWeekEditPopup';
 import { buildStatusChangeComment } from '../utils/roadmapGoalStatus';
+import { compressImageFile } from '../utils/compressImageFile';
 import {
   DREAM_ITEM_TYPES,
   LABELS,
@@ -66,6 +69,7 @@ interface RoadmapEditorDialogProps {
 
 const COLOR_OPTIONS = ['#6C5CE7', '#3B82F6', '#EC4899', '#22C55E', '#F97316', '#EAB308'];
 const MONTH_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const WEEK_OPTIONS = [1, 2, 3, 4, 5];
 /** 한 달을 4주로 보고 순차 주차(1주차~N주차)를 월·주차로 매핑한다. */
 const WEEKS_PER_MONTH = 4;
 /** 항목마다 최소로 깔아 두는 순차 주차 수 (빈칸으로 채워나가는 방식). */
@@ -117,6 +121,30 @@ function createEmptyItem(startMonth: number): RoadmapItem {
     difficulty: 3,
     subItems: [],
   };
+}
+
+function createEmptyMilestoneResult(): RoadmapMilestoneResult {
+  return {
+    id: `milestone-result-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    title: '',
+    description: '',
+    monthWeekLabel: '',
+    resultUrl: '',
+    imageUrl: '',
+  };
+}
+
+function parseMonthWeekLabel(monthWeekLabel?: string): { month?: number; week?: number } {
+  const matchedMonthWeek = (monthWeekLabel ?? '').match(/(\d+)\s*월\s*(\d+)\s*주차/);
+  if (!matchedMonthWeek) return {};
+  const month = Number(matchedMonthWeek[1]);
+  const week = Number(matchedMonthWeek[2]);
+  if (!Number.isInteger(month) || !Number.isInteger(week)) return {};
+  return { month, week };
+}
+
+function buildMilestoneMonthWeekLabel(month: number, week: number): string {
+  return `${month}월 ${week}주차`;
 }
 
 /**
@@ -184,12 +212,35 @@ export function RoadmapEditorDialog({
   const [description, setDescription] = useState(initialValues.description);
   const [period, setPeriod] = useState<PeriodType>(initialValues.period);
   const [starColor, setStarColor] = useState(initialValues.starColor);
-  // 결과물·사진 편집은 포트폴리오 결과 리포트로 이전됨 — 기존 값은 읽기 전용으로 보존해 payload로 그대로 전달
-  const [milestoneResults] = useState<RoadmapMilestoneResult[]>(initialValues.milestoneResults ?? []);
-  const [finalResultTitle] = useState(initialValues.finalResultTitle ?? '');
-  const [finalResultDescription] = useState(initialValues.finalResultDescription ?? '');
-  const [finalResultUrl] = useState(initialValues.finalResultUrl ?? '');
-  const [finalResultImageUrl] = useState(initialValues.finalResultImageUrl ?? '');
+  // 결과물(중간·최종)·사진 첨부 — 생성/수정에서 직접 편집한다.
+  const [milestoneResults, setMilestoneResults] = useState<RoadmapMilestoneResult[]>(
+    (initialValues.milestoneResults ?? []).map(result => ({
+      ...result,
+      description: result.description ?? '',
+      monthWeekLabel: result.monthWeekLabel ?? '',
+      resultUrl: result.resultUrl ?? '',
+      imageUrl: result.imageUrl ?? '',
+    })),
+  );
+  const [finalResultTitle, setFinalResultTitle] = useState(initialValues.finalResultTitle ?? '');
+  const [finalResultDescription, setFinalResultDescription] = useState(initialValues.finalResultDescription ?? '');
+  const [finalResultUrl, setFinalResultUrl] = useState(initialValues.finalResultUrl ?? '');
+  const [finalResultImageUrl, setFinalResultImageUrl] = useState(initialValues.finalResultImageUrl ?? '');
+  const [milestoneAccordionOpenMap, setMilestoneAccordionOpenMap] = useState<Record<string, boolean>>(() => {
+    const firstResult = (initialValues.milestoneResults ?? [])[0];
+    return firstResult ? { [firstResult.id]: true } : {};
+  });
+  const [isMilestoneSectionOpen, setIsMilestoneSectionOpen] = useState(
+    (initialValues.milestoneResults ?? []).length > 0,
+  );
+  const [isFinalResultSectionOpen, setIsFinalResultSectionOpen] = useState(
+    Boolean(
+      initialValues.finalResultTitle?.trim()
+      || initialValues.finalResultDescription?.trim()
+      || initialValues.finalResultUrl?.trim()
+      || initialValues.finalResultImageUrl?.trim(),
+    ),
+  );
   const [focusItemTypes, setFocusItemTypes] = useState<DreamItemType[]>(
     initialValues.focusItemTypes.length > 0
       ? initialValues.focusItemTypes
@@ -235,6 +286,65 @@ export function RoadmapEditorDialog({
 
   const addRoadmapItem = () => {
     setItems(previous => [...previous, createEmptyItem(startMonth)]);
+  };
+
+  const addMilestoneResult = () => {
+    const newResult = createEmptyMilestoneResult();
+    setMilestoneResults(previous => [...previous, newResult]);
+    setMilestoneAccordionOpenMap(previous => ({ ...previous, [newResult.id]: true }));
+    setIsMilestoneSectionOpen(true);
+  };
+
+  const toggleMilestoneAccordion = (resultId: string) => {
+    setMilestoneAccordionOpenMap(previous => ({ ...previous, [resultId]: !previous[resultId] }));
+  };
+
+  const updateMilestoneResult = (resultId: string, patch: Partial<RoadmapMilestoneResult>) => {
+    setMilestoneResults(previous => previous.map(result => (
+      result.id === resultId ? { ...result, ...patch } : result
+    )));
+  };
+
+  const removeMilestoneResult = (resultId: string) => {
+    setMilestoneResults(previous => previous.filter(result => result.id !== resultId));
+  };
+
+  const updateMilestoneResultMonthWeek = (
+    resultId: string,
+    patch: { month?: number; week?: number },
+  ) => {
+    setMilestoneResults(previous => previous.map(result => {
+      if (result.id !== resultId) return result;
+      const parsed = parseMonthWeekLabel(result.monthWeekLabel);
+      const nextMonth = patch.month ?? parsed.month ?? startMonth ?? MONTH_OPTIONS[0];
+      const nextWeek = patch.week ?? parsed.week ?? WEEK_OPTIONS[0];
+      return { ...result, monthWeekLabel: buildMilestoneMonthWeekLabel(nextMonth, nextWeek) };
+    }));
+  };
+
+  const handleFinalResultImageFileUpload = async (event: ChangeEvent<HTMLInputElement>) => {
+    const imageFile = event.target.files?.[0];
+    if (!imageFile || !imageFile.type.startsWith('image/')) return;
+    try {
+      const imageDataUrl = await compressImageFile(imageFile);
+      setFinalResultImageUrl(imageDataUrl);
+    } finally {
+      event.target.value = '';
+    }
+  };
+
+  const handleMilestoneResultImageFileUpload = async (
+    resultId: string,
+    event: ChangeEvent<HTMLInputElement>,
+  ) => {
+    const imageFile = event.target.files?.[0];
+    if (!imageFile || !imageFile.type.startsWith('image/')) return;
+    try {
+      const imageDataUrl = await compressImageFile(imageFile);
+      updateMilestoneResult(resultId, { imageUrl: imageDataUrl });
+    } finally {
+      event.target.value = '';
+    }
   };
 
   const updateItem = (itemId: string, patch: Partial<RoadmapItem>) => {
@@ -685,6 +795,43 @@ export function RoadmapEditorDialog({
                         })}
                       </div>
 
+                      <div className="space-y-2 rounded-xl bg-white/[0.03] p-2.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-1.5">
+                            <span
+                              className="text-[13px] font-bold px-1.5 py-0.5 rounded"
+                              style={{ backgroundColor: 'rgba(6,182,212,0.15)', color: '#67e8f9' }}
+                            >
+                              산출
+                            </span>
+                            <span className="text-xs text-gray-500">이 항목으로 만들어 낼 최종 산출물</span>
+                          </div>
+                          <input
+                            value={item.targetOutput ?? ''}
+                            onChange={event => updateItem(item.id, { targetOutput: event.target.value })}
+                            placeholder="예: 탐구 계획서 A4 1장"
+                            className="w-full h-10 px-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                          />
+                        </div>
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-1.5">
+                            <span
+                              className="text-[13px] font-bold px-1.5 py-0.5 rounded"
+                              style={{ backgroundColor: 'rgba(16,185,129,0.15)', color: '#6ee7b7' }}
+                            >
+                              기준
+                            </span>
+                            <span className="text-xs text-gray-500">완료를 판단하는 기준</span>
+                          </div>
+                          <input
+                            value={item.successCriteria ?? ''}
+                            onChange={event => updateItem(item.id, { successCriteria: event.target.value })}
+                            placeholder="예: 탐구 질문 2개 이상, 가설 명시"
+                            className="w-full h-10 px-3 rounded-lg text-sm text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                          />
+                        </div>
+                      </div>
+
                       <button
                         type="button"
                         onClick={() => setExecutionPlanAiItemId(item.id)}
@@ -715,6 +862,239 @@ export function RoadmapEditorDialog({
                 </div>
               );
             })}
+          </section>
+
+          {/* 결과물 그룹 — 중간 결과 / 최종 결과 / 사진 첨부 */}
+          <section className="space-y-2">
+            <span className={roadmapEditorSectionLabelClassName}>📦 결과물 <span className="font-normal text-gray-600">(선택)</span></span>
+
+            {/* 중간 결과물 섹션 - 아코디언 */}
+            <RoadmapEditorGradientAccordionShell
+              tone="sky"
+              header={(
+                <RoadmapEditorAccordionHeaderButton
+                  isOpen={isMilestoneSectionOpen}
+                  onToggle={() => setIsMilestoneSectionOpen(prev => !prev)}
+                  icon="🏁"
+                  title={LABELS.roadmapMilestoneResultSectionLabel ?? '중간 결과물'}
+                  subtitle={milestoneResults.length > 0
+                    ? `${milestoneResults.length}개 기록됨`
+                    : '진행 중 만든 결과물을 기록해보세요'}
+                  titleClassName="text-sky-200"
+                  subtitleClassName="text-sky-400/75"
+                  chevronClassName="text-sky-400"
+                  trailing={milestoneResults.length > 0 ? (
+                    <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-sky-500/20 text-sky-200">
+                      {milestoneResults.length}
+                    </span>
+                  ) : undefined}
+                />
+              )}
+              body={isMilestoneSectionOpen ? (
+                <div className="px-3 pb-3 space-y-2">
+                  {milestoneResults.length === 0 ? (
+                    <div className={`${roadmapEditorSoftInsetPanelClassName} rounded-xl p-4 text-center space-y-2`}>
+                      <p className="text-2xl">📸</p>
+                      <p className="text-sm font-semibold text-sky-300/80">아직 기록된 중간 결과물이 없어요</p>
+                      <p className="text-sm text-gray-500 leading-relaxed">
+                        데모, 발표자료, 프로토타입 등<br />작은 성과도 기록해두면 동기부여가 됩니다
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="space-y-2">
+                      {milestoneResults.map((result, resultIndex) => {
+                        const isOpen = milestoneAccordionOpenMap[result.id] ?? false;
+                        const hasContent = result.title.trim().length > 0;
+                        return (
+                          <div key={result.id} className={`${roadmapEditorSoftInsetPanelClassName} rounded-xl overflow-hidden`}>
+                            <div className="flex items-center">
+                              <div
+                                role="button"
+                                tabIndex={0}
+                                onClick={() => toggleMilestoneAccordion(result.id)}
+                                onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') toggleMilestoneAccordion(result.id); }}
+                                className="flex-1 flex items-center justify-between px-2.5 py-2 cursor-pointer min-w-0"
+                              >
+                                <div className="flex items-center gap-2 min-w-0">
+                                  <span
+                                    className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0"
+                                    style={{ backgroundColor: 'rgba(56,189,248,0.2)', color: '#7dd3fc', fontSize: 10 }}
+                                  >
+                                    {resultIndex + 1}
+                                  </span>
+                                  <span className="text-white truncate" style={{ fontSize: 11 }}>
+                                    {hasContent ? result.title : `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${resultIndex + 1}`}
+                                  </span>
+                                  {result.monthWeekLabel && (
+                                    <span className="text-sky-400/70 whitespace-nowrap flex-shrink-0" style={{ fontSize: 10 }}>
+                                      {result.monthWeekLabel}
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex items-center gap-1.5 flex-shrink-0 ml-2">
+                                  {isOpen ? <ChevronUp className="w-3.5 h-3.5 text-gray-400" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-400" />}
+                                </div>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => removeMilestoneResult(result.id)}
+                                className="w-8 h-8 mr-2 rounded-md flex items-center justify-center flex-shrink-0"
+                                style={{ backgroundColor: 'rgba(239,68,68,0.15)', color: '#ef4444' }}
+                              >
+                                <Trash2 className="w-3 h-3" />
+                              </button>
+                            </div>
+
+                            {isOpen && (
+                              <div className="px-2.5 pb-2 space-y-1.5 pt-1 border-t border-white/[0.06]">
+                                <div className="pt-1.5">
+                                  <input
+                                    value={result.title}
+                                    onChange={event => updateMilestoneResult(result.id, { title: event.target.value })}
+                                    placeholder={LABELS.roadmapMilestoneResultTitlePlaceholder ?? '예: 1차 시제품 데모'}
+                                    className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] min-h-[32px]"
+                                  />
+                                </div>
+                                <textarea
+                                  value={result.description ?? ''}
+                                  onChange={event => updateMilestoneResult(result.id, { description: event.target.value })}
+                                  placeholder={LABELS.roadmapMilestoneResultDescriptionPlaceholder ?? '어떤 결과물인지 간단히 적어주세요'}
+                                  rows={2}
+                                  className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none resize-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+                                />
+                                <div className="grid grid-cols-2 gap-1.5">
+                                  <label className="flex items-center gap-1.5 px-2 h-8 rounded-lg cursor-pointer bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                                    <span className="text-sky-400/70 whitespace-nowrap" style={{ fontSize: 10 }}>{LABELS.roadmapMilestoneResultMonthLabel ?? '월'}</span>
+                                    <select
+                                      value={parseMonthWeekLabel(result.monthWeekLabel).month ?? startMonth}
+                                      onChange={event => updateMilestoneResultMonthWeek(result.id, { month: Number(event.target.value) })}
+                                      className="w-full bg-transparent text-white outline-none"
+                                      style={{ fontSize: 11 }}
+                                    >
+                                      {MONTH_OPTIONS.map(month => (
+                                        <option key={`${result.id}-month-${month}`} value={month} className="bg-[#111827]">{month}월</option>
+                                      ))}
+                                    </select>
+                                  </label>
+                                  <label className="flex items-center gap-1.5 px-2 h-8 rounded-lg cursor-pointer bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                                    <span className="text-sky-400/70 whitespace-nowrap" style={{ fontSize: 10 }}>{LABELS.roadmapMilestoneResultWeekLabel ?? '주차'}</span>
+                                    <select
+                                      value={parseMonthWeekLabel(result.monthWeekLabel).week ?? WEEK_OPTIONS[0]}
+                                      onChange={event => updateMilestoneResultMonthWeek(result.id, { week: Number(event.target.value) })}
+                                      className="w-full bg-transparent text-white outline-none"
+                                      style={{ fontSize: 11 }}
+                                    >
+                                      {WEEK_OPTIONS.map(week => (
+                                        <option key={`${result.id}-week-${week}`} value={week} className="bg-[#111827]">{week}주차</option>
+                                      ))}
+                                    </select>
+                                  </label>
+                                </div>
+                                <input
+                                  value={result.resultUrl ?? ''}
+                                  onChange={event => updateMilestoneResult(result.id, { resultUrl: event.target.value })}
+                                  placeholder={LABELS.roadmapMilestoneResultUrlPlaceholder ?? '결과물 URL (예: https://...)'}
+                                  className="w-full px-2.5 py-1.5 rounded-lg text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.05] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] min-h-[30px]"
+                                />
+                                <div className="rounded-lg p-2 space-y-1.5 bg-sky-500/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                                  <p className="text-sky-400/80 font-semibold" style={{ fontSize: 10 }}>📷 결과물 사진 첨부</p>
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    onChange={event => { void handleMilestoneResultImageFileUpload(result.id, event); }}
+                                    className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-sky-500/20 file:text-sky-200"
+                                  />
+                                  {result.imageUrl && (
+                                    // eslint-disable-next-line @next/next/no-img-element
+                                    <img
+                                      src={result.imageUrl}
+                                      alt={result.title || `${LABELS.roadmapMilestoneResultItemLabel ?? '중간 결과물'} ${resultIndex + 1}`}
+                                      className="w-full max-h-32 object-cover rounded-lg ring-1 ring-white/10"
+                                    />
+                                  )}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    onClick={addMilestoneResult}
+                    className="w-full flex items-center justify-center gap-1.5 h-9 rounded-xl font-bold text-[11px] text-sky-200 bg-sky-500/15 hover:bg-sky-500/25 transition-colors shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                  >
+                    <Plus className="w-4 h-4" />
+                    {LABELS.roadmapMilestoneResultAddButtonLabel ?? '중간 결과물 추가'}
+                  </button>
+                </div>
+              ) : undefined}
+            />
+
+            {/* 최종 결과물 섹션 - 아코디언 */}
+            <RoadmapEditorGradientAccordionShell
+              tone="emerald"
+              header={(
+                <RoadmapEditorAccordionHeaderButton
+                  isOpen={isFinalResultSectionOpen}
+                  onToggle={() => setIsFinalResultSectionOpen(prev => !prev)}
+                  icon="🏆"
+                  title={LABELS.roadmapFinalResultSectionLabel ?? '최종 결과물'}
+                  subtitle={finalResultTitle.trim().length > 0 ? finalResultTitle : '완성된 결과물을 자랑해보세요'}
+                  titleClassName="text-emerald-200"
+                  subtitleClassName="text-emerald-400/75"
+                  chevronClassName="text-emerald-400"
+                  trailing={(finalResultUrl.trim() || finalResultImageUrl.trim()) ? (
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.55)]" />
+                  ) : undefined}
+                />
+              )}
+              body={isFinalResultSectionOpen ? (
+                <div className="px-3 pb-3 space-y-2 border-t border-white/[0.06] pt-2">
+                  <input
+                    value={finalResultTitle}
+                    onChange={event => setFinalResultTitle(event.target.value)}
+                    placeholder={LABELS.roadmapFinalResultTitlePlaceholder ?? '예: SW 공모전 최종 제출작'}
+                    className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-h-[32px]"
+                  />
+                  <textarea
+                    value={finalResultDescription}
+                    onChange={event => setFinalResultDescription(event.target.value)}
+                    placeholder={LABELS.roadmapFinalResultDescriptionPlaceholder ?? '무엇을 만들었고, 어떤 점이 핵심 결과인지 적어주세요'}
+                    rows={3}
+                    className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none resize-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                  />
+                  <input
+                    value={finalResultUrl}
+                    onChange={event => setFinalResultUrl(event.target.value)}
+                    placeholder={LABELS.roadmapFinalResultUrlPlaceholder ?? '결과물 URL (예: https://github.com/...)'}
+                    className="w-full px-3 py-2 rounded-xl text-[11px] text-white placeholder-gray-500 outline-none border-0 bg-white/[0.06] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] min-h-[32px]"
+                  />
+                  <div className="rounded-xl p-2 space-y-1.5 bg-emerald-500/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+                    <p className="text-emerald-300/90 font-semibold text-[10px]">🖼️ 결과물 대표 이미지 첨부</p>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={event => { void handleFinalResultImageFileUpload(event); }}
+                      className="w-full text-sm text-gray-300 file:mr-2 file:px-2 file:py-1 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-emerald-500/25 file:text-emerald-100"
+                    />
+                    {finalResultImageUrl && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={finalResultImageUrl}
+                        alt={finalResultTitle || LABELS.roadmapFinalResultSectionLabel || '최종 결과물'}
+                        className="w-full max-h-40 object-cover rounded-lg ring-1 ring-white/10"
+                      />
+                    )}
+                  </div>
+                  <p className="text-emerald-500/75 leading-relaxed text-[10px]">
+                    {LABELS.roadmapFinalResultHint ?? '전체 공유는 결과물 URL 또는 이미지가 있을 때 가능해요.'}
+                  </p>
+                </div>
+              ) : undefined}
+            />
           </section>
 
         </div>

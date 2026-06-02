@@ -157,11 +157,12 @@ export function useDreamMateRoadmapBackend() {
           period: sourceRoadmap.period,
           starColor: sourceRoadmap.starColor,
           focusItemTypes: sourceRoadmap.focusItemTypes ?? ['activity', 'award', 'project', 'paper'],
-          milestoneResults: [],
-          finalResultTitle: undefined,
-          finalResultDescription: undefined,
-          finalResultUrl: undefined,
-          finalResultImageUrl: undefined,
+          // 중간·최종 결과(보고서)도 함께 복제한다.
+          milestoneResults: sourceRoadmap.milestoneResults ?? [],
+          finalResultTitle: sourceRoadmap.finalResultTitle,
+          finalResultDescription: sourceRoadmap.finalResultDescription,
+          finalResultUrl: sourceRoadmap.finalResultUrl,
+          finalResultImageUrl: sourceRoadmap.finalResultImageUrl,
           groupIds: [],
           items: sourceRoadmap.items.map(it => ({
             ...it,
