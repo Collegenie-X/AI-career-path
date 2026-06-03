@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, MessageSquare } from 'lucide-react';
 import type { RoadmapItem } from '../../types';
 import type { WeekGroupViewModel } from './roadmapEditorWbsTypes';
 import { roadmapEditorSoftInsetPanelClassName } from './roadmapEditorUiTokens';
@@ -68,6 +68,9 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
               const isPlaceholderOnly = !group.goal && group.tasks.length === 0;
               const statusMeta = getRoadmapGoalStatusMeta(getGoalStatus(group.goal));
               const taskCount = group.tasks.length;
+              const commentCount =
+                (group.goal?.comments?.length ?? 0) +
+                group.tasks.reduce((sum, task) => sum + (task.comments?.length ?? 0), 0);
 
               const weekToneClassName = isMissingGoal
                 ? 'bg-red-500/[0.1]'
@@ -116,6 +119,12 @@ export function RoadmapEditorWbsWeeklyChecklistTree({
                         {taskCount > 0 && (
                           <span className="rounded-full bg-white/[0.06] px-1.5 py-0.5 text-[10px] font-bold text-gray-400">
                             하위 {taskCount}
+                          </span>
+                        )}
+                        {commentCount > 0 && (
+                          <span className="inline-flex items-center gap-0.5 rounded-full bg-sky-500/20 px-1.5 py-0.5 text-[10px] font-bold text-sky-200">
+                            <MessageSquare className="h-2.5 w-2.5" />
+                            {commentCount}
                           </span>
                         )}
                       </div>

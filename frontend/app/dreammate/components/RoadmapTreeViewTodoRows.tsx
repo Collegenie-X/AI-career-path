@@ -1,6 +1,6 @@
 'use client';
 
-import { CheckCircle2, Circle } from 'lucide-react';
+import { CheckCircle2, Circle, MessageSquare } from 'lucide-react';
 import type { RoadmapTodoItem } from '../types';
 import type { RoadmapGoalBlock } from '../utils/roadmapTreeGoalBlocks';
 import type { RoadmapTreeTodoRowVisualMode } from '../config/roadmap-timeline-display.config';
@@ -88,6 +88,13 @@ function TreeGoalOrTaskRow({
           </span>
         );
       })()}
+
+      {mode !== 'task' && (todoItem.comments?.length ?? 0) > 0 && (
+        <span className="mt-0.5 inline-flex flex-shrink-0 items-center gap-0.5 rounded-full bg-sky-500/20 px-1.5 py-0.5 text-[11px] font-bold text-sky-200">
+          <MessageSquare className="h-2.5 w-2.5" />
+          {todoItem.comments!.length}
+        </span>
+      )}
 
       <span className={titleClass}>{todoItem.title}</span>
     </Wrapper>

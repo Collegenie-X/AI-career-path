@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Trash2, X } from 'lucide-react';
+import { MessageSquare, Trash2, X } from 'lucide-react';
 import type { RoadmapGoalStatus, RoadmapTodoItem } from '../../types';
 import type { WeekGroupViewModel } from './roadmapEditorWbsTypes';
 import {
@@ -67,6 +67,9 @@ export function RoadmapEditorWeekEditPopup({
 
   const statusMeta = getRoadmapGoalStatusMeta(getGoalStatus(group.goal));
   const hasContent = Boolean(group.goal) || group.tasks.length > 0;
+  const commentCount =
+    (group.goal?.comments?.length ?? 0) +
+    group.tasks.reduce((sum, task) => sum + (task.comments?.length ?? 0), 0);
 
   return createPortal(
     <div
@@ -94,6 +97,12 @@ export function RoadmapEditorWeekEditPopup({
             >
               {statusMeta.emoji} {statusMeta.label}
             </span>
+            {commentCount > 0 && (
+              <span className="inline-flex items-center gap-0.5 rounded-full bg-sky-500/20 px-2 py-0.5 text-[11px] font-bold text-sky-200">
+                <MessageSquare className="h-3 w-3" />
+                {commentCount}
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-1.5">
             {hasContent && (
