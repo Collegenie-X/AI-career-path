@@ -6630,5 +6630,956 @@
       }
     ],
     "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T031",
+    "ownerId": "demo-user-t031",
+    "ownerName": "윤서준",
+    "ownerEmoji": "🤖",
+    "ownerGrade": "high1",
+    "title": "[프로젝트] 학교 생활규정 Q&A 챗봇 — AI가 자꾸 없는 규정을 지어내서 정답률을 45%→90%로 끌어올린 기록",
+    "description": "친구들이 생활규정을 매번 교무실에 물어보는 게 불편해서, AI 챗봇으로 자동 응답기를 만들어봤습니다. 그런데 AI가 실제로는 없는 규정을 자신 있게 지어내는 '환각' 문제가 진짜 골칫거리였어요. 테스트 질문 20개로 정답률을 측정하며 프롬프트를 고쳐 나간 4주 디버깅 기록입니다.",
+    "period": "afterschool",
+    "starColor": "#8B5CF6",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 61,
+    "bookmarks": 29,
+    "viewCount": 740,
+    "commentCount": 2,
+    "sharedAt": "2026-05-09T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t031-c1",
+        "authorName": "김하늘",
+        "authorEmoji": "💬",
+        "content": "환각(hallucination) 문제를 정답률 숫자로 추적한 게 인상적이에요. 막연히 '좋아졌다'가 아니라 측정해서 좋네요.",
+        "createdAt": "2026-05-10T10:00:00.000Z"
+      },
+      {
+        "id": "t031-c2",
+        "authorName": "오세진",
+        "authorEmoji": "📚",
+        "content": "근거 문서를 붙여주는 방식(RAG)으로 바꾼 부분 자세히 알고 싶어요!",
+        "createdAt": "2026-05-11T14:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t031-ms1",
+        "title": "테스트 질문 20개 세트 + 정답 기준표 완성",
+        "description": "실제 학생들이 자주 묻는 질문 20개를 모으고, 생활규정 원문에서 정답을 직접 뽑아 채점 기준표를 만듦.",
+        "monthWeekLabel": "1주차",
+        "recordedAt": "2026-04-18T20:00:00.000Z"
+      },
+      {
+        "id": "t031-ms2",
+        "title": "정답률 45% → 90% (18/20) 달성",
+        "description": "규정 원문을 프롬프트에 함께 넣는 방식으로 바꾼 뒤 정답률이 두 배로 올랐고 환각 답변 9건이 0건이 됨.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-05-08T21:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "학교 규정 Q&A 챗봇 v2 + 정답률 측정표 + 디버깅 로그",
+    "finalResultDescription": "테스트 질문 20개에 대한 1차/최종 정답률 비교표, 환각 사례 9건과 수정 내역 포함. 동아리 부원 5명에게 실사용 테스트 받음.",
+    "items": [
+      {
+        "id": "t031-i1",
+        "type": "activity",
+        "title": "문제 정의 & 측정 기준 만들기",
+        "months": [
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "테스트 질문 20개 + 정답 기준표 1장",
+        "successCriteria": "질문마다 생활규정 원문 출처(쪽수/조항)가 적힌 채점표 완성",
+        "subItems": [
+          {
+            "id": "t031-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "실제 자주 묻는 질문 20개 수집 + 규정 원문에서 정답 표기",
+            "isDone": true,
+            "note": "반 친구·동아리 단톡에서 '두발 길이 되나요', '체육복 등교 되나요' 같은 실제 질문 20개를 모았어. 각 질문의 정답을 생활규정 PDF에서 직접 찾아 조항 번호까지 적었음.",
+            "reviewNote": "정답 기준을 먼저 못 박아두니까 나중에 챗봇이 맞았는지 틀렸는지 다툼 없이 채점됐어. '측정 기준을 먼저 만든다'가 이 프로젝트 전체에서 제일 잘한 결정이었음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t031-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-18T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t031-i1-w1-cp",
+                "kind": "problem",
+                "body": "처음엔 '챗봇이 잘 대답하면 성공'이라고만 생각했는데, '잘'이 뭔지 정의가 없어서 좋아졌는지 아닌지 판단할 수가 없었어. 진짜 문제는 챗봇이 아니라 '성공의 기준이 없다'는 거였음.",
+                "createdAt": "2026-04-15T19:00:00.000Z"
+              },
+              {
+                "id": "t031-i1-w1-c2",
+                "kind": "change",
+                "body": "질문 20개 각각에 '정답 한 줄 + 규정 조항 번호'를 붙인 채점표를 먼저 만들었어. 이제 챗봇 답을 이 표랑 대조하면 맞고 틀림이 숫자로 나옴.",
+                "createdAt": "2026-04-17T20:00:00.000Z"
+              },
+              {
+                "id": "t031-i1-w1-c3",
+                "kind": "reflection",
+                "body": "측정할 수 없으면 고칠 수도 없다는 걸 배웠어. 기준표 한 장이 4주 내내 나침반이 됐음.",
+                "createdAt": "2026-04-18T21:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "t031-i2",
+        "type": "project",
+        "title": "챗봇 만들고 환각(없는 규정 지어내기) 디버깅",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 4,
+        "targetOutput": "동작하는 Q&A 챗봇 + 디버깅 로그(환각 9건)",
+        "successCriteria": "테스트 20문항 정답률 90% 이상 + 환각 답변 0건",
+        "subItems": [
+          {
+            "id": "t031-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "1차 챗봇 만들고 정답률 측정 → 환각 답변 몇 건인지 기록",
+            "isDone": true,
+            "note": "ChatGPT에 그냥 질문만 던지는 1차 버전. 20문항 중 9개만 맞아서 정답률 45%. 틀린 11개 중 9개는 '있지도 않은 규정'을 자신 있게 지어냄(환각). 이걸 표에 한 줄씩 기록했어.",
+            "reviewNote": "AI가 모를 때 '모른다'가 아니라 그럴듯한 거짓말을 한다는 걸 숫자로 확인했어. 9건이라는 구체적 숫자가 있으니 다음에 0으로 만들 목표가 명확해졌음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t031-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-25T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t031-i2-w1-cp",
+                "kind": "problem",
+                "body": "'기숙사 소등은 11시'라고 챗봇이 단언했는데 우리 학교 규정엔 그런 조항 자체가 없었어. AI가 일반적인 학교 상식으로 빈칸을 메꿔버린 거였음. 이게 제일 위험한 진짜 문제였어.",
+                "createdAt": "2026-04-22T19:00:00.000Z"
+              },
+              {
+                "id": "t031-i2-w1-debug",
+                "kind": "debug",
+                "body": "환각 9건을 유형으로 나눠봤어: ①없는 조항 지어내기 5건 ②숫자(시간·길이) 틀리기 3건 ③다른 학교 규정 섞기 1건. 유형을 나누니 어디부터 손봐야 할지 보였음.",
+                "createdAt": "2026-04-24T21:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t031-i2-w2",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "goal",
+            "title": "규정 원문을 프롬프트에 같이 넣기(근거 기반 응답)로 바꾸고 재측정",
+            "isDone": true,
+            "note": "프롬프트를 '아래 규정 원문에서만 답하고, 없으면 모른다고 말해'로 바꾸고 관련 규정 조항을 같이 붙여줬어(RAG 흉내). 정답률 45%→80%(16/20), 환각 9건→2건으로 줄었음.",
+            "reviewNote": "AI한테 '근거 없으면 모른다고 해'라고 명시적으로 시킨 게 환각을 확 줄였어. AI는 시키는 대로 한다기보다, 안 시키면 멋대로 한다는 걸 느꼈음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t031-i2-w2-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-05-02T20:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t031-i2-w2-change",
+                "kind": "change",
+                "body": "프롬프트에 규정 원문 발췌를 붙이고 '이 안에 없으면 모른다고 답하라'는 규칙을 넣었어. 환각 9→2로 급감. 정보를 주느냐가 아니라 '범위를 가두느냐'가 핵심이었음.",
+                "createdAt": "2026-04-30T20:00:00.000Z"
+              },
+              {
+                "id": "t031-i2-w2-debug",
+                "kind": "debug",
+                "body": "남은 오답 2건은 규정 원문 자체에 답이 흩어져 있어서 AI가 한 군데만 보고 답한 거였어. 관련 조항을 한 덩어리로 묶어 넣으니 해결됨.",
+                "createdAt": "2026-05-01T21:00:00.000Z"
+              },
+              {
+                "id": "t031-i2-w2-c3",
+                "kind": "reflection",
+                "body": "처음엔 'AI가 멍청하다'고 탓했는데, 디버깅해보니 내가 정보를 안 주고 범위도 안 정해준 게 진짜 원인이었어. 문제를 AI 탓에서 내 설계 탓으로 옮겨 보니 해법이 보였음.",
+                "createdAt": "2026-05-02T21:30:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t031-i2-w3",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "task",
+            "title": "동아리 부원 5명 실사용 테스트 + 최종 정답률 90% 확정",
+            "isDone": false,
+            "note": "부원 5명이 자유 질문을 던지게 하고, 틀리거나 애매한 답을 다시 수집해 기준표에 추가할 예정. 최종 목표는 20문항 정답률 90%(18/20)와 환각 0건.",
+            "reviewNote": ""
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T032",
+    "ownerId": "demo-user-t032",
+    "ownerName": "신유나",
+    "ownerEmoji": "📊",
+    "ownerGrade": "high2",
+    "title": "[데이터분석] AI가 짜준 미세먼지 분석 코드, 에러 7개를 직접 잡으며 '복붙으로는 못 배운다'를 깨달은 기록",
+    "description": "우리 동네 미세먼지가 옆 동네보다 항상 나쁜 게 진짜인지 공공데이터로 확인하고 싶었어요. ChatGPT에 파이썬 코드를 부탁했는데, 그대로 복붙하니 에러가 7개나 떴습니다. 에러 메시지를 하나씩 읽고 고친 과정을 모두 기록했어요. AI가 코드를 써주는 시대에 '디버깅 능력'이 진짜 실력이라는 걸 배운 4주입니다.",
+    "period": "semester",
+    "starColor": "#10B981",
+    "focusItemTypes": [
+      "project",
+      "paper"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 83,
+    "bookmarks": 41,
+    "viewCount": 960,
+    "commentCount": 3,
+    "sharedAt": "2026-05-16T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t032-c1",
+        "authorName": "정해린",
+        "authorEmoji": "🐍",
+        "content": "에러 7개를 메시지째로 기록한 게 진짜 공부 자료네요. 저도 복붙만 하다 막혔는데 이렇게 해볼게요.",
+        "createdAt": "2026-05-17T10:00:00.000Z"
+      },
+      {
+        "id": "t032-c2",
+        "authorName": "강민호",
+        "authorEmoji": "📈",
+        "content": "한글 폰트 깨짐은 저도 당했어요 ㅋㅋ 해결 코드 공유 감사합니다.",
+        "createdAt": "2026-05-18T13:00:00.000Z"
+      },
+      {
+        "id": "t032-c3",
+        "authorName": "윤다온",
+        "authorEmoji": "🌫️",
+        "content": "결론(우리 동네가 실제로 더 나쁘진 않았다)이 가설을 뒤집어서 더 믿음이 가요.",
+        "createdAt": "2026-05-19T16:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t032-ms1",
+        "title": "공공데이터 CSV 2개(우리 동네·옆 동네) 확보",
+        "description": "에어코리아에서 최근 1년 일별 PM10/PM2.5 데이터를 두 측정소 기준으로 내려받아 정리.",
+        "monthWeekLabel": "1주차",
+        "recordedAt": "2026-04-22T20:00:00.000Z"
+      },
+      {
+        "id": "t032-ms2",
+        "title": "에러 7개 전부 해결 + 비교 그래프 3개 완성",
+        "description": "KeyError·한글 깨짐·날짜 파싱 등 에러 7개를 메시지와 함께 기록하고 모두 해결. 월별 비교 그래프 3개 산출.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-05-15T21:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "미세먼지 비교 분석 보고서 + 디버깅 로그 7건 + GitHub 코드",
+    "finalResultDescription": "두 동네 PM2.5 월별 비교 그래프 3개와, 에러 메시지·원인·해결을 정리한 디버깅 표 7행 포함. 가설(우리 동네가 더 나쁘다)은 데이터로 기각됨.",
+    "items": [
+      {
+        "id": "t032-i1",
+        "type": "project",
+        "title": "데이터 확보 & AI 코드 1차 실행 (에러와의 첫 만남)",
+        "months": [
+          4
+        ],
+        "difficulty": 4,
+        "targetOutput": "실행되는 데이터 로딩 코드 + 에러 로그 표",
+        "successCriteria": "CSV 2개를 pandas로 읽어 오류 없이 행·열 개수 출력",
+        "subItems": [
+          {
+            "id": "t032-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "공공데이터 CSV 2개 받고, AI가 짜준 로딩 코드 실행 → 에러 메시지 그대로 기록",
+            "isDone": true,
+            "note": "ChatGPT에 'pandas로 이 CSV 읽고 PM2.5 평균 내는 코드' 부탁. 복붙해서 돌리니 바로 KeyError: 'PM2.5'. 컬럼명이 실제로는 'PM2.5(㎍/㎥)'라서 안 맞았음. 에러 메시지를 캡처해서 표에 1행으로 기록.",
+            "reviewNote": "AI는 내 실제 파일의 컬럼명을 모른다는 당연한 사실을 처음 체감했어. 에러를 '실패'가 아니라 '내 데이터를 알려주는 힌트'로 보기 시작했음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t032-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-22T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t032-i1-w1-cp",
+                "kind": "problem",
+                "body": "AI가 준 코드를 그대로 붙였는데 KeyError가 떴어. 처음엔 'AI가 틀린 코드를 줬다'고 생각했는데, 알고 보니 내 CSV 컬럼명이 'PM2.5(㎍/㎥)'였음. AI는 내 파일을 본 적이 없으니 당연한 거였어.",
+                "createdAt": "2026-04-20T19:00:00.000Z"
+              },
+              {
+                "id": "t032-i1-w1-debug",
+                "kind": "debug",
+                "body": "df.columns를 먼저 출력해서 진짜 컬럼명을 확인하고, 코드의 'PM2.5'를 실제 이름으로 바꿨어. 에러 메시지의 따옴표 안 글자(KeyError가 가리키는 그 이름)가 범인을 정확히 알려준다는 걸 배웠음.",
+                "createdAt": "2026-04-21T21:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "t032-i2",
+        "type": "project",
+        "title": "에러 7개 디버깅 & 분석 완성",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 5,
+        "targetOutput": "에러 7건 디버깅 표 + 비교 그래프 3개",
+        "successCriteria": "에러 7건 모두 '메시지·원인·해결' 3칸으로 기록 + 그래프 3개 산출",
+        "subItems": [
+          {
+            "id": "t032-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "남은 에러(한글 깨짐·날짜 파싱 등) 6개를 메시지별로 해결하고 표에 기록",
+            "isDone": true,
+            "note": "에러를 종류별로 정리: ③한글 깨짐(□□□) ④날짜가 문자열이라 정렬 안 됨 ⑤결측치 NaN 평균 오염 ⑥SettingWithCopyWarning ⑦그래프 축 겹침. 각 에러마다 '메시지/원인/해결 코드'를 표 한 행으로 적었어.",
+            "reviewNote": "에러마다 검색 키워드를 '에러 메시지 전체'로 붙여넣으니 해결이 빨랐어. 막연히 '그래프 안 나와요'로 검색할 때보다 정확한 답이 나왔음. 에러 메시지가 곧 검색어였어.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t032-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-05-02T20:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t032-i2-w1-cp",
+                "kind": "problem",
+                "body": "그래프에 한글이 전부 □□□로 깨져서 어느 동네가 뭔지 알 수가 없었어. AI한테 다시 물어도 자꾸 같은 코드만 줘서 한참 막혔음.",
+                "createdAt": "2026-04-29T19:00:00.000Z"
+              },
+              {
+                "id": "t032-i2-w1-debug",
+                "kind": "debug",
+                "body": "에러는 아니지만 '한글 깨짐'이라 검색하니 matplotlib 폰트 설정 문제였어. plt.rcParams로 맑은 고딕 폰트를 지정하니 해결. AI한테도 '한글 폰트 깨짐 해결 포함'이라고 조건을 추가해 다시 물으니 그제서야 폰트 코드를 넣어줬음.",
+                "createdAt": "2026-04-30T21:00:00.000Z"
+              },
+              {
+                "id": "t032-i2-w1-change",
+                "kind": "change",
+                "body": "결측치(NaN)를 그냥 평균 내니 값이 이상했는데, dropna()로 빼고 계산하도록 바꿨어. '왜 평균이 이상하지'를 데이터부터 의심하는 습관이 생겼음.",
+                "createdAt": "2026-05-01T20:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t032-i2-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "두 동네 PM2.5 월별 비교 그래프 3개로 가설 검증",
+            "isDone": true,
+            "note": "월별 평균 막대그래프, 계절별 꺾은선, 일별 분포 박스플롯 3개 작성. 결과: 우리 동네가 옆 동네보다 '항상' 나쁘진 않았고, 봄철에만 약간 높았음. 가설이 부분적으로만 맞았어.",
+            "reviewNote": "내 예상(우리 동네가 더 나쁘다)이 데이터로 반쯤 틀렸다는 게 오히려 제일 값진 결과였어. 데이터는 내 편견을 교정해주는 도구라는 걸 배웠음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t032-i2-w2-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-15T21:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t032-i2-w2-reflection",
+                "kind": "reflection",
+                "body": "AI가 코드를 80% 써줬지만, 마지막 20%(내 데이터에 맞추고 에러 잡기)를 못 하면 결과가 안 나온다는 걸 절감했어. 디버깅이 진짜 실력이고, 그건 복붙으로는 안 길러진다는 걸 7개 에러로 배웠음.",
+                "createdAt": "2026-05-15T21:30:00.000Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T033",
+    "ownerId": "demo-user-t033",
+    "ownerName": "조하람",
+    "ownerEmoji": "♻️",
+    "ownerGrade": "mid3",
+    "title": "[AI 모델] 분리수거 자동 분류기 — 정확도 60%에서 막혀, '모델이 아니라 데이터가 문제'임을 찾아내 88%로 올린 기록",
+    "description": "분리수거를 헷갈려하는 동생을 위해, 사진을 찍으면 종류를 알려주는 AI 분류기를 Teachable Machine으로 만들었어요. 그런데 정확도가 60%에서 도무지 안 올라갔습니다. 오분류 사례를 하나씩 뜯어보니 모델이 아니라 제가 모은 '데이터'가 문제였어요. 데이터를 다시 모아 88%까지 올린 디버깅 기록입니다.",
+    "period": "afterschool",
+    "starColor": "#22C55E",
+    "focusItemTypes": [
+      "project",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 57,
+    "bookmarks": 26,
+    "viewCount": 680,
+    "commentCount": 2,
+    "sharedAt": "2026-05-23T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t033-c1",
+        "authorName": "민서아",
+        "authorEmoji": "🗑️",
+        "content": "정확도가 안 오를 때 모델 말고 데이터를 의심한 게 핵심이네요. 저도 비슷하게 막혔었어요.",
+        "createdAt": "2026-05-24T10:00:00.000Z"
+      },
+      {
+        "id": "t033-c2",
+        "authorName": "한지오",
+        "authorEmoji": "📷",
+        "content": "오분류 사진을 직접 보면서 원인 찾는 과정이 진짜 연구 같아요!",
+        "createdAt": "2026-05-25T15:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t033-ms1",
+        "title": "4개 클래스 × 50장 = 200장으로 1차 모델 학습",
+        "description": "캔·플라스틱·종이·유리 4종을 각 50장씩 찍어 Teachable Machine으로 첫 모델 학습. 정확도 60%.",
+        "monthWeekLabel": "2주차",
+        "recordedAt": "2026-05-02T20:00:00.000Z"
+      },
+      {
+        "id": "t033-ms2",
+        "title": "데이터 재수집 후 정확도 60% → 88%",
+        "description": "오분류 원인(배경·각도 편향)을 찾아 데이터를 다시 모아 학습. 테스트 정확도 88%로 상승.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-05-22T21:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "분리수거 분류기 v2 + 오분류 분석표 + 정확도 향상 기록",
+    "finalResultDescription": "4개 클래스 분류 모델, 1차/2차 정확도 비교(60%→88%), 오분류 12건의 원인 분석표 포함. 동생에게 실제로 시연.",
+    "items": [
+      {
+        "id": "t033-i1",
+        "type": "project",
+        "title": "1차 모델 만들고 정확도 측정",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 3,
+        "targetOutput": "1차 분류 모델 + 정확도 수치",
+        "successCriteria": "4개 클래스 각 50장 학습 + 테스트 20장으로 정확도 측정 완료",
+        "subItems": [
+          {
+            "id": "t033-i1-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "캔·플라스틱·종이·유리 4종 각 50장 촬영해 1차 학습 + 정확도 측정",
+            "isDone": true,
+            "note": "집에 있는 쓰레기를 책상 위에서 4종 각 50장씩 찍어 Teachable Machine에 넣고 학습. 테스트용 20장으로 재보니 정확도 60%. 생각보다 너무 낮아서 당황했어.",
+            "reviewNote": "정확도를 '눈대중'이 아니라 따로 빼둔 테스트 20장으로 잰 게 중요했어. 학습에 쓴 사진으로 재면 항상 높게 나와서 속는다는 걸 배웠음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t033-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-02T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t033-i1-w1-cp",
+                "kind": "problem",
+                "body": "정확도가 60%에서 안 올라갔어. 처음엔 'Teachable Machine이 원래 이 정도인가' 하고 모델을 탓했음. 사진을 더 찍어 넣어도 비슷해서 막막했어.",
+                "createdAt": "2026-04-30T19:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "t033-i2",
+        "type": "activity",
+        "title": "오분류 원인 찾기 & 데이터 다시 모으기",
+        "months": [
+          5
+        ],
+        "difficulty": 4,
+        "targetOutput": "오분류 분석표 + 정확도 88% 모델",
+        "successCriteria": "오분류 사례 10건 이상 원인 분석 + 재학습 후 정확도 85% 이상",
+        "subItems": [
+          {
+            "id": "t033-i2-w1",
+            "weekNumber": 3,
+            "weekLabel": "3주차",
+            "entryType": "goal",
+            "title": "틀린 사진 12장을 직접 보며 오분류 원인을 분류표로 정리",
+            "isDone": true,
+            "note": "테스트에서 틀린 12장을 펼쳐놓고 공통점을 찾았어. ①사진 배경이 다 똑같은 내 책상이라 모델이 '책상=종이'처럼 배경을 외워버림 ②유리병을 다 같은 각도로만 찍어 다른 각도면 못 알아봄. 진짜 문제는 모델이 아니라 편향된 데이터였어.",
+            "reviewNote": "틀린 결과를 '많다/적다' 숫자로만 보지 않고 한 장씩 눈으로 본 게 결정적이었어. 오답을 직접 들여다보는 게 디버깅의 핵심이라는 걸 느꼈음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t033-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-12T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t033-i2-w1-debug",
+                "kind": "debug",
+                "body": "틀린 12장을 늘어놓으니 패턴이 보였어. 캔을 캔으로 못 맞춘 게 아니라, 배경이 다르면 틀렸음. 모델이 물체가 아니라 '내 책상 배경'을 학습한 거였어. 오답을 모아 보는 것만으로 원인이 드러났음.",
+                "createdAt": "2026-05-10T21:00:00.000Z"
+              },
+              {
+                "id": "t033-i2-w1-c2",
+                "kind": "change",
+                "body": "데이터를 다시 모았어: 배경을 바닥·식탁·야외로 섞고, 각 물체를 여러 각도로 찍었어. 모델 설정은 하나도 안 바꾸고 데이터만 다양하게 했음.",
+                "createdAt": "2026-05-11T20:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t033-i2-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "다양한 배경·각도로 재학습 후 정확도 재측정 (목표 85%+)",
+            "isDone": true,
+            "note": "배경과 각도를 섞은 데이터로 재학습. 같은 테스트 20장에서 정확도 88%로 올랐어. 모델은 그대로인데 데이터만 바꿔서 28%p가 오른 거였음.",
+            "reviewNote": "'AI 성능을 올린다'가 곧 '좋은 데이터를 모은다'라는 걸 몸으로 배웠어. 모델을 의심하기 전에 내가 준 데이터를 먼저 의심해야 한다는 교훈을 얻었음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t033-i2-w2-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-05-22T21:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t033-i2-w2-reflection",
+                "kind": "reflection",
+                "body": "AI가 멍청해 보일 때, 진짜 원인은 내가 보여준 세상(데이터)이 좁아서인 경우가 많다는 걸 배웠어. 60%→88%를 만든 건 똑똑한 모델이 아니라 다양한 사진이었음.",
+                "createdAt": "2026-05-22T21:30:00.000Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T034",
+    "ownerId": "demo-user-t034",
+    "ownerName": "백서진",
+    "ownerEmoji": "🔎",
+    "ownerGrade": "high1",
+    "title": "[탐구] AI는 자신 있게 거짓말한다 — 챗봇 답변 50개를 팩트체크해 오류 13건을 찾아낸 기록",
+    "description": "수행평가를 AI로 도와 하다 '어? 이거 진짜야?' 싶은 답을 만났어요. 그래서 챗봇 답변 50개를 출처로 직접 검증해봤습니다. AI를 잘 쓰는 능력은 '의심하고 검증하는 능력'이라는 걸 깨달은 4주 탐구입니다. 오류 13건을 유형별로 정리하고, 나만의 검증 체크리스트를 만들었어요.",
+    "period": "afterschool",
+    "starColor": "#EF4444",
+    "focusItemTypes": [
+      "paper",
+      "activity"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 92,
+    "bookmarks": 48,
+    "viewCount": 1120,
+    "commentCount": 3,
+    "sharedAt": "2026-05-30T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t034-c1",
+        "authorName": "이준영",
+        "authorEmoji": "📝",
+        "content": "AI 답을 그냥 믿었었는데, 50개나 검증한 데이터 보니 정신이 번쩍 드네요.",
+        "createdAt": "2026-05-31T10:00:00.000Z"
+      },
+      {
+        "id": "t034-c2",
+        "authorName": "서하윤",
+        "authorEmoji": "🧭",
+        "content": "검증 체크리스트 공유해주실 수 있나요? 수행평가에 바로 쓰고 싶어요.",
+        "createdAt": "2026-06-01T13:00:00.000Z"
+      },
+      {
+        "id": "t034-c3",
+        "authorName": "노태경",
+        "authorEmoji": "⚖️",
+        "content": "오류 유형을 4가지로 나눈 게 깔끔해요. 특히 '가짜 출처' 부분이 무섭네요.",
+        "createdAt": "2026-06-02T16:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t034-ms1",
+        "title": "검증용 질문 50개 + 채점 기준 확정",
+        "description": "역사·과학·시사 등 사실 확인이 가능한 질문 50개를 정하고, '맞음/틀림/애매'의 판정 기준을 세움.",
+        "monthWeekLabel": "1주차",
+        "recordedAt": "2026-05-09T20:00:00.000Z"
+      },
+      {
+        "id": "t034-ms2",
+        "title": "오류 13건 발견 + 4가지 유형 분류 + 체크리스트 완성",
+        "description": "답변 50개 중 13건의 사실 오류를 찾아 4가지 유형으로 분류하고, 5단계 검증 체크리스트로 정리.",
+        "monthWeekLabel": "4주차",
+        "recordedAt": "2026-05-29T21:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "AI 답변 팩트체크 보고서 + 오류 13건 분류표 + 검증 체크리스트",
+    "finalResultDescription": "질문 50개 검증 결과(정답률·오류율), 오류 13건의 유형별 분류표, 'AI 답을 믿기 전 5단계 검증 체크리스트' 포함. 학급에 공유함.",
+    "items": [
+      {
+        "id": "t034-i1",
+        "type": "paper",
+        "title": "검증 설계: 무엇을 어떻게 '틀렸다'고 판정할까",
+        "months": [
+          5
+        ],
+        "difficulty": 3,
+        "targetOutput": "검증 질문 50개 + 판정 기준표",
+        "successCriteria": "질문마다 신뢰할 출처(교과서·공식기관)로 정답 확정",
+        "subItems": [
+          {
+            "id": "t034-i1-w1",
+            "weekNumber": 1,
+            "weekLabel": "1주차",
+            "entryType": "goal",
+            "title": "사실 검증 가능한 질문 50개 선정 + 출처로 정답 미리 확정",
+            "isDone": true,
+            "note": "'조선왕조실록 편찬 연도'처럼 답이 딱 떨어지는 질문 50개를 골랐어. 의견·예측 질문은 검증이 안 되니 제외. 각 질문의 정답을 교과서·국사편찬위·공식기관 자료로 먼저 확정해뒀음.",
+            "reviewNote": "정답을 먼저 못 박아둬야 AI가 틀렸는지 판단할 수 있다는 걸 배웠어. '검증 가능한 질문'과 '의견 질문'을 구분하는 것 자체가 첫 공부였음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t034-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-09T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t034-i1-w1-cp",
+                "kind": "problem",
+                "body": "처음엔 'AI가 틀렸다'를 어떻게 증명하지가 막막했어. 'AI 생각이 이상하다'는 건 검증이 안 되잖아. 진짜 문제는 '검증 가능한 질문만 골라내는 것'이었음.",
+                "createdAt": "2026-05-06T19:00:00.000Z"
+              },
+              {
+                "id": "t034-i1-w1-change",
+                "kind": "change",
+                "body": "질문을 '정답이 하나로 딱 떨어지는 사실 질문'으로만 한정했어. 그리고 정답을 공식 출처로 먼저 확정. 이제 AI 답을 이 정답과 대조만 하면 판정이 객관적으로 됨.",
+                "createdAt": "2026-05-08T20:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "t034-i2",
+        "type": "activity",
+        "title": "50개 검증 실행 & 오류 유형 분석",
+        "months": [
+          5
+        ],
+        "difficulty": 4,
+        "targetOutput": "검증 결과표 50행 + 오류 유형 분류표 + 체크리스트",
+        "successCriteria": "오류 10건 이상 발견·유형 분류 + 5단계 검증 체크리스트 완성",
+        "subItems": [
+          {
+            "id": "t034-i2-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "질문 50개 답변 받아 출처와 대조하며 맞음/틀림 판정 기록",
+            "isDone": true,
+            "note": "50개를 다 물어보고 출처와 대조. 13건이 사실 오류였어. 충격은 AI가 틀린 답을 '틀림없이'라는 식으로 자신 있게 말했다는 점. 심지어 없는 논문을 출처로 댄 경우도 2건 있었어.",
+            "reviewNote": "AI의 '자신감'과 '정확도'가 전혀 비례하지 않는다는 걸 50개 데이터로 확인했어. 말투가 단호하다고 맞는 게 아니라는 걸 숫자로 배웠음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t034-i2-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-20T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t034-i2-w1-cp",
+                "kind": "problem",
+                "body": "AI가 '○○○ 논문(2019)에 따르면'이라며 출처를 댔는데, 검색해보니 그런 논문이 존재하지 않았어. 가짜 출처를 진짜처럼 만들어내는 게 제일 위험한 진짜 문제였음.",
+                "createdAt": "2026-05-16T19:00:00.000Z"
+              },
+              {
+                "id": "t034-i2-w1-debug",
+                "kind": "debug",
+                "body": "오류 13건을 유형으로 나눴어: ①연도·숫자 틀림 6건 ②가짜 출처 2건 ③최신 정보 누락 3건 ④비슷한 사건 혼동 2건. 유형을 나누니 '어떤 질문에서 AI를 더 의심해야 하는지'가 보였음.",
+                "createdAt": "2026-05-18T21:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t034-i2-w2",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "오류 패턴으로 'AI 답 믿기 전 5단계 검증 체크리스트' 만들기",
+            "isDone": true,
+            "note": "오류 유형에서 거꾸로 체크리스트를 뽑았어: ①숫자·연도는 반드시 재검색 ②출처는 실제 존재하는지 클릭 ③'최신' 정보인지 날짜 확인 ④비슷한 사건과 헷갈렸는지 ⑤2개 이상 출처로 교차확인. 학급 단톡에 공유했어.",
+            "reviewNote": "내가 찾은 오류 13건이 그냥 '실수 모음'이 아니라, 다음에 안 속을 '검증 도구'가 됐어. 문제를 찾는 데서 끝내지 않고 도구로 바꾼 게 제일 뿌듯했음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t034-i2-w2-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-05-29T21:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t034-i2-w2-reflection",
+                "kind": "reflection",
+                "body": "AI를 잘 쓰는 사람은 AI를 많이 믿는 사람이 아니라, 어디서 의심해야 하는지 아는 사람이라는 결론에 도달했어. '진짜 문제를 찾는 눈'이 AI 시대의 진짜 실력이라는 걸 50개 검증으로 배웠음.",
+                "createdAt": "2026-05-29T21:30:00.000Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
+  },
+  {
+    "id": "tpl-career-T035",
+    "ownerId": "demo-user-t035",
+    "ownerName": "류재희",
+    "ownerEmoji": "✍️",
+    "ownerGrade": "high2",
+    "title": "[실험] 같은 문제, 프롬프트 5가지 — AI 답변 품질을 4개 항목으로 점수화해 비교한 기록",
+    "description": "AI한테 같은 걸 물어도 어떻게 묻느냐에 따라 답이 천차만별인 게 신기했어요. 그래서 '독후감 피드백'이라는 같은 과제에 프롬프트 5종을 실험하고, 4개 항목 채점표로 30회를 점수화해 비교했습니다. '잘 묻는 법'을 감이 아니라 데이터로 찾아낸 6주 실험 기록입니다.",
+    "period": "semester",
+    "starColor": "#F59E0B",
+    "focusItemTypes": [
+      "project",
+      "paper"
+    ],
+    "shareScope": "public",
+    "shareChannels": [
+      "public"
+    ],
+    "groupIds": [],
+    "likes": 70,
+    "bookmarks": 38,
+    "viewCount": 850,
+    "commentCount": 2,
+    "sharedAt": "2026-05-27T09:00:00.000Z",
+    "comments": [
+      {
+        "id": "t035-c1",
+        "authorName": "황도연",
+        "authorEmoji": "🎯",
+        "content": "프롬프트를 감이 아니라 점수표로 비교한 게 진짜 실험 같아요. 통제변인 잡은 것도 좋네요.",
+        "createdAt": "2026-05-28T10:00:00.000Z"
+      },
+      {
+        "id": "t035-c2",
+        "authorName": "전시우",
+        "authorEmoji": "🧪",
+        "content": "'역할 부여 + 예시 제공'이 1등이라는 결과가 흥미로워요. 채점표 양식 공유 부탁해요!",
+        "createdAt": "2026-05-29T14:00:00.000Z"
+      }
+    ],
+    "milestoneResults": [
+      {
+        "id": "t035-ms1",
+        "title": "프롬프트 5종 + 4항목 채점표 설계 완료",
+        "description": "같은 과제에 ①단순 ②역할부여 ③단계지시 ④예시제공 ⑤역할+예시 5종을 정하고, 구체성·정확성·실용성·일관성 4항목 채점표를 만듦.",
+        "monthWeekLabel": "2주차",
+        "recordedAt": "2026-04-25T20:00:00.000Z"
+      },
+      {
+        "id": "t035-ms2",
+        "title": "30회 시행 점수표 + 1등 프롬프트 도출",
+        "description": "프롬프트당 6회씩 30회 시행을 채점. '역할부여+예시제공'이 평균 최고점을 받음.",
+        "monthWeekLabel": "6주차",
+        "recordedAt": "2026-05-25T21:00:00.000Z"
+      }
+    ],
+    "finalResultTitle": "프롬프트 비교 실험 보고서 + 30회 점수표 + 프롬프트 작성 가이드",
+    "finalResultDescription": "프롬프트 5종 × 6회 = 30회 채점 결과표, 4항목 평균 점수 비교 그래프, '좋은 프롬프트 4원칙' 가이드 포함.",
+    "items": [
+      {
+        "id": "t035-i1",
+        "type": "paper",
+        "title": "실험 설계: 무엇을 같게 두고 무엇만 바꿀까",
+        "months": [
+          4
+        ],
+        "difficulty": 3,
+        "targetOutput": "프롬프트 5종 + 4항목 채점 기준표",
+        "successCriteria": "통제변인(과제·모델·횟수) 고정 + 채점 기준을 항목별 1~5점으로 명문화",
+        "subItems": [
+          {
+            "id": "t035-i1-w1",
+            "weekNumber": 2,
+            "weekLabel": "2주차",
+            "entryType": "goal",
+            "title": "프롬프트 5종과 4개 채점 항목(각 1~5점)을 명확히 정의",
+            "isDone": true,
+            "note": "과제는 '내 독후감에 피드백 주기'로 고정. 프롬프트만 ①단순 ②역할부여('국어 선생님처럼') ③단계지시 ④예시제공 ⑤역할+예시로 바꿈. 채점은 구체성·정확성·실용성·일관성 4항목 각 1~5점.",
+            "reviewNote": "과제·AI 모델·시행 횟수를 똑같이 두고 프롬프트만 바꾼 게 핵심이었어. 과학 실험의 변인 통제를 AI 실험에 그대로 적용하니 결과를 비교할 수 있게 됐음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t035-i1-w1-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-04-25T20:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t035-i1-w1-cp",
+                "kind": "problem",
+                "body": "처음엔 '어떤 프롬프트가 좋다'를 느낌으로만 말하고 있었어. 근거를 대라면 못 댔음. 진짜 문제는 '좋다'를 잴 자가 없다는 거였어.",
+                "createdAt": "2026-04-22T19:00:00.000Z"
+              },
+              {
+                "id": "t035-i1-w1-change",
+                "kind": "change",
+                "body": "막연한 '좋다'를 구체성·정확성·실용성·일관성 4개 항목 점수로 쪼갰어. 이제 어느 프롬프트가 '어떤 면에서' 좋은지 항목별로 말할 수 있게 됨.",
+                "createdAt": "2026-04-24T20:00:00.000Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "t035-i2",
+        "type": "project",
+        "title": "30회 시행 & 점수 분석",
+        "months": [
+          4,
+          5
+        ],
+        "difficulty": 4,
+        "targetOutput": "30회 채점 결과표 + 비교 그래프 + 작성 가이드",
+        "successCriteria": "프롬프트당 6회씩 30회 채점 완료 + 평균 점수로 순위 도출",
+        "subItems": [
+          {
+            "id": "t035-i2-w1",
+            "weekNumber": 4,
+            "weekLabel": "4주차",
+            "entryType": "goal",
+            "title": "프롬프트 5종 × 6회 = 30회 답변 받아 4항목 채점표 채우기",
+            "isDone": true,
+            "note": "한 프롬프트당 6번씩 돌려서 답을 받고 4항목으로 채점했어. 같은 프롬프트도 매번 답이 조금씩 달라서, 6회 평균을 내야 공정하다는 걸 알았음. 30행짜리 점수표 완성.",
+            "reviewNote": "1회만 보고 판단했으면 운에 휘둘렸을 거야. 같은 프롬프트를 6번 반복해 평균 낸 게, AI의 '들쭉날쭉함'을 다루는 방법이었음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t035-i2-w1-cs",
+                "kind": "status",
+                "body": "진행 중 → 완료",
+                "createdAt": "2026-05-09T20:00:00.000Z",
+                "statusFrom": "inprogress",
+                "statusTo": "done"
+              },
+              {
+                "id": "t035-i2-w1-cp",
+                "kind": "problem",
+                "body": "같은 프롬프트인데 돌릴 때마다 점수가 달라서 '이러면 비교가 되나' 싶었어. AI 답이 매번 똑같지 않다는 게 실험을 흔드는 문제였음.",
+                "createdAt": "2026-05-05T19:00:00.000Z"
+              },
+              {
+                "id": "t035-i2-w1-debug",
+                "kind": "debug",
+                "body": "한 번이 아니라 프롬프트당 6회씩 돌려 평균을 쓰기로 했어. 반복 측정으로 우연을 평균에 묻으니, 프롬프트 간 점수 차이가 우연보다 크다는 게 비로소 보였음.",
+                "createdAt": "2026-05-07T21:00:00.000Z"
+              }
+            ]
+          },
+          {
+            "id": "t035-i2-w2",
+            "weekNumber": 6,
+            "weekLabel": "6주차",
+            "entryType": "goal",
+            "title": "평균 점수로 순위 매기고 '좋은 프롬프트 4원칙' 가이드로 정리",
+            "isDone": true,
+            "note": "결과: ⑤역할+예시(평균 4.5) > ④예시(4.0) > ②역할(3.5) > ③단계(3.3) > ①단순(2.4). 여기서 '역할을 주고, 예시를 보여주고, 단계를 나누고, 구체적으로 물어라'는 4원칙을 뽑아 가이드로 만들었어.",
+            "reviewNote": "막연했던 '프롬프트 잘 쓰는 법'을 내 데이터로 증명된 4원칙으로 바꾼 게 가장 값졌어. 이제 AI한테 뭘 물을 때 감이 아니라 근거로 묻게 됐음.",
+            "goalStatus": "done",
+            "comments": [
+              {
+                "id": "t035-i2-w2-cs",
+                "kind": "status",
+                "body": "할 일 → 완료",
+                "createdAt": "2026-05-25T21:00:00.000Z",
+                "statusFrom": "todo",
+                "statusTo": "done"
+              },
+              {
+                "id": "t035-i2-w2-reflection",
+                "kind": "reflection",
+                "body": "AI를 잘 쓰는 건 마법 주문을 외우는 게 아니라, 가설을 세우고 실험으로 검증하는 일이라는 걸 배웠어. 프롬프트도 과학처럼 측정하고 비교하면 답이 나온다는 걸 30회로 확인했음.",
+                "createdAt": "2026-05-25T21:30:00.000Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "finalResultImageUrl": ""
   }
 ]
