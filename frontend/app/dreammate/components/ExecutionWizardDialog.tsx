@@ -67,6 +67,8 @@ interface ExecutionWizardDialogProps {
   onSubmit: (payload: ExecutionWizardPayload) => void;
   /** "처음부터 직접 만들기" — 빈 로드맵 생성 후 에디터 열기 (페이지에서 배선) */
   onStartBlank?: () => void;
+  /** "빌더로 만들기" — 트랙(project/paper)별 4단계 빌더 다이얼로그 열기 */
+  onOpenBuilder?: (trackId: 'project' | 'paper') => void;
 }
 
 const DIFFICULTY_LABEL: Record<number, string> = { 1: '매우 쉬움', 2: '쉬움', 3: '보통', 4: '어려움', 5: '매우 어려움' };
@@ -127,9 +129,11 @@ function buildSubItems(weeklyGoals: WeeklyGoal[], startMonth: number): RoadmapTo
 function StepCategory({
   onSelect,
   onStartBlank,
+  onOpenBuilder,
 }: {
   onSelect: (cat: Category) => void;
   onStartBlank?: () => void;
+  onOpenBuilder?: (trackId: 'project' | 'paper') => void;
 }) {
   const countOf = (cat: Category) =>
     cat.subgroups
@@ -176,6 +180,40 @@ function StepCategory({
           </motion.button>
         ))}
       </div>
+
+      {/* 특화 빌더 (4단계 트랙) — 프로젝트 / 논문·보고서 */}
+      {onOpenBuilder && [
+        { track: 'project' as const, emoji: '🧩', title: '프로젝트 빌더로 만들기', desc: '문제찾기 → 개발 → 테스트 → 성찰, 4단계로 반복하며 완성해요' },
+        { track: 'paper' as const,   emoji: '📄', title: '논문·보고서 빌더로 만들기', desc: '주제·질문 → 조사·설계 → 분석·검증 → 집필, 4단계로 완성해요' },
+      ].map((b, i) => (
+        <motion.button
+          key={b.track}
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: (categories.length + i) * 0.05, type: 'spring', stiffness: 400, damping: 24 }}
+          whileHover={{ scale: 1.01 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onOpenBuilder(b.track)}
+          className="w-full flex items-center gap-3 p-3.5 rounded-2xl text-left mt-1"
+          style={{
+            background: 'linear-gradient(135deg, rgba(108,92,231,0.22), rgba(139,92,246,0.10))',
+            border: '1.5px solid rgba(139,92,246,0.45)',
+            boxShadow: '0 2px 16px rgba(108,92,231,0.25)',
+          }}
+        >
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 text-xl" style={{ backgroundColor: 'rgba(139,92,246,0.2)' }}>
+            {b.emoji}
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="text-sm font-bold text-white flex items-center gap-1.5">
+              {b.title}
+              <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(139,92,246,0.3)', color: '#c4b5fd' }}>특화 도구</span>
+            </div>
+            <div className="text-[11px] text-gray-300 mt-0.5 leading-snug">{b.desc}</div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-purple-300 flex-shrink-0" />
+        </motion.button>
+      ))}
 
       {/* 처음부터 직접 만들기 */}
       {onStartBlank && (
@@ -478,7 +516,7 @@ function StepWeekly({
 /* ═══════════════════════════════════════════
    Main Wizard
 ═══════════════════════════════════════════ */
-export function ExecutionWizardDialog({ onClose, onSubmit, onStartBlank }: ExecutionWizardDialogProps) {
+export function ExecutionWizardDialog({ onClose, onSubmit, onStartBlank, onOpenBuilder }: ExecutionWizardDialogProps) {
   const [step, setStep] = useState<StepKey>('category');
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [selectedGroup, setSelectedGroup] = useState<Subgroup | null>(null);
@@ -639,7 +677,7 @@ export function ExecutionWizardDialog({ onClose, onSubmit, onStartBlank }: Execu
         <div className="flex-1 overflow-y-auto px-5 pb-6">
           <AnimatePresence mode="wait">
             {step === 'category' && (
-              <StepCategory onSelect={handleSelectCategory} onStartBlank={onStartBlank} />
+              <StepCategory onSelect={handleSelectCategory} onStartBlank={onStartBlank} onOpenBuilder={onOpenBuilder} />
             )}
             {step === 'group' && selectedCategory && (
               <StepGroup category={selectedCategory} onSelect={handleSelectGroup} />

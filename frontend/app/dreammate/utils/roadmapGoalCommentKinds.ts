@@ -15,6 +15,7 @@ export interface RoadmapGoalCommentKindMeta {
 export const GOAL_COMMENT_KINDS: readonly RoadmapGoalCommentKindMeta[] = [
   { key: 'problem', label: '진짜문제', emoji: '🔍', color: '#ef4444' },
   { key: 'change', label: '바뀐변화', emoji: '🔄', color: '#22c55e' },
+  { key: 'ai', label: 'AI활용', emoji: '🤖', color: '#6366f1' },
   { key: 'debug', label: '디버깅', emoji: '🔧', color: '#f97316' },
   { key: 'progress', label: '진행', emoji: '⏳', color: '#3b82f6' },
   { key: 'reflection', label: '배운점', emoji: '💡', color: '#eab308' },

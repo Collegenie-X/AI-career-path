@@ -48,10 +48,11 @@ export interface RoadmapTodoItem {
 /** 주차 목표의 Jira식 진행 상태 — 할 일 / 진행 중 / 완료 / 막힘 */
 export type RoadmapGoalStatus = 'todo' | 'inprogress' | 'done' | 'blocked';
 
-/** 목표 코멘트 종류 — 진짜 문제·바뀐 변화를 우선으로 추적. 'status'는 상태 변경 자동 기록 */
+/** 목표 코멘트 종류 — 진짜 문제·바뀐 변화를 우선으로 추적. 'ai'는 AI 활용 기록, 'status'는 상태 변경 자동 기록 */
 export type RoadmapGoalCommentKind =
   | 'problem'
   | 'change'
+  | 'ai'
   | 'debug'
   | 'progress'
   | 'reflection'

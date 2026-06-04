@@ -2,7 +2,7 @@
 
 import { useMemo, useState, type ChangeEvent } from 'react';
 import { ExecutionPlanAiGenerateDialog } from './execution-plan-ai/ExecutionPlanAiGenerateDialog';
-import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X } from 'lucide-react';
+import { Sparkles, ChevronDown, ChevronUp, Plus, Trash2, X, ArrowLeft } from 'lucide-react';
 import { RoadmapEditorAccordionHeaderButton } from './roadmap-editor-ui/RoadmapEditorAccordionHeaderButton';
 import { RoadmapEditorGradientAccordionShell } from './roadmap-editor-ui/RoadmapEditorGradientAccordionShell';
 import { RoadmapEditorColorSwatchRow } from './roadmap-editor-ui/RoadmapEditorColorSwatchRow';
@@ -64,7 +64,11 @@ interface RoadmapEditorDialogProps {
   submitLabel: string;
   initialValues: RoadmapEditorPayload;
   onClose: () => void;
+  /** 이전 화면으로 돌아가기 — 제공되면 헤더 왼쪽에 뒤로가기 버튼 표시 */
+  onBack?: () => void;
   onSubmit: (payload: RoadmapEditorPayload) => void;
+  /** "빌더에서 편집" — 4단계 트랙 빌더(/dreammate/build)로 이동 */
+  onOpenBuilder?: () => void;
 }
 
 const COLOR_OPTIONS = ['#6C5CE7', '#3B82F6', '#EC4899', '#22C55E', '#F97316', '#EAB308'];
@@ -206,7 +210,9 @@ export function RoadmapEditorDialog({
   submitLabel,
   initialValues,
   onClose,
+  onBack,
   onSubmit,
+  onOpenBuilder,
 }: RoadmapEditorDialogProps) {
   const [roadmapTitle, setRoadmapTitle] = useState(initialValues.title);
   const [description, setDescription] = useState(initialValues.description);
@@ -605,8 +611,29 @@ export function RoadmapEditorDialog({
       >
         <div className="flex items-center justify-between px-5 pt-5 pb-3 flex-shrink-0">
           <div className="flex items-center gap-2 min-w-0">
+            {onBack && (
+              <button
+                onClick={onBack}
+                aria-label="뒤로 가기"
+                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 hover:bg-white/10 transition-colors"
+                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+              >
+                <ArrowLeft className="w-4 h-4 text-gray-300" />
+              </button>
+            )}
             <h3 className="text-lg font-black text-white truncate">{title}</h3>
           </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {onOpenBuilder && (
+              <button
+                onClick={onOpenBuilder}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-white"
+                style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.3), rgba(139,92,246,0.15))', border: '1px solid rgba(139,92,246,0.5)' }}
+                title="4단계 트랙 빌더로 편집"
+              >
+                🧩 빌더에서 편집
+              </button>
+            )}
           <button
             onClick={onClose}
             className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
@@ -614,6 +641,7 @@ export function RoadmapEditorDialog({
           >
             <X className="w-4 h-4 text-gray-400" />
           </button>
+          </div>
         </div>
 
         <div className="flex-1 min-h-0 overflow-y-auto px-5 pb-4 space-y-5">

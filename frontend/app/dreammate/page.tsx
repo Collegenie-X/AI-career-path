@@ -13,6 +13,8 @@ import { PortfolioTab } from './components/PortfolioTab';
 import { PortfolioReportDialog } from './components/PortfolioReportDialog';
 import { RoadmapEditorDialog } from './components/RoadmapEditorDialog';
 import { ExecutionWizardDialog } from './components/ExecutionWizardDialog';
+import { ProjectBuilderDialog } from './build/ProjectBuilderDialog';
+import { getTrackForRoadmap, type TrackId } from './build/tracks';
 import { RoadmapDetailDialog } from './components/RoadmapDetailDialog';
 import { RoadmapShareDialog } from './components/RoadmapShareDialog';
 import { DreamMateHeroBanner } from './components/DreamMateHeroBanner';
@@ -65,6 +67,10 @@ function DreamMatePageContent() {
   const [showLibraryCreateDialog, setShowLibraryCreateDialog] = useState(false);
   const [showSpaceCreateDialog, setShowSpaceCreateDialog] = useState(false);
   const [portfolioReportRoadmapId, setPortfolioReportRoadmapId] = useState<string | null>(null);
+  /** 빌더 다이얼로그 — null이면 닫힘. 트랙(project/paper)·모드·수정 대상 id */
+  const [builderState, setBuilderState] = useState<{ mode: 'create' | 'edit'; trackId: TrackId; roadmapId: string | null } | null>(null);
+  /** "처음부터 직접 만들기" — 저장 전 에디터 표시 (제출 시에만 생성) */
+  const [showBlankCreateDialog, setShowBlankCreateDialog] = useState(false);
 
   const workspace = useDreamMateWorkspaceContext();
 
@@ -338,7 +344,45 @@ function DreamMatePageContent() {
           }}
           onStartBlank={() => {
             if (!requireAuthForMutation()) return;
-            workspace.handleCreateBlankRoadmap();
+            workspace.setShowCreateRoadmapDialog(false);
+            setShowBlankCreateDialog(true);
+          }}
+          onOpenBuilder={(trackId) => {
+            if (!requireAuthForMutation()) return;
+            workspace.setShowCreateRoadmapDialog(false);
+            setBuilderState({ mode: 'create', trackId, roadmapId: null });
+          }}
+        />
+      )}
+
+      {canMutate && showBlankCreateDialog && (
+        <RoadmapEditorDialog
+          title="실행계획 만들기"
+          submitLabel="만들기 완료"
+          initialValues={{
+            title: '',
+            description: '',
+            period: 'semester',
+            starColor: '#6C5CE7',
+            focusItemTypes: ['project'],
+            milestoneResults: [],
+            finalResultTitle: '',
+            finalResultDescription: '',
+            finalResultUrl: '',
+            finalResultImageUrl: '',
+            groupIds: [],
+            items: [],
+          }}
+          onClose={() => setShowBlankCreateDialog(false)}
+          onBack={() => {
+            setShowBlankCreateDialog(false);
+            workspace.setShowCreateRoadmapDialog(true);
+          }}
+          onSubmit={(payload) => {
+            if (!requireAuthForMutation()) return;
+            workspace.handleCreateRoadmap(payload);
+            setShowBlankCreateDialog(false);
+            changeTab('my');
           }}
         />
       )}
@@ -362,9 +406,46 @@ function DreamMatePageContent() {
             items: workspace.editingRoadmap.items,
           }}
           onClose={() => workspace.setEditingRoadmapId(null)}
+          onBack={() => {
+            workspace.setEditingRoadmapId(null);
+            workspace.setShowCreateRoadmapDialog(true);
+          }}
           onSubmit={(payload) => {
             if (!requireAuthForMutation()) return;
             workspace.handleUpdateRoadmap(workspace.editingRoadmap!.id, payload);
+          }}
+          onOpenBuilder={() => {
+            if (!requireAuthForMutation()) return;
+            const roadmap = workspace.editingRoadmap!;
+            workspace.setEditingRoadmapId(null);
+            setBuilderState({ mode: 'edit', trackId: getTrackForRoadmap(roadmap).id, roadmapId: roadmap.id });
+          }}
+        />
+      )}
+
+      {canMutate && builderState && (
+        <ProjectBuilderDialog
+          mode={builderState.mode}
+          trackId={builderState.trackId}
+          initialRoadmap={builderState.roadmapId ? workspace.roadmaps.find((r) => r.id === builderState.roadmapId) ?? null : null}
+          onClose={() => setBuilderState(null)}
+          onBack={() => {
+            if (builderState.mode === 'edit' && builderState.roadmapId) {
+              workspace.setEditingRoadmapId(builderState.roadmapId);
+            } else {
+              workspace.setShowCreateRoadmapDialog(true);
+            }
+            setBuilderState(null);
+          }}
+          onCreate={(payload) => {
+            if (!requireAuthForMutation()) return;
+            workspace.handleCreateRoadmap(payload);
+            changeTab('my');
+          }}
+          onUpdate={(payload) => {
+            if (!requireAuthForMutation()) return;
+            if (builderState.roadmapId) workspace.handleUpdateRoadmap(builderState.roadmapId, payload);
+            changeTab('my');
           }}
         />
       )}

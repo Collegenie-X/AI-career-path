@@ -114,6 +114,7 @@ export default function RoadmapDetailPage() {
             items: roadmap.items,
           }}
           onClose={() => setShowEditDialog(false)}
+          onBack={() => setShowEditDialog(false)}
           onSubmit={(payload) => {
             workspace.handleUpdateRoadmap(roadmap.id, payload);
             setShowEditDialog(false);
