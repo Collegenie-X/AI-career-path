@@ -6,68 +6,70 @@
   "color": "#F59E0B",
   "bgColor": "#2a1a08",
   "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-  "description": "머릿속 상상을 진짜로 만들어 내는 창작자들이 모인 별이에요. 빈 종이와 빈 화면 위에 색과 글과 이야기를 채워 넣으며 세상에 없던 작품을 탄생시키죠. 자신만의 감성과 개성으로 사람들의 마음을 움직이고 싶은 이들의 우주랍니다.",
+  "description": "머릿속 상상을 진짜 영상으로 만들어 내는 창작자들이 모인 별이에요. Cling AI·Sora·CapCut 같은 AI 도구로 혼자서도 광고·뮤직비디오·영화 같은 영상을 만들 수 있는 시대, 자신만의 감성과 감독 안목으로 세상에 없던 콘텐츠를 탄생시키는 이들의 우주랍니다.",
   "riasecTypes": [
     "A"
   ],
-  "jobCount": 32,
+  "jobCount": 33,
   "starProfile": {
-    "tagline": "한 번도 본 적 없는 것을 새로 만들고 싶은 친구들의 별이에요",
+    "tagline": "한 번도 본 적 없는 영상을 AI와 함께 만들고 싶은 창작자들의 별이에요",
     "coreTraits": [
       {
-        "icon": "🧭",
-        "label": "감성 디렉팅",
-        "desc": "AI가 100가지를 만들어도, '어떤 감정을 전할지' 방향을 정하는 건 사람의 몫이에요"
+        "icon": "🎬",
+        "label": "영상 감성 디렉팅",
+        "desc": "Cling AI·Sora가 100개의 영상을 뽑아도, '어떤 감정을 전할지' 방향을 정하는 건 사람의 몫이에요"
       },
       {
         "icon": "🤖",
-        "label": "AI 공동 창작",
-        "desc": "Midjourney·ChatGPT·Sora 같은 도구를 자기 스타일로 길들여 1인 스튜디오가 되는 능력이에요"
+        "label": "AI 영상 공동 창작",
+        "desc": "Cling AI·CapCut·Runway·Sora 같은 AI 영상 도구를 자기 스타일로 길들여 1인 영상 스튜디오가 되는 능력이에요"
       },
       {
         "icon": "👁️",
-        "label": "아이디어 큐레이션",
-        "desc": "AI가 쏟아내는 수많은 결과 중 진짜 마음을 흔드는 한 장면을 골라내는 안목이에요"
+        "label": "클립 큐레이션 안목",
+        "desc": "AI가 쏟아내는 수십 개의 영상 클립 중 진짜 마음을 흔드는 한 장면을 골라내는 안목이에요"
       },
       {
         "icon": "💎",
-        "label": "나만의 색깔",
-        "desc": "AI가 따라 만들 수 없는 자기만의 시선·취향을 작품으로 쌓아 가는 힘이에요"
+        "label": "나만의 영상 색깔",
+        "desc": "AI가 따라 만들 수 없는 자기만의 연출 시선·취향을 영상으로 쌓아 가는 힘이에요"
       }
     ],
     "fitPersonality": {
       "title": "이런 사람에게 딱 맞아요",
       "traits": [
-        "새로 나온 AI 도구를 일단 써 보고 자기 것으로 만드는 게 즐거운 사람이에요",
-        "AI가 만든 1000장 중 진짜 좋은 한 장을 알아보는 안목을 가진 사람이에요",
-        "내가 좋아하는 스타일·취향을 분명하게 설명할 수 있는 사람이에요",
-        "작품을 보고 '왜 마음이 움직였는지' 분석해 보는 사람이에요",
-        "평균이 아닌 나만의 시각을 끝까지 지키고 싶은 사람이에요"
+        "Cling AI·CapCut 같은 AI 영상 도구로 프롬프트 하나에 영상이 뚝딱 생기는 게 설레는 사람이에요",
+        "새로 나온 AI 영상 도구를 일단 써 보고 자기 것으로 만드는 게 즐거운 사람이에요",
+        "AI가 만든 100개 클립 중 진짜 좋은 한 장면을 알아보는 안목을 가진 사람이에요",
+        "내가 좋아하는 영상 스타일·분위기를 분명하게 설명할 수 있는 사람이에요",
+        "영상을 보고 '왜 마음이 움직였는지' 분석해 보는 사람이에요",
+        "평균이 아닌 나만의 영상 시각을 끝까지 지키고 싶은 사람이에요"
       ],
       "notFit": [
         "정해진 템플릿을 그대로 따라가는 게 마음 편한 사람이라면 잘 안 맞아요",
-        "새 도구·기술 익히는 걸 부담스러워하는 사람이라면 어울리지 않아요"
+        "새 AI 영상 도구·기술 익히는 걸 부담스러워하는 사람이라면 어울리지 않아요"
       ]
     },
     "whyThisGroup": {
       "title": "왜 이 직업들을 묶었나요?",
-      "reason": "생성 AI가 그림·글·영상·음악을 무한히 찍어내는 시대에도, '무엇을 만들지'·'어떤 감정을 전할지'를 결정하는 건 사람이에요. UX 디자이너·웹툰 작가·건축가·영화감독 모두 AI를 손발처럼 쓰면서도, 작품의 메시지와 감성 디렉팅, 자기 이름의 신뢰는 직접 책임지는 직업이라는 공통점이 있답니다.",
+      "reason": "Cling AI·Sora·Pika로 프롬프트 한 줄이 영화 클립이 되고, CapCut AI 하나로 전문 편집이 가능해진 시대예요. 이제 영상·디자인·음악 등 모든 창작 분야에서 AI는 손발이 됐지만, '무엇을 만들지'·'어떤 감정을 전할지'를 결정하는 건 여전히 사람이에요. UX 디자이너·영상 편집자·AI 영상 크리에이터·영화감독 모두 AI를 적극 활용하면서도, 창작의 방향과 감성 디렉팅, 자기 이름의 신뢰를 직접 책임지는 공통점이 있답니다.",
       "commonDNA": [
-        "AI 공동 창작",
+        "AI 영상·이미지 공동 창작",
         "감성 디렉팅 책임",
         "자기 스타일 자산화",
         "포트폴리오 + 팬덤",
-        "끊임없는 도구 학습"
+        "끊임없는 AI 도구 학습"
       ]
     },
     "hollandCode": "A (예술형)",
     "keySubjects": [
+      "영상",
       "미술",
       "국어/문학",
       "디자인",
-      "영상"
+      "AI 도구"
     ],
-    "careerKeyword": "#창의 #디자인 #예술 #표현 #포트폴리오",
+    "careerKeyword": "#영상제작 #AI영상 #창의 #디자인 #예술 #표현 #포트폴리오",
     "difficultyLevel": 3,
     "avgPreparationYears": 7
   },
@@ -1116,13 +1118,16 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "컷 편집·색보정·자막 삽입까지 모든 과정을 편집자가 직접 수작업으로 진행해 영상 1분에 수 시간이 걸렸다.",
-        "afterAI": "Descript·CapCut AI가 대본만 있으면 자동 자막·컷 편집을 해주는 시대. 영상 편집자의 핵심 역할은 'AI가 만든 편집의 감정 리듬이 맞는가'를 판단하는 것 — 언제 숨을 참게 하고 언제 웃음을 터트릴지, 음악과 컷의 타이밍이 관객의 감정을 어떻게 조율하는지 설계하는 스토리텔링 연출 능력이 핵심 생존 자산이다.",
+        "afterAI": "Cling AI·Runway Gen-3·Pika로 씬 자체를 AI가 생성하고, CapCut AI·Descript가 대본만 있으면 자동 자막·컷 편집을 해주는 시대. 영상 편집자의 핵심 역할은 'AI가 만든 편집의 감정 리듬이 맞는가'를 판단하는 것 — 언제 숨을 참게 하고 언제 웃음을 터트릴지, AI 생성 클립과 실제 촬영을 혼합해 최적의 컷을 구성하는 감독적 편집 능력이 핵심 생존 자산이다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Descript",
+          "Cling AI",
           "CapCut AI",
+          "Runway Gen-3",
+          "Pika",
+          "Descript",
           "Premiere Pro AI",
-          "Runway",
+          "HeyGen",
           "Suno",
           "ElevenLabs"
         ],
@@ -1146,12 +1151,14 @@
           },
           {
             "stepTitle": "2단계: AI 초벌 편집 감독 및 컷 큐레이션",
-            "humanRole": "AI 자동 편집 결과물을 보며 감정 흐름이 어긋난 컷·음악 타이밍 오류를 찾아 재배치한다",
-            "aiRole": "CapCut AI·Premiere Pro AI로 자동 컷 편집·자막 생성·배경음악 추천 및 적용",
-            "scenarioExample": "CapCut AI 자동 편집본 확인 → 편집자가 클라이맥스 컷이 3초 빨리 들어간 것을 발견, Premiere Pro에서 타이밍 직접 수정",
+            "humanRole": "AI 자동 편집 결과물을 보며 감정 흐름이 어긋난 컷·음악 타이밍 오류를 찾아 재배치하고, 부족한 씬은 Cling AI로 보충 생성한다",
+            "aiRole": "CapCut AI·Premiere Pro AI로 자동 컷 편집·자막 생성·배경음악 추천, Cling AI·Pika로 부족한 씬 영상 보충 생성",
+            "scenarioExample": "CapCut AI 자동 편집본 확인 → 편집자가 클라이맥스 컷이 3초 빨리 들어간 것을 발견 후 Premiere Pro에서 타이밍 수정 → 추가 배경 씬이 필요해 Cling AI로 보충 클립 생성",
             "recommendedTools": [
               "CapCut AI",
-              "Premiere Pro AI"
+              "Premiere Pro AI",
+              "Cling AI",
+              "Pika"
             ]
           },
           {
@@ -1521,6 +1528,243 @@
           {
             "path": "크리에이티브 테크놀로지스트",
             "description": "AI+창작 복합 전문가. 기업 AI 창작 프로그램 자문"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ai-video-creator-ai",
+      "name": "AI 영상 크리에이터",
+      "icon": "🎞️",
+      "image": "ai-video-creator-ai-hero.jpg",
+      "holland": "A",
+      "description": "Cling AI·Sora·CapCut·Runway 같은 AI 영상 도구만으로 광고·뮤직비디오·숏폼 콘텐츠를 만들어요. 프롬프트 한 줄이 영화 같은 장면이 되는 시대, AI를 감독처럼 다루는 새로운 직업이에요.",
+      "shortDesc": "AI 도구로 영상을 만드는 새 시대 크리에이터",
+      "salaryRange": "2,000~15,000만원/년",
+      "aiRisk": "낮음",
+      "futureGrowth": 5,
+      "admissionPath": "학종+정시",
+      "entryProcess": "AI 영상 툴 독학 + 포트폴리오 → SNS 채널 성장 → 광고·브랜드 협업",
+      "aiTransformation": {
+        "beforeAI": "영상 제작은 고가 카메라·조명·스튜디오·배우·편집팀이 필요한 대규모 작업이었다. 1인이 영화급 영상을 만드는 건 거의 불가능했다.",
+        "afterAI": "Cling AI·Sora·Pika로 텍스트 프롬프트 하나가 영화 클립이 되고, CapCut AI로 자동 편집·자막·효과까지 완성되는 시대. 이제 1인 크리에이터가 AI 감독 역할을 맡아 영화 같은 품질의 콘텐츠를 만들 수 있다. 핵심은 '어떤 장면을 만들지' 상상하고 AI에게 정확히 지시하는 감독적 안목이다.",
+        "replacementRisk": "low",
+        "aiTools": [
+          "Cling AI",
+          "CapCut AI",
+          "Runway Gen-3",
+          "Sora",
+          "Pika",
+          "HeyGen",
+          "Luma Dream Machine",
+          "ElevenLabs",
+          "Suno"
+        ],
+        "survivalStrategy": [
+          "AI 감독 프롬프트 마스터리 — 원하는 장면을 Cling AI·Sora에 정확히 지시하는 프롬프트 작성 능력이 핵심 기술이다",
+          "영상 스타일 디렉팅 안목 — AI가 생성한 수십 개의 클립 중 완성도 높고 감성에 맞는 컷을 선별하는 큐레이션 능력",
+          "멀티툴 워크플로우 구축 — Cling AI로 씬 생성 → CapCut AI로 편집 → ElevenLabs로 내레이션 → HeyGen으로 아바타 합성까지 파이프라인 완성",
+          "퍼스널 브랜드 영상 세계관 구축 — AI로 만들더라도 '이 크리에이터만의 색깔'이 담긴 일관된 영상 스타일로 팬덤 형성",
+          "AI 윤리·저작권 관리 — AI 생성 영상의 학습 데이터 출처, 초상권, 상업 사용 라이선스를 확인하고 책임지는 크리에이터 역할"
+        ],
+        "collaborationPlaybook": [
+          {
+            "stepTitle": "1단계: 영상 컨셉 기획 및 프롬프트 설계",
+            "humanRole": "전달할 감정·메시지·스토리를 정의하고 각 씬에 맞는 상세 프롬프트를 직접 설계한다",
+            "aiRole": "ChatGPT로 스토리보드 아이디어 초안, Notion AI로 씬별 프롬프트 시트 자동 구성",
+            "scenarioExample": "브랜드 광고 의뢰 — ChatGPT로 '30초 감동 광고' 스토리라인 3개 도출 → 크리에이터가 '자연 속 엄마와 아이'로 최종 컨셉 결정, Cling AI용 씬별 프롬프트 5개 작성",
+            "recommendedTools": ["ChatGPT", "Notion AI"]
+          },
+          {
+            "stepTitle": "2단계: Cling AI·Runway로 씬 생성 및 큐레이션",
+            "humanRole": "AI가 생성한 영상 클립들 중 컨셉과 감성에 맞는 베스트 컷을 선별하고, 부족한 씬은 프롬프트를 수정해 재생성한다",
+            "aiRole": "Cling AI·Runway Gen-3·Pika로 각 씬 영상 클립 다수 생성, Sora로 고품질 배경 영상 생성",
+            "scenarioExample": "Cling AI로 엄마-아이 산책 씬 15개 생성 → 크리에이터가 빛 방향·자연스러운 동작·감성 맞는 3개 선별 → '아이가 꽃을 건네는' 디테일 씬은 프롬프트 수정 후 재생성",
+            "recommendedTools": ["Cling AI", "Runway Gen-3", "Pika", "Sora"]
+          },
+          {
+            "stepTitle": "3단계: CapCut AI 편집 및 음악·내레이션 합성",
+            "humanRole": "선별한 클립을 CapCut AI로 조합하고, 감정 흐름에 맞는 음악 타이밍·자막·컬러 그레이딩을 직접 조율한다",
+            "aiRole": "CapCut AI 자동 편집·자막·효과 적용, ElevenLabs로 감성 내레이션 음성 생성, Suno로 영상 분위기에 맞는 BGM 생성",
+            "scenarioExample": "CapCut AI 자동 편집 후 크리에이터가 엄마 미소 컷과 음악 클라이맥스 타이밍을 0.5초 단위로 직접 조정 → ElevenLabs로 '따뜻한 여성 목소리' 내레이션 생성 후 크리에이터가 감정 강도 조절",
+            "recommendedTools": ["CapCut AI", "ElevenLabs", "Suno"]
+          },
+          {
+            "stepTitle": "4단계: HeyGen 다국어 버전·플랫폼 최적화 배포",
+            "humanRole": "완성 영상을 YouTube·Instagram Reels·TikTok에 맞게 비율·길이를 최적화하고, HeyGen으로 다국어 버전을 제작해 글로벌 배포한다",
+            "aiRole": "CapCut AI로 세로형·가로형 자동 리포맷, HeyGen으로 다국어 자막·AI 아바타 진행자 버전 자동 생성",
+            "scenarioExample": "30초 광고 완성 → CapCut AI로 TikTok(9:16)·YouTube(16:9)·Instagram(1:1) 버전 자동 변환 → HeyGen으로 영어·일본어 AI 아바타 버전 제작 → 크리에이터가 각 플랫폼 댓글 반응 직접 분석 후 다음 기획 반영",
+            "recommendedTools": ["CapCut AI", "HeyGen", "Luma Dream Machine"]
+          }
+        ]
+      },
+      "workProcess": {
+        "title": "AI 영상 크리에이터의 직무 프로세스",
+        "description": "AI 영상 도구를 활용해 아이디어에서 완성 영상까지, 혼자서도 광고·뮤직비디오·숏폼 콘텐츠를 만들어 가는 과정이에요.",
+        "phases": [
+          {
+            "id": 1,
+            "phase": "컨셉 기획",
+            "icon": "🎯",
+            "title": "영상 컨셉 및 프롬프트 시트 설계",
+            "duration": "1~2일",
+            "description": "어떤 영상을 만들지 컨셉을 잡고, AI에게 지시할 씬별 프롬프트를 설계해요.",
+            "example": "예: '자연 속 따뜻한 가족 이야기' 컨셉으로 5개 씬을 정하고, 각 씬마다 Cling AI에 넣을 상세 프롬프트를 작성해요.",
+            "tasks": [
+              "의뢰인 요구사항 파악 및 영상 컨셉 결정",
+              "씬별 스토리보드 초안 작성",
+              "AI 생성용 프롬프트 시트 설계",
+              "레퍼런스 영상 수집 및 분석",
+              "제작 일정 확정"
+            ],
+            "aiRole": "ChatGPT로 스토리라인 아이디어 초안, Notion AI로 프롬프트 시트 자동 구성",
+            "humanRole": "감동 포인트와 브랜드 메시지 결정, 씬별 감정 흐름 설계",
+            "output": ["컨셉 기획서", "씬별 프롬프트 시트", "레퍼런스 무드보드"],
+            "tools": "스토리보드 + 프롬프트 시트",
+            "skills": ["ChatGPT", "Notion AI", "Pinterest AI"]
+          },
+          {
+            "id": 2,
+            "phase": "AI 영상 생성",
+            "icon": "🎬",
+            "title": "Cling AI·Runway로 씬 클립 생성·큐레이션",
+            "duration": "1~3일",
+            "description": "설계한 프롬프트로 각 씬의 영상 클립을 AI로 생성하고, 가장 좋은 것을 골라요.",
+            "example": "예: Cling AI에 프롬프트를 넣어 한 씬당 10~20개의 클립을 생성하고, 가장 감성에 맞는 3개를 선별해요.",
+            "tasks": [
+              "Cling AI·Runway Gen-3로 씬별 클립 다수 생성",
+              "생성 클립 감성·품질 큐레이션",
+              "부족한 씬 프롬프트 수정 후 재생성",
+              "Pika·Sora·Luma Dream Machine으로 보조 클립 생성",
+              "최종 클립 세트 확정"
+            ],
+            "aiRole": "Cling AI·Runway Gen-3·Pika·Sora·Luma Dream Machine으로 다양한 영상 클립 생성",
+            "humanRole": "감성·컨셉 맞는 클립 큐레이션, 프롬프트 반복 수정으로 품질 향상",
+            "output": ["씬별 베스트 클립", "AI 생성 영상 에셋"],
+            "tools": "Cling AI·Runway·Pika·Sora·Luma 생성 클립 모음",
+            "skills": ["Cling AI", "Runway Gen-3", "Pika", "Sora", "Luma Dream Machine"]
+          },
+          {
+            "id": 3,
+            "phase": "편집·완성",
+            "icon": "✂️",
+            "title": "CapCut AI 편집 및 음악·자막·내레이션 합성",
+            "duration": "1~3일",
+            "description": "생성한 클립들을 CapCut AI로 이어 붙이고, 음악·자막·효과를 더해 완성 영상을 만들어요.",
+            "example": "예: CapCut AI가 자동으로 이어 붙여주면, 크리에이터가 음악 타이밍과 감정 흐름을 직접 조율해서 완성해요.",
+            "tasks": [
+              "CapCut AI로 클립 자동 편집·자막 생성",
+              "감정 흐름에 맞는 컷 타이밍 수동 조율",
+              "ElevenLabs로 내레이션 음성 생성",
+              "Suno로 BGM 생성 및 적용",
+              "색감·분위기 컬러 그레이딩"
+            ],
+            "aiRole": "CapCut AI 자동 편집·자막, ElevenLabs 내레이션, Suno BGM 생성",
+            "humanRole": "감정 리듬 설계, 음악-컷 동기화 조율, 최종 품질 판단",
+            "output": ["편집 완성 영상", "내레이션·BGM 합성본"],
+            "tools": "CapCut AI 편집 프로젝트",
+            "skills": ["CapCut AI", "ElevenLabs", "Suno", "Premiere Pro AI"]
+          },
+          {
+            "id": 4,
+            "phase": "배포·최적화",
+            "icon": "🚀",
+            "title": "HeyGen 다국어·멀티 플랫폼 배포",
+            "duration": "1~2일",
+            "description": "완성 영상을 YouTube·TikTok·Instagram 등 각 플랫폼에 맞게 변환하고 HeyGen으로 다국어 버전도 만들어요.",
+            "example": "예: CapCut AI로 TikTok용 세로 영상, YouTube용 가로 영상을 자동 변환하고 HeyGen으로 영어·일본어 AI 아바타 버전도 만들어요.",
+            "tasks": [
+              "CapCut AI로 플랫폼별 비율 자동 변환",
+              "HeyGen으로 다국어 자막·AI 아바타 버전 생성",
+              "플랫폼별 썸네일·캡션 최적화",
+              "업로드 후 댓글·조회수 분석",
+              "성과 데이터 기반 다음 작품 기획 반영"
+            ],
+            "aiRole": "CapCut AI 리포맷, HeyGen 다국어 버전 자동 생성",
+            "humanRole": "플랫폼별 전략 판단, 팬 반응 직접 분석, 다음 기획 방향 결정",
+            "output": ["플랫폼별 영상 파일", "다국어 버전", "성과 분석 리포트"],
+            "tools": "CapCut AI·HeyGen 배포 파일",
+            "skills": ["CapCut AI", "HeyGen", "YouTube Studio", "TikTok Studio"]
+          },
+          {
+            "id": 5,
+            "phase": "성장·학습",
+            "icon": "📈",
+            "title": "AI 도구 신기능 학습 및 스타일 고도화",
+            "duration": "상시",
+            "description": "Cling AI·Runway·CapCut 등 AI 영상 도구의 새 기능을 지속적으로 배우고 자기만의 영상 스타일을 고도화해요.",
+            "example": "예: Cling AI 새 버전이 출시되면 즉시 테스트하고, '내 스타일에 어떻게 활용할지' 실험해 보고 채널에 적용해요.",
+            "tasks": [
+              "주요 AI 영상 툴 신기능 주간 학습",
+              "경쟁 크리에이터 영상 분석 및 트렌드 파악",
+              "자기 채널 성과 분석 및 A/B 테스트",
+              "AI 프롬프트 기술 지속 개선",
+              "커뮤니티 공유 및 피드백 수집"
+            ],
+            "aiRole": "신규 AI 영상 도구 자동 생성 기능 테스트, 트렌드 분석 자동화",
+            "humanRole": "새 기능의 자기 스타일 적용 판단, 창작 방향성 결정",
+            "output": ["스타일 가이드 업데이트", "신규 프롬프트 라이브러리"],
+            "tools": "Cling AI·Runway·CapCut 최신 버전",
+            "skills": ["Cling AI", "Runway Gen-3", "CapCut AI", "Pika", "Sora"]
+          }
+        ]
+      },
+      "milestones": [
+        {
+          "level": "주니어",
+          "title": "AI 영상 어시스턴트",
+          "yearsRange": "0~2년",
+          "avgSalary": "2,000~3,500만원",
+          "roleNarrative": "Cling AI·CapCut 기본기 습득 + 단순 영상 제작 보조",
+          "competencyNarrative": "AI 영상 툴 조작 숙련 및 프롬프트 작성 기초를 익히는 단계입니다.",
+          "requiredSkills": ["Cling AI 기초", "CapCut AI 편집", "프롬프트 작성", "기초 스토리텔링"]
+        },
+        {
+          "level": "미드레벨",
+          "title": "AI 영상 크리에이터",
+          "yearsRange": "2~5년",
+          "avgSalary": "3,500~7,000만원",
+          "roleNarrative": "브랜드 광고·숏폼 콘텐츠 독립 제작 + SNS 채널 성장",
+          "competencyNarrative": "AI 멀티툴 워크플로우 완성 및 고객 단독 납품이 가능한 수준입니다.",
+          "requiredSkills": ["Cling AI 고급", "Runway Gen-3", "CapCut 심화", "브랜드 영상 기획", "HeyGen 다국어"]
+        },
+        {
+          "level": "시니어",
+          "title": "AI 영상 디렉터",
+          "yearsRange": "5~10년",
+          "avgSalary": "7,000~12,000만원",
+          "roleNarrative": "대형 브랜드 AI 영상 프로덕션 총괄 + 팀 리드",
+          "competencyNarrative": "AI 영상 제작 파이프라인 설계 및 팀원 교육까지 담당하는 수준입니다.",
+          "requiredSkills": ["AI 영상 파이프라인 설계", "팀 디렉팅", "예산 관리", "브랜드 전략", "글로벌 배포"]
+        },
+        {
+          "level": "리드",
+          "title": "AI 크리에이티브 프로듀서",
+          "yearsRange": "10년+",
+          "avgSalary": "12,000만원+",
+          "roleNarrative": "AI 영상 스튜디오 창업 또는 대기업 AI 크리에이티브 총괄",
+          "competencyNarrative": "AI 영상 업계 트렌드를 선도하고 브랜드 전략까지 연결하는 수준입니다.",
+          "requiredSkills": ["스튜디오 운영", "비즈니스 개발", "AI 영상 기술 전략", "크리에이티브 디렉션"]
+        }
+      ],
+      "organizationStructure": {
+        "teamName": "AI 비디오 프로덕션 팀",
+        "teamMission": "AI 영상 도구로 빠르고 감성 있는 고품질 콘텐츠 제작",
+        "roles": [
+          {
+            "role": "AI 영상 크리에이터",
+            "count": "1~3명",
+            "responsibility": "Cling AI·Runway 씬 생성 및 큐레이션"
+          },
+          {
+            "role": "CapCut 편집 전문가",
+            "count": "1~2명",
+            "responsibility": "AI 클립 편집·음악·자막 합성 및 플랫폼 최적화"
+          },
+          {
+            "role": "콘텐츠 기획자",
+            "count": "1명",
+            "responsibility": "영상 컨셉·프롬프트 설계 및 성과 분석"
           }
         ]
       }
@@ -2383,11 +2627,13 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "캐릭터 움직임 하나하나를 프레임별로 직접 그리는 전통 키프레임 애니메이션 방식이 기본이었고, 1초 분량에 수십 장의 그림이 필요했다.",
-        "afterAI": "Runway·Pika가 이미지나 짧은 영상을 입력하면 자동으로 움직임을 생성하는 시대. 애니메이터의 독보적 영역은 AI가 만든 움직임에서 '12가지 애니메이션 원리(스쿼시·스트레치·타이밍 등)'의 위반을 발견하고, 캐릭터 감정이 관객에게 정확히 전달되도록 눈 깜빡임 한 번의 타이밍까지 조율하는 감성 연출 능력이다.",
+        "afterAI": "Cling AI·Runway·Pika가 이미지나 텍스트 프롬프트만으로 자동으로 움직이는 영상을 생성하는 시대. 애니메이터의 독보적 영역은 AI가 만든 움직임에서 '12가지 애니메이션 원리(스쿼시·스트레치·타이밍 등)'의 위반을 발견하고, 캐릭터 감정이 관객에게 정확히 전달되도록 눈 깜빡임 한 번의 타이밍까지 조율하는 감성 연출 능력이다.",
         "replacementRisk": "high",
         "aiTools": [
-          "Runway",
+          "Cling AI",
+          "Runway Gen-3",
           "Pika",
+          "CapCut AI",
           "Midjourney",
           "Adobe Firefly",
           "Suno"
@@ -6593,11 +6839,14 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "폭발·물·불·우주선 같은 CG 효과를 프레임별로 수작업 렌더링해 VFX 씬 하나에 수십 명의 아티스트가 수개월을 작업했다.",
-        "afterAI": "Runway·Pika가 텍스트 설명만으로 사실적인 VFX 영상을 생성하는 시대. VFX 아티스트의 핵심 역할은 AI가 만든 효과에서 '물리 법칙 위반'과 '실사 합성 오류'를 발견하는 시각 전문성, 그리고 감독의 연출 의도를 VFX로 번역하는 크리에이티브 커뮤니케이션이다. AI가 아무리 빠르게 생성해도 '이 씬에서 불꽃이 이렇게 움직이면 관객이 믿지 않는다'를 판단하는 것은 인간 VFX 아티스트의 영역이다.",
+        "afterAI": "Cling AI·Sora·Runway·Pika가 텍스트 설명만으로 사실적인 VFX 영상·씬 전체를 생성하는 시대. VFX 아티스트의 핵심 역할은 AI가 만든 효과에서 '물리 법칙 위반'과 '실사 합성 오류'를 발견하는 시각 전문성, 그리고 감독의 연출 의도를 VFX로 번역하는 크리에이티브 커뮤니케이션이다. AI가 아무리 빠르게 생성해도 '이 씬에서 불꽃이 이렇게 움직이면 관객이 믿지 않는다'를 판단하는 것은 인간 VFX 아티스트의 영역이다.",
         "replacementRisk": "medium",
         "aiTools": [
-          "Runway",
+          "Cling AI",
+          "Sora",
+          "Runway Gen-3",
           "Pika",
+          "Luma Dream Machine",
           "Adobe Firefly",
           "Midjourney",
           "Premiere Pro AI"
@@ -9119,14 +9368,18 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "콘텐츠 기획부터 촬영·편집·업로드·댓글 관리까지 크리에이터가 혼자 모두 수행해 주 1~2개 업로드가 한계였다.",
-        "afterAI": "CapCut AI·Descript이 자동 편집·자막을 처리해 콘텐츠 제작 속도가 크게 빨라진다. 하지만 AI로 만든 콘텐츠가 범람하는 시대에 크리에이터의 진짜 자산은 '이 사람의 이야기'를 보러 오는 팬과의 진정성 있는 관계다. 촬영 중 실수·고민·성장 과정을 공유하는 인간적 순간은 AI 콘텐츠가 절대 대체하지 못하는 크리에이터 독점 영역이다.",
+        "afterAI": "Cling AI·Runway·Pika로 촬영 없이도 영상 씬을 AI가 생성하고, CapCut AI·Descript이 자동 편집·자막을 처리해 콘텐츠 제작 속도가 폭발적으로 빨라진다. HeyGen으로 AI 아바타가 크리에이터 대신 다국어로 진행하는 영상도 가능해졌다. 하지만 AI로 만든 콘텐츠가 범람하는 시대에 크리에이터의 진짜 자산은 '이 사람의 이야기'를 보러 오는 팬과의 진정성 있는 관계다.",
         "replacementRisk": "medium",
         "aiTools": [
+          "Cling AI",
           "CapCut AI",
+          "Runway Gen-3",
+          "HeyGen",
+          "Pika",
           "Descript",
           "ChatGPT",
           "Canva AI",
-          "Notion AI"
+          "ElevenLabs"
         ],
         "survivalStrategy": [
           "크리에이터 퍼스널 브랜드 고유성 강화 — AI가 흉내 못 내는 자기만의 말투·세계관·반복 등장 요소로 '이 사람만의 콘텐츠' 정체성 구축",
@@ -11221,10 +11474,14 @@
       "entryProcess": "관련 전공 및 실무 경로",
       "aiTransformation": {
         "beforeAI": "시나리오 분석·캐스팅·촬영 지휘·편집 감독·후반 작업까지 영화감독이 수년에 걸쳐 모든 창작 결정을 직접 내렸다.",
-        "afterAI": "AI가 VFX·배경 생성·초벌 편집을 처리해 제작 속도와 비용이 변화하는 시대. 영화감독의 절대적 독점 영역은 배우와 마주 앉아 '이 장면에서 네가 느끼는 두려움의 색깔은 뭐야?'라고 물으며 진짜 감정을 이끌어내는 현장 연출, 그리고 관객이 2시간 동안 영화 속 현실을 믿게 만드는 스토리 비전의 총체적 책임이다.",
+        "afterAI": "Cling AI·Sora·Runway Gen-3가 VFX·배경·씬 전체를 AI로 생성해 독립영화를 1인이 만들 수 있는 시대. Pika·HeyGen으로 배우 없이도 AI 배우·아바타 씬이 가능해졌다. 영화감독의 절대적 독점 영역은 배우와 마주 앉아 '이 장면에서 네가 느끼는 두려움의 색깔은 뭐야?'라고 물으며 진짜 감정을 이끌어내는 현장 연출, 그리고 관객이 2시간 동안 영화 속 현실을 믿게 만드는 스토리 비전의 총체적 책임이다.",
         "replacementRisk": "low",
         "aiTools": [
-          "Runway",
+          "Cling AI",
+          "Sora",
+          "Runway Gen-3",
+          "Pika",
+          "HeyGen",
           "Midjourney",
           "ChatGPT",
           "Claude",

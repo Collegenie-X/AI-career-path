@@ -37,7 +37,7 @@
         "tips": [
           "학년 초 R&E 지원 신청",
           "정보올림피아드 1차는 꼭 통과",
-          "해커톤 경험 면접 답변에 활용"
+          "해커톤 경험 자소서에 활용"
         ]
       },
       {
@@ -1321,7 +1321,7 @@
         "gradeId": "high3",
         "gradeLabel": "고3",
         "goals": [
-          "수시: 면접·생기부 점검",
+          "수시: 자소서·면접 준비",
           "정시: 수능 1등급 4개",
           "유학: 에세이·추천서 완성"
         ],
@@ -1896,7 +1896,7 @@
             "difficulty": 4,
             "cost": "무료~학원비",
             "organizer": "각 학교",
-            "description": "KAIST EE 진학에 유리한 과학고·영재학교. 면접·생기부 점검. 수학·과학 심화.",
+            "description": "KAIST EE 진학에 유리한 과학고·영재학교. 자소서·면접 준비. 수학·과학 심화.",
             "categoryTags": [
               "activity"
             ],
@@ -2420,7 +2420,7 @@
         "gradeId": "high3",
         "gradeLabel": "고3",
         "goals": [
-          "수시: 면접·생기부 점검",
+          "수시: 자소서·면접 준비",
           "정시: 수능 1등급",
           "유학: 에세이 완성"
         ],
@@ -2684,7 +2684,7 @@
             "difficulty": 3,
             "cost": "무료",
             "organizer": "자체 (AI 활용)",
-            "description": "국가통계포털에서 청소년 비만·정신건강 데이터를 ChatGPT로 분석·시각화. 의대 면접 '왜 의학인가'의 데이터 기반 답변.",
+            "description": "국가통계포털에서 청소년 비만·정신건강 데이터를 ChatGPT로 분석·시각화. 의대 자소서 '왜 의학인가'의 데이터 기반 답변.",
             "categoryTags": [
               "paper",
               "activity"
@@ -3120,7 +3120,7 @@
             "difficulty": 3,
             "cost": "무료",
             "organizer": "자체 (AI 활용)",
-            "description": "모의투자 5종목을 ChatGPT로 재무·뉴스 요약 분석, 본인 매매 일지와 비교 회고. 경영학과 면접·생기부의 시장 감각 증명.",
+            "description": "모의투자 5종목을 ChatGPT로 재무·뉴스 요약 분석, 본인 매매 일지와 비교 회고. 경영학과 자소서의 시장 감각 증명.",
             "categoryTags": [
               "paper",
               "activity"
@@ -3502,7 +3502,7 @@
             "difficulty": 3,
             "cost": "무료",
             "organizer": "자체 (AI 활용)",
-            "description": "매월 사회 이슈 1건을 다출처로 검증, AI 답변과 본인 검증의 차이를 기록. 법학 면접의 비판적 사고 증빙.",
+            "description": "매월 사회 이슈 1건을 다출처로 검증, AI 답변과 본인 검증의 차이를 기록. 법학 자소서의 비판적 사고 증빙.",
             "categoryTags": [
               "paper",
               "activity"

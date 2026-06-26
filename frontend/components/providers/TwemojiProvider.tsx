@@ -60,7 +60,7 @@ export function TwemojiProvider({ children }: { children: React.ReactNode }) {
         src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.1.0/dist/twemoji.min.js"
         crossOrigin="anonymous"
         strategy="afterInteractive"
-        onLoad={() => scheduleApply(0)}
+        onLoad={() => scheduleApply(300)}
       />
       {children}
     </>

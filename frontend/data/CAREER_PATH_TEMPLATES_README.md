@@ -4,13 +4,37 @@
 
 > **용어 구분**: 상단 "커리어 패스 탐색" 히어로는 전체 진로 로드맵 탐색 영역이며, **대입 정보가 아님**. "대입"은 필터 칩 중 하나로, 대학 입시 합격 패스만 필터링한다.
 
+## 2024 대입 개편 반영 (중요)
+
+- 자기소개서(자소서) **폐지** — 전 대학 적용. 본문에서 "자소서" 표현은 모두 "면접 답변·생기부" 기반으로 정리됨.
+- 교내외 수상경력 자체는 학생부 대입 미반영 — 대회 참가 과정·결과물이 세특에 기재되는 흐름이 평가 대상.
+- 독서활동·자율동아리 별도 항목 대입 미반영 — 본문은 "활동 자체로 세특·면접 소재" 톤으로 작성.
+- 수능 최저는 대학·전형·연도별 변동이 크므로 본문 수치 최소화, 어디가(adiga.kr) 링크로 위임.
+
 ## 파일 구성
 
 | 파일 | 용도 | 예시 |
 |------|------|------|
 | `career-path-templates-admission.json` | 대입(대학-학과) 합격 커리어 패스 | 서울대 컴공, KAIST 전기전자, 연세대 의대 등 |
-| `career-path-templates-highschool.json` | 고입(과학고·외고·자사고) 합격 커리어 패스 | KSA, 과학고, 외고, 자사고 등 |
-| `career-path-templates-index.ts` | 통합 인덱스 (탐색 피드용) | 고입 + 대입 병합 export |
+| `career-path-templates-highschool.json` | 고입(영재학교·과학고·외고·자사고·마이스터고) + 일반고 대입 학종 로드맵 | KSA, 서울과고, 대원외고, 민사고, 하나고, 구미전자공고 등 |
+| `career-path-templates-future.json` | 2028 대입 미래지향 가상 템플릿 (`isAiGenerated: true`) | AI 코어·피지컬AI 등 |
+| `career-path-templates-index.ts` | 통합 인덱스 (탐색 피드용) | 고입 + 대입 + 미래 + AI 병합 export |
+
+## highschool.json 내 schoolType 분류
+
+`category: "highschool"`로 묶여 있으며 `schoolType`으로 구분.
+
+| schoolType | 대상 학년 | 설명 |
+|------------|-----------|------|
+| `specialized-science` | 중1~중3 | 영재학교·과학고 입학 준비 (KSA·서울과고·경기과고 등) |
+| `foreign-language` | 중1~중3 | 외국어고 입학 준비 (대원·명덕·한영외고 등) |
+| `autonomous-private` | 중1~중3 | 전국형 자사고 입학 준비 (민사고·하나고·외대부고·상산고 등) |
+| `meister-vocational` | 중1~중3 | 마이스터고·특성화고 입학 준비 (반도체·SW·바이오·게임 등) |
+| `general-hs-univ-prep` | 고1~고3 | 일반고에서 대입 학종 준비 (이공계·AI / 인문사회 / 의약학 / AI·데이터) |
+
+각 특수고 템플릿은 다음 추가 필드를 가짐:
+- `recommendedFor: string[]` — 어떤 진로 분야에 유리한지
+- `schoolGuide: Array<{ name, city, type, advantage }>` — 학교별 비교 가이드
 
 ## 수시·정시·유학 + 합격 후기
 
@@ -34,6 +58,8 @@
 | **links** | | `[{ title, url, kind? }]` — kind: `official` \| `application` \| `reference` \| `portfolio` \| `result` |
 | **categoryTags** | | `["project","award","paper","intern","volunteer","camp","activity"]` 중 해당 태그 |
 | **activitySubtype** | | type=activity일 때: `project` \| `intern` \| `volunteer` \| `camp` \| `research` \| `general` |
+| **aiTools** | | 사용·권장 AI/도구 배열 (예: `["ChatGPT","Claude","Notion","Python"]`) |
+| **deliverable** | | 산출물 (학생부 세특·면접 답변 카드로 활용 가능한 형태) |
 
 ### 예시 (v2)
 

@@ -74,6 +74,9 @@ export function YearTimelineNode({
   }, [year.gradeId, goalGroupIdList, planGroupIdList]);
 
   const grade = GRADE_YEARS.find((g) => g.id === year.gradeId);
+  const stepMatch = /^step(\d+)$/.exec(year.gradeId ?? '');
+  const gradeShortLabel = grade?.label ?? (stepMatch ? stepMatch[1] : year.gradeLabel);
+  const gradeBadgeVariant: 'grade' | 'step' = grade ? 'grade' : stepMatch ? 'step' : 'grade';
   const groupItems = (year.groups ?? []).flatMap((g) => g.items) as PlanItemWithCheck[];
 
   const dedupeItems = (items: PlanItemWithCheck[]): PlanItemWithCheck[] => {
@@ -215,7 +218,8 @@ export function YearTimelineNode({
   return (
     <CareerPathTimelineGradeSectionChrome
       accentColor={color}
-      gradeShortLabel={grade?.label ?? year.gradeLabel}
+      gradeShortLabel={gradeShortLabel}
+      gradeBadgeVariant={gradeBadgeVariant}
       gradeFullLabel={year.gradeLabel}
       isGradeExpanded={gradeExpanded}
       onToggleGrade={() => setGradeExpanded((v) => !v)}

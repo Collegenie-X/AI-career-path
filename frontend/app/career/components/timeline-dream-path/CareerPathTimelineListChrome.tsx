@@ -24,6 +24,8 @@ export function CareerPathTimelineListChromeRoot({ accentColor, children }: Care
 type CareerPathTimelineGradeSectionChromeProps = {
   readonly accentColor: string;
   readonly gradeShortLabel: string;
+  /** 'grade': 학년 라벨(초4·중3 등) / 'step': 단계 번호(1·2·3·4) — 단계형일 땐 'STEP' 캡션 추가 */
+  readonly gradeBadgeVariant?: 'grade' | 'step';
   readonly gradeFullLabel: string;
   readonly isGradeExpanded: boolean;
   readonly onToggleGrade: () => void;
@@ -39,9 +41,12 @@ type CareerPathTimelineGradeSectionChromeProps = {
  * 학년 원형 뱃지 + 학년 제목(아코디언) + (선택) 진행률
  * 탐색·내 패스 동일 레이아웃; 진행률은 showGradeProgressBar 일 때만
  */
+const STEP_BADGE_ICONS = ['🌱', '💪', '🎯', '🚀', '⭐', '🏆', '💎', '🌟'];
+
 export function CareerPathTimelineGradeSectionChrome({
   accentColor,
   gradeShortLabel,
+  gradeBadgeVariant = 'grade',
   gradeFullLabel,
   isGradeExpanded,
   onToggleGrade,
@@ -51,10 +56,15 @@ export function CareerPathTimelineGradeSectionChrome({
   completedSuffixLabel,
   children,
 }: CareerPathTimelineGradeSectionChromeProps) {
+  const isStepBadge = gradeBadgeVariant === 'step';
+  const badgeFontSize = isStepBadge ? 18 : gradeShortLabel.length <= 2 ? 13 : 11;
+  const stepIcon = isStepBadge
+    ? (STEP_BADGE_ICONS[(parseInt(gradeShortLabel, 10) - 1) % STEP_BADGE_ICONS.length] ?? gradeShortLabel)
+    : null;
   return (
     <div className="relative pl-12 pb-6">
       <div
-        className="absolute top-0 flex items-center justify-center rounded-full text-xs font-black z-10 select-none"
+        className="absolute top-0 flex flex-col items-center justify-center rounded-full font-black z-10 select-none leading-none"
         style={{
           left: 0,
           width: 38,
@@ -62,10 +72,14 @@ export function CareerPathTimelineGradeSectionChrome({
           backgroundColor: accentColor,
           color: '#fff',
           boxShadow: `0 0 0 3px #0d0d24, 0 0 10px ${accentColor}55`,
-          fontSize: 12,
         }}
+        aria-label={gradeFullLabel}
       >
-        {gradeShortLabel}
+        {isStepBadge ? (
+          <span style={{ fontSize: 20 }}>{stepIcon}</span>
+        ) : (
+          <span style={{ fontSize: badgeFontSize }}>{gradeShortLabel}</span>
+        )}
       </div>
 
       <div className="space-y-3 pt-1">

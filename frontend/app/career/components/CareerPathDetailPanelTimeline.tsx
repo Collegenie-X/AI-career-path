@@ -73,11 +73,16 @@ export function CareerPathDetailPanelTimeline({
         const allGroups = buildGoalGroupsFromTemplateYear(yearAny);
         const isGradeExpanded = !collapsedGradeKeys.has(year.gradeId);
 
+        const stepMatch = /^step(\d+)$/.exec(year.gradeId ?? '');
+        const gradeShortLabel = grade?.label ?? (stepMatch ? stepMatch[1] : year.gradeLabel);
+        const gradeBadgeVariant: 'grade' | 'step' = grade ? 'grade' : stepMatch ? 'step' : 'grade';
+
         return (
           <CareerPathTimelineGradeSectionChrome
             key={year.gradeId}
             accentColor={template.starColor}
-            gradeShortLabel={grade?.label ?? year.gradeLabel}
+            gradeShortLabel={gradeShortLabel}
+            gradeBadgeVariant={gradeBadgeVariant}
             gradeFullLabel={year.gradeLabel}
             isGradeExpanded={isGradeExpanded}
             onToggleGrade={() => onToggleGradeExpand(year.gradeId)}

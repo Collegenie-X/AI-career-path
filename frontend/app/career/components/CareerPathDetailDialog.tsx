@@ -541,20 +541,32 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
               <div className="space-y-0">
                 {sortedYears.map((year) => {
                   const grade = GRADE_YEARS.find(g => g.id === year.gradeId);
+                  const stepMatch = /^step(\d+)$/.exec(year.gradeId ?? '');
+                  const stepIcons = ['🌱', '💪', '🎯', '🚀', '⭐', '🏆', '💎', '🌟'];
+                  const isStepBadge = !grade && !!stepMatch;
+                  const stepIcon = stepMatch
+                    ? (stepIcons[(parseInt(stepMatch[1], 10) - 1) % stepIcons.length] ?? stepMatch[1])
+                    : null;
+                  const shortLabel = grade?.label ?? year.gradeLabel;
+                  const badgeFontSize = shortLabel.length <= 2 ? 13 : 11;
                   return (
                     <div key={year.gradeId} className="relative pl-12 pb-6">
                       {/* Grade circle */}
                       <div
-                        className="absolute top-0 flex items-center justify-center rounded-full text-xs font-black z-10"
+                        className="absolute top-0 flex items-center justify-center rounded-full font-black z-10 leading-none"
                         style={{
                           left: 0, width: 38, height: 38,
                           backgroundColor: template.starColor,
                           color: '#fff',
                           boxShadow: `0 0 0 3px #0d0d24, 0 0 10px ${template.starColor}55`,
-                          fontSize: 12,
                         }}
+                        aria-label={year.gradeLabel}
                       >
-                        {grade?.label ?? year.gradeLabel}
+                        {isStepBadge ? (
+                          <span style={{ fontSize: 20 }}>{stepIcon}</span>
+                        ) : (
+                          <span style={{ fontSize: badgeFontSize }}>{shortLabel}</span>
+                        )}
                       </div>
 
                       {(() => {
