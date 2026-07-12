@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Download, PencilLine, Save, Trash2, X } from 'lucide-react';
+import { Download, Maximize2, PencilLine, Save, Trash2, X } from 'lucide-react';
 import { ResourceMarkdownViewer } from './ResourceMarkdownViewer';
 import {
   RESOURCE_CATEGORIES,
@@ -50,6 +50,7 @@ export function ResourceDetailPanel({
   const [libraryMarkdown, setLibraryMarkdown] = useState('');
   const [isEditing, setIsEditing] = useState(false);
   const [draft, setDraft] = useState<EditingDraft>(EMPTY_DRAFT);
+  const [isExpandedView, setIsExpandedView] = useState(false);
   const previousItemIdRef = useRef<string | null>(null);
 
   useEffect(() => {
@@ -110,119 +111,242 @@ export function ResourceDetailPanel({
   }, [item]);
 
   const canEditUserMarkdown = item.source === 'user' && item.fileType === 'md';
+  const resolvedMarkdown = item.source === 'library' ? libraryMarkdown : item.content ?? '';
 
   return (
-    <div className="flex flex-col h-full min-h-0">
-      <div
-        className="px-3 py-2.5 flex items-center justify-between shrink-0"
-        style={{ background: 'rgba(99,102,241,0.15)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
-      >
-        <div className="min-w-0 flex-1">
-          <p className="text-[13px] font-bold text-white truncate">{item.title}</p>
-          <p className="text-[11px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
+    <>
+      <div className="flex flex-col h-full min-h-0">
+        <div
+          className="px-3 py-2.5 flex items-center justify-between shrink-0"
+          style={{ background: 'rgba(99,102,241,0.15)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+        >
+          <div className="min-w-0 flex-1">
+            <p className="text-[13px] font-bold text-white truncate">{item.title}</p>
+            <p className="text-[11px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
+          </div>
+          <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+            {item.fileType === 'md' && !isEditing && !isLoading ? (
+              <button
+                onClick={() => setIsExpandedView(true)}
+                className="w-8 h-8 rounded-lg flex items-center justify-center bg-indigo-500/20 text-indigo-200 hover:bg-indigo-500/30 transition-colors"
+                aria-label="넓게 보기"
+                title="넓게 보기"
+              >
+                <Maximize2 className="w-4 h-4" />
+              </button>
+            ) : null}
+            {userFileForActions ? (
+              <>
+                <button
+                  onClick={() => onDownloadUserFile(userFileForActions)}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-200"
+                  aria-label="다운로드"
+                >
+                  <Download className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={() => (isEditing ? onUpdateUserFile(item.id, draft) : setIsEditing(true))}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center bg-violet-500/20 text-violet-200"
+                  aria-label={isEditing ? '저장' : '수정'}
+                >
+                  {isEditing ? <Save className="w-4 h-4" /> : <PencilLine className="w-4 h-4" />}
+                </button>
+                <button
+                  onClick={() => onDeleteUserFile(item.id)}
+                  className="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/20 text-rose-200"
+                  aria-label="삭제"
+                >
+                  <Trash2 className="w-4 h-4" />
+                </button>
+              </>
+            ) : null}
+            <button
+              onClick={onClearSelection}
+              className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-300"
+              aria-label="선택 해제"
+              title="선택 해제"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-1 flex-shrink-0 ml-2">
-          {userFileForActions ? (
+
+        <div className="flex-1 overflow-y-auto p-3 min-h-0 resource-detail-content">
+          {isEditing ? (
+            <div className="space-y-2">
+              <input
+                value={draft.name}
+                onChange={(event) => setDraft((prev) => ({ ...prev, name: event.target.value }))}
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
+                placeholder="자료명"
+              />
+              <select
+                value={draft.categoryId}
+                onChange={(event) =>
+                  setDraft((prev) => ({ ...prev, categoryId: event.target.value as ResourceCategoryId }))
+                }
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
+              >
+                {RESOURCE_CATEGORIES.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.label}
+                  </option>
+                ))}
+              </select>
+              <input
+                value={draft.summary}
+                onChange={(event) => setDraft((prev) => ({ ...prev, summary: event.target.value }))}
+                className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
+                placeholder="요약"
+              />
+              {canEditUserMarkdown ? (
+                <div className="space-y-1.5">
+                  <p className="text-[12px] text-gray-400">본문 작성</p>
+                  <textarea
+                    value={draft.content}
+                    onChange={(event) => setDraft((prev) => ({ ...prev, content: event.target.value }))}
+                    className="w-full min-h-[200px] rounded-lg px-2.5 py-2 text-[12px] leading-relaxed bg-white/5 text-gray-100 border border-white/10"
+                  />
+                </div>
+              ) : (
+                <p className="text-[12px] text-gray-400">PDF 파일은 메타 정보만 수정할 수 있습니다.</p>
+              )}
+              <div className="flex justify-end">
+                <button
+                  onClick={() => setIsEditing(false)}
+                  className="px-2.5 py-1.5 rounded-lg text-[12px] text-gray-300 bg-white/5"
+                >
+                  편집 닫기
+                </button>
+              </div>
+            </div>
+          ) : (
             <>
-              <button
-                onClick={() => onDownloadUserFile(userFileForActions)}
-                className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-200"
-                aria-label="다운로드"
-              >
-                <Download className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => (isEditing ? onUpdateUserFile(item.id, draft) : setIsEditing(true))}
-                className="w-8 h-8 rounded-lg flex items-center justify-center bg-violet-500/20 text-violet-200"
-                aria-label={isEditing ? '저장' : '수정'}
-              >
-                {isEditing ? <Save className="w-4 h-4" /> : <PencilLine className="w-4 h-4" />}
-              </button>
-              <button
-                onClick={() => onDeleteUserFile(item.id)}
-                className="w-8 h-8 rounded-lg flex items-center justify-center bg-rose-500/20 text-rose-200"
-                aria-label="삭제"
-              >
-                <Trash2 className="w-4 h-4" />
-              </button>
+              {item.fileType === 'md' ? (
+                isLoading ? (
+                  <p className="text-[12px] text-gray-400">문서를 불러오는 중...</p>
+                ) : (
+                  <ResourceMarkdownViewer markdownText={resolvedMarkdown} />
+                )
+              ) : (
+                <iframe title={item.title} src={item.content} className="w-full h-[360px] rounded-lg bg-white" />
+              )}
             </>
-          ) : null}
-          <button
-            onClick={onClearSelection}
-            className="w-8 h-8 rounded-lg flex items-center justify-center bg-white/10 text-gray-300"
-            aria-label="선택 해제"
-            title="선택 해제"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          )}
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-3 min-h-0">
-        {isEditing ? (
-          <div className="space-y-2">
-            <input
-              value={draft.name}
-              onChange={(event) => setDraft((prev) => ({ ...prev, name: event.target.value }))}
-              className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
-              placeholder="자료명"
-            />
-            <select
-              value={draft.categoryId}
-              onChange={(event) =>
-                setDraft((prev) => ({ ...prev, categoryId: event.target.value as ResourceCategoryId }))
-              }
-              className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
+      {isExpandedView ? (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/85 p-4"
+          style={{ zIndex: 2147483647 }}
+          onClick={() => setIsExpandedView(false)}
+        >
+          <div
+            className="w-full max-h-[92vh] rounded-2xl overflow-hidden flex flex-col"
+            style={{
+              maxWidth: 'min(1100px, calc(100vw - 3rem))',
+              background: '#0b1020',
+              border: '1px solid rgba(139,92,246,0.3)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.6), 0 0 40px rgba(139,92,246,0.15)',
+            }}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div
+              className="px-5 py-3 flex items-center justify-between shrink-0"
+              style={{ background: 'rgba(99,102,241,0.15)', borderBottom: '1px solid rgba(255,255,255,0.1)' }}
             >
-              {RESOURCE_CATEGORIES.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.label}
-                </option>
-              ))}
-            </select>
-            <input
-              value={draft.summary}
-              onChange={(event) => setDraft((prev) => ({ ...prev, summary: event.target.value }))}
-              className="w-full rounded-lg px-2.5 py-2 text-[12px] bg-white/5 text-gray-100 border border-white/10"
-              placeholder="요약"
-            />
-            {canEditUserMarkdown ? (
-              <div className="space-y-1.5">
-                <p className="text-[12px] text-gray-400">본문 작성</p>
-                <textarea
-                  value={draft.content}
-                  onChange={(event) => setDraft((prev) => ({ ...prev, content: event.target.value }))}
-                  className="w-full min-h-[200px] rounded-lg px-2.5 py-2 text-[12px] leading-relaxed bg-white/5 text-gray-100 border border-white/10"
-                />
+              <div className="min-w-0 flex-1">
+                <p className="text-[15px] font-bold text-white truncate">{item.title}</p>
+                <p className="text-[12px] text-gray-300 mt-0.5 truncate">{item.summary}</p>
               </div>
-            ) : (
-              <p className="text-[12px] text-gray-400">PDF 파일은 메타 정보만 수정할 수 있습니다.</p>
-            )}
-            <div className="flex justify-end">
               <button
-                onClick={() => setIsEditing(false)}
-                className="px-2.5 py-1.5 rounded-lg text-[12px] text-gray-300 bg-white/5"
+                onClick={() => setIsExpandedView(false)}
+                className="w-9 h-9 rounded-lg flex items-center justify-center bg-white/10 text-gray-200 hover:bg-white/20 transition-colors flex-shrink-0 ml-3"
+                aria-label="닫기"
               >
-                편집 닫기
+                <X className="w-5 h-5" />
               </button>
             </div>
+            <div className="flex-1 overflow-y-auto p-6 min-h-0 resource-expanded-content">
+              <ResourceMarkdownViewer markdownText={resolvedMarkdown} />
+            </div>
           </div>
-        ) : (
-          <>
-            {item.fileType === 'md' ? (
-              isLoading ? (
-                <p className="text-[12px] text-gray-400">문서를 불러오는 중...</p>
-              ) : (
-                <ResourceMarkdownViewer
-                  markdownText={item.source === 'library' ? libraryMarkdown : item.content ?? ''}
-                />
-              )
-            ) : (
-              <iframe title={item.title} src={item.content} className="w-full h-[360px] rounded-lg bg-white" />
-            )}
-          </>
-        )}
-      </div>
-    </div>
+        </div>
+      ) : null}
+
+      <style jsx global>{`
+        .resource-detail-content .prose {
+          font-size: 13px;
+          line-height: 1.7;
+        }
+        .resource-detail-content .prose table {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+          font-size: 11px;
+          border-collapse: collapse;
+        }
+        .resource-detail-content .prose th,
+        .resource-detail-content .prose td {
+          padding: 4px 8px;
+          border: 1px solid rgba(255,255,255,0.15);
+          white-space: normal;
+          min-width: 60px;
+        }
+        .resource-detail-content .prose th {
+          background: rgba(99,102,241,0.2);
+          font-weight: 700;
+          color: #e0e7ff;
+        }
+        .resource-detail-content .prose td {
+          background: rgba(255,255,255,0.03);
+        }
+        .resource-detail-content .prose img,
+        .resource-detail-content .prose svg {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .resource-expanded-content .prose {
+          font-size: 15px;
+          line-height: 1.8;
+        }
+        .resource-expanded-content .prose table {
+          display: table;
+          width: 100%;
+          font-size: 14px;
+          border-collapse: collapse;
+        }
+        .resource-expanded-content .prose th,
+        .resource-expanded-content .prose td {
+          padding: 8px 14px;
+          border: 1px solid rgba(255,255,255,0.15);
+          min-width: 80px;
+        }
+        .resource-expanded-content .prose th {
+          background: rgba(99,102,241,0.2);
+          font-weight: 700;
+          color: #e0e7ff;
+        }
+        .resource-expanded-content .prose td {
+          background: rgba(255,255,255,0.03);
+        }
+        .resource-expanded-content .prose h1 {
+          font-size: 1.6em;
+          margin-bottom: 0.6em;
+        }
+        .resource-expanded-content .prose h2 {
+          font-size: 1.35em;
+          margin-top: 1.5em;
+          margin-bottom: 0.5em;
+        }
+        .resource-expanded-content .prose h3 {
+          font-size: 1.15em;
+          margin-top: 1.2em;
+          margin-bottom: 0.4em;
+        }
+      `}</style>
+    </>
   );
 }

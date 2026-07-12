@@ -212,7 +212,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
       <div className="flex gap-3 flex-1 min-h-0">
         {/* 왼쪽: 리스트 */}
         <div
-          className={`flex flex-col min-w-0 ${hasDetailSelection ? 'w-[45%] shrink-0' : 'flex-1'}`}
+          className={`flex flex-col min-w-0 ${hasDetailSelection ? 'w-[30%] shrink-0' : 'flex-1'}`}
           style={{ minWidth: hasDetailSelection ? 180 : undefined }}
         >
           <div className="rounded-xl p-2.5 space-y-2 shrink-0" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
