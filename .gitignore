@@ -402,6 +402,8 @@ google-services.json
 .gradle
 **/build/
 !src/**/build/
+!frontend/app/dreammate/build/
+!frontend/app/dreammate/build/**
 
 # Ignore Gradle GUI config
 gradle-app.setting
