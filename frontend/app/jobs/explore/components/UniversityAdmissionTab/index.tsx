@@ -65,7 +65,7 @@ type AdmissionCategory = {
   targetStudents: string[];
   preparationGuide: any;
   cautions: string[];
-  universities: Array<string | { name: string; url?: string }>;
+  universities: Array<string | { name: string; url?: string; source?: string; detail?: string; iboRecognitionUrl?: string; ibAcceptance?: string; note?: string }>;
 };
 
 type SubView = 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;

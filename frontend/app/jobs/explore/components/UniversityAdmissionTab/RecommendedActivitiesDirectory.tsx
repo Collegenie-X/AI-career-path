@@ -1,8 +1,6 @@
 'use client';
 
-import { useState } from 'react';
 import directoryData from '@/data/university-admission/strategy-hub/recommended-activities-directory.json';
-import { ActivityDetailDialog, type ActivityDialogData, type ActivityDetail } from './ActivityDetailDialog';
 
 type DirectoryItem = {
   name: string;
@@ -10,7 +8,7 @@ type DirectoryItem = {
   grades: string;
   url: string;
   note?: string;
-  detail?: ActivityDetail;
+  schedule2025?: string;
 };
 
 type DirectoryGroup = {
@@ -46,8 +44,6 @@ function HL({ text }: { readonly text: string }) {
 export function RecommendedActivitiesDirectory() {
   const intro = directoryData.intro;
   const groups = directoryData.groups as DirectoryGroup[];
-  const [selected, setSelected] = useState<ActivityDialogData | null>(null);
-
   return (
     <div className="px-4 pb-6 pt-2 space-y-4">
       {/* 인트로 */}
@@ -85,10 +81,11 @@ export function RecommendedActivitiesDirectory() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
             {group.items.map((item, index) => (
-              <button
+              <a
                 key={`${group.id}-${index}`}
-                type="button"
-                onClick={() => setSelected({ ...item, emoji: group.emoji, color: group.color })}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-left transition-all hover:scale-[1.01] active:scale-[0.99]"
                 style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${group.color}30` }}
               >
@@ -102,14 +99,19 @@ export function RecommendedActivitiesDirectory() {
                   <p className="text-[11px] text-white/50 leading-tight mt-0.5">
                     {item.org}{item.note ? ` · ${item.note}` : ''}
                   </p>
+                  {item.schedule2025 && (
+                    <p className="text-[10px] text-white/40 leading-tight mt-0.5">
+                      📅 {item.schedule2025}
+                    </p>
+                  )}
                 </div>
                 <span
                   className="text-[11px] font-semibold px-2 py-0.5 rounded-md flex-shrink-0 group-hover:underline"
                   style={{ color: group.color, background: `${group.color}15`, border: `1px solid ${group.color}40` }}
                 >
-                  자세히 ↗
+                  바로가기 ↗
                 </span>
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -119,7 +121,6 @@ export function RecommendedActivitiesDirectory() {
         ⚠️ 외부 기관의 일정·비용·모집 요강은 변동될 수 있어요. 참여 전 각 공식 홈페이지에서 최신 정보를 꼭 확인하세요.
       </p>
 
-      {selected && <ActivityDetailDialog data={selected} onClose={() => setSelected(null)} />}
     </div>
   );
 }

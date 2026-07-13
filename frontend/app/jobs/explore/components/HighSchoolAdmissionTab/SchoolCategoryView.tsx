@@ -694,6 +694,89 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
                   </ul>
                 </div>
               )}
+              {category.admissionStrategy2028?.tracks && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: category.color }}>
+                    🎓 전형별 전략 (수시·정시·면접)
+                  </p>
+                  <div className="space-y-2">
+                    {([
+                      ['수시', category.admissionStrategy2028.tracks.susi],
+                      ['정시', category.admissionStrategy2028.tracks.jeongsi],
+                      ['면접', category.admissionStrategy2028.tracks.interview],
+                    ] as const).map(([label, track]) =>
+                      track ? (
+                        <div key={label} className="p-2 rounded-lg" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                          <p className="text-xs font-bold mb-0.5" style={{ color: category.color }}>{label}</p>
+                          <p className="text-xs text-gray-200 leading-relaxed">
+                            <span className="font-semibold text-gray-100">유리한 점 · </span>
+                            <HL text={track.advantage} />
+                          </p>
+                          <p className="text-xs text-gray-300 leading-relaxed mt-0.5">
+                            <span className="font-semibold text-gray-100">전략 · </span>
+                            <HL text={track.strategy} />
+                          </p>
+                        </div>
+                      ) : null,
+                    )}
+                  </div>
+                </div>
+              )}
+              {category.admissionStrategy2028?.byGrade && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${category.color}30` }}
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: category.color }}>
+                    📊 내신 성적대별 전략
+                  </p>
+                  <div className="space-y-2">
+                    {category.admissionStrategy2028.byGrade.top && (
+                      <div
+                        className="p-2 rounded-lg"
+                        style={{ background: 'rgba(52,211,153,0.10)', border: '1px solid rgba(52,211,153,0.30)' }}
+                      >
+                        <p className="text-xs font-bold text-emerald-300 mb-0.5">내신 상위권</p>
+                        <p className="text-xs text-gray-200 leading-relaxed">
+                          <HL text={category.admissionStrategy2028.byGrade.top} />
+                        </p>
+                      </div>
+                    )}
+                    {category.admissionStrategy2028.byGrade.mid && (
+                      <div
+                        className="p-2 rounded-lg"
+                        style={{ background: 'rgba(96,165,250,0.10)', border: '1px solid rgba(96,165,250,0.30)' }}
+                      >
+                        <p className="text-xs font-bold text-blue-300 mb-0.5">내신 중위권</p>
+                        <p className="text-xs text-gray-200 leading-relaxed">
+                          <HL text={category.admissionStrategy2028.byGrade.mid} />
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+              {category.admissionStrategy2028?.perks && category.admissionStrategy2028.perks.length > 0 && (
+                <div
+                  className="rounded-xl p-3"
+                  style={{ background: 'rgba(251,191,36,0.10)', border: '1px solid rgba(251,191,36,0.35)' }}
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2 text-yellow-300">
+                    🎁 이 유형만의 특혜·혜택
+                  </p>
+                  <ul className="space-y-1.5">
+                    {category.admissionStrategy2028.perks.map((perk, i) => (
+                      <li key={i} className="flex items-start gap-2 text-xs text-gray-200 leading-relaxed">
+                        <span className="flex-shrink-0 mt-0.5 text-yellow-300">✓</span>
+                        <span><HL text={perk} /></span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           )}
 

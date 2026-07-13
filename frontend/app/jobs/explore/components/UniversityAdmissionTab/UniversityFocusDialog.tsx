@@ -8,6 +8,11 @@ import { GlossaryText } from '@/components/shared/GlossaryText';
 type UniversityFocusDialogProps = {
   readonly universityLabel: string;
   readonly universityUrl?: string;
+  readonly universityDetail?: string;
+  readonly universitySource?: string;
+  readonly universityIboUrl?: string;
+  readonly universityIbAcceptance?: string;
+  readonly universityNote?: string;
   readonly categoryName: string;
   readonly categoryShortName: string;
   readonly categoryEmoji: string;
@@ -25,6 +30,11 @@ type UniversityFocusDialogProps = {
 export function UniversityFocusDialog({
   universityLabel,
   universityUrl,
+  universityDetail,
+  universitySource,
+  universityIboUrl,
+  universityIbAcceptance,
+  universityNote,
   categoryName,
   categoryShortName,
   categoryEmoji,
@@ -125,6 +135,54 @@ export function UniversityFocusDialog({
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-4 space-y-3">
+          {/* 대학별 상세 정보 (detail, ibAcceptance, note, source, iboUrl) */}
+          {(universityDetail || universityIbAcceptance || universityNote) && (
+            <div
+              className="rounded-xl p-3 space-y-2"
+              style={{ background: `${categoryColor}12`, border: `1px solid ${categoryColor}40` }}
+            >
+              <p className="text-[14px] font-bold uppercase tracking-wider flex items-center gap-1.5" style={{ color: categoryColor }}>
+                <GraduationCap className="w-3.5 h-3.5" />
+                대학별 전형 상세
+              </p>
+              {universityIbAcceptance && (
+                <div className="flex items-start gap-2 text-[13px] text-gray-200 leading-relaxed">
+                  <span className="flex-shrink-0 mt-0.5 text-emerald-400">IB</span>
+                  <span>{universityIbAcceptance}</span>
+                </div>
+              )}
+              {universityDetail && (
+                <p className="text-[13px] text-gray-200 leading-relaxed">
+                  <GlossaryText>{universityDetail}</GlossaryText>
+                </p>
+              )}
+              {universityNote && (
+                <p className="text-[12px] text-gray-400 leading-relaxed">
+                  {universityNote}
+                </p>
+              )}
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {universityIboUrl && (
+                  <a
+                    href={universityIboUrl}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-md hover:underline"
+                    style={{ color: '#34d399', background: 'rgba(52,211,153,0.12)', border: '1px solid rgba(52,211,153,0.35)' }}
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    IBO 공식 인정 현황
+                  </a>
+                )}
+                {universitySource && (
+                  <span className="text-[11px] text-gray-500 px-2 py-0.5">
+                    출처: {universitySource}
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
+
           <div
             className="rounded-xl p-3"
             style={{ background: categoryBgColor, border: `1px solid ${categoryColor}40` }}

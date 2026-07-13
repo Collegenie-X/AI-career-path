@@ -449,6 +449,14 @@ export type HighSchoolAiEraStrategy = {
   };
 };
 
+/** 정시·수시·면접 등 전형 트랙별 유불리와 준비 전략 */
+export type HighSchoolAdmissionTrack = {
+  /** 이 유형이 이 전형에서 유리한/불리한 점 */
+  advantage: string;
+  /** 구체적 준비 전략 (어떻게 해야 하는지) */
+  strategy: string;
+};
+
 export type HighSchoolAdmissionStrategy2028 = {
   title: string;
   summary: string;
@@ -461,6 +469,19 @@ export type HighSchoolAdmissionStrategy2028 = {
         impact?: 'positive' | 'neutral' | 'caution';
       }
   >;
+  /** 전형 트랙별(수시·정시·면접) 유불리와 전략 */
+  tracks?: {
+    susi?: HighSchoolAdmissionTrack;
+    jeongsi?: HighSchoolAdmissionTrack;
+    interview?: HighSchoolAdmissionTrack;
+  };
+  /** 내신 성적대별 전략 (상위권·중위권) */
+  byGrade?: {
+    top?: string;
+    mid?: string;
+  };
+  /** 이 유형만의 특혜·특별전형·혜택 목록 */
+  perks?: string[];
 };
 
 export type HighSchoolCategory = {

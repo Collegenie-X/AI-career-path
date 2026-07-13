@@ -18,7 +18,7 @@ type AdmissionCategory = {
   keyFeatures: string[];
   targetStudents: string[];
   cautions: string[];
-  universities: Array<string | { name: string; url?: string }>;
+  universities: Array<string | { name: string; url?: string; source?: string; detail?: string; iboRecognitionUrl?: string; ibAcceptance?: string; note?: string }>;
 };
 
 type CategoryPlaybook = {
@@ -95,7 +95,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
   const [activeTab, setActiveTab] = useState<TabId>('core');
   const [mounted, setMounted] = useState(false);
   /** 3단계: 개별 대학 포커스 다이얼로그 */
-  const [selectedUniversity, setSelectedUniversity] = useState<{ label: string; url?: string } | null>(null);
+  const [selectedUniversity, setSelectedUniversity] = useState<{ label: string; url?: string; detail?: string; source?: string; iboRecognitionUrl?: string; ibAcceptance?: string; note?: string } | null>(null);
   useEffect(() => setMounted(true), []);
 
   const tabs: Array<{ id: TabId; label: string; icon: any }> = [
@@ -235,8 +235,14 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 panel-pop-stagger-fast">
               {category.universities.map((university, index) => {
-                const label = typeof university === 'string' ? university : university.name;
-                const url = typeof university === 'string' ? undefined : university.url;
+                const isObj = typeof university !== 'string';
+                const label = isObj ? university.name : university;
+                const url = isObj ? university.url : undefined;
+                const detail = isObj ? university.detail : undefined;
+                const source = isObj ? university.source : undefined;
+                const iboRecognitionUrl = isObj ? (university as any).iboRecognitionUrl : undefined;
+                const ibAcceptance = isObj ? (university as any).ibAcceptance : undefined;
+                const note = isObj ? (university as any).note : undefined;
                 return (
                   <div
                     key={`${label}-${index}`}
@@ -248,7 +254,7 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
                   >
                     <button
                       type="button"
-                      onClick={() => setSelectedUniversity({ label, url })}
+                      onClick={() => setSelectedUniversity({ label, url, detail, source, iboRecognitionUrl, ibAcceptance, note })}
                       className="flex-1 text-left"
                     >
                       <span className="text-[12px] font-semibold text-white/90 leading-tight">{label}</span>
@@ -285,6 +291,11 @@ export function CategoryDetailView({ category, playbook, onClose, variant = 'mod
     <UniversityFocusDialog
       universityLabel={selectedUniversity.label}
       universityUrl={selectedUniversity.url}
+      universityDetail={selectedUniversity.detail}
+      universitySource={selectedUniversity.source}
+      universityIboUrl={selectedUniversity.iboRecognitionUrl}
+      universityIbAcceptance={selectedUniversity.ibAcceptance}
+      universityNote={selectedUniversity.note}
       categoryName={category.name}
       categoryShortName={category.shortName}
       categoryEmoji={category.emoji}

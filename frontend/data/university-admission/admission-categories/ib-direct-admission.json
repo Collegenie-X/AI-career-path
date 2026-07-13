@@ -20,8 +20,9 @@
       "EE 4,000단어 소논문이 국내 학종 서류 + 해외 Personal Statement 동시 해결하는 최강 무기",
       "CAS 협업 프로젝트: 최소 1개월 이상 기획·운영으로 리더십·팀워크·이니셔티브 완벽 증명",
       "TOK 비판적 사고 + EE 학술 탐구: Oxford·Cambridge가 인정하는 고차원적 지적 탐구력",
-      "K-IB 공교육 급확산: 경기도 295개교 참여, 표선고 서울대·SKY·KAIST 합격으로 공교육 모델 증명",
-      "2028 대입 개편 후 KB(한국형 바칼로레아) 연계로 IB의 국내 대학 인정 체계 구축 중 — 선점 전략이 핵심"
+      "K-IB 공교육 급확산: 경기도 297교(인증 21교) + 서울 106교 + 대구 전 학교 확대. 표선고 서울대·SKY·KAIST 합격으로 공교육 모델 증명",
+      "2024 교육부 IB 연구센터 설립(한국교육개발원 산하) + 한국IB교육학회 출범. KB 논·서·구술형 평가 2026.9 가동 — IB 선점 전략이 핵심",
+      "IBO 공식 인정: 서울대·연세대·고려대·KAIST·POSTECH 등 IB DP 공식 인정 (recognition.ibo.org 확인). KAIST는 IB CP도 인정(이공계 한정)"
     ],
     "targetStudents": [
       "IB 인증학교(공립 K-IB 포함) 재학 중이거나 입학 예정인 학생",
@@ -443,28 +444,39 @@
         "proof": "사교육 인프라가 집중된 제주시 명문고 대비, 표선고는 순수 공교육 활동만으로 최상위권 대학 합격생 지속 배출"
       },
       "gyeonggiExpansion": {
-        "title": "경기도 295개교 전면 확장 (2026년 기준)",
-        "scale": "남부(수원·화성·용인)와 북부(고양·파주)를 가리지 않는 전방위적 공교육 혁신",
+        "title": "경기도 297개교 전면 확장 (2025.12 기준, 경기도교육청 공식)",
+        "scale": "2023년 30교 → 2025년 297교로 10배 성장. 남부(수원·화성·용인)와 북부(고양·파주)를 가리지 않는 전방위적 공교육 혁신",
         "stages": [
           {
             "stage": "관심학교",
-            "count": "232교",
+            "count": "244교",
             "phase": "탐색 단계",
             "description": "교육 철학 이해 및 교사 연수 시작"
           },
           {
             "stage": "후보학교",
-            "count": "33교",
+            "count": "42교",
             "phase": "준비 단계",
             "description": "본격적인 IB 커리큘럼 수업 적용"
           },
           {
             "stage": "인증학교 (World School)",
-            "count": "30교",
+            "count": "11교 (초 9 + 중 5 + 고 7 = 21교, 2025.12 기준)",
             "phase": "완성 단계",
-            "description": "IBO 최종 승인, 고교생 공식 IB 시험 응시 가능"
+            "description": "IBO 최종 승인. 안성 개산초-죽산중-죽산고 전국 최초 공립 초중고 IB 교육 벨트 완성"
           }
-        ]
+        ],
+        "source": "경기도교육청 공식 공지 (goe.go.kr, 2025.9 + 12월 업데이트)"
+      },
+      "seoulExpansion": {
+        "title": "서울시교육청 IB 학교 106교 운영 (2026 기준)",
+        "scale": "초등 49교 + 중학 22교 + 고교 35교. 2026년 91개 IB 관심학교 신규 선정. 4개 권역 IB 네트워크(동북·동남·서북·서남) 구축",
+        "source": "교육을 비추다 기사 (kyobit.com/news/articleView.html?idxno=5044, 2026.4.21)"
+      },
+      "kbEvaluationSystem": {
+        "title": "KB 논·서·구술형 평가 시스템 2026.9 가동",
+        "description": "OCR 기반 손글씨 인식 + AI 표절 탐지(학생·AI·인터넷 출처 분류) + 독창적 추론 보상 채점. 암기형 모범답안보다 자기만의 논리 전개를 높이 평가하는 시스템",
+        "source": "교육을 비추다 기사 (kyobit.com/news/articleView.html?idxno=5763, 2026.6.15)"
       },
       "kIBNextChallenges": [
         {
@@ -579,52 +591,204 @@
     ],
     "universities": [
       {
-        "name": "서울대 학종·글로벌인재특별전형 (IB 36+, 수능최저 없음 전형 존재)",
-        "url": "https://admission.snu.ac.kr"
+        "name": "서울대 글로벌인재특별전형 / 수시 기회균형(사회통합)",
+        "url": "https://admission.snu.ac.kr",
+        "iboRecognitionUrl": "https://recognition.ibo.org/en-US/university-statements/?id=6af641f2-f1a1-ed11-aad1-000d3a85c377&university=Seoul+National+University",
+        "ibAcceptance": "IB DP 인정, CP·MYP 미인정. 고정 최소 점수 없이 종합평가 — 수능최저 미적용 전형 존재",
+        "note": "2028 수시 기회균형: 1단계 서류 100%(2배수) → 2단계 70%+면접 30%. HL 수학 이수 권장(자연계열). 조건부 입학(Conditional Admission) 제도 운영",
+        "source": "IBO 공식 인정 페이지 + 서울대 입학본부 2028 시행계획 (2025.9.29 공지)"
       },
       {
-        "name": "연세대 활동우수형·국제형·UIC (IB 38+, 제시문 면접 40%)",
-        "url": "https://admission.yonsei.ac.kr"
+        "name": "연세대 국제형(UIC·글로벌인재대학) / 수시 기회균형",
+        "url": "https://admission.yonsei.ac.kr",
+        "iboRecognitionUrl": "https://recognition.ibo.org/en-US/university-statements/?id=9a143767-f1a1-ed11-aad1-000d3a85c377&university=Yonsei+University",
+        "ibAcceptance": "IB DP 인정, CP·MYP 미인정. 해외 중학교 3년+ 이수 시 7월 서류 심사로 조기 입학 가능",
+        "note": "2028 수시 기회균형 220명 모집 — 1단계 서류 → 2단계 60%+제시문 면접 40%, 수능최저 미적용. UIC는 IB 디플로마 완료 시 최대 9학점 인정(전공 6학점 포함). Math AA 이수 권장(이공·의약학)",
+        "source": "IBO 공식 인정 페이지 + 연세대 2028 시행계획 PDF (www2.yonsei.ac.kr/entrance/plan/2028_plan.pdf)"
       },
       {
-        "name": "고려대 학업우수형·국제학부 (IB 36+, 수능최저 있음 — 인문 4합8)",
-        "url": "https://oku.korea.ac.kr"
+        "name": "고려대 학업우수형·국제학부 / 수시 기회균형",
+        "url": "https://oku.korea.ac.kr/oku/index.do",
+        "iboRecognitionUrl": "https://recognition.ibo.org/en-US/university-statements/?id=19153767-f1a1-ed11-aad1-000d3a85c377&university=Korea+University",
+        "ibAcceptance": "IB DP 인정, CP·MYP 미인정. IB·SAT·AP 제출 가능(필수 아님). 12년 특례: 서류 100%",
+        "note": "2028 학교추천: 교과 80%+서류 20%(의학과 제외 수능최저 미적용). 정시 사회배려 69명 수능 100%. IB English A/B 6점+ 시 영어 면접 면제 보고",
+        "source": "IBO 공식 인정 페이지 + 고려대 국제대학 입학 (int.korea.ac.kr)"
       },
       {
-        "name": "KAIST 일반전형 (IB 인정, 수학·과학 HL 7점 권장, 수능 불요)",
-        "url": "https://admission.kaist.ac.kr"
+        "name": "KAIST 일반·창의도전·학교장추천전형",
+        "url": "https://admission.kaist.ac.kr",
+        "iboRecognitionUrl": "https://recognition.ibo.org/en-US/university-statements/?id=554d217e-f0a1-ed11-aad1-000d3a85c377&university=Korea+Advanced+Institute+of+Science+and+Technology+(KAIST)",
+        "ibAcceptance": "IB DP·CP 모두 인정 (42점 기준 평가, CP는 이공계 한정·최소 3점). MYP 미인정",
+        "note": "2028 변경: 특기자(30명)·수능우수자(15명) 폐지 → 창의도전 300명·학교장추천 100명으로 확대. 2026부터 외국고전형 IB·SAT·AP 제출 필수화. IB Institution Code: 000559",
+        "source": "IBO 공식 인정 페이지 + 카이스트신문 2028 입학전형 기사 (times.kaist.ac.kr/news/articleView.html?idxno=22812)"
       },
       {
-        "name": "POSTECH·UNIST·DGIST·GIST 이공계 특성화 (IB + 면접 중심)",
-        "url": "https://www.postech.ac.kr/eng/"
+        "name": "POSTECH 일반·고른기회(농어촌) / 국제입학",
+        "url": "https://adm-u.postech.ac.kr",
+        "ibAcceptance": "IB DP 인정. 2026 가을부터 국제입학 신설 — 순수외국인(I), 12년 해외교육(II) 트랙",
+        "note": "2028 고른기회(농어촌): 과학고·영재학교·외고·국제고 출신 지원 불가, 농어촌 소재 중고 전 과정 이수 + 부모 동반 거주. 학업능력평가(국영수과) + 잠재력평가",
+        "source": "POSTECH 2028 시행계획 PDF (adm-u.postech.ac.kr) + POSTECH 국제입학 공지 (postech.ac.kr/kor/newscenter/university-news.do?mode=view&articleNo=23946)"
       },
       {
-        "name": "성균관대·한양대·이화여대·경희대 국제학부 (IB 36+)",
-        "url": "https://admission.skku.edu"
+        "name": "성균관대 글로벌경영·소프트웨어 / 기회균형II",
+        "url": "https://admission.skku.edu",
+        "ibAcceptance": "IB DP 인정 — 재외국민 특별전형(12년 특례: 서류 100%), 외국인 전형(admission-global.skku.edu)",
+        "note": "2028 기회균형II 변경: 서류 100%로 전환 (기존 서류+교과 종합 → 서류 단독). 수능최저: 통합사회·통합과학 중 상위 1과목 반영. 정시 이웃사랑 57명 수능 100%",
+        "source": "성균관대 입학처 + 교육을 비추다 기사 (kyobit.com/news/articleView.html?idxno=5220)"
+      },
+      {
+        "name": "UNIST·DGIST·GIST 이공계 특성화대학",
+        "url": "https://admission.unist.ac.kr",
+        "ibAcceptance": "IB DP 인정 — 표선고 1기(2024) UNIST 2명·DGIST 2명 합격 실증",
+        "note": "국내 공교육 IB(K-IB)만으로 합격 가능한 이공계 특성화대학. 면접 중심 평가",
+        "source": "교육플러스 IB 졸업생 진학 현황 기사 (edpl.co.kr/news/articleView.html?idxno=11402, 2024.1.11)"
+      },
+      {
+        "name": "제주대 학생부종합 (수능최저 미적용 확대)",
+        "url": "https://jinhakin.jejunu.ac.kr",
+        "ibAcceptance": "IB DP 인정. 2026부터 약학·수의학 수능최저 없는 학종 신설(각 3명), 일반 학과로 확대 예정",
+        "note": "표선고 졸업생 다수 진학 — IB DP 공교육 모델의 최다 진학 대학. 교육부 장관이 IB 확산 지원 근거로 제주대 사례 인용",
+        "source": "제주뉴스 기사 (jejunews.com/news/articleView.html?idxno=2210718)"
       },
       {
         "name": "🇺🇸 Harvard · Yale · Princeton · MIT — Ivy League (IB 43~44점 합격자 평균)",
-        "url": "https://www.commonapp.org"
+        "url": "https://www.commonapp.org",
+        "note": "HL 6~7점 필수. CAS Collaborative Project가 Personal Statement 핵심 소재. IB 전용 장학금: WPI $20,000+, SMU $12,000, Nebraska-Lincoln $15,000"
       },
       {
-        "name": "🇺🇸 UC Berkeley · UCLA (IB 40점 이상, 38점+ 안전권 / HL 학점 면제 혜택)",
-        "url": "https://admission.universityofcalifornia.edu"
+        "name": "🇺🇸 UC Berkeley · UCLA (IB 40점 이상, 38점+ 안전권)",
+        "url": "https://admission.universityofcalifornia.edu",
+        "note": "HL 5~7점 시 대학 기초과목 이수 면제(AP 대체). 982개 미국 대학 IB 인정"
       },
       {
-        "name": "🇬🇧 Oxford · Cambridge (IB 42점+, HL 7·7·6 이상, TOK·EE 당락 좌우)",
-        "url": "https://www.ucas.com"
+        "name": "🇬🇧 Oxford · Cambridge (IB 42점+, HL 7·7·6 이상)",
+        "url": "https://www.ucas.com",
+        "note": "TOK·EE 당락 좌우. CAS·비교과보다 순수 학문적 역량 증명이 전부. UCAS Personal Statement에 EE 연구 직접 활용"
       },
       {
-        "name": "🇨🇦 UBC · McGill · Toronto (IB 38점+, 어학 면제·선이수 학점 인정·Predicted Grade 조기합격)",
-        "url": "https://you.ubc.ca"
+        "name": "🇨🇦 UBC · McGill · Toronto (IB 38점+, Predicted Grade 조기합격)",
+        "url": "https://you.ubc.ca",
+        "note": "IB 이수자 최대 혜택: 어학 면제(IB English 시 IELTS/TOEFL 불요) + 선이수 학점 인정(UBC HL 5점+ → 1학년 학점) + 내신 환산 불필요"
       },
       {
-        "name": "🇸🇬 NUS (IB 43점+ 경쟁선) · NTU (41~42점+) · SUTD (38점+) 싱가포르",
-        "url": "https://www.nus.edu.sg/oam"
+        "name": "🇸🇬 NUS (IB 43점+ 경쟁선) · NTU (41~42점+) · SUTD (38점+)",
+        "url": "https://www.nus.edu.sg/oam",
+        "note": "국제 학생 커트라인이 자국민보다 현저히 높음. NUS 공식 최소 38점이나 실제 경쟁선 43점+"
       },
       {
-        "name": "🇭🇰 HKU 홍콩대학 (IB 36점+ 안정, 의대·법대 42~44점 / 최소 32점은 서류 통과선만)",
-        "url": "https://admissions.hku.hk/"
+        "name": "🇭🇰 HKU 홍콩대학 (IB 36점+ 안정, 의대·법대 42~44점)",
+        "url": "https://admissions.hku.hk/",
+        "note": "최소 32점은 서류 통과선만 — 실제 합격선과 큰 괴리"
+      }
+    ],
+    "verifiedSources": [
+      {
+        "label": "IBO 공식 대학 인정 데이터베이스 (서울대·연세대·고려대·KAIST 등 인정 현황)",
+        "url": "https://recognition.ibo.org",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "서울대 입학본부 — 2028학년도 입학전형 주요사항 공지",
+        "url": "https://admission.snu.ac.kr/undergraduate/notice?md=v&bbsidx=158712",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "연세대 2028학년도 대입전형 시행계획 PDF",
+        "url": "https://www2.yonsei.ac.kr/entrance/plan/2028_plan.pdf",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "고려대 국제대학 입학 안내",
+        "url": "https://int.korea.ac.kr/kuis_ko/under/admission.do",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "카이스트신문 — KAIST 2028 입학전형 개편 (특기자·수능우수자 폐지, 창의도전 확대)",
+        "url": "https://times.kaist.ac.kr/news/articleView.html?idxno=22812",
+        "type": "기사",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "POSTECH 2028학년도 대학입학전형 시행계획 PDF",
+        "url": "https://adm-u.postech.ac.kr/wp-content/uploads/2026/03/2028%ED%95%99%EB%85%84%EB%8F%84_POSTECH_%EB%8C%80%ED%95%99%EC%9E%85%ED%95%99%EC%A0%84%ED%98%95_%EC%8B%9C%ED%96%89%EA%B3%84%ED%9A%8D_%ED%86%B5%ED%95%A9.pdf",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "POSTECH 국제입학 신설 공지 (2026 가을~)",
+        "url": "https://postech.ac.kr/kor/newscenter/university-news.do?mode=view&articleNo=23946",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "교육을 비추다 — 성균관대 기회균형II 서류 100% 전환",
+        "url": "https://www.kyobit.com/news/articleView.html?idxno=5220",
+        "type": "기사",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "교육플러스 — IB 학교 졸업생 진학 현황 (경북대·부산대·UNIST·DGIST 등)",
+        "url": "https://www.edpl.co.kr/news/articleView.html?idxno=11402",
+        "type": "기사",
+        "publishedAt": "2024-01-11"
+      },
+      {
+        "label": "제주뉴스 — 제주대 약학·수의학 수능최저 미적용 학종 신설 + IB 확산",
+        "url": "https://jejunews.com/news/articleView.html?idxno=2210718",
+        "type": "기사",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "교육부 정책브리핑 — 2028 대학입시제도 개편 확정안",
+        "url": "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156607888",
+        "type": "공식",
+        "publishedAt": "2023-12-27"
+      },
+      {
+        "label": "한국대학신문 — 2028 대입개편과 IB 연계 전망",
+        "url": "https://news.unn.net/news/articleView.html?idxno=550630",
+        "type": "기사",
+        "publishedAt": "2023-07-29"
+      },
+      {
+        "label": "한국일보 — 교육부 IB 연구센터 설립 (한국교육개발원 산하, 2024)",
+        "url": "https://www.hankookilbo.com/News/Read/A2024093015090001440",
+        "type": "기사",
+        "publishedAt": "2024-10-04"
+      },
+      {
+        "label": "교육을 비추다 — KB(한국형 바칼로레아) 논서구술형 평가 시스템 2026.9 가동",
+        "url": "https://www.kyobit.com/news/articleView.html?idxno=5763",
+        "type": "기사",
+        "publishedAt": "2026-06-15"
+      },
+      {
+        "label": "교육을 비추다 — 서울시교육청 IB 학교 106교 운영 현황 (2026)",
+        "url": "https://www.kyobit.com/news/articleView.html?idxno=5044",
+        "type": "기사",
+        "publishedAt": "2026-04-21"
+      },
+      {
+        "label": "경기도교육청 — IB 학교 현황 (297교, 인증 21교, 2025.12 기준)",
+        "url": "https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?nttSn=2326345&mi=10961",
+        "type": "공식",
+        "accessedAt": "2026-07"
+      },
+      {
+        "label": "대교협 — 2028학년도 대학입학전형시행계획 발표 (총 348,789명)",
+        "url": "https://www.kcue.or.kr/news/sub02/sub01.php?at=view&idx=2764740",
+        "type": "공식",
+        "publishedAt": "2026-04-29"
+      },
+      {
+        "label": "eduinfo — KAIST 2026 외국고전형 IB·SAT·AP 필수화",
+        "url": "https://www.eduinfo.co.kr/news/article.html?no=23231",
+        "type": "기사",
+        "accessedAt": "2026-07"
       }
     ]
   }
