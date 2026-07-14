@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ChevronLeft,
   ChevronRight,
@@ -14,6 +14,8 @@ import {
   Lightbulb,
   Star,
   X,
+  Check,
+  ArrowRight,
 } from 'lucide-react';
 import type { HighSchoolCategory, HighSchoolDetail } from '../../types';
 import { HIGH_SCHOOL_LABELS } from '../../config';
@@ -42,6 +44,7 @@ type SchoolCategoryViewProps = {
 type QuizPhase =
   | { phase: 'intro' }
   | { phase: 'question'; index: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] }
+  | { phase: 'feedback'; index: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[]; selectedChoiceIndex: number }
   | { phase: 'result'; totalScore: number; maxScore: number; answers: { choiceIndex: number; score: number; label: string; feedback?: string }[] };
 
 export function SchoolCategoryView({ category, onBack, onSelectSchool, variant = 'leftList' }: SchoolCategoryViewProps) {
@@ -61,19 +64,29 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
     if (quizPhase.phase !== 'question') return;
     const { index, answers } = quizPhase;
     const newAnswers = [...answers, { choiceIndex, score, label, feedback }];
-    const nextIndex = index + 1;
+    setQuizPhase({ phase: 'feedback', index, answers: newAnswers, selectedChoiceIndex: choiceIndex });
+  };
 
+  const handleNextQuestion = () => {
+    if (quizPhase.phase !== 'feedback') return;
+    const { index, answers } = quizPhase;
+    const nextIndex = index + 1;
     if (nextIndex >= content.quizQuestions.length) {
-      const totalScore = newAnswers.reduce((sum, answer) => sum + answer.score, 0);
+      const totalScore = answers.reduce((sum, answer) => sum + answer.score, 0);
       const maxScore = content.quizQuestions.reduce((sum, question) => {
         const questionMaxScore = Math.max(...question.choices.map((choice) => choice.score));
         return sum + questionMaxScore;
       }, 0);
-      setQuizPhase({ phase: 'result', totalScore, maxScore, answers: newAnswers });
+      setQuizPhase({ phase: 'result', totalScore, maxScore, answers });
     } else {
-      setQuizPhase({ phase: 'question', index: nextIndex, answers: newAnswers });
+      setQuizPhase({ phase: 'question', index: nextIndex, answers });
     }
   };
+
+  useEffect(() => {
+    setQuizPhase({ phase: 'intro' });
+    setShowAptitudeQuiz(false);
+  }, [category.id]);
 
   /** 카테고리가 바뀔 때마다 stagger 애니메이션 새로 트리거 */
   const animationKey = `school-category-${category.id}`;
@@ -190,7 +203,11 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
           </button>
           {showAptitudeQuiz && (
             <div
-              style={{ animation: 'slide-up 0.3s ease-out both' }}
+              style={{
+                animation: 'slide-up 0.3s ease-out both',
+                background: 'rgba(0,0,0,0.25)',
+                borderTop: `1px solid ${category.color}30`,
+              }}
             >
               <AptitudeQuizContent
                 categoryColor={category.color}
@@ -198,6 +215,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
                 quizPhase={quizPhase}
                 questions={content.quizQuestions}
                 onAnswer={handleQuizAnswer}
+                onNext={handleNextQuestion}
                 onReset={() => setQuizPhase({ phase: 'intro' })}
                 onStart={() => setQuizPhase({ phase: 'question', index: 0, answers: [] })}
               />
@@ -291,12 +309,16 @@ function getResultMessage(ratio: number) {
   return QUIZ_RESULT_MESSAGES.find((m) => ratio >= m.minRatio) ?? QUIZ_RESULT_MESSAGES[QUIZ_RESULT_MESSAGES.length - 1];
 }
 
+const CHOICE_LETTERS = ['A', 'B', 'C', 'D'];
+const CHOICE_ICONS = ['🎲', '🎵', '💬', '🤝'];
+
 function AptitudeQuizContent({
   categoryColor,
   categoryBgColor,
   quizPhase,
   questions,
   onAnswer,
+  onNext,
   onReset,
   onStart,
 }: {
@@ -305,6 +327,7 @@ function AptitudeQuizContent({
   quizPhase: QuizPhase;
   questions: QuizQuestion[];
   onAnswer: (choiceIndex: number, score: number, label: string, feedback?: string) => void;
+  onNext: () => void;
   onReset: () => void;
   onStart: () => void;
 }) {
@@ -342,80 +365,178 @@ function AptitudeQuizContent({
     );
   }
 
-  if (quizPhase.phase === 'question') {
+  const isFeedback = quizPhase.phase === 'feedback';
+  const isQuestion = quizPhase.phase === 'question';
+
+  if (isQuestion || isFeedback) {
     const { index, answers } = quizPhase;
+    const selectedIdx = isFeedback ? quizPhase.selectedChoiceIndex : -1;
     const current = questions[index];
-    const progress = (answers.length / questions.length) * 100;
+    const answeredCount = answers.length;
+    const progress = Math.round((answeredCount / questions.length) * 100);
+    const lastAnswer = isFeedback ? answers[answers.length - 1] : null;
 
     return (
       <div className="px-4 py-4 flex flex-col gap-3">
-        {/* 진행 바 */}
-        <div>
-          <div className="flex items-center justify-between mb-1.5">
-            <span className="text-xs font-bold text-gray-400">
+        {/* 헤더 */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-xl">{current.emoji}</span>
+            <span className="text-xs font-bold text-white">
+              {current.focusArea} · Q{index + 1}
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Zap className="w-3 h-3" style={{ color: categoryColor }} />
+            <span className="text-xs font-bold text-gray-300">
               {index + 1} / {questions.length}
             </span>
-            <span className="text-xs text-gray-500">
-              {Math.round(progress)}% 완료
-            </span>
           </div>
-          <div className="w-full h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+        </div>
+
+        {/* 세그먼트 진행 바 */}
+        <div className="flex gap-0.5">
+          {questions.map((_, i) => (
             <div
-              className="h-1.5 rounded-full transition-all duration-500"
+              key={i}
+              className="flex-1 h-1 rounded-full transition-all duration-300"
               style={{
-                width: `${progress}%`,
-                background: `linear-gradient(90deg, ${categoryColor} 0%, ${categoryColor}99 100%)`,
-                boxShadow: `0 0 8px ${categoryColor}60`,
+                background: i < answeredCount
+                  ? categoryColor
+                  : i === index
+                  ? `${categoryColor}60`
+                  : 'rgba(255,255,255,0.08)',
               }}
             />
-          </div>
+          ))}
+        </div>
+
+        {/* 포커스 영역 뱃지 */}
+        <div>
+          <span
+            className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full"
+            style={{ background: `${categoryColor}20`, color: categoryColor }}
+          >
+            {current.emoji} {current.focusArea}
+          </span>
         </div>
 
         {/* 질문 카드 */}
         <div
-          className="rounded-2xl p-4 flex flex-col items-center gap-3 text-center"
+          className="rounded-2xl p-4 flex flex-col gap-2"
           style={{
             background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.4) 100%)`,
-            border: `1px solid ${categoryColor}40`,
+            border: `1px solid ${categoryColor}30`,
           }}
         >
-          <span className="text-4xl">{current.emoji}</span>
-          <span
-            className="text-xs font-bold px-2 py-0.5 rounded-full"
-            style={{ background: `${categoryColor}28`, color: categoryColor }}
-          >
-            {current.focusArea}
-          </span>
-          <p className="text-[13px] font-semibold text-white leading-relaxed">{current.question}</p>
+          <span className="text-3xl">{current.emoji}</span>
+          <p className="text-[10px] font-medium" style={{ color: categoryColor }}>{current.focusArea}</p>
+          <p className="text-[13px] font-bold text-white leading-relaxed">{current.question}</p>
         </div>
 
         {/* 4지선다 */}
         <div className="space-y-2">
           {current.choices.map((choice, choiceIndex) => {
-            const choiceColor = choice.score >= 2 ? '#22c55e' : choice.score === 1 ? '#f59e0b' : '#ef4444';
+            const isSelected = isFeedback && choiceIndex === selectedIdx;
             return (
               <button
                 key={choiceIndex}
-                onClick={() => onAnswer(choiceIndex, choice.score, choice.label, choice.feedback)}
-                className="w-full px-3 py-2.5 rounded-xl text-left transition-all active:scale-[0.98] hover:scale-[1.01]"
+                onClick={() => !isFeedback && onAnswer(choiceIndex, choice.score, choice.label, choice.feedback)}
+                disabled={isFeedback}
+                className="w-full px-3 py-3 rounded-xl text-left transition-all flex items-center gap-2.5"
                 style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${choiceColor}55`,
+                  background: isSelected
+                    ? `${categoryColor}15`
+                    : 'rgba(255,255,255,0.04)',
+                  border: isSelected
+                    ? `2px solid ${categoryColor}`
+                    : '1px solid rgba(255,255,255,0.10)',
+                  opacity: isFeedback && !isSelected ? 0.45 : 1,
                 }}
               >
-                <div className="flex items-start justify-between gap-2">
-                  <p className="text-xs font-semibold leading-relaxed text-gray-100">{choice.label}</p>
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 relative"
+                  style={{
+                    background: isSelected
+                      ? `${categoryColor}30`
+                      : 'rgba(255,255,255,0.06)',
+                  }}
+                >
+                  <span className="text-base">{CHOICE_ICONS[choiceIndex] ?? '🔹'}</span>
                   <span
-                    className="text-xs px-1.5 py-0.5 rounded-full font-bold flex-shrink-0"
-                    style={{ color: choiceColor, background: `${choiceColor}22` }}
+                    className="absolute -bottom-1 -right-1 w-3.5 h-3.5 rounded-full text-[8px] font-black flex items-center justify-center"
+                    style={{
+                      background: isSelected ? categoryColor : 'rgba(255,255,255,0.15)',
+                      color: isSelected ? '#fff' : 'rgba(255,255,255,0.6)',
+                    }}
                   >
-                    {choice.score}점
+                    {CHOICE_LETTERS[choiceIndex]}
                   </span>
                 </div>
+                <p className="text-xs font-semibold leading-relaxed text-gray-100 flex-1">
+                  {choice.label}
+                </p>
+                {isSelected && (
+                  <div
+                    className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: categoryColor }}
+                  >
+                    <Check className="w-3 h-3 text-white" />
+                  </div>
+                )}
               </button>
             );
           })}
         </div>
+
+        {/* 피드백 카드 (선택 후) */}
+        {isFeedback && lastAnswer && (
+          <div className="flex flex-col gap-2.5">
+            <div
+              className="rounded-xl p-3"
+              style={{
+                background: `linear-gradient(135deg, ${categoryColor}15 0%, ${categoryColor}08 100%)`,
+                border: `1px solid ${categoryColor}30`,
+              }}
+            >
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-sm">{current.emoji}</span>
+                  <span className="text-[10px] font-bold" style={{ color: categoryColor }}>
+                    {current.focusArea} 분석 완료
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div
+                    className="w-3.5 h-3.5 rounded-full flex items-center justify-center"
+                    style={{ background: categoryColor }}
+                  >
+                    <Check className="w-2 h-2 text-white" />
+                  </div>
+                  <span className="text-[10px] text-gray-500">{progress}%</span>
+                </div>
+              </div>
+              {lastAnswer.feedback && (
+                <p className="text-xs text-gray-200 leading-relaxed">
+                  {lastAnswer.feedback}
+                </p>
+              )}
+            </div>
+
+            <button
+              onClick={onNext}
+              className="w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
+              style={{
+                background: `linear-gradient(135deg, ${categoryColor} 0%, ${categoryColor}cc 100%)`,
+                color: '#fff',
+                boxShadow: `0 4px 20px ${categoryColor}40`,
+              }}
+            >
+              {index + 1 < questions.length ? '다음 문제로' : '결과 보기'}
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </div>
     );
   }

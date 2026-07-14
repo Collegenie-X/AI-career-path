@@ -90,7 +90,7 @@ function StarTabHeroBanner() {
             <Sparkles className="h-7 w-7 md:h-8 md:w-8" style={{ color: accent }} />
           </div>
           <div className="min-w-0 flex-1">
-            <p className="mb-1.5 text-[13px] font-bold uppercase tracking-wider" style={{ color: accent }}>
+            <p className="mb-1.5 text-[13px] font-bold uppercase tracking-wider" style={{ color: accent }} suppressHydrationWarning>
               {LABELS.intro_banner_title}
             </p>
             <h2 className="mb-2 text-xl font-black leading-tight text-white md:text-2xl">

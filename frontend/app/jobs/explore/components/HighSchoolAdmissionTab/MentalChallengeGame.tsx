@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { ChevronLeft, Zap, Heart, ArrowRight, Sparkles, CheckCircle2, Target, BookOpen, Lightbulb } from 'lucide-react';
+import { ChevronLeft, Zap, ArrowRight, Sparkles, CheckCircle2, Target, BookOpen, Lightbulb } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { MentalChallengeData, MentalChallengeChoice, MentalChallengeScenario } from '../../types';
 import { QuizProgressBar, QuizChoiceButton } from '../shared';
@@ -188,7 +188,7 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
             <ChevronLeft className="w-4 h-4 text-gray-300" />
           </button>
           <div>
-            <h3 className="text-sm font-bold text-white">멘탈 결과</h3>
+            <h3 className="text-sm font-bold text-white">적성 검사 결과</h3>
           </div>
         </div>
 
@@ -222,20 +222,14 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
                 ) : null}
                 <p className="text-[12px] text-gray-300 leading-relaxed">{resultTier.message}</p>
 
-                <div className="mt-4 grid grid-cols-3 gap-2">
+                <div className="mt-4 grid grid-cols-2 gap-2">
                   <div className="rounded-lg p-1.5" style={{ background: 'rgba(0,0,0,0.3)' }}>
-                    <p className="text-[10px] text-gray-400">총점</p>
-                    <p className="text-[14px] font-black tabular-nums" style={{ color: totalScore >= 0 ? '#fbbf24' : '#f87171' }}>
-                      {totalScore >= 0 ? `+${totalScore}` : totalScore}
-                    </p>
+                    <p className="text-[10px] text-gray-400">강점 영역</p>
+                    <p className="text-[14px] font-black text-emerald-300 tabular-nums">{positiveCount}개</p>
                   </div>
                   <div className="rounded-lg p-1.5" style={{ background: 'rgba(0,0,0,0.3)' }}>
-                    <p className="text-[10px] text-gray-400">긍정</p>
-                    <p className="text-[14px] font-black text-emerald-300 tabular-nums">{positiveCount}</p>
-                  </div>
-                  <div className="rounded-lg p-1.5" style={{ background: 'rgba(0,0,0,0.3)' }}>
-                    <p className="text-[10px] text-gray-400">위험</p>
-                    <p className="text-[14px] font-black text-rose-300 tabular-nums">{negativeCount}</p>
+                    <p className="text-[10px] text-gray-400">보강 필요</p>
+                    <p className="text-[14px] font-black text-rose-300 tabular-nums">{negativeCount}개</p>
                   </div>
                 </div>
 
@@ -248,7 +242,7 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
                     style={{ background: 'linear-gradient(90deg, #f87171, #fbbf24, #34d399)' }}
                   />
                 </div>
-                <p className="text-[10px] text-gray-400 mt-1">멘탈 게이지 {Math.round(pct)}%</p>
+                <p className="text-[10px] text-gray-400 mt-1">중위권 도달 준비도 {Math.round(pct)}%</p>
               </div>
             </>
           );
@@ -313,10 +307,9 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
           {feedbackHistory.map((item, i) => (
             <div key={i} className="flex items-start gap-2">
               <span
-                className="text-[12px] font-bold flex-shrink-0 mt-0.5 w-6 text-center"
-                style={{ color: item.score >= 0 ? '#34d399' : '#f87171' }}
+                className="text-[12px] flex-shrink-0 mt-0.5 w-5 text-center"
               >
-                {item.score >= 0 ? `+${item.score}` : item.score}
+                {item.score >= 2 ? '✅' : item.score >= 0 ? '🔵' : '⚠️'}
               </span>
               <p className="text-[12px] text-gray-300 leading-relaxed">{item.feedback}</p>
             </div>
@@ -357,7 +350,7 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
           accentColor={ACCENT_COLOR}
         />
 
-        {/* 게임 HUD: HP + 던전 층 + 콤보 */}
+        {/* 진행 상태 */}
         <div
           className="rounded-xl p-2.5 flex items-center gap-3"
           style={{
@@ -366,44 +359,26 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
           }}
         >
           <div className="flex items-center gap-1.5 flex-shrink-0">
-            <span className="text-base">🏰</span>
-            <span className="text-[11px] font-bold text-amber-200">{scenarioIndex + 1}층</span>
+            <span className="text-base">📋</span>
+            <span className="text-[11px] font-bold text-amber-200">{scenarioIndex + 1}/{totalScenarios} 영역</span>
           </div>
           <div className="flex-1 flex items-center gap-1.5 min-w-0">
-            <Heart
+            <Sparkles
               className="w-3.5 h-3.5 flex-shrink-0"
-              style={{ color: hp > 50 ? '#fb7185' : hp > 20 ? '#facc15' : '#f87171' }}
-              fill="currentColor"
+              style={{ color: '#fbbf24' }}
             />
             <div className="relative flex-1 h-2 rounded-full overflow-hidden" style={{ background: 'rgba(0,0,0,0.5)' }}>
               <motion.div
                 className="absolute inset-y-0 left-0 rounded-full"
-                animate={{ width: `${hp}%` }}
+                animate={{ width: `${((scenarioIndex + 1) / totalScenarios) * 100}%` }}
                 transition={{ duration: 0.5, ease: 'easeOut' }}
                 style={{
-                  background: hp > 50
-                    ? 'linear-gradient(90deg, #34d399, #10b981)'
-                    : hp > 20
-                      ? 'linear-gradient(90deg, #facc15, #f59e0b)'
-                      : 'linear-gradient(90deg, #f87171, #dc2626)',
+                  background: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
                   boxShadow: '0 0 8px rgba(255,255,255,0.2)',
                 }}
               />
             </div>
-            <span className="text-[10px] font-mono font-bold text-gray-200 tabular-nums w-10 text-right">{hp}/100</span>
           </div>
-          {streak >= 2 ? (
-            <motion.div
-              key={streak}
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="flex items-center gap-0.5 flex-shrink-0 px-1.5 py-0.5 rounded-md"
-              style={{ background: 'rgba(244,114,182,0.2)', border: '1px solid rgba(244,114,182,0.4)' }}
-            >
-              <span className="text-[10px]">🔥</span>
-              <span className="text-[10px] font-bold text-pink-200">{streak} 콤보</span>
-            </motion.div>
-          ) : null}
         </div>
 
         {/* 시나리오 카드 */}
@@ -460,32 +435,9 @@ export function MentalChallengeGame({ data, onBack }: MentalChallengeGameProps) 
               disabled={pendingFeedback !== null}
               accentColor={ACCENT_COLOR}
               onSelect={() => handleChoiceSelect(choice, idx)}
-              prefixEmoji={scoreToEmoji(choice.mentalScore)}
-              trailingBadge={{
-                label: choice.mentalScore >= 0 ? `+${choice.mentalScore} HP` : `${choice.mentalScore * 8} HP`,
-                color: scoreToBadgeColor(choice.mentalScore),
-              }}
             />
           ))}
 
-          <AnimatePresence>
-            {scorePop ? (
-              <motion.div
-                key={scorePop.id}
-                initial={{ y: 0, opacity: 0, scale: 0.6 }}
-                animate={{ y: -60, opacity: 1, scale: 1.4 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.9, ease: 'easeOut' }}
-                className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-2xl font-black"
-                style={{
-                  color: scoreToBadgeColor(scorePop.value),
-                  textShadow: '0 0 16px rgba(0,0,0,0.7)',
-                }}
-              >
-                {scorePop.value >= 0 ? `+${scorePop.value}` : scorePop.value} {scoreToEmoji(scorePop.value)}
-              </motion.div>
-            ) : null}
-          </AnimatePresence>
         </div>
       </div>
 
@@ -561,7 +513,7 @@ function RichMentalFeedbackSheet({ pending, onNext }: RichMentalFeedbackSheetPro
                 {pending.scenario.situation} · 결과 분석
               </p>
               <p className="text-base font-black text-white mt-0.5">
-                {pending.score >= 2 ? '훌륭한 선택!' : pending.score >= 0 ? '괜찮은 선택' : '주의가 필요한 선택'}
+                {pending.score >= 2 ? '좋은 습관이에요!' : pending.score >= 0 ? '개선 여지가 있어요' : '보강이 필요해요'}
               </p>
               {pending.gainEffect ? (
                 <p className="text-[12px] font-bold mt-0.5" style={{ color: accent }}>
@@ -640,12 +592,12 @@ function RichMentalFeedbackSheet({ pending, onNext }: RichMentalFeedbackSheetPro
           >
             {pending.isLast ? (
               <>
-                결과 보기 🏆
+                결과 보고서 보기
                 <Sparkles className="w-4 h-4" />
               </>
             ) : (
               <>
-                다음 던전 입장
+                다음 영역 점검
                 <ArrowRight className="w-4 h-4" />
               </>
             )}
