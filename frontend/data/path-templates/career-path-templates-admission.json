@@ -1,0 +1,3126 @@
+[
+  {
+    "id": "tpl-admission-snu-cse-001",
+    "title": "서울대학교 컴퓨터공학과 합격 커리어 패스",
+    "description": "수시·정시·유학 각 전형별 합격 전략과 선배 합격 후기를 담은 대입 커리어 패스입니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "univ-snu-cse",
+    "jobName": "서울대 컴퓨터공학과",
+    "jobEmoji": "💻",
+    "universityId": "snu",
+    "universityName": "서울대학교",
+    "departmentId": "cse",
+    "departmentName": "컴퓨터공학과",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합·학생부교과 — R&E·KOI 입상이 핵심. 고2까지 연구 경험 축적.",
+      "정시": "수능 1등급 4개 + KOI 입상 가산. 수학·영어 집중, 6개월 집중 가능.",
+      "유학": "SAT/ACT + AP CS + 프로젝트 포트폴리오. TOEFL 100+ 필수."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "수시",
+        "quote": "KOI 본선 2등 때문에 학종에서 역량이 확실히 보였어요. R&E 논문은 1개만 했지만 질이 중요하다고 느꼈습니다.",
+        "strategy": "고2 R&E 논문 + KOI 입상이 핵심. 학년 초부터 R&E 지원 신청했어요.",
+        "tips": [
+          "학년 초 R&E 지원 신청",
+          "정보올림피아드 1차는 꼭 통과",
+          "해커톤 경험 면접 답변에 활용"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "정시",
+        "quote": "수능 1등급 4개 + KOI 2등으로 정시 가산이 적용됐어요. 고3 수능 집중이 핵심이었습니다.",
+        "strategy": "고2까지 KOI 완료, 고3은 수능만. 수학·영어 집중, 탐구는 4번까지 유지.",
+        "tips": [
+          "수능 최저만 맞추면 KOI 가산 유리",
+          "수학 1등급 필수",
+          "수능 D-6개월부터 집중"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "유학",
+        "quote": "CMU CS 합격. SAT 1550 + AP CS A 5점 + GitHub 프로젝트 3개가 포트폴리오 핵심이었어요.",
+        "strategy": "고1 TOEFL 100+, 고2 SAT·AP, 고3 초 에디션 마감. 프로젝트는 질이 중요.",
+        "tips": [
+          "TOEFL 100+ 먼저",
+          "GitHub에 프로젝트 공개",
+          "에세이 '왜 CS인가' 명확히"
+        ]
+      }
+    ],
+    "recommendedActivities": {
+      "volunteer": [
+        {
+          "title": "코딩 멘토링 봉사",
+          "hours": "60시간+",
+          "description": "초·중학생 대상 Scratch·Python 기초 교육"
+        },
+        {
+          "title": "교육 멘토링 봉사",
+          "hours": "누적 인증",
+          "description": "취약계층 학습 지도 (1365·VMS 연계)",
+          "url": "https://www.1365.go.kr"
+        }
+      ],
+      "camp": [
+        {
+          "title": "삼성 드림클래스 코딩 캠프",
+          "period": "방학",
+          "host": "삼성전자",
+          "outcome": "팀 프로젝트 수행",
+          "url": "https://www.dreamclass.samsung.com"
+        },
+        {
+          "title": "KAIST 과학영재캠프",
+          "period": "7~8월",
+          "host": "KAIST",
+          "url": "https://gifted.kaist.ac.kr"
+        }
+      ],
+      "award": [
+        {
+          "title": "한국정보올림피아드 (KOI)",
+          "host": "과기정통부",
+          "result": "알고리즘·프로그래밍",
+          "url": "https://www.koi.or.kr"
+        },
+        {
+          "title": "전국 학생 코딩경진대회",
+          "host": "코딩경진대회 조직위",
+          "result": "블록·파이썬·AI 코딩",
+          "url": "https://codingcontest.or.kr"
+        },
+        {
+          "title": "NASA 스페이스앱 챌린지 (국제 해커톤)",
+          "host": "NASA",
+          "result": "세계 최대 글로벌 해커톤 · 서울 동시 개최",
+          "url": "https://www.spaceappschallenge.org/"
+        }
+      ],
+      "exhibition": [
+        {
+          "title": "메이커 페어 서울",
+          "venue": "서울시립과학관",
+          "period": "매년 9월경",
+          "description": "자작 SW·하드웨어 프로젝트 출품·전시",
+          "url": "https://www.makerfaireseoul.com/"
+        }
+      ]
+    },
+    "likes": 298,
+    "uses": 112,
+    "tags": [
+      "서울대",
+      "컴공",
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "totalItems": 24,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "COS Pro 2급 합격증 1개 취득 (6월)",
+          "이솦 AI 기초 수료증 1장 + 실습 코드 12개 확보 (5월)",
+          "Pygame 게임 1편 공개(커밋 30회 이상, 11월) + RAG 챗봇 URL 1개 배포 (8월)",
+          "백준 누적 100문제·solved.ac Silver 4 달성 (11월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "COS Pro 2급(Python) 6월 합격",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 2,
+            "cost": "3만원",
+            "organizer": "YBM",
+            "url": "https://www.ybmit.com",
+            "description": "4~5월 주 3회 1시간씩 파이썬 문법과 기출을 돌린다. ① 공식 홈페이지에서 6월 회차 접수 일정을 확인해 달력에 고정 ② 기출 3회분을 시험과 같은 시간으로 풀기 ③ 틀린 문항만 오답노트에 옮겨 2회 반복. 완료 기준: 6월 시험 합격, 응시 직전 기출 3회분 평균 80점 이상.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "COS Pro 공식 홈페이지",
+                "url": "https://www.ybmit.com",
+                "kind": "official"
+              },
+              {
+                "title": "기출문제 다운로드",
+                "url": "https://www.ybmit.com/cos/cos_pro_sample.asp",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "이솦(EBS SW) AI 기초 과정 12주 수료",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "EBS",
+            "url": "https://www.ebssw.kr",
+            "description": "3~5월 주 2회, 1회 60분씩 강의 1개와 실습 1개를 붙여서 끝낸다. ① 공식 사이트에서 개강 일정 확인 후 수강 신청 ② 매주 실습 코드를 한 폴더에 번호를 붙여 저장 ③ 주말 30분간 그 주 배운 개념을 3줄로 요약. 완료 기준: 12주 전 강의 수료증 발급, 실습 코드 12개 보관.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "activitySubtype": "project",
+            "links": [
+              {
+                "title": "이솦 AI 과정 신청",
+                "url": "https://www.ebssw.kr",
+                "kind": "official"
+              },
+              {
+                "title": "수료 후기 (블로그)",
+                "url": "https://blog.naver.com/ebssw_review",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "이솦 수료증 1장 + 주차별 실습 코드 12개"
+          },
+          {
+            "type": "portfolio",
+            "title": "Pygame 2D 게임 1편 완성·공개",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "7~11월 주 2~3회 1시간씩 다섯 달에 걸쳐 게임 하나를 제대로 끝낸다. ① 7월: 벽돌깨기·뱀게임·플랫포머 중 하나로 주제를 못 박고 화면 그림 1장과 기능 5개(이동·충돌·점수·시작화면·게임오버)를 종이에 적는다. ② 8월: 캐릭터 이동과 충돌 판정만 먼저 만든다. 이 둘이 되면 나머지는 다 붙는다. ③ 9~10월: 기능 1개당 커밋 1회 원칙으로 점수·사운드·난이도를 하나씩 추가하고, 막히면 그 기능만 떼어낸 20줄짜리 파일로 따로 실험해 원인을 찾는다. ④ 11월: 친구 5명에게 시켜보고 안 잡히던 버그 3개를 고친 뒤 실행법·조작법·스크린샷·막혔던 점을 README에 정리한다. 완료 기준: 에러 없이 끝까지 플레이되는 게임 1편, 커밋 30회 이상, 친구 5명 테스트 기록.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "links": [
+              {
+                "title": "Pygame 공식 튜토리얼",
+                "url": "https://www.pygame.org/docs/",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트 (GitHub)",
+                "url": "https://github.com/examples/pygame-starter",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "플레이 가능한 게임 1편 + GitHub 저장소 1개(커밋 30회 이상) + 친구 5명 테스트 기록 1장"
+          },
+          {
+            "type": "activity",
+            "title": "백준 Silver 4 달성 (누적 100문제)",
+            "months": [
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "Baekjoon Online Judge",
+            "url": "https://www.acmicpc.net",
+            "description": "4~11월 평일 하루 1문제, 주말은 쉰다. ① 단계별 풀기에서 입출력·조건문·반복문·배열·문자열 순으로 올라가기 ② 30분 안에 못 풀면 풀이를 보고 다음 날 백지에서 다시 구현 ③ 매주 일요일 그 주에 푼 문제 수를 기록. 완료 기준: 11월까지 누적 100문제, solved.ac Silver 4 이상.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "links": [
+              {
+                "title": "백준 온라인 저지",
+                "url": "https://www.acmicpc.net",
+                "kind": "official"
+              },
+              {
+                "title": "단계별 문제 풀이 가이드",
+                "url": "https://www.acmicpc.net/step",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "solved.ac Silver 4 티어 + 누적 해결 100문제"
+          },
+          {
+            "type": "portfolio",
+            "title": "개인 학습자료 RAG 챗봇 (LangChain+Streamlit) 배포",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~8월 방학에 주 2회 2시간씩 만든다. ① 본인 정리노트 20쪽을 텍스트로 옮겨 임베딩 ② LangChain으로 검색·답변을 잇고 Streamlit 화면 1개를 붙이기 ③ 배포 후 친구 5명에게 질문 20개를 시켜 틀린 답의 유형을 표로 적고 3개 이상 고치기. 완료 기준: 접속되는 URL 1개, 질문 20개 중 15개 이상 정답.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "LangChain",
+              "OpenAI API",
+              "Streamlit",
+              "Pinecone"
+            ],
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 3분 데모 영상 1편",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "정보처리기능사 자격증 1개 취득 (4월)",
+          "KOI 예선 통과 (6월) + 서울대 공대 캠프 참가 확인서 1장 (7월)",
+          "Flask 웹앱 배포 URL 1개 + 실사용 글 10건 (11월)",
+          "음성 회의록 MVP 배포 URL 1개 + 베타 피드백 10건 (10월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "정보처리기능사 1회차 필기·실기 합격",
+            "months": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "difficulty": 2,
+            "cost": "1.9만원",
+            "organizer": "한국산업인력공단",
+            "url": "https://www.q-net.or.kr",
+            "description": "1~2월 주 4회 1시간 필기, 3~4월 주 3회 1시간 실기로 나눈다. ① 큐넷에서 1회차 접수 일정을 확인해 달력에 고정 ② 필기는 기출 5개년을 2회 반복하고 60점 미만 과목만 재정리 ③ 실기는 프로그래밍 예상 유형을 손으로 코딩. 완료 기준: 필기·실기 각 60점 이상 합격.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "Q-Net 큐넷 (자격증 신청)",
+                "url": "https://www.q-net.or.kr",
+                "kind": "official"
+              },
+              {
+                "title": "기출문제 CBT",
+                "url": "https://www.comcbt.com",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "정보처리기능사 자격증 1개"
+          },
+          {
+            "type": "award",
+            "title": "한국정보올림피아드(KOI) 예선 통과",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "과기정통부·한국정보과학회",
+            "url": "https://www.koi.or.kr",
+            "description": "3~6월 주 3회 1시간씩 알고리즘을 훈련한다. ① 공식 홈페이지에서 예선 접수 일정을 확인해 달력에 고정하고 C++·Python 중 하나를 고정 ② 백준 Silver 문제를 주 3개, 주말엔 기출 1회분을 시간 재고 풀기 ③ 틀린 유형만 골라 다시 구현. 완료 기준: 예선 통과, 기출 3회분 평균 절반 이상 득점.",
+            "categoryTags": [
+              "award"
+            ],
+            "links": [
+              {
+                "title": "KOI 공식 홈페이지",
+                "url": "https://www.koi.or.kr",
+                "kind": "official"
+              },
+              {
+                "title": "기출문제 (백준)",
+                "url": "https://www.acmicpc.net/category/3",
+                "kind": "reference"
+              },
+              {
+                "title": "KOI 준비 가이드 (유튜브)",
+                "url": "https://www.youtube.com/watch?v=koi_guide",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "KOI 예선 통과 확인 1건 + 기출 풀이 노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "서울대 공대 체험 캠프 2박3일 참가",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료~5만원",
+            "organizer": "서울대학교 공과대학",
+            "url": "https://eng.snu.ac.kr",
+            "description": "6월 신청, 7월에 2박3일을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 신청 완료 ② 캠프 중 교수 특강·연구실 투어마다 궁금한 점 3개를 적어 질문 ③ 귀가 후 3일 안에 보고 들은 것과 진로 생각을 A4 2쪽으로 정리. 완료 기준: 참가 확인서 수령, 기록 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "links": [
+              {
+                "title": "서울대 공대 홈페이지",
+                "url": "https://eng.snu.ac.kr",
+                "kind": "official"
+              },
+              {
+                "title": "캠프 신청 (매년 5월)",
+                "url": "https://eng.snu.ac.kr/camp",
+                "kind": "application"
+              }
+            ],
+            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)"
+          },
+          {
+            "type": "portfolio",
+            "title": "Flask CRUD 웹앱 1개 배포",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "7~11월 주 2~3회 1시간 30분씩 다섯 달을 들여 웹앱 하나를 끝까지 만든다. ① 7월: 학급 투표·급식 후기·동아리 일정 중 실제로 쓸 사람이 있는 주제 1개를 고르고 화면 3개(목록·작성·상세)를 종이에 그린 뒤 저장할 데이터 항목을 표로 적는다. ② 8월: 목록과 작성 두 화면만 먼저 붙여 글이 실제로 저장되는 것을 확인한다. 여기까지가 절반이다. ③ 9~10월: 수정·삭제를 더하고 기능 1개당 커밋 1회를 지킨다. 에러가 나면 화면을 다시 보기 전에 터미널 로그의 마지막 3줄을 먼저 읽는 습관을 들인다. ④ 11월: 무료 호스팅에 배포하고 반 친구 10명에게 실제로 써보게 한 뒤 실행법·화면·막혔던 점을 README에 정리한다. 완료 기준: 접속되는 URL 1개, 4기능 모두 동작, 실사용 글 10건 이상.",
+            "categoryTags": [
+              "project"
+            ],
+            "links": [
+              {
+                "title": "Flask 공식 튜토리얼",
+                "url": "https://flask.palletsprojects.com",
+                "kind": "reference"
+              },
+              {
+                "title": "무료 배포 (Vercel)",
+                "url": "https://vercel.com",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://github.com/examples/flask-crud",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개(README 포함) + 실사용 글 10건"
+          },
+          {
+            "type": "portfolio",
+            "title": "음성 회의록 자동화 MVP (FastAPI+Whisper) 배포",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "9~10월 주 2회 2시간씩 만든다. ① 음성 업로드 화면 1개와 전사·요약·액션아이템 3단계 처리 흐름을 FastAPI로 연결 ② 본인 수업·회의 녹음 5건으로 정확도를 확인 ③ 친구·가족 10명에게 써보게 하고 불편한 점을 표로 정리해 3개 이상 고치기. 완료 기준: 배포 URL 1개, 피드백 10건 수집.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "FastAPI",
+              "OpenAI Whisper",
+              "GPT-4o",
+              "Vercel"
+            ],
+            "deliverable": "배포 URL 1개 + 베타 사용자 10명 피드백 정리 1편",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "goals": [
+          "COS Pro 1급 합격증 1개 취득 (4월)",
+          "KOI 본선 입상 상장 1개 (7월)",
+          "앱 1개 스토어 등록(또는 APK 공개) + 커밋 50회 이상 (11월)",
+          "GPT API 챗봇 URL 1개 배포(질문 50건) + scikit-learn 탐구 보고서 1편(A4 5쪽) (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "COS Pro 1급 4월 합격",
+            "months": [
+              2,
+              3,
+              4
+            ],
+            "difficulty": 3,
+            "cost": "3만원",
+            "organizer": "YBM",
+            "url": "https://www.ybmit.com",
+            "description": "2~4월 주 4회 1시간씩 준비한다. ① 공식 홈페이지에서 4월 회차 접수 일정을 확인해 달력에 고정 ② 기출 5회분을 시험과 같은 시간으로 풀고 유형별로 분류 ③ 오답은 백지에서 다시 구현해 2회 반복. 완료 기준: 4월 시험 합격, 응시 직전 기출 5회분 평균 75점 이상.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "COS Pro 1급 신청",
+                "url": "https://www.ybmit.com",
+                "kind": "official"
+              },
+              {
+                "title": "1급 기출문제",
+                "url": "https://www.ybmit.com/cos/cos_pro_1_sample.asp",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "COS Pro 1급 합격증 1개"
+          },
+          {
+            "type": "award",
+            "title": "한국정보올림피아드(KOI) 본선 동상 이상",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "과기정통부·한국정보과학회",
+            "url": "https://www.koi.or.kr",
+            "description": "3~7월 주 4회 1시간씩 훈련한다. ① 공식 홈페이지에서 예선·본선 일정을 확인해 달력에 고정 ② 백준 Gold 문제를 주 4개, 주 1회 기출 1회분을 시간 재고 풀기 ③ DP·그래프·그리디 유형별 오답을 정리해 재구현. 완료 기준: 본선 진출 후 동상 이상, solved.ac Gold 3 이상.",
+            "categoryTags": [
+              "award"
+            ],
+            "links": [
+              {
+                "title": "KOI 공식 홈페이지",
+                "url": "https://www.koi.or.kr",
+                "kind": "official"
+              },
+              {
+                "title": "본선 기출 (백준)",
+                "url": "https://www.acmicpc.net/category/3",
+                "kind": "reference"
+              },
+              {
+                "title": "KOI 본선 준비 전략 (블로그)",
+                "url": "https://blog.naver.com/koi_strategy",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "KOI 본선 입상 상장 1개"
+          },
+          {
+            "type": "portfolio",
+            "title": "React 또는 Flutter 앱 1개 스토어 배포",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "7~11월 주 2~3회 2시간씩 다섯 달 동안 앱 하나를 스토어까지 올린다. ① 7월: 학급 일정 관리·학습 타이머·급식 알림 중 본인이 매일 쓸 것 하나를 고르고 화면 4개를 종이에 그린다. 여기서 기능을 더 붙이고 싶은 유혹을 참는 것이 이 프로젝트의 절반이다. ② 8월: React Native나 Flutter 중 하나를 골라 화면 4개를 이동만 되는 껍데기로 먼저 만든다. ③ 9~10월: 화면별로 기능을 채우고 기능 1개당 커밋 1회를 지킨다. 빌드가 깨지면 마지막으로 성공한 커밋으로 되돌려 차이를 한 줄씩 비교한다. ④ 11월: 아이콘·설명·스크린샷을 준비해 공식 문서 절차대로 스토어에 올린다. 심사 반려 사유는 그대로 기록해 다음 제출에 반영한다. 완료 기준: 스토어 등록 완료 또는 APK 공개 배포, 커밋 50회 이상, 실사용자 10명.",
+            "categoryTags": [
+              "project"
+            ],
+            "links": [
+              {
+                "title": "React Native 공식 문서",
+                "url": "https://reactnative.dev",
+                "kind": "reference"
+              },
+              {
+                "title": "Flutter 공식 문서",
+                "url": "https://flutter.dev",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://github.com/examples/react-native-starter",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "스토어 등록 앱 1개(또는 APK 공개) + GitHub 저장소 1개(커밋 50회 이상) + 실사용자 10명 기록"
+          },
+          {
+            "type": "activity",
+            "title": "GPT API 챗봇 1개 배포 (질문 50건 처리)",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~1만원",
+            "organizer": "자체",
+            "description": "10~11월 주 2회 90분씩 만든다. ① 학교 Q&A 또는 진로 상담 중 하나로 용도를 정하고 답변 근거가 될 자료 20쪽을 모으기 ② API 연결·프롬프트·화면 순으로 구현 ③ 친구 10명에게 질문 50건을 받아 오답 유형을 표로 정리하고 프롬프트를 3회 수정. 완료 기준: 질문 50건 처리, 만족도 조사 1회.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "activitySubtype": "project",
+            "links": [
+              {
+                "title": "OpenAI API 문서",
+                "url": "https://platform.openai.com/docs",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://github.com/examples/gpt-chatbot",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 질문 로그 50건"
+          },
+          {
+            "type": "activity",
+            "title": "scikit-learn 분류 모델 탐구 보고서 1편",
+            "months": [
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "11~12월 주 2회 90분씩 진행한다. ① 공개 데이터셋 1개를 골라 결측치·분포를 먼저 표로 정리 ② 로지스틱 회귀·결정트리·랜덤포레스트 3개 모델을 학습해 정확도를 비교 ③ 왜 성능 차이가 나는지 한 쪽으로 해석. 완료 기준: 보고서 A4 5쪽, 모델 3개 비교표 포함, 정보 세특 제출.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "links": [
+              {
+                "title": "scikit-learn 공식 문서",
+                "url": "https://scikit-learn.org",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "탐구 보고서 1편(A4 5쪽) + 실험 노트북 1개"
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "goals": [
+          "R&E 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 (11월)",
+          "TOEFL iBT 100점 이상 취득 (5월)",
+          "풀스택 서비스 사용자 30명·커밋 80회 이상 (11월) + LangGraph 저장소 1개 공개 (7월)",
+          "수능 수학·영어 모의고사 3회 연속 2등급 이내 (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TOEFL iBT 100점 이상 (5월 응시)",
+            "months": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "difficulty": 4,
+            "cost": "30만원",
+            "organizer": "ETS",
+            "url": "https://www.ets.org/toefl",
+            "description": "2~5월 주 5회 90분씩 4영역을 돌린다. ① 공식 사이트에서 5월 시험일을 예약 ② 주 1회 실전 모의 1세트를 풀고 영역별 점수를 표로 기록 ③ R25·L25·S23·W24 중 미달 영역에 학습 시간의 절반을 배분하고 스피킹은 매일 3문항 녹음. 완료 기준: 5월 응시 총점 100점 이상, 모의 2회 연속 100점 이상.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "TOEFL 공식 홈페이지",
+                "url": "https://www.ets.org/toefl",
+                "kind": "official"
+              },
+              {
+                "title": "무료 연습 문제",
+                "url": "https://www.ets.org/toefl/test-takers/ibt/prepare.html",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+          },
+          {
+            "type": "portfolio",
+            "title": "풀스택 웹 서비스 1개 배포 (사용자 30명)",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체",
+            "description": "9~11월 주 3회 2시간씩 만든다. ① 9월에 학교 커뮤니티 또는 학습 관리 중 하나로 정하고 화면 6개와 데이터 구조를 설계 ② 10월에 프런트·백엔드·DB를 붙이고 로그인·글쓰기·검색을 구현 ③ 11월에 배포하고 학급 친구 30명을 초대해 첫 주에 나온 오류 3건을 잡기. 완료 기준: 실사용자 30명, 커밋 80회 이상.",
+            "categoryTags": [
+              "project"
+            ],
+            "links": [
+              {
+                "title": "React 공식 문서",
+                "url": "https://react.dev",
+                "kind": "reference"
+              },
+              {
+                "title": "Node.js 공식 문서",
+                "url": "https://nodejs.org",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://github.com/examples/fullstack-starter",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "운영 중인 서비스 URL 1개 + GitHub 저장소 1개(커밋 80회 이상)"
+          },
+          {
+            "type": "activity",
+            "title": "R&E 연구 수행 (실험 로그 20회 + 논문 초고 1편)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "서울대·KAIST·과학영재학교",
+            "url": "https://www.snu.ac.kr",
+            "description": "3~11월 주 1회 3시간 연구, 월 1회 지도교수 미팅으로 아홉 달을 굴린다. ① 3~4월: 학교 R&E 공고나 대학 프로그램에 지원해 팀에 들어가고, 관심 주제 논문 5편을 읽어 연구 질문을 딱 한 문장으로 좁힌다. 질문이 넓으면 남은 여덟 달이 전부 흔들린다. ② 5~6월: 선행 논문 10편 요약표를 만들고 실험 설계를 확정한 뒤 지도교수 피드백을 1회 받는다. ③ 7~9월: 실험을 돌릴 때마다 조건·결과·실패 이유를 그날 로그로 남긴다. 결과가 예상과 다르면 지우지 말고 왜 다른지를 적는 것이 나중에 고찰의 절반이 된다. ④ 10~11월: 서론·방법·결과·고찰 순으로 초고를 쓰고 피드백을 2회 반영한다. 완료 기준: 초고 1편(A4 10쪽), 실험 로그 20회분, 피드백 반영 이력 2회.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "links": [
+              {
+                "title": "서울대 R&E 프로그램",
+                "url": "https://www.snu.ac.kr/research",
+                "kind": "official"
+              },
+              {
+                "title": "KAIST 영재교육원 R&E",
+                "url": "https://gifted.kaist.ac.kr",
+                "kind": "official"
+              },
+              {
+                "title": "R&E 논문 작성 가이드",
+                "url": "https://blog.naver.com/re_guide",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회"
+          },
+          {
+            "type": "activity",
+            "title": "수능 수학·영어 모의고사 2등급 이내 진입",
+            "months": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 4,
+            "cost": "무료~학원비",
+            "organizer": "자체",
+            "description": "9~12월 평일 수학 90분·영어 60분을 매일 고정한다. ① 9월에 최근 모의고사 1회로 단원별 오답률을 뽑아 취약 단원 3개를 정하기 ② 주말마다 실전 1세트를 시간 재고 풀고 오답을 그날 재풀이 ③ 매월 등급 변화를 기록. 완료 기준: 12월까지 모의고사 3회 연속 수학·영어 2등급 이내.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "모의고사 성적표 3회분(수학·영어 2등급 이내)"
+          },
+          {
+            "type": "portfolio",
+            "title": "LangGraph 멀티 에이전트 시스템 공개",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~7월 주 2회 2시간씩 만든다. ① 리서처·비평가·작성자 3개 에이전트의 역할과 주고받을 메시지를 먼저 그림으로 설계 ② LangGraph로 흐름을 구현하고 실패 사례 10건을 모아 프롬프트를 고치기 ③ 데모 영상과 설계 이유를 담은 블로그 글을 공개. 완료 기준: 저장소 공개, 블로그 글 1편 게시.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "LangGraph",
+              "Claude API",
+              "GPT-4o",
+              "Python"
+            ],
+            "deliverable": "GitHub 저장소 1개 + 3분 데모 영상 1편 + 기술 블로그 글 1편",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3",
+        "goals": [
+          "자기소개서 최종본 확정 + 수정 이력 5개 버전 (8월)",
+          "모의면접 5회 완료 + 예상 질문 30문항 답변 정리 (11월)",
+          "수능 주요 4개 과목 1등급 (11월)",
+          "AI 에이전트 서비스 사용자 50명 + 1개월 운영 통계 1편 (6월)"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수시 자기소개서 완성 (5회 이상 수정)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료~컨설팅 50만원",
+            "organizer": "자체",
+            "description": "3~8월 주 1회 2시간씩 쓴다. ① 3월에 학생부를 처음부터 읽고 R&E·KOI·프로젝트 중 핵심 경험 3개를 고르기 ② 경험마다 계기·행동·배운 점을 400자로 쓰고 초고를 완성 ③ 교사·선배 피드백을 받아 3주 간격으로 5회 고치기. 완료 기준: 최종본 확정, 버전 5개 보관.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "최종 자기소개서 1편 + 수정 이력 5개 버전"
+          },
+          {
+            "type": "activity",
+            "title": "수시 면접 모의면접 5회 이상 완료",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원 30만원",
+            "organizer": "학교·학원",
+            "description": "9~11월 주 1회 60분 모의면접을 잡는다. ① 9월에 학생부 항목별로 예상 질문 30개를 뽑아 답변을 3문장으로 정리 ② 모의면접마다 녹화해 말버릇·시선·답변 길이를 스스로 점검 ③ R&E 연구 과정은 3분 설명 버전을 따로 준비. 완료 기준: 모의면접 5회 완료, 30문항 답변 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권"
+          },
+          {
+            "type": "activity",
+            "title": "수능 주요 과목 1등급 4개",
+            "months": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "cost": "무료~재수학원 500만원",
+            "organizer": "자체",
+            "description": "6~11월 평일 과목별 90분씩 고정 시간표로 돌린다. ① 6월 모의 결과로 과목별 취약 단원을 3개씩 뽑기 ② 주 1회 실전 모의 1세트를 실제 시간표대로 풀고 당일 오답을 재풀이 ③ 기출 5개년을 3회 반복하며 오답노트를 과목별로 유지. 완료 기준: 수능 4개 과목 1등급, 9·10월 모의 1등급 유지.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "수능 성적표 1장(1등급 4개) + 오답노트 4권"
+          },
+          {
+            "type": "portfolio",
+            "title": "졸업 프로젝트: AI 에이전트 실서비스 (사용자 50명)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "무료~10만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "3~6월 주 2~3회 2시간씩 네 달 동안 만들고 실제로 굴린다. ① 3월: 본인이 실제로 겪은 불편 1개를 고르고 같은 불편을 겪는 사람 10명을 인터뷰해 이게 진짜 문제인지부터 확인한다. 여기서 아니라고 나오면 주제를 바꾸는 편이 낫다. ② 4월: 에이전트가 할 일을 3단계로 쪼개 각 단계를 따로 만들고, 단계별로 실패 사례 10건을 모아 프롬프트를 고친다. ③ 5월: 배포하고 지인 20명에게 먼저 열어 치명적 오류만 잡는다. ④ 6월: 사용자 50명을 모아 방문·재사용·이탈을 매주 표로 기록하고, 가장 많이 이탈한 화면 1개를 2회 이상 고친다. 완료 기준: 운영 중인 URL 1개, 사용자 50명, 1개월 운영 통계 1편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "LangChain/LangGraph",
+              "Vercel/Railway",
+              "PostHog (분석)"
+            ],
+            "deliverable": "운영 중인 서비스 URL 1개 + 1개월 사용자 통계 1편(사용자 50명)",
+            "links": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-admission-kaist-ee-001",
+    "title": "KAIST 전기및전자공학부 합격 커리어 패스",
+    "description": "수시·정시·유학 각 전형별 합격 전략과 선배 합격 후기를 담은 대입 커리어 패스입니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "tech",
+    "starName": "기술 왕국",
+    "starEmoji": "💻",
+    "starColor": "#3498DB",
+    "jobId": "univ-kaist-ee",
+    "jobName": "KAIST 전기및전자공학부",
+    "jobEmoji": "⚡",
+    "universityId": "kaist",
+    "universityName": "KAIST",
+    "departmentId": "ee",
+    "departmentName": "전기및전자공학부",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — KPhO·R&E·과학고 경력이 핵심. 수능최저 없음.",
+      "정시": "수능 1등급 + KPhO/KOI 입상. 과학고·영재고 출신 우대.",
+      "유학": "SAT II Physics·Math + AP + 연구 경험. MIT·Stanford 등 진학 시."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "수시",
+        "quote": "KPhO 본선 입상 + 과학고 R&E 논문이 합격의 핵심이었어요. KAIST는 수능최저가 없어서 역량만 보여주면 됩니다.",
+        "strategy": "과학고 진학 후 R&E 집중. KPhO 본선 입상이 목표.",
+        "tips": [
+          "KPhO 1차 이상 입상",
+          "R&E 논문 질적 완성",
+          "면접에서 연구 과정 설명 연습"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "정시",
+        "quote": "일반고 출신으로 수능 1등급 4개 + KPhO 2등으로 합격. 과학고 아니어도 가능해요.",
+        "strategy": "고2 KPhO 완료, 고3 수능 집중. 수학·물리·화학 필수.",
+        "tips": [
+          "KPhO 2차 이상 목표",
+          "수능 수학 1등급 필수",
+          "과학고·영재고 전형 확인"
+        ]
+      }
+    ],
+    "recommendedActivities": {
+      "volunteer": [
+        {
+          "title": "메이커 키트 제작 봉사",
+          "hours": "40시간+",
+          "description": "지역 아동센터 전자공작 교육 지원"
+        }
+      ],
+      "camp": [
+        {
+          "title": "한국로봇산업협회 로봇 캠프",
+          "period": "방학",
+          "host": "한국로봇산업협회",
+          "outcome": "로봇 설계·제작 실습"
+        },
+        {
+          "title": "KAIST 과학영재캠프",
+          "period": "7~8월",
+          "host": "KAIST",
+          "url": "https://gifted.kaist.ac.kr"
+        }
+      ],
+      "award": [
+        {
+          "title": "전국학생과학발명품경진대회",
+          "host": "과기정통부·한국발명진흥회",
+          "url": "https://www.kipa.org"
+        },
+        {
+          "title": "WRO 국제로봇올림피아드",
+          "host": "WRO KOREA",
+          "result": "입상 시 국제 결선 진출",
+          "url": "https://www.wrokorea.kr/"
+        },
+        {
+          "title": "FIRST LEGO League (FLL) 한국대회",
+          "host": "사단법인 상상 (FIRST·LEGO)",
+          "result": "세계 최대 청소년 로봇 챌린지",
+          "url": "https://firstlegoleague.or.kr/"
+        }
+      ],
+      "exhibition": [
+        {
+          "title": "메이커 페어 서울",
+          "venue": "서울시립과학관",
+          "period": "매년 9월경",
+          "description": "임베디드·IoT·로봇 작품 전시",
+          "url": "https://www.makerfaireseoul.com/"
+        },
+        {
+          "title": "전국과학전람회",
+          "venue": "국립중앙과학관",
+          "period": "7~9월",
+          "description": "전자·물리 탐구작품 출품",
+          "url": "https://www.science.go.kr"
+        }
+      ]
+    },
+    "likes": 256,
+    "uses": 89,
+    "tags": [
+      "KAIST",
+      "전기전자",
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "totalItems": 24,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "COS Pro 2급 합격증 1개 취득 (6월)",
+          "Arduino 작품 1개 완성(10회 중 8회 이상 동작) + 회차 노트 12회분 (7월)",
+          "KAIST 과학영재캠프 참가 확인서 1장 + 기록 노트 1편 (7월)",
+          "센서 30일치 데이터·공개 노트북 1개 (9월) + 개념서 2권 완독 (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "COS Pro 2급(Python) 6월 합격",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 2,
+            "cost": "3만원",
+            "organizer": "YBM",
+            "url": "https://www.ybmit.com",
+            "description": "4~5월 주 3회 1시간씩 파이썬 문법과 기출을 돌린다. ① 공식 홈페이지에서 6월 회차 접수 일정을 확인해 달력에 고정 ② 기출 3회분을 시험과 같은 시간으로 풀기 ③ 틀린 문항만 오답노트에 옮겨 2회 반복. 완료 기준: 6월 시험 합격, 응시 직전 기출 3회분 평균 80점 이상.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "COS Pro 공식",
+                "url": "https://www.ybmit.com",
+                "kind": "official"
+              },
+              {
+                "title": "기출문제",
+                "url": "https://www.ybmit.com/cos/cos_pro_sample.asp",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "Arduino 전자회로 실습 12회 + 자동 조명 작품 1개",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "5만원 (키트)",
+            "organizer": "자체",
+            "description": "3~7월 주 1회 90분씩 다섯 달, 총 12회로 부품을 하나씩 늘려 작품 1개까지 간다. ① 3월: LED 점멸 → 버튼 입력 순서로 2회를 채우고 회차마다 회로도를 손으로 그려 코드 옆에 붙인다. ② 4~5월: 조도·온습도 센서와 서보모터를 각각 2회씩 다룬다. 회로가 안 돌면 코드부터 의심하지 말고 전원·접지·저항을 순서대로 짚는 습관을 들인다. 이 순서를 몸에 익히는 것이 이 프로젝트의 진짜 목표다. ③ 6월: 배운 부품을 합쳐 어두워지면 켜지는 자동 조명 같은 작품 1개를 설계하고 회로도를 확정한다. ④ 7월: 실제로 만들어 10회 연속 동작을 확인하고 실패한 회차의 원인을 노트에 적는다. 완료 기준: 작품 1개가 10회 중 8회 이상 정상 동작, 회차 노트 12회분.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "activitySubtype": "project",
+            "links": [
+              {
+                "title": "Arduino 공식 튜토리얼",
+                "url": "https://www.arduino.cc/en/Tutorial",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://create.arduino.cc/projecthub",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "완성 작품 1개 + 회로도·코드 정리 노트 12회분"
+          },
+          {
+            "type": "activity",
+            "title": "KAIST 과학영재캠프 2박3일 참가",
+            "months": [
+              5,
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료~10만원",
+            "organizer": "KAIST",
+            "url": "https://gifted.kaist.ac.kr",
+            "description": "5~6월 지원, 7월에 2박3일을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 지원서를 제출 ② 캠프 중 특강·연구실 투어마다 질문 3개를 준비해 실제로 묻기 ③ 귀가 후 3일 안에 인상 깊은 연구와 진로 생각을 A4 2쪽으로 정리. 완료 기준: 참가 확인서 수령, 기록 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "links": [
+              {
+                "title": "KAIST 과학영재교육원",
+                "url": "https://gifted.kaist.ac.kr",
+                "kind": "official"
+              },
+              {
+                "title": "캠프 신청 (매년 4월)",
+                "url": "https://gifted.kaist.ac.kr/camp",
+                "kind": "application"
+              }
+            ],
+            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)"
+          },
+          {
+            "type": "activity",
+            "title": "미적분·전자기학 선행 (개념서 각 1권 완독)",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원비",
+            "organizer": "자체",
+            "description": "7~12월 주 3회 각 1시간씩 수학·물리를 번갈아 한다. ① 개념서 2권의 목차를 24주로 쪼개 주간 진도를 달력에 고정 ② 단원마다 개념 30분·문제 30분으로 진행하고 틀린 문제는 표시 ③ 4주마다 앞 단원 오답만 다시 풀기. 완료 기준: 12월까지 2권 완독, 단원별 복습 문제 정답률 80% 이상.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "개념서 2권 완독 + 단원별 오답노트 2권"
+          },
+          {
+            "type": "portfolio",
+            "title": "센서 데이터 30일 수집·시각화 노트북 1개",
+            "months": [
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "3~5만원(센서)",
+            "organizer": "자체 (AI 활용)",
+            "description": "8월에 장비를 만들고 9월 한 달간 자동 수집한다. ① 아두이노에 온습도·소음 센서를 붙여 10분 간격 기록을 CSV로 저장 ② ChatGPT로 분석·시각화 코드를 만들고 결과가 맞는지 직접 계산으로 검증 ③ 시간대별 패턴 3가지를 찾아 리포트로 정리. 완료 기준: 30일치 데이터, 노트북 공개, 리포트 1편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "Arduino",
+              "Python",
+              "ChatGPT (코드 검증)",
+              "matplotlib"
+            ],
+            "deliverable": "공개 노트북 1개 + 인사이트 리포트 1편(A4 1쪽) + 30일치 데이터",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "KPhO 예선 통과 (6월)",
+          "IoT 대시보드 7일 무중단 수집 + 저장소 공개 (11월)",
+          "엣지 AI 분류기 테스트 정확도 80% + 동작 영상 1편 (10월)",
+          "과학고·영재학교 지원서 제출·모의면접 5회 + 전자기학 탐구 보고서 1편(A4 4쪽) (11월)"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "한국물리올림피아드(KPhO) 예선 통과",
+            "months": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "한국물리학회",
+            "url": "https://www.kps.or.kr",
+            "description": "2~6월 주 3회 90분씩 역학·전자기학을 훈련한다. ① 공식 홈페이지에서 예선 접수 일정을 확인해 달력에 고정 ② 단원별 개념 정리 후 기출 5개년을 시간 재고 풀기 ③ 오답은 풀이를 덮고 백지에서 다시 유도해 노트에 남기기. 완료 기준: 예선 통과, 기출 3회분 평균 절반 이상 득점.",
+            "categoryTags": [
+              "award"
+            ],
+            "links": [
+              {
+                "title": "KPhO 공식",
+                "url": "https://www.kps.or.kr/kpho",
+                "kind": "official"
+              },
+              {
+                "title": "기출문제",
+                "url": "https://www.kps.or.kr/kpho/past",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "KPhO 예선 통과 확인 1건 + 기출 풀이 노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "Raspberry Pi IoT 대시보드 1개 완성",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "10만원 (키트)",
+            "organizer": "자체",
+            "description": "7~11월 주 2회 2시간씩 다섯 달 동안 24시간 돌아가는 장치 하나를 만든다. ① 7~8월: 라즈베리파이 OS 설치와 원격 접속까지 끝내고 온습도 센서 1개를 붙여 값이 찍히는 것만 확인한다. 센서 1개가 되면 10개도 된다. ② 9월: 5분 간격 수집을 DB에 저장하고 웹 화면에 그래프 1개를 띄운다. ③ 10월: 하루만 돌려도 대개 끊긴다. 전원·와이파이·프로세스 종료 중 무엇 때문인지 로그로 확인해 재시도 코드를 넣는다. 이 디버깅이 이 프로젝트의 핵심이다. ④ 11월: 7일 연속 무중단 수집을 돌리고 배선도·실행법·끊겼던 원인을 README에 정리한다. 완료 기준: 7일치 데이터 누락 없이 수집, 저장소 공개, 장애 원인 기록 3건 이상.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "activitySubtype": "project",
+            "links": [
+              {
+                "title": "Raspberry Pi 공식",
+                "url": "https://www.raspberrypi.org",
+                "kind": "reference"
+              },
+              {
+                "title": "IoT 튜토리얼",
+                "url": "https://www.raspberrypi.org/learn",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "동작하는 대시보드 1개 + GitHub 저장소 1개 + 7일치 무중단 수집 데이터 + 장애 원인 기록 3건"
+          },
+          {
+            "type": "activity",
+            "title": "과학고·영재학교 지원서 제출 및 면접 준비",
+            "months": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원비",
+            "organizer": "각 학교",
+            "description": "6~8월 서류, 9~11월 면접으로 나눈다. ① 지망 학교 3곳의 공식 홈페이지에서 모집 요강과 마감일을 표로 정리 ② 7~8월에 자기소개서를 쓰고 교사 피드백을 3회 반영 ③ 9월부터 주 1회 60분 모의면접을 잡고 수학·과학 구술 질문 30개에 답변 준비. 완료 기준: 지원서 제출, 모의면접 5회.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "지원서 1부 제출 + 자기소개서 1편 + 모의면접 5회 기록"
+          },
+          {
+            "type": "activity",
+            "title": "전자기학 심화 탐구 보고서 1편(A4 4쪽)",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "10~11월 주 2회 90분씩 진행한다. ① 맥스웰 방정식 4개의 의미를 각각 한 쪽으로 풀어 쓰기 ② 코일·자석으로 전자기 유도 실험을 3회 반복해 전압을 측정하고 표로 정리 ③ 이론값과 측정값 차이의 원인을 3가지 이상 적기. 완료 기준: 보고서 A4 4쪽 완성, 물리 세특 자료로 제출.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "deliverable": "탐구 보고서 1편(A4 4쪽) + 실험 사진·측정 데이터 1세트"
+          },
+          {
+            "type": "portfolio",
+            "title": "Raspberry Pi + TFLite 엣지 AI 분류기 1개",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "5~8만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "9~10월 주 2회 2시간씩 만든다. ① 분리수거 분류 등 클래스 3개를 정하고 직접 사진 300장을 찍어 라벨링 ② 모델을 학습해 TFLite로 변환하고 라즈베리파이에서 카메라 실시간 추론을 붙이기 ③ 새 사진 60장으로 정확도를 측정해 표로 정리. 완료 기준: 실시간 동작 영상 1편, 테스트 정확도 80% 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "Raspberry Pi",
+              "TensorFlow Lite",
+              "Teachable Machine"
+            ],
+            "deliverable": "동작 영상 1편 + GitHub 저장소 1개 + 정확도 측정표 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "goals": [
+          "KPhO 본선 입상 상장 1개 (7월)",
+          "STM32 작품 1개 연속 10회 정상 동작 + 저장소 공개 (11월)",
+          "KiCad PCB 실물 1장 동작 확인 (12월) + 신호처리·딥러닝 노트북 1개 공개 (8월)",
+          "전자기 유도 탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분 (12월)"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "한국물리올림피아드(KPhO) 본선 동상 이상",
+            "months": [
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "한국물리학회",
+            "url": "https://www.kps.or.kr",
+            "description": "2~7월 주 4회 90분씩 역학·전자기학·광학을 돌린다. ① 공식 홈페이지에서 예선·본선 일정을 확인해 달력에 고정 ② 단원별 심화 문제를 주 4회 3문항씩 풀기 ③ 주 1회 기출 1회분을 시간 재고 풀고 오답은 유도 과정이 백지에서 재현될 때까지 반복. 완료 기준: 본선 진출 후 동상 이상, 기출 3회분 평균 60점 이상.",
+            "categoryTags": [
+              "award"
+            ],
+            "links": [
+              {
+                "title": "KPhO 공식",
+                "url": "https://www.kps.or.kr/kpho",
+                "kind": "official"
+              },
+              {
+                "title": "본선 기출",
+                "url": "https://www.kps.or.kr/kpho/past",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "KPhO 본선 입상 상장 1개"
+          },
+          {
+            "type": "portfolio",
+            "title": "STM32 임베디드 프로젝트 1개 완성",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "15만원 (보드)",
+            "organizer": "자체",
+            "description": "7~11월 주 2~3회 2시간씩 다섯 달을 들여 임베디드 작품 하나를 완성한다. ① 7월: 모터 제어와 센서 통합으로 주제를 정하고 부품 목록과 회로도를 확정한 뒤 개발환경에서 LED 하나를 깜빡이는 것까지 성공시킨다. 대부분 이 첫 단계에서 막히므로 여기에 2주를 써도 된다. ② 8~9월: GPIO → 타이머 → 인터럽트 → UART 순으로 하나씩 C로 구현하고 기능당 커밋 1회를 지킨다. 동작이 이상하면 코드를 고치기 전에 시리얼 출력이나 오실로스코프로 실제 신호를 먼저 본다. ③ 10월: 모듈을 통합하고 통합 테스트 20회를 돌려 실패 케이스를 로그로 남긴다. ④ 11월: 회로도·핀맵·실행법과 막혔던 지점 3개를 README에 정리한다. 완료 기준: 작품이 연속 10회 정상 동작, 저장소 공개, 실패 로그 20회분.",
+            "categoryTags": [
+              "project"
+            ],
+            "links": [
+              {
+                "title": "STM32 공식",
+                "url": "https://www.st.com/en/microcontrollers-microprocessors/stm32-32-bit-arm-cortex-mcus.html",
+                "kind": "reference"
+              },
+              {
+                "title": "예시 프로젝트",
+                "url": "https://github.com/STMicroelectronics/STM32CubeF4",
+                "kind": "portfolio"
+              }
+            ],
+            "deliverable": "동작하는 임베디드 작품 1개 + GitHub 저장소 1개 + 회로도 1장 + 실패 로그 20회분"
+          },
+          {
+            "type": "activity",
+            "title": "KiCad PCB 설계·제작 1보드 완성",
+            "months": [
+              10,
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "5만원 (PCB 제작)",
+            "organizer": "자체",
+            "description": "10~12월 주 2회 2시간씩 만든다. ① 10월에 KiCad 공식 튜토리얼을 따라 회로도 → 풋프린트 → 아트워크 흐름을 1회 완주 ② 11월에 본인 회로를 설계하고 DRC 오류 0개를 만든 뒤 제작 발주 ③ 12월에 납땜 후 전압·동작을 항목별로 점검. 완료 기준: 실물 보드 정상 동작, 설계 파일 공개.",
+            "categoryTags": [
+              "project",
+              "activity"
+            ],
+            "activitySubtype": "project",
+            "links": [
+              {
+                "title": "KiCad 공식",
+                "url": "https://www.kicad.org",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "실물 PCB 1장 + 설계 파일 1세트 + 동작 테스트 기록 1편"
+          },
+          {
+            "type": "activity",
+            "title": "전자기 유도 실험 탐구 보고서 1편(A4 5쪽)",
+            "months": [
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "11~12월 주 2회 90분씩 진행한다. ① 코일 감은 수·자석 속도 등 변인 2개를 정하고 조건별 5회씩 총 30회를 측정 ② 측정값을 그래프로 그려 패러데이 법칙 예측과 비교 ③ 오차 원인 3가지와 개선안을 각각 적기. 완료 기준: 보고서 A4 5쪽, 데이터 30회분, 물리 세특 제출.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "deliverable": "탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분"
+          },
+          {
+            "type": "portfolio",
+            "title": "신호처리+딥러닝 융합 프로젝트 1편 (PyTorch)",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~8월 방학에 주 3회 2시간씩 몰아서 한다. ① ECG 이상감지·음성 노이즈 제거 중 하나로 주제를 정하고 공개 데이터셋 1개를 확보 ② FFT·필터링 전처리 유무로 두 버전을 학습해 성능을 비교 ③ 왜 전처리가 성능을 바꾸는지 신호처리 이론으로 설명. 완료 기준: 노트북 공개, 비교표 포함 보고서 1편.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "PyTorch",
+              "scipy.signal",
+              "Colab"
+            ],
+            "deliverable": "공개 노트북 1개 + 결과 보고서 1편(A4 5쪽) + 성능 비교표 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "goals": [
+          "FPGA CPU 보드 실행 + 테스트벤치 10개 통과 (11월)",
+          "TOEFL iBT 100점 이상 취득 (5월)",
+          "전자회로 대회 출품 1건·설계 보고서 1편(A4 4쪽) (9월) + 경량 AI 포팅 성능표 1장 (7월)",
+          "수능 수학·물리 모의고사 3회 연속 2등급 이내 (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TOEFL iBT 100점 이상 (5월 응시)",
+            "months": [
+              2,
+              3,
+              4,
+              5
+            ],
+            "difficulty": 4,
+            "cost": "30만원",
+            "organizer": "ETS",
+            "url": "https://www.ets.org/toefl",
+            "description": "2~5월 주 5회 90분씩 4영역을 돌린다. ① 공식 사이트에서 5월 시험일을 예약 ② 주 1회 실전 모의 1세트를 풀고 영역별 점수를 표로 기록 ③ R25·L25·S23·W24 중 미달 영역에 학습 시간의 절반을 배분하고 스피킹은 매일 3문항 녹음. 완료 기준: 5월 응시 총점 100점 이상, 모의 2회 연속 100점 이상.",
+            "categoryTags": [],
+            "links": [
+              {
+                "title": "TOEFL 공식",
+                "url": "https://www.ets.org/toefl",
+                "kind": "official"
+              },
+              {
+                "title": "무료 연습 문제",
+                "url": "https://www.ets.org/toefl/test-takers/ibt/prepare.html",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+          },
+          {
+            "type": "award",
+            "title": "전국 청소년 전자회로 대회 출품 1건",
+            "months": [
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "한국전자회로학회",
+            "description": "7~8월 제작, 9월 대회로 간다. ① 공식 홈페이지에서 접수 일정과 규격을 확인해 달력에 고정 ② 7월에 회로를 설계하고 브레드보드로 검증, 8월에 기판으로 옮겨 동작 테스트 20회 ③ 9월 제출 전 설계 의도·측정값·개선점을 보고서로 정리. 완료 기준: 출품 완료, 심사 기준 항목 전부 충족.",
+            "categoryTags": [
+              "project",
+              "award"
+            ],
+            "links": [
+              {
+                "title": "한국전자회로학회",
+                "url": "https://www.kpea.or.kr",
+                "kind": "official"
+              }
+            ],
+            "deliverable": "출품 회로 작품 1개 + 설계 보고서 1편(A4 4쪽)"
+          },
+          {
+            "type": "portfolio",
+            "title": "FPGA로 간단한 CPU 1개 구현 (Verilog)",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "20만원 (보드)",
+            "organizer": "자체",
+            "description": "7~11월 주 2~3회 2시간씩 다섯 달 동안 CPU 하나를 밑바닥부터 만든다. ① 7~8월: Verilog 문법과 조합·순차 회로를 예제 10개로 익히고 보드에서 카운터 하나가 LED로 보이는 것까지 성공시킨다. 툴체인 설치가 첫 관문이라 여기에 2주를 잡아둔다. ② 9월: 명령어 5개(로드·저장·덧셈·분기·정지)만 지원하는 최소 사양을 종이에 확정한다. 욕심을 내면 11월에 아무것도 안 돌아간다. ③ 10월: ALU·레지스터파일·제어부를 모듈로 나눠 구현하고 모듈마다 테스트벤치를 먼저 쓴다. 시뮬레이션에서 통과하지 못한 모듈은 절대 보드에 올리지 않는다. ④ 11월: 통합해 실제 보드에서 프로그램 1개를 돌리고 설계 결정과 막혔던 지점을 README에 남긴다. 완료 기준: 보드에서 프로그램 1개 정상 실행, 테스트벤치 10개 통과, 저장소 공개.",
+            "categoryTags": [
+              "project"
+            ],
+            "links": [
+              {
+                "title": "Xilinx FPGA",
+                "url": "https://www.xilinx.com",
+                "kind": "reference"
+              },
+              {
+                "title": "Verilog 튜토리얼",
+                "url": "https://www.asic-world.com/verilog",
+                "kind": "reference"
+              }
+            ],
+            "deliverable": "동작하는 CPU 설계 1개 + GitHub 저장소 1개 + 테스트벤치 10개"
+          },
+          {
+            "type": "activity",
+            "title": "수능 수학·물리 모의고사 2등급 이내 진입",
+            "months": [
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 4,
+            "cost": "무료~학원비",
+            "organizer": "자체",
+            "description": "9~12월 평일 수학 90분·과학 60분을 매일 고정한다. ① 9월에 최근 모의고사 1회로 단원별 오답률을 뽑아 취약 단원 3개를 정하기 ② 주말마다 실전 1세트를 시간 재고 풀고 오답을 그날 재풀이 ③ 매월 등급 변화를 기록. 완료 기준: 12월까지 모의고사 3회 연속 수학·물리 2등급 이내.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "모의고사 성적표 3회분(수학·물리 2등급 이내)"
+          },
+          {
+            "type": "portfolio",
+            "title": "경량 AI 모델 MCU·FPGA 포팅 1건",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "5~15만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~7월 주 3회 2시간씩 진행한다. ① 6월에 작은 분류 모델 1개를 학습하고 양자화·프루닝으로 크기를 줄이며 단계별 정확도를 기록 ② 7월에 STM32 또는 FPGA에 포팅해 추론 시간을 측정 ③ 원본 대비 크기·속도·정확도를 표로 비교. 완료 기준: 보드에서 실시간 추론 동작, 성능표 완성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "TensorFlow Lite Micro",
+              "STM32CubeIDE",
+              "ChatGPT (디버깅)"
+            ],
+            "deliverable": "동작 영상 1편 + 기술 블로그 글 1편 + 경량화 전후 성능표 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3",
+        "goals": [
+          "자기소개서 최종본 확정 + 수정 이력 5개 버전 (8월)",
+          "모의면접 5회 완료 + 예상 질문 30문항 답변 정리 (11월)",
+          "수능 수학·물리·화학 1등급 (11월)",
+          "AI+EE 논문 PDF 1편(10쪽 이상) 공개 + 발표 자료 15장 (5월)"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수시 자기소개서 완성 (5회 이상 수정)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료~컨설팅 50만원",
+            "organizer": "자체",
+            "description": "3~8월 주 1회 2시간씩 쓴다. ① 3월에 학생부를 처음부터 읽고 R&E·KPhO·하드웨어 프로젝트 중 핵심 경험 3개를 고르기 ② 경험마다 계기·행동·배운 점을 400자로 쓰고 초고를 완성 ③ 교사·선배 피드백을 받아 3주 간격으로 5회 고치기. 완료 기준: 최종본 확정, 버전 5개 보관.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "최종 자기소개서 1편 + 수정 이력 5개 버전"
+          },
+          {
+            "type": "activity",
+            "title": "수시 면접 모의면접 5회 이상 완료",
+            "months": [
+              9,
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료~학원 30만원",
+            "organizer": "학교·학원",
+            "description": "9~11월 주 1회 60분 모의면접을 잡는다. ① 9월에 학생부 항목별로 예상 질문 30개를 뽑아 답변을 3문장으로 정리 ② 모의면접마다 녹화해 말버릇·시선·답변 길이를 점검 ③ R&E 연구 과정과 회로 설계 경험은 3분 설명 버전을 따로 준비. 완료 기준: 모의면접 5회 완료, 30문항 답변 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권"
+          },
+          {
+            "type": "activity",
+            "title": "수능 수학·물리·화학 1등급",
+            "months": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "cost": "무료~재수학원 500만원",
+            "organizer": "자체",
+            "description": "6~11월 평일 과목별 90분씩 고정 시간표로 돌린다. ① 6월 모의 결과로 과목별 취약 단원을 3개씩 뽑기 ② 주 1회 실전 모의 1세트를 실제 시간표대로 풀고 당일 오답을 재풀이 ③ 기출 5개년을 3회 반복하며 오답노트를 과목별로 유지. 완료 기준: 수능 3개 과목 1등급, 9·10월 모의 1등급 유지.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "수능 성적표 1장(수학·물리·화학 1등급) + 오답노트 3권"
+          },
+          {
+            "type": "portfolio",
+            "title": "AI+EE 융합 논문 1편 작성·공개",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "3~5월 주 2회 3시간씩 석 달, 고3 상반기에 낼 수 있는 마지막 연구 하나를 마무리한다. ① 3월: 고2 R&E나 하드웨어 프로젝트에서 남은 질문 1개를 골라 선행 연구 10편을 읽고 AI 도구로 요약표를 만든 뒤, 검증 가능한 가설을 한 문장으로 좁힌다. 새 주제를 시작하지 말고 이미 데이터가 있는 것에서 고르는 것이 이 시기의 유일한 현실적 선택이다. ② 4월: 실험 코드를 쓰고 조건을 바꿔 3회 이상 반복한다. 결과가 가설과 반대로 나와도 그대로 싣고 이유를 쓰는 편이 심사에서 더 강하다. ③ 5월: 서론·방법·결과·고찰 순으로 쓰고 지도교사 피드백을 2회 반영한 뒤 공개한다. 완료 기준: 논문 PDF 1편(10쪽 이상) 공개, 발표 자료 15장, 반복 실험 3회 기록.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "Elicit",
+              "Claude (논문 요약)",
+              "Overleaf"
+            ],
+            "deliverable": "논문 PDF 1편(10쪽 이상) + 발표 자료 15장 + 반복 실험 3회 기록",
+            "links": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-admission-yonsei-med-001",
+    "title": "연세대학교 의학과 합격 커리어 패스",
+    "description": "수시·정시·유학 각 전형별 합격 전략과 선배 합격 후기를 담은 대입 커리어 패스입니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "explore",
+    "starName": "탐구 왕국",
+    "starEmoji": "🔬",
+    "starColor": "#4A90D9",
+    "jobId": "univ-yonsei-med",
+    "jobName": "연세대 의학과",
+    "jobEmoji": "🩺",
+    "universityId": "yonsei",
+    "universityName": "연세대학교",
+    "departmentId": "med",
+    "departmentName": "의학과",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "정시"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — KBO·R&E·의료 봉사가 핵심. MMI 면접 대비 필수.",
+      "정시": "수능 1등급 4개 + KBO 입상 가산. 내신·수능 최상위."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "수시",
+        "quote": "KBO 본선 입상 + 병원 봉사 100시간 + R&E 논문이 합격의 핵심이었어요. MMI 면접은 미리 체험해보는 게 좋았습니다.",
+        "strategy": "고2 R&E 논문 + KBO 본선 + 의료 봉사. MMI 연습은 고2 여름부터.",
+        "tips": [
+          "KBO 준비 시작",
+          "의료 봉사 꾸준히",
+          "MMI 체험 프로그램 참가"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "정시",
+        "quote": "수능 1등급 4개 + KBO 2등으로 정시 가산. 의대 정시는 수능이 전부라 고3 집중이 중요해요.",
+        "strategy": "고2까지 KBO 완료, 고3 수능 집중. 국·수·영·과탐 1등급 목표.",
+        "tips": [
+          "KBO 2차 이상 목표",
+          "수능 수학·과학 1등급",
+          "수능 D-6개월 집중"
+        ]
+      }
+    ],
+    "recommendedActivities": {
+      "volunteer": [
+        {
+          "title": "요양원·복지관 봉사",
+          "hours": "80시간+",
+          "description": "어르신 돌봄·의료 보조 봉사"
+        },
+        {
+          "title": "또래 상담사 활동",
+          "hours": "학기중",
+          "description": "학교 또래상담·공감 역량"
+        }
+      ],
+      "camp": [
+        {
+          "title": "의대 MMI 체험 프로그램",
+          "period": "7~8월",
+          "host": "주요 의대",
+          "outcome": "의대 면접 형식 사전 체험"
+        }
+      ],
+      "award": [
+        {
+          "title": "한국생물올림피아드 (KBO)",
+          "host": "한국생물올림피아드위원회",
+          "result": "생명과학 경시",
+          "url": "https://kbo.bioedu.kr"
+        },
+        {
+          "title": "전국청소년과학탐구대회 (생물)",
+          "host": "과기정통부"
+        },
+        {
+          "title": "Regeneron ISEF (국제과학경진대회)",
+          "host": "Society for Science (미국)",
+          "result": "세계 최고 권위 · 생명과학 연구로 도전",
+          "url": "https://www.societyforscience.org/isef/"
+        }
+      ],
+      "exhibition": [
+        {
+          "title": "전국과학전람회",
+          "venue": "국립중앙과학관",
+          "period": "7~9월",
+          "description": "생명·보건 주제 탐구작품 출품",
+          "url": "https://www.science.go.kr"
+        }
+      ]
+    },
+    "likes": 312,
+    "uses": 98,
+    "tags": [
+      "연세대",
+      "의대",
+      "수시",
+      "정시",
+      "R&E"
+    ],
+    "totalItems": 17,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "DIAT 자격증 1개 취득 (3월)",
+          "보건실 봉사 누적 30시간 + 관찰 기록 30회분 (12월)",
+          "생명과학·화학 실험 보고서 20편 + 학기말 발표 1회 (12월)",
+          "보건 데이터 인포그래픽 1장 + 보고서 1편(A4 2쪽) 완성 (9월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "DIAT(디지털정보활용능력) 3월 합격",
+            "months": [
+              1,
+              2,
+              3
+            ],
+            "difficulty": 1,
+            "cost": "1.8만원",
+            "organizer": "한국정보통신진흥협회",
+            "description": "1~2월 주 3회 40분씩 실습한다. ① 공식 홈페이지에서 3월 회차 접수 일정을 확인해 달력에 고정하고 과목 1개를 선택 ② 기출 3회분을 시험과 같은 환경에서 풀기 ③ 감점 항목만 따로 모아 2회 반복 연습. 완료 기준: 3월 시험 합격, 응시 직전 기출 3회분 모두 합격선 이상.",
+            "categoryTags": [],
+            "deliverable": "DIAT 자격증 1개"
+          },
+          {
+            "type": "activity",
+            "title": "보건실 봉사 주 1시간 (연 30시간)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 1,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "학기 중 주 1회 1시간을 요일 고정으로 나간다. ① 3월에 보건 선생님께 요청해 요일과 역할을 확정 ② 회차마다 정리·안내·기록 등 맡은 일을 하고 무엇을 보고 무엇을 느꼈는지 3줄로 남기기 ③ 학기말에 자주 오는 증상 5가지를 정리. 완료 기준: 누적 30시간, 기록 30회분.",
+            "categoryTags": [
+              "volunteer",
+              "activity"
+            ],
+            "activitySubtype": "volunteer",
+            "deliverable": "봉사 확인서(30시간) 1장 + 관찰 기록 30회분"
+          },
+          {
+            "type": "activity",
+            "title": "생명과학·화학 동아리 실험 20회 + 보고서",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "3월 첫 주 가입 후 학기 중 주 1회 1시간 실험을 지킨다. ① 3월에 세포·효소·산염기 등으로 20회 실험 계획을 표로 짜기 ② 회차마다 가설·과정·결과·결론을 한 쪽 보고서로 남기기 ③ 학기말에 가장 잘된 실험 1개를 골라 10분 발표. 완료 기준: 보고서 20편, 발표 1회.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "deliverable": "실험 보고서 20편 + 학기말 발표 1회"
+          },
+          {
+            "type": "portfolio",
+            "title": "공공 보건 데이터 시각화 리포트 1편 (KOSIS)",
+            "months": [
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~9월 주 2회 90분씩 넉 달, 통계 하나를 끝까지 파고든다. ① 6월: 국가통계포털에서 청소년 비만·정신건강·수면 중 궁금한 주제 1개를 정하고, 그 자료가 몇 년치인지·누구를 조사한 것인지부터 확인한다. 자료의 한계를 먼저 아는 것이 나중에 해석을 지켜준다. ② 7월: 연도별·성별로 표를 만들고 ChatGPT로 분석·시각화 코드를 받되 나온 숫자를 원자료와 한 칸씩 직접 대조한다. 한 번이라도 어긋나면 그 코드는 버린다. ③ 8월: 발견한 경향 3가지를 뽑고 각각 왜 그럴까에 대한 본인 가설을 한 문단씩 쓴다. ④ 9월: 인포그래픽 1장으로 압축하고 보건 선생님께 보여 피드백 1회를 받아 반영한다. 완료 기준: 인포그래픽 1장, 보고서 1편(A4 2쪽), 원자료 대조 기록 1장.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "KOSIS",
+              "ChatGPT (분석)",
+              "Datawrapper"
+            ],
+            "deliverable": "인포그래픽 1장 + 보고서 1편(A4 2쪽) + 분석 노트북 1개 + 원자료 대조 기록 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "응급처치(BLS) 수료증 1장 취득 (4월)",
+          "KBO 예선 응시 + 기출 3회분 평균 60점 이상 (4월)",
+          "연세대 의대 캠프 참가 확인서 1장 + 진로 탐색 노트 1편 (7월)",
+          "의학 논문 요약 10편 공개 + 대조 검증 기록 10건 (10월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "대한적십자사 응급처치(BLS) 교육 수료",
+            "months": [
+              3,
+              4
+            ],
+            "difficulty": 1,
+            "cost": "5만원",
+            "organizer": "대한적십자사",
+            "description": "3월 신청, 4월에 교육 일정을 통째로 비운다. ① 공식 홈페이지에서 교육 일정을 확인해 신청하고 사전 자료를 미리 읽기 ② 교육 중 심폐소생술·기도폐쇄·AED 3항목을 각각 5회 이상 직접 실습 ③ 수료 후 배운 절차를 순서도로 그려 가족에게 1회 설명. 완료 기준: 수료증 발급, 3항목 실기 통과.",
+            "categoryTags": [],
+            "deliverable": "응급처치 수료증 1장 + 실습 체크리스트 1장"
+          },
+          {
+            "type": "award",
+            "title": "한국생물올림피아드(KBO) 예선 응시·통과",
+            "months": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "한국생물과학협회",
+            "description": "1~4월 주 4회 1시간씩 생물 개념을 쌓는다. ① 공식 홈페이지에서 예선 접수 일정을 확인해 달력에 고정 ② 세포·유전·생리 단원을 순서대로 정리하며 단원당 문제 30개씩 풀기 ③ 3월부터 기출 3회분을 시간 재고 풀고 오답 개념만 다시 정리. 완료 기준: 예선 응시 완료, 기출 3회분 평균 60점 이상.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "KBO 예선 응시 확인 1건 + 기출 풀이 노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "연세대 의대 체험 캠프 참가",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료~5만원",
+            "organizer": "연세대학교",
+            "description": "6월 신청, 7월 캠프 일정을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 신청 ② 캠프 전 의사의 하루·전공 분야 5개를 미리 조사해 질문 3개를 준비 ③ 귀가 후 3일 안에 관심 분야와 그 이유를 A4 2쪽으로 정리. 완료 기준: 참가 확인서 수령, 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "참가 확인서 1장 + 진로 탐색 노트 1편(A4 2쪽)"
+          },
+          {
+            "type": "portfolio",
+            "title": "의학 논문 요약 노트 10편 공개 (PubMed+Claude)",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~10월 주 1편씩 넉 달, 논문을 읽는 근육을 만든다. ① 7월: 관심 질환 1개를 정하고 PubMed에서 초록이 공개된 논문 10편을 골라 목록으로 고정한다. 처음엔 한 편에 2시간이 걸려도 정상이다. ② 8~9월: 편당 Claude로 요약과 용어 풀이를 받은 뒤 반드시 원문 초록과 대조해 틀린 곳에 표시한다. AI가 없는 결과를 지어내는 지점을 직접 잡아내는 것이 이 활동의 진짜 소득이다. ③ 매 편마다 핵심 가설·방법·한계를 본인 문장으로 5줄 정리하고 모르는 용어는 그날 안에 찾아 노트 뒤에 붙인다. ④ 10월: 10편을 관통하는 질문 1개를 뽑아 마지막 장에 쓴다. 완료 기준: 요약 10편 공개, 대조 검증 기록 10건, 관통 질문 1개 정리.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "PubMed API",
+              "Claude",
+              "Notion"
+            ],
+            "deliverable": "공개 Notion 페이지 1개 + 논문 요약 10편 + 대조 검증 기록 10건",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "goals": [
+          "KBO 본선 진출 확인 1건 (7월) + 컴활 2급 자격증 1개 취득 (3월)",
+          "R&E 지원서 3부 제출 + 관심 주제 조사 노트 1편 (6월)",
+          "모의 MMI 3회 + 답변 10문항 정리 (8월)",
+          "의료 영상 AI 노트북 1개 + 윤리 고찰 1쪽 공개 (9월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "컴퓨터활용능력 2급 3월 합격",
+            "months": [
+              1,
+              2,
+              3
+            ],
+            "difficulty": 2,
+            "cost": "1.9만원",
+            "organizer": "대한상공회의소",
+            "description": "1~3월 주 3회 1시간씩 엑셀 실기를 익힌다. ① 상공회의소 사이트에서 상시시험 일정을 확인해 3월 응시일을 예약 ② 필기는 기출 3회분으로 끝내고 ③ 실기는 함수 유형별 문제를 반복해 자주 쓰는 함수를 A4 1장에 정리. 완료 기준: 3월 실기 합격, 모의 실기 3회 연속 70점 이상.",
+            "categoryTags": [
+              "paper"
+            ],
+            "deliverable": "컴활 2급 자격증 1개 + 함수 정리표 1장"
+          },
+          {
+            "type": "award",
+            "title": "한국생물올림피아드(KBO) 본선 진출",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "한국생물과학협회",
+            "description": "3~7월 주 4회 90분씩 생물 심화를 돌린다. ① 공식 홈페이지에서 예선·본선 일정을 확인해 달력에 고정 ② 대학 일반생물학 교재를 단원별로 정리하며 심화 문제를 주 4회 5문항씩 ③ 주 1회 기출 1회분을 시간 재고 풀고 오답 단원을 그 주에 재정리. 완료 기준: 본선 진출, 기출 3회분 평균 70점 이상.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "KBO 본선 진출 확인 1건 + 기출 풀이 노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "R&E 프로그램 지원서 제출 (3곳 이상)",
+            "months": [
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "연세대·서울대 등",
+            "description": "5~6월 주 2회 90분씩 준비한다. ① 5월에 학교 R&E 공고와 대학 프로그램 3곳의 모집 요강·마감일을 표로 정리 ② 의학·생명 분야 관심 주제 3개를 정해 각 논문 2편씩 읽고 요약 ③ 6월에 지원 동기와 하고 싶은 연구를 지원서마다 맞춤으로 작성. 완료 기준: 지원서 3부 제출.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "deliverable": "R&E 지원서 3부 제출 + 관심 주제 조사 노트 1편"
+          },
+          {
+            "type": "activity",
+            "title": "의대 MMI 체험 프로그램 참가 + 모의 MMI 3회",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "5만원",
+            "organizer": "주요 의대",
+            "description": "7월 신청, 8월 참가 후 자체 훈련을 잇는다. ① 공식 안내에서 모집 일정을 확인해 신청 ② 참가 중 받은 상황 문항을 그대로 받아 적고 답변을 복기 ③ 이후 친구·교사와 8분 룰로 모의 MMI를 3회 진행하며 윤리 딜레마 문항 10개에 답변을 정리. 완료 기준: 프로그램 참가, 모의 3회, 답변 10문항.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "참가 확인서 1장 + 모의 MMI 답변 기록 10문항"
+          },
+          {
+            "type": "portfolio",
+            "title": "의료 영상 AI 분류 프로젝트 1편 (Kaggle+PyTorch)",
+            "months": [
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~9월 주 2~3회 2시간씩 넉 달, 의료 AI 하나를 정확도가 아니라 안전성으로 본다. ① 6월: 공개 X-ray 폐렴 데이터셋을 받아 클래스 분포와 이미지 품질부터 표로 확인한다. 정상과 폐렴의 개수가 크게 다르면 정확도 90%는 아무 의미가 없다는 것을 여기서 몸으로 안다. ② 7월: CNN을 학습하되 정확도와 함께 민감도·특이도를 매 실험마다 기록한다. 의료에서는 놓친 환자 1명이 잘못 부른 10명보다 무겁다. ③ 8월: 오진 사례 10장을 직접 눈으로 보고 왜 틀렸는지 한 줄씩 적는다. ④ 9월: 이 모델을 실제 진료에 쓰면 생길 위험과 책임 문제를 1쪽으로 정리한다. 완료 기준: 노트북 공개, 민감도·특이도 포함 지표표 1장, 윤리 고찰 1쪽.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "PyTorch",
+              "Kaggle",
+              "ChatGPT (코드 검증)"
+            ],
+            "deliverable": "공개 노트북 1개 + 윤리 고찰 1쪽 + 민감도·특이도 포함 지표표 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "goals": [
+          "R&E 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 (11월)",
+          "TOEFL iBT 100점 이상 취득 (6월)",
+          "학술제 발표 1회 + 질의응답 기록 1편 (11월)",
+          "인터뷰 5건 질적 분석 보고서 1편(A4 6쪽) + 동의서 5부 (6월)"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "R&E 연구 수행 (실험 로그 20회 + 논문 초고 1편)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "연세대·서울대 등",
+            "description": "3~11월 주 1회 3시간 연구, 월 1회 지도교수 미팅으로 아홉 달을 굴린다. ① 3~4월: 선행 논문 10편을 읽고 요약표를 만든 뒤 연구 질문을 한 문장으로 좁힌다. 의학·생명 주제는 사람을 대상으로 하기 쉬우니 이 단계에서 윤리 심의가 필요한 설계인지 지도교수에게 먼저 확인한다. ② 5~9월: 실험이나 데이터 수집을 할 때마다 조건·결과·실패 이유를 그날 로그로 남긴다. 예상과 반대인 결과를 지우지 않는 것이 나중에 고찰의 절반이 된다. ③ 10~11월: 서론·방법·결과·고찰 순으로 초고를 쓰고 피드백을 2회 반영한다. 결과 해석에서 상관과 인과를 섞어 쓰지 않았는지 마지막에 한 번 더 본다. 완료 기준: 초고 1편(A4 10쪽), 실험 로그 20회분, 피드백 반영 이력 2회.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회"
+          },
+          {
+            "type": "certification",
+            "title": "TOEFL iBT 100점 이상 (6월 응시)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "cost": "30만원",
+            "organizer": "ETS",
+            "description": "3~6월 주 5회 90분씩 4영역을 돌린다. ① 공식 사이트에서 6월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 풀고 영역별 점수를 표로 기록 ③ 취약 영역에 학습 시간의 절반을 배분하고 리딩 지문은 의학·생명 주제로 골라 어휘를 함께 정리. 완료 기준: 6월 응시 총점 100점 이상, 모의 2회 연속 100점 이상.",
+            "categoryTags": [
+              "paper"
+            ],
+            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+          },
+          {
+            "type": "award",
+            "title": "학술제 R&E 결과 발표 1회",
+            "months": [
+              10,
+              11
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "10~11월 주 2회 2시간씩 준비한다. ① 10월에 학술제 접수 일정을 확인해 초록을 제출 ② 연구 질문·방법·결과·한계 순으로 슬라이드 15장을 만들고 8분 발표를 5회 리허설 ③ 예상 질문 10개를 뽑아 답변을 미리 적기. 완료 기준: 발표 완료, 질문과 답변을 A4 1쪽으로 기록.",
+            "categoryTags": [
+              "award",
+              "paper"
+            ],
+            "deliverable": "발표 슬라이드 15장 또는 포스터 1장 + 질의응답 기록 1편"
+          },
+          {
+            "type": "portfolio",
+            "title": "환자·의료진 인터뷰 5건 질적 분석 보고서 1편",
+            "months": [
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "5~6월 주 1회 2시간씩 진행한다. ① 봉사 기관의 허락을 받고 질문지 10문항과 서면 동의서를 먼저 준비 ② 인터뷰 5건을 20분씩 진행해 Whisper로 전사하고 이름 등 개인정보는 즉시 삭제 ③ Claude로 주제를 뽑은 뒤 본인이 원문과 대조해 3개 주제로 확정. 완료 기준: 보고서 1편, 동의서 5부 확보.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "OpenAI Whisper",
+              "Claude",
+              "NVivo (대안)"
+            ],
+            "deliverable": "질적 분석 보고서 1편(A4 6쪽) + 전사록 5건 + 동의서 5부",
+            "links": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-admission-korea-biz-001",
+    "title": "고려대학교 경영학과 합격 커리어 패스",
+    "description": "수시·정시·유학 각 전형별 합격 전략과 선배 합격 후기를 담은 대입 커리어 패스입니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "challenge",
+    "starName": "도전 왕국",
+    "starEmoji": "🚀",
+    "starColor": "#FF6B35",
+    "jobId": "univ-korea-biz",
+    "jobName": "고려대 경영학과",
+    "jobEmoji": "📊",
+    "universityId": "korea",
+    "universityName": "고려대학교",
+    "departmentId": "biz",
+    "departmentName": "경영학과",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합·학생부교과 — 매경TEST·TESAT·창업 대회가 핵심.",
+      "정시": "수능 1등급 4개. 수학·영어 집중, 탐구는 4번까지.",
+      "유학": "SAT + AP Micro/Macro + 비즈니스 경험. Wharton·Stern 등."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "수시",
+        "quote": "매경TEST 우수 + 비즈쿨 입상 + 창업동아리 경험이 합격의 핵심이었어요. 경제·경영 역량을 보여주는 게 중요합니다.",
+        "strategy": "고1 매경TEST, 고2 TESAT S등급. 창업 대회는 꼭 참가.",
+        "tips": [
+          "매경TEST 우수 이상",
+          "비즈쿨·창업 대회 참가",
+          "경제 동아리 활동"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "정시",
+        "quote": "수능 1등급 4개로 합격. 경영학과 정시는 수능이 전부. 수학·영어 1등급 필수.",
+        "strategy": "고3 수능 집중. 수학·영어·탐구 1등급 목표.",
+        "tips": [
+          "수능 수학 1등급",
+          "영어 1등급",
+          "탐구 4번까지 유지"
+        ]
+      }
+    ],
+    "recommendedActivities": {
+      "volunteer": [
+        {
+          "title": "교육 멘토링 봉사",
+          "hours": "50시간+",
+          "description": "지역 청소년 학습·진로 멘토링"
+        }
+      ],
+      "camp": [
+        {
+          "title": "교육부 창업동아리 창업캠프",
+          "period": "학기중",
+          "host": "교육부·창업진흥원",
+          "outcome": "비즈니스 모델 설계",
+          "url": "https://www.k-startup.go.kr"
+        }
+      ],
+      "award": [
+        {
+          "title": "청소년 비즈쿨 경진대회",
+          "host": "중소기업부·교육부"
+        },
+        {
+          "title": "전국 고교 창업아이디어 경진대회",
+          "host": "창업진흥원"
+        },
+        {
+          "title": "Conrad Challenge (국제 혁신·창업)",
+          "host": "Conrad Foundation (미국)",
+          "result": "글로벌 난제 해결 사업 아이디어 경진",
+          "url": "https://www.conradchallenge.org/"
+        }
+      ],
+      "exhibition": [
+        {
+          "title": "창업 아이디어 데모데이/전시",
+          "venue": "창업진흥원 등",
+          "description": "팀 비즈니스 모델 전시·피칭"
+        }
+      ]
+    },
+    "likes": 234,
+    "uses": 76,
+    "tags": [
+      "고려대",
+      "경영",
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "totalItems": 14,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "한국은행 경제캠프 참가 확인서 1장 + 정리 노트 1편(A4 3쪽) (7월)",
+          "경제 신문 토론 기록 20회분 + 스크랩 기사 20건 (12월)",
+          "모의투자 6개월 무중단 운영 + 종목 리포트 5편·월말 회고 6회 (12월)"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "한국은행 경제캠프 참가 + 정리 노트 1편",
+            "months": [
+              5,
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "한국은행",
+            "description": "5~6월 신청, 7월 캠프 일정을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 신청 ② 캠프 전 금리·물가·환율 3개 개념을 미리 검색해 질문을 각 1개씩 준비 ③ 강의마다 핵심을 한 줄로 적고 귀가 후 3일 안에 A4 3쪽으로 정리. 완료 기준: 참가 확인서 수령, 정리 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "참가 확인서 1장 + 경제 개념 정리 노트 1편(A4 3쪽)"
+          },
+          {
+            "type": "activity",
+            "title": "경제 동아리 주 1회 신문 토론 20회",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "3월 가입 후 학기 중 주 1회 1시간 토론을 지킨다. ① 매주 경제면 기사 1개를 골라 사실·해석·본인 의견 3단으로 요약해 오기 ② 모임에서 찬반을 나눠 15분 토론하고 결론을 한 줄로 남기기 ③ 기사와 요약을 스크랩북에 순서대로 모으기. 완료 기준: 토론 기록 20회분, 스크랩 기사 20건.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "토론 기록 20회분 + 경제 이슈 스크랩북 1권"
+          },
+          {
+            "type": "portfolio",
+            "title": "모의투자 6개월 운영 + 종목 리포트 5편",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~12월 주 1회 60분씩 여섯 달, 돈이 아니라 판단을 기록한다. ① 7월: 관심 5종목을 정하고 가상 자금을 어떻게 나눌지 원칙을 먼저 글로 못 박는다. 원칙이 없으면 나중에 왜 샀는지 설명할 수 없다. ② 8~11월: 매수·매도할 때마다 이유와 근거를 일지에 적고, ChatGPT로 받은 재무·뉴스 요약과 본인 판단을 나란히 놓고 비교한다. 수익이 난 판단보다 틀린 판단의 이유가 더 값지다. ③ 월말마다 수익률과 함께 내가 무엇을 몰랐나를 한 문단으로 회고한다. ④ 12월: 여섯 달 중 가장 크게 틀린 판단 1건을 골라 종목 리포트 5편 중 하나로 깊게 다시 쓴다. 완료 기준: 6개월 무중단 운영, 종목 리포트 5편, 월말 회고 6회.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "ChatGPT",
+              "Yahoo Finance",
+              "Notion"
+            ],
+            "deliverable": "6개월 운영 노트 1권 + 종목 리포트 5편 + 매매 일지 1권 + 월말 회고 6회",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "비즈쿨 경진대회 출품 1건 + 사업계획서 1편(10쪽)·고객 인터뷰 10건 (9월)",
+          "고려대 경영대 체험 참가 확인서 1장 + 학과 탐색 노트 1편 (7월)",
+          "미니 창업 실제 판매 + 정산 보고서 1편(매출·원가·CAC) (10월)"
+        ],
+        "items": [
+          {
+            "type": "award",
+            "title": "청소년 비즈쿨 경진대회 출품 1건",
+            "months": [
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "중소기업부·교육부",
+            "description": "7~8월 준비, 9월 출품으로 간다. ① 공식 안내에서 접수 일정과 서식을 확인해 달력에 고정 ② 7월에 해결할 문제 1개와 고객 10명을 인터뷰해 아이디어를 좁히기 ③ 8월에 문제·해결책·고객·수익모델 순으로 계획서를 쓰고 발표 리허설 5회. 완료 기준: 출품 완료, 인터뷰 10건 근거 포함.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "사업계획서 1편(10쪽) + 발표 슬라이드 12장 + 출품 확인 1건"
+          },
+          {
+            "type": "activity",
+            "title": "고려대 경영대 체험 프로그램 참가",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "고려대학교",
+            "description": "6월 신청, 7월 일정을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 신청 ② 참가 전 마케팅·재무·전략 등 경영 세부 전공 5개를 미리 조사해 질문 3개를 준비 ③ 귀가 후 3일 안에 관심 전공과 이유를 A4 2쪽으로 정리. 완료 기준: 참가 확인서 수령, 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "참가 확인서 1장 + 학과 탐색 노트 1편(A4 2쪽)"
+          },
+          {
+            "type": "portfolio",
+            "title": "교내 미니 창업 1건 운영 (매출·원가 정산)",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료~5만원",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~10월 주 1~2회 90분씩 넉 달, 실제로 돈이 오가는 경험을 한 번 만든다. ① 7월: 축제 부스와 온라인 굿즈 중 하나를 정하고, 팔기 전에 원가·목표 판매량·손익분기 수량을 숫자로 계산한다. 이 숫자가 없으면 다 팔고도 손해인지 모른다. ② 8월: ChatGPT로 기획·카피를, Midjourney로 디자인 시안 3개를 만들어 친구 10명에게 고르게 하고 왜 그것을 골랐는지 이유까지 받는다. ③ 9월: 소량만 먼저 만들어 5명에게 팔아보고 가격을 한 번 조정한다. ④ 10월: 실제 판매 후 매출·원가·1인 획득비용(CAC)을 정산하고, 계획 숫자와 실제가 얼마나 어긋났는지를 회고에 쓴다. 완료 기준: 실제 판매 발생, 정산 보고서 1편, 계획 대비 오차 분석 1장.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "ChatGPT",
+              "Midjourney",
+              "Canva"
+            ],
+            "deliverable": "사업 회고 보고서 1편(매출·원가·CAC 포함) + 판매 기록 1권 + 계획 대비 오차 분석 1장",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "goals": [
+          "매경TEST 우수 등급 이상 취득 (5월)",
+          "창업캠프 수료증 1장 + 아이디어 문서 1편 (5월)",
+          "창업아이디어 경진대회 출품 1건 + 고객 검증 20명 (10월)",
+          "산업·기업 분석 리포트 4편 공개 + 재무 정리표 3개 (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "매경TEST 우수 이상 (5월 응시)",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "3만원",
+            "organizer": "매일경제",
+            "description": "3~5월 주 3회 1시간씩 경제·경영을 나눠 본다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 경제 파트와 경영 파트를 격주로 돌며 기출 3회분을 시간 재고 풀기 ③ 오답 개념만 카드로 만들어 매일 10장씩 복습. 완료 기준: 5월 응시 우수 등급 이상, 기출 3회분 평균 목표 등급선 이상.",
+            "categoryTags": [],
+            "deliverable": "매경TEST 성적표 1장(우수 이상)"
+          },
+          {
+            "type": "activity",
+            "title": "창업동아리 등록 + 창업캠프 참가",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 2,
+            "cost": "무료~지원금",
+            "organizer": "교육부·창업진흥원",
+            "description": "3월 등록, 4~5월 캠프와 정기 모임을 잇는다. ① 공식 안내에서 동아리 등록 절차와 캠프 일정을 확인해 마감 전에 신청 ② 주 1회 90분 모임에서 아이디어 → 고객 → 수익모델 순으로 한 단계씩 문서화 ③ 캠프에서 받은 멘토 피드백을 그 주에 문서에 반영. 완료 기준: 캠프 수료, 아이디어 문서 1편 완성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "동아리 등록 확인 1건 + 캠프 수료증 1장 + 아이디어 문서 1편"
+          },
+          {
+            "type": "award",
+            "title": "전국 고교 창업아이디어 경진대회 출품 1건",
+            "months": [
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "창업진흥원",
+            "description": "8~9월 준비, 10월 출품으로 간다. ① 공식 홈페이지에서 접수 일정과 심사 기준을 확인해 항목별 체크리스트를 만들기 ② 8월에 고객 20명을 설문·인터뷰해 문제를 검증하고 9월에 계획서를 작성 ③ 발표를 5회 리허설하며 예상 질문 10개에 답변 준비. 완료 기준: 출품 완료, 심사 항목 전부 충족.",
+            "categoryTags": [
+              "project",
+              "award"
+            ],
+            "deliverable": "사업계획서 1편(15쪽) + 발표 슬라이드 15장 + 출품 확인 1건"
+          },
+          {
+            "type": "portfolio",
+            "title": "산업·기업 분석 리포트 4편 공개 (분기 1편)",
+            "months": [
+              3,
+              6,
+              8,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "분기마다 1편씩 4편, 편당 3주간 주 2회 90분을 쓴다. ① 1편(3월): 관심 산업 1개와 그 안의 기업 3개를 정해 1년 내내 고정한다. 같은 기업을 네 번 보는 것이 열 기업을 한 번씩 보는 것보다 훨씬 많이 남는다. ② 자료 수집은 Perplexity로 시작하되 매출·영업이익 숫자는 반드시 공시 원문과 직접 대조한다. AI가 만든 숫자를 한 번이라도 그대로 옮기면 리포트 전체의 신뢰가 사라진다. ③ Claude에게 요약을 받더라도 마지막 투자 의견과 근거 3가지는 본인이 직접 쓴다. ④ 2편(6월)부터는 반드시 앞 리포트의 예측이 맞았는지부터 점검하고 시작한다. 완료 기준: 리포트 4편 공개, 기업 재무 정리표 3개, 전 분기 대비 변화 분석 포함.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "Perplexity",
+              "Claude",
+              "DART (전자공시)"
+            ],
+            "deliverable": "분석 리포트 4편(블로그·노션 공개) + 기업 재무 정리표 3개",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "goals": [
+          "TESAT S등급 취득 (5월)",
+          "TOEIC 900점 이상 취득 (4월)",
+          "창업아이디어 경진대회 입상 + 프로토타입 1개·고객 검증 30명 (10월)",
+          "AI 비즈니스 모델 제안서 1편(10쪽) + 시연 프로토타입 1개 (7월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TESAT S등급 (5월 응시)",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "3만원",
+            "organizer": "한국경제신문",
+            "description": "3~5월 주 4회 1시간씩 경제·시사를 붙여 본다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 기출 5회분을 시간 재고 풀고 경제이론·시사·상황판단 3영역 점수를 따로 기록 ③ 매일 경제 기사 1개를 읽고 관련 개념을 카드로 정리. 완료 기준: 5월 응시 S등급, 기출 3회 연속 목표 점수대.",
+            "categoryTags": [],
+            "deliverable": "TESAT 성적표 1장(S등급 목표)"
+          },
+          {
+            "type": "certification",
+            "title": "TOEIC 900점 이상 (4월 응시)",
+            "months": [
+              2,
+              3,
+              4
+            ],
+            "difficulty": 3,
+            "cost": "5.2만원",
+            "organizer": "ETS",
+            "description": "2~4월 주 5회 60분씩 LC·RC를 번갈아 한다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 시간 재고 풀고 파트별 정답률을 표로 기록 ③ 정답률 낮은 파트 2개에 주간 학습의 절반을 배분하고 오답 어휘는 매일 20개씩 복습. 완료 기준: 4월 응시 900점 이상, 모의 2회 연속 900점 이상.",
+            "categoryTags": [],
+            "deliverable": "TOEIC 성적표 1장(900점 이상)"
+          },
+          {
+            "type": "award",
+            "title": "전국 고교 창업아이디어 경진대회 입상",
+            "months": [
+              7,
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "창업진흥원",
+            "description": "7~10월 주 2회 2시간씩 넉 달, 작년 출품 경험을 이번엔 입상까지 끌어올린다. ① 7월: 작년 수상작 5건을 뜯어 심사위원이 실제로 무엇을 보는지 표로 정리한다. 대개 아이디어의 참신함보다 진짜 고객이 있는가에 점수가 몰린다. ② 7~8월: 고객 30명을 직접 만나 문제를 검증하고, 30명 중 몇 명이 돈을 낼 의사가 있는지까지 숫자로 받는다. 여기서 숫자가 나쁘면 아이디어를 바꾸는 것이 옳다. ③ 8월: 노코드 도구로 프로토타입 1개를 만들어 5명에게 실제로 써보게 한다. ④ 9월: 발표를 10회 리허설하며 예상 질문 20개에 답변을 준비하되, 특히 수익은 언제 나느냐에 숫자로 답할 수 있게 한다. 완료 기준: 본선 진출 후 입상, 프로토타입 1개, 고객 검증 30명 기록.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "입상 상장 1개 + 사업계획서 1편 + 프로토타입 1개 + 고객 검증 30명 기록"
+          },
+          {
+            "type": "portfolio",
+            "title": "AI 활용 비즈니스 모델 제안서 1편 + 프로토타입",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~7월 주 3회 2시간씩 만든다. ① 실존 사회 문제 1개를 고르고 겪는 사람 15명을 인터뷰해 문제를 검증 ② 9칸 BM 캔버스를 채우되 수익 구조와 비용은 숫자로 계산 ③ 노코드 도구와 GPTs로 동작하는 프로토타입 1개를 만들어 5명에게 시연·피드백. 완료 기준: 제안서 1편, 시연 가능한 프로토타입 1개.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "GPTs",
+              "Bubble/Glide",
+              "ChatGPT"
+            ],
+            "deliverable": "BM 캔버스 1장 + 제안서 1편(10쪽) + 노코드 프로토타입 데모 1개",
+            "links": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "tpl-admission-snu-law-001",
+    "title": "서울대학교 법학과 합격 커리어 패스",
+    "description": "수시·정시·유학 각 전형별 합격 전략과 선배 합격 후기를 담은 대입 커리어 패스입니다.",
+    "authorName": "AI Career 공식",
+    "authorEmoji": "🤖",
+    "authorType": "official",
+    "starId": "order",
+    "starName": "질서 왕국",
+    "starEmoji": "⚖️",
+    "starColor": "#8E44AD",
+    "jobId": "univ-snu-law",
+    "jobName": "서울대 법학과",
+    "jobEmoji": "⚖️",
+    "universityId": "snu",
+    "universityName": "서울대학교",
+    "departmentId": "law",
+    "departmentName": "법학과",
+    "category": "admission",
+    "admissionTypes": [
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "admissionTypeStrategies": {
+      "수시": "학생부종합 — 모의재판·토론·법학 에세이가 핵심. 논리·사고력 강조.",
+      "정시": "수능 1등급 4개. 국어·수학·영어·사탐 1등급.",
+      "유학": "SAT + AP Gov·US History + MUN. 해외 로스쿨·국제법 준비."
+    },
+    "successStories": [
+      {
+        "year": "2024",
+        "admissionType": "수시",
+        "quote": "모의재판 대회 입상 + 법학 에세이 공모전 수상이 합격의 핵심이었어요. 토론은 꾸준히 준비하는 게 좋습니다.",
+        "strategy": "고1 모의재판 동아리, 고2 전국 대회 입상. 법학 에세이는 고2 여름.",
+        "tips": [
+          "모의재판 동아리 참가",
+          "전국 토론대회 입상",
+          "법학 에세이 공모전"
+        ]
+      },
+      {
+        "year": "2024",
+        "admissionType": "정시",
+        "quote": "수능 1등급 4개로 합격. 법학과 정시는 국어·사탐이 중요합니다. 사회·역사 과목 집중.",
+        "strategy": "고3 수능 집중. 국어·수학·영어·사탐 1등급.",
+        "tips": [
+          "국어 1등급 필수",
+          "사탐 1등급",
+          "수능 D-6개월 집중"
+        ]
+      }
+    ],
+    "recommendedActivities": {
+      "volunteer": [
+        {
+          "title": "또래 상담사·법률 도우미 봉사",
+          "hours": "40시간+",
+          "description": "학교 규칙·권리 교육 캠페인"
+        }
+      ],
+      "camp": [
+        {
+          "title": "경찰청 청소년 경찰학교",
+          "period": "상시",
+          "host": "경찰청",
+          "outcome": "법·치안 직무 체험"
+        }
+      ],
+      "award": [
+        {
+          "title": "청소년 모의재판 대회",
+          "host": "대한변호사협회·법원"
+        },
+        {
+          "title": "전국고교생 논술·토론대회",
+          "host": "각 대학/언론사"
+        }
+      ],
+      "exhibition": [
+        {
+          "title": "정책 제안·캠페인 UCC 전시",
+          "venue": "각 기관·지자체",
+          "description": "사회 이슈 정책 제안 영상·전시"
+        }
+      ]
+    },
+    "likes": 267,
+    "uses": 82,
+    "tags": [
+      "서울대",
+      "법학",
+      "수시",
+      "정시",
+      "유학"
+    ],
+    "totalItems": 15,
+    "years": [
+      {
+        "gradeId": "mid2",
+        "gradeLabel": "중2",
+        "goals": [
+          "한국사능력검정시험 1급 취득 (5월)",
+          "법무부 법교육 캠프 참가 확인서 1장 + 정리 노트 1편(A4 3쪽) (7월)",
+          "사회 이슈 팩트체크 노트 6편 공개 + 편당 출처 3곳 이상 (12월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "한국사능력검정시험 1급 (5월 응시)",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "1만원",
+            "organizer": "국사편찬위원회",
+            "description": "3~5월 주 4회 1시간씩 시대순으로 훑는다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 선사~현대를 8주로 쪼개 주차별 진도를 정하고 단원마다 연표를 직접 손으로 정리 ③ 4월부터 기출 5회분을 시간 재고 풀고 오답 시대만 재복습. 완료 기준: 1급(80점 이상) 취득.",
+            "categoryTags": [],
+            "deliverable": "한국사능력검정 1급 인증서 1장 + 연표 정리 노트 1권"
+          },
+          {
+            "type": "activity",
+            "title": "법무부 법교육 캠프 참가 + 정리 노트 1편",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "법무부",
+            "description": "6월 신청, 7월 캠프 일정을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 1주 전 신청 ② 캠프 전 법·재판·권리 관련 궁금한 점 5개를 적어 가서 실제로 질문 ③ 강의마다 핵심을 한 줄로 적고 귀가 후 3일 안에 A4 3쪽으로 정리. 완료 기준: 참가 확인서 수령, 정리 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "참가 확인서 1장 + 법 개념 정리 노트 1편(A4 3쪽)"
+          },
+          {
+            "type": "portfolio",
+            "title": "사회 이슈 팩트체크 노트 6편 공개 (월 1편)",
+            "months": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~12월 매월 1편씩 여섯 달, 편당 주 2회 60분을 쓴다. ① 7월: 그달의 사회 이슈 1건을 정하고 그 안에서 참·거짓을 가릴 수 있는 주장 3개를 문장으로 뽑는다. 옳다·그르다가 아니라 사실인가로 뽑는 것이 이 노트의 전부다. ② 8~11월: Perplexity·Claude에게 물어본 답과 원출처 3곳 이상을 직접 대조해 일치·불일치를 표로 남긴다. AI가 그럴듯하게 틀린 지점을 잡을 때마다 그 이유까지 적는다. 이 기록이 나중에 법학 공부의 밑돌이 된다. ③ 편마다 마지막에 이 주장이 사실이라면 무엇이 달라지나를 한 문단으로 붙인다. ④ 12월: 6편을 다시 읽고 본인이 처음에 잘못 믿었던 것 1개를 골라 회고를 쓴다. 완료 기준: 노트 6편 공개, 편당 출처 3곳 이상, AI 오류 기록 3건 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "Perplexity",
+              "Claude",
+              "Notion"
+            ],
+            "deliverable": "공개 팩트체크 노트 6편 + 출처 대조표 6장 + AI 오류 기록 3건",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "mid3",
+        "gradeLabel": "중3",
+        "goals": [
+          "헌법교실 수료 확인서 1장 + 헌법 조문 정리 노트 1편(A4 3쪽) (4월)",
+          "모의재판 4회 개최 + 서면 8부·실제 판례 대조 1건 (12월)",
+          "청소년 토론대회 출전 1회 + 입론서 3편 (10월)",
+          "판례 RAG 챗봇 배포 + 출처 정확도 80% (10월)"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "헌법재판소 청소년 헌법교실 수료",
+            "months": [
+              3,
+              4
+            ],
+            "difficulty": 2,
+            "cost": "무료",
+            "organizer": "헌법재판소",
+            "description": "3월 신청, 4월 교육 일정을 비워둔다. ① 공식 홈페이지에서 모집 공고를 확인해 마감 전 신청 ② 교육 전 헌법 전문과 기본권 조항을 1회 통독하고 모르는 용어 10개를 정리 ③ 교육 중 다룬 결정례를 사건·쟁점·결론 3단으로 적고 귀가 후 A4 3쪽으로 정리. 완료 기준: 수료 확인서 수령, 노트 작성.",
+            "categoryTags": [
+              "camp",
+              "activity"
+            ],
+            "activitySubtype": "camp",
+            "deliverable": "수료 확인서 1장 + 헌법 조문 정리 노트 1편(A4 3쪽)"
+          },
+          {
+            "type": "activity",
+            "title": "모의재판 동아리 운영 + 모의재판 4회 개최",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              9,
+              10,
+              11,
+              12
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "학교",
+            "description": "3~12월 학기 중 주 1회 90분 모임으로 한 해에 재판 4번을 굴린다. ① 3월: 판사·검사·변호인 역할을 정하고 학기당 사건 2건을 미리 고른다. 실제 판결이 공개된 사건을 고르면 나중에 우리 결론과 비교할 수 있어 훨씬 남는다. ② 사건마다 4주를 배정한다. 1주차 사실관계 정리, 2주차 서면 작성, 3주차 리허설, 4주차 본 재판. 서면은 주장 → 근거 조문 → 반론에 대한 재반론 세 덩어리를 반드시 갖춘다. ③ 재판마다 쟁점과 판결 이유를 기록하고 진 쪽이 어디서 밀렸는지를 한 문단으로 적는다. 이게 다음 사건의 실력이 된다. ④ 12월: 4건 중 실제 판례가 있는 사건 1건을 골라 우리 결론과 법원 결론의 차이를 정리한다. 완료 기준: 모의재판 4회 완료, 서면 8부, 판례 대조 1건.",
+            "categoryTags": [
+              "award",
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "모의재판 4회 기록 + 소장·변론요지서 각 4부 + 실제 판례 대조 1건"
+          },
+          {
+            "type": "award",
+            "title": "전국 청소년 토론대회 출전 1회",
+            "months": [
+              8,
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "KBS·한국토론학회",
+            "description": "8~9월 준비, 10월 대회에 나간다. ① 공식 안내에서 접수 일정과 논제를 확인해 달력에 고정 ② 논제마다 찬반 양쪽 입론서를 각각 쓰고 주 2회 90분 연습 토론을 녹화해 되돌려 보기 ③ 예상 반론 10개에 대한 답변을 카드로 정리. 완료 기준: 대회 출전, 입론서 3편, 연습 녹화 3편.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "대회 참가 확인서 1장 + 입론서 3편 + 토론 녹화 3편"
+          },
+          {
+            "type": "portfolio",
+            "title": "판례·법령 검색 RAG 챗봇 배포 (질문 50건 검증)",
+            "months": [
+              9,
+              10
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "9~10월 주 3회 2시간씩 만든다. ① 국가법령정보센터의 공개 법령·판례 데이터를 내려받아 조문 단위로 쪼개 임베딩 ② LangChain으로 검색·답변을 잇고 답변에 반드시 출처 조문을 붙이도록 설계 ③ 질문 50건을 던져 출처가 실제로 맞는지 직접 확인하고 오답을 고치기. 완료 기준: 출처 정확도 80% 이상.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "boost",
+            "projectTrack": true,
+            "aiTools": [
+              "LangChain",
+              "국가법령정보 OpenAPI",
+              "Streamlit"
+            ],
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 질문 50건 정확도 기록",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high1",
+        "gradeLabel": "고1",
+        "goals": [
+          "TOEIC 900점 이상 취득 (4월)",
+          "K-MOOC 형법총론 이수증 1장 + 사례 풀이 10건 (5월)",
+          "전국 청소년 모의재판 대회 출전 + 담당 서면 1부 제출 (9월)",
+          "AI 법 쟁점 모의 의견서 1편(A4 8쪽) 완성 (8월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TOEIC 900점 이상 (4월 응시)",
+            "months": [
+              2,
+              3,
+              4
+            ],
+            "difficulty": 3,
+            "cost": "5.2만원",
+            "organizer": "ETS",
+            "description": "2~4월 주 5회 60분씩 LC·RC를 번갈아 한다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 시간 재고 풀고 파트별 정답률을 표로 기록 ③ 정답률 낮은 파트 2개에 주간 학습의 절반을 배분하고 오답 어휘는 매일 20개씩 복습. 완료 기준: 4월 응시 900점 이상, 모의 2회 연속 900점 이상.",
+            "categoryTags": [],
+            "deliverable": "TOEIC 성적표 1장(900점 이상)"
+          },
+          {
+            "type": "activity",
+            "title": "K-MOOC 형법총론 수료 + 정리 노트 1권",
+            "months": [
+              3,
+              4,
+              5
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "교육부",
+            "description": "3~5월 주 2회, 1회 90분씩 강의 2개와 정리를 붙여서 한다. ① 공식 사이트에서 개강 일정을 확인해 수강 신청하고 종강일을 달력에 고정 ② 강의마다 구성요건·위법성·책임 체계에 맞춰 노트를 정리 ③ 배운 이론으로 실제 사례 10건을 스스로 논증. 완료 기준: 이수증 발급, 사례 풀이 10건 완성.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "deliverable": "K-MOOC 이수증 1장 + 단원별 정리 노트 1권 + 사례 풀이 10건"
+          },
+          {
+            "type": "award",
+            "title": "전국 청소년 모의재판 대회 출전 1회",
+            "months": [
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 4,
+            "cost": "무료",
+            "organizer": "법무부·대한변호사협회",
+            "description": "5~9월 주 2회 2시간씩 다섯 달을 들여 전국 대회 서면 하나를 제대로 쓴다. ① 5월: 공식 안내에서 접수 일정과 문제를 확인해 팀을 꾸리고 역할 1개를 맡는다. 맡은 역할의 서면 하나만 끝까지 책임지는 편이 전부 조금씩 돕는 것보다 남는 게 많다. ② 6월: 사실관계를 시간순 표로 정리하고 다툼 있는 사실과 없는 사실을 나눈다. 쟁점은 여기서 저절로 드러난다. ③ 7월: 국가법령정보센터에서 관련 조문과 판례를 직접 찾아 목록화하되 우리에게 불리한 판례를 먼저 찾는다. 불리한 판례를 모르면 본선에서 그대로 무너진다. ④ 8월: 서면을 쓰고 팀 안에서 상대 역할을 맡은 사람에게 반론을 받아 2회 보강한다. ⑤ 9월: 전체 리허설 5회를 녹화해 논리 구멍을 메운다. 완료 기준: 대회 출전, 담당 서면 1부 제출, 불리한 판례 3건 이상 검토 기록.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "대회 참가 확인서 1장 + 담당 서면 1부 + 리허설 기록 5회 + 불리한 판례 검토 3건"
+          },
+          {
+            "type": "portfolio",
+            "title": "AI 윤리·법 쟁점 모의 의견서 1편(A4 8쪽)",
+            "months": [
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "7~8월 주 2회 2시간씩 쓴다. ① AI 저작권·딥페이크 중 쟁점 1개를 정하고 국가법령정보센터에서 관련 조문과 판례를 직접 찾아 목록화 ② 사실관계·쟁점·주장·근거 순으로 초고를 쓰고 Claude에게 반대 입장 반론을 받아 3회 보강 ③ 회고에 AI 활용 범위를 명시. 완료 기준: 의견서 8쪽 완성.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "Claude",
+              "Perplexity",
+              "Overleaf"
+            ],
+            "deliverable": "모의 의견서 PDF 1편(A4 8쪽) + 작성 회고 1편 + 근거 판례·조문 목록",
+            "links": []
+          }
+        ]
+      },
+      {
+        "gradeId": "high2",
+        "gradeLabel": "고2",
+        "goals": [
+          "TOEFL iBT 100점 이상 취득 (4월)",
+          "법학 에세이 공모전 출품 1편 + 참고문헌 10건·수정 이력 3개 버전 (9월)",
+          "MUN 대회 참가 + Position Paper 1편 (6월)",
+          "법령 텍스트 분석 노트북 1개 + 리포트 1편(A4 3쪽) 공개 (7월)"
+        ],
+        "items": [
+          {
+            "type": "certification",
+            "title": "TOEFL iBT 100점 이상 (4월 응시)",
+            "months": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "difficulty": 4,
+            "cost": "30만원",
+            "organizer": "ETS",
+            "description": "1~4월 주 5회 90분씩 4영역을 돌린다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 풀고 영역별 점수를 표로 기록 ③ 취약 영역에 학습 시간의 절반을 배분하고 리딩 지문은 사회·법 주제로 골라 어휘를 함께 정리. 완료 기준: 4월 응시 총점 100점 이상, 모의 2회 연속 100점 이상.",
+            "categoryTags": [],
+            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+          },
+          {
+            "type": "award",
+            "title": "법학 에세이 공모전 출품 1편",
+            "months": [
+              6,
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "각 법학전문대학원",
+            "description": "6~9월 주 2회 2시간씩 넉 달, 에세이 한 편에 본인 생각을 끝까지 밀어 넣는다. ① 6월: 공식 공고에서 주제·분량·마감을 확인해 달력에 고정하고, 관련 논문·판례 10건을 읽어 본인 논지를 딱 한 문장으로 확정한다. 이 한 문장이 안 나오면 아직 읽을 게 남은 것이다. ② 7월: 논지를 지탱할 근거 3개와 그 논지를 무너뜨릴 가장 강한 반론 1개를 먼저 적는다. 반론을 정면으로 다루지 않은 법학 에세이는 심사에서 바로 걸러진다. ③ 8월: 서론·본론·결론 구조로 쓰고 교사 첨삭을 3회 반영하되 매 버전을 따로 저장해 무엇이 왜 바뀌었는지 남긴다. ④ 9월: 마감 3일 전에 제출하고 참고문헌 10건을 형식에 맞춰 정리한다. 완료 기준: 마감 3일 전 출품 완료, 참고문헌 10건, 수정 이력 3개 버전.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "출품 에세이 1편 + 참고문헌 목록 10건 + 수정 이력 3개 버전"
+          },
+          {
+            "type": "award",
+            "title": "전국 모의 유엔(MUN) 대회 참가 1회",
+            "months": [
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "각 대학 MUN 협회",
+            "description": "4~5월 준비, 6월 대회에 나간다. ① 공식 안내에서 접수 일정과 배정 국가·의제를 확인 ② 배정국의 입장을 유엔 공개 문서로 조사해 Position Paper 1편을 쓰고 주 2회 60분씩 영어 발언 연습을 녹음 ③ 예상 쟁점 5개에 대한 발언문을 미리 작성. 완료 기준: 대회 참가, Position Paper 제출.",
+            "categoryTags": [
+              "award"
+            ],
+            "deliverable": "대회 참가 확인서 1장 + Position Paper 1편 + 결의안 초안 1건"
+          },
+          {
+            "type": "portfolio",
+            "title": "법령 개정 이력 텍스트 분석 노트북 1개",
+            "months": [
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "cost": "무료",
+            "organizer": "자체 (AI 활용)",
+            "description": "6~7월 주 3회 90분씩 진행한다. ① 국가법령정보센터에서 특정 법령의 개정 이력 전문을 수집해 연도별 텍스트로 정리 ② 파이썬으로 키워드 빈도 변화와 조문 수 변화를 그래프 3개로 시각화 ③ 어느 시기에 왜 규제가 강화·완화됐는지 사회적 배경과 연결해 해석. 완료 기준: 노트북 공개, 리포트 3쪽.",
+            "categoryTags": [
+              "paper",
+              "activity"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "projectTrack": true,
+            "aiTools": [
+              "Python",
+              "KoNLPy",
+              "ChatGPT (코드 검증)"
+            ],
+            "deliverable": "공개 노트북 1개 + 분석 리포트 1편(A4 3쪽) + 시각화 그래프 3개",
+            "links": []
+          }
+        ]
+      }
+    ]
+  }
+]

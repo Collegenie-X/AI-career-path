@@ -72,6 +72,11 @@ interface RoadmapFeedTabProps {
   onTabChange?: (tabId: string) => void;
   /** JWT 로그인 시에만 상세에서 수정·삭제·사용하기·댓글 등 */
   allowMutations?: boolean;
+  /** URL(`?tab=feed&roadmap=...`)로 제어되는 선택 상태 — 새로고침·링크 공유 시 복원 */
+  selectedRoadmapId: string | null;
+  onSelectRoadmap: (roadmapId: string | null) => void;
+  /** 선택된 실행계획을 가리키는 절대 URL — 링크 복사 버튼에 사용 */
+  buildRoadmapShareUrl: (roadmapId: string) => string;
 }
 
 export function RoadmapFeedTab({
@@ -83,11 +88,13 @@ export function RoadmapFeedTab({
   detailCallbacks,
   onTabChange,
   allowMutations = true,
+  selectedRoadmapId,
+  onSelectRoadmap,
+  buildRoadmapShareUrl,
 }: RoadmapFeedTabProps) {
   const [periodFilter, setPeriodFilter] = useState('all');
   const [typeFilter, setTypeFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedRoadmapId, setSelectedRoadmapId] = useState<string | null>(null);
   const [showExpandDialog, setShowExpandDialog] = useState(false);
   const [bookmarkedPage, setBookmarkedPage] = useState(1);
   const [mySharedPage, setMySharedPage] = useState(1);
@@ -211,7 +218,7 @@ export function RoadmapFeedTab({
                 key={rm.id}
                 roadmap={rm}
                 isSelected={selectedRoadmapId === rm.id}
-                onSelect={() => setSelectedRoadmapId(rm.id)}
+                onSelect={() => onSelectRoadmap(rm.id)}
               />
             ))}
           </div>
@@ -241,7 +248,7 @@ export function RoadmapFeedTab({
                 key={rm.id}
                 roadmap={rm}
                 isSelected={selectedRoadmapId === rm.id}
-                onSelect={() => setSelectedRoadmapId(rm.id)}
+                onSelect={() => onSelectRoadmap(rm.id)}
               />
             ))}
           </div>
@@ -297,7 +304,7 @@ export function RoadmapFeedTab({
                     key={rm.id}
                     roadmap={rm}
                     isSelected={selectedRoadmapId === rm.id}
-                    onSelect={() => setSelectedRoadmapId(rm.id)}
+                    onSelect={() => onSelectRoadmap(rm.id)}
                   />
                 ))}
               </div>
@@ -322,7 +329,7 @@ export function RoadmapFeedTab({
     <>
     <TwoColumnPanelLayout
       hasSelection={selectedRoadmap !== null}
-      onClearSelection={() => setSelectedRoadmapId(null)}
+      onClearSelection={() => onSelectRoadmap(null)}
       emptyPlaceholderText={emptyDetailTitle}
       emptyPlaceholderSubText={emptyDetailSub}
       emptyPlaceholderIllustration="sparkles"
@@ -350,7 +357,8 @@ export function RoadmapFeedTab({
               isReferenceViewOnlyMode={false}
               availableSpaces={availableSpaces}
               allowMutations={allowMutations}
-              onClose={() => setSelectedRoadmapId(null)}
+              shareLinkUrl={buildRoadmapShareUrl(selectedRoadmap.id)}
+              onClose={() => onSelectRoadmap(null)}
               onExpand={() => setShowExpandDialog(true)}
               onUseRoadmap={() => {
                 detailCallbacks.onUseRoadmap(selectedRoadmap);
@@ -359,11 +367,11 @@ export function RoadmapFeedTab({
               onShare={() => detailCallbacks.onShare(selectedRoadmap)}
               onEdit={() => {
                 detailCallbacks.onEdit(selectedRoadmap);
-                setSelectedRoadmapId(null);
+                onSelectRoadmap(null);
               }}
               onDelete={() => {
                 detailCallbacks.onDelete(selectedRoadmap);
-                setSelectedRoadmapId(null);
+                onSelectRoadmap(null);
               }}
               onShareRoadmap={(channels, spaceIds) => detailCallbacks.onShareRoadmap(selectedRoadmap, channels, spaceIds)}
               onReportRoadmap={(reasonId, detail) => detailCallbacks.onReportRoadmap(selectedRoadmap, reasonId, detail)}
@@ -383,6 +391,7 @@ export function RoadmapFeedTab({
         isReferenceViewOnlyMode={false}
         availableSpaces={availableSpaces}
         allowMutations={allowMutations}
+        shareLinkUrl={buildRoadmapShareUrl(selectedRoadmap.id)}
         onClose={() => setShowExpandDialog(false)}
         onUseRoadmap={() => {
           detailCallbacks.onUseRoadmap(selectedRoadmap);
@@ -396,12 +405,12 @@ export function RoadmapFeedTab({
         onEdit={() => {
           detailCallbacks.onEdit(selectedRoadmap);
           setShowExpandDialog(false);
-          setSelectedRoadmapId(null);
+          onSelectRoadmap(null);
         }}
         onDelete={() => {
           detailCallbacks.onDelete(selectedRoadmap);
           setShowExpandDialog(false);
-          setSelectedRoadmapId(null);
+          onSelectRoadmap(null);
         }}
         onShareRoadmap={(channels, spaceIds) => detailCallbacks.onShareRoadmap(selectedRoadmap, channels, spaceIds)}
         onReportRoadmap={(reasonId, detail) => detailCallbacks.onReportRoadmap(selectedRoadmap, reasonId, detail)}

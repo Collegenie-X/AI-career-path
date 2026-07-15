@@ -1,6 +1,6 @@
 'use client';
 
-import jobsContentData from '@/data/jobs-content.json';
+import jobsContentData from '@/data/jobs/jobs-content.json';
 import {
   HeroSection,
   FeatureCard,

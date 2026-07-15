@@ -1,7 +1,7 @@
 'use client';
 
 import { GRADE_YEARS, LABELS } from '../config';
-import type { CareerPathTemplate } from '@/data/career-path-templates-index';
+import type { CareerPathTemplate } from '@/data/path-templates';
 import {
   CareerPathGoalHeaderButton,
   CareerPathNestedRail,

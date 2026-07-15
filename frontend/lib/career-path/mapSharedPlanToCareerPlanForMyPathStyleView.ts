@@ -10,7 +10,7 @@ import type {
   SharedPlanSubItem,
   SharedPlanYear,
 } from '@/app/career/components/community/types';
-import type { CareerItemLink } from '@/data/career-item-structure';
+import type { CareerItemLink } from '@/data/path-templates/career-item-structure';
 
 function mapSharedSubItemToSubItem(s: SharedPlanSubItem): SubItem {
   return {

@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useMemo, useEffect, useCallback } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Bookmark, Globe, Sparkles } from 'lucide-react';
 import { AccordionSection } from '@/components/accordion';
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { ListPagination } from '@/components/shared/ListPagination';
-import careerPathTemplates from '@/data/career-path-templates-index';
+import careerPathTemplates from '@/data/path-templates';
 import { LABELS } from '../config';
 import { CareerPathDetailPanel } from './CareerPathDetailPanel';
 import { CareerPathDetailDialog } from './CareerPathDetailDialog';
@@ -49,6 +50,8 @@ const STAR_FILTERS = [
 ];
 
 const TEMPLATE_BOOKMARKS_KEY  = 'template_bookmarks_v1';
+/** 선택한 커리어 패스를 URL로 공유하기 위한 쿼리 파라미터 (`/career?tab=explore&template=<id>`) */
+export const EXPLORE_TEMPLATE_QUERY_PARAM = 'template';
 
 /* ─── localStorage helpers ─── */
 function loadTemplateBookmarkIds(): string[] {
@@ -74,25 +77,37 @@ export function CareerPathList({
   const { data: sharedPlansFromApi } = useSharedPlansQuery();
   const { reactions, toggleLike, toggleBookmark } = useSharedPlanReactions();
 
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
   const [activeFilter, setActiveFilter] = useState('all');
-  const [internalSelectedTemplate, setInternalSelectedTemplate] = useState<Template | null>(null);
   const [showExpandDialog, setShowExpandDialog] = useState(false);
   const [bookmarkedTemplatePage, setBookmarkedTemplatePage] = useState(1);
   const [myPublicPage, setMyPublicPage] = useState(1);
   const [templateListPage, setTemplateListPage] = useState(1);
 
   const isControlled = onSelectTemplate !== undefined;
-  const selectedTemplate = isControlled
-    ? (careerPathTemplates.find(t => t.id === selectedTemplateId) ?? null)
-    : internalSelectedTemplate;
+  /** uncontrolled 모드에서는 URL 쿼리가 선택 상태의 단일 소스 — 그래야 현재 URL을 그대로 공유할 수 있음 */
+  const templateIdFromUrl = searchParams.get(EXPLORE_TEMPLATE_QUERY_PARAM);
+  const selectedTemplate = careerPathTemplates.find(
+    t => t.id === (isControlled ? selectedTemplateId : templateIdFromUrl),
+  ) ?? null;
 
-  const handleSelectTemplate = (template: Template | null) => {
+  const handleSelectTemplate = useCallback((template: Template | null) => {
     if (isControlled) {
       onSelectTemplate?.(template);
-    } else {
-      setInternalSelectedTemplate(template);
+      return;
     }
-  };
+    const nextSearchParams = new URLSearchParams(searchParams.toString());
+    if (template) {
+      nextSearchParams.set(EXPLORE_TEMPLATE_QUERY_PARAM, template.id);
+    } else {
+      nextSearchParams.delete(EXPLORE_TEMPLATE_QUERY_PARAM);
+    }
+    const nextQuery = nextSearchParams.toString();
+    router.replace(nextQuery ? `${pathname}?${nextQuery}` : pathname, { scroll: false });
+  }, [isControlled, onSelectTemplate, pathname, router, searchParams]);
 
   /* ─── Template bookmarks ─── */
   const [templateBookmarkIds, setTemplateBookmarkIds] = useState<string[]>([]);
@@ -190,8 +205,7 @@ export function CareerPathList({
   const handleDetailClose = useCallback(() => {
     setTemplateBookmarkIds(loadTemplateBookmarkIds());
     handleSelectTemplate(null);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isControlled, onSelectTemplate]);
+  }, [handleSelectTemplate]);
 
   const exploreListColumn = (
     <div className="space-y-4 pb-4">

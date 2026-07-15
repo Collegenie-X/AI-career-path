@@ -6,7 +6,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { storage } from '@/lib/storage';
 import { getRecommendedJobs } from '@/lib/recommendations';
 import kingdomsData from '@/data/kingdoms.json';
-import jobsData from '@/data/jobs.json';
+import jobsData from '@/data/jobs/jobs.json';
 import * as LucideIcons from 'lucide-react';
 import { Sparkles, ArrowRight, Star, Orbit, Rocket, Trophy, Briefcase, RotateCcw } from 'lucide-react';
 import { StarfieldCanvas } from '@/components/shared/StarfieldCanvas';

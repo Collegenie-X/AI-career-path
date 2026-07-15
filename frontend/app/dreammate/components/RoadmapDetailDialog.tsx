@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, ListChecks, Maximize2, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
+import { Check, ChevronDown, ChevronLeft, ChevronUp, CornerDownRight, ExternalLink, Link2, ListChecks, Maximize2, MessageSquare, MoreVertical, Pencil, Send, Share2, Trash2, X, Flag } from 'lucide-react';
 import { LABELS, PERIOD_FILTERS, ROADMAP_SHARE_VISIBILITY_OPTIONS } from '../config';
 import type { DreamSpace, RoadmapComment, RoadmapShareChannel, SharedRoadmap } from '../types';
 import { getShareChannelsFromRoadmap } from '../types';
@@ -55,6 +55,8 @@ interface RoadmapDetailDialogProps {
   allowProgressChecklistToggle?: boolean;
   /** inline variant일 때 확대 버튼 클릭 시 호출 */
   onExpand?: () => void;
+  /** 공유용 링크 — 전달되면 헤더에 "링크 복사" 버튼 노출 */
+  shareLinkUrl?: string;
   /** JWT 로그인 시에만 true — 생성·수정·삭제·복사·댓글 작성·체크 등 변경 행위 */
   allowMutations?: boolean;
 }
@@ -83,8 +85,10 @@ export function RoadmapDetailDialog({
   onToggleTodoItem,
   allowProgressChecklistToggle = false,
   onExpand,
+  shareLinkUrl,
   allowMutations = true,
 }: RoadmapDetailDialogProps) {
+  const [isShareLinkCopied, setIsShareLinkCopied] = useState(false);
   const [commentInput, setCommentInput] = useState('');
   const [replyTargetId, setReplyTargetId] = useState<string | null>(null);
   const [commentSortOrder, setCommentSortOrder] = useState<'oldest' | 'latest'>('oldest');
@@ -108,7 +112,40 @@ export function RoadmapDetailDialog({
 
   useEffect(() => {
     setReflectProgressChecklistActive(false);
+    setIsShareLinkCopied(false);
   }, [roadmap.id]);
+
+  useEffect(() => {
+    if (!isShareLinkCopied) return;
+    const resetTimer = window.setTimeout(() => setIsShareLinkCopied(false), 2000);
+    return () => window.clearTimeout(resetTimer);
+  }, [isShareLinkCopied]);
+
+  /** Clipboard API가 막힌 환경(비보안 컨텍스트·권한 거부)에서는 execCommand로 대체 */
+  const copyShareLinkWithLegacyFallback = useCallback((url: string): boolean => {
+    const textarea = document.createElement('textarea');
+    textarea.value = url;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const didCopy = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return didCopy;
+  }, []);
+
+  const copyShareLink = useCallback(() => {
+    if (!shareLinkUrl) return;
+    const clipboardWrite = navigator.clipboard?.writeText(shareLinkUrl);
+    if (!clipboardWrite) {
+      setIsShareLinkCopied(copyShareLinkWithLegacyFallback(shareLinkUrl));
+      return;
+    }
+    clipboardWrite
+      .then(() => setIsShareLinkCopied(true))
+      .catch(() => setIsShareLinkCopied(copyShareLinkWithLegacyFallback(shareLinkUrl)));
+  }, [shareLinkUrl, copyShareLinkWithLegacyFallback]);
 
   const showReflectProgressCheckbox =
     allowMutations
@@ -264,6 +301,19 @@ export function RoadmapDetailDialog({
               <span className="text-sm text-gray-500 truncate">{formatDateTime(roadmap.sharedAt)}</span>
             </div>
             <div className="flex items-center gap-2">
+              {shareLinkUrl && (
+                <button
+                  onClick={copyShareLink}
+                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all active:scale-90"
+                  style={{ backgroundColor: isShareLinkCopied ? 'rgba(34,197,94,0.16)' : 'rgba(255,255,255,0.08)' }}
+                  aria-label={LABELS.feedCopyLinkButtonAria ?? '이 실행계획 링크 복사'}
+                  title={isShareLinkCopied ? (LABELS.feedCopyLinkCopiedLabel ?? '링크 복사됨') : (LABELS.feedCopyLinkButtonLabel ?? '링크 복사')}
+                >
+                  {isShareLinkCopied
+                    ? <Check className="w-4 h-4" style={{ color: '#22C55E' }} />
+                    : <Link2 className="w-4 h-4 text-gray-300" />}
+                </button>
+              )}
               {isInlineVariant && onExpand && (
                 <button
                   onClick={onExpand}

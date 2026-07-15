@@ -1,6 +1,6 @@
 import type { CareerPlan } from '../components/CareerPathBuilder';
-import careerPathTemplates from '@/data/career-path-templates-index';
-import { buildStructuredCareerItem } from '@/data/career-item-structure';
+import careerPathTemplates from '@/data/path-templates';
+import { buildStructuredCareerItem } from '@/data/path-templates/career-item-structure';
 
 type Template = typeof careerPathTemplates[0];
 

@@ -62,6 +62,7 @@ function DreamMatePageContent() {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState<DreamTabId>('feed');
+  const [feedSelectedRoadmapId, setFeedSelectedRoadmapId] = useState<string | null>(null);
   const [selectedRoadmapOpenedFromTab, setSelectedRoadmapOpenedFromTab] = useState<DreamTabId | null>(null);
   const [showShareDialog, setShowShareDialog] = useState(false);
   const [showLibraryCreateDialog, setShowLibraryCreateDialog] = useState(false);
@@ -92,11 +93,24 @@ function DreamMatePageContent() {
     router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }, [router, pathname, searchParams]);
 
-  /** 탭 전환 + URL 반영 */
+  /** 탭 전환 + URL 반영 — 피드를 벗어나면 선택된 실행계획도 URL에서 제거 */
   const changeTab = useCallback((tabId: DreamTabId) => {
     setActiveTab(tabId);
-    updateUrlParams({ tab: tabId });
+    if (tabId !== 'feed') setFeedSelectedRoadmapId(null);
+    updateUrlParams({ tab: tabId, ...(tabId === 'feed' ? {} : { roadmap: null }) });
   }, [updateUrlParams]);
+
+  /** 피드 상세 선택 + URL 반영 (`?tab=feed&roadmap=<id>` 로 공유·복원) */
+  const selectFeedRoadmap = useCallback((roadmapId: string | null) => {
+    setFeedSelectedRoadmapId(roadmapId);
+    updateUrlParams({ tab: 'feed', roadmap: roadmapId });
+  }, [updateUrlParams]);
+
+  /** 링크 복사용 절대 URL */
+  const buildRoadmapShareUrl = useCallback((roadmapId: string) => {
+    const origin = typeof window === 'undefined' ? '' : window.location.origin;
+    return `${origin}${pathname}?tab=feed&roadmap=${encodeURIComponent(roadmapId)}`;
+  }, [pathname]);
 
   /** 포트폴리오 결과 리포트 열기/닫기 + URL 반영 (공유용) */
   const openPortfolioReport = useCallback((roadmapId: string) => {
@@ -114,8 +128,13 @@ function DreamMatePageContent() {
     const tabParam = searchParams.get('tab') as DreamTabId | null;
     const editParam = searchParams.get('edit');
     const reportParam = searchParams.get('report');
+    const feedRoadmapParam = searchParams.get('roadmap');
     if (tabParam && DREAM_TABS.some(t => t.id === tabParam)) {
       setActiveTab(tabParam);
+    }
+    if (feedRoadmapParam && feedRoadmapParam.trim()) {
+      setActiveTab('feed');
+      setFeedSelectedRoadmapId(feedRoadmapParam.trim());
     }
     if (editParam && typeof editParam === 'string' && editParam.trim()) {
       workspace.setEditingRoadmapId(editParam.trim());
@@ -182,6 +201,9 @@ function DreamMatePageContent() {
                   workspace.setShowCreateRoadmapDialog(true);
                 }}
                 availableSpaces={workspace.joinedSpaces}
+                selectedRoadmapId={feedSelectedRoadmapId}
+                onSelectRoadmap={selectFeedRoadmap}
+                buildRoadmapShareUrl={buildRoadmapShareUrl}
                 detailCallbacks={{
                   onUseRoadmap: (roadmap) => {
                     if (!requireAuthForMutation()) return;

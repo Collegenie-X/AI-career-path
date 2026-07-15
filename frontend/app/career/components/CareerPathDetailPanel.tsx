@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react';
 import {
   Heart, Users, Bookmark, BookmarkCheck,
   ExternalLink, Flag, MessageCircle, MoreVertical,
+  Link as LinkIcon,
 } from 'lucide-react';
-import type { CareerPathTemplate } from '@/data/career-path-templates-index';
+import type { CareerPathTemplate } from '@/data/path-templates';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
 import { CareerPathDetailPanelTimeline } from './CareerPathDetailPanelTimeline';
@@ -56,6 +57,7 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
   const [editingText, setEditingText] = useState('');
   const [reportTarget, setReportTarget] = useState<ReportTarget | null>(null);
   const [showContentMenu, setShowContentMenu] = useState(false);
+  const [shareLinkCopied, setShareLinkCopied] = useState(false);
   const [showUseTemplateDialog, setShowUseTemplateDialog] = useState(false);
   const [collapsedGoalKeys, setCollapsedGoalKeys] = useState<Set<string>>(new Set());
   const [collapsedGradeKeys, setCollapsedGradeKeys] = useState<Set<string>>(new Set());
@@ -80,6 +82,19 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
     const saved = loadTemplateBookmarks();
     setBookmarked(saved.includes(template.id));
   }, [template.id, template.likes]);
+
+  /** 탐색 탭 상세는 `/career?tab=explore&template=<id>` 로 바로 열리므로 그 링크를 그대로 복사 */
+  const handleCopyShareLink = async () => {
+    setShowContentMenu(false);
+    const shareUrl = `${window.location.origin}/career?tab=explore&template=${encodeURIComponent(template.id)}`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setShareLinkCopied(true);
+      window.setTimeout(() => setShareLinkCopied(false), 2000);
+    } catch {
+      window.prompt('아래 링크를 복사하세요', shareUrl);
+    }
+  };
 
   const toggleGoalExpand = (key: string) => {
     setCollapsedGoalKeys((prev) => toggleCollapseSetKey(prev, key));
@@ -234,6 +249,16 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
             <span>{template.uses}명 사용</span>
           </div>
 
+          {shareLinkCopied && (
+            <span
+              className="text-[12px] font-semibold px-2 py-1 rounded-full"
+              style={{ backgroundColor: 'rgba(108,92,231,0.18)', color: '#a78bfa' }}
+              role="status"
+            >
+              링크 복사됨
+            </span>
+          )}
+
           <div className="relative">
             <button
               onClick={() => setShowContentMenu(!showContentMenu)}
@@ -249,6 +274,14 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
                   className="absolute right-0 top-9 z-[220] rounded-2xl overflow-hidden w-44 shadow-2xl"
                   style={{ backgroundColor: '#1a1a38', border: '1px solid rgba(255,255,255,0.12)' }}
                 >
+                  <button
+                    onClick={handleCopyShareLink}
+                    className="w-full flex items-center gap-3 px-4 py-3 text-[13px] text-left transition-all"
+                    style={{ color: '#fff', borderBottom: '1px solid rgba(255,255,255,0.08)' }}
+                  >
+                    <LinkIcon style={{ width: 14, height: 14, flexShrink: 0 }} />
+                    링크 복사
+                  </button>
                   <button
                     onClick={() => {
                       setShowContentMenu(false);

@@ -95,7 +95,7 @@ function StarTabHeroBanner() {
             </p>
             <h2 className="mb-2 text-xl font-black leading-tight text-white md:text-2xl">
               {LABELS.intro_banner_subtitle}{' '}
-              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent" suppressHydrationWarning>
                 {LABELS.intro_banner_highlight}
               </span>
             </h2>
@@ -105,7 +105,7 @@ function StarTabHeroBanner() {
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3 self-end sm:gap-4 lg:justify-end">
           <div className="text-center">
             <div className="text-[15px] font-black text-white">{ALL_STARS.length}</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">모험 별 ⭐</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500" suppressHydrationWarning>모험 별 ⭐</div>
           </div>
           <div className="hidden h-7 w-px bg-white/10 sm:block" />
           <div className="text-center">

@@ -7,7 +7,7 @@ import type {
   SubItem,
   YearPlan,
 } from '@/app/career/components/CareerPathBuilder';
-import type { CareerItemLink } from '@/data/career-item-structure';
+import type { CareerItemLink } from '@/data/path-templates/career-item-structure';
 import { isUuidString } from '@/lib/career-path/isUuidString';
 
 /** Django CareerPlanDetail JSON (snake_case) */

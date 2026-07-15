@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import jobsData from '@/data/jobs.json';
+import jobsData from '@/data/jobs/jobs.json';
 import type { Job } from '@/lib/types';
 import { storage } from '@/lib/storage';
 import { getLevelForXP } from '@/lib/xp';

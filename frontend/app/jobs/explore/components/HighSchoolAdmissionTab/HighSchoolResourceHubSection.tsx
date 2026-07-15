@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import { ArrowLeft, ChevronRight, Plus } from 'lucide-react';
+import { useExploreUrlState } from '../../utils/useExploreUrlState';
 import librarySource from '@/data/high-school/resource-hub-library.json';
 import { ResourceDetailPanel } from './ResourceDetailPanel';
 import { HighSchoolResourceFormDialog } from './HighSchoolResourceFormDialog';
@@ -118,6 +119,7 @@ function mapUserFilesToListItems(userFiles: ResourceFile[]): ResourceListItem[] 
 }
 
 export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSectionProps) {
+  const { searchParams, patchUrl } = useExploreUrlState();
   const [userFiles, setUserFiles] = useState<ResourceFile[]>([]);
   const [uploadCategoryId, setUploadCategoryId] = useState<ResourceCategoryId>('admission_strategy');
   const [categoryFilter, setCategoryFilter] = useState<'all' | ResourceCategoryId>('all');
@@ -133,8 +135,9 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
   useEffect(() => {
     const loadedUserFiles = loadStoredFiles();
     setUserFiles(loadedUserFiles);
-    const sharedResourceId = new URLSearchParams(window.location.search).get('resource');
+    const sharedResourceId = searchParams?.get('resource');
     if (sharedResourceId) setSelectedResourceId(sharedResourceId);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -167,7 +170,13 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
 
   const handleDeleteUserFile = (fileId: string) => {
     setUserFiles((previous) => previous.filter((file) => file.id !== fileId));
-    setSelectedResourceId((previous) => (previous === fileId ? null : previous));
+    setSelectedResourceId((previous) => {
+      if (previous === fileId) {
+        patchUrl({ resource: null });
+        return null;
+      }
+      return previous;
+    });
   };
 
   const handleUpdateUserFile = (
@@ -267,7 +276,10 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
               return (
                 <div
                   key={resourceItem.id}
-                  onClick={() => setSelectedResourceId(resourceItem.id)}
+                  onClick={() => {
+                    setSelectedResourceId(resourceItem.id);
+                    patchUrl({ resource: resourceItem.id });
+                  }}
                   className={`relative rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99] hover:scale-[1.01] overflow-hidden ${resourceItem.isNew ? 'resource-card-new-shimmer' : ''}`}
                   style={{
                     background: isSelected
@@ -360,7 +372,10 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
               onConsumeStartInEditMode={(resourceId) => {
                 if (startInEditModeResourceId === resourceId) setStartInEditModeResourceId(null);
               }}
-              onClearSelection={() => setSelectedResourceId(null)}
+              onClearSelection={() => {
+                setSelectedResourceId(null);
+                patchUrl({ resource: null });
+              }}
               onDownloadUserFile={handleDownloadUserFile}
               onDeleteUserFile={handleDeleteUserFile}
               onUpdateUserFile={handleUpdateUserFile}
@@ -442,6 +457,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
             setUploadCategoryId(payload.categoryId);
             setUserFiles((previous) => [newFile, ...previous]);
             setSelectedResourceId(resourceId);
+            patchUrl({ resource: resourceId });
             if (payload.fileType === 'md' && payload.size === 0) {
               setStartInEditModeResourceId(resourceId);
             }

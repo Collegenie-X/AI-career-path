@@ -1,7 +1,7 @@
 'use client';
 
 import { ThumbsUp, ExternalLink } from 'lucide-react';
-import type { CareerPathTemplate } from '@/data/career-path-templates-index';
+import type { CareerPathTemplate } from '@/data/path-templates';
 
 type Template = CareerPathTemplate;
 

@@ -6,7 +6,7 @@ import { BadgesGalaxy } from '@/components/badges-galaxy';
 import { storage } from '@/lib/storage';
 import { getLevelForXP } from '@/lib/xp';
 import kingdomsData from '@/data/kingdoms.json';
-import jobsData from '@/data/jobs.json';
+import jobsData from '@/data/jobs/jobs.json';
 import projectsData from '@/data/projects.json';
 import { 
   Award, Star, Sparkles, Trophy, MapPin, Clock, 

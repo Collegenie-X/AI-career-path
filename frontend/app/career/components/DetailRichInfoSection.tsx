@@ -1,6 +1,6 @@
 import { Link as LinkIcon, Sparkles } from 'lucide-react';
 import { LABELS } from '../config';
-import type { CareerPathTemplate } from '@/data/career-path-templates-index';
+import type { CareerPathTemplate } from '@/data/path-templates';
 
 type TemplateItem = {
   type?: string;

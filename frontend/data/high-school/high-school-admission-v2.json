@@ -1,0 +1,2674 @@
+{
+  "meta": {
+    "title": "고입 전략 탐방",
+    "subtitle": "나에게 맞는 고등학교를 찾아보세요",
+    "description": "특목고·자사고·일반고까지 50개 학교의 입시요강, 합격 전략, 학교 생활을 탐방하세요"
+  },
+  "categories": [
+    {
+      "id": "science_high",
+      "name": "과학고·영재고",
+      "emoji": "🔬",
+      "color": "#60a5fa",
+      "bgColor": "rgba(96,165,250,0.15)",
+      "description": "수학·과학 영재를 위한 최상위 이공계 특수목적고",
+      "planet": {
+        "size": "large",
+        "orbitRadius": 120,
+        "orbitSpeed": 18,
+        "glowColor": "#60a5fa"
+      },
+      "categoryTraits": {
+        "aptitude": "수학·과학 최상위권, 논리적 사고력 탁월",
+        "studyStyle": "자기주도 연구형, 심화탐구 중심",
+        "identity": "학문적 호기심과 연구 열정이 정체성의 핵심",
+        "mentalStrength": "경쟁 강도 최상, 번아웃 위험 높음 — 자기만의 루틴 필수",
+        "gradeRequirement": "전 과목 A등급, 수학·과학 최상위",
+        "aptitudeTest": "수학·과학 심화 구술면접 + 창의적 문제해결",
+        "internalGradeStrategy": "중학교 1~3학년 전 과목 내신 관리 필수, 특히 수학·과학 A등급 유지"
+      },
+      "schools": [
+        {
+          "id": "kaist_science",
+          "name": "한국과학영재학교",
+          "shortName": "KSA",
+          "location": "부산광역시 금정구",
+          "type": "영재학교",
+          "emoji": "🌌",
+          "color": "#60a5fa",
+          "difficulty": 5,
+          "annualAdmission": 120,
+          "tuition": "전액 국비 지원",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "KAIST 부설 영재학교",
+          "teachingMethod": "R&E(연구·교육) 프로그램, 대학 수준 수업, 자유 연구 학기제",
+          "famousPrograms": ["R&E 연구 프로젝트", "KAIST 연계 수업", "국제 과학올림피아드 준비"],
+          "studentLevel": "전국 상위 0.1% 수학·과학 영재, 올림피아드 수상자 다수",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 추천서 종합 평가", "icon": "📋" },
+            { "step": 2, "title": "2단계: 영재성 검사", "detail": "수학·과학 창의적 문제해결 필기 시험", "icon": "✏️" },
+            { "step": 3, "title": "3단계: 심층 면접", "detail": "수학·과학 구술 심층 면접 (3인 교수진)", "icon": "🎤" },
+            { "step": 4, "title": "4단계: 캠프 전형", "detail": "3박 4일 캠프에서 협력·창의성 종합 평가", "icon": "🏕️" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학 심화 선행, 올림피아드 준비 시작",
+            "middle2": "KMO·KPhO 등 올림피아드 도전, R&E 기초 탐구",
+            "middle3": "올림피아드 입상, 연구 경험 축적, 자소서 준비"
+          },
+          "careerPathDetails": [
+            {
+              "grade": "중학교 1학년",
+              "icon": "🌱",
+              "tasks": ["수학 선행: 고1 수준 완성 목표", "과학 심화: 물리·화학 기초 다지기", "수학 올림피아드 기초 문제집 시작", "과학 탐구 일지 쓰는 습관 만들기"],
+              "keyPoint": "지금은 '왜?'라는 질문을 많이 하는 시기. 수학 공식을 외우기보다 원리를 이해하는 습관이 핵심이에요."
+            },
+            {
+              "grade": "중학교 2학년",
+              "icon": "🌿",
+              "tasks": ["KMO(수학올림피아드) 1차 도전", "KPhO(물리올림피아드) 또는 KChO(화학올림피아드) 선택 집중", "학교 과학 탐구 대회 참가", "R&E 기초: 간단한 실험 보고서 작성 연습"],
+              "keyPoint": "올림피아드 입상이 없어도 괜찮아요. 도전하는 과정에서 실력이 쌓입니다. 결과보다 과정을 즐기세요!"
+            },
+            {
+              "grade": "중학교 3학년",
+              "icon": "🌳",
+              "tasks": ["올림피아드 입상 목표 (KMO 2차 이상)", "자기소개서 소재 정리: 연구 경험·탐구 활동", "추천서 받을 선생님과 관계 구축", "KSA 기출 문제 풀기 + 캠프 전형 대비"],
+              "keyPoint": "자소서에서 '나는 왜 과학을 좋아하는가'를 진심으로 써야 해요. 성적 자랑이 아닌 호기심의 이야기를 담으세요."
+            }
+          ],
+          "highlightStats": [
+            { "label": "전국 경쟁률", "value": "약 10:1", "emoji": "🏆", "color": "#f59e0b" },
+            { "label": "하루 공부 시간", "value": "8~12시간", "emoji": "📚", "color": "#60a5fa" },
+            { "label": "자기주도 비율", "value": "70%", "emoji": "🧠", "color": "#a78bfa" },
+            { "label": "서울대 진학률", "value": "약 30%", "emoji": "🎓", "color": "#34d399" }
+          ],
+          "realTalk": [
+            { "emoji": "😤", "title": "솔직히 말하면...", "content": "전국에서 수학·과학 1등들이 모이는 곳이에요. 중학교 때 전교 1등이었던 학생이 KSA 오면 중간 이하가 되는 경우도 많아요. 이 충격을 버티는 멘탈이 필요합니다." },
+            { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "KAIST 교수님이 직접 수업하고, 대학원 실험실에서 연구할 수 있어요. 고등학생이 논문을 쓰는 게 가능한 유일한 곳이에요." },
+            { "emoji": "😰", "title": "힘든 점은...", "content": "부산에 있어서 가족과 멀리 떨어져야 해요. 기숙사 생활이 처음엔 외롭고 힘들 수 있어요. 하지만 친구들이 최고의 동료가 됩니다." },
+            { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "수학·과학 문제 풀 때 시간 가는 줄 모르는 학생, 실험 결과가 왜 이렇게 나왔는지 밤새 고민하는 학생이라면 천국 같은 곳이에요." }
+          ],
+          "dailySchedule": [
+            { "time": "07:00", "activity": "기상 및 아침 식사", "emoji": "🌅" },
+            { "time": "08:00", "activity": "오전 수업 (수학·과학 심화)", "emoji": "📐" },
+            { "time": "12:00", "activity": "점심 식사 + 자유 시간", "emoji": "🍱" },
+            { "time": "13:00", "activity": "오후 수업 (연구·실험)", "emoji": "🔬" },
+            { "time": "17:00", "activity": "자유 연구 시간 (R&E 프로젝트)", "emoji": "💡" },
+            { "time": "19:00", "activity": "저녁 식사", "emoji": "🍽️" },
+            { "time": "20:00", "activity": "자율 학습 (개인 연구·과제)", "emoji": "📖" },
+            { "time": "23:00", "activity": "취침", "emoji": "🌙" }
+          ],
+          "survivalTips": [
+            { "emoji": "🧘", "tip": "번아웃 예방: 주 1회는 무조건 쉬는 날을 만드세요. 최고들 사이에서 비교하다 지치는 게 가장 큰 위험이에요." },
+            { "emoji": "🤝", "tip": "친구를 경쟁자가 아닌 동료로: KSA 동기들은 평생 네트워크가 됩니다. 함께 연구하고 도와주세요." },
+            { "emoji": "📓", "tip": "연구 노트 습관: 매일 탐구한 것을 기록하세요. 자소서 소재가 되고 실력도 쌓여요." },
+            { "emoji": "🎯", "tip": "올림피아드 하나에 집중: 수학·물리·화학·생물 중 하나를 깊게 파는 게 여러 개 얕게 하는 것보다 낫습니다." }
+          ],
+          "competitionLevel": "전국 최상위 (전국 상위 0.1% 경쟁)",
+          "studyHoursPerDay": "8~12시간",
+          "selfStudyRatio": "70% (자기주도 학습 중심)",
+          "socialLife": "기숙사 공동체 생활, 동기들과 24시간 함께",
+          "mentalHealthNote": "번아웃 위험 최상. 자기만의 루틴과 취미 필수. 학교 상담 프로그램 적극 활용 권장.",
+          "pros": ["KAIST 직결 진학 가능", "전액 국비 지원", "세계 최고 수준 연구 환경"],
+          "cons": ["극도로 높은 경쟁 강도", "기숙사 생활 필수", "일반 대입 불리"],
+          "admissionTip": "올림피아드 입상 경험이 핵심. 수학·과학 모두 최상위여야 하며, R&E 연구 경험을 미리 쌓아두는 것이 유리합니다.",
+          "targetUniversities": ["KAIST", "서울대", "포스텍"],
+          "alumniCareers": ["이공계 연구원", "교수", "스타트업 창업자", "글로벌 테크기업"]
+        },
+        {
+          "id": "seoul_science",
+          "name": "서울과학고등학교",
+          "shortName": "서울과고",
+          "location": "서울특별시 종로구",
+          "type": "영재학교",
+          "emoji": "⚗️",
+          "color": "#60a5fa",
+          "difficulty": 5,
+          "annualAdmission": 120,
+          "tuition": "전액 국비 지원",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "서울시 교육청 영재학교",
+          "teachingMethod": "심화 교육과정, 자유 연구, 대학 연계 수업, 무학년제 운영",
+          "famousPrograms": ["자유 연구 프로젝트", "대학 연계 수업", "국제 과학올림피아드"],
+          "studentLevel": "서울·수도권 최상위 수학·과학 영재, 전국 상위 0.1%",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 종합 평가", "icon": "📋" },
+            { "step": 2, "title": "2단계: 창의적 문제해결력 검사", "detail": "수학·과학 심화 필기 평가", "icon": "✏️" },
+            { "step": 3, "title": "3단계: 심층 면접", "detail": "수학·과학 구술 심층 면접", "icon": "🎤" },
+            { "step": 4, "title": "4단계: 영재성 캠프", "detail": "2박 3일 캠프 종합 평가", "icon": "🏕️" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학 최상위 내신 유지, 올림피아드 준비",
+            "middle2": "KMO·KPhO 입상, 심화 탐구 활동",
+            "middle3": "올림피아드 국가대표급 성과, 연구 포트폴리오 완성"
+          },
+          "careerPathDetails": [
+            {
+              "grade": "중학교 1학년",
+              "icon": "🌱",
+              "tasks": ["수학 심화: 수학올림피아드 기초 문제 시작", "과학 탐구: 물리·화학 원리 탐구 활동", "학교 수학·과학 내신 전 과목 A등급 유지", "과학 탐구 대회 참가 경험 쌓기"],
+              "keyPoint": "서울과고는 서울 소재라 수도권 학생에게 유리해요. 중1부터 내신을 철저히 관리하면서 올림피아드 기초를 다져야 해요."
+            },
+            {
+              "grade": "중학교 2학년",
+              "icon": "🌿",
+              "tasks": ["KMO 1차 도전 및 입상 목표", "KPhO 또는 KChO 선택 집중 준비", "과학 탐구 보고서 작성 연습", "대학교 연계 프로그램 참가 시도"],
+              "keyPoint": "KMO 1차 합격이 목표예요. 수학올림피아드 기출 문제를 꼭 풀어보고, 혼자 풀기 어렵다면 올림피아드 전문 학원을 고려하세요."
+            },
+            {
+              "grade": "중학교 3학년",
+              "icon": "🌳",
+              "tasks": ["KMO 2차 이상 입상 (필수에 가까움)", "자기소개서: 탐구 활동·연구 경험 중심으로 작성", "추천서: 수학·과학 선생님께 미리 요청", "서울과고 기출 문제 풀기 + 면접 준비"],
+              "keyPoint": "자소서에서 '나는 왜 이 문제에 흥미를 느꼈나'를 구체적으로 써야 해요. 단순 스펙 나열보다 탐구 과정의 이야기가 훨씬 강력합니다."
+            }
+          ],
+          "highlightStats": [
+            { "label": "서울 소재", "value": "종로구", "emoji": "📍", "color": "#f59e0b" },
+            { "label": "하루 공부 시간", "value": "8~11시간", "emoji": "📚", "color": "#60a5fa" },
+            { "label": "서울대 진학률", "value": "약 25%", "emoji": "🎓", "color": "#34d399" },
+            { "label": "무학년제", "value": "운영 중", "emoji": "🔄", "color": "#a78bfa" }
+          ],
+          "realTalk": [
+            { "emoji": "😤", "title": "솔직히 말하면...", "content": "서울에 있어서 수도권 학생에게 접근성이 좋아요. 하지만 기숙사 생활은 필수예요. 집에서 통학하고 싶다면 다른 학교를 고려하세요." },
+            { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "무학년제라 자기 수준에 맞는 수업을 들을 수 있어요. 수학을 잘하면 대학 수준 수업도 가능해요. 자유로운 분위기가 창의성을 키워줍니다." },
+            { "emoji": "😰", "title": "힘든 점은...", "content": "전국 최상위들이 모이다 보니 처음엔 자존감이 흔들릴 수 있어요. '내가 여기 있을 자격이 있나?' 하는 생각이 드는 게 정상이에요." },
+            { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "수학 문제 풀다가 새로운 풀이법을 발견하면 기쁜 학생, 과학 실험 결과가 예상과 다르면 더 흥미로운 학생이라면 이곳이 맞아요." }
+          ],
+          "dailySchedule": [
+            { "time": "07:00", "activity": "기상 및 아침 식사", "emoji": "🌅" },
+            { "time": "08:30", "activity": "오전 수업 (수학·과학 심화)", "emoji": "📐" },
+            { "time": "12:30", "activity": "점심 식사 + 자유 시간", "emoji": "🍱" },
+            { "time": "13:30", "activity": "오후 수업 (자유 연구·실험)", "emoji": "🔬" },
+            { "time": "17:30", "activity": "동아리 활동 또는 자유 탐구", "emoji": "🧪" },
+            { "time": "19:00", "activity": "저녁 식사", "emoji": "🍽️" },
+            { "time": "20:00", "activity": "자율 학습", "emoji": "📖" },
+            { "time": "23:00", "activity": "취침", "emoji": "🌙" }
+          ],
+          "survivalTips": [
+            { "emoji": "🎯", "tip": "올림피아드 하나에 집중하세요. KMO를 선택했다면 KMO만 깊게 파는 게 여러 개 얕게 하는 것보다 훨씬 효과적이에요." },
+            { "emoji": "📓", "tip": "탐구 일지를 매일 쓰세요. 나중에 자소서 쓸 때 소재가 되고, 면접에서도 구체적으로 말할 수 있어요." },
+            { "emoji": "🤝", "tip": "동기들과 스터디 그룹을 만드세요. 혼자 풀 때보다 함께 토론할 때 훨씬 빨리 성장해요." },
+            { "emoji": "🧘", "tip": "주말에는 반드시 쉬는 시간을 가지세요. 번아웃은 실력 있는 학생도 무너뜨려요." }
+          ],
+          "competitionLevel": "전국 최상위 (상위 0.1% 경쟁)",
+          "studyHoursPerDay": "8~11시간",
+          "selfStudyRatio": "65% (자기주도 학습 중심)",
+          "socialLife": "기숙사 공동체 생활, 동기들과 긴밀한 관계",
+          "mentalHealthNote": "번아웃 위험 높음. 자기만의 취미 하나는 꼭 유지하세요.",
+          "pros": ["서울 소재 영재학교", "최우수 교사진", "대학 연계 프로그램 풍부"],
+          "cons": ["극도로 높은 경쟁", "기숙사 필수", "심리적 압박 강함"],
+          "admissionTip": "KMO(한국수학올림피아드) 또는 KPhO(한국물리올림피아드) 입상이 사실상 필수입니다. 중학교 2학년부터 집중 준비하세요.",
+          "targetUniversities": ["서울대", "KAIST", "포스텍", "연세대"],
+          "alumniCareers": ["이공계 교수", "연구원", "의사·의과학자", "IT 창업"]
+        },
+        {
+          "id": "gyeonggi_science",
+          "name": "경기과학고등학교",
+          "shortName": "경기과고",
+          "location": "경기도 수원시",
+          "type": "영재학교",
+          "emoji": "🧬",
+          "color": "#60a5fa",
+          "difficulty": 5,
+          "annualAdmission": 120,
+          "tuition": "전액 국비 지원",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "경기도 교육청 영재학교",
+          "teachingMethod": "자기주도 연구 중심, 팀 프로젝트, 대학 연계 실험",
+          "famousPrograms": ["GIST 연계 연구", "국제 과학올림피아드", "창업 연계 프로그램"],
+          "studentLevel": "경기·수도권 수학·과학 최상위, 올림피아드 입상자",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 평가", "icon": "📋" },
+            { "step": 2, "title": "2단계: 창의력 검사", "detail": "수학·과학 창의적 문제해결 평가", "icon": "✏️" },
+            { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 구술 면접", "icon": "🎤" },
+            { "step": 4, "title": "4단계: 캠프", "detail": "영재성 종합 캠프 평가", "icon": "🏕️" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학 내신 A등급 유지, 올림피아드 기초",
+            "middle2": "올림피아드 도전 및 입상, 탐구 보고서 작성",
+            "middle3": "올림피아드 입상, 연구 경험, 자소서 완성"
+          },
+          "pros": ["GIST 연계 강점", "수도권 위치", "우수한 연구 인프라"],
+          "cons": ["높은 경쟁 강도", "기숙사 생활", "일반 대입 제한"],
+          "admissionTip": "수학·과학 올림피아드 입상이 핵심. GIST 연계 프로그램을 활용하고 싶다면 경기과고가 최적입니다.",
+          "targetUniversities": ["KAIST", "서울대", "GIST", "포스텍"],
+          "alumniCareers": ["이공계 연구원", "교수", "의과학자", "스타트업"]
+        },
+        {
+          "id": "daejeon_science",
+          "name": "대전과학고등학교",
+          "shortName": "대전과고",
+          "location": "대전광역시 유성구",
+          "type": "과학고",
+          "emoji": "🔭",
+          "color": "#60a5fa",
+          "difficulty": 4,
+          "annualAdmission": 80,
+          "tuition": "일부 장학금",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "대전시 교육청 과학고",
+          "teachingMethod": "KAIST·ETRI 연계 수업, 심화 실험, 연구 프로젝트",
+          "famousPrograms": ["KAIST 연계 수업", "ETRI 현장 실습", "과학 탐구 발표대회"],
+          "studentLevel": "대전·충청권 수학·과학 최상위, 내신 전 과목 A등급",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 평가", "icon": "📋" },
+            { "step": 2, "title": "2단계: 지필 평가", "detail": "수학·과학 심화 필기", "icon": "✏️" },
+            { "step": 3, "title": "3단계: 면접", "detail": "수학·과학 구술 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학 내신 A등급, 올림피아드 기초 준비",
+            "middle2": "지역 올림피아드 입상, 탐구 활동 강화",
+            "middle3": "전국 올림피아드 도전, 연구 경험 축적"
+          },
+          "pros": ["KAIST·ETRI 연계 강점", "대전 소재", "우수한 이공계 진학률"],
+          "cons": ["지역 제한 전형", "기숙사 필수"],
+          "admissionTip": "대전·충청권 학생에게 유리. KAIST 연계 프로그램을 적극 활용하세요.",
+          "targetUniversities": ["KAIST", "서울대", "연세대", "ETRI 연구원"],
+          "alumniCareers": ["이공계 연구원", "교수", "IT 엔지니어"]
+        }
+      ]
+    },
+    {
+      "id": "foreign_language",
+      "name": "외국어고",
+      "emoji": "🌍",
+      "color": "#34d399",
+      "bgColor": "rgba(52,211,153,0.15)",
+      "description": "외국어 특기자를 위한 특수목적고, 인문·사회·국제 계열 강세",
+      "planet": {
+        "size": "large",
+        "orbitRadius": 160,
+        "orbitSpeed": 22,
+        "glowColor": "#34d399"
+      },
+      "categoryTraits": {
+        "aptitude": "외국어 능력 탁월, 인문·사회적 사고력 우수",
+        "studyStyle": "언어 집중 학습, 토론·발표 중심",
+        "identity": "글로벌 감각과 다문화 이해가 정체성의 핵심",
+        "mentalStrength": "경쟁 강도 높음, 언어 학습 스트레스 관리 필요",
+        "gradeRequirement": "전 과목 A등급, 영어 최상위",
+        "aptitudeTest": "영어 구술·작문 + 지원 외국어 기초 평가",
+        "internalGradeStrategy": "영어 내신 최상위 유지, 제2외국어 조기 시작 권장"
+      },
+      "schools": [
+        {
+          "id": "daewon_foreign",
+          "name": "대원외국어고등학교",
+          "shortName": "대원외고",
+          "location": "서울특별시 광진구",
+          "type": "외국어고",
+          "emoji": "🗺️",
+          "color": "#34d399",
+          "difficulty": 5,
+          "annualAdmission": 360,
+          "tuition": "일반 사립 수준",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "전국 최대 규모 외국어고",
+          "teachingMethod": "외국어 집중 수업, 원어민 교사 다수, 해외 교환학생 프로그램",
+          "famousPrograms": ["해외 교환학생", "모의 UN 토론", "외국어 경시대회"],
+          "studentLevel": "서울·수도권 영어 최상위, 제2외국어 능통자",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 내신 성적", "detail": "중학교 영어 내신 성적 반영", "icon": "📊" },
+            { "step": 2, "title": "2단계: 자기소개서", "detail": "외국어 학습 경험 및 동기 서술", "icon": "📝" },
+            { "step": 3, "title": "3단계: 면접", "detail": "영어 구술 면접 + 지원 외국어 기초 평가", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 내신 최상위 유지, 제2외국어 시작",
+            "middle2": "영어 공인시험(TOEFL·TEPS) 준비, 외국어 경시대회",
+            "middle3": "면접 준비, 자소서 완성, 해외 경험 정리"
+          },
+          "careerPathDetails": [
+            {
+              "grade": "중학교 1학년",
+              "icon": "🌱",
+              "tasks": ["영어 내신 최상위 유지 (절대 기준)", "제2외국어 선택 및 기초 시작 (일본어·중국어·프랑스어 중 선택)", "영어 원서 읽기 습관 만들기", "해외 문화 관련 활동 참가"],
+              "keyPoint": "외고는 영어 내신이 핵심이에요. 중1부터 영어 내신을 철저히 관리하고, 제2외국어는 일찍 시작할수록 유리해요."
+            },
+            {
+              "grade": "중학교 2학년",
+              "icon": "🌿",
+              "tasks": ["TOEFL 또는 TEPS 준비 시작", "제2외국어 경시대회 참가", "영어 토론·발표 활동 강화", "해외 교류 프로그램 참가 시도"],
+              "keyPoint": "영어 공인시험 점수는 직접 반영되지 않지만, 실력 검증에 도움이 돼요. 면접에서 영어로 말하는 능력이 중요해요."
+            },
+            {
+              "grade": "중학교 3학년",
+              "icon": "🌳",
+              "tasks": ["영어 구술 면접 집중 준비", "자소서: 외국어 학습 동기와 경험 중심으로 작성", "제2외국어 능력 최대한 끌어올리기", "대원외고 기출 면접 문제 연습"],
+              "keyPoint": "면접에서 '왜 이 외국어를 배우고 싶은가'를 진심으로 말해야 해요. 여행 경험, 좋아하는 외국 문화 등 구체적인 이야기를 준비하세요."
+            }
+          ],
+          "highlightStats": [
+            { "label": "연간 모집", "value": "360명", "emoji": "👥", "color": "#34d399" },
+            { "label": "외국어 전공", "value": "10개 이상", "emoji": "🌍", "color": "#60a5fa" },
+            { "label": "해외 교류", "value": "연 2회 이상", "emoji": "✈️", "color": "#f59e0b" },
+            { "label": "원어민 교사", "value": "다수 재직", "emoji": "👨‍🏫", "color": "#a78bfa" }
+          ],
+          "realTalk": [
+            { "emoji": "😤", "title": "솔직히 말하면...", "content": "외고가 예전만큼 인기는 아니에요. 하지만 외국어·인문·국제 계열로 진로를 잡은 학생에겐 여전히 최고의 선택이에요." },
+            { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "원어민 선생님과 매일 대화하고, 해외 교환학생 프로그램이 풍부해요. 외국어 실력이 빠르게 늘어요. 글로벌 네트워크도 강해요." },
+            { "emoji": "😰", "title": "힘든 점은...", "content": "이공계 진학을 원한다면 외고는 불리해요. 수학·과학 수업이 일반고보다 적어요. 진로를 명확히 하고 선택해야 해요." },
+            { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "외국어로 말하는 게 즐겁고, 다른 나라 문화에 관심이 많은 학생. 외교관·통번역사·글로벌 기업 취업을 꿈꾸는 학생에게 최적이에요." }
+          ],
+          "dailySchedule": [
+            { "time": "07:30", "activity": "등교 및 아침 자습", "emoji": "🌅" },
+            { "time": "08:30", "activity": "오전 수업 (외국어 집중)", "emoji": "🗣️" },
+            { "time": "12:30", "activity": "점심 식사", "emoji": "🍱" },
+            { "time": "13:30", "activity": "오후 수업 (제2외국어·인문)", "emoji": "📚" },
+            { "time": "16:30", "activity": "방과 후 활동 (외국어 동아리 등)", "emoji": "🎭" },
+            { "time": "18:00", "activity": "귀가 또는 자습", "emoji": "🏠" },
+            { "time": "19:00", "activity": "저녁 식사 후 개인 학습", "emoji": "📖" },
+            { "time": "23:00", "activity": "취침", "emoji": "🌙" }
+          ],
+          "survivalTips": [
+            { "emoji": "🗣️", "tip": "매일 영어로 일기를 써보세요. 처음엔 3문장이라도 좋아요. 꾸준히 하면 영어 작문 실력이 빠르게 늘어요." },
+            { "emoji": "🌍", "tip": "제2외국어는 앱(듀오링고 등)으로 매일 10분씩 연습하세요. 꾸준함이 실력을 만들어요." },
+            { "emoji": "📰", "tip": "영어 뉴스를 매일 읽으세요. 면접에서 시사 문제를 영어로 말하는 능력이 중요해요." },
+            { "emoji": "🎬", "tip": "좋아하는 외국 드라마·영화를 자막 없이 보는 연습을 하세요. 듣기 실력이 빠르게 늘어요." }
+          ],
+          "competitionLevel": "서울 상위권 (영어 내신 최상위)",
+          "studyHoursPerDay": "7~10시간",
+          "selfStudyRatio": "50% (수업 + 자습 균형)",
+          "socialLife": "통학 중심, 방과 후 동아리 활동 활발",
+          "mentalHealthNote": "이공계 진로 변경 시 불리함. 진로를 명확히 하고 선택하세요.",
+          "pros": ["전국 최대 규모 네트워크", "다양한 외국어 전공", "해외 대학 진학 강점"],
+          "cons": ["높은 경쟁률", "서울 소재 통학 부담", "이공계 진학 불리"],
+          "admissionTip": "영어 내신 성적이 가장 중요합니다. 제2외국어(일본어·중국어·프랑스어 등)를 중학교 때부터 준비하면 유리합니다.",
+          "targetUniversities": ["연세대", "고려대", "서울대 인문계", "해외 대학"],
+          "alumniCareers": ["외교관", "국제기구 직원", "통번역사", "글로벌 기업"]
+        },
+        {
+          "id": "hangyeong_foreign",
+          "name": "한영외국어고등학교",
+          "shortName": "한영외고",
+          "location": "서울특별시 강동구",
+          "type": "외국어고",
+          "emoji": "🌐",
+          "color": "#34d399",
+          "difficulty": 4,
+          "annualAdmission": 280,
+          "tuition": "일반 사립 수준",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울 동부권 대표 외고",
+          "teachingMethod": "외국어 집중 + 인문학 융합 수업, 토론 중심",
+          "famousPrograms": ["국제 토론 대회", "외국어 연극제", "해외 문화 교류"],
+          "studentLevel": "서울 동부·경기 동부권 영어 상위권",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 내신 성적", "detail": "중학교 영어 내신 성적", "icon": "📊" },
+            { "step": 2, "title": "2단계: 자기소개서", "detail": "외국어 학습 경험 서술", "icon": "📝" },
+            { "step": 3, "title": "3단계: 면접", "detail": "영어 구술 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 내신 A등급 유지, 제2외국어 기초",
+            "middle2": "영어 경시대회 참가, 토론 활동",
+            "middle3": "면접 준비, 외국어 포트폴리오 완성"
+          },
+          "pros": ["서울 동부권 접근성", "인문학 융합 강점", "다양한 외국어 전공"],
+          "cons": ["대원외고 대비 낮은 인지도", "이공계 진학 불리"],
+          "admissionTip": "영어 내신과 함께 제2외국어 능력을 어필하세요. 토론·발표 경험이 면접에서 유리합니다.",
+          "targetUniversities": ["연세대", "고려대", "성균관대", "해외 대학"],
+          "alumniCareers": ["외교관", "통번역사", "글로벌 기업", "언론인"]
+        },
+        {
+          "id": "busan_foreign",
+          "name": "부산외국어고등학교",
+          "shortName": "부산외고",
+          "location": "부산광역시 남구",
+          "type": "외국어고",
+          "emoji": "⚓",
+          "color": "#34d399",
+          "difficulty": 4,
+          "annualAdmission": 240,
+          "tuition": "일반 사립 수준",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "부산·경남 대표 외고",
+          "teachingMethod": "외국어 집중 수업, 해양·국제 무역 연계 프로그램",
+          "famousPrograms": ["해양 국제 교류", "무역 영어 프로그램", "외국어 경시대회"],
+          "studentLevel": "부산·경남권 영어 상위권",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 내신 성적", "detail": "중학교 영어 내신", "icon": "📊" },
+            { "step": 2, "title": "2단계: 자기소개서", "detail": "외국어 학습 동기 서술", "icon": "📝" },
+            { "step": 3, "title": "3단계: 면접", "detail": "영어 구술 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 내신 유지, 제2외국어 시작",
+            "middle2": "영어 경시대회, 해양·무역 관련 활동",
+            "middle3": "면접 준비, 외국어 경험 정리"
+          },
+          "pros": ["부산·경남권 최고 외고", "해양·무역 특화", "기숙사 제공"],
+          "cons": ["수도권 대비 대학 진학 네트워크 약함"],
+          "admissionTip": "부산·경남권 학생에게 유리. 해양·무역 관련 진로를 생각한다면 최적의 선택입니다.",
+          "targetUniversities": ["부산대", "연세대", "고려대", "해외 대학"],
+          "alumniCareers": ["외교관", "무역 전문가", "통번역사", "항만 공무원"]
+        }
+      ]
+    },
+    {
+      "id": "international",
+      "name": "국제고",
+      "emoji": "🌏",
+      "color": "#f472b6",
+      "bgColor": "rgba(244,114,182,0.15)",
+      "description": "국제 감각과 글로벌 리더십을 키우는 특수목적고",
+      "planet": {
+        "size": "medium",
+        "orbitRadius": 100,
+        "orbitSpeed": 20,
+        "glowColor": "#f472b6"
+      },
+      "categoryTraits": {
+        "aptitude": "글로벌 사고력, 다문화 이해, 사회·경제 분야 관심",
+        "studyStyle": "토론·발표·프로젝트 중심, IB 또는 AP 과정",
+        "identity": "세계 시민 의식과 리더십이 정체성의 핵심",
+        "mentalStrength": "다양한 배경의 학생들과 경쟁, 자기 주관 확립 중요",
+        "gradeRequirement": "전 과목 A등급, 영어 최상위",
+        "aptitudeTest": "영어 에세이·구술 면접, 사회·경제 관련 토론",
+        "internalGradeStrategy": "영어·사회 내신 최상위, 봉사·리더십 활동 강화"
+      },
+      "schools": [
+        {
+          "id": "seoul_international",
+          "name": "서울국제고등학교",
+          "shortName": "서울국제고",
+          "location": "서울특별시 서대문구",
+          "type": "국제고",
+          "emoji": "🏛️",
+          "color": "#f472b6",
+          "difficulty": 5,
+          "annualAdmission": 160,
+          "tuition": "공립 수준",
+          "dormitory": false,
+          "ibCertified": true,
+          "specialCertification": "IB 인증 학교, 서울시 공립 국제고",
+          "teachingMethod": "IB(국제 바칼로레아) 디플로마 프로그램, 토론·에세이 중심",
+          "famousPrograms": ["IB Diploma", "모의 UN", "국제 교류 프로그램", "글로벌 리더십 캠프"],
+          "studentLevel": "서울·수도권 영어 최상위, 글로벌 경험 풍부한 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 내신 성적", "detail": "중학교 전 과목 내신 성적", "icon": "📊" },
+            { "step": 2, "title": "2단계: 자기소개서", "detail": "글로벌 경험 및 리더십 서술", "icon": "📝" },
+            { "step": 3, "title": "3단계: 영어 면접", "detail": "영어 구술 면접 + 에세이", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 내신 최상위, 해외 경험 축적",
+            "middle2": "모의 UN·국제 토론 참가, 봉사 활동",
+            "middle3": "IB 준비, 영어 에세이 역량 강화"
+          },
+          "pros": ["IB 인증으로 해외 대학 직결", "공립이라 비용 저렴", "글로벌 네트워크"],
+          "cons": ["IB 과정 난이도 높음", "이공계 진학 불리"],
+          "admissionTip": "IB 프로그램을 통해 해외 대학 진학을 목표로 한다면 최고의 선택. 영어 에세이 능력을 미리 키우세요.",
+          "targetUniversities": ["서울대", "연세대", "해외 명문대(아이비리그 등)"],
+          "alumniCareers": ["외교관", "국제기구", "글로벌 컨설팅", "해외 대학 진학"]
+        },
+        {
+          "id": "cheongshim_international",
+          "name": "청심국제고등학교",
+          "shortName": "청심국제고",
+          "location": "경기도 가평군",
+          "type": "국제고",
+          "emoji": "🌿",
+          "color": "#f472b6",
+          "difficulty": 4,
+          "annualAdmission": 200,
+          "tuition": "사립 (기숙사비 포함 고비용)",
+          "dormitory": true,
+          "ibCertified": true,
+          "specialCertification": "IB 인증 학교, 전원 기숙사",
+          "teachingMethod": "IB 디플로마 + AP 과정, 전원 기숙사 생활, 영어 몰입 교육",
+          "famousPrograms": ["IB Diploma", "AP 과정", "국제 교류", "리더십 캠프"],
+          "studentLevel": "전국 영어 최상위, 해외 거주 경험자 다수",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 추천서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 영어 에세이", "detail": "영어 에세이 작성", "icon": "✏️" },
+            { "step": 3, "title": "3단계: 영어 면접", "detail": "영어 구술 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 최상위 유지, 해외 경험",
+            "middle2": "IB 기초 준비, 국제 활동",
+            "middle3": "영어 에세이 역량, 면접 준비"
+          },
+          "pros": ["IB·AP 동시 제공", "전원 기숙사 영어 몰입", "해외 대학 진학 최강"],
+          "cons": ["매우 높은 비용", "가평 소재 접근성 낮음"],
+          "admissionTip": "해외 대학 진학을 강력히 원하는 학생에게 최적. 비용이 높으므로 장학금 전략도 함께 준비하세요.",
+          "targetUniversities": ["아이비리그", "옥스퍼드", "서울대", "연세대"],
+          "alumniCareers": ["글로벌 기업", "국제기구", "외교관", "해외 대학원"]
+        },
+        {
+          "id": "incheon_international",
+          "name": "인천국제고등학교",
+          "shortName": "인천국제고",
+          "location": "인천광역시 연수구",
+          "type": "국제고",
+          "emoji": "✈️",
+          "color": "#f472b6",
+          "difficulty": 4,
+          "annualAdmission": 160,
+          "tuition": "공립 수준",
+          "dormitory": true,
+          "ibCertified": true,
+          "specialCertification": "IB 인증 학교, 인천 공립 국제고",
+          "teachingMethod": "IB 디플로마, 영어 몰입 수업, 국제 교류 프로그램",
+          "famousPrograms": ["IB Diploma", "인천공항 연계 프로그램", "국제 무역 교육"],
+          "studentLevel": "인천·경기 서부권 영어 상위권",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 내신 성적", "detail": "중학교 전 과목 내신", "icon": "📊" },
+            { "step": 2, "title": "2단계: 자기소개서", "detail": "글로벌 경험 서술", "icon": "📝" },
+            { "step": 3, "title": "3단계: 영어 면접", "detail": "영어 구술 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어 내신 유지, 국제 활동",
+            "middle2": "IB 기초, 무역·경제 관련 활동",
+            "middle3": "영어 에세이, 면접 준비"
+          },
+          "pros": ["공립이라 비용 저렴", "IB 인증", "인천공항 연계 특화"],
+          "cons": ["수도권 대비 인지도 낮음"],
+          "admissionTip": "인천·경기 서부권 학생에게 유리. IB를 저렴하게 경험할 수 있는 최적의 선택입니다.",
+          "targetUniversities": ["인하대", "연세대", "해외 대학"],
+          "alumniCareers": ["항공·물류", "국제 무역", "외교관", "글로벌 기업"]
+        }
+      ]
+    },
+    {
+      "id": "autonomous_public",
+      "name": "자율형공립고",
+      "emoji": "🏫",
+      "color": "#fb923c",
+      "bgColor": "rgba(251,146,60,0.15)",
+      "description": "「초·중등교육법」상 일반계 고교 중 교육과정 자율성을 부여받은 공립고. 2024년부터 '자율형 공립고 2.0' 체제로 개편 — 학교-지자체-대학-기업이 협약을 맺어 지역 특색 교육모델을 운영",
+      "legalBasis": "「초·중등교육법」 — 일반계 고등학교 / 「자율형 공립고등학교의 지정 및 운영에 관한 훈령」",
+      "policyUpdate2025": "교육부는 2024년 100개교 선정에 이어 2025년 8월 25개교를 신규 선정해 자율형 공립고 2.0을 총 125개교로 확대. 2025년 신규 지정 학교들은 2026년 3월부터 운영 시작. 기존 '자공고 1.0' 체제는 폐지되고 2.0으로 일원화.",
+      "tuitionFact": "고교 무상교육 적용 — 입학금·수업료·운영지원비·교과서비 무상 (급식·교복 등 부대비용 별도)",
+      "admissionMethodFact": "광역 단위 모집, 대부분 추첨 또는 학구 배정 방식 (별도 선발고사 없음)",
+      "curriculumFact": "국가 표준 교육과정 기반 + 학교-지자체-대학-기업 협약에 따른 지역 특색 교육과정·심화과목 운영",
+      "collegeTrackFact": "학생부교과·학생부종합·정시 트랙 모두 열림",
+      "supportFact": "자공고 2.0 지정 학교는 교육부·시도교육청으로부터 연 2억 원 내외의 운영비를 지원받음 (기간 5년, 1회 연장 가능)",
+      "factCheckNote": "구체적인 진학률·교내 프로그램은 학교알리미(schoolinfo.go.kr) 공시정보로 별도 확인 필요. 본 데이터의 학교별 세부 진학 실적은 실시간 정확성을 보장하지 않음.",
+      "planet": {
+        "size": "medium",
+        "orbitRadius": 90,
+        "orbitSpeed": 25,
+        "glowColor": "#fb923c"
+      },
+      "categoryTraits": {
+        "aptitude": "전 과목 균형 잡힌 학업 능력 — 일반고와 동일한 국가 표준 교육과정 기반",
+        "studyStyle": "내신 중심 + 학교 특색 프로그램·지역 연계 활용 (학교별 운영 편차 있음)",
+        "identity": "공립의 안정성 + 지역사회·대학·기업 협약의 실무 체험을 결합한 균형형 진로 탐색",
+        "mentalStrength": "전국자사고·특목고 대비 경쟁 강도는 상대적으로 낮음 (단, 학교별 편차 큼)",
+        "gradeRequirement": "지원 자격 제한이 약함 — 광역 단위 추첨/학구 배정이 일반적",
+        "aptitudeTest": "별도 적성·면접 없는 경우가 일반적 (학교별 확인 필요)",
+        "internalGradeStrategy": "전 과목 균형 내신 관리 + 학교 협약 프로그램(대학·기업 연계)·진로선택과목 적극 활용"
+      },
+      "schools": [
+        {
+          "id": "busan_high_2025",
+          "name": "부산고등학교",
+          "shortName": "부산고",
+          "location": "부산광역시 서구",
+          "type": "자율형공립고",
+          "emoji": "🌊",
+          "color": "#fb923c",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 학생현황 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (급식·교복 등 부대비용 별도)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "자율형 공립고 2.0 (2025년 8월 신규 지정, 2026년 3월 운영 시작)",
+          "designationSource": "교육부 2025년 자율형 공립고 2.0 공모 선정 (2025.8.27 발표)",
+          "teachingMethod": "국가 표준 교육과정 + 지자체·대학·기업 협약 기반 지역 특색 교육과정",
+          "famousPrograms": ["* 자공고 2.0 협약 프로그램은 2026년 3월 운영 시작 — 학교 공식 발표 확인 필요"],
+          "studentLevel": "광역 단위 학생 분포 — 학구 배정/추첨 방식",
+          "admissionProcess": [
+            { "step": 1, "title": "광역 단위 모집", "detail": "부산광역시 학구 배정/추첨", "icon": "🎲" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 균형 내신 관리 시작",
+            "middle2": "자공고 2.0 협약 프로그램 정보 수집 (학교·교육청 공지)",
+            "middle3": "진로선택과목 개설 여부 확인 후 지원 결정"
+          },
+          "pros": [
+            "고교 무상교육 적용 — 학비 부담 사실상 0원",
+            "자공고 2.0 운영 지원금(연 2억 내외)으로 프로그램 인프라 확충 기대",
+            "지자체·대학·기업 협약을 통한 실무·진로 연계 기회"
+          ],
+          "cons": [
+            "[2025년 신규 지정] 2026년 3월부터 운영 시작 — 초기 성과 데이터 부재",
+            "학교별 협약 내용 편차가 큼 — 명칭만으로 판단 불가"
+          ],
+          "admissionTip": "2026년 신규 운영 시작 학교이므로 학교 설명회·교육청 공지를 통해 협약 프로그램의 구체 내용을 직접 확인하세요.",
+          "targetUniversities": ["* 자공고 2.0 운영 전이므로 졸업생 진학 실적은 학교알리미 공시 추후 확인"],
+          "alumniCareers": ["* 학교별 편차 — 일반화 불가"],
+          "verificationChecklist": [
+            "자공고 2.0 협약 기관 (지자체·대학·기업) 확인",
+            "운영 지원금 활용 계획 (특색 교육과정·과목)",
+            "최근 3년 진학 실적 (학교알리미 공시)"
+          ]
+        },
+        {
+          "id": "juryeo_girls_2025",
+          "name": "주례여자고등학교",
+          "shortName": "주례여고",
+          "location": "부산광역시 사상구",
+          "type": "자율형공립고",
+          "emoji": "🌊",
+          "color": "#fb923c",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 학생현황 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "자율형 공립고 2.0 (2025년 8월 신규 지정, 2026년 3월 운영 시작)",
+          "designationSource": "교육부 2025년 자율형 공립고 2.0 공모 선정",
+          "teachingMethod": "국가 표준 교육과정 + 자공고 2.0 협약 기반 교육과정",
+          "famousPrograms": ["* 자공고 2.0 협약 프로그램은 2026년 3월 운영 시작 — 학교 발표 확인 필요"],
+          "studentLevel": "부산 사상구 학구 — 여자고",
+          "admissionProcess": [
+            { "step": 1, "title": "광역 단위 모집", "detail": "부산 사상구 학구 배정", "icon": "🎲" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 균형 내신 관리",
+            "middle2": "자공고 2.0 협약 프로그램 정보 수집",
+            "middle3": "진로선택과목·동아리 사전 확인"
+          },
+          "pros": [
+            "무상교육 적용 — 학비 0원",
+            "자공고 2.0 운영 지원금 수혜",
+            "여자고 환경 선호 학생에게 선택지"
+          ],
+          "cons": [
+            "[2025년 신규 지정] 초기 운영 단계 — 실적 데이터 부재"
+          ],
+          "admissionTip": "신규 지정 학교는 학교 설명회에서 협약 프로그램의 실효성을 직접 확인하세요.",
+          "targetUniversities": ["* 운영 전 — 추후 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자공고 2.0 협약 기관·내용",
+            "여자고 교육과정 특성"
+          ]
+        },
+        {
+          "id": "incheon_high_2025",
+          "name": "인천고등학교",
+          "shortName": "인천고",
+          "location": "인천광역시 중구",
+          "type": "자율형공립고",
+          "emoji": "⚓",
+          "color": "#fb923c",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "자율형 공립고 2.0 (2025년 8월 신규 지정, 2026년 3월 운영 시작)",
+          "designationSource": "교육부 2025년 자율형 공립고 2.0 공모 선정",
+          "teachingMethod": "국가 표준 교육과정 + 자공고 2.0 협약 기반 교육과정 (인천 지역 연계)",
+          "famousPrograms": ["* 협약 프로그램은 2026년 3월 운영 시작 — 학교 공식 발표 확인"],
+          "studentLevel": "인천광역시 학구 — 전통 공립 남자고 (1895년 설립)",
+          "admissionProcess": [
+            { "step": 1, "title": "광역 단위 모집", "detail": "인천광역시 학구 배정/추첨", "icon": "🎲" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 균형 내신 관리",
+            "middle2": "자공고 2.0 협약 프로그램 정보 수집",
+            "middle3": "진로선택과목 개설 확인"
+          },
+          "pros": [
+            "무상교육 — 학비 0원",
+            "자공고 2.0 운영 지원금 수혜",
+            "[일반적 경향] 전통 공립고로 동문 네트워크 형성됨"
+          ],
+          "cons": [
+            "[2025년 신규 지정] 자공고 2.0 협약 성과는 추후 검증 필요"
+          ],
+          "admissionTip": "전통 공립고의 안정성과 자공고 2.0의 새로운 협약 프로그램이 결합되는 학교. 두 요소를 학교 설명회에서 함께 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자공고 2.0 협약 기관·내용",
+            "최근 3년 진학 실적 공시"
+          ]
+        },
+        {
+          "id": "uijeongbu_high_2025",
+          "name": "의정부고등학교",
+          "shortName": "의정부고",
+          "location": "경기도 의정부시",
+          "type": "자율형공립고",
+          "emoji": "🏞️",
+          "color": "#fb923c",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "자율형 공립고 2.0 (2025년 8월 신규 지정, 2026년 3월 운영 시작)",
+          "designationSource": "교육부 2025년 자율형 공립고 2.0 공모 선정",
+          "teachingMethod": "국가 표준 교육과정 + 자공고 2.0 협약 기반 교육과정",
+          "famousPrograms": ["* 협약 프로그램은 2026년 3월 운영 시작"],
+          "studentLevel": "경기 북부 학구 — 의정부시",
+          "admissionProcess": [
+            { "step": 1, "title": "광역 단위 모집", "detail": "경기도 학구 배정/추첨", "icon": "🎲" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 균형 내신 관리",
+            "middle2": "자공고 2.0 협약 프로그램 정보 수집",
+            "middle3": "진로선택과목 개설 확인"
+          },
+          "pros": [
+            "무상교육 — 학비 0원",
+            "자공고 2.0 운영 지원금 수혜",
+            "경기 북부 거주 학생의 광역 선택지"
+          ],
+          "cons": [
+            "[2025년 신규 지정] 운영 초기 단계"
+          ],
+          "admissionTip": "경기도교육청 자공고 2.0 운영 계획을 학교 설명회와 함께 검토하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "협약 기관 (지자체·대학·기업)",
+            "운영비 활용 계획"
+          ]
+        },
+        {
+          "id": "jeohyun_high_2025",
+          "name": "저현고등학교",
+          "shortName": "저현고",
+          "location": "경기도 고양시 일산동구",
+          "type": "자율형공립고",
+          "emoji": "🏙️",
+          "color": "#fb923c",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "자율형 공립고 2.0 (2025년 8월 신규 지정, 2026년 3월 운영 시작)",
+          "designationSource": "교육부 2025년 자율형 공립고 2.0 공모 선정",
+          "teachingMethod": "국가 표준 교육과정 + 자공고 2.0 협약 기반 교육과정 (연 2억 원 운영비 지원)",
+          "famousPrograms": ["* 협약 프로그램은 2026년 3월 운영 시작 — 고양시 지자체 연계 계획 발표 예정"],
+          "studentLevel": "경기 고양시 일산 학구",
+          "admissionProcess": [
+            { "step": 1, "title": "광역 단위 모집", "detail": "경기도 학구 배정/추첨", "icon": "🎲" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 균형 내신 관리",
+            "middle2": "자공고 2.0 협약 프로그램 정보 수집",
+            "middle3": "진로선택과목·동아리 사전 확인"
+          },
+          "pros": [
+            "무상교육 — 학비 0원",
+            "자공고 2.0 연 2억 원 운영비 지원으로 인프라 확충 예정",
+            "일산 학군 거주 학생 선택지"
+          ],
+          "cons": [
+            "[2025년 신규 지정] 초기 운영 단계"
+          ],
+          "admissionTip": "일산 학군 거주 학생은 자공고 2.0 협약 내용을 학교 설명회에서 확인 후 지원 결정.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자공고 2.0 협약 기관·내용",
+            "운영비 활용 계획"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "autonomous_private",
+      "name": "자율형사립고",
+      "emoji": "🏆",
+      "color": "#a78bfa",
+      "bgColor": "rgba(167,139,250,0.15)",
+      "description": "「초·중등교육법」상 자율 고등학교. 전국 단위 자사고(10교, 기숙형 중심) + 광역 단위 자사고(시·도 내 모집)로 나뉨. 2024년 1월 시행령 개정으로 자사고 존치 확정",
+      "policyUpdate2024": "2024년 1월 16일 교육부는 초·중등교육법 시행령을 개정해 자사고·외고·국제고를 존치하기로 결정 (2020년 일괄 폐지 결정을 4년 만에 뒤집음). 따라서 2025년 일괄 폐지는 없으며 자사고 신입생 모집이 계속됨.",
+      "twoCategories": "① 전국자사고(10교) — 전국 단위 모집, 대부분 기숙형, 학비 연 1,300~3,000만원+ / ② 광역자사고 — 시·도 내 모집, 통학형 다수, 학비 수백만원대 (학교별 편차)",
+      "factCheckNote": "지원 자격·전형·중복지원 제한은 학년도별로 변동되므로 시도교육청 및 학교 공식 모집요강을 반드시 확인. 진학 실적은 학교알리미(schoolinfo.go.kr) 공시정보로 별도 확인 필요.",
+      "planet": {
+        "size": "large",
+        "orbitRadius": 140,
+        "orbitSpeed": 20,
+        "glowColor": "#a78bfa"
+      },
+      "categoryTraits": {
+        "aptitude": "전 과목 최상위, 특히 수학·영어 탁월",
+        "studyStyle": "내신+수능 병행, 자기주도 학습 강도 높음",
+        "identity": "명문대 진학 목표와 함께 자기 주관 확립이 중요",
+        "mentalStrength": "경쟁 강도 최상, 정체성 위기 가능성 — 공부 외 자기만의 가치 필요",
+        "gradeRequirement": "전 과목 A등급, 수학·영어 최상위",
+        "aptitudeTest": "자기소개서 + 면접 (학교별 상이)",
+        "internalGradeStrategy": "중학교 1~3학년 전 과목 내신 A등급 필수, 수학 선행 필수"
+      },
+      "schools": [
+        {
+          "id": "hana_high",
+          "name": "하나고등학교",
+          "shortName": "하나고",
+          "location": "서울특별시 은평구",
+          "type": "자율형사립고",
+          "emoji": "💎",
+          "color": "#a78bfa",
+          "difficulty": 5,
+          "annualAdmission": 180,
+          "tuition": "사립 (연 1,000만원 수준)",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "전국 단위 모집 자사고, 기숙사 전원 입사",
+          "teachingMethod": "전원 기숙사, 자기주도 학습 강조, 소규모 토론 수업",
+          "famousPrograms": ["자기주도 연구 프로젝트", "독서·토론 프로그램", "리더십 캠프"],
+          "studentLevel": "전국 최상위, 수학·영어 모두 최상위, 자기주도 학습 능력 탁월",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 종합 평가", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "자기주도 학습 역량 심층 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 A등급, 수학 선행",
+            "middle2": "자기주도 학습 포트폴리오 구축, 독서 활동",
+            "middle3": "면접 준비, 자소서 완성"
+          },
+          "careerPathDetails": [
+            {
+              "grade": "중학교 1학년",
+              "icon": "🌱",
+              "tasks": ["전 과목 내신 A등급 유지 (절대 기준)", "수학 선행: 중3 과정 선행 시작", "독서 습관 만들기: 월 2권 이상 다양한 분야", "자기만의 관심 분야 하나 찾기"],
+              "keyPoint": "하나고는 '왜 공부하는가'를 물어요. 지금부터 자신이 좋아하는 것, 궁금한 것을 메모해두세요. 나중에 자소서 소재가 됩니다."
+            },
+            {
+              "grade": "중학교 2학년",
+              "icon": "🌿",
+              "tasks": ["자기주도 학습 포트폴리오 구축 시작", "독서 토론 활동 참가 (학교 독서 동아리 등)", "봉사 활동: 의미 있는 활동 꾸준히", "수학·영어 심화 학습"],
+              "keyPoint": "하나고 면접에서 '최근 읽은 책'을 자주 물어요. 책을 읽고 자기 생각을 정리하는 연습을 꼭 하세요."
+            },
+            {
+              "grade": "중학교 3학년",
+              "icon": "🌳",
+              "tasks": ["자기주도 학습 계획서 작성 연습", "면접 준비: 자기 생각을 논리적으로 말하는 연습", "자소서: '나는 왜 공부하는가' 핵심 메시지 완성", "하나고 기출 면접 문제 풀기"],
+              "keyPoint": "하나고 면접은 정답이 없어요. '나만의 생각'을 자신 있게 말하는 게 핵심이에요. 틀려도 괜찮으니 자신감 있게 표현하세요."
+            }
+          ],
+          "highlightStats": [
+            { "label": "서울대 진학률", "value": "약 20~25%", "emoji": "🎓", "color": "#a78bfa" },
+            { "label": "전원 기숙사", "value": "은평구 소재", "emoji": "🏠", "color": "#fbbf24" },
+            { "label": "하루 공부 시간", "value": "10~13시간", "emoji": "📚", "color": "#60a5fa" },
+            { "label": "자기주도 비율", "value": "80%", "emoji": "🧠", "color": "#34d399" }
+          ],
+          "realTalk": [
+            { "emoji": "😤", "title": "솔직히 말하면...", "content": "하나고는 '자기주도 학습'을 강조하지만, 실제로는 엄청난 경쟁이 있어요. 전국 최상위 학생들이 모이니 처음엔 충격받을 수 있어요." },
+            { "emoji": "🤩", "title": "이런 점은 진짜 좋아요", "content": "선생님들이 학생 개개인에게 관심을 많이 줘요. 소규모 토론 수업이라 발표·토론 실력이 빠르게 늘어요. 친구들의 수준이 높아서 자극이 돼요." },
+            { "emoji": "😰", "title": "힘든 점은...", "content": "기숙사 생활이 처음엔 힘들어요. 집이 그리울 수 있어요. 또 학비가 비싸서 가정 경제 상황을 고려해야 해요." },
+            { "emoji": "💡", "title": "이런 학생에게 딱!", "content": "책 읽기를 좋아하고, 자기 생각을 말하는 걸 즐기는 학생. 단순히 성적이 좋은 것보다 '왜?'라는 질문을 즐기는 학생에게 맞아요." }
+          ],
+          "dailySchedule": [
+            { "time": "07:00", "activity": "기상 및 아침 식사", "emoji": "🌅" },
+            { "time": "08:30", "activity": "오전 수업 (소규모 토론식)", "emoji": "💬" },
+            { "time": "12:30", "activity": "점심 식사 + 자유 시간", "emoji": "🍱" },
+            { "time": "13:30", "activity": "오후 수업 + 프로젝트 활동", "emoji": "📋" },
+            { "time": "17:30", "activity": "동아리 활동 또는 자유 탐구", "emoji": "🎨" },
+            { "time": "19:00", "activity": "저녁 식사", "emoji": "🍽️" },
+            { "time": "20:00", "activity": "자율 학습 (개인 계획대로)", "emoji": "📖" },
+            { "time": "23:30", "activity": "취침", "emoji": "🌙" }
+          ],
+          "survivalTips": [
+            { "emoji": "📚", "tip": "독서 노트를 만드세요. 책을 읽고 '나의 생각'을 한 문단씩 써두면 면접 준비와 자소서에 큰 도움이 돼요." },
+            { "emoji": "🗣️", "tip": "토론 연습을 꾸준히 하세요. 하나고는 발표·토론이 수업의 핵심이에요. 말하는 연습이 부족하면 힘들어요." },
+            { "emoji": "🎯", "tip": "자기만의 공부 루틴을 만드세요. 자기주도 학습이 강조되는 만큼, 스스로 계획하고 실행하는 능력이 필수예요." },
+            { "emoji": "🤝", "tip": "기숙사 룸메이트와 좋은 관계를 유지하세요. 3년을 함께 생활하는 만큼 인간관계가 학교생활의 질을 결정해요." }
+          ],
+          "competitionLevel": "전국 최상위 (전국 단위 모집)",
+          "studyHoursPerDay": "10~13시간",
+          "selfStudyRatio": "80% (자기주도 학습 핵심)",
+          "socialLife": "전원 기숙사, 소규모 토론 중심 공동체",
+          "mentalHealthNote": "비교 문화 강함. '나만의 기준'을 확립하는 것이 생존의 핵심.",
+          "pros": ["전국 최상위 학생들과 교류", "자기주도 학습 최강", "서울대 진학률 최상위"],
+          "cons": ["매우 높은 경쟁 강도", "기숙사 생활 필수", "높은 비용"],
+          "admissionTip": "자기주도 학습 능력을 어필하는 것이 핵심. 단순 성적보다 '왜 공부하는가'에 대한 자기 서사가 중요합니다.",
+          "targetUniversities": ["서울대", "연세대", "고려대", "의대"],
+          "alumniCareers": ["의사", "법조인", "교수", "대기업 임원", "창업가"]
+        },
+        {
+          "id": "minjok_high",
+          "name": "민족사관고등학교",
+          "shortName": "민사고",
+          "location": "강원도 횡성군",
+          "type": "자율형사립고",
+          "emoji": "🏯",
+          "color": "#a78bfa",
+          "difficulty": 5,
+          "annualAdmission": 140,
+          "tuition": "사립 (연 1,500만원 이상)",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "전국 단위 모집, 민족 정체성 교육 특화",
+          "teachingMethod": "한국 전통 문화 + 글로벌 교육 융합, 전원 기숙사, 영어 몰입",
+          "famousPrograms": ["한국학 특화 프로그램", "영어 몰입 교육", "국제 교류", "리더십 훈련"],
+          "studentLevel": "전국 최상위, 영어·수학 모두 최상위, 리더십 탁월",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 추천서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "영어 면접 + 한국어 심층 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 A등급, 영어 최상위",
+            "middle2": "리더십 활동, 한국 문화 관련 활동",
+            "middle3": "영어·한국어 면접 준비, 자소서 완성"
+          },
+          "pros": ["독특한 교육 철학", "해외 대학 진학 강점", "리더십 교육 최강"],
+          "cons": ["강원도 소재 접근성 낮음", "매우 높은 비용", "강한 규율"],
+          "admissionTip": "한국 정체성과 글로벌 역량을 동시에 어필하세요. 리더십 경험이 중요합니다.",
+          "targetUniversities": ["서울대", "연세대", "아이비리그", "해외 명문대"],
+          "alumniCareers": ["외교관", "글로벌 기업 임원", "교수", "정치인"]
+        },
+        {
+          "id": "sangsan_high",
+          "name": "상산고등학교",
+          "shortName": "상산고",
+          "location": "전라북도 전주시",
+          "type": "자율형사립고",
+          "emoji": "🌸",
+          "color": "#a78bfa",
+          "difficulty": 5,
+          "annualAdmission": 300,
+          "tuition": "사립 (연 800만원 수준)",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "전국 단위 모집 자사고, 의대 진학률 최상위",
+          "teachingMethod": "수능 중심 입시 교육, 의대 진학 특화, 자기주도 학습",
+          "famousPrograms": ["의대 진학 프로그램", "수능 집중 대비", "과학 탐구 동아리"],
+          "studentLevel": "전국 수학·과학 최상위, 의대 목표 학생 다수",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "학업 역량 심층 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 A등급, 수학·과학 선행",
+            "middle2": "의대 목표 설정, 과학 탐구 활동",
+            "middle3": "면접 준비, 자소서 완성"
+          },
+          "pros": ["의대 진학률 전국 최상위", "전주 소재 비교적 저렴", "우수한 교사진"],
+          "cons": ["전주 소재 접근성", "수능 중심 교육 편중"],
+          "admissionTip": "의대 진학을 목표로 한다면 전국 최고의 선택. 수학·과학 선행이 필수입니다.",
+          "targetUniversities": ["서울대 의대", "연세대 의대", "고려대 의대", "각 지방 의대"],
+          "alumniCareers": ["의사", "치과의사", "약사", "의과학자"]
+        },
+        {
+          "id": "hyundai_chungwon",
+          "name": "현대청운고등학교",
+          "shortName": "현대청운고",
+          "location": "울산광역시 북구",
+          "type": "자율형사립고",
+          "emoji": "⚙️",
+          "color": "#a78bfa",
+          "difficulty": 4,
+          "annualAdmission": 240,
+          "tuition": "사립 (현대그룹 지원)",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "현대그룹 재단 운영, 이공계 특화",
+          "teachingMethod": "이공계 특화 교육, 현대 기업 연계 프로그램, 자기주도 학습",
+          "famousPrograms": ["현대 기업 연계 인턴십", "이공계 탐구 프로그램", "글로벌 교류"],
+          "studentLevel": "울산·경남권 수학·과학 상위권",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "이공계 역량 면접", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학 내신 A등급",
+            "middle2": "이공계 탐구 활동, 현대 기업 관련 관심",
+            "middle3": "면접 준비, 자소서 완성"
+          },
+          "pros": ["현대그룹 지원으로 비용 저렴", "이공계 취업 연계 강점", "기숙사 제공"],
+          "cons": ["울산 소재 접근성", "현대 계열사 취업 편중 가능성"],
+          "admissionTip": "현대그룹 계열사 취업을 목표로 한다면 최고의 선택. 이공계 탐구 활동을 강화하세요.",
+          "targetUniversities": ["KAIST", "포스텍", "서울대 공대", "연세대 공대"],
+          "alumniCareers": ["현대 계열사 엔지니어", "이공계 연구원", "창업가"]
+        },
+        {
+          "id": "whimoon_high",
+          "name": "휘문고등학교",
+          "shortName": "휘문고",
+          "location": "서울특별시 강남구 대치동",
+          "type": "자율형사립고 (광역단위)",
+          "emoji": "🏙️",
+          "color": "#a78bfa",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "사립 — 광역자사고 학비 (학교별 상이, 일반적으로 수백만 원대 / 학교회계 공시 확인 필요)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울 광역단위 자율형사립고 (2024년 1월 시행령 개정으로 자사고 존치 확정)",
+          "schoolType": "사립 광역자사고 (남자고)",
+          "statusHistory": "2020년 서울시교육청이 자사고 지정취소 처분 → 2024년 10월 항소심에서 처분 무효 판결, 서울시교육청 상고 포기로 자사고 지위 유지. 2025학년도 자사고로 신입생 정상 모집",
+          "teachingMethod": "자율 교육과정 + 자기주도학습전형 선발",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 강남 대치동 권역 광역자사고 — 정시·의대 진학 노하우가 축적된 학교로 평가됨 (구체 수치는 공시 확인)",
+          "admissionProcess": [
+            { "step": 1, "title": "자기주도학습전형 1단계", "detail": "내신·학생부 서류 평가", "icon": "📋" },
+            { "step": 2, "title": "자기주도학습전형 2단계", "detail": "면접 (교과 지식 평가 금지)", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리 (자사고 선발 기준)",
+            "middle2": "학생부 기반 자기소개·면접 준비 시작",
+            "middle3": "자기주도학습전형 면접 대비"
+          },
+          "pros": [
+            "강남 대치동 학원가 인프라",
+            "자율 교육과정 — 학교가 직접 커리큘럼 설계",
+            "[일반적 경향] 정시 강세 학교로 평가됨"
+          ],
+          "cons": [
+            "광역자사고 학비 부담 (고교 무상교육 대상 제외)",
+            "내신 경쟁 강도 높음 — 우수 학생 밀집",
+            "강남구 거주 우대 요건 등 자기주도학습전형 세부 확인 필요"
+          ],
+          "admissionTip": "자사고 지정 취소 처분이 항소심에서 뒤집힌 사례. 자사고 신분으로 2025년 정상 신입생 모집. 학교 공식 모집요강·서울시교육청 자료를 통해 최신 전형 확인 필수.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자기주도학습전형 세부 기준",
+            "광역자사고 학비 (학교회계 공시)",
+            "최근 3년 진학 실적"
+          ]
+        },
+        {
+          "id": "joongdong_high",
+          "name": "중동고등학교",
+          "shortName": "중동고",
+          "location": "서울특별시 강남구 일원동",
+          "type": "자율형사립고 (광역단위)",
+          "emoji": "🏙️",
+          "color": "#a78bfa",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "사립 — 광역자사고 학비 (학교회계 공시 확인 필요)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울 광역단위 자율형사립고 (2024 서울 광역자사고 16개교 중 하나)",
+          "schoolType": "사립 광역자사고 (남자고)",
+          "teachingMethod": "자율 교육과정 + 자기주도학습전형 선발",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 강남 8학군 권역 광역자사고",
+          "admissionProcess": [
+            { "step": 1, "title": "자기주도학습전형 1단계", "detail": "내신·학생부 서류 평가", "icon": "📋" },
+            { "step": 2, "title": "자기주도학습전형 2단계", "detail": "면접 (교과 지식 평가 금지)", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "자기소개·면접 준비",
+            "middle3": "자기주도학습전형 대비"
+          },
+          "pros": [
+            "강남 8학군 학원가 활용",
+            "자율 교육과정 운영",
+            "[일반적 경향] 광역자사고 중 상위권으로 평가됨"
+          ],
+          "cons": [
+            "광역자사고 학비 부담",
+            "내신 경쟁 강도 높음"
+          ],
+          "admissionTip": "자기주도학습전형 2단계 면접은 선행학습이 아닌 학생부 기반 자기주도 학습경험·진로계획을 평가합니다.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자기주도학습전형 모집요강",
+            "최근 3년 진학 실적"
+          ]
+        },
+        {
+          "id": "hyundai_high",
+          "name": "현대고등학교",
+          "shortName": "현대고",
+          "location": "서울특별시 강남구 압구정동",
+          "type": "자율형사립고 (광역단위)",
+          "emoji": "🏙️",
+          "color": "#a78bfa",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "사립 — 광역자사고 학비 (학교회계 공시 확인 필요)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울 광역단위 자율형사립고 (2024 서울 광역자사고 16개교 중 하나)",
+          "schoolType": "사립 광역자사고",
+          "teachingMethod": "자율 교육과정 + 자기주도학습전형 선발",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 강남 압구정 권역 광역자사고",
+          "admissionProcess": [
+            { "step": 1, "title": "자기주도학습전형 1단계", "detail": "내신·학생부 서류 평가", "icon": "📋" },
+            { "step": 2, "title": "자기주도학습전형 2단계", "detail": "면접 (교과 지식 평가 금지)", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "자기소개·면접 준비",
+            "middle3": "자기주도학습전형 대비"
+          },
+          "pros": [
+            "압구정·청담 학원가 인접",
+            "자율 교육과정"
+          ],
+          "cons": [
+            "광역자사고 학비 부담",
+            "내신 경쟁 강도 높음"
+          ],
+          "admissionTip": "압구정 거주 학생의 자사고 선택지. 학교 모집요강과 자기주도학습전형 기준을 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자기주도학습전형 모집요강",
+            "최근 3년 진학 실적"
+          ]
+        },
+        {
+          "id": "baejae_high",
+          "name": "배재고등학교",
+          "shortName": "배재고",
+          "location": "서울특별시 강동구 고덕동",
+          "type": "자율형사립고 (광역단위)",
+          "emoji": "🏛️",
+          "color": "#a78bfa",
+          "difficulty": 4,
+          "annualAdmission": 455,
+          "annualAdmissionNote": "2025 모집인원 정원 내 기준 일반 327명 + 체육특기자 37명 + 사회통합 91명 = 총 455명",
+          "tuition": "사립 — 광역자사고 학비 (학교회계 공시 확인 필요)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울 광역단위 자율형사립고 (1885년 설립, 국내 최초 근대적 교육기관 중 하나)",
+          "schoolType": "사립 광역자사고",
+          "teachingMethod": "자율 교육과정 + 자기주도학습전형 선발",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 서울 광역자사고 상위권으로 평가됨",
+          "admissionProcess": [
+            { "step": 1, "title": "자기주도학습전형 1단계", "detail": "내신·학생부 서류 평가", "icon": "📋" },
+            { "step": 2, "title": "자기주도학습전형 2단계", "detail": "면접 (교과 지식 평가 금지)", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "자기소개·면접 준비",
+            "middle3": "자기주도학습전형 대비"
+          },
+          "pros": [
+            "140년 역사의 사립 명문 (1885년 설립)",
+            "자율 교육과정 운영",
+            "[2024 대입 기준] 수시 11명·정시 12명 등 서울대 23명 합격 (광역자사고 상위 성과)"
+          ],
+          "cons": [
+            "광역자사고 학비 부담",
+            "내신 경쟁 강도 높음"
+          ],
+          "admissionTip": "강동·송파권 자사고 선택지. 자기주도학습전형은 교과 지식 평가가 금지되므로 학생부 기반 진로·자기주도 학습경험에 집중하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자기주도학습전형 모집요강",
+            "최근 3년 진학 실적 (수시·정시 비율)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arts_sports",
+      "name": "예술고·체육고",
+      "emoji": "🎨",
+      "color": "#f87171",
+      "bgColor": "rgba(248,113,113,0.15)",
+      "description": "예술·체육 특기자를 위한 특수목적고",
+      "planet": {
+        "size": "medium",
+        "orbitRadius": 80,
+        "orbitSpeed": 28,
+        "glowColor": "#f87171"
+      },
+      "categoryTraits": {
+        "aptitude": "예술·체육 분야 탁월한 재능, 창의성 및 표현력",
+        "studyStyle": "실기 중심 학습, 이론과 실기 병행",
+        "identity": "예술적 표현과 창의성이 정체성의 핵심",
+        "mentalStrength": "실기 경쟁 강도 높음, 자기 표현 자신감 필요",
+        "gradeRequirement": "실기 최상위, 학과 성적 기본 유지",
+        "aptitudeTest": "실기 시험 (분야별 상이)",
+        "internalGradeStrategy": "실기 집중 훈련, 학과 성적 기본 유지"
+      },
+      "schools": [
+        {
+          "id": "seoul_arts",
+          "name": "서울예술고등학교",
+          "shortName": "서울예고",
+          "location": "서울특별시 서초구",
+          "type": "예술고",
+          "emoji": "🎭",
+          "color": "#f87171",
+          "difficulty": 5,
+          "annualAdmission": 400,
+          "tuition": "사립 수준",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "전국 최고 수준 예술고",
+          "teachingMethod": "실기 중심 수업, 전문 예술가 교사진, 공연·전시 중심",
+          "famousPrograms": ["정기 공연·전시", "국제 예술 교류", "예술 경시대회"],
+          "studentLevel": "전국 예술 최상위, 음악·미술·무용·연극 등 각 분야 탁월",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 예술 활동 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 실기 시험", "detail": "분야별 실기 평가 (음악·미술·무용 등)", "icon": "🎵" }
+          ],
+          "careerPath": {
+            "middle1": "실기 집중 훈련, 예술 활동 시작",
+            "middle2": "예술 경시대회 참가, 포트폴리오 구축",
+            "middle3": "실기 최상위 수준 달성, 포트폴리오 완성"
+          },
+          "pros": ["전국 최고 예술 교육", "예술 대학 진학 최강", "풍부한 공연·전시 기회"],
+          "cons": ["높은 실기 경쟁", "학과 공부 소홀 가능성"],
+          "admissionTip": "실기 능력이 절대적. 중학교 때부터 전문 레슨을 받고 포트폴리오를 구축하세요.",
+          "targetUniversities": ["서울대 예대", "한예종", "연세대 음대", "홍익대 미대"],
+          "alumniCareers": ["음악가", "화가", "무용가", "배우", "예술 교육자"]
+        },
+        {
+          "id": "korea_arts",
+          "name": "한국예술고등학교",
+          "shortName": "한국예고",
+          "location": "서울특별시 강남구",
+          "type": "예술고",
+          "emoji": "🎼",
+          "color": "#f87171",
+          "difficulty": 4,
+          "annualAdmission": 300,
+          "tuition": "사립 수준",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "강남 소재 예술고",
+          "teachingMethod": "실기 중심, 음악·미술·무용 통합 예술 교육",
+          "famousPrograms": ["정기 공연", "예술 융합 프로젝트", "해외 예술 교류"],
+          "studentLevel": "서울·수도권 예술 상위권",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 예술 활동 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 실기 시험", "detail": "분야별 실기 평가", "icon": "🎵" }
+          ],
+          "careerPath": {
+            "middle1": "실기 훈련, 예술 활동",
+            "middle2": "경시대회 참가, 포트폴리오 구축",
+            "middle3": "실기 완성, 포트폴리오 제출"
+          },
+          "pros": ["강남 소재 접근성", "다양한 예술 분야", "해외 교류 프로그램"],
+          "cons": ["서울예고 대비 인지도 낮음"],
+          "admissionTip": "강남 소재로 접근성이 좋습니다. 실기 포트폴리오를 체계적으로 준비하세요.",
+          "targetUniversities": ["한예종", "서울대 예대", "홍익대", "이화여대 예대"],
+          "alumniCareers": ["음악가", "화가", "무용가", "예술 교육자"]
+        },
+        {
+          "id": "seoul_sports",
+          "name": "서울체육고등학교",
+          "shortName": "서울체고",
+          "location": "서울특별시 노원구",
+          "type": "체육고",
+          "emoji": "⚽",
+          "color": "#f87171",
+          "difficulty": 4,
+          "annualAdmission": 200,
+          "tuition": "공립 수준",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "서울시 공립 체육고",
+          "teachingMethod": "체육 실기 중심, 스포츠 과학 이론 병행",
+          "famousPrograms": ["전국 체전 준비", "스포츠 과학 교육", "국제 스포츠 교류"],
+          "studentLevel": "서울·수도권 체육 특기자, 전국 대회 입상자",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 체육 활동 실적", "icon": "📋" },
+            { "step": 2, "title": "2단계: 실기 시험", "detail": "종목별 체육 실기 평가", "icon": "🏃" }
+          ],
+          "careerPath": {
+            "middle1": "체육 종목 집중 훈련, 지역 대회 참가",
+            "middle2": "전국 대회 입상, 체육 실적 축적",
+            "middle3": "실기 최상위 달성, 입학 서류 준비"
+          },
+          "pros": ["공립이라 비용 저렴", "전국 체전 준비 최적", "스포츠 과학 교육"],
+          "cons": ["학과 공부 소홀 가능성", "부상 위험"],
+          "admissionTip": "전국 대회 입상 실적이 핵심. 종목별 전문 코치 지도를 받으세요.",
+          "targetUniversities": ["한국체육대", "서울대 체육교육과", "연세대 체육교육과"],
+          "alumniCareers": ["프로 선수", "체육 교사", "스포츠 트레이너", "스포츠 행정가"]
+        }
+      ]
+    },
+    {
+      "id": "meister",
+      "name": "마이스터고",
+      "emoji": "🔧",
+      "color": "#fbbf24",
+      "bgColor": "rgba(251,191,36,0.15)",
+      "description": "산업수요 맞춤형 고등학교(마이스터고) — 산업계 수요에 맞춘 직업 교육과 취업을 목표로 하는 특수목적고",
+      "legalBasis": "「초·중등교육법 시행령」 제90조 제1항 제10호 — 산업수요 맞춤형 고등학교 (2010년 첫 개교)",
+      "totalSchoolsFact": "전국 마이스터고는 약 57개교 지정·운영 중 (출처: 교육부·HIFIVE 포털). 본 데이터의 학교 목록은 분야별 대표 예시이며 전체 목록이 아님.",
+      "factCheckNote": "학교명·소재지·운영 주체는 학교알리미(schoolinfo.go.kr) 및 각 학교 공식 홈페이지에서 교차 확인 권장. 입학 정원·전형 세부사항은 매년 변동되므로 해당 연도 입학전형 요강 확인 필수.",
+      "planet": {
+        "size": "medium",
+        "orbitRadius": 110,
+        "orbitSpeed": 24,
+        "glowColor": "#fbbf24"
+      },
+      "categoryTraits": {
+        "aptitude": "실무 기술 능력, 손재주, 문제 해결 능력",
+        "studyStyle": "실습 중심 학습, 현장 실습 병행",
+        "identity": "기술 전문가로서의 자부심이 정체성의 핵심",
+        "mentalStrength": "취업 직결 환경, 실무 스트레스 관리 필요",
+        "gradeRequirement": "기술 적성 우수, 학과 성적 기본 유지",
+        "aptitudeTest": "전형은 학교별 상이 (서류·면접·적성검사 조합)",
+        "internalGradeStrategy": "기술 관련 과목 집중, 자격증 조기 취득"
+      },
+      "schools": [
+        {
+          "id": "hyundai_meister",
+          "name": "현대공업고등학교",
+          "shortName": "현대공고",
+          "location": "울산광역시 동구",
+          "type": "마이스터고",
+          "emoji": "🏭",
+          "color": "#fbbf24",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학년별 모집 정원은 학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상 (입학금·수업료 면제)",
+          "tuitionNote": "마이스터고는 「초·중등교육법 시행령」에 따른 학비 지원 대상. 기숙사·급식 등 부대비용은 학교별 상이.",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "조선해양플랜트 분야 마이스터고 (2013년 12월 8차 지정, 2015년 마이스터고 개교)",
+          "operatorFact": "HD현대중공업이 설립·운영하는 사립. 기존 표기 '현대그룹 운영'은 부정확 — 정확히는 HD현대중공업(조선/중공업) 운영.",
+          "teachingMethod": "현장 실습 중심, HD현대중공업 연계 취업 교육",
+          "famousPrograms": ["[일반적] HD현대중공업 현장 실습", "[일반적] 산업기사·기능사 자격증 취득", "[일반적] 채용 연계 프로그램"],
+          "studentLevel": "조선·기계·전기 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층면접", "detail": "취업 의지·인성·기술 적성 평가", "icon": "🎤" }
+          ],
+          "careerPathNote": "* 아래는 일반적 준비 경로이며 학교별 실제 평가 비중과 다를 수 있음",
+          "careerPath": {
+            "middle1": "수학·과학·기술 과목 내신 관리",
+            "middle2": "기술 관련 동아리·체험 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["조선해양플랜트 분야 산학 연계 강점", "마이스터고 학비 면제", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "특정 산업(조선·중공업) 의존도"],
+          "admissionTip": "HD현대중공업 등 조선·중공업 분야 취업이 목표라면 적합. 산업기사·기능사 자격증과 기술 동아리 경험을 준비하세요.",
+          "targetUniversities": ["선취업 후진학(재직자 특별전형) 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] HD현대중공업 등 조선·중공업 기술직", "[일반적] 산업 기능 인력"]
+        },
+        {
+          "id": "sudo_electric_meister",
+          "name": "수도전기공업고등학교",
+          "shortName": "수도전기공고",
+          "location": "서울특별시 강남구 개포동",
+          "locationNote": "기존 데이터의 '성북구'는 오류. 실제 소재지는 강남구 개포로 410.",
+          "type": "마이스터고",
+          "emoji": "⚡",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "dormitoryNote": "기숙사 운영 여부·수용 규모는 학교 홈페이지 확인 권장",
+          "ibCertified": false,
+          "specialCertification": "에너지(전기) 분야 마이스터고 (2008년 1차 지정 — 전국 1호 마이스터고 중 하나)",
+          "operatorFact": "한국전력공사가 설립한 사립학교 (운영 주체: 한국전력공사 재단).",
+          "teachingMethod": "전기·에너지 실습 중심, 한국전력공사 연계 취업 교육",
+          "famousPrograms": ["[일반적] 전기 분야 산업기사·기사 자격증 취득", "[일반적] 한국전력공사 채용 연계"],
+          "studentLevel": "전기·에너지 분야 진로 희망 학생, 자격증 취득 의지 보유",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·인성·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "전기·전자 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["서울 소재 마이스터고", "한국전력공사 연계 산학 인프라", "마이스터고 학비 면제"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "공기업 채용 환경에 따른 변동"],
+          "admissionTip": "한국전력공사 등 전력·에너지 공기업 취업이 목표라면 적합. 전기 분야 자격증과 관련 활동을 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 한국전력공사", "[일반적] 전력·에너지 분야 기술직"]
+        },
+        {
+          "id": "mirim_meister",
+          "name": "미림마이스터고등학교",
+          "shortName": "미림마이스터고",
+          "location": "서울특별시 관악구 신림동",
+          "type": "마이스터고",
+          "emoji": "🎨",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": false,
+          "dormitoryNote": "기숙사 운영 여부는 학교 홈페이지 확인 권장 (도심 소재 통학형)",
+          "ibCertified": false,
+          "specialCertification": "뉴미디어콘텐츠 분야 마이스터고 (SW·디자인 융합)",
+          "operatorFact": "사립 (미림학원 운영). 전신은 미림여자정보과학고.",
+          "teachingMethod": "SW·뉴미디어 콘텐츠 실습, 프로젝트 기반 학습",
+          "famousPrograms": ["[일반적] SW·뉴미디어 콘텐츠 프로젝트", "[일반적] IT·콘텐츠 기업 인턴십"],
+          "studentLevel": "SW·디자인·콘텐츠 분야 적성 우수 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "적성·창의성·취업 의지", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "코딩·디자인 기초 학습",
+            "middle2": "SW·콘텐츠 관련 동아리·공모전 참가",
+            "middle3": "포트폴리오·자기소개서 준비"
+          },
+          "pros": ["서울 도심 소재", "SW·콘텐츠 융합 교육", "마이스터고 학비 면제"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "콘텐츠 산업 변동성"],
+          "admissionTip": "SW·뉴미디어 콘텐츠 산업 취업이 목표라면 적합. 코딩과 디자인 포트폴리오를 함께 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] IT·SW·콘텐츠 기업 기술직"]
+        },
+        {
+          "id": "busan_auto_meister",
+          "name": "부산자동차고등학교",
+          "shortName": "부산자동차고",
+          "shortNameNote": "통칭 '부산자동차마이스터고'. 학교 공식명은 부산자동차고등학교.",
+          "location": "부산광역시 남구",
+          "type": "마이스터고",
+          "emoji": "🚗",
+          "color": "#fbbf24",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "dormitoryNote": "기숙사 운영 (수용 규모는 학교 홈페이지 확인)",
+          "ibCertified": false,
+          "specialCertification": "자동차산업 분야 마이스터고 (2008년 지정, 2010년 마이스터고 개교 — 1차)",
+          "operatorFact": "공립 (부산광역시교육청).",
+          "teachingMethod": "자동차 정비·생산 실습, 자동차 산업 연계 교육",
+          "famousPrograms": ["[일반적] 자동차정비 산업기사·기능사 자격증", "[일반적] 완성차·부품사 채용 연계"],
+          "studentLevel": "자동차·기계 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "자동차·기계 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["공립 마이스터고", "자동차 산업 산학 인프라", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "자동차 산업 변동성"],
+          "admissionTip": "완성차·부품사 등 자동차 산업 취업이 목표라면 적합. 자동차 정비 자격증 학습을 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 완성차·부품사 기술직", "[일반적] 자동차 정비 분야"]
+        },
+        {
+          "id": "busan_sw_meister",
+          "name": "부산소프트웨어마이스터고등학교",
+          "shortName": "부산SW마이스터고",
+          "location": "부산광역시 강서구",
+          "type": "마이스터고",
+          "emoji": "💻",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "소프트웨어 분야 마이스터고 (2021년 전환)",
+          "operatorFact": "공립 (부산광역시교육청).",
+          "teachingMethod": "SW·AI 프로젝트 기반 실습, IT 기업 산학 연계",
+          "famousPrograms": ["[일반적] SW 개발 프로젝트", "[일반적] IT 기업 채용 연계 인턴십"],
+          "studentLevel": "코딩·SW 적성 우수, 개발자 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, SW 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/실기", "detail": "코딩·창의성·취업 의지 평가 (학교별 상이)", "icon": "💻" }
+          ],
+          "careerPath": {
+            "middle1": "코딩 기초 학습 (Python/C 등)",
+            "middle2": "SW 동아리·공모전·오픈소스 참여",
+            "middle3": "포트폴리오·자기소개서 준비"
+          },
+          "pros": ["공립 SW 특화 마이스터고", "IT 기업 산학 연계", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "SW 분야 한정"],
+          "admissionTip": "IT·SW 기업 취업이 목표라면 적합. 코딩 기초와 개인 프로젝트 포트폴리오를 미리 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] IT·SW 기업 개발자"]
+        },
+        {
+          "id": "segyo_ai_meister",
+          "name": "세교AI마이스터고등학교",
+          "shortName": "세교AI마이스터고",
+          "location": "경기도 오산시 (세교지구)",
+          "type": "마이스터고",
+          "emoji": "🤖",
+          "color": "#fbbf24",
+          "difficulty": null,
+          "difficultyNote": "신설 학교로 입학 난이도 데이터 축적 전",
+          "annualAdmission": null,
+          "annualAdmissionNote": "2026 입학전형 요강 확인 필요",
+          "tuition": "마이스터고 학비 지원 대상 (예정)",
+          "dormitory": null,
+          "dormitoryNote": "운영 계획은 학교 홈페이지·교육청 공지 확인",
+          "ibCertified": false,
+          "specialCertification": "AI·SW 분야 마이스터고 — 기존 세교소프트웨어고를 전환하여 2026년 3월 개교 예정 (출처: 경기일보 2024.10.17 보도)",
+          "operatorFact": "공립 (경기도교육청). 기존 표기 '삼성 연계'는 공식 출처로 확인되지 않음 — 추정으로 분류.",
+          "teachingMethod": "AI·SW 실습 중심 (개교 후 운영 계획 기준)",
+          "famousPrograms": ["[추정/개교 예정] AI 프로젝트 기반 학습", "[추정/개교 예정] IT 기업 산학 연계"],
+          "studentLevel": "AI·SW 적성 우수 학생 (2026 첫 모집 기준)",
+          "admissionProcess": [
+            { "step": 1, "title": "[추정] 1단계: 서류 평가", "detail": "학생부·자기소개서·SW 포트폴리오 (학교 공식 요강 확인 필수)", "icon": "📋" },
+            { "step": 2, "title": "[추정] 2단계: 면접/실기", "detail": "AI·SW 적성 평가 (학교 공식 요강 확인 필수)", "icon": "💻" }
+          ],
+          "careerPath": {
+            "middle1": "코딩 기초·수학 학습",
+            "middle2": "AI/SW 동아리·공모전",
+            "middle3": "포트폴리오·자기소개서 준비"
+          },
+          "pros": ["AI·SW 특화 신설 마이스터고", "수도권 소재"],
+          "cons": ["2026 개교 — 졸업·취업 실적 누적 전", "전형 세부사항은 공식 요강 확인 필요"],
+          "admissionTip": "신설 학교이므로 2026 입학전형 요강과 학교 공식 홈페이지를 반드시 직접 확인하세요. 본 데이터의 세부 항목은 일반 마이스터고 운영 기준의 추정입니다.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[해당 없음] 첫 졸업생 배출 전"]
+        },
+        {
+          "id": "daegu_il_semiconductor_meister",
+          "name": "대구일마이스터고등학교",
+          "shortName": "대구일마이스터고",
+          "shortNameNote": "구 대구반도체마이스터고에서 개명",
+          "location": "대구광역시 달서구",
+          "type": "마이스터고",
+          "emoji": "🔬",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "dormitoryNote": "운영 여부·규모는 학교 홈페이지 확인",
+          "ibCertified": false,
+          "specialCertification": "반도체 분야 마이스터고 (2021년 지정, 2022년 마이스터고 개교)",
+          "operatorFact": "공립 (대구광역시교육청).",
+          "teachingMethod": "반도체 공정·장비 실습 중심, 반도체 기업 산학 연계",
+          "famousPrograms": ["[일반적] 반도체 공정·장비 실습", "[일반적] 반도체 기업 채용 연계"],
+          "studentLevel": "반도체·전자 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "전자·반도체 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["반도체 특화 마이스터고", "반도체 기업 산학 연계", "마이스터고 학비 면제"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "반도체 산업 경기 변동"],
+          "admissionTip": "반도체 산업 취업이 목표라면 적합. 수학·과학·기술 내신과 관련 자격증을 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 반도체 기업 공정·장비 기술직"]
+        },
+        {
+          "id": "chungbuk_semiconductor",
+          "name": "충북반도체고등학교",
+          "shortName": "충북반도체고",
+          "location": "충청북도 음성군 금왕읍",
+          "type": "마이스터고",
+          "emoji": "💠",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "반도체장비 분야 마이스터고",
+          "operatorFact": "공립 (충청북도교육청).",
+          "teachingMethod": "반도체 장비 실습, 반도체 기업 산학 연계",
+          "famousPrograms": ["[일반적] 반도체 장비 실습", "[일반적] 반도체 기업 채용 연계"],
+          "studentLevel": "반도체 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "전자·반도체 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["반도체 장비 특화", "기숙사 운영", "마이스터고 학비 면제"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "충북 소재 접근성"],
+          "admissionTip": "반도체 장비 분야 취업이 목표라면 적합.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 반도체 장비 기업 기술직"]
+        },
+        {
+          "id": "korea_energy_meister",
+          "name": "한국에너지마이스터고등학교",
+          "shortName": "한국에너지마이스터고",
+          "location": "강원도 삼척시 근덕면",
+          "type": "마이스터고",
+          "emoji": "⚡",
+          "color": "#fbbf24",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "발전·에너지 분야 마이스터고 (2010년 1차 지정)",
+          "operatorFact": "공립 (강원특별자치도교육청).",
+          "teachingMethod": "발전·에너지 설비 실습, 발전 공기업 산학 연계",
+          "famousPrograms": ["[일반적] 발전 설비 실습", "[일반적] 발전 공기업(한수원·남동발전 등) 채용 연계"],
+          "studentLevel": "발전·에너지 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "전기·기계·에너지 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["1차 마이스터고", "발전 공기업 연계 인프라", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "삼척 소재 접근성"],
+          "admissionTip": "발전·에너지 공기업 취업이 목표라면 적합.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 발전 공기업 기술직", "[일반적] 에너지 분야 산업체"]
+        },
+        {
+          "id": "korea_port_logistics",
+          "name": "한국항만물류고등학교",
+          "shortName": "한국항만물류고",
+          "location": "전라남도 광양시",
+          "type": "마이스터고",
+          "emoji": "🚢",
+          "color": "#fbbf24",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "항만물류 분야 마이스터고 (2010년 1차 지정)",
+          "operatorFact": "공립 (전라남도교육청).",
+          "teachingMethod": "항만·물류 실습, 항만공사·물류 기업 산학 연계",
+          "famousPrograms": ["[일반적] 항만물류 실습", "[일반적] 항만공사·물류 기업 채용 연계"],
+          "studentLevel": "항만·물류 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·영어 내신 관리",
+            "middle2": "물류·무역 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["1차 마이스터고", "광양항·여수항 연계", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "광양 소재 접근성"],
+          "admissionTip": "항만·물류 산업 취업이 목표라면 적합.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 항만공사·물류 기업 실무직"]
+        },
+        {
+          "id": "wando_fisheries",
+          "name": "완도수산고등학교",
+          "shortName": "완도수산고",
+          "location": "전라남도 완도군",
+          "type": "마이스터고",
+          "emoji": "🐟",
+          "color": "#fbbf24",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "어업·수산물가공 분야 마이스터고 (2010년 1차 지정)",
+          "operatorFact": "공립 (전라남도교육청).",
+          "teachingMethod": "수산·어업·가공 실습, 수산업계 산학 연계",
+          "famousPrograms": ["[일반적] 어업·양식·수산물가공 실습", "[일반적] 해기사·수산 자격증 취득"],
+          "studentLevel": "수산·해양 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "과학·기술 내신 관리",
+            "middle2": "수산·해양 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["1차 마이스터고", "수산업계 산학 연계", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "완도 소재 접근성"],
+          "admissionTip": "수산·해양 산업 취업이 목표라면 적합. 신체검사·승선 적성 확인 필요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 수산업체·해운·양식업 실무직"]
+        },
+        {
+          "id": "korea_bio_meister",
+          "name": "한국바이오마이스터고등학교",
+          "shortName": "한국바이오마이스터고",
+          "location": "충청북도 진천군",
+          "type": "마이스터고",
+          "emoji": "🧬",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "바이오제약 분야 마이스터고 (2012년 개교)",
+          "operatorFact": "공립 (충청북도교육청).",
+          "teachingMethod": "바이오·제약 공정 실습, 바이오 기업 산학 연계",
+          "famousPrograms": ["[일반적] 바이오·제약 공정 실습", "[일반적] 바이오 기업 채용 연계"],
+          "studentLevel": "생명과학·화학·바이오 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학(생명·화학) 내신 관리",
+            "middle2": "생명과학·바이오 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["바이오·제약 특화 마이스터고", "오송 바이오 클러스터 인근", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "진천 소재 접근성"],
+          "admissionTip": "바이오·제약 산업 취업이 목표라면 적합. 생명과학·화학 학습이 도움.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 바이오·제약 기업 공정·품질 기술직"]
+        },
+        {
+          "id": "gumi_electronics",
+          "name": "구미전자공업고등학교",
+          "shortName": "구미전자공고",
+          "location": "경상북도 구미시",
+          "type": "마이스터고",
+          "emoji": "🔌",
+          "color": "#fbbf24",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "마이스터고 학비 지원 대상",
+          "dormitory": true,
+          "ibCertified": false,
+          "specialCertification": "전자·ICT 분야 마이스터고 (2010년 1차 지정). 국립.",
+          "operatorFact": "국립 (국가가 설립·운영하는 드문 마이스터고).",
+          "teachingMethod": "전자·ICT 실습, 구미국가산업단지 기업 산학 연계",
+          "famousPrograms": ["[일반적] 전자·ICT 실습", "[일반적] 구미산단 전자기업(LG·삼성 등) 채용 연계"],
+          "studentLevel": "전자·ICT 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "취업 의지·기술 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·기술 내신 관리",
+            "middle2": "전자·코딩 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["1차 마이스터고·국립", "구미국가산단 전자기업 연계", "기숙사 운영"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "구미 소재 접근성"],
+          "admissionTip": "전자·ICT 산업 취업이 목표라면 적합.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 구미산단 전자기업(LG·삼성 등) 기술직"]
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "name": "비즈니스고",
+      "emoji": "💼",
+      "color": "#38bdf8",
+      "bgColor": "rgba(56,189,248,0.15)",
+      "description": "상업·경영·회계·금융 계열 특성화고 (통칭 '비즈니스고'). 「초·중등교육법 시행령」상 특성화고등학교에 해당.",
+      "legalBasis": "「초·중등교육법 시행령」 제91조 — 특성화고등학교 (산업수요·실용 교육 중심)",
+      "tuitionFact": "특성화고는 고교 무상교육 적용 — 입학금·수업료·운영지원비·교과서비 면제 (급식·교복·실습재료비 등 부대비용 별도)",
+      "factCheckNote": "학교명·소재지·학과 구성은 학교알리미(schoolinfo.go.kr) 및 각 학교 공식 홈페이지에서 교차 확인 권장. '비즈니스고'는 통칭이며 학교마다 공식 명칭이 다름. 본 데이터의 학교 목록은 분야별 대표 예시이며 전체 목록이 아님.",
+      "planet": {
+        "size": "small",
+        "orbitRadius": 70,
+        "orbitSpeed": 30,
+        "glowColor": "#38bdf8"
+      },
+      "categoryTraits": {
+        "aptitude": "경영·회계·금융 적성, 수리 능력, 커뮤니케이션 능력",
+        "studyStyle": "실무 중심 학습, 자격증 취득 병행",
+        "identity": "비즈니스 전문가로서의 자부심이 정체성의 핵심",
+        "mentalStrength": "실무 스트레스 관리, 비즈니스 환경 적응 필요",
+        "gradeRequirement": "경영·회계 관련 과목 우수",
+        "aptitudeTest": "전형은 학교별 상이 (서류·면접 조합이 일반적)",
+        "internalGradeStrategy": "경영·회계 과목 집중, 상업 계열 자격증 조기 취득"
+      },
+      "schools": [
+        {
+          "id": "gyeongbok_business",
+          "name": "경복비즈니스고등학교",
+          "shortName": "경복비즈니스고",
+          "location": "서울특별시 강서구 등촌동",
+          "locationNote": "기존 데이터의 '은평구'는 오류. 실제 소재지는 강서구 화곡로 379. 종로구 청운동의 '경복고등학교'(일반계 남고)와는 별개의 학교.",
+          "type": "특성화고 (상업·비즈니스 계열)",
+          "emoji": "📊",
+          "color": "#38bdf8",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "사립 상업계 특성화고 (구 경복여자정보산업고에서 개명)",
+          "operatorFact": "사립.",
+          "teachingMethod": "경영·회계·정보 실무 교육, 자격증 취득 중심",
+          "famousPrograms": ["[일반적] 전산회계·세무 자격증", "[일반적] 취업 연계 프로그램"],
+          "studentLevel": "경영·회계·정보 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "취업 의지·인성 평가", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·국어 내신 관리, 경영·회계 관심",
+            "middle2": "관련 동아리·체험 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["서울 소재 특성화고", "경영·회계 자격증 트랙", "고교 무상교육"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "분야별 학과 선택 신중 필요"],
+          "admissionTip": "경영·회계 분야 진로가 목표라면 적합. 전산회계 등 상업계 자격증을 중학교 때부터 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 회계·세무 사무직", "[일반적] 금융권 일반 사무직"]
+        },
+        {
+          "id": "ansan_international_business",
+          "name": "안산국제비즈니스고등학교",
+          "shortName": "안산국제비즈니스고",
+          "location": "경기도 안산시 상록구 장상동",
+          "locationNote": "기존 '경기도 안산시'에서 구·동까지 보강. 정확 주소: 안산시 상록구 수인로 1981.",
+          "type": "특성화고 (국제비즈니스 계열)",
+          "emoji": "🌐",
+          "color": "#38bdf8",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "사립 국제비즈니스 특성화고",
+          "operatorFact": "사립.",
+          "teachingMethod": "국제 무역·경영 실무, 외국어 교육 병행",
+          "famousPrograms": ["[일반적] 무역 영어·실무", "[일반적] 국제 비즈니스 실습"],
+          "studentLevel": "경영·무역·외국어 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "취업 의지·외국어 관심도 평가", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "영어·국어 내신 관리",
+            "middle2": "외국어·무역 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["국제 비즈니스 특화 커리큘럼", "외국어 교육 병행", "고교 무상교육"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "통학권 외 학생은 거리 부담"],
+          "admissionTip": "국제 무역·외국어 비즈니스 분야 진로가 목표라면 적합. 영어 능력을 중학교 때 미리 키우세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 무역 사무직", "[일반적] 외국계·국제 비즈니스 사무직"]
+        },
+        {
+          "id": "sinil_business",
+          "name": "신일비즈니스고등학교",
+          "shortName": "신일비즈니스고",
+          "location": "경기도 고양시",
+          "locationNote": "기존 데이터의 '서울특별시 강북구'는 오류. 실제 소재지는 경기도 고양시 (경기도교육청 소속).",
+          "type": "특성화고 (금융·경영·보건간호 계열)",
+          "emoji": "💰",
+          "color": "#38bdf8",
+          "difficulty": 2,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "사립 특성화고. 1996년 신일정보산업고에서 2011년 신일비즈니스고로 개명.",
+          "operatorFact": "사립 (경기도교육청 소속).",
+          "departments": ["금융자산운용", "국제경영", "세무회계", "마케팅디자인", "보건간호"],
+          "teachingMethod": "학과별 특성화 (금융·경영·회계·디자인·보건간호) 실무 교육",
+          "famousPrograms": ["[일반적] 학과별 직무 자격증 트랙"],
+          "studentLevel": "학과별 분야 적성 보유 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "취업 의지·학과 적성 평가", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리, 학과별 관심 분야 탐색",
+            "middle2": "관심 학과 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["다양한 학과 선택지 (금융·경영·회계·디자인·보건간호)", "고교 무상교육"],
+          "cons": ["대학 진학보다 취업 트랙 중심", "학과별 진로가 명확히 갈림"],
+          "admissionTip": "학과별 특성화가 뚜렷하므로 중학교 때 관심 학과를 명확히 정하고 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 활용 가능"],
+          "alumniCareers": ["[일반적] 학과별 직무 분야 사무직·실무직"]
+        }
+      ]
+    },
+    {
+      "id": "specialized",
+      "name": "특성화고",
+      "emoji": "🛠️",
+      "color": "#34d399",
+      "bgColor": "rgba(52,211,153,0.15)",
+      "description": "「초·중등교육법 시행령」 제91조에 따른 특성화고등학교 — 산업수요·실용 교육 중심 (IT·디자인·콘텐츠·조리·공예 등 다양한 분야)",
+      "legalBasis": "「초·중등교육법 시행령」 제91조 — 특성화고등학교",
+      "tuitionFact": "특성화고는 고교 무상교육 적용 — 입학금·수업료·운영지원비·교과서비 면제 (급식·교복·실습재료비 등 부대비용은 별도)",
+      "differenceFromMeister": "마이스터고와의 차이: 마이스터고는 「시행령」 제90조의 산업수요 맞춤형 고등학교(특수목적고)로 산업계 수요와 직결된 채용 연계 트랙이 강함. 특성화고는 「시행령」 제91조의 직업교육 학교로 더 폭넓은 분야를 다루며 채용·진학 트랙이 다양함.",
+      "factCheckNote": "학교명·소재지·학과 구성은 학교알리미(schoolinfo.go.kr) 및 각 학교 공식 홈페이지에서 교차 확인 권장. 본 데이터는 분야별 대표 예시이며 전국 특성화고 전체 목록이 아님.",
+      "planet": {
+        "size": "medium",
+        "orbitRadius": 95,
+        "orbitSpeed": 26,
+        "glowColor": "#34d399"
+      },
+      "categoryTraits": {
+        "aptitude": "분야별 실무 적성·창의성·기술 능력",
+        "studyStyle": "실습 중심 학습, 학과별 특화 교육",
+        "identity": "분야 전문가로서의 정체성 형성",
+        "mentalStrength": "취업·진학 진로 분기점에서의 자기 결정력 필요",
+        "gradeRequirement": "관심 학과 관련 과목 우수",
+        "aptitudeTest": "전형은 학교별 상이 (서류·면접·실기 조합)",
+        "internalGradeStrategy": "학과별 관련 과목 집중, 분야 자격증·포트폴리오 조기 준비"
+      },
+      "schools": [
+        {
+          "id": "seonlin_internet",
+          "name": "선린인터넷고등학교",
+          "shortName": "선린인터넷고",
+          "location": "서울특별시 용산구 청파동3가",
+          "type": "특성화고 (IT 분야)",
+          "emoji": "💻",
+          "color": "#34d399",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "IT·상업 분야 특성화고 (소프트웨어과·정보보호과·IT경영과·콘텐츠디자인과). 1899년 관립상공학교에서 출발해 2000년 IT 특성화고로 전환.",
+          "operatorFact": "공립.",
+          "teachingMethod": "프로그래밍·정보보안·IT 비즈니스 실습 중심",
+          "famousPrograms": ["[일반적] 정보올림피아드·해킹방어대회 참가", "[일반적] IT 기업 채용 연계"],
+          "studentLevel": "IT·SW 적성 우수, 코딩·보안 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 (특성화고 전형)", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "적성·취업 의지 평가", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "코딩 기초·수학 학습",
+            "middle2": "정보·SW 동아리·공모전 참여",
+            "middle3": "포트폴리오·자기소개서 준비"
+          },
+          "pros": ["서울 도심 소재", "100년 이상 역사의 IT 특성화고", "정보보안·해킹 분야 강세"],
+          "cons": ["대학 진학·취업 트랙 분기 결정 필요", "기숙사 없음 (통학형)"],
+          "admissionTip": "정보보안·SW 분야 진로가 명확하다면 적합. 코딩과 정보 관련 활동을 준비하세요.",
+          "targetUniversities": ["선취업 후진학 트랙 또는 대학 진학 모두 가능"],
+          "alumniCareers": ["[일반적] IT·SW·보안 기업 개발자", "[일반적] 정보보안 분야 실무자"]
+        },
+        {
+          "id": "korea_animation",
+          "name": "한국애니메이션고등학교",
+          "shortName": "한국애니메이션고",
+          "location": "경기도 하남시 창우동",
+          "type": "특성화고 (콘텐츠/애니메이션 분야)",
+          "emoji": "🎬",
+          "color": "#34d399",
+          "difficulty": 5,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "dormitoryNote": "운영 여부는 학교 홈페이지 확인",
+          "ibCertified": false,
+          "specialCertification": "콘텐츠/애니메이션 특성화고 (만화창작과·애니메이션과·영상연출과·컴퓨터게임제작과). 2000년 국내 최초 애니메이션 특성화고로 개교.",
+          "operatorFact": "공립.",
+          "teachingMethod": "만화·애니메이션·영상·게임 실습 중심, 작품 제작 프로젝트",
+          "famousPrograms": ["[일반적] 정기 작품 전시·상영회", "[일반적] 콘텐츠 공모전 참가"],
+          "studentLevel": "만화·애니·영상·게임 분야 창작 적성 탁월 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 실기/면접", "detail": "분야별 실기 평가 (학과별 상이)", "icon": "🎨" }
+          ],
+          "careerPath": {
+            "middle1": "그림·창작 활동, 미술 기초 학습",
+            "middle2": "공모전 참가, 작품 포트폴리오 구축",
+            "middle3": "포트폴리오 완성, 실기 준비"
+          },
+          "pros": ["국내 최초·대표 애니메이션 특성화고", "콘텐츠 산업 진학·취업 트랙 강세"],
+          "cons": ["전국단위 인기로 경쟁률 매우 높음", "실기 준비 부담"],
+          "admissionTip": "콘텐츠·애니메이션·게임 분야 진로가 명확하다면 최고의 선택. 중학교 때부터 작품 포트폴리오를 구축하세요.",
+          "targetUniversities": ["미술·디자인·콘텐츠 관련 대학 진학 또는 콘텐츠 업계 취업"],
+          "alumniCareers": ["[일반적] 애니메이터·만화가·게임 디자이너·영상 연출"]
+        },
+        {
+          "id": "digimedia",
+          "name": "한국디지털미디어고등학교",
+          "shortName": "디미고",
+          "location": "경기도 안산시 단원구 와동",
+          "type": "특성화고 (IT 분야)",
+          "emoji": "🌐",
+          "color": "#34d399",
+          "difficulty": 5,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": true,
+          "dormitoryNote": "전국단위 모집 기숙형",
+          "ibCertified": false,
+          "specialCertification": "IT 특성화고 (해킹방어과·이비즈니스과·웹프로그래밍과·디지털콘텐츠과). 2001년 IT분야 특성화고로 지정·개교.",
+          "operatorFact": "사립.",
+          "teachingMethod": "프로그래밍·해킹방어·웹·콘텐츠 실습, 프로젝트 기반 학습",
+          "famousPrograms": ["[일반적] 정보올림피아드·보안대회 참가", "[일반적] 오픈소스·해커톤"],
+          "studentLevel": "전국단위 모집 IT 최상위 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/심층평가", "detail": "적성·창의성·취업/진학 의지", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "코딩·수학 기초 학습",
+            "middle2": "SW 공모전·대회 참가, 프로젝트 경험",
+            "middle3": "포트폴리오·자기소개서 준비"
+          },
+          "pros": ["전국단위 모집·기숙형", "정보올림피아드·보안 분야 강세", "대학 진학 트랙도 활발"],
+          "cons": ["전국 단위 경쟁률 매우 높음", "기숙형 적응 필요"],
+          "admissionTip": "SW·해킹·웹 분야 진로가 명확하고 전국 단위 경쟁을 감당할 수 있다면 적합. 중학교 때부터 코딩과 대회 경험을 축적하세요.",
+          "targetUniversities": ["IT·SW 분야 대학 진학 또는 IT 기업 취업"],
+          "alumniCareers": ["[일반적] IT·SW 기업 개발자", "[일반적] 정보보안 전문가"]
+        },
+        {
+          "id": "seoul_design",
+          "name": "서울디자인고등학교",
+          "shortName": "서울디자인고",
+          "location": "서울특별시 마포구 염리동",
+          "type": "특성화고 (디자인 분야)",
+          "emoji": "🎨",
+          "color": "#34d399",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "디자인 특성화고 (시각·패션·패션액세서리·건축·영상·사운드뮤직 등 7개과). 1955년 동도공업고에서 2004년 디자인 특성화고로 전환.",
+          "operatorFact": "사립 (학교법인 동도학원).",
+          "teachingMethod": "분야별 디자인 실습, 작품 제작·포트폴리오 중심",
+          "famousPrograms": ["[일반적] 정기 디자인 전시·발표", "[일반적] 디자인 공모전 참가"],
+          "studentLevel": "디자인 적성 우수, 분야별(시각·패션·건축·영상 등) 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 실기/면접", "detail": "학과별 실기 평가", "icon": "🎨" }
+          ],
+          "careerPath": {
+            "middle1": "미술·디자인 기초 학습",
+            "middle2": "분야별 작품 포트폴리오 구축",
+            "middle3": "포트폴리오 완성, 실기 준비"
+          },
+          "pros": ["서울 도심 소재", "학과 세분화(7개 분야)", "디자인 대학 진학·업계 취업 트랙"],
+          "cons": ["사립이라 부대비용 부담 가능", "실기 준비 부담"],
+          "admissionTip": "디자인 분야 진로가 명확하다면 좋은 선택. 중학교 때부터 분야별 포트폴리오를 준비하세요.",
+          "targetUniversities": ["디자인 관련 대학 진학 또는 디자인 업계 취업"],
+          "alumniCareers": ["[일반적] 그래픽·패션·건축·영상 디자이너"]
+        },
+        {
+          "id": "korea_culinary",
+          "name": "한국조리과학고등학교",
+          "shortName": "한국조리과학고",
+          "location": "경기도 시흥시 과림동",
+          "type": "특성화고 (조리/외식 분야)",
+          "emoji": "🍳",
+          "color": "#34d399",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": true,
+          "dormitoryNote": "전국단위 모집 기숙형",
+          "ibCertified": false,
+          "specialCertification": "조리/외식 특성화고. 1999년 성택조리과학고로 개교, 2001년 한국조리과학고로 교명 변경. 국내 최초 조리 특성화고.",
+          "operatorFact": "사립 (복음아성학원).",
+          "teachingMethod": "한·양·중·일·제과제빵 등 조리 실습 중심",
+          "famousPrograms": ["[일반적] 조리 자격증(한식·양식·제과 등) 취득", "[일반적] 조리 경연대회 참가"],
+          "studentLevel": "조리·외식 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/실기", "detail": "조리 적성·취업/진학 의지", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "조리 관심 분야 탐색, 기초 학습",
+            "middle2": "조리 자격증 도전, 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["전국단위 모집·기숙형", "국내 최초 조리 특성화고", "외식·호텔업계 진로 강세"],
+          "cons": ["사립이라 부대비용 부담 가능", "전국 단위 경쟁"],
+          "admissionTip": "조리·외식 분야 진로가 명확하다면 적합. 중학교 때 조리 자격증 도전과 관련 활동을 준비하세요.",
+          "targetUniversities": ["조리·외식 관련 대학 진학 또는 호텔·외식업계 취업"],
+          "alumniCareers": ["[일반적] 셰프·파티시에·호텔 조리사"]
+        },
+        {
+          "id": "korea_jewelry",
+          "name": "한국주얼리고등학교",
+          "shortName": "한국주얼리고",
+          "location": "인천광역시 서구 백석동",
+          "type": "특성화고 (공예/주얼리 분야)",
+          "emoji": "💎",
+          "color": "#34d399",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": null,
+          "dormitoryNote": "운영 여부는 학교 홈페이지 확인",
+          "ibCertified": false,
+          "specialCertification": "주얼리·귀금속 공예 특성화고. 1999년 금은세공 특성화고로 개교, 2016년 한국주얼리고로 교명 변경. 전국 유일의 주얼리 특성화고.",
+          "operatorFact": "사립.",
+          "teachingMethod": "주얼리 디자인·세공·CAD 실습",
+          "famousPrograms": ["[일반적] 주얼리 디자인·세공 자격증", "[일반적] 주얼리 공모전 참가"],
+          "studentLevel": "공예·주얼리 분야 적성 보유 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서, 포트폴리오", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접/실기", "detail": "적성·창의성", "icon": "💎" }
+          ],
+          "careerPath": {
+            "middle1": "미술·공예 기초 학습",
+            "middle2": "디자인 포트폴리오 구축",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["전국 유일 주얼리 특성화고", "공예·디자인 분야 특화"],
+          "cons": ["분야가 매우 좁음 — 진로 명확성 필요", "인천 소재 접근성"],
+          "admissionTip": "주얼리·공예 분야 진로가 매우 명확한 경우에 한해 적합.",
+          "targetUniversities": ["공예·디자인 관련 대학 진학 또는 주얼리 업계 취업"],
+          "alumniCareers": ["[일반적] 주얼리 디자이너·세공사"]
+        },
+        {
+          "id": "gyeonggi_mobile_science",
+          "name": "경기모바일과학고등학교",
+          "shortName": "경기모바일과학고",
+          "location": "경기도 안산시 상록구 팔곡일동",
+          "type": "특성화고 (모바일 IT/디자인 분야)",
+          "emoji": "📱",
+          "color": "#34d399",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "모바일 IT/디자인 특성화고 (모바일IT과·시각미디어디자인과·크리에이터창업과·행정사무과). 2008년 특성화고 지정, 2009년 교명 변경.",
+          "operatorFact": "공립.",
+          "teachingMethod": "모바일·디자인·크리에이터·행정 실무 교육",
+          "famousPrograms": ["[일반적] 크리에이터 창업 프로젝트", "[일반적] 모바일 콘텐츠 제작"],
+          "studentLevel": "모바일·디자인·콘텐츠 창업 분야 적성 보유 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "적성·취업 의지", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "관심 학과 분야 기초 학습",
+            "middle2": "관련 활동·공모전 참가",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["공립 특성화고", "크리에이터·창업 학과 등 학과 세분화"],
+          "cons": ["대학 진학·취업 트랙 분기 결정 필요"],
+          "admissionTip": "모바일 IT·디자인·크리에이터 창업 등 학과 특성을 확인하고 결정하세요.",
+          "targetUniversities": ["선취업 후진학 또는 대학 진학"],
+          "alumniCareers": ["[일반적] 모바일 IT·디자인·콘텐츠 분야 실무직"]
+        },
+        {
+          "id": "gyeonggi_auto_science",
+          "name": "경기자동차과학고등학교",
+          "shortName": "경기자동차과학고",
+          "shortNameNote": "사용자 요청명 '경기자동차고'의 정확한 학교 공식명.",
+          "location": "경기도 시흥시 무지내동",
+          "type": "특성화고 (자동차 분야)",
+          "emoji": "🚙",
+          "color": "#34d399",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시 확인",
+          "tuition": "고교 무상교육 적용 — 수업료 면제",
+          "dormitory": null,
+          "dormitoryNote": "운영 여부는 학교 홈페이지 확인",
+          "ibCertified": false,
+          "specialCertification": "미래형 자동차 특성화고 (자동차과·자동차IT과·자동차디자인과). 1977년 한인고로 설립, 2009년 경기자동차과학고로 교명 변경.",
+          "operatorFact": "사립 (학교법인 한인학원).",
+          "teachingMethod": "자동차 정비·IT·디자인 실습, 자동차 산업 연계 교육",
+          "famousPrograms": ["[일반적] 자동차 정비·IT·디자인 실습", "[일반적] 자동차정비 자격증 취득"],
+          "studentLevel": "자동차·기계·디자인 분야 진로 희망 학생",
+          "admissionProcess": [
+            { "step": 1, "title": "1단계: 서류 평가", "detail": "학생부, 자기소개서 (특성화고 전형)", "icon": "📋" },
+            { "step": 2, "title": "2단계: 면접", "detail": "취업 의지·학과 적성", "icon": "🎤" }
+          ],
+          "careerPath": {
+            "middle1": "수학·과학·미술(디자인학과 지원 시) 내신 관리",
+            "middle2": "자동차·기계·디자인 관련 활동",
+            "middle3": "자기소개서·면접 준비"
+          },
+          "pros": ["자동차 분야 학과 세분화 (정비/IT/디자인)", "수도권 소재", "고교 무상교육"],
+          "cons": ["마이스터고가 아니므로 마이스터고 전용 학비·산학 혜택은 해당 없음", "대학 진학보다 취업 트랙 중심"],
+          "admissionTip": "마이스터고와 혼동 주의 — 본 학교는 특성화고입니다. 자동차 분야 진로가 명확하다면 학과(정비/IT/디자인) 선택을 우선 결정하세요.",
+          "targetUniversities": ["선취업 후진학 또는 대학 진학"],
+          "alumniCareers": ["[일반적] 자동차 정비·부품·디자인 분야 실무직"]
+        }
+      ]
+    },
+    {
+      "id": "general_elite",
+      "name": "일반고 (학군지)",
+      "emoji": "📚",
+      "color": "#c084fc",
+      "bgColor": "rgba(192,132,252,0.15)",
+      "description": "「초·중등교육법」상 일반계 고교 중 학군지(평준화 우수 학구)에 소재한 학교. '갓반고'는 학군지 우수 일반고를 지칭하는 속어",
+      "legalBasis": "「초·중등교육법」 — 일반계 고등학교",
+      "tuitionFact": "고교 무상교육 적용 — 입학금·수업료·운영지원비·교과서비 무상 (급식·교복 등 부대비용 별도, 사립일반고도 동일 적용)",
+      "admissionMethodFact": "평준화 지역은 추첨 배정 / 비평준화 지역은 내신·선발 방식",
+      "curriculumFact": "국가 표준 교육과정 + 학교별 진로선택·심화과목 개설 (학교별 편차 존재)",
+      "collegeTrackFact": "학생부교과·학생부종합·정시 모든 트랙이 열려 있는 가장 폭넓은 진학 구조",
+      "advantageFact2028": "2028 대입개편의 5등급제(1등급 = 상위 10%)에서 학생 수가 많은 학군지 일반고는 1등급 확보 인원이 상대적으로 많아 교과·학종 모두 유리할 수 있음",
+      "factCheckNote": "구체적인 학교명·교내 프로그램명·진학률은 학교알리미(schoolinfo.go.kr) 공시정보로 반드시 별도 확인 필요. 본 데이터의 학교별 세부 항목은 일반적 예시이며 실시간 정확성을 보장하지 않음.",
+      "planet": {
+        "size": "large",
+        "orbitRadius": 130,
+        "orbitSpeed": 22,
+        "glowColor": "#c084fc"
+      },
+      "categoryTraits": {
+        "aptitude": "전 과목 균형 잡힌 학업 능력",
+        "studyStyle": "내신·수능·세특 병행 — 가장 폭넓은 진학 트랙",
+        "identity": "사교육·학원 의존도가 높은 환경 속에서 자기주도 학습 루틴을 유지하는 것이 핵심",
+        "mentalStrength": "학군 내 경쟁 강도 높음 — 번아웃 예방을 위한 자기 관리 필요",
+        "gradeRequirement": "내신 1등급(상위 10%, 2028 5등급제 기준) 확보를 목표로 전 과목 관리",
+        "aptitudeTest": "평준화 지역은 별도 선발 없이 추첨 배정 / 비평준화 지역은 내신·선발",
+        "internalGradeStrategy": "전 과목 균형 내신 + 학교 진로선택과목 적극 이수 + 세특 관리"
+      },
+      "schools": [
+        {
+          "id": "dankook_attached_high",
+          "name": "단국대학교사범대학부속고등학교",
+          "shortName": "단대부고",
+          "location": "서울특별시 강남구 대치동",
+          "type": "일반고 (학군지)",
+          "emoji": "🏙️",
+          "color": "#c084fc",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (사립일반고)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "강남 8학군 내 사립일반고 (대학 부속고)",
+          "schoolType": "사립일반고 (남녀공학 — 학교 공식 정보로 재확인 권장)",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 강남 대치동 권역의 학업 우수 일반고로 평가됨",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "강남교육지원청 일반고 배정", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목·세특 활동 기획",
+            "middle3": "학구 배정 절차 확인"
+          },
+          "pros": [
+            "대치동 학원가 인접",
+            "무상교육 — 학비 0원",
+            "대학 부속고로서의 진로 연계 가능성",
+            "교과·학종·정시 트랙 모두 열림"
+          ],
+          "cons": [
+            "강남구 거주 필요",
+            "사교육 의존도 높음"
+          ],
+          "admissionTip": "대치동 학원가 인접이 핵심 장점. 학교 진로선택과목과 사교육의 균형을 고민하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "단국대학 연계 프로그램 (있다면)"
+          ]
+        },
+        {
+          "id": "sookmyung_girls_high",
+          "name": "숙명여자고등학교",
+          "shortName": "숙명여고",
+          "location": "서울특별시 강남구 도곡동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌸",
+          "color": "#c084fc",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (사립일반고)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "강남 8학군 내 사립 여자일반고",
+          "schoolType": "사립일반고 (여자고)",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 강남 도곡 학구의 학업 우수 여자일반고로 평가됨",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "강남교육지원청 일반고 배정 (여학생)", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목 정보 수집",
+            "middle3": "학구 배정 절차 확인"
+          },
+          "pros": [
+            "강남 8학군 인프라",
+            "무상교육 — 학비 0원",
+            "여자고 환경 선호 학생 선택지",
+            "교과·학종·정시 트랙 모두 열림"
+          ],
+          "cons": [
+            "강남구 거주 필요",
+            "사교육 의존도 높음"
+          ],
+          "admissionTip": "여자고 환경을 선호하는 학생에게 학군지 선택지. 학교알리미에서 진학 실적·진로선택과목을 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "여자고 교육과정 특성"
+          ]
+        },
+        {
+          "id": "gangseo_high",
+          "name": "강서고등학교",
+          "shortName": "강서고",
+          "location": "서울특별시 양천구 목동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌳",
+          "color": "#c084fc",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "목동 학군 일반고 (사립)",
+          "schoolType": "사립일반고 (남자고)",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 목동 학군 내 학업 상위권 일반고로 평가됨",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "남부교육지원청(양천) 일반고 배정", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "목동 학군 거주 여부 + 진로선택과목 확인",
+            "middle3": "학구 배정 절차"
+          },
+          "pros": [
+            "목동 학원가 인접",
+            "무상교육 — 학비 0원",
+            "교과·학종·정시 트랙 모두 열림"
+          ],
+          "cons": [
+            "양천구 목동 거주 필요",
+            "사교육 의존도 높음"
+          ],
+          "admissionTip": "목동 학군 대표 일반고 중 하나. 학교알리미로 진학 실적·진로선택과목을 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "진로선택·심화과목 개설 수"
+          ]
+        },
+        {
+          "id": "hangaram_high",
+          "name": "한가람고등학교",
+          "shortName": "한가람고",
+          "location": "서울특별시 양천구 목동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌳",
+          "color": "#c084fc",
+          "difficulty": 4,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "목동 학군 일반고 (구 자사고 → 일반고 전환)",
+          "schoolType": "사립일반고 (남녀공학 — 학교 공식 정보로 재확인 권장)",
+          "teachingMethod": "국가 표준 교육과정 + 자사고 시절 축적된 진로선택과목 운영 전통",
+          "famousPrograms": ["* 자사고 전환 이전·이후 운영 차이를 학교알리미 공시로 확인"],
+          "studentLevel": "[일반적 평가] 목동 학군 내 학업 우수 일반고로 평가됨",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "남부교육지원청(양천) 일반고 배정", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목·세특 활동 기획",
+            "middle3": "학구 배정 절차"
+          },
+          "pros": [
+            "목동 학원가 활용",
+            "무상교육 — 학비 0원",
+            "자사고 시절 다양한 선택과목 운영 경험"
+          ],
+          "cons": [
+            "양천구 목동 거주 필요",
+            "[추정] 일반고 전환 이후 교육과정 폭이 일부 축소됐을 수 있음 — 공시로 확인"
+          ],
+          "admissionTip": "자사고 → 일반고 전환 학교. 현재 일반고 운영 기준 교육과정 편제표를 반드시 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "자사고 전환 후 교육과정 편제표 변화",
+            "최근 3년 진학 실적"
+          ]
+        },
+        {
+          "id": "jaehyun_high",
+          "name": "재현고등학교",
+          "shortName": "재현고",
+          "location": "서울특별시 노원구 중계동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌙",
+          "color": "#c084fc",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (사립일반고)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "중계 학군 사립일반고 (1978년 설립)",
+          "schoolType": "사립일반고 (남자고)",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 중계동 학원가 권역의 학업 상위 일반고",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "북부교육지원청(노원) 일반고 배정", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목 정보 수집",
+            "middle3": "학구 배정 절차 확인"
+          },
+          "pros": [
+            "중계동 학원가 인접",
+            "무상교육 — 학비 0원",
+            "[일반적 경향] 강남·목동 대비 부동산 비용 부담이 상대적으로 낮은 편 — 가계 상황별 확인 필요"
+          ],
+          "cons": [
+            "노원구 중계동 거주 필요",
+            "사교육 의존도 높음"
+          ],
+          "admissionTip": "중계 학군은 강남·목동 대비 진입 비용이 낮으면서 학원가 인프라가 형성된 권역. 학교알리미 공시로 실제 진학 실적을 확인하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "진로선택·심화과목 개설 수"
+          ]
+        },
+        {
+          "id": "seorabeol_high",
+          "name": "서라벌고등학교",
+          "shortName": "서라벌고",
+          "location": "서울특별시 노원구 중계동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌙",
+          "color": "#c084fc",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (사립일반고)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "중계 학군 사립일반고 (1956년 설립)",
+          "schoolType": "사립일반고",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 중계 학군 일반고로 분류",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "북부교육지원청(노원) 일반고 배정", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목 정보 수집",
+            "middle3": "학구 배정 절차 확인"
+          },
+          "pros": [
+            "중계동 학원가 활용",
+            "무상교육 — 학비 0원",
+            "강남·목동 대비 거주 비용 부담 낮은 편"
+          ],
+          "cons": [
+            "노원구 중계동 거주 필요"
+          ],
+          "admissionTip": "중계 학군 내 후보 학교(재현고·서라벌고·영신여고 등)를 학교알리미 '항목별 공시정보'로 가로 비교한 뒤 결정하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "진로선택·심화과목 개설 수"
+          ]
+        },
+        {
+          "id": "youngshin_girls_high",
+          "name": "영신여자고등학교",
+          "shortName": "영신여고",
+          "location": "서울특별시 노원구 중계동",
+          "type": "일반고 (학군지)",
+          "emoji": "🌙",
+          "color": "#c084fc",
+          "difficulty": 3,
+          "annualAdmission": null,
+          "annualAdmissionNote": "학교알리미 공시로 확인",
+          "tuition": "고교 무상교육 적용 — 사실상 0원 (사립일반고)",
+          "dormitory": false,
+          "ibCertified": false,
+          "specialCertification": "중계 학군 사립 여자일반고 (1987년 설립, 개신교 미션스쿨)",
+          "schoolType": "사립일반고 (여자고)",
+          "teachingMethod": "국가 표준 교육과정 + 학교 자체 진로선택과목",
+          "famousPrograms": ["* 교내 프로그램은 학교알리미 공시 확인"],
+          "studentLevel": "[일반적 평가] 중계 학군 여자일반고",
+          "admissionProcess": [
+            { "step": 1, "title": "학군 배정", "detail": "북부교육지원청(노원) 일반고 배정 (여학생)", "icon": "🏠" }
+          ],
+          "careerPath": {
+            "middle1": "전 과목 내신 관리",
+            "middle2": "진로선택과목 정보 수집",
+            "middle3": "학구 배정 절차 확인"
+          },
+          "pros": [
+            "중계동 학원가 활용",
+            "무상교육 — 학비 0원",
+            "여자고 환경 선호 학생 선택지"
+          ],
+          "cons": [
+            "노원구 중계동 거주 필요"
+          ],
+          "admissionTip": "중계 학군 여자고 선택지. 미션스쿨이라는 학교 특성도 참고하세요.",
+          "targetUniversities": ["* 학교알리미 공시 확인"],
+          "alumniCareers": ["* 학교별 편차"],
+          "verificationChecklist": [
+            "최근 3년 진학 실적",
+            "여자고 교육과정 특성"
+          ]
+        }
+      ]
+    }
+  ],
+  "identityAndMentalStrength": {
+    "title": "공부 직진 속 나를 잃지 않는 법",
+    "description": "엘리트 환경에서 살아남는 것은 성적만이 아닙니다. 정체성과 멘탈 강도가 핵심입니다.",
+    "tips": [
+      {
+        "icon": "🧘",
+        "title": "자기만의 루틴 만들기",
+        "detail": "매일 30분, 공부 외 자기만의 시간을 확보하세요. 운동, 음악, 독서 등 무엇이든 좋습니다."
+      },
+      {
+        "icon": "💬",
+        "title": "비교 대신 성장 마인드셋",
+        "detail": "주변과 비교하지 말고 어제의 나와 비교하세요. 엘리트 환경에서 비교는 번아웃의 지름길입니다."
+      },
+      {
+        "icon": "🎯",
+        "title": "왜 공부하는지 명확히 하기",
+        "detail": "공부의 이유를 스스로 찾아야 합니다. 부모님이나 선생님의 기대가 아닌, 나만의 이유가 필요합니다."
+      },
+      {
+        "icon": "🤝",
+        "title": "신뢰할 수 있는 관계 유지",
+        "detail": "경쟁 환경에서도 진정한 친구 1~2명은 꼭 만들어두세요. 멘탈 회복의 핵심입니다."
+      }
+    ]
+  },
+  "aptitudeCheckList": {
+    "title": "고입 적성 체크리스트",
+    "description": "나에게 맞는 학교 유형을 찾아보세요",
+    "questions": [
+      {
+        "id": "q1",
+        "question": "수학·과학 문제 풀 때 즐거움을 느끼나요?",
+        "yes": "science_high",
+        "no": null
+      },
+      {
+        "id": "q2",
+        "question": "외국어로 말하고 쓰는 것이 자연스럽게 느껴지나요?",
+        "yes": "foreign_language",
+        "no": null
+      },
+      {
+        "id": "q3",
+        "question": "글로벌 이슈에 관심이 많고 세계 시민으로 살고 싶나요?",
+        "yes": "international",
+        "no": null
+      },
+      {
+        "id": "q4",
+        "question": "예술·체육 분야에서 탁월한 재능이 있나요?",
+        "yes": "arts_sports",
+        "no": null
+      },
+      {
+        "id": "q5",
+        "question": "기술을 배워 빠르게 취업하고 싶나요?",
+        "yes": "meister",
+        "no": null
+      },
+      {
+        "id": "q6",
+        "question": "경영·회계·금융 분야에 관심이 있나요?",
+        "yes": "business",
+        "no": null
+      },
+      {
+        "id": "q7",
+        "question": "명문대 진학을 위해 수능·내신 모두 최상위를 목표로 하나요?",
+        "yes": "autonomous_private",
+        "no": "general_elite"
+      }
+    ]
+  }
+}

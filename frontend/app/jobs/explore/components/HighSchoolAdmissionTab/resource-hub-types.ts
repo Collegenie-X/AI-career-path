@@ -1,6 +1,7 @@
 export type ResourceFileType = 'md' | 'pdf';
 
 export type ResourceCategoryId =
+  | 'ib_future_edu'
   | 'admission_strategy'
   | 'school_comparison'
   | 'study_material'
@@ -44,6 +45,7 @@ export type ResourceLibraryDocument = {
 };
 
 export const RESOURCE_CATEGORIES: ResourceCategory[] = [
+  { id: 'ib_future_edu', label: 'IB·미래교육', color: '#38bdf8' },
   { id: 'admission_strategy', label: '입시전략', color: '#60a5fa' },
   { id: 'school_comparison', label: '학교비교', color: '#a78bfa' },
   { id: 'study_material', label: '학습자료', color: '#34d399' },

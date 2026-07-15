@@ -19,7 +19,7 @@ import portfolioItems from '@/data/portfolio-items.json';
 import goalRecommendedItems from '@/data/goal-recommended-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
 import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
-import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActivitySubtype, type CareerItemLink } from '@/data/career-item-structure';
+import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActivitySubtype, type CareerItemLink } from '@/data/path-templates/career-item-structure';
 
 /* ─── Types ─── */
 export type ItemType = 'activity' | 'award' | 'portfolio' | 'certification';

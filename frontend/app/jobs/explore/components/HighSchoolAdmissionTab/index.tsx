@@ -61,6 +61,16 @@ export function HighSchoolAdmissionTab() {
   const [openOrbitHubChallengeTabId, setOpenOrbitHubChallengeTabId] =
     useState<HighSchoolOrbitHubChallengeTabId | null>(null);
 
+  // URL → resource-hub 자동 열기
+  useEffect(() => {
+    if (!searchParams) return;
+    const resourceId = searchParams.get('resource');
+    if (resourceId && openOrbitHubChallengeTabId !== 'resource-hub') {
+      setOpenOrbitHubChallengeTabId('resource-hub');
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // URL → 상태 동기화 (?category=&school=)
   useEffect(() => {
     if (!searchParams) return;
@@ -169,7 +179,10 @@ export function HighSchoolAdmissionTab() {
 
       <HighSchoolOrbitHubChallengeDialogLayer
         openTabId={openOrbitHubChallengeTabId}
-        onRequestClose={() => setOpenOrbitHubChallengeTabId(null)}
+        onRequestClose={() => {
+          setOpenOrbitHubChallengeTabId(null);
+          patchUrl({ resource: null });
+        }}
         categories={typedData.categories}
         identityData={identityChallengeData as IdentityChallengeData}
         mentalData={mentalChallengeData as MentalChallengeData}

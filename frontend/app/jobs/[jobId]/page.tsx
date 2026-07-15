@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import jobsData from '@/data/jobs.json';
+import jobsData from '@/data/jobs/jobs.json';
 import kingdomsData from '@/data/kingdoms.json';
 import { Job, Kingdom } from '@/lib/types';
 import { storage } from '@/lib/storage';

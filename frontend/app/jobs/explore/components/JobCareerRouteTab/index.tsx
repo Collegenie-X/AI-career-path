@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Map } from 'lucide-react';
-import jobCareerRoutesData from '@/data/job-career-routes.json';
+import jobCareerRoutesData from '@/data/jobs/job-career-routes.json';
 import type { JobCareerRoutesData } from '../../types';
 import { JOB_ROUTE_LABELS } from '../../config';
 import { JobRouteCard } from './JobRouteCard';

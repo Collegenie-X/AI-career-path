@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import jobsData from '@/data/jobs.json';
+import jobsData from '@/data/jobs/jobs.json';
 import simulationsData from '@/data/simulations.json';
 import type { Job, DaySimulation } from '@/lib/types';
 import { storage } from '@/lib/storage';

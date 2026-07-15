@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo, Suspense, startTransition } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Sparkles } from 'lucide-react';
-import { CareerPathList } from './components/CareerPathList';
+import { CareerPathList, EXPLORE_TEMPLATE_QUERY_PARAM } from './components/CareerPathList';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
@@ -25,7 +25,7 @@ import { ExploreHeroBanner } from './components/ExploreHeroBanner';
 import type { OperatorComment, ShareChannel, CommunityGroup, SharedPlan } from './components/community/types';
 import { channelsToShareType } from './components/community/types';
 import { CAREER_PAGE_TABS, LABELS, type CareerPageTabId } from './config';
-import careerPathTemplates from '@/data/career-path-templates-index';
+import careerPathTemplates from '@/data/path-templates';
 import { buildPlanFromTemplate } from './utils/buildPlanFromTemplate';
 import { useCareerPlansController } from './hooks/useCareerPlansController';
 import { MY_SHARED_PLANS_QUERY_KEY, useMySharedPlansQuery } from './hooks/useMySharedPlansQuery';
@@ -203,6 +203,7 @@ function CareerPageContent() {
     });
     const nextSearchParams = new URLSearchParams(searchParams.toString());
     nextSearchParams.set('tab', nextTabId);
+    if (nextTabId !== 'explore') nextSearchParams.delete(EXPLORE_TEMPLATE_QUERY_PARAM);
     router.replace(`/career?${nextSearchParams.toString()}`, { scroll: false });
   };
 

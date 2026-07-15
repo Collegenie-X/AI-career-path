@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Heart, Users, ChevronRight, Globe, Bookmark, BookmarkCheck } from 'lucide-react';
 import type { CareerPlan } from './CareerPathBuilder';
 import type { SharedPlan } from './community/types';
-import careerPathTemplates from '@/data/career-path-templates-index';
+import careerPathTemplates from '@/data/path-templates';
 import { AiGeneratedNoticeChip } from './AiGeneratedNotice';
 
 export type TemplateCardItem = typeof careerPathTemplates[0];
