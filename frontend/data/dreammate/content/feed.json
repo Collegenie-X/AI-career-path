@@ -19,6 +19,9 @@
   "feedListRowOpenDetailAria": "상세 보기",
   "feedExpandButtonLabel":   "확대 보기",
   "feedExpandButtonAria":   "전체 화면으로 확대",
+  "feedCopyLinkButtonLabel": "링크 복사",
+  "feedCopyLinkButtonAria": "이 실행계획 링크 복사",
+  "feedCopyLinkCopiedLabel": "링크 복사됨",
   "createRoadmapButton":    "실행",
   "myCreateRoadmapButton":  "+ 실행",
   "heroCreateExecutionButtonLabel": "+ 실행"
