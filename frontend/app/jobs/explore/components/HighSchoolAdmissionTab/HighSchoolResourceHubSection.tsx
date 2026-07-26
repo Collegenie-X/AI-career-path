@@ -283,12 +283,21 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                   className={`relative rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99] hover:scale-[1.01] overflow-hidden ${resourceItem.isNew ? 'resource-card-new-shimmer' : ''}`}
                   style={{
                     background: isSelected
-                      ? 'rgba(139,92,246,0.2)'
+                      ? 'linear-gradient(135deg, rgba(139,92,246,0.35), rgba(109,40,217,0.25))'
                       : `${rarity.gradient}, linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
-                    border: `1px solid ${isSelected ? 'rgba(139,92,246,0.5)' : rarity.color + '40'}`,
-                    boxShadow: isSelected ? '0 0 18px rgba(139,92,246,0.25)' : `0 0 6px ${rarity.color}18`,
+                    border: isSelected ? '2px solid rgba(167,139,250,0.95)' : `1px solid ${rarity.color}40`,
+                    boxShadow: isSelected
+                      ? '0 0 0 2px rgba(139,92,246,0.5), 0 0 24px rgba(139,92,246,0.45), inset 0 0 12px rgba(139,92,246,0.1)'
+                      : `0 0 6px ${rarity.color}18`,
+                    paddingLeft: isSelected ? '14px' : undefined,
                   }}
                 >
+                  {isSelected && (
+                    <span
+                      className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full"
+                      style={{ background: 'linear-gradient(180deg, #a78bfa, #7c3aed)' }}
+                    />
+                  )}
                   <div className="flex items-center justify-between gap-2">
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">

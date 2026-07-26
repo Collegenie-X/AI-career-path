@@ -99,7 +99,7 @@ function StarTabHeroBanner() {
                 {LABELS.intro_banner_highlight}
               </span>
             </h2>
-            <p className="max-w-2xl text-[13px] leading-relaxed text-gray-300">{LABELS.intro_banner_description}</p>
+            <p className="max-w-2xl text-[13px] leading-relaxed text-gray-300" suppressHydrationWarning>{LABELS.intro_banner_description}</p>
           </div>
         </div>
         <div className="flex flex-shrink-0 flex-wrap items-center gap-3 self-end sm:gap-4 lg:justify-end">

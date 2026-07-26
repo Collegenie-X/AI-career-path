@@ -128,19 +128,23 @@ export function HighSchoolOrbitHubChallengeDialogLayer({
         onPointerDownOutside={preventOrbitChallengeDialogCloseOnQuizFeedbackSheetPointerDown}
         className={cn(
           'gap-0 p-4 sm:p-5 border border-violet-500/30 bg-slate-950 text-white shadow-2xl',
-          'w-full overflow-y-auto overflow-x-hidden sm:max-w-none',
+          'w-full overflow-x-hidden sm:max-w-none',
+          openTabId === 'resource-hub'
+            ? 'overflow-hidden flex flex-col'
+            : 'overflow-y-auto',
         )}
         style={{
           width: `min(${widthPx}px, calc(100% - 2rem))`,
           maxWidth: widthPx,
           maxHeight: `${maxH}dvh`,
+          height: openTabId === 'resource-hub' ? `${maxH}dvh` : undefined,
         }}
       >
         {activeTabMeta ? (
           <DialogTitle className="sr-only">{activeTabMeta.ariaDialogTitle}</DialogTitle>
         ) : null}
 
-        <div className="min-h-0">
+        <div className={openTabId === 'resource-hub' ? 'flex-1 min-h-0 flex flex-col' : 'min-h-0'}>
           {openTabId === 'identity-challenge' ? (
             <IdentityChallengeGame
               key="orbit-dialog-identity"
