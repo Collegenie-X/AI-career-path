@@ -15,4 +15,6 @@ export type ResourceListItem = {
   difficultyLevel?: number;
   estimatedReadTime?: string;
   isNew?: boolean;
+  highlight?: boolean;
+  highlightLabel?: string;
 };

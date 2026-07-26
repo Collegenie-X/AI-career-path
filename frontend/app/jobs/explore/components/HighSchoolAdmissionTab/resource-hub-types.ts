@@ -42,6 +42,8 @@ export type ResourceLibraryDocument = {
   estimatedReadTime?: string;
   priority?: number;
   isNew?: boolean;
+  highlight?: boolean;
+  highlightLabel?: string;
 };
 
 export const RESOURCE_CATEGORIES: ResourceCategory[] = [

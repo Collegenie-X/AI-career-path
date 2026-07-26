@@ -7,8 +7,8 @@
     "ibFutureContext": "IB·미래 교육 핵심: ① IB는 100% 서술형·절대평가라서 '정답 찾기'가 아니라 '내 생각 논증하기'를 배워요 ② 2026년 7월 현재 실제로 갈 수 있는 건 IB 공교육 고교이고, KB(한국형 바칼로레아)는 2026년 9월 대구에서 평가 시스템이 처음 가동돼요 ③ ⚠️ KB는 아직 대학이 공식 인정하는 제도가 아니에요 (고등교육법 개정 2027년 목표) ④ IB의 EE·TOK·CAS가 2028 이후 세특의 원형에 가까워서, IB를 안 가더라도 그 방식은 배워 둘 가치가 있어요",
     "aiEraContext": "AI 시대 대응 핵심: ① 단순 암기·계산·번역·코딩은 AI가 대신해요 → '문제 정의·맥락 판단·창의적 융합'이 차별점이에요 ② 학종·면접에서 'AI를 어떻게 도구로 썼고 무엇을 내가 직접 했는가'를 설명하는 능력이 변별력이에요 ③ 지식을 소비만 하지 말고 직접 만들어 보세요 — 방학 4주면 하나 만들어 볼 수 있어요",
     "totalDocuments": 32,
-    "lastUpdated": "2026-07-16",
-    "tip": "📌 처음이라면 'IB·미래교육' 필터부터 눌러 보세요. NEW가 붙은 4개가 이번에 새로 추가된 자료예요. 카드를 누르면 상세 내용이 열립니다!",
+    "lastUpdated": "2026-07-26",
+    "tip": "📌 처음이라면 ⭐ 표시가 붙은 '추천' 자료부터 읽어 보세요! NEW가 붙은 건 이번에 새로 추가된 자료예요. 카드를 누르면 상세 내용이 열립니다!",
     "highlightTags": ["IB", "KB", "미래교육", "2028개편", "AI시대", "중학생"]
   },
   "categories": [
@@ -84,7 +84,7 @@
       "id": "ib-vs-kb-middle-school-guide",
       "categoryId": "ib_future_edu",
       "title": "IB vs KB, 중3이 지금 알아야 할 전부",
-      "summary": "IB는 수입차, KB는 국산차 — 뭐가 다르고, 지금 갈 수 있는 건 뭘까요?",
+      "summary": "IB는 해외에서 온 수입차, KB는 우리가 조립한 국산차 — 엔진은 비슷한데 달릴 수 있는 도로가 달라요. 지금 내가 탈 수 있는 차는 뭘까?",
       "markdownPath": "/resource-hub/school_comparison_ib_vs_kb_middle_school.md",
       "tags": ["IB", "KB", "중학생필독", "2028개편", "학교선택"],
       "keyTopics": [
@@ -97,13 +97,15 @@
       "difficultyLevel": 3,
       "estimatedReadTime": "14분",
       "priority": 1,
-      "isNew": true
+      "isNew": true,
+      "highlight": true,
+      "highlightLabel": "중학생 필독"
     },
     {
       "id": "ib-school-map-2026",
       "categoryId": "ib_future_edu",
       "title": "우리 동네에 IB 고등학교가 있을까? — 2026 전국 지도",
-      "summary": "관심학교·후보학교·인증학교는 완전히 다른 얘기예요. 지역별로 전수 정리했어요",
+      "summary": "뉴스에서 'IB 학교 수백 개'라고 하지만, 실제로 문 열고 들어갈 수 있는 학교는 손에 꼽아요. 보물지도처럼 지역별로 찾아봤어요",
       "markdownPath": "/resource-hub/school_comparison_ib_school_map_2026.md",
       "tags": ["IB", "학교지도", "월드스쿨", "지역별", "대입실적"],
       "keyTopics": [
@@ -122,7 +124,7 @@
       "id": "ib-admission-officer-view",
       "categoryId": "ib_future_edu",
       "title": "입학사정관은 IB 학생부에서 뭘 볼까? — 중학생이 지금 쌓을 것",
-      "summary": "EE·TOK·CAS가 대입에서 어떻게 읽히는지, 그래서 중학생은 뭘 준비할지",
+      "summary": "입학사정관의 눈은 CCTV가 아니라 돋보기예요 — '뭘 많이 했냐'보다 '왜, 어떻게 했냐'를 들여다봐요. 중학생 때부터 돋보기에 잡힐 포인트를 쌓는 법",
       "markdownPath": "/resource-hub/admission_strategy_ib_admission_officer_view.md",
       "tags": ["IB", "입학사정관", "EE", "TOK", "CAS", "학생부"],
       "keyTopics": [
@@ -141,7 +143,7 @@
       "id": "ai-4week-venture-project",
       "categoryId": "ib_future_edu",
       "title": "AI 시대 미래 교육 — 방학 4주 프로젝트로 '창직' 해보기",
-      "summary": "지식을 소비만 하지 말고 직접 만들어 봐요. 4주면 하나 만들어 세상에 내놓을 수 있어요",
+      "summary": "유튜브 보는 사람 vs 유튜브 만드는 사람 — 지식도 똑같아요. 소비만 하면 남는 게 없지만, 4주 동안 직접 뭔가를 만들면 세상에 내 이름표를 붙일 수 있어요",
       "markdownPath": "/resource-hub/ai_career_pivot_4week_venture_project.md",
       "tags": ["미래교육", "AI활용", "프로젝트", "창직", "세특소재"],
       "keyTopics": [
@@ -154,13 +156,15 @@
       "difficultyLevel": 4,
       "estimatedReadTime": "15분",
       "priority": 4,
-      "isNew": true
+      "isNew": true,
+      "highlight": true,
+      "highlightLabel": "방학 도전"
     },
     {
       "id": "school-comparison-ib-vs-regular",
       "categoryId": "ib_future_edu",
       "title": "IB 학교 vs 일반 고등학교 — 수업·평가·대입 전부 비교",
-      "summary": "PYP·MYP·DP가 뭔지부터, 수업 방식과 평가가 얼마나 다른지까지",
+      "summary": "일반고가 '정답 맞히기 게임'이라면, IB는 '왜 그렇게 생각해?' 토론 배틀이에요. 수업·시험·대입까지 뭐가 다른지 한눈에 비교!",
       "markdownPath": "/resource-hub/school_comparison_ib_vs_regular.md",
       "tags": ["IB", "교육과정비교", "DP", "평가방식"],
       "keyTopics": [
@@ -177,7 +181,7 @@
       "id": "admission-strategy-2028-admission-trend",
       "categoryId": "policy_2028",
       "title": "2028 대입 개편, 중학생에게 무슨 뜻인가요?",
-      "summary": "내신 5등급제·통합형 수능·심화수학 제외 — 지금 중학생이 정확히 그 세대예요",
+      "summary": "게임 룰이 바뀌는데 옛날 공략집을 보고 있으면 안 돼요. 내신 5등급제·통합형 수능 — 지금 중학생이 바로 '첫 적용 세대'예요!",
       "markdownPath": "/resource-hub/admission_strategy_2028_admission_trend.md",
       "tags": ["2028개편", "내신5등급", "통합형수능", "중학생필독"],
       "keyTopics": [
@@ -188,13 +192,15 @@
       ],
       "difficultyLevel": 3,
       "estimatedReadTime": "12분",
-      "priority": 6
+      "priority": 6,
+      "highlight": true,
+      "highlightLabel": "규칙이 바뀐다"
     },
     {
       "id": "admission-strategy-school-type-decision-tree",
       "categoryId": "admission_strategy",
       "title": "나는 어떤 고등학교가 맞을까? — 의사결정 트리",
-      "summary": "질문에 하나씩 답하다 보면 내게 맞는 학교 유형이 나와요",
+      "summary": "RPG 게임에서 직업을 고르듯이, 질문에 하나씩 답하다 보면 나한테 딱 맞는 학교 유형이 나와요. 갈림길에서 헤매지 말고 여기서 시작!",
       "markdownPath": "/resource-hub/admission_strategy_school_type_decision_tree.md",
       "tags": ["학교선택", "의사결정", "일반고", "특목고", "자사고"],
       "keyTopics": [
@@ -205,13 +211,15 @@
       ],
       "difficultyLevel": 3,
       "estimatedReadTime": "11분",
-      "priority": 7
+      "priority": 7,
+      "highlight": true,
+      "highlightLabel": "내 학교 찾기"
     },
     {
       "id": "admission-strategy-general-route-map",
       "categoryId": "admission_strategy",
       "title": "일반 루트 4가지 — 정시·학종·투트랙·지방국립 중 내 길 찾기",
-      "summary": "루트 A~D를 하나씩 뜯어봐요. 각각 누구에게 맞고 뭘 준비해야 할까요?",
+      "summary": "대학 가는 길이 딱 하나라고요? 아니요, 최소 4개 고속도로가 있어요. 정시는 직선 고속도로, 학종은 산길이지만 경치가 좋고 — 각 루트의 장단점을 비교!",
       "markdownPath": "/resource-hub/admission_strategy_general_route_map.md",
       "tags": ["일반루트", "정시", "학종", "투트랙", "지방국립"],
       "keyTopics": [
@@ -228,7 +236,7 @@
       "id": "admission-strategy-special-route-map",
       "categoryId": "admission_strategy",
       "title": "특수 루트 7가지 — 과학고·사관학교·의대는 어떻게 가나요?",
-      "summary": "루트 E~K(과학고·사관·경찰대·로스쿨·행시·해외·의대)를 난이도와 함께 정리했어요",
+      "summary": "과학고는 '보스 레이드', 사관학교는 '군사 미션', 의대는 '마라톤' — 난이도 SSS급 루트 7가지를 레벨과 함께 정리했어요",
       "markdownPath": "/resource-hub/admission_strategy_special_route_map.md",
       "tags": ["특수루트", "과학고", "사관학교", "의대", "해외대학"],
       "keyTopics": [
@@ -245,7 +253,7 @@
       "id": "school-comparison-general-vs-special",
       "categoryId": "school_comparison",
       "title": "일반고 vs 특목고·자사고 — 중3이 진짜 알아야 할 차이",
-      "summary": "선발 방식, 공부 강도, 위험 요소를 한 표로 비교했어요",
+      "summary": "일반고는 동네 헬스장, 특목고는 프로 트레이닝 센터 — 시설은 좋지만 운동량도 몇 배예요. 선발·강도·리스크를 한 표로 비교!",
       "markdownPath": "/resource-hub/school_comparison_general_vs_special.md",
       "tags": ["학교비교", "일반고", "특목고", "자사고", "내신"],
       "keyTopics": [
@@ -262,7 +270,7 @@
       "id": "school-comparison-route-difficulty-reward",
       "categoryId": "school_comparison",
       "title": "루트별 난이도 vs 보상 — 고생한 만큼 돌아올까?",
-      "summary": "투입하는 시간·돈·스트레스 대비 결과를 루트별로 따져봐요",
+      "summary": "게임에서 어려운 던전일수록 보상이 크잖아요? 현실도 비슷하지만, '내가 깰 수 있는 던전'을 골라야 해요. 투입 vs 보상을 루트별로 계산!",
       "markdownPath": "/resource-hub/school_comparison_route_difficulty_reward.md",
       "tags": ["난이도비교", "보상", "가성비", "루트선택"],
       "keyTopics": [
@@ -279,7 +287,7 @@
       "id": "study-material-middle-school-checklist",
       "categoryId": "study_material",
       "title": "중1·중2·중3 고입 준비 체크리스트",
-      "summary": "학년별로 지금 뭘 해야 하는지 항목으로 딱 정리했어요",
+      "summary": "여행 갈 때 짐 싸기 체크리스트가 있으면 편하잖아요? 고입도 똑같아요. 학년별로 '지금 챙겨야 할 것' 목록을 딱 정리!",
       "markdownPath": "/resource-hub/study_material_middle_school_checklist.md",
       "tags": ["중학생", "체크리스트", "학년별", "고입준비"],
       "keyTopics": [
@@ -290,13 +298,15 @@
       ],
       "difficultyLevel": 1,
       "estimatedReadTime": "5분",
-      "priority": 12
+      "priority": 12,
+      "highlight": true,
+      "highlightLabel": "시작은 여기"
     },
     {
       "id": "study-material-grade-timeline",
       "categoryId": "study_material",
       "title": "중학교 3년 실행 타임라인 — 언제 뭘 해야 하나요?",
-      "summary": "학기별·방학별로 할 일을 시간순으로 배치했어요",
+      "summary": "3년을 내비게이션 없이 달리면 길을 잃어요. 학기별·방학별 할 일을 시간순으로 배치한 '고입 내비'예요",
       "markdownPath": "/resource-hub/study_material_grade_timeline.md",
       "tags": ["타임라인", "학년별", "실행계획", "방학활용"],
       "keyTopics": [
@@ -313,7 +323,7 @@
       "id": "study-material-subject-study-guide",
       "categoryId": "study_material",
       "title": "과목별 공부법 — 국·수·영·사·과 하나씩",
-      "summary": "과목마다 통하는 방법이 달라요. 과목별 실전 방법을 정리했어요",
+      "summary": "국어는 독해력이란 '근육'을 키우는 거고, 수학은 오답을 '재료'로 쓰는 요리예요. 과목마다 다른 레시피를 알려드릴게요",
       "markdownPath": "/resource-hub/study_material_subject_study_guide.md",
       "tags": ["공부법", "과목별", "국어", "수학", "영어"],
       "keyTopics": [
@@ -330,7 +340,7 @@
       "id": "study-material-self-directed-learning",
       "categoryId": "study_material",
       "title": "혼자 공부하는 힘 — 자기주도 학습 설계법",
-      "summary": "계획 세우고, 실행하고, 점검하는 루프를 직접 만들어 봐요",
+      "summary": "학원은 '택시', 자기주도 학습은 '자전거'예요. 느리지만 한번 배우면 평생 혼자 갈 수 있어요. 나만의 자전거 조립법!",
       "markdownPath": "/resource-hub/study_material_self_directed_learning.md",
       "tags": ["자기주도", "학습설계", "메타인지", "루틴"],
       "keyTopics": [
@@ -347,7 +357,7 @@
       "id": "ai-tools-study-guide",
       "categoryId": "ai_career_pivot",
       "title": "AI 도구로 공부하는 법 — 중학생 실전 활용 가이드",
-      "summary": "AI한테 답을 받아 베끼면 손해예요. 코치로 쓰는 법을 알려드려요",
+      "summary": "AI한테 답을 복붙하면 시험장에서 혼자 남겨진 느낌이에요. AI를 '과외 선생님'처럼 쓰는 질문법을 배워 봐요!",
       "markdownPath": "/resource-hub/ai_tools_study_guide.md",
       "tags": ["AI활용", "학습도구", "프롬프트", "학습코치"],
       "keyTopics": [
@@ -358,13 +368,15 @@
       ],
       "difficultyLevel": 2,
       "estimatedReadTime": "9분",
-      "priority": 16
+      "priority": 16,
+      "highlight": true,
+      "highlightLabel": "AI 활용 꿀팁"
     },
     {
       "id": "ai-career-pivot-survival-map",
       "categoryId": "ai_career_pivot",
       "title": "AI 시대 진로 생존 지도 — 사라지는 직업 vs 살아남는 직업",
-      "summary": "AI가 대체하는 직무, 살아남는 직무, 새로 생기는 영역을 지도로 봐요",
+      "summary": "10년 뒤 직업 세계는 지금과 완전 다른 '맵'이에요. 어떤 직업은 사라지고, 어떤 직업은 새로 태어나요 — 생존 지도를 펼쳐 봐요",
       "markdownPath": "/resource-hub/ai_career_pivot_survival_map.md",
       "tags": ["AI시대", "진로", "직업변화", "신흥직무"],
       "keyTopics": [
@@ -381,7 +393,7 @@
       "id": "interview-prep-special-school",
       "categoryId": "interview_prep",
       "title": "특목고·자사고 면접 질문집 — 실제로 이렇게 물어봐요",
-      "summary": "학교 유형별 단골 질문과 답변 뼈대를 모았어요",
+      "summary": "면접은 '깜짝 퀴즈'가 아니라 '예고된 보스전'이에요. 어떤 질문이 나올지 미리 보고 가면 긴장이 반으로 줄어요",
       "markdownPath": "/resource-hub/interview_prep_special_school_questions.md",
       "tags": ["면접", "특목고", "자사고", "질문집"],
       "keyTopics": [
@@ -398,7 +410,7 @@
       "id": "interview-prep-self-intro-template",
       "categoryId": "interview_prep",
       "title": "자기소개서·포트폴리오 템플릿 — 빈칸 채우기부터",
-      "summary": "뭘 써야 할지 막막하다면, 빈칸을 채우면서 시작해 봐요",
+      "summary": "빈 종이 앞에서 멍 때리고 있다면? 레고 설명서처럼 빈칸만 채우면 자소서가 완성돼요. 일단 끼워 맞추고 나중에 다듬기!",
       "markdownPath": "/resource-hub/interview_prep_self_intro_template.md",
       "tags": ["자기소개서", "포트폴리오", "템플릿", "글쓰기"],
       "keyTopics": [
@@ -415,7 +427,7 @@
       "id": "interview-prep-ai-era-questions",
       "categoryId": "interview_prep",
       "title": "AI 시대 면접 질문 30선 + 합격생 답변 프레임",
-      "summary": "\"AI를 어떻게 썼나요?\"에 잘 답하는 법 — 이게 요즘 변별력이에요",
+      "summary": "\"AI 써봤어요?\" — 이 질문이 요즘 면접의 '최종 보스'예요. 30가지 질문과 합격생의 '정답 패턴'을 공개!",
       "markdownPath": "/resource-hub/interview_prep_ai_era_questions.md",
       "tags": ["면접", "AI시대", "질문30선", "답변프레임"],
       "keyTopics": [
@@ -432,7 +444,7 @@
       "id": "interview-prep-common-mistakes",
       "categoryId": "interview_prep",
       "title": "면접에서 떨어지는 실수 TOP 10과 대처법",
-      "summary": "실력이 아니라 습관 때문에 깎이는 경우가 많아요",
+      "summary": "실력이 100점이어도 습관 때문에 70점으로 깎이는 사람이 있어요. 자기도 모르게 하는 '감점 함정' 10개를 미리 파악!",
       "markdownPath": "/resource-hub/interview_prep_common_mistakes.md",
       "tags": ["면접", "실수", "대처법", "체크리스트"],
       "keyTopics": [
@@ -443,13 +455,15 @@
       ],
       "difficultyLevel": 2,
       "estimatedReadTime": "8분",
-      "priority": 21
+      "priority": 21,
+      "highlight": true,
+      "highlightLabel": "실수 방지"
     },
     {
       "id": "mental-health-burnout-prevention",
       "categoryId": "mental_health",
       "title": "번아웃이 오기 전에 — 예방과 회복 가이드",
-      "summary": "이미 지쳤다면 회복부터, 아직이라면 신호를 알아채는 법부터",
+      "summary": "스마트폰 배터리가 1%일 때 충전하면 늦잖아요? 번아웃도 마찬가지예요. 20%일 때 신호를 알아채고 충전하는 법!",
       "markdownPath": "/resource-hub/mental_health_burnout_prevention.md",
       "tags": ["번아웃", "회복", "스트레스", "루틴"],
       "keyTopics": [
@@ -460,13 +474,15 @@
       ],
       "difficultyLevel": 2,
       "estimatedReadTime": "8분",
-      "priority": 22
+      "priority": 22,
+      "highlight": true,
+      "highlightLabel": "멘탈 충전"
     },
     {
       "id": "mental-health-exam-anxiety",
       "categoryId": "mental_health",
       "title": "시험만 보면 머리가 하얘질 때 — 시험 불안 매뉴얼",
-      "summary": "불안은 없애는 게 아니라 다루는 거예요. 실전 대처법을 담았어요",
+      "summary": "시험 불안은 '버그'가 아니라 뇌의 '보안 프로그램'이에요. 끄는 게 아니라 설정을 바꾸는 거예요. 실전 세팅법을 담았어요",
       "markdownPath": "/resource-hub/mental_health_exam_anxiety.md",
       "tags": ["시험불안", "멘탈", "실전대처", "루틴"],
       "keyTopics": [
@@ -483,7 +499,7 @@
       "id": "mental-health-comparison-detox",
       "categoryId": "mental_health",
       "title": "비교 디톡스 — SNS·AI·친구 비교에서 살아남기",
-      "summary": "남이랑 비교하는 순간 내 기준이 사라져요. 기준을 되찾는 법",
+      "summary": "인스타에서 남의 하이라이트만 보고 내 비하인드랑 비교하면 당연히 지죠. 남의 필터를 벗기고 내 기준을 되찾는 법!",
       "markdownPath": "/resource-hub/mental_health_comparison_detox.md",
       "tags": ["비교", "SNS", "멘탈", "자기기준"],
       "keyTopics": [
@@ -500,7 +516,7 @@
       "id": "parent-guide-support-strategy",
       "categoryId": "parent_guide",
       "title": "학부모 편: 아이 고입, 어디까지 도와줘야 하나요?",
-      "summary": "개입과 지원의 경계 — 도움이 되는 대화와 안 되는 대화",
+      "summary": "부모님이 '감독'이 되면 아이는 '선수'가 되기 어려워요. 코치와 선수의 적정 거리를 찾는 대화법을 담았어요",
       "markdownPath": "/resource-hub/parent_guide_support_strategy.md",
       "tags": ["학부모", "지원전략", "소통", "고입"],
       "keyTopics": [
@@ -517,7 +533,7 @@
       "id": "parent-guide-financial-planning",
       "categoryId": "parent_guide",
       "title": "학부모 편: 고입·대입 교육비, 얼마나 드나요?",
-      "summary": "루트별 실제 비용과 6년 재정 계획을 숫자로 정리했어요",
+      "summary": "학교 선택은 '6년짜리 구독 서비스'와 비슷해요. 월 얼마, 총 얼마인지 루트별로 영수증처럼 정리했어요",
       "markdownPath": "/resource-hub/parent_guide_financial_planning.md",
       "tags": ["학부모", "교육비", "재정계획", "비용비교"],
       "keyTopics": [
@@ -534,7 +550,7 @@
       "id": "policy-2028-medical-school-expansion-impact",
       "categoryId": "policy_2028",
       "title": "의대 증원 이후 — 학종과 이과 판도가 이렇게 바뀝니다",
-      "summary": "의대 정원이 늘면 그 아래 학과까지 연쇄로 움직여요",
+      "summary": "의대 정원이 늘어나면 도미노처럼 그 아래 학과까지 줄줄이 움직여요. 이과 판도의 '나비효과'를 미리 읽어 봐요",
       "markdownPath": "/resource-hub/policy_2028_medical_school_expansion_impact.md",
       "tags": ["의대증원", "학종", "이과", "연쇄효과"],
       "keyTopics": [
@@ -551,7 +567,7 @@
       "id": "other-special-situation-routes",
       "categoryId": "other",
       "title": "특수 상황 루트 — 전학·검정고시·재수·해외 복귀",
-      "summary": "일반적인 길에서 벗어났을 때 선택할 수 있는 경로들",
+      "summary": "고속도로가 아니라 비포장 도로를 달려야 할 때도 있어요. 전학·검정고시·해외 복귀 — 우회로에도 이정표가 있어요",
       "markdownPath": "/resource-hub/other_special_situation_routes.md",
       "tags": ["특수상황", "검정고시", "전학", "해외복귀"],
       "keyTopics": [
@@ -568,7 +584,7 @@
       "id": "faq-school-types-selection",
       "categoryId": "other",
       "title": "FAQ ① 학교 유형·선택 — 특성화고·비즈니스고·마이스터고까지 완전 정복",
-      "summary": "일반고·특목고·자사고는 물론, 특성화고·비즈니스고·마이스터고를 AI 시대 관점에서 심도 있게 비교했어요",
+      "summary": "학교 종류가 뷔페처럼 많아서 뭘 골라야 할지 모르겠다면? 특성화고·비즈니스고·마이스터고까지 AI 시대 관점에서 메뉴판처럼 비교!",
       "markdownPath": "/resource-hub/faq_school_types_selection.md",
       "tags": ["FAQ", "학교선택", "특성화고", "비즈니스고", "마이스터고", "미래교육"],
       "keyTopics": [
@@ -585,7 +601,7 @@
       "id": "faq-grades-admission-process",
       "categoryId": "other",
       "title": "FAQ ② 내신·전형·원서 — 성적 관리부터 원서 접수까지",
-      "summary": "내신 산출법, 오답 분류법, 자소서·면접 준비, 원서 접수 절차를 알고리즘으로 정리했어요",
+      "summary": "내신은 '저금통', 수행평가는 '보너스 코인'이에요. 산출법부터 원서 접수까지 알고리즘처럼 순서대로 정리!",
       "markdownPath": "/resource-hub/faq_grades_admission_process.md",
       "tags": ["FAQ", "내신", "전형", "자소서", "면접", "원서"],
       "keyTopics": [
@@ -602,7 +618,7 @@
       "id": "faq-entrance-to-college-connection",
       "categoryId": "other",
       "title": "FAQ ③ 고입 → 대입 연결 — 2028·2032 대입과 고교 선택의 상관관계",
-      "summary": "고등학교 선택이 2028·2032 대입에 어떤 영향을 주는지, AI 시대 미래 교육 전망까지 한 번에",
+      "summary": "고등학교 선택은 '1라운드'이고 대입은 '결승전'이에요. 1라운드에서 어떤 캐릭터를 고르느냐가 결승전 전략을 바꿔요",
       "markdownPath": "/resource-hub/faq_entrance_to_college_connection.md",
       "tags": ["FAQ", "2028대입", "2032대입", "고입연결", "KB", "AI시대", "세특"],
       "keyTopics": [
@@ -620,7 +636,7 @@
       "id": "faq-parent-activity-mental",
       "categoryId": "other",
       "title": "FAQ ④ 학부모·비교과·멘탈 — 부모 역할부터 활동 관리, 멘탈 케어까지",
-      "summary": "학부모 소통법, 봉사·동아리·독서 관리, 그리고 '특성화고 간다고 하면...' 사회적 시선 대처법",
+      "summary": "봉사·동아리·독서는 '경험치 아이템'이고, 멘탈은 'HP(체력)'예요. 아이템만 모으다 HP가 0이 되면 게임 오버 — 균형 잡는 법!",
       "markdownPath": "/resource-hub/faq_parent_activity_mental.md",
       "tags": ["FAQ", "학부모", "비교과", "멘탈", "봉사", "동아리"],
       "keyTopics": [

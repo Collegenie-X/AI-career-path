@@ -19,6 +19,7 @@ type ResourceLibrarySource = {
     title: string;
     shortDescription: string;
     detailDescription: string;
+    tip?: string;
   };
   documents: ResourceLibraryDocument[];
 };
@@ -52,6 +53,8 @@ function normalizeLibraryItems(): ResourceListItem[] {
     difficultyLevel: documentItem.difficultyLevel,
     estimatedReadTime: documentItem.estimatedReadTime,
     isNew: documentItem.isNew,
+    highlight: documentItem.highlight,
+    highlightLabel: documentItem.highlightLabel,
   }));
 }
 
@@ -272,6 +275,7 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
               const isUserItem = resourceItem.source === 'user';
               const isSelected = resourceItem.id === selectedResourceId;
               const rarity = getRarity(resourceItem.difficultyLevel);
+              const isHighlight = resourceItem.highlight === true;
 
               return (
                 <div
@@ -280,15 +284,23 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                     setSelectedResourceId(resourceItem.id);
                     patchUrl({ resource: resourceItem.id });
                   }}
-                  className={`relative rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99] hover:scale-[1.01] overflow-hidden ${resourceItem.isNew ? 'resource-card-new-shimmer' : ''}`}
+                  className={`relative rounded-xl p-2.5 transition-all cursor-pointer text-left active:scale-[0.99] hover:scale-[1.01] overflow-hidden ${resourceItem.isNew ? 'resource-card-new-shimmer' : ''} ${isHighlight && !isSelected ? 'resource-card-highlight-glow' : ''}`}
                   style={{
                     background: isSelected
                       ? 'linear-gradient(135deg, rgba(139,92,246,0.35), rgba(109,40,217,0.25))'
-                      : `${rarity.gradient}, linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
-                    border: isSelected ? '2px solid rgba(167,139,250,0.95)' : `1px solid ${rarity.color}40`,
+                      : isHighlight
+                        ? 'linear-gradient(135deg, rgba(251,191,36,0.12), rgba(245,158,11,0.08), rgba(251,191,36,0.05))'
+                        : `${rarity.gradient}, linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02))`,
+                    border: isSelected
+                      ? '2px solid rgba(167,139,250,0.95)'
+                      : isHighlight
+                        ? '1px solid rgba(251,191,36,0.5)'
+                        : `1px solid ${rarity.color}40`,
                     boxShadow: isSelected
                       ? '0 0 0 2px rgba(139,92,246,0.5), 0 0 24px rgba(139,92,246,0.45), inset 0 0 12px rgba(139,92,246,0.1)'
-                      : `0 0 6px ${rarity.color}18`,
+                      : isHighlight
+                        ? '0 0 12px rgba(251,191,36,0.2), inset 0 0 8px rgba(251,191,36,0.06)'
+                        : `0 0 6px ${rarity.color}18`,
                     paddingLeft: isSelected ? '14px' : undefined,
                   }}
                 >
@@ -302,6 +314,19 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
                         <p className="text-[12px] font-bold text-white truncate">{resourceItem.title}</p>
+                        {isHighlight ? (
+                          <span
+                            className="px-1.5 py-px rounded-full text-[9px] font-bold flex-shrink-0 inline-flex items-center gap-0.5 resource-highlight-badge"
+                            style={{
+                              background: 'linear-gradient(90deg, rgba(251,191,36,0.45), rgba(245,158,11,0.4))',
+                              color: '#fef3c7',
+                              border: '1px solid rgba(251,191,36,0.65)',
+                              textShadow: '0 0 6px rgba(251,191,36,0.5)',
+                            }}
+                          >
+                            ⭐ {resourceItem.highlightLabel ?? '추천'}
+                          </span>
+                        ) : null}
                         {resourceItem.isNew ? (
                           <span
                             className="px-1 py-px rounded text-[9px] font-bold flex-shrink-0 inline-flex items-center gap-0.5"
@@ -316,6 +341,9 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
                           </span>
                         ) : null}
                       </div>
+                      {!hasDetailSelection && resourceItem.summary ? (
+                        <p className="text-[10px] text-gray-300/80 mt-0.5 line-clamp-2 leading-relaxed">{resourceItem.summary}</p>
+                      ) : null}
                       <div className="flex items-center gap-1.5 mt-0.5 flex-wrap">
                         <span
                           className="text-[9px] font-bold px-1 py-px rounded inline-flex items-center gap-0.5"
@@ -444,6 +472,20 @@ export function HighSchoolResourceHubSection({ onBack }: HighSchoolResourceHubSe
         @keyframes resource-card-shimmer {
           0% { background-position: 100% 0; }
           100% { background-position: -100% 0; }
+        }
+        .resource-card-highlight-glow {
+          animation: resource-highlight-pulse 2.8s ease-in-out infinite;
+        }
+        @keyframes resource-highlight-pulse {
+          0%, 100% { box-shadow: 0 0 8px rgba(251,191,36,0.15), inset 0 0 6px rgba(251,191,36,0.04); }
+          50% { box-shadow: 0 0 18px rgba(251,191,36,0.3), inset 0 0 10px rgba(251,191,36,0.08); }
+        }
+        .resource-highlight-badge {
+          animation: resource-badge-sparkle 3s ease-in-out infinite;
+        }
+        @keyframes resource-badge-sparkle {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; filter: brightness(1.2); }
         }
       `}</style>
 
