@@ -7,6 +7,13 @@ import type { HighSchoolCategory } from '../../types';
 import { CATEGORY_TRAIT_DETAIL } from './category-trait-detail-config';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { HighSchoolAiEraStrategyContent } from './HighSchoolAiEraStrategyContent';
+import {
+  DifferentiatorSection,
+  InterestFitSection,
+  SchoolGroupTreeSection,
+  StrategyTreeSection,
+  TuitionStructureTree,
+} from './CategoryStructuredSections';
 import { HIGH_SCHOOL_LABELS } from '../../config';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
@@ -213,6 +220,62 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
 
 // ── 탭 1: 특성 상세 ───────────────────────────────────────────
 
+/** 축별로 펼쳐 보는 특성 카드 — 헤더(요약) + 펼침(상세 트리) */
+function TraitAccordionCard({
+  emoji,
+  label,
+  summary,
+  color,
+  bgColor,
+  open,
+  onToggle,
+  children,
+}: {
+  emoji: string;
+  label: string;
+  summary: string;
+  color: string;
+  bgColor: string;
+  open: boolean;
+  onToggle: () => void;
+  children?: React.ReactNode;
+}) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${bgColor} 0%, rgba(0,0,0,0.25) 100%)`,
+        border: `1px solid ${open ? color + '66' : color + '33'}`,
+      }}
+    >
+      <button
+        type="button"
+        onClick={onToggle}
+        className="w-full text-left px-3.5 py-3 flex items-start gap-2 transition-all active:scale-[0.995]"
+      >
+        <span className="text-2xl flex-shrink-0">{emoji}</span>
+        <span className="flex-1 min-w-0">
+          <span className="text-sm font-bold block" style={{ color }}>
+            {label}
+          </span>
+          <span className={`text-sm text-gray-100 leading-relaxed block mt-1 ${open ? '' : 'line-clamp-2'}`}>
+            <HL text={summary} />
+          </span>
+        </span>
+        <ChevronLeft
+          className="w-4 h-4 flex-shrink-0 mt-1 transition-transform"
+          style={{ color, transform: open ? 'rotate(90deg)' : 'rotate(-90deg)' }}
+        />
+      </button>
+      {open && children && (
+        <div className="px-3.5 pb-3.5 pt-1" style={{ borderTop: `1px dashed ${color}33` }}>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function TraitsTab({
   category,
   categoryColor,
@@ -224,58 +287,111 @@ function TraitsTab({
   categoryBgColor: string;
   selfEsteemEmphasis: string;
 }) {
+  const [openKey, setOpenKey] = useState<string | null>('aptitude');
+  const toggle = (key: string) => setOpenKey((prev) => (prev === key ? null : key));
+
+  /** 축별 확장 콘텐츠 — 적성/공부 스타일/내신 전략/멘탈에 상세 트리를 붙입니다 */
+  const renderExtra = (key: string) => {
+    if (key === 'aptitude' && category.interestFitGuide) {
+      return (
+        <InterestFitSection guide={category.interestFitGuide} color={categoryColor} bgColor={categoryBgColor} />
+      );
+    }
+    if (key === 'studyStyle' && category.strategyTree) {
+      return (
+        <StrategyTreeSection
+          tree={category.strategyTree}
+          color={categoryColor}
+          bgColor={categoryBgColor}
+          fixedMode="field"
+          title="🧩 분야별 공부 스타일 트리"
+        />
+      );
+    }
+    if (key === 'internalGradeStrategy' && category.strategyTree) {
+      return (
+        <StrategyTreeSection
+          tree={category.strategyTree}
+          color={categoryColor}
+          bgColor={categoryBgColor}
+          fixedMode="grade"
+          title="🗓️ 학년별 내신 전략 트리"
+        />
+      );
+    }
+    if (key === 'mentalStrength') {
+      return (
+        <div
+          className="rounded-2xl p-3.5"
+          style={{
+            background: 'linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(185,28,28,0.08) 100%)',
+            border: '1px solid rgba(239,68,68,0.4)',
+          }}
+        >
+          <p className="text-sm font-bold text-red-300 mb-2 flex items-center gap-1.5">❤️‍🔥 자존감이 낮으면 위험해요</p>
+          <p className="text-sm text-gray-100 leading-relaxed"><HL text={selfEsteemEmphasis} /></p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {['성적 하락', '자신감 상실', '악순환 주의'].map((tag) => (
+              <span
+                key={tag}
+                className="text-xs font-bold px-2.5 py-1 rounded-full"
+                style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171' }}
+              >
+                ⚠️ {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
-    <div className="px-4 py-4 space-y-4">
-      {/* 6개 특성 2열 그리드 */}
+    <div className="px-4 py-4 space-y-5">
+      {category.differentiators && (
+        <DifferentiatorSection
+          differentiators={category.differentiators}
+          color={categoryColor}
+          bgColor={categoryBgColor}
+        />
+      )}
+
+      {category.tuitionStructure && (
+        <TuitionStructureTree
+          structure={category.tuitionStructure}
+          color={categoryColor}
+          bgColor={categoryBgColor}
+        />
+      )}
+
+      {category.schoolGroupTree && (
+        <SchoolGroupTreeSection
+          tree={category.schoolGroupTree}
+          color={categoryColor}
+          bgColor={categoryBgColor}
+        />
+      )}
+
+      {/* 축별 특성 — 탭하면 상세 트리가 열립니다 */}
       <div>
         <p className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: categoryColor }}>
-          📋 이 유형의 6가지 특성
+          📋 이 유형의 {TRAIT_ITEMS.length}가지 특성 <span className="text-[11px] font-semibold text-gray-400">(탭하면 상세)</span>
         </p>
-        <div className="grid grid-cols-2 gap-2.5">
+        <div className="space-y-2">
           {TRAIT_ITEMS.map((item) => (
-            <div
+            <TraitAccordionCard
               key={item.key}
-              className="rounded-2xl p-3.5 flex flex-col gap-2"
-              style={{
-                background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.25) 100%)`,
-                border: `1px solid ${categoryColor}40`,
-              }}
+              emoji={item.emoji}
+              label={item.label.replace(/^[^ ]+ /, '')}
+              summary={category.categoryTraits[item.key]}
+              color={categoryColor}
+              bgColor={categoryBgColor}
+              open={openKey === item.key}
+              onToggle={() => toggle(item.key)}
             >
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">{item.emoji}</span>
-                <span className="text-sm font-bold" style={{ color: categoryColor }}>
-                  {item.label.replace(/^[^ ]+ /, '')}
-                </span>
-              </div>
-              <p className="text-sm text-gray-100 leading-relaxed">
-                <HL text={category.categoryTraits[item.key]} />
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 자존감 경고 카드 */}
-      <div
-        className="rounded-2xl p-4"
-        style={{
-          background: 'linear-gradient(135deg, rgba(239,68,68,0.15) 0%, rgba(185,28,28,0.08) 100%)',
-          border: '1px solid rgba(239,68,68,0.4)',
-        }}
-      >
-        <p className="text-sm font-bold text-red-300 mb-2 flex items-center gap-1.5">
-          ❤️‍🔥 자존감이 낮으면 위험해요
-        </p>
-        <p className="text-sm text-gray-100 leading-relaxed"><HL text={selfEsteemEmphasis} /></p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {['성적 하락', '자신감 상실', '악순환 주의'].map((tag) => (
-            <span
-              key={tag}
-              className="text-xs font-bold px-2.5 py-1 rounded-full"
-              style={{ background: 'rgba(239,68,68,0.2)', color: '#f87171' }}
-            >
-              ⚠️ {tag}
-            </span>
+              {renderExtra(item.key)}
+            </TraitAccordionCard>
           ))}
         </div>
       </div>

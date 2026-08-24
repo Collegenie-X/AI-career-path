@@ -22,6 +22,8 @@ import { HIGH_SCHOOL_LABELS } from '../../config';
 import { CATEGORY_TRAIT_DETAIL, type QuizQuestion } from './category-trait-detail-config';
 import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
+import { DescriptionOutlineTree } from './CategoryStructuredSections';
+import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes } from './CategoryStructuredSections';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
 /**
@@ -118,7 +120,18 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
             <span className="text-3xl flex-shrink-0">{category.emoji}</span>
             <div className="min-w-0 flex-1">
               <p className="text-lg font-bold text-white leading-tight">{category.name}</p>
-              <p className="text-sm mt-1.5 leading-relaxed text-gray-100"><HL text={category.description} /></p>
+              {category.descriptionOutline ? (
+                <div className="mt-2">
+                  <DescriptionOutlineTree
+                    outline={category.descriptionOutline}
+                    color={category.color}
+                    bgColor={category.bgColor}
+                    title="🌳 유형 개요"
+                  />
+                </div>
+              ) : (
+                <p className="text-sm mt-1.5 leading-relaxed text-gray-100"><HL text={category.description} /></p>
+              )}
             </div>
             {variant === 'rightDetail' && (
               <button
@@ -227,22 +240,41 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
       {/* ── 2028 입시 방향성 + AI 방향성 (카테고리 단위) ── */}
       <CategoryDirectionPanel category={category} />
 
-      {/* ── 학교 목록 (단순화) ── */}
+      {/* ── 특색 지도 (AI 중점·과학중점·지역 연계 대학/기업) ── */}
+      <CategoryFeatureMap
+        schools={category.schools}
+        color={category.color}
+        bgColor={category.bgColor}
+        onSelectSchool={onSelectSchool}
+      />
+
+      {/* ── 중점 분야(IB·과학중점·AI·지역연계)별 대표 학교 지도 ── */}
+      <CategoryFocusAxes
+        focus={category.featureFocus}
+        color={category.color}
+        bgColor={category.bgColor}
+      />
+
+      {/* ── 학교별 비교표 (등록금·경쟁률) ── */}
+      <CategoryComparisonTables
+        cost={category.costComparison}
+        facts={category.admissionFactsComparison}
+        color={category.color}
+        bgColor={category.bgColor}
+      />
+
+      {/* ── 학교 목록 — 시·도별 그룹 ── */}
       <div>
         <p className="text-sm font-bold text-gray-300 uppercase tracking-wider mb-2">
           {category.schools.length}{HIGH_SCHOOL_LABELS.school_list_section_title} · {HIGH_SCHOOL_LABELS.school_list_click_hint}
         </p>
-        <div className={variant === 'rightDetail' ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
-          {category.schools.map((school) => (
-            <SchoolListCard
-              key={school.id}
-              school={school}
-              categoryColor={category.color}
-              categoryBgColor={category.bgColor}
-              onClick={() => onSelectSchool(school)}
-            />
-          ))}
-        </div>
+        <SchoolListByRegion
+          schools={category.schools}
+          color={category.color}
+          bgColor={category.bgColor}
+          stagger={variant === 'rightDetail'}
+          onSelectSchool={onSelectSchool}
+        />
       </div>
     </div>
 
@@ -658,7 +690,9 @@ function SchoolListCard({
               <span className="text-xs text-gray-500">{difficultyText}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-xs text-gray-500">👥 {school.annualAdmission}명</span>
+              <span className="text-xs text-gray-500">
+                {school.annualAdmission ? `👥 ${school.annualAdmission}명` : '👥 정원 공시 확인'}
+              </span>
             </div>
           </div>
         </div>
@@ -674,6 +708,34 @@ function SchoolListCard({
           <ChevronRight className="w-5 h-5" style={{ color: categoryColor }} />
         </div>
       </div>
+
+      {/* 지역 연계 프로그램 요약 + 특화 태그 */}
+      {(school.regionProgramSummary || (school.listTags && school.listTags.length > 0)) && (
+        <div className="px-3 pb-2.5" style={{ background: 'rgba(255,255,255,0.02)' }}>
+          {school.listTags && school.listTags.length > 0 && (
+            <div className="flex flex-wrap gap-1 mb-1.5">
+              {school.listTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] font-bold px-2 py-0.5 rounded-full"
+                  style={{ background: `${categoryColor}22`, border: `1px solid ${categoryColor}44`, color: '#e5e7eb' }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          {school.regionProgramSummary && (
+            <p
+              className="text-[12px] text-gray-300 leading-relaxed rounded-lg px-2 py-1.5"
+              style={{ background: 'rgba(255,255,255,0.04)' }}
+            >
+              <span className="font-bold" style={{ color: categoryColor }}>🤝 지역 연계 </span>
+              <HL text={school.regionProgramSummary} />
+            </p>
+          )}
+        </div>
+      )}
 
       {/* 하단: 대표 프로그램 미리보기 (3개) */}
       {school.famousPrograms && school.famousPrograms.length > 0 && (
@@ -964,6 +1026,108 @@ function CategoryDirectionPanel({ category }: { category: HighSchoolCategory }) 
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/** 시·도 목록 — location 문자열 앞부분으로 판별 */
+const SIDO_GROUPS: { label: string; emoji: string; prefixes: string[] }[] = [
+  { label: '서울특별시', emoji: '🗼', prefixes: ['서울'] },
+  { label: '경기도', emoji: '🏙️', prefixes: ['경기'] },
+  { label: '인천광역시', emoji: '⚓', prefixes: ['인천'] },
+  { label: '강원도', emoji: '⛰️', prefixes: ['강원'] },
+  { label: '대전광역시', emoji: '🔬', prefixes: ['대전'] },
+  { label: '세종특별자치시', emoji: '🏛️', prefixes: ['세종'] },
+  { label: '충청북도', emoji: '🌾', prefixes: ['충청북도', '충북'] },
+  { label: '충청남도', emoji: '🌾', prefixes: ['충청남도', '충남'] },
+  { label: '광주광역시', emoji: '💡', prefixes: ['광주광역시'] },
+  { label: '전라북도', emoji: '🌻', prefixes: ['전라북도', '전북'] },
+  { label: '전라남도', emoji: '🌊', prefixes: ['전라남도', '전남'] },
+  { label: '대구광역시', emoji: '🍎', prefixes: ['대구'] },
+  { label: '부산광역시', emoji: '🌊', prefixes: ['부산'] },
+  { label: '울산광역시', emoji: '🏭', prefixes: ['울산'] },
+  { label: '경상북도', emoji: '🏔️', prefixes: ['경상북도', '경북'] },
+  { label: '경상남도', emoji: '🚢', prefixes: ['경상남도', '경남'] },
+  { label: '제주특별자치도', emoji: '🍊', prefixes: ['제주'] },
+];
+
+function sidoOf(location: string) {
+  const found = SIDO_GROUPS.find((group) => group.prefixes.some((prefix) => location.startsWith(prefix)));
+  return found ?? { label: '기타 지역', emoji: '📍', prefixes: [] };
+}
+
+function SchoolListByRegion({
+  schools,
+  color,
+  bgColor,
+  stagger,
+  onSelectSchool,
+}: {
+  schools: HighSchoolDetail[];
+  color: string;
+  bgColor: string;
+  stagger: boolean;
+  onSelectSchool: (school: HighSchoolDetail) => void;
+}) {
+  const grouped = SIDO_GROUPS.concat([{ label: '기타 지역', emoji: '📍', prefixes: [] }])
+    .map((group) => ({
+      ...group,
+      items: schools.filter((school) => sidoOf(school.location ?? '').label === group.label),
+    }))
+    .filter((group) => group.items.length > 0);
+
+  const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
+
+  // 지역이 하나뿐이면 그룹 헤더 없이 그대로
+  if (grouped.length <= 1) {
+    return (
+      <div className={stagger ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
+        {schools.map((school) => (
+          <SchoolListCard
+            key={school.id}
+            school={school}
+            categoryColor={color}
+            categoryBgColor={bgColor}
+            onClick={() => onSelectSchool(school)}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      {grouped.map((group) => {
+        const isCollapsed = collapsed[group.label] === true;
+        return (
+          <div key={group.label}>
+            <button
+              type="button"
+              onClick={() => setCollapsed((prev) => ({ ...prev, [group.label]: !isCollapsed }))}
+              className="w-full flex items-center gap-2 px-3 py-2 rounded-xl mb-2 transition-all active:scale-[0.995]"
+              style={{ background: `${color}18`, border: `1px solid ${color}38` }}
+            >
+              <span className="text-base">{group.emoji}</span>
+              <span className="text-[13px] font-bold text-white flex-1 text-left">{group.label}</span>
+              <span className="text-[12px] font-bold" style={{ color }}>{group.items.length}개교</span>
+              <span className="text-[11px] text-gray-400">{isCollapsed ? '▾' : '▴'}</span>
+            </button>
+            {!isCollapsed && (
+              <div className={stagger ? 'space-y-2 panel-pop-stagger-fast' : 'space-y-2'}>
+                {group.items.map((school) => (
+                  <SchoolListCard
+                    key={school.id}
+                    school={school}
+                    categoryColor={color}
+                    categoryBgColor={bgColor}
+                    onClick={() => onSelectSchool(school)}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

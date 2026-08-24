@@ -110,7 +110,7 @@ function StarTabHeroBanner() {
           <div className="hidden h-7 w-px bg-white/10 sm:block" />
           <div className="text-center">
             <div className="text-[15px] font-black text-white">{TOTAL_JOB_COUNT}</div>
-            <div className="-mt-0.5 text-[13px] text-gray-500">직업 퀘스트 🎯</div>
+            <div className="-mt-0.5 text-[13px] text-gray-500" suppressHydrationWarning>직업 퀘스트 🎯</div>
           </div>
         </div>
       </div>

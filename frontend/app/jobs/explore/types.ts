@@ -402,6 +402,20 @@ export type HighSchoolDetail = {
     homepageMustCheck: string;
     homepageUrl: string;
   };
+  /** 자공고 2.0 등 협약형 학교의 지정·협약·특화 트랙 프로필 */
+  jagonggoProfile?: SchoolJagonggoProfile;
+  /** 목록 카드에 노출할 특화 태그 (예: "🤖 AI", "🔬 과학중점") */
+  listTags?: string[];
+  /** 목록 카드에 노출할 지역 연계 프로그램 한 줄 요약 */
+  regionProgramSummary?: string;
+  /** 등록금·비용 구조 (그룹핑 + 과정별 트랙 비교) */
+  costStructure?: SchoolCostStructure;
+  /** 최신 학년도 모집인원·경쟁률 팩트 */
+  admissionFacts?: SchoolAdmissionFacts;
+  /** 대학 진학 추이 (서울대·서울권·해외대) */
+  universityOutcomes?: SchoolUniversityOutcomes;
+  /** 지역 연계·선발 범위 */
+  regionalLinkage?: SchoolRegionalLinkage;
 };
 
 export type HighSchoolAiEraStrategy = {
@@ -484,6 +498,171 @@ export type HighSchoolAdmissionStrategy2028 = {
   perks?: string[];
 };
 
+/** 고입 유형 설명을 트리 구조로 그룹핑한 개요 (긴 문단 대체) */
+export type HighSchoolDescriptionOutline = {
+  /** 중심 문장 — 한 문장 결론 */
+  coreSentence: string;
+  groups: Array<{
+    emoji: string;
+    label: string;
+    /** 하위 항목 (트리 leaf) */
+    points: string[];
+  }>;
+};
+
+/** 관심 분야 적합도 등급 */
+export type HighSchoolFitLevel = 'best' | 'good' | 'caution' | 'avoid';
+
+/** "내 관심 분야에 이 유형을 골라도 될까?" 판정 */
+export type HighSchoolInterestFit = {
+  field: string;
+  emoji: string;
+  level: HighSchoolFitLevel;
+  /** 왜 그런지 확장 설명 */
+  reason: string;
+  /** 이 유형에서 해당 분야로 가는 실제 경로 */
+  route?: string;
+};
+
+export type HighSchoolInterestFitGuide = {
+  /** 중심 문장 (요약) */
+  headline: string;
+  /** 요약을 확장한 설명 */
+  subline?: string;
+  fits: HighSchoolInterestFit[];
+  /** 이과·문과·예체능·취업 등 계열별 판정 */
+  trackVerdict?: Array<{ label: string; emoji?: string; detail: string }>;
+};
+
+/** 유형 차별화 축 (과목·계열 / 지역 연계 / 정부 지원금 / 등록금 / 학교 형태) */
+export type HighSchoolDifferentiator = {
+  key: string;
+  emoji: string;
+  label: string;
+  /** 중심 문장 — 굵게 표시 */
+  headline: string;
+  /** 확장 설명 */
+  detail: string;
+  /** 다른 유형(주로 일반고) 대비 비교 */
+  compare?: string;
+};
+
+export type HighSchoolDifferentiators = {
+  coreSentence: string;
+  items: HighSchoolDifferentiator[];
+};
+
+/** 내신 전략·공부 스타일 트리 */
+export type HighSchoolStrategyTree = {
+  /** 학년별 트리 */
+  byGrade: Array<{
+    stage: string;
+    emoji?: string;
+    goal: string;
+    nodes: Array<{ label: string; emoji?: string; items: string[] }>;
+  }>;
+  /** 분야별 트리 */
+  byField: Array<{ area: string; emoji?: string; summary: string; items: string[] }>;
+};
+
+/** 등록금 구조 트리 — "누가 내는 돈인가"로 나눈 계층 */
+export type HighSchoolTuitionLayer = {
+  level: number;
+  emoji: string;
+  label: string;
+  /** free=국가 지원 0원 / paid=학부모 실비 / supported=사업비(학생 부담 없음) */
+  badge: 'free' | 'paid' | 'supported';
+  amount: string;
+  summary: string;
+  items: Array<{ name: string; cost: string; note?: string }>;
+  compare?: string;
+};
+
+export type HighSchoolTuitionStructure = {
+  coreSentence: string;
+  howToRead?: string;
+  layers: HighSchoolTuitionLayer[];
+  /** IB 비용이 등록금과 어떻게 다른지 */
+  ibNote?: { title?: string; headline: string; points: string[]; verdict?: string; sources?: SchoolSourceLink[] };
+  /** 고교 유형별 연간 비용 비교 */
+  comparison?: Array<{ type: string; emoji: string; annual: string; note?: string; highlight?: boolean }>;
+  checklist?: string[];
+};
+
+/** 같은 유형 안에서 학교를 갈라 보는 그룹핑 트리 */
+export type HighSchoolGroupAxis = {
+  id: string;
+  emoji: string;
+  label: string;
+  description?: string;
+  groups: Array<{
+    label: string;
+    emoji: string;
+    note?: string;
+    schools: Array<{ name: string; region?: string; tag?: string }>;
+  }>;
+};
+
+export type HighSchoolGroupTree = {
+  coreSentence: string;
+  scopeNote?: string;
+  axes: HighSchoolGroupAxis[];
+  pickGuide?: string[];
+  /** 전국 시·도별 지정 현황 (공식 집계) */
+  nationalStatus?: {
+    asOf: string;
+    total: string;
+    headline: string;
+    rows: Array<{ sido: string; count: number; detail?: string }>;
+    note?: string;
+  };
+};
+
+/** 자공고 2.0 등 협약형 학교의 지정·협약·특화 프로필 */
+export type SchoolJagonggoProfile = {
+  cohort: string;
+  designationPeriod: string;
+  zone?: string;
+  /** 학교가 고른 선택과제 (지역연계교육·인성교육·진로교육·에듀테크 등) */
+  selectiveTask?: string;
+  /** 모든 지정교 공통 필수과제 */
+  requiredTask?: string;
+  brand?: string;
+  vision?: string;
+  coreCurriculum?: string[];
+  signaturePrograms?: string[];
+  focusTracks?: Array<{ name: string; emoji: string }>;
+  partners?: Array<{ name: string; type: string; role: string }>;
+  /** 이 학교가 있는 지역의 자원 (탐구 소재) */
+  regionAssets?: string;
+  /** 지역 협약이 특화 과목·세특을 어떻게 바꾸는지 */
+  sseteukLinkage?: {
+    headline: string;
+    items: Array<{
+      track: string;
+      emoji: string;
+      /** 이 트랙에서 열리는 특화 과목·프로그램 */
+      subjects?: string[];
+      /** 세특에 어떻게 남는지 (구체 예시) */
+      how: string;
+      /** 근거가 되는 지역 자원 */
+      regionAsset?: string;
+    }>;
+  };
+  /** 다른 자공고 2.0과 무엇이 다른지 */
+  vsOtherJagonggo?: { headline: string; points: string[] };
+  /** 선발 방식 (평준화 배정 / 비평준화 내신 선발 등) */
+  admissionType?: string;
+  /** 입학 인원 */
+  intake?: string;
+  /** 경쟁률 */
+  competition?: string;
+  /** 커트라인 */
+  cutline?: string;
+  /** 어떻게 공부해서 들어가는지 (중1~중3~입학 후 단계별) */
+  howToGetIn?: Array<{ stage: string; items: string[] }>;
+};
+
 export type HighSchoolCategory = {
   id: string;
   name: string;
@@ -501,7 +680,169 @@ export type HighSchoolCategory = {
   aiEraContext?: string;
   /** 2028 입시 전략 (제목·요약·핵심 포인트) */
   admissionStrategy2028?: HighSchoolAdmissionStrategy2028;
+  /** 설명 문단을 트리로 그룹핑한 개요 */
+  descriptionOutline?: HighSchoolDescriptionOutline;
+  /** 관심 분야별 선택 가능 여부 판정 */
+  interestFitGuide?: HighSchoolInterestFitGuide;
+  /** 이 유형만의 차별화 포인트 */
+  differentiators?: HighSchoolDifferentiators;
+  /** 내신 전략·공부 스타일 트리 */
+  strategyTree?: HighSchoolStrategyTree;
+  /** 등록금 구조 트리 (무상교육/수익자부담/사업비 + IB 비용 구분) */
+  tuitionStructure?: HighSchoolTuitionStructure;
+  /** 학교 그룹핑 트리 (지정 차수·권역·특화 계열) */
+  schoolGroupTree?: HighSchoolGroupTree;
+  /** 유형 내 학교별 등록금 비교표 */
+  costComparison?: SchoolCostComparison;
+  /** 유형 내 학교별 경쟁률·모집인원 비교표 */
+  admissionFactsComparison?: SchoolAdmissionFactsComparison;
+  /** 특색 축(중점 분야)별 대표 중점학교 지도 — IB·과학중점·AI·지역연계 */
+  featureFocus?: HighSchoolFeatureFocus;
 };
+
+/** 특색 축별 대표 중점학교 (검증된 지정·인증 사실만 수록) */
+export type HighSchoolFeatureFocusSchool = {
+  name: string;
+  region: string;
+  /** 공식 지정·인증 사실 한 줄 (연도·근거 포함) */
+  fact: string;
+  /** 이 유형 데이터셋에 상세 페이지가 있는 학교인지 */
+  inDataset?: boolean;
+};
+
+export type HighSchoolFeatureFocusAxis = {
+  id: string;
+  emoji: string;
+  label: string;
+  /** 이 축이 무엇인지 한 줄 */
+  what: string;
+  /** 이 축 학교에 들어가는 방법 (배정·교내 선발 등) */
+  howToEnter: string;
+  /** 이 축을 고를 때 2028 입시에서 유리·불리한 점 */
+  admissionNote?: string;
+  scale?: string;
+  schools: HighSchoolFeatureFocusSchool[];
+  sources?: SchoolSourceLink[];
+};
+
+export type HighSchoolFeatureFocus = {
+  headline: string;
+  asOf: string;
+  intro?: string;
+  axes: HighSchoolFeatureFocusAxis[];
+  /** 고르는 순서 가이드 */
+  pickGuide?: string[];
+};
+
+/** 등록금·비용 구조 (그룹핑 + 트리) */
+export type SchoolCostItem = { label: string; amount: string; note?: string };
+export type SchoolCostGroup = {
+  id: string;
+  emoji: string;
+  label: string;
+  amount: string;
+  note?: string;
+  items: SchoolCostItem[];
+};
+export type SchoolCostTrack = {
+  track: string;
+  emoji?: string;
+  tuition: string;
+  extra: string;
+  yearTotal: string;
+  note?: string;
+};
+export type SchoolSourceLink = { label: string; url: string };
+/** 등록금 톤 — free: 안 내는 돈, pay: 실제로 내는 돈, get: 받는 돈 */
+export type SchoolCostTone = 'free' | 'pay' | 'get';
+/** 등록금 한눈 요약 타일 */
+export type SchoolCostQuickTile = {
+  emoji: string;
+  label: string;
+  value: string;
+  sub?: string;
+  tone?: SchoolCostTone;
+};
+/** 월 / 연 / 3년 환산 행 */
+export type SchoolCostPeriodRow = {
+  label: string;
+  monthly: string;
+  yearly: string;
+  threeYear: string;
+  tone?: SchoolCostTone;
+  note?: string;
+};
+export type SchoolCostPeriodTable = {
+  title?: string;
+  rows: SchoolCostPeriodRow[];
+  note?: string;
+};
+export type SchoolCostStructure = {
+  asOf: string;
+  headline: string;
+  totalPerYear: string;
+  totalNote?: string;
+  actualPayNote?: string;
+  /** 상단 한눈 요약 타일 */
+  quickTiles?: SchoolCostQuickTile[];
+  /** 월/연/3년 환산 표 */
+  periodTable?: SchoolCostPeriodTable;
+  groups?: SchoolCostGroup[];
+  programTracks?: SchoolCostTrack[];
+  notes?: string[];
+  sources?: SchoolSourceLink[];
+};
+
+/** 입시 팩트 (모집인원·경쟁률) */
+export type SchoolAdmissionTrack = {
+  name: string;
+  capacity?: number | null;
+  applicants?: number | null;
+  rate?: string;
+  note?: string;
+};
+export type SchoolAdmissionFacts = {
+  year: string;
+  capacityTotal: number;
+  applicantsTotal?: number | null;
+  overallRate: string;
+  prevYearRate?: string;
+  trend?: string;
+  tracks: SchoolAdmissionTrack[];
+  note?: string;
+  categoryAverage?: string;
+  sources?: SchoolSourceLink[];
+};
+
+/** 대학 진학 추이 (직업계고는 취업 지표로 재사용 — 라벨을 갈아끼움) */
+export type SchoolUniversityOutcomes = {
+  /** 섹션 제목 override (미입력 시 "대학 진학 추이 (SKY·서울권·해외대)") */
+  title?: string;
+  headline: string;
+  /** snuByYear 타일에 붙는 지표 이름 override (미입력 시 "서울대") */
+  metricLabel?: string;
+  snuByYear?: { year: string; count: string }[];
+  /** 자유 지표 행 (취업률·진학률·유지취업률 등) */
+  extraRows?: { emoji: string; label: string; value: string }[];
+  overseas?: string;
+  /** overseas 행 라벨 override (미입력 시 "해외대") */
+  overseasLabel?: string;
+  seoulAreaNote?: string;
+  /** seoulAreaNote 행 라벨 override (미입력 시 "서울권") */
+  seoulAreaLabel?: string;
+  dataConfidence?: string;
+  sources?: SchoolSourceLink[];
+};
+
+/** 지역 연계 */
+export type SchoolRegionalLinkage = {
+  selectionScope: string;
+  regionTrack?: string;
+  localTie?: string;
+  commute?: string;
+  sources?: SchoolSourceLink[];
+};
+
 
 export type IdentityTip = {
   icon: string;
@@ -667,4 +1008,23 @@ export type JobCareerRoutesData = {
   meta: { title: string; subtitle: string; description: string };
   categories: JobCategory[];
   routeOverview: RouteOverview;
+};
+
+/** 유형 내 학교별 등록금 비교표 */
+export type SchoolCostComparison = {
+  title: string;
+  asOf: string;
+  keyInsight: string;
+  rows: { school: string; type: string; tuition: string; beneficiary: string; total: string; program?: string; /** 특색(AI 중점·과학중점·지역 연계 등) 한 줄 태그 */ feature?: string }[];
+  cautions?: string[];
+  sources?: SchoolSourceLink[];
+};
+
+/** 유형 내 학교별 경쟁률·모집인원 비교표 */
+export type SchoolAdmissionFactsComparison = {
+  title: string;
+  summary: string;
+  rows: { school: string; capacity: number; applicants?: number | null; rate: string; prev?: string; trend?: string }[];
+  insights?: string[];
+  sources?: SchoolSourceLink[];
 };

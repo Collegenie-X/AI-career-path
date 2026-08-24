@@ -9,6 +9,7 @@ import {
 import type { HighSchoolDetail } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
 import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
+import { SchoolCostOutcomeSections } from './SchoolCostOutcomeSections';
 import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
 import { copyCurrentUrl } from '../../utils/useExploreUrlState';
 
@@ -120,7 +121,11 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
                 <span className="text-[12px] text-gray-600">|</span>
                 <Users className="w-3 h-3 text-gray-400" />
                 <span className="text-[12px] text-gray-400">
-                  <HL text={`==연 ${school.annualAdmission}명==`} />
+                  {school.annualAdmission ? (
+                    <HL text={`==연 ${school.annualAdmission}명==`} />
+                  ) : (
+                    '정원 공시 확인'
+                  )}
                 </span>
               </div>
             </div>
@@ -235,6 +240,9 @@ function OverviewTab({
 }) {
   const infoCard = school.schoolInfoCard;
   const qualifications = school.admissionQualifications;
+  // 등록금·입시 정보가 costStructure / jagonggoProfile로 통합된 경우 상단 요약에서는 생략 (중복 제거)
+  const costHandledElsewhere = !!school.costStructure;
+  const admissionHandledElsewhere = !!school.jagonggoProfile;
 
   if (section === 'priority') {
     return (
@@ -290,20 +298,24 @@ function OverviewTab({
               학교 기본 정보
             </p>
             <div className="grid grid-cols-2 gap-2">
-              <div
-                className="rounded-xl p-2.5"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-              >
-                <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
-                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.regionScope} /></p>
-              </div>
-              <div
-                className="rounded-xl p-2.5"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-              >
-                <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
-                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.capacity} /></p>
-              </div>
+              {!admissionHandledElsewhere && (
+                <>
+                  <div
+                    className="rounded-xl p-2.5"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    <p className="text-xs text-gray-500 mb-0.5">📍 위치·통학</p>
+                    <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.regionScope} /></p>
+                  </div>
+                  <div
+                    className="rounded-xl p-2.5"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    <p className="text-xs text-gray-500 mb-0.5">👥 정원·규모</p>
+                    <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.capacity} /></p>
+                  </div>
+                </>
+              )}
               <div
                 className="rounded-xl p-2.5"
                 style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
@@ -318,22 +330,26 @@ function OverviewTab({
                 <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
                 <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.dormitoryType} /></p>
               </div>
-              <div
-                className="rounded-xl p-2.5 col-span-2"
-                style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
-              >
-                <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
-                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.costPerYear} /></p>
-              </div>
-              <div
-                className="rounded-xl p-2.5 col-span-2"
-                style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
-              >
-                <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
-                <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.scholarship} /></p>
-              </div>
+              {!costHandledElsewhere && (
+                <>
+                  <div
+                    className="rounded-xl p-2.5 col-span-2"
+                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+                  >
+                    <p className="text-xs text-gray-500 mb-0.5">💰 연간 총 비용 (등록금+기숙사)</p>
+                    <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.costPerYear} /></p>
+                  </div>
+                  <div
+                    className="rounded-xl p-2.5 col-span-2"
+                    style={{ background: `${categoryColor}10`, border: `1px solid ${categoryColor}30` }}
+                  >
+                    <p className="text-xs mb-0.5" style={{ color: categoryColor }}>🎓 장학금·소득 지원</p>
+                    <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.scholarship} /></p>
+                  </div>
+                </>
+              )}
             </div>
-            {infoCard.lowIncomeAdvice && (
+            {infoCard.lowIncomeAdvice && !costHandledElsewhere && (
               <div
                 className="mt-2 p-2.5 rounded-xl"
                 style={{ background: 'rgba(251,191,36,0.08)', border: '1px solid rgba(251,191,36,0.25)' }}
@@ -344,6 +360,9 @@ function OverviewTab({
             )}
           </div>
         )}
+
+        {/* ── 2-1. 등록금 구조·입시 팩트·진학 추이·지역 연계 (웹 검증 데이터) ── */}
+        <SchoolCostOutcomeSections school={school} color={categoryColor} />
 
         {/* ── 3. 대표 프로그램 ── */}
         {school.famousPrograms && school.famousPrograms.length > 0 && (
@@ -369,8 +388,8 @@ function OverviewTab({
           </div>
         )}
 
-        {/* ── 4. 입학 자격 요약 ── */}
-        {qualifications && (
+        {/* ── 4. 입학 자격 요약 — jagonggoProfile이 있으면 아래 통합 카드로 병합 ── */}
+        {qualifications && !admissionHandledElsewhere && (
           <div
             className="rounded-2xl p-3"
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
@@ -432,6 +451,14 @@ function OverviewTab({
             )}
           </div>
         )}
+
+        {/* ── 5. 자공고 2.0 프로필 · 입학/진학 실적 ── */}
+        <SchoolJagonggoSections
+          school={school}
+          categoryColor={categoryColor}
+          categoryBgColor={categoryBgColor}
+          qualifications={qualifications}
+        />
       </div>
     );
   }
@@ -1048,5 +1075,289 @@ function InfoBlock({
       </p>
       <p className="text-xs text-gray-300 leading-relaxed"><HL text={content} /></p>
     </div>
+  );
+}
+
+/** 자공고 2.0 지정·협약·특화 트랙 + 입학 방식·경쟁률·진학 추이 */
+function SchoolJagonggoSections({
+  school,
+  categoryColor,
+  categoryBgColor,
+  qualifications,
+}: {
+  school: HighSchoolDetail;
+  categoryColor: string;
+  categoryBgColor: string;
+  qualifications?: HighSchoolDetail['admissionQualifications'];
+}) {
+  const profile = school.jagonggoProfile;
+  if (!profile) return null;
+
+  const cardStyle = {
+    background: `linear-gradient(135deg, ${categoryBgColor} 0%, rgba(0,0,0,0.3) 100%)`,
+    border: `1px solid ${categoryColor}30`,
+  } as const;
+
+  return (
+    <>
+      {/* 지정 정보 · 협약 · 특화 트랙 */}
+      {profile && (
+        <div className="rounded-2xl p-4 space-y-3" style={cardStyle}>
+          <p className="text-sm font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
+            🏛️ 자공고 2.0 프로필
+          </p>
+
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: '지정 차수', value: profile.cohort, emoji: '🗓️' },
+              { label: '지정 기간', value: profile.designationPeriod, emoji: '📆' },
+              { label: '권역', value: profile.zone, emoji: '📍' },
+              { label: '선택과제', value: profile.selectiveTask, emoji: '🎯' },
+            ]
+              .filter((item) => item.value)
+              .map((item) => (
+                <div key={item.label} className="rounded-xl px-2.5 py-2" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                  <p className="text-[11px] text-gray-400 mb-0.5">{item.emoji} {item.label}</p>
+                  <p className="text-[12px] font-bold text-white leading-snug">{item.value}</p>
+                </div>
+              ))}
+          </div>
+
+          {profile.brand && (
+            <div
+              className="rounded-xl px-3 py-2.5"
+              style={{ background: `${categoryColor}1a`, border: `1px solid ${categoryColor}40` }}
+            >
+              <p className="text-[11px] font-bold mb-0.5" style={{ color: categoryColor }}>학교 브랜드</p>
+              <p className="text-[13px] font-bold text-white leading-relaxed">{profile.brand}</p>
+              {profile.vision && <p className="text-[12px] text-gray-300 leading-relaxed mt-1">{profile.vision}</p>}
+            </div>
+          )}
+
+          {profile.focusTracks && profile.focusTracks.length > 0 && (
+            <div>
+              <p className="text-[12px] font-bold text-gray-300 mb-1.5">🧭 특화 트랙</p>
+              <div className="flex flex-wrap gap-1.5">
+                {profile.focusTracks.map((track) => (
+                  <span
+                    key={track.name}
+                    className="text-[12px] font-bold rounded-lg px-2.5 py-1"
+                    style={{ background: `${categoryColor}22`, border: `1px solid ${categoryColor}44`, color: '#fff' }}
+                  >
+                    {track.emoji} {track.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {profile.coreCurriculum && profile.coreCurriculum.length > 0 && (
+            <div>
+              <p className="text-[12px] font-bold text-gray-300 mb-1.5">📚 중점 교육과정</p>
+              <ul className="space-y-1">
+                {profile.coreCurriculum.map((item) => (
+                  <li key={item} className="text-[13px] text-gray-100 leading-relaxed flex gap-1.5">
+                    <span style={{ color: categoryColor }}>·</span>
+                    <span className="flex-1"><HL text={item} /></span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {profile.signaturePrograms && profile.signaturePrograms.length > 0 && (
+            <div>
+              <p className="text-[12px] font-bold text-gray-300 mb-1.5">✨ 특색 프로그램</p>
+              <ul className="space-y-1">
+                {profile.signaturePrograms.map((item) => (
+                  <li key={item} className="text-[13px] text-gray-100 leading-relaxed flex gap-1.5">
+                    <span style={{ color: categoryColor }}>·</span>
+                    <span className="flex-1"><HL text={item} /></span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {profile.partners && profile.partners.length > 0 && (
+            <div>
+              <p className="text-[12px] font-bold text-gray-300 mb-1.5">🤝 협약 기관</p>
+              <div className="space-y-1.5">
+                {profile.partners.map((partner) => (
+                  <div key={partner.name} className="rounded-xl px-2.5 py-2" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                    <p className="text-[12px] font-bold text-white">
+                      {partner.name} <span className="text-[11px] font-semibold" style={{ color: categoryColor }}>{partner.type}</span>
+                    </p>
+                    <p className="text-[12px] text-gray-300 leading-relaxed mt-0.5">{partner.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {profile.requiredTask && (
+            <div className="rounded-xl px-2.5 py-2" style={{ background: 'rgba(96,165,250,0.12)', border: '1px solid rgba(96,165,250,0.3)' }}>
+              <p className="text-[11px] font-bold text-blue-300 mb-0.5">📌 모든 지정교 공통 필수과제</p>
+              <p className="text-[12px] text-gray-200 leading-relaxed"><HL text={profile.requiredTask} /></p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 지역 연계 → 세특 */}
+      {profile?.sseteukLinkage && (
+        <div
+          className="rounded-2xl p-4"
+          style={{ background: 'linear-gradient(135deg, rgba(167,139,250,0.12) 0%, rgba(0,0,0,0.3) 100%)', border: '1px solid rgba(167,139,250,0.35)' }}
+        >
+          <p className="text-sm font-bold mb-2" style={{ color: '#c4b5fd' }}>🔗 지역 연계 · 특화 과목 · 세특</p>
+          <p className="text-[13px] font-bold text-white leading-relaxed mb-2.5">
+            <HL text={profile.sseteukLinkage.headline} />
+          </p>
+          {profile.regionAssets && (
+            <div
+              className="rounded-xl px-3 py-2 mb-2"
+              style={{ background: 'rgba(167,139,250,0.12)', border: '1px dashed rgba(167,139,250,0.45)' }}
+            >
+              <p className="text-[11px] font-bold mb-0.5" style={{ color: '#c4b5fd' }}>📍 이 지역에만 있는 자원</p>
+              <p className="text-[13px] text-gray-100 leading-relaxed"><HL text={profile.regionAssets} /></p>
+            </div>
+          )}
+          <div className="space-y-2">
+            {profile.sseteukLinkage.items.map((item) => (
+              <div key={item.track} className="rounded-xl px-3 py-2.5" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                <p className="text-[12px] font-bold text-white mb-1">{item.emoji} {item.track}</p>
+                {item.subjects && item.subjects.length > 0 && (
+                  <div className="flex flex-wrap gap-1 mb-1.5">
+                    {item.subjects.map((subject) => (
+                      <span
+                        key={subject}
+                        className="text-[11px] font-bold px-2 py-0.5 rounded-md"
+                        style={{ background: 'rgba(167,139,250,0.2)', color: '#ddd6fe' }}
+                      >
+                        📘 {subject}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <p className="text-[13px] text-gray-200 leading-relaxed">
+                  <span className="font-bold" style={{ color: '#c4b5fd' }}>세특 </span>
+                  <HL text={item.how} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 다른 자공고 2.0과의 차이 */}
+      {profile?.vsOtherJagonggo && (
+        <div className="rounded-2xl p-4" style={cardStyle}>
+          <p className="text-sm font-bold mb-2" style={{ color: categoryColor }}>🆚 다른 자공고 2.0과 무엇이 다른가</p>
+          <p className="text-[13px] font-bold text-white leading-relaxed mb-2">
+            <HL text={profile.vsOtherJagonggo.headline} />
+          </p>
+          <ul className="space-y-1.5">
+            {profile.vsOtherJagonggo.points.map((point) => (
+              <li key={point} className="text-[13px] text-gray-200 leading-relaxed flex gap-1.5">
+                <span style={{ color: categoryColor }}>▸</span>
+                <span className="flex-1"><HL text={point} /></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 선발 방식 · 입학 인원 · 경쟁률 */}
+      {profile && (profile.admissionType || profile.intake || profile.competition || profile.cutline) && (
+        <div className="rounded-2xl p-4" style={cardStyle}>
+          <p className="text-sm font-bold mb-2" style={{ color: categoryColor }}>📊 선발 방식 · 입학 인원 · 경쟁률</p>
+          <div className="space-y-1.5">
+            {[
+              { label: '선발 방식', value: profile.admissionType, emoji: '🎲' },
+              { label: '입학 인원', value: profile.intake, emoji: '👥' },
+              { label: '경쟁률', value: profile.competition, emoji: '🔥' },
+              { label: '커트라인', value: profile.cutline, emoji: '📏' },
+            ]
+              .filter((item) => item.value)
+              .map((item) => (
+                <div key={item.label} className="rounded-xl px-2.5 py-2" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                  <p className="text-[11px] text-gray-400 mb-0.5">{item.emoji} {item.label}</p>
+                  <p className="text-[13px] text-gray-100 leading-relaxed"><HL text={item.value as string} /></p>
+                </div>
+              ))}
+          </div>
+
+          {/* 입학 자격 — 별도 섹션을 이 카드로 병합 */}
+          {qualifications && (
+            <div className="mt-2.5 pt-2.5 space-y-2" style={{ borderTop: `1px dashed ${categoryColor}33` }}>
+              {qualifications.mandatory && qualifications.mandatory.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold text-red-400 mb-1">✅ 필수 조건</p>
+                  <ul className="space-y-1">
+                    {qualifications.mandatory.map((item) => (
+                      <li key={item} className="text-[13px] text-gray-200 leading-relaxed flex gap-1.5">
+                        <span className="text-red-400">·</span>
+                        <span className="flex-1"><HL text={item} /></span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {qualifications.recommended && qualifications.recommended.length > 0 && (
+                <div>
+                  <p className="text-[11px] font-bold text-emerald-400 mb-1">⭐ 우대 조건</p>
+                  <div className="flex flex-wrap gap-1">
+                    {qualifications.recommended.map((item) => (
+                      <span
+                        key={item}
+                        className="text-[12px] px-2 py-0.5 rounded-full text-gray-200"
+                        style={{ background: 'rgba(52,211,153,0.14)' }}
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {qualifications.interviewFormat && (
+                <p className="text-[12px] text-gray-300 leading-relaxed">
+                  <span className="text-gray-500">🎤 면접 · </span>
+                  <HL text={qualifications.interviewFormat} />
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* 어떻게 공부해서 들어가나 */}
+      {profile?.howToGetIn && profile.howToGetIn.length > 0 && (
+        <div className="rounded-2xl p-4" style={cardStyle}>
+          <p className="text-sm font-bold mb-2" style={{ color: categoryColor }}>🧗 어떻게 공부해서 들어가나</p>
+          <div className="space-y-2">
+            {profile.howToGetIn.map((stage) => (
+              <div key={stage.stage} className="rounded-xl px-3 py-2.5" style={{ background: 'rgba(255,255,255,0.05)' }}>
+                <p
+                  className="text-[11px] font-bold px-2 py-0.5 rounded-full inline-block mb-1.5"
+                  style={{ background: `${categoryColor}28`, color: categoryColor }}
+                >
+                  {stage.stage}
+                </p>
+                <ul className="space-y-1">
+                  {stage.items.map((item) => (
+                    <li key={item} className="text-[13px] text-gray-200 leading-relaxed flex gap-1.5">
+                      <span style={{ color: categoryColor }}>·</span>
+                      <span className="flex-1"><HL text={item} /></span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </>
   );
 }

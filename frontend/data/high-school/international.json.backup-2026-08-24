@@ -367,12 +367,12 @@
       "emoji": "🏛️",
       "color": "#f472b6",
       "difficulty": 5,
-      "annualAdmission": 150,
-      "tuition": "공립 무상교육 — 등록금 0원 (기숙사·AP 응시료만 별도)",
-      "dormitory": true,
+      "annualAdmission": 160,
+      "tuition": "공립 수준 (IB 과정 추가 비용 일부 발생)",
+      "dormitory": false,
       "ibCertified": true,
-      "specialCertification": "==WASC(미국 서부지역 학교연합) 인증==교, 외교부 청소년외교아카데미 연계, 종로구 위치(대학·국회·외교부 접근성 최고)",
-      "teachingMethod": "영어·한국사·제2외국어를 제외한 ==전 과목 영어 수업== · 국제계열 전문교과 · AP 응시 지원 (==IB DP 운영교 아님==)",
+      "specialCertification": "IB DP 공립 최초 인증, 외교부 Junior Diplomat Program 위탁교, 종로구 위치(대학·국회·외교부 접근성 최고)",
+      "teachingMethod": "IB DP 전원 이수(2014~) · 사회/역사/경제 영어 강의 · ToK 코디네이터 상주 · 외부 IB Examiner 채점 + 학교 자체 평가 병행",
       "famousPrograms": [
         "IB Diploma Programme (공립 최초, 전원 이수)",
         "SIHMUN — 외교부 청소년외교아카데미 연계 모의UN",
@@ -634,10 +634,10 @@
       "description": "서울 종로구 명륜동 — 공립 최초 IB DP 인증 국제고. SIHMUN(모의UN)과 외교부 청소년외교아카데미 연계가 차별점, 통학형(기숙사 미운영) 운영으로 자율성 큰 만큼 자기관리 필수.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 선발 (서울 종로구 소재)",
-        "capacity": "연 150명 모집 · 총 450명 규모",
+        "capacity": "연 160명 · 총 480명",
         "genderRatio": "남녀공학",
-        "dormitoryType": "기숙사 운영 (월 14만원, 정원 제한 — 통학생 다수)",
-        "costPerYear": "==등록금 0원(공립 무상교육)==. 실부담은 연 43만원 수준으로 8개 국제고 중 하위권 — 다만 기숙사 입사 시 월 14만원이 추가돼요.",
+        "dormitoryType": "기숙사 미운영 (전원 통학)",
+        "costPerYear": "공립 무상 + IB 응시료·교재 약 200~300만원",
         "scholarship": "기초수급·차상위 응시료 전액 지원, 소득분위별 IB 지원금",
         "lowIncomeAdvice": "IB 응시료(과목당 16~20만원) 분위별 감면 신청 가능, 종로구청 교육바우처 병행 활용"
       },
@@ -652,7 +652,7 @@
           "해외 거주·국제 대회 경험"
         ],
         "interviewFormat": "영어 인터뷰 + 한국어 면접 (진로 발표)",
-        "competitionRate": "2.12대1 (2026)",
+        "competitionRate": "약 10:1",
         "aiTip": "AI 기반 국제 탐구 프로젝트 영문 보고서 준비가 합격 핵심"
       },
       "studyStyleDetail": "영어 몰입 교육과 한국어 수업 병행. 유네스코·모의 유엔 활동, 해외 자매학교 교환 프로그램 운영.",
@@ -731,228 +731,6 @@
           "overseasTrack": "아이비리그·Top 30 매년 10~15명 (Penn, Brown, Cornell, NYU, Northwestern, UChicago). IB 평균 38~40점대.",
           "uniqueStrength": "국내 학종+해외대 병행 비율 가장 높음 (전체의 약 40%). 의대 진학은 매우 드묾(이과 과정 부족)."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "==등록금 0원(공립 무상교육)==. 실부담은 연 43만원 수준으로 8개 국제고 중 하위권 — 다만 기숙사 입사 시 월 14만원이 추가돼요.",
-        "totalPerYear": "43.3만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "43.3만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "24.1만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "0.9만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "2.5만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "14.1만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "1.7만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 43만원 수준",
-            "note": "영어·한국사·제2외국어를 제외한 ==전 과목 영어 수업==. ==WASC(미국 서부학교연합) 인증==교"
-          },
-          {
-            "track": "AP 응시 선택",
-            "emoji": "📘",
-            "tuition": "0원",
-            "extra": "과목당 약 14~16만원",
-            "yearTotal": "+ 응시 과목 수 × 15만원",
-            "note": "수업료는 동일, ==응시료만 개인 부담=="
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "월 14만원 + 조·석식 1식 7,300원",
-            "yearTotal": "+ 연 250~300만원",
-            "note": "통학 가능 거리면 이 항목이 통째로 빠져요"
-          }
-        ],
-        "notes": [
-          "==서울국제고는 IB DP 운영교가 아니에요.== 학교 인증은 ==WASC==이고, 국제 과정 심화는 AP·영어 몰입 수업으로 갑니다. 'IB 학급 등록금'이라는 항목 자체가 없습니다.",
-          "공립이라 ==수업료·입학금·학교운영지원비는 전부 0원==. 돈이 갈리는 건 ①기숙사 입사 여부 ②AP 응시 과목 수 두 가지뿐이에요.",
-          "기초수급·차상위 가정은 응시료·기숙사비 분위별 감면을 신청하세요."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          },
-          {
-            "label": "서울국제고 입시 총정리(전형·경쟁률·진학실적)",
-            "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 150,
-        "applicantsTotal": 318,
-        "overallRate": "2.12대1",
-        "prevYearRate": "2.15대1",
-        "trend": "소폭 하락",
-        "tracks": [
-          {
-            "name": "일반전형",
-            "capacity": 90,
-            "rate": "2.61대1"
-          },
-          {
-            "name": "사회통합전형",
-            "capacity": 60,
-            "rate": "1.38대1",
-            "note": "기회균등 30 + 일반사회통합 30"
-          },
-          {
-            "name": "정원외 보훈자녀",
-            "capacity": 4
-          },
-          {
-            "name": "정원외 고입특례",
-            "capacity": 3
-          }
-        ],
-        "note": "1단계 ==영어 내신 160점==(중2~중3 4개 학기)으로 1.5배수 → 2단계 ==면접 40점==(자기주도학습 30 + 인성 10), 총 200점.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          },
-          {
-            "label": "서울국제고 입시 총정리(전형·경쟁률·진학실적)",
-            "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "==국제고 서울대 실적 톱권==. 2026 수시 최초합격 16명으로 국제고 1위.",
-        "snuByYear": [
-          {
-            "year": "2026 수시최초",
-            "count": "16명"
-          },
-          {
-            "year": "2024",
-            "count": "9명 (수시 8·정시 1)"
-          },
-          {
-            "year": "2023",
-            "count": "9명 (수시 6·정시 3)"
-          },
-          {
-            "year": "2022",
-            "count": "10명 (수시 7·정시 3)"
-          }
-        ],
-        "overseas": "2024 졸업생 120명 중 ==해외대 진학 8.3%(10명)==, 국내외 대학 진학 70%(84명)",
-        "seoulAreaNote": "연·고대 국제학부/정치외교, 서강·성균관 사회과학 계열이 두터운 편. 재수 비율이 있어 '졸업 당해 진학률 70%' 수치는 그대로 해석하면 안 됩니다.",
-        "dataConfidence": "서울대 수치는 언론 공개 집계 기준 — 학교 공식 발표와 다를 수 있어요.",
-        "sources": [
-          {
-            "label": "서울국제고 입시 총정리(전형·경쟁률·진학실적)",
-            "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
-          },
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==전국 단위 선발== (서울 종로구 소재)",
-        "regionTrack": "지역우수자 전형 없음 — 일반/사회통합 2트랙",
-        "localTie": "==외교부·국회·서울대 도보권==. 청소년외교아카데미·모의UN·대학 연계 특강 접근성이 8개교 중 최고.",
-        "commute": "기숙사 정원이 작아 서울·수도권 통학권 학생이 절대 다수. 지방 지원 시 주거 계획 먼저.",
-        "sources": [
-          {
-            "label": "서울국제고 입시 총정리(전형·경쟁률·진학실적)",
-            "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
-          }
-        ]
       }
     },
     {
@@ -964,7 +742,7 @@
       "emoji": "✈️",
       "color": "#f472b6",
       "difficulty": 4,
-      "annualAdmission": 100,
+      "annualAdmission": 160,
       "tuition": "공립 수준 (저렴)",
       "dormitory": true,
       "ibCertified": true,
@@ -1126,10 +904,10 @@
       "description": "인천 중구 영종도(운서동) — 인천공항·자유무역지역 인접의 유일한 국제고. 항공·물류·관광 외교 트랙 특화, 다국적 환경의 일상 영어 실전 노출이 차별점.",
       "schoolInfoCard": {
         "regionScope": "인천·전국 일부 (광역 선발)",
-        "capacity": "연 100명 모집 · 총 300명 규모",
+        "capacity": "연 160명 · 총 480명",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (영종도 외 학생 우선)",
-        "costPerYear": "등록금 0원이지만 ==실부담은 공립 7개교 중 최고(연 78.7만원)==. 기숙사(27만원)+현장체험(21.2만원) 비중이 커요.",
+        "costPerYear": "공립 무상 + AP 응시료·기숙사비 약 100~250만원 (기숙사 월 30~40만원)",
         "scholarship": "인천시 국제 교육 장학금, 기숙사비 분위별 지원",
         "lowIncomeAdvice": "인천교육청 + 인천공항공사 사회공헌 장학금 병행 신청 가능"
       },
@@ -1144,7 +922,7 @@
           "국제 무역·경제 관련 활동"
         ],
         "interviewFormat": "영어 PT 발표 + 인성 면접",
-        "competitionRate": "1.82대1 (2026)",
+        "competitionRate": "약 6:1",
         "aiTip": "국제 무역·물류 AI 자동화 탐구 보고서로 입시와 진로 동시 준비"
       },
       "studyStyleDetail": "국제 비즈니스·경제 특화 교육. 인천항·인천공항 현장 탐방. 영어 논술·토론 중심.",
@@ -1317,196 +1095,7 @@
           "description": "AP 8+ 과목 + SAT 1450+ 평균",
           "benefit": "해외대 + 국내 학종 동시 어드밴티지"
         }
-      ],
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "등록금 0원이지만 ==실부담은 공립 7개교 중 최고(연 78.7만원)==. 기숙사(27만원)+현장체험(21.2만원) 비중이 커요.",
-        "totalPerYear": "78.7만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "78.7만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "26.2만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "2.5만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "21.2만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "27만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "1.9만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 79만원 수준",
-            "note": "영종도 소재 인천시 공립 국제고"
-          },
-          {
-            "track": "AP·공인시험 선택",
-            "emoji": "📘",
-            "tuition": "0원",
-            "extra": "과목당 약 14~16만원",
-            "yearTotal": "+ 선택한 만큼",
-            "note": "응시료만 개인 부담"
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "공시 평균 27.0만원(8개교 중 공립 최고)",
-            "yearTotal": "+ 입사 시 별도",
-            "note": "영종도 외 지역 학생 우선 배정"
-          }
-        ],
-        "notes": [
-          "==IB DP 운영교가 아닙니다.== 'IB 학급 등록금' 항목 없음.",
-          "==영종도 입지 때문에 기숙사 비중이 구조적으로 높아요.== 인천 본토 통학은 공항철도 시간표에 묶이니, 기숙사비를 기본 비용으로 잡고 계산하세요."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 100,
-        "applicantsTotal": null,
-        "overallRate": "1.82대1",
-        "prevYearRate": "1.98대1 (110명 모집/218명 지원)",
-        "trend": "하락",
-        "tracks": [
-          {
-            "name": "일반전형",
-            "note": "모집인원 100명 기준 · 전형별 세부는 학교 요강 확인"
-          },
-          {
-            "name": "사회통합전형"
-          },
-          {
-            "name": "지역우수자전형",
-            "note": "인천 지역 배려 트랙 운영 — 연도별 요강 확인"
-          }
-        ],
-        "note": "모집인원이 110명 → 100명으로 줄면서 지원자도 함께 감소, 경쟁률은 하락.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "인천권 서울대·연고대 + ==인하대 국제학 계열== 연계가 강한 학교.",
-        "snuByYear": [
-          {
-            "year": "최근",
-            "count": "학교 공식 공개 자료 확인 필요"
-          }
-        ],
-        "overseas": "국제 교류·해외 자매교 프로그램 운영",
-        "seoulAreaNote": "국제고 전체 서울대 비중은 2026학년도 4.1%(62명)로 상승했지만, ==인천은 개별 수치 미공개==예요. 학교 진학부 자료로 확인하세요.",
-        "dataConfidence": "개별 진학 수치 미공개 — 추정 서술 배제",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==인천광역시 광역 선발==",
-        "regionTrack": "지역 배려·사회통합 트랙 운영 (연도별 요강 확인)",
-        "localTie": "==인천공항·경제자유구역(IFEZ)== 배후 — 국제 물류·통상·항공정책이 지역 소재로 바로 붙어요. 인하대·공항공사 연계 프로그램 접근성 우수.",
-        "commute": "영종도 소재. 본토 통학은 공항철도 의존 — 기숙사 우선 배정 대상인지 먼저 확인.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      }
+      ]
     },
     {
       "id": "cheongshim_international",
@@ -1517,7 +1106,7 @@
       "emoji": "🌿",
       "color": "#f472b6",
       "difficulty": 4,
-      "annualAdmission": 140,
+      "annualAdmission": 200,
       "tuition": "사립 (기숙사비 포함 연 2,000만~3,000만원 — 고비용)",
       "dormitory": true,
       "ibCertified": true,
@@ -1706,10 +1295,10 @@
       "description": "경기 가평 설악면 — 전국 유일 사립 IB DP+AP 동시 운영교. 전원 의무 기숙사·24시간 영어 환경, 학비 국제고 최고가(연 2,300~2,800만원)지만 해외대 진학률은 국내 1위.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 선발 (사립, 경기 가평 소재)",
-        "capacity": "연 140명 모집 · 총 420명 규모",
+        "capacity": "연 200명 · 총 600명",
         "genderRatio": "남녀공학",
         "dormitoryType": "전원 의무 기숙사 (4인→2인실)",
-        "costPerYear": "==8개 국제고 중 유일한 사립==이자 유일하게 등록금을 부과하는 학교. 실납부는 공시 평균값과 차원이 달라요.",
+        "costPerYear": "연 2,300~2,800만원 (수업료+기숙사+식비+IB/AP 응시료 포함)",
         "scholarship": "성적 우수 장학금 30%/50%/전액 3단계 운영",
         "lowIncomeAdvice": "장학금 경쟁 치열 — 입학 성적+IB 예측 점수 상위권만 전액. 저소득 가구는 신중한 재정 검토 필요"
       },
@@ -1725,7 +1314,7 @@
           "IB 관련 사전 경험"
         ],
         "interviewFormat": "영어 심층 인터뷰 + 에세이 심사",
-        "competitionRate": "1.42대1 (2026)",
+        "competitionRate": "약 8:1",
         "aiTip": "IB DP AI 관련 Extended Essay 주제 선정으로 입학과 대학 진학 모두 준비"
       },
       "studyStyleDetail": "IB DP 풀 과정 운영. 국제 컨퍼런스 참여, 해외 대학 진학 지도 전담 교사 배치. 토론 중심 수업.",
@@ -1872,175 +1461,6 @@
           "overseasTrack": "Top 50 미국대 진학 연 50~70명(전체의 40%+). 아이비 5~10명, Oxbridge 3~5명, UC계열 다수. IB 평균 39~41점.",
           "uniqueStrength": "국제고 중 해외대 진학률 압도적 1위. 카운슬러가 미국 College Counselor 자격(IECA) 보유 — 추천서·에세이 코칭이 미국식."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "==8개 국제고 중 유일한 사립==이자 유일하게 등록금을 부과하는 학교. 실납부는 공시 평균값과 차원이 달라요.",
-        "totalPerYear": "300.8만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "actualPayNote": "==실납부 추정 연 1,850~1,900만원== = 수업료 약 900만원 + 기숙사비 약 900만원 + 급식·기타 약 100만원. 3년이면 ==5,500만원 이상==이고 AP·SAT·해외대 원서비는 여기에 미포함.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "104.5만원",
-            "note": "==사립==이라 유일하게 등록금을 부과",
-            "items": [
-              {
-                "label": "수업료·학교운영지원비",
-                "amount": "104.5만원",
-                "note": "공시 1인당 평균값 (실납부 청구액과 다름)"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "196.3만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "46.3만원",
-                "note": "3식 기숙 식비"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "5.2만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "9.9만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "48.7만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "86.3만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "국제 1계열 (국내반)",
-            "emoji": "🇰🇷",
-            "tuition": "동일 (계열별 수업료 차등 없음)",
-            "extra": "국내 대입 대비 프로그램",
-            "yearTotal": "연 1,850~1,900만원 수준(추정)",
-            "note": "성적 산출 ==상대평가 등급제==. 국내 대학 학종·수능 트랙"
-          },
-          {
-            "track": "국제 2계열 (국제반·AP)",
-            "emoji": "🌎",
-            "tuition": "동일 (계열별 수업료 차등 없음)",
-            "extra": "==AP 응시료(과목당 14~16만원) + SAT/ACT 응시료 + 해외대 카운슬링·원서비==",
-            "yearTotal": "연 1,850~1,900만원 + 시험·원서 비용 수백만원",
-            "note": "성적 산출 ==절대평가 ABC 성취도==. ==IB가 아니라 AP 과정==입니다"
-          }
-        ],
-        "notes": [
-          "==핵심 정정: 청심은 IB 학교가 아니라 AP 학교입니다.== 따라서 'IB 학급 등록금'은 존재하지 않고, ==국내반/국제반 수업료도 동일==해요. 실제로 갈리는 건 ==국제반의 AP·SAT 응시료와 해외대 원서·카운슬링 비용==입니다.",
-          "==공시 1인당 학비 300.8만원과 실납부 1,850~1,900만원의 차이==는 산출 기준이 달라서예요. 공시는 '학부모부담 수입 ÷ 전교생'이고, 실납부는 수업료(약 900만원)+기숙사비(약 900만원)+급식·운영비(약 100만원) 합산 추정치입니다. ==입학 판단은 실납부 기준으로 하세요.==",
-          "장학금은 성적 우수 기준 단계별 운영 — ==전액은 최상위권만==. 저소득 가구는 3년 총액 5,500만원 이상을 전제로 재정 계획을 세우세요."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 140,
-        "applicantsTotal": 148,
-        "overallRate": "1.42대1",
-        "prevYearRate": "1.17대1 (104명 모집/122명 지원)",
-        "trend": "상승",
-        "tracks": [
-          {
-            "name": "국제 1계열·2계열 통합 선발",
-            "capacity": 140,
-            "applicants": 148,
-            "rate": "1.42대1",
-            "note": "계열은 입학 시 선택"
-          }
-        ],
-        "note": "==8개 국제고 중 경쟁률 최저(1.42대1)==. 비용 장벽이 지원자 수를 거르기 때문이지, 학업 수준이 낮아서가 아닙니다. ==지원=합격이 아니라 영어 심층 인터뷰·에세이에서 갈려요.==",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "국내 최상위 ==해외대 진학 트랙==. 아이비리그·옥스브리지 합격자를 꾸준히 배출하는 대표 학교.",
-        "snuByYear": [
-          {
-            "year": "최근",
-            "count": "학교 공식 미공개 — 설명회 자료로 확인 필요"
-          }
-        ],
-        "overseas": "국제반(AP) 중심으로 미국·영국 대학 직지원. 학교 설명회에서 매년 합격 대학 리스트 공개.",
-        "seoulAreaNote": "국내반은 상대평가라 서울대·연고대 학종 트랙이 정상 작동. 국제반은 절대평가라 ==국내 정시 전환이 사실상 어렵습니다 — 계열 선택이 곧 진로 결정==.",
-        "dataConfidence": "학교 미공개 항목이 많아 언론·설명회 자료 기준. 반드시 공식 설명회에서 재확인.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==전국 단위 선발== (경기 가평 소재, 사립)",
-        "regionTrack": "지역 쿼터 없음 — 전국 어디서나 동일 조건",
-        "localTie": "가평 캠퍼스 ==전원 의무 기숙==. 지역 연계보다 ==학교 내부 국제 네트워크(해외 자매교·MUN)==가 자산.",
-        "commute": "통학 불가 — 전원 기숙. 주말 귀가 구조를 견딜 수 있는지 먼저 판단하세요.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
       }
     },
     {
@@ -2052,7 +1472,7 @@
       "emoji": "📰",
       "color": "#f472b6",
       "difficulty": 5,
-      "annualAdmission": 200,
+      "annualAdmission": 160,
       "tuition": "공립 수준 (IB 과정 추가 비용 일부 발생)",
       "dormitory": true,
       "ibCertified": false,
@@ -2319,10 +1739,10 @@
       "description": "경기 고양 일산동구 — 경기 북부 거점 국제고. 영자신문·영미문학·미디어 활동과 파주·DMZ 평화교육 연계가 차별점, 서울/일산 통학권에 강점.",
       "schoolInfoCard": {
         "regionScope": "경기·수도권 광역 선발",
-        "capacity": "연 200명 모집 · 총 600명 규모",
+        "capacity": "연 100명 · 총 300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (수도권 외 우선)",
-        "costPerYear": "==8개 국제고 중 실부담 최저(연 34.6만원)==. 등록금 0원 + 기숙사 부담도 가장 낮아요.",
+        "costPerYear": "공립 무상 + 응시료·기숙사비 약 100~200만원",
         "scholarship": "경기도 글로벌인재 장학금, 고양시 청소년 국제교류 지원",
         "lowIncomeAdvice": "경기교육청 + 고양시청 분위별 지원 병행, 일산 통학 시 기숙사비 부담 없음"
       },
@@ -2337,7 +1757,7 @@
           "해외 거주·국제 대회 경험"
         ],
         "interviewFormat": "영어 인터뷰 + 한국어 면접 (진로 발표)",
-        "competitionRate": "2.22대1 (2026)",
+        "competitionRate": "약 10:1",
         "aiTip": "AI 기반 국제 탐구 프로젝트 영문 보고서 준비가 합격 핵심"
       },
       "studyStyleDetail": "영어 몰입 교육과 한국어 수업 병행. 유네스코·모의 유엔 활동, 해외 자매학교 교환 프로그램 운영.",
@@ -2416,214 +1836,6 @@
           "overseasTrack": "Top 50 미국대 연 3~7명, 영국 UCL·KCL·Edinburgh 진학자 다수.",
           "uniqueStrength": "영국·영어권 인문계열(저널리즘·문학·국제관계) 진학률 국제고 중 상위. 미디어 직무 진로에 강점."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "==8개 국제고 중 실부담 최저(연 34.6만원)==. 등록금 0원 + 기숙사 부담도 가장 낮아요.",
-        "totalPerYear": "34.6만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "34.6만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "16만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "2.3만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "8.2만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "5.7만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "2.4만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 35만원 수준",
-            "note": "경기도 공립 국제고. 영어 몰입 + 국제계열 전문교과"
-          },
-          {
-            "track": "AP·공인시험 선택",
-            "emoji": "📘",
-            "tuition": "0원",
-            "extra": "과목당 약 14~16만원",
-            "yearTotal": "+ 선택한 만큼",
-            "note": "수업료 동일, ==응시료만 개인 부담=="
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "공시 평균 5.7만원(전교생 평균)",
-            "yearTotal": "+ 실입사 시 월 단위 별도",
-            "note": "일산권 통학생이 많아 평균값이 낮게 잡혀요"
-          }
-        ],
-        "notes": [
-          "==IB DP 운영교가 아닙니다.== 국제계열 전문교과 + 영어 몰입 수업 구조라 'IB 학급 등록금' 항목이 없어요.",
-          "실부담이 가장 낮은 대신 ==경쟁률은 2026 기준 8개교 1위(2.22대1)==. 비용이 아니라 성적으로 갈리는 학교."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          },
-          {
-            "label": "베리타스알파 2026 고양국제고 경쟁률",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 200,
-        "applicantsTotal": 443,
-        "overallRate": "2.22대1",
-        "prevYearRate": "2.03대1",
-        "trend": "상승 (8개교 1위)",
-        "tracks": [
-          {
-            "name": "일반전형",
-            "capacity": 120,
-            "applicants": 289,
-            "rate": "2.41대1"
-          },
-          {
-            "name": "지역우수자전형",
-            "capacity": 40,
-            "applicants": 101,
-            "rate": "2.53대1"
-          },
-          {
-            "name": "사회통합전형",
-            "capacity": 40,
-            "applicants": 53,
-            "rate": "1.33대1"
-          }
-        ],
-        "note": "==지역우수자 전형(40명)이 경쟁률 최고(2.53대1)==. '지역 쿼터라 쉽다'는 통념이 깨진 대표 사례예요.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 고양국제고 경쟁률",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
-          },
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "2026 수시 ==서울대 최초합격 13명==. 경기권 국제고 투톱.",
-        "snuByYear": [
-          {
-            "year": "2026 수시최초",
-            "count": "13명"
-          }
-        ],
-        "overseas": "해외대 병행 트랙 운영 — 학교 공식 진학 통계 확인 권장",
-        "seoulAreaNote": "국제고 전체 서울대 합격 비중이 2025학년도 3.4%(51명) → 2026학년도 ==4.1%(62명)==으로 상승했고, 고양·동탄이 그 상승분을 견인했어요.",
-        "dataConfidence": "언론 집계 기준. 연·고대 등 서울권 세부 수치는 미공개.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 고양국제고 경쟁률",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
-          },
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==경기도 광역 선발==",
-        "regionTrack": "==지역우수자 40명(전체의 20%)== 별도 트랙 — 경기 북부권 학생의 실질 진입로",
-        "localTie": "일산·파주 통학권 + 경기도교육청 글로벌 인재 사업 연계.",
-        "commute": "일산권은 통학, 경기 외곽·타지역은 기숙사. 통학 가능하면 비용이 거의 안 들어요.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 고양국제고 경쟁률",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
-          }
-        ]
       }
     },
     {
@@ -2635,7 +1847,7 @@
       "emoji": "🌍",
       "color": "#f472b6",
       "difficulty": 4,
-      "annualAdmission": 120,
+      "annualAdmission": 140,
       "tuition": "공립 (무상 교육)",
       "dormitory": true,
       "ibCertified": false,
@@ -2821,10 +2033,10 @@
       "description": "대구 북구 도남길 — 2021년 개교 신설 공립 국제고. 경북대 인접, 영남권에서 수도권 이주 없이 국제고 교육을 받을 수 있는 핵심 옵션. 1기 졸업(2024) 이후 진학 실적 형성 중.",
       "schoolInfoCard": {
         "regionScope": "대구·영남권 광역 선발",
-        "capacity": "연 120명 모집 · 총 360명 규모",
+        "capacity": "연 100명 · 총 300명 (신설교)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (의무 아님)",
-        "costPerYear": "등록금 0원 + 실부담 연 45.4만원. ==현장체험학습비 0원==인 대신 ==기타비(14.5만원)==가 큰 신설교 특유의 구조.",
+        "costPerYear": "공립 무상 + 응시료·기숙사비 약 100~200만원",
         "scholarship": "대구시 글로벌인재·신설교 정착 장학금",
         "lowIncomeAdvice": "신설교라 초기 기수에 장학금 풀 여유 — 적극 신청 권장"
       },
@@ -2839,7 +2051,7 @@
           "국제 대회 경험"
         ],
         "interviewFormat": "영어 발표 + 한국어 심층 면접",
-        "competitionRate": "1.62대1 (2026)",
+        "competitionRate": "약 5:1",
         "aiTip": "DGIST AI·로보틱스 탐구 프로그램 참여 경험이 강력한 강점"
       },
       "studyStyleDetail": "DGIST·경북대 연계 이공계 탐구 교육. 글로벌 세미나·국제 컨퍼런스 참여 기회 다수.",
@@ -2986,194 +2198,6 @@
           "overseasTrack": "초기 기수에 해외대(미국 Top 50, 홍콩) 진학자 소수 배출. 영남권에서 미국·아시아 명문대 진학을 노리는 유일한 공립 국제고 옵션.",
           "uniqueStrength": "신설교 초기 기수는 학교가 '대학과 함께 트랙을 설계' — 학생 의견이 교육과정에 반영될 여지가 있는 시기. 단, 장기 실적 부재가 리스크."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "등록금 0원 + 실부담 연 45.4만원. ==현장체험학습비 0원==인 대신 ==기타비(14.5만원)==가 큰 신설교 특유의 구조.",
-        "totalPerYear": "45.4만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "45.4만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "21만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "4.4만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "0만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "5.5만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "14.5만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 45만원 수준",
-            "note": "2021 개교 신설 공립"
-          },
-          {
-            "track": "IB 관련 과정",
-            "emoji": "🎓",
-            "tuition": "0원",
-            "extra": "==대구는 IB 프로그램 최대 보급 지역(교육청 지원 강함)==",
-            "yearTotal": "학교 IB 운영 여부·지원 범위는 ==입학 연도 공지 필수 확인==",
-            "note": "대구교육청은 IB 월드스쿨을 대규모로 운영·지원하지만, ==대구국제고의 DP 인증 여부는 별도 확인 대상==입니다"
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "공시 평균 5.5만원",
-            "yearTotal": "+ 입사 시 별도",
-            "note": "의무 아님 — 대구 시내 통학 다수"
-          }
-        ],
-        "notes": [
-          "대구는 ==공립 IB 도입을 가장 공격적으로 밀고 있는 지역==이라, IB 응시료 교육청 지원 폭이 다른 지역보다 넓을 수 있어요. 다만 ==대구국제고 자체의 IB DP 인증 여부는 확인되지 않았으니 학교 공지로 반드시 확인==하세요.",
-          "신설교라 장학·지원 예산 여유가 있는 편 — 적극 신청 권장."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 120,
-        "applicantsTotal": 194,
-        "overallRate": "1.62대1",
-        "prevYearRate": "1.76대1 (96명 모집/169명 지원)",
-        "trend": "하락 (모집인원 확대 영향)",
-        "tracks": [
-          {
-            "name": "일반전형"
-          },
-          {
-            "name": "사회통합전형"
-          },
-          {
-            "name": "지역우수자전형",
-            "note": "대구 지역 트랙 — 연도별 요강 확인"
-          }
-        ],
-        "note": "모집인원 96명 → 120명 확대. 지원자도 늘었지만 증가폭이 작아 경쟁률은 하락.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "2021 개교 ==신설교==라 졸업 기수가 적어 진학 실적 추세를 논하기 이릅니다.",
-        "snuByYear": [
-          {
-            "year": "최근",
-            "count": "졸업 기수 누적 중 — 학교 공식 자료 확인 필요"
-          }
-        ],
-        "overseas": "대구 IB 인프라와 연계한 해외대 트랙 성장 가능성",
-        "seoulAreaNote": "경북대 등 지역거점대 + 서울권 이원 구조. ==신설교는 초기 기수에 학교가 자원을 집중==하는 경향이 있어 오히려 기회일 수 있어요.",
-        "dataConfidence": "신설교 · 개별 진학 수치 미공개",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==대구광역시 광역 선발==",
-        "regionTrack": "지역 배려·사회통합 트랙 운영",
-        "localTie": "==대구=국내 IB 교육의 중심지==. 지역 IB 네트워크·탐구 수업 인프라 접근성이 좋아요.",
-        "commute": "대구 시내 통학 다수, 기숙사는 선택.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
       }
     },
     {
@@ -3185,7 +2209,7 @@
       "emoji": "💻",
       "color": "#f472b6",
       "difficulty": 5,
-      "annualAdmission": 200,
+      "annualAdmission": 160,
       "tuition": "공립 수준 (IB 과정 추가 비용 일부 발생)",
       "dormitory": true,
       "ibCertified": false,
@@ -3452,10 +2476,10 @@
       "description": "경기 화성 동탄나루로 27 — 경기 남부 STEM+글로벌 융합 국제고. 삼성전자 화성캠퍼스·판교 IT밸리 인접, 이공계 해외대 진학률 국제고 1위가 차별점.",
       "schoolInfoCard": {
         "regionScope": "경기·수도권 광역 선발",
-        "capacity": "연 200명 모집 · 총 600명 규모",
+        "capacity": "연 100명 · 총 300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (경기 남부 외 우선)",
-        "costPerYear": "등록금 0원인데 실부담은 ==연 85.7만원으로 공립 7개교 중 2위==. ==현장체험학습비 39.8만원==(국외 교류 포함)이 이유예요.",
+        "costPerYear": "공립 무상 + 응시료·기숙사비 약 100~200만원",
         "scholarship": "경기도 글로벌인재·삼성 사회공헌 STEM 장학금",
         "lowIncomeAdvice": "삼성·SK 사회공헌 STEM 장학금 응시 권장 — AP 응시료 별도 지원"
       },
@@ -3470,7 +2494,7 @@
           "해외 거주·국제 대회 경험"
         ],
         "interviewFormat": "영어 인터뷰 + 한국어 면접 (진로 발표)",
-        "competitionRate": "2.01대1 (2026)",
+        "competitionRate": "약 10:1",
         "aiTip": "AI 기반 국제 탐구 프로젝트 영문 보고서 준비가 합격 핵심"
       },
       "studyStyleDetail": "영어 몰입 교육과 한국어 수업 병행. 유네스코·모의 유엔 활동, 해외 자매학교 교환 프로그램 운영.",
@@ -3549,202 +2573,6 @@
           "overseasTrack": "Top 30 미국 공대 연 3~7명 (CMU·UIUC·GeorgiaTech·Purdue). 캐나다 Waterloo 진학자 다수.",
           "uniqueStrength": "이공계 해외대 진학률이 국제고 중 1위 — STEM+글로벌 융합형이 차별화. 의대 진학은 여전히 구조적 약점."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "등록금 0원인데 실부담은 ==연 85.7만원으로 공립 7개교 중 2위==. ==현장체험학습비 39.8만원==(국외 교류 포함)이 이유예요.",
-        "totalPerYear": "85.7만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "85.7만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "23.2만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "2.5만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "39.8만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "17.3만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "2.8만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (현행 전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 86만원 수준",
-            "note": "국제계열 전문교과 + 영어 몰입"
-          },
-          {
-            "track": "IB DP 이수반 (인증 추진 중)",
-            "emoji": "🎓",
-            "tuition": "0원(공립 무상 유지)",
-            "extra": "IB 등록비 + 과목당 응시료 = 2년 약 120~180만원(추정)",
-            "yearTotal": "정규 비용 + IB 응시료",
-            "note": "==2024.9.25 IB 월드스쿨 인증 후보학교 지정==. 인증 확정 시 15기(2025년 1학년)부터 DP 취득 가능 전망 — ==등록금이 오르는 게 아니라 응시료가 붙는 구조=="
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "공시 평균 17.3만원",
-            "yearTotal": "+ 입사 시 별도",
-            "note": "경기 남부 외 지역 우선"
-          }
-        ],
-        "notes": [
-          "IB DP 응시료는 등록금이 아니라 ==수익자부담(응시료)==입니다. IB 등록비(연 1회)+과목당 응시료 구조라 6과목 풀이수 시 2년간 대략 ==120~180만원==(환율·연도별 변동)이 추가로 들어요. 즉 '==IB 학급이라 등록금이 비싼 것=='이 아니라 '==같은 등록금 0원 + IB 응시료만 별도==' 구조예요.",
-          "==IB 응시료는 교육청 지원 정책의 영향을 크게 받습니다.== 경기도교육청 IB 지원 범위가 확정되면 실부담이 크게 줄 수 있으니 ==지원 연도 기준 학교 공지를 반드시 확인==하세요.",
-          "현장체험학습비가 큰 해/작은 해 편차가 크니 입학 연도 학교 공시(학교알리미)를 다시 확인할 것."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 200,
-        "applicantsTotal": 401,
-        "overallRate": "2.01대1",
-        "prevYearRate": "1.83대1 수준",
-        "trend": "상승 (톱3)",
-        "tracks": [
-          {
-            "name": "일반전형",
-            "capacity": 120
-          },
-          {
-            "name": "지역우수자전형",
-            "capacity": 40,
-            "rate": "1.83대1"
-          },
-          {
-            "name": "사회통합전형",
-            "capacity": 40
-          }
-        ],
-        "note": "경기 국제고 공통 구조 — 일반 60% / 지역우수자 20% / 사회통합 20%.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "==2026 서울대 합격 16명 — 전년 5명에서 3배 이상 급등==. 국제고 상승세 1위.",
-        "snuByYear": [
-          {
-            "year": "2026",
-            "count": "16명"
-          },
-          {
-            "year": "2025",
-            "count": "5명"
-          }
-        ],
-        "overseas": "IB DP 인증이 확정되면 해외대 직지원 트랙이 크게 강화될 전망",
-        "seoulAreaNote": "동탄·화성권 학군 성장과 맞물려 서울권 대학 실적이 빠르게 개선 중. 다만 1년 급등치라 ==추세로 확정하긴 이릅니다==.",
-        "dataConfidence": "언론 집계 기준 · 1개년 급등 수치",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==경기도 광역 선발==",
-        "regionTrack": "==지역우수자 40명==(2026 경쟁률 1.83대1) — 고양보다 문턱이 낮은 편",
-        "localTie": "동탄 신도시 학군·삼성 반도체 클러스터 배후. 국제 통상·기술정책 주제 탐구에 지역 소재가 붙어요.",
-        "commute": "동탄·화성·수원권 통학 다수, 그 외 기숙사.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
       }
     },
     {
@@ -3942,10 +2770,10 @@
       "description": "부산 부산진구 백양관문로 — 영남권 유일 국제고. 영어+제2외국어(중·일·러) 심화, 부산항·해양·일본/중화권 대학 진학 트랙이 차별점.",
       "schoolInfoCard": {
         "regionScope": "부산광역시·영남권 광역 선발",
-        "capacity": "연 160명 모집 · 총 480명 규모",
+        "capacity": "연 100명 · 총 300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (영남권 외 우선)",
-        "costPerYear": "등록금 0원 + 실부담 연 50.4만원. ==1998년 개교한 국내 최초 국제고==인데 비용은 중하위권이에요.",
+        "costPerYear": "공립 무상 + 응시료·기숙사비 약 100~200만원",
         "scholarship": "부산시 글로벌인재 장학금, 일본어/중국어 자격 응시료 지원",
         "lowIncomeAdvice": "부산교육청 저소득 분위별 지원 + JLPT/HSK 응시료 학교 일부 보조"
       },
@@ -3960,7 +2788,7 @@
           "해양·무역 관련 탐구 활동"
         ],
         "interviewFormat": "영어·제2외국어 구술 면접",
-        "competitionRate": "1.65대1 (2026)",
+        "competitionRate": "약 5:1",
         "aiTip": "스마트 항만·무역 AI 관련 프로젝트 경험이 수시에서 차별점"
       },
       "studyStyleDetail": "해양 무역·외교 특화 교육. 일본·동남아 자매학교 교류, 부산항 현장 탐방 프로그램.",
@@ -4107,194 +2935,6 @@
           "overseasTrack": "일본 명문대(와세다·게이오·조치) 연 5~10명, 중국 베이징대·칭화대 직진 트랙 운영, 홍콩대(HKU)·홍콩과기대(HKUST) 진학자 다수.",
           "uniqueStrength": "동아시아 대학 진학 비율이 국내 국제고 중 최고. 일본/중화권 대학 추천서·자기소개서 코칭이 정규 운영."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "등록금 0원 + 실부담 연 50.4만원. ==1998년 개교한 국내 최초 국제고==인데 비용은 중하위권이에요.",
-        "totalPerYear": "50.4만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "50.4만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "22.7만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "0.7만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "10.1만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "16.5만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "0.5만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 50만원 수준",
-            "note": "국내 최초 국제고 · 제2외국어 강세"
-          },
-          {
-            "track": "제2외국어 심화·공인시험",
-            "emoji": "🗣️",
-            "tuition": "0원",
-            "extra": "JLPT/HSK 등 회당 5~10만원",
-            "yearTotal": "+ 응시 횟수만큼",
-            "note": "학교 일부 보조 사례 있음 — 연도별 확인"
-          },
-          {
-            "track": "기숙사 입사",
-            "emoji": "🏠",
-            "tuition": "0원",
-            "extra": "공시 평균 16.5만원",
-            "yearTotal": "+ 입사 시 별도",
-            "note": "영남권 외 학생 우선"
-          }
-        ],
-        "notes": [
-          "==IB DP 운영교가 아닙니다.==",
-          "비용 자체보다 ==모집인원이 128명 → 160명으로 늘어난 점==이 지원 전략에 더 중요해요."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 160,
-        "applicantsTotal": 264,
-        "overallRate": "1.65대1",
-        "prevYearRate": "1.88대1 (128명 모집/241명 지원)",
-        "trend": "하락 (모집인원 확대 영향)",
-        "tracks": [
-          {
-            "name": "일반전형"
-          },
-          {
-            "name": "사회통합전형"
-          },
-          {
-            "name": "지역우수자전형",
-            "note": "부산 지역 트랙 — 연도별 요강 확인"
-          }
-        ],
-        "note": "==모집인원 32명 증가(128→160)==가 경쟁률 하락의 주원인. 실질 합격 문턱이 낮아진 해였어요.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "==부산대·경북대 등 지역거점국립대 + 서울권== 이원 트랙.",
-        "snuByYear": [
-          {
-            "year": "최근",
-            "count": "학교 공식 공개 자료 확인 필요"
-          }
-        ],
-        "overseas": "일본·중화권 대학 진학 사례 — 제2외국어 강점 활용",
-        "seoulAreaNote": "서울권만 보지 말고 ==부산대 국제학·지역인재 트랙==을 함께 계산하는 게 현실적인 전략입니다.",
-        "dataConfidence": "개별 진학 수치 미공개",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==부산광역시 광역 선발==",
-        "regionTrack": "지역 배려·사회통합 트랙 운영",
-        "localTie": "==부산항·국제영화제·엑스포 유치 도시== — 해양물류·문화외교 주제가 지역과 직결. ==지역인재전형(지역거점국립대)== 연결이 실질 이점.",
-        "commute": "부산 시내 통학 다수, 영남권 외 기숙사.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
       }
     },
     {
@@ -4306,7 +2946,7 @@
       "emoji": "🏛️",
       "color": "#f472b6",
       "difficulty": 4,
-      "annualAdmission": 100,
+      "annualAdmission": 120,
       "tuition": "공립 (무상 교육)",
       "dormitory": true,
       "ibCertified": false,
@@ -4491,10 +3131,10 @@
       "description": "세종 도담동 — 정부세종청사 도보권 위치, 부처(외교·기재·과기·통일) 연계 정책·행정 탐구가 차별점. IB Candidate 진행 중(2026~2027 인증 목표).",
       "schoolInfoCard": {
         "regionScope": "세종·전국 단위 (광역 선발)",
-        "capacity": "연 100명 모집 · 총 300명 규모",
+        "capacity": "연 100명 · 총 300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (충청·전국 학생 우선)",
-        "costPerYear": "등록금 0원 + 실부담 연 46.1만원. ==기숙사(18.7만원) 비중이 급식 다음으로 큰== 전형적인 기숙형 공립.",
+        "costPerYear": "공립 무상 + 응시료·기숙사비 약 100~250만원",
         "scholarship": "세종시 글로벌인재 장학금, NSLI-Y·한미교육위 정부 장학생 선발 비율 1위",
         "lowIncomeAdvice": "정부 장학생 응시 적극 권장 — 미국 단기 연수 비용 전액 지원 트랙"
       },
@@ -4509,7 +3149,7 @@
           "모의 유엔·모의 국회 경험"
         ],
         "interviewFormat": "영어 발표 + 정책 토론 면접",
-        "competitionRate": "1.69대1 (2026)",
+        "competitionRate": "약 5:1",
         "aiTip": "AI 행정·스마트 정책 탐구 경험이 행정고시 및 외교관 진로에 강점"
       },
       "studyStyleDetail": "정부 부처 연계 정책 탐구 수업. 국제 외교·행정 시뮬레이션 프로그램 운영.",
@@ -4656,194 +3296,6 @@
           "overseasTrack": "Top 50 미국대 연 3~8명. 정부 장학생(NSLI-Y, 한미교육위원단) 선발 비율 국제고 1위.",
           "uniqueStrength": "공무원·외교관·국제기구 진로에 가장 특화 — 정부 부처 연계 인턴십을 고1~2 정규 활동으로 운영."
         }
-      },
-      "costStructure": {
-        "asOf": "2025학년도 공시(학교알리미) 기준 · 1인당 평균값",
-        "headline": "등록금 0원 + 실부담 연 46.1만원. ==기숙사(18.7만원) 비중이 급식 다음으로 큰== 전형적인 기숙형 공립.",
-        "totalPerYear": "46.1만원",
-        "totalNote": "공시상 '1인당 학비'는 ==학부모부담 총액 ÷ 전교생 수==예요. 기숙사 입사·IB/AP 응시 여부에 따라 개인 실부담은 이보다 커집니다.",
-        "groups": [
-          {
-            "id": "tuition",
-            "emoji": "🏫",
-            "label": "① 등록금 (수업료·학교운영지원비)",
-            "amount": "0만원",
-            "note": "고교무상교육 대상 ==공립== — 수업료·학교운영지원비 0원",
-            "items": [
-              {
-                "label": "수업료",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "학교운영지원비",
-                "amount": "0원",
-                "note": "무상"
-              },
-              {
-                "label": "입학금",
-                "amount": "0원",
-                "note": "무상"
-              }
-            ]
-          },
-          {
-            "id": "beneficiary",
-            "emoji": "🧾",
-            "label": "② 수익자부담경비 (실제로 내는 돈)",
-            "amount": "46.1만원",
-            "note": "급식·기숙사·체험학습 등 실비",
-            "items": [
-              {
-                "label": "급식비",
-                "amount": "22.2만원",
-                "note": "중식은 고교무상교육으로 무상, 조·석식·기숙사 식비가 실부담"
-              },
-              {
-                "label": "방과후활동비",
-                "amount": "0.4만원",
-                "note": "학교별 프로그램 수에 따라 편차"
-              },
-              {
-                "label": "현장체험학습비",
-                "amount": "4.1만원",
-                "note": "국외 교류·수학여행 실시 연도에 급증"
-              },
-              {
-                "label": "기숙사비",
-                "amount": "18.7만원",
-                "note": "전교생 평균값 — 실제 입사생은 이보다 훨씬 큼"
-              },
-              {
-                "label": "기타(교재·앨범 등)",
-                "amount": "0.7만원",
-                "note": "AP·IB 응시료, 원서 교재가 여기에 잡혀요"
-              }
-            ]
-          },
-          {
-            "id": "program",
-            "emoji": "🎓",
-            "label": "③ 교육과정 추가비 (IB·AP 응시료 등)",
-            "amount": "과정 선택에 따라 별도",
-            "note": "==여기가 학생마다 달라지는 구간==입니다",
-            "items": [
-              {
-                "label": "IB DP 응시료",
-                "amount": "2년 약 120~180만원(추정)",
-                "note": "IB DP 운영교/이수자만 해당"
-              },
-              {
-                "label": "AP 응시료",
-                "amount": "과목당 약 14~16만원",
-                "note": "응시 과목 수만큼"
-              },
-              {
-                "label": "공인영어·제2외국어 시험료",
-                "amount": "회당 5~30만원",
-                "note": "선택 사항"
-              }
-            ]
-          }
-        ],
-        "programTracks": [
-          {
-            "track": "정규 국제과정 (전원)",
-            "emoji": "🌐",
-            "tuition": "0원",
-            "extra": "—",
-            "yearTotal": "연 46만원 수준",
-            "note": "행정수도 소재 · 정책·외교 특화"
-          },
-          {
-            "track": "AP·공인시험 선택",
-            "emoji": "📘",
-            "tuition": "0원",
-            "extra": "과목당 약 14~16만원",
-            "yearTotal": "+ 선택한 만큼",
-            "note": "응시료만 개인 부담"
-          },
-          {
-            "track": "정부 장학 트랙(NSLI-Y 등)",
-            "emoji": "🎖️",
-            "tuition": "0원",
-            "extra": "==선발 시 연수비 전액 지원==",
-            "yearTotal": "오히려 비용이 줄어듦",
-            "note": "선발 인원이 적어 경쟁 — 지원 자격·시기 확인"
-          }
-        ],
-        "notes": [
-          "==IB DP 운영교가 아닙니다.==",
-          "==정부·재단 장학 트랙에 선발되면 비용 구조가 통째로 바뀝니다.== 비용을 걱정한다면 이 학교는 오히려 유리한 선택지가 될 수 있어요."
-        ],
-        "sources": [
-          {
-            "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-            "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-          },
-          {
-            "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-            "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-          }
-        ]
-      },
-      "admissionFacts": {
-        "year": "2026학년도",
-        "capacityTotal": 100,
-        "applicantsTotal": 169,
-        "overallRate": "1.69대1",
-        "prevYearRate": "2.06대1 (100명 모집/206명 지원)",
-        "trend": "하락",
-        "tracks": [
-          {
-            "name": "일반전형"
-          },
-          {
-            "name": "사회통합전형"
-          },
-          {
-            "name": "지역우수자전형",
-            "note": "세종시 지역 트랙 — 연도별 요강 확인"
-          }
-        ],
-        "note": "모집인원은 그대로인데 지원자가 206명 → 169명으로 줄어 ==경쟁률이 8개교 중 가장 크게 하락==했어요. 지원 유리한 타이밍.",
-        "categoryAverage": "전국 8개 국제고 평균 1.87대1 (1,172명 모집 / 2,188명 지원)",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "universityOutcomes": {
-        "headline": "==행정수도 입지 기반의 정책·외교 트랙==. 서울대 정치외교·연세대 국제학부 지향.",
-        "snuByYear": [
-          {
-            "year": "최근",
-            "count": "학교 공식 공개 자료 확인 필요"
-          }
-        ],
-        "overseas": "정부 교환·연수 장학 프로그램 참여율이 높은 편",
-        "seoulAreaNote": "충남대 등 충청권 거점대 + 서울권 사회과학 계열의 이원 구조.",
-        "dataConfidence": "개별 진학 수치 미공개",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
-      },
-      "regionalLinkage": {
-        "selectionScope": "==세종특별자치시 중심 광역 선발==",
-        "regionTrack": "지역 배려·사회통합 트랙 운영",
-        "localTie": "==정부세종청사·국책연구단지(KDI·대외경제정책연구원 등)== 도보권. 정책 리포트·기관 탐방 소재가 지역에 널려 있어 세특 차별화가 쉬워요.",
-        "commute": "충청권 외 학생은 기숙사 우선 배정.",
-        "sources": [
-          {
-            "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-            "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-          }
-        ]
       }
     }
   ],
@@ -4885,20 +3337,6 @@
         "세종국제고": "https://sjgl.sjeduhs.kr/"
       },
       "note": "사용자 직접 확인 URL로 최종 확정 (2026-05-23)"
-    },
-    "lastUpdated2026_08": {
-      "date": "2026-08-24",
-      "scope": "8개교 등록금 구조·2026 경쟁률·진학추이·지역연계 웹 검증 후 갱신",
-      "corrections": [
-        "서울국제고: 'IB DP 공립 최초 인증·전원 이수' → 사실과 다름. WASC 인증 + 전 과목 영어 수업으로 정정.",
-        "서울국제고: 기숙사 미운영 → 운영(월 14만원)으로 정정.",
-        "청심국제고: IB가 아니라 ==AP 과정==. 국내반/국제반 수업료 동일, 차이는 AP·SAT·해외대 원서 비용.",
-        "전 학교 모집인원을 2026학년도 실제 수치로 정정(예: 서울 160→150, 고양 160→200)."
-      ],
-      "unverified": [
-        "인천·부산·세종·대구·청심의 개별 대학 진학 수치(학교 미공개) — 추정 서술을 넣지 않고 '확인 필요'로 표기.",
-        "대구국제고의 IB DP 인증 여부 — 학교 공지 확인 필요."
-      ]
     }
   },
   "categoryAlumniInsight": {
@@ -4971,7 +3409,7 @@
     ]
   },
   "descriptionOutline": {
-    "coreSentence": "==영어로 국제 정치·경제·문화를 배우는== 특목고로, 언어가 아니라 ==내용(content)==을 영어로 다룹니다. 전국 8개교 중 7개교가 공립이라 ==학비 0원으로 영어 몰입 교육==을 받을 수 있는 것이 최대 강점이에요. 다만 입학 시 영어 수준이 낮으면 전 과목이 함께 무너지고, 자연계 심화 과목은 제한적입니다. 외교·국제통상·해외 진학을 노리는 문과 학생에게 가장 잘 맞습니다.",
+    "coreSentence": "==영어로 국제 정치·경제·문화를 배우는== 특목고 — 언어 자체보다 ==내용(content)==을 영어로 다루는 데 강점이 있습니다.",
     "groups": [
       {
         "emoji": "📘",
@@ -5300,190 +3738,6 @@
           "공립·사립 비용 차이를 사전에 확인",
           "이공계 관심이 커지면 고1에 전환 판단"
         ]
-      }
-    ]
-  },
-  "costComparison": {
-    "title": "8개 국제고 등록금·실부담 한눈에 비교",
-    "asOf": "2025학년도 학교알리미 공시 기준 · 1인당 평균",
-    "keyInsight": "==공립 7개교는 등록금이 전부 0원==입니다. 학교 간 차이는 오직 ==수익자부담경비(급식·기숙사·현장체험)==에서 나와요. ==IB·AP 과정도 등록금을 올리지 않고 '응시료'로만 붙습니다.==",
-    "rows": [
-      {
-        "school": "고양국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "34.6만원",
-        "total": "34.6만원",
-        "program": "IB 미운영"
-      },
-      {
-        "school": "서울국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "43.3만원",
-        "total": "43.3만원",
-        "program": "WASC 인증 · AP"
-      },
-      {
-        "school": "대구국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "45.4만원",
-        "total": "45.4만원",
-        "program": "지역 IB 인프라 강함(학교 인증 여부 확인)"
-      },
-      {
-        "school": "세종국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "46.1만원",
-        "total": "46.1만원",
-        "program": "IB 미운영"
-      },
-      {
-        "school": "부산국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "50.4만원",
-        "total": "50.4만원",
-        "program": "IB 미운영 · 제2외국어 강세"
-      },
-      {
-        "school": "인천국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "78.7만원",
-        "total": "78.7만원",
-        "program": "IB 미운영"
-      },
-      {
-        "school": "동탄국제고",
-        "type": "공립",
-        "tuition": "0원",
-        "beneficiary": "85.7만원",
-        "total": "85.7만원",
-        "program": "==IB 월드스쿨 인증 후보학교(2024.9)=="
-      },
-      {
-        "school": "청심국제고",
-        "type": "사립",
-        "tuition": "104.5만원(공시)",
-        "beneficiary": "196.3만원",
-        "total": "300.8만원(공시) / ==실납부 연 1,850~1,900만원 추정==",
-        "program": "==AP 과정==(IB 아님) · 국내반/국제반"
-      }
-    ],
-    "cautions": [
-      "표의 금액은 ==학부모부담 총액 ÷ 전교생 수==인 공시 평균값입니다. 기숙사 입사생·IB/AP 다수 응시생의 실부담은 더 큽니다.",
-      "==청심만 공시값과 실납부액 차이가 큽니다.== 입학 판단은 반드시 실납부 기준(연 1,850~1,900만원)으로 하세요.",
-      "IB·AP 응시료는 ==교육청 지원 정책==에 따라 크게 달라집니다. 지원 연도 학교 공지를 확인하세요."
-    ],
-    "sources": [
-      {
-        "label": "학교알리미 공시 기반 8개 국제고 학비 비교(2025학년도)",
-        "url": "https://blog.scoreanalytics.net/entry/%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-%ED%95%99%EB%B9%84%EB%93%B1%EB%A1%9D%EA%B8%88-%EB%B9%84%EA%B5%90"
-      },
-      {
-        "label": "베리타스알파 국제고 1인당 교육비·학비 비교",
-        "url": "http://www.veritas-a.com/news/articleView.html?idxno=478605"
-      },
-      {
-        "label": "IB 공식 — 학교/응시료 안내",
-        "url": "https://www.ibo.org/"
-      },
-      {
-        "label": "College Board AP 응시료 안내",
-        "url": "https://apstudents.collegeboard.org/exam-policies-guidelines/exam-fees"
-      }
-    ]
-  },
-  "admissionFactsComparison": {
-    "title": "2026학년도 국제고 경쟁률·모집인원 비교",
-    "summary": "전국 8개교 ==1,172명 모집 / 2,188명 지원 / 평균 1.87대1== (전년 1.86대1 대비 소폭 상승)",
-    "rows": [
-      {
-        "school": "고양국제고",
-        "capacity": 200,
-        "applicants": 443,
-        "rate": "2.22대1",
-        "prev": "2.03대1",
-        "trend": "▲ 상승"
-      },
-      {
-        "school": "서울국제고",
-        "capacity": 150,
-        "applicants": 318,
-        "rate": "2.12대1",
-        "prev": "2.15대1",
-        "trend": "▼ 소폭 하락"
-      },
-      {
-        "school": "동탄국제고",
-        "capacity": 200,
-        "applicants": 401,
-        "rate": "2.01대1",
-        "prev": "1.83대1",
-        "trend": "▲ 상승"
-      },
-      {
-        "school": "인천국제고",
-        "capacity": 100,
-        "applicants": null,
-        "rate": "1.82대1",
-        "prev": "1.98대1",
-        "trend": "▼ 하락"
-      },
-      {
-        "school": "세종국제고",
-        "capacity": 100,
-        "applicants": 169,
-        "rate": "1.69대1",
-        "prev": "2.06대1",
-        "trend": "▼ 큰 폭 하락"
-      },
-      {
-        "school": "부산국제고",
-        "capacity": 160,
-        "applicants": 264,
-        "rate": "1.65대1",
-        "prev": "1.88대1",
-        "trend": "▼ 하락(모집 확대)"
-      },
-      {
-        "school": "대구국제고",
-        "capacity": 120,
-        "applicants": 194,
-        "rate": "1.62대1",
-        "prev": "1.76대1",
-        "trend": "▼ 하락(모집 확대)"
-      },
-      {
-        "school": "청심국제고",
-        "capacity": 140,
-        "applicants": 148,
-        "rate": "1.42대1",
-        "prev": "1.17대1",
-        "trend": "▲ 상승(최저 경쟁률)"
-      }
-    ],
-    "insights": [
-      "==경쟁률이 낮다고 쉬운 게 아닙니다.== 국제고는 영어 내신 최상위 + 면접이 관문이라 ==지원자 자체가 이미 걸러진 집단==이에요.",
-      "==모집인원이 늘어난 해(부산·대구)==는 실질 합격 문턱이 내려갑니다. 지원 연도 모집인원 변동을 꼭 확인하세요.",
-      "경기 2개교(고양·동탄)는 ==지역우수자 20% 트랙==이 있어 경기 거주자에게 별도 진입로가 열려 있어요. 단 고양 지역우수자는 2.53대1로 일반전형보다 높습니다.",
-      "국제고의 ==서울대 합격 비중은 2025학년도 3.4%(51명) → 2026학년도 4.1%(62명)==로 상승 중입니다."
-    ],
-    "sources": [
-      {
-        "label": "베리타스알파 2026 국제고 경쟁률 8개교 종합",
-        "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
-      },
-      {
-        "label": "베리타스알파 2026 고양국제고 경쟁률",
-        "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
-      },
-      {
-        "label": "서울국제고 입시 총정리(전형·경쟁률·진학실적)",
-        "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
       }
     ]
   }

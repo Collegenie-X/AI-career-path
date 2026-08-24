@@ -9,10 +9,13 @@ export function IntroBanner() {
       className="rounded-2xl p-3.5 relative overflow-hidden"
       style={{ background: 'linear-gradient(135deg, rgba(108,92,231,0.3) 0%, rgba(59,130,246,0.2) 100%)', border: '2px solid rgba(108,92,231,0.4)' }}
     >
-      <div className="absolute top-2 right-3 text-5xl opacity-10">🌌</div>
+      {/* 장식용 글리프 — 확장 프로그램이 DOM을 건드려도 하이드레이션 경고가 나지 않게 억제 */}
+      <div className="absolute top-2 right-3 text-5xl opacity-10" aria-hidden suppressHydrationWarning>
+        🌌
+      </div>
       <div className="flex items-center gap-1.5 mb-1.5">
         <BookOpen className="w-4 h-4 text-primary" />
-        <span className="text-xs font-bold text-primary uppercase tracking-wider">
+        <span className="text-xs font-bold text-primary uppercase tracking-wider" suppressHydrationWarning>
           {LABELS.intro_banner_title}
         </span>
       </div>
