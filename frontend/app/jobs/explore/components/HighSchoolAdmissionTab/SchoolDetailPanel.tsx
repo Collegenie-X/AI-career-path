@@ -1104,13 +1104,13 @@ function SchoolJagonggoSections({
       {profile && (
         <div className="rounded-2xl p-4 space-y-3" style={cardStyle}>
           <p className="text-sm font-bold flex items-center gap-1.5" style={{ color: categoryColor }}>
-            🏛️ 자공고 2.0 프로필
+            {profile.profileTitle ?? '🏛️ 자공고 2.0 프로필'}
           </p>
 
           <div className="grid grid-cols-2 gap-2">
             {[
-              { label: '지정 차수', value: profile.cohort, emoji: '🗓️' },
-              { label: '지정 기간', value: profile.designationPeriod, emoji: '📆' },
+              { label: profile.cohortLabel ?? '지정 차수', value: profile.cohort, emoji: '🗓️' },
+              { label: profile.designationPeriodLabel ?? '지정 기간', value: profile.designationPeriod, emoji: '📆' },
               { label: '권역', value: profile.zone, emoji: '📍' },
               { label: '선택과제', value: profile.selectiveTask, emoji: '🎯' },
             ]
@@ -1197,7 +1197,9 @@ function SchoolJagonggoSections({
 
           {profile.requiredTask && (
             <div className="rounded-xl px-2.5 py-2" style={{ background: 'rgba(96,165,250,0.12)', border: '1px solid rgba(96,165,250,0.3)' }}>
-              <p className="text-[11px] font-bold text-blue-300 mb-0.5">📌 모든 지정교 공통 필수과제</p>
+              <p className="text-[11px] font-bold text-blue-300 mb-0.5">
+                📌 {profile.requiredTaskLabel ?? '모든 지정교 공통 필수과제'}
+              </p>
               <p className="text-[12px] text-gray-200 leading-relaxed"><HL text={profile.requiredTask} /></p>
             </div>
           )}
@@ -1253,7 +1255,9 @@ function SchoolJagonggoSections({
       {/* 다른 자공고 2.0과의 차이 */}
       {profile?.vsOtherJagonggo && (
         <div className="rounded-2xl p-4" style={cardStyle}>
-          <p className="text-sm font-bold mb-2" style={{ color: categoryColor }}>🆚 다른 자공고 2.0과 무엇이 다른가</p>
+          <p className="text-sm font-bold mb-2" style={{ color: categoryColor }}>
+            {profile.vsTitle ?? '🆚 다른 자공고 2.0과 무엇이 다른가'}
+          </p>
           <p className="text-[13px] font-bold text-white leading-relaxed mb-2">
             <HL text={profile.vsOtherJagonggo.headline} />
           </p>

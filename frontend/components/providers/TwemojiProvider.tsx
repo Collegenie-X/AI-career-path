@@ -83,7 +83,9 @@ export function TwemojiProvider({ children }: { children: React.ReactNode }) {
         src="https://cdn.jsdelivr.net/npm/@twemoji/api@15.1.0/dist/twemoji.min.js"
         crossOrigin="anonymous"
         strategy="lazyOnload"
-        onReady={() => afterHydration(applyTwemoji)}
+        onReady={() => {
+          afterHydration(applyTwemoji);
+        }}
       />
       {children}
     </>

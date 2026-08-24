@@ -618,8 +618,18 @@ export type HighSchoolGroupTree = {
   };
 };
 
-/** 자공고 2.0 등 협약형 학교의 지정·협약·특화 프로필 */
+/** 자공고 2.0·외고 등 유형별 학교 프로필 (지정·협약·전공·특화) */
 export type SchoolJagonggoProfile = {
+  /** 프로필 카드 제목 override (미입력 시 "🏛️ 자공고 2.0 프로필") */
+  profileTitle?: string;
+  /** 비교 카드 제목 override (미입력 시 "🆚 다른 자공고 2.0과 무엇이 다른가") */
+  vsTitle?: string;
+  /** cohort 필드 라벨 override (미입력 시 "지정 차수") */
+  cohortLabel?: string;
+  /** designationPeriod 필드 라벨 override (미입력 시 "지정 기간") */
+  designationPeriodLabel?: string;
+  /** requiredTask 블록 라벨 override (미입력 시 "모든 지정교 공통 필수과제") */
+  requiredTaskLabel?: string;
   cohort: string;
   designationPeriod: string;
   zone?: string;
