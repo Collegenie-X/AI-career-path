@@ -628,6 +628,8 @@ export type SchoolJagonggoProfile = {
   cohortLabel?: string;
   /** designationPeriod 필드 라벨 override (미입력 시 "지정 기간") */
   designationPeriodLabel?: string;
+  /** zone 필드 라벨 override (미입력 시 "권역") */
+  zoneLabel?: string;
   /** requiredTask 블록 라벨 override (미입력 시 "모든 지정교 공통 필수과제") */
   requiredTaskLabel?: string;
   cohort: string;

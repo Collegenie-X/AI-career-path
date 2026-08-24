@@ -1111,7 +1111,7 @@ function SchoolJagonggoSections({
             {[
               { label: profile.cohortLabel ?? '지정 차수', value: profile.cohort, emoji: '🗓️' },
               { label: profile.designationPeriodLabel ?? '지정 기간', value: profile.designationPeriod, emoji: '📆' },
-              { label: '권역', value: profile.zone, emoji: '📍' },
+              { label: profile.zoneLabel ?? '권역', value: profile.zone, emoji: '📍' },
               { label: '선택과제', value: profile.selectiveTask, emoji: '🎯' },
             ]
               .filter((item) => item.value)
@@ -1129,8 +1129,8 @@ function SchoolJagonggoSections({
               style={{ background: `${categoryColor}1a`, border: `1px solid ${categoryColor}40` }}
             >
               <p className="text-[11px] font-bold mb-0.5" style={{ color: categoryColor }}>학교 브랜드</p>
-              <p className="text-[13px] font-bold text-white leading-relaxed">{profile.brand}</p>
-              {profile.vision && <p className="text-[12px] text-gray-300 leading-relaxed mt-1">{profile.vision}</p>}
+              <p className="text-[13px] font-bold text-white leading-relaxed"><HL text={profile.brand} /></p>
+              {profile.vision && <p className="text-[12px] text-gray-300 leading-relaxed mt-1"><HL text={profile.vision} /></p>}
             </div>
           )}
 

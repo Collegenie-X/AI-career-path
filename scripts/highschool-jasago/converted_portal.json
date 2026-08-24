@@ -1,0 +1,191 @@
+{
+ "대성고등학교": [
+  {
+   "idx": "1398",
+   "name": "대성고등학교",
+   "address": "서울특별시 은평구 갈현로29길 51-24 , 대성고등학교 (갈현동)",
+   "homepage": "http://dae-sung.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1969년 01월 09일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "전기",
+   "tel": "02-6252-1000",
+   "students": "694",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "경문고등학교": [
+  {
+   "idx": "1356",
+   "name": "경문고등학교",
+   "address": "서울특별시 동작구 동작대로 171 , 경문고등학교 (동작동)",
+   "homepage": "http://kyungmoon.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1980년 01월 24일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "02-535-1301",
+   "students": "635",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "동성고등학교": [
+  {
+   "idx": "1425",
+   "name": "동성고등학교",
+   "address": "서울특별시 종로구 대학로 156 (혜화동,동성중고교)",
+   "homepage": "http://www.dongsung.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1907년 09월 10일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "",
+   "students": "630",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": "2022년 일반고 전환예정, 12월 학교장 선발 하지 않음"
+  }
+ ],
+ "숭문고등학교": [
+  {
+   "idx": "1537",
+   "name": "숭문고등학교",
+   "address": "서울특별시 마포구 숭문길 99 (대흥동)",
+   "homepage": "http://soongmoon.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1946년 08월 28일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "",
+   "students": "603",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": "2022년 일반고 전환예정, 12월 학교장 선발 하지 않음"
+  }
+ ],
+ "장훈고등학교": [
+  {
+   "idx": "1605",
+   "name": "장훈고등학교",
+   "address": "서울특별시 영등포구 영등포로64길 26 , 장훈고등학교 (신길동)",
+   "homepage": "http://www.janghoon.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1964년 01월 13일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "02-842-6921",
+   "students": "731",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "미림여자고등학교": [
+  {
+   "idx": "1446",
+   "name": "미림여자고등학교",
+   "address": "서울특별시 관악구 호암로 546 , 미림여자고등학교 (신림동)",
+   "homepage": "https://mirim.sen.hs.kr/",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1967년 12월 30일",
+   "office": "서울특별시교육청",
+   "coed": "녀",
+   "selectTime": "후기",
+   "tel": "02-886-1811",
+   "students": "442",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "우신고등학교": [
+  {
+   "idx": "1582",
+   "name": "우신고등학교",
+   "address": "서울특별시 구로구 부일로 917 , 우신고등학교 (궁동)",
+   "homepage": "http://wooshin.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1974년 01월 05일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "02-2610-1599",
+   "students": "755",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "용문고등학교": [
+  {
+   "idx": "1578",
+   "name": "용문고등학교",
+   "address": "서울특별시 성북구 고려대로17가길 46 (안암동2가, 용문중고등학교)",
+   "homepage": "http://yongmoon.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1946년 10월 12일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "02-928-3871",
+   "students": "781",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ],
+ "동양고등학교": [
+  {
+   "idx": "1426",
+   "name": "동양고등학교",
+   "address": "서울특별시 강서구 허준로 50 (가양동,동양고등학교)",
+   "homepage": "http://dongyang.sen.hs.kr",
+   "foundType": "사립",
+   "foundForm": "단설",
+   "foundDate": "1953년 05월 19일",
+   "office": "서울특별시교육청",
+   "coed": "남",
+   "selectTime": "후기",
+   "tel": "02-2657-0800",
+   "students": "435",
+   "teachers": "",
+   "classes": "",
+   "male": "",
+   "female": "",
+   "note": ""
+  }
+ ]
+}

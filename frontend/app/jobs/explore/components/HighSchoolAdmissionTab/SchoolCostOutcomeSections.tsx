@@ -376,7 +376,7 @@ function UniversityOutcomesSection({ school, color }: { school: HighSchoolDetail
           <p className="text-xs text-gray-300 leading-relaxed">🏙️ <span className="text-gray-400">{o.seoulAreaLabel ?? '서울권'} · </span><HL text={o.seoulAreaNote} /></p>
         )}
         {o.dataConfidence && (
-          <p className="text-[11px] text-gray-500 leading-relaxed">⚠️ {o.dataConfidence}</p>
+          <p className="text-[11px] text-gray-500 leading-relaxed">⚠️ <HL text={o.dataConfidence} /></p>
         )}
       </div>
       <SourceList sources={o.sources} color={color} />

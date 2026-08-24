@@ -11,6 +11,17 @@
       },
       "port": 58028,
       "autoPort": false
+    },
+    {
+      "name": "Frontend (verify-copy)",
+      "runtimeExecutable": "/Users/kimjongphil/.nvm/versions/node/v20.19.5/bin/npx",
+      "runtimeArgs": ["next", "dev", "-p", "58228"],
+      "cwd": "frontend/out/verify",
+      "env": {
+        "PATH": "/Users/kimjongphil/.nvm/versions/node/v20.19.5/bin:/usr/local/bin:/usr/bin:/bin"
+      },
+      "port": 58228,
+      "autoPort": false
     }
   ]
 }

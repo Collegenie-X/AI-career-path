@@ -619,4 +619,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudiocode,nextjs,django,python,react,reactnative
+# End of https://www.toptal.com/developers/gitignore/api/windows,macos,visualstudiocode,nextjs,django,python,react,reactnativescripts/highschool-jasago/out.json
+scripts/highschool-jasago/__pycache__/
