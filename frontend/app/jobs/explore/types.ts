@@ -68,6 +68,94 @@ export type AiTransformation = {
   collaborationPlaybook?: AiCollaborationPlaybookStep[];
 };
 
+/** 프로젝트 기반 실행 트랙 — 커리어 패스에서 방향을 찾은 뒤 직접 굴리는 3단계 프로젝트 */
+export type JobProject = {
+  /** 입문 / 심화 / 창직 */
+  level: string;
+  /** 예: '중1~중3 · 프로젝트 1' */
+  stage: string;
+  icon: string;
+  title: string;
+  /** 이 프로젝트로 무엇을 얻는가 (한 문장) */
+  mission: string;
+  steps: string[];
+  aiStack: string[];
+  deliverable: string;
+  /** 완료 판정 기준 (숫자로 확인 가능한 것) */
+  proof: string;
+  /** 생기부·포트폴리오·창직 명함으로의 연결 */
+  record: string;
+  duration: string;
+  cost: string;
+};
+
+export type JobProjectTrack = {
+  title: string;
+  why: string;
+  /** 이 직업의 기본 제작 라인 (도구 조합) */
+  stack: string[];
+  projects: JobProject[];
+};
+
+/** 2032년 현재 — 이 직업이 실제로 어떻게 일하고 있는가 */
+export type JobFuture2032DaySlot = {
+  time: string;
+  icon: string;
+  activity: string;
+  /** 이 시간대에 AI가 처리하는 일 */
+  aiRole: string;
+  /** 같은 시간대에 사람이 반드시 맡는 일 */
+  humanRole: string;
+};
+
+export type JobFuture2032Skill = {
+  name: string;
+  /** 왜 2032년에 이 역량이 값을 갖는가 */
+  why: string;
+  /** 중·고등학생이 지금 훈련하는 방법 */
+  howToTrain: string;
+  /** 1~5: 이 직업에서의 비중 */
+  weight: number;
+};
+
+export type JobFuture2032Tool = {
+  name: string;
+  /** 이 도구로 무엇을 하는가 */
+  role: string;
+  /** '필수' | '권장' | '심화' (JSON import 호환을 위해 string) */
+  level: string;
+};
+
+export type JobFuture2032NewRole = {
+  name: string;
+  what: string;
+  salary?: string;
+};
+
+export type JobFuture2032 = {
+  /** 한 문장 결론 */
+  headline: string;
+  summary: string;
+  roleShift: { from: string; to: string; note: string };
+  dayInLife: {
+    title: string;
+    note?: string;
+    slots: JobFuture2032DaySlot[];
+  };
+  /** AI 시대 필수 역량 */
+  aiSkills: JobFuture2032Skill[];
+  /** 실제로 쓰는 AI 도구 스택 */
+  toolStack: JobFuture2032Tool[];
+  /** AI가 가져간 일 */
+  fading: string[];
+  /** 사람 몫으로 남은 일 */
+  moat: string[];
+  /** 2032년에 새로 생긴 역할 */
+  newRoles: JobFuture2032NewRole[];
+  /** 중·고등학생이 지금 시작할 것 */
+  startNow: string[];
+};
+
 export type Job = {
   id: string;
   name: string;
@@ -96,6 +184,10 @@ export type Job = {
   };
   organizationStructure?: OrganizationStructure;
   aiTransformation?: AiTransformation;
+  /** 프로젝트 기반 실행 트랙 (있는 직업만 '프로젝트' 탭 노출) */
+  projectTrack?: JobProjectTrack;
+  /** 2032년 현재 모습 (있는 직업만 '2032' 탭 노출) */
+  future2032?: JobFuture2032;
 };
 
 export type WorkPhase = {

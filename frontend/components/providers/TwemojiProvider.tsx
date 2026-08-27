@@ -30,19 +30,52 @@ function applyTwemoji() {
   window.twemoji.parse(document.body, TWEMOJI_OPTIONS);
 }
 
-/** 하이드레이션 커밋이 브라우저에 반영된 다음 프레임까지 기다린다 */
+/**
+ * 하이드레이션이 "전부" 끝난 뒤에 실행한다.
+ *
+ * 페이지 최상단 <Suspense> 안쪽 트리는 루트 커밋보다 늦게 하이드레이션되므로
+ * rAF 두 번만으로는 부족하다. React의 하이드레이션 작업은 스케줄러 태스크로 돌기 때문에,
+ * load 이벤트 이후 브라우저가 idle 상태가 될 때까지 기다리면 남은 경계까지 안전하게 커밋된 뒤다.
+ */
 function afterHydration(run: () => void) {
   if (typeof window === 'undefined') return () => {};
+
   let cancelled = false;
-  let frame = requestAnimationFrame(() => {
+  const timers: Array<ReturnType<typeof setTimeout>> = [];
+  let frame = 0;
+  let idle = 0;
+
+  const cancel = () => {
+    cancelled = true;
+    timers.forEach(clearTimeout);
+    if (frame) cancelAnimationFrame(frame);
+    if (idle && typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(idle);
+    window.removeEventListener('load', onLoad);
+  };
+
+  const finish = () => {
     frame = requestAnimationFrame(() => {
       if (!cancelled) run();
     });
-  });
-  return () => {
-    cancelled = true;
-    cancelAnimationFrame(frame);
   };
+
+  const whenIdle = () => {
+    if (cancelled) return;
+    if (typeof window.requestIdleCallback === 'function') {
+      idle = window.requestIdleCallback(finish, { timeout: 1000 });
+      return;
+    }
+    timers.push(setTimeout(finish, 300));
+  };
+
+  function onLoad() {
+    whenIdle();
+  }
+
+  if (document.readyState === 'complete') whenIdle();
+  else window.addEventListener('load', onLoad, { once: true });
+
+  return cancel;
 }
 
 export function TwemojiProvider({ children }: { children: React.ReactNode }) {

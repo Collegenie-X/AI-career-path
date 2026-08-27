@@ -19,6 +19,8 @@ type RichCategoryKey =
   | 'intern'
   | 'volunteer'
   | 'camp'
+  | 'reading'
+  | 'campaign'
   | 'activity';
 
 type RichCategoryConfig = {
@@ -48,6 +50,22 @@ const RICH_CATEGORY_CONFIGS: RichCategoryConfig[] = [
     emoji: '📄',
     label: (LABELS.detail_rich_paper as string) ?? '논문·연구',
     matcher: (_, text) => /논문|연구|r&e|탐구|리서치|보고서/i.test(text),
+  },
+  {
+    key: 'campaign',
+    emoji: '🎬',
+    label: (LABELS.detail_rich_campaign as string) ?? '캠페인·영상',
+    matcher: (item, text) =>
+      (item.categoryTags ?? []).includes('campaign') ||
+      /캠페인|영상|숏폼|유튜브|카드뉴스|상영|다큐/i.test(text),
+  },
+  {
+    key: 'reading',
+    emoji: '📚',
+    label: (LABELS.detail_rich_reading as string) ?? '독서',
+    matcher: (item, text) =>
+      (item.categoryTags ?? []).includes('reading') ||
+      /병렬 독서|완독|독서 기록|서평/i.test(text),
   },
   {
     key: 'intern',

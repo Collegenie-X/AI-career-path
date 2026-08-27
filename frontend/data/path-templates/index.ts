@@ -5,6 +5,7 @@
  * - career-path-templates-admission.json: 대입(대학-학과) 합격 커리어 패스 (수시·정시·유학)
  * - career-path-templates-highschool.json: 고입(과학고·외고·자사고) 합격 커리어 패스
  * - career-path-templates-future.json: AI·피지컬AI·2028 대입 미래지향 가상 템플릿 (isAiGenerated)
+ * - career-path-templates-venture2032.json: 2032 창직(1인 기업) 8개 별 영역 3년 패스 (isAiGenerated)
  */
 
 import admissionTemplates from './career-path-templates-admission.json';
@@ -13,6 +14,8 @@ import highschoolTemplates from './career-path-templates-highschool.json';
 import aiTemplatesRaw from './career-path-templates.json';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 import futureTemplatesRaw from './career-path-templates-future.json';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+import venture2032TemplatesRaw from './career-path-templates-venture2032.json';
 import { normalizeCareerPathTemplates } from './career-item-structure';
 
 export type CareerPathTemplate = (typeof admissionTemplates)[0] & {
@@ -44,9 +47,12 @@ export type CareerPathTemplate = (typeof admissionTemplates)[0] & {
 const aiTemplates = aiTemplatesRaw as any[];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const futureTemplates = futureTemplatesRaw as any[];
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const venture2032Templates = venture2032TemplatesRaw as any[];
 
-/** 고입 + 대입 + AI + 미래지향 커리어 패스 통합 (탐색 피드) */
+/** 창직 2032 + 고입 + 대입 + AI + 미래지향 커리어 패스 통합 (탐색 피드) */
 export const careerPathTemplates: CareerPathTemplate[] = [
+  ...venture2032Templates,
   ...futureTemplates,
   ...highschoolTemplates,
   ...admissionTemplates,

@@ -11,6 +11,7 @@ import { ITEM_TYPES, GRADE_YEARS, LABELS } from '../config';
 import type { CareerPathTemplate } from '@/data/path-templates';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
+import { CareerPathAiEraSection } from './CareerPathAiEraSection';
 import { RecommendedActivitiesSection } from './CareerPathDetailPanelSections';
 import { CareerPathExpandBottomSheetDialog } from './expandable-detail';
 import { AiGeneratedNoticeBanner } from './AiGeneratedNotice';
@@ -469,6 +470,8 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
             {/* Description */}
             <p className="text-sm text-gray-400 leading-relaxed">{template.description}</p>
 
+            <CareerPathAiEraSection template={template} />
+
             <DetailRichInfoSection template={template} />
 
             {/* 수시·정시·유학 전략 (대입 템플릿) */}
@@ -591,10 +594,19 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                             ? yearAny.goals
                             : ['활동 목록'];
                           const items = Array.isArray(yearAny.items) ? yearAny.items : [];
+                          const hasGoalIndex = items.some(
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                            (it: any) => typeof it?.goalIndex === 'number',
+                          );
                           goals.forEach((goal: string, idx: number) => {
                             allGroups.push({
                               goal,
-                              items: idx === 0 ? items : [],
+                              items: hasGoalIndex
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                ? items.filter((it: any) => (typeof it?.goalIndex === 'number' ? it.goalIndex : 0) === idx)
+                                : idx === 0
+                                  ? items
+                                  : [],
                             });
                           });
                         }

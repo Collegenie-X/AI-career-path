@@ -9,7 +9,7 @@
     "starId": "tech",
     "starName": "기술 왕국",
     "starEmoji": "💻",
-    "starColor": "#3498DB",
+    "starColor": "#10B981",
     "jobId": "univ-snu-cse",
     "jobName": "서울대 컴퓨터공학과",
     "jobEmoji": "💻",
@@ -131,7 +131,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 24,
+    "totalItems": 26,
     "years": [
       {
         "gradeId": "mid2",
@@ -169,7 +169,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권"
+            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -201,7 +202,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "이솦 수료증 1장 + 주차별 실습 코드 12개"
+            "deliverable": "이솦 수료증 1장 + 주차별 실습 코드 12개",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -233,7 +235,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "플레이 가능한 게임 1편 + GitHub 저장소 1개(커밋 30회 이상) + 친구 5명 테스트 기록 1장"
+            "deliverable": "플레이 가능한 게임 1편 + GitHub 저장소 1개(커밋 30회 이상) + 친구 5명 테스트 기록 1장",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -269,7 +272,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "solved.ac Silver 4 티어 + 누적 해결 100문제"
+            "deliverable": "solved.ac Silver 4 티어 + 누적 해결 100문제",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -296,7 +300,8 @@
               "Pinecone"
             ],
             "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 3분 데모 영상 1편",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -337,7 +342,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "정보처리기능사 자격증 1개"
+            "deliverable": "정보처리기능사 자격증 1개",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -373,7 +379,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "KOI 예선 통과 확인 1건 + 기출 풀이 노트 1권"
+            "deliverable": "KOI 예선 통과 확인 1건 + 기출 풀이 노트 1권",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -404,7 +411,8 @@
                 "kind": "application"
               }
             ],
-            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)"
+            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -440,7 +448,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "배포 URL 1개 + GitHub 저장소 1개(README 포함) + 실사용 글 10건"
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개(README 포함) + 실사용 글 10건",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -467,7 +476,8 @@
               "Vercel"
             ],
             "deliverable": "배포 URL 1개 + 베타 사용자 10명 피드백 정리 1편",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -478,7 +488,8 @@
           "COS Pro 1급 합격증 1개 취득 (4월)",
           "KOI 본선 입상 상장 1개 (7월)",
           "앱 1개 스토어 등록(또는 APK 공개) + 커밋 50회 이상 (11월)",
-          "GPT API 챗봇 URL 1개 배포(질문 50건) + scikit-learn 탐구 보고서 1편(A4 5쪽) (12월)"
+          "GPT API 챗봇 URL 1개 배포(질문 50건) + scikit-learn 탐구 보고서 1편(A4 5쪽) (12월)",
+          "12월까지 1주제 3권 병렬 독서 4세트(12권) + 문제 카드 12장 작성"
         ],
         "items": [
           {
@@ -507,7 +518,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "COS Pro 1급 합격증 1개"
+            "deliverable": "COS Pro 1급 합격증 1개",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -544,7 +556,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "KOI 본선 입상 상장 1개"
+            "deliverable": "KOI 본선 입상 상장 1개",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -580,7 +593,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "스토어 등록 앱 1개(또는 APK 공개) + GitHub 저장소 1개(커밋 50회 이상) + 실사용자 10명 기록"
+            "deliverable": "스토어 등록 앱 1개(또는 APK 공개) + GitHub 저장소 1개(커밋 50회 이상) + 실사용자 10명 기록",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -610,7 +624,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 질문 로그 50건"
+            "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 질문 로그 50건",
+            "goalIndex": 3
           },
           {
             "type": "activity",
@@ -635,7 +650,37 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "탐구 보고서 1편(A4 5쪽) + 실험 노트북 1개"
+            "deliverable": "탐구 보고서 1편(A4 5쪽) + 실험 노트북 1개",
+            "goalIndex": 3
+          },
+          {
+            "type": "activity",
+            "title": "1주제 3권 병렬 독서 4세트 — 컴퓨팅이 바꾼 것과 망친 것을 같이 읽기",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "organizer": "자체 (ReadingClue식 병렬 독서)",
+            "description": "주 2회 1시간, 세트당 6~8주. ① 관심 주제 1개를 고정합니다. ② 컴퓨터과학 이론 1권·기술 사회 비판 1권·개발 현장 기록 3권을 병렬로 읽습니다. ③ 세 권이 어긋나는 지점 3곳에서 문제 카드 5칸(배경·주장·반론·근거·확인 방법)을 채웁니다. ④ 카드마다 \"내가 직접 확인할 방법\"을 한 줄 적고, 못 적는 카드는 버립니다. ④ 12장 중 \"고등학생이 직접 확인할 수 있는 것\" 3개만 남겨 탐구·소논문 주제로 잇습니다. 완료 기준: 12월까지 12권 완독 + 문제 카드 12장 + 실행 가능한 탐구 주제 3개.",
+            "deliverable": "문제 카드 12장 + 독서 기록 12권 + 만들 것/탐구할 것 후보 3개",
+            "cost": "무료 (도서관 대출)",
+            "categoryTags": [
+              "reading",
+              "paper"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "aiTools": [
+              "NotebookLM",
+              "Claude(설계 반론)"
+            ],
+            "goalIndex": 4
           }
         ]
       },
@@ -676,7 +721,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+            "deliverable": "TOEFL 성적표 1장(100점 이상)",
+            "goalIndex": 0
           },
           {
             "type": "portfolio",
@@ -710,7 +756,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "운영 중인 서비스 URL 1개 + GitHub 저장소 1개(커밋 80회 이상)"
+            "deliverable": "운영 중인 서비스 URL 1개 + GitHub 저장소 1개(커밋 80회 이상)",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -753,7 +800,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회"
+            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -772,7 +820,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "모의고사 성적표 3회분(수학·영어 2등급 이내)"
+            "deliverable": "모의고사 성적표 3회분(수학·영어 2등급 이내)",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -799,7 +848,8 @@
               "Python"
             ],
             "deliverable": "GitHub 저장소 1개 + 3분 데모 영상 1편 + 기술 블로그 글 1편",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -807,15 +857,16 @@
         "gradeId": "high3",
         "gradeLabel": "고3",
         "goals": [
-          "자기소개서 최종본 확정 + 수정 이력 5개 버전 (8월)",
+          "생기부 연계 면접 자료 6건 정리 + 개정 이력 5개 버전 (8월)",
           "모의면접 5회 완료 + 예상 질문 30문항 답변 정리 (11월)",
           "수능 주요 4개 과목 1등급 (11월)",
-          "AI 에이전트 서비스 사용자 50명 + 1개월 운영 통계 1편 (6월)"
+          "AI 에이전트 서비스 사용자 50명 + 1개월 운영 통계 1편 (6월)",
+          "9월까지 서비스 운영 매뉴얼 1부 + 인수인계 1회 + 3분 소개 영상 1편 완성"
         ],
         "items": [
           {
             "type": "activity",
-            "title": "수시 자기소개서 완성 (5회 이상 수정)",
+            "title": "생기부 연계 면접 자료 정리 (활동 6건 × 답변 카드, 5회 개정)",
             "months": [
               3,
               4,
@@ -827,12 +878,13 @@
             "difficulty": 3,
             "cost": "무료~컨설팅 50만원",
             "organizer": "자체",
-            "description": "3~8월 주 1회 2시간씩 쓴다. ① 3월에 학생부를 처음부터 읽고 R&E·KOI·프로젝트 중 핵심 경험 3개를 고르기 ② 경험마다 계기·행동·배운 점을 400자로 쓰고 초고를 완성 ③ 교사·선배 피드백을 받아 3주 간격으로 5회 고치기. 완료 기준: 최종본 확정, 버전 5개 보관.",
+            "description": "2024학년도부터 대입 자기소개서는 전 대학에서 폐지됐습니다. 대신 학생부에 남은 활동을 면접에서 스스로 설명하는 능력이 평가됩니다. ① 3년 활동 중 6건을 골라 '무엇을 왜 했고, 무엇이 바뀌었나'를 각 1장으로 정리합니다. ② 활동마다 숫자 근거 1개를 반드시 넣습니다. ③ 5회 개정하며 담당 선생님 검토 2회를 받습니다. 완료 기준: 활동 정리 6장 + 개정 이력 5개 버전.",
             "categoryTags": [
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "최종 자기소개서 1편 + 수정 이력 5개 버전"
+            "deliverable": "면접용 활동 정리 6장(각 숫자 근거 1개 포함) + 개정 이력 5개 버전 + 교사 검토 2회",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -850,7 +902,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권"
+            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -871,7 +924,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "수능 성적표 1장(1등급 4개) + 오답노트 4권"
+            "deliverable": "수능 성적표 1장(1등급 4개) + 오답노트 4권",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -899,11 +953,263 @@
               "PostHog (분석)"
             ],
             "deliverable": "운영 중인 서비스 URL 1개 + 1개월 사용자 통계 1편(사용자 50명)",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "portfolio",
+            "title": "창직 마무리 — 혼자 굴리는 서비스 운영 체계 만들기 (7~9월)",
+            "months": [
+              7,
+              8,
+              9
+            ],
+            "difficulty": 3,
+            "organizer": "자체",
+            "description": "서비스를 '만든 것'에서 '운영되는 것'으로 넘기는 단계입니다. ① 배포·모니터링·문의 대응·비용 정산을 주 단위 체크리스트로 정리해 매뉴얼 A4 2장을 만듭니다. ② 후배 1명에게 매뉴얼만 보고 1주간 운영하게 해 막힌 지점을 반영합니다. ③ 서버·API 비용과 투입 시간을 정산해 '이 서비스의 원가'를 계산합니다. 완료 기준: 매뉴얼 A4 2장 · 인수인계 1회 · 원가 정산표 1장 · 3분 소개 영상 1편.",
+            "categoryTags": [
+              "project"
+            ],
+            "activitySubtype": "project",
+            "projectTrack": true,
+            "priority": "boost",
+            "aiTools": [
+              "ChatGPT",
+              "Notion",
+              "CapCut"
+            ],
+            "deliverable": "운영 매뉴얼 A4 2장 + 인수인계 기록 1건 + 원가 정산표 1장 + 3분 소개 영상 1편",
+            "cost": "서버·API 실비 월 1~3만원",
+            "goalIndex": 4
           }
         ]
       }
-    ]
+    ],
+    "northStar": {
+      "goal": "코딩을 잘하는 학생이 아니라 'AI 에이전트로 서비스를 혼자 굴리는 학생'이 된다 — 실사용자 50명이 매달 쓰는 서비스 1개를 운영한다.",
+      "proof": "배포 서비스 4개 · 최종 서비스 실사용자 50명 · 1개월 운영 통계 1편 · 누적 커밋 300회",
+      "byWhen": "고3 6월까지",
+      "ventureNote": "창직 관점 — 서울대 컴공 합격은 통과점일 뿐. 남는 자산은 '혼자서 서비스를 세우고 유지한 기록'이다."
+    },
+    "competencyGrowth": {
+      "axes": [
+        {
+          "key": "ai",
+          "icon": "🤖",
+          "name": "AI 활용력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 35,
+              "evidence": "RAG 챗봇 1개 배포"
+            },
+            {
+              "stage": "중3",
+              "score": 55,
+              "evidence": "Whisper 회의록 MVP 배포"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "GPT API 챗봇 질문 50건 처리"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "LangGraph 멀티 에이전트 공개"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "에이전트 서비스 실사용자 50명 운영"
+            }
+          ]
+        },
+        {
+          "key": "plan",
+          "icon": "🧭",
+          "name": "기획력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "게임 1편 기획·완성"
+            },
+            {
+              "stage": "중3",
+              "score": 50,
+              "evidence": "웹앱 요구사항 → 배포까지 완주"
+            },
+            {
+              "stage": "고1",
+              "score": 68,
+              "evidence": "앱 스토어 등록 절차 설계"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "사용자 30명 서비스 운영 계획"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "1개월 운영 통계 기반 개선 계획"
+            }
+          ]
+        },
+        {
+          "key": "fusion",
+          "icon": "🔗",
+          "name": "융합력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 25,
+              "evidence": "AI 기초 + 파이썬 결합"
+            },
+            {
+              "stage": "중3",
+              "score": 45,
+              "evidence": "음성·언어 모델 + 웹 결합"
+            },
+            {
+              "stage": "고1",
+              "score": 65,
+              "evidence": "ML 탐구 보고서 1편"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "R&E 논문 초고 1편"
+            },
+            {
+              "stage": "고3",
+              "score": 92,
+              "evidence": "기술 + 사용자 데이터 결합 발표"
+            }
+          ]
+        },
+        {
+          "key": "venture",
+          "icon": "🚀",
+          "name": "창직력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 15,
+              "evidence": "공개 저장소 운영 시작"
+            },
+            {
+              "stage": "중3",
+              "score": 35,
+              "evidence": "베타 피드백 10건 수집"
+            },
+            {
+              "stage": "고1",
+              "score": 55,
+              "evidence": "실사용 글 10건 확보"
+            },
+            {
+              "stage": "고2",
+              "score": 78,
+              "evidence": "사용자 30명 · 커밋 80회"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "사용자 50명 · 운영 통계 1편"
+            }
+          ]
+        },
+        {
+          "key": "deliver",
+          "icon": "🎤",
+          "name": "전달력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 20,
+              "evidence": "커밋 30회 · README 정비"
+            },
+            {
+              "stage": "중3",
+              "score": 40,
+              "evidence": "MVP 데모 공개"
+            },
+            {
+              "stage": "고1",
+              "score": 60,
+              "evidence": "탐구 보고서 발표 1회"
+            },
+            {
+              "stage": "고2",
+              "score": 80,
+              "evidence": "R&E 발표 1회"
+            },
+            {
+              "stage": "고3",
+              "score": 92,
+              "evidence": "모의면접 5회 + 답변 30문항"
+            }
+          ]
+        },
+        {
+          "key": "question",
+          "icon": "📚",
+          "name": "질문력 (독서 기반)",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 42,
+              "evidence": "3권 병렬 독서 4세트 + 문제 카드 12장"
+            },
+            {
+              "stage": "중3",
+              "score": 70,
+              "evidence": "사용자·데이터로 가정 검증"
+            },
+            {
+              "stage": "고1",
+              "score": 88,
+              "evidence": "기술 선택과 포기의 근거를 문서화"
+            }
+          ]
+        }
+      ],
+      "note": "중2→고3 동안 쌓인 결과물 개수로 5개 역량을 점수화했습니다."
+    },
+    "aiOrchestra": {
+      "note": "단계별로 AI 에이전트를 어디에 맡기고 어디를 직접 했는지.",
+      "agents": [
+        {
+          "stage": "중2~중3 — 만들며 배우기",
+          "tools": [
+            "ChatGPT",
+            "GitHub Copilot",
+            "Streamlit"
+          ],
+          "use": "에러 메시지를 그대로 붙여 원인을 묻고, 고친 이유를 커밋 메시지에 남긴다."
+        },
+        {
+          "stage": "고1~고2 — 에이전트 조립",
+          "tools": [
+            "LangChain",
+            "LangGraph",
+            "GPT API"
+          ],
+          "use": "역할이 다른 에이전트를 연결해 하나의 작업을 나눠 처리하게 만든다."
+        },
+        {
+          "stage": "고3 — 운영·검증",
+          "tools": [
+            "ChatGPT(로그 분석)",
+            "Sentry",
+            "Google Analytics"
+          ],
+          "use": "사용자 로그를 자동 요약해 고칠 것 3개를 매주 뽑는다."
+        }
+      ]
+    }
   },
   {
     "id": "tpl-admission-kaist-ee-001",
@@ -915,7 +1221,7 @@
     "starId": "tech",
     "starName": "기술 왕국",
     "starEmoji": "💻",
-    "starColor": "#3498DB",
+    "starColor": "#10B981",
     "jobId": "univ-kaist-ee",
     "jobName": "KAIST 전기및전자공학부",
     "jobEmoji": "⚡",
@@ -1025,7 +1331,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 24,
+    "totalItems": 26,
     "years": [
       {
         "gradeId": "mid2",
@@ -1063,7 +1369,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권"
+            "deliverable": "COS Pro 2급 합격증 1개 + 오답노트 1권",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -1096,7 +1403,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "완성 작품 1개 + 회로도·코드 정리 노트 12회분"
+            "deliverable": "완성 작품 1개 + 회로도·코드 정리 노트 12회분",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1128,7 +1436,8 @@
                 "kind": "application"
               }
             ],
-            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)"
+            "deliverable": "참가 확인서 1장 + 캠프 기록 노트 1편(A4 2쪽)",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -1149,7 +1458,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "개념서 2권 완독 + 단원별 오답노트 2권"
+            "deliverable": "개념서 2권 완독 + 단원별 오답노트 2권",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -1176,7 +1486,8 @@
               "matplotlib"
             ],
             "deliverable": "공개 노트북 1개 + 인사이트 리포트 1편(A4 1쪽) + 30일치 데이터",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -1220,7 +1531,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "KPhO 예선 통과 확인 1건 + 기출 풀이 노트 1권"
+            "deliverable": "KPhO 예선 통과 확인 1건 + 기출 풀이 노트 1권",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -1253,7 +1565,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "동작하는 대시보드 1개 + GitHub 저장소 1개 + 7일치 무중단 수집 데이터 + 장애 원인 기록 3건"
+            "deliverable": "동작하는 대시보드 1개 + GitHub 저장소 1개 + 7일치 무중단 수집 데이터 + 장애 원인 기록 3건",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1274,7 +1587,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "지원서 1부 제출 + 자기소개서 1편 + 모의면접 5회 기록"
+            "deliverable": "지원서 1부 제출 + 자기소개서 1편 + 모의면접 5회 기록",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -1292,7 +1606,8 @@
               "activity"
             ],
             "activitySubtype": "research",
-            "deliverable": "탐구 보고서 1편(A4 4쪽) + 실험 사진·측정 데이터 1세트"
+            "deliverable": "탐구 보고서 1편(A4 4쪽) + 실험 사진·측정 데이터 1세트",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -1318,7 +1633,8 @@
               "Teachable Machine"
             ],
             "deliverable": "동작 영상 1편 + GitHub 저장소 1개 + 정확도 측정표 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -1329,7 +1645,8 @@
           "KPhO 본선 입상 상장 1개 (7월)",
           "STM32 작품 1개 연속 10회 정상 동작 + 저장소 공개 (11월)",
           "KiCad PCB 실물 1장 동작 확인 (12월) + 신호처리·딥러닝 노트북 1개 공개 (8월)",
-          "전자기 유도 탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분 (12월)"
+          "전자기 유도 탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분 (12월)",
+          "12월까지 1주제 3권 병렬 독서 4세트(12권) + 문제 카드 12장 작성"
         ],
         "items": [
           {
@@ -1363,7 +1680,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "KPhO 본선 입상 상장 1개"
+            "deliverable": "KPhO 본선 입상 상장 1개",
+            "goalIndex": 0
           },
           {
             "type": "portfolio",
@@ -1394,7 +1712,8 @@
                 "kind": "portfolio"
               }
             ],
-            "deliverable": "동작하는 임베디드 작품 1개 + GitHub 저장소 1개 + 회로도 1장 + 실패 로그 20회분"
+            "deliverable": "동작하는 임베디드 작품 1개 + GitHub 저장소 1개 + 회로도 1장 + 실패 로그 20회분",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1420,7 +1739,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "실물 PCB 1장 + 설계 파일 1세트 + 동작 테스트 기록 1편"
+            "deliverable": "실물 PCB 1장 + 설계 파일 1세트 + 동작 테스트 기록 1편",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -1438,7 +1758,8 @@
               "activity"
             ],
             "activitySubtype": "research",
-            "deliverable": "탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분"
+            "deliverable": "탐구 보고서 1편(A4 5쪽) + 측정 데이터 30회분",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -1464,7 +1785,37 @@
               "Colab"
             ],
             "deliverable": "공개 노트북 1개 + 결과 보고서 1편(A4 5쪽) + 성능 비교표 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "activity",
+            "title": "1주제 3권 병렬 독서 4세트 — 전자·에너지 기술을 원리·산업·비판으로 읽기",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "organizer": "자체 (ReadingClue식 병렬 독서)",
+            "description": "주 2회 1시간, 세트당 6~8주. ① 관심 주제 1개를 고정합니다. ② 물리·전자 원리 1권·산업 현장 기록 1권·기술 비판 3권을 병렬로 읽습니다. ③ 세 권이 어긋나는 지점 3곳에서 문제 카드 5칸(배경·주장·반론·근거·확인 방법)을 채웁니다. ④ 카드마다 \"내가 직접 확인할 방법\"을 한 줄 적고, 못 적는 카드는 버립니다. ④ 12장 중 \"고등학생이 직접 확인할 수 있는 것\" 3개만 남겨 탐구·소논문 주제로 잇습니다. 완료 기준: 12월까지 12권 완독 + 문제 카드 12장 + 실행 가능한 탐구 주제 3개.",
+            "deliverable": "문제 카드 12장 + 독서 기록 12권 + 실험·탐구 후보 3개",
+            "cost": "무료 (도서관 대출)",
+            "categoryTags": [
+              "reading",
+              "paper"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "aiTools": [
+              "NotebookLM",
+              "Claude(원리 되묻기)"
+            ],
+            "goalIndex": 4
           }
         ]
       },
@@ -1505,7 +1856,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+            "deliverable": "TOEFL 성적표 1장(100점 이상)",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -1530,7 +1882,8 @@
                 "kind": "official"
               }
             ],
-            "deliverable": "출품 회로 작품 1개 + 설계 보고서 1편(A4 4쪽)"
+            "deliverable": "출품 회로 작품 1개 + 설계 보고서 1편(A4 4쪽)",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -1561,7 +1914,8 @@
                 "kind": "reference"
               }
             ],
-            "deliverable": "동작하는 CPU 설계 1개 + GitHub 저장소 1개 + 테스트벤치 10개"
+            "deliverable": "동작하는 CPU 설계 1개 + GitHub 저장소 1개 + 테스트벤치 10개",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -1580,7 +1934,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "모의고사 성적표 3회분(수학·물리 2등급 이내)"
+            "deliverable": "모의고사 성적표 3회분(수학·물리 2등급 이내)",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -1606,7 +1961,8 @@
               "ChatGPT (디버깅)"
             ],
             "deliverable": "동작 영상 1편 + 기술 블로그 글 1편 + 경량화 전후 성능표 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -1614,15 +1970,16 @@
         "gradeId": "high3",
         "gradeLabel": "고3",
         "goals": [
-          "자기소개서 최종본 확정 + 수정 이력 5개 버전 (8월)",
+          "생기부 연계 면접 자료 6건 정리 + 개정 이력 5개 버전 (8월)",
           "모의면접 5회 완료 + 예상 질문 30문항 답변 정리 (11월)",
           "수능 수학·물리·화학 1등급 (11월)",
-          "AI+EE 논문 PDF 1편(10쪽 이상) 공개 + 발표 자료 15장 (5월)"
+          "AI+EE 논문 PDF 1편(10쪽 이상) 공개 + 발표 자료 15장 (5월)",
+          "8월까지 제작·포팅 원가 정산표 1장 + 기술 소개 영상 2편(각 3분) 완성"
         ],
         "items": [
           {
             "type": "activity",
-            "title": "수시 자기소개서 완성 (5회 이상 수정)",
+            "title": "생기부 연계 면접 자료 정리 (활동 6건 × 답변 카드, 5회 개정)",
             "months": [
               3,
               4,
@@ -1634,12 +1991,13 @@
             "difficulty": 3,
             "cost": "무료~컨설팅 50만원",
             "organizer": "자체",
-            "description": "3~8월 주 1회 2시간씩 쓴다. ① 3월에 학생부를 처음부터 읽고 R&E·KPhO·하드웨어 프로젝트 중 핵심 경험 3개를 고르기 ② 경험마다 계기·행동·배운 점을 400자로 쓰고 초고를 완성 ③ 교사·선배 피드백을 받아 3주 간격으로 5회 고치기. 완료 기준: 최종본 확정, 버전 5개 보관.",
+            "description": "2024학년도부터 대입 자기소개서는 전 대학에서 폐지됐습니다. 대신 학생부에 남은 활동을 면접에서 스스로 설명하는 능력이 평가됩니다. ① 3년 활동 중 6건을 골라 '무엇을 왜 했고, 무엇이 바뀌었나'를 각 1장으로 정리합니다. ② 활동마다 숫자 근거 1개를 반드시 넣습니다. ③ 5회 개정하며 담당 선생님 검토 2회를 받습니다. 완료 기준: 활동 정리 6장 + 개정 이력 5개 버전.",
             "categoryTags": [
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "최종 자기소개서 1편 + 수정 이력 5개 버전"
+            "deliverable": "면접용 활동 정리 6장(각 숫자 근거 1개 포함) + 개정 이력 5개 버전 + 교사 검토 2회",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -1657,7 +2015,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권"
+            "deliverable": "모의면접 녹화 5편 + 예상 질문·답변 30문항 정리 1권",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1678,7 +2037,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "수능 성적표 1장(수학·물리·화학 1등급) + 오답노트 3권"
+            "deliverable": "수능 성적표 1장(수학·물리·화학 1등급) + 오답노트 3권",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -1705,11 +2065,263 @@
               "Overleaf"
             ],
             "deliverable": "논문 PDF 1편(10쪽 이상) + 발표 자료 15장 + 반복 실험 3회 기록",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "portfolio",
+            "title": "창직 마무리 — '설계부터 유지보수까지' 1인 기술 기록 (6~8월)",
+            "months": [
+              6,
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "organizer": "자체",
+            "description": "하드웨어는 만든 뒤가 더 깁니다. ① 4년간 만든 보드 중 2개를 골라 부품비·제작 시간·수리 횟수를 정산합니다. ② '남에게 만들어 준다면 얼마인가'를 계산해 견적서 1장을 씁니다. ③ 각 장치의 원리와 한계를 3분 영상 2편으로 정리합니다. 완료 기준: 원가 정산표 1장 · 견적서 1장 · 기술 소개 영상 2편.",
+            "categoryTags": [
+              "project"
+            ],
+            "activitySubtype": "project",
+            "projectTrack": true,
+            "priority": "boost",
+            "aiTools": [
+              "ChatGPT",
+              "KiCad",
+              "CapCut"
+            ],
+            "deliverable": "제작·포팅 원가 정산표 1장 + 견적서 1장 + 3분 기술 소개 영상 2편",
+            "cost": "무료 (기존 제작물 활용)",
+            "goalIndex": 4
           }
         ]
       }
-    ]
+    ],
+    "northStar": {
+      "goal": "회로를 아는 학생을 넘어 '물리 세계에서 AI를 돌리는 학생'이 된다 — 내가 만든 하드웨어 위에서 AI 모델이 실제로 동작하게 만든다.",
+      "proof": "동작하는 보드 4종(Arduino·RPi·STM32·FPGA) · 엣지 AI 포팅 2건 · 성능 비교표 2장 · 논문 1편 공개",
+      "byWhen": "고3 5월까지",
+      "ventureNote": "창직 관점 — 피지컬 AI 시대의 1인 사업은 '설계·제작·포팅·유지보수를 혼자 끝내는 사람'에게 열린다."
+    },
+    "competencyGrowth": {
+      "axes": [
+        {
+          "key": "ai",
+          "icon": "🤖",
+          "name": "AI 활용력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "센서 데이터 시각화 노트북 1개"
+            },
+            {
+              "stage": "중3",
+              "score": 55,
+              "evidence": "TFLite 엣지 분류기 1개"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "신호처리 + 딥러닝 프로젝트 1편"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "경량 AI MCU·FPGA 포팅 1건"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "AI+EE 논문 1편 공개"
+            }
+          ]
+        },
+        {
+          "key": "plan",
+          "icon": "🧭",
+          "name": "기획력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "Arduino 작품 12회 실습 설계"
+            },
+            {
+              "stage": "중3",
+              "score": 52,
+              "evidence": "IoT 7일 무중단 운영 설계"
+            },
+            {
+              "stage": "고1",
+              "score": 70,
+              "evidence": "STM32 프로젝트 일정·부품 계획"
+            },
+            {
+              "stage": "고2",
+              "score": 86,
+              "evidence": "FPGA CPU 구현 단계 설계"
+            },
+            {
+              "stage": "고3",
+              "score": 94,
+              "evidence": "논문 구성 + 발표 자료 15장"
+            }
+          ]
+        },
+        {
+          "key": "fusion",
+          "icon": "🔗",
+          "name": "융합력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "전자기학 개념 + 회로 실습"
+            },
+            {
+              "stage": "중3",
+              "score": 50,
+              "evidence": "하드웨어 + 데이터 수집 결합"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "실험 데이터 30회 + 보고서"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "회로 + AI 모델 결합"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "AI + EE 융합 논문 완성"
+            }
+          ]
+        },
+        {
+          "key": "venture",
+          "icon": "🚀",
+          "name": "창직력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 15,
+              "evidence": "작품 1개 완성"
+            },
+            {
+              "stage": "중3",
+              "score": 35,
+              "evidence": "저장소 공개 · 동작 영상 1편"
+            },
+            {
+              "stage": "고1",
+              "score": 55,
+              "evidence": "대회 출품 1건"
+            },
+            {
+              "stage": "고2",
+              "score": 75,
+              "evidence": "성능 비교표로 개선 증명"
+            },
+            {
+              "stage": "고3",
+              "score": 88,
+              "evidence": "설계·제작·포팅 전 과정 단독 수행"
+            }
+          ]
+        },
+        {
+          "key": "deliver",
+          "icon": "🎤",
+          "name": "전달력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 20,
+              "evidence": "회차 노트 12회분"
+            },
+            {
+              "stage": "중3",
+              "score": 40,
+              "evidence": "동작 영상 1편"
+            },
+            {
+              "stage": "고1",
+              "score": 62,
+              "evidence": "탐구 보고서 1편"
+            },
+            {
+              "stage": "고2",
+              "score": 82,
+              "evidence": "설계 보고서 1편"
+            },
+            {
+              "stage": "고3",
+              "score": 92,
+              "evidence": "발표 자료 15장 + 모의면접 5회"
+            }
+          ]
+        },
+        {
+          "key": "question",
+          "icon": "📚",
+          "name": "질문력 (독서 기반)",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 42,
+              "evidence": "3권 병렬 독서 4세트 + 문제 카드 12장"
+            },
+            {
+              "stage": "중3",
+              "score": 72,
+              "evidence": "실험 결과와 문헌 설명 대조"
+            },
+            {
+              "stage": "고1",
+              "score": 88,
+              "evidence": "측정 한계와 오차를 근거로 서술"
+            }
+          ]
+        }
+      ],
+      "note": "중2→고3 동안 쌓인 결과물 개수로 5개 역량을 점수화했습니다."
+    },
+    "aiOrchestra": {
+      "note": "단계별로 AI 에이전트를 어디에 맡기고 어디를 직접 했는지.",
+      "agents": [
+        {
+          "stage": "중2~중3 — 회로 보조",
+          "tools": [
+            "ChatGPT",
+            "Tinkercad",
+            "Arduino IDE"
+          ],
+          "use": "회로 오류 원인을 AI에게 설명시키고 계측기로 직접 확인한다."
+        },
+        {
+          "stage": "고1 — 모델 올리기",
+          "tools": [
+            "PyTorch",
+            "TFLite",
+            "Colab"
+          ],
+          "use": "학습은 클라우드에서, 추론은 보드 위에서 돌린다."
+        },
+        {
+          "stage": "고2~고3 — 최적화",
+          "tools": [
+            "ChatGPT(코드 리뷰)",
+            "Verilog 시뮬레이터",
+            "KiCad"
+          ],
+          "use": "성능·전력 수치를 표로 비교하며 사람이 최종 설계를 결정한다."
+        }
+      ]
+    }
   },
   {
     "id": "tpl-admission-yonsei-med-001",
@@ -1820,7 +2432,7 @@
       "정시",
       "R&E"
     ],
-    "totalItems": 17,
+    "totalItems": 21,
     "years": [
       {
         "gradeId": "mid2",
@@ -1845,7 +2457,8 @@
             "organizer": "한국정보통신진흥협회",
             "description": "1~2월 주 3회 40분씩 실습한다. ① 공식 홈페이지에서 3월 회차 접수 일정을 확인해 달력에 고정하고 과목 1개를 선택 ② 기출 3회분을 시험과 같은 환경에서 풀기 ③ 감점 항목만 따로 모아 2회 반복 연습. 완료 기준: 3월 시험 합격, 응시 직전 기출 3회분 모두 합격선 이상.",
             "categoryTags": [],
-            "deliverable": "DIAT 자격증 1개"
+            "deliverable": "DIAT 자격증 1개",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -1870,7 +2483,8 @@
               "activity"
             ],
             "activitySubtype": "volunteer",
-            "deliverable": "봉사 확인서(30시간) 1장 + 관찰 기록 30회분"
+            "deliverable": "봉사 확인서(30시간) 1장 + 관찰 기록 30회분",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1895,7 +2509,8 @@
               "activity"
             ],
             "activitySubtype": "research",
-            "deliverable": "실험 보고서 20편 + 학기말 발표 1회"
+            "deliverable": "실험 보고서 20편 + 학기말 발표 1회",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -1923,7 +2538,8 @@
               "Datawrapper"
             ],
             "deliverable": "인포그래픽 1장 + 보고서 1편(A4 2쪽) + 분석 노트북 1개 + 원자료 대조 기록 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -1949,7 +2565,8 @@
             "organizer": "대한적십자사",
             "description": "3월 신청, 4월에 교육 일정을 통째로 비운다. ① 공식 홈페이지에서 교육 일정을 확인해 신청하고 사전 자료를 미리 읽기 ② 교육 중 심폐소생술·기도폐쇄·AED 3항목을 각각 5회 이상 직접 실습 ③ 수료 후 배운 절차를 순서도로 그려 가족에게 1회 설명. 완료 기준: 수료증 발급, 3항목 실기 통과.",
             "categoryTags": [],
-            "deliverable": "응급처치 수료증 1장 + 실습 체크리스트 1장"
+            "deliverable": "응급처치 수료증 1장 + 실습 체크리스트 1장",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -1967,7 +2584,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "KBO 예선 응시 확인 1건 + 기출 풀이 노트 1권"
+            "deliverable": "KBO 예선 응시 확인 1건 + 기출 풀이 노트 1권",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -1985,7 +2603,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "참가 확인서 1장 + 진로 탐색 노트 1편(A4 2쪽)"
+            "deliverable": "참가 확인서 1장 + 진로 탐색 노트 1편(A4 2쪽)",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -2013,7 +2632,8 @@
               "Notion"
             ],
             "deliverable": "공개 Notion 페이지 1개 + 논문 요약 10편 + 대조 검증 기록 10건",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -2024,7 +2644,8 @@
           "KBO 본선 진출 확인 1건 (7월) + 컴활 2급 자격증 1개 취득 (3월)",
           "R&E 지원서 3부 제출 + 관심 주제 조사 노트 1편 (6월)",
           "모의 MMI 3회 + 답변 10문항 정리 (8월)",
-          "의료 영상 AI 노트북 1개 + 윤리 고찰 1쪽 공개 (9월)"
+          "의료 영상 AI 노트북 1개 + 윤리 고찰 1쪽 공개 (9월)",
+          "12월까지 1주제 3권 병렬 독서 4세트(12권) + 문제 카드 12장 작성"
         ],
         "items": [
           {
@@ -2042,7 +2663,8 @@
             "categoryTags": [
               "paper"
             ],
-            "deliverable": "컴활 2급 자격증 1개 + 함수 정리표 1장"
+            "deliverable": "컴활 2급 자격증 1개 + 함수 정리표 1장",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -2061,7 +2683,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "KBO 본선 진출 확인 1건 + 기출 풀이 노트 1권"
+            "deliverable": "KBO 본선 진출 확인 1건 + 기출 풀이 노트 1권",
+            "goalIndex": 1
           },
           {
             "type": "activity",
@@ -2079,7 +2702,8 @@
               "activity"
             ],
             "activitySubtype": "research",
-            "deliverable": "R&E 지원서 3부 제출 + 관심 주제 조사 노트 1편"
+            "deliverable": "R&E 지원서 3부 제출 + 관심 주제 조사 노트 1편",
+            "goalIndex": 2
           },
           {
             "type": "activity",
@@ -2097,7 +2721,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "참가 확인서 1장 + 모의 MMI 답변 기록 10문항"
+            "deliverable": "참가 확인서 1장 + 모의 MMI 답변 기록 10문항",
+            "goalIndex": 3
           },
           {
             "type": "portfolio",
@@ -2125,7 +2750,38 @@
               "ChatGPT (코드 검증)"
             ],
             "deliverable": "공개 노트북 1개 + 윤리 고찰 1쪽 + 민감도·특이도 포함 지표표 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "activity",
+            "title": "1주제 3권 병렬 독서 4세트 — 의학을 과학·환자·윤리 세 시선으로 읽기",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "organizer": "자체 (ReadingClue식 병렬 독서)",
+            "description": "주 2회 1시간, 세트당 6~8주. ① 관심 주제 1개를 고정합니다. ② 의학·생명과학 1권·환자와 현장 기록 1권·의료 윤리 비판 3권을 병렬로 읽습니다. ③ 세 권이 어긋나는 지점 3곳에서 문제 카드 5칸(배경·주장·반론·근거·확인 방법)을 채웁니다. ④ 카드마다 \"내가 직접 확인할 방법\"을 한 줄 적고, 못 적는 카드는 버립니다. ④ 12장 중 \"고등학생이 직접 확인할 수 있는 것\" 3개만 남겨 탐구·소논문 주제로 잇습니다. 완료 기준: 12월까지 12권 완독 + 문제 카드 12장 + 실행 가능한 탐구 주제 3개.",
+            "deliverable": "문제 카드 12장 + 독서 기록 12권 + 탐구·봉사 연계 주제 3개",
+            "cost": "무료 (도서관 대출)",
+            "categoryTags": [
+              "reading",
+              "paper"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "aiTools": [
+              "NotebookLM",
+              "PubMed",
+              "Claude(윤리 관점)"
+            ],
+            "goalIndex": 4
           }
         ]
       },
@@ -2162,7 +2818,8 @@
               "activity"
             ],
             "activitySubtype": "research",
-            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회"
+            "deliverable": "연구 논문 초고 1편(A4 10쪽) + 실험 로그 20회분 + 피드백 반영 이력 2회",
+            "goalIndex": 0
           },
           {
             "type": "certification",
@@ -2180,7 +2837,8 @@
             "categoryTags": [
               "paper"
             ],
-            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+            "deliverable": "TOEFL 성적표 1장(100점 이상)",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -2197,7 +2855,8 @@
               "award",
               "paper"
             ],
-            "deliverable": "발표 슬라이드 15장 또는 포스터 1장 + 질의응답 기록 1편"
+            "deliverable": "발표 슬라이드 15장 또는 포스터 1장 + 질의응답 기록 1편",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -2223,11 +2882,324 @@
               "NVivo (대안)"
             ],
             "deliverable": "질적 분석 보고서 1편(A4 6쪽) + 전사록 5건 + 동의서 5부",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 수능·면접·창직 마무리",
+        "goals": [
+          "11월 수능 국·수·영·과탐 1등급 확보 (주 6일 하루 5시간 고정 학습)",
+          "8월까지 생기부 연계 면접 자료 6건 정리 + MMI 모의면접 8회 완료",
+          "6월까지 AI 의료정보 오류 검증 20건 + 봉사 누적 100시간 달성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수능 국·수·영·과탐 1등급 (3~11월, 주 6일 하루 5시간)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "organizer": "자체·인강",
+            "description": "의학과는 수능 최저·정시 비중이 모두 높습니다. ① 3월부터 과목별 고정 시간표(국 1h·수 2h·영 1h·과탐 1h)를 지킵니다. ② 매월 학평·모평을 실전 시간으로 응시하고 틀린 문항 유형만 5문항씩 더 풉니다. ③ 9월 모평 후 미달 과목에 주 3시간을 추가 배분합니다. 완료 기준: 11월 수능 4개 영역 1등급.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "월별 모의고사 성적표 8회 + 과목별 오답노트 4권",
+            "cost": "무료~월 15만원",
+            "goalIndex": 0
+          },
+          {
+            "type": "activity",
+            "title": "생기부 연계 면접 자료 6건 + MMI 모의면접 8회 (5~8월)",
+            "months": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "organizer": "자체·학교",
+            "description": "의대 MMI는 '무엇을 했는가'보다 '그때 어떻게 판단했는가'를 묻습니다. ① 봉사·R&E·인터뷰 등 활동 6건을 각 1장으로 정리하고 숫자 근거를 답니다. ② 윤리 딜레마 문항 20개를 만들어 답변을 씁니다. ③ 모의면접 8회를 녹화해 말버릇 3개를 지웁니다. 완료 기준: 활동 정리 6장 + 윤리 답변 20개 + 모의면접 8회 녹화.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "면접용 활동 정리 6장 + 윤리 딜레마 답변 20개 + 모의면접 녹화 8편",
+            "cost": "무료",
+            "goalIndex": 1
+          },
+          {
+            "type": "portfolio",
+            "title": "AI 의료정보 오류 검증 20건 + 봉사 누적 100시간 (3~6월)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 3,
+            "organizer": "자체",
+            "description": "AI가 알려주는 건강 정보의 오류를 잡아내는 능력은 예비 의료인의 기본기입니다. ① 흔한 건강 질문 20개를 AI에 물어 답을 저장합니다. ② 질병관리청·대한의학회 자료로 검증해 맞음·애매·틀림으로 분류합니다. ③ 봉사 현장에서 실제로 들은 잘못된 건강 상식 5건을 함께 기록합니다. 완료 기준: 검증표 20행 + 현장 오해 사례 5건 + 봉사 누적 100시간.",
+            "categoryTags": [
+              "paper",
+              "project",
+              "volunteer"
+            ],
+            "activitySubtype": "research",
+            "projectTrack": true,
+            "priority": "boost",
+            "aiTools": [
+              "ChatGPT",
+              "Elicit",
+              "Consensus"
+            ],
+            "deliverable": "AI 의료정보 검증표 20행 + 현장 오해 사례 5건 + 봉사 확인서(누적 100시간)",
+            "cost": "무료",
+            "goalIndex": 2
           }
         ]
       }
-    ]
+    ],
+    "northStar": {
+      "goal": "성적만 좋은 지원자가 아니라 '환자의 말을 데이터로 옮길 줄 아는 지원자'가 된다 — 사람을 만나 얻은 기록 위에 AI 분석을 얹는다.",
+      "proof": "봉사 누적 100시간 · 인터뷰 5건 질적 분석 1편 · R&E 논문 초고 1편 · AI 의료 오류 검증 20건",
+      "byWhen": "고3 8월까지",
+      "ventureNote": "창직 관점 — 진단은 AI가 빨라져도, 동의를 얻고 설명하고 책임지는 일은 사람 몫으로 남는다."
+    },
+    "competencyGrowth": {
+      "axes": [
+        {
+          "key": "ai",
+          "icon": "🤖",
+          "name": "AI 활용력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "공공 보건 데이터 시각화 1편"
+            },
+            {
+              "stage": "중3",
+              "score": 55,
+              "evidence": "논문 요약 10편 + 대조 검증 10건"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "의료 영상 AI 분류 노트북 1개"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "질적 분석에 AI 코딩 보조 활용"
+            },
+            {
+              "stage": "고3",
+              "score": 92,
+              "evidence": "AI 의료정보 오류 검증 20건"
+            }
+          ]
+        },
+        {
+          "key": "plan",
+          "icon": "🧭",
+          "name": "기획력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "봉사 30시간 루틴 설계"
+            },
+            {
+              "stage": "중3",
+              "score": 52,
+              "evidence": "캠프·대회 일정 설계"
+            },
+            {
+              "stage": "고1",
+              "score": 70,
+              "evidence": "R&E 지원서 3부 작성"
+            },
+            {
+              "stage": "고2",
+              "score": 86,
+              "evidence": "실험 로그 20회 설계·수행"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "면접 대비 활동 정리 설계"
+            }
+          ]
+        },
+        {
+          "key": "fusion",
+          "icon": "🔗",
+          "name": "융합력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "생명·화학 실험 20편"
+            },
+            {
+              "stage": "중3",
+              "score": 50,
+              "evidence": "의학 논문 + 생명 교과 연결"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "의료 데이터 + 윤리 고찰 결합"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "정량 데이터 + 인터뷰 질적 분석 결합"
+            },
+            {
+              "stage": "고3",
+              "score": 94,
+              "evidence": "임상·데이터·윤리 3축 정리"
+            }
+          ]
+        },
+        {
+          "key": "venture",
+          "icon": "🚀",
+          "name": "창직력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 15,
+              "evidence": "보건실 봉사 시작"
+            },
+            {
+              "stage": "중3",
+              "score": 35,
+              "evidence": "봉사 누적 50시간"
+            },
+            {
+              "stage": "고1",
+              "score": 55,
+              "evidence": "환자·의료진 접점 확대"
+            },
+            {
+              "stage": "고2",
+              "score": 78,
+              "evidence": "인터뷰 5건 동의서 확보·수행"
+            },
+            {
+              "stage": "고3",
+              "score": 88,
+              "evidence": "봉사 누적 100시간 + 활동 설계 주도"
+            }
+          ]
+        },
+        {
+          "key": "deliver",
+          "icon": "🎤",
+          "name": "전달력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 22,
+              "evidence": "인포그래픽 1장"
+            },
+            {
+              "stage": "중3",
+              "score": 45,
+              "evidence": "논문 요약 공개 10편"
+            },
+            {
+              "stage": "고1",
+              "score": 65,
+              "evidence": "모의 MMI 3회"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "학술제 발표 1회"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "MMI 모의면접 8회 + 답변 30문항"
+            }
+          ]
+        },
+        {
+          "key": "question",
+          "icon": "📚",
+          "name": "질문력 (독서 기반)",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 45,
+              "evidence": "3권 병렬 독서 4세트 + 문제 카드 12장"
+            },
+            {
+              "stage": "중3",
+              "score": 74,
+              "evidence": "논문 원문 확인 + 윤리 쟁점 정리"
+            },
+            {
+              "stage": "고1",
+              "score": 90,
+              "evidence": "환자·윤리 관점의 반론을 직접 서술"
+            }
+          ]
+        }
+      ],
+      "note": "중2→고3 동안 쌓인 결과물 개수로 5개 역량을 점수화했습니다."
+    },
+    "aiOrchestra": {
+      "note": "단계별로 AI 에이전트를 어디에 맡기고 어디를 직접 했는지.",
+      "agents": [
+        {
+          "stage": "중2~중3 — 자료 읽기",
+          "tools": [
+            "Claude",
+            "PubMed",
+            "KOSIS"
+          ],
+          "use": "논문 요약은 AI에 맡기되 초록 원문과 반드시 대조한다."
+        },
+        {
+          "stage": "고1 — 데이터 다루기",
+          "tools": [
+            "PyTorch",
+            "Kaggle",
+            "Colab"
+          ],
+          "use": "의료 영상 데이터로 분류 실험을 하고 한계를 1쪽으로 적는다."
+        },
+        {
+          "stage": "고2~고3 — 사람 기록",
+          "tools": [
+            "ChatGPT(질적 코딩 보조)",
+            "Google Forms",
+            "Notion"
+          ],
+          "use": "인터뷰는 사람이 하고, 분류·정리만 AI에 맡긴다."
+        }
+      ]
+    }
   },
   {
     "id": "tpl-admission-korea-biz-001",
@@ -2239,7 +3211,7 @@
     "starId": "challenge",
     "starName": "도전 왕국",
     "starEmoji": "🚀",
-    "starColor": "#FF6B35",
+    "starColor": "#EF4444",
     "jobId": "univ-korea-biz",
     "jobName": "고려대 경영학과",
     "jobEmoji": "📊",
@@ -2332,7 +3304,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 14,
+    "totalItems": 18,
     "years": [
       {
         "gradeId": "mid2",
@@ -2360,7 +3332,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "참가 확인서 1장 + 경제 개념 정리 노트 1편(A4 3쪽)"
+            "deliverable": "참가 확인서 1장 + 경제 개념 정리 노트 1편(A4 3쪽)",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2384,7 +3357,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "토론 기록 20회분 + 경제 이슈 스크랩북 1권"
+            "deliverable": "토론 기록 20회분 + 경제 이슈 스크랩북 1권",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -2414,7 +3388,8 @@
               "Notion"
             ],
             "deliverable": "6개월 운영 노트 1권 + 종목 리포트 5편 + 매매 일지 1권 + 월말 회고 6회",
-            "links": []
+            "links": [],
+            "goalIndex": 2
           }
         ]
       },
@@ -2442,7 +3417,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "사업계획서 1편(10쪽) + 발표 슬라이드 12장 + 출품 확인 1건"
+            "deliverable": "사업계획서 1편(10쪽) + 발표 슬라이드 12장 + 출품 확인 1건",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2460,7 +3436,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "참가 확인서 1장 + 학과 탐색 노트 1편(A4 2쪽)"
+            "deliverable": "참가 확인서 1장 + 학과 탐색 노트 1편(A4 2쪽)",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -2488,7 +3465,8 @@
               "Canva"
             ],
             "deliverable": "사업 회고 보고서 1편(매출·원가·CAC 포함) + 판매 기록 1권 + 계획 대비 오차 분석 1장",
-            "links": []
+            "links": [],
+            "goalIndex": 2
           }
         ]
       },
@@ -2499,7 +3477,8 @@
           "매경TEST 우수 등급 이상 취득 (5월)",
           "창업캠프 수료증 1장 + 아이디어 문서 1편 (5월)",
           "창업아이디어 경진대회 출품 1건 + 고객 검증 20명 (10월)",
-          "산업·기업 분석 리포트 4편 공개 + 재무 정리표 3개 (12월)"
+          "산업·기업 분석 리포트 4편 공개 + 재무 정리표 3개 (12월)",
+          "12월까지 1주제 3권 병렬 독서 4세트(12권) + 문제 카드 12장 작성"
         ],
         "items": [
           {
@@ -2515,7 +3494,8 @@
             "organizer": "매일경제",
             "description": "3~5월 주 3회 1시간씩 경제·경영을 나눠 본다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 경제 파트와 경영 파트를 격주로 돌며 기출 3회분을 시간 재고 풀기 ③ 오답 개념만 카드로 만들어 매일 10장씩 복습. 완료 기준: 5월 응시 우수 등급 이상, 기출 3회분 평균 목표 등급선 이상.",
             "categoryTags": [],
-            "deliverable": "매경TEST 성적표 1장(우수 이상)"
+            "deliverable": "매경TEST 성적표 1장(우수 이상)",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2534,7 +3514,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "동아리 등록 확인 1건 + 캠프 수료증 1장 + 아이디어 문서 1편"
+            "deliverable": "동아리 등록 확인 1건 + 캠프 수료증 1장 + 아이디어 문서 1편",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -2552,7 +3533,8 @@
               "project",
               "award"
             ],
-            "deliverable": "사업계획서 1편(15쪽) + 발표 슬라이드 15장 + 출품 확인 1건"
+            "deliverable": "사업계획서 1편(15쪽) + 발표 슬라이드 15장 + 출품 확인 1건",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -2580,7 +3562,37 @@
               "DART (전자공시)"
             ],
             "deliverable": "분석 리포트 4편(블로그·노션 공개) + 기업 재무 정리표 3개",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "activity",
+            "title": "1주제 3권 병렬 독서 4세트 — 기업과 시장을 경영·소비자·비판으로 읽기",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "organizer": "자체 (ReadingClue식 병렬 독서)",
+            "description": "주 2회 1시간, 세트당 6~8주. ① 관심 주제 1개를 고정합니다. ② 경영·전략 1권·소비자와 노동 현장 기록 1권·시장 비판 3권을 병렬로 읽습니다. ③ 세 권이 어긋나는 지점 3곳에서 문제 카드 5칸(배경·주장·반론·근거·확인 방법)을 채웁니다. ④ 카드마다 \"내가 직접 확인할 방법\"을 한 줄 적고, 못 적는 카드는 버립니다. ④ 12장 중 \"고등학생이 직접 확인할 수 있는 것\" 3개만 남겨 탐구·소논문 주제로 잇습니다. 완료 기준: 12월까지 12권 완독 + 문제 카드 12장 + 실행 가능한 탐구 주제 3개.",
+            "deliverable": "문제 카드 12장 + 독서 기록 12권 + 직접 조사할 주제 3개",
+            "cost": "무료 (도서관 대출)",
+            "categoryTags": [
+              "reading",
+              "paper"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "aiTools": [
+              "NotebookLM",
+              "Claude(반대 관점)"
+            ],
+            "goalIndex": 4
           }
         ]
       },
@@ -2607,7 +3619,8 @@
             "organizer": "한국경제신문",
             "description": "3~5월 주 4회 1시간씩 경제·시사를 붙여 본다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 기출 5회분을 시간 재고 풀고 경제이론·시사·상황판단 3영역 점수를 따로 기록 ③ 매일 경제 기사 1개를 읽고 관련 개념을 카드로 정리. 완료 기준: 5월 응시 S등급, 기출 3회 연속 목표 점수대.",
             "categoryTags": [],
-            "deliverable": "TESAT 성적표 1장(S등급 목표)"
+            "deliverable": "TESAT 성적표 1장(S등급 목표)",
+            "goalIndex": 0
           },
           {
             "type": "certification",
@@ -2622,7 +3635,8 @@
             "organizer": "ETS",
             "description": "2~4월 주 5회 60분씩 LC·RC를 번갈아 한다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 시간 재고 풀고 파트별 정답률을 표로 기록 ③ 정답률 낮은 파트 2개에 주간 학습의 절반을 배분하고 오답 어휘는 매일 20개씩 복습. 완료 기준: 4월 응시 900점 이상, 모의 2회 연속 900점 이상.",
             "categoryTags": [],
-            "deliverable": "TOEIC 성적표 1장(900점 이상)"
+            "deliverable": "TOEIC 성적표 1장(900점 이상)",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -2640,7 +3654,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "입상 상장 1개 + 사업계획서 1편 + 프로토타입 1개 + 고객 검증 30명 기록"
+            "deliverable": "입상 상장 1개 + 사업계획서 1편 + 프로토타입 1개 + 고객 검증 30명 기록",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -2666,11 +3681,324 @@
               "ChatGPT"
             ],
             "deliverable": "BM 캔버스 1장 + 제안서 1편(10쪽) + 노코드 프로토타입 데모 1개",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 수능·면접·창직 마무리",
+        "goals": [
+          "11월 수능 국·수·영·사탐 2등급 이내 확보 (주 6일 하루 5시간 고정 학습)",
+          "8월까지 생기부 연계 면접 자료 6건 정리 + 모의면접 5회 완료",
+          "6월까지 고객 검증 누적 50명 + 사업계획서 최종본 1편(손익 목표 포함) 완성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수능 국·수·영·사탐 2등급 이내 (3~11월, 주 6일 하루 5시간)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 4,
+            "organizer": "자체·인강",
+            "description": "경영학과 학종도 수능 최저를 요구하는 전형이 많습니다. ① 과목별 고정 시간표를 3월에 확정합니다. ② 매월 모의고사를 실전으로 응시하고 오답 유형만 추가 학습합니다. ③ 9월 이후에는 취약 1개 과목에 주 3시간을 더 씁니다. 완료 기준: 11월 수능 4개 영역 2등급 이내.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "월별 모의고사 성적표 8회 + 과목별 오답노트 4권",
+            "cost": "무료~월 15만원",
+            "goalIndex": 0
+          },
+          {
+            "type": "activity",
+            "title": "생기부 연계 면접 자료 6건 + 모의면접 5회 (5~8월)",
+            "months": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 3,
+            "organizer": "자체·학교",
+            "description": "창업·투자 활동은 숫자로 말해야 설득됩니다. ① 활동 6건을 각 1장으로 정리하되 매출·고객 수·검증 인원 같은 숫자를 반드시 넣습니다. ② '왜 그 가격이었나' 같은 후속 질문 20개를 만들어 답을 씁니다. ③ 모의면접 5회를 녹화합니다. 완료 기준: 활동 정리 6장 + 후속 질문 20개 답변 + 모의면접 5회.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "면접용 활동 정리 6장(숫자 근거 포함) + 후속 질문 20개 답변 + 모의면접 녹화 5편",
+            "cost": "무료",
+            "goalIndex": 1
+          },
+          {
+            "type": "portfolio",
+            "title": "창직 마무리 — 고객 검증 누적 50명 + 사업계획서 최종본 (3~6월)",
+            "months": [
+              3,
+              4,
+              5,
+              6
+            ],
+            "difficulty": 4,
+            "organizer": "자체",
+            "description": "고2 프로토타입을 '팔릴 수 있는 형태'까지 밀어붙입니다. ① 추가 고객 20명을 인터뷰해 누적 50명을 채웁니다. ② 가격·원가·손익분기점을 계산해 사업계획서에 넣습니다. ③ 3분 소개 영상 1편으로 정리해 면접 소재로 씁니다. 완료 기준: 고객 검증 누적 50명 · 사업계획서 최종본 1편 · 소개 영상 1편.",
+            "categoryTags": [
+              "project"
+            ],
+            "activitySubtype": "project",
+            "projectTrack": true,
+            "priority": "boost",
+            "aiTools": [
+              "ChatGPT",
+              "Google Sheets",
+              "Figma",
+              "CapCut"
+            ],
+            "deliverable": "고객 검증 기록 50명 + 손익 포함 사업계획서 1편 + 3분 소개 영상 1편",
+            "cost": "실비 3~10만원",
+            "goalIndex": 2
           }
         ]
       }
-    ]
+    ],
+    "northStar": {
+      "goal": "경영을 배운 학생이 아니라 '고객을 직접 찾아 검증한 학생'이 된다 — 실제 매출과 고객 검증 50명을 남긴다.",
+      "proof": "미니 창업 매출 정산 1건 · 고객 검증 누적 50명 · 사업계획서 3편 · 프로토타입 2개",
+      "byWhen": "고3 6월까지",
+      "ventureNote": "창직 관점 — AI가 분석·문서를 대신할수록 '고객을 만나 팔아본 사람'만 남는다."
+    },
+    "competencyGrowth": {
+      "axes": [
+        {
+          "key": "ai",
+          "icon": "🤖",
+          "name": "AI 활용력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "모의투자 리포트에 AI 분석 활용"
+            },
+            {
+              "stage": "중3",
+              "score": 50,
+              "evidence": "고객 인터뷰 10건 AI 요약·분류"
+            },
+            {
+              "stage": "고1",
+              "score": 70,
+              "evidence": "산업 리포트 4편 AI 리서치 병행"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "AI 비즈니스 모델 + 프로토타입 1개"
+            },
+            {
+              "stage": "고3",
+              "score": 94,
+              "evidence": "AI 도구 3종으로 1인 운영 체계 구성"
+            }
+          ]
+        },
+        {
+          "key": "plan",
+          "icon": "🧭",
+          "name": "기획력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "종목 리포트 5편 작성"
+            },
+            {
+              "stage": "중3",
+              "score": 55,
+              "evidence": "사업계획서 1편(10쪽)"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "고객 검증 20명 설계"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "프로토타입 + 검증 30명 설계"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "손익 목표 포함 사업계획서 최종본"
+            }
+          ]
+        },
+        {
+          "key": "fusion",
+          "icon": "🔗",
+          "name": "융합력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "경제 뉴스 + 투자 데이터 결합"
+            },
+            {
+              "stage": "중3",
+              "score": 50,
+              "evidence": "고객 인터뷰 + 원가 계산 결합"
+            },
+            {
+              "stage": "고1",
+              "score": 70,
+              "evidence": "산업 분석 + 재무 정리 결합"
+            },
+            {
+              "stage": "고2",
+              "score": 86,
+              "evidence": "AI 기술 이해 + 비즈니스 모델 결합"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "데이터 + 고객 + 수익 구조 통합"
+            }
+          ]
+        },
+        {
+          "key": "venture",
+          "icon": "🚀",
+          "name": "창직력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 20,
+              "evidence": "모의투자 6개월 운영"
+            },
+            {
+              "stage": "중3",
+              "score": 48,
+              "evidence": "미니 창업 실제 판매·정산 1건"
+            },
+            {
+              "stage": "고1",
+              "score": 68,
+              "evidence": "고객 검증 20명"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "고객 검증 누적 50명 + 입상"
+            },
+            {
+              "stage": "고3",
+              "score": 95,
+              "evidence": "실매출 + 재구매 확보"
+            }
+          ]
+        },
+        {
+          "key": "deliver",
+          "icon": "🎤",
+          "name": "전달력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 25,
+              "evidence": "신문 토론 20회"
+            },
+            {
+              "stage": "중3",
+              "score": 45,
+              "evidence": "경진대회 출품 1건"
+            },
+            {
+              "stage": "고1",
+              "score": 65,
+              "evidence": "리포트 4편 공개"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "제안 발표·시연 1회"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "면접 답변 30문항 + 모의면접 5회"
+            }
+          ]
+        },
+        {
+          "key": "question",
+          "icon": "📚",
+          "name": "질문력 (독서 기반)",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 42,
+              "evidence": "3권 병렬 독서 4세트 + 문제 카드 12장"
+            },
+            {
+              "stage": "중3",
+              "score": 70,
+              "evidence": "현장 조사로 이론 검증"
+            },
+            {
+              "stage": "고1",
+              "score": 88,
+              "evidence": "시장 비판 관점의 반론을 함께 서술"
+            }
+          ]
+        }
+      ],
+      "note": "중2→고3 동안 쌓인 결과물 개수로 5개 역량을 점수화했습니다."
+    },
+    "aiOrchestra": {
+      "note": "단계별로 AI 에이전트를 어디에 맡기고 어디를 직접 했는지.",
+      "agents": [
+        {
+          "stage": "중2~중3 — 숫자 감각",
+          "tools": [
+            "Google Sheets",
+            "ChatGPT",
+            "네이버 증권"
+          ],
+          "use": "리포트 초안은 AI, 매수·매도 판단과 회고는 사람이 쓴다."
+        },
+        {
+          "stage": "고1 — 고객 찾기",
+          "tools": [
+            "Google Forms",
+            "ChatGPT(인터뷰 질문)",
+            "Canva"
+          ],
+          "use": "인터뷰 질문 설계와 응답 분류에 AI를 쓰고 만나는 건 직접 한다."
+        },
+        {
+          "stage": "고2~고3 — 사업화",
+          "tools": [
+            "ChatGPT",
+            "Figma",
+            "Notion",
+            "CapCut"
+          ],
+          "use": "제안서·시연 영상까지 혼자 만들어 1인 사업 구조를 익힌다."
+        }
+      ]
+    }
   },
   {
     "id": "tpl-admission-snu-law-001",
@@ -2682,7 +4010,7 @@
     "starId": "order",
     "starName": "질서 왕국",
     "starEmoji": "⚖️",
-    "starColor": "#8E44AD",
+    "starColor": "#8B5CF6",
     "jobId": "univ-snu-law",
     "jobName": "서울대 법학과",
     "jobEmoji": "⚖️",
@@ -2768,7 +4096,7 @@
       "정시",
       "유학"
     ],
-    "totalItems": 15,
+    "totalItems": 19,
     "years": [
       {
         "gradeId": "mid2",
@@ -2792,7 +4120,8 @@
             "organizer": "국사편찬위원회",
             "description": "3~5월 주 4회 1시간씩 시대순으로 훑는다. ① 공식 홈페이지에서 5월 회차 접수 일정을 확인해 달력에 고정 ② 선사~현대를 8주로 쪼개 주차별 진도를 정하고 단원마다 연표를 직접 손으로 정리 ③ 4월부터 기출 5회분을 시간 재고 풀고 오답 시대만 재복습. 완료 기준: 1급(80점 이상) 취득.",
             "categoryTags": [],
-            "deliverable": "한국사능력검정 1급 인증서 1장 + 연표 정리 노트 1권"
+            "deliverable": "한국사능력검정 1급 인증서 1장 + 연표 정리 노트 1권",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2810,7 +4139,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "참가 확인서 1장 + 법 개념 정리 노트 1편(A4 3쪽)"
+            "deliverable": "참가 확인서 1장 + 법 개념 정리 노트 1편(A4 3쪽)",
+            "goalIndex": 1
           },
           {
             "type": "portfolio",
@@ -2840,7 +4170,8 @@
               "Notion"
             ],
             "deliverable": "공개 팩트체크 노트 6편 + 출처 대조표 6장 + AI 오류 기록 3건",
-            "links": []
+            "links": [],
+            "goalIndex": 2
           }
         ]
       },
@@ -2870,7 +4201,8 @@
               "activity"
             ],
             "activitySubtype": "camp",
-            "deliverable": "수료 확인서 1장 + 헌법 조문 정리 노트 1편(A4 3쪽)"
+            "deliverable": "수료 확인서 1장 + 헌법 조문 정리 노트 1편(A4 3쪽)",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2895,7 +4227,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "모의재판 4회 기록 + 소장·변론요지서 각 4부 + 실제 판례 대조 1건"
+            "deliverable": "모의재판 4회 기록 + 소장·변론요지서 각 4부 + 실제 판례 대조 1건",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -2912,7 +4245,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "대회 참가 확인서 1장 + 입론서 3편 + 토론 녹화 3편"
+            "deliverable": "대회 참가 확인서 1장 + 입론서 3편 + 토론 녹화 3편",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -2938,7 +4272,8 @@
               "Streamlit"
             ],
             "deliverable": "배포 URL 1개 + GitHub 저장소 1개 + 질문 50건 정확도 기록",
-            "links": []
+            "links": [],
+            "goalIndex": 3
           }
         ]
       },
@@ -2949,7 +4284,8 @@
           "TOEIC 900점 이상 취득 (4월)",
           "K-MOOC 형법총론 이수증 1장 + 사례 풀이 10건 (5월)",
           "전국 청소년 모의재판 대회 출전 + 담당 서면 1부 제출 (9월)",
-          "AI 법 쟁점 모의 의견서 1편(A4 8쪽) 완성 (8월)"
+          "AI 법 쟁점 모의 의견서 1편(A4 8쪽) 완성 (8월)",
+          "12월까지 1주제 3권 병렬 독서 4세트(12권) + 문제 카드 12장 작성"
         ],
         "items": [
           {
@@ -2965,7 +4301,8 @@
             "organizer": "ETS",
             "description": "2~4월 주 5회 60분씩 LC·RC를 번갈아 한다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 시간 재고 풀고 파트별 정답률을 표로 기록 ③ 정답률 낮은 파트 2개에 주간 학습의 절반을 배분하고 오답 어휘는 매일 20개씩 복습. 완료 기준: 4월 응시 900점 이상, 모의 2회 연속 900점 이상.",
             "categoryTags": [],
-            "deliverable": "TOEIC 성적표 1장(900점 이상)"
+            "deliverable": "TOEIC 성적표 1장(900점 이상)",
+            "goalIndex": 0
           },
           {
             "type": "activity",
@@ -2983,7 +4320,8 @@
               "activity"
             ],
             "activitySubtype": "general",
-            "deliverable": "K-MOOC 이수증 1장 + 단원별 정리 노트 1권 + 사례 풀이 10건"
+            "deliverable": "K-MOOC 이수증 1장 + 단원별 정리 노트 1권 + 사례 풀이 10건",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -3002,7 +4340,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "대회 참가 확인서 1장 + 담당 서면 1부 + 리허설 기록 5회 + 불리한 판례 검토 3건"
+            "deliverable": "대회 참가 확인서 1장 + 담당 서면 1부 + 리허설 기록 5회 + 불리한 판례 검토 3건",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -3028,7 +4367,38 @@
               "Overleaf"
             ],
             "deliverable": "모의 의견서 PDF 1편(A4 8쪽) + 작성 회고 1편 + 근거 판례·조문 목록",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          },
+          {
+            "type": "activity",
+            "title": "1주제 3권 병렬 독서 4세트 — 법을 조문·판례·현장 세 층위로 읽기",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 2,
+            "organizer": "자체 (ReadingClue식 병렬 독서)",
+            "description": "주 2회 1시간, 세트당 6~8주. ① 관심 주제 1개를 고정합니다. ② 법 이론 1권·판례 해설 1권·현장 르포 3권을 병렬로 읽습니다. ③ 세 권이 어긋나는 지점 3곳에서 문제 카드 5칸(배경·주장·반론·근거·확인 방법)을 채웁니다. ④ 카드마다 \"내가 직접 확인할 방법\"을 한 줄 적고, 못 적는 카드는 버립니다. ④ 12장 중 \"고등학생이 직접 확인할 수 있는 것\" 3개만 남겨 탐구·소논문 주제로 잇습니다. 완료 기준: 12월까지 12권 완독 + 문제 카드 12장 + 실행 가능한 탐구 주제 3개.",
+            "deliverable": "문제 카드 12장 + 독서 기록 12권 + 판례·조문으로 확인할 쟁점 3개",
+            "cost": "무료 (도서관 대출)",
+            "categoryTags": [
+              "reading",
+              "paper"
+            ],
+            "activitySubtype": "research",
+            "priority": "must",
+            "aiTools": [
+              "NotebookLM",
+              "국가법령정보센터",
+              "Claude(반대 논거)"
+            ],
+            "goalIndex": 4
           }
         ]
       },
@@ -3056,7 +4426,8 @@
             "organizer": "ETS",
             "description": "1~4월 주 5회 90분씩 4영역을 돌린다. ① 공식 사이트에서 4월 시험일을 먼저 예약 ② 주 1회 실전 모의 1세트를 풀고 영역별 점수를 표로 기록 ③ 취약 영역에 학습 시간의 절반을 배분하고 리딩 지문은 사회·법 주제로 골라 어휘를 함께 정리. 완료 기준: 4월 응시 총점 100점 이상, 모의 2회 연속 100점 이상.",
             "categoryTags": [],
-            "deliverable": "TOEFL 성적표 1장(100점 이상)"
+            "deliverable": "TOEFL 성적표 1장(100점 이상)",
+            "goalIndex": 0
           },
           {
             "type": "award",
@@ -3074,7 +4445,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "출품 에세이 1편 + 참고문헌 목록 10건 + 수정 이력 3개 버전"
+            "deliverable": "출품 에세이 1편 + 참고문헌 목록 10건 + 수정 이력 3개 버전",
+            "goalIndex": 1
           },
           {
             "type": "award",
@@ -3091,7 +4463,8 @@
             "categoryTags": [
               "award"
             ],
-            "deliverable": "대회 참가 확인서 1장 + Position Paper 1편 + 결의안 초안 1건"
+            "deliverable": "대회 참가 확인서 1장 + Position Paper 1편 + 결의안 초안 1건",
+            "goalIndex": 2
           },
           {
             "type": "portfolio",
@@ -3117,10 +4490,323 @@
               "ChatGPT (코드 검증)"
             ],
             "deliverable": "공개 노트북 1개 + 분석 리포트 1편(A4 3쪽) + 시각화 그래프 3개",
-            "links": []
+            "links": [],
+            "goalIndex": 3
+          }
+        ]
+      },
+      {
+        "gradeId": "high3",
+        "gradeLabel": "고3 — 수능·면접·창직 마무리",
+        "goals": [
+          "11월 수능 국·수·영·사탐 1등급 확보 (주 6일 하루 5시간 고정 학습)",
+          "8월까지 생기부 연계 면접 자료 6건 정리 + 모의면접 5회 완료",
+          "7월까지 AI 법 쟁점 콘텐츠 12편 공개 + 팩트체크 노트 누적 12편 달성"
+        ],
+        "items": [
+          {
+            "type": "activity",
+            "title": "수능 국·수·영·사탐 1등급 (3~11월, 주 6일 하루 5시간)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "difficulty": 5,
+            "organizer": "자체·인강",
+            "description": "법학 계열은 국어 비중이 결정적입니다. ① 국어 2h·수학 1.5h·영어 1h·사탐 0.5h로 고정합니다. ② 비문학 지문은 매일 3개씩 시간 재고 풉니다. ③ 매월 모의고사 후 틀린 유형만 5문항 추가 학습합니다. 완료 기준: 11월 수능 4개 영역 1등급.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "월별 모의고사 성적표 8회 + 비문학 오답노트 1권 + 과목별 오답노트 3권",
+            "cost": "무료~월 15만원",
+            "goalIndex": 0
+          },
+          {
+            "type": "activity",
+            "title": "생기부 연계 면접 자료 6건 + 모의면접 5회 (5~8월)",
+            "months": [
+              5,
+              6,
+              7,
+              8
+            ],
+            "difficulty": 4,
+            "organizer": "자체·학교",
+            "description": "법학 면접은 논리의 일관성을 봅니다. ① 모의재판·에세이·MUN 등 활동 6건을 각 1장으로 정리합니다. ② 각 활동에 대해 '반대편이라면 어떻게 반박할까'를 함께 씁니다. ③ 모의면접 5회를 녹화해 근거 없는 단정 표현을 지웁니다. 완료 기준: 활동 정리 6장 + 반론 6편 + 모의면접 5회.",
+            "categoryTags": [
+              "activity"
+            ],
+            "activitySubtype": "general",
+            "priority": "must",
+            "deliverable": "면접용 활동 정리 6장 + 활동별 반론 6편 + 모의면접 녹화 5편",
+            "cost": "무료",
+            "goalIndex": 1
+          },
+          {
+            "type": "portfolio",
+            "title": "창직 트랙 — 'AI 법 쟁점' 콘텐츠 12편 공개 (3~7월)",
+            "months": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "difficulty": 3,
+            "organizer": "자체",
+            "description": "AI 규제는 매달 바뀝니다. 그 변화를 쉬운 말로 옮기는 사람이 필요합니다. ① 생성형 AI 저작권·개인정보·자동화 책임 중 주제를 골라 주 1편씩 카드뉴스 또는 3분 영상으로 만듭니다. ② 편마다 법령·판례 출처를 최소 2건 명시합니다. ③ AI가 만든 초안의 오류를 잡은 사례를 편마다 1줄 기록합니다. 완료 기준: 콘텐츠 12편 · 출처 24건 · AI 오류 정정 기록 12건.",
+            "categoryTags": [
+              "project"
+            ],
+            "activitySubtype": "project",
+            "projectTrack": true,
+            "priority": "boost",
+            "aiTools": [
+              "Claude",
+              "국가법령정보센터",
+              "Canva",
+              "CapCut"
+            ],
+            "deliverable": "AI 법 쟁점 콘텐츠 12편 + 출처 24건 목록 + AI 오류 정정 기록 12건",
+            "cost": "무료",
+            "goalIndex": 2
           }
         ]
       }
-    ]
+    ],
+    "northStar": {
+      "goal": "법을 외우는 학생이 아니라 '규칙을 설계하고 근거로 설득하는 학생'이 된다 — 내가 쓴 서면·의견서가 실제 토론과 판단의 재료가 되게 한다.",
+      "proof": "모의재판 서면 8부 · 의견서·에세이 3편 · 팩트체크 노트 12편 · 판례 RAG 챗봇 출처 정확도 80%",
+      "byWhen": "고3 7월까지",
+      "ventureNote": "창직 관점 — AI 규제·계약 검토 수요가 커질수록 '기술을 이해하는 법률 인재'의 1인 자문 시장이 열린다."
+    },
+    "competencyGrowth": {
+      "axes": [
+        {
+          "key": "ai",
+          "icon": "🤖",
+          "name": "AI 활용력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "팩트체크에 AI 교차 검증 6편"
+            },
+            {
+              "stage": "중3",
+              "score": 52,
+              "evidence": "판례 RAG 챗봇 출처 정확도 80%"
+            },
+            {
+              "stage": "고1",
+              "score": 70,
+              "evidence": "AI 법 쟁점 의견서 1편"
+            },
+            {
+              "stage": "고2",
+              "score": 86,
+              "evidence": "법령 텍스트 분석 노트북 1개"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "AI 초안 → 근거 검증 루틴 확립"
+            }
+          ]
+        },
+        {
+          "key": "plan",
+          "icon": "🧭",
+          "name": "기획력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 30,
+              "evidence": "팩트체크 월 1편 루틴 설계"
+            },
+            {
+              "stage": "중3",
+              "score": 55,
+              "evidence": "모의재판 4회 기획·개최"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "대회 서면 1부 제출 설계"
+            },
+            {
+              "stage": "고2",
+              "score": 86,
+              "evidence": "에세이·MUN 일정 설계"
+            },
+            {
+              "stage": "고3",
+              "score": 94,
+              "evidence": "면접 대비 쟁점 30개 설계"
+            }
+          ]
+        },
+        {
+          "key": "fusion",
+          "icon": "🔗",
+          "name": "융합력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 28,
+              "evidence": "역사·사회 + 법 개념 연결"
+            },
+            {
+              "stage": "중3",
+              "score": 52,
+              "evidence": "판례 + 기술(RAG) 결합"
+            },
+            {
+              "stage": "고1",
+              "score": 72,
+              "evidence": "AI 윤리 + 법 쟁점 결합"
+            },
+            {
+              "stage": "고2",
+              "score": 88,
+              "evidence": "법령 데이터 + 텍스트 분석 결합"
+            },
+            {
+              "stage": "고3",
+              "score": 94,
+              "evidence": "기술 이해 + 법 논증 통합"
+            }
+          ]
+        },
+        {
+          "key": "venture",
+          "icon": "🚀",
+          "name": "창직력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 15,
+              "evidence": "팩트체크 노트 공개 6편"
+            },
+            {
+              "stage": "중3",
+              "score": 35,
+              "evidence": "모의재판 동아리 운영"
+            },
+            {
+              "stage": "고1",
+              "score": 55,
+              "evidence": "대회 출전 1회"
+            },
+            {
+              "stage": "고2",
+              "score": 75,
+              "evidence": "에세이·MUN 대외 활동 확대"
+            },
+            {
+              "stage": "고3",
+              "score": 88,
+              "evidence": "AI 법 쟁점 자문형 콘텐츠 12편 운영"
+            }
+          ]
+        },
+        {
+          "key": "deliver",
+          "icon": "🎤",
+          "name": "전달력",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 25,
+              "evidence": "토론 기록 20회"
+            },
+            {
+              "stage": "중3",
+              "score": 48,
+              "evidence": "서면 8부 작성"
+            },
+            {
+              "stage": "고1",
+              "score": 68,
+              "evidence": "입론서 3편"
+            },
+            {
+              "stage": "고2",
+              "score": 85,
+              "evidence": "Position Paper 1편"
+            },
+            {
+              "stage": "고3",
+              "score": 93,
+              "evidence": "모의면접 5회 + 답변 30문항"
+            }
+          ]
+        },
+        {
+          "key": "question",
+          "icon": "📚",
+          "name": "질문력 (독서 기반)",
+          "levels": [
+            {
+              "stage": "중2",
+              "score": 46,
+              "evidence": "3권 병렬 독서 4세트 + 문제 카드 12장"
+            },
+            {
+              "stage": "중3",
+              "score": 75,
+              "evidence": "조문·판례 원문 확인 20건"
+            },
+            {
+              "stage": "고1",
+              "score": 92,
+              "evidence": "반대 논거를 조문 근거와 함께 서술"
+            }
+          ]
+        }
+      ],
+      "note": "중2→고3 동안 쌓인 결과물 개수로 5개 역량을 점수화했습니다."
+    },
+    "aiOrchestra": {
+      "note": "단계별로 AI 에이전트를 어디에 맡기고 어디를 직접 했는지.",
+      "agents": [
+        {
+          "stage": "중2~중3 — 사실 확인",
+          "tools": [
+            "ChatGPT",
+            "Perplexity",
+            "빅카인즈"
+          ],
+          "use": "AI 요약을 원문 기사 3곳과 대조해 팩트체크 노트를 만든다."
+        },
+        {
+          "stage": "고1 — 쟁점 정리",
+          "tools": [
+            "Claude",
+            "국가법령정보센터",
+            "Notion"
+          ],
+          "use": "쟁점별 찬반 논거를 정리하고 반론까지 AI에 시켜본다."
+        },
+        {
+          "stage": "고2~고3 — 논증 검증",
+          "tools": [
+            "Claude(초안)",
+            "ChatGPT(반론)",
+            "Python(법령 분석)"
+          ],
+          "use": "AI가 만든 논거의 출처를 하나씩 확인하는 습관이 곧 실력."
+        }
+      ]
+    }
   }
 ]

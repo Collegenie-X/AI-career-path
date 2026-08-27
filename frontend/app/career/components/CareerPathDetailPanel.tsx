@@ -9,6 +9,7 @@ import {
 import type { CareerPathTemplate } from '@/data/path-templates';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
+import { CareerPathAiEraSection } from './CareerPathAiEraSection';
 import { CareerPathDetailPanelTimeline } from './CareerPathDetailPanelTimeline';
 import { CareerPathDetailPanelComment, type DetailPanelComment } from './CareerPathDetailPanelComment';
 import { AdmissionTypeStrategiesSection, SuccessStoriesSection, RecommendedActivitiesSection } from './CareerPathDetailPanelSections';
@@ -307,6 +308,8 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
             <AiGeneratedNoticeBanner note={template.aiGeneratedNote} />
           )}
           <p className="text-[13px] text-gray-400 leading-relaxed">{template.description}</p>
+
+          <CareerPathAiEraSection template={template} />
 
           <DetailRichInfoSection template={template} />
 

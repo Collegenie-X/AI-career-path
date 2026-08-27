@@ -327,6 +327,18 @@ const GLOSSARY: Record<string, GlossaryEntry> = {
   'GLP': { full: 'Good Laboratory Practice', meaning: '비임상 시험 품질 관리 기준', emoji: '🧪' },
   'GCP': { full: 'Good Clinical Practice', meaning: '임상시험 품질 관리 기준', emoji: '🩺' },
 
+  // ── 창작의 별 현행 제작 스택 (2026) ─────────────────────────
+  'Freepik': { full: 'Freepik (프리픽)', meaning: '이미지 생성·업스케일·배경제거·벡터·영상까지 한 계정에서 되는 창작 허브. 상업용 라이선스를 함께 제공', emoji: '🅵' },
+  'Higgsfield': { full: 'Higgsfield (힉스필드)', meaning: '카메라 무빙 프리셋으로 시네마틱 영상 컷을 만드는 AI 영상 도구. 촬영 장비 없이 광고 컷 제작', emoji: '🎥' },
+  'CapCut': { full: 'CapCut (캡컷)', meaning: '무료로 쓰는 영상 편집 도구. 자동 자막·템플릿·숏폼 규격 맞추기에 강함', emoji: '✂️' },
+  'Nano Banana': { full: 'Nano Banana (Gemini 이미지 편집)', meaning: '이미지의 일부만 자연스럽게 고치거나 합성하는 AI 편집 모델', emoji: '🍌' },
+  'Krea': { full: 'Krea AI', meaning: '실시간으로 그림을 바꿔 가며 만드는 AI 이미지·업스케일 도구', emoji: '🖼️' },
+  'ElevenLabs': { full: 'ElevenLabs', meaning: '사람 같은 목소리를 만들어 주는 AI 음성·더빙 도구', emoji: '🎙️' },
+  'Gumroad': { full: 'Gumroad', meaning: '디지털 상품(템플릿·브러시·전자책)을 바로 파는 해외 판매 플랫폼', emoji: '🛒' },
+  'Rive': { full: 'Rive', meaning: '앱·웹에 바로 넣는 인터랙티브 모션을 만드는 도구', emoji: '🌀' },
+  'Meshy': { full: 'Meshy', meaning: '글이나 이미지로 3D 모델을 만들어 주는 AI 도구', emoji: '🧊' },
+  'Aseprite': { full: 'Aseprite', meaning: '픽셀 아트와 스프라이트 애니메이션 전용 그래픽 도구', emoji: '👾' },
+
   // ── 고빈도 신규 도구 (JSON 사용 빈도 높은 순) ────────────────
   'Midjourney': { full: 'Midjourney', meaning: '글로 그림을 그려 주는 대표 AI 이미지 생성 도구', emoji: '🎨' },
   'Power BI AI': { full: 'Microsoft Power BI + AI', meaning: 'Power BI에 AI 분석·시각화가 통합된 BI 도구', emoji: '📈' },

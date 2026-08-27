@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ChevronDown, ChevronUp, Star, Users, BookOpen, Zap, Info } from 'lucide-react';
+import { X, ChevronDown, ChevronUp, Star, Users, BookOpen, Zap, Info, Workflow, Rocket } from 'lucide-react';
 import { normalizeStarProfile } from '@/data/stars/normalizeProfile';
 import { LABELS } from '@/app/jobs/explore/config';
 
@@ -104,6 +104,8 @@ export function StarProfilePanel({
   const coreTraitsSection = profile.sections.find((s) => s.id === 'coreTraits');
   const fitSection = profile.sections.find((s) => s.id === 'fitPersonality');
   const whySection = profile.sections.find((s) => s.id === 'whyThisGroup');
+  const orchestraSection = profile.sections.find((s) => s.id === 'aiOrchestra');
+  const ventureSection = profile.sections.find((s) => s.id === 'venture2032');
   const coreTraits = coreTraitsSection?.type === 'traitGrid' ? coreTraitsSection.items : [];
   const fitItems = fitSection?.type === 'fitList' ? fitSection.fitItems : [];
   const notFitItems = fitSection?.type === 'fitList' ? fitSection.notFitItems : [];
@@ -218,10 +220,100 @@ export function StarProfilePanel({
             </div>
           </SectionBlock>
 
+          {/* AI Orchestra — 지금 바뀌는 역할 */}
+          {orchestraSection && orchestraSection.type === 'orchestra' && (
+            <SectionBlock
+              title={(LABELS as unknown as Record<string, string>)[orchestraSection.titleKey] ?? LABELS.star_ai_orchestra_title}
+              icon={Workflow}
+              color={star.color}
+              defaultOpen
+            >
+              {/* 역할 이동 */}
+              <div className="mt-2 rounded-xl p-3" style={{ background: `${star.color}10`, border: `1px solid ${star.color}22` }}>
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_orchestra_role_shift_label}
+                </div>
+                <div className="flex items-start gap-2">
+                  <div className="flex-1">
+                    <div className="text-[10px] text-gray-500 mb-0.5">{LABELS.star_orchestra_from_label}</div>
+                    <div className="text-[11px] text-gray-400 leading-snug line-through decoration-white/20">
+                      {orchestraSection.roleShift.from}
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-600 pt-3">→</div>
+                  <div className="flex-1">
+                    <div className="text-[10px] mb-0.5" style={{ color: star.color }}>
+                      {LABELS.star_orchestra_to_label}
+                    </div>
+                    <div className="text-[11px] text-white font-semibold leading-snug">
+                      {orchestraSection.roleShift.to}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-[10px] text-gray-400 leading-snug mt-2 pt-2 border-t border-white/8">
+                  {orchestraSection.roleShift.note}
+                </p>
+              </div>
+
+              {/* AI 스택 */}
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_orchestra_tool_label}
+                </div>
+                <div className="space-y-1.5">
+                  {orchestraSection.toolStack.map((tool, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-2 px-3 py-2 rounded-xl bg-white/4 border border-white/8"
+                    >
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[11px] font-bold text-white">{tool.name}</div>
+                        <div className="text-[10px] text-gray-400 leading-snug">{tool.role}</div>
+                      </div>
+                      <span
+                        className="px-2 py-0.5 rounded-full text-[9px] font-bold flex-shrink-0"
+                        style={{ background: `${star.color}20`, color: star.color }}
+                      >
+                        {tool.level}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 루틴 */}
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_orchestra_routine_label}
+                </div>
+                <div className="space-y-1">
+                  {orchestraSection.routine.map((r, i) => (
+                    <div key={i} className="text-[11px] text-gray-300 leading-snug">{r}</div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 주목할 변화 */}
+              <div className="mt-3 pt-3 border-t border-white/8">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_orchestra_watch_label}
+                </div>
+                <div className="space-y-1.5">
+                  {orchestraSection.watchNext.map((w, i) => (
+                    <div key={i} className="flex items-start gap-2">
+                      <span className="text-[10px] flex-shrink-0" style={{ color: star.color }}>●</span>
+                      <span className="text-[11px] text-gray-300 leading-snug">{w}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </SectionBlock>
+          )}
+
           {/* Fit Personality */}
           {fitSection && (
             <SectionBlock
-              title={LABELS[fitSection.titleKey] ?? LABELS.star_fit_title}
+              title={(LABELS as unknown as Record<string, string>)[fitSection.titleKey] ?? LABELS.star_fit_title}
               icon={Users}
               color={star.color}
               defaultOpen
@@ -273,7 +365,7 @@ export function StarProfilePanel({
           {/* Why This Group */}
           {whySection && whySection.type === 'reasonWithTags' && (
             <SectionBlock
-              title={LABELS[whySection.titleKey] ?? LABELS.star_why_grouped_title}
+              title={(LABELS as unknown as Record<string, string>)[whySection.titleKey] ?? LABELS.star_why_grouped_title}
               icon={Info}
               color={star.color}
             >
@@ -291,6 +383,197 @@ export function StarProfilePanel({
                     >
                       {dna}
                     </span>
+                  ))}
+                </div>
+              </div>
+            </SectionBlock>
+          )}
+
+          {/* 2032 창직 프로젝트 */}
+          {ventureSection && ventureSection.type === 'ventureProjects' && (
+            <SectionBlock
+              title={(LABELS as unknown as Record<string, string>)[ventureSection.titleKey] ?? LABELS.star_venture2032_title}
+              icon={Rocket}
+              color={star.color}
+              defaultOpen
+            >
+              <div className="mt-2">
+                <div className="text-[10px] font-bold text-gray-500 mb-1.5 uppercase tracking-wider">
+                  {LABELS.star_venture_thesis_label}
+                </div>
+                <p className="text-[11px] text-gray-300 leading-relaxed">{ventureSection.thesis}</p>
+              </div>
+
+              {/* AI 시대 필수 역량 */}
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_venture_skills_label}
+                </div>
+                <div className="grid grid-cols-2 gap-2">
+                  {ventureSection.aiEraSkills.map((sk, i) => (
+                    <div
+                      key={i}
+                      className="p-2.5 rounded-xl"
+                      style={{ background: `${star.color}10`, border: `1px solid ${star.color}22` }}
+                    >
+                      <div className="text-lg mb-0.5">{sk.icon}</div>
+                      <div className="text-[11px] font-bold text-white mb-0.5">{sk.label}</div>
+                      <div className="text-[10px] text-gray-400 leading-snug">{sk.desc}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 시간 배분 안내 */}
+              <div
+                className="mt-3 rounded-xl p-3"
+                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+              >
+                <div className="text-[10px] font-bold text-gray-500 mb-1 uppercase tracking-wider">
+                  {LABELS.star_venture_time_note_label}
+                </div>
+                <p className="text-[11px] text-gray-300 leading-relaxed">{ventureSection.timeNote}</p>
+              </div>
+
+              {/* 학교 유형별 트랙 */}
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_venture_tracks_label}
+                </div>
+                <div className="space-y-2">
+                  {ventureSection.tracks.map((tr, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl p-3"
+                      style={{ background: `${star.color}0f`, border: `1px solid ${star.color}20` }}
+                    >
+                      <div className="flex items-center gap-2 flex-wrap mb-1">
+                        <span
+                          className="px-2 py-0.5 rounded-full text-[9px] font-bold"
+                          style={{ background: `${star.color}22`, color: star.color }}
+                        >
+                          {tr.name}
+                        </span>
+                        <span className="text-[9px] text-gray-500">
+                          {LABELS.star_venture_track_load_label} {tr.load}
+                        </span>
+                      </div>
+                      <div className="text-[10px] text-gray-300 leading-snug mb-1">
+                        <span className="text-gray-500">{LABELS.star_venture_track_when_label} · </span>
+                        {tr.when}
+                      </div>
+                      <p className="text-[10px] text-gray-400 leading-snug">{tr.note}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 단계별 프로젝트 */}
+              <div className="mt-3">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_venture_projects_label}
+                </div>
+                <div className="space-y-2.5">
+                  {ventureSection.projects.map((pj, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl p-3"
+                      style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${star.color}22` }}
+                    >
+                      <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                        <span
+                          className="px-2 py-0.5 rounded-full text-[9px] font-bold"
+                          style={{ background: `${star.color}22`, color: star.color }}
+                        >
+                          {pj.stage}
+                        </span>
+                        <span className="text-[9px] text-gray-500">
+                          {LABELS.star_venture_duration_label} {pj.duration} · {LABELS.star_venture_cost_label} {pj.cost}
+                        </span>
+                      </div>
+                      <div className="text-xs font-bold text-white leading-snug mb-1">{pj.title}</div>
+                      <div className="space-y-0.5 mb-1.5">
+                        <div className="flex gap-2">
+                          <span className="text-[9px] text-gray-500 w-6 flex-shrink-0">
+                            {LABELS.star_venture_timing_label}
+                          </span>
+                          <span className="text-[10px] text-gray-300 leading-snug flex-1">{pj.timing}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          <span className="text-[9px] text-gray-500 w-6 flex-shrink-0">
+                            {LABELS.star_venture_load_label}
+                          </span>
+                          <span className="text-[10px] text-gray-300 leading-snug flex-1">{pj.load}</span>
+                        </div>
+                      </div>
+                      <p className="text-[10px] text-gray-400 leading-snug mb-2">{pj.problem}</p>
+
+                      <div className="text-[9px] font-bold text-gray-500 mb-1">
+                        {LABELS.star_venture_steps_label}
+                      </div>
+                      <div className="space-y-1 mb-2">
+                        {pj.steps.map((st, j) => (
+                          <div key={j} className="flex items-start gap-1.5">
+                            <span className="text-[9px] flex-shrink-0 mt-0.5" style={{ color: star.color }}>
+                              {j + 1}
+                            </span>
+                            <span className="text-[10px] text-gray-300 leading-snug">{st}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="flex flex-wrap gap-1 mb-2">
+                        {pj.aiStack.map((t, j) => (
+                          <span
+                            key={j}
+                            className="px-2 py-0.5 rounded-md text-[9px] text-gray-300 bg-white/6 border border-white/8"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="space-y-1 pt-2 border-t border-white/8">
+                        <div className="flex gap-2">
+                          <span className="text-[9px] text-gray-500 w-12 flex-shrink-0">
+                            {LABELS.star_venture_deliverable_label}
+                          </span>
+                          <span className="text-[10px] text-gray-300 leading-snug flex-1">{pj.deliverable}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          <span className="text-[9px] text-gray-500 w-12 flex-shrink-0">
+                            {LABELS.star_venture_proof_label}
+                          </span>
+                          <span className="text-[10px] leading-snug flex-1" style={{ color: star.color }}>
+                            {pj.proof}
+                          </span>
+                        </div>
+                        <div className="flex gap-2">
+                          <span className="text-[9px] text-gray-500 w-12 flex-shrink-0">
+                            {LABELS.star_venture_revenue_label}
+                          </span>
+                          <span className="text-[10px] text-gray-300 leading-snug flex-1">{pj.revenue}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* 1인 기업 로드맵 */}
+              <div className="mt-3 pt-3 border-t border-white/8">
+                <div className="text-[10px] font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                  {LABELS.star_venture_solo_path_label}
+                </div>
+                <div className="space-y-1.5">
+                  {ventureSection.soloPath.map((sp, i) => (
+                    <div
+                      key={i}
+                      className="px-3 py-2 rounded-xl text-[11px] text-gray-300 leading-snug"
+                      style={{ background: `${star.color}0f`, border: `1px solid ${star.color}1f` }}
+                    >
+                      {sp}
+                    </div>
                   ))}
                 </div>
               </div>

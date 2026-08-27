@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { Briefcase, ChevronDown, Users, Lightbulb, Zap, X, Bot } from 'lucide-react';
+import { Briefcase, ChevronDown, Users, Lightbulb, Zap, X, Bot, Workflow, Rocket } from 'lucide-react';
 import { StarInfoBanner } from './StarInfoBanner';
 import { JobCard } from './JobCard';
 import { CTABanner } from './CTABanner';
@@ -157,6 +157,10 @@ export function StarDetailPanel({
   const fitItems = fitSection?.type === 'fitList' ? fitSection.fitItems : [];
   const notFitItems = fitSection?.type === 'fitList' ? fitSection.notFitItems : [];
   const commonDNA = whySection?.type === 'reasonWithTags' ? whySection.commonDNA : [];
+  const orchestraSection = profile?.sections.find((s) => s.id === 'aiOrchestra');
+  const orchestra = orchestraSection?.type === 'orchestra' ? orchestraSection : null;
+  const ventureSection = profile?.sections.find((s) => s.id === 'venture2032');
+  const venture = ventureSection?.type === 'ventureProjects' ? ventureSection : null;
 
   const kingdomAiChangePanelData = useMemo(() => {
     if (!star.jobs.some((job) => job.aiTransformation)) return null;
@@ -352,6 +356,301 @@ export function StarDetailPanel({
                       {dna}
                     </div>
                   ))}
+                </div>
+              </AccordionSection>
+            )}
+
+            {/* 🎼 AI 오케스트라 — 지금 바뀌는 역할 (기본 열림) */}
+            {orchestra && (
+              <AccordionSection
+                title={LABELS.star_ai_orchestra_title}
+                icon={Workflow}
+                color={star.color}
+                defaultOpen
+              >
+                {/* 역할 이동 */}
+                <div
+                  className="mt-2 rounded-xl p-3.5"
+                  style={{ background: `${star.color}0f`, border: `1px solid ${star.color}22` }}
+                >
+                  <div className="text-[11px] font-bold text-gray-400 mb-2.5">
+                    {LABELS.star_orchestra_role_shift_label}
+                  </div>
+                  <div className="flex flex-col sm:flex-row items-stretch gap-2.5">
+                    <div className="flex-1">
+                      <div className="text-[11px] text-gray-500 mb-1">{LABELS.star_orchestra_from_label}</div>
+                      <div className="text-[13px] text-gray-400 leading-relaxed">{orchestra.roleShift.from}</div>
+                    </div>
+                    <div className="flex items-center justify-center text-gray-600 text-sm">→</div>
+                    <div className="flex-1">
+                      <div className="text-[11px] mb-1" style={{ color: star.color }}>
+                        {LABELS.star_orchestra_to_label}
+                      </div>
+                      <div className="text-[13px] text-white font-semibold leading-relaxed">
+                        {orchestra.roleShift.to}
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-[12px] text-gray-400 leading-relaxed mt-2.5 pt-2.5 border-t border-white/10">
+                    {orchestra.roleShift.note}
+                  </p>
+                </div>
+
+                {/* AI 스택 */}
+                <div className="mt-3.5">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_orchestra_tool_label}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {orchestra.toolStack.map((tool, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-xl p-3 flex items-start gap-2.5"
+                        style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+                      >
+                        <div className="flex-1 min-w-0">
+                          <div className="text-[13px] font-bold text-white">{tool.name}</div>
+                          <div className="text-[12px] text-gray-400 leading-relaxed">{tool.role}</div>
+                        </div>
+                        <span
+                          className="px-2 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0"
+                          style={{ backgroundColor: `${star.color}20`, color: star.color }}
+                        >
+                          {tool.level}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 루틴 */}
+                <div className="mt-3.5">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_orchestra_routine_label}
+                  </div>
+                  <div className="space-y-1.5">
+                    {orchestra.routine.map((step, idx) => (
+                      <div
+                        key={idx}
+                        className="text-[13px] text-gray-300 leading-relaxed px-3 py-2 rounded-lg"
+                        style={{ background: `${star.color}0d` }}
+                      >
+                        {step}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 주목할 변화 */}
+                <div className="mt-3.5 pt-3 border-t border-white/10">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_orchestra_watch_label}
+                  </div>
+                  <div className="space-y-1.5">
+                    {orchestra.watchNext.map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <span className="text-[11px] mt-1 flex-shrink-0" style={{ color: star.color }}>●</span>
+                        <span className="text-[13px] text-gray-300 leading-relaxed">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AccordionSection>
+            )}
+
+            {/* 🚀 2032 창직 프로젝트 (기본 닫힘 — 호기심 유도) */}
+            {venture && (
+              <AccordionSection
+                title={LABELS.star_venture2032_title}
+                icon={Rocket}
+                color={star.color}
+                defaultOpen={false}
+                hintBadge="탭해서 보기"
+                pulse
+              >
+                <div className="mt-2">
+                  <div className="text-[12px] font-bold text-gray-300 mb-1.5">
+                    {LABELS.star_venture_thesis_label}
+                  </div>
+                  <p className="text-[13px] text-gray-300 leading-relaxed">{venture.thesis}</p>
+                </div>
+
+                {/* AI 시대 필수 역량 */}
+                <div className="mt-3.5">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_venture_skills_label}
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {venture.aiEraSkills.map((skill, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-xl p-3"
+                        style={{ background: `${star.color}10`, border: `1px solid ${star.color}20` }}
+                      >
+                        <div className="text-xl mb-1">{skill.icon}</div>
+                        <div className="text-[13px] font-bold text-white mb-0.5">{skill.label}</div>
+                        <div className="text-[12px] text-gray-400 leading-relaxed">{skill.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 시간 배분 안내 */}
+                <div
+                  className="mt-3.5 rounded-xl p-3.5"
+                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}
+                >
+                  <div className="text-[12px] font-bold text-gray-300 mb-1.5">
+                    {LABELS.star_venture_time_note_label}
+                  </div>
+                  <p className="text-[13px] text-gray-300 leading-relaxed">{venture.timeNote}</p>
+                </div>
+
+                {/* 학교 유형별 트랙 */}
+                <div className="mt-3.5">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_venture_tracks_label}
+                  </div>
+                  <div className="space-y-2">
+                    {venture.tracks.map((track, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-xl p-3"
+                        style={{ background: `${star.color}0d`, border: `1px solid ${star.color}20` }}
+                      >
+                        <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                          <span
+                            className="px-2.5 py-0.5 rounded-full text-[11px] font-bold"
+                            style={{ backgroundColor: `${star.color}22`, color: star.color }}
+                          >
+                            {track.name}
+                          </span>
+                          <span className="text-[11px] text-gray-500">
+                            {LABELS.star_venture_track_load_label} {track.load}
+                          </span>
+                        </div>
+                        <div className="text-[12px] text-gray-300 leading-relaxed mb-1">
+                          <span className="text-gray-500">{LABELS.star_venture_track_when_label} · </span>
+                          {track.when}
+                        </div>
+                        <p className="text-[12px] text-gray-400 leading-relaxed">{track.note}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 단계별 프로젝트 */}
+                <div className="mt-3.5">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_venture_projects_label}
+                  </div>
+                  <div className="space-y-3">
+                    {venture.projects.map((project, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-xl p-3.5"
+                        style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${star.color}22` }}
+                      >
+                        <div className="flex items-center gap-2 flex-wrap mb-1.5">
+                          <span
+                            className="px-2.5 py-0.5 rounded-full text-[10px] font-bold"
+                            style={{ backgroundColor: `${star.color}22`, color: star.color }}
+                          >
+                            {project.stage}
+                          </span>
+                          <span className="text-[11px] text-gray-500">
+                            {LABELS.star_venture_duration_label} {project.duration} · {LABELS.star_venture_cost_label} {project.cost}
+                          </span>
+                        </div>
+                        <div className="text-sm font-bold text-white leading-snug mb-1.5">{project.title}</div>
+                        <div className="space-y-1 mb-2">
+                          <div className="flex gap-2">
+                            <span className="text-[11px] text-gray-500 w-8 flex-shrink-0">
+                              {LABELS.star_venture_timing_label}
+                            </span>
+                            <span className="text-[12px] text-gray-300 leading-relaxed flex-1">{project.timing}</span>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="text-[11px] text-gray-500 w-8 flex-shrink-0">
+                              {LABELS.star_venture_load_label}
+                            </span>
+                            <span className="text-[12px] text-gray-300 leading-relaxed flex-1">{project.load}</span>
+                          </div>
+                        </div>
+                        <p className="text-[12px] text-gray-400 leading-relaxed mb-2.5">{project.problem}</p>
+
+                        <div className="text-[11px] font-bold text-gray-400 mb-1.5">
+                          {LABELS.star_venture_steps_label}
+                        </div>
+                        <div className="space-y-1.5 mb-2.5">
+                          {project.steps.map((step, sIdx) => (
+                            <div key={sIdx} className="flex items-start gap-2">
+                              <span
+                                className="w-4 h-4 rounded-full flex items-center justify-center text-[9px] font-bold flex-shrink-0 mt-0.5"
+                                style={{ backgroundColor: `${star.color}25`, color: star.color }}
+                              >
+                                {sIdx + 1}
+                              </span>
+                              <span className="text-[12px] text-gray-300 leading-relaxed">{step}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        <div className="flex flex-wrap gap-1.5 mb-2.5">
+                          {project.aiStack.map((tool, tIdx) => (
+                            <span
+                              key={tIdx}
+                              className="px-2 py-0.5 rounded-md text-[10px] text-gray-300"
+                              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.08)' }}
+                            >
+                              {tool}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="space-y-1.5 pt-2.5 border-t border-white/10">
+                          <div className="flex gap-2">
+                            <span className="text-[11px] text-gray-500 w-14 flex-shrink-0">
+                              {LABELS.star_venture_deliverable_label}
+                            </span>
+                            <span className="text-[12px] text-gray-300 leading-relaxed flex-1">{project.deliverable}</span>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="text-[11px] text-gray-500 w-14 flex-shrink-0">
+                              {LABELS.star_venture_proof_label}
+                            </span>
+                            <span className="text-[12px] leading-relaxed flex-1" style={{ color: star.color }}>
+                              {project.proof}
+                            </span>
+                          </div>
+                          <div className="flex gap-2">
+                            <span className="text-[11px] text-gray-500 w-14 flex-shrink-0">
+                              {LABELS.star_venture_revenue_label}
+                            </span>
+                            <span className="text-[12px] text-gray-300 leading-relaxed flex-1">{project.revenue}</span>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 1인 기업 로드맵 */}
+                <div className="mt-3.5 pt-3 border-t border-white/10">
+                  <div className="text-[12px] font-bold text-gray-300 mb-2">
+                    {LABELS.star_venture_solo_path_label}
+                  </div>
+                  <div className="space-y-1.5">
+                    {venture.soloPath.map((step, idx) => (
+                      <div
+                        key={idx}
+                        className="text-[13px] text-gray-300 leading-relaxed px-3 py-2 rounded-lg"
+                        style={{ background: `${star.color}0d`, border: `1px solid ${star.color}1a` }}
+                      >
+                        {step}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </AccordionSection>
             )}

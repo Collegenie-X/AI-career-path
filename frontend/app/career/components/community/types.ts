@@ -63,7 +63,7 @@ export interface SharedPlanItem {
   url?: string;
   links?: Array<{ title: string; url: string; kind?: string }>;
   description?: string;
-  categoryTags?: Array<'project' | 'award' | 'paper' | 'intern' | 'volunteer' | 'camp' | 'activity'>;
+  categoryTags?: Array<'project' | 'award' | 'paper' | 'intern' | 'volunteer' | 'camp' | 'reading' | 'campaign' | 'activity'>;
   activitySubtype?: 'project' | 'intern' | 'volunteer' | 'camp' | 'research' | 'paper' | 'general';
   /** 이 활동을 구성하는 하위 실행 항목들 */
   subItems?: SharedPlanSubItem[];

@@ -11,6 +11,7 @@ export type ResourceCategoryId =
   | 'special_institutions'
   | 'ai_career_pivot'
   | 'policy_2028'
+  | 'venture_fusion'
   | 'other';
 
 export type ResourceCategory = {
@@ -56,7 +57,8 @@ export const RESOURCE_CATEGORIES: ResourceCategory[] = [
   { id: 'parent_guide', label: '학부모가이드', color: '#fb7185' },
   { id: 'special_institutions', label: '특수기관', color: '#f97316' },
   { id: 'ai_career_pivot', label: 'AI 진로 대응', color: '#10b981' },
-  { id: 'policy_2028', label: '2028 개편 정리', color: '#eab308' },
+  { id: 'policy_2028', label: '2028·2032 개편', color: '#eab308' },
+  { id: 'venture_fusion', label: '창직·융합', color: '#f472b6' },
   { id: 'other', label: '기타', color: '#9ca3af' },
 ];
 

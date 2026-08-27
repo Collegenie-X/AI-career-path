@@ -18,6 +18,7 @@
 | `career-path-templates-admission.json` | 대입(대학-학과) 합격 커리어 패스 | 서울대 컴공, KAIST 전기전자, 연세대 의대 등 |
 | `career-path-templates-highschool.json` | 고입(영재학교·과학고·외고·자사고·마이스터고) + 일반고 대입 학종 로드맵 | KSA, 서울과고, 대원외고, 민사고, 하나고, 구미전자공고 등 |
 | `career-path-templates-future.json` | 2028 대입 미래지향 가상 템플릿 (`isAiGenerated: true`) | AI 코어·피지컬AI 등 |
+| `career-path-templates-venture2032.json` | **2032 창직(1인 기업) 8개 별 영역 3년 패스** (`isAiGenerated: true`) | 마이크로 SaaS·AI 영상 스튜디오·1인 리서치 랩·스몰 브랜드·1인 편집국·러닝 코치·환경 데이터 랩·AI 감사관 |
 | `career-path-templates-index.ts` | 통합 인덱스 (탐색 피드용) | 고입 + 대입 + 미래 + AI 병합 export |
 
 ## highschool.json 내 schoolType 분류
@@ -56,7 +57,7 @@
 | url | | 단일 URL (하위호환, links 우선) |
 | description | | 상세 설명 |
 | **links** | | `[{ title, url, kind? }]` — kind: `official` \| `application` \| `reference` \| `portfolio` \| `result` |
-| **categoryTags** | | `["project","award","paper","intern","volunteer","camp","activity"]` 중 해당 태그 |
+| **categoryTags** | | `["project","award","paper","intern","volunteer","camp","reading","campaign","activity"]` 중 해당 태그. `reading`(독서)·`campaign`(캠페인·영상)은 4대 산출물 집계용 |
 | **activitySubtype** | | type=activity일 때: `project` \| `intern` \| `volunteer` \| `camp` \| `research` \| `general` |
 | **aiTools** | | 사용·권장 AI/도구 배열 (예: `["ChatGPT","Claude","Notion","Python"]`) |
 | **deliverable** | | 산출물 (학생부 세특·면접 답변 카드로 활용 가능한 형태) |
@@ -78,6 +79,21 @@
   "activitySubtype": "camp"
 }
 ```
+
+## 2032 창직·AI 시대 확장 필드 (전 템플릿 공통)
+
+모든 템플릿(42종)이 아래 3개 필드를 가지며 `CareerPathAiEraSection.tsx`에서 렌더된다.
+
+| 필드 | 설명 |
+|------|------|
+| `northStar` | `{ goal, proof, byWhen, ventureNote }` — 명확한 목표 1개 + **수치로 판정 가능한 달성 기준** + 창직 관점 |
+| `competencyGrowth` | `{ note, axes[] }` — 축별 3단계 점수(0~100)와 **근거(evidence)**. 축: 🤖 AI 활용력 / 🧭 기획력 / 🔗 융합력 / 🚀 창직력 / 🎤 전달력 / 📚 질문력(독서 기반) |
+| `aiOrchestra` | `{ note, agents[] }` — 단계별 `{ stage, tools[], use }`. 1단계 비교 → 2단계 역할 분업 → 3단계 에이전트 자동화 |
+
+### 4대 산출물 원칙
+
+모든 템플릿은 **독서 · 논문(리서치) · 프로젝트 · 캠페인(영상)** 4종 산출물을 최소 1개씩 포함한다.
+독서 항목은 ReadingClue식 **1주제 3권 병렬 독서 → 문제 카드 5칸(배경·주장·반론·근거·확인 방법)** 형식으로 통일한다.
 
 ## 마이그레이션
 

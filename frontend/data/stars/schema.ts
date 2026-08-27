@@ -12,12 +12,60 @@ export type CoreTraitItem = {
   desc: string;
 };
 
+export type OrchestraTool = {
+  name: string;
+  role: string;
+  level: string;
+};
+
+export type CareerTrack = {
+  name: string;
+  when: string;
+  load: string;
+  note: string;
+};
+
+export type VentureProject = {
+  stage: string;
+  timing: string;
+  load: string;
+  title: string;
+  problem: string;
+  steps: string[];
+  aiStack: string[];
+  deliverable: string;
+  proof: string;
+  revenue: string;
+  duration: string;
+  cost: string;
+};
+
 export type StarProfileSection =
   | {
       id: 'coreTraits';
       type: 'traitGrid';
       titleKey: string;
       items: CoreTraitItem[];
+    }
+  | {
+      id: 'aiOrchestra';
+      type: 'orchestra';
+      titleKey: string;
+      roleShift: { from: string; to: string; note: string };
+      toolStack: OrchestraTool[];
+      watchNext: string[];
+      routine: string[];
+    }
+  | {
+      id: 'venture2032';
+      type: 'ventureProjects';
+      titleKey: string;
+      thesis: string;
+      aiEraSkills: CoreTraitItem[];
+      timeNote: string;
+      tracks: CareerTrack[];
+      projects: VentureProject[];
+      soloPath: string[];
     }
   | {
       id: 'fitPersonality';

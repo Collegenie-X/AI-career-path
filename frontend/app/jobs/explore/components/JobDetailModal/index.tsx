@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { ProcessTab } from './ProcessTab';
+import { ProjectTab } from './ProjectTab';
+import { Future2032Tab } from './Future2032Tab';
 import { TimelineTab } from './TimelineTab';
 import { AiTransformationTab } from './AiTransformationTab';
 import { OrganizationStructureTab } from './OrganizationStructureTab';
@@ -26,7 +28,7 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
         <ModalHeader job={job} star={star} onClose={onClose} />
 
         {/* 탭 바 */}
-        <ModalTabs activeTab={activeTab} star={star} onTabChange={setActiveTab} />
+        <ModalTabs activeTab={activeTab} job={job} star={star} onTabChange={setActiveTab} />
 
         {/* 스크롤 영역: 탭 컨텐츠 */}
         <div
@@ -55,6 +57,23 @@ export function JobDetailModal({ job, star, onClose }: JobDetailModalProps) {
           )}
           {activeTab === 'timeline' && (
             <TimelineTab job={job} star={star} />
+          )}
+          {activeTab === 'project' && (
+            <ProjectTab job={job} star={star} />
+          )}
+          {activeTab === 'future2032' && (
+            <>
+              <div
+                className="flex items-center gap-2 px-4 py-2"
+                style={{ background: 'rgba(255, 200, 50, 0.08)', borderBottom: '1px solid rgba(255, 200, 50, 0.15)' }}
+              >
+                <span style={{ fontSize: 13 }}>🔮</span>
+                <p className="text-xs" style={{ color: 'rgba(255, 200, 50, 0.85)', lineHeight: 1.4 }}>
+                  2032년 모습은 현재 기술 흐름을 바탕으로 한 예측입니다. 참고용으로 활용해 주세요.
+                </p>
+              </div>
+              <Future2032Tab job={job} star={star} />
+            </>
           )}
         </div>
       </div>

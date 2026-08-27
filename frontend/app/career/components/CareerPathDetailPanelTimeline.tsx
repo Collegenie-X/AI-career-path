@@ -41,8 +41,19 @@ function buildGoalGroupsFromTemplateYear(
       ? yearAny.goals
       : ['활동 목록'];
     const items = Array.isArray(yearAny.items) ? yearAny.items : [];
+    // item.goalIndex 가 있으면 목표별로 나눠 담고, 없으면 첫 목표에 모아 붙인다.
+    const hasGoalIndex = items.some(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (it: any) => typeof it?.goalIndex === 'number',
+    );
     goals.forEach((goal: string, idx: number) => {
-      allGroups.push({ goal, items: idx === 0 ? items : [] });
+      const groupItems = hasGoalIndex
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ? items.filter((it: any) => (typeof it?.goalIndex === 'number' ? it.goalIndex : 0) === idx)
+        : idx === 0
+          ? items
+          : [];
+      allGroups.push({ goal, items: groupItems });
     });
   }
   return allGroups;

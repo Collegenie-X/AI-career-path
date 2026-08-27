@@ -118,12 +118,14 @@
   "community_list_dashboard_stat_shared_label": "공유 패스",
   "community_list_dashboard_stat_groups_label": "참여 그룹",
   "detail_rich_info_title": "합격 준비 상세 가이드",
-  "detail_rich_info_subtitle": "프로젝트·수상·논문·인턴·봉사·캠프를 학년 전체에서 요약했어요.",
+  "detail_rich_info_subtitle": "독서·논문·프로젝트·캠페인(영상) 4대 산출물을 학년 전체에서 요약했어요.",
   "detail_rich_links_title": "참고 URL · 공식 링크",
   "detail_rich_links_empty": "등록된 참고 URL이 아직 없어요",
   "detail_rich_project": "프로젝트",
   "detail_rich_award": "수상",
   "detail_rich_paper": "논문·연구",
+  "detail_rich_campaign": "캠페인·영상",
+  "detail_rich_reading": "독서",
   "detail_rich_intern": "인턴",
   "detail_rich_volunteer": "봉사활동",
   "detail_rich_camp": "캠프",
@@ -228,7 +230,38 @@
   "new_badge": "새 배지 획득",
   "item_added": "계획에 추가되었어요!",
   "loading": "불러오는 중...",
-  "timeline_months": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
-  "grades": ["초등 4학년", "초등 5학년", "초등 6학년", "중학교 1학년", "중학교 2학년", "중학교 3학년", "고등학교 1학년", "고등학교 2학년"],
-  "grade_short": ["초4", "초5", "초6", "중1", "중2", "중3", "고1", "고2"]
+  "timeline_months": [
+    "1월",
+    "2월",
+    "3월",
+    "4월",
+    "5월",
+    "6월",
+    "7월",
+    "8월",
+    "9월",
+    "10월",
+    "11월",
+    "12월"
+  ],
+  "grades": [
+    "초등 4학년",
+    "초등 5학년",
+    "초등 6학년",
+    "중학교 1학년",
+    "중학교 2학년",
+    "중학교 3학년",
+    "고등학교 1학년",
+    "고등학교 2학년"
+  ],
+  "grade_short": [
+    "초4",
+    "초5",
+    "초6",
+    "중1",
+    "중2",
+    "중3",
+    "고1",
+    "고2"
+  ]
 }

@@ -78,7 +78,11 @@ export function HighSchoolAdmissionTab() {
     const schoolId = searchParams.get('school');
 
     if (!categoryId) {
-      if (selectedCategory) setSelectedCategory(null);
+      // URL에 category 파라미터가 없으면 과학고·영재고를 기본 선택
+      const defaultCategory = typedData.categories.find((c) => c.id === 'science_high') ?? null;
+      if (defaultCategory && selectedCategory?.id !== defaultCategory.id) {
+        setSelectedCategory(defaultCategory);
+      }
       if (selectedSchool) setSelectedSchool(null);
       return;
     }

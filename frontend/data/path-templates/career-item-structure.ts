@@ -5,6 +5,8 @@ export type CareerItemCategoryTag =
   | 'intern'
   | 'volunteer'
   | 'camp'
+  | 'reading'
+  | 'campaign'
   | 'activity';
 
 export type CareerActivitySubtype =
@@ -53,6 +55,8 @@ function inferCategoryTags(item: BaseCareerItemLike): CareerItemCategoryTag[] {
   if (hasKeyword(text, /인턴|intern|현장실습/i)) tags.add('intern');
   if (hasKeyword(text, /봉사|volunteer|사회공헌/i)) tags.add('volunteer');
   if (hasKeyword(text, /캠프|camp|부트캠프|summer program/i)) tags.add('camp');
+  if (hasKeyword(text, /독서|병렬 독서|완독|서평|문제 카드|읽고/i)) tags.add('reading');
+  if (hasKeyword(text, /캠페인|영상|유튜브|카드뉴스|숏폼|상영|다큐/i)) tags.add('campaign');
   if (item.type === 'activity') tags.add('activity');
 
   return Array.from(tags);
