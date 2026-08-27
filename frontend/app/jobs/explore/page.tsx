@@ -124,10 +124,10 @@ function JobsExploreContent() {
   const { searchParams, patchUrl } = useExploreUrlState();
 
   // SSR-safe 초기값: useSearchParams는 서버 렌더 시 비어 있어, URL에서 읽은 값을
-  // useState 초기값에 쓰면 서버('star')와 클라이언트('?tab=…')의 첫 렌더가 어긋나
-  // hydration 불일치가 발생한다. 항상 'star'로 통일하고, 아래 useEffect가
-  // 마운트 직후 URL의 ?tab= 값으로 동기화한다.
-  const [activeTab, setActiveTab] = useState<ExploreTabId>('star');
+  // useState 초기값에 쓰면 서버('admission')와 클라이언트('?tab=…')의 첫 렌더가 어긋나
+  // hydration 불일치가 발생한다. 항상 기본 탭 'admission'(고입)으로 통일하고,
+  // 아래 useEffect가 마운트 직후 URL의 ?tab= 값으로 동기화한다.
+  const [activeTab, setActiveTab] = useState<ExploreTabId>('admission');
   const [selectedStar, setSelectedStar] = useState<StarData | null>(null);
   const [selectedJob, setSelectedJob] = useState<Job | null>(null);
   const [showStarProfile, setShowStarProfile] = useState(false);
