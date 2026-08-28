@@ -806,6 +806,8 @@ export type HighSchoolCategory = {
   verifySources?: HighSchoolVerifySource[];
   /** 확인처 블록 상단 안내 문구 */
   verifyNote?: string;
+  /** 수도권 지도에서 기본으로 켤 필터 — 'all' | 'meister' | 'business' (직업계고 전용) */
+  seoulMapFocus?: 'all' | 'meister' | 'business';
 };
 
 /** 특색 축별 대표 중점학교 (검증된 지정·인증 사실만 수록) */

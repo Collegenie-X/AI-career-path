@@ -15209,5 +15209,6 @@
       "url": "https://open.neis.go.kr/hub/schoolInfo",
       "what": "학교 실존·설립구분(공/사립)·주소·공식 홈페이지 원본"
     }
-  ]
+  ],
+  "seoulMapFocus": "all"
 }

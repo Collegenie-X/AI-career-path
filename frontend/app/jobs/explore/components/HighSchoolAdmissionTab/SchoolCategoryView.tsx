@@ -24,6 +24,7 @@ import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { DescriptionOutlineTree } from './CategoryStructuredSections';
 import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes, VerifySourceTable } from './CategoryStructuredSections';
+import { MetroSchoolMap } from './MetroSchoolMap';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
 /**
@@ -253,6 +254,17 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
         focus={category.featureFocus}
         color={category.color}
         bgColor={category.bgColor}
+      />
+
+      {/* ── 수도권(서울·경기·인천) 지도에서 찾기 ── */}
+      <MetroSchoolMap
+        categoryId={category.id}
+        categoryName={category.name}
+        color={category.color}
+        bgColor={category.bgColor}
+        focus={category.seoulMapFocus ?? 'all'}
+        schools={category.schools}
+        onSelectSchool={onSelectSchool}
       />
 
       {/* ── 공식 확인처 (확인처 / 무엇을 확인) ── */}
