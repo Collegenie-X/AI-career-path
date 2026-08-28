@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
-import { Sparkles } from 'lucide-react';
+import { DreamMatePageSkeleton, DreamMateListSkeleton, DreamMateDetailSkeleton } from './components/DreamMatePageSkeleton';
 import { DREAM_TABS, LABELS } from './config';
 import type { DreamTabId, PeriodType, SharedRoadmap } from './types';
 import { RoadmapFeedTab } from './components/RoadmapFeedTab';
@@ -145,6 +145,17 @@ function DreamMatePageContent() {
   // eslint-disable-next-line react-hooks/exhaustive-deps -- workspace.setEditingRoadmapId is stable
   }, [searchParams]);
 
+  /* ── 피드 탭: 첫 번째 로드맵 자동 선택 (아무것도 선택되지 않았을 때) ── */
+  useEffect(() => {
+    if (!mounted) return;
+    if (feedSelectedRoadmapId) return; // 이미 선택됨
+    if (activeTab !== 'feed') return;
+    const roadmaps = workspace.visibleRoadmaps;
+    if (roadmaps.length > 0) {
+      setFeedSelectedRoadmapId(roadmaps[0].id);
+    }
+  }, [mounted, activeTab, feedSelectedRoadmapId, workspace.visibleRoadmaps]);
+
   return (
     <div className="min-h-screen pb-24 relative overflow-hidden w-full" style={{ backgroundColor: 'rgb(var(--background))' }}>
       <StarField />
@@ -190,7 +201,12 @@ function DreamMatePageContent() {
             totalResources={workspace.resources.length}
           />
           <div className="px-4 pb-4 md:px-5 md:pb-5">
-            {!mounted ? null : activeTab === 'feed' ? (
+            {!mounted ? (
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
+                <DreamMateListSkeleton />
+                <DreamMateDetailSkeleton />
+              </div>
+            ) : activeTab === 'feed' ? (
               <RoadmapFeedTab
                 roadmaps={workspace.visibleRoadmaps}
                 currentUserId={workspace.currentUserId}
@@ -570,13 +586,7 @@ function DreamMatePageContent() {
 
 export default function DreamMatePage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen w-full flex items-center justify-center" style={{ backgroundColor: 'rgb(var(--background))' }}>
-          <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
-        </div>
-      }
-    >
+    <Suspense fallback={<DreamMatePageSkeleton />}>
       <DreamMatePageContent />
     </Suspense>
   );

@@ -158,6 +158,15 @@ export function CareerPathList({
   const bookmarkedCommunityPlans = allSharedPlans.filter(p => reactions.bookmarkedPlanIds.includes(p.id));
   const totalBookmarkCount = bookmarkedTemplates.length + bookmarkedCommunityPlans.length;
 
+  /* ── 첫 번째 항목 자동 선택: 아무것도 선택되지 않았으면 목록의 첫 항목 표시 ── */
+  useEffect(() => {
+    if (selectedTemplate) return; // 이미 선택된 게 있으면 건드리지 않음
+    if (careerPathTemplates.length > 0) {
+      handleSelectTemplate(careerPathTemplates[0]);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 마운트 시 한 번만
+
   useEffect(() => {
     setTemplateListPage(1);
   }, [activeFilter]);

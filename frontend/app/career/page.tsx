@@ -3,8 +3,8 @@
 import { useState, useEffect, useMemo, Suspense, startTransition } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Sparkles } from 'lucide-react';
 import { CareerPathList, EXPLORE_TEMPLATE_QUERY_PARAM } from './components/CareerPathList';
+import { CareerPageSkeleton, CareerPageListSkeleton, CareerPageDetailSkeleton } from './components/CareerPageSkeleton';
 import { CareerPathBuilder, type CareerPlan } from './components/CareerPathBuilder';
 import { VerticalTimelineList } from './components/VerticalTimelineList';
 import { CommunityTab } from './components/community/CommunityTab';
@@ -357,7 +357,12 @@ function CareerPageContent() {
             totalMyPublicPlans={totalMyPublicPlans}
           />
           <div className="px-4 pb-4 md:px-5 md:pb-5">
-            {!mounted ? null : (
+            {!mounted ? (
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
+                <CareerPageListSkeleton />
+                <CareerPageDetailSkeleton />
+              </div>
+            ) : (
               <>
                 {activeTab === 'explore' && (
                   <CareerPathList
@@ -371,6 +376,13 @@ function CareerPageContent() {
                   />
                 )}
 
+                {/* timeline 탭 최초 진입 시 스켈레톤 → 마운트 완료 후 실제 콘텐츠 */}
+                {activeTab === 'timeline' && !careerTabShellMounted.timeline && (
+                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
+                    <CareerPageListSkeleton />
+                    <CareerPageDetailSkeleton />
+                  </div>
+                )}
                 {careerTabShellMounted.timeline && (
                   <div
                     className={activeTab === 'timeline' ? 'block' : 'hidden'}
@@ -437,6 +449,13 @@ function CareerPageContent() {
                   </div>
                 )}
 
+                {/* community 탭 최초 진입 시 스켈레톤 */}
+                {activeTab === 'community' && !careerTabShellMounted.community && (
+                  <div className="grid grid-cols-1 gap-4 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)]">
+                    <CareerPageListSkeleton />
+                    <CareerPageDetailSkeleton />
+                  </div>
+                )}
                 {careerTabShellMounted.community && (
                   <div
                     className={activeTab === 'community' ? 'block' : 'hidden'}
@@ -614,13 +633,7 @@ function CareerPageContent() {
 
 export default function CareerPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'rgb(var(--background))' }}>
-          <Sparkles className="w-6 h-6 animate-pulse" style={{ color: '#6C5CE7' }} />
-        </div>
-      }
-    >
+    <Suspense fallback={<CareerPageSkeleton />}>
       <CareerPageContent />
     </Suspense>
   );

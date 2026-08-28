@@ -802,6 +802,10 @@ export type HighSchoolCategory = {
   admissionFactsComparison?: SchoolAdmissionFactsComparison;
   /** 특색 축(중점 분야)별 대표 중점학교 지도 — IB·과학중점·AI·지역연계 */
   featureFocus?: HighSchoolFeatureFocus;
+  /** 이 유형의 지정·학과·전형을 직접 확인할 수 있는 공식 사이트 (확인처 / 무엇을 확인) */
+  verifySources?: HighSchoolVerifySource[];
+  /** 확인처 블록 상단 안내 문구 */
+  verifyNote?: string;
 };
 
 /** 특색 축별 대표 중점학교 (검증된 지정·인증 사실만 수록) */
@@ -829,6 +833,14 @@ export type HighSchoolFeatureFocusAxis = {
   sources?: SchoolSourceLink[];
 };
 
+/** 지정·인증 단계를 사용자가 직접 확인할 수 있는 공식 창구 */
+export type HighSchoolVerifySource = {
+  label: string;
+  url: string;
+  /** 이 사이트에서 무엇을 확인할 수 있는지 */
+  what: string;
+};
+
 export type HighSchoolFeatureFocus = {
   headline: string;
   asOf: string;
@@ -836,6 +848,10 @@ export type HighSchoolFeatureFocus = {
   axes: HighSchoolFeatureFocusAxis[];
   /** 고르는 순서 가이드 */
   pickGuide?: string[];
+  /** 공식 확인처 (확인처 / 무엇을 확인) */
+  verifySources?: HighSchoolVerifySource[];
+  /** 확인처 블록 상단 안내 문구 */
+  verifyNote?: string;
 };
 
 /** 등록금·비용 구조 (그룹핑 + 트리) */

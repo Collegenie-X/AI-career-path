@@ -23,7 +23,7 @@ import { CATEGORY_TRAIT_DETAIL, type QuizQuestion } from './category-trait-detai
 import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { DescriptionOutlineTree } from './CategoryStructuredSections';
-import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes } from './CategoryStructuredSections';
+import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes, VerifySourceTable } from './CategoryStructuredSections';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
 /**
@@ -251,6 +251,14 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
       {/* ── 중점 분야(IB·과학중점·AI·지역연계)별 대표 학교 지도 ── */}
       <CategoryFocusAxes
         focus={category.featureFocus}
+        color={category.color}
+        bgColor={category.bgColor}
+      />
+
+      {/* ── 공식 확인처 (확인처 / 무엇을 확인) ── */}
+      <VerifySourceTable
+        sources={category.verifySources}
+        note={category.verifyNote}
         color={category.color}
         bgColor={category.bgColor}
       />

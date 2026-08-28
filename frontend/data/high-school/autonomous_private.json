@@ -31699,5 +31699,38 @@
         "url": "https://open.neis.go.kr/"
       }
     ]
-  }
+  },
+  "verifyNote": "자사고는 ==무상교육 대상이 아니어서 등록금을 전액 부담==하고, ==지정 취소·재지정 평가에 따라 유형이 바뀔 수 있습니다==. 아래에서 ==실제 납부액(학교회계 공시) · 전국단위/광역 모집 구분 · 자기주도학습전형 요강==을 반드시 확인하세요.",
+  "verifySources": [
+    {
+      "label": "고입정보포털 — 자율고 입시정보 (교육부)",
+      "url": "https://hischool.go.kr/entrance/typeJayulgo.jsp",
+      "what": "==자율고(자공고·자사고) 유형·전형 공식 설명== — 자기주도학습전형 구조 포함"
+    },
+    {
+      "label": "고입정보포털 — 학교정보 조회·지도 검색",
+      "url": "https://hischool.go.kr/entrance/search.do",
+      "what": "학교별 ==유형·모집인원·전형·위치==를 지도와 조건으로 조회"
+    },
+    {
+      "label": "학교알리미 — 학교회계 공시",
+      "url": "https://www.schoolinfo.go.kr/",
+      "what": "==자사고 실제 등록금·학부모 부담금==(수업료·학교운영지원비·기숙사비)을 확인하는 유일한 공식 창구"
+    },
+    {
+      "label": "고교 무상교육 안내 (정책브리핑)",
+      "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148900332",
+      "what": "==자사고는 무상교육 제외== — 등록금을 전액 부담한다는 사실 확인"
+    },
+    {
+      "label": "교육부 보도자료 게시판",
+      "url": "https://www.moe.go.kr/boardCnts/listRenew.do?boardID=294&m=020402&s=moe",
+      "what": "==자사고 지정·재지정(운영성과평가) 정책== 발표 원문 검색"
+    },
+    {
+      "label": "NEIS 학교기본정보 (교육부)",
+      "url": "https://open.neis.go.kr/hub/schoolInfo",
+      "what": "학교 실존·설립구분(공/사립)·주소·공식 홈페이지 원본"
+    }
+  ]
 }

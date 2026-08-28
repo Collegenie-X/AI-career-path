@@ -34220,5 +34220,48 @@
         "usedFor": "학교 유형·학과 계열·고입 전형 안내"
       }
     ]
-  }
+  },
+  "verifyNote": "비즈니스고(상업계열 특성화고)는 ==금융·회계·세무·유통 등 중점 분야가 학교마다 다릅니다==. 아래 공식 창구에서 ==학과 구성 · 자격증 트랙 · 졸업생 취업/진학 실적==을 직접 확인하세요.",
+  "verifySources": [
+    {
+      "label": "고입정보포털 — 특성화고 입시정보 (교육부)",
+      "url": "https://hischool.go.kr/entrance/typeJob.jsp",
+      "what": "==특성화고 유형·전형 공식 설명== (시·도별 고입전형 기본계획 원문 연결)"
+    },
+    {
+      "label": "고입정보포털 — 학교정보 조회·지도 검색",
+      "url": "https://hischool.go.kr/entrance/search.do",
+      "what": "학교별 ==유형·모집인원·전형·위치==를 지도와 조건으로 조회"
+    },
+    {
+      "label": "하이파이브 — 특성화고·마이스터고 포털 (교육부)",
+      "url": "https://www.hifive.go.kr/",
+      "what": "==직업계고 공식 포털== — 학교 소개·입학요강·홍보자료·취업 지원 정책"
+    },
+    {
+      "label": "하이잡 — 서울 특성화고 찾기 (서울시교육청)",
+      "url": "https://high-job.sen.go.kr/FUS/HS/SMList.do",
+      "what": "서울 특성화고 ==지도 검색·조건 검색== (학교명·주소·계열)"
+    },
+    {
+      "label": "서울진로진학정보센터 — 특성화고",
+      "url": "https://www.jinhak.or.kr/subList/20000000275",
+      "what": "특성화고 전형·특별전형 안내 (서울)"
+    },
+    {
+      "label": "학교알리미",
+      "url": "https://www.schoolinfo.go.kr/",
+      "what": "학과·학급·학생 수, 졸업생 취업·진학 현황, 학교회계 공시"
+    },
+    {
+      "label": "공공데이터포털 — 직업계고 학교현황 (하이파이브)",
+      "url": "https://www.data.go.kr/data/15119008/fileData.do",
+      "what": "==전국 직업계고 전체 명단 원본 파일== (학교명·유형·지역)"
+    },
+    {
+      "label": "NEIS 학교기본정보 (교육부)",
+      "url": "https://open.neis.go.kr/hub/schoolInfo",
+      "what": "학교 실존·설립구분(공/사립)·주소·공식 홈페이지 원본"
+    }
+  ]
 }

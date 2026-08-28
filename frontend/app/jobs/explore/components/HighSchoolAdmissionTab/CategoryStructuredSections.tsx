@@ -12,6 +12,7 @@ import type {
   HighSchoolGroupTree,
   HighSchoolDetail,
   HighSchoolFeatureFocus,
+  HighSchoolVerifySource,
   SchoolAdmissionFactsComparison,
   SchoolCostComparison,
   SchoolSourceLink,
@@ -959,20 +960,114 @@ type FeatureBucket = {
   match: RegExp;
   /** 태그 텍스트가 아니라 학교 필드로 직접 판정하는 축 (예: IB 인증) */
   pick?: (school: HighSchoolDetail) => boolean;
+  /** match·pick으로 잡혔어도 이 패턴에 걸리면 제외 (예: 월드스쿨 축에서 후보학교 배제) */
+  exclude?: RegExp;
   /** pick으로 잡힌 학교의 배지 문구 */
   note?: (school: HighSchoolDetail) => string | undefined;
+  /** 이 축의 지정·인증 사실을 직접 확인할 수 있는 공식 사이트 */
+  sources?: HighSchoolVerifySource[];
 };
+
+/** IB 학교 정보를 직접 확인할 수 있는 공식 창구 (인증 단계는 IBO, 후보·관심 단계는 교육청) */
+const IB_SOURCES: HighSchoolVerifySource[] = [
+  { label: 'IBO — Find an IB World School', url: 'https://www.ibo.org/programmes/find-an-ib-school/', what: '정식 인증(월드스쿨) 학교 공식 검색 — ==후보학교는 나오지 않습니다==' },
+  { label: 'IBO — 한국 학교 안내 (Asia Pacific)', url: 'https://ibo.org/about-the-ib/the-ib-by-region/ib-asia-pacific/resources-for-schools-in-south-korea/', what: '국내 IB 운영 개요·학교 지원 자료' },
+  { label: '대구교육청 IB 누리집', url: 'https://www.dge.go.kr/ib/index.do', what: '대구 월드스쿨·후보·관심학교 현황 — ==KB(한국형 바칼로레아) 추진 주체==' },
+  { label: '제주교육청 — 국제바칼로레아(IB)', url: 'https://www.jje.go.kr/index.jje?menuCd=DOM_000000104000000000', what: '제주 IB 학교 현황 (표선고 등)' },
+  { label: '서울교육청 — IB 학교 현황', url: 'https://www.sen.go.kr/www/eduinfo/ib/ib_3.jsp', what: '서울 단계별 명단 — ==고교는 2026.5.1 기준 관심학교 22교뿐==' },
+  { label: '경기교육청 — IB 학교 현황', url: 'https://www.goe.go.kr/goe/na/ntt/selectNttInfo.do?nttSn=2326345&mi=10961', what: '경기 전체 명단(엑셀 첨부) — 학교급·공사립·단계까지' },
+  { label: '전북교육청 — IB 학교 현황', url: 'https://www.jbe.go.kr/index.jbe?menuCd=DOM_000000105015000000', what: '전북 IB 학교 명단' },
+  { label: '학교알리미', url: 'https://www.schoolinfo.go.kr/', what: '학급·학생 수, 졸업생 진로 현황, 학교회계 공시' },
+];
+
+const IB_VERIFY_NOTE = '학교 홍보 문구의 "IB"가 ==관심학교인지 · 후보학교인지 · 월드스쿨인지==부터 확인하세요. ==인증(월드스쿨)만 IBO 공식 검색에 나오고==, 후보·관심학교는 ==시·도교육청 현황 자료나 학교 홈페이지 공지==로만 확인됩니다.';
+
+/** 확인처 / 무엇을 확인 — 사용자가 직접 열어볼 수 있는 공식 출처 표 */
+export function VerifySourceTable({
+  sources,
+  note,
+  color,
+  bgColor,
+  title = '🔎 어디서 확인하나 — 공식 확인처',
+}: {
+  sources?: HighSchoolVerifySource[];
+  note?: string;
+  color: string;
+  bgColor: string;
+  title?: string;
+}) {
+  if (!sources?.length) return null;
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{
+        background: `linear-gradient(135deg, ${bgColor} 0%, rgba(0,0,0,0.25) 100%)`,
+        border: `1px solid ${color}33`,
+      }}
+    >
+      <div className="px-3.5 pt-3 pb-2">
+        <p className="text-[13px] font-bold" style={{ color }}>{title}</p>
+        {note && (
+          <p className="text-[11px] text-gray-400 leading-relaxed mt-1">
+            <HL text={note} />
+          </p>
+        )}
+      </div>
+      <div className="px-2 pb-3 overflow-x-auto">
+        <table className="w-full text-left" style={{ minWidth: 320 }}>
+          <thead>
+            <tr className="text-[10px] text-gray-500">
+              <th className="px-1.5 py-1 font-semibold">확인처</th>
+              <th className="px-1.5 py-1 font-semibold">무엇을 확인</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sources.map((s) => (
+              <tr key={s.url} className="align-top border-t" style={{ borderColor: `${color}1f` }}>
+                <td className="px-1.5 py-2 whitespace-nowrap">
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[12px] font-semibold underline decoration-dotted underline-offset-2 hover:opacity-80"
+                    style={{ color }}
+                  >
+                    {s.label} ↗
+                  </a>
+                </td>
+                <td className="px-1.5 py-2 text-[11px] text-gray-300 leading-relaxed">
+                  <HL text={s.what} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
 
 /** 학교 태그·트랙 텍스트를 특색 카테고리로 묶는 규칙 */
 const FEATURE_BUCKETS: FeatureBucket[] = [
   {
-    id: 'ib',
+    id: 'ib-world',
     emoji: '🌐',
-    label: 'IB 인증 (월드스쿨)',
-    hint: 'IB 디플로마(DP) 월드스쿨 인증 — 학교 안에서 IB 학급을 따로 지원·선발',
-    match: /IB\s*(DP|월드스쿨|인증)|국제바칼로레아|디플로마/i,
+    label: 'IB 월드스쿨 (정식 인증 완료)',
+    hint: 'IBO 최종 인증 — 이 학교에서 이수하면 IB 디플로마(성적표·졸업장)가 나옵니다',
+    match: /IB\s*(DP|MYP|PYP|월드스쿨|인증|전\s*과정)|국제바칼로레아|디플로마/i,
+    exclude: /후보|관심학교|추진\s*중|준비\s*중/,
     pick: (s) => s.ibCertified === true,
     note: (s) => (s.listTags ?? []).find((t) => /IB/i.test(t)) ?? 'IB DP 월드스쿨',
+    sources: IB_SOURCES,
+  },
+  {
+    id: 'ib-candidate',
+    emoji: '⏳',
+    label: 'IB 후보학교 (인증 심사 중)',
+    hint: '관심학교 → 후보학교 → 월드스쿨 3단계 중 2단계. 아직 IB 디플로마는 나오지 않습니다',
+    match: /IB[^·|]*후보|후보학교/i,
+    note: (s) => (s.listTags ?? []).find((t) => /IB/i.test(t)) ?? 'IB 후보학교',
+    sources: IB_SOURCES,
   },
   { id: 'ai', emoji: '🤖', label: 'AI·디지털 중점', hint: 'AI·SW·데이터·에듀테크 교육과정을 전면에 내건 학교', match: /AI|A\.I|인공지능|SW|소프트웨어|디지털|정보|데이터|에듀테크|반도체/i },
   { id: 'science', emoji: '🔬', label: '과학·이공 중점', hint: '과학중점학교·이공 융합(의생명·공학·항공·에너지) 트랙', match: /과학|이공|공학|바이오|의·생명|의생명|보건|의료|항공|우주|에너지|실험/ },
@@ -1012,7 +1107,7 @@ export function CategoryFeatureMap({
   const buckets = FEATURE_BUCKETS.map((b) => ({
     ...b,
     items: schools
-      .filter((s) => (b.pick ? b.pick(s) : false) || b.match.test(tagText(s)))
+      .filter((s) => ((b.pick ? b.pick(s) : false) || b.match.test(tagText(s))) && !(b.exclude?.test(tagText(s)) ?? false))
       .map<FeatureSchool>((s) => ({
         school: s,
         note:
@@ -1035,6 +1130,7 @@ export function CategoryFeatureMap({
           label: '지역 연계 대학·기업',
           hint: '대학·기업·문화기관과 실제 협약을 맺고 공동 과목·코티칭을 운영',
           items: partnerItems,
+          sources: undefined as HighSchoolVerifySource[] | undefined,
         }]
       : []),
   ];
@@ -1085,6 +1181,17 @@ export function CategoryFeatureMap({
                     <span className="block text-[10px] text-gray-400 mt-0.5">{note ?? school.location}</span>
                   </button>
                 ))}
+                {g.sources && g.sources.length > 0 && (
+                  <div className="w-full pt-1">
+                    <VerifySourceTable
+                      sources={g.sources}
+                      note={IB_VERIFY_NOTE}
+                      color={color}
+                      bgColor={bgColor}
+                      title="🔎 이 학교들이 진짜 IB인지 확인하는 곳"
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -1126,6 +1233,13 @@ export function CategoryFocusAxes({
         )}
         <p className="text-[11px] text-gray-500 mt-1.5">기준 시점: {focus.asOf}</p>
       </div>
+
+      <VerifySourceTable
+        sources={focus.verifySources}
+        note={focus.verifyNote}
+        color={color}
+        bgColor={bgColor}
+      />
 
       {focus.axes.map((axis) => {
         const open = (openId ?? focus.axes[0].id) === axis.id;

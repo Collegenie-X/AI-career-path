@@ -31430,5 +31430,48 @@
         "url": "https://www.schoolinfo.go.kr/"
       }
     ]
-  }
+  },
+  "verifyNote": "자공고는 ==일반고와 같은 무상교육·같은 배정/전형==인데 ==협약 기반 교육과정만 다릅니다==. 학교 이름에 \"자공고 2.0\"이 붙었다고 다 같지 않으니, 아래에서 ==몇 차 선정인지 · 협약 기관이 어디인지 · 특화 선택과목이 실제로 열리는지==를 확인하세요.",
+  "verifySources": [
+    {
+      "label": "고입정보포털 — 자율고 입시정보 (교육부)",
+      "url": "https://hischool.go.kr/entrance/typeJayulgo.jsp",
+      "what": "==자율고(자공고·자사고) 유형·전형 공식 설명== — 자기주도학습전형 구조 포함"
+    },
+    {
+      "label": "고입정보포털 — 학교정보 조회·지도 검색",
+      "url": "https://hischool.go.kr/entrance/search.do",
+      "what": "학교별 ==유형·모집인원·전형·위치==를 지도와 조건으로 조회"
+    },
+    {
+      "label": "교육부 보도자료 — 2025년 자율형 공립고 2.0 25개교 선정",
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=98250&lev=0&searchType=null&statusYN=W&page=1&s=moe&m=020402&opType=N",
+      "what": "==전국 자공고 2.0 125개교 전체 명단==(붙임) — 내 학교가 몇 차 선정인지"
+    },
+    {
+      "label": "정책브리핑 — 자율형 공립고 2.0 신규 25개교 선정",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148953083",
+      "what": "자공고 2.0 제도 취지·협약 구조(지자체·대학·기업) 요약"
+    },
+    {
+      "label": "경기도교육청 — 자율형 공립고 2.0 운영 계획 (PDF)",
+      "url": "https://www.goe.go.kr/resource/old/BBSMSTR_000000030220/BBS_202503290936470800.pdf",
+      "what": "==경기 자공고 학교별 운영 모델·중점교육과정·특색프로그램== 원문"
+    },
+    {
+      "label": "고교 무상교육 안내 (정책브리핑)",
+      "url": "https://www.korea.kr/special/policyCurationView.do?newsId=148900332",
+      "what": "==자공고는 무상교육 대상== — 수업료 0원인지 확인"
+    },
+    {
+      "label": "학교알리미",
+      "url": "https://www.schoolinfo.go.kr/",
+      "what": "학급·학생 수, ==졸업생 진학 현황==, 학교회계 공시"
+    },
+    {
+      "label": "NEIS 학교기본정보 (교육부)",
+      "url": "https://open.neis.go.kr/hub/schoolInfo",
+      "what": "학교 실존·설립구분(공/사립)·주소·공식 홈페이지 원본"
+    }
+  ]
 }
