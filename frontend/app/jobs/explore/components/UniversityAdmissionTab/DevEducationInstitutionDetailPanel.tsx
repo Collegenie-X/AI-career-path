@@ -6,6 +6,7 @@ import {
   BookOpen,
   Calendar,
   CheckCircle2,
+  GitBranch,
   ChevronDown,
   Info,
   Maximize2,
@@ -17,6 +18,47 @@ import {
 } from 'lucide-react';
 
 import { HighlightText } from './HighlightText';
+
+/** 뱃지 색상 톤 — gov(정부사업) / money(재정·등록금) / ai(AI 트랙) / job(취업·계약학과) / startup(창업) / new(신설·개편) */
+export type BadgeTone = 'gov' | 'money' | 'ai' | 'job' | 'startup' | 'new';
+
+const BADGE_TONE_STYLE: Record<BadgeTone, { bg: string; border: string; color: string }> = {
+  gov: { bg: 'rgba(59,130,246,0.18)', border: 'rgba(96,165,250,0.55)', color: '#93C5FD' },
+  money: { bg: 'rgba(16,185,129,0.18)', border: 'rgba(52,211,153,0.55)', color: '#6EE7B7' },
+  ai: { bg: 'rgba(167,139,250,0.20)', border: 'rgba(167,139,250,0.6)', color: '#C4B5FD' },
+  job: { bg: 'rgba(249,115,22,0.18)', border: 'rgba(251,146,60,0.55)', color: '#FDBA74' },
+  startup: { bg: 'rgba(236,72,153,0.18)', border: 'rgba(244,114,182,0.55)', color: '#F9A8D4' },
+  new: { bg: 'rgba(234,179,8,0.18)', border: 'rgba(250,204,21,0.55)', color: '#FDE68A' },
+};
+
+/** 학교 강조 뱃지 — 목록 카드와 상세 헤더에서 같은 모양으로 쓴다 */
+export function InstitutionBadges({
+  badges,
+  size = 'md',
+}: {
+  readonly badges?: ReadonlyArray<{ label: string; tone?: BadgeTone }>;
+  readonly size?: 'sm' | 'md';
+}) {
+  if (!badges || badges.length === 0) return null;
+  return (
+    <div className="flex flex-wrap gap-1">
+      {badges.map((b) => {
+        const tone = BADGE_TONE_STYLE[b.tone ?? 'gov'];
+        return (
+          <span
+            key={b.label}
+            className={`rounded-md font-bold leading-none whitespace-nowrap ${
+              size === 'sm' ? 'text-[10px] px-1.5 py-[3px]' : 'text-[11px] px-2 py-1'
+            }`}
+            style={{ background: tone.bg, border: `1px solid ${tone.border}`, color: tone.color }}
+          >
+            {b.label}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
 
 export type DevEducationInstitution = {
   id: string;
@@ -34,6 +76,16 @@ export type DevEducationInstitution = {
   targetStudents: string[];
   careerPath: string[];
   website: string;
+  /** 학교 강조 뱃지 — 정부사업 선정·계약학과·창업거점 등 한눈에 보여줄 핵심 이력 */
+  badges?: Array<{ label: string; tone?: BadgeTone }>;
+  /** 소재지 — 대학은 4년을 실제로 다녀야 하므로 위치·캠퍼스 분리 여부가 중요하다 */
+  location?: {
+    sido: string;
+    city: string;
+    commuteNote: string;
+    /** false면 캠퍼스가 2곳 이상이라 학과별 소재지 확인이 필요하다 */
+    singleCampus: boolean;
+  };
   pros: string[];
   cons: string[];
   successExamples?: Array<{
@@ -41,6 +93,23 @@ export type DevEducationInstitution = {
     timeline: string;
     keyFactors: string[];
   }>;
+  /** 생애주기 커리어 트리 — AI 시대의 학교생활 전략을 단계별로 예측 가능하게 편다 */
+  lifecyclePath?: {
+    headline: string;
+    summary: string;
+    stages: Array<{
+      id: string;
+      period: string;
+      age: string;
+      title: string;
+      focus: string;
+      actions: string[];
+      aiRole: string;
+      output: string;
+      checkpoint: string;
+      branches?: Array<{ label: string; result: string }>;
+    }>;
+  };
   gradePreparationStrategy?: {
     [key: string]: {
       grade: string;
@@ -85,9 +154,21 @@ export function DevEducationInstitutionDetailPanel({
   variant = 'inline',
   onOpenDetailDialog,
 }: DevEducationInstitutionDetailPanelProps) {
-  const [activeTab, setActiveTab] = useState<'info' | 'success' | 'strategy' | 'career'>('info');
+  const [activeTab, setActiveTab] = useState<'info' | 'lifecycle' | 'success' | 'strategy' | 'career'>('info');
+  /* 데이터가 없는 탭은 아예 노출하지 않는다 ("준비 중" 빈 화면을 보여주지 않기 위함) */
+  const hasSuccess = (institution.successExamples?.length ?? 0) > 0;
+  const hasStrategy = Object.keys(institution.gradePreparationStrategy ?? {}).length > 0;
+  const hasLifecycle = (institution.lifecyclePath?.stages.length ?? 0) > 0;
+  const tabs = [
+    { id: 'info' as const, label: '정보', icon: Info },
+    ...(hasLifecycle ? [{ id: 'lifecycle' as const, label: '생애설계', icon: GitBranch }] : []),
+    ...(hasSuccess ? [{ id: 'success' as const, label: '합격예시', icon: Trophy }] : []),
+    ...(hasStrategy ? [{ id: 'strategy' as const, label: '준비전략', icon: Target }] : []),
+    { id: 'career' as const, label: '진로', icon: Rocket },
+  ];
   const [expandedSuccess, setExpandedSuccess] = useState<number | null>(null);
   const [expandedStrategy, setExpandedStrategy] = useState<string | null>(null);
+  const [expandedStage, setExpandedStage] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   useEffect(() => {
@@ -102,6 +183,16 @@ export function DevEducationInstitutionDetailPanel({
       document.body.style.overflow = '';
     };
   }, [variant, onClose]);
+
+  useEffect(() => {
+    if (
+      (activeTab === 'success' && !hasSuccess) ||
+      (activeTab === 'strategy' && !hasStrategy) ||
+      (activeTab === 'lifecycle' && !hasLifecycle)
+    ) {
+      setActiveTab('info');
+    }
+  }, [activeTab, hasSuccess, hasStrategy, hasLifecycle]);
 
   if (!mounted) return null;
 
@@ -170,15 +261,17 @@ export function DevEducationInstitutionDetailPanel({
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-          {(
-            [
-              { id: 'info' as const, label: '정보', icon: Info },
-              { id: 'success' as const, label: '합격예시', icon: Trophy },
-              { id: 'strategy' as const, label: '준비전략', icon: Target },
-              { id: 'career' as const, label: '진로', icon: Rocket },
-            ] as const
-          ).map((tab) => {
+        {institution.badges && institution.badges.length > 0 && (
+          <div className="mb-3">
+            <InstitutionBadges badges={institution.badges} />
+          </div>
+        )}
+
+        <div
+          className="grid gap-1.5 sm:gap-2"
+          style={{ gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))` }}
+        >
+          {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <button
@@ -210,6 +303,17 @@ export function DevEducationInstitutionDetailPanel({
               </div>
               <div className="space-y-2">
                 <InstitutionInfoRow label="유형" value={institution.type} />
+                {institution.location && (
+                  <>
+                    <InstitutionInfoRow
+                      label="소재지"
+                      value={`${institution.location.city}${
+                        institution.location.singleCampus ? '' : ' ⚠ 캠퍼스 2곳 이상'
+                      }`}
+                    />
+                    <InstitutionInfoRow label="통학 정보" value={institution.location.commuteNote} />
+                  </>
+                )}
                 <InstitutionInfoRow label="교육 기간" value={institution.duration} />
                 <InstitutionInfoRow label="선발 과정" value={institution.admissionProcess} />
                 <InstitutionInfoRow label="웹사이트" value={institution.website} link />
@@ -281,7 +385,144 @@ export function DevEducationInstitutionDetailPanel({
           </>
         )}
 
-        {activeTab === 'success' && (
+
+        {activeTab === 'lifecycle' && hasLifecycle && institution.lifecyclePath && (
+          <div className="space-y-3">
+            <div
+              className="rounded-lg p-3"
+              style={{
+                background: 'linear-gradient(135deg, rgba(34,211,238,0.2) 0%, rgba(167,139,250,0.2) 100%)',
+                border: '1px solid rgba(34,211,238,0.35)',
+              }}
+            >
+              <div className="flex items-center gap-2 mb-1">
+                <GitBranch className="w-4 h-4 text-cyan-300" />
+                <h4 className="text-sm font-bold text-white">
+                  <HighlightText>{institution.lifecyclePath.headline}</HighlightText>
+                </h4>
+              </div>
+              <p className="text-xs text-white/75 leading-relaxed">
+                <HighlightText>{institution.lifecyclePath.summary}</HighlightText>
+              </p>
+            </div>
+
+            {/* 생애주기 트리 — 왼쪽 세로선 + 단계 노드 + 분기 가지 */}
+            <div className="relative pl-5">
+              <span
+                className="absolute left-[7px] top-2 bottom-2 w-px"
+                style={{ background: `linear-gradient(180deg, ${institution.color}, ${institution.color}20)` }}
+                aria-hidden
+              />
+              <div className="space-y-3">
+                {institution.lifecyclePath.stages.map((stage, index) => {
+                  /* 1번째 단계는 기본으로 펼친다 */
+                  const isOpen = expandedStage === stage.id || (expandedStage === null && index === 0);
+                  return (
+                    <div key={stage.id} className="relative">
+                      <span
+                        className="absolute -left-5 top-3.5 w-[15px] h-[15px] rounded-full flex items-center justify-center text-[9px] font-black text-slate-900"
+                        style={{ background: institution.color, boxShadow: `0 0 0 3px ${institution.color}30` }}
+                        aria-hidden
+                      >
+                        {index + 1}
+                      </span>
+                      <div className="rounded-lg overflow-hidden" style={{ border: `1px solid ${institution.color}40` }}>
+                        <button
+                          type="button"
+                          onClick={() => setExpandedStage(isOpen ? '' : stage.id)}
+                          className="w-full flex items-center justify-between gap-2 p-3 text-left"
+                          style={{ background: institution.bgColor }}
+                        >
+                          <div className="min-w-0">
+                            <div className="flex items-center gap-1.5 flex-wrap mb-0.5">
+                              <span
+                                className="text-[10px] font-bold px-1.5 py-[3px] rounded-md"
+                                style={{ background: `${institution.color}30`, color: 'white' }}
+                              >
+                                {stage.period}
+                              </span>
+                              <span className="text-[10px] text-white/50">{stage.age}</span>
+                            </div>
+                            <p className="text-xs font-bold text-white">
+                              <HighlightText>{stage.title}</HighlightText>
+                            </p>
+                            <p className="text-xs text-white/75 mt-0.5">
+                              <HighlightText>{stage.focus}</HighlightText>
+                            </p>
+                          </div>
+                          <ChevronDown
+                            className={`w-4 h-4 text-white/60 transition-transform flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+
+                        {isOpen && (
+                          <div className="p-3 space-y-2.5" style={{ background: 'rgba(15,23,42,0.5)' }}>
+                            <div>
+                              <p className="text-xs font-bold mb-1.5" style={{ color: institution.color }}>
+                                이 시기에 하는 일
+                              </p>
+                              <div className="space-y-1">
+                                {stage.actions.map((action, idx) => (
+                                  <div key={idx} className="flex items-start gap-2 text-xs text-white/85">
+                                    <span
+                                      className="inline-block w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"
+                                      style={{ background: institution.color }}
+                                    />
+                                    <span><HighlightText>{action}</HighlightText></span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            <div className="rounded-lg p-2.5 bg-violet-500/10 border border-violet-400/30">
+                              <p className="text-[11px] font-bold text-violet-300 mb-1">🤖 AI를 이렇게 쓴다</p>
+                              <p className="text-xs text-white/85 leading-relaxed">
+                                <HighlightText>{stage.aiRole}</HighlightText>
+                              </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              <div className="rounded-lg p-2.5 bg-emerald-500/10 border border-emerald-400/30">
+                                <p className="text-[11px] font-bold text-emerald-300 mb-1">📦 남는 결과물</p>
+                                <p className="text-xs text-white/85 leading-relaxed">
+                                  <HighlightText>{stage.output}</HighlightText>
+                                </p>
+                              </div>
+                              <div className="rounded-lg p-2.5 bg-amber-500/10 border border-amber-400/30">
+                                <p className="text-[11px] font-bold text-amber-300 mb-1">🚦 다음 단계 조건</p>
+                                <p className="text-xs text-white/85 leading-relaxed">
+                                  <HighlightText>{stage.checkpoint}</HighlightText>
+                                </p>
+                              </div>
+                            </div>
+
+                            {stage.branches && stage.branches.length > 0 && (
+                              <div>
+                                <p className="text-xs font-bold mb-1.5" style={{ color: institution.color }}>
+                                  여기서 갈라지는 길
+                                </p>
+                                <div className="space-y-1.5 pl-2 border-l" style={{ borderColor: `${institution.color}50` }}>
+                                  {stage.branches.map((branch, idx) => (
+                                    <div key={idx} className="text-xs">
+                                      <span className="font-bold text-white">└ {branch.label}</span>
+                                      <span className="text-white/70"> — <HighlightText>{branch.result}</HighlightText></span>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'success' && hasSuccess && (
           <div className="space-y-3">
             {institution.successExamples && institution.successExamples.length > 0 ? (
               <>
@@ -366,7 +607,7 @@ export function DevEducationInstitutionDetailPanel({
           </div>
         )}
 
-        {activeTab === 'strategy' && (
+        {activeTab === 'strategy' && hasStrategy && (
           <div className="space-y-3">
             {institution.gradePreparationStrategy ? (
               <>

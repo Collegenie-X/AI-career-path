@@ -1,0 +1,1188 @@
+{
+  "meta": {
+    "title": "2027 대입 대전환 — 대학 위치 지도",
+    "note": "실제 지리를 단순화한 개념 지도입니다. 정확한 축척·경계가 아니라 ==어느 지역에 어떤 대학이 있는지==를 한눈에 보기 위한 배치예요.",
+    "whyLocation": "대학은 4년을 실제로 다녀야 하는 곳입니다. 같은 이름의 대학이어도 ==캠퍼스가 다른 도시==에 있는 경우가 많아요(성균관대 서울·수원, 강원대 4개 캠퍼스, 수원대는 화성 소재). 지원 전에 ==내가 갈 캠퍼스가 어디인지==를 반드시 확인하세요.",
+    "viewBox": "0 0 469 652",
+    "legend": [
+      {
+        "areaId": "tuition-free-national",
+        "label": "등록금 0원",
+        "color": "#38BDF8"
+      },
+      {
+        "areaId": "ai-hub-universities",
+        "label": "AI 학과",
+        "color": "#A78BFA"
+      },
+      {
+        "areaId": "startup-industry-link",
+        "label": "창업·기업연계",
+        "color": "#34D399"
+      }
+    ],
+    "cautionMultiCampus": "⚠️ 표시가 붙은 대학은 ==캠퍼스가 2곳 이상==입니다. 학과별로 소재지가 다르니 모집요강에서 확인하세요.",
+    "mapNote": "실제 위경도를 단순화해 직접 그린 전국 지도입니다. 정확한 해안선이 아니라 ==권역과 위치 관계==를 읽기 위한 그림이에요.",
+    "zoneColors": {
+      "수도권": "#60A5FA",
+      "강원": "#34D399",
+      "충청": "#FBBF24",
+      "호남": "#F472B6",
+      "영남": "#A78BFA",
+      "제주": "#FB923C"
+    }
+  },
+  "regions": [
+    {
+      "id": "gyeonggi",
+      "name": "경기",
+      "zone": "수도권",
+      "zoneColor": "#60A5FA",
+      "points": "135.6,94.4 169.2,60.8 214.0,58.6 225.2,60.8 219.6,128.0 236.4,156.0 258.8,184.0 242.0,200.8 208.4,212.0 180.4,217.6 152.4,212.0 130.0,195.2 107.6,184.0 90.8,156.0 102.0,122.4 118.8,105.6",
+      "labelX": 132.2,
+      "labelY": 94.4,
+      "pinX": 169.2,
+      "pinY": 100.0,
+      "behind": true,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "seoul",
+      "name": "서울",
+      "zone": "수도권",
+      "zoneColor": "#60A5FA",
+      "points": "147.9,128.0 195.0,128.0 196.1,142.6 189.4,157.1 163.6,159.4 152.4,152.6 147.9,141.4",
+      "labelX": 171.4,
+      "labelY": 142.6,
+      "pinX": 171.4,
+      "pinY": 137.0,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "incheon",
+      "name": "인천",
+      "zone": "수도권",
+      "zoneColor": "#60A5FA",
+      "points": "98.6,139.2 113.2,125.8 132.2,121.3 143.4,130.2 141.2,148.2 132.2,161.6 113.2,167.2 102.0,157.1",
+      "labelX": 112.1,
+      "labelY": 143.7,
+      "pinX": 118.8,
+      "pinY": 139.2,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "gangwon",
+      "name": "강원",
+      "zone": "강원",
+      "zoneColor": "#34D399",
+      "points": "225.2,60.8 275.6,58.6 320.4,25.0 354.0,32.8 337.2,88.8 398.8,139.2 439.1,189.6 432.4,212.0 382.0,212.0 342.8,200.8 298.0,200.8 258.8,184.0 236.4,156.0 219.6,128.0",
+      "labelX": 326.0,
+      "labelY": 111.2,
+      "pinX": 326.0,
+      "pinY": 139.2,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "chungbuk",
+      "name": "충북",
+      "zone": "충청",
+      "zoneColor": "#FBBF24",
+      "points": "208.4,200.8 242.0,200.8 275.6,189.6 303.6,200.8 333.8,212.0 348.4,234.4 333.8,262.4 314.8,290.4 281.2,307.2 253.2,312.8 225.2,301.6 208.4,279.2 199.4,245.6 199.4,217.6",
+      "labelX": 281.2,
+      "labelY": 249.0,
+      "pinX": 281.2,
+      "pinY": 264.6,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "chungnam",
+      "name": "충남",
+      "zone": "충청",
+      "zoneColor": "#FBBF24",
+      "points": "79.6,217.6 113.2,204.2 146.8,206.4 180.4,217.6 199.4,228.8 199.4,256.8 208.4,279.2 197.2,307.2 174.8,320.6 141.2,324.0 113.2,312.8 90.8,290.4 74.0,256.8 68.4,234.4",
+      "labelX": 124.4,
+      "labelY": 262.4,
+      "pinX": 124.4,
+      "pinY": 279.2,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "sejong",
+      "name": "세종",
+      "zone": "충청",
+      "zoneColor": "#FBBF24",
+      "points": "199.4,249.0 214.0,244.5 224.1,253.4 219.6,266.9 203.9,270.2 195.0,260.2",
+      "labelX": 62.8,
+      "labelY": 217.6,
+      "pinX": 208.4,
+      "pinY": 256.8,
+      "behind": false,
+      "labelSize": 16,
+      "labelAnchor": "start",
+      "leader": {
+        "x1": 96.8,
+        "y1": 213.6,
+        "x2": 208.4,
+        "y2": 256.8
+      }
+    },
+    {
+      "id": "daejeon",
+      "name": "대전",
+      "zone": "충청",
+      "zoneColor": "#FBBF24",
+      "points": "206.2,266.9 221.8,264.6 236.4,271.4 234.2,291.5 217.4,298.2 206.2,287.0",
+      "labelX": 62.8,
+      "labelY": 291.5,
+      "pinX": 220.7,
+      "pinY": 281.4,
+      "behind": false,
+      "labelSize": 16,
+      "labelAnchor": "start",
+      "leader": {
+        "x1": 102.8,
+        "y1": 287.5,
+        "x2": 220.7,
+        "y2": 281.4
+      }
+    },
+    {
+      "id": "gyeongbuk",
+      "name": "경북",
+      "zone": "영남",
+      "zoneColor": "#A78BFA",
+      "points": "333.8,212.0 382.0,212.0 432.4,212.0 449.2,251.2 445.8,290.4 438.0,318.4 421.2,335.2 393.2,346.4 365.2,352.0 331.6,349.8 303.6,335.2 289.0,307.2 298.0,273.6 314.8,240.0",
+      "labelX": 376.4,
+      "labelY": 273.6,
+      "pinX": 374.2,
+      "pinY": 293.8,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "daegu",
+      "name": "대구",
+      "zone": "영남",
+      "zoneColor": "#A78BFA",
+      "points": "333.8,320.6 356.2,318.4 374.2,327.4 371.9,343.0 354.0,349.8 337.2,340.8",
+      "labelX": 354.0,
+      "labelY": 334.1,
+      "pinX": 354.0,
+      "pinY": 334.1,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "jeonbuk",
+      "name": "전북",
+      "zone": "호남",
+      "zoneColor": "#F472B6",
+      "points": "96.4,312.8 130.0,307.2 169.2,312.8 202.8,307.2 236.4,312.8 264.4,329.6 277.8,352.0 270.0,374.4 242.0,387.8 208.4,394.6 169.2,394.6 135.6,385.6 107.6,368.8 94.2,340.8",
+      "labelX": 180.4,
+      "labelY": 352.0,
+      "pinX": 180.4,
+      "pinY": 365.4,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "jeonnam",
+      "name": "전남",
+      "zone": "호남",
+      "zoneColor": "#F472B6",
+      "points": "74.0,391.2 107.6,380.0 141.2,383.4 174.8,387.8 208.4,391.2 236.4,394.6 255.4,419.2 247.6,447.2 219.6,473.0 180.4,495.4 141.2,508.8 107.6,495.4 85.2,469.6 68.4,436.0 65.0,410.2",
+      "labelX": 139.0,
+      "labelY": 447.2,
+      "pinX": 139.0,
+      "pinY": 461.8,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "gwangju",
+      "name": "광주",
+      "zone": "호남",
+      "zoneColor": "#F472B6",
+      "points": "143.4,403.5 163.6,401.3 174.8,412.5 168.1,425.9 152.4,428.2 141.2,417.0",
+      "labelX": 158.0,
+      "labelY": 414.7,
+      "pinX": 158.0,
+      "pinY": 414.7,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "gyeongnam",
+      "name": "경남",
+      "zone": "영남",
+      "zoneColor": "#A78BFA",
+      "points": "242.0,387.8 275.6,368.8 309.2,361.0 342.8,357.6 376.4,365.4 396.6,383.4 389.8,413.6 365.2,436.0 331.6,450.6 292.4,452.8 264.4,436.0 251.0,413.6",
+      "labelX": 314.8,
+      "labelY": 405.8,
+      "pinX": 314.8,
+      "pinY": 414.7,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "busan",
+      "name": "부산",
+      "zone": "영남",
+      "zoneColor": "#A78BFA",
+      "points": "385.4,396.8 407.8,394.6 426.8,402.4 430.2,421.4 410.0,432.6 389.8,424.8 382.0,410.2",
+      "labelX": 405.5,
+      "labelY": 412.5,
+      "pinX": 405.5,
+      "pinY": 412.5,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "ulsan",
+      "name": "울산",
+      "zone": "영남",
+      "zoneColor": "#A78BFA",
+      "points": "396.6,354.2 419.0,349.8 445.8,361.0 445.8,383.4 423.4,390.1 401.0,381.1 392.1,367.7",
+      "labelX": 421.2,
+      "labelY": 369.9,
+      "pinX": 421.2,
+      "pinY": 369.9,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    },
+    {
+      "id": "jeju",
+      "name": "제주",
+      "zone": "제주",
+      "zoneColor": "#FB923C",
+      "points": "79.6,598.4 102.0,589.4 130.0,589.4 158.0,592.8 170.3,604.0 165.8,623.0 141.2,632.0 113.2,629.8 87.4,618.6",
+      "labelX": 124.4,
+      "labelY": 609.6,
+      "pinX": 124.4,
+      "pinY": 609.6,
+      "behind": false,
+      "labelSize": 15,
+      "labelAnchor": "middle",
+      "leader": null
+    }
+  ],
+  "pins": [
+    {
+      "id": "pusan-nu",
+      "name": "부산대학교",
+      "emoji": "⚓",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "부산",
+      "sidoId": "busan",
+      "city": "부산광역시 금정구",
+      "commuteNote": "부산대는 부산 도심(금정구 장전동) 한복판. 도시철도 1호선 부산대역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "영남"
+    },
+    {
+      "id": "chonnam-nu",
+      "name": "전남대학교",
+      "emoji": "🔬",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "광주",
+      "sidoId": "gwangju",
+      "city": "광주광역시 북구",
+      "commuteNote": "광주 도심 북구 용봉동. 광주 시내버스로 접근, 여수캠퍼스는 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "호남"
+    },
+    {
+      "id": "chungnam-nu",
+      "name": "충남대학교",
+      "emoji": "🧪",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "대전",
+      "sidoId": "daejeon",
+      "city": "대전광역시 유성구",
+      "commuteNote": "대덕연구단지 인접 유성구. 대전 도시철도 1호선 접근",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "충청"
+    },
+    {
+      "id": "kyungpook-nu",
+      "name": "경북대학교",
+      "emoji": "💻",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "대구",
+      "sidoId": "daegu",
+      "city": "대구광역시 북구",
+      "commuteNote": "대구 도심 북구 산격동. 상주캠퍼스는 경북 상주로 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "영남"
+    },
+    {
+      "id": "jeonbuk-nu",
+      "name": "전북대학교",
+      "emoji": "🔋",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "전북",
+      "sidoId": "jeonbuk",
+      "city": "전주시 덕진구",
+      "commuteNote": "전주 도심 덕진구. 전주 시내 접근 용이",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "호남"
+    },
+    {
+      "id": "chungbuk-nu",
+      "name": "충북대학교",
+      "emoji": "🧬",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "충북",
+      "sidoId": "chungbuk",
+      "city": "청주시 서원구",
+      "commuteNote": "청주 도심. 오송 바이오클러스터·SK하이닉스 청주와 가까움",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "충청"
+    },
+    {
+      "id": "gyeongsang-nu",
+      "name": "경상국립대학교",
+      "emoji": "🚀",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "경남",
+      "sidoId": "gyeongnam",
+      "city": "진주시 · 창원시",
+      "commuteNote": "가좌·칠암(진주) + 창원캠퍼스로 분리 — 학과별 캠퍼스 확인 필수",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "영남"
+    },
+    {
+      "id": "kangwon-nu",
+      "name": "강원대학교",
+      "emoji": "🏔️",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "강원",
+      "sidoId": "gangwon",
+      "city": "춘천·강릉·삼척·원주",
+      "commuteNote": "2026.3 통합으로 4개 캠퍼스. 학과가 어느 캠퍼스인지 반드시 확인",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "강원"
+    },
+    {
+      "id": "jeju-nu",
+      "name": "제주대학교",
+      "emoji": "🌊",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "제주",
+      "sidoId": "jeju",
+      "city": "제주시",
+      "commuteNote": "제주시 아라동. 제주 시내버스 접근, 육지 이동은 항공편",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "거점국립대",
+          "tone": "gov"
+        }
+      ],
+      "zone": "제주"
+    },
+    {
+      "id": "kumoh-nit",
+      "name": "국립금오공과대학교",
+      "emoji": "⚙️",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "경북",
+      "sidoId": "gyeongbuk",
+      "city": "구미시",
+      "commuteNote": "구미 국가산업단지 인접. 산단 통근 접근성 좋음",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "공과 특성화",
+          "tone": "gov"
+        }
+      ],
+      "zone": "영남"
+    },
+    {
+      "id": "hanbat-nu",
+      "name": "국립한밭대학교",
+      "emoji": "🏭",
+      "areaId": "tuition-free-national",
+      "color": "#38BDF8",
+      "sido": "대전",
+      "sidoId": "daejeon",
+      "city": "대전광역시 유성구",
+      "commuteNote": "대덕특구 인접 유성구. 덕명·가정 캠퍼스",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        }
+      ],
+      "zone": "충청"
+    },
+    {
+      "id": "korea-univ",
+      "name": "고려대학교",
+      "emoji": "🐯",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 성북구 안암동",
+      "commuteNote": "지하철 6호선 안암역 도보권. 캠퍼스가 지하철역과 붙어 있음",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "SK하이닉스 계약학과",
+          "tone": "job"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "yonsei-univ",
+      "name": "연세대학교",
+      "emoji": "🦅",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 서대문구 신촌동",
+      "commuteNote": "지하철 2호선 신촌역 도보권. 국제캠퍼스(인천 송도)는 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "삼성전자 계약학과",
+          "tone": "job"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "sogang-univ",
+      "name": "서강대학교",
+      "emoji": "🎯",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 마포구 신수동",
+      "commuteNote": "지하철 6호선 대흥역·2호선 신촌역 접근",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "SK하이닉스 계약학과",
+          "tone": "job"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "skku-univ",
+      "name": "성균관대학교",
+      "emoji": "🔷",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울·경기",
+      "sidoId": "seoul",
+      "city": "서울 종로구(인사캠) · 수원 장안구(자과캠)",
+      "commuteNote": "인문사회는 서울 혜화, 자연과학·반도체는 수원 — 캠퍼스가 다름",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "삼성 계약학과 1호",
+          "tone": "job"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "soongsil-univ",
+      "name": "숭실대학교",
+      "emoji": "💡",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 동작구 상도동",
+      "commuteNote": "지하철 7호선 숭실대입구역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "캠퍼스타운",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "gachon-univ",
+      "name": "가천대학교",
+      "emoji": "🌿",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "경기",
+      "sidoId": "gyeonggi",
+      "city": "성남시 수정구",
+      "commuteNote": "판교 테크노밸리 인접. 지하철 수인분당선 접근",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "경인권 유일",
+          "tone": "new"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "sch-univ",
+      "name": "순천향대학교",
+      "emoji": "🩺",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "충남",
+      "sidoId": "chungnam",
+      "city": "아산시 신창면",
+      "commuteNote": "아산 신창. 수도권 전철 1호선 순천향대역이 캠퍼스 앞 — 수도권에서 통학·왕래가 가능한 편",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI중심대학",
+          "tone": "ai"
+        },
+        {
+          "label": "비수도권 유일",
+          "tone": "new"
+        }
+      ],
+      "zone": "충청"
+    },
+    {
+      "id": "kaist-ai",
+      "name": "KAIST",
+      "emoji": "🛰️",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "대전",
+      "sidoId": "daejeon",
+      "city": "대전광역시 유성구",
+      "commuteNote": "대덕연구단지 내. 전원 기숙 생활이 사실상 전제 — 통학 불가",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "AI 단과대학",
+          "tone": "ai"
+        },
+        {
+          "label": "정원 300명 신설",
+          "tone": "new"
+        }
+      ],
+      "zone": "충청"
+    },
+    {
+      "id": "snu-ai",
+      "name": "서울대학교",
+      "emoji": "🏛️",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 관악구 신림동",
+      "commuteNote": "지하철 2호선 낙성대·서울대입구역에서 셔틀. 캠퍼스가 넓고 경사가 큼",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI대학원 2027",
+          "tone": "ai"
+        },
+        {
+          "label": "교수 300명 겸무",
+          "tone": "gov"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "uos-ai",
+      "name": "서울시립대학교",
+      "emoji": "🏙️",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 동대문구 전농동",
+      "commuteNote": "지하철 1호선 청량리역·회기역 접근",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "2027 정원 순증",
+          "tone": "new"
+        },
+        {
+          "label": "공립 저등록금",
+          "tone": "money"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "konkuk-ai",
+      "name": "건국대학교",
+      "emoji": "🐴",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 광진구 화양동",
+      "commuteNote": "지하철 2·7호선 건대입구역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "2027 AI학과 신설",
+          "tone": "new"
+        },
+        {
+          "label": "학생창업 전국 1위",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "cau-ai",
+      "name": "중앙대학교",
+      "emoji": "🔵",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 동작구 흑석동",
+      "commuteNote": "지하철 9호선 흑석역 도보권. 안성캠퍼스는 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI학과 운영",
+          "tone": "ai"
+        },
+        {
+          "label": "LINC 참여",
+          "tone": "gov"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "sejong-ai",
+      "name": "세종대학교",
+      "emoji": "🦋",
+      "areaId": "ai-hub-universities",
+      "color": "#A78BFA",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 광진구 군자동",
+      "commuteNote": "지하철 7호선 어린이대공원역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "AI×전자 융합",
+          "tone": "ai"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "hanyang-univ",
+      "name": "한양대학교",
+      "emoji": "🦁",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 성동구 행당동",
+      "commuteNote": "지하철 2호선 한양대역과 캠퍼스가 직결. ERICA캠퍼스(안산)는 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "창업중심대학",
+          "tone": "startup"
+        },
+        {
+          "label": "캠퍼스타운",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "konkuk-startup",
+      "name": "건국대학교",
+      "emoji": "🐴",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 광진구 화양동",
+      "commuteNote": "지하철 2·7호선 건대입구역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "학생창업 전국 1위",
+          "tone": "startup"
+        },
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "suwon-univ",
+      "name": "수원대학교",
+      "emoji": "🌾",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "경기",
+      "sidoId": "gyeonggi",
+      "city": "화성시 봉담읍",
+      "commuteNote": "교명은 수원대지만 소재지는 화성 봉담 — 통학 경로 반드시 확인",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        },
+        {
+          "label": "초창패 23개사",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "dankook-univ",
+      "name": "단국대학교",
+      "emoji": "🌰",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "경기",
+      "sidoId": "gyeonggi",
+      "city": "용인시 수지구",
+      "commuteNote": "죽전캠퍼스. 천안캠퍼스는 별도 — 학과별 캠퍼스 확인 필수",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "초창패 20개사",
+          "tone": "startup"
+        },
+        {
+          "label": "LINC 참여",
+          "tone": "gov"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "kyonggi-univ",
+      "name": "경기대학교",
+      "emoji": "🏞️",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "경기",
+      "sidoId": "gyeonggi",
+      "city": "수원시 영통구",
+      "commuteNote": "수원캠퍼스. 서울캠퍼스(충정로)는 별도",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        },
+        {
+          "label": "캠퍼스 2곳",
+          "tone": "new"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "inha-univ",
+      "name": "인하대학교",
+      "emoji": "✈️",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "인천",
+      "sidoId": "incheon",
+      "city": "인천 미추홀구 용현동",
+      "commuteNote": "인천 도심. 인천공항·항만 접근성 좋음",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        },
+        {
+          "label": "초창패 23개사",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "seoultech-univ",
+      "name": "서울과학기술대학교",
+      "emoji": "🔧",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 노원구 공릉동",
+      "commuteNote": "지하철 7호선 공릉역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        },
+        {
+          "label": "초창패 22개사",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "skku-startup",
+      "name": "성균관대학교",
+      "emoji": "🔷",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울·경기",
+      "sidoId": "seoul",
+      "city": "서울 종로구 · 수원 장안구",
+      "commuteNote": "창업 프로그램은 캠퍼스별 운영 — 소속 캠퍼스 확인",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "창업중심대학",
+          "tone": "startup"
+        },
+        {
+          "label": "LINC 최상위",
+          "tone": "gov"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "korea-startup",
+      "name": "고려대학교",
+      "emoji": "🐯",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 성북구 안암동",
+      "commuteNote": "지하철 6호선 안암역 도보권. 세종캠퍼스는 별도",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "초창패 22개사",
+          "tone": "startup"
+        },
+        {
+          "label": "캠퍼스타운",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "yonsei-startup",
+      "name": "연세대학교",
+      "emoji": "🦅",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "서울",
+      "sidoId": "seoul",
+      "city": "서울 서대문구 신촌동",
+      "commuteNote": "지하철 2호선 신촌역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "예창패 주관",
+          "tone": "startup"
+        },
+        {
+          "label": "캠퍼스타운",
+          "tone": "startup"
+        }
+      ],
+      "zone": "수도권"
+    },
+    {
+      "id": "pusan-startup",
+      "name": "부산대학교",
+      "emoji": "⚓",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "부산",
+      "sidoId": "busan",
+      "city": "부산광역시 금정구",
+      "commuteNote": "도시철도 1호선 부산대역 도보권",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "창업중심대학",
+          "tone": "startup"
+        }
+      ],
+      "zone": "영남"
+    },
+    {
+      "id": "jeonbuk-startup",
+      "name": "전북대학교",
+      "emoji": "🔋",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "전북",
+      "sidoId": "jeonbuk",
+      "city": "전주시 덕진구",
+      "commuteNote": "전주 도심 덕진구",
+      "singleCampus": true,
+      "badges": [
+        {
+          "label": "등록금 0원",
+          "tone": "money"
+        },
+        {
+          "label": "창업중심대학",
+          "tone": "startup"
+        }
+      ],
+      "zone": "호남"
+    },
+    {
+      "id": "koreatech-ipp",
+      "name": "한국기술교육대학교",
+      "emoji": "🛠️",
+      "areaId": "startup-industry-link",
+      "color": "#34D399",
+      "sido": "충남",
+      "sidoId": "chungnam",
+      "city": "천안시 동남구",
+      "commuteNote": "천안 병천면. IPP 파견 시 기업 소재지로 이동하므로 거주 계획 필요",
+      "singleCampus": false,
+      "badges": [
+        {
+          "label": "IPP 원조",
+          "tone": "job"
+        },
+        {
+          "label": "학점 인정 실습",
+          "tone": "job"
+        }
+      ],
+      "zone": "충청"
+    }
+  ],
+  "zones": [
+    {
+      "id": "all",
+      "label": "전국",
+      "hint": "3영역 대학 전체"
+    },
+    {
+      "id": "수도권",
+      "label": "수도권",
+      "hint": "서울·경기·인천"
+    },
+    {
+      "id": "강원",
+      "label": "강원",
+      "hint": "강원특별자치도"
+    },
+    {
+      "id": "충청",
+      "label": "충청",
+      "hint": "대전·세종·충북·충남"
+    },
+    {
+      "id": "호남",
+      "label": "호남",
+      "hint": "광주·전북·전남"
+    },
+    {
+      "id": "영남",
+      "label": "영남",
+      "hint": "부산·대구·울산·경북·경남"
+    },
+    {
+      "id": "제주",
+      "label": "제주",
+      "hint": "제주특별자치도"
+    }
+  ]
+}

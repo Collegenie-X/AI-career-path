@@ -35,6 +35,10 @@ import paperMakerActivitiesData from '@/data/university-admission/strategy-hub/p
 import gradeRoadmapOverviewData from '@/data/university-admission/strategy-hub/grade-roadmap-overview.json';
 import recommendedActivitiesData from '@/data/university-admission/strategy-hub/recommended-activities.json';
 import admissionSubscreenMasterDetailUi from '@/data/university-admission/ui-master-detail-subscreens.json';
+import admission2027Meta from '@/data/university-admission/admission-2027/meta.json';
+import admission2027TuitionFree from '@/data/university-admission/admission-2027/tuition-free-national.json';
+import admission2027AiHub from '@/data/university-admission/admission-2027/ai-hub-universities.json';
+import admission2027Startup from '@/data/university-admission/admission-2027/startup-industry-link.json';
 
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
@@ -45,6 +49,7 @@ import { CareerMajorConnectionView } from './CareerMajorConnectionView';
 import { InnovativeInstitutionsListIntroBlock } from './InnovativeInstitutionsListIntroBlock';
 import { StrategyHubView } from './StrategyHubView';
 import { RecommendedActivitiesDirectory } from './RecommendedActivitiesDirectory';
+import { Admission2027View, type Admission2027AreaData } from './Admission2027View';
 import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
 type AdmissionCategory = {
@@ -68,9 +73,10 @@ type AdmissionCategory = {
   universities: Array<string | { name: string; url?: string; source?: string; detail?: string; iboRecognitionUrl?: string; ibAcceptance?: string; note?: string }>;
 };
 
-type SubView = 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
+type SubView = 'admission-2027' | 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
 
 const VALID_SUB_VIEWS: NonNullable<SubView>[] = [
+  'admission-2027',
   'strategy-hub',
   'recommended-activities',
   'career-major',
@@ -131,6 +137,13 @@ export function UniversityAdmissionTab() {
   ];
 
   const recommendedActivitySections = recommendedActivitiesData;
+
+  /** 2027 대입 대전환 — 3개 영역(등록금 0원 / AI 학과 / 창업·기업연계) */
+  const admission2027Areas = [
+    admission2027TuitionFree,
+    admission2027AiHub,
+    admission2027Startup,
+  ] as unknown as Admission2027AreaData[];
 
   const hasRightPanelDetail = selectedCategory !== null || selectedSubView !== null;
 
@@ -212,6 +225,34 @@ export function UniversityAdmissionTab() {
               />
 
               <div className="space-y-2">
+                {/* 2027 대입 대전환 — 등록금 0원 · AI 학과 · 창업/기업연계 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('admission-2027')}
+                  className="w-full rounded-xl p-4"
+                  style={{
+                    background: selectedSubView === 'admission-2027'
+                      ? 'linear-gradient(135deg, rgba(34,211,238,0.38) 0%, rgba(56,189,248,0.38) 100%)'
+                      : 'linear-gradient(135deg, rgba(34,211,238,0.2) 0%, rgba(56,189,248,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'admission-2027' ? 'rgba(34,211,238,0.75)' : 'rgba(34,211,238,0.32)'}`,
+                    boxShadow: selectedSubView === 'admission-2027' ? '0 0 20px rgba(34,211,238,0.3)' : undefined,
+                  }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(34,211,238,0.25)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: 'rgba(34,211,238,0.3)', border: '2px solid rgba(34,211,238,0.5)' }}>
+                      {admission2027Meta.meta.emoji}
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{admission2027Meta.entranceButton.title}</h3>
+                      <p className="text-xs text-white/70">{admission2027Meta.entranceButton.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
+
                 {/* 전략 실행 허브 */}
                 <motion.button
                   type="button"
@@ -364,6 +405,17 @@ export function UniversityAdmissionTab() {
               playbook={categoryPlaybookMap[selectedCategory.id as keyof typeof categoryPlaybookMap]}
               onClose={() => setSelectedCategory(null)}
               onOpenDetailDialog={() => setShowCategoryDialog(true)}
+            />
+          ) : selectedSubView === 'admission-2027' ? (
+            <Admission2027View
+              key={`admission2027-${subViewAnimKey}`}
+              areas={admission2027Areas}
+              labels={admission2027Meta.labels}
+              factCheckNotice={admission2027Meta.factCheckNotice}
+              rightPanelTitle={admission2027Meta.meta.title}
+              rightPanelSubtitle={admission2027Meta.meta.subtitle}
+              rightPanelColor={admission2027Meta.meta.color}
+              onClose={() => setSelectedSubView(null)}
             />
           ) : selectedSubView === 'strategy-hub' ? (
             <StrategyHubView
