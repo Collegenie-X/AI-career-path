@@ -35,6 +35,27 @@ type DevEducationInstitutionsViewProps = {
   readonly rightPanelColor?: string;
 };
 
+const LIST_STATUS_CHIP_STYLE: Record<string, { bg: string; color: string; border: string }> = {
+  closing: { bg: 'rgba(239,68,68,0.2)', color: '#FCA5A5', border: 'rgba(248,113,113,0.55)' },
+  paused: { bg: 'rgba(249,115,22,0.2)', color: '#FDBA74', border: 'rgba(251,146,60,0.55)' },
+  caution: { bg: 'rgba(234,179,8,0.2)', color: '#FDE68A', border: 'rgba(250,204,21,0.55)' },
+};
+
+/** 목록 카드에서 폐교·미운영을 즉시 구분시키는 칩 — 정상 운영 기관에는 표시하지 않는다 */
+function InstitutionStatusChip({ status }: { readonly status?: DevEducationInstitution['status'] }) {
+  if (!status || status.state === 'active') return null;
+  const tone = LIST_STATUS_CHIP_STYLE[status.state];
+  if (!tone) return null;
+  return (
+    <span
+      className="text-[12px] font-bold px-2 py-0.5 rounded-full"
+      style={{ background: tone.bg, color: tone.color, border: `1px solid ${tone.border}` }}
+    >
+      {status.label}
+    </span>
+  );
+}
+
 function DevEducationDefaultListIntro() {
   return (
     <div
@@ -157,6 +178,7 @@ export function DevEducationInstitutionsView({
                     <p className="text-xs text-white/50 mb-0.5">{institution.fullName}</p>
                   )}
                   <div className="flex flex-wrap gap-1.5 mt-1">
+                    <InstitutionStatusChip status={institution.status} />
                     <span className="text-[12px] px-2 py-0.5 rounded-full" style={{ background: `${institution.color}30`, color: 'white' }}>
                       {institution.type}
                     </span>
@@ -245,6 +267,7 @@ export function DevEducationInstitutionsView({
                         )}
                         <p className="text-xs text-white/70 mb-2">{institution.organizer}</p>
                         <div className="flex flex-wrap gap-1.5">
+                          <InstitutionStatusChip status={institution.status} />
                           <span
                             className="text-xs px-2 py-0.5 rounded-full"
                             style={{
