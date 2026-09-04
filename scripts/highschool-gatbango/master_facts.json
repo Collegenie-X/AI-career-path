@@ -1,0 +1,3327 @@
+{
+  "7010958": {
+    "name": "강일고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 강동구 아리수로98길 40",
+    "signgu": "강동구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://gang-il.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "GANGIL HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 강동",
+    "firstYearClassCount": 7,
+    "neisCode": "7010958",
+    "office": "B10"
+  },
+  "7010062": {
+    "name": "경복고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 종로구 자하문로28가길 9",
+    "signgu": "종로구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://kyungbock.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Kyungbock High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 종로",
+    "firstYearClassCount": 8,
+    "neisCode": "7010062",
+    "office": "B10"
+  },
+  "7010146": {
+    "name": "대진고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 노원구 공릉로62가길 47",
+    "signgu": "노원구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://daejin.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Daejin High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 노원 중계",
+    "firstYearClassCount": 10,
+    "neisCode": "7010146",
+    "office": "B10"
+  },
+  "7010157": {
+    "name": "마포고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 강서구 화곡로 403",
+    "signgu": "강서구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://mapo.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Mapo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 마포",
+    "firstYearClassCount": 9,
+    "neisCode": "7010157",
+    "office": "B10"
+  },
+  "7010158": {
+    "name": "명덕고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 강서구 강서로47길 34-10",
+    "signgu": "강서구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://myungduk.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Myungduk High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 강서",
+    "firstYearClassCount": 9,
+    "neisCode": "7010158",
+    "office": "B10"
+  },
+  "7010079": {
+    "name": "무학여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 성동구 고산자로 197",
+    "signgu": "성동구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://muhak.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Muhak Girls’ High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 성동",
+    "firstYearClassCount": 6,
+    "neisCode": "7010079",
+    "office": "B10"
+  },
+  "7010080": {
+    "name": "반포고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 서초구 고무래로 71",
+    "signgu": "서초구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://banpo.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Banpo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 서초 반포",
+    "firstYearClassCount": 10,
+    "neisCode": "7010080",
+    "office": "B10"
+  },
+  "7010590": {
+    "name": "방산고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 송파구 오금로27길 18",
+    "signgu": "송파구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://bangsan.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bangsan High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 중랑",
+    "firstYearClassCount": 10,
+    "neisCode": "7010590",
+    "office": "B10"
+  },
+  "7010191": {
+    "name": "선정고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 은평구 서오릉로20길 19",
+    "signgu": "은평구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://sunjung.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Sunjung High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 은평",
+    "firstYearClassCount": 13,
+    "neisCode": "7010191",
+    "office": "B10"
+  },
+  "7010204": {
+    "name": "숭의여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 동작구 여의대방로36길 79",
+    "signgu": "동작구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://soongeui.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Soongeui Girls’ High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 중구",
+    "firstYearClassCount": 9,
+    "neisCode": "7010204",
+    "office": "B10"
+  },
+  "7010884": {
+    "name": "신도림고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 구로구 경인로67길 159",
+    "signgu": "구로구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://shindorim.sen.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Shindorim High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 구로",
+    "firstYearClassCount": 7,
+    "neisCode": "7010884",
+    "office": "B10"
+  },
+  "7010103": {
+    "name": "용산고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 용산구 두텁바위로 60",
+    "signgu": "용산구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://yongsan.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yongsan High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 용산",
+    "firstYearClassCount": 10,
+    "neisCode": "7010103",
+    "office": "B10"
+  },
+  "7010222": {
+    "name": "용화여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 노원구 동일로 1461",
+    "signgu": "노원구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://www.yonghwa.hs.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yonghwa Girls’ High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 송파",
+    "firstYearClassCount": 10,
+    "neisCode": "7010222",
+    "office": "B10"
+  },
+  "7010096": {
+    "name": "여의도고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 영등포구 국제금융로7길 37",
+    "signgu": "영등포구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://yeouido.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yeouido High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 영등포 여의도",
+    "firstYearClassCount": 8,
+    "neisCode": "7010096",
+    "office": "B10"
+  },
+  "7010098": {
+    "name": "영등포고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 동작구 등용로8길 5-13",
+    "signgu": "동작구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://ydp.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Youngdeungpo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 영등포",
+    "firstYearClassCount": 6,
+    "neisCode": "7010098",
+    "office": "B10"
+  },
+  "7010219": {
+    "name": "예일여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 은평구 연서로 117",
+    "signgu": "은평구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "www.yale.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yale Girls’ High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 은평",
+    "firstYearClassCount": 10,
+    "neisCode": "7010219",
+    "office": "B10"
+  },
+  "7010106": {
+    "name": "잠신고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 송파구 잠실로 24",
+    "signgu": "송파구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://jamsin.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Jamsin High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 송파 잠실",
+    "firstYearClassCount": 9,
+    "neisCode": "7010106",
+    "office": "B10"
+  },
+  "7010562": {
+    "name": "창동고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 도봉구 노해로62길 7",
+    "signgu": "도봉구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://changdong.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Changdong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 도봉",
+    "firstYearClassCount": 12,
+    "neisCode": "7010562",
+    "office": "B10"
+  },
+  "7010262": {
+    "name": "혜원여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 중랑구 봉우재로58길 39",
+    "signgu": "중랑구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://hyewon.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Hyewon Girls’ High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 강서",
+    "firstYearClassCount": 8,
+    "neisCode": "7010262",
+    "office": "B10"
+  },
+  "7010267": {
+    "name": "휘경여자고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 동대문구 한천로 247",
+    "signgu": "동대문구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://hwikyung.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Hwikyung Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "서울 동대문",
+    "firstYearClassCount": 9,
+    "neisCode": "7010267",
+    "office": "B10"
+  },
+  "7310207": {
+    "name": "가림고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 서해구 원적로 58",
+    "signgu": "서해구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://garim.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Garim High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 11,
+    "neisCode": "7310207",
+    "office": "E10"
+  },
+  "7310039": {
+    "name": "계양고등학교",
+    "region": "인천광역시",
+    "address": "인천 계양구 계양문화로 177",
+    "signgu": "계양구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "gy.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gyeyang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 계양",
+    "firstYearClassCount": 7,
+    "neisCode": "7310039",
+    "office": "E10"
+  },
+  "7310069": {
+    "name": "대인고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 서해구 서곶로 446",
+    "signgu": "서해구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://daein.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "DAEIN High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 10,
+    "neisCode": "7310069",
+    "office": "E10"
+  },
+  "7310046": {
+    "name": "부광고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 부평구 화랑로 28",
+    "signgu": "부평구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "bg.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bugwang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 부평",
+    "firstYearClassCount": 7,
+    "neisCode": "7310046",
+    "office": "E10"
+  },
+  "7310052": {
+    "name": "선인고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 미추홀구 석정로 165",
+    "signgu": "미추홀구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://sunin.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Sunin High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 미추홀",
+    "firstYearClassCount": 7,
+    "neisCode": "7310052",
+    "office": "E10"
+  },
+  "7310078": {
+    "name": "송도고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 연수구 독배로 91",
+    "signgu": "연수구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "songdo.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "SONG-DO HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 연수",
+    "firstYearClassCount": 12,
+    "neisCode": "7310078",
+    "office": "E10"
+  },
+  "7310080": {
+    "name": "신명여자고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 남동구 용천로205번길 42",
+    "signgu": "남동구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://shinmyung.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Shinmyung Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 서구",
+    "firstYearClassCount": 11,
+    "neisCode": "7310080",
+    "office": "E10"
+  },
+  "7310082": {
+    "name": "인명여자고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 미추홀구 문화로 11",
+    "signgu": "미추홀구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://inmyong.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Inmyong Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 12,
+    "neisCode": "7310082",
+    "office": "E10"
+  },
+  "7310084": {
+    "name": "인제고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 남동구 석산로197번길 19",
+    "signgu": "남동구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "inje.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "INJE High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 10,
+    "neisCode": "7310084",
+    "office": "E10"
+  },
+  "7310057": {
+    "name": "인천고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 미추홀구 경원대로 804",
+    "signgu": "미추홀구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://incheon.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "IN-CHEON HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 미추홀",
+    "firstYearClassCount": 11,
+    "neisCode": "7310057",
+    "office": "E10"
+  },
+  "7310059": {
+    "name": "인천남고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 남동구 석정로551번길 41",
+    "signgu": "남동구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "inam.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Incheon Nam High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 미추홀",
+    "firstYearClassCount": 9,
+    "neisCode": "7310059",
+    "office": "E10"
+  },
+  "7310339": {
+    "name": "인천남동고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 남동구 은봉로 283",
+    "signgu": "남동구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://namdong.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Incheon Namdong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 10,
+    "neisCode": "7310339",
+    "office": "E10"
+  },
+  "7310068": {
+    "name": "인천대건고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 연수구 능허대로 437",
+    "signgu": "연수구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "idg.icehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Incheon Daegun High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 서구",
+    "firstYearClassCount": 11,
+    "neisCode": "7310068",
+    "office": "E10"
+  },
+  "7310257": {
+    "name": "인천산곡고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 부평구 원적로416번길 25",
+    "signgu": "부평구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://sangokhs.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "INCHEON  SANGOK  HIGH  SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 부평",
+    "firstYearClassCount": 9,
+    "neisCode": "7310257",
+    "office": "E10"
+  },
+  "7310060": {
+    "name": "인천여자고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 연수구 비류대로506번길 14",
+    "signgu": "연수구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://incheon-gh.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "INCHEON GIRLS' HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 중구",
+    "firstYearClassCount": 12,
+    "neisCode": "7310060",
+    "office": "E10"
+  },
+  "7310259": {
+    "name": "인천영선고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 부평구 체육관로 179",
+    "signgu": "부평구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://youngsun.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Incheon Youngsun High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 남동",
+    "firstYearClassCount": 9,
+    "neisCode": "7310259",
+    "office": "E10"
+  },
+  "7310260": {
+    "name": "인천원당고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 검단구 고산로40번길 30",
+    "signgu": "검단구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://wondang.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Incheon Wondang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 서구",
+    "firstYearClassCount": 10,
+    "neisCode": "7310260",
+    "office": "E10"
+  },
+  "7310252": {
+    "name": "인천효성고등학교",
+    "region": "인천광역시",
+    "address": "인천광역시 계양구 새벌로171번길 21",
+    "signgu": "계양구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "in-hyoseong.icehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Incheon Hyoseong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "인천 계양",
+    "firstYearClassCount": 8,
+    "neisCode": "7310252",
+    "office": "E10"
+  },
+  "7530520": {
+    "name": "고잔고등학교",
+    "region": "경기도",
+    "address": "경기도 안산시 단원구 광덕2로 222",
+    "signgu": "안산시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "kojan-h.goeas.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Kojan High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 안산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530520",
+    "office": "J10"
+  },
+  "7530469": {
+    "name": "과천중앙고등학교",
+    "region": "경기도",
+    "address": "경기도 과천시 교육원로 17",
+    "signgu": "과천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "gcja-h.goeay.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gwacheon Jungang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 과천",
+    "firstYearClassCount": 8,
+    "neisCode": "7530469",
+    "office": "J10"
+  },
+  "7530054": {
+    "name": "구리고등학교",
+    "region": "경기도",
+    "address": "경기도 구리시 장자대로 89",
+    "signgu": "구리시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://guri-h.goegn.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "GURI HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 구리",
+    "firstYearClassCount": 8,
+    "neisCode": "7530054",
+    "office": "J10"
+  },
+  "7530058": {
+    "name": "김포고등학교",
+    "region": "경기도",
+    "address": "경기도 김포시 봉화로 37-15",
+    "signgu": "김포시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://gimpo-h.gpoe.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gimpo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 김포",
+    "firstYearClassCount": 10,
+    "neisCode": "7530058",
+    "office": "J10"
+  },
+  "7530069": {
+    "name": "백운고등학교",
+    "region": "경기도",
+    "address": "경기도 의왕시 내손순환로 136",
+    "signgu": "의왕시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://paekungo.goegu.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Paekun High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 의왕",
+    "firstYearClassCount": 11,
+    "neisCode": "7530069",
+    "office": "J10"
+  },
+  "7530825": {
+    "name": "봉일천고등학교",
+    "region": "경기도",
+    "address": "경기도 파주시 조리읍 소곡로 54",
+    "signgu": "파주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "bongilcheon-h.goepj.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bongilcheon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 파주",
+    "firstYearClassCount": 10,
+    "neisCode": "7530825",
+    "office": "J10"
+  },
+  "7530074": {
+    "name": "부흥고등학교",
+    "region": "경기도",
+    "address": "경기도 안양시 동안구 달안로 15",
+    "signgu": "안양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "puhung-h.goeay.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Puhung High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 안양 평촌",
+    "firstYearClassCount": 13,
+    "neisCode": "7530074",
+    "office": "J10"
+  },
+  "7530936": {
+    "name": "세마고등학교",
+    "region": "경기도",
+    "address": "경기도 오산시 수목원로 559-17",
+    "signgu": "오산시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://sema-h.goehs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Sema High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 오산",
+    "firstYearClassCount": 10,
+    "neisCode": "7530936",
+    "office": "J10"
+  },
+  "7530898": {
+    "name": "시흥매화고등학교",
+    "region": "경기도",
+    "address": "경기도 시흥시 매화로 35",
+    "signgu": "시흥시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://mh-h.goesh.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Siheung Maehwa High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 시흥",
+    "firstYearClassCount": 7,
+    "neisCode": "7530898",
+    "office": "J10"
+  },
+  "7530607": {
+    "name": "양일고등학교",
+    "region": "경기도",
+    "address": "경기도 양평군 양평읍 관문2길 9",
+    "signgu": "양평군",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "yangil-h.goeyp.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yangil High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 양평",
+    "firstYearClassCount": 9,
+    "neisCode": "7530607",
+    "office": "J10"
+  },
+  "7530558": {
+    "name": "양지고등학교",
+    "region": "경기도",
+    "address": "경기도 안산시 단원구 화정천동로 50",
+    "signgu": "안산시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "yangji-h.goeas.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yang-Ji High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양",
+    "firstYearClassCount": 11,
+    "neisCode": "7530558",
+    "office": "J10"
+  },
+  "7530104": {
+    "name": "용호고등학교",
+    "region": "경기도",
+    "address": "경기도 군포시 용호2로 10",
+    "signgu": "군포시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://yonghogo.goegu.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yong Ho High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 광주",
+    "firstYearClassCount": 13,
+    "neisCode": "7530104",
+    "office": "J10"
+  },
+  "7530114": {
+    "name": "인창고등학교",
+    "region": "경기도",
+    "address": "경기도 구리시 왕숙천로 339",
+    "signgu": "구리시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://inchang-h.goegn.kr/inchang-h/main.do",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "In Chang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 구리",
+    "firstYearClassCount": 9,
+    "neisCode": "7530114",
+    "office": "J10"
+  },
+  "7530115": {
+    "name": "일산동고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 일산서구 탄현로 100",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "ilsandong-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "ILSAN DONG HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530115",
+    "office": "J10"
+  },
+  "7530122": {
+    "name": "주엽고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 일산서구 킨텍스로 341",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "jygo-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "JUYEOP HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 12,
+    "neisCode": "7530122",
+    "office": "J10"
+  },
+  "7530883": {
+    "name": "초당고등학교",
+    "region": "경기도",
+    "address": "경기도 용인시 기흥구 동백중앙로 21",
+    "signgu": "용인시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://chodang-h.goeyi.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Chodang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 성남",
+    "firstYearClassCount": 10,
+    "neisCode": "7530883",
+    "office": "J10"
+  },
+  "7530129": {
+    "name": "태장고등학교",
+    "region": "경기도",
+    "address": "경기도 수원시 영통구 영통로 250",
+    "signgu": "수원시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://taejang-h.goesw.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Taejang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 수원",
+    "firstYearClassCount": 12,
+    "neisCode": "7530129",
+    "office": "J10"
+  },
+  "7530213": {
+    "name": "풍생고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 수정구 산성대로 111",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://ps.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Pungsaeng High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 성남",
+    "firstYearClassCount": 10,
+    "neisCode": "7530213",
+    "office": "J10"
+  },
+  "7530620": {
+    "name": "효양고등학교",
+    "region": "경기도",
+    "address": "경기도 이천시 부발읍 효양로 214",
+    "signgu": "이천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://hyoyang.goeic.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Hyoyang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 이천",
+    "firstYearClassCount": 10,
+    "neisCode": "7530620",
+    "office": "J10"
+  },
+  "7530139": {
+    "name": "효원고등학교",
+    "region": "경기도",
+    "address": "경기도 수원시 영통구 동수원로 336",
+    "signgu": "수원시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://hyowon-h.goesw.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Hyowon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 수원",
+    "firstYearClassCount": 13,
+    "neisCode": "7530139",
+    "office": "J10"
+  },
+  "7530471": {
+    "name": "도당고등학교",
+    "region": "경기도",
+    "address": "경기도 부천시 삼작로256번길 53-3",
+    "signgu": "부천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "dodang-h.goebc.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Dodang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 부천",
+    "firstYearClassCount": 9,
+    "neisCode": "7530471",
+    "office": "J10"
+  },
+  "7531294": {
+    "name": "라온고등학교",
+    "region": "경기도",
+    "address": "경기도 평택시 경기대로1376번길 38-6",
+    "signgu": "평택시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "raon-h.goept.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Raon high School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 화성 동탄",
+    "firstYearClassCount": 8,
+    "neisCode": "7531294",
+    "office": "J10"
+  },
+  "7531246": {
+    "name": "배곧고등학교",
+    "region": "경기도",
+    "address": "경기도 시흥시 배곧4로 94-10",
+    "signgu": "시흥시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://baegot-h.goesh.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Baegot High school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 시흥 배곧",
+    "firstYearClassCount": 10,
+    "neisCode": "7531246",
+    "office": "J10"
+  },
+  "7530068": {
+    "name": "백신고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 일산동구 백석로 8",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "baekshin-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "BAEKSHIN HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530068",
+    "office": "J10"
+  },
+  "7530472": {
+    "name": "백양고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 덕양구 화신로 199",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "paikyang-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Paikyang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530472",
+    "office": "J10"
+  },
+  "7530071": {
+    "name": "부천고등학교",
+    "region": "경기도",
+    "address": "경기도 부천시 경인로92번길 70",
+    "signgu": "부천시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://bch-h.goebc.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bucheon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 부천",
+    "firstYearClassCount": 7,
+    "neisCode": "7530071",
+    "office": "J10"
+  },
+  "7530073": {
+    "name": "부천여자고등학교",
+    "region": "경기도",
+    "address": "경기도 부천시 원미구 석천로16번길 37",
+    "signgu": "부천시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "https://pcg-h.goebc.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bucheon Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 부천",
+    "firstYearClassCount": 5,
+    "neisCode": "7530073",
+    "office": "J10"
+  },
+  "7530075": {
+    "name": "분당고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 분당구 내정로165번길 31",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://bundang-h.goesn.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bundang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 성남 분당",
+    "firstYearClassCount": 10,
+    "neisCode": "7530075",
+    "office": "J10"
+  },
+  "7530076": {
+    "name": "분당중앙고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 분당구 불정로 174",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://bdja-h.goesn.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bundang -Jungang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 성남 분당",
+    "firstYearClassCount": 9,
+    "neisCode": "7530076",
+    "office": "J10"
+  },
+  "7530571": {
+    "name": "상우고등학교",
+    "region": "경기도",
+    "address": "경기도 의정부시 범골로 79",
+    "signgu": "의정부시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://sangwoo-h.goeujb.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "SANGWOO HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 남양주",
+    "firstYearClassCount": 10,
+    "neisCode": "7530571",
+    "office": "J10"
+  },
+  "7531102": {
+    "name": "솔터고등학교",
+    "region": "경기도",
+    "address": "경기도 김포시 김포한강7로22번길 109",
+    "signgu": "김포시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://solteo-h.gpoe.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "solteo high school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 화성 동탄",
+    "firstYearClassCount": 10,
+    "neisCode": "7531102",
+    "office": "J10"
+  },
+  "7530806": {
+    "name": "송우고등학교",
+    "region": "경기도",
+    "address": "경기도 포천시 소흘읍 태봉로 125",
+    "signgu": "포천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://songwoo-h.goepc.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Songwoo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 포천",
+    "firstYearClassCount": 10,
+    "neisCode": "7530806",
+    "office": "J10"
+  },
+  "7530090": {
+    "name": "수리고등학교",
+    "region": "경기도",
+    "address": "경기도 군포시 수리산로 39",
+    "signgu": "군포시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://surigo.goegu.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Su-Ri High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 군포 산본",
+    "firstYearClassCount": 14,
+    "neisCode": "7530090",
+    "office": "J10"
+  },
+  "7531138": {
+    "name": "수원칠보고등학교",
+    "region": "경기도",
+    "address": "경기도 수원시 권선구 금곡로 127",
+    "signgu": "수원시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://suwonchilbo-h.goesw.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "suwonchilbo high school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 수원",
+    "firstYearClassCount": 10,
+    "neisCode": "7531138",
+    "office": "J10"
+  },
+  "7530093": {
+    "name": "수지고등학교",
+    "region": "경기도",
+    "address": "경기도 용인시 수지구 수풍로 73",
+    "signgu": "용인시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://suji-h.goeyi.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Suji High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 용인 수지",
+    "firstYearClassCount": 14,
+    "neisCode": "7530093",
+    "office": "J10"
+  },
+  "7530106": {
+    "name": "원미고등학교",
+    "region": "경기도",
+    "address": "경기도 부천시 옥산로 48",
+    "signgu": "부천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://wonmihigh-h.goebc.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Wonmi High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 부천",
+    "firstYearClassCount": 9,
+    "neisCode": "7530106",
+    "office": "J10"
+  },
+  "7530204": {
+    "name": "정명고등학교",
+    "region": "경기도",
+    "address": "경기도 부천시 소사구 심곡로 100",
+    "signgu": "부천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://jeongmyung-h.goebc.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Jeong Myung High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 화성",
+    "firstYearClassCount": 10,
+    "neisCode": "7530204",
+    "office": "J10"
+  },
+  "7530119": {
+    "name": "정발고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 일산동구 정발산로 185",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "jeongbal-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Jeongbal High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530119",
+    "office": "J10"
+  },
+  "7531248": {
+    "name": "지산고등학교",
+    "region": "경기도",
+    "address": "경기도 파주시 가람로21번길 27-37",
+    "signgu": "파주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://pajujisan-h.goepj.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Jisan High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 안산",
+    "firstYearClassCount": 13,
+    "neisCode": "7531248",
+    "office": "J10"
+  },
+  "7530884": {
+    "name": "청덕고등학교",
+    "region": "경기도",
+    "address": "경기도 용인시 기흥구 구성1로 21",
+    "signgu": "용인시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://cheongdeok-h.goeyi.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "CHEONGDEOK HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 용인 수지",
+    "firstYearClassCount": 11,
+    "neisCode": "7530884",
+    "office": "J10"
+  },
+  "7530130": {
+    "name": "퇴계원고등학교",
+    "region": "경기도",
+    "address": "경기도 남양주시 퇴계원읍 퇴계원로 ",
+    "signgu": "남양주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://toegyewon-h.goegn.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "TOEGYEWON HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 남양주",
+    "firstYearClassCount": 10,
+    "neisCode": "7530130",
+    "office": "J10"
+  },
+  "7531463": {
+    "name": "한빛누리고등학교",
+    "region": "경기도",
+    "address": "경기도 동두천시 동광로 124",
+    "signgu": "동두천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "hbnuri-h.goedy.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "HANBITNURI HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 화성 동탄",
+    "firstYearClassCount": 7,
+    "neisCode": "7531463",
+    "office": "J10"
+  },
+  "7530848": {
+    "name": "봉담고등학교",
+    "region": "경기도",
+    "address": "경기도 화성시 봉담읍 상봉길 42",
+    "signgu": "화성시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://bongdam-h.goehs.kr/bongdam-h/main.do",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "BONGDAM HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경기 화성 봉담",
+    "firstYearClassCount": 9,
+    "neisCode": "7530848",
+    "office": "J10"
+  },
+  "7801092": {
+    "name": "강릉고등학교",
+    "region": "강원특별자치도",
+    "address": "강원특별자치도 강릉시 강릉대로587번길 68",
+    "signgu": "강릉시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://ganggo.gwe.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gangneung High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "강원 강릉",
+    "firstYearClassCount": 6,
+    "neisCode": "7801092",
+    "office": "K10"
+  },
+  "7801164": {
+    "name": "원주고등학교",
+    "region": "강원특별자치도",
+    "address": "강원특별자치도 원주시 치악로 1765",
+    "signgu": "원주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://wonjugo.gwe.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Wonju High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "강원 원주",
+    "firstYearClassCount": 11,
+    "neisCode": "7801164",
+    "office": "K10"
+  },
+  "7801168": {
+    "name": "원주여자고등학교",
+    "region": "강원특별자치도",
+    "address": "강원특별자치도 원주시 배울로 227",
+    "signgu": "원주시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://wonju-g.gwe.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Wonju Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "강원 원주",
+    "firstYearClassCount": 11,
+    "neisCode": "7801168",
+    "office": "K10"
+  },
+  "7801185": {
+    "name": "춘천고등학교",
+    "region": "강원특별자치도",
+    "address": "강원도 춘천시 중앙로68번길 37",
+    "signgu": "춘천시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "chunchon.gwe.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Chuncheon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "강원 춘천",
+    "firstYearClassCount": 10,
+    "neisCode": "7801185",
+    "office": "K10"
+  },
+  "7430030": {
+    "name": "대덕고등학교",
+    "region": "대전광역시",
+    "address": "대전광역시 유성구 대덕대로556번길 158",
+    "signgu": "유성구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://daedeokhs.djsch.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Daedeok High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대전 유성",
+    "firstYearClassCount": 10,
+    "neisCode": "7430030",
+    "office": "G10"
+  },
+  "7430067": {
+    "name": "호수돈여자고등학교",
+    "region": "대전광역시",
+    "address": "대전광역시 중구 선화로 50",
+    "signgu": "중구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://holstonhs.djsch.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Holston Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대전 중구",
+    "firstYearClassCount": 10,
+    "neisCode": "7430067",
+    "office": "G10"
+  },
+  "9300177": {
+    "name": "두루고등학교",
+    "region": "세종특별자치시",
+    "address": "세종특별자치시  마음안1로 53",
+    "signgu": "마음안1로",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://duru.sjeduhs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Duru High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "세종",
+    "firstYearClassCount": 10,
+    "neisCode": "9300177",
+    "office": "I10"
+  },
+  "8000086": {
+    "name": "세광고등학교",
+    "region": "충청북도",
+    "address": "충청북도 청주시 서원구 2순환로 1572",
+    "signgu": "청주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://school.cbe.go.kr/skhs-h/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Sekwang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충북 청주",
+    "firstYearClassCount": 9,
+    "neisCode": "8000086",
+    "office": "M10"
+  },
+  "8000038": {
+    "name": "금천고등학교",
+    "region": "충청북도",
+    "address": "충청북도 청주시 상당구 호미로233번길 65",
+    "signgu": "청주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "school.cbe.go.kr/kch-h",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Keumcheon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충북",
+    "firstYearClassCount": 9,
+    "neisCode": "8000038",
+    "office": "M10"
+  },
+  "8000066": {
+    "name": "청주고등학교",
+    "region": "충청북도",
+    "address": "충청북도 청주시 흥덕구 사직대로 79",
+    "signgu": "청주시",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "http://school.cbe.go.kr/cheongju-h",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Cheongju High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충북 청주",
+    "firstYearClassCount": 10,
+    "neisCode": "8000066",
+    "office": "M10"
+  },
+  "8000072": {
+    "name": "청주중앙여자고등학교",
+    "region": "충청북도",
+    "address": "충청북도 청주시 서원구 천석로 15",
+    "signgu": "청주시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://school.cbe.go.kr/cjjang-h",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "CheongJu JungAng Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충북 청주",
+    "firstYearClassCount": 10,
+    "neisCode": "8000072",
+    "office": "M10"
+  },
+  "8000078": {
+    "name": "충주고등학교",
+    "region": "충청북도",
+    "address": "충청북도 충주시 예성로 37",
+    "signgu": "충주시",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "http://school.cbe.go.kr/chungju-h/M01",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "chungju high school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충북 충주",
+    "firstYearClassCount": 8,
+    "neisCode": "8000078",
+    "office": "M10"
+  },
+  "8140089": {
+    "name": "서령고등학교",
+    "region": "충청남도",
+    "address": "충청남도 서산시 서령로 117-1",
+    "signgu": "서산시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://seoryeong.cnehs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Seoryeong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 서산",
+    "firstYearClassCount": 9,
+    "neisCode": "8140089",
+    "office": "N10"
+  },
+  "8140061": {
+    "name": "온양고등학교",
+    "region": "충청남도",
+    "address": "충청남도 아산시 온천대로 1411",
+    "signgu": "아산시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://ongo.cnehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Onyang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 아산",
+    "firstYearClassCount": 12,
+    "neisCode": "8140061",
+    "office": "N10"
+  },
+  "8140062": {
+    "name": "온양여자고등학교",
+    "region": "충청남도",
+    "address": "충청남도 아산시 온여고길21번길 24",
+    "signgu": "아산시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://www.onyang.cnehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Onyang Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 아산",
+    "firstYearClassCount": 11,
+    "neisCode": "8140062",
+    "office": "N10"
+  },
+  "8140236": {
+    "name": "천안신당고등학교",
+    "region": "충청남도",
+    "address": "충청남도 천안시 서북구 신당새터2길 36",
+    "signgu": "천안시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://www.casd.caehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Cheonansindang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 천안",
+    "firstYearClassCount": 11,
+    "neisCode": "8140236",
+    "office": "N10"
+  },
+  "8140219": {
+    "name": "천안쌍용고등학교",
+    "region": "충청남도",
+    "address": "충청남도 천안시 서북구 월봉7길 10",
+    "signgu": "천안시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://sy.caehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "CHEONAN SSANGYONG HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 천안",
+    "firstYearClassCount": 15,
+    "neisCode": "8140219",
+    "office": "N10"
+  },
+  "8140070": {
+    "name": "천안중앙고등학교",
+    "region": "충청남도",
+    "address": "충청남도 천안시 동남구 충절로 91",
+    "signgu": "천안시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://caja.caehs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Cheonanjoongang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "충남 천안",
+    "firstYearClassCount": 13,
+    "neisCode": "8140070",
+    "office": "N10"
+  },
+  "7240071": {
+    "name": "경상고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 북구 공항로15길 24",
+    "signgu": "북구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://gyeongsang.dge.hs.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Gyeongsang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 북구",
+    "firstYearClassCount": 9,
+    "neisCode": "7240071",
+    "office": "D10"
+  },
+  "7240074": {
+    "name": "경원고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 달서구 새방로 77",
+    "signgu": "달서구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "www.kwh.dge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Kyung Won High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 달서",
+    "firstYearClassCount": 11,
+    "neisCode": "7240074",
+    "office": "D10"
+  },
+  "7240203": {
+    "name": "도원고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 달서구 미리샘길 52",
+    "signgu": "달서구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://dowon.dge.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Dowon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 달서",
+    "firstYearClassCount": 6,
+    "neisCode": "7240203",
+    "office": "D10"
+  },
+  "7240094": {
+    "name": "심인고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 달성군 다사읍 대실역남로1길 5",
+    "signgu": "달성군",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://simin.dge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "SIMIN HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 수성",
+    "firstYearClassCount": 8,
+    "neisCode": "7240094",
+    "office": "D10"
+  },
+  "7240095": {
+    "name": "영남고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 달서구 월곡로 300",
+    "signgu": "달서구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://yeungnam.dge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yeungnam High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 달서",
+    "firstYearClassCount": 13,
+    "neisCode": "7240095",
+    "office": "D10"
+  },
+  "7240100": {
+    "name": "원화여자고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 달서구 당산로30길 30",
+    "signgu": "달서구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "https://wonhwa.dge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Wonhwa Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 수성",
+    "firstYearClassCount": 12,
+    "neisCode": "7240100",
+    "office": "D10"
+  },
+  "7240273": {
+    "name": "함지고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 북구 학정로48길 46",
+    "signgu": "북구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://www.hamji.dge.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "HAMJI HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "대구 북구",
+    "firstYearClassCount": 7,
+    "neisCode": "7240273",
+    "office": "D10"
+  },
+  "8750084": {
+    "name": "구미고등학교",
+    "region": "경상북도",
+    "address": "경상북도 구미시 문장로 42",
+    "signgu": "구미시",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "http://school.gyo6.net/gumigo",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gumi High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 구미",
+    "firstYearClassCount": 9,
+    "neisCode": "8750084",
+    "office": "R10"
+  },
+  "8750085": {
+    "name": "구미여자고등학교",
+    "region": "경상북도",
+    "address": "경상북도 구미시 문장로 114",
+    "signgu": "구미시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "https://school.gyo6.net/gumigirlhs",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gumi Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 구미",
+    "firstYearClassCount": 9,
+    "neisCode": "8750085",
+    "office": "R10"
+  },
+  "8750092": {
+    "name": "김천여자고등학교",
+    "region": "경상북도",
+    "address": "경상북도 김천시 모암사랑10길 9",
+    "signgu": "김천시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://school.gyo6.net/kcgh",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gimcheon Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 김천",
+    "firstYearClassCount": 6,
+    "neisCode": "8750092",
+    "office": "R10"
+  },
+  "8750169": {
+    "name": "문경여자고등학교",
+    "region": "경상북도",
+    "address": "경상북도 문경시 여고길 40",
+    "signgu": "문경시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "https://school.gyo6.net/mungyeong",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Mungyeong Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 문경",
+    "firstYearClassCount": 5,
+    "neisCode": "8750169",
+    "office": "R10"
+  },
+  "8750174": {
+    "name": "상주고등학교",
+    "region": "경상북도",
+    "address": "경상북도 상주시 상산로 117",
+    "signgu": "상주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://school.gyo6.net/sangju",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Sangju High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 상주",
+    "firstYearClassCount": 6,
+    "neisCode": "8750174",
+    "office": "R10"
+  },
+  "8750119": {
+    "name": "영천고등학교",
+    "region": "경상북도",
+    "address": "경상북도 영천시 영천고2길 12",
+    "signgu": "영천시",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "https://school.gyo6.net/yeongcheon",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yeongcheon High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 영천",
+    "firstYearClassCount": 6,
+    "neisCode": "8750119",
+    "office": "R10"
+  },
+  "8750558": {
+    "name": "청도고등학교",
+    "region": "경상북도",
+    "address": "경상북도 청도군 청도읍 청화로 219-21",
+    "signgu": "청도군",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://school.gyo6.net/cheongdohs",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Cheongdo High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 청도",
+    "firstYearClassCount": 4,
+    "neisCode": "8750558",
+    "office": "R10"
+  },
+  "8750133": {
+    "name": "포항고등학교",
+    "region": "경상북도",
+    "address": "경상북도 포항시 북구 아호로 50",
+    "signgu": "포항시",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "https://school.gyo6.net/pohanghs",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Pohang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 포항",
+    "firstYearClassCount": 9,
+    "neisCode": "8750133",
+    "office": "R10"
+  },
+  "8750539": {
+    "name": "포항이동고등학교",
+    "region": "경상북도",
+    "address": "경상북도 포항시 남구 희망대로 412",
+    "signgu": "포항시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://school.gyo6.net/idonghs",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Pohang Idong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 포항",
+    "firstYearClassCount": 9,
+    "neisCode": "8750539",
+    "office": "R10"
+  },
+  "8750217": {
+    "name": "함창고등학교",
+    "region": "경상북도",
+    "address": "경상북도 상주시 함창읍 함창중앙로 85",
+    "signgu": "상주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://school.gyo6.net/hamchanghs",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Hamchang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경북 상주",
+    "firstYearClassCount": 4,
+    "neisCode": "8750217",
+    "office": "R10"
+  },
+  "7150363": {
+    "name": "만덕고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 북구 함박봉로140번길 98-12",
+    "signgu": "북구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://www.mandeok.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Mandeok High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 북구",
+    "firstYearClassCount": 7,
+    "neisCode": "7150363",
+    "office": "C10"
+  },
+  "7150100": {
+    "name": "부산고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 동구 초량로40번길 23",
+    "signgu": "동구",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "http://busan.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Busan High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 연제",
+    "firstYearClassCount": 6,
+    "neisCode": "7150100",
+    "office": "C10"
+  },
+  "7150659": {
+    "name": "부산센텀여자고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 해운대구 해운대로469번길 50-1",
+    "signgu": "해운대구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://school.busanedu.net/busan-cg-h/main.do",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Busan Centum Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 해운대",
+    "firstYearClassCount": 8,
+    "neisCode": "7150659",
+    "office": "C10"
+  },
+  "7150365": {
+    "name": "부산장안고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 기장군 장안읍 장안고길 8-16",
+    "signgu": "기장군",
+    "type": "자율고",
+    "coedu": "남여공학",
+    "homepage": "http://jang-an.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Busan Jang-an High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 기장",
+    "firstYearClassCount": 5,
+    "neisCode": "7150365",
+    "office": "C10"
+  },
+  "7150144": {
+    "name": "브니엘고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 금정구 체육공원로 154",
+    "signgu": "금정구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://www.peniel.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Peniel High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 금정",
+    "firstYearClassCount": 8,
+    "neisCode": "7150144",
+    "office": "C10"
+  },
+  "7150147": {
+    "name": "삼성여자고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 사하구 감천로43번길 45",
+    "signgu": "사하구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://www.samsung-g.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Samsung Girls High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 사하",
+    "firstYearClassCount": 8,
+    "neisCode": "7150147",
+    "office": "C10"
+  },
+  "7150154": {
+    "name": "용인고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 동래구 시실로107번길 37",
+    "signgu": "동래구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://psyongin.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yong-In High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 남구",
+    "firstYearClassCount": 9,
+    "neisCode": "7150154",
+    "office": "C10"
+  },
+  "7150163": {
+    "name": "혜화여자고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 동래구 명장로 99",
+    "signgu": "동래구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "www.hye-hwa.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Hyehwa Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "부산 부산진",
+    "firstYearClassCount": 8,
+    "neisCode": "7150163",
+    "office": "C10"
+  },
+  "7480024": {
+    "name": "방어진고등학교",
+    "region": "울산광역시",
+    "address": "울산광역시 동구 학문로 50",
+    "signgu": "동구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "www.bangeojin.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bangeojin High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "울산 동구",
+    "firstYearClassCount": 9,
+    "neisCode": "7480024",
+    "office": "H10"
+  },
+  "7480142": {
+    "name": "울산강남고등학교",
+    "region": "울산광역시",
+    "address": "울산광역시 남구 팔등로 115",
+    "signgu": "남구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://ugn.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Ulsan Gangnam High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "울산 남구",
+    "firstYearClassCount": 8,
+    "neisCode": "7480142",
+    "office": "H10"
+  },
+  "9010281": {
+    "name": "김해분성고등학교",
+    "region": "경상남도",
+    "address": "경상남도 김해시 가야로147번길 29",
+    "signgu": "김해시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://bunsung-h.gne.go.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": null,
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 김해",
+    "firstYearClassCount": 8,
+    "neisCode": "9010281",
+    "office": "S10"
+  },
+  "9010463": {
+    "name": "동원고등학교",
+    "region": "경상남도",
+    "address": "경상남도 통영시 광도면 용호로 12-29",
+    "signgu": "통영시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://dongwon-hs.gne.go.kr/dongwon-hs/main.do",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Dong Won High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 양산",
+    "firstYearClassCount": 10,
+    "neisCode": "9010463",
+    "office": "S10"
+  },
+  "9010273": {
+    "name": "마산용마고등학교",
+    "region": "경상남도",
+    "address": "경상남도 창원시 마산합포구 허당로 51",
+    "signgu": "창원시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "msyongma-h.gne.go.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yongma High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 창원 마산",
+    "firstYearClassCount": 7,
+    "neisCode": "9010273",
+    "office": "S10"
+  },
+  "9010333": {
+    "name": "물금고등학교",
+    "region": "경상남도",
+    "address": "경상남도 양산시 물금읍 신주1길 20",
+    "signgu": "양산시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "mulgeum-h.gne.go.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": null,
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 양산",
+    "firstYearClassCount": 11,
+    "neisCode": "9010333",
+    "office": "S10"
+  },
+  "9010110": {
+    "name": "진주제일여자고등학교",
+    "region": "경상남도",
+    "address": "경상남도 진주시 하대로34번길 11-9",
+    "signgu": "진주시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://jjfirst-h.gne.go.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": null,
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 진주",
+    "firstYearClassCount": 9,
+    "neisCode": "9010110",
+    "office": "S10"
+  },
+  "9010068": {
+    "name": "창원남산고등학교",
+    "region": "경상남도",
+    "address": "경상남도 창원시 성산구 가음로92번길 34",
+    "signgu": "창원시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://cwnamsan-h.gne.go.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": null,
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 창원",
+    "firstYearClassCount": 7,
+    "neisCode": "9010068",
+    "office": "S10"
+  },
+  "9010070": {
+    "name": "창원여자고등학교",
+    "region": "경상남도",
+    "address": "경상남도 창원시 성산구 두대로 153",
+    "signgu": "창원시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "cwyeo-h.gne.go.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Chang-won Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "경남 창원",
+    "firstYearClassCount": 6,
+    "neisCode": "9010070",
+    "office": "S10"
+  },
+  "7140375": {
+    "name": "보문고등학교",
+    "region": "전남광주통합특별시(광주)",
+    "address": "전남광주통합특별시 광산구 어등대로529번길 37",
+    "signgu": "광산구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "bomun.gen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Bomun High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "광주 북구",
+    "firstYearClassCount": 11,
+    "neisCode": "7140375",
+    "office": "F10"
+  },
+  "7140371": {
+    "name": "상무고등학교",
+    "region": "전남광주통합특별시(광주)",
+    "address": "전남광주통합특별시 서구 상무민주로32번길 28",
+    "signgu": "서구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://sangmu.gen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Sangmu High school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "광주 서구",
+    "firstYearClassCount": 10,
+    "neisCode": "7140371",
+    "office": "F10"
+  },
+  "7140372": {
+    "name": "풍암고등학교",
+    "region": "전남광주통합특별시(광주)",
+    "address": "전남광주통합특별시 서구 풍암신흥로39번길 20",
+    "signgu": "서구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://pungam.gen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Pungam High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "광주 서구",
+    "firstYearClassCount": 10,
+    "neisCode": "7140372",
+    "office": "F10"
+  },
+  "7140355": {
+    "name": "조선대학교여자고등학교",
+    "region": "전남광주통합특별시(광주)",
+    "address": "전남광주통합특별시 동구 지산로 36",
+    "signgu": "동구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://chosun-g.gen.hs.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Chosun University girls High school",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "광주 동구",
+    "firstYearClassCount": 9,
+    "neisCode": "7140355",
+    "office": "F10"
+  },
+  "8321115": {
+    "name": "군산제일고등학교",
+    "region": "전북특별자치도",
+    "address": "전북특별자치도 군산시 경기장로 142",
+    "signgu": "군산시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://ksjeil.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Kunsan Jeil High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전북 군산",
+    "firstYearClassCount": 10,
+    "neisCode": "8321115",
+    "office": "P10"
+  },
+  "8321119": {
+    "name": "이리고등학교",
+    "region": "전북특별자치도",
+    "address": "전북특별자치도 익산시 익산대로36길 35",
+    "signgu": "익산시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://school.jbedu.kr/iri-h",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Iri High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전북 익산",
+    "firstYearClassCount": 10,
+    "neisCode": "8321119",
+    "office": "P10"
+  },
+  "8321099": {
+    "name": "전주기전여자고등학교",
+    "region": "전북특별자치도",
+    "address": "전북특별자치도 전주시 완산구 유연로 133",
+    "signgu": "전주시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "kijun.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Jeonju Kijun Girls' High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전북 전주",
+    "firstYearClassCount": 9,
+    "neisCode": "8321099",
+    "office": "P10"
+  },
+  "7140167": {
+    "name": "광양백운고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 광양시 중마로 250",
+    "signgu": "광양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://gwangyangbaekun.jge.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gwangyang Baekun High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 광양",
+    "firstYearClassCount": 7,
+    "neisCode": "7140167",
+    "office": "Q10"
+  },
+  "7140296": {
+    "name": "목상고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 목포시 소영길 13",
+    "signgu": "목포시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://moksang.hs.jne.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Moksang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 광양",
+    "firstYearClassCount": 7,
+    "neisCode": "7140296",
+    "office": "Q10"
+  },
+  "7140164": {
+    "name": "봉황고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 나주시 월정5길 22",
+    "signgu": "나주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://bonghwang.hs.jne.kr/user/indexMain.action?siteId=bonghwang_hs#none",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Bonghwang High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 나주",
+    "firstYearClassCount": 7,
+    "neisCode": "7140164",
+    "office": "Q10"
+  },
+  "7140281": {
+    "name": "순천복성고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 순천시 해룡면 복성길 17",
+    "signgu": "순천시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://bokseong.hs.jne.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Suncheon bokseong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 순천",
+    "firstYearClassCount": 8,
+    "neisCode": "7140281",
+    "office": "Q10"
+  },
+  "7140303": {
+    "name": "여수고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 여수시 공화남3길 10",
+    "signgu": "여수시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://yeosu.hs.jne.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Yeosu High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 여수",
+    "firstYearClassCount": 8,
+    "neisCode": "7140303",
+    "office": "Q10"
+  },
+  "7140183": {
+    "name": "해남고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 해남군 해남읍 명문길 7",
+    "signgu": "해남군",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://haenam.hs.jne.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Haenam High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 해남",
+    "firstYearClassCount": 9,
+    "neisCode": "7140183",
+    "office": "Q10"
+  },
+  "7140237": {
+    "name": "해룡고등학교",
+    "region": "전남광주통합특별시(전남)",
+    "address": "전남광주통합특별시 영광군 영광읍 중앙로 120",
+    "signgu": "영광군",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://haeryong.jge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Haeryong High School",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "전남 순천",
+    "firstYearClassCount": 8,
+    "neisCode": "7140237",
+    "office": "Q10"
+  },
+  "9290076": {
+    "name": "남녕고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 제주시 도령로 55",
+    "signgu": "제주시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://namnyeong.jje.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "NAM NYEONG HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주",
+    "firstYearClassCount": 13,
+    "neisCode": "9290076",
+    "office": "T10"
+  },
+  "9290073": {
+    "name": "남주고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 서귀포시 동홍로303번길 14",
+    "signgu": "서귀포시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://namju.jje.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "NAMJU HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주 서귀포",
+    "firstYearClassCount": 7,
+    "neisCode": "9290073",
+    "office": "T10"
+  },
+  "9290075": {
+    "name": "대기고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 제주시 번영로 453-6",
+    "signgu": "제주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://www.daykey.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "DAYKEY HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주",
+    "firstYearClassCount": 12,
+    "neisCode": "9290075",
+    "office": "T10"
+  },
+  "9290059": {
+    "name": "서귀포고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 서귀포시 중앙로 140",
+    "signgu": "서귀포시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://seogwipo.jje.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "SEOGWIPO HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주 서귀포",
+    "firstYearClassCount": 8,
+    "neisCode": "9290059",
+    "office": "T10"
+  },
+  "9290069": {
+    "name": "오현고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 제주시 일주동로 101",
+    "signgu": "제주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "https://school.jje.go.kr/ohyun-h/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "OHYUN HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주",
+    "firstYearClassCount": 12,
+    "neisCode": "9290069",
+    "office": "T10"
+  },
+  "9290071": {
+    "name": "제주여자고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 제주시 구산로 50",
+    "signgu": "제주시",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "http://jeju-g.jje.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "JEJU GIRLS' HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주",
+    "firstYearClassCount": 13,
+    "neisCode": "9290071",
+    "office": "T10"
+  },
+  "9290049": {
+    "name": "제주제일고등학교",
+    "region": "제주특별자치도",
+    "address": "제주특별자치도 제주시 진군길 22",
+    "signgu": "제주시",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://jeil.jje.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "JEJU JEIL HIGH SCHOOL",
+    "tags": [
+      "과학중점"
+    ],
+    "district": "제주",
+    "firstYearClassCount": 13,
+    "neisCode": "9290049",
+    "office": "T10"
+  },
+  "7010208": {
+    "name": "양정고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 양천구 안양천로 1039",
+    "signgu": "양천구",
+    "type": "자율고",
+    "coedu": "남",
+    "homepage": "http://www.yangchung.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yangchung High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 양천 목동",
+    "firstYearClassCount": 11,
+    "neisCode": "7010208",
+    "office": "B10"
+  },
+  "7010250": {
+    "name": "한가람고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 양천구 목동서로 15",
+    "signgu": "양천구",
+    "type": "자율고",
+    "coedu": "남여공학",
+    "homepage": "http://www.hangaram.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Hangaram High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 양천 목동",
+    "firstYearClassCount": 6,
+    "neisCode": "7010250",
+    "office": "B10"
+  },
+  "7010744": {
+    "name": "목동고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 양천구 목동동로2길 68",
+    "signgu": "양천구",
+    "type": "일반고",
+    "coedu": "여",
+    "homepage": "https://mokdong.sen.hs.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Mokdong High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 양천 목동",
+    "firstYearClassCount": 12,
+    "neisCode": "7010744",
+    "office": "B10"
+  },
+  "7010087": {
+    "name": "서초고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 서초구 반포대로27길 29",
+    "signgu": "서초구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://seocho.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Seocho High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 서초",
+    "firstYearClassCount": 10,
+    "neisCode": "7010087",
+    "office": "B10"
+  },
+  "7010058": {
+    "name": "개포고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 강남구 개포로 402",
+    "signgu": "강남구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://gaepo.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Gaepo High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 강남 개포",
+    "firstYearClassCount": 9,
+    "neisCode": "7010058",
+    "office": "B10"
+  },
+  "7010917": {
+    "name": "압구정고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 강남구 압구정로39길 20",
+    "signgu": "강남구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://apgujeong.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Apgujeong High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 강남 압구정",
+    "firstYearClassCount": 7,
+    "neisCode": "7010917",
+    "office": "B10"
+  },
+  "7010112": {
+    "name": "청담고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 서초구 신반포로23길 66",
+    "signgu": "서초구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://chungdam.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Chungdam High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 강남 청담",
+    "firstYearClassCount": 9,
+    "neisCode": "7010112",
+    "office": "B10"
+  },
+  "7010736": {
+    "name": "불암고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 노원구 중계로 155",
+    "signgu": "노원구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://buram.sen.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Buram High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 노원 중계",
+    "firstYearClassCount": 8,
+    "neisCode": "7010736",
+    "office": "B10"
+  },
+  "7010247": {
+    "name": "청원고등학교",
+    "region": "서울특별시",
+    "address": "서울특별시 노원구 한글비석로 506",
+    "signgu": "노원구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://cheongwon.sen.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Cheong-won High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "서울 노원 중계",
+    "firstYearClassCount": 12,
+    "neisCode": "7010247",
+    "office": "B10"
+  },
+  "7530160": {
+    "name": "분당대진고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 분당구 분당로 271",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://bdj-h.goesn.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "BUNDANG DAEJIN HIGH SCHOOL",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 성남 분당",
+    "firstYearClassCount": 12,
+    "neisCode": "7530160",
+    "office": "J10"
+  },
+  "7530111": {
+    "name": "이매고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 분당구 탄천로 1",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "imae-h.goesn.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Imae High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 성남 분당",
+    "firstYearClassCount": 10,
+    "neisCode": "7530111",
+    "office": "J10"
+  },
+  "7530548": {
+    "name": "야탑고등학교",
+    "region": "경기도",
+    "address": "경기도 성남시 분당구 판교로 738",
+    "signgu": "성남시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://yatap-h.goesn.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Yatap High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 성남 분당",
+    "firstYearClassCount": 10,
+    "neisCode": "7530548",
+    "office": "J10"
+  },
+  "7530131": {
+    "name": "평촌고등학교",
+    "region": "경기도",
+    "address": "경기도 안양시 동안구 동안로 80",
+    "signgu": "안양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "pyeongchon-h.goeay.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Pyeongchon High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 안양 평촌",
+    "firstYearClassCount": 13,
+    "neisCode": "7530131",
+    "office": "J10"
+  },
+  "7530818": {
+    "name": "인덕원고등학교",
+    "region": "경기도",
+    "address": "경기도 안양시 동안구 안양판교로 43",
+    "signgu": "안양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://indeogwon-h.goeay.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Indeogwon High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 안양 평촌",
+    "firstYearClassCount": 11,
+    "neisCode": "7530818",
+    "office": "J10"
+  },
+  "7530117": {
+    "name": "저동고등학교",
+    "region": "경기도",
+    "address": "경기도 고양시 일산동구 무궁화로 165",
+    "signgu": "고양시",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://jeodong-h.goegy.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Jeodong High School",
+    "tags": [
+      "학군지"
+    ],
+    "district": "경기 고양 일산",
+    "firstYearClassCount": 11,
+    "neisCode": "7530117",
+    "office": "J10"
+  },
+  "7430143": {
+    "name": "대전노은고등학교",
+    "region": "대전광역시",
+    "address": "대전광역시 유성구 노은동로 99",
+    "signgu": "유성구",
+    "type": "자율고",
+    "coedu": "남여공학",
+    "homepage": "http://noeunhs.djsch.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Daejeon Noeun High School",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "대전 유성 노은",
+    "firstYearClassCount": 8,
+    "neisCode": "7430143",
+    "office": "G10"
+  },
+  "7240213": {
+    "name": "대구남산고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 수성구 신천동로 364",
+    "signgu": "수성구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "https://dgns.dge.hs.kr/",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "Daegu Namsan High School",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "대구 중구",
+    "firstYearClassCount": 11,
+    "neisCode": "7240213",
+    "office": "D10"
+  },
+  "7240085": {
+    "name": "대륜고등학교",
+    "region": "대구광역시",
+    "address": "대구광역시 수성구 달구벌대로 2700",
+    "signgu": "수성구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://daeryun.dge.hs.kr",
+    "founding": "사립",
+    "dayNight": "주간",
+    "estType": "DAE-RYUN HIGH SCHOOL",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "대구 수성",
+    "firstYearClassCount": 12,
+    "neisCode": "7240085",
+    "office": "D10"
+  },
+  "7480029": {
+    "name": "학성고등학교",
+    "region": "울산광역시",
+    "address": "울산광역시 남구 문수로 436",
+    "signgu": "남구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://www.haksung.hs.kr",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Haksung High School",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "울산 중구",
+    "firstYearClassCount": 10,
+    "neisCode": "7480029",
+    "office": "H10"
+  },
+  "7150097": {
+    "name": "동래고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 동래구 충렬대로285번길 22",
+    "signgu": "동래구",
+    "type": "일반고",
+    "coedu": "남",
+    "homepage": "http://dongnae.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "dongnae high school",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "부산 동래",
+    "firstYearClassCount": 8,
+    "neisCode": "7150097",
+    "office": "C10"
+  },
+  "7150112": {
+    "name": "사직고등학교",
+    "region": "부산광역시",
+    "address": "부산광역시 동래구 쇠미로119번길 51",
+    "signgu": "동래구",
+    "type": "일반고",
+    "coedu": "남여공학",
+    "homepage": "http://www.sajik.hs.kr/",
+    "founding": "공립",
+    "dayNight": "주간",
+    "estType": "Sajik High School",
+    "tags": [
+      "지방명문"
+    ],
+    "district": "부산 동래 사직",
+    "firstYearClassCount": 9,
+    "neisCode": "7150112",
+    "office": "C10"
+  }
+}

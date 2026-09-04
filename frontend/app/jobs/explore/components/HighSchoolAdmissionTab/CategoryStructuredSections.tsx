@@ -1079,7 +1079,7 @@ const FEATURE_BUCKETS: FeatureBucket[] = [
     note: (s) => s.type,
   },
   { id: 'ai', emoji: '🤖', label: 'AI·디지털 중점', hint: 'AI·SW·데이터·에듀테크 교육과정을 전면에 내건 학교', match: /AI|A\.I|인공지능|SW|소프트웨어|디지털|정보|데이터|에듀테크|반도체/i },
-  { id: 'science', emoji: '🔬', label: '과학·이공 중점', hint: '과학중점학교·이공 융합(의생명·공학·항공·에너지) 트랙', match: /과학|이공|공학|바이오|의·생명|의생명|보건|의료|항공|우주|에너지|실험/ },
+  { id: 'science', emoji: '🔬', label: '과학·이공 중점', hint: '과학중점학교·이공 융합(의생명·공학·항공·에너지) 트랙', match: /과학|이공|공학|바이오|의·생명|의생명|보건|의료|항공|우주|에너지|실험/, pick: (s) => /과학중점/.test(s.specialCertification ?? '') },
   { id: 'culture', emoji: '🎨', label: '문화·예술·콘텐츠', hint: '예술·미디어·K-콘텐츠 특화 교육과정', match: /예술|문화|콘텐츠|미디어|K-|음악|체육|디자인/ },
   { id: 'eco', emoji: '🌱', label: '생태·해양·환경', hint: '생태전환·기후·해양 등 지역 자원 연계 과목', match: /생태|기후|환경|해양|에코/ },
   { id: 'humanities', emoji: '📚', label: '인문·글로벌', hint: '인문·고전·역사·다문화·글로벌 트랙', match: /인문|고전|역사|평화|다문화|글로벌|이중언어|사회|심리/ },
@@ -1246,12 +1246,29 @@ export function CategoryFocusAxes({
   focus,
   color,
   bgColor,
+  schools,
+  onSelectSchool,
 }: {
   focus?: HighSchoolFeatureFocus;
   color: string;
   bgColor: string;
+  schools?: HighSchoolDetail[];
+  onSelectSchool?: (school: HighSchoolDetail) => void;
 }) {
   const [openId, setOpenId] = useState<string | null>(null);
+
+  // 축에 적힌 학교 이름(약칭/정식명)을 이 카테고리 데이터의 학교와 매칭 → 클릭 시 상세 팝업
+  const findSchool = (rawName: string): HighSchoolDetail | undefined => {
+    if (!schools) return undefined;
+    const norm = (t: string) => t.replace(/\s+/g, '').replace(/\(.*?\)/g, '');
+    const key = norm(rawName);
+    return schools.find((s) => {
+      const full = norm(s.name);
+      const short = norm(s.shortName ?? '');
+      return full === key || short === key || full.startsWith(key) || short === key;
+    });
+  };
+
   if (!focus || focus.axes.length === 0) return null;
 
   return (
@@ -1328,26 +1345,48 @@ export function CategoryFocusAxes({
                   </div>
                 )}
                 <div className="space-y-1.5">
-                  {axis.schools.map((school) => (
-                    <div
-                      key={`${axis.id}-${school.name}`}
-                      className="rounded-xl px-3 py-2"
-                      style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}22` }}
-                    >
-                      <p className="text-[12px] font-semibold text-gray-100">
-                        {school.name}
-                        <span className="text-gray-400 font-normal"> · {school.region}</span>
-                        {school.inDataset && (
-                          <span className="ml-1.5 text-[10px] px-1.5 py-0.5 rounded-md" style={{ background: `${color}22`, color }}>
-                            이 목록에 있음
-                          </span>
+                  {axis.schools.map((school) => {
+                    const matched = findSchool(school.name);
+                    const clickable = Boolean(matched && onSelectSchool);
+                    const rowStyle = { background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}22` };
+                    const body = (
+                      <>
+                        <p className="text-[12px] font-semibold text-gray-100">
+                          {school.name}
+                          <span className="text-gray-400 font-normal"> · {school.region}</span>
+                          {(school.inDataset || matched) && (
+                            <span className="ml-1.5 text-[10px] px-1.5 py-0.5 rounded-md" style={{ background: `${color}22`, color }}>
+                              이 목록에 있음
+                            </span>
+                          )}
+                        </p>
+                        <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">
+                          <HL text={school.fact} />
+                        </p>
+                        {clickable && (
+                          <p className="text-[10px] mt-1 font-semibold" style={{ color }}>상세 보기 ›</p>
                         )}
-                      </p>
-                      <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5">
-                        <HL text={school.fact} />
-                      </p>
-                    </div>
-                  ))}
+                      </>
+                    );
+                    if (clickable) {
+                      return (
+                        <button
+                          key={`${axis.id}-${school.name}`}
+                          type="button"
+                          onClick={() => onSelectSchool!(matched!)}
+                          className="w-full text-left rounded-xl px-3 py-2 transition-colors hover:bg-white/10 focus-visible:bg-white/10 outline-none"
+                          style={rowStyle}
+                        >
+                          {body}
+                        </button>
+                      );
+                    }
+                    return (
+                      <div key={`${axis.id}-${school.name}`} className="rounded-xl px-3 py-2" style={rowStyle}>
+                        {body}
+                      </div>
+                    );
+                  })}
                 </div>
                 {axis.sources && axis.sources.length > 0 && (
                   <div className="flex flex-wrap gap-1.5">

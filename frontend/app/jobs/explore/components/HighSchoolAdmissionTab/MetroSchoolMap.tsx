@@ -22,6 +22,11 @@ type MetroPin = {
   schoolType?: string;
   isBusinessField?: boolean;
   note?: string;
+  /** NEIS 검증 사실 (상세 카드가 없는 지도 전용 학교 보강용) */
+  founding?: string | null;
+  coedu?: string | null;
+  firstYearClassCount?: number | null;
+  neisVerified?: boolean;
   /** 이 유형 데이터셋의 학교 id — 있으면 클릭 시 상세 카드가 열린다 */
   schoolId?: string;
 };
@@ -421,6 +426,37 @@ export function MetroSchoolMap({
             </div>
 
             <div className="mt-3 space-y-2.5">
+              {/* NEIS 검증 기본 정보 (운영주체·공학·학급수·학비) */}
+              {(pinDialog.schoolType || pinDialog.founding || pinDialog.coedu || pinDialog.firstYearClassCount) && (
+                <div className="flex flex-wrap gap-1">
+                  {pinDialog.schoolType && (
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-md font-semibold" style={{ background: `${color}22`, color }}>
+                      {pinDialog.schoolType}
+                    </span>
+                  )}
+                  {pinDialog.founding && (
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-md" style={{ background: 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}>
+                      🏛️ {pinDialog.founding}
+                    </span>
+                  )}
+                  {pinDialog.coedu && (
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-md" style={{ background: 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}>
+                      🧑‍🤝‍🧑 {pinDialog.coedu}
+                    </span>
+                  )}
+                  {pinDialog.firstYearClassCount ? (
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-md" style={{ background: 'rgba(255,255,255,0.06)', color: '#e5e7eb' }}>
+                      🏫 1학년 {pinDialog.firstYearClassCount}학급
+                    </span>
+                  ) : null}
+                  {pinDialog.schoolType === '특성화고' && (
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-md" style={{ background: 'rgba(52,211,153,0.14)', color: '#34d399' }}>
+                      💰 학비 0원 (고교 무상교육)
+                    </span>
+                  )}
+                </div>
+              )}
+
               {pinDialog.depts && pinDialog.depts.length > 0 && (
                 <div>
                   <p className="text-[11px] font-bold mb-1" style={{ color }}>🎓 개설 학과</p>
@@ -469,9 +505,11 @@ export function MetroSchoolMap({
               </div>
 
               <p className="text-[11px] text-gray-500 leading-relaxed">
-                이 학교는 <b className="text-gray-300">아직 상세 카드가 없는 지도 전용 학교</b>입니다. 전형·등록금·진학 실적은
-                <b className="text-gray-300"> 학교 홈페이지 모집요강</b>과 아래 확인처에서 직접 확인하세요.
-                {pinDialog.source ? ` (출처: ${pinDialog.source})` : ''}
+                기본 정보(학과·운영주체·공학·학급수)는
+                <b className="text-gray-300">{pinDialog.neisVerified ? ' NEIS 학교정보로 검증' : ' 공개 자료 기준'}</b>했습니다.
+                지원율·전형 일정·취업/진학 실적은 <b className="text-gray-300">학교 홈페이지 모집요강</b>과 아래 확인처에서
+                직접 확인하세요.
+                {pinDialog.source ? ` (출처: ${pinDialog.source}${pinDialog.neisVerified ? ' · NEIS' : ''})` : ''}
               </p>
             </div>
           </div>
