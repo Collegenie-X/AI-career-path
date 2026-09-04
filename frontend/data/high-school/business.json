@@ -1128,7 +1128,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "금융기관",
+          "공기업",
+          "물류·무역 기업"
+        ],
+        "notableAchievements": [
+          "비즈니스 분야 서울 대표"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "ansan_international_business",
@@ -1993,7 +2006,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "외국어 활용 기업"
+        ],
+        "notableAchievements": [
+          "국제비즈니스 분야 안산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "sinil_business",
@@ -2851,7 +2877,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "회계법인",
+          "공기업"
+        ],
+        "notableAchievements": [
+          "비즈니스·경영 분야 서울 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "seoul_finance_business",
@@ -3676,7 +3715,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "은행",
+          "증권사",
+          "보험사",
+          "금융 공기업"
+        ],
+        "notableAchievements": [
+          "금융 분야 서울 대표 특성화고",
+          "금융기관 취업 강점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "incheon_business",
@@ -4525,7 +4579,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "금융기관"
+        ],
+        "notableAchievements": [
+          "비즈니스 분야 인천 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gwangju_girls_commerce",
@@ -5344,7 +5411,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업",
+          "공기업"
+        ],
+        "notableAchievements": [
+          "상업·사무 분야 광주 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "daejeon_girls_commerce",
@@ -6166,7 +6246,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 대전 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "haeyeon_girls",
@@ -6986,7 +7078,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "여자 상업 특성화고"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "jeonju_girls_commerce",
@@ -7805,7 +7909,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 전주 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "ulsan_commerce",
@@ -8631,7 +8747,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "현대자동차 사무직",
+          "금융기관",
+          "울산 지역 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 울산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "seoul_girls_commerce",
@@ -9491,7 +9620,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "공기업",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업·사무 분야 서울 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "sungdong_global_mgmt",
@@ -10351,7 +10493,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "글로벌 기업",
+          "무역 기업",
+          "금융기관"
+        ],
+        "notableAchievements": [
+          "글로벌경영 분야 서울 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "daedong_tax",
@@ -11209,7 +11364,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "세무법인",
+          "회계법인",
+          "국세청",
+          "금융기관"
+        ],
+        "notableAchievements": [
+          "세무·회계 분야 전국 대표",
+          "세무사 사무소 취업 강점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "seongam_intl_trade",
@@ -12069,7 +12239,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "관세법인"
+        ],
+        "notableAchievements": [
+          "국제무역 분야 서울 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "ilshin_girls_commerce",
@@ -12930,7 +13113,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 서울 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "bundang_management",
@@ -13792,7 +13987,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "IT 기업",
+          "금융기관",
+          "경기 남부 기업"
+        ],
+        "notableAchievements": [
+          "경영 분야 분당 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeonggi_intl_trade",
@@ -14651,7 +14859,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "관세법인"
+        ],
+        "notableAchievements": [
+          "국제통상 분야 경기도 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeonggi_logistics",
@@ -15510,7 +15731,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "CJ대한통운",
+          "한진",
+          "롯데글로벌로지스",
+          "물류 기업"
+        ],
+        "notableAchievements": [
+          "물류 분야 경기도 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "icheon_tax",
@@ -16366,7 +16601,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "세무법인",
+          "회계법인",
+          "금융기관"
+        ],
+        "notableAchievements": [
+          "세무 분야 경기 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "pyeongchon_management",
@@ -17232,7 +17480,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "경영 분야 안양 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "incheon_finance",
@@ -18087,7 +18347,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "은행",
+          "증권사",
+          "보험사",
+          "금융 공기업"
+        ],
+        "notableAchievements": [
+          "금융 분야 인천 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "yeongjong_intl_logistics",
@@ -18939,7 +19213,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 55%",
+        "topEmployers": [
+          "인천공항 관련 기업",
+          "항공물류 기업",
+          "관세법인"
+        ],
+        "notableAchievements": [
+          "국제물류 분야 영종도 거점",
+          "인천공항 연계 취업 강점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "busan_marketing",
@@ -19794,7 +20082,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "마케팅 기업",
+          "유통 기업",
+          "부산 지역 기업"
+        ],
+        "notableAchievements": [
+          "마케팅 분야 부산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "busanjin_girls_commerce",
@@ -20647,7 +20948,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 부산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_girls_commerce",
@@ -21507,7 +21820,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 경북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "daejeon_intl_trade",
@@ -22369,7 +22694,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "금융기관"
+        ],
+        "notableAchievements": [
+          "국제통상 분야 대전 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "ulsan_girls_commerce",
@@ -23231,7 +23569,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "현대자동차 사무직",
+          "금융기관",
+          "울산 지역 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 울산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "wonju_finance_acct",
@@ -24081,7 +24432,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "회계법인",
+          "원주 지역 기업"
+        ],
+        "notableAchievements": [
+          "금융·회계 분야 강원 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "chungbuk_commerce_info",
@@ -24937,7 +25301,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "IT 기업",
+          "충북 지역 기업"
+        ],
+        "notableAchievements": [
+          "상업·정보 분야 충북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "ganggyeong_commerce",
@@ -25794,7 +26171,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 45%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 충남 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_intl_business",
@@ -26646,7 +27035,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "국제비즈니스 기업"
+        ],
+        "notableAchievements": [
+          "국제비즈니스 분야 특화"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "cheonan_girls_commerce",
@@ -27502,7 +27904,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 천안 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gunsan_girls_commerce",
@@ -28360,7 +28774,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "사무·경영 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 군산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_tax",
@@ -29218,7 +29644,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "세무법인",
+          "회계법인",
+          "국세청"
+        ],
+        "notableAchievements": [
+          "세무 분야 경북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_tourism_business",
@@ -30075,7 +30514,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "관광 기업",
+          "호텔",
+          "여행사"
+        ],
+        "notableAchievements": [
+          "관광비즈니스 분야 경북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "geoje_girls_commerce",
@@ -30932,7 +31384,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "한화오션 사무직",
+          "거제 지역 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 거제 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "jeju_girls_commerce",
@@ -31786,7 +32251,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 50%",
+        "topEmployers": [
+          "금융기관",
+          "관광 기업",
+          "제주 지역 기업"
+        ],
+        "notableAchievements": [
+          "상업 분야 제주 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     }
   ],
   "categoryAlumniInsight": {

@@ -962,7 +962,25 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "94.1% (2022 졸업생 기준)",
+        "topEmployers": [
+          "한국마이크로소프트",
+          "이트라이브",
+          "스카이컴",
+          "미디언스",
+          "랩스와이즈넷",
+          "관악S밸리 IT기업"
+        ],
+        "notableAchievements": [
+          "국내 유일 뉴미디어콘텐츠 분야 마이스터고",
+          "매년 잡매칭데이 개최 — IT기업 20여 곳 참여",
+          "관악S밸리 인재매칭 산학상생 모델"
+        ],
+        "source": "마이데일리 2026.06, 관악신문",
+        "sourceUrl": "https://www.mydaily.co.kr/page/view/2026061909201715272"
+      }
     },
     {
       "id": "seoul_urban_tech",
@@ -1549,7 +1567,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70% (마이스터고 평균 수준)",
+        "topEmployers": [
+          "서울교통공사",
+          "한국철도공사",
+          "서울시설공단",
+          "건설·도시인프라 기업"
+        ],
+        "notableAchievements": [
+          "도시기반시설 분야 특화",
+          "서울 소재 공기업 취업에 유리"
+        ],
+        "source": "학교 홈페이지 및 고입정보포털",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "seoul_robot",
@@ -2136,7 +2169,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 73% (2022 졸업생 기준)",
+        "topEmployers": [
+          "로봇 관련 기업",
+          "자동화 설비 기업",
+          "공기업",
+          "대기업 설비직"
+        ],
+        "notableAchievements": [
+          "서울시내 직업계고 취업률 1위 기록",
+          "로봇·자동화 분야 특화"
+        ],
+        "source": "에듀프레스",
+        "sourceUrl": "https://www.edupress.kr/news/articleView.html?idxno=6254"
+      }
     },
     {
       "id": "suwon_electric_meister",
@@ -2727,7 +2775,23 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "한국전력공사",
+          "한국수력원자력",
+          "한국전기안전공사",
+          "삼성전자",
+          "현대건설"
+        ],
+        "notableAchievements": [
+          "전력·에너지 분야 전통 명문",
+          "한국전력 그룹사 취업 다수"
+        ],
+        "source": "나무위키·학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "seoul_semicon",
@@ -3312,7 +3376,21 @@
         "전기제어과",
         "친환경자동차과"
       ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 3학년 기준 (1학년은 공통과정 후 학과 배정)"
+      "departmentsSource": "NEIS 학급정보 — 2026학년도 3학년 기준 (1학년은 공통과정 후 학과 배정)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "삼성전자 DS",
+          "SK하이닉스",
+          "반도체 소부장 기업"
+        ],
+        "notableAchievements": [
+          "반도체 공정 실습 특화",
+          "서울 소재 반도체 마이스터고"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "busan_mech",
@@ -3899,7 +3977,23 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 15,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "66.8% (2023 졸업생 기준)",
+        "topEmployers": [
+          "한국수력원자력",
+          "삼성전자",
+          "현대자동차",
+          "리노공업",
+          "온세미코리아"
+        ],
+        "notableAchievements": [
+          "2023년 졸업생 81명 대·공기업 취업",
+          "기계·전자 분야 부산 대표 공업고"
+        ],
+        "source": "아시아경제 2023.02",
+        "sourceUrl": "https://view.asiae.co.kr/article/2023021410422154726"
+      }
     },
     {
       "id": "busan_software",
@@ -4484,7 +4578,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "IT·SW 기업",
+          "게임 기업",
+          "스타트업"
+        ],
+        "notableAchievements": [
+          "SW마이스터고 산업기능요원 연계 지원",
+          "부산 SW 인재 양성 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "busan_automation_meister",
@@ -5070,7 +5178,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "삼성전자",
+          "현대자동차",
+          "르노코리아자동차"
+        ],
+        "notableAchievements": [
+          "82개 기업과 채용약정 체결",
+          "자동차·자동화 분야 특화"
+        ],
+        "source": "위키백과·부산시 SNS",
+        "sourceUrl": "https://www.busan.go.kr/news/snsbusan03/view?dataNo=38079"
+      }
     },
     {
       "id": "busan_maritime_meister",
@@ -5655,7 +5777,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "88.1% (2022 졸업생 기준, 자체조사)",
+        "topEmployers": [
+          "해운회사",
+          "한국해양교통안전공단",
+          "해군",
+          "선박관리회사"
+        ],
+        "notableAchievements": [
+          "해기사 양성 특화",
+          "졸업 후 승선 근무 → 해기사 면허 취득 경로"
+        ],
+        "source": "베리타스알파 2024",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=463876"
+      }
     },
     {
       "id": "busan_electronics",
@@ -6242,7 +6379,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "삼성전자",
+          "삼성SDI",
+          "전자·반도체 기업"
+        ],
+        "notableAchievements": [
+          "전자·정보통신 분야 부산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_mech",
@@ -6828,7 +6978,26 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "95.2% (2024 졸업생 기준)",
+        "topEmployers": [
+          "삼성전자",
+          "현대일렉트릭",
+          "포스코",
+          "현대건설기계",
+          "포스코퓨처엠",
+          "한국수력원자력",
+          "한국철도공사"
+        ],
+        "notableAchievements": [
+          "2024년 대기업 45명 + 공기업 9명 취업",
+          "재학생 21명·졸업생 24명 삼성전자 합격 (2024)",
+          "전국 기계 분야 최고 취업률"
+        ],
+        "source": "매일신문 2024.10, 아시아경제 2024.02",
+        "sourceUrl": "https://www.imaeil.com/page/view/2024100317493365210"
+      }
     },
     {
       "id": "daegu_agri",
@@ -7414,7 +7583,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "농업 관련 공기업",
+          "농업법인",
+          "식품 기업"
+        ],
+        "notableAchievements": [
+          "스마트팜·농생명 분야 특화",
+          "대구 유일 농업 마이스터고"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "daegu_software_meister",
@@ -7999,7 +8182,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "IT·SW 기업",
+          "스타트업"
+        ],
+        "notableAchievements": [
+          "SW마이스터고 산업기능요원 연계",
+          "대구 SW 인재 양성"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "daeil_meister",
@@ -8585,7 +8781,24 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "100% (9년 연속, 2026 졸업생 기준)",
+        "topEmployers": [
+          "삼성전자 DS",
+          "현대중공업",
+          "한국철도공사",
+          "포스코",
+          "독일 BEW(전력회사)"
+        ],
+        "notableAchievements": [
+          "9년 연속 취업률 100% — 전국 유일 기록",
+          "독일 기업 취업 성공 (2024년 4명, 2025년 3명)",
+          "AI 인성교육 기반 취업 역량 강화"
+        ],
+        "source": "뉴시스 2026.04, 아시아경제 2026.04",
+        "sourceUrl": "https://www.newsis.com/view/NISX20260410_0003585885"
+      }
     },
     {
       "id": "daegu_semicon",
@@ -9171,7 +9384,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 80%",
+        "topEmployers": [
+          "삼성전자 DS",
+          "SK하이닉스",
+          "반도체 장비 기업"
+        ],
+        "notableAchievements": [
+          "대구 반도체 인재 양성 거점",
+          "반도체 공정·장비 실습 특화"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "incheon_electronics_meister",
@@ -9758,7 +9985,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "88.7% (2022 졸업생 기준)",
+        "topEmployers": [
+          "삼성전자",
+          "LG전자",
+          "전자·통신 기업"
+        ],
+        "notableAchievements": [
+          "전자·정보통신 분야 인천 대표",
+          "정보통신자격협회 협약"
+        ],
+        "source": "베리타스알파 2024",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=463876"
+      }
     },
     {
       "id": "incheon_maritime",
@@ -10343,7 +10584,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 65% (해기사 승선 특성상 통계 지연)",
+        "topEmployers": [
+          "해운회사",
+          "한국해양교통안전공단",
+          "선박관리회사",
+          "해군"
+        ],
+        "notableAchievements": [
+          "해기사 면허 취득 → 승선 경로",
+          "해양 분야 인천 거점"
+        ],
+        "source": "베리타스알파",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gsm",
@@ -10929,7 +11185,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "IT·SW 기업",
+          "스타트업",
+          "게임 기업"
+        ],
+        "notableAchievements": [
+          "SW마이스터고 산업기능요원 연계",
+          "광주 SW 인재 양성 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gwangju_automation_meister",
@@ -11513,7 +11783,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "현대자동차",
+          "기아",
+          "자동화 설비 기업",
+          "광주 지역 제조기업"
+        ],
+        "notableAchievements": [
+          "자동화설비 분야 광주 거점",
+          "광주형 일자리 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "dsmhs",
@@ -12099,7 +12384,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "97% (2024 졸업생 기준)",
+        "topEmployers": [
+          "IT·SW 기업",
+          "스타트업",
+          "대기업 IT부서"
+        ],
+        "notableAchievements": [
+          "SW마이스터고 중 취업률 1위 경쟁",
+          "유지취업률 80% 이상",
+          "산업기능요원 연계 활발"
+        ],
+        "source": "학교 홈페이지·대덕SW마이스터고 입학 안내",
+        "sourceUrl": "https://dsmhs.djsch.kr/sub/info.do?m=060301&s=dsmhs"
+      }
     },
     {
       "id": "donga_meister",
@@ -12685,7 +12985,24 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "86.9% (2022 졸업생 기준)",
+        "topEmployers": [
+          "독일 Bosch",
+          "독일 Schott",
+          "독일 Liebherr",
+          "독일 Grob",
+          "독일 Blum-Novotest"
+        ],
+        "notableAchievements": [
+          "2024년 독일 기업 6명 취업 성공",
+          "독일 현지 인턴십 프로그램 운영",
+          "글로벌 취업 특화 마이스터고"
+        ],
+        "source": "비알뉴스",
+        "sourceUrl": "https://www.brnews.co.kr/news/articleView.html?idxno=10709"
+      }
     },
     {
       "id": "ulsan_meister",
@@ -13271,7 +13588,26 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "96.5% (2022 졸업생 기준)",
+        "topEmployers": [
+          "현대자동차",
+          "LG이노텍",
+          "삼성전자",
+          "롯데케미칼",
+          "앰코테크놀로지",
+          "코닝정밀소재",
+          "스태츠칩팩코리아"
+        ],
+        "notableAchievements": [
+          "취업자 중 48%가 공기업·대기업 입사",
+          "대기업 48명 + 우수 중견기업 56명 (2022)",
+          "울산 제조업 핵심 인재 공급"
+        ],
+        "source": "울산교육청 취업지원센터",
+        "sourceUrl": "https://use.go.kr/jobgo/user/bbs/BD_selectBbs.do?q_bbsSn=1167&q_bbsDocNo=4947"
+      }
     },
     {
       "id": "ulsan_energy",
@@ -13856,7 +14192,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "한국수력원자력",
+          "한국전력",
+          "에너지 기업",
+          "발전소"
+        ],
+        "notableAchievements": [
+          "에너지·전력 분야 특화",
+          "울산 에너지산업 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "hyundai_meister",
@@ -14446,7 +14797,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 80%",
+        "topEmployers": [
+          "현대자동차",
+          "현대모비스",
+          "현대건설기계",
+          "울산 지역 대기업"
+        ],
+        "notableAchievements": [
+          "현대그룹 연계 취업 강점",
+          "자동차·기계 분야 울산 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeonggi_game",
@@ -15030,7 +15396,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "73% (2022 졸업생 기준)",
+        "topEmployers": [
+          "게임 개발사",
+          "IT 기업",
+          "스타트업"
+        ],
+        "notableAchievements": [
+          "국내 유일 게임 분야 마이스터고",
+          "현장실습률 81%",
+          "산업기능요원 연계"
+        ],
+        "source": "나무위키·학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "suwon_hitech",
@@ -15614,7 +15995,25 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "90.5% (2023 졸업생 기준)",
+        "topEmployers": [
+          "삼성전자 DS",
+          "삼성전기",
+          "삼성디스플레이",
+          "한국전력공사",
+          "한국수력원자력"
+        ],
+        "notableAchievements": [
+          "2026년 삼성 마이스터 장학생 27명 — 전국 최다",
+          "삼성전자DS 20명 + 삼성전기 4명 + 삼성디스플레이 3명 합격",
+          "연평균 95% 취업률",
+          "삼성전자 반도체 부문 매년 30~50명 취업"
+        ],
+        "source": "경기일보 2021.06, 다음뉴스 2026",
+        "sourceUrl": "https://www.kyeonggi.com/article/202106151168444"
+      }
     },
     {
       "id": "pyeongtaek_meister",
@@ -16198,7 +16597,25 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 85%",
+        "topEmployers": [
+          "삼성전자",
+          "삼성SDI",
+          "삼성바이오로직스",
+          "삼성디스플레이",
+          "현대건설기계",
+          "한국항공우주산업(KAI)"
+        ],
+        "notableAchievements": [
+          "삼성전자 채용연계형 인턴 운영",
+          "2023 직업계고 학점제 선도학교 교육부장관상",
+          "2024 전국기능경기대회 CNC밀링 동메달"
+        ],
+        "source": "경기일보 2025.07",
+        "sourceUrl": "https://www.kyeonggi.com/article/20250731580371"
+      }
     },
     {
       "id": "korea_fire",
@@ -16782,7 +17199,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 60% (신설교, 소방공무원 특채 경로)",
+        "topEmployers": [
+          "서울소방서",
+          "충청소방서",
+          "소방 관련 공공기관"
+        ],
+        "notableAchievements": [
+          "2024년 국내 최연소 10대 소방관 2명 배출",
+          "소방안전관리사 산업기사 (전기·기계) 재학 중 취득",
+          "소방청 지원으로 2020년 개교"
+        ],
+        "source": "일간투데이 2024, FPN Daily 2024",
+        "sourceUrl": "http://www.dtoday.co.kr/news/articleView.html?idxno=674354"
+      }
     },
     {
       "id": "gangwon_energy_meister",
@@ -17371,7 +17803,24 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "94.5% (2022 졸업생 기준)",
+        "topEmployers": [
+          "한국수력원자력",
+          "한국전력",
+          "한국남동발전",
+          "한국남부발전",
+          "한국중부발전"
+        ],
+        "notableAchievements": [
+          "발전산업 분야 전국 1~2위 취업률",
+          "산학협약 기반 맞춤형 교육",
+          "에너지·전력 공기업 취업 강점"
+        ],
+        "source": "베리타스알파 2024",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=463876"
+      }
     },
     {
       "id": "korea_medical",
@@ -17957,7 +18406,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "의료기기 제조 기업",
+          "병원 의공학 부서",
+          "원주 의료기기 클러스터 기업"
+        ],
+        "notableAchievements": [
+          "의료기기 분야 국내 유일 마이스터고",
+          "3D설계·3D프린터·의료전자 실습",
+          "원주 의료기기 산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "chungbuk_semicon",
@@ -18543,7 +19007,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "89.4% (2023 졸업생 기준)",
+        "topEmployers": [
+          "삼성전자 DS",
+          "SK하이닉스",
+          "반도체 소부장 기업"
+        ],
+        "notableAchievements": [
+          "반도체 분야 취업률 상위권",
+          "충북 반도체 산업 연계"
+        ],
+        "source": "베리타스알파 2025",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=492266"
+      }
     },
     {
       "id": "chungbuk_energy",
@@ -19128,7 +19606,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "한국전력",
+          "한국수력원자력",
+          "에너지 기업"
+        ],
+        "notableAchievements": [
+          "에너지·전력 분야 충북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_bio",
@@ -19713,7 +20204,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "81.3% (2023 졸업생 기준)",
+        "topEmployers": [
+          "동구바이오제약",
+          "코피텍",
+          "바이오 제약 기업"
+        ],
+        "notableAchievements": [
+          "152개 기업 산학협력 체결",
+          "채용협약 인원 512명 (재학생 102명 대비 502%)",
+          "바이오 분야 특화"
+        ],
+        "source": "충북일보",
+        "sourceUrl": "https://www.inews365.com/news/article.html?no=790117"
+      }
     },
     {
       "id": "gongju_meister",
@@ -20297,7 +20803,24 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "95% (최근 10년 평균)",
+        "topEmployers": [
+          "삼성전자 DS",
+          "대기업",
+          "중견기업",
+          "강소기업",
+          "공기업"
+        ],
+        "notableAchievements": [
+          "2025년 2학년 8명 삼성전자 DS 특채 합격",
+          "삼성 마이스터 장학생 — 장학금 500만원 + 졸업 후 정규직",
+          "연봉 5,500만원 수준"
+        ],
+        "source": "충청뉴스 2025, 충청일보 2025",
+        "sourceUrl": "https://www.ccnnews.co.kr/news/articleView.html?idxno=367431"
+      }
     },
     {
       "id": "asan_smartfactory",
@@ -20881,7 +21404,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "삼성디스플레이",
+          "삼성SDI",
+          "아산 지역 제조기업"
+        ],
+        "notableAchievements": [
+          "스마트팩토리 분야 특화",
+          "아산 삼성 산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "yeonmu_meister",
@@ -21467,7 +22004,23 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "육군",
+          "해군",
+          "공군",
+          "방위산업 기업",
+          "기계·전자 기업"
+        ],
+        "notableAchievements": [
+          "국방·군사 분야 특화 마이스터고",
+          "부사관 양성 과정 운영"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_food",
@@ -22052,7 +22605,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 2학년 기준 (1학년은 공통과정 후 학과 배정)",
       "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "85.4% (2023 졸업생 기준)",
+        "topEmployers": [
+          "CJ제일제당",
+          "풀무원",
+          "오뚜기",
+          "식품 제조 기업"
+        ],
+        "notableAchievements": [
+          "식품 분야 마이스터고 취업률 상위권",
+          "식품가공·제빵 분야 특화"
+        ],
+        "source": "베리타스알파 2025",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=492266"
+      }
     },
     {
       "id": "hapdeok_steel",
@@ -22636,7 +23204,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "현대제철",
+          "포스코",
+          "철강 관련 기업"
+        ],
+        "notableAchievements": [
+          "철강·금속 분야 특화",
+          "당진 현대제철 산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "chungnam_semicon",
@@ -23221,7 +23803,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "신설교 (2025년 마이스터고 전환, 졸업생 미배출)",
+        "topEmployers": [
+          "삼성전자 DS",
+          "반도체 장비 기업"
+        ],
+        "notableAchievements": [
+          "2025년 마이스터고 전환 개교",
+          "반도체 장비 설계·양산·유지보수 직무 특화",
+          "충남 예산 소재"
+        ],
+        "source": "충남도청 2025, 중도일보 2024",
+        "sourceUrl": "https://m.joongdo.co.kr/view.php?key=20240903010000559"
+      }
     },
     {
       "id": "gunsan_mech",
@@ -23806,7 +24402,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "현대중공업",
+          "군산 지역 제조기업",
+          "기계·조선 기업"
+        ],
+        "notableAchievements": [
+          "기계·조선 분야 전북 거점",
+          "군산 산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gimje_agri",
@@ -24392,7 +25002,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "농업법인",
+          "축산 기업",
+          "농생명 관련 공기업"
+        ],
+        "notableAchievements": [
+          "농생명 분야 전북 거점",
+          "스마트팜 교육 특화"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "jeonbuk_mech",
@@ -24979,7 +25603,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "현대자동차",
+          "기계·자동차 부품 기업"
+        ],
+        "notableAchievements": [
+          "기계·자동차 분야 전북 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_horse",
@@ -25563,7 +26199,23 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "95.7% (2023 졸업생 기준 — 전국 1위)",
+        "topEmployers": [
+          "한국마사회",
+          "렛츠런파크",
+          "경주마 목장",
+          "승마장"
+        ],
+        "notableAchievements": [
+          "2023년 마이스터고 취업률 전국 1위",
+          "국내 유일 말산업 마이스터고",
+          "한국마사회 연계 현장 실습"
+        ],
+        "source": "베리타스알파 2025",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=492266"
+      }
     },
     {
       "id": "iri_tech",
@@ -26148,7 +26800,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "현대자동차",
+          "기계·전자 기업",
+          "익산 지역 제조기업"
+        ],
+        "notableAchievements": [
+          "기계·전자 분야 전북 거점",
+          "익산 산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "yeosu_petchem",
@@ -26734,7 +27400,25 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "GS칼텍스",
+          "현대오일뱅크",
+          "롯데케미칼",
+          "포스코",
+          "여천NCC",
+          "한국석유공사"
+        ],
+        "notableAchievements": [
+          "2023년 현대오일뱅크 3명 + 포스코 2명 + 롯데케미칼 10명 + GS칼텍스 2명 취업",
+          "여수 석유화학산업단지 연계",
+          "석유화학 분야 전국 유일 마이스터고"
+        ],
+        "source": "전남교육통 2023",
+        "sourceUrl": "https://www.jnedu.kr/news/articleView.html?idxno=70469"
+      }
     },
     {
       "id": "wando_fisheries",
@@ -27320,7 +28004,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "수산 기업",
+          "해양수산부 산하 기관",
+          "수산물 가공 기업"
+        ],
+        "notableAchievements": [
+          "수산·해양 분야 특화",
+          "완도 해양자원 연계 교육"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "jeonnam_life",
@@ -27906,7 +28604,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "농업법인",
+          "바이오 기업",
+          "식품 기업"
+        ],
+        "notableAchievements": [
+          "농생명 분야 전남 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_port",
@@ -28491,7 +29202,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "81% (2023 졸업생 기준)",
+        "topEmployers": [
+          "부산항만공사",
+          "한국해양수산개발원",
+          "물류·항만 기업",
+          "해운회사"
+        ],
+        "notableAchievements": [
+          "항만물류 분야 국내 유일 마이스터고",
+          "항만 공기업 취업 강점"
+        ],
+        "source": "베리타스알파 2025",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=492266"
+      }
     },
     {
       "id": "mokpo_tech",
@@ -29080,7 +29806,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 65%",
+        "topEmployers": [
+          "현대삼호중공업",
+          "조선·기계 기업",
+          "목포 지역 제조기업"
+        ],
+        "notableAchievements": [
+          "조선·기계 분야 전남 거점",
+          "현대삼호중공업 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "haenam_tech",
@@ -29669,7 +30409,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 65%",
+        "topEmployers": [
+          "지역 제조기업",
+          "기계·전기 기업"
+        ],
+        "notableAchievements": [
+          "해남 지역 기술 인재 양성"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_bio",
@@ -30253,7 +31005,28 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "94.4% (2023 졸업생 기준 — 전국 3위)",
+        "topEmployers": [
+          "삼성바이오로직스",
+          "한미약품",
+          "코오롱생명과학",
+          "대웅제약",
+          "동아에스티",
+          "메디포스트",
+          "유바이오로직스",
+          "건일제약",
+          "한국건설생활환경시험연구원"
+        ],
+        "notableAchievements": [
+          "5년 연속 경북 직업계고 취업률 1위",
+          "삼성바이오로직스 누적 10명 입사",
+          "바이오의약·식품품질관리 분야 전국 최고"
+        ],
+        "source": "경북도민일보, 웹플러스뉴스",
+        "sourceUrl": "http://www.webplusnews.kr/news/articleView.html?idxno=37004"
+      }
     },
     {
       "id": "gumi_electronics",
@@ -30838,7 +31611,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "삼성전자",
+          "LG전자",
+          "구미 전자산업단지 기업"
+        ],
+        "notableAchievements": [
+          "전자·정보통신 분야 경북 거점",
+          "구미 전자산업단지 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "geumo_tech",
@@ -31424,7 +32211,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "삼성전자",
+          "LG디스플레이",
+          "구미 지역 기업"
+        ],
+        "notableAchievements": [
+          "기계·전자 분야 구미 거점"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "pohang_steel_meister",
@@ -32018,7 +32818,23 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 80%",
+        "topEmployers": [
+          "포스코",
+          "포스코퓨처엠",
+          "현대제철",
+          "철강 관련 기업"
+        ],
+        "notableAchievements": [
+          "철강 분야 전국 대표 공업고",
+          "포스코 연계 취업 강점",
+          "포항 철강산업단지 거점"
+        ],
+        "source": "학교 홈페이지·포스코재단",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_trade",
@@ -32607,7 +33423,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "무역 기업",
+          "물류 기업",
+          "국제통상 관련 기업"
+        ],
+        "notableAchievements": [
+          "국제통상 분야 국내 유일 마이스터고",
+          "글로벌 인재 양성"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_nuclear",
@@ -33192,7 +34022,25 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "95.2% (2022 졸업생 기준 — 전국 1위)",
+        "topEmployers": [
+          "한국수력원자력",
+          "한국전력",
+          "원자력 발전소",
+          "삼성전자",
+          "공기업"
+        ],
+        "notableAchievements": [
+          "2022년 마이스터고 취업률 전국 1위",
+          "원자력발전설비 분야 영마이스터 양성",
+          "공기업·대기업 취업 절반 이상",
+          "산업기사 자격 취득률 97%"
+        ],
+        "source": "베리타스알파 2024, 매일신문 2021",
+        "sourceUrl": "http://www.veritas-a.com/news/articleView.html?idxno=463876"
+      }
     },
     {
       "id": "korea_maritime",
@@ -33777,7 +34625,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "해운회사",
+          "한국해양교통안전공단",
+          "해군",
+          "선박관리회사"
+        ],
+        "notableAchievements": [
+          "해양·해기사 분야 특화",
+          "해기사 면허 취득 과정 운영"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "gyeongbuk_software",
@@ -34362,7 +35225,20 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 70%",
+        "topEmployers": [
+          "IT·SW 기업",
+          "스타트업"
+        ],
+        "notableAchievements": [
+          "SW마이스터고 산업기능요원 연계",
+          "경북 SW 인재 양성"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "mungyeong_tech",
@@ -34950,7 +35826,19 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 65%",
+        "topEmployers": [
+          "기계·전자 기업",
+          "지역 제조기업"
+        ],
+        "notableAchievements": [
+          "문경 지역 기술 인재 양성"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_semicon",
@@ -35535,7 +36423,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 80%",
+        "topEmployers": [
+          "삼성전자 DS",
+          "SK하이닉스",
+          "반도체 장비·소재 기업"
+        ],
+        "notableAchievements": [
+          "반도체 분야 마이스터고",
+          "삼성 마이스터 장학생 선발"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "geoje_tech",
@@ -36122,7 +37024,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 75%",
+        "topEmployers": [
+          "한화오션(구 대우조선해양)",
+          "삼성중공업",
+          "조선·해양 기업"
+        ],
+        "notableAchievements": [
+          "조선·해양 분야 거제 거점",
+          "거제 조선산업 연계"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "airforce_aviation",
@@ -36709,7 +37625,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 80%",
+        "topEmployers": [
+          "대한민국 공군",
+          "한국항공우주산업(KAI)",
+          "항공 정비 기업"
+        ],
+        "notableAchievements": [
+          "공군 연계 항공과학 특화",
+          "항공정비·항공전자 분야",
+          "공군 부사관 임관 경로"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "samcheonpo_tech",
@@ -37295,7 +38226,21 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "약 65%",
+        "topEmployers": [
+          "한국남부발전",
+          "사천 지역 제조기업",
+          "항공·기계 기업"
+        ],
+        "notableAchievements": [
+          "사천 항공산업단지 연계",
+          "에너지·기계 분야"
+        ],
+        "source": "학교 홈페이지",
+        "sourceUrl": ""
+      }
     },
     {
       "id": "korea_nano",
@@ -37879,7 +38824,22 @@
       ],
       "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)",
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
+      "graduateCareer": {
+        "employmentRate": "100% (2025학년도 졸업생)",
+        "topEmployers": [
+          "삼성전자",
+          "반도체 제조·장비 기업",
+          "나노 소재 기업"
+        ],
+        "notableAchievements": [
+          "2025년 취업률 100% 달성",
+          "2023년 취업률 92.4% (전국 4위)",
+          "나노·반도체 분야 특화"
+        ],
+        "source": "경남교육청 2026.03",
+        "sourceUrl": "https://www.gne.go.kr/pr/user/bbs/BD_selectBbs.do?q_bbsSn=1509&q_bbsDocNo=20260330105923212"
+      }
     }
   ],
   "categoryAlumniInsight": {

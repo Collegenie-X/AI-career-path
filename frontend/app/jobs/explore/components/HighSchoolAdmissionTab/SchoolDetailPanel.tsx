@@ -620,6 +620,77 @@ function OverviewTab({
           color={categoryColor}
         />
       )}
+
+      {/* ── 졸업생 진로·취업 ── */}
+      {school.graduateCareer && school.graduateCareer.topEmployers?.length > 0 && (
+        <div
+          className="rounded-2xl p-4"
+          style={{ background: `linear-gradient(135deg, rgba(0,0,0,0.25) 0%, ${categoryColor}08 100%)`, border: `1px solid ${categoryColor}22` }}
+        >
+          <div className="flex items-center gap-2 mb-2.5">
+            <span className="text-[15px]">💼</span>
+            <h4 className="text-[13px] font-bold" style={{ color: categoryColor }}>
+              졸업생 진로·취업
+            </h4>
+          </div>
+
+          {/* 취업률 */}
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-[11px] text-gray-500 shrink-0">취업률</span>
+            <span className="text-[12.5px] font-semibold text-gray-200">
+              {school.graduateCareer.employmentRate}
+            </span>
+          </div>
+
+          {/* 주요 취업처 뱃지 */}
+          <div className="mb-2">
+            <span className="text-[11px] text-gray-500 block mb-1">주요 취업처</span>
+            <div className="flex flex-wrap gap-1">
+              {school.graduateCareer.topEmployers.map((emp: string) => (
+                <span
+                  key={emp}
+                  className="px-1.5 py-0.5 rounded-md text-[10.5px] font-semibold leading-none"
+                  style={{ background: `${categoryColor}18`, color: categoryColor, border: `1px solid ${categoryColor}44` }}
+                >
+                  {emp}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* 주목할 성과 */}
+          {school.graduateCareer.notableAchievements?.length > 0 && (
+            <div className="mb-2">
+              <span className="text-[11px] text-gray-500 block mb-1">주목할 성과</span>
+              <ul className="space-y-0.5">
+                {school.graduateCareer.notableAchievements.map((a: string, i: number) => (
+                  <li key={i} className="text-[11.5px] text-gray-300 leading-relaxed">
+                    · {a}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 출처 */}
+          {school.graduateCareer.source && (
+            <p className="text-[10px] text-gray-600 mt-1.5">
+              📰 출처: {school.graduateCareer.sourceUrl ? (
+                <a
+                  href={school.graduateCareer.sourceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-400"
+                >
+                  {school.graduateCareer.source}
+                </a>
+              ) : (
+                school.graduateCareer.source
+              )}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

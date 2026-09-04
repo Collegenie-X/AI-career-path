@@ -507,6 +507,14 @@ export type HighSchoolDetail = {
   firstYearClassCountSource?: string;
   /** IB 학교의 수업 언어·연계 프로그램 트랙 태그 */
   ibTrackTags?: string[];
+  /** 졸업생 진로·취업 정보 (뉴스·공개자료 기반) */
+  graduateCareer?: {
+    employmentRate: string;
+    topEmployers: string[];
+    notableAchievements: string[];
+    source: string;
+    sourceUrl: string;
+  };
   /** 목록 카드에 노출할 지역 연계 프로그램 한 줄 요약 */
   regionProgramSummary?: string;
   /** 등록금·비용 구조 (그룹핑 + 과정별 트랙 비교) */
