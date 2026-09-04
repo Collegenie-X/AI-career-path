@@ -123,6 +123,8 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
                 <span className="text-[12px] text-gray-400">
                   {school.annualAdmission ? (
                     <HL text={`==연 ${school.annualAdmission}명==`} />
+                  ) : school.firstYearClassCount ? (
+                    <HL text={`==1학년 ${school.firstYearClassCount}학급==`} />
                   ) : (
                     '정원 공시 확인'
                   )}

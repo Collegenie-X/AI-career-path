@@ -825,7 +825,7 @@
       "description": "서울 종로구 혜화역 인근 공립 영재학교. 서울시 단위 선발. 전액 무상 교육으로 등록금 없음. 무학년제로 본인 수준에 맞는 수업 선택 가능. 서울대·KAIST·포스텍 진학률 전국 최상위. 서울 거주 학생은 통학도 가능하나 기숙사 운영.",
       "schoolInfoCard": {
         "regionScope": "서울시 단위 선발 · 혜화역 도보 10분 · 서울 거주 시 통학 가능",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 입학 · 전교생 360명 · 학급당 약 20명 소규모",
         "genderRatio": "남 70% · 여 30% (영재학교 평균 수준)",
         "dormitoryType": "기숙사 있음 (희망자 · 서울 거주 시 통학 선택 가능) · 연 200~300만원",
         "costPerYear": "등록금 0원 (공립 무상) · 기숙사비 연 200~300만원 · 통학 시 연 50만원 이내",
@@ -1213,9 +1213,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "gyeonggi_science",
@@ -1376,7 +1374,7 @@
       "description": "경기도 수원 소재 영재학교. GIST(광주과학기술원)와의 연계 연구 프로그램이 독보적이며, 국내 영재학교 중 창업 연계 교육이 가장 활발합니다. 수도권에 위치해 통근이 가능하지만, 대부분의 학생이 기숙사 생활을 선택합니다.",
       "schoolInfoCard": {
         "regionScope": "경기·수도권 광역 단위",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 · 총 360명",
         "genderRatio": "남 70% · 여 30%",
         "dormitoryType": "기숙사 선택 · 2인실 (대부분 입사)",
         "costPerYear": "연 0원 (전액 국비 · 기숙사비 포함)",
@@ -1594,9 +1592,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "daejeon_science",
@@ -1748,7 +1744,7 @@
       "description": "대전 유성구 KAIST·ETRI 인근에 위치한 과학고. 대전 대덕연구단지 내 연구기관들과의 연계 수업이 강점으로, 이공계 연구원을 목표로 하는 충청권 학생에게 최적입니다. 공립 과학고로 등록금 부담이 없습니다.",
       "schoolInfoCard": {
         "regionScope": "대전·충청 광역 단위",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 240명 (소규모 집중)",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 · 2인실",
         "costPerYear": "연 100~200만원 (공립 — 기숙사비·급식비 소액)",
@@ -1966,9 +1962,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "busan_science_high",
@@ -2165,7 +2159,7 @@
       "description": "부산 부산진구 소재 공립 과학고. 부산대·경상대 연계 R&E 프로그램과 AI·데이터 과학 특화 교육이 강점입니다. 무상 교육에 기숙사 제공으로 비용 부담 없이 이공계 최상위 교육을 받을 수 있습니다.",
       "schoolInfoCard": {
         "regionScope": "부산·경남 광역 단위",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 · 총 360명",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 · 2인실",
         "costPerYear": "연 100~200만원 (공립 — 기숙사비·급식비 소액)",
@@ -2310,9 +2304,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "gwangju_science_high",
@@ -2474,7 +2466,7 @@
       "description": "광주 북구 소재 공립 과학고. GIST(광주과학기술원) 연계 R&E가 전국 과학고 중 가장 수준 높은 연구 환경을 제공합니다. 광주·전남 학생에게 최고의 이공계 교육 기회이며, 전액 무상 교육에 기숙사까지 제공됩니다.",
       "schoolInfoCard": {
         "regionScope": "광주·전남 광역 단위",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 · 총 360명",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 · 2인실",
         "costPerYear": "연 100~200만원 (공립 — 기숙사비·급식비 소액)",
@@ -2687,9 +2679,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "daegu_science_high",
@@ -2895,7 +2885,7 @@
       "description": "대구과학고등학교는 대구 소재 공립 과학고로, 경북대학교와 연계한 R&E(Research & Education) 프로그램이 강점입니다. AI·로봇 특화 과정이 운영되며, 대구 지역 로봇 산업 클러스터(현대로보틱스·DGIST)와 연계한 심화 탐구 기회를 제공합니다. 졸업생의 대다수가 KAIST·POSTECH·서울대 이공계로 진학하며, 연구자 지향 학생에게 최적화된 과학고입니다.",
       "schoolInfoCard": {
         "regionScope": "대구·경북 광역 단위",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 · 총 200명 (2년제)",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -3074,9 +3064,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "incheon_science_high",
@@ -3265,7 +3253,7 @@
       "description": "인천과학고등학교는 인천 송도 국제도시 소재 공립 과학고로, 인하대학교·인천대학교와의 연계 교육 프로그램이 특징입니다. 송도 바이오클러스터·삼성바이오로직스·셀트리온 등 인천 생명과학 산업과 연계한 탐구 기회를 제공합니다. 수도권 접근성이 좋아 KAIST·연세대·고려대 진학 비율이 높으며, 이공계 영재 교육의 중요한 거점 학교입니다.",
       "schoolInfoCard": {
         "regionScope": "인천·경기 광역 단위",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 · 총 200명 (2년제)",
         "genderRatio": "남 60% · 여 40%",
         "dormitoryType": "기숙사 운영 (대부분 입사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -3444,9 +3432,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "ulsan_science_high",
@@ -3635,7 +3621,7 @@
       "description": "울산과학고등학교는 울산 소재 공립 과학고로, UNIST(울산과학기술원)와 긴밀하게 연계된 대학원 수준의 탐구 교육을 제공합니다. 울산 화학·에너지 산업(SK이노베이션·롯데케미칼·한화솔루션·현대오일뱅크)과 연계한 화학·에너지 소재 탐구 프로그램이 특화되어 있습니다. UNIST 교수 지도 R&E가 가능한 유일한 과학고로, 화학·에너지 분야 최상위 진학을 목표로 합니다.",
       "schoolInfoCard": {
         "regionScope": "울산·경남 광역 단위",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 60명 · 총 120명 (2년제)",
         "genderRatio": "남 60% · 여 40%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -3814,9 +3800,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "jeonbuk_science_high",
@@ -4005,7 +3989,7 @@
       "description": "전북과학고등학교는 전북 소재 공립 과학고로, 전북대학교·전북과학기술원과 연계한 연구 교육을 실시합니다. 전북 농생명 바이오 클러스터 및 탄소섬유·첨단소재 산업과 연계한 특화 탐구 프로그램을 운영합니다. 호남 지역 과학 영재의 거점 학교로서, KAIST·포스텍·서울대 이공계 진학을 목표로 하는 학생들을 양성합니다.",
       "schoolInfoCard": {
         "regionScope": "전북 광역 단위",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 60% · 여 40%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -4184,9 +4168,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "sejong_science_high",
@@ -4386,7 +4368,7 @@
       "description": "세종과학예술영재학교는 세종시 소재 전국 단위 영재학교로, 과학과 예술을 융합한 독특한 교육 모델을 운영합니다. 기존 과학고·영재학교와 달리 수학·과학·예술·인문학의 융합 교육(STEAM)을 강조하며, 미래 사회를 이끌 창의 융합형 인재를 양성합니다. 세종시 정부 부처 및 정책 연구원과 연계한 사회과학·정책 탐구 기회도 제공됩니다.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 선발",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 · 총 300명",
         "genderRatio": "남 55% · 여 45%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (전액 국비 무상 · 기숙사비 포함)",
@@ -4565,9 +4547,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "gangwon_science_high",
@@ -4751,7 +4731,7 @@
       "description": "강원과학고등학교는 강원도 소재 공립 과학고로, 강원의 천혜 자연환경을 활용한 환경·생태·기후 분야 특화 탐구 교육을 제공합니다. 강원대학교·연세대학교(원주캠퍼스)와 연계한 R&E 프로그램이 운영되며, 기후변화·환경공학·생태학 관련 현장 탐구 기회가 풍부합니다. 졸업 후 환경·생명·지구과학 분야 대학 진학률이 높습니다.",
       "schoolInfoCard": {
         "regionScope": "강원 광역 단위",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 55% · 여 45%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -4930,9 +4910,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "jeju_science_high",
@@ -5111,7 +5089,7 @@
       "description": "제주과학고등학교는 제주도 소재 공립 과학고로, 해양·환경·기후 분야 탐구에 특화된 독특한 자연환경을 갖추고 있습니다. 연 80명 선발로 전국 과학고 중 가장 작은 규모지만, 소규모 정예 교육의 장점이 큽니다. 해양수산부·제주해양과학관·한국해양연구원 연계 탐구 기회가 풍부하며, 제주의 독특한 생태계를 활용한 현장 연구가 가능합니다.",
       "schoolInfoCard": {
         "regionScope": "제주 광역 단위",
-        "capacity": "1학년 2학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 55% · 여 45%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -5290,9 +5268,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "chungnam_science_high",
@@ -5472,7 +5448,7 @@
       "description": "충남과학고등학교는 충남 아산 소재 공립 과학고로, 삼성·현대 제조 산업단지와 인접하여 재료공학·반도체·전자 분야 탐구 연계 기회가 풍부합니다. 충남대학교·KAIST(대전 근접)와 연계한 R&E 프로그램이 운영되며, 충남 디스플레이·반도체 산업 클러스터(삼성디스플레이 아산·삼성전자 온양) 탐방 기회를 제공합니다.",
       "schoolInfoCard": {
         "regionScope": "충남 광역 단위",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -5651,9 +5627,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "chungbuk_science_high",
@@ -5832,7 +5806,7 @@
       "description": "충북과학고등학교는 충북 청주 소재 공립 과학고로, 오송 바이오클러스터와 인접하여 바이오·의약·생명공학 분야 특화 탐구 기회가 풍부합니다. 충북대학교·청주대학교와 R&E 연계 프로그램이 운영되며, 오송 첨단의료복합단지(한국화학연구원·식품의약품안전처) 탐방이 가능한 독특한 지리적 강점을 갖추고 있습니다.",
       "schoolInfoCard": {
         "regionScope": "충북 광역 단위",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 55% · 여 45%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -6011,9 +5985,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     },
     {
       "id": "gyeongnam_science_high",
@@ -6192,7 +6164,7 @@
       "description": "경남과학고등학교는 경남 진주 소재 공립 과학고로, KAI(한국항공우주산업)와 인접하여 항공우주·기계 분야 심화 탐구 기회가 특화되어 있습니다. 경상국립대학교·경남과학기술대학교와 R&E 프로그램이 연계되며, 창원 기계 산업단지·진주 항공산업 클러스터와 연결된 첨단 기계·항공우주 탐구 환경이 조성되어 있습니다.",
       "schoolInfoCard": {
         "regionScope": "경남 광역 단위",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 80명 · 총 160명 (2년제)",
         "genderRatio": "남 65% · 여 35%",
         "dormitoryType": "기숙사 의무 입사 (전원 기숙사)",
         "costPerYear": "연 0원 (공립 전액 무상 · 기숙사비 포함)",
@@ -6371,9 +6343,7 @@
           }
         ]
       },
-      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "2026-08-28 확인 · 학교 홈페이지 및 고입정보포털 기준"
     }
   ],
   "descriptionOutline": {

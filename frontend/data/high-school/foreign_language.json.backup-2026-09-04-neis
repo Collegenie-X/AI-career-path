@@ -413,7 +413,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 광진구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 771명 · 5개 학과",
         "genderRatio": "여 78% · 남 22% (여 599명 / 남 172명)",
         "dormitoryType": "요강에 기숙사 조항 없음 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,115만원 (등록금 + 수익자부담경비)",
@@ -942,17 +942,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "스페인어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "daeil_foreign",
@@ -984,7 +974,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 성북구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 738명 · 6개 학과",
         "genderRatio": "여 77% · 남 23% (여 569명 / 남 169명)",
         "dormitoryType": "서울 시내에서 기숙사 운영 · 사회통합전형 대상자 기숙사비 전액 + 조·석식비 지원(요강)",
         "costPerYear": "공시 1인당 학비 연 1,212만원 (등록금 + 수익자부담경비)",
@@ -1523,18 +1513,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "러시아어과",
-        "스페인어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "myungduk_foreign",
@@ -1566,7 +1545,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 강서구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 749명 · 6개 학과",
         "genderRatio": "여 75% · 남 25% (여 561명 / 남 188명)",
         "dormitoryType": "전교생 기숙사 체제 · 사회통합전형 대상자 기숙사비 전액 + 조·석식비 지원(요강)",
         "costPerYear": "공시 1인당 학비 연 1,329만원 (등록금 + 수익자부담경비)",
@@ -2105,18 +2084,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "러시아어과",
-        "영어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "seoul_foreign",
@@ -2147,7 +2115,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 도봉구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 683명 · 5개 학과",
         "genderRatio": "여 79% · 남 21% (여 538명 / 남 145명)",
         "dormitoryType": "요강에 기숙사 조항 없음 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,005만원 (등록금 + 수익자부담경비)",
@@ -2676,17 +2644,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "스페인어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "ewha_foreign",
@@ -2717,7 +2675,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 중구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 150명 입학 · 전교생 417명 · 4개 학과",
         "genderRatio": "여학교 (전교생 417명)",
         "dormitoryType": "요강에 기숙사 조항 없음 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,050만원 (등록금 + 수익자부담경비)",
@@ -3223,16 +3181,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "영어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "hanyoung_foreign",
@@ -3263,7 +3212,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "서울 강동구 · 서울특별시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 702명 · 5개 학과",
         "genderRatio": "여 83% · 남 17% (여 580명 / 남 122명)",
         "dormitoryType": "요강에 기숙사 조항 없음 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,106만원 (등록금 + 수익자부담경비)",
@@ -3792,17 +3741,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "스페인어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gyeonggi_foreign",
@@ -3834,7 +3773,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 의왕시 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 208명 입학 · 전교생 603명 · 3개 학과",
         "genderRatio": "여 72% · 남 28% (여 434명 / 남 169명)",
         "dormitoryType": "전교생 기숙사 · 학비에 기숙사비·3식 급식비·방과후활동비 포함",
         "costPerYear": "공시 1인당 학비 연 2,128만원 (등록금 + 수익자부담경비)",
@@ -4326,15 +4265,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "goyang_foreign",
@@ -4365,7 +4296,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 고양시 덕양구 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 260명 입학 · 전교생 757명 · 4개 학과",
         "genderRatio": "여 68% · 남 32% (여 517명 / 남 240명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,232만원 (등록금 + 수익자부담경비)",
@@ -4875,16 +4806,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "스페인어과",
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gwacheon_foreign",
@@ -4915,7 +4837,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 과천시 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 260명 입학 · 전교생 717명 · 5개 학과",
         "genderRatio": "여 77% · 남 23% (여 549명 / 남 168명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,092만원 (등록금 + 수익자부담경비)",
@@ -5442,17 +5364,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "영어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gimpo_foreign",
@@ -5482,7 +5394,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 김포시 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 208명 입학 · 전교생 582명 · 3개 학과",
         "genderRatio": "여 70% · 남 30% (여 405명 / 남 177명)",
         "dormitoryType": "수익자부담경비가 높은 편 — 기숙사 운영 여부는 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,585만원 (등록금 + 수익자부담경비)",
@@ -5967,15 +5879,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "dongducheon_foreign",
@@ -6006,7 +5910,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 동두천시 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 입학 · 전교생 551명 · 3개 학과",
         "genderRatio": "여 75% · 남 25% (여 415명 / 남 136명)",
         "dormitoryType": "전교생 기숙사 체제 — 경기도 내 기숙사 수용인원 톱3 규모",
         "costPerYear": "공시 1인당 학비 연 388만원 (등록금 0원 · 수익자부담경비)",
@@ -6485,15 +6389,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "seongnam_foreign",
@@ -6524,7 +6420,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 성남시 분당구 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 입학 · 전교생 606명 · 4개 학과",
         "genderRatio": "여 80% · 남 20% (여 485명 / 남 121명)",
         "dormitoryType": "희망자 기숙사 입사 가능(요강)",
         "costPerYear": "공시 1인당 학비 연 529만원 (등록금 0원 · 수익자부담경비)",
@@ -7031,16 +6927,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "suwon_foreign",
@@ -7071,7 +6958,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 수원시 영통구 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 입학 · 전교생 614명 · 5개 학과",
         "genderRatio": "여 81% · 남 19% (여 500명 / 남 114명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 479만원 (등록금 0원 · 수익자부담경비)",
@@ -7598,17 +7485,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "러시아어과",
-        "영어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "anyang_foreign",
@@ -7638,7 +7515,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기 안양시 만안구 · 경기도 + 2027학년도 외국어고·국제고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 260명 입학 · 전교생 741명 · 3개 학과",
         "genderRatio": "여 75% · 남 25% (여 556명 / 남 185명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,191만원 (등록금 + 수익자부담경비)",
@@ -8123,15 +8000,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "incheon_foreign",
@@ -8162,7 +8031,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "인천 부평구 · 인천광역시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 225명 입학 · 전교생 683명 · 4개 학과",
         "genderRatio": "여 69% · 남 31% (여 468명 / 남 215명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 1,278만원 (등록금 + 수익자부담경비)",
@@ -8678,16 +8547,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "국제학과",
-        "영・스페인어과",
-        "영・일본어과",
-        "영・중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "michuhol_foreign",
@@ -8718,7 +8578,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "인천 남동구 · 인천광역시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 192명 입학 · 전교생 548명 · 4개 학과",
         "genderRatio": "여 79% · 남 21% (여 431명 / 남 117명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 398만원 (등록금 0원 · 수익자부담경비)",
@@ -9239,16 +9099,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어-스페인어과",
-        "영어-일본어과",
-        "영어-중국어과",
-        "영어-프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "busan_foreign",
@@ -9279,7 +9130,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "부산 연제구 · 부산광역시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 750명 · 5개 학과",
         "genderRatio": "여 74% · 남 26% (여 555명 / 남 195명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 816만원 (등록금 + 수익자부담경비)",
@@ -9814,17 +9665,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영・독일어과",
-        "영・스페인어과",
-        "영・일본어과",
-        "영・중국어과",
-        "영・프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "daegu_foreign",
@@ -9856,7 +9697,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "대구 달서구 · 대구광역시(경북 고령군 다산면 포함) + 대구혁신도시 이전기관 종사자 자녀",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 입학 · 전교생 327명",
         "genderRatio": "여 74% · 남 26% (여 241명 / 남 86명)",
         "dormitoryType": "요강에 기숙사 조항 없음 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 362만원 (등록금 0원 · 수익자부담경비)",
@@ -10349,13 +10190,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "daejeon_foreign",
@@ -10386,7 +10221,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "대전 서구 · 대전광역시 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 250명 입학 · 전교생 760명 · 7개 학과",
         "genderRatio": "여 82% · 남 18% (여 626명 / 남 134명)",
         "dormitoryType": "요강에 기숙사비 항목 있음 — 운영 형태는 학교에 확인 필요",
         "costPerYear": "공시 1인당 학비 연 166만원 (등록금 0원 · 수익자부담경비)",
@@ -10927,19 +10762,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "러시아어과",
-        "스페인어과",
-        "영어과",
-        "일본어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "ulsan_foreign",
@@ -10971,7 +10794,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "울산 북구 · 울산광역시 + 외국어고·과학고가 없는 시·도 · ==아랍어과는 타 시·도 거주자도 지원 가능==",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 175명 입학 · 전교생 479명 · 5개 학과",
         "genderRatio": "여 77% · 남 23% (여 367명 / 남 112명)",
         "dormitoryType": "기숙사 생활 원칙(요강)",
         "costPerYear": "공시 1인당 학비 연 325만원 (등록금 0원 · 수익자부담경비)",
@@ -11493,17 +11316,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "러시아어과",
-        "아랍어과",
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "chungbuk_foreign",
@@ -11534,7 +11347,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "충북 청주시 흥덕구 · 충청북도 + 세종특별자치시·강원특별자치도(교육감 협의 지역) + 혁신도시 이전기관 자녀",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 154명 입학 · 전교생 463명 · 7개 학과",
         "genderRatio": "여 77% · 남 23% (여 358명 / 남 105명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 88만원 (등록금 0원 · 수익자부담경비)",
@@ -12069,19 +11882,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어·영어과",
-        "러시아어·영어과",
-        "베트남어·영어과",
-        "스페인어·영어과",
-        "일본어·영어과",
-        "중국어·영어과",
-        "프랑스어·영어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "chungnam_foreign",
@@ -12113,7 +11914,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "충남 아산시 · 충청남도 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 140명 입학 · 전교생 417명 · 4개 학과",
         "genderRatio": "여 78% · 남 22% (여 324명 / 남 93명)",
         "dormitoryType": "전교생 수용 기숙사",
         "costPerYear": "공시 1인당 학비 연 344만원 (등록금 0원 · 수익자부담경비)",
@@ -12620,16 +12421,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "베트남어과",
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "jeonbuk_foreign",
@@ -12661,7 +12453,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "전북 군산시 · 전북특별자치도 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 160명 입학 · 전교생 459명 · 5개 학과",
         "genderRatio": "여 71% · 남 29% (여 326명 / 남 133명)",
         "dormitoryType": "기숙사 생활(요강)",
         "costPerYear": "공시 1인당 학비 연 329만원 (등록금 0원 · 수익자부담경비)",
@@ -13181,17 +12973,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영・독일어과",
-        "영・스페인어과",
-        "영・일본어과",
-        "영・중국어과",
-        "영・프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "jeonnam_foreign",
@@ -13223,7 +13005,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "전남 나주시 · 전라남도 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 110명 입학 · 전교생 305명",
         "genderRatio": "여 74% · 남 26% (여 227명 / 남 78명)",
         "dormitoryType": "전원 기숙사 — 인근 거주자도 예외 없이 기숙",
         "costPerYear": "공시 1인당 학비 연 303만원 (등록금 0원 · 수익자부담경비)",
@@ -13701,16 +13483,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "독일어과",
-        "영어과",
-        "중국어과",
-        "프랑스어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gyeongbuk_foreign",
@@ -13741,7 +13514,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경북 구미시 · 경상북도 + 타 시·도 특성화중·전국단위 자율중 졸업(예정)자 중 경북 거주자 + 혁신도시 이전기관 자녀",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 125명 입학 · 전교생 357명 · 3개 학과",
         "genderRatio": "여 73% · 남 27% (여 261명 / 남 96명)",
         "dormitoryType": "기숙사 입사 원칙 · 경비는 본인 부담(요강)",
         "costPerYear": "공시 1인당 학비 연 369만원 (등록금 0원 · 수익자부담경비)",
@@ -14226,15 +13999,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gyeongnam_foreign",
@@ -14264,7 +14029,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경남 양산시 · 경상남도 + 강원특별자치도 중학교 졸업(예정)자",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 입학 · 전교생 591명 · 2개 학과",
         "genderRatio": "여 68% · 남 32% (여 401명 / 남 190명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 373만원 (등록금 0원 · 수익자부담경비)",
@@ -14739,14 +14504,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영일본어과",
-        "영중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "gimhae_foreign",
@@ -14776,7 +14534,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경남 김해시 · 경상남도 + 강원특별자치도 중학교 졸업(예정)자",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 125명 입학 · 전교생 376명 · 4개 학과",
         "genderRatio": "여 79% · 남 21% (여 297명 / 남 79명)",
         "dormitoryType": "요강 미확인 — 학교에 직접 확인 필요",
         "costPerYear": "공시 1인당 학비 연 501만원 (등록금 0원 · 수익자부담경비)",
@@ -15269,16 +15027,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "영어일본어과",
-        "영어중국어과",
-        "일본어영어과",
-        "중국어영어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     },
     {
       "id": "jeju_foreign",
@@ -15310,7 +15059,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "제주 제주시 애월읍 · 제주특별자치도 + 외국어고가 없는 시·도 중학교 졸업(예정)자",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 입학 · 전교생 287명 · 4개 학과",
         "genderRatio": "여 76% · 남 24% (여 217명 / 남 70명)",
         "dormitoryType": "기숙사 입사 원칙(요강)",
         "costPerYear": "공시 1인당 학비 연 214만원 (등록금 0원 · 수익자부담경비)",
@@ -15807,16 +15556,7 @@
         "경영·금융",
         "언론·미디어",
         "통번역·어문 연구"
-      ],
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "스페인어과",
-        "영어과",
-        "일본어과",
-        "중국어과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      ]
     }
   ],
   "categoryAlumniInsight": {

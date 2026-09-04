@@ -565,7 +565,7 @@
       "description": "단대부고는 서울 강남구 도곡동 소재 ==단국대 사범대 부설 사립 남녀공학 일반고==로, 대치 학원가 도보권이라는 입지에 [일반적] 이공·의·자연계 강세 학생층이 두텁게 모이는 강남 학군 대표 갓반고입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 강남구(도곡·대치·역삼 등) 학군 배정 (거주지 기준)",
-        "capacity": "1학년 13학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 350~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학 (단국대 사범대 부설 사립)",
         "dormitoryType": "기숙사 없음 (도보·3호선·수인분당선 통학)",
         "costPerYear": "수업료 면제 (고교 무상교육) · [일반적] 대치 학원가 사교육비 연 3,000~6,000만원 추정",
@@ -631,9 +631,7 @@
         "homepageMustCheck": "단대부고 홈페이지에서 ① ==연도별 의·이공계 진학 실적== ② ==단국대 연계 R&E·실험실 프로그램== ③ ==남녀공학 동아리 운영==을 확인하세요. 같은 도곡 갓반고와의 차별 포인트가 보입니다.",
         "homepageUrl": "https://dan-kook.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://dan-kook.sen.hs.kr/)",
-      "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://dan-kook.sen.hs.kr/)"
     },
     {
       "id": "sookmyung_girls",
@@ -880,7 +878,7 @@
       "description": "숙명여고는 1906년 설립된 ==110년 역사 명문 사립 여고==로, 강남구 도곡동에 위치해 대치 학원가 인프라를 누리면서도 [일반적] 안정적이고 ==인문·영어 강세== 분위기와 두터운 졸업생 동문회로 알려져 있습니다.",
       "schoolInfoCard": {
         "regionScope": "서울 강남구(도곡·대치·역삼 등) 학군 배정 (거주지 기준)",
-        "capacity": "1학년 14학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "여고 (1906년 설립 사립)",
         "dormitoryType": "기숙사 없음 (3호선·수인분당선·9호선 통학)",
         "costPerYear": "수업료 면제 (고교 무상교육) · [일반적] 대치 학원가 사교육비 연 2,000~5,000만원 추정",
@@ -946,9 +944,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://sm.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sm.sen.hs.kr/)",
-      "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sm.sen.hs.kr/)"
     },
     {
       "id": "gangseo_high",
@@ -1154,7 +1150,7 @@
       "description": "강서고는 서울 양천구 목동에 위치한 사립 남자고등학교로, 1980~2000년대 SKY 다배출 전통과 정시·이과 강세 이미지로 알려진 목동 학군의 대표 학교 중 하나입니다. 목동 학원가와의 결합으로 입시 효율은 높지만, 내신 경쟁과 사교육 부담이 매우 큰 환경입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 양천구 목동 (전국 단위 X — 서울 일반고 학군 배정)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남고 — 남 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "사립 — 학비 + 목동 사교육비 합산 시 [일반적] 연 1,500~2,500만원대 추정 (학교알리미·가계 사정 확인)",
@@ -1211,9 +1207,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://gangseo.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gangseo.sen.hs.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gangseo.sen.hs.kr/)"
     },
     {
       "id": "jinmyung_girls",
@@ -1420,7 +1414,7 @@
       "description": "진명여고는 1906년 설립된 한국 최초기 사립 여학교 계보를 잇는 명문 사립 여자고등학교로, 현재 서울 양천구 목동에 위치해 있습니다. 인문·영어·학종 트랙에 강점이 있으며, 차분하고 성실한 학습 분위기와 오랜 여성 동문 네트워크가 특징입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 양천구 목동 (전국 단위 X — 서울 일반고 학군 배정)",
-        "capacity": "1학년 15학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 8~10학급 추정 (학교알리미 공시 확인)",
         "genderRatio": "여고 — 여 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "사립 — 학비 + 사교육비 합산 [일반적] 연 1,200~2,000만원대 추정 (가계 사정·학교알리미 확인)",
@@ -1477,9 +1471,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://jm.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jm.sen.hs.kr/)",
-      "firstYearClassCount": 15,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jm.sen.hs.kr/)"
     },
     {
       "id": "sorabol_high",
@@ -1727,7 +1719,7 @@
       "description": "서라벌고는 노원구 중계동 사립 남고로, ==은행사거리 학원가에 도보 5분== 거리. '중계 의대반' 인프라에 직결돼 [일반적] 의·치·약·SKY 자연계 진학 사례가 많은 것으로 알려진 학교입니다 (정확 수치는 학교알리미 공시 확인).",
       "schoolInfoCard": {
         "regionScope": "서울 노원구 학군 배정 (중계동 거주지 기준)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남고 100%",
         "dormitoryType": "기숙사 없음 (도보·버스 통학)",
         "costPerYear": "수업료 무상 · [일반적] 중계 의대반 학원·교재비 연 3,000~6,000만원대 추정",
@@ -1793,9 +1785,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==최근 의·치·약·SKY 진학 실적== ② ==R&E·과학 탐구 동아리 현황== ③ ==방과후 수학·과학 심화반 운영==을 확인하세요. 다른 중계 학교 대비 이과 색깔이 얼마나 진한지 비교 가능합니다.",
         "homepageUrl": "https://sorabol.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sorabol.sen.hs.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sorabol.sen.hs.kr/)"
     },
     {
       "id": "jaehyun_high",
@@ -2043,7 +2033,7 @@
       "description": "재현고는 노원구 상계동 사립 남고로, ==중계 학원가가 버스 10~15분 거리==. 서라벌고의 의대반 외길과 달리 ==학종+수능 더블 트랙==의 균형형 진학 분위기를 가진 학교로, '노원 가성비 갓반고' 포지셔닝으로 알려져 있습니다 (정확 수치는 학교알리미 공시 확인).",
       "schoolInfoCard": {
         "regionScope": "서울 노원구 학군 배정 (상계동 거주지 기준)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남고 100%",
         "dormitoryType": "기숙사 없음 (상계동 도보·자전거 통학 다수)",
         "costPerYear": "수업료 무상 · [일반적] 학원·교재비 연 1,500~3,500만원대 (중계 평균 대비 다소 합리적)",
@@ -2109,9 +2099,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://jaehyun.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jaehyun.sen.hs.kr/)",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jaehyun.sen.hs.kr/)"
     },
     {
       "id": "naksaeng_high",
@@ -2359,7 +2347,7 @@
       "description": "낙생고는 성남시 분당구의 ==전통 공립 일반고==로, ==이공계·의약학 진학 비중이 높다==는 평 [일반적]. 서현·정자·미금 학원가 도보권이라 학교+학원+자습의 3축이 가장 촘촘하게 작동하는 분당 갓반고 중 하나.",
       "schoolInfoCard": {
         "regionScope": "경기 성남시 분당구 학군 (거주지 배정 + 선지원 후추첨)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (공립)",
         "dormitoryType": "기숙사 없음 — 분당 내 통학",
         "costPerYear": "수업료 면제. 단 분당 학원·교재비 ==연 2,500~5,000만원 부담==이 현실 [일반적]",
@@ -2429,9 +2417,7 @@
       "listTags": [
         "🔬 경기도형 과학중점학교 (2024 명단)"
       ],
-      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)"
     },
     {
       "id": "bopyung_high",
@@ -2679,7 +2665,7 @@
       "description": "보평고는 동판교의 ==2010년대 신설 공립 일반고==로, ==판교 IT 기업 종사자 자녀 비중이 높다==는 평이 동네에 있어요 [일반적]. 정보·SW·이공계 친화적 분위기와 판교역·백현 학원가 인프라가 특징.",
       "schoolInfoCard": {
         "regionScope": "경기 성남시 분당구 동판교 학군 (거주지 배정 + 선지원 후추첨)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (공립)",
         "dormitoryType": "기숙사 없음 — 동판교 내 통학",
         "costPerYear": "수업료 무상. 판교 학원·교재비 ==연 2,500~5,000만원==이 일반적 [일반적]. 판교 거주비는 분당 일반보다 높음.",
@@ -2749,9 +2735,7 @@
       "listTags": [
         "🔬 경기도형 과학중점학교 (2024 명단)"
       ],
-      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)"
     },
     {
       "id": "baekseok_high_ilsan",
@@ -2999,7 +2983,7 @@
       "description": "백석고는 고양시 일산동구의 ==전통 공립 일반고==로, ==일산 SKY 진학 명문==이라는 인식이 누적된 케이스 [일반적]. 후곡·마두 학원가 도보권 + 동문 진학 노하우가 일산 학군 안에서 두드러진다는 평.",
       "schoolInfoCard": {
         "regionScope": "경기 고양시 일산동구 백석·마두권 학군 (거주지 배정 + 선지원 후추첨)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (공립)",
         "dormitoryType": "기숙사 없음 — 일산 내 통학",
         "costPerYear": "수업료 무상. 일산 학원·교재비 ==연 2,000~4,500만원==이 일반적 [일반적]",
@@ -3065,9 +3049,7 @@
         "homepageMustCheck": "백석고 홈페이지에서 ① ==연도별 졸업생 진로(SKY·인서울 비중)== ② ==동아리·R&E 운영== ③ ==논·서술형·자소서 첨삭 프로그램==을 확인하세요.",
         "homepageUrl": "https://baekseok-h.goegy.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://baekseok-h.goegy.kr/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://baekseok-h.goegy.kr/)"
     },
     {
       "id": "neungin_high",
@@ -3314,7 +3296,7 @@
       "description": "능인고는 대구 수성구 무학로의 사립 남고로, '대구의 강남' 수성 학원가에 인접한 ==의·치·약 진학 트랙==으로 자주 거론되는 학교입니다. [일반적] 대구는 전국에서 의대 진학 비율이 매우 높은 지역으로, 능인고는 그 흐름의 중심에 있다는 평가가 많습니다 (정확 수치는 학교알리미 공시 확인).",
       "schoolInfoCard": {
         "regionScope": "대구 수성구 학군 배정 (거주지 기준)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남고",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "수업료 면제 (고교 무상교육) · 학원·교재비 별도 부담 큼",
@@ -3380,9 +3362,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://neungin.dge.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://neungin.dge.hs.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://neungin.dge.hs.kr/)"
     },
     {
       "id": "yangwoon_high",
@@ -3588,7 +3568,7 @@
       "description": "양운고는 부산 해운대구 좌동에 위치한 공립 남녀공학 일반고로, 해운대 좌동 학원가와 결합된 부산 해운대 학군의 대표 일반고 라인 중 하나입니다.",
       "schoolInfoCard": {
         "regionScope": "부산 해운대구 좌동 (전국 단위 X — 부산 해운대 학구)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학 — 학년별 편차 있음 (학교알리미 확인)",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "공립 — 학비 무상. 해운대 사교육비 [일반적] 연 800~1,500만원대 추정",
@@ -3645,9 +3625,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "http://yangwoon.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://yangwoon.hs.kr/)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://yangwoon.hs.kr/)"
     },
     {
       "id": "kyunggi_high",
@@ -3854,7 +3832,7 @@
       "description": "경기고는 1900년 설립된 한국 최고 역사 공립 남자고등학교로, 서울 강남구 삼성동에 위치해 있습니다. 정·재계·법조·학계 전반에 걸친 동문 인맥, 강남 학원가와의 결합, 전통 학생자치·기수 문화 등이 특징이며, 강남 학군의 대표 일반고 중 하나입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 강남구 삼성동 (전국 단위 X — 서울 강남 학구)",
-        "capacity": "1학년 13학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남고 — 남 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "공립 — 학비 무상. 강남 사교육비 [일반적] 연 1,500~3,000만원 가능 (가계 사정·학원가 의존도에 따라 큰 차)",
@@ -3913,9 +3891,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://kyunggi.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kyunggi.sen.hs.kr/)",
-      "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kyunggi.sen.hs.kr/)"
     },
     {
       "id": "youngdong_high",
@@ -4121,7 +4097,7 @@
       "description": "영동고는 서울 강남구 청담동에 위치한 사립 남자고등학교로, 청담·압구정·도곡 학원가 접근성이 매우 좋고 영어·해외대 진학 트랙 사례가 보고된 강남 학군의 사립 남고입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 강남구 청담동 (전국 단위 X — 서울 강남 학구)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 8~10학급 추정 (학교알리미 공시 확인)",
         "genderRatio": "남고 — 남 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "사립 — 학비 + 강남 사교육비 [일반적] 연 2,000~3,500만원대 추정 (가계 사정에 따라 큰 차)",
@@ -4180,9 +4156,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://yd.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://yd.sen.hs.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://yd.sen.hs.kr/)"
     },
     {
       "id": "cau_buk",
@@ -4389,7 +4363,7 @@
       "description": "중대부고(중앙대학교 사범대학 부속고등학교)는 서울 강남구 도곡동에 위치한 사립 남녀공학 일반고입니다. 1997년 중대부여고와 통합되어 공학 체제로 전환되었으며, 도곡·대치 학원가 인접성과 중앙대 사범대 부속 특성을 살린 진로 활동이 특징입니다. 단대부고와 함께 강남 사대부속 라인을 형성합니다.",
       "schoolInfoCard": {
         "regionScope": "서울 강남구 도곡동 (전국 단위 X — 서울 강남 학구)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학 — 학년별 편차 있음 (학교알리미 확인)",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "사립 — 학비 + 강남 사교육비 [일반적] 연 1,500~2,800만원대 추정 (가계 사정에 따라 큰 차)",
@@ -4448,9 +4422,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://cau.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://cau.sen.hs.kr/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://cau.sen.hs.kr/)"
     },
     {
       "id": "seoul_high",
@@ -4657,7 +4629,7 @@
       "description": "서울고는 1946년 설립된 공립 남자고등학교로, 서울 서초구 서초동에 위치하며 학자·법조·정치 분야 동문 다수 배출로 알려진 서초 학군의 대표 일반고 중 하나입니다. 차분한 면학 분위기와 전통 학생자치 문화가 특징입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 서초구 서초동 (전국 단위 X — 서울 서초 학구)",
-        "capacity": "1학년 14학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남고 — 남 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "공립 — 학비 무상. 서초 사교육비 [일반적] 연 1,200~2,500만원대 추정 (가계 사정에 따라 큰 차)",
@@ -4716,9 +4688,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://seoul.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://seoul.sen.hs.kr/)",
-      "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://seoul.sen.hs.kr/)"
     },
     {
       "id": "sangmoon_high",
@@ -4924,7 +4894,7 @@
       "description": "상문고는 서울 서초구 방배동에 위치한 사립 남자고등학교로, 서초 학군 사립 라인 중 하나입니다. 학종·내신 관리에 색깔이 있고 사립 남고 특유의 단단한 관리형 분위기가 특징입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 서초구 방배동 (전국 단위 X — 서울 서초 학구)",
-        "capacity": "1학년 14학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 8~10학급 추정 (학교알리미 공시 확인)",
         "genderRatio": "남고 — 남 100%",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "사립 — 학비 + 서초 사교육비 [일반적] 연 1,500~2,500만원대 추정 (가계 사정에 따라 큰 차)",
@@ -4982,9 +4952,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://sangmoon.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sangmoon.sen.hs.kr/)",
-      "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sangmoon.sen.hs.kr/)"
     },
     {
       "id": "jamsil_high",
@@ -5190,7 +5158,7 @@
       "description": "잠실고는 서울 송파구 신천동에 위치한 공립 남녀공학 일반고로, 잠실 학원가 인접성과 송파 학군의 표준적 입시 환경을 갖춘 학교입니다.",
       "schoolInfoCard": {
         "regionScope": "서울 송파구 신천동 (전국 단위 X — 서울 송파 학구)",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학 — 학년별 편차 있음 (학교알리미 확인)",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "공립 — 학비 무상. 잠실 사교육비 [일반적] 연 1,000~2,000만원대 추정",
@@ -5247,9 +5215,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://jamsil.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jamsil.sen.hs.kr/)",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://jamsil.sen.hs.kr/)"
     },
     {
       "id": "seohyun_high",
@@ -5497,7 +5463,7 @@
       "description": "서현고는 분당 서현역권의 ==전통 공립 일반고==로, ==학종 활동(동아리·세특·소논문·토론) 분위기가 짙다==는 평 [일반적]. 서현 학원가 도보권 + 학종 친화적 교내 활동이 특징.",
       "schoolInfoCard": {
         "regionScope": "경기 성남시 분당구 서현·이매권 학군 (거주지 배정 + 선지원 후추첨)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (공립)",
         "dormitoryType": "기숙사 없음 — 분당 내 통학",
         "costPerYear": "수업료 무상. 서현 학원·교재·학종 컨설팅비 ==연 2,500~5,000만원== 일반적 [일반적]",
@@ -5567,9 +5533,7 @@
       "listTags": [
         "🔬 경기도형 과학중점학교 (2024 명단)"
       ],
-      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)"
     },
     {
       "id": "baekyoung_high",
@@ -5817,7 +5781,7 @@
       "description": "백영고는 안양시 동안구 평촌동의 ==사립 미션스쿨 (남녀공학)==로, 평촌 학원가 인접 + ==학종+정시 더블 트랙==이 가능한 사립 일반고 [일반적]. 예배·인성 교육이 일과에 포함되는 미션스쿨 색깔이 특징.",
       "schoolInfoCard": {
         "regionScope": "경기 안양시 동안구 평촌·범계권 학군 (거주지 배정 + 사립 선지원)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (사립 미션스쿨)",
         "dormitoryType": "기숙사 없음 — 평촌·범계 내 통학",
         "costPerYear": "수업료 무상(사립도 무상교육 적용). 평촌 학원·교재비 ==연 2,000~4,500만원==이 일반적 [일반적]. 종교 활동·수련회 비용 별도 가능성.",
@@ -5883,9 +5847,7 @@
         "homepageMustCheck": "백영고 홈페이지에서 ① ==연도별 졸업생 진로== ② ==미션스쿨 일정·예배 운영== ③ ==동아리·R&E·진학 프로그램==을 확인하세요.",
         "homepageUrl": "https://baekyoung-h.goeay.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://baekyoung-h.goeay.kr/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://baekyoung-h.goeay.kr/)"
     },
     {
       "id": "shinsung_high",
@@ -6133,7 +6095,7 @@
       "description": "신성고는 안양 만안구의 ==사립 미션스쿨 남고==로, ==수능·정시 중심 진학 트랙 + 통제된 자습 환경==이 특징인 사립 일반고 [일반적]. 남고 + 미션스쿨 색깔이 분명해 입학 전 가족 답사·재학생 인터뷰가 권장됩니다.",
       "schoolInfoCard": {
         "regionScope": "경기 안양시 만안구 학군 (사립 선지원 + 거주지 배정)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "==남고== (사립 미션스쿨)",
         "dormitoryType": "기숙사 없음 — 안양 내 통학",
         "costPerYear": "수업료 무상(사립도 무상교육). 안양 학원·교재비 ==연 1,500~3,500만원==이 일반적 [일반적]. 미션·수련회 비용 별도.",
@@ -6203,9 +6165,7 @@
       "listTags": [
         "🔬 경기도형 과학중점학교 (2025 신규 지정 · 2026학년도 1학년부터)"
       ],
-      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "경기도형 과학중점학교 — 3년간 과학·수학·정보 교과 이수 강화 + 연간 30시간 이상 체험학습 운영 (경기도교육청 지정, 학교당 기본 2,500만원 + 과학중점학급당 400만원 지원)"
     },
     {
       "id": "daehwa_high",
@@ -6453,7 +6413,7 @@
       "description": "대화고는 고양시 일산서구의 ==거주지 배정 공립 일반고==로, ==동네 일반고 색깔==이 강한 학교 [일반적]. 백석고 같은 1지망 명문 인식보다는 ==균형형 학종+정시 트랙==으로 운영되는 케이스.",
       "schoolInfoCard": {
         "regionScope": "경기 고양시 일산서구 대화·주엽권 학군 (거주지 배정 + 선지원 후추첨)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 [일반적] — 학교알리미 공시 확인",
         "genderRatio": "남녀공학 (공립)",
         "dormitoryType": "기숙사 없음 — 일산서구 내 통학",
         "costPerYear": "수업료 무상. 일산서구 학원·교재비 ==연 1,500~3,500만원==이 일반적 [일반적] — 분당·백석권보다 낮음",
@@ -6518,9 +6478,7 @@
         "homepageMustCheck": "대화고 홈페이지에서 ① ==연도별 졸업생 진로== ② ==동아리·세특 운영== ③ ==자기주도 학습 지원 프로그램==을 확인하세요.",
         "homepageUrl": "https://daehwa-is-h.goegy.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://daehwa-is-h.goegy.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://daehwa-is-h.goegy.kr/)"
     },
     {
       "id": "gyeongsin_high",
@@ -6767,7 +6725,7 @@
       "description": "경신고는 대구 ==수성구 황금동==의 ==사립 남고==로, ==전국 일반고 중 의대 진학률 최상위권==으로 알려진 영남권 명문 사립입니다. 수성 학원가(만촌·황금·범어)와 시너지가 강하고 ==SKY·의대 동문 멘토링 네트워크==가 진학 노하우를 누적해온 학교입니다.",
       "schoolInfoCard": {
         "regionScope": "대구 수성구 학군 배정 (거주지 기준)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "==남고==",
         "dormitoryType": "기숙사 없음 (수성구 내 통학)",
         "costPerYear": "==사립== 학교운영비·교복·교재비 [일반적] 연 50~150만원 별도 · 수성 사교육비 별도",
@@ -6834,9 +6792,7 @@
         "homepageMustCheck": "경신고 홈페이지에서 ① ==연도별 의대·SKY 진학 실적== ② ==의·이공 R&E·심화 동아리 운영== ③ ==동문 멘토링 프로그램==을 확인하세요.",
         "homepageUrl": "https://gyeongsin.dge.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gyeongsin.dge.hs.kr/)",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gyeongsin.dge.hs.kr/)"
     },
     {
       "id": "junghwa_girls",
@@ -7083,7 +7039,7 @@
       "description": "정화여고는 대구 ==수성구 범어동==의 ==사립 여고==로, 수성 학군 여고 중 ==의대·SKY 진학 강세로 알려진 사립 명문==입니다. 경신고(남고)와 함께 수성 사립의 양대 축으로 평가되며, ==여고 특유의 안정·꼼꼼한 학습 분위기와 강한 동문 네트워크==가 강점입니다.",
       "schoolInfoCard": {
         "regionScope": "대구 수성구 학군 배정 (거주지 기준)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "==여고==",
         "dormitoryType": "기숙사 없음 (수성구 내 통학)",
         "costPerYear": "==사립== 학교운영비·교복·교재비 [일반적] 연 50~150만원 별도 · 수성 사교육비 별도",
@@ -7149,9 +7105,7 @@
         "homepageMustCheck": "정화여고 홈페이지에서 ① ==연도별 의대·SKY 진학 실적== ② ==논·서술 글쓰기 프로그램 운영== ③ ==동문 여성 멘토링 프로그램==을 확인하세요.",
         "homepageUrl": "http://www.junghwa.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://www.junghwa.hs.kr/)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://www.junghwa.hs.kr/)"
     },
     {
       "id": "centum_high",
@@ -7397,7 +7351,7 @@
       "description": "센텀고는 부산 ==해운대구 재송동==의 공립 남녀공학으로, ==센텀시티 인근 신도시 일반고==입니다. 해운대 신도시 학부모 교육열이 높고 센텀시티 학원가 인접 입지로 [일반적] 인서울·부산권 명문대 진학이 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "부산 해운대구 학군 배정 (재송·우동·반여 등)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (해운대 내 통학)",
         "costPerYear": "수업료 면제 · 사교육비 [일반적] 월 80~200만원 수준",
@@ -7463,9 +7417,7 @@
         "homepageMustCheck": "센텀고 홈페이지에서 ① ==연도별 진학 실적== (인서울·부산대 비율) ② ==자기주도 학습실 운영== ③ ==동아리·R&E 운영==을 확인하세요.",
         "homepageUrl": "http://www.centum.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://www.centum.hs.kr/)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://www.centum.hs.kr/)"
     },
     {
       "id": "kwangdeok_high",
@@ -7671,7 +7623,7 @@
       "description": "광덕고는 광주광역시 서구 화정동에 위치한 사립 일반고로, 광주 권역 사립 일반고 명문 라인 중 하나입니다. 내신·정시·학종 균형 관리와 사립 특유의 관리형 분위기가 특징이며, 전남대·조선대·수도권 상위권 진학 사례가 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "광주광역시 서구 화정동 (전국 단위 X — 광주 학구)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 10학급 내외 추정 (학교알리미 공시 확인)",
         "genderRatio": "학교알리미 확인 필요 (남녀공학/단성 여부 공식 안내 기준)",
         "dormitoryType": "기숙사 없음 (통학) — 학교 공식 안내 확인",
         "costPerYear": "사립 — 학비 + 광주 사교육비 [일반적] 연 1,200~2,000만원대 추정 (가계 사정에 따라 큰 차)",
@@ -7729,9 +7681,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 학원 의존도가 다른 갓반고와 얼마나 다른지 비교 가능합니다.",
         "homepageUrl": "https://kwangdeok-h.goeas.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kwangdeok-h.goeas.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://kwangdeok-h.goeas.kr/)"
     },
     {
       "id": "chungnam_high",
@@ -7978,7 +7928,7 @@
       "description": "충남고는 대전 ==서구 둔산동==의 공립 남녀공학으로, ==둔산 학원가에 인접한 대전 대표 학군지 일반고==입니다. KAIST·충남대·정부청사 인접 입지로 ==이공·연구·공공 분야 진로 멘토링이 풍부==하며 [일반적] SKY·KAIST·인서울 진학이 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "대전 서구 학군 배정 (둔산·갈마·만년 등)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (서구 둔산 내 통학)",
         "costPerYear": "수업료 면제 · 사교육비 [일반적] 월 100~250만원 수준",
@@ -8044,9 +7994,7 @@
         "homepageMustCheck": "충남고 홈페이지에서 ① ==연도별 SKY·KAIST 진학 실적== ② ==이공 R&E·심화 동아리 운영== ③ ==KAIST·충남대 연계 멘토링 프로그램==을 확인하세요.",
         "homepageUrl": "https://chungnamhs.djsch.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://chungnamhs.djsch.kr/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://chungnamhs.djsch.kr/)"
     },
     {
       "id": "anyang_high",
@@ -8292,7 +8240,7 @@
       "description": "안양고는 안양시 ==만안구 박달동==의 공립 남녀공학으로, ==평촌 학군(동안구)과는 분리된 만안 학군== 대표 일반고입니다. 안양 1번가·박달동 학원가 인프라를 활용하면서 평촌만큼 격렬한 경쟁은 피하고 싶은 중상위권에게 적합한 [일반적] 인서울 진학 루트.",
       "schoolInfoCard": {
         "regionScope": "경기 안양시 ==만안구 박달동== 학군 배정 (평촌·동안구는 별도 학군)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (만안구 내 통학)",
         "costPerYear": "수업료 면제 · 사교육비 [일반적] 월 60~150만원 수준",
@@ -8358,9 +8306,7 @@
         "homepageMustCheck": "안양고 홈페이지에서 ① ==연도별 인서울 진학 실적== ② ==방과후·보충수업 시간표== (안양 1번가 학원과 시간 충돌 여부) ③ ==동아리·R&E 현황==을 확인하세요.",
         "homepageUrl": "https://anyang-h.goeay.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://anyang-h.goeay.kr/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://anyang-h.goeay.kr/)"
     },
     {
       "id": "gwacheon_high",
@@ -8606,7 +8552,7 @@
       "description": "과천고는 과천시 별양동의 ==공립 남녀공학==으로, ==전국에서 가장 작은 도시의 명문 일반고==로 평가됩니다. 학년당 인원이 적은 ==소수 정예 학군==이며 [일반적] SKY·의대 진학률이 전국 일반고 최상위권으로 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "경기 과천시 학군 배정 (별양동·중앙동·갈현동 등)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 200~300명 (소규모, 학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (과천 내 도보·근거리 통학)",
         "costPerYear": "수업료 면제 · ==과천 주거비 자체가 최대 비용== · 사교육비 별도",
@@ -8672,9 +8618,7 @@
         "homepageMustCheck": "과천고 홈페이지에서 ① ==연도별 SKY·의대 진학 실적== ② ==소규모 학교 동아리·R&E 운영 현황== ③ ==강남 학원 활용 학생 비율 관련 안내==를 확인하세요.",
         "homepageUrl": "https://gwacheon-h.goeay.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gwacheon-h.goeay.kr/)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://gwacheon-h.goeay.kr/)"
     },
     {
       "id": "unjeong_high",
@@ -8920,7 +8864,7 @@
       "description": "운정고는 파주 ==운정 신도시 목동동==의 공립 남녀공학으로, ==2010년대 개교한 신생 신도시 일반고==입니다. 신도시 학부모 학력이 높고 자기주도 학습 인프라가 잘 정비되어 [일반적] 인서울 진학이 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "경기 파주 운정 신도시 학군 배정",
-        "capacity": "1학년 13학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (운정 신도시 내 통학)",
         "costPerYear": "수업료 면제 · 사교육비 [일반적] 월 70~180만원 수준",
@@ -8986,9 +8930,7 @@
         "homepageMustCheck": "운정고 홈페이지에서 ① ==최근 진학 실적 추이== (신생 학교라 매년 확인) ② ==자기주도 학습실·자습실 운영== ③ ==학생 주도 동아리·창체 활동==을 확인하세요.",
         "homepageUrl": "https://unjeong-h.goepj.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://unjeong-h.goepj.kr/)",
-      "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://unjeong-h.goepj.kr/)"
     },
     {
       "id": "namyangju_dasan_high",
@@ -9255,7 +9197,7 @@
       "description": "남양주다산고는 남양주 ==다산 신도시 다산동==의 공립 남녀공학으로, ==2010~2020년대 개교한 신생 신도시 일반고==입니다. 다산 신도시 학부모 학력이 높고 지하철 8호선으로 서울 강남 학원가 활용도 가능해 [일반적] 인서울 진학이 보고됩니다.",
       "schoolInfoCard": {
         "regionScope": "경기 남양주 다산 신도시 학군 배정",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 300~400명 (학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 없음 (다산 신도시 내 통학)",
         "costPerYear": "수업료 면제 · 사교육비 [일반적] 월 70~180만원 수준",
@@ -9328,9 +9270,7 @@
         "🌐 IB DP 월드스쿨 (2025.11.27 승인)",
         "🏫 다산 신도시 공립 일반고"
       ],
-      "regionProgramSummary": "경기도교육청 IB 월드스쿨 — 일반고 안에 IBDP학급을 별도로 편성 (교내 지원서·자기소개서·생기부 심사로 선발)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "경기도교육청 IB 월드스쿨 — 일반고 안에 IBDP학급을 별도로 편성 (교내 지원서·자기소개서·생기부 심사로 선발)"
     },
     {
       "id": "korea_sahmyook_high",
@@ -9576,7 +9516,7 @@
       "description": "한국삼육고는 서울 노원구 공릉동의 ==사립 종교계(제칠일안식일예수재림교) 남녀공학==으로, 전국에서 지원이 가능하며 의대·SKY 진학률이 전국 일반고 최상위급으로 평가됩니다. 토요일 등교·시험이 없고 채플 등 종교 활동이 강조되는 학교 문화가 일반 학군지 일반고와 결이 다릅니다.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 지원 가능 (사립)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 200~250명 (소규모, 학교알리미 공시 확인)",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (상세 학교 홈페이지 확인)",
         "costPerYear": "사립 학비 별도 + 기숙사비 + 교재·학원비 — 가계 부담 큼",
@@ -9642,9 +9582,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① ==연도별 진학 실적== ② ==교내 동아리·R&E 현황== ③ ==방과후·보충수업 운영==을 확인하세요. 사립 종교계 학교 특성상 ==종교 활동 일정과 기숙사 규율==을 미리 파악하는 것이 중요합니다.",
         "homepageUrl": "https://sahmyook.sen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sahmyook.sen.hs.kr/)",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://sahmyook.sen.hs.kr/)"
     }
   ],
   "totalSchoolsNote": "본 데이터는 학군별 대표 일반고 27개교 (공식 홈페이지로 실재 확인된 것만). '갓반고'는 학군지 우수 일반고를 지칭하는 속어 — 입시는 거주지 학군 배정 + 선지원 후추첨 방식.",

@@ -498,6 +498,15 @@ export type HighSchoolDetail = {
   jagonggoProfile?: SchoolJagonggoProfile;
   /** 목록 카드에 노출할 특화 태그 (예: "🤖 AI", "🔬 과학중점") */
   listTags?: string[];
+  /** 개설 학과 목록 — 계열 분류·뱃지의 1순위 근거 */
+  departments?: string[];
+  /** 학과 출처 표기 */
+  departmentsSource?: string;
+  /** 1학년 학급 수 (NEIS 학급정보) */
+  firstYearClassCount?: number;
+  firstYearClassCountSource?: string;
+  /** IB 학교의 수업 언어·연계 프로그램 트랙 태그 */
+  ibTrackTags?: string[];
   /** 목록 카드에 노출할 지역 연계 프로그램 한 줄 요약 */
   regionProgramSummary?: string;
   /** 등록금·비용 구조 (그룹핑 + 과정별 트랙 비교) */

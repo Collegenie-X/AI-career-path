@@ -24,6 +24,8 @@ import { CategoryTraitDetailDialog } from './CategoryTraitDetailDialog';
 import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { DescriptionOutlineTree } from './CategoryStructuredSections';
 import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes, VerifySourceTable } from './CategoryStructuredSections';
+import { CategoryMajorMatrix } from './CategoryMajorMatrix';
+import { IbSubjectMatrix } from './IbSubjectMatrix';
 import { MetroSchoolMap } from './MetroSchoolMap';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
@@ -240,6 +242,24 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
 
       {/* ── 2028 입시 방향성 + AI 방향성 (카테고리 단위) ── */}
       <CategoryDirectionPanel category={category} />
+
+      {/* ── 전공 계열 × 직업계고 3유형 교차표 (마이스터·특성화·비즈니스만) ── */}
+      <CategoryMajorMatrix
+        categoryId={category.id}
+        schools={category.schools}
+        color={category.color}
+        bgColor={category.bgColor}
+        onSelectSchool={onSelectSchool}
+      />
+
+      {/* ── IB DP 과목군 × 전공 지도 (IB 카테고리 전용) ── */}
+      <IbSubjectMatrix
+        categoryId={category.id}
+        schools={category.schools}
+        color={category.color}
+        bgColor={category.bgColor}
+        onSelectSchool={onSelectSchool}
+      />
 
       {/* ── 특색 지도 (AI 중점·과학중점·지역 연계 대학/기업) ── */}
       <CategoryFeatureMap
@@ -711,7 +731,11 @@ function SchoolListCard({
             </div>
             <div className="flex items-center gap-1">
               <span className="text-xs text-gray-500">
-                {school.annualAdmission ? `👥 ${school.annualAdmission}명` : '👥 정원 공시 확인'}
+                {school.annualAdmission
+                  ? `👥 ${school.annualAdmission}명`
+                  : school.firstYearClassCount
+                    ? `👥 1학년 ${school.firstYearClassCount}학급`
+                    : '👥 정원 공시 확인'}
               </span>
             </div>
           </div>

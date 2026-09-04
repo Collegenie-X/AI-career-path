@@ -634,7 +634,7 @@
       "description": "서울 종로구 명륜동 — 공립 최초 IB DP 인증 국제고. SIHMUN(모의UN)과 외교부 청소년외교아카데미 연계가 차별점, 통학형(기숙사 미운영) 운영으로 자율성 큰 만큼 자기관리 필수.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 선발 (서울 종로구 소재)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 150명 모집 · 총 450명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (월 14만원, 정원 제한 — 통학생 다수)",
         "costPerYear": "==등록금 0원(공립 무상교육)==. 실부담은 연 43만원 수준으로 8개 국제고 중 하위권 — 다만 기숙사 입사 시 월 14만원이 추가돼요.",
@@ -953,9 +953,7 @@
             "url": "https://blog.scoreanalytics.net/entry/%EC%84%9C%EC%9A%B8%EA%B5%AD%EC%A0%9C%EA%B3%A0%EB%93%B1%ED%95%99%EA%B5%90-SGHS"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "incheon_international",
@@ -1128,7 +1126,7 @@
       "description": "인천 중구 영종도(운서동) — 인천공항·자유무역지역 인접의 유일한 국제고. 항공·물류·관광 외교 트랙 특화, 다국적 환경의 일상 영어 실전 노출이 차별점.",
       "schoolInfoCard": {
         "regionScope": "인천·전국 일부 (광역 선발)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 모집 · 총 300명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (영종도 외 학생 우선)",
         "costPerYear": "등록금 0원이지만 ==실부담은 공립 7개교 중 최고(연 78.7만원)==. 기숙사(27만원)+현장체험(21.2만원) 비중이 커요.",
@@ -1508,9 +1506,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "cheongshim_international",
@@ -1710,7 +1706,7 @@
       "description": "경기 가평 설악면 — 전국 유일 사립 IB DP+AP 동시 운영교. 전원 의무 기숙사·24시간 영어 환경, 학비 국제고 최고가(연 2,300~2,800만원)지만 해외대 진학률은 국내 1위.",
       "schoolInfoCard": {
         "regionScope": "전국 단위 선발 (사립, 경기 가평 소재)",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 140명 모집 · 총 420명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "전원 의무 기숙사 (4인→2인실)",
         "costPerYear": "==8개 국제고 중 유일한 사립==이자 유일하게 등록금을 부과하는 학교. 실납부는 공시 평균값과 차원이 달라요.",
@@ -2045,9 +2041,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "goyang_international",
@@ -2325,7 +2319,7 @@
       "description": "경기 고양 일산동구 — 경기 북부 거점 국제고. 영자신문·영미문학·미디어 활동과 파주·DMZ 평화교육 연계가 차별점, 서울/일산 통학권에 강점.",
       "schoolInfoCard": {
         "regionScope": "경기·수도권 광역 선발",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 모집 · 총 600명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (수도권 외 우선)",
         "costPerYear": "==8개 국제고 중 실부담 최저(연 34.6만원)==. 등록금 0원 + 기숙사 부담도 가장 낮아요.",
@@ -2630,9 +2624,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=589045"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "daegu_international",
@@ -2829,7 +2821,7 @@
       "description": "대구 북구 도남길 — 2021년 개교 신설 공립 국제고. 경북대 인접, 영남권에서 수도권 이주 없이 국제고 교육을 받을 수 있는 핵심 옵션. 1기 졸업(2024) 이후 진학 실적 형성 중.",
       "schoolInfoCard": {
         "regionScope": "대구·영남권 광역 선발",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 120명 모집 · 총 360명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (의무 아님)",
         "costPerYear": "등록금 0원 + 실부담 연 45.4만원. ==현장체험학습비 0원==인 대신 ==기타비(14.5만원)==가 큰 신설교 특유의 구조.",
@@ -3182,9 +3174,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "dongtan_international",
@@ -3462,7 +3452,7 @@
       "description": "경기 화성 동탄나루로 27 — 경기 남부 STEM+글로벌 융합 국제고. 삼성전자 화성캠퍼스·판교 IT밸리 인접, 이공계 해외대 진학률 국제고 1위가 차별점.",
       "schoolInfoCard": {
         "regionScope": "경기·수도권 광역 선발",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 200명 모집 · 총 600명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (경기 남부 외 우선)",
         "costPerYear": "등록금 0원인데 실부담은 ==연 85.7만원으로 공립 7개교 중 2위==. ==현장체험학습비 39.8만원==(국외 교류 포함)이 이유예요.",
@@ -3755,9 +3745,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "busan_international",
@@ -3954,7 +3942,7 @@
       "description": "부산 부산진구 백양관문로 — 영남권 유일 국제고. 영어+제2외국어(중·일·러) 심화, 부산항·해양·일본/중화권 대학 진학 트랙이 차별점.",
       "schoolInfoCard": {
         "regionScope": "부산광역시·영남권 광역 선발",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 160명 모집 · 총 480명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (영남권 외 우선)",
         "costPerYear": "등록금 0원 + 실부담 연 50.4만원. ==1998년 개교한 국내 최초 국제고==인데 비용은 중하위권이에요.",
@@ -4307,9 +4295,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "sejong_international",
@@ -4505,7 +4491,7 @@
       "description": "세종 도담동 — 정부세종청사 도보권 위치, 부처(외교·기재·과기·통일) 연계 정책·행정 탐구가 차별점. IB Candidate 진행 중(2026~2027 인증 목표).",
       "schoolInfoCard": {
         "regionScope": "세종·전국 단위 (광역 선발)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "연 100명 모집 · 총 300명 규모",
         "genderRatio": "남녀공학",
         "dormitoryType": "기숙사 운영 (충청·전국 학생 우선)",
         "costPerYear": "등록금 0원 + 실부담 연 46.1만원. ==기숙사(18.7만원) 비중이 급식 다음으로 큰== 전형적인 기숙형 공립.",
@@ -4858,9 +4844,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=590083"
           }
         ]
-      },
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     }
   ],
   "_verification": {

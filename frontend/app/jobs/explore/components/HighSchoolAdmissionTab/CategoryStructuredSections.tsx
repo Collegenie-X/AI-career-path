@@ -1069,6 +1069,15 @@ const FEATURE_BUCKETS: FeatureBucket[] = [
     note: (s) => (s.listTags ?? []).find((t) => /IB/i.test(t)) ?? 'IB 후보학교',
     sources: IB_SOURCES,
   },
+  {
+    id: 'hitech',
+    emoji: '🏭',
+    label: '하이텍고 (교명이 같은 5개교)',
+    hint: "교명에 '하이텍'이 들어가는 전국 5개교 — 수원만 마이스터고(전기 전형)이고 나머지 4곳은 특성화고(후기 전형)라 지원 시기·학비 구조가 다릅니다",
+    match: /하이텍/,
+    pick: (s) => /하이텍/.test(s.name) || /하이텍/.test(s.shortName ?? ''),
+    note: (s) => s.type,
+  },
   { id: 'ai', emoji: '🤖', label: 'AI·디지털 중점', hint: 'AI·SW·데이터·에듀테크 교육과정을 전면에 내건 학교', match: /AI|A\.I|인공지능|SW|소프트웨어|디지털|정보|데이터|에듀테크|반도체/i },
   { id: 'science', emoji: '🔬', label: '과학·이공 중점', hint: '과학중점학교·이공 융합(의생명·공학·항공·에너지) 트랙', match: /과학|이공|공학|바이오|의·생명|의생명|보건|의료|항공|우주|에너지|실험/ },
   { id: 'culture', emoji: '🎨', label: '문화·예술·콘텐츠', hint: '예술·미디어·K-콘텐츠 특화 교육과정', match: /예술|문화|콘텐츠|미디어|K-|음악|체육|디자인/ },
@@ -1167,20 +1176,49 @@ export function CategoryFeatureMap({
             </button>
             {open && (
               <div className="px-3.5 pb-3.5 flex flex-wrap gap-1.5">
-                {g.items.map(({ school, note }) => (
-                  <button
-                    key={school.id}
-                    type="button"
-                    onClick={onSelectSchool ? () => onSelectSchool(school) : undefined}
-                    className="px-2 py-1.5 rounded-xl text-left transition-colors hover:bg-white/5"
-                    style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}22` }}
-                  >
-                    <span className="block text-[12px] font-semibold text-gray-100">
-                      {school.emoji} {school.shortName ?? school.name}
+                {g.items.map(({ school, note }) => {
+                  const inner = (
+                    <>
+                      <span className="block text-[12px] font-semibold text-gray-100">
+                        {school.emoji} {school.shortName ?? school.name}
+                      </span>
+                      <span className="block text-[10px] text-gray-400 mt-0.5">{note ?? school.location}</span>
+                      <span className="block text-[10px] mt-0.5" style={{ color }}>
+                        {onSelectSchool ? '상세 보기 ›' : school.websiteUrl ? '학교 홈페이지 ↗' : ''}
+                      </span>
+                    </>
+                  );
+                  const chipClass =
+                    'px-2 py-1.5 rounded-xl text-left transition-colors hover:bg-white/10 focus-visible:bg-white/10 outline-none';
+                  const chipStyle = { background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}22` };
+                  // 이 유형 목록에 있는 학교는 상세로, 없으면 학교 홈페이지로 보낸다.
+                  if (onSelectSchool) {
+                    return (
+                      <button key={school.id} type="button" onClick={() => onSelectSchool(school)} className={chipClass} style={chipStyle}>
+                        {inner}
+                      </button>
+                    );
+                  }
+                  if (school.websiteUrl) {
+                    return (
+                      <a
+                        key={school.id}
+                        href={school.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={chipClass}
+                        style={chipStyle}
+                      >
+                        {inner}
+                      </a>
+                    );
+                  }
+                  return (
+                    <span key={school.id} className="px-2 py-1.5 rounded-xl text-left" style={chipStyle}>
+                      {inner}
                     </span>
-                    <span className="block text-[10px] text-gray-400 mt-0.5">{note ?? school.location}</span>
-                  </button>
-                ))}
+                  );
+                })}
                 {g.sources && g.sources.length > 0 && (
                   <div className="w-full pt-1">
                     <VerifySourceTable

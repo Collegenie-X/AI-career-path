@@ -487,7 +487,7 @@
       "description": "1913년 개교 / 전통 공립 남고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "부산광역시 광역 단위 모집",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -710,9 +710,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "주례여고",
@@ -884,7 +882,7 @@
       "description": "사상구 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "부산광역시 광역 단위 모집",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -1100,9 +1098,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "ganghwa_girls",
@@ -1278,7 +1274,7 @@
       "description": "강화군 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "인천광역시 광역 단위 모집",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -1512,9 +1508,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "seonin_high",
@@ -1685,7 +1679,7 @@
       "description": "남동구 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "인천광역시 광역 단위 모집",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -1881,9 +1875,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "incheon_high",
@@ -2054,7 +2046,7 @@
       "description": "1895년 개교 / 전통 공립 남고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "인천광역시 광역 단위 모집",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -2250,9 +2242,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "namhan_high",
@@ -2423,7 +2413,7 @@
       "description": "경기 동부 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -2615,9 +2605,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "baekseok_high",
@@ -2792,7 +2780,7 @@
       "description": "일산 학군 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -3014,9 +3002,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "suju_high",
@@ -3187,7 +3173,7 @@
       "description": "부천 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -3379,9 +3365,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "yeoncheon_high",
@@ -3552,7 +3536,7 @@
       "description": "경기 북부 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 2학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -3744,9 +3728,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "uijeongbu_high",
@@ -3917,7 +3899,7 @@
       "description": "의정부 공립 남고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -4109,9 +4091,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "uijeongbu_girls",
@@ -4282,7 +4262,7 @@
       "description": "의정부 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -4474,9 +4454,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "eui_high",
@@ -4647,7 +4625,7 @@
       "description": "광교 학군 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -4839,9 +4817,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "jeohyun_high",
@@ -5012,7 +4988,7 @@
       "description": "일산 학군 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -5204,9 +5180,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "pyeongnae_high",
@@ -5377,7 +5351,7 @@
       "description": "남양주 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -5569,9 +5543,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "pocheonil_high",
@@ -5742,7 +5714,7 @@
       "description": "포천 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경기도 광역 단위 모집",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -5934,15 +5906,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "스마트서비스경영과",
-        "식품반려동물자원과",
-        "창업콘텐츠과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      }
     },
     {
       "id": "jincheon_high",
@@ -6113,7 +6077,7 @@
       "description": "진천 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "충청북도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -6305,9 +6269,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "chungju_yesung_girls",
@@ -6478,7 +6440,7 @@
       "description": "충주 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "충청북도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -6670,9 +6632,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "namwon_high",
@@ -6843,7 +6803,7 @@
       "description": "남원 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "전라북도 광역 단위 모집",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -7035,9 +6995,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "iri_girls",
@@ -7208,7 +7166,7 @@
       "description": "익산(이리) 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "전라북도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -7400,9 +7358,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "boseong_high",
@@ -7577,7 +7533,7 @@
       "description": "보성 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "전라남도 광역 단위 모집",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -7834,9 +7790,7 @@
             "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148948278"
           }
         ]
-      },
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "buksam_high",
@@ -8008,7 +7962,7 @@
       "description": "칠곡 북삼읍 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경상북도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -8215,9 +8169,7 @@
             "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148948278"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "yeongju_girls",
@@ -8388,7 +8340,7 @@
       "description": "영주 공립 여자고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경상북도 광역 단위 모집",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -8580,9 +8532,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "dogye_high",
@@ -8753,7 +8703,7 @@
       "description": "삼척 도계읍 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "강원도 광역 단위 모집",
-        "capacity": "1학년 2학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -8945,9 +8895,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "gimhae_high",
@@ -9118,7 +9066,7 @@
       "description": "김해 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경상남도 광역 단위 모집",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -9310,9 +9258,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "samcheonpo_jungang",
@@ -9483,7 +9429,7 @@
       "description": "사천 삼천포 공립고 · 자율형 공립고 2.0 신규 지정 학교(2025.8, 2026.3 운영 시작)",
       "schoolInfoCard": {
         "regionScope": "경상남도 광역 단위 모집",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시 확인",
         "genderRatio": "* 학교별 (남고/여고/공학 확인 필요)",
         "dormitoryType": "통학형 (자공고 대부분)",
         "costPerYear": "무상교육 적용 — 부대비용(급식·교복) 별도",
@@ -9675,9 +9621,7 @@
             "url": "https://www.veritas-a.com/news/articleView.html?idxno=599166"
           }
         ]
-      },
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "gwangju_jungang",
@@ -9853,7 +9797,7 @@
       "description": "경기 광주시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — 변화·협력·도전을 통한 미래인재 육성",
       "schoolInfoCard": {
         "regionScope": "경기 광주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 14학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -10060,16 +10004,7 @@
         "💬 심리·정서",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "변화·협력·도전을 통한 미래인재 육성 — 4차 산업혁명 대비 교과 편성 · 심미적 역량 함양 교과 편성",
-      "firstYearClassCount": 14,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "농업유통정보과",
-        "산업기계과",
-        "외식식품가공과",
-        "조경시스템과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      "regionProgramSummary": "변화·협력·도전을 통한 미래인재 육성 — 4차 산업혁명 대비 교과 편성 · 심미적 역량 함양 교과 편성"
     },
     {
       "id": "wabu",
@@ -10246,7 +10181,7 @@
       "description": "경기 남양주시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — AI 에듀테크 활용 수업·평가 역량 강화",
       "schoolInfoCard": {
         "regionScope": "경기 남양주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -10453,9 +10388,7 @@
         "🤖 AI 에듀테크",
         "🎯 에듀테크"
       ],
-      "regionProgramSummary": "AI 에듀테크 활용 수업·평가 역량 강화 — 다산 정약용 교육과정 운영 · 고려대학교 연계 코티칭 과목 개설",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "AI 에듀테크 활용 수업·평가 역량 강화 — 다산 정약용 교육과정 운영 · 고려대학교 연계 코티칭 과목 개설"
     },
     {
       "id": "cheonghak",
@@ -10632,7 +10565,7 @@
       "description": "경기 남양주시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 뜀·땀·꿈의 청학고",
       "schoolInfoCard": {
         "regionScope": "경기 남양주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -10828,9 +10761,7 @@
         "🧭 6TRACK 선택",
         "🎯 인성교육"
       ],
-      "regionProgramSummary": "뜀·땀·꿈의 청학고 — 협력기관 연계 '6TRACK' 교육과정 (융합·인문문화·과학·정보화·글로벌·예술체육 인재)",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "뜀·땀·꿈의 청학고 — 협력기관 연계 '6TRACK' 교육과정 (융합·인문문화·과학·정보화·글로벌·예술체육 인재)"
     },
     {
       "id": "gunpo_jungang",
@@ -11007,7 +10938,7 @@
       "description": "경기 군포시 · 자율형 공립고 2.0 1차 (2024.3 시범 운영교) — 온통군중인 e음! 질문이 살아 있는 AI 인문학융합교육",
       "schoolInfoCard": {
         "regionScope": "경기 군포시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (연도별 학급 수 변동)",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "기숙사 운영 (군포시 지원) — 기숙사비는 수익자부담",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -11240,9 +11171,7 @@
         "💻 디지털 소양",
         "🎯 에듀테크"
       ],
-      "regionProgramSummary": "온통군중인 e음! 질문이 살아 있는 AI 인문학융합교육 — 질문이 살아있는 AI·인문학 융합 교육 · 다채로운 선택 교육과정 제공",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "온통군중인 e음! 질문이 살아 있는 AI 인문학융합교육 — 질문이 살아있는 AI·인문학 융합 교육 · 다채로운 선택 교육과정 제공"
     },
     {
       "id": "gimpo",
@@ -11418,7 +11347,7 @@
       "description": "경기 김포시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — G.Tree 2.0 (Goal·Grow·Good·Glocal·Greet)",
       "schoolInfoCard": {
         "regionScope": "경기 김포시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -11614,9 +11543,7 @@
         "🪜 진로 단계형 트랙",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "G.Tree 2.0 (Goal·Grow·Good·Glocal·Greet) — SMART 교육과정 · Beginner-Advanced-Expert-Share Track 진로 단계형 교육과정",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "G.Tree 2.0 (Goal·Grow·Good·Glocal·Greet) — SMART 교육과정 · Beginner-Advanced-Expert-Share Track 진로 단계형 교육과정"
     },
     {
       "id": "masong",
@@ -11792,7 +11719,7 @@
       "description": "경기 김포시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — 나만의 교육과정으로 미래역량을 키우는 학교",
       "schoolInfoCard": {
         "regionScope": "경기 김포시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -11987,9 +11914,7 @@
         "🧩 1인 1 교육과정",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "나만의 교육과정으로 미래역량을 키우는 학교 — 내가 만드는 교육과정 (1인 1 교육과정)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "나만의 교육과정으로 미래역량을 키우는 학교 — 내가 만드는 교육과정 (1인 1 교육과정)"
     },
     {
       "id": "deokjeong",
@@ -12165,7 +12090,7 @@
       "description": "경기 양주시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — 선택과 집중의 교과목 모듈형 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 양주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -12381,9 +12306,7 @@
         "🧱 모듈형 선택",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "선택과 집중의 교과목 모듈형 교육과정 — 선택과 집중의 모듈형 교과목 운영 · 디지털 기반 교수·학습 환경 조성",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "선택과 집중의 교과목 모듈형 교육과정 — 선택과 집중의 모듈형 교과목 운영 · 디지털 기반 교수·학습 환경 조성"
     },
     {
       "id": "yangju",
@@ -12562,7 +12485,7 @@
       "description": "경기 양주시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 지역사회와 함께 디지털 미래시대를 대비하는 DIY 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 양주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -12781,9 +12704,7 @@
         "🏙️ 사회",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "지역사회와 함께 디지털 미래시대를 대비하는 DIY 교육과정 — 창진교함 교육과정 · DIY 교육과정 (AI정보·과학·사회 중심)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "지역사회와 함께 디지털 미래시대를 대비하는 DIY 교육과정 — 창진교함 교육과정 · DIY 교육과정 (AI정보·과학·사회 중심)"
     },
     {
       "id": "yangju_baekseok",
@@ -12961,7 +12882,7 @@
       "description": "경기 양주시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — Balanced AI 인재 양성",
       "schoolInfoCard": {
         "regionScope": "경기 양주시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -13170,9 +13091,7 @@
         "✍️ 글쓰기·소양",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "Balanced AI 인재 양성 — 성장 단계·진로 목표에 최적화된 교육과정 코스워크 · 균형과 통합의 소양과정",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "Balanced AI 인재 양성 — 성장 단계·진로 목표에 최적화된 교육과정 코스워크 · 균형과 통합의 소양과정"
     },
     {
       "id": "seongnam",
@@ -13349,7 +13268,7 @@
       "description": "경기 성남시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 지역 연계를 활용하는 드림패밀리",
       "schoolInfoCard": {
         "regionScope": "경기 성남시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -13556,9 +13475,7 @@
         "💻 정보 전문교과",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "지역 연계를 활용하는 드림패밀리 — 다양한 과학실험 과목 개설 · 대학과 연계한 정보 전문교과 개설",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "지역 연계를 활용하는 드림패밀리 — 다양한 과학실험 과목 개설 · 대학과 연계한 정보 전문교과 개설"
     },
     {
       "id": "pangyo",
@@ -13735,7 +13652,7 @@
       "description": "경기 성남시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 판교 테크노밸리와 함께 하는 글로컬 융합 인재 교육",
       "schoolInfoCard": {
         "regionScope": "경기 성남시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -13942,9 +13859,7 @@
         "🏢 테크 기업 연계",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "판교 테크노밸리와 함께 하는 글로컬 융합 인재 교육 — 판교테크노밸리 연계 교육과정 · IT·AI 기반 융합소양 교육과정",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "판교 테크노밸리와 함께 하는 글로컬 융합 인재 교육 — 판교테크노밸리 연계 교육과정 · IT·AI 기반 융합소양 교육과정"
     },
     {
       "id": "gosaek",
@@ -14121,7 +14036,7 @@
       "description": "경기 수원시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 지역 자원과의 협력을 통한 다채로운 삶의 경험 제공",
       "schoolInfoCard": {
         "regionScope": "경기 수원시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -14328,9 +14243,7 @@
         "📊 데이터분석",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "지역 자원과의 협력을 통한 다채로운 삶의 경험 제공 — 창의융합 교육과정 (융합과제연구·데이터분석연구 등) · 경기대 협력 융합과제연구 과목 개설",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "지역 자원과의 협력을 통한 다채로운 삶의 경험 제공 — 창의융합 교육과정 (융합과제연구·데이터분석연구 등) · 경기대 협력 융합과제연구 과목 개설"
     },
     {
       "id": "seohae",
@@ -14507,7 +14420,7 @@
       "description": "경기 시흥시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — HIT! 스마트시티 음 서해교육",
       "schoolInfoCard": {
         "regionScope": "경기 시흥시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -14723,9 +14636,7 @@
         "🧬 바이오",
         "🎯 에듀테크"
       ],
-      "regionProgramSummary": "HIT! 스마트시티 음 서해교육 — 스마트시티 음 교육과정 (AI·창의공학·바이오 융합과정)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "HIT! 스마트시티 음 서해교육 — 스마트시티 음 교육과정 (AI·창의공학·바이오 융합과정)"
     },
     {
       "id": "hamhyeon",
@@ -14903,7 +14814,7 @@
       "description": "경기 시흥시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 생태전환교육을 실천하는 함현고등학교",
       "schoolInfoCard": {
         "regionScope": "경기 시흥시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -15110,9 +15021,7 @@
         "⚡ 기후·에너지",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "생태전환교육을 실천하는 함현고등학교 — 지역교육과정 '시흥과 생태전환' 고시 외 과목 개발·운영",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "생태전환교육을 실천하는 함현고등학교 — 지역교육과정 '시흥과 생태전환' 고시 외 과목 개발·운영"
     },
     {
       "id": "wongok",
@@ -15289,7 +15198,7 @@
       "description": "경기 안산시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 다문화교육을 실천하며 글로컬 인재양성을 실현하는 학교",
       "schoolInfoCard": {
         "regionScope": "경기 안산시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -15486,9 +15395,7 @@
         "🌏 다문화·이중언어",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "다문화교육을 실천하며 글로컬 인재양성을 실현하는 학교 — 다문화 맞춤 교과 개발 · 대학연계 동아리 운영",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "다문화교육을 실천하며 글로컬 인재양성을 실현하는 학교 — 다문화 맞춤 교과 개발 · 대학연계 동아리 운영"
     },
     {
       "id": "anseong_girls",
@@ -15665,7 +15572,7 @@
       "description": "경기 안성시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 안성맞춤 교육으로 지역확장형 CHAM 리더 양성",
       "schoolInfoCard": {
         "regionScope": "경기 안성시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -15872,9 +15779,7 @@
         "🎭 문화예술",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "안성맞춤 교육으로 지역확장형 CHAM 리더 양성 — 병원·대학과 연계된 과목 개설 · 지역 확장형 교육과정 운영",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "안성맞춤 교육으로 지역확장형 CHAM 리더 양성 — 병원·대학과 연계된 과목 개설 · 지역 확장형 교육과정 운영"
     },
     {
       "id": "baekam",
@@ -16051,7 +15956,7 @@
       "description": "경기 용인시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — A.I. 리터러시 역량을 갖춘 융합형 미래 인재 양성",
       "schoolInfoCard": {
         "regionScope": "경기 용인시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -16248,9 +16153,7 @@
         "🧠 AI 리터러시",
         "🎯 에듀테크"
       ],
-      "regionProgramSummary": "A.I. 리터러시 역량을 갖춘 융합형 미래 인재 양성 — AI 리터러시 교과특성화 교육과정 · 지역사회 연계 팀프로젝트",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "A.I. 리터러시 역량을 갖춘 융합형 미래 인재 양성 — AI 리터러시 교과특성화 교육과정 · 지역사회 연계 팀프로젝트"
     },
     {
       "id": "yongin_samgye",
@@ -16426,7 +16329,7 @@
       "description": "경기 용인시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — DIY에서 꿈을 찾는 용인삼계고 (과학계·인문사회계·예술계)",
       "schoolInfoCard": {
         "regionScope": "경기 용인시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -16641,9 +16544,7 @@
         "🎨 예술계",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "DIY에서 꿈을 찾는 용인삼계고 (과학계·인문사회계·예술계) — 3E 프로젝트(Exploration·Education·Empowerment) 창의융합교육과정",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "DIY에서 꿈을 찾는 용인삼계고 (과학계·인문사회계·예술계) — 3E 프로젝트(Exploration·Education·Empowerment) 창의융합교육과정"
     },
     {
       "id": "unjeong",
@@ -16828,7 +16729,7 @@
       "description": "경기 파주시 · 자율형 공립고 2.0 1차 (2024.3 시범 운영교) — 雲(CLOUDS) 프로그램을 활용한 올곧은(井) 미래지향적 리더 양성",
       "schoolInfoCard": {
         "regionScope": "==파주 비평준화== — 중학교 내신 성적 선발 (파주교육지원청 고입 전형 기본계획)",
-        "capacity": "1학년 13학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학년당 약 380명 규모 (전교생 1,164명 · 학교알리미 공시 기준)",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -17084,9 +16985,7 @@
         "🧬 의·생명공학",
         "🎯 인성교육"
       ],
-      "regionProgramSummary": "雲(CLOUDS) 프로그램을 활용한 올곧은(井) 미래지향적 리더 양성 — 반도체·AI 교육과정 · 항공·우주 교육과정",
-      "firstYearClassCount": 13,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "雲(CLOUDS) 프로그램을 활용한 올곧은(井) 미래지향적 리더 양성 — 반도체·AI 교육과정 · 항공·우주 교육과정"
     },
     {
       "id": "hyeonhwa",
@@ -17262,7 +17161,7 @@
       "description": "경기 평택시 · 자율형 공립고 2.0 2차 (2024.9.1 지정) — 학년·과목 연계 진로진학 데이터 누적 관리 기반 교육과정 트랙 운영",
       "schoolInfoCard": {
         "regionScope": "경기 평택시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -17468,9 +17367,7 @@
         "🧬 의·생명 융합",
         "🎯 진로교육"
       ],
-      "regionProgramSummary": "학년·과목 연계 진로진학 데이터 누적 관리 기반 교육과정 트랙 운영 — AI·에너지 융합계열 트랙별 과목 · 의·생명 융합계열 트랙별 과목",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "학년·과목 연계 진로진학 데이터 누적 관리 기반 교육과정 트랙 운영 — AI·에너지 융합계열 트랙별 과목 · 의·생명 융합계열 트랙별 과목"
     },
     {
       "id": "pocheon",
@@ -17648,7 +17545,7 @@
       "description": "경기 포천시 · 자율형 공립고 2.0 3차 (2025.3.1 지정) — 지역과 협력하여 학생 맞춤형 교육을 실현하는 포천고",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -17865,9 +17762,7 @@
         "🩺 보건·의료",
         "🎯 지역연계교육"
       ],
-      "regionProgramSummary": "지역과 협력하여 학생 맞춤형 교육을 실현하는 포천고 — 글로벌 역량·창의 융합형 역량·디지털 역량 함양 교육과정",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "지역과 협력하여 학생 맞춤형 교육을 실현하는 포천고 — 글로벌 역량·창의 융합형 역량·디지털 역량 함양 교육과정"
     },
     {
       "id": "gumi_h",
@@ -18045,7 +17940,7 @@
       "description": "경상북도 구미시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 지역 반도체 산업과 대학을 연계한 탐구 중심 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -18263,9 +18158,7 @@
         "💾 반도체·전자",
         "🔬 대학 연계 탐구"
       ],
-      "regionProgramSummary": "지역 반도체 산업과 대학을 연계한 탐구 중심 교육과정 — 지역 자원: 구미국가산업단지(전자·반도체) · 금오공과대학교",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "지역 반도체 산업과 대학을 연계한 탐구 중심 교육과정 — 지역 자원: 구미국가산업단지(전자·반도체) · 금오공과대학교"
     },
     {
       "id": "andong_girls",
@@ -18443,7 +18336,7 @@
       "description": "경상북도 안동시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 바이오와 빅데이터 기반 미래산업 교육",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -18661,9 +18554,7 @@
         "🧬 바이오",
         "📊 빅데이터"
       ],
-      "regionProgramSummary": "바이오와 빅데이터 기반 미래산업 교육 — 지역 자원: 안동 바이오산업단지 · 국립안동대학교 · 유교문화 세계유산(하회마을)",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "바이오와 빅데이터 기반 미래산업 교육 — 지역 자원: 안동 바이오산업단지 · 국립안동대학교 · 유교문화 세계유산(하회마을)"
     },
     {
       "id": "ulleung_h",
@@ -18840,7 +18731,7 @@
       "description": "경상북도 울릉군 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 원격 기반 대학 연계 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -19054,14 +18945,7 @@
         "💻 원격 대학 연계",
         "🌊 도서·해양"
       ],
-      "regionProgramSummary": "원격 기반 대학 연계 교육과정 — 지역 자원: 울릉도·독도 해양생태 · 지리적 고립을 원격교육으로 극복하는 모델",
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "departments": [
-        "경영회계과",
-        "해양레저과"
-      ],
-      "departmentsSource": "NEIS 학급정보 — 2026학년도 1학년 개설 학과 (교육부)"
+      "regionProgramSummary": "원격 기반 대학 연계 교육과정 — 지역 자원: 울릉도·독도 해양생태 · 지리적 고립을 원격교육으로 극복하는 모델"
     },
     {
       "id": "pohang_h",
@@ -19238,7 +19122,7 @@
       "description": "경상북도 포항시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 대학 연계 탐구 중심 융합형 교육 모델",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -19452,9 +19336,7 @@
         "🔬 융합 탐구",
         "🎓 대학 연계"
       ],
-      "regionProgramSummary": "대학 연계 탐구 중심 융합형 교육 모델 — 지역 자원: 포스코·포항산업 · POSTECH · 포항 방사광가속기",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "대학 연계 탐구 중심 융합형 교육 모델 — 지역 자원: 포스코·포항산업 · POSTECH · 포항 방사광가속기"
     },
     {
       "id": "pohang_girls",
@@ -19631,7 +19513,7 @@
       "description": "경상북도 포항시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 질문과 실천 중심 진로·인성 교육",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -19845,9 +19727,7 @@
         "❓ 질문 중심 수업",
         "💬 진로·인성"
       ],
-      "regionProgramSummary": "질문과 실천 중심 진로·인성 교육 — 지역 자원: 포항 산업·대학 인프라",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "질문과 실천 중심 진로·인성 교육 — 지역 자원: 포항 산업·대학 인프라"
     },
     {
       "id": "gyeongsan_h",
@@ -20024,7 +19904,7 @@
       "description": "경상북도 경산시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7) — 팀 연구 기반 학교장 인증제 혁신 모델",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -20238,9 +20118,7 @@
         "🧪 팀 연구",
         "🏅 학교장 인증제"
       ],
-      "regionProgramSummary": "팀 연구 기반 학교장 인증제 혁신 모델 — 지역 자원: 경산 대학타운(영남대·대구대 등 대학 밀집)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "팀 연구 기반 학교장 인증제 혁신 모델 — 지역 자원: 경산 대학타운(영남대·대구대 등 대학 밀집)"
     },
     {
       "id": "sangju_girls",
@@ -20417,7 +20295,7 @@
       "description": "경상북도 상주시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7) — 에너지공학·스마트팜 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -20631,9 +20509,7 @@
         "⚡ 에너지공학",
         "🌾 스마트팜"
       ],
-      "regionProgramSummary": "에너지공학·스마트팜 교육과정 — 지역 자원: 상주 스마트팜 혁신밸리 · 농생명 산업",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "에너지공학·스마트팜 교육과정 — 지역 자원: 상주 스마트팜 혁신밸리 · 농생명 산업"
     },
     {
       "id": "uljin_h",
@@ -20810,7 +20686,7 @@
       "description": "경상북도 울진군 · 자율형 공립고 2.0 ③ 2024년 3차 선정 (2024.11) — 청정수소와 에너지 분야 특화 교육과정",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -21024,9 +20900,7 @@
         "💧 청정수소",
         "⚡ 에너지"
       ],
-      "regionProgramSummary": "청정수소와 에너지 분야 특화 교육과정 — 지역 자원: 울진 원자력·수소 국가산업단지 · 금강송 생태",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "청정수소와 에너지 분야 특화 교육과정 — 지역 자원: 울진 원자력·수소 국가산업단지 · 금강송 생태"
     },
     {
       "id": "andong_h",
@@ -21202,7 +21076,7 @@
       "description": "경상북도 안동시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -21393,9 +21267,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 유교문화 세계유산(하회마을·도산서원) · 국립안동대학교 · 경북도청 신도시 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 유교문화 세계유산(하회마을·도산서원) · 국립안동대학교 · 경북도청 신도시 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "bonghwa_h",
@@ -21571,7 +21443,7 @@
       "description": "경상북도 봉화군 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -21762,9 +21634,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 백두대간·국립백두대간수목원 · 산림생태 자원 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 백두대간·국립백두대간수목원 · 산림생태 자원 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yeongju_jeil",
@@ -21940,7 +21810,7 @@
       "description": "경상북도 영주시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -22131,9 +22001,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 소수서원·부석사(세계유산) · 영주 인삼·베어링 산업 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 소수서원·부석사(세계유산) · 영주 인삼·베어링 산업 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yulgok_h",
@@ -22309,7 +22177,7 @@
       "description": "경상북도 김천시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -22500,9 +22368,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 김천혁신도시(한국도로공사 등 공공기관 이전지) · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 김천혁신도시(한국도로공사 등 공공기관 이전지) · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "indong_h",
@@ -22678,7 +22544,7 @@
       "description": "경상북도 구미시 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -22869,9 +22735,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 구미국가산업단지(전자·반도체) · 금오공과대학교 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 구미국가산업단지(전자·반도체) · 금오공과대학교 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yeongcheon_h",
@@ -23047,7 +22911,7 @@
       "description": "경상북도 영천시 · 자율형 공립고 2.0 ⑤ 2024년 군인자녀 대상 별도 지정 (2024.10)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -23244,9 +23108,7 @@
         "🎖️ 군인자녀 배려",
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 영천 하이테크파크 · 과수·한약재 산업 · 군 주둔지역 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 영천 하이테크파크 · 과수·한약재 산업 · 군 주둔지역 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "jeomchon_h",
@@ -23422,7 +23284,7 @@
       "description": "경상북도 문경시 · 자율형 공립고 2.0 ③ 2024년 3차 선정 (2024.11)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -23613,9 +23475,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 문경새재·석탄박물관(산업유산) · 오미자 특산 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 문경새재·석탄박물관(산업유산) · 오미자 특산 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "naju_h",
@@ -23792,7 +23652,7 @@
       "description": "전라남도 나주시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 나주혁신도시 공공기관·대학 연계 교육과정 (나주고·봉황고·매성고 3개교 공동)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -24006,9 +23866,7 @@
         "⚡ 에너지",
         "🏛️ 공공기관 연계"
       ],
-      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주고·봉황고·매성고 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력공사 등 공공기관 · 한국에너지공과대학교(KENTECH) · 동신대학교",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주고·봉황고·매성고 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력공사 등 공공기관 · 한국에너지공과대학교(KENTECH) · 동신대학교"
     },
     {
       "id": "bonghwang_h",
@@ -24185,7 +24043,7 @@
       "description": "전라남도 나주시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -24399,9 +24257,7 @@
         "⚡ 에너지",
         "🏛️ 공공기관 연계"
       ],
-      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력 · 한국에너지공대 · 동신대",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력 · 한국에너지공대 · 동신대"
     },
     {
       "id": "maeseong_h",
@@ -24578,7 +24434,7 @@
       "description": "전라남도 나주시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2) — 나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -24792,9 +24648,7 @@
         "⚡ 에너지",
         "🏛️ 공공기관 연계"
       ],
-      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력 · 한국에너지공대 · 동신대",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "나주혁신도시 공공기관·대학 연계 교육과정 (나주 3개교 공동) — 지역 자원: 나주혁신도시 — 한국전력 · 한국에너지공대 · 동신대"
     },
     {
       "id": "mokpo_h",
@@ -24970,7 +24824,7 @@
       "description": "전라남도 목포시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -25161,9 +25015,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 목포 해양·항만 · 국립목포대학교 · 근대역사문화공간 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 목포 해양·항만 · 국립목포대학교 · 근대역사문화공간 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "docho_h",
@@ -25339,7 +25191,7 @@
       "description": "전라남도 신안군 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -25530,9 +25382,7 @@
       "listTags": [
         "🌊 도서·해양"
       ],
-      "regionProgramSummary": "==지역 자원== 신안 섬·갯벌 생태(세계자연유산 갯벌) · 신안 태양광·해상풍력 단지 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 신안 섬·갯벌 생태(세계자연유산 갯벌) · 신안 태양광·해상풍력 단지 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "suncheon_h",
@@ -25708,7 +25558,7 @@
       "description": "전라남도 순천시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -25899,9 +25749,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 순천만 국가정원·습지(생태) · 국립순천대학교 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 순천만 국가정원·습지(생태) · 국립순천대학교 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "namak_h",
@@ -26077,7 +25925,7 @@
       "description": "전라남도 무안군 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -26268,9 +26116,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 전남도청 소재 남악신도시 · 무안국제공항 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 전남도청 소재 남악신도시 · 무안국제공항 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "gwangyang_h",
@@ -26446,7 +26292,7 @@
       "description": "전라남도 광양시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -26637,9 +26483,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 광양제철소(포스코) · 광양항 물류 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 광양제철소(포스코) · 광양항 물류 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yeosu_h",
@@ -26815,7 +26659,7 @@
       "description": "전라남도 여수시 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -27006,9 +26850,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 여수국가산업단지(석유화학) · 여수 해양·관광 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 여수국가산업단지(석유화학) · 여수 해양·관광 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yeongam_h",
@@ -27184,7 +27026,7 @@
       "description": "전라남도 영암군 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -27375,9 +27217,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 대불국가산업단지(조선·해양) · 월출산 국립공원 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 대불국가산업단지(조선·해양) · 월출산 국립공원 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "haenam_h",
@@ -27553,7 +27393,7 @@
       "description": "전라남도 해남군 · 자율형 공립고 2.0 ① 2024년 1차 선정 (2024.2)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -27744,9 +27584,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 해남 농생명(전국 최대 농경지) · 땅끝·해양 자원 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 해남 농생명(전국 최대 농경지) · 땅끝·해양 자원 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "gangjin_h",
@@ -27922,7 +27760,7 @@
       "description": "전라남도 강진군 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -28113,9 +27951,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 고려청자 도요지(사적) · 다산 정약용 유배지 · 강진만 생태 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 고려청자 도요지(사적) · 다산 정약용 유배지 · 강진만 생태 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "muan_h",
@@ -28291,7 +28127,7 @@
       "description": "전라남도 무안군 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -28482,9 +28318,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 무안국제공항 · 전남도청 · 무안 양파 특산 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 무안국제공항 · 전남도청 · 무안 양파 특산 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "yeonggwang_h",
@@ -28660,7 +28494,7 @@
       "description": "전라남도 영광군 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -28851,9 +28685,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 한빛원자력발전소 · 영광 해상풍력 · 법성포 굴비 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 한빛원자력발전소 · 영광 해상풍력 · 법성포 굴비 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "hampyeong_hakdari",
@@ -29029,7 +28861,7 @@
       "description": "전라남도 함평군 · 자율형 공립고 2.0 ② 2024년 2차 선정 (2024.7)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -29220,9 +29052,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 함평 나비생태(나비축제) · 농업 자원 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 함평 나비생태(나비축제) · 농업 자원 · 학교 공식 특화분야는 공지 확인 필요"
     },
     {
       "id": "gurye_h",
@@ -29398,7 +29228,7 @@
       "description": "전라남도 구례군 · 자율형 공립고 2.0 ③ 2024년 3차 선정 (2024.11)",
       "schoolInfoCard": {
         "regionScope": "경기 포천시 학군 — 교육지원청 배정 (평준화 여부는 지역별 상이, 고입 전형 기본계획 확인)",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인",
         "genderRatio": "* 학교알리미 학생현황 공시 확인",
         "dormitoryType": "통학형",
         "costPerYear": "무상교육 적용 0원 — 급식·교복 등 수익자부담경비 별도",
@@ -29589,9 +29419,7 @@
       "listTags": [
         "🤝 지역 연계 탐구"
       ],
-      "regionProgramSummary": "==지역 자원== 지리산 국립공원 생태 · 섬진강 · 산수유 특산 · 학교 공식 특화분야는 공지 확인 필요",
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "regionProgramSummary": "==지역 자원== 지리산 국립공원 생태 · 섬진강 · 산수유 특산 · 학교 공식 특화분야는 공지 확인 필요"
     }
   ],
   "verificationStatus": {

@@ -500,7 +500,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==도내 모집 (제주특별자치도 거주자 한정)== — 정원 내는 도내 중학교 졸업예정자 + 도내 거주자. 단, 제주혁신도시 이전 기관 종사자 자녀·제주영어교육도시 국제학교 중학교 과정 이수자는 예외 지원 가능",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "==1학년 150명 (6학급 × 25명)== — 일반 147명 + 체육특기자 3명",
         "genderRatio": "남녀공학 (모집정원 100% 남녀 구분 없이 선발)",
         "dormitoryType": "==기숙사 운영== — 제주 본섬·도외 학생 수용 [공식 홈페이지 확인]",
         "costPerYear": "==공립 무상교육 + IB 운영비 교육청 지원==. 기숙사비·식비·자료비 등 [일반적] 연 200~400만원 수준",
@@ -1089,12 +1089,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      }
     },
     {
       "id": "gyeonggi_ib",
@@ -1137,7 +1132,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==전국 단위 지원 가능== (사립 외국어 특목고)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 200~250명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 필수 운영== — 주중 기숙·주말 귀가 패턴 [공식 홈페이지 확인]",
         "costPerYear": "[일반적] ==연 1,500~2,500만원 수준== — 입학금·수업료·기숙사·교재·IB 운영비",
@@ -1703,12 +1698,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "영어 DP"
-      ]
+      }
     },
     {
       "id": "daegu_intl_dp",
@@ -1750,7 +1740,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==전국·대구 단위 지원 가능== (공립 국제고)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 100~150명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 운영== — 주중 기숙·주말 귀가 [공식 홈페이지 확인]",
         "costPerYear": "[일반적] 연 ==300~600만원== — 수업료 무상 + 국제고 운영비·기숙사비·교재·IB 운영비",
@@ -2306,9 +2296,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "chungnam_samsung_ib",
@@ -2351,7 +2339,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==전국 단위 지원 가능== (사립 자사고) — 삼성 임직원 자녀 우선 + 일반 모집",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==전교생 기숙사 의무== — 주중 기숙·주말 귀가",
         "costPerYear": "[일반적] 연 ==1,500~2,500만원== — 사립 자사고 학비 + IB 운영비 + 기숙사 (임직원 자녀 감면 가능)",
@@ -2913,12 +2901,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "영어 DP"
-      ]
+      }
     },
     {
       "id": "anseong_juksan_ib",
@@ -2961,7 +2944,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==전국·도내 단위 지원 가능== (공립 일반고)",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 60~100명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 운영 추정== [공식 입학요강 확인 필수]",
         "costPerYear": "[일반적] 연 ==150~300만원== — 수업료 무상 + 기숙사·교재·자료비",
@@ -3532,12 +3515,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      }
     },
     {
       "id": "knu_sadabu_ib",
@@ -3580,7 +3558,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==대구·인근 도시 단위== (도심 국립 사대부설)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 200~250명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 없음== — 도심 통학",
         "costPerYear": "[일반적] 연 ==100~250만원== — 수업료 무상 + 교재·자료비 + 사교육비 별도",
@@ -4146,12 +4124,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어·영어 이중언어 DP"
-      ]
+      }
     },
     {
       "id": "posan_ib",
@@ -4194,7 +4167,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==대구·도내·일부 전국 단위== (외곽 공립 일반고)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 80~150명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 운영 추정== [공식 입학요강 확인]",
         "costPerYear": "[일반적] 연 ==150~300만원==",
@@ -4755,12 +4728,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어·영어 이중언어 DP"
-      ]
+      }
     },
     {
       "id": "daegu_foreign_ib",
@@ -4802,7 +4770,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==대구·전국 단위 지원 가능== (공립 외고)",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 150~200명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 운영==",
         "costPerYear": "[일반적] 연 ==300~600만원==",
@@ -5368,9 +5336,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "daegu_seobu_ib",
@@ -5413,7 +5379,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==대구·인근 도심 단위== (도심 공립 일반고)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "[일반적] 학년당 200~300명",
         "genderRatio": "남녀공학",
         "dormitoryType": "==기숙사 없음== — 도심 통학",
         "costPerYear": "[일반적] 연 ==100~250만원==",
@@ -5970,9 +5936,7 @@
             ]
           }
         ]
-      },
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      }
     },
     {
       "id": "daegu_jungang_ib",
@@ -6133,7 +6097,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "==대구광역시 평준화 배정== — 지원·추첨 방식은 매년 대구시교육청 고입전형 기본계획으로 확인",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "통학형 (기숙사 운영 여부는 학교 확인)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -6571,12 +6535,6 @@
           "description": "지식의 본질·한계를 다루는 비판적 사고 수업. 에세이 + 구술 발표로 평가.",
           "benefit": "==면접·구술 대응력==이 확연히 올라갑니다."
         }
-      ],
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "MYP 연계"
       ]
     },
     {
@@ -6741,7 +6699,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "* 모집 단위(전북 도내/전국)는 학교 모집요강으로 확인하세요 — 대안교육 특성화고는 광역 모집인 경우가 많습니다.",
-        "capacity": "1학년 2학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "==기숙형 대안학교== — 전교생 기숙 생활이 기본 (구체 운영은 학교 확인)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -7184,11 +7142,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
       ]
     },
     {
@@ -7352,7 +7305,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "* 모집 단위는 경북교육청 고입전형 기본계획·학교 모집요강으로 확인",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "==기숙형 학교== — 기숙사 운영 (수용 범위·비용은 학교 확인)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -7776,12 +7729,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -7945,7 +7892,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기도 고입 전형 기준 (의왕 지역) — * 매년 경기도교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 4학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "통학형 (기숙사 없음 — 수도권 통학 학교)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -8381,12 +8328,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -8550,7 +8491,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "대전광역시 고입 전형 기준 — * 매년 대전시교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -8974,12 +8915,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -9143,7 +9078,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "대전광역시 고입 전형 기준 — * 매년 대전시교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -9566,12 +9501,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -9735,7 +9664,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "대전광역시 고입 전형 기준 — * 매년 대전시교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 9학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -10158,12 +10087,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -10326,7 +10249,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "* 모집 단위는 학교 모집요강으로 확인 (수원 영통 소재 · 수도권 통학권)",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "* 학교알리미 학생현황 공시로 확인 (IB 이수 인원은 별도)",
         "genderRatio": "* 학교 공식 홈페이지·학교알리미로 확인",
         "dormitoryType": "* 기숙사 운영 여부는 학교에 확인하세요 (수원 도심 통학권)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -10748,9 +10671,7 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      ]
     },
     {
       "id": "jeonju_yanghyeon_ib",
@@ -10913,7 +10834,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "전북 고입 전형 기준 — * 매년 전북교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": null,
         "genderRatio": "남녀공학 (NEIS 학교기본정보 기준)",
         "dormitoryType": "* 기숙사 운영 여부는 학교에 확인하세요",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -11333,12 +11254,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -11502,7 +11417,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "전북 고입 전형 기준 — * 매년 전북교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 5학급 (NEIS 2026학년도 학급정보)",
+        "capacity": null,
         "genderRatio": "남녀공학 (NEIS 학교기본정보 기준)",
         "dormitoryType": "* 기숙사 운영 여부는 학교에 확인하세요",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -11923,12 +11838,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -12092,7 +12001,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "전북 고입 전형 기준 — * 매년 전북교육청 고입전형 기본계획 확인",
-        "capacity": "1학년 3학급 (NEIS 2026학년도 학급정보)",
+        "capacity": null,
         "genderRatio": "여자고등학교 (NEIS 학교기본정보 기준)",
         "dormitoryType": "* 기숙사 운영 여부는 학교에 확인하세요",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -12512,12 +12421,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -13114,10 +13017,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -13720,10 +13619,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -14329,9 +14224,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -14925,10 +14817,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -15522,10 +15410,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -16121,9 +16005,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -16718,9 +16599,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -17315,10 +17193,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -17912,10 +17786,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -18082,7 +17952,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "남양주 비평준화 지역 — 학교별 전형 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 11학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남녀공학 (NEIS 학교기본정보)",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -18512,11 +18382,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
       ]
     },
     {
@@ -18682,7 +18547,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "양주 비평준화 지역 — 학교별 전형 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 10학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남녀공학 (NEIS 학교기본정보)",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -19111,11 +18976,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
       ]
     },
     {
@@ -19280,7 +19140,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "안양권(안양·과천·군포·의왕) 평준화 학군 — 교육감 배정 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 12학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남녀공학 (NEIS 학교기본정보)",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -19708,11 +19568,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
       ]
     },
     {
@@ -19878,7 +19733,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "경기도 국제고 — 전기 자기주도학습전형 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 8학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남녀공학 (NEIS 학교기본정보)",
         "dormitoryType": "기숙사 운영 (기숙사비 별도 납부 — 학교 공지 기준)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -20320,9 +20175,7 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      ]
     },
     {
       "id": "suwon_suseong_ib",
@@ -20485,7 +20338,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "수원 평준화 학군 — 교육감 배정 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 12학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남학교 (NEIS 학교기본정보)",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -20912,12 +20765,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     },
     {
@@ -21083,7 +20930,7 @@
       ],
       "schoolInfoCard": {
         "regionScope": "포천 비평준화 지역 — 학교별 전형 (2026학년도 경기도 고입전형 기본계획 기준)",
-        "capacity": "1학년 2학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "2026학년도 ==1학년 9학급== (NEIS 학급정보). IB 이수 인원은 별도입니다.",
         "genderRatio": "남녀공학 (NEIS 학교기본정보)",
         "dormitoryType": "통학형 (기숙사 없음)",
         "costPerYear": "==무상교육 적용 — 수업료 0원==. 급식비·교복 등 수익자부담경비만 발생",
@@ -21512,12 +21359,6 @@
           "description": "18개월간 이어지는 창의·활동·봉사 포트폴리오. 최소 1개월 이상 협업 프로젝트 필수.",
           "benefit": "==봉사시간 채우기가 아니라 '기획한 경험'==이 남습니다."
         }
-      ],
-      "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
       ]
     }
   ],
@@ -23041,163 +22882,5 @@
       }
     ]
   },
-  "verificationStatus": "2026-08-25 재검증 — 신규 20개교 추가. 공교육 11개교는 ==NEIS 학교기본정보(소재지·설립구분·홈페이지)==와 ==인증·후보 승인 보도==로, 국제학교·외국인학교 9개교는 ==학교 공식 홈페이지의 IB 프로그램 안내==와 ==교육부 외국교육기관·외국인학교 종합안내==로 교차 확인했습니다. ==학비·정원·경쟁률 등 비공개 항목은 추정치를 싣지 않고 '확인 안내'로 처리==했습니다.",
-  "dpSubjectGroups": {
-    "headline": "🎓 IB DP 과목 구조 — 6개 과목군 + 코어 3",
-    "intro": "DP는 학과가 아니라 ==과목군에서 한 과목씩 6개를 고르는 구조==입니다. 그중 ==3개를 HL(고급, 240시간)==, 3개를 SL(표준, 150시간)로 듣고, ==HL 3과목이 사실상 대학 전공 선언==이 됩니다. 여기에 ==TOK·EE·CAS 코어 3종==이 필수로 붙습니다.",
-    "scoreNote": "6과목 각 7점 = 42점 + 코어 보너스 3점 = ==만점 45점==. 24점 이상이어야 디플로마가 나옵니다. ==국내 대입(학생부종합)에서는 IB 점수 자체가 아니라 학생부 기록==으로 평가되고, 해외대는 IB 점수를 직접 봅니다.",
-    "groups": [
-      {
-        "id": "g1",
-        "emoji": "📖",
-        "label": "군1 · 언어와 문학 (Studies in Language and Literature)",
-        "what": "모국어로 문학·비문학을 깊게 읽고 쓰는 과목군. 한국어 DP 학교는 ==한국어 A==로 이수합니다.",
-        "subjects": [
-          "한국어 A: 문학",
-          "한국어 A: 언어와 문학",
-          "영어 A: 언어와 문학"
-        ],
-        "majors": [
-          "국어국문·문예창작",
-          "언론·미디어",
-          "법학(논증 글쓰기)",
-          "교육"
-        ],
-        "tip": "==모든 DP 학생이 반드시 1과목== 듣습니다. HL로 올리면 문학 분석 에세이 분량이 크게 늘어납니다."
-      },
-      {
-        "id": "g2",
-        "emoji": "🗣️",
-        "label": "군2 · 언어 습득 (Language Acquisition)",
-        "what": "외국어. ==학교마다 개설 언어가 가장 크게 갈리는 군==이라 지원 전 반드시 확인해야 합니다.",
-        "subjects": [
-          "English B",
-          "Spanish ab initio",
-          "Japanese B",
-          "Chinese B",
-          "French B"
-        ],
-        "majors": [
-          "어문계열",
-          "국제학·외교",
-          "통번역",
-          "관광·항공서비스"
-        ],
-        "tip": "==원하는 제2외국어가 그 학교에 개설돼 있는지==가 학교 선택의 실질적 갈림길입니다. ab initio(초급)와 B(중급) 중 무엇을 여는지도 학교마다 다릅니다."
-      },
-      {
-        "id": "g3",
-        "emoji": "🌏",
-        "label": "군3 · 개인과 사회 (Individuals and Societies)",
-        "what": "경제·경영·역사·심리·지리 등 사회과학. 한국 IB 학교에서는 ==역사·경제·경영== 개설이 가장 흔합니다.",
-        "subjects": [
-          "경제(Economics)",
-          "경영(Business Management)",
-          "역사(History)",
-          "심리(Psychology)",
-          "지리(Geography)",
-          "세계종교·철학"
-        ],
-        "majors": [
-          "경영·경제",
-          "정치외교·행정",
-          "심리학",
-          "사회학·인류학",
-          "국제통상"
-        ],
-        "tip": "==경제 HL + 수학 AA==는 상경계, ==역사 HL + 언어 HL==은 법·정치 트랙으로 이어지는 대표 조합입니다."
-      },
-      {
-        "id": "g4",
-        "emoji": "🔬",
-        "label": "군4 · 과학 (Sciences)",
-        "what": "물리·화학·생물·컴퓨터과학·디자인기술. ==실험 보고서(IA)와 협업 프로젝트==가 필수로 붙습니다.",
-        "subjects": [
-          "물리(Physics)",
-          "화학(Chemistry)",
-          "생물(Biology)",
-          "컴퓨터과학(Computer Science)",
-          "디자인기술",
-          "환경시스템과 사회(ESS)"
-        ],
-        "majors": [
-          "공학 전 계열",
-          "의·치·약·수의",
-          "생명과학",
-          "컴퓨터공학·AI",
-          "환경·에너지"
-        ],
-        "tip": "==의약계열은 화학 HL + 생물 HL==, ==공학은 물리 HL + 수학 AA HL==이 사실상 요구 조건입니다. 학교에 물리 HL이 열리는지 꼭 확인하세요."
-      },
-      {
-        "id": "g5",
-        "emoji": "📐",
-        "label": "군5 · 수학 (Mathematics)",
-        "what": "==AA(분석과 접근)==와 ==AI(응용과 해석)== 두 갈래로 나뉘고, 각각 HL/SL이 있어 총 4가지입니다.",
-        "subjects": [
-          "수학 AA HL/SL (Analysis and Approaches)",
-          "수학 AI HL/SL (Applications and Interpretation)"
-        ],
-        "majors": [
-          "AA HL → 공학·물리·수학·경제(상위권)",
-          "AI HL → 경영·데이터·사회과학",
-          "AA SL → 자연계 일반",
-          "AI SL → 인문·예술"
-        ],
-        "tip": "==AA vs AI 선택이 DP에서 가장 되돌리기 어려운 결정==입니다. 이공계·상경계 상위권 대학은 대부분 ==AA HL==을 요구합니다."
-      },
-      {
-        "id": "g6",
-        "emoji": "🎨",
-        "label": "군6 · 예술 (The Arts) 또는 대체 선택",
-        "what": "미술·음악·연극·영화. ==예술 대신 군1~5에서 한 과목을 더 고를 수 있어==, 이과 학생은 보통 과학·수학을 추가합니다.",
-        "subjects": [
-          "시각예술(Visual Arts)",
-          "음악(Music)",
-          "연극(Theatre)",
-          "영화(Film)",
-          "※ 대체: 과학·사회 두 번째 과목"
-        ],
-        "majors": [
-          "미술·디자인",
-          "음악·공연예술",
-          "영상·영화",
-          "건축(예술+수학 조합)"
-        ],
-        "tip": "==예술 HL은 전시·포트폴리오가 평가에 들어가== 해외 미대 진학에 직접 쓰입니다. 반대로 이공계 지망은 이 군을 과학 2과목으로 대체하는 경우가 많습니다."
-      }
-    ],
-    "core": [
-      {
-        "id": "tok",
-        "emoji": "🧠",
-        "label": "TOK (지식론)",
-        "what": "\"우리는 무엇을 어떻게 아는가\"를 다루는 필수 과목. 에세이 1,600단어 + 전시 과제.",
-        "why": "==학생부 세특·자기소개 글의 재료==가 여기서 나옵니다."
-      },
-      {
-        "id": "ee",
-        "emoji": "📝",
-        "label": "EE (소논문)",
-        "what": "관심 과목 하나를 골라 ==4,000단어 연구 논문==을 씁니다.",
-        "why": "==대학 전공 적합성을 보여주는 가장 강력한 산출물==입니다. 국내 학종에서도 탐구 역량 근거가 됩니다."
-      },
-      {
-        "id": "cas",
-        "emoji": "🤝",
-        "label": "CAS (창의·활동·봉사)",
-        "what": "18개월간 창의·신체활동·봉사를 균형 있게 수행하고 성찰 기록을 남깁니다.",
-        "why": "점수는 없지만 ==미이수 시 디플로마가 나오지 않습니다==."
-      }
-    ],
-    "checkBeforeApply": [
-      "이 학교에 ==수학 AA HL==이 열리는가 (이공계·상경계 지망이면 필수 확인)",
-      "==물리·화학 HL== 개설 여부 (의약·공학 지망)",
-      "==군2 외국어로 무엇을 개설==하는가 (일본어·중국어·스페인어 등 학교마다 다름)",
-      "==군6 예술 개설 여부==, 없으면 과학·사회 2과목으로 대체되는가",
-      "==한국어 DP인가 영어 DP인가== — 수업·평가 언어가 학습 부담을 좌우합니다",
-      "==전교생 이수인가, 교내 IB반 선발인가=="
-    ],
-    "sourceNote": "과목군 구조·평가 방식은 ==IBO(International Baccalaureate Organization) 공식 DP 커리큘럼 기준==입니다. ==학교별 실제 개설 과목은 IBO도 공개하지 않으므로==, 반드시 해당 학교 입학설명회·교육과정 안내에서 확인하세요."
-  }
+  "verificationStatus": "2026-08-25 재검증 — 신규 20개교 추가. 공교육 11개교는 ==NEIS 학교기본정보(소재지·설립구분·홈페이지)==와 ==인증·후보 승인 보도==로, 국제학교·외국인학교 9개교는 ==학교 공식 홈페이지의 IB 프로그램 안내==와 ==교육부 외국교육기관·외국인학교 종합안내==로 교차 확인했습니다. ==학비·정원·경쟁률 등 비공개 항목은 추정치를 싣지 않고 '확인 안내'로 처리==했습니다."
 }

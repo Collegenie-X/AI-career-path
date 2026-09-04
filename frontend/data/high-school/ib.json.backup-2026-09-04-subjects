@@ -1091,10 +1091,7 @@
         ]
       },
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "gyeonggi_ib",
@@ -1705,10 +1702,7 @@
         ]
       },
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "영어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "daegu_intl_dp",
@@ -2915,10 +2909,7 @@
         ]
       },
       "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "영어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "anseong_juksan_ib",
@@ -3534,10 +3525,7 @@
         ]
       },
       "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "knu_sadabu_ib",
@@ -4148,10 +4136,7 @@
         ]
       },
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어·영어 이중언어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "posan_ib",
@@ -4757,10 +4742,7 @@
         ]
       },
       "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어·영어 이중언어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "daegu_foreign_ib",
@@ -6573,11 +6555,7 @@
         }
       ],
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "MYP 연계"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "jipyeongseon_ib",
@@ -7186,10 +7164,7 @@
         }
       ],
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "andong_pungsan_ib",
@@ -7778,11 +7753,7 @@
         }
       ],
       "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "uiwang_naeson_ib",
@@ -8383,11 +8354,7 @@
         }
       ],
       "firstYearClassCount": 4,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "daejeon_daesung_ib",
@@ -8976,11 +8943,7 @@
         }
       ],
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "daejeon_seodaejeon_ib",
@@ -9568,11 +9531,7 @@
         }
       ],
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "daejeon_seoil_ib",
@@ -10160,11 +10119,7 @@
         }
       ],
       "firstYearClassCount": 9,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "suwon_cca_ib",
@@ -11335,11 +11290,7 @@
         }
       ],
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "sunchang_ib",
@@ -11925,11 +11876,7 @@
         }
       ],
       "firstYearClassCount": 5,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "jeonju_girls_ib",
@@ -12514,11 +12461,7 @@
         }
       ],
       "firstYearClassCount": 3,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "chadwick_songdo_ib",
@@ -13114,10 +13057,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -13720,10 +13659,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -14329,9 +14264,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -14925,10 +14857,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -15522,10 +15450,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -16121,9 +16045,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -16718,9 +16639,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "영어 DP"
       ]
     },
     {
@@ -17315,10 +17233,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -17912,10 +17826,6 @@
           "description": "CAS 포트폴리오와 대학 진학 카운슬러의 1:1 원서 전략 지도가 결합됩니다.",
           "benefit": "==해외대 Holistic Review==에서 활동의 '이야기'를 만들어 줍니다."
         }
-      ],
-      "ibTrackTags": [
-        "PYP 연계",
-        "MYP 연계"
       ]
     },
     {
@@ -18514,10 +18424,7 @@
         }
       ],
       "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "yangju_deokjeong_ib",
@@ -19113,10 +19020,7 @@
         }
       ],
       "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "anyang_gwanyang_ib",
@@ -19710,10 +19614,7 @@
         }
       ],
       "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "dongtan_intl_ib",
@@ -20914,11 +20815,7 @@
         }
       ],
       "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     },
     {
       "id": "pocheon_ib",
@@ -21514,11 +21411,7 @@
         }
       ],
       "firstYearClassCount": 2,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)",
-      "ibTrackTags": [
-        "한국어 DP",
-        "후보학교(심사 중)"
-      ]
+      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
     }
   ],
   "categoryAlumniInsight": {
@@ -23041,163 +22934,5 @@
       }
     ]
   },
-  "verificationStatus": "2026-08-25 재검증 — 신규 20개교 추가. 공교육 11개교는 ==NEIS 학교기본정보(소재지·설립구분·홈페이지)==와 ==인증·후보 승인 보도==로, 국제학교·외국인학교 9개교는 ==학교 공식 홈페이지의 IB 프로그램 안내==와 ==교육부 외국교육기관·외국인학교 종합안내==로 교차 확인했습니다. ==학비·정원·경쟁률 등 비공개 항목은 추정치를 싣지 않고 '확인 안내'로 처리==했습니다.",
-  "dpSubjectGroups": {
-    "headline": "🎓 IB DP 과목 구조 — 6개 과목군 + 코어 3",
-    "intro": "DP는 학과가 아니라 ==과목군에서 한 과목씩 6개를 고르는 구조==입니다. 그중 ==3개를 HL(고급, 240시간)==, 3개를 SL(표준, 150시간)로 듣고, ==HL 3과목이 사실상 대학 전공 선언==이 됩니다. 여기에 ==TOK·EE·CAS 코어 3종==이 필수로 붙습니다.",
-    "scoreNote": "6과목 각 7점 = 42점 + 코어 보너스 3점 = ==만점 45점==. 24점 이상이어야 디플로마가 나옵니다. ==국내 대입(학생부종합)에서는 IB 점수 자체가 아니라 학생부 기록==으로 평가되고, 해외대는 IB 점수를 직접 봅니다.",
-    "groups": [
-      {
-        "id": "g1",
-        "emoji": "📖",
-        "label": "군1 · 언어와 문학 (Studies in Language and Literature)",
-        "what": "모국어로 문학·비문학을 깊게 읽고 쓰는 과목군. 한국어 DP 학교는 ==한국어 A==로 이수합니다.",
-        "subjects": [
-          "한국어 A: 문학",
-          "한국어 A: 언어와 문학",
-          "영어 A: 언어와 문학"
-        ],
-        "majors": [
-          "국어국문·문예창작",
-          "언론·미디어",
-          "법학(논증 글쓰기)",
-          "교육"
-        ],
-        "tip": "==모든 DP 학생이 반드시 1과목== 듣습니다. HL로 올리면 문학 분석 에세이 분량이 크게 늘어납니다."
-      },
-      {
-        "id": "g2",
-        "emoji": "🗣️",
-        "label": "군2 · 언어 습득 (Language Acquisition)",
-        "what": "외국어. ==학교마다 개설 언어가 가장 크게 갈리는 군==이라 지원 전 반드시 확인해야 합니다.",
-        "subjects": [
-          "English B",
-          "Spanish ab initio",
-          "Japanese B",
-          "Chinese B",
-          "French B"
-        ],
-        "majors": [
-          "어문계열",
-          "국제학·외교",
-          "통번역",
-          "관광·항공서비스"
-        ],
-        "tip": "==원하는 제2외국어가 그 학교에 개설돼 있는지==가 학교 선택의 실질적 갈림길입니다. ab initio(초급)와 B(중급) 중 무엇을 여는지도 학교마다 다릅니다."
-      },
-      {
-        "id": "g3",
-        "emoji": "🌏",
-        "label": "군3 · 개인과 사회 (Individuals and Societies)",
-        "what": "경제·경영·역사·심리·지리 등 사회과학. 한국 IB 학교에서는 ==역사·경제·경영== 개설이 가장 흔합니다.",
-        "subjects": [
-          "경제(Economics)",
-          "경영(Business Management)",
-          "역사(History)",
-          "심리(Psychology)",
-          "지리(Geography)",
-          "세계종교·철학"
-        ],
-        "majors": [
-          "경영·경제",
-          "정치외교·행정",
-          "심리학",
-          "사회학·인류학",
-          "국제통상"
-        ],
-        "tip": "==경제 HL + 수학 AA==는 상경계, ==역사 HL + 언어 HL==은 법·정치 트랙으로 이어지는 대표 조합입니다."
-      },
-      {
-        "id": "g4",
-        "emoji": "🔬",
-        "label": "군4 · 과학 (Sciences)",
-        "what": "물리·화학·생물·컴퓨터과학·디자인기술. ==실험 보고서(IA)와 협업 프로젝트==가 필수로 붙습니다.",
-        "subjects": [
-          "물리(Physics)",
-          "화학(Chemistry)",
-          "생물(Biology)",
-          "컴퓨터과학(Computer Science)",
-          "디자인기술",
-          "환경시스템과 사회(ESS)"
-        ],
-        "majors": [
-          "공학 전 계열",
-          "의·치·약·수의",
-          "생명과학",
-          "컴퓨터공학·AI",
-          "환경·에너지"
-        ],
-        "tip": "==의약계열은 화학 HL + 생물 HL==, ==공학은 물리 HL + 수학 AA HL==이 사실상 요구 조건입니다. 학교에 물리 HL이 열리는지 꼭 확인하세요."
-      },
-      {
-        "id": "g5",
-        "emoji": "📐",
-        "label": "군5 · 수학 (Mathematics)",
-        "what": "==AA(분석과 접근)==와 ==AI(응용과 해석)== 두 갈래로 나뉘고, 각각 HL/SL이 있어 총 4가지입니다.",
-        "subjects": [
-          "수학 AA HL/SL (Analysis and Approaches)",
-          "수학 AI HL/SL (Applications and Interpretation)"
-        ],
-        "majors": [
-          "AA HL → 공학·물리·수학·경제(상위권)",
-          "AI HL → 경영·데이터·사회과학",
-          "AA SL → 자연계 일반",
-          "AI SL → 인문·예술"
-        ],
-        "tip": "==AA vs AI 선택이 DP에서 가장 되돌리기 어려운 결정==입니다. 이공계·상경계 상위권 대학은 대부분 ==AA HL==을 요구합니다."
-      },
-      {
-        "id": "g6",
-        "emoji": "🎨",
-        "label": "군6 · 예술 (The Arts) 또는 대체 선택",
-        "what": "미술·음악·연극·영화. ==예술 대신 군1~5에서 한 과목을 더 고를 수 있어==, 이과 학생은 보통 과학·수학을 추가합니다.",
-        "subjects": [
-          "시각예술(Visual Arts)",
-          "음악(Music)",
-          "연극(Theatre)",
-          "영화(Film)",
-          "※ 대체: 과학·사회 두 번째 과목"
-        ],
-        "majors": [
-          "미술·디자인",
-          "음악·공연예술",
-          "영상·영화",
-          "건축(예술+수학 조합)"
-        ],
-        "tip": "==예술 HL은 전시·포트폴리오가 평가에 들어가== 해외 미대 진학에 직접 쓰입니다. 반대로 이공계 지망은 이 군을 과학 2과목으로 대체하는 경우가 많습니다."
-      }
-    ],
-    "core": [
-      {
-        "id": "tok",
-        "emoji": "🧠",
-        "label": "TOK (지식론)",
-        "what": "\"우리는 무엇을 어떻게 아는가\"를 다루는 필수 과목. 에세이 1,600단어 + 전시 과제.",
-        "why": "==학생부 세특·자기소개 글의 재료==가 여기서 나옵니다."
-      },
-      {
-        "id": "ee",
-        "emoji": "📝",
-        "label": "EE (소논문)",
-        "what": "관심 과목 하나를 골라 ==4,000단어 연구 논문==을 씁니다.",
-        "why": "==대학 전공 적합성을 보여주는 가장 강력한 산출물==입니다. 국내 학종에서도 탐구 역량 근거가 됩니다."
-      },
-      {
-        "id": "cas",
-        "emoji": "🤝",
-        "label": "CAS (창의·활동·봉사)",
-        "what": "18개월간 창의·신체활동·봉사를 균형 있게 수행하고 성찰 기록을 남깁니다.",
-        "why": "점수는 없지만 ==미이수 시 디플로마가 나오지 않습니다==."
-      }
-    ],
-    "checkBeforeApply": [
-      "이 학교에 ==수학 AA HL==이 열리는가 (이공계·상경계 지망이면 필수 확인)",
-      "==물리·화학 HL== 개설 여부 (의약·공학 지망)",
-      "==군2 외국어로 무엇을 개설==하는가 (일본어·중국어·스페인어 등 학교마다 다름)",
-      "==군6 예술 개설 여부==, 없으면 과학·사회 2과목으로 대체되는가",
-      "==한국어 DP인가 영어 DP인가== — 수업·평가 언어가 학습 부담을 좌우합니다",
-      "==전교생 이수인가, 교내 IB반 선발인가=="
-    ],
-    "sourceNote": "과목군 구조·평가 방식은 ==IBO(International Baccalaureate Organization) 공식 DP 커리큘럼 기준==입니다. ==학교별 실제 개설 과목은 IBO도 공개하지 않으므로==, 반드시 해당 학교 입학설명회·교육과정 안내에서 확인하세요."
-  }
+  "verificationStatus": "2026-08-25 재검증 — 신규 20개교 추가. 공교육 11개교는 ==NEIS 학교기본정보(소재지·설립구분·홈페이지)==와 ==인증·후보 승인 보도==로, 국제학교·외국인학교 9개교는 ==학교 공식 홈페이지의 IB 프로그램 안내==와 ==교육부 외국교육기관·외국인학교 종합안내==로 교차 확인했습니다. ==학비·정원·경쟁률 등 비공개 항목은 추정치를 싣지 않고 '확인 안내'로 처리==했습니다."
 }

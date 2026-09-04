@@ -481,7 +481,7 @@
       "description": "인천고는 인천 지역의 전통 공립 일반고. 학군지가 아닌 비학군지 보편 일반고로 ==교과전형·지역균형 트랙==이 적합합니다. [일반적] 자기주도 학습 환경과 진학 지도 체계가 강점.",
       "schoolInfoCard": {
         "regionScope": "인천 후기 일반고 학군 배정",
-        "capacity": "1학년 11학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "고교 무상교육 — 수업료 면제 (교재·체험학습 등 별도)",
@@ -543,9 +543,7 @@
         "homepageMustCheck": "학교 홈페이지에서 ① 진학 실적 공시 ② 동아리·자율활동 목록 ③ 야간 자율학습·방과후 운영 현황을 확인하세요.",
         "homepageUrl": "https://incheon.icehs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://incheon.icehs.kr/)",
-      "firstYearClassCount": 11,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://incheon.icehs.kr/)"
     },
     {
       "id": "busan_high",
@@ -763,7 +761,7 @@
       "description": "부산고는 부산 원도심의 전통 공립 일반고. 해운대 신시가지 학군과 구분되는 비학군지 보편 일반고. [일반적] 자기주도 학습 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "부산 후기 일반고 학군 배정",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "기숙사 없음 (통학)",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -824,9 +822,7 @@
         "homepageMustCheck": "진학 실적, 동아리, 야자·방과후 현황 확인.",
         "homepageUrl": "https://school.busanedu.net/"
       },
-      "verifiedNote": "https://school.busanedu.net/",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "https://school.busanedu.net/"
     },
     {
       "id": "daejeon_high",
@@ -1044,7 +1040,7 @@
       "description": "대전고는 대전 중구의 전통 공립 일반고. 둔산 학군과 다른 비학군지 보편 일반고. [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "대전 후기 일반고 학군 배정",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "기숙사 없음",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -1103,9 +1099,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자 현황.",
         "homepageUrl": "https://djhs.djsch.kr/"
       },
-      "verifiedNote": "대전교육청 표준 도메인(djsch.kr) — 학교알리미 교차 확인 권장",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "대전교육청 표준 도메인(djsch.kr) — 학교알리미 교차 확인 권장"
     },
     {
       "id": "gwangju_jeil",
@@ -1322,7 +1316,7 @@
       "description": "광주제일고는 광주의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "광주 후기 일반고 학군 배정",
-        "capacity": "1학년 8학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "기숙사 없음",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -1381,9 +1375,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자.",
         "homepageUrl": "http://ilgo.gen.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (http://ilgo.gen.hs.kr/)",
-      "firstYearClassCount": 8,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (http://ilgo.gen.hs.kr/)"
     },
     {
       "id": "jeonju_high",
@@ -1600,7 +1592,7 @@
       "description": "전주고는 전북의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "전주 후기 일반고 학군 배정",
-        "capacity": "1학년 12학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -1659,9 +1651,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자.",
         "homepageUrl": "https://school.jbedu.kr/jeonjugo/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.jbedu.kr/jeonjugo/)",
-      "firstYearClassCount": 12,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.jbedu.kr/jeonjugo/)"
     },
     {
       "id": "cheongju_high",
@@ -1878,7 +1868,7 @@
       "description": "청주고는 충북의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "청주 후기 일반고 학군 배정",
-        "capacity": "1학년 10학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "남학교 (전통)",
         "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -1937,9 +1927,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자.",
         "homepageUrl": "https://school.cbe.go.kr/cheongju-h"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.cbe.go.kr/cheongju-h)",
-      "firstYearClassCount": 10,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://school.cbe.go.kr/cheongju-h)"
     },
     {
       "id": "gangneung_high",
@@ -2156,7 +2144,7 @@
       "description": "강릉고는 강원 영동권 일반고. 비학군지 보편 일반고로 [일반적] 강원권 지역인재 전형 활용에 강점.",
       "schoolInfoCard": {
         "regionScope": "강릉 후기 일반고 학군 배정",
-        "capacity": "1학년 6학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "[추정] 남학교 — 홈페이지 확인",
         "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -2215,9 +2203,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자.",
         "homepageUrl": "https://ganggo.gwe.hs.kr/"
       },
-      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ganggo.gwe.hs.kr/)",
-      "firstYearClassCount": 6,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "공식 홈페이지로 실재 확인 (https://ganggo.gwe.hs.kr/)"
     },
     {
       "id": "masan_high",
@@ -2434,7 +2420,7 @@
       "description": "마산고는 경남 마산권의 전통 공립 일반고. 비학군지 보편 일반고로 [일반적] 자기주도 + 교과전형 트랙 적합.",
       "schoolInfoCard": {
         "regionScope": "창원 후기 일반고 학군 배정",
-        "capacity": "1학년 7학급 (NEIS 2026학년도 학급정보)",
+        "capacity": "학교알리미 공시 확인",
         "genderRatio": "[추정] 남학교 — 홈페이지 확인",
         "dormitoryType": "[추정] 기숙사 없음 — 홈페이지 확인",
         "costPerYear": "고교 무상교육 — 수업료 면제",
@@ -2493,9 +2479,7 @@
         "homepageMustCheck": "진학 실적·동아리·야자.",
         "homepageUrl": "https://masan-h.gne.go.kr/"
       },
-      "verifiedNote": "경남교육청 표준 도메인(gne.go.kr) — 학교알리미 교차 확인 권장",
-      "firstYearClassCount": 7,
-      "firstYearClassCountSource": "NEIS 학급정보 — 2026학년도 1학년 (교육부)"
+      "verifiedNote": "경남교육청 표준 도메인(gne.go.kr) — 학교알리미 교차 확인 권장"
     }
   ],
   "descriptionOutline": {
