@@ -3,8 +3,10 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import {
+  AlertTriangle,
   BookOpen,
   Calendar,
+  Newspaper,
   CheckCircle2,
   GitBranch,
   ChevronDown,
@@ -78,6 +80,27 @@ export type DevEducationInstitution = {
   website: string;
   /** 학교 강조 뱃지 — 정부사업 선정·계약학과·창업거점 등 한눈에 보여줄 핵심 이력 */
   badges?: Array<{ label: string; tone?: BadgeTone }>;
+  /** 운영 상태 — 폐교·미운영 기관을 진로 후보에서 걸러내기 위한 최우선 정보 */
+  status?: {
+    /** active=정상 운영 / closing=폐교·종료 확정 / paused=해당 연도 미운영 / caution=운영 축소 등 주의 */
+    state: 'active' | 'closing' | 'paused' | 'caution';
+    label: string;
+    note?: string;
+    /** 이 상태를 확인한 날짜 (YYYY-MM-DD) */
+    asOf?: string;
+  };
+  /** 최신 기수 모집 현황 — 지금 지원 가능한지, 다음 기회가 언제인지 */
+  recruitment?: {
+    currentCohort?: string;
+    applyPeriod?: string;
+    programPeriod?: string;
+    capacity?: string;
+    nextExpected?: string;
+  };
+  /** 뉴스·공식 공고 기반 변경 이력 (출처 링크 포함) */
+  newsUpdates?: Array<{ date: string; title: string; source?: string; url?: string }>;
+  /** 데이터 최종 검증일 (YYYY-MM-DD) */
+  lastVerified?: string;
   /** 소재지 — 대학은 4년을 실제로 다녀야 하므로 위치·캠퍼스 분리 여부가 중요하다 */
   location?: {
     sido: string;
@@ -92,6 +115,8 @@ export type DevEducationInstitution = {
     profile: string;
     timeline: string;
     keyFactors: string[];
+    /** 사례의 출처 — 기사·유튜브·공식 자료 링크로 신뢰도를 검증 가능하게 한다 */
+    sources?: Array<{ label: string; url: string; kind?: '뉴스' | '유튜브' | '공식' | '커뮤니티' }>;
   }>;
   /** 생애주기 커리어 트리 — AI 시대의 학교생활 전략을 단계별로 예측 가능하게 편다 */
   lifecyclePath?: {
@@ -143,6 +168,58 @@ function InstitutionInfoRow({ label, value, link }: { label: string; value: stri
       ) : (
         <span className="text-xs text-white/90">{value}</span>
       )}
+    </div>
+  );
+}
+
+const STATUS_STYLE: Record<
+  NonNullable<DevEducationInstitution['status']>['state'],
+  { bg: string; border: string; color: string; prefix: string }
+> = {
+  active: { bg: 'rgba(16,185,129,0.14)', border: 'rgba(52,211,153,0.5)', color: '#6EE7B7', prefix: '운영 중' },
+  closing: { bg: 'rgba(239,68,68,0.16)', border: 'rgba(248,113,113,0.55)', color: '#FCA5A5', prefix: '운영 종료' },
+  paused: { bg: 'rgba(249,115,22,0.16)', border: 'rgba(251,146,60,0.55)', color: '#FDBA74', prefix: '미운영' },
+  caution: { bg: 'rgba(234,179,8,0.16)', border: 'rgba(250,204,21,0.55)', color: '#FDE68A', prefix: '주의' },
+};
+
+/** 폐교·미운영 기관을 상세 진입 즉시 알리는 배너 — 진로 후보에서 잘못 고르는 일을 막는다 */
+export function InstitutionStatusBanner({
+  status,
+}: {
+  readonly status?: DevEducationInstitution['status'];
+}) {
+  if (!status) return null;
+  const tone = STATUS_STYLE[status.state];
+  const isWarning = status.state !== 'active';
+  return (
+    <div
+      className="rounded-lg p-3"
+      style={{ background: tone.bg, border: `1px solid ${tone.border}` }}
+    >
+      <div className="flex items-start gap-2">
+        {isWarning ? (
+          <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: tone.color }} />
+        ) : (
+          <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: tone.color }} />
+        )}
+        <div className="min-w-0">
+          <p className="text-xs font-bold" style={{ color: tone.color }}>
+            {tone.prefix} · {status.label}
+          </p>
+          {status.note && <p className="text-xs text-white/75 mt-1 leading-relaxed">{status.note}</p>}
+          {status.asOf && <p className="text-[11px] text-white/40 mt-1">확인일 {status.asOf}</p>}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function RecruitmentRow({ label, value }: { readonly label: string; readonly value?: string }) {
+  if (!value) return null;
+  return (
+    <div className="flex items-start gap-2">
+      <span className="text-xs text-white/60 min-w-[60px]">{label}</span>
+      <span className="text-xs text-white/90">{value}</span>
     </div>
   );
 }
@@ -296,6 +373,24 @@ export function DevEducationInstitutionDetailPanel({
       <div className="p-3 sm:p-4 space-y-3">
         {activeTab === 'info' && (
           <>
+            <InstitutionStatusBanner status={institution.status} />
+
+            {institution.recruitment && (
+              <div className="rounded-lg p-3 bg-white/5 border border-white/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <Calendar className="w-4 h-4" style={{ color: institution.color }} />
+                  <h4 className="text-sm font-bold text-white">모집 현황</h4>
+                </div>
+                <div className="space-y-2">
+                  <RecruitmentRow label="현재 기수" value={institution.recruitment.currentCohort} />
+                  <RecruitmentRow label="모집 기간" value={institution.recruitment.applyPeriod} />
+                  <RecruitmentRow label="교육 기간" value={institution.recruitment.programPeriod} />
+                  <RecruitmentRow label="선발 규모" value={institution.recruitment.capacity} />
+                  <RecruitmentRow label="다음 기회" value={institution.recruitment.nextExpected} />
+                </div>
+              </div>
+            )}
+
             <div className="rounded-lg p-3 bg-white/5 border border-white/10">
               <div className="flex items-center gap-2 mb-2">
                 <Info className="w-4 h-4" style={{ color: institution.color }} />
@@ -317,8 +412,44 @@ export function DevEducationInstitutionDetailPanel({
                 <InstitutionInfoRow label="교육 기간" value={institution.duration} />
                 <InstitutionInfoRow label="선발 과정" value={institution.admissionProcess} />
                 <InstitutionInfoRow label="웹사이트" value={institution.website} link />
+                {institution.lastVerified && (
+                  <InstitutionInfoRow label="정보 확인" value={`${institution.lastVerified} 기준`} />
+                )}
               </div>
             </div>
+
+            {institution.newsUpdates && institution.newsUpdates.length > 0 && (
+              <div className="rounded-lg p-3 bg-white/5 border border-white/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <Newspaper className="w-4 h-4" style={{ color: institution.color }} />
+                  <h4 className="text-sm font-bold text-white">최신 소식</h4>
+                </div>
+                <div className="space-y-2.5">
+                  {institution.newsUpdates.map((news) => (
+                    <div key={`${news.date}-${news.title}`} className="flex items-start gap-2">
+                      <span className="text-[11px] text-white/45 mt-0.5 flex-shrink-0 tabular-nums">{news.date}</span>
+                      <div className="min-w-0">
+                        <p className="text-xs text-white/85 leading-relaxed">{news.title}</p>
+                        {news.source && (
+                          news.url ? (
+                            <a
+                              href={news.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[11px] text-blue-400 hover:text-blue-300 underline break-all"
+                            >
+                              {news.source}
+                            </a>
+                          ) : (
+                            <span className="text-[11px] text-white/45">{news.source}</span>
+                          )
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="rounded-lg p-3 bg-white/5 border border-white/10">
               <div className="flex items-center gap-2 mb-2">
@@ -593,6 +724,35 @@ export function DevEducationInstitutionDetailPanel({
                               ))}
                             </div>
                           </div>
+                          {example.sources && example.sources.length > 0 && (
+                            <div className="pt-2 border-t border-white/10">
+                              <p
+                                className="text-xs font-bold uppercase tracking-wider mb-1.5"
+                                style={{ color: institution.color }}
+                              >
+                                근거 자료
+                              </p>
+                              <div className="space-y-1">
+                                {example.sources.map((source) => (
+                                  <a
+                                    key={source.url}
+                                    href={source.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-start gap-2 text-xs text-blue-300 hover:text-blue-200 underline decoration-blue-400/40"
+                                  >
+                                    <Newspaper className="w-3 h-3 mt-0.5 flex-shrink-0 text-white/45" />
+                                    <span className="min-w-0">
+                                      {source.kind && (
+                                        <span className="text-[10px] text-white/50 mr-1">[{source.kind}]</span>
+                                      )}
+                                      {source.label}
+                                    </span>
+                                  </a>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>

@@ -44,7 +44,7 @@ import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
 import { PlanetOrbitView } from './PlanetOrbitView';
 import { CategoryDetailView } from './CategoryDetailView';
-import { DevEducationInstitutionsView } from './DevEducationInstitutionsView';
+import { DevEducationInstitutionsView, type DevEducationInstitution } from './DevEducationInstitutionsView';
 import { CareerMajorConnectionView } from './CareerMajorConnectionView';
 import { InnovativeInstitutionsListIntroBlock } from './InnovativeInstitutionsListIntroBlock';
 import { StrategyHubView } from './StrategyHubView';
@@ -103,13 +103,14 @@ export function UniversityAdmissionTab() {
     ruralOpportunityAdmissionCategory.category,
   ] as AdmissionCategory[];
 
+  /* JSON import는 status.state·badges.tone을 string으로 추론하므로 유니온 타입으로 좁혀 넘긴다 */
   const devInstitutions = [
     ...governmentTrackInstitutions.institutions,
     ...companyTrackInstitutions.institutions,
     ...privateTrackInstitutions.institutions,
-  ];
+  ] as unknown as DevEducationInstitution[];
 
-  const innovativeInstitutions = innovativeTrackInstitutions.institutions;
+  const innovativeInstitutions = innovativeTrackInstitutions.institutions as unknown as DevEducationInstitution[];
 
   const careerMajorData = [
     ...inquiryKingdomCareers.careers,
