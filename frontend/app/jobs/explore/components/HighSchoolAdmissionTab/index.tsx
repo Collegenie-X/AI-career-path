@@ -138,6 +138,8 @@ export function HighSchoolAdmissionTab() {
       <TwoColumnPanelLayout
         hasSelection={hasDetailSelection}
         onClearSelection={handleClearAll}
+        mobileListMode="stack"
+
         emptyPlaceholderText="학교 유형을 선택하세요"
         emptyPlaceholderSubText="왼쪽에서 학교 유형(행성)을 클릭하면 카테고리 설명과 학교 목록이 여기에 표시됩니다"
         listSlot={

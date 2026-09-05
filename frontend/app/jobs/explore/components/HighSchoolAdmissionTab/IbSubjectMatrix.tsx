@@ -104,7 +104,8 @@ export function IbSubjectMatrix({
           <table className="w-full text-[12px] border-collapse">
             <thead>
               <tr style={{ background: `${color}18` }}>
-                <th className="text-left px-3 py-2 font-bold whitespace-nowrap" style={{ color }}>
+                {/* 모바일에서는 과목군 열 폭을 좁혀 대표 과목 쪽에 폭을 넘김 */}
+                <th className="text-left px-2 sm:px-3 py-2 font-bold w-[84px] sm:w-auto whitespace-normal sm:whitespace-nowrap" style={{ color }}>
                   과목군
                 </th>
                 <th className="text-left px-3 py-2 font-bold" style={{ color }}>
@@ -131,7 +132,7 @@ export function IbSubjectMatrix({
                   }}
                   style={{ borderTop: `1px solid ${color}1f` }}
                 >
-                  <td className="px-3 py-2 text-gray-100 align-top whitespace-nowrap">
+                  <td className="px-2 sm:px-3 py-2 text-gray-100 align-top w-[84px] sm:w-auto whitespace-normal sm:whitespace-nowrap break-keep">
                     {g.emoji} {g.label.replace(/^군\d+\s*·\s*/, '').replace(/\s*\(.*\)$/, '')}
                   </td>
                   <td className="px-3 py-2 text-gray-400 align-top">{g.subjects.slice(0, 3).join(' · ')}</td>

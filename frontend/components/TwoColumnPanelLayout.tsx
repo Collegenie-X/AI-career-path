@@ -50,6 +50,13 @@ type TwoColumnPanelLayoutProps = {
   readonly emptyPlaceholderIllustration?: EmptyIllustrationVariant;
   /** 오른쪽 상세/빈 패널 래퍼 모서리 (기본: rounded-3xl) */
   readonly detailPanelClassName?: string;
+  /**
+   * 모바일(< md)에서 리스트/상세를 다루는 방식
+   * - 'swap'(기본): 선택 시 리스트를 감추고 상세만 표시
+   * - 'stack': 리스트를 항상 위에 두고 상세를 아래에 쌓아서 표시
+   *   (기본 선택이 있는 화면에서 리스트가 영영 안 보이는 문제 방지)
+   */
+  readonly mobileListMode?: 'swap' | 'stack';
 };
 
 function EmptyDetailPlaceholder({
@@ -99,13 +106,20 @@ export function TwoColumnPanelLayout({
   emptyPlaceholderSubText = '왼쪽 목록에서 항목을 클릭하면 상세 내용이 여기에 표시됩니다',
   emptyPlaceholderIllustration = 'map',
   detailPanelClassName = 'rounded-3xl',
+  mobileListMode = 'swap',
 }: TwoColumnPanelLayoutProps) {
+  const isStack = mobileListMode === 'stack';
+
   return (
-    <div className="flex w-full gap-6 md:gap-8 items-start">
+    <div
+      className={`flex w-full gap-6 md:gap-8 items-start ${isStack ? 'flex-col md:flex-row' : ''}`}
+    >
       {/* ── 왼쪽: 리스트 (md+: 약 45%) ── */}
       {/* 모바일: 선택 없을 때만 표시 / 데스크탑: 항상 표시 */}
       <div
-        className={`w-full md:basis-0 md:grow-[9] md:min-w-0 ${hasSelection ? 'hidden md:block' : 'block'}`}
+        className={`w-full md:basis-0 md:grow-[9] md:min-w-0 ${
+          hasSelection && !isStack ? 'hidden md:block' : 'block'
+        }`}
       >
         {listSlot}
       </div>
@@ -115,11 +129,11 @@ export function TwoColumnPanelLayout({
       <div
         className={`
           w-full md:basis-0 md:grow-[11] md:min-w-0 md:pl-2 lg:pl-5 md:border-l md:border-white/[0.06]
-          ${hasSelection ? 'block w-full' : 'hidden md:block'}
+          ${hasSelection || isStack ? 'block w-full' : 'hidden md:block'}
         `}
       >
         {/* 모바일 뒤로가기 버튼 */}
-        {hasSelection && onClearSelection && (
+        {hasSelection && !isStack && onClearSelection && (
           <button
             onClick={onClearSelection}
             className="md:hidden flex items-center gap-2 mb-3 text-sm font-semibold text-white/60 hover:text-white/90 transition-colors"

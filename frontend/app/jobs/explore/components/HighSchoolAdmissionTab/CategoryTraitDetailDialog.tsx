@@ -116,16 +116,17 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
       <div className="flex flex-col" style={{ maxHeight: 'calc(100vh - 56px)' }}>
         {/* ── 헤더 ── */}
         <div
-          className="flex-shrink-0 px-5 py-4"
+          className="relative flex-shrink-0 px-3 sm:px-5 py-4"
           style={{
             background: `linear-gradient(135deg, ${categoryColor}28, ${categoryColor}0a)`,
             borderBottom: `1px solid ${categoryColor}30`,
           }}
         >
-          <div className="flex items-start justify-between gap-3 mb-3">
+          <div className="flex items-start gap-3 mb-3">
             <div className="flex items-center gap-3">
+              {/* 모바일에서는 폭 확보를 위해 유형 이모지 타일을 숨김 */}
               <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"
+                className="hidden sm:flex w-12 h-12 rounded-2xl items-center justify-center text-2xl flex-shrink-0"
                 style={{
                   background: `linear-gradient(135deg, ${categoryColor}40, ${categoryColor}18)`,
                   border: `1.5px solid ${categoryColor}44`,
@@ -134,14 +135,16 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
                 {category.emoji}
               </div>
               <div>
-                <h2 className="text-lg font-bold text-white">{category.name}</h2>
+                <h2 className="text-base sm:text-lg font-bold text-white pr-10">{category.name}</h2>
                 <p className="text-sm text-gray-300 mt-1 leading-relaxed"><HL text={category.description} /></p>
               </div>
             </div>
+            {/* 닫기 버튼은 absolute — 본문이 헤더 전체 너비를 쓰도록 문서 흐름에서 제외 */}
             <button
               onClick={onClose}
-              className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+              className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full flex items-center justify-center"
               style={{ background: 'rgba(255,255,255,0.1)' }}
+              aria-label="닫기"
             >
               <X className="w-4 h-4 text-gray-400" />
             </button>
@@ -348,7 +351,7 @@ function TraitsTab({
   };
 
   return (
-    <div className="px-4 py-4 space-y-5">
+    <div className="px-3 sm:px-4 py-4 space-y-5">
       {category.differentiators && (
         <DifferentiatorSection
           differentiators={category.differentiators}
@@ -423,7 +426,7 @@ type QuizTabProps = {
 function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswer, onNext, onReset, onStart }: QuizTabProps) {
   if (quizPhase.phase === 'intro') {
     return (
-      <div className="px-4 py-6 flex flex-col items-center gap-5">
+      <div className="px-3 sm:px-4 py-6 flex flex-col items-center gap-5">
         <div
           className="w-20 h-20 rounded-3xl flex items-center justify-center text-4xl"
           style={{
@@ -485,7 +488,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
     const lastAnswer = isFeedback ? answers[answers.length - 1] : null;
 
     return (
-      <div className="px-4 py-4 flex flex-col gap-4">
+      <div className="px-3 sm:px-4 py-4 flex flex-col gap-4">
         {/* 헤더 */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -657,7 +660,7 @@ function QuizTab({ categoryColor, categoryBgColor, quizPhase, questions, onAnswe
   const starScore = Math.max(1, Math.round(ratio * 5));
 
   return (
-    <div className="px-4 py-4 flex flex-col gap-4">
+    <div className="px-3 sm:px-4 py-4 flex flex-col gap-4">
       {/* 결과 카드 */}
       <div
         className="rounded-3xl p-6 flex flex-col items-center gap-3 text-center"
@@ -753,7 +756,7 @@ function EnvironmentTab({
   const total = eliteEnvironmentFit.length;
 
   return (
-    <div className="px-4 py-4 space-y-4">
+    <div className="px-3 sm:px-4 py-4 space-y-4">
       {/* 엘리트 환경 체크리스트 */}
       <div
         className="rounded-2xl overflow-hidden"

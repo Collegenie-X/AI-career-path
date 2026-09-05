@@ -13,7 +13,6 @@ import {
   Users,
   Lightbulb,
   Star,
-  X,
   Check,
   ArrowRight,
 } from 'lucide-react';
@@ -42,7 +41,7 @@ type SchoolCategoryViewProps = {
   onBack: () => void;
   onSelectSchool: (school: HighSchoolDetail) => void;
   /** 'leftList'(기본): 왼쪽 패널에서 사용 (← 뒤로가기 버튼 표시).
-   *  'rightDetail': 오른쪽 패널에서 사용 (X 닫기 버튼 표시) */
+   *  'rightDetail': 오른쪽 패널에서 사용 */
   variant?: 'leftList' | 'rightDetail';
 };
 
@@ -120,7 +119,8 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
               boxShadow: `0 4px 20px ${category.color}25`,
             }}
           >
-            <span className="text-3xl flex-shrink-0">{category.emoji}</span>
+            {/* 모바일에서는 본문 폭 확보를 위해 유형 이모지를 숨김 */}
+            <span className="hidden sm:block text-3xl flex-shrink-0">{category.emoji}</span>
             <div className="min-w-0 flex-1">
               <p className="text-lg font-bold text-white leading-tight">{category.name}</p>
               {category.descriptionOutline ? (
@@ -136,16 +136,6 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
                 <p className="text-sm mt-1.5 leading-relaxed text-gray-100"><HL text={category.description} /></p>
               )}
             </div>
-            {variant === 'rightDetail' && (
-              <button
-                onClick={onBack}
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
-                style={{ background: 'rgba(255,255,255,0.1)', border: `1px solid ${category.color}55` }}
-                aria-label="닫기"
-              >
-                <X className="w-3.5 h-3.5 text-white" />
-              </button>
-            )}
           </div>
         </div>
 
@@ -278,6 +268,8 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
         onSelectSchool={onSelectSchool}
       />
 
+      {/* ── 아래 3개 섹션(지도·공식 확인처·비교표)은 가로 폭이 좁은 모바일에서 숨김 ── */}
+      <div className="hidden sm:block space-y-4">
       {/* ── 수도권(서울·경기·인천) 지도에서 찾기 ── */}
       <MetroSchoolMap
         categoryId={category.id}
@@ -304,6 +296,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
         color={category.color}
         bgColor={category.bgColor}
       />
+      </div>
 
       {/* ── 학교 목록 — 시·도별 그룹 ── */}
       <div>
@@ -342,12 +335,14 @@ function TraitRow({
   color: string;
 }) {
   return (
-    <div className="flex items-start gap-2">
+    /* 모바일: 라벨 → 설명을 위아래로 배치 (좌우 배치는 폭이 좁아 가독성이 떨어짐) */
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-1.5 sm:gap-2">
       <div
-        className="flex items-center gap-1 flex-shrink-0 mt-0.5 px-2 py-1 rounded-lg"
+        className="flex items-center gap-1 self-start flex-shrink-0 mt-0.5 px-2 py-1 rounded-lg"
         style={{ background: `${color}20` }}
       >
-        <span className="text-sm">{emoji}</span>
+        {/* 장식용 이모지는 모바일에서 숨김 */}
+        <span className="hidden sm:inline text-sm">{emoji}</span>
         <span className="text-sm font-bold whitespace-nowrap" style={{ color }}>{label.replace(/^[^ ]+ /, '')}</span>
       </div>
       <p className="text-sm text-gray-100 leading-relaxed"><HL text={value} /></p>
