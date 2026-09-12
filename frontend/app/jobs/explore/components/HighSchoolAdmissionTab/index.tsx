@@ -16,6 +16,7 @@ import business from '@/data/high-school/business.json';
 import specialized from '@/data/high-school/specialized.json';
 import generalElite from '@/data/high-school/general_elite.json';
 import general from '@/data/high-school/general.json';
+import alternative from '@/data/high-school/alternative.json';
 import identityChallengeData from '@/data/high-school/identity-challenge.json';
 import mentalChallengeData from '@/data/high-school/mental-challenge.json';
 import type { HighSchoolAdmissionV2Data, HighSchoolCategory, HighSchoolDetail } from '../../types';
@@ -48,6 +49,7 @@ const typedData: HighSchoolAdmissionV2Data = {
     specialized,
     generalElite,
     general,
+    alternative,
   ] as unknown as HighSchoolCategory[]),
 };
 
@@ -190,7 +192,7 @@ export function HighSchoolAdmissionTab() {
           patchUrl({ resource: null });
         }}
         categories={typedData.categories}
-        identityData={identityChallengeData as IdentityChallengeData}
+        identityData={identityChallengeData as unknown as IdentityChallengeData}
         mentalData={mentalChallengeData as MentalChallengeData}
         onIdentitySelectCategory={handleSelectCategory}
       />

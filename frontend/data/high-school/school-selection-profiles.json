@@ -369,6 +369,70 @@
         "경쟁 환경에서 멘탈 회복 루틴이 있는가",
         "수시/정시 우선 전략을 명확히 했는가"
       ]
+    },
+    "alternative": {
+      "profileTitle": "프로젝트·공동체 중심 대안 트랙",
+      "profileSummary": "학력 인정 여부에 따라 대입 경로가 갈리는 대안·혁신학교 트랙입니다.",
+      "curriculumHighlights": [
+        "주제 통합 프로젝트·노작·현장 탐방이 정규 교육과정",
+        "시험보다 결과물·발표·성찰 기록 중심 평가",
+        "학교별 특화(창업·예술·생태·글로벌) 편차가 큼"
+      ],
+      "extracurricularHighlights": [
+        "공동체 회의·자치 활동",
+        "외부 대회·전시·공연으로 결과물 검증",
+        "해외·지역 현장 탐방"
+      ],
+      "clubHighlights": [
+        "창업·메이커 프로젝트",
+        "공연·영상 창작",
+        "생태·지역 공동체 활동"
+      ],
+      "admissionRouteStrengths": [
+        {
+          "route": "수시",
+          "strength": "high",
+          "reason": "학력 인정교는 프로젝트·공동체 활동이 학종 소재가 됨",
+          "recommendedFor": "활동을 기록·결과물로 남기는 학생"
+        },
+        {
+          "route": "정시",
+          "strength": "low",
+          "reason": "수능 대비 수업이 적어 자력 준비 필요",
+          "recommendedFor": "별도 수능 루틴을 만들 수 있는 학생"
+        },
+        {
+          "route": "유학",
+          "strength": "medium",
+          "reason": "포트폴리오·에세이 중심 해외 지원과 잘 맞음",
+          "recommendedFor": "영어 에세이·프로젝트 포트폴리오가 있는 학생"
+        }
+      ],
+      "majorUniversityRatios": [
+        {
+          "track": "국내 대학 학종·실기",
+          "ratio": 55
+        },
+        {
+          "track": "창업·취업·진로 직행",
+          "ratio": 20
+        },
+        {
+          "track": "국내 정시(검정고시 포함)",
+          "ratio": 15
+        },
+        {
+          "track": "해외 대학",
+          "ratio": 10
+        }
+      ],
+      "ratioBasisNote": "대안교육 일반의 진로 패턴을 바탕으로 한 안내용 비율이며 학교별 공시 수치가 아닙니다.",
+      "middleSchoolSelectionChecklist": [
+        "학력 인정 기관인지 확인했는가",
+        "기숙 생활·공동체 규칙을 받아들일 수 있는가",
+        "학비·기숙사비 총액을 가족과 확인했는가",
+        "3년 뒤 대학·일 경로를 스스로 설계할 수 있는가"
+      ]
     }
   },
   "schoolOverrides": {
