@@ -12,7 +12,7 @@ import json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from category import build_category, MOE_PDF, GOE_PDF, ALTER_EDU, NCS_URL, GGU_URL, ODY_URL  # noqa: E402
-from manual import next_challenge_school, ggukkuro_campus, ODYSSEY_OVERRIDE  # noqa: E402
+from manual import next_challenge_school, ggukkuro_campus, ODYSSEY_OVERRIDE, MANUAL_OVERRIDES  # noqa: E402
 
 OUT = os.path.join(HERE, "..", "..", "frontend", "data", "high-school", "alternative.json")
 PALETTE = ["#a3e635", "#84cc16", "#4ade80", "#2dd4bf", "#38bdf8", "#facc15", "#fb923c", "#f472b6", "#c084fc"]
@@ -118,13 +118,31 @@ def build_school(code, f, feat, idx):
     quota = (feat or {}).get("quota")
     method = (feat or {}).get("admissionMethod")
     tnote = (feat or {}).get("tuitionNote")
+    programs = (feat or {}).get("programs")  # 학교 특성 과목·프로그램 (·로 구분된 문자열 가능)
+    notable = (feat or {}).get("notable")    # 최근 특이사항 1줄
     src_url = (feat or {}).get("sourceUrl")
     src_label = (feat or {}).get("sourceLabel")
+    x_url = (feat or {}).get("extraSourceUrl")      # 학비·프로그램·소식 보강 출처
+    x_label = (feat or {}).get("extraSourceLabel")
+    plabel = x_label or src_label or "학교 공개자료"  # programs·notable·tuitionNote 근거 라벨
+    # (programs는 통짜 문자열로 렌더 — 괄호 안 쉼표 보호)
     theme = theme_of(name, feature or "")
     temoji, tlabel = THEMES[theme]
 
     legal_label = LEGAL_LABEL[legal]
-    type_label = f"{legal_label.replace('(각종학교)', '')} · {found}" + (" · 각종학교" if legal != "special" else "")
+    # 설립(공립/사립) + 학력 인정 여부를 명확히
+    gov_word = "공립" if public else "사립"
+    accr_word = "학력 인정"  # 특성화고·각종학교(공·사립) 모두 학력 인정 (등록기관/전환학년은 override)
+    if legal == "special":
+        type_label = f"{gov_word} 대안교육 특성화고 ({accr_word})"
+        gov_tag = "🏫 공립·수업료 무상" if public else "🏛️ 사립·수업료 무상(특성화고)"
+    elif public:
+        type_label = f"공립 대안학교·각종학교 ({accr_word})"
+        gov_tag = "🏫 공립·수업료 무상"
+    else:
+        type_label = f"사립 대안학교·각종학교 ({accr_word})"
+        gov_tag = "🏛️ 사립·유상(학교가 정한 학비)"
+    accr_tag = "📜 학력 인정(정규 졸업장)"
     moe_fact = ("교육부 대안교육 특성화고 현황(2024.03) 수록" if legal == "special"
                 else "교육부 대안학교(각종학교) 현황(2024.03) 수록")
     if f["name"] in ("옥길새길고등학교", "결마루미래학교"):
@@ -135,15 +153,20 @@ def build_school(code, f, feat, idx):
     if feature:
         cert += f" — {feature}"
 
-    if public:
-        tuition = "==공립 — 고교 무상교육 대상(수업료 면제)==. 기숙사비·급식비 등 실비는 학교 안내 확인."
-    elif legal == "special":
-        tuition = "사립 대안교육 특성화고 — 수업료·공동체 운영비·기숙사비 구조는 ==학교 입학요강·학교알리미 교육비 공시==로 확인하세요."
+    if legal == "special":
+        # 대안교육 특성화고는 국·공·사립 모두 정규 고등학교 → 고교 무상교육 대상 (수업료·입학금·학교운영지원비·교과서비 무상)
+        prefix = "공립" if public else "사립"
+        tuition = (f"=={prefix} 대안교육 특성화고 — 고교 무상교육 대상(수업료·입학금·학교운영지원비·교과서비 무상)==. "
+                   "다만 대안교육 특성화고는 ==기숙사비·급식비·체험학습비·공동체운영비 등 수익자부담==이 있어요. 금액은 ==학교 입학요강·학교알리미 교육비 공시== 확인.")
+    elif public:
+        tuition = "==공립 대안학교(각종학교) — 고교 무상교육 대상(수업료 면제)==. 기숙사비·급식비 등 실비는 학교 안내 확인."
     else:
-        tuition = "사립 각종학교 — 학교가 정하는 수업료·기숙사비가 있을 수 있어요. ==입학요강·학교알리미 교육비 공시==로 확인하세요."
+        # 사립 각종학교(대안학교)는 고교 무상교육 대상이 아닌 경우가 많아 학교가 정한 학비를 받음 (국제학교형 다수)
+        tuition = "사립 대안학교(각종학교) — ==고교 무상교육 대상이 아닌 경우가 많아 학교가 정한 학비를 내요==. 연간 학비·기숙사비는 ==입학요강·학교알리미 교육비 공시== 확인."
     if tnote:
         tuition += f" (학교 안내: {tnote})"
 
+    free_tuition = public or legal == "special"  # 특성화고는 사립도 고교 무상교육 대상
     dorm = boarding in ("기숙형", "혼합형")
     dorm_text = {"기숙형": "기숙형 (전원 기숙)", "혼합형": "혼합형 (기숙·통학 병행)", "통학형": "통학형"}.get(boarding, "기숙 여부는 학교 홈페이지 확인")
 
@@ -181,9 +204,11 @@ def build_school(code, f, feat, idx):
         ]
 
     consign = bool(feature and "위탁형" in feature)
+    if consign:
+        accr_tag = "📜 재적교 학력 인정"
     edu_line = ("==위탁형==이라 학력은 ==다니던 학교(재적교)에서 인정==돼요 (교육부 구분표: 대안교육 위탁교육기관)." if consign
-                else f"=={legal_label}==라 졸업하면 ==고등학교 졸업 학력이 인정==돼요. 등록 대안교육기관과 다른 점이에요.")
-    listtags = [f"{temoji} {tlabel}", ("📜 재적교 학력 인정" if consign else "📜 학력 인정"), ("🏫 공립 무상" if public else "🏛️ 사립")]
+                else f"=={legal_full}==라 졸업하면 ==고등학교 졸업 학력이 인정==돼요(정규 졸업장). 등록 대안교육기관(검정고시)과 다른 점이에요.")
+    listtags = [f"{temoji} {tlabel}", accr_tag, gov_tag]
     if boarding:
         listtags.append(f"🏠 {boarding}")
 
@@ -200,10 +225,10 @@ def build_school(code, f, feat, idx):
 
     stat_value = f"{cc}학급" if cc else "공시 확인"
     hs = [
-        {"label": "법적 지위", "value": "특성화고" if legal == "special" else "각종학교", "emoji": "📜", "color": color},
-        {"label": "설립", "value": f"{found} {year}".strip(), "emoji": "🏫", "color": "#a78bfa"},
-        {"label": "1학년", "value": stat_value, "emoji": "👥", "color": "#38bdf8"},
-        {"label": "생활", "value": boarding or "홈페이지 확인", "emoji": "🏠", "color": "#f59e0b"},
+        {"label": "설립·유형", "value": f"{gov_word}·{'특성화고' if legal == 'special' else '각종학교'}", "emoji": "🏛️" if not public else "🏫", "color": color},
+        {"label": "학력", "value": "재적교 인정" if consign else "학력 인정", "emoji": "📜", "color": "#a78bfa"},
+        {"label": "비용", "value": ("수업료 무상" if free_tuition else "유상(학교 책정)"), "emoji": "💰", "color": "#34d399" if free_tuition else "#f59e0b"},
+        {"label": "생활", "value": boarding or "홈페이지 확인", "emoji": "🏠", "color": "#38bdf8"},
     ]
 
     realtalk = [
@@ -218,6 +243,8 @@ def build_school(code, f, feat, idx):
                                                    else "기숙 여부와 비용은 학교 홈페이지에서 확인하세요.")},
         {"emoji": "🎓", "title": "졸업 후", "content": f"[일반적] {theme_route} 중심. 졸업생 진로는 ==학교알리미 졸업생 진로 현황==으로 확인하세요."},
     ]
+    if notable:
+        realtalk.insert(1, {"emoji": "📢", "title": "최근 소식", "content": f"{notable} ({plabel})"})
 
     note = (feat or {}).get("note") or ""
     m = re.match(r"\[(변동|명칭 확인|전환)\]\s*(.+)", note)
@@ -243,7 +270,7 @@ def build_school(code, f, feat, idx):
         "operatorFact": f"{found} ({coedu}). 개교 {f.get('foundDate') or '-'} (NEIS).",
         "teachingMethod": (f"{feature} — 세부 교육과정은 학교 홈페이지 확인." if feature
                            else f"[일반적] 교과 수업 + {theme_word} 중심의 대안교육 과정. 세부 편성은 학교 홈페이지 확인."),
-        "famousPrograms": ([feature] if feature else []) + [
+        "famousPrograms": ([feature] if feature else []) + ([f"이 학교만의 프로그램 — {programs}"] if programs else []) + [
             f"[일반적] {theme_word} 중심 대안교육 과정",
             "[일반적] 소규모 학급·담임 밀착 지도",
             "세부 프로그램은 학교 홈페이지 교육과정 확인",
@@ -252,6 +279,9 @@ def build_school(code, f, feat, idx):
             {"name": tlabel, "emoji": temoji,
              "description": (f"{feature} ({src_label})" if feature else f"[일반적] {theme_word} 중심 교육 — 세부 운영은 학교 확인"),
              "benefit": f"=={theme_route}==과 연결되는 경험"},
+        ] + ([{"name": "이 학교만의 프로그램", "emoji": "✨",
+             "description": f"{programs} ({plabel})",
+             "benefit": "==다른 학교와 구분되는== 특성"}] if programs else []) + [
             {"name": "소규모 공동체", "emoji": "👥",
              "description": (f"2026학년도 1학년 {cc}학급 (NEIS)" if cc else "소규모 학급 (학교알리미 확인)"),
              "benefit": "교사와 ==1:1에 가까운 소통=="},
@@ -281,14 +311,14 @@ def build_school(code, f, feat, idx):
         "mentalHealthNote": "정해진 경쟁이 적은 대신 ==스스로 방향을 잡는 힘==이 필요해요. 진로 고민은 담임·진로교사와 자주 나누세요.",
         "pros": [
             ("재적교 학적 유지 (위탁형)" if consign else "==고졸 학력 인정=="),
-            ("==공립 무상교육==" if public else "학교 고유의 교육 철학"),
+            ("==고교 무상교육(수업료 무상)==" if free_tuition else "학교 고유의 교육 철학"),
             f"{temoji} {tlabel}",
             (f"1학년 {cc}학급 소규모 (NEIS 2026)" if cc else "소규모 학급"),
         ] + ([f"{dorm_text}"] if boarding else []),
         "cons": [
             "소규모라 ==내신 1등급 인원이 적음==",
             "수능 대비는 스스로 준비 [일반적]",
-            ("비용 구조 확인 필요" if not public else "지원 대상·모집 단위 확인 필요"),
+            ("기숙사비·체험학습비 등 수익자부담 확인" if free_tuition else "==학교가 정한 학비(무상교육 제외)== 확인 필요"),
         ],
         "admissionTip": (f"{sn}{jo(sn, "은", "는")} 성적보다 ==학교 철학과 내 목표가 맞는지==를 봐요. 설명회에 가서 재학생 이야기를 듣고, "
                          f"자기소개서에 '왜 이 학교인가'를 구체적으로 쓰세요."),
@@ -309,9 +339,11 @@ def build_school(code, f, feat, idx):
             "capacity": (f"1학년 {cc}학급 (NEIS 2026학년도 학급정보)" if cc else "학교알리미 공시 확인"),
             "genderRatio": f"{coedu} ({found})",
             "dormitoryType": dorm_text,
-            "costPerYear": ("수업료 면제 (고교 무상교육) · 실비 별도" if public else "학교 입학요강·학교알리미 교육비 공시 확인"),
+            "costPerYear": (("수업료 무상 (고교 무상교육) · 기숙사비·급식·체험학습 등 실비 별도" if free_tuition else "학교가 정한 학비 — 입학요강·학교알리미 교육비 공시 확인")
+                            + (f" · {tnote}" if tnote else "")),
             "scholarship": "교육청·학교 장학 (학교 문의)",
-            "lowIncomeAdvice": "공립 대안학교는 수업료가 없어요. 사립은 감면·장학 제도를 입학 상담에서 꼭 물어보세요.",
+            "lowIncomeAdvice": ("공립·특성화고는 수업료가 무상이고 기숙사비·체험학습비 등 실비만 들어요. 감면·장학은 입학 상담에서 확인하세요." if free_tuition
+                                else "사립 각종학교는 학교가 정한 학비를 받아요. 감면·장학 제도를 입학 상담에서 꼭 물어보세요."),
         },
         "admissionQualifications": {
             "mandatory": ["중학교 졸업(예정)자 또는 동등 학력", "학교 요강의 지원 자격 충족"],
@@ -347,6 +379,7 @@ def build_school(code, f, feat, idx):
             "verificationStatus": "verified" if feature else "partial",
             "lastFactCheckedAt": "2026-09-12",
             "sources": ([{"label": src_label or "특색 출처", "url": src_url, "accessedAt": "2026-09-12"}] if src_url else [])
+                       + ([{"label": x_label or "학비·프로그램 보강 출처", "url": x_url, "accessedAt": "2026-09-12"}] if x_url else [])
                        + [{"label": "교육부 대안학교·대안교육 특성화학교 현황 (2024.03)", "url": MOE_PDF, "accessedAt": "2026-09-12"}],
             "factCheckerNote": "NEIS 기본정보·학급정보와 교육부 현황표로 실재·유형 확인." + ("" if feature else " 학교별 특색은 공식 출처 미확인이라 일반 서술."),
         },
@@ -368,11 +401,16 @@ def build_group_tree(schools):
     ]
     ax1 = {"id": "legal", "emoji": "📜", "label": "법적 지위로 가르기",
            "description": "학력 인정 여부와 비용이 여기서 결정돼요.", "groups": []}
+    def gov_tag_of(s):
+        t = s.get("type", "")
+        base = "공립" if "공립" in t else ("사립" if "사립" in t else "")
+        kind = "특성화고" if "특성화고" in t else ("각종학교" if "각종학교" in t else "")
+        return (f"{base}·{kind}" if base and kind else base or kind or "")
     for key, em, label, note in legal_groups:
         items = [s for s in schools if s.get("legalStatus") == key]
         if items:
             ax1["groups"].append({"label": f"{label} · {len(items)}곳", "emoji": em, "note": note,
-                                  "schools": [{"name": s["shortName"], "region": SIDO_SHORT(s), "tag": s["type"].split("·")[-1].strip()} for s in items]})
+                                  "schools": [{"name": s["shortName"], "region": SIDO_SHORT(s), "tag": gov_tag_of(s)} for s in items]})
     ax2 = {"id": "zone", "emoji": "🗺️", "label": "권역으로 가르기",
            "description": "기숙형이 많아 먼 지역도 지원할 수 있지만, 통학형은 거리를 먼저 보세요.", "groups": []}
     for z, em in (("수도권", "🏙️"), ("강원·충청", "⛰️"), ("호남", "🌾"), ("영남", "🌊")):
@@ -517,7 +555,14 @@ def main():
         if f["axis"] == "transition":
             s.update(ODYSSEY_OVERRIDE)
             s["theme"] = "transition"
-        if feat.get("feature"):
+        overridden = code in MANUAL_OVERRIDES
+        if overridden:
+            ov = dict(MANUAL_OVERRIDES[code])
+            fact_override = ov.pop("_fact", None)
+            s.update(ov)
+            if fact_override:
+                s["_fact"] = fact_override
+        if feat.get("feature") and not (overridden and s.get("_fact")):
             s["_fact"] = feat["feature"] + (f" ({feat.get('sourceLabel')})" if feat.get("sourceLabel") else "")
         schools.append(s)
 

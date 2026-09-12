@@ -10,12 +10,24 @@ export interface WeeklyGoalLike {
   output?: string;
 }
 
+export interface BookRefLike {
+  title: string;
+  author: string;
+  publisher?: string;
+  note?: string;
+}
+
 export interface TemplateLike {
   id: string;
   title: string;
   emoji?: string;
   description?: string;
   weeklyGoals: WeeklyGoalLike[];
+  /** 추천 도서 3권 (7형태 템플릿) */
+  books?: BookRefLike[];
+  successCriteria?: string[];
+  /** 주변 증거자료(설문·인터뷰·테스트 물증) */
+  evidence?: string[];
 }
 
 /** 템플릿 주차들 → phase 블록[] (원래 주차 순서를 order로 보존) */

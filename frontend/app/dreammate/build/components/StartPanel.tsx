@@ -59,6 +59,11 @@ export function StartPanel({ fields, onPickTemplate, onBlank }: Props) {
             <div className="min-w-0">
               <div className="text-[13px] font-bold text-white leading-snug">{tpl.title}</div>
               <div className="text-[11px] text-gray-400 mt-0.5 leading-snug line-clamp-2">{tpl.description}</div>
+              {tpl.books && tpl.books.length > 0 && (
+                <div className="text-[10px] text-purple-300/80 mt-1 leading-snug line-clamp-1">
+                  📚 {tpl.books.map((b) => b.title).join(' · ')}
+                </div>
+              )}
               <div className="text-[10px] text-gray-500 mt-1">{tpl.weeklyGoals.length}주 · 클릭하면 트랙으로 불러옵니다</div>
             </div>
           </button>

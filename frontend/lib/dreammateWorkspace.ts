@@ -9,6 +9,12 @@ import type {
 
 const WORKSPACE_STORAGE_KEY = 'dreammate_workspace_v1';
 
+/**
+ * 시드에서 제거한 로드맵 id. 이미 사용자 브라우저(localStorage)에 저장된 경우
+ * 시드를 비워도 병합 시 남으므로, 로드 시점에 강제로 걸러낸다.
+ */
+const REMOVED_SEED_ROADMAP_IDS = new Set<string>(['rm-001', 'rm-002', 'rm-003']);
+
 export interface DreamMateWorkspaceState {
   roadmaps: SharedRoadmap[];
   resources: DreamResource[];
@@ -25,7 +31,9 @@ function mergeRoadmapsWithFallback(
   const roadmapById = new Map<string, SharedRoadmap>();
 
   // 저장된 로드맵을 먼저 등록 (사용자가 직접 만든 private 로드맵 등)
+  // 단, 시드에서 삭제된 로드맵 id는 캐시에 남아 있어도 제거한다.
   storedRoadmaps.forEach(roadmap => {
+    if (REMOVED_SEED_ROADMAP_IDS.has(roadmap.id)) return;
     roadmapById.set(roadmap.id, roadmap);
   });
 

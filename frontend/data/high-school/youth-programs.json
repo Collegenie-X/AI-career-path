@@ -1,0 +1,3512 @@
+{
+  "meta": {
+    "emoji": "🗓️",
+    "title": "청소년 대회 · 캠프 · 전시회",
+    "subtitle": "대회·캠프·전시회·해커톤·봉사 | 국내외 월별·지역별 정리",
+    "description": "LG AI 청소년 캠프처럼, 초·중·고 학생이 참여할 수 있는 ==대회·캠프·전시회·해커톤·봉사활동==을 국내외로 모았어요. 위 탭에서 ==월별·지역별·분야별==로 바꿔 볼 수 있고, 카드를 누르면 공식 페이지로 이동해요.",
+    "asOf": "2026년 9월 조사 기준",
+    "factCheck": "외부 기관의 모집 일정·비용·대상은 매년 달라져요. 참여 전 각 공식 페이지에서 최신 요강을 반드시 확인하세요. (기사·공식 공지 기준으로 검증했고, 일정 미확정 항목은 '예년 기준'으로 표기했습니다)"
+  },
+  "categories": [
+    {
+      "id": "contest",
+      "label": "대회·공모전·해커톤",
+      "emoji": "🏆",
+      "color": "#F472B6"
+    },
+    {
+      "id": "camp",
+      "label": "캠프·교육",
+      "emoji": "🏕️",
+      "color": "#34D399"
+    },
+    {
+      "id": "exhibition",
+      "label": "전시회·페스티벌",
+      "emoji": "🎨",
+      "color": "#A78BFA"
+    },
+    {
+      "id": "volunteer",
+      "label": "봉사활동·NGO",
+      "emoji": "🤝",
+      "color": "#60A5FA"
+    }
+  ],
+  "programs": [
+    {
+      "id": "lg-ai-youth-camp",
+      "name": "LG AI 청소년 캠프",
+      "host": "LG디스커버리랩 · 서울대",
+      "category": "camp",
+      "emoji": "🤖",
+      "grades": "초6~중2",
+      "cost": "무료",
+      "months": [
+        9,
+        10
+      ],
+      "when": "4기 접수 9.14~10.22 (합숙 2월, 미국 7월)",
+      "region": "서울대 합숙 + 미국 실리콘밸리",
+      "url": "https://www.lgaiyouthcamp.or.kr",
+      "summary": "일상 문제를 AI로 해결하는 아이디어 영상을 심사해 100명을 뽑고, 서울대 합숙·온라인 팀 프로젝트를 거쳐 상위 15명을 실리콘밸리로 보내요.",
+      "highlights": [
+        "아이디어 영상 심사",
+        "전 과정 무료",
+        "상위 15명 미국 파견"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "온·오프",
+      "goodFor": "AI로 실제 문제를 푸는 전 과정을 서울대·실리콘밸리에서 경험하고, 전액 무료로 최상위 네트워크를 얻어요.",
+      "prepare": "일상에서 발견한 문제 하나를 정해 1~3분 아이디어 영상으로 구체적으로 설명하세요."
+    },
+    {
+      "id": "kakao-ai-rookie-camp",
+      "name": "카카오 AI 루키 캠프",
+      "host": "카카오",
+      "category": "camp",
+      "emoji": "💛",
+      "grades": "비수도권 중1~중3",
+      "cost": "무료(숙식 전액 지원)",
+      "months": [
+        2
+      ],
+      "when": "2026년 2월 (1회차 2.4~7, 2회차 2.9~12)",
+      "region": "합숙형",
+      "url": "https://www.kakaocorp.com/page/detail/11823",
+      "summary": "비수도권 중학생을 위해 카카오가 신설한 AI 캠프. 문제정의→데이터→모델→구현→윤리검증 전 과정을 현직 개발자 멘토링으로 실습해요.",
+      "highlights": [
+        "비수도권 우대",
+        "현직 개발자 멘토",
+        "숙식 무료"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "비수도권 중학생이 현직 개발자와 AI 프로젝트 전 과정을 숙식 무료로 경험해요.",
+      "prepare": "관심 문제와 데이터 아이디어를 미리 정리하고 2월 모집 공지를 놓치지 마세요."
+    },
+    {
+      "id": "lg-discovery-lab",
+      "name": "LG디스커버리랩 (AI 과학관)",
+      "host": "LG연암문화재단",
+      "category": "camp",
+      "emoji": "🔬",
+      "grades": "중·고 단체",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 예약제 (서울·부산 2곳)",
+      "region": "서울 / 부산",
+      "url": "https://www.lgdlab.or.kr",
+      "summary": "국내 최초 청소년 AI 과학관. 로봇지능·데이터지능·시각/언어지능 등 12개 체험형 AI 교육을 무상으로 운영해요.",
+      "highlights": [
+        "체험형 AI 12종",
+        "무상 운영"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "playsw",
+      "name": "소프트웨어야 놀자",
+      "host": "네이버 커넥트재단",
+      "category": "camp",
+      "emoji": "🟢",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시 (오픈클래스·멘토링)",
+      "url": "https://www.playsw.or.kr",
+      "summary": "엔트리와 네이버 AI 서비스로 실생활 문제를 푸는 SW·AI 교육 캠페인. 오픈클래스와 대학생 멘토 지원을 상시 제공해요.",
+      "highlights": [
+        "오픈클래스",
+        "대학생 멘토"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "goodFor": "무료로 언제든 시작해 기초 코딩·AI 감각을 스스로 쌓을 수 있어요.",
+      "prepare": "짧은 프로젝트부터 완성하며 실력을 축적하고 만든 결과물을 기록하세요."
+    },
+    {
+      "id": "entry",
+      "name": "엔트리(Entry) 코딩 플랫폼",
+      "host": "네이버 커넥트재단",
+      "category": "camp",
+      "emoji": "🧩",
+      "grades": "초·중",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시(온라인)",
+      "url": "https://playentry.org",
+      "summary": "블록 코딩에 사물·소리 인식, 데이터 분석 AI 블록을 더한 무료 플랫폼. 초·중 교과서에도 채택된 국민 코딩 도구예요.",
+      "highlights": [
+        "AI 블록",
+        "교과서 채택"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "goodFor": "무료로 언제든 시작해 기초 코딩·AI 감각을 스스로 쌓을 수 있어요.",
+      "prepare": "짧은 프로젝트부터 완성하며 실력을 축적하고 만든 결과물을 기록하세요."
+    },
+    {
+      "id": "samsung-dreamclass",
+      "name": "삼성 드림클래스",
+      "host": "삼성전자",
+      "category": "camp",
+      "emoji": "📘",
+      "grades": "중학생",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중(주중·주말교실 + 방학캠프)",
+      "url": "https://www.dreamclass.org",
+      "summary": "교육 여건이 부족한 중학생에게 대학생·임직원 멘토가 영어·수학과 진로를 지도하는 삼성의 대표 교육 사회공헌 프로그램이에요.",
+      "highlights": [
+        "진로 멘토링",
+        "방학 캠프"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "samsung-solve-for-tomorrow",
+      "name": "삼성 솔브 포 투모로우",
+      "host": "삼성전자",
+      "category": "contest",
+      "emoji": "💡",
+      "grades": "중·고 팀",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연 단위 공모(국내 회차 일정은 공식 확인)",
+      "url": "https://csr.samsung.com/ko/program/samsung-solve-for-tomorrow",
+      "summary": "STEM과 디자인씽킹으로 우리 동네·사회 문제를 해결하는 글로벌 청소년 경진 프로그램. 문제 발견력과 팀워크를 함께 봐요.",
+      "highlights": [
+        "디자인씽킹",
+        "사회문제 해결"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "skt-happy-ai-coding",
+      "name": "SKT 행복AI코딩스쿨",
+      "host": "SK텔레콤 · 하나금융그룹",
+      "category": "camp",
+      "emoji": "🧑‍💻",
+      "grades": "장애·소외 청소년",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학기 단위(참여 학교·기관 모집)",
+      "url": "https://news.sktelecom.com/225886",
+      "summary": "장애·도서산간 등 디지털 격차 청소년을 위한 AI·코딩 교육. 2019년 시작해 누적 1만 명 넘게 배웠어요.",
+      "highlights": [
+        "디지털 격차 해소",
+        "누적 1만명+"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "skhynix-hy-school",
+      "name": "SK하이닉스 반도체 hy-스쿨",
+      "host": "SK하이닉스",
+      "category": "camp",
+      "emoji": "🔩",
+      "grades": "고등학생",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연 단위 모집(회차별 공지)",
+      "url": "https://news.skhynix.co.kr/hy-school/",
+      "summary": "고교생 반도체 인재 저변을 넓히는 교육. 온라인 영상 강의를 듣고 우수자는 팹 투어·캠퍼스 방문 오프라인 체험에 참여해요.",
+      "highlights": [
+        "반도체 진로",
+        "팹 투어"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "kaist-ip-ceo",
+      "name": "KAIST IP영재기업인교육원",
+      "host": "KAIST (특허청)",
+      "category": "camp",
+      "emoji": "🚀",
+      "grades": "중1~중3",
+      "cost": "정부지원",
+      "months": [
+        8,
+        9
+      ],
+      "when": "모집 8월 말~9월 (2년 과정)",
+      "region": "대전 KAIST + 온라인",
+      "url": "https://ipceo.kaist.ac.kr/",
+      "summary": "지식재산·미래기술·기업가정신을 2년간 배우는 중학생 영재기업인 과정. 아이디어를 특허·창업으로 잇는 훈련을 해요.",
+      "highlights": [
+        "2년 과정",
+        "특허·창업 연계"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "온·오프",
+      "goodFor": "중학생 때부터 2년간 지식재산·창업을 배우는 최상위 영재기업인 트랙이에요.",
+      "prepare": "자기주도 학습·발명 경험을 정리해 8~9월 선발 서류·면접을 준비하세요."
+    },
+    {
+      "id": "postech-ceo",
+      "name": "POSTECH 영재기업인교육원",
+      "host": "POSTECH (특허청)",
+      "category": "camp",
+      "emoji": "🧠",
+      "grades": "중1~중3",
+      "cost": "정부지원",
+      "months": [
+        9,
+        10
+      ],
+      "when": "하반기 모집 (2년 과정, 방학 캠퍼스 캠프)",
+      "region": "포항 POSTECH + 온라인",
+      "url": "https://ceo.postech.ac.kr/",
+      "summary": "KAIST와 함께 특허청이 운영하는 또 하나의 중학생 영재기업인교육원. 학기 온라인 + 방학 기숙 캠프로 진행돼요.",
+      "highlights": [
+        "2년 과정",
+        "방학 기숙 캠프"
+      ],
+      "scope": "domestic",
+      "regionGroup": "영남",
+      "format": "온·오프",
+      "goodFor": "또래보다 앞선 심화 학습과 장기 프로젝트로 전문성을 키워요.",
+      "prepare": "자기주도 학습 경험을 정리해 선발 서류·면접을 준비하고 산출물을 남기세요."
+    },
+    {
+      "id": "kaist-cyber-gifted",
+      "name": "KAIST 사이버영재교육",
+      "host": "KAIST 과학영재교육연구원",
+      "category": "camp",
+      "emoji": "🌐",
+      "grades": "초4~고2",
+      "cost": "정부지원",
+      "months": [
+        3
+      ],
+      "when": "수강생 모집 3월 (온라인)",
+      "url": "https://giftedon.kaist.ac.kr/",
+      "summary": "AI·SW·수학·과학·미래기술을 온라인으로 배우는 KAIST 사이버 영재교육 과정. 전국 어디서나 참여할 수 있어요.",
+      "highlights": [
+        "온라인",
+        "AI·SW 심화"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "온라인",
+      "goodFor": "또래보다 앞선 심화 학습과 장기 프로젝트로 전문성을 키워요.",
+      "prepare": "자기주도 학습 경험을 정리해 선발 서류·면접을 준비하고 산출물을 남기세요."
+    },
+    {
+      "id": "snu-eng-frontier-camp",
+      "name": "서울대 공학 프런티어 캠프",
+      "host": "서울대학교 공과대학",
+      "category": "camp",
+      "emoji": "🏛️",
+      "grades": "고등학생",
+      "cost": "확인 필요",
+      "months": [
+        7
+      ],
+      "when": "7월 하순 3박4일 (예년 기준)",
+      "region": "서울대 관악캠퍼스",
+      "url": "https://eng.snu.ac.kr/",
+      "summary": "서울대 공대 교수·재학생과 함께 전공을 체험하는 여름 공학 진로 캠프. 실험·프로젝트로 공학 진로를 탐색해요.",
+      "highlights": [
+        "교수·재학생 멘토",
+        "전공 체험"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "snu-cals-camp",
+      "name": "서울대 농업생명과학 청소년 캠프",
+      "host": "서울대 농업생명과학대학",
+      "category": "camp",
+      "emoji": "🌱",
+      "grades": "고1 (40명)",
+      "cost": "무료",
+      "months": [
+        1
+      ],
+      "when": "1월 초 2박3일 (모집 전년 11월)",
+      "region": "서울대",
+      "url": "https://cals.snu.ac.kr/",
+      "summary": "농생명과학 분야 진로를 탐색하는 서울대 무료 숙박 캠프. 실험실 투어와 전공 특강으로 진로를 넓혀요.",
+      "highlights": [
+        "무료 숙박",
+        "전공 특강"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "unist-science-camp",
+      "name": "UNIST 청소년 과학 캠프",
+      "host": "UNIST 리더십센터",
+      "category": "camp",
+      "emoji": "⚛️",
+      "grades": "중·고등학생",
+      "cost": "확인 필요",
+      "months": [
+        5,
+        8
+      ],
+      "when": "STEM Camp 멘티 모집 5월 · 집중과정 8월",
+      "region": "울산 UNIST",
+      "url": "https://leader.unist.ac.kr/",
+      "summary": "UNIST 재학생이 멘토로 참여하는 기숙형 과학 캠프 시리즈. STEM 캠프와 미래과학영재 집중과정 등으로 운영돼요.",
+      "highlights": [
+        "재학생 멘토링",
+        "기숙형"
+      ],
+      "scope": "domestic",
+      "regionGroup": "영남",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "univ-gifted-center",
+      "name": "대학부설 과학영재교육원",
+      "host": "전국 대학 (과기정통부·창의재단)",
+      "category": "camp",
+      "emoji": "🎓",
+      "grades": "초4~중등",
+      "cost": "정부지원(저비용)",
+      "months": [
+        9,
+        10,
+        11
+      ],
+      "when": "신입생 모집 9~11월 (기관별 상이)",
+      "region": "부산대·경북대·전북대 등",
+      "url": "https://ged.kedi.re.kr",
+      "summary": "전국 대학에 설치된 정규 과학영재교육원의 심화과정 선발. 대학 실험실에서 수학·과학·정보를 깊이 배워요.",
+      "highlights": [
+        "정규 영재교육",
+        "대학 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "또래보다 앞선 심화 학습과 장기 프로젝트로 전문성을 키워요.",
+      "prepare": "자기주도 학습 경험을 정리해 선발 서류·면접을 준비하고 산출물을 남기세요."
+    },
+    {
+      "id": "koi",
+      "name": "한국정보올림피아드(KOI)",
+      "host": "과기정통부 · IITP",
+      "category": "contest",
+      "emoji": "💾",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        5,
+        7
+      ],
+      "when": "1차 5월, 2차 7월 (온라인)",
+      "url": "https://koi.or.kr/",
+      "summary": "국내 대표 정보(SW) 올림피아드. 알고리즘 실력을 겨루고, 국제정보올림피아드(IOI) 국가대표 선발로 이어져요.",
+      "highlights": [
+        "알고리즘",
+        "IOI 국가대표"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "goodFor": "국내 최고 권위 정보올림피아드로 알고리즘 실력을 공인받고 IOI 국가대표로 이어져요.",
+      "prepare": "백준 등으로 예선 알고리즘을 훈련하고 통과 후 2차 본선 심화 문제를 대비하세요."
+    },
+    {
+      "id": "kmo",
+      "name": "한국수학올림피아드(KMO)",
+      "host": "대한수학회",
+      "category": "contest",
+      "emoji": "➗",
+      "grades": "중·고",
+      "cost": "응시료",
+      "months": [
+        5,
+        11
+      ],
+      "when": "1차(예선) 5월, 2차(본선) 11월",
+      "url": "https://www.kmo.or.kr/",
+      "summary": "대한수학회가 주관하는 국내 최고 권위의 수학 올림피아드. 국제수학올림피아드(IMO) 대표 선발로 연결돼요.",
+      "highlights": [
+        "수학 최고 권위",
+        "IMO 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "kpho",
+      "name": "한국물리올림피아드(KPhO)",
+      "host": "한국물리학회",
+      "category": "contest",
+      "emoji": "🧲",
+      "grades": "중·고",
+      "cost": "응시료",
+      "months": [
+        6,
+        11
+      ],
+      "when": "평가 6월·11월, 겨울학교 1월",
+      "url": "https://newkpho.kps.or.kr/",
+      "summary": "물리 실력을 겨루는 올림피아드. 아시아물리올림피아드(APhO)·국제물리올림피아드(IPhO) 대표 선발로 이어져요.",
+      "highlights": [
+        "APhO·IPhO 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "kcho",
+      "name": "한국화학올림피아드(KChO)",
+      "host": "대한화학회",
+      "category": "contest",
+      "emoji": "⚗️",
+      "grades": "중·고",
+      "cost": "응시료",
+      "months": [
+        6,
+        8
+      ],
+      "when": "접수 6월, 대회 8월 (예년 기준)",
+      "url": "https://olympiad.kchem.org/",
+      "summary": "대한화학회가 주관하는 화학 이론·실험 올림피아드. 국제화학올림피아드(IChO) 대표 선발로 연결돼요.",
+      "highlights": [
+        "이론·실험",
+        "IChO 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "kbo",
+      "name": "한국생물올림피아드(KBO)",
+      "host": "한국생물올림피아드위원회",
+      "category": "contest",
+      "emoji": "🧬",
+      "grades": "고1·고2",
+      "cost": "응시료",
+      "months": [
+        3
+      ],
+      "when": "후보자 접수 3월, 원격교육 4~6월",
+      "url": "https://kbo.bioedu.kr/",
+      "summary": "생물학 사고력을 겨루는 올림피아드. 국제생물올림피아드(IBO) 대표 선발로 이어지고 원격교육이 병행돼요.",
+      "highlights": [
+        "IBO 연계",
+        "원격교육"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "kao",
+      "name": "한국천문올림피아드(KAO)",
+      "host": "한국천문올림피아드위원회",
+      "category": "contest",
+      "emoji": "🔭",
+      "grades": "중·고",
+      "cost": "확인 필요",
+      "months": [
+        4,
+        5
+      ],
+      "when": "교육생 지원서 접수 4~5월",
+      "url": "http://www.kasolym.org/",
+      "summary": "천문·우주 지식을 겨루는 올림피아드. 국제천문올림피아드 대표 선발 교육으로 이어져요.",
+      "highlights": [
+        "천문·우주",
+        "국제대회 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "keso",
+      "name": "한국지구과학올림피아드(KESO)",
+      "host": "한국지구과학올림피아드위원회",
+      "category": "contest",
+      "emoji": "🌏",
+      "grades": "중·고",
+      "cost": "확인 필요",
+      "months": [
+        4
+      ],
+      "when": "상반기 (세부 일정 공식 확인)",
+      "url": "https://www.keso.or.kr/",
+      "summary": "지구과학 탐구력을 겨루는 올림피아드. 국제지구과학올림피아드(IESO) 대표 선발로 연결돼요.",
+      "highlights": [
+        "지구과학",
+        "IESO 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "kjso",
+      "name": "한국중등과학올림피아드(KJSO)",
+      "host": "KJSO 사무국",
+      "category": "contest",
+      "emoji": "🔬",
+      "grades": "중학생(만15세↓)",
+      "cost": "확인 필요",
+      "months": [
+        4,
+        5,
+        6
+      ],
+      "when": "접수 4~6월",
+      "url": "https://kjso.or.kr/",
+      "summary": "중학생 대상 통합 과학 올림피아드. 국제주니어과학올림피아드(IJSO) 국가대표 선발로 이어져요.",
+      "highlights": [
+        "중학생 전용",
+        "IJSO 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "koai",
+      "name": "한국인공지능올림피아드(KOAI)",
+      "host": "한국정보기술진흥원(KITPA)",
+      "category": "contest",
+      "emoji": "🧠",
+      "grades": "중·고",
+      "cost": "확인 필요",
+      "months": [
+        5,
+        6
+      ],
+      "when": "고등부 ~5월, 중등부 ~6월 접수 / 8월 대표 선발",
+      "url": "https://kitpa.org/koai/2026",
+      "summary": "국내 최초의 AI 올림피아드. 국제인공지능올림피아드(IOAI) 국가대표 4인을 선발해요.",
+      "highlights": [
+        "국내 최초 AI 올림피아드",
+        "IOAI 대표"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "국내 최초 AI 올림피아드로 AI 역량을 공인하고 국제대회(IOAI) 대표로 이어져요.",
+      "prepare": "머신러닝 기초와 코딩을 다지고 접수 기간(중·고등부 상이)을 확인하세요."
+    },
+    {
+      "id": "highschool-sw-contest",
+      "name": "전국 고교 동아리 AI·SW 경진대회",
+      "host": "대전권 SW중심대학 공동(KAIST 등)",
+      "category": "contest",
+      "emoji": "👩‍💻",
+      "grades": "고등학생 팀(3~5인)",
+      "cost": "무료",
+      "months": [
+        7,
+        11
+      ],
+      "when": "예선 접수 7월, 본선 11월",
+      "region": "대전",
+      "url": "https://www.highschool-swcontest.net/",
+      "summary": "고교 SW 동아리 팀이 창의적 문제해결 SW를 겨루는 경진대회. 2016년부터 이어진 대전권 대학 공동 대회예요.",
+      "highlights": [
+        "💻 해커톤",
+        "동아리 팀 대회",
+        "SW 문제해결"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "seongnam-kaist-ai",
+      "name": "성남×KAIST AI 경진대회",
+      "host": "성남시 (KAIST 기술협력)",
+      "category": "contest",
+      "emoji": "🏙️",
+      "grades": "고등학생·일반(1~4인 팀)",
+      "cost": "무료",
+      "months": [
+        8,
+        9,
+        10
+      ],
+      "when": "접수 8~9월, 본선 10월(현장 발표·시연)",
+      "region": "성남",
+      "url": "https://xai.kaist.ac.kr/ai-contest/2026/",
+      "summary": "AI로 지역사회 문제를 해결하는 기획·구현형 경진대회. 학생부로 고등학생이 참가할 수 있어요.",
+      "highlights": [
+        "💻 해커톤",
+        "지역문제 해결",
+        "현장 시연"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "AI로 우리 지역 문제를 해결하는 기획·구현형 대회로 실전 경험을 남겨요.",
+      "prepare": "팀으로 지역 문제를 정해 데이터·모델로 해결하고 현장 시연을 준비하세요."
+    },
+    {
+      "id": "korea-code-fair",
+      "name": "한국코드페어(SW공모전·해커톤)",
+      "host": "과기정통부 · NIA",
+      "category": "contest",
+      "emoji": "🧑‍🚀",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        6,
+        8,
+        10
+      ],
+      "when": "SW공모전 접수 5~6월, 해커톤 접수 7~8월, 결선 10월",
+      "url": "https://kcf.or.kr/",
+      "summary": "'AI·데이터로 사회문제 해결'을 주제로 한 청소년 SW 공모전과 해커톤. 초·중·고가 모두 참여할 수 있어요.",
+      "highlights": [
+        "💻 해커톤",
+        "SW공모전+해커톤",
+        "사회문제 해결"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "AI·데이터로 사회문제를 푸는 팀 프로젝트를 국가 무대에서 선보여요.",
+      "prepare": "팀을 꾸려 문제→데이터→모델→결과까지 완성하고 SW공모전·해커톤 접수를 챙기세요."
+    },
+    {
+      "id": "nypc",
+      "name": "넥슨 청소년 프로그래밍 챌린지(NYPC)",
+      "host": "넥슨",
+      "category": "contest",
+      "emoji": "🎮",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [
+        8,
+        10
+      ],
+      "when": "접수 8월, 본선 10월",
+      "url": "https://www.nypc.co.kr",
+      "summary": "게임사 넥슨이 여는 청소년 프로그래밍 챌린지. 알고리즘 문제를 풀며 코딩 실력을 겨뤄요.",
+      "highlights": [
+        "💻 해커톤",
+        "코딩 챌린지",
+        "게임사 주최"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "nasa-space-apps",
+      "name": "NASA Space Apps Challenge",
+      "host": "NASA",
+      "category": "contest",
+      "emoji": "🛰️",
+      "grades": "전연령",
+      "cost": "무료",
+      "months": [
+        10
+      ],
+      "when": "10월 주말 (전 세계 동시 개최)",
+      "url": "https://www.spaceappschallenge.org",
+      "summary": "NASA의 공개 우주 데이터로 48시간 안에 문제를 해결하는 세계 최대 우주 해커톤. 국내 도시에서도 열려요.",
+      "highlights": [
+        "💻 해커톤",
+        "48시간 해커톤",
+        "우주 데이터"
+      ],
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "ms-imagine-cup",
+      "name": "Microsoft Imagine Cup",
+      "host": "Microsoft",
+      "category": "contest",
+      "emoji": "☁️",
+      "grades": "고·대학(16세+)",
+      "cost": "무료",
+      "months": [
+        3,
+        4,
+        5
+      ],
+      "when": "3~5월 결선 (연중 진행)",
+      "url": "https://imaginecup.microsoft.com",
+      "summary": "기술로 창업 아이디어를 겨루는 마이크로소프트의 글로벌 대회. 만 16세 이상 고등학생도 팀으로 도전할 수 있어요.",
+      "highlights": [
+        "💻 해커톤",
+        "기술 창업",
+        "글로벌 대회"
+      ],
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "national-science-exhibition",
+      "name": "전국과학전람회",
+      "host": "과기정통부 · 국립중앙과학관",
+      "category": "contest",
+      "emoji": "🔭",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        6,
+        8
+      ],
+      "when": "시·도 예선(예: 6월) → 전국대회 8월 (요강 1월 공고)",
+      "url": "https://www.science.go.kr/mps/1078/bbs/157/moveBbsNttList.do",
+      "summary": "1949년 시작된 국내 최고 권위의 학생·교원 과학연구작품 전람회. 자유주제 탐구 작품으로 겨뤄요.",
+      "highlights": [
+        "국내 최고 권위",
+        "연구작품 전람"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "자유주제 탐구 연구로 과학적 사고와 끈기를 보여주는 최고 권위 전람회예요.",
+      "prepare": "궁금한 현상을 정해 몇 달간 관찰·실험하고 보고서로 정리, 시도 예선을 거치세요."
+    },
+    {
+      "id": "student-invention-contest",
+      "name": "전국학생과학발명품경진대회",
+      "host": "교육부 · 국립중앙과학관",
+      "category": "contest",
+      "emoji": "🛠️",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        5,
+        7
+      ],
+      "when": "시·도 본선 5월, 전국대회 원서접수 7월, 심사 8월",
+      "url": "https://www.science.go.kr/mps/1074/bbs/154/moveBbsNttList.do",
+      "summary": "학생 창의 발명품을 겨루는 전국 규모 발명 경진대회. 생활 속 아이디어를 발명품으로 만들어 출품해요.",
+      "highlights": [
+        "발명품 경진",
+        "전국 규모"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "생활 속 불편을 발명품으로 해결하는 창의·실행력을 전국 규모로 인정받아요.",
+      "prepare": "불편을 관찰·기록해 시제품을 만들고 개선하며, 시도 예선부터 도전하세요."
+    },
+    {
+      "id": "student-invention-exhibition",
+      "name": "대한민국학생발명전시회",
+      "host": "특허청 · 한국발명진흥회",
+      "category": "exhibition",
+      "emoji": "🏅",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        3,
+        7
+      ],
+      "when": "접수 2.25~4.6, 심사 4~6월, 시상·전시 7.30~8.1",
+      "region": "서울",
+      "url": "https://www.ip-edu.net/home/kor/contents.do?menuPos=40",
+      "summary": "학생 우수 발명품을 발굴·시상·전시하는 국가대표 학생 발명 행사. WIPO 등이 후원해요.",
+      "highlights": [
+        "발명품 전시",
+        "특허청 주최"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "yip",
+      "name": "YIP 청소년 발명가 프로그램",
+      "host": "특허청 · 한국발명진흥회",
+      "category": "camp",
+      "emoji": "💡",
+      "grades": "중·고(3인 1팀)",
+      "cost": "무료",
+      "months": [
+        3,
+        4
+      ],
+      "when": "상반기 교육생 모집 (예년 기준)",
+      "url": "https://www.ip-edu.net/home/kor/contents.do?menuPos=40",
+      "summary": "변리사·창업전문가 멘토링으로 아이디어를 특허·창업까지 잇는 청소년 발명 육성 프로그램이에요.",
+      "highlights": [
+        "변리사 멘토",
+        "특허·창업 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "wro-korea",
+      "name": "WRO KOREA (월드로봇올림피아드)",
+      "host": "WRO Korea 조직위",
+      "category": "contest",
+      "emoji": "🤖",
+      "grades": "초·중·고",
+      "cost": "참가비",
+      "months": [
+        8
+      ],
+      "when": "2026.8.8~9 청주 (세계대회 국가대표 선발)",
+      "region": "청주",
+      "url": "https://www.wrokorea.kr/",
+      "summary": "세계대회 국가대표를 선발하는 국내 최대 로봇·AI 경진대회. 미션 로봇을 설계·제작해 10개 종목에서 겨뤄요.",
+      "highlights": [
+        "로봇 미션",
+        "세계대회 선발"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "오프라인",
+      "goodFor": "설계·코딩·협업을 아우르는 로봇공학 실전 역량을 보여줄 수 있어요.",
+      "prepare": "미션 규정을 분석해 로봇을 설계·제작하고 팀 예선을 거쳐 본선을 준비하세요."
+    },
+    {
+      "id": "iro-korea",
+      "name": "국제로봇올림피아드(IRO) 한국대회",
+      "host": "IROC · KAIST",
+      "category": "contest",
+      "emoji": "🦾",
+      "grades": "초·중·고",
+      "cost": "참가비",
+      "months": [
+        5,
+        9
+      ],
+      "when": "본선 신청 5월, 한국 본선 9.4~6 대전 KAIST",
+      "region": "대전 KAIST",
+      "url": "https://www.iroc.kr/",
+      "summary": "창의 로봇 미션을 겨루는 국제 청소년 로봇대회의 한국 본선. KAIST에서 'DAEJEON IRO WEEK'로 열려요.",
+      "highlights": [
+        "창의 로봇",
+        "KAIST 개최"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "오프라인",
+      "goodFor": "설계·코딩·협업을 아우르는 로봇공학 실전 역량을 보여줄 수 있어요.",
+      "prepare": "미션 규정을 분석해 로봇을 설계·제작하고 팀 예선을 거쳐 본선을 준비하세요."
+    },
+    {
+      "id": "first-lego-league",
+      "name": "FIRST LEGO League(FLL)",
+      "host": "FIRST",
+      "category": "contest",
+      "emoji": "🧱",
+      "grades": "초·중(9~16세)",
+      "cost": "참가비",
+      "months": [
+        9,
+        12
+      ],
+      "when": "9월 시즌 시작 ~ 12월 지역대회",
+      "url": "https://www.firstlegoleague.org",
+      "summary": "로봇 제작과 연구 프로젝트, 팀워크를 함께 평가하는 세계적 청소년 로봇대회. 매년 새로운 미션 주제가 나와요.",
+      "highlights": [
+        "💻 해커톤",
+        "로봇+연구",
+        "팀 프로젝트"
+      ],
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "maker-faire-seoul",
+      "name": "메이커 페어 서울 2026",
+      "host": "서울시립과학관 · 메이커페어 조직위",
+      "category": "exhibition",
+      "emoji": "🛠️",
+      "grades": "전연령",
+      "cost": "무료",
+      "months": [
+        9
+      ],
+      "when": "2026.9.19~20 (10:30~17:30)",
+      "region": "DDP 미래로",
+      "url": "https://www.makerfaireseoul.com/2026",
+      "summary": "AI·로봇·모빌리티·피지컬AI 등 100팀의 창작물을 전시·체험하는 국내 대표 메이커 축제. 청소년 동아리·학교 공방이 부스를 열어요.",
+      "highlights": [
+        "100팀 전시",
+        "직접 체험"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "100팀의 창작물을 직접 보고, 청소년 메이커로 출품까지 도전할 수 있어요.",
+      "prepare": "9월 일정에 맞춰 방문하고, 만들 결과물이 있으면 부스 신청에 도전하세요."
+    },
+    {
+      "id": "ai-education-festival",
+      "name": "대한민국 AI교육 페스티벌",
+      "host": "과기정통부·교육부 · 창의재단",
+      "category": "exhibition",
+      "emoji": "🎪",
+      "grades": "학생·학부모",
+      "cost": "무료",
+      "months": [
+        11
+      ],
+      "when": "11월 (2025년 킨텍스, 2026 일정 미정)",
+      "region": "킨텍스",
+      "url": "https://www.software.kr/festival/kor/main.do",
+      "summary": "AI·SW 교육 체험, 경진, 강연을 한자리에 모은 전국 규모 페스티벌. 레고 AI 모빌리티 경진대회 등 부대행사가 열려요.",
+      "highlights": [
+        "체험·경진·강연",
+        "전국 규모"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "incheon-aisw-festa",
+      "name": "인천 AI·SW미래채움 교육페스티벌",
+      "host": "인천광역시교육청",
+      "category": "exhibition",
+      "emoji": "🌊",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        11
+      ],
+      "when": "11.28~29 (2025년 기준)",
+      "region": "송도컨벤시아",
+      "url": "https://icswfesta.co.kr/",
+      "summary": "69개교 부스와 AI 체험존을 중심으로 한 인천의 AI·SW 교육 축제. 초·중·고 학생 체험 프로그램이 풍성해요.",
+      "highlights": [
+        "학교 부스",
+        "AI 체험존"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "gyeonggi-sw-festa",
+      "name": "경기 SW미래채움 AI 페스티벌",
+      "host": "경기도 · 경기도경제과학진흥원",
+      "category": "exhibition",
+      "emoji": "🦾",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        9
+      ],
+      "when": "9.5 (2026년 기준)",
+      "region": "수원 광교테크노밸리",
+      "url": "https://ggswfesta.kr/",
+      "summary": "휴머노이드·자율주행 등 '피지컬 AI' 체험을 중심으로 한 경기도 SW·AI 페스티벌이에요.",
+      "highlights": [
+        "피지컬 AI",
+        "로봇 체험"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "seoul-adl-festival",
+      "name": "서울 AI·디지털 러닝 페스티벌",
+      "host": "서울특별시교육청",
+      "category": "exhibition",
+      "emoji": "🏫",
+      "grades": "교원·학부모(학생 일부)",
+      "cost": "무료",
+      "months": [
+        8
+      ],
+      "when": "8월 (2025년 코엑스)",
+      "region": "코엑스",
+      "url": "https://adl-festival.kr/",
+      "summary": "AI·디지털 수업 혁신 사례를 공유하는 서울교육청 페스티벌. 주로 교원·학부모 대상이지만 학생 체험도 일부 있어요.",
+      "highlights": [
+        "수업 혁신 사례",
+        "교원 중심"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "busan-digital-festa",
+      "name": "부산 디지털 교육 페스타",
+      "host": "부산광역시교육청",
+      "category": "exhibition",
+      "emoji": "🌆",
+      "grades": "학생·학부모·교원",
+      "cost": "무료",
+      "months": [
+        12
+      ],
+      "when": "12.17~18 (2025년 벡스코)",
+      "region": "부산 벡스코",
+      "url": "https://www.busanedu.net/",
+      "summary": "AI 이미지·음악·영상 창작 체험을 중심으로 한 부산의 디지털 교육 축제예요.",
+      "highlights": [
+        "생성형 AI 체험",
+        "창작 부스"
+      ],
+      "scope": "domestic",
+      "regionGroup": "영남",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "smarttech-korea",
+      "name": "스마트테크 코리아(STK)",
+      "host": "서울메쎄(민간)",
+      "category": "exhibition",
+      "emoji": "🏢",
+      "grades": "참관(진로 견학용)",
+      "cost": "사전등록 무료",
+      "months": [
+        6
+      ],
+      "when": "2026.6.10~12 코엑스",
+      "region": "코엑스",
+      "url": "https://smarttechkorea.com/",
+      "summary": "AI·빅데이터·공급망 혁신 중심의 국내 최대 첨단기술 B2B 전시회. 청소년 대상 프로그램은 아니지만 진로 견학·참관용으로 볼 만해요.",
+      "highlights": [
+        "최신 AI 기술",
+        "진로 견학"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "korea-science-festival",
+      "name": "대한민국 과학축제",
+      "host": "과기정통부 · 창의재단",
+      "category": "exhibition",
+      "emoji": "🎆",
+      "grades": "전연령",
+      "cost": "무료",
+      "months": [
+        4,
+        10
+      ],
+      "when": "4월 과학의 달 전국 순회 (부산·대전·경기), 전북 10월",
+      "url": "https://www.scienceall.com/sciencefestival2026",
+      "summary": "'과학의 달' 4월을 중심으로 전국을 순회하는 국가대표 과학문화 축제. 최신 과학·AI를 체험할 수 있어요.",
+      "highlights": [
+        "과학의 달",
+        "전국 순회"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "isef",
+      "name": "Regeneron ISEF",
+      "host": "Society for Science",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🔬",
+      "grades": "고(9~12)",
+      "cost": "지역예선 통과",
+      "months": [
+        5
+      ],
+      "when": "5월 (미국)",
+      "region": "미국",
+      "url": "https://www.societyforscience.org/isef/",
+      "summary": "세계 최대 규모의 고교 과학·공학 경진대회. 각국 제휴 페어(예선)를 통과해야 본선에 진출해요.",
+      "highlights": [
+        "세계 최대 과학전",
+        "제휴 예선 필요"
+      ],
+      "featured": true,
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "imo",
+      "name": "국제수학올림피아드(IMO)",
+      "host": "IMO Board",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "➗",
+      "grades": "고",
+      "cost": "국가대표 선발",
+      "months": [
+        7
+      ],
+      "when": "7월 (매년 개최국 이동)",
+      "region": "국가별 순회",
+      "url": "https://www.imo-official.org/",
+      "summary": "각국 대표 6명이 겨루는 세계 최고 권위 수학 올림피아드. 한국은 KMO를 거쳐 대표를 선발해요.",
+      "highlights": [
+        "국가대표 6인",
+        "KMO 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "ipho",
+      "name": "국제물리올림피아드(IPhO)",
+      "host": "IPhO",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🧲",
+      "grades": "고",
+      "cost": "국가대표 선발",
+      "months": [
+        7
+      ],
+      "when": "7월",
+      "region": "국가별 순회",
+      "url": "https://ipho-unofficial.org/",
+      "summary": "세계 고교생 물리 올림피아드. KPhO·APhO를 거쳐 국가대표를 선발해요.",
+      "highlights": [
+        "국가대표",
+        "KPhO 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "icho",
+      "name": "국제화학올림피아드(IChO)",
+      "host": "IChO",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "⚗️",
+      "grades": "고",
+      "cost": "국가대표 선발",
+      "months": [
+        7
+      ],
+      "when": "7월",
+      "region": "국가별 순회",
+      "url": "https://www.ichosc.org/",
+      "summary": "세계 고교생 화학 올림피아드. KChO를 거쳐 대표를 선발해요.",
+      "highlights": [
+        "국가대표",
+        "KChO 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "ibo",
+      "name": "국제생물올림피아드(IBO)",
+      "host": "IBO",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🧬",
+      "grades": "고",
+      "cost": "국가대표 선발",
+      "months": [
+        7
+      ],
+      "when": "7월",
+      "region": "국가별 순회",
+      "url": "https://www.ibo-info.org/",
+      "summary": "세계 고교생 생물 올림피아드. KBO를 거쳐 대표를 선발해요.",
+      "highlights": [
+        "국가대표",
+        "KBO 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "ioi",
+      "name": "국제정보올림피아드(IOI)",
+      "host": "IOI",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "💾",
+      "grades": "고",
+      "cost": "국가대표 선발",
+      "months": [
+        8
+      ],
+      "when": "8월",
+      "region": "국가별 순회",
+      "url": "https://ioinformatics.org/",
+      "summary": "세계 최고 권위의 고교 정보(알고리즘) 올림피아드. 한국은 KOI를 거쳐 대표 4명을 선발해요.",
+      "highlights": [
+        "국가대표 4인",
+        "KOI 연계"
+      ],
+      "featured": true,
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "ijso",
+      "name": "국제주니어과학올림피아드(IJSO)",
+      "host": "IJSO",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🔭",
+      "grades": "중(만15세↓)",
+      "cost": "국가대표 선발",
+      "months": [
+        12
+      ],
+      "when": "12월",
+      "region": "국가별 순회",
+      "url": "https://www.ijso-official.org/",
+      "summary": "중학생 대상 통합 과학(물리·화학·생물) 세계 올림피아드. 한국은 KJSO를 거쳐 선발해요.",
+      "highlights": [
+        "중학생 세계대회",
+        "KJSO 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "iol",
+      "name": "국제언어학올림피아드(IOL)",
+      "host": "IOL",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🗣️",
+      "grades": "중·고",
+      "cost": "국가대표 선발",
+      "months": [
+        7
+      ],
+      "when": "7월",
+      "region": "국가별 순회",
+      "url": "https://ioling.org/",
+      "summary": "배운 적 없는 언어의 규칙을 논리로 풀어내는 세계 언어학 올림피아드예요.",
+      "highlights": [
+        "논리·언어",
+        "국가대표"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "igeo",
+      "name": "국제지리올림피아드(iGeo)",
+      "host": "iGeo",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🗺️",
+      "grades": "고(16~19)",
+      "cost": "국가대표 선발",
+      "months": [
+        8
+      ],
+      "when": "8월",
+      "region": "국가별 순회",
+      "url": "https://www.geoolympiad.org/",
+      "summary": "필기·멀티미디어·현장조사로 겨루는 세계 지리 올림피아드예요.",
+      "highlights": [
+        "현장조사",
+        "국가대표"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "amc",
+      "name": "미국수학경시대회(AMC)",
+      "host": "MAA (미국수학협회)",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "📐",
+      "grades": "중·고",
+      "cost": "응시료",
+      "months": [
+        11
+      ],
+      "when": "AMC10/12 11월, AMC8 1월",
+      "region": "전세계 지정고사장",
+      "url": "https://maa.org/student-programs/amc/",
+      "summary": "AIME·USAMO로 이어지는 미국 수학경시대회. 국내에서도 지정 고사장에서 응시할 수 있어요.",
+      "highlights": [
+        "AIME 관문",
+        "국내 응시 가능"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "math-kangaroo",
+      "name": "수학 캥거루(Math Kangaroo)",
+      "host": "Math Kangaroo",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🦘",
+      "grades": "초·중·고",
+      "cost": "응시료",
+      "months": [
+        3
+      ],
+      "when": "3월 (전세계 동시)",
+      "region": "전세계",
+      "url": "https://mathkangaroo.org/",
+      "summary": "전 세계 수백만 명이 같은 날 푸는 사고력 수학 대회. 학년별 난이도로 참여해요.",
+      "highlights": [
+        "전세계 동시",
+        "사고력 수학"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "특정 과목을 교과 이상으로 깊이 판 실력을 공인하고 상위·국제 대회로 이어져요.",
+      "prepare": "개념서·기출로 예선을 대비하고 통과 후 본선 심화 학습, 관련 독서로 탐구를 확장하세요."
+    },
+    {
+      "id": "genius-olympiad",
+      "name": "Genius Olympiad",
+      "host": "RIT · Terra Science",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🌱",
+      "grades": "고",
+      "cost": "유료(본선 미국)",
+      "months": [
+        6
+      ],
+      "when": "6월 (미국 RIT)",
+      "region": "미국",
+      "url": "https://www.geniusolympiad.org/",
+      "summary": "환경을 주제로 과학·글쓰기·예술·로보틱스를 겨루는 국제 고교 대회예요.",
+      "highlights": [
+        "환경 주제",
+        "다분야"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "eucys",
+      "name": "EU 청소년 과학경진대회(EUCYS)",
+      "host": "European Commission",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🇪🇺",
+      "grades": "고(14~20)",
+      "cost": "국가대표 선발",
+      "months": [
+        9
+      ],
+      "when": "9월 (유럽)",
+      "region": "유럽",
+      "url": "https://eucys.eu/",
+      "summary": "유럽연합이 여는 청소년 과학 프로젝트 경진대회. 각국 대표 연구가 모여 겨뤄요.",
+      "highlights": [
+        "EU 대표전",
+        "연구 프로젝트"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "world-scholars-cup",
+      "name": "World Scholar's Cup",
+      "host": "World Scholar's Cup",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🦉",
+      "grades": "초·중·고",
+      "cost": "유료",
+      "months": [
+        11
+      ],
+      "when": "지역라운드~11월 예일 결선",
+      "region": "전세계 → 예일대",
+      "url": "https://www.scholarscup.org/",
+      "summary": "토론·글쓰기·퀴즈를 팀으로 겨루는 국제 학술 종합대회. 지역→글로벌→예일 결선으로 이어져요.",
+      "highlights": [
+        "팀 학술대회",
+        "글로벌 라운드"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "wro-international",
+      "name": "World Robot Olympiad 국제결선",
+      "host": "WRO Association",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🤖",
+      "grades": "초·중·고",
+      "cost": "국가대표",
+      "months": [
+        11
+      ],
+      "when": "11월 국제결선(개최국 이동)",
+      "region": "국가별 순회",
+      "url": "https://wro-association.org/",
+      "summary": "국가예선(WRO KOREA)을 통과한 팀이 겨루는 세계 로봇 올림피아드 결선이에요.",
+      "highlights": [
+        "💻 해커톤",
+        "세계 결선",
+        "WRO KOREA 연계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "robocup-junior",
+      "name": "RoboCup Junior",
+      "host": "RoboCup Federation",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "⚽",
+      "grades": "중·고",
+      "cost": "국가대표",
+      "months": [
+        7
+      ],
+      "when": "7월 세계대회",
+      "region": "국가별 순회",
+      "url": "https://junior.robocup.org/",
+      "summary": "축구·구조·공연 로봇으로 겨루는 세계 청소년 로봇대회. 한국 예선을 거쳐 진출해요.",
+      "highlights": [
+        "💻 해커톤",
+        "축구·구조 로봇",
+        "세계대회"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "vex-worlds",
+      "name": "VEX Robotics World Championship",
+      "host": "REC Foundation",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🦾",
+      "grades": "초·중·고",
+      "cost": "유료",
+      "months": [
+        5
+      ],
+      "when": "4~5월 세계대회(미국)",
+      "region": "미국",
+      "url": "https://www.roboticseducation.org/",
+      "summary": "전 세계에서 가장 참가팀이 많은 로봇대회. 지역대회를 거쳐 세계선수권에 진출해요.",
+      "highlights": [
+        "💻 해커톤",
+        "최대 규모",
+        "지역→세계"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "technovation-girls",
+      "name": "Technovation Girls",
+      "host": "Technovation",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "👩‍💻",
+      "grades": "초·중·고(여학생)",
+      "cost": "무료",
+      "months": [
+        5
+      ],
+      "when": "시즌~5월 세계결선",
+      "region": "전세계(온라인)",
+      "url": "https://www.technovation.org/",
+      "summary": "여학생 팀이 앱으로 지역사회 문제를 해결하는 글로벌 대회. 멘토와 함께 앱을 만들어요.",
+      "highlights": [
+        "💻 해커톤",
+        "여학생 앱개발",
+        "무료"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "conrad-challenge",
+      "name": "Conrad Challenge",
+      "host": "Conrad Foundation",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "🚀",
+      "grades": "중·고(13~18)",
+      "cost": "무료(본선 미국)",
+      "months": [
+        4
+      ],
+      "when": "시즌~4월 최종발표",
+      "region": "전세계 → 미국",
+      "url": "https://www.conradchallenge.org/",
+      "summary": "창업 아이디어로 사회·과학 문제를 해결하는 국제 청소년 혁신·창업 대회예요.",
+      "highlights": [
+        "💻 해커톤",
+        "혁신·창업",
+        "팀 프로젝트"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "diamond-challenge",
+      "name": "Diamond Challenge",
+      "host": "University of Delaware",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "💎",
+      "grades": "중·고(13~18)",
+      "cost": "무료",
+      "months": [
+        4
+      ],
+      "when": "가을 접수~4월 결선",
+      "region": "전세계(온라인)→미국",
+      "url": "https://diamondchallenge.org/",
+      "summary": "고교생 창업 아이디어를 겨루는 국제 대회. 사업계획서와 피칭으로 평가받아요.",
+      "highlights": [
+        "💻 해커톤",
+        "창업 피칭",
+        "무료 참가"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "mlh",
+      "name": "Major League Hacking(MLH)",
+      "host": "MLH",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "💻",
+      "grades": "중·고·대학",
+      "cost": "대부분 무료",
+      "months": [],
+      "always": true,
+      "when": "연중(온·오프라인 해커톤)",
+      "region": "전세계",
+      "url": "https://mlh.io/",
+      "summary": "전 세계 학생 해커톤을 잇는 리그. 주말마다 열리는 온라인 해커톤에 누구나 참여할 수 있어요.",
+      "highlights": [
+        "💻 해커톤",
+        "연중 해커톤",
+        "온라인 참여"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "kaggle",
+      "name": "Kaggle Competitions",
+      "host": "Kaggle (Google)",
+      "category": "contest",
+      "scope": "international",
+      "emoji": "📊",
+      "grades": "고·대학",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시 진행(온라인)",
+      "region": "전세계(온라인)",
+      "url": "https://www.kaggle.com/competitions",
+      "summary": "전 세계 데이터·AI 경진 플랫폼. 실제 데이터로 모델 성능을 겨루며 실력을 쌓을 수 있어요.",
+      "highlights": [
+        "💻 해커톤",
+        "AI·데이터",
+        "상시 온라인"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
+      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
+    },
+    {
+      "id": "yygs",
+      "name": "Yale Young Global Scholars (YYGS)",
+      "host": "Yale University",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🎓",
+      "grades": "고2~고3(16~18)",
+      "cost": "유료 $7,000+장학",
+      "months": [
+        6,
+        7
+      ],
+      "when": "2주 세션 6~7월(원서 가을~겨울)",
+      "region": "미국 예일대",
+      "url": "https://globalscholars.yale.edu/",
+      "summary": "150개국 학생이 모이는 예일대 여름 프로그램. STEM 등 트랙별 강의·세미나·캡스톤을 해요. 니드기반 장학이 있어요.",
+      "highlights": [
+        "예일 캠퍼스",
+        "니드 장학"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "kode-with-klossy",
+      "name": "Kode With Klossy",
+      "host": "Kode With Klossy",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "💗",
+      "grades": "여성·젠더확장 13~18",
+      "cost": "무료",
+      "months": [
+        6,
+        7
+      ],
+      "when": "여름 2주(원서 3/31 마감)",
+      "region": "전세계(온라인)",
+      "url": "https://www.kodewithklossy.com/",
+      "summary": "코딩 무경험도 참여하는 2주 집중 캠프. 웹개발·모바일·데이터/AI 중 하나를 배워요. 가상 캠프는 전 세계 대상·무료.",
+      "highlights": [
+        "무료",
+        "여학생 코딩"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "id-tech",
+      "name": "iD Tech Camps",
+      "host": "iD Tech",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🖥️",
+      "grades": "7~19세",
+      "cost": "유료(고가)",
+      "months": [
+        6,
+        7,
+        8
+      ],
+      "when": "여름 주간/기숙(온라인 글로벌)",
+      "region": "미국 캠퍼스/온라인",
+      "url": "https://www.idtech.com/",
+      "summary": "Python·머신러닝/AI·게임개발·로보틱스를 대학 캠퍼스나 온라인으로 배우는 대형 STEM 캠프예요.",
+      "highlights": [
+        "AI·코딩",
+        "온라인 글로벌"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "inspirit-ai",
+      "name": "Inspirit AI Scholars",
+      "host": "Inspirit AI",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🧠",
+      "grades": "고등학생",
+      "cost": "유료(일부 장학)",
+      "months": [],
+      "always": true,
+      "when": "상시·여름 집중(온라인)",
+      "region": "전세계(온라인)",
+      "url": "https://www.inspiritai.com/",
+      "summary": "스탠퍼드·MIT 대학원생 강사와 소규모(5:1)로 AI 기초를 배우고 사회적 임팩트 프로젝트를 만들어요.",
+      "highlights": [
+        "온라인",
+        "AI 프로젝트"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "무료로 언제든 시작해 기초 코딩·AI 감각을 스스로 쌓을 수 있어요.",
+      "prepare": "짧은 프로젝트부터 완성하며 실력을 축적하고 만든 결과물을 기록하세요."
+    },
+    {
+      "id": "hour-of-code",
+      "name": "Hour of Code / Hour of AI",
+      "host": "Code.org",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "⏱️",
+      "grades": "전 연령",
+      "cost": "무료",
+      "months": [
+        12
+      ],
+      "when": "매년 12월 CS교육주간",
+      "region": "전세계(온라인·한국어)",
+      "url": "https://code.org/hourofcode",
+      "summary": "1시간짜리 코딩·AI 튜토리얼 100여 종을 누구나 즐기는 글로벌 코딩 주간. 한국어도 지원해요.",
+      "highlights": [
+        "무료",
+        "한국어 지원"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "무료로 언제든 시작해 기초 코딩·AI 감각을 스스로 쌓을 수 있어요.",
+      "prepare": "짧은 프로젝트부터 완성하며 실력을 축적하고 만든 결과물을 기록하세요."
+    },
+    {
+      "id": "eu-code-week",
+      "name": "EU Code Week",
+      "host": "European Commission",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🇪🇺",
+      "grades": "전 연령",
+      "cost": "무료",
+      "months": [
+        10
+      ],
+      "when": "매년 10월",
+      "region": "유럽·온라인",
+      "url": "https://codeweek.eu/",
+      "summary": "유럽 전역에서 열리는 코딩·디지털 창의성 풀뿌리 이벤트. 자료와 온라인 행사가 공개돼요.",
+      "highlights": [
+        "무료",
+        "디지털 창의"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "space-camp",
+      "name": "Space Camp (미 우주로켓센터)",
+      "host": "U.S. Space & Rocket Center",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🚀",
+      "grades": "12~18세",
+      "cost": "유료 $1,899~",
+      "months": [
+        6,
+        7,
+        8
+      ],
+      "when": "여름 세션(국제생 환영)",
+      "region": "미국 앨라배마",
+      "url": "https://www.rocketcenter.com/SpaceCamp",
+      "summary": "모의 우주비행·로켓·항공우주 STEM 훈련과 리더십을 체험하는 기숙형 우주 캠프. 150개국 학생이 참가해요.",
+      "highlights": [
+        "우주 훈련",
+        "기숙형"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "harvard-precollege",
+      "name": "Harvard Pre-College Program",
+      "host": "Harvard Summer School",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🏛️",
+      "grades": "16~18세",
+      "cost": "유료 $6,100(재정지원)",
+      "months": [
+        6,
+        7
+      ],
+      "when": "여름 2주 세션(원서 1~2월)",
+      "region": "미국 하버드",
+      "url": "https://summer.harvard.edu/high-school-programs/pre-college-program/",
+      "summary": "하버드 캠퍼스에서 컴퓨터과학 등 한 과목을 2주간 집중 수강하며 대학 생활을 체험해요. 국제생 지원 가능.",
+      "highlights": [
+        "하버드 캠퍼스",
+        "CS 집중"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "berkeley-precollege",
+      "name": "UC Berkeley Summer CS Academy",
+      "host": "UC Berkeley",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🐻",
+      "grades": "16세+",
+      "cost": "유료(기숙)",
+      "months": [
+        6,
+        7
+      ],
+      "when": "여름 기숙(국제생 지원 가능)",
+      "region": "미국 버클리",
+      "url": "https://precollege.berkeley.edu/",
+      "summary": "코딩 무경험자를 위한 버클리 캠퍼스 컴퓨터과학 입문 기숙 아카데미예요.",
+      "highlights": [
+        "CS 입문",
+        "기숙형"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "stanford-ai4all",
+      "name": "Stanford AI4ALL",
+      "host": "Stanford HAI · Pre-Collegiate",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🌲",
+      "grades": "9학년",
+      "cost": "유료(재정지원)",
+      "months": [
+        6,
+        7
+      ],
+      "when": "온라인 6월·기숙 7월(원서 2월)",
+      "region": "미국 스탠퍼드/온라인",
+      "url": "https://ai4all.spcs.stanford.edu/",
+      "summary": "컴퓨터비전·로보틱스·의료AI·NLP 등 AI 핵심 개념과 사회적 영향을 배우는 스탠퍼드 입문 프로그램이에요.",
+      "highlights": [
+        "AI 심화",
+        "스탠퍼드"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "google-cs-first",
+      "name": "Google CS First",
+      "host": "Google for Education",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🔵",
+      "grades": "초·중(4~8학년)",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(온라인)",
+      "region": "전세계(온라인)",
+      "url": "https://csfirst.withgoogle.com/",
+      "summary": "스크래치 기반으로 컴퓨터과학 기초를 배우는 무료 커리큘럼. 방과후·여름에 활용하기 좋아요.",
+      "highlights": [
+        "무료",
+        "스크래치"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "무료로 언제든 시작해 기초 코딩·AI 감각을 스스로 쌓을 수 있어요.",
+      "prepare": "짧은 프로젝트부터 완성하며 실력을 축적하고 만든 결과물을 기록하세요."
+    },
+    {
+      "id": "mit-bwsi",
+      "name": "MIT Beaver Works Summer Institute",
+      "host": "MIT Lincoln Laboratory",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🦫",
+      "grades": "예비 고3",
+      "cost": "무료",
+      "months": [
+        7
+      ],
+      "when": "7월 4주(온라인 선수강 필수)",
+      "region": "미국(거주 요건)",
+      "url": "https://bwsi.mit.edu/",
+      "summary": "AI·자율주행·사이버 등을 프로젝트로 배우는 MIT의 무료 4주 인스티튜트. 단, 미국 거주 학생만 지원할 수 있어요.",
+      "highlights": [
+        "무료",
+        "⚠️미국 거주 한정"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "nasa-sees",
+      "name": "NASA SEES Summer Intern",
+      "host": "NASA · UT Austin",
+      "category": "camp",
+      "scope": "international",
+      "emoji": "🛰️",
+      "grades": "고1~고2",
+      "cost": "무료(경쟁 선발)",
+      "months": [
+        6,
+        7
+      ],
+      "when": "원격+현장 6~7월(원서 2월)",
+      "region": "미국(시민권 필요)",
+      "url": "https://csr.utexas.edu/education-outreach/high-school-internships/sees/",
+      "summary": "NASA 과학자와 지구·우주과학 실제 연구를 하는 경쟁 선발 인턴십. 단, 미 시민권자만 지원할 수 있어요.",
+      "highlights": [
+        "NASA 연구",
+        "⚠️미 시민권 한정"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "maker-faire-bay-area",
+      "name": "Maker Faire Bay Area",
+      "host": "Make: Community",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🛠️",
+      "grades": "전연령(청소년 출품)",
+      "cost": "유료 입장",
+      "months": [
+        9
+      ],
+      "when": "9월 (미국 캘리포니아)",
+      "region": "미국 베이에어리어",
+      "url": "https://makerfaire.com/bay-area/",
+      "summary": "2006년 시작된 세계 최초·최대 메이커 축제. 청소년 출품(Young Makers)과 학생 견학일(Field Trip)이 열려요.",
+      "highlights": [
+        "원조 메이커페어",
+        "청소년 출품"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "maker-faire-rome",
+      "name": "Maker Faire Rome",
+      "host": "로마 상공회의소",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🏛️",
+      "grades": "전연령(학교 출품)",
+      "cost": "무료 입장(예년)",
+      "months": [
+        10
+      ],
+      "when": "10월 (이탈리아 로마)",
+      "region": "이탈리아 로마",
+      "url": "https://makerfairerome.eu/en/",
+      "summary": "항공우주·로보틱스·AI·에듀테크를 아우르는 유럽 최대 메이커·혁신 전시. 학교/학생 출품 트랙이 있어요.",
+      "highlights": [
+        "유럽 최대",
+        "학교 출품"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "maker-faire-tokyo",
+      "name": "Maker Faire Tokyo",
+      "host": "Make: Japan",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🗼",
+      "grades": "전연령(청소년 출품)",
+      "cost": "유료 입장",
+      "months": [
+        9
+      ],
+      "when": "9월 (일본 도쿄)",
+      "region": "일본 도쿄",
+      "url": "https://makezine.jp/",
+      "summary": "일본 최대 메이커 축제. 청소년(Young Maker) 출품 트랙이 활발해 아시아권 접근성이 좋아요.",
+      "highlights": [
+        "아시아 접근성",
+        "청소년 출품"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "maker-faire-shenzhen",
+      "name": "Maker Faire Shenzhen",
+      "host": "Maker Faire Shenzhen 조직위",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🏭",
+      "grades": "전연령",
+      "cost": "확인 필요",
+      "months": [
+        12
+      ],
+      "when": "12월 (중국 선전)",
+      "region": "중국 선전",
+      "url": "https://www.shenzhenmakerfaire.com/",
+      "summary": "하드웨어의 성지 선전에서 열리는 메이커 축제. 엣지 AI·로봇의 실전 적용이 테마예요.",
+      "highlights": [
+        "하드웨어 성지",
+        "엣지 AI"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "maker-faire-global",
+      "name": "Maker Faire (도시별 에디션)",
+      "host": "Make: Community",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🗺️",
+      "grades": "도시별 상이",
+      "cost": "도시별 상이",
+      "months": [],
+      "always": true,
+      "when": "도시마다 날짜 상이",
+      "region": "전세계",
+      "url": "https://makerfaire.com/map/",
+      "summary": "메이커페어는 하나의 행사가 아니라 도시별 라이선스 축제예요. 글로벌 맵에서 가까운 개최지를 찾을 수 있어요.",
+      "highlights": [
+        "글로벌 맵",
+        "도시별 개최"
+      ],
+      "regionGroup": "해외",
+      "format": "온라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "robocup-incheon-2026",
+      "name": "RoboCup 2026 인천 (주니어 포함)",
+      "host": "RoboCup Federation",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "⚽",
+      "grades": "청소년 참가/관람",
+      "cost": "참가 예선·관람 별도",
+      "months": [
+        6,
+        7
+      ],
+      "when": "2026.6.30~7.6 인천 송도",
+      "region": "인천(2026 개최)",
+      "url": "https://2026.robocup.org/",
+      "summary": "로봇·AI 세계 최대 대회가 사상 처음 한국(인천)에서 열려요. 청소년 주니어 리그 참가와 관람이 모두 가능해요.",
+      "highlights": [
+        "2026 한국 개최",
+        "주니어 리그"
+      ],
+      "featured": true,
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "first-global-2026",
+      "name": "FIRST Global Challenge 2026 인천",
+      "host": "FIRST Global",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🌐",
+      "grades": "고교(국가대표팀)",
+      "cost": "국가대표 선발",
+      "months": [
+        10
+      ],
+      "when": "2026.10.7~10 인천",
+      "region": "인천(2026 개최)",
+      "url": "https://first.global/fgc/",
+      "summary": "각국 대표팀이 겨루는 '로봇 올림픽'. 2026년 한국(인천)에서 열리며 테마는 산불 대응이에요.",
+      "highlights": [
+        "로봇 올림픽",
+        "2026 한국 개최"
+      ],
+      "featured": true,
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "first-championship",
+      "name": "FIRST Championship (휴스턴)",
+      "host": "FIRST",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🤖",
+      "grades": "학생팀(예선 통과)",
+      "cost": "관람 대체로 무료",
+      "months": [
+        4,
+        5
+      ],
+      "when": "4~5월 (미국 휴스턴)",
+      "region": "미국 휴스턴",
+      "url": "https://www.firstinspires.org/",
+      "summary": "66개국 1,000여 팀이 모이는 FIRST 로봇 시즌의 세계 결선(FRC·FTC·FLL)이자 대형 엑스포예요.",
+      "highlights": [
+        "세계 결선",
+        "로봇 엑스포"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "ces",
+      "name": "CES (라스베이거스)",
+      "host": "CTA",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "📱",
+      "grades": "참관(만18세+)",
+      "cost": "유료(업계)",
+      "months": [
+        1
+      ],
+      "when": "1월 (미국 라스베이거스)",
+      "region": "미국 라스베이거스",
+      "url": "https://www.ces.tech/",
+      "summary": "최신 AI·모빌리티·가전 트렌드의 세계 최대 무대. 단, 만 18세 미만은 입장 불가라 트렌드로만 알아두세요.",
+      "highlights": [
+        "세계 최대 가전전",
+        "⚠️만18세+"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "hannover-messe",
+      "name": "Hannover Messe (하노버 산업박람회)",
+      "host": "Deutsche Messe",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "⚙️",
+      "grades": "참관(학생 할인)",
+      "cost": "유료(학생 할인)",
+      "months": [
+        4
+      ],
+      "when": "4월 (독일 하노버)",
+      "region": "독일 하노버",
+      "url": "https://www.hannovermesse.de/en/",
+      "summary": "자동화·로보틱스·AI·수소 등 산업기술의 세계 최대 견본시. 진로 견학용으로 볼 만해요.",
+      "highlights": [
+        "산업기술",
+        "진로 견학"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "vivatech",
+      "name": "VivaTech (파리)",
+      "host": "Publicis · Les Echos",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🇫🇷",
+      "grades": "참관(공개일 관람)",
+      "cost": "공개일 €15~",
+      "months": [
+        6
+      ],
+      "when": "6월 (프랑스 파리)",
+      "region": "프랑스 파리",
+      "url": "https://vivatech.com/",
+      "summary": "유럽 최대 테크·스타트업 축제. 마지막 날 토요일 일반 공개일에는 청소년도 참관할 수 있어요.",
+      "highlights": [
+        "스타트업",
+        "공개일 관람"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "web-summit",
+      "name": "Web Summit (리스본)",
+      "host": "Web Summit",
+      "category": "exhibition",
+      "scope": "international",
+      "emoji": "🌐",
+      "grades": "참관(컨퍼런스)",
+      "cost": "유료",
+      "months": [
+        11
+      ],
+      "when": "11월 (포르투갈 리스본)",
+      "region": "포르투갈 리스본",
+      "url": "https://websummit.com/",
+      "summary": "글로벌 스타트업·테크 리더가 모이는 대형 테크 컨퍼런스. 최신 기술 흐름을 견학하기 좋아요.",
+      "highlights": [
+        "테크 컨퍼런스",
+        "글로벌"
+      ],
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "wipa-invention",
+      "name": "대한민국발명특허대전(WIPA)",
+      "host": "한국발명진흥회",
+      "category": "exhibition",
+      "scope": "domestic",
+      "emoji": "🏅",
+      "grades": "전연령(청소년부)",
+      "cost": "무료 관람",
+      "months": [
+        11
+      ],
+      "when": "11월 (서울 코엑스)",
+      "region": "서울",
+      "url": "https://www.kipa.org/",
+      "summary": "국내 최대 발명·특허 전시회. 청소년 발명품도 출품·전시되어 최신 발명 트렌드를 볼 수 있어요.",
+      "highlights": [
+        "발명·특허",
+        "청소년부"
+      ],
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "gwacheon-makerspace",
+      "name": "국립과천과학관 무한상상실",
+      "host": "국립과천과학관",
+      "category": "exhibition",
+      "scope": "domestic",
+      "emoji": "🔧",
+      "grades": "초·중·고",
+      "cost": "무료(예약제)",
+      "months": [],
+      "always": true,
+      "when": "상시 운영(예약제)",
+      "region": "경기 과천",
+      "url": "https://www.sciencecenter.go.kr/",
+      "summary": "3D프린터·레이저커터·로봇을 직접 다루는 과학관 메이커스페이스. 아이디어를 시제품으로 만들어 볼 수 있어요.",
+      "highlights": [
+        "3D프린팅",
+        "무료 메이커"
+      ],
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "vol-1365",
+      "name": "1365 자원봉사포털",
+      "host": "행정안전부",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🗂️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시",
+      "region": "전국",
+      "url": "https://www.1365.go.kr",
+      "summary": "전국 봉사처를 검색·신청하고 봉사시간을 인증하는 국가 대표 포털. 지역·분야로 검색해 신청해요.",
+      "highlights": [
+        "봉사시간 인증",
+        "전국 봉사처"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "전국 봉사처를 한 곳에서 찾고 봉사시간을 공식 인증받는 국가 대표 포털이에요.",
+      "prepare": "가입 후 집 근처·관심 분야 봉사를 정기적으로 신청해 꾸준히 활동하세요."
+    },
+    {
+      "id": "vol-vms",
+      "name": "VMS 사회복지자원봉사",
+      "host": "보건복지부",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🤲",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시",
+      "region": "전국",
+      "url": "https://www.vms.or.kr",
+      "summary": "복지관·사회복지시설 봉사를 검색·신청하고 실적을 누적 관리하는 인증 시스템이에요.",
+      "highlights": [
+        "복지시설 봉사",
+        "실적 관리"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-dovol",
+      "name": "e청소년 DOVOL 청소년봉사",
+      "host": "여성가족부",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🧑‍🤝‍🧑",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시",
+      "region": "전국·온라인",
+      "url": "https://dovol.youth.go.kr",
+      "summary": "청소년 특화 봉사 포털. 봉사 검색·신청·확인서 발급을 한 곳에서 처리해요.",
+      "highlights": [
+        "청소년 특화",
+        "확인서 발급"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "청소년 특화 포털이라 학교·기관 봉사 신청과 확인서 발급이 쉬워요.",
+      "prepare": "관심 봉사를 검색해 정기적으로 참여하고 활동 내용을 기록하세요."
+    },
+    {
+      "id": "vol-rcy",
+      "name": "청소년적십자(RCY)",
+      "host": "대한적십자사",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "➕",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학기 중 동아리 활동",
+      "region": "전국(학교 단위)",
+      "url": "https://www.redcross.or.kr",
+      "summary": "학교 단위 청소년 적십자 봉사. 응급처치·헌혈 캠페인·지역봉사를 지도교사를 통해 참여해요.",
+      "highlights": [
+        "학교 동아리",
+        "헌혈 캠페인"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-seoul",
+      "name": "서울시자원봉사센터",
+      "host": "서울특별시",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🏙️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시",
+      "region": "서울(자치구 25개)",
+      "url": "https://volunteer.seoul.go.kr",
+      "summary": "서울 지역 봉사처 매칭·자치구 센터 안내. 지역별 봉사는 각 시·도 센터에서 운영해요.",
+      "highlights": [
+        "서울 지역",
+        "자치구 센터"
+      ],
+      "regionGroup": "수도권",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-knps",
+      "name": "국립공원 자원봉사",
+      "host": "국립공원공단",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🏞️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중(주말·방학 다수)",
+      "region": "전국 국립공원",
+      "url": "https://volunteer.knps.or.kr",
+      "summary": "탐방로 정화·생태 모니터링 등 환경정화 봉사. 전용 누리집·앱으로 예약 신청해요.",
+      "highlights": [
+        "환경정화",
+        "생태 모니터링"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "환경 문제에 직접 행동한 실천 경험을 남길 수 있어요.",
+      "prepare": "정화·모니터링 일정에 정기 참여하고 활동 데이터를 기록해 탐구로 연결하세요."
+    },
+    {
+      "id": "vol-koem",
+      "name": "해양환경공단 연안정화 봉사",
+      "host": "해양환경공단(KOEM)",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🌊",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "봄~가을 캠페인",
+      "region": "전국 연안",
+      "url": "https://www.koem.or.kr",
+      "summary": "해양쓰레기 수거·연안정화 봉사. 지사별 공지 확인 후 신청하며 다수는 1365로 모집해요.",
+      "highlights": [
+        "연안정화",
+        "해양쓰레기"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "환경 문제에 직접 행동한 실천 경험을 남길 수 있어요.",
+      "prepare": "정화·모니터링 일정에 정기 참여하고 활동 데이터를 기록해 탐구로 연결하세요."
+    },
+    {
+      "id": "vol-museum",
+      "name": "국립중앙박물관 청소년 봉사",
+      "host": "국립중앙박물관",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🏛️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학기 주말·방학(모집 재개 확인)",
+      "region": "서울 용산",
+      "url": "https://www.museum.go.kr",
+      "summary": "어린이박물관 전시 안내·활동 보조 봉사. 월별 모집공고를 확인해 DOVOL에서 신청해요.",
+      "highlights": [
+        "전시 안내",
+        "⚠️모집 재개 확인"
+      ],
+      "regionGroup": "수도권",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-beautiful",
+      "name": "아름다운가게 청소년 자원활동",
+      "host": "아름다운가게",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🛍️",
+      "grades": "만14세~18",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중(최소 3회)",
+      "region": "전국 매장",
+      "url": "https://www.beautifulstore.org/",
+      "summary": "매장 기부물품 접수·진열·판매 응대 봉사. 홈페이지에서 온라인 신청해요.",
+      "highlights": [
+        "매장 봉사",
+        "만14세+"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-goodneighbors",
+      "name": "굿네이버스 청소년 봉사",
+      "host": "굿네이버스",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "💙",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중/모집시기별",
+      "region": "전국·온라인",
+      "url": "https://www.goodneighbors.kr",
+      "summary": "청소년 글로벌 시민 네트워크·재능기부 봉사단. 사업안내 메뉴에서 참여해요.",
+      "highlights": [
+        "글로벌 시민",
+        "재능기부"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-worldvision",
+      "name": "월드비전 자원봉사",
+      "host": "월드비전",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🌏",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중/모집공고별",
+      "region": "전국·온라인",
+      "url": "https://www.worldvision.or.kr",
+      "summary": "번역·일반 자원봉사 및 모집공고를 운영해요. 청소년 조건은 공고별로 확인하세요.",
+      "highlights": [
+        "번역 봉사",
+        "모집공고"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-savethechildren",
+      "name": "세이브더칠드런 영세이버",
+      "host": "세이브더칠드런",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🧡",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "모집시기별",
+      "region": "전국·온라인",
+      "url": "https://www.sc.or.kr",
+      "summary": "아동권리 옹호 서포터즈·캠페인 참여형 활동. 옹호활동 중심이에요.",
+      "highlights": [
+        "아동권리",
+        "서포터즈"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-chorogusan",
+      "name": "초록우산 어린이재단 봉사",
+      "host": "초록우산어린이재단",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "☂️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중/모집공고별",
+      "region": "전국",
+      "url": "https://www.chorogusan.or.kr",
+      "summary": "전국 봉사자 모집·봉사확인서 발급. 홈페이지 모집공고에서 지역별로 신청해요.",
+      "highlights": [
+        "봉사확인서",
+        "지역별 모집"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-unicef",
+      "name": "유니세프 아동친화학교",
+      "host": "유니세프한국위원회",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🕊️",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중",
+      "region": "전국(학교 단위)",
+      "url": "https://www.unicef.or.kr",
+      "summary": "'유니세프 아동친화학교' 등 아동권리 참여·옹호 활동 중심이에요.",
+      "highlights": [
+        "아동권리",
+        "학교 참여"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "꾸준함과 나눔의 진정성을 보여주고 봉사 시간을 인증받아요.",
+      "prepare": "한 기관을 정해 정기적으로 참여하고 느낀 점을 기록해 특기사항으로 남기세요."
+    },
+    {
+      "id": "vol-habitat",
+      "name": "한국해비타트 집짓기 봉사",
+      "host": "한국해비타트",
+      "category": "volunteer",
+      "scope": "domestic",
+      "emoji": "🏠",
+      "grades": "중·고(단체)",
+      "cost": "국내 무료",
+      "months": [],
+      "always": true,
+      "when": "연중(국내 현장)",
+      "region": "전국 현장",
+      "url": "https://www.habitat.or.kr",
+      "summary": "주거 취약계층 집짓기 봉사. 국내 현장봉사와 해외 Global Village 파견을 운영해요.",
+      "highlights": [
+        "집짓기",
+        "국내·해외"
+      ],
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "다른 문화 속에서 협력하며 넓은 시야와 도전 경험을 얻어요.",
+      "prepare": "일정·비용·안전을 미리 확인하고 보호자와 계획해 활동 후기를 정리하세요."
+    },
+    {
+      "id": "vol-iwo",
+      "name": "IWO 국제워크캠프(청소년)",
+      "host": "국제워크캠프기구(IWO)",
+      "category": "volunteer",
+      "scope": "international",
+      "emoji": "🌐",
+      "grades": "만15~17세",
+      "cost": "참가비(자부담)",
+      "months": [
+        7,
+        8
+      ],
+      "when": "방학 중 집중(연중 캠프 검색)",
+      "region": "해외 100여 개국",
+      "url": "https://www.workcamp.org",
+      "summary": "다국적 청소년이 해외 현지에서 봉사+문화교류를 하는 국제 워크캠프. 홈페이지 캠프 찾기에서 신청해요.",
+      "highlights": [
+        "해외 봉사",
+        "문화교류"
+      ],
+      "regionGroup": "해외",
+      "format": "온·오프",
+      "goodFor": "다른 문화 속에서 협력하며 넓은 시야와 도전 경험을 얻어요.",
+      "prepare": "일정·비용·안전을 미리 확인하고 보호자와 계획해 활동 후기를 정리하세요."
+    },
+    {
+      "id": "bizcool-festival",
+      "name": "청소년 비즈쿨 페스티벌",
+      "host": "창업진흥원(KISED)·중기부",
+      "category": "exhibition",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "🚀",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [
+        10,
+        11
+      ],
+      "when": "10~11월 (킨텍스)",
+      "region": "고양 킨텍스",
+      "url": "https://www.kised.or.kr/menu.es?mid=a10206030000",
+      "summary": "학교 창업교육(비즈쿨) 성과를 공유하는 IR 피치·부스 전시형 축제예요.",
+      "highlights": [
+        "🚀 창업",
+        "IR 피치",
+        "부스 전시"
+      ],
+      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
+      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "youth-startup-contest",
+      "name": "대한민국 청소년 창업경진대회",
+      "host": "한국청년기업가정신재단(YEEP)",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "emoji": "💡",
+      "grades": "초~고",
+      "cost": "무료",
+      "months": [
+        5,
+        10
+      ],
+      "when": "접수 5~7월, 전국 결선 10월",
+      "region": "시·도 예선→양재 aT",
+      "url": "https://yeep.go.kr/cpthb/contest.do",
+      "summary": "17개 시·도 예선을 거치는 전국 단위 청소년 창업 아이디어 경진대회예요.",
+      "highlights": [
+        "🚀 창업",
+        "시도 예선",
+        "전국 결선"
+      ],
+      "goodFor": "문제 발견부터 사업화까지 기획·실행력을 전국 무대에서 보여줘요.",
+      "prepare": "내 주변의 진짜 문제 하나를 정해 해결책·수요를 조사하고 피칭 자료로 정리하세요."
+    },
+    {
+      "id": "comeup",
+      "name": "COMEUP 컴업",
+      "host": "중소벤처기업부",
+      "category": "exhibition",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "🌐",
+      "grades": "참관(진로)",
+      "cost": "무료(등록별)",
+      "months": [
+        12
+      ],
+      "when": "12월 (코엑스)",
+      "region": "서울 코엑스",
+      "url": "https://www.comeup.org/",
+      "summary": "아시아 최대급 글로벌 스타트업 축제. 청소년은 참관·부스 체험 목적으로 볼 만해요.",
+      "highlights": [
+        "🚀 창업",
+        "스타트업 축제",
+        "참관"
+      ],
+      "goodFor": "산업 최전선의 기술·트렌드를 견학해 진로 시야를 넓힐 수 있어요.",
+      "prepare": "관심 분야 부스·세션을 미리 골라 방문하고 본 내용을 정리·탐구로 이어가세요."
+    },
+    {
+      "id": "yeep-edu",
+      "name": "YEEP 청소년 기업가체험",
+      "host": "한국청년기업가정신재단·교육부",
+      "category": "camp",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "emoji": "🧑‍💼",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(온라인 플랫폼)",
+      "region": "전국·온라인",
+      "url": "https://yeep.go.kr/intro/yeepIntro.do",
+      "summary": "창업 과정을 가상으로 체험하는 온라인 기업가정신 교육 플랫폼. 대회 신청도 연동돼요.",
+      "highlights": [
+        "🚀 창업",
+        "온라인 체험"
+      ],
+      "goodFor": "또래보다 앞선 심화 학습과 장기 프로젝트로 전문성을 키워요.",
+      "prepare": "자기주도 학습 경험을 정리해 선발 서류·면접을 준비하고 산출물을 남기세요."
+    },
+    {
+      "id": "ja-company",
+      "name": "JA Company Program",
+      "host": "Junior Achievement",
+      "category": "camp",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "emoji": "🏢",
+      "grades": "고교",
+      "cost": "학교·기관 연계",
+      "months": [],
+      "always": true,
+      "when": "학기·학년 단위",
+      "region": "글로벌(JA Korea)",
+      "url": "https://jausa.ja.org/programs/ja-company-program",
+      "summary": "학생이 실제 회사를 설립·운영해보는 세계적 기업가정신 교육 프로그램이에요.",
+      "highlights": [
+        "🚀 창업",
+        "회사 운영"
+      ],
+      "goodFor": "관심 분야를 몰입해 경험하며 진로를 직접 확인할 수 있어요.",
+      "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
+    },
+    {
+      "id": "ytn-hufs-debate",
+      "name": "YTN·한국외대 청소년 영어토론대회",
+      "host": "YTN·한국외국어대학교",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "emoji": "🗣️",
+      "grades": "중·고",
+      "cost": "공지 확인",
+      "months": [],
+      "always": true,
+      "when": "연례(개최 시기 공지 확인)",
+      "region": "전국",
+      "url": "https://www.englishdebatingchampionship.co.kr/",
+      "summary": "국내 대표적 청소년 영어토론(디베이트) 대회. EFL/ESL 부문으로 나뉘어요.",
+      "highlights": [
+        "🗣️ 영어토론",
+        "디베이트"
+      ],
+      "goodFor": "영어 실력과 논리적 사고·설득력을 동시에 보여줄 수 있어요.",
+      "prepare": "디베이트 형식을 익히고 시사 주제로 근거를 준비해 실전 리허설을 반복하세요."
+    },
+    {
+      "id": "ybm-speech",
+      "name": "YBM English Speech Contest",
+      "host": "YBM·한국TOEIC위원회",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "emoji": "🎤",
+      "grades": "중·고",
+      "cost": "공지 확인",
+      "months": [],
+      "always": true,
+      "when": "연례(AI 예선)",
+      "region": "전국",
+      "url": "https://www.ybmaispeech.co.kr/",
+      "summary": "AI 발음분석 예선을 거치는 청소년 영어 스피치 대회예요.",
+      "highlights": [
+        "🎤 영어 스피치",
+        "AI 예선"
+      ],
+      "goodFor": "영어로 자기 생각을 설득력 있게 전달하는 표현력을 보여줘요.",
+      "prepare": "주제 원고를 쓰고 소리내어 연습하며 발음·전달력을 다듬으세요."
+    },
+    {
+      "id": "ksmun",
+      "name": "KSMUN 한국청소년모의유엔",
+      "host": "학생 주관(한국청소년단체협의회 지원)",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "🕊️",
+      "grades": "중·고",
+      "cost": "유료(8~10만원)",
+      "months": [
+        11
+      ],
+      "when": "11.21~22 서울",
+      "region": "서울",
+      "url": "https://ksmun.kr/",
+      "summary": "영어로 진행되는 학생 주관 전국 모의유엔 컨퍼런스예요.",
+      "highlights": [
+        "🌐 모의유엔",
+        "영어 진행"
+      ],
+      "goodFor": "국제 이슈를 조사하고 영어로 협상·발표하는 리더십을 경험해요.",
+      "prepare": "맡은 국가·의제를 조사해 입장문을 쓰고 회의 규칙(ROP)을 미리 익히세요."
+    },
+    {
+      "id": "reading-debate",
+      "name": "대한민국 독서토론논술대회",
+      "host": "전국독서새물결모임",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "emoji": "📖",
+      "grades": "초·중·고",
+      "cost": "참가 접수",
+      "months": [
+        6,
+        7
+      ],
+      "when": "공고 3월, 예선 6월, 본선 7~8월",
+      "region": "전국",
+      "url": "https://www.readingkorea.org/",
+      "summary": "국내 최대 규모의 독서·토론·논술 교육 축제형 대회예요.",
+      "highlights": [
+        "💬 토론",
+        "독서·논술"
+      ],
+      "goodFor": "관심 분야를 깊이 파고든 탐구력과 도전 정신을 보여줄 수 있어요.",
+      "prepare": "요강·기출을 먼저 분석하고 예선→본선 일정에 맞춰 준비, 과정을 기록해 세특으로 연결하세요."
+    },
+    {
+      "id": "daesan-literary",
+      "name": "대산청소년문학상",
+      "host": "대산문화재단",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "emoji": "✍️",
+      "grades": "중·고",
+      "cost": "무료(장학금)",
+      "months": [
+        3,
+        5
+      ],
+      "when": "접수 3~5월, 발표 7월",
+      "region": "전국",
+      "url": "https://www.daesan.or.kr/daesan-award/2026/teenager.html",
+      "summary": "청소년 시·소설 대표 문학공모. 백일장·문학캠프가 연계돼요.",
+      "highlights": [
+        "✍️ 글쓰기",
+        "문학캠프"
+      ],
+      "goodFor": "생각을 논리적인 글로 풀어내는 사고력과 표현력을 보여줄 수 있어요.",
+      "prepare": "주제 관련 독서로 관점을 쌓고 개요→초고→퇴고로 글을 다듬으세요."
+    },
+    {
+      "id": "junior-tesat",
+      "name": "주니어 TESAT 경제이해력",
+      "host": "한국경제신문",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "emoji": "📈",
+      "grades": "초고~중·고",
+      "cost": "응시료",
+      "months": [
+        2,
+        8,
+        11
+      ],
+      "when": "연 3회(2·8·11월)",
+      "region": "전국 고사장",
+      "url": "https://www.tesat.or.kr/html.frm.junior.intro/outline.regular",
+      "summary": "청소년 대상 경제이해력 검정시험(50문항·60분)이에요.",
+      "highlights": [
+        "📈 경제",
+        "경제이해력 검정"
+      ],
+      "goodFor": "경제·금융 이해력을 시험으로 객관적으로 인증할 수 있어요.",
+      "prepare": "교재·기출로 개념을 정리하고 시사 경제 뉴스로 감각을 익히세요."
+    },
+    {
+      "id": "kpo-philosophy",
+      "name": "한국철학올림피아드(KPO)",
+      "host": "한국철학회",
+      "category": "contest",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "emoji": "🧠",
+      "grades": "중·고",
+      "cost": "공지 확인",
+      "months": [
+        1
+      ],
+      "when": "상·하반기, IPO 예선 1월",
+      "region": "전국",
+      "url": "https://www.kpo.or.kr/",
+      "summary": "철학 에세이 경시 + 국제철학올림피아드(IPO) 국가대표 선발로 이어져요.",
+      "highlights": [
+        "✍️ 글쓰기",
+        "철학 에세이"
+      ],
+      "goodFor": "생각을 논리적인 글로 풀어내는 사고력과 표현력을 보여줄 수 있어요.",
+      "prepare": "주제 관련 독서로 관점을 쌓고 개요→초고→퇴고로 글을 다듬으세요."
+    },
+    {
+      "id": "john-locke",
+      "name": "John Locke Essay Prize",
+      "host": "John Locke Institute (UK)",
+      "category": "contest",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "온라인",
+      "emoji": "📜",
+      "grades": "~19세",
+      "cost": "무료(정규기간)",
+      "months": [
+        4,
+        5
+      ],
+      "when": "제출 4~5월, 발표 7월",
+      "region": "영국(온라인 제출)",
+      "url": "https://www.johnlockeinstitute.com/essay-competition",
+      "summary": "경제·역사·철학·법 등 10개 분야의 글로벌 학술 에세이 대회예요.",
+      "highlights": [
+        "✍️ 에세이",
+        "글로벌 학술"
+      ],
+      "goodFor": "생각을 논리적인 글로 풀어내는 사고력과 표현력을 보여줄 수 있어요.",
+      "prepare": "주제 관련 독서로 관점을 쌓고 개요→초고→퇴고로 글을 다듬으세요."
+    },
+    {
+      "id": "thimun",
+      "name": "THIMUN 헤이그 모의유엔",
+      "host": "THIMUN Foundation",
+      "category": "contest",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "emoji": "🌐",
+      "grades": "중등",
+      "cost": "유료",
+      "months": [
+        1
+      ],
+      "when": "1월 (네덜란드 헤이그)",
+      "region": "네덜란드 헤이그",
+      "url": "https://thehague.thimun.org/",
+      "summary": "200여 개교 3천여 명이 참가하는 세계 최대급 고교 모의유엔이에요.",
+      "highlights": [
+        "🌐 모의유엔",
+        "세계 최대급"
+      ],
+      "goodFor": "국제 이슈를 조사하고 영어로 협상·발표하는 리더십을 경험해요.",
+      "prepare": "맡은 국가·의제를 조사해 입장문을 쓰고 회의 규칙(ROP)을 미리 익히세요."
+    },
+    {
+      "id": "hmun-boston",
+      "name": "Harvard 모의유엔(HMUN)",
+      "host": "Harvard MUN",
+      "category": "contest",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "emoji": "🎓",
+      "grades": "고교",
+      "cost": "유료",
+      "months": [
+        1
+      ],
+      "when": "1월 (미국 보스턴)",
+      "region": "미국 보스턴",
+      "url": "https://www.harvardmun.org/",
+      "summary": "가장 오래되고 규모가 큰 고교 대상 모의유엔 컨퍼런스예요.",
+      "highlights": [
+        "🌐 모의유엔",
+        "하버드 주최"
+      ],
+      "goodFor": "국제 이슈를 조사하고 영어로 협상·발표하는 리더십을 경험해요.",
+      "prepare": "맡은 국가·의제를 조사해 입장문을 쓰고 회의 규칙(ROP)을 미리 익히세요."
+    },
+    {
+      "id": "nhsdlc",
+      "name": "NHSDLC 영어 디베이트",
+      "host": "NHSDLC",
+      "category": "contest",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "emoji": "🗣️",
+      "grades": "중·고",
+      "cost": "유료",
+      "months": [
+        3,
+        10
+      ],
+      "when": "가을 10~12월·봄 3~5월",
+      "region": "중국(아시아)",
+      "url": "https://www.nhsdlc.com/",
+      "summary": "미국식 PF 디베이트 기반의 아시아권 고교 영어토론 리그예요.",
+      "highlights": [
+        "🗣️ 영어토론",
+        "PF 디베이트"
+      ],
+      "goodFor": "영어 실력과 논리적 사고·설득력을 동시에 보여줄 수 있어요.",
+      "prepare": "디베이트 형식을 익히고 시사 주제로 근거를 준비해 실전 리허설을 반복하세요."
+    },
+    {
+      "id": "wsdc",
+      "name": "WSDC 세계학교토론",
+      "host": "WSDC",
+      "category": "contest",
+      "scope": "international",
+      "regionGroup": "해외",
+      "format": "오프라인",
+      "emoji": "🏆",
+      "grades": "고교 국가대표",
+      "cost": "유료(국가 선발)",
+      "months": [
+        7
+      ],
+      "when": "7월 (매년 개최국 이동)",
+      "region": "국가별 순회",
+      "url": "https://www.wsdcdebating.org/",
+      "summary": "각국 대표팀이 겨루는 세계 고교 영어토론 챔피언십이에요.",
+      "highlights": [
+        "🗣️ 영어토론",
+        "국가대표전"
+      ],
+      "goodFor": "영어 실력과 논리적 사고·설득력을 동시에 보여줄 수 있어요.",
+      "prepare": "디베이트 형식을 익히고 시사 주제로 근거를 준비해 실전 리허설을 반복하세요."
+    }
+  ],
+  "areaGuides": {
+    "contest": {
+      "emoji": "🏆",
+      "title": "대회·공모전·해커톤",
+      "color": "#F472B6",
+      "tagline": "실력을 겨루고 결과를 남기는 도전",
+      "description": "올림피아드·경진대회·해커톤·공모전처럼 실력을 겨루고 결과물을 남기는 활동이에요. 창업·토론·영어·발명까지 분야가 넓어요.",
+      "perspective": "수상 여부보다 「무엇에 왜 도전했고, 어떻게 준비했는가」. 관심 분야를 깊이 판 증거를 남기는 게 핵심이에요.",
+      "recognition": "특목고·자사고 자기주도학습전형 서류에는 교외 대회 수상·인증을 쓸 수 없어요. 대신 대회를 준비하며 읽은 책·탐구·동아리 활동을 자기소개서와 면접에서 「자기주도성」의 근거로 활용하세요.",
+      "yearCycle": [
+        {
+          "period": "겨울 · 12~2월",
+          "focus": "다음 해 요강을 확인하고 도전할 분야를 정하는 준비기",
+          "picks": [
+            "AMC(미국수학경시)",
+            "한국물리올림피아드 겨울학교"
+          ]
+        },
+        {
+          "period": "봄 · 3~5월",
+          "focus": "수학·과학 올림피아드 예선·접수가 몰리는 성수기",
+          "picks": [
+            "한국수학올림피아드(KMO) 1차",
+            "한국정보올림피아드(KOI) 1차",
+            "한국생물올림피아드(KBO)"
+          ]
+        },
+        {
+          "period": "여름 · 6~8월",
+          "focus": "올림피아드 본선·과학전람회·발명품·코드페어 해커톤",
+          "picks": [
+            "한국정보올림피아드(KOI) 2차",
+            "전국학생과학발명품경진대회",
+            "한국코드페어"
+          ]
+        },
+        {
+          "period": "가을 · 9~11월",
+          "focus": "SW·로봇·창업 경진 본선과 한 해 기록 정리",
+          "picks": [
+            "성남×KAIST AI 경진대회",
+            "대한민국 청소년 창업경진대회",
+            "KMO 2차"
+          ]
+        }
+      ],
+      "mustSee": [
+        "관심 분야 올림피아드/경진대회 1개를 정해 1년간 준비",
+        "팀으로 하는 해커톤(한국코드페어 등) 1회 경험"
+      ],
+      "why": "중·고 시기의 대회는 「관심 분야를 스스로 깊이 파봤다」는 가장 강력한 증거예요. 결과(수상)보다 도전 자체가 몰입·자기주도성 경험으로 남고, 준비하며 읽은 책·해결한 문제가 생기부 세특과 면접의 핵심 소재가 됩니다.",
+      "how": [
+        "관심 분야 대회 1~2개만 골라 1년을 집중하세요(여러 개 얕게 참여 X).",
+        "요강·기출을 먼저 분석하고 예선→본선 일정을 역산해 계획을 세워요.",
+        "준비하며 읽은 책·풀어본 문제를 기록해 세특·자기소개서로 연결하세요.",
+        "해커톤 같은 팀 대회는 역할을 정하고 협업 과정을 남기세요."
+      ],
+      "gains": [
+        "몰입·자기주도성 증명",
+        "분야 전문성·문제해결력",
+        "세특·면접 소재",
+        "같은 관심사 친구·멘토"
+      ]
+    },
+    "camp": {
+      "emoji": "🏕️",
+      "title": "캠프·교육",
+      "color": "#34D399",
+      "tagline": "몰입해서 배우고 경험하는 시간",
+      "description": "며칠~몇 주 몰입해 배우고 경험하는 활동이에요. 대학·기업·연구소 캠프, 영재교육, 온라인 교육이 여기 속해요.",
+      "perspective": "「무엇을 배웠고 나는 어떻게 달라졌나」. 진로를 탐색하고 관심을 심화한 계기로 바라보세요.",
+      "recognition": "캠프 이수 자체는 자기주도학습전형에 쓸 수 없지만(교외), 캠프에서 배운 걸 스스로 이어간 학습·독서·탐구는 면접에서 가장 강력한 스토리가 돼요.",
+      "yearCycle": [
+        {
+          "period": "겨울 · 12~2월",
+          "focus": "겨울방학 합숙·캠프와 온라인 영재교육 모집",
+          "picks": [
+            "LG AI 청소년 캠프",
+            "서울대 농업생명과학 청소년 캠프",
+            "KAIST 사이버영재교육"
+          ]
+        },
+        {
+          "period": "봄 · 3~5월",
+          "focus": "영재교육원·사이버영재·UNIST STEM 캠프 모집",
+          "picks": [
+            "KAIST 사이버영재교육",
+            "UNIST 청소년 과학 캠프"
+          ]
+        },
+        {
+          "period": "여름 · 6~8월",
+          "focus": "대학·연구소·해외 프리칼리지 캠프 성수기",
+          "picks": [
+            "서울대 공학 프런티어 캠프",
+            "Space Camp",
+            "Harvard Pre-College Program"
+          ]
+        },
+        {
+          "period": "가을 · 9~11월",
+          "focus": "다음 기수 영재기업인·대학부설 영재원 모집",
+          "picks": [
+            "KAIST IP영재기업인교육원",
+            "POSTECH 영재기업인교육원",
+            "대학부설 과학영재교육원"
+          ]
+        }
+      ],
+      "mustSee": [
+        "관심 대학·기업 캠프 1개 지원",
+        "소프트웨어야 놀자·엔트리 등 온라인 상시 교육 꾸준히"
+      ],
+      "why": "캠프는 교실에서 못 하는 몰입 경험으로 진로를 「직접 확인」하는 기회예요. 이 시기에 관심 분야를 몸으로 겪어보면 고교·학과 선택의 근거가 생기고, 스스로 공부를 이어갈 동기가 만들어집니다.",
+      "how": [
+        "관심 분야 1곳을 정해 지원(모집은 보통 방학 2~4개월 전).",
+        "캠프에서 배운 걸 끝내지 말고 후속 학습·프로젝트로 이어가세요.",
+        "무료·정부지원 캠프부터 노려 비용 부담을 줄이세요.",
+        "온라인 상시 교육(엔트리·소프트웨어야 놀자)으로 기초를 미리 다지기."
+      ],
+      "gains": [
+        "진로 확신·방향",
+        "심화 지식·실습 경험",
+        "지속 학습 동기",
+        "대학·연구 현장 체험"
+      ]
+    },
+    "exhibition": {
+      "emoji": "🎨",
+      "title": "전시회·페스티벌",
+      "color": "#A78BFA",
+      "tagline": "직접 보고, 체험하고, 전시하기",
+      "description": "직접 보고 체험하고, 내가 만든 걸 전시하는 활동이에요. 메이커페어·과학축제·발명전시·SW/AI 페스티벌이 여기 속해요.",
+      "perspective": "「관람」보다 「참여」. 부스 운영·출품·체험으로 손으로 만든 경험을 남기는 게 좋아요.",
+      "recognition": "참관은 진로 탐색의 동기가 되고, 출품·부스 운영은 프로젝트 실행력의 증거가 돼요. 만든 결과물과 과정을 이후 탐구·동아리로 이어가세요.",
+      "yearCycle": [
+        {
+          "period": "봄 · 4~5월",
+          "focus": "과학의 달, 전국을 순회하는 대한민국 과학축제",
+          "picks": [
+            "대한민국 과학축제"
+          ]
+        },
+        {
+          "period": "여름 · 6~8월",
+          "focus": "학생 발명전시·국제 로봇대회(인천)·해외 캠프",
+          "picks": [
+            "대한민국학생발명전시회",
+            "RoboCup 2026 인천"
+          ]
+        },
+        {
+          "period": "가을 · 9~11월",
+          "focus": "메이커페어·SW/AI 페스티벌이 몰리는 최대 성수기",
+          "picks": [
+            "메이커 페어 서울 2026",
+            "FIRST Global Challenge 2026 인천",
+            "대한민국 AI교육 페스티벌"
+          ]
+        },
+        {
+          "period": "겨울 · 12~1월",
+          "focus": "디지털 교육 페스타·스타트업 축제·글로벌 테크쇼",
+          "picks": [
+            "부산 디지털 교육 페스타",
+            "COMEUP 컴업"
+          ]
+        }
+      ],
+      "mustSee": [
+        "가을 메이커페어·과학/SW 페스티벌 1곳 참여",
+        "발명전시·메이커 부스에 직접 출품 도전"
+      ],
+      "why": "전시·페스티벌은 최신 기술과 또래의 창작물을 「눈으로 보고 손으로 만지는」 자극의 장이에요. 관람만 해도 진로 호기심이 커지고, 직접 출품하면 「내가 만든 결과물」이라는 실행 경험이 남습니다.",
+      "how": [
+        "가을 성수기(메이커페어·SW/AI 페스티벌) 일정을 미리 캘린더에 표시.",
+        "관람으로 끝내지 말고 부스 체험·미션·스탬프로 적극 참여하세요.",
+        "발명·메이커 행사는 「출품」에 도전해 결과물을 남기세요.",
+        "본 것 중 관심이 간 주제를 조사·탐구로 이어가기."
+      ],
+      "gains": [
+        "기술 트렌드 감각",
+        "창작·실행 경험",
+        "진로 자극·아이디어",
+        "포트폴리오 결과물"
+      ]
+    },
+    "volunteer": {
+      "emoji": "🤝",
+      "title": "봉사활동·NGO",
+      "color": "#60A5FA",
+      "tagline": "꾸준히, 진정성 있게 참여하기",
+      "description": "꾸준히 남을 돕고 사회에 참여하는 활동이에요. 봉사포털·NGO·환경·교육봉사가 여기 속해요.",
+      "perspective": "일회성보다 「지속성·진정성」. 왜 이 봉사를 택했고 무엇을 느꼈는지가 핵심이에요.",
+      "recognition": "봉사활동은 생기부 봉사 시간·특기사항으로 기재되고, 자기주도학습전형·면접에서 인성과 나눔의 근거가 돼요. 1365·DOVOL·VMS로 봉사시간을 인증받는 게 중요해요.",
+      "yearCycle": [
+        {
+          "period": "연중 · 상시",
+          "focus": "한 기관을 정해 월 1회 이상 꾸준히 봉사",
+          "picks": [
+            "1365 자원봉사포털",
+            "e청소년 DOVOL",
+            "VMS 사회복지자원봉사"
+          ]
+        },
+        {
+          "period": "봄·가을",
+          "focus": "환경정화 봉사(나무심기·연안·국립공원)",
+          "picks": [
+            "국립공원 자원봉사",
+            "해양환경공단 연안정화 봉사"
+          ]
+        },
+        {
+          "period": "방학 · 여름·겨울",
+          "focus": "집중 봉사와 해외 워크캠프",
+          "picks": [
+            "IWO 국제워크캠프(청소년)",
+            "한국해비타트 집짓기 봉사"
+          ]
+        },
+        {
+          "period": "학기 중",
+          "focus": "학교 RCY·또래 멘토링·재능기부",
+          "picks": [
+            "청소년적십자(RCY)",
+            "굿네이버스 청소년 봉사"
+          ]
+        }
+      ],
+      "mustSee": [
+        "한 기관을 1년 이상 꾸준히(지속성)",
+        "관심 분야와 연계(예: 과학 관심 → 교육봉사)"
+      ],
+      "why": "봉사는 성적으로 보이지 않는 「인성·꾸준함·나눔」을 증명하는 거의 유일한 활동이에요. 이 시기에 한 분야를 오래 지속하면 진정성이 드러나고, 생기부 봉사 시간과 면접의 인성 근거가 됩니다.",
+      "how": [
+        "1365·DOVOL·VMS 중 하나로 「한 기관을 정해」 월 1회 이상 꾸준히.",
+        "일회성 대신 학기~1년 이상 지속하세요(횟수보다 지속성).",
+        "관심 분야와 연결(과학→코딩교육봉사, 환경→정화봉사).",
+        "느낀 점을 짧게 기록해 봉사 특기사항·면접에 활용."
+      ],
+      "gains": [
+        "인성·나눔의 증거",
+        "봉사 시간 인증",
+        "지속성·책임감",
+        "진로와 연결된 경험"
+      ]
+    }
+  }
+}

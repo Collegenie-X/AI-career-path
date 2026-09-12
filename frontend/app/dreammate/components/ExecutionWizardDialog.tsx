@@ -16,6 +16,15 @@ interface WeeklyGoal {
   output?: string;
 }
 
+/** ReadingClue식 추천 도서 (1주제 3권 병렬 독서) */
+interface BookRef {
+  title: string;
+  author: string;
+  publisher?: string;
+  /** 이 프로젝트에서 책을 어떻게 쓰는지 한 줄 */
+  note?: string;
+}
+
 interface ExecutionTemplate {
   id: string;
   title: string;
@@ -25,6 +34,12 @@ interface ExecutionTemplate {
   months: number[];
   difficulty: number;
   weeklyGoals: WeeklyGoal[];
+  /** 추천 도서 3권 (7형태 템플릿) */
+  books?: BookRef[];
+  /** 수치 포함 완료 판정 기준 */
+  successCriteria?: string[];
+  /** 주변 증거자료(설문·인터뷰·테스트 결과 등 포트폴리오 물증) */
+  evidence?: string[];
 }
 
 /** 카테고리 하위 분야(도메인) 그룹 — project 10분야, activity/paper 보강 그룹 */
@@ -375,6 +390,14 @@ function StepTemplate({
               <span className="text-[10px] text-gray-500">
                 {'★'.repeat(tmpl.difficulty)}{'☆'.repeat(5 - tmpl.difficulty)} {DIFFICULTY_LABEL[tmpl.difficulty]}
               </span>
+              {tmpl.books && tmpl.books.length > 0 && (
+                <span
+                  className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md"
+                  style={{ backgroundColor: `${category.color}18`, color: category.color }}
+                >
+                  📚 추천도서 {tmpl.books.length}권
+                </span>
+              )}
             </div>
           </div>
           <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
@@ -413,6 +436,68 @@ function StepWeekly({
       exit={{ opacity: 0, x: 20 }}
       className="pt-4 space-y-4"
     >
+      {/* 추천 도서 3권 (ReadingClue식 1주제 병렬 독서) */}
+      {template.books && template.books.length > 0 && (
+        <div className="rounded-2xl p-3.5" style={{ background: `${chosenColor}10`, border: `1px solid ${chosenColor}30` }}>
+          <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-2">
+            📚 추천 도서 {template.books.length}권
+            <span className="text-[10px] font-normal text-gray-400">· 한 주제를 여러 권으로 (ReadingClue식)</span>
+          </div>
+          <div className="space-y-2">
+            {template.books.map((b, i) => (
+              <div key={i} className="flex gap-2">
+                <span className="text-[11px] font-bold flex-shrink-0 mt-0.5" style={{ color: chosenColor }}>{i + 1}</span>
+                <div className="min-w-0">
+                  <div className="text-[12px] font-semibold text-white leading-snug">
+                    {b.title}
+                    <span className="text-[10px] font-normal text-gray-400 ml-1.5">
+                      {b.author}{b.publisher ? ` · ${b.publisher}` : ''}
+                    </span>
+                  </div>
+                  {b.note && <div className="text-[10px] text-gray-400 leading-snug mt-0.5">{b.note}</div>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 완료 기준 (수치 포함) */}
+      {template.successCriteria && template.successCriteria.length > 0 && (
+        <div className="rounded-2xl p-3.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-2">✅ 완료 기준</div>
+          <ul className="space-y-1.5">
+            {template.successCriteria.map((c, i) => (
+              <li key={i} className="flex gap-1.5 text-[11px] text-gray-300 leading-snug">
+                <span className="flex-shrink-0" style={{ color: chosenColor }}>·</span>
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 주변 증거자료 (설문·인터뷰·테스트 물증) */}
+      {template.evidence && template.evidence.length > 0 && (
+        <div className="rounded-2xl p-3.5" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-2">
+            📎 주변 증거자료
+            <span className="text-[10px] font-normal text-gray-400">· 설문·인터뷰·사용자 테스트로 남기는 물증</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {template.evidence.map((e, i) => (
+              <span
+                key={i}
+                className="text-[10px] leading-snug px-2 py-1 rounded-lg"
+                style={{ background: `${chosenColor}12`, color: 'rgba(255,255,255,0.75)', border: `1px solid ${chosenColor}25` }}
+              >
+                {e}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* 시작 월 & 색상 */}
       <div className="flex items-center gap-4">
         <div className="flex-1 space-y-1.5">
