@@ -39,6 +39,7 @@ import admission2027Meta from '@/data/university-admission/admission-2027/meta.j
 import admission2027TuitionFree from '@/data/university-admission/admission-2027/tuition-free-national.json';
 import admission2027AiHub from '@/data/university-admission/admission-2027/ai-hub-universities.json';
 import admission2027Startup from '@/data/university-admission/admission-2027/startup-industry-link.json';
+import essaySuneungContent from '@/data/university-admission/essay-suneung/content.json';
 
 import { TwoColumnPanelLayout } from '@/components/TwoColumnPanelLayout';
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
@@ -50,6 +51,7 @@ import { InnovativeInstitutionsListIntroBlock } from './InnovativeInstitutionsLi
 import { StrategyHubView } from './StrategyHubView';
 import { RecommendedActivitiesDirectory } from './RecommendedActivitiesDirectory';
 import { Admission2027View, type Admission2027AreaData } from './Admission2027View';
+import { EssaySuneungView, type EssaySuneungContent } from './EssaySuneungView';
 import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
 type AdmissionCategory = {
@@ -73,10 +75,11 @@ type AdmissionCategory = {
   universities: Array<string | { name: string; url?: string; source?: string; detail?: string; iboRecognitionUrl?: string; ibAcceptance?: string; note?: string }>;
 };
 
-type SubView = 'admission-2027' | 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
+type SubView = 'admission-2027' | 'essay-suneung' | 'strategy-hub' | 'recommended-activities' | 'career-major' | 'dev-institutions' | 'innovative-institutions' | null;
 
 const VALID_SUB_VIEWS: NonNullable<SubView>[] = [
   'admission-2027',
+  'essay-suneung',
   'strategy-hub',
   'recommended-activities',
   'career-major',
@@ -254,6 +257,34 @@ export function UniversityAdmissionTab() {
                   </div>
                 </motion.button>
 
+                {/* 논·서술형 수능 (미래형 수능) — 해외 5개국 기출로 대비 */}
+                <motion.button
+                  type="button"
+                  onClick={() => handleSelectSubView('essay-suneung')}
+                  className="w-full rounded-xl p-4"
+                  style={{
+                    background: selectedSubView === 'essay-suneung'
+                      ? 'linear-gradient(135deg, rgba(167,139,250,0.38) 0%, rgba(129,140,248,0.38) 100%)'
+                      : 'linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(129,140,248,0.2) 100%)',
+                    border: `1px solid ${selectedSubView === 'essay-suneung' ? 'rgba(167,139,250,0.75)' : 'rgba(167,139,250,0.32)'}`,
+                    boxShadow: selectedSubView === 'essay-suneung' ? '0 0 20px rgba(167,139,250,0.3)' : undefined,
+                  }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 0 24px rgba(167,139,250,0.25)' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 22 }}
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ background: 'rgba(167,139,250,0.3)', border: '2px solid rgba(167,139,250,0.5)' }}>
+                      {essaySuneungContent.meta.emoji}
+                    </div>
+                    <div className="flex-1 text-left">
+                      <h3 className="text-sm font-bold text-white mb-1">{essaySuneungContent.entranceButton.title}</h3>
+                      <p className="text-xs text-white/70">{essaySuneungContent.entranceButton.subtitle}</p>
+                    </div>
+                    <span className="text-white/40">→</span>
+                  </div>
+                </motion.button>
+
                 {/* 전략 실행 허브 */}
                 <motion.button
                   type="button"
@@ -416,6 +447,12 @@ export function UniversityAdmissionTab() {
               rightPanelTitle={admission2027Meta.meta.title}
               rightPanelSubtitle={admission2027Meta.meta.subtitle}
               rightPanelColor={admission2027Meta.meta.color}
+              onClose={() => setSelectedSubView(null)}
+            />
+          ) : selectedSubView === 'essay-suneung' ? (
+            <EssaySuneungView
+              key={`essay-suneung-${subViewAnimKey}`}
+              content={essaySuneungContent as unknown as EssaySuneungContent}
               onClose={() => setSelectedSubView(null)}
             />
           ) : selectedSubView === 'strategy-hub' ? (

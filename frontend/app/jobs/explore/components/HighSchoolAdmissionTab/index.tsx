@@ -34,11 +34,12 @@ import {
 import { EXPLORE_PAGE_LAYOUT_CLASS } from '../../config';
 import { admissionExploreOrbitCallout } from '../AdmissionExploreGameChrome';
 
-/** 청소년 활동 4대 영역 (별도 subView) */
-type YouthCat = 'contest' | 'camp' | 'exhibition' | 'volunteer';
+/** 청소년 활동 5대 영역 (별도 subView) */
+type YouthCat = 'contest' | 'camp' | 'bigtech' | 'exhibition' | 'volunteer';
 const YOUTH_SUBVIEWS: { cat: YouthCat; sub: string; emoji: string; label: string; color: string }[] = [
   { cat: 'contest', sub: 'youth-contest', emoji: '🏆', label: '대회·공모전·해커톤', color: '#F472B6' },
   { cat: 'camp', sub: 'youth-camp', emoji: '🏕️', label: '캠프·교육', color: '#34D399' },
+  { cat: 'bigtech', sub: 'youth-bigtech', emoji: '🏢', label: '빅테크 캠프', color: '#22D3EE' },
   { cat: 'exhibition', sub: 'youth-exhibition', emoji: '🎨', label: '전시회·페스티벌', color: '#A78BFA' },
   { cat: 'volunteer', sub: 'youth-volunteer', emoji: '🤝', label: '봉사활동·NGO', color: '#60A5FA' },
 ];
@@ -205,19 +206,20 @@ export function HighSchoolAdmissionTab() {
               >
                 <div className="flex items-center gap-1.5 mb-2 px-0.5">
                   <span className="text-base" aria-hidden>🗓️</span>
-                  <span className="text-[12px] font-black text-white">청소년 활동 4대 영역</span>
+                  <span className="text-[12px] font-black text-white">청소년 활동 5대 영역</span>
                   <span className="text-[10px] text-purple-200/70">국내외 · 월별/지역별</span>
                 </div>
                 <div className="grid grid-cols-2 gap-1.5">
                   {YOUTH_SUBVIEWS.map((y) => {
                     const on = selectedYouthCat === y.cat;
+                    const full = y.cat === 'bigtech';
                     return (
                       <button
                         key={y.cat}
                         type="button"
                         onClick={() => handleSelectYouthCat(y)}
                         aria-pressed={on}
-                        className="flex items-center gap-2 rounded-xl px-2.5 py-2.5 text-left transition-all hover:scale-[1.02] active:scale-[0.98]"
+                        className={`flex items-center gap-2 rounded-xl px-2.5 py-2.5 text-left transition-all hover:scale-[1.02] active:scale-[0.98] ${full ? 'col-span-2 justify-center' : ''}`}
                         style={{
                           background: on ? y.color : `${y.color}1a`,
                           border: `1px solid ${on ? y.color : `${y.color}44`}`,
@@ -229,7 +231,7 @@ export function HighSchoolAdmissionTab() {
                           className="text-[11px] font-black leading-tight"
                           style={{ color: on ? '#0f172a' : '#fff' }}
                         >
-                          {y.label}
+                          {y.label}{full ? ' ✨' : ''}
                         </span>
                       </button>
                     );

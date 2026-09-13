@@ -3,9 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import youthData from '@/data/high-school/youth-programs.json';
 
-type CategoryId = 'contest' | 'camp' | 'exhibition' | 'volunteer';
+type CategoryId = 'contest' | 'camp' | 'bigtech' | 'exhibition' | 'volunteer';
 type Scope = 'domestic' | 'international';
-type ViewMode = 'month' | 'region' | 'scope';
+type ViewMode = 'guide' | 'month' | 'region' | 'scope';
 
 type Program = {
   id: string;
@@ -59,6 +59,7 @@ const REGION_EMOJI: Record<string, string> = {
   수도권: '🏙️', 충청: '🏞️', 영남: '🌊', 호남: '🌾', '강원·제주': '⛰️', '전국·온라인': '🇰🇷', 해외: '🌍',
 };
 const VIEW_MODES: { id: ViewMode; label: string; emoji: string }[] = [
+  { id: 'guide', label: '준비 커리큘럼', emoji: '🗺️' },
   { id: 'month', label: '월별', emoji: '📅' },
   { id: 'region', label: '지역별', emoji: '📍' },
   { id: 'scope', label: '국내·국외', emoji: '🌐' },
@@ -226,22 +227,14 @@ function AccordionSection({ section, open, onToggle, cardColor, innerRef }: {
 }
 
 /** 영역별 안내: 설명 · 관점 · 인정 포인트 · 1년 로드맵 · 꼭 봐야 할 추천 */
-function AreaGuideIntro({ guide, total }: { readonly guide: AreaGuide; readonly total: number }) {
+function AreaGuideIntro({ guide }: { readonly guide: AreaGuide }) {
   const c = guide.color;
   const [open, setOpen] = useState(true);
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: `linear-gradient(135deg, ${c}22 0%, rgba(15,23,42,0.5) 100%)`, border: `1px solid ${c}55` }}>
-      {/* 타이틀 */}
       <div className="p-4">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl" aria-hidden>{guide.emoji}</span>
-          <div className="flex-1 min-w-0">
-            <h3 className="text-base font-black text-white leading-tight">{guide.title}</h3>
-            <p className="text-[11px] font-semibold" style={{ color: c }}>{guide.tagline}</p>
-          </div>
-          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0" style={{ background: `${c}22`, color: c, border: `1px solid ${c}55` }}>{total}개</span>
-        </div>
-        <p className="text-xs text-white/75 leading-relaxed mt-2">{guide.description}</p>
+        <p className="text-[13px] font-black text-white mb-1">🗺️ {guide.title} 준비 커리큘럼</p>
+        <p className="text-xs text-white/75 leading-relaxed">{guide.description}</p>
 
         {/* 왜 · 어떻게 · 무엇 */}
         <div className="grid grid-cols-1 gap-2 mt-3">
@@ -323,7 +316,8 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
   const { meta, programs, areaGuides } = DATA;
   const guide = areaGuides[category];
   const activeColor = guide?.color ?? '#94A3B8';
-  const [viewMode, setViewMode] = useState<ViewMode>('month');
+  // 진입 시 준비 커리큘럼(생애주기 로드맵)을 먼저 보여주고, 탭으로 목록 보기로 이동
+  const [viewMode, setViewMode] = useState<ViewMode>('guide');
   const [openKeys, setOpenKeys] = useState<Set<string>>(new Set());
   const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
@@ -340,6 +334,7 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
   }, [inCat]);
 
   const sections: Section[] = useMemo(() => {
+    if (viewMode === 'guide') return [];
     if (viewMode === 'month') {
       const byMonth: Record<number, Program[]> = {};
       for (let m = 1; m <= 12; m += 1) byMonth[m] = [];
@@ -359,9 +354,15 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
         .filter((s) => s.items.length > 0);
     }
     return (['domestic', 'international'] as Scope[])
-      .map((s) => ({ key: `s-${s}`, label: SCOPE_META[s].label, emoji: SCOPE_META[s].flag, color: SCOPE_META[s].color, items: inCat.filter((p) => p.scope === s).sort(sortByMonth) }))
+      .map((s) => ({
+        key: `s-${s}`,
+        label: category === 'bigtech' ? (s === 'domestic' ? '국내 기업' : '글로벌 빅테크') : SCOPE_META[s].label,
+        emoji: SCOPE_META[s].flag,
+        color: SCOPE_META[s].color,
+        items: inCat.filter((p) => p.scope === s).sort(sortByMonth),
+      }))
       .filter((s) => s.items.length > 0);
-  }, [viewMode, inCat, activeColor]);
+  }, [viewMode, inCat, activeColor, category]);
 
   const orderedKeys = sections.map((s) => s.key);
   useEffect(() => {
@@ -385,25 +386,47 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
 
   return (
     <div className="px-4 pb-6 pt-3 space-y-4">
-      {/* 영역 안내 (설명·관점·인정·1년 로드맵·추천) */}
-      <AreaGuideIntro guide={guide} total={inCat.length} />
+      {/* 컴팩트 영역 헤더 (항상 표시) */}
+      <div className="flex items-center gap-2 rounded-2xl p-3" style={{ background: `linear-gradient(135deg, ${activeColor}22 0%, rgba(15,23,42,0.5) 100%)`, border: `1px solid ${activeColor}55` }}>
+        <span className="text-2xl" aria-hidden>{guide.emoji}</span>
+        <div className="flex-1 min-w-0">
+          <h3 className="text-base font-black text-white leading-tight">{guide.title}</h3>
+          <p className="text-[11px] font-semibold" style={{ color: activeColor }}>{guide.tagline}</p>
+        </div>
+        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0" style={{ background: `${activeColor}22`, color: activeColor, border: `1px solid ${activeColor}55` }}>{inCat.length}개</span>
+      </div>
 
-      {/* 보기 방식 + 모두 펼치기/접기 */}
+      {/* 탭: 준비 커리큘럼 + 목록 보기(월별/지역별/국내외) */}
       <div className="flex items-center justify-between gap-2 flex-wrap">
-        <div className="inline-flex gap-1 p-1 rounded-xl" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
+        <div className="inline-flex gap-1 p-1 rounded-xl flex-wrap" style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)' }}>
           {VIEW_MODES.map((v) => {
             const on = viewMode === v.id;
+            const isGuide = v.id === 'guide';
             return (
-              <button key={v.id} onClick={() => setViewMode(v.id)} className="text-[11.5px] font-bold px-3 py-1.5 rounded-lg transition-all" style={on ? { background: 'rgba(255,255,255,0.92)', color: '#0f172a' } : { background: 'transparent', color: 'rgba(255,255,255,0.65)' }}>
+              <button
+                key={v.id}
+                onClick={() => setViewMode(v.id)}
+                className="text-[11.5px] font-bold px-3 py-1.5 rounded-lg transition-all"
+                style={
+                  on
+                    ? { background: isGuide ? activeColor : 'rgba(255,255,255,0.92)', color: '#0f172a' }
+                    : { background: isGuide ? `${activeColor}1f` : 'transparent', color: isGuide ? activeColor : 'rgba(255,255,255,0.65)' }
+                }
+              >
                 {v.emoji} {v.label}
               </button>
             );
           })}
         </div>
-        <button onClick={toggleAll} className="text-[11px] font-bold px-2.5 py-1.5 rounded-lg transition-all" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.12)' }}>
-          {allOpen ? '모두 접기 ▲' : '모두 펼치기 ▼'}
-        </button>
+        {viewMode !== 'guide' && (
+          <button onClick={toggleAll} className="text-[11px] font-bold px-2.5 py-1.5 rounded-lg transition-all" style={{ background: 'rgba(255,255,255,0.06)', color: 'rgba(255,255,255,0.7)', border: '1px solid rgba(255,255,255,0.12)' }}>
+            {allOpen ? '모두 접기 ▲' : '모두 펼치기 ▼'}
+          </button>
+        )}
       </div>
+
+      {/* 준비 커리큘럼 탭 (생애주기 로드맵) */}
+      {viewMode === 'guide' && <AreaGuideIntro guide={guide} />}
 
       {/* 월별: 빠른 이동 (개수 배지) */}
       {viewMode === 'month' && (
@@ -426,14 +449,14 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
         </div>
       )}
 
-      {/* 아코디언 섹션 */}
-      {sections.length === 0 ? (
+      {/* 아코디언 섹션 (목록 보기에서만) */}
+      {viewMode !== 'guide' && (sections.length === 0 ? (
         <p className="text-center text-xs text-white/45 py-8">해당 분류의 프로그램이 없어요.</p>
       ) : (
         sections.map((s) => (
           <AccordionSection key={s.key} section={s} open={openKeys.has(s.key)} onToggle={() => toggleSection(s.key)} cardColor={activeColor} innerRef={(el) => { sectionRefs.current[s.key] = el; }} />
         ))
-      )}
+      ))}
 
       <p className="text-[11px] text-white/40 leading-relaxed text-center px-2 pt-1">⚠️ {meta.factCheck}</p>
     </div>

@@ -21,6 +21,12 @@
       "color": "#34D399"
     },
     {
+      "id": "bigtech",
+      "label": "빅테크 캠프",
+      "emoji": "🏢",
+      "color": "#22D3EE"
+    },
+    {
       "id": "exhibition",
       "label": "전시회·페스티벌",
       "emoji": "🎨",
@@ -38,7 +44,7 @@
       "id": "lg-ai-youth-camp",
       "name": "LG AI 청소년 캠프",
       "host": "LG디스커버리랩 · 서울대",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🤖",
       "grades": "초6~중2",
       "cost": "무료",
@@ -66,7 +72,7 @@
       "id": "kakao-ai-rookie-camp",
       "name": "카카오 AI 루키 캠프",
       "host": "카카오",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "💛",
       "grades": "비수도권 중1~중3",
       "cost": "무료(숙식 전액 지원)",
@@ -93,7 +99,7 @@
       "id": "lg-discovery-lab",
       "name": "LG디스커버리랩 (AI 과학관)",
       "host": "LG연암문화재단",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🔬",
       "grades": "중·고 단체",
       "cost": "무료",
@@ -117,7 +123,7 @@
       "id": "playsw",
       "name": "소프트웨어야 놀자",
       "host": "네이버 커넥트재단",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🟢",
       "grades": "초·중·고",
       "cost": "무료",
@@ -140,7 +146,7 @@
       "id": "entry",
       "name": "엔트리(Entry) 코딩 플랫폼",
       "host": "네이버 커넥트재단",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🧩",
       "grades": "초·중",
       "cost": "무료",
@@ -163,7 +169,7 @@
       "id": "samsung-dreamclass",
       "name": "삼성 드림클래스",
       "host": "삼성전자",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "📘",
       "grades": "중학생",
       "cost": "무료",
@@ -186,7 +192,7 @@
       "id": "samsung-solve-for-tomorrow",
       "name": "삼성 솔브 포 투모로우",
       "host": "삼성전자",
-      "category": "contest",
+      "category": "bigtech",
       "emoji": "💡",
       "grades": "중·고 팀",
       "cost": "무료",
@@ -209,7 +215,7 @@
       "id": "skt-happy-ai-coding",
       "name": "SKT 행복AI코딩스쿨",
       "host": "SK텔레콤 · 하나금융그룹",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🧑‍💻",
       "grades": "장애·소외 청소년",
       "cost": "무료",
@@ -232,7 +238,7 @@
       "id": "skhynix-hy-school",
       "name": "SK하이닉스 반도체 hy-스쿨",
       "host": "SK하이닉스",
-      "category": "camp",
+      "category": "bigtech",
       "emoji": "🔩",
       "grades": "고등학생",
       "cost": "무료",
@@ -592,7 +598,7 @@
         4
       ],
       "when": "상반기 (세부 일정 공식 확인)",
-      "url": "https://www.keso.or.kr/",
+      "url": "http://www.keso.or.kr/",
       "summary": "지구과학 탐구력을 겨루는 올림피아드. 국제지구과학올림피아드(IESO) 대표 선발로 연결돼요.",
       "highlights": [
         "지구과학",
@@ -744,7 +750,7 @@
       "id": "nypc",
       "name": "넥슨 청소년 프로그래밍 챌린지(NYPC)",
       "host": "넥슨",
-      "category": "contest",
+      "category": "bigtech",
       "emoji": "🎮",
       "grades": "중·고",
       "cost": "무료",
@@ -795,7 +801,7 @@
       "id": "ms-imagine-cup",
       "name": "Microsoft Imagine Cup",
       "host": "Microsoft",
-      "category": "contest",
+      "category": "bigtech",
       "emoji": "☁️",
       "grades": "고·대학(16세+)",
       "cost": "무료",
@@ -1090,31 +1096,6 @@
       "highlights": [
         "피지컬 AI",
         "로봇 체험"
-      ],
-      "scope": "domestic",
-      "regionGroup": "수도권",
-      "format": "오프라인",
-      "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
-      "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
-    },
-    {
-      "id": "seoul-adl-festival",
-      "name": "서울 AI·디지털 러닝 페스티벌",
-      "host": "서울특별시교육청",
-      "category": "exhibition",
-      "emoji": "🏫",
-      "grades": "교원·학부모(학생 일부)",
-      "cost": "무료",
-      "months": [
-        8
-      ],
-      "when": "8월 (2025년 코엑스)",
-      "region": "코엑스",
-      "url": "https://adl-festival.kr/",
-      "summary": "AI·디지털 수업 혁신 사례를 공유하는 서울교육청 페스티벌. 주로 교원·학부모 대상이지만 학생 체험도 일부 있어요.",
-      "highlights": [
-        "수업 혁신 사례",
-        "교원 중심"
       ],
       "scope": "domestic",
       "regionGroup": "수도권",
@@ -1655,32 +1636,6 @@
       "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
     },
     {
-      "id": "conrad-challenge",
-      "name": "Conrad Challenge",
-      "host": "Conrad Foundation",
-      "category": "contest",
-      "scope": "international",
-      "emoji": "🚀",
-      "grades": "중·고(13~18)",
-      "cost": "무료(본선 미국)",
-      "months": [
-        4
-      ],
-      "when": "시즌~4월 최종발표",
-      "region": "전세계 → 미국",
-      "url": "https://www.conradchallenge.org/",
-      "summary": "창업 아이디어로 사회·과학 문제를 해결하는 국제 청소년 혁신·창업 대회예요.",
-      "highlights": [
-        "💻 해커톤",
-        "혁신·창업",
-        "팀 프로젝트"
-      ],
-      "regionGroup": "해외",
-      "format": "온·오프",
-      "goodFor": "팀으로 실제 문제를 정의하고 결과물까지 만드는 실행·협업 경험을 남겨요.",
-      "prepare": "팀 역할을 정하고 아이디어→프로토타입까지 짧게 완성해 과정을 기록하세요."
-    },
-    {
       "id": "diamond-challenge",
       "name": "Diamond Challenge",
       "host": "University of Delaware",
@@ -1735,7 +1690,7 @@
       "id": "kaggle",
       "name": "Kaggle Competitions",
       "host": "Kaggle (Google)",
-      "category": "contest",
+      "category": "bigtech",
       "scope": "international",
       "emoji": "📊",
       "grades": "고·대학",
@@ -2018,7 +1973,7 @@
       "id": "google-cs-first",
       "name": "Google CS First",
       "host": "Google for Education",
-      "category": "camp",
+      "category": "bigtech",
       "scope": "international",
       "emoji": "🔵",
       "grades": "초·중(4~8학년)",
@@ -2502,7 +2457,7 @@
       "always": true,
       "when": "연중 상시",
       "region": "전국·온라인",
-      "url": "https://dovol.youth.go.kr",
+      "url": "https://www.youth.go.kr",
       "summary": "청소년 특화 봉사 포털. 봉사 검색·신청·확인서 발급을 한 곳에서 처리해요.",
       "highlights": [
         "청소년 특화",
@@ -3258,6 +3213,382 @@
       ],
       "goodFor": "영어 실력과 논리적 사고·설득력을 동시에 보여줄 수 있어요.",
       "prepare": "디베이트 형식을 익히고 시사 주제로 근거를 준비해 실전 리허설을 반복하세요."
+    },
+    {
+      "id": "megazone-youth-forum",
+      "name": "메가존클라우드 Tech Youth Leadership Forum",
+      "host": "메가존클라우드",
+      "category": "bigtech",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "☁️",
+      "grades": "임직원 자녀(개방 예정)",
+      "cost": "무료",
+      "months": [
+        8
+      ],
+      "when": "8월 (2026 제1회, 3일)",
+      "region": "경기 과천",
+      "url": "https://www.megazone.com",
+      "summary": "생성형 AI로 이미지·영상과 웹사이트(바이브 코딩)를 만들고, 가짜뉴스·디지털 소외 같은 사회문제를 AI로 푸는 팀 프로젝트를 해요. 현재는 임직원 자녀 대상이며 외부 청소년에게도 무상 개방·정례화 예정이에요.",
+      "highlights": [
+        "☁️ 클라우드·AI",
+        "바이브 코딩",
+        "⚠️임직원 자녀(개방 예정)"
+      ],
+      "goodFor": "생성형 AI·클라우드 실무를 빅테크 현장에서 직접 체험하고 AI로 사회문제를 풀어봐요.",
+      "prepare": "외부 개방 공지를 기다리며 생성형 AI 도구와 노코드 웹 제작을 미리 익혀 두세요."
+    },
+    {
+      "id": "netmarble-game-academy",
+      "name": "넷마블게임아카데미",
+      "host": "넷마블문화재단",
+      "category": "bigtech",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "🎮",
+      "grades": "중·고(14~19)",
+      "cost": "무료",
+      "months": [
+        3,
+        4
+      ],
+      "when": "정규과정 봄 모집(3~4월), 8개월",
+      "region": "서울",
+      "url": "https://netmarblefoundation.org",
+      "summary": "게임기획·프로그래밍·그래픽디자인 중 하나를 골라 실제 게임을 개발해요. 우수작은 플레이스토어 출시까지 지원해요.",
+      "highlights": [
+        "🎮 게임개발",
+        "8개월 정규",
+        "출시 지원"
+      ],
+      "goodFor": "게임 개발 전 과정을 무료로 배우고 실제 출시 경험까지 남길 수 있어요.",
+      "prepare": "관심 직군(기획/개발/그래픽)을 정하고 간단한 습작·포트폴리오로 지원을 준비하세요."
+    },
+    {
+      "id": "samsung-junior-sw",
+      "name": "삼성 주니어 SW·AI 아카데미",
+      "host": "삼성전자",
+      "category": "bigtech",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "emoji": "📱",
+      "grades": "초·중(학교 단위)",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학기별 운영학교 모집(운영 공지 확인)",
+      "region": "전국(선정 학교)",
+      "url": "https://csr.samsung.com/ko",
+      "summary": "스크래치·아두이노 등으로 SW·AI 프로젝트를 학생 주도로 만들어요. 개인이 아니라 학교 단위로 신청해요.",
+      "highlights": [
+        "📱 SW·AI",
+        "학교 단위",
+        "프로젝트 제작"
+      ],
+      "goodFor": "학교에서 무료로 SW·AI를 체계적으로 배우고 직접 프로젝트를 만들어요.",
+      "prepare": "담임·정보 선생님께 학교 신청을 제안하고 엔트리·아두이노 기초를 익혀 두세요."
+    },
+    {
+      "id": "smilegate-futurelab",
+      "name": "스마일게이트 퓨처랩 게임 진로 탐험",
+      "host": "스마일게이트 퓨처랩(스마일게이트재단)",
+      "category": "bigtech",
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "emoji": "🕹️",
+      "grades": "초5~중(경기)",
+      "cost": "무료",
+      "months": [
+        11
+      ],
+      "when": "학기 중 진행, 연말 게임잼(11~12월)",
+      "region": "경기",
+      "url": "https://www.smilegatefoundation.org/",
+      "summary": "기획·그래픽·프로그래밍·사운드 등 게임 개발 과정을 체험하며 나만의 게임을 만들고 게임잼으로 마무리해요.",
+      "highlights": [
+        "🕹️ 게임 진로",
+        "게임잼",
+        "학교 방문형"
+      ],
+      "goodFor": "게임 개발의 여러 직군을 두루 체험하며 진로 방향을 탐색할 수 있어요.",
+      "prepare": "우리 학교·지역의 퓨처랩 프로그램 운영 여부를 확인하고 참여를 신청하세요."
+    },
+    {
+      "id": "nexon-hello-mate",
+      "name": "넥슨재단 헬로메이트(Hello Mate)",
+      "host": "넥슨재단",
+      "category": "bigtech",
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "emoji": "👾",
+      "grades": "중학생 등 청소년",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "기수제 운영(지역센터·학교)",
+      "region": "전국(지역센터)",
+      "url": "https://www.nexonfoundation.org",
+      "summary": "'메이플스토리 월드' 등으로 게임 제작·코딩을 배우고, 대학생 멘토와 함께 직접 게임을 만들어요.",
+      "highlights": [
+        "👾 게임 창작",
+        "멘토링",
+        "무료"
+      ],
+      "goodFor": "게임을 직접 만들며 코딩과 창작을 재미있게 시작할 수 있어요.",
+      "prepare": "지역 운영 기수 모집 공지를 확인하고 만들고 싶은 게임 아이디어를 준비하세요."
+    },
+    {
+      "id": "apple-swift-challenge",
+      "name": "Apple Swift Student Challenge",
+      "host": "Apple",
+      "format": "온라인",
+      "emoji": "🍎",
+      "grades": "만14세+",
+      "cost": "무료",
+      "months": [
+        2
+      ],
+      "when": "2월 지원(WWDC 연계, 연1회)",
+      "region": "전세계(온라인)",
+      "url": "https://developer.apple.com/swift-student-challenge/",
+      "summary": "Swift Playgrounds로 3분 분량의 인터랙티브 앱(앱 플레이그라운드)을 만들어 제출하는 전 세계 학생 코딩 챌린지. 한국은 만 14세 이상 참여 가능해요.",
+      "highlights": [
+        "🍎 앱개발",
+        "Swift",
+        "WWDC 연계"
+      ],
+      "goodFor": "아이폰 앱 개발(Swift) 실력을 세계 무대에서 인정받고 WWDC 초청 기회도 있어요.",
+      "prepare": "Swift Playgrounds로 3분짜리 인터랙티브 앱을 만들어 2월 제출 창구에 내세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "picoctf",
+      "name": "picoCTF",
+      "host": "Carnegie Mellon University",
+      "format": "온라인",
+      "emoji": "🔐",
+      "grades": "중·고(13+)",
+      "cost": "무료",
+      "months": [
+        3
+      ],
+      "when": "3월 본대회(10일), 연습 상시",
+      "region": "전세계(온라인)",
+      "url": "https://picoctf.org/",
+      "summary": "실제 해킹 기법을 게임처럼 푸는 세계 최대 청소년 CTF(깃발찾기) 사이버보안 대회. 상시 연습(gym)도 무료예요.",
+      "highlights": [
+        "🔐 사이버보안",
+        "CTF",
+        "⚠️상금 미국 제한"
+      ],
+      "goodFor": "실제 해킹 기법을 게임처럼 풀며 사이버보안 실력을 재미있게 쌓아요.",
+      "prepare": "상시 gym으로 리버싱·웹취약점을 연습하고 3월 본대회에 참가하세요. (현금 상금은 미국 거주 제한)",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "usaco",
+      "name": "USACO 미국정보올림피아드",
+      "host": "USA Computing Olympiad",
+      "format": "온라인",
+      "emoji": "💻",
+      "grades": "중·고",
+      "cost": "무료",
+      "months": [
+        1,
+        3
+      ],
+      "when": "시즌 1~3월(월별 온라인 대회)",
+      "region": "전세계(온라인)",
+      "url": "https://usaco.org/",
+      "summary": "무료 계정으로 참여하는 온라인 알고리즘 대회. Bronze→Silver→Gold→Platinum 실력별 4단계 승급제예요.",
+      "highlights": [
+        "💻 알고리즘",
+        "승급제",
+        "⚠️대표선발 미국"
+      ],
+      "goodFor": "무료 온라인 대회로 세계 기준의 코딩 실력을 승급제로 확인할 수 있어요.",
+      "prepare": "Bronze부터 시작해 문제를 풀며 Silver·Gold로 승급하세요. (미국대표 선발·캠프는 대상 외)",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "elements-of-ai",
+      "name": "Elements of AI",
+      "host": "헬싱키대학·MinnaLearn",
+      "format": "온라인",
+      "emoji": "🤖",
+      "grades": "제한 없음",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(자기주도)",
+      "region": "전세계(온라인)",
+      "url": "https://www.elementsofai.com/",
+      "summary": "수학·코딩 없이 AI가 무엇이고 무엇을 할 수 있는지 배우는 세계적 무료 온라인 입문 강좌. 수료증도 무료예요.",
+      "highlights": [
+        "🤖 AI 입문",
+        "무료 수료증"
+      ],
+      "goodFor": "수학·코딩 없이 AI의 개념을 탄탄히 잡고 무료 수료증까지 받아요.",
+      "prepare": "온라인으로 자기 속도에 맞춰 6개 챕터를 완주하세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "hack-club",
+      "name": "Hack Club",
+      "host": "Hack Club",
+      "format": "온·오프",
+      "emoji": "👾",
+      "grades": "만13~18",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(동아리+수시 해커톤)",
+      "region": "전세계(온라인+도시별)",
+      "url": "https://hackclub.com/",
+      "summary": "10대가 직접 운영하는 세계적 코딩 동아리·해커톤 네트워크. 슬랙 커뮤니티에서 프로젝트를 만들고 공유해요.",
+      "highlights": [
+        "👾 코딩 동아리",
+        "해커톤"
+      ],
+      "goodFor": "전 세계 10대와 함께 프로젝트·해커톤으로 코딩을 실전처럼 익혀요.",
+      "prepare": "슬랙 커뮤니티에 참여하거나 우리 학교에 동아리를 만들어 보세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "ibm-skillsbuild",
+      "name": "IBM SkillsBuild (고교)",
+      "host": "IBM",
+      "format": "온라인",
+      "emoji": "🧠",
+      "grades": "고등학생",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(자기주도)",
+      "region": "전세계(온라인)",
+      "url": "https://skillsbuild.org/high-school",
+      "summary": "AI·사이버보안·데이터·클라우드를 무료로 배우고 디지털 배지를 모으는 IBM 청소년 학습 플랫폼이에요.",
+      "highlights": [
+        "🧠 AI·데이터",
+        "디지털 배지"
+      ],
+      "goodFor": "AI·사이버보안·데이터를 무료로 배우고 디지털 배지를 쌓을 수 있어요.",
+      "prepare": "고교 카탈로그에서 관심 과정을 골라 배지를 취득하세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "cisco-netacad",
+      "name": "Cisco Networking Academy",
+      "host": "Cisco",
+      "format": "온라인",
+      "emoji": "🌐",
+      "grades": "13세+",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(오픈 등록)",
+      "region": "전세계(온라인)",
+      "url": "https://www.netacad.com/",
+      "summary": "네트워킹·사이버보안·파이썬·IoT를 실습으로 배우는 시스코의 글로벌 IT 교육 플랫폼. 자기주도 과정은 무료예요.",
+      "highlights": [
+        "🌐 네트워킹·보안",
+        "파이썬"
+      ],
+      "goodFor": "네트워킹·사이버보안·파이썬을 실습으로 배우는 글로벌 IT 교육이에요.",
+      "prepare": "무료 계정으로 Skills for All 입문 과정부터 시작하세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "ms-makecode",
+      "name": "Microsoft MakeCode",
+      "host": "Microsoft",
+      "format": "온라인",
+      "emoji": "🧩",
+      "grades": "초·중·고",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(브라우저)",
+      "region": "전세계(온라인)",
+      "url": "https://www.microsoft.com/en-us/makecode",
+      "summary": "블록·자바스크립트로 게임·마이크로비트·마인크래프트를 코딩하는 무료 브라우저 학습 도구예요.",
+      "highlights": [
+        "🧩 코딩 플랫폼",
+        "micro:bit"
+      ],
+      "goodFor": "게임·마이크로비트·마인크래프트를 코딩하며 재미있게 시작해요.",
+      "prepare": "브라우저에서 블록 코딩으로 시작해 자바스크립트·파이썬으로 넘어가세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "intel-ai-for-youth",
+      "name": "Intel AI for Youth",
+      "host": "Intel",
+      "format": "온·오프",
+      "emoji": "🔷",
+      "grades": "중·고(학교 경유)",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학교 커리큘럼 일정",
+      "region": "한국 포함(학교 경유)",
+      "url": "https://www.intel.com/content/www/us/en/corporate/artificial-intelligence/digital-readiness-ai-for-youth.html",
+      "summary": "학교와 연계해 학생이 실제 AI 프로젝트를 기획·제작하는 인텔의 청소년 AI 교육 프로그램. 한국도 도입국에 포함돼요.",
+      "highlights": [
+        "🔷 AI 프로젝트",
+        "학교 경유"
+      ],
+      "goodFor": "학교와 함께 실제 AI 프로젝트를 기획부터 제작까지 경험해요.",
+      "prepare": "학교의 인텔 AI 교육 도입 여부를 확인하고 참여하세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
+    },
+    {
+      "id": "google-be-internet-awesome",
+      "name": "Google Be Internet Awesome",
+      "host": "Google",
+      "format": "온라인",
+      "emoji": "🛡️",
+      "grades": "초등~중1",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "상시(웹 게임)",
+      "region": "전세계(온라인)",
+      "url": "https://beinternetawesome.withgoogle.com/",
+      "summary": "미니게임(Interland)으로 온라인 안전·디지털 시민성을 배우는 구글의 무료 웹 게임이에요. 주 대상은 초등~중1로 연령대가 낮아요.",
+      "highlights": [
+        "🛡️ 디지털 시민성",
+        "⚠️초등~중1"
+      ],
+      "goodFor": "게임으로 온라인 안전·디지털 시민성 습관을 익힐 수 있어요.",
+      "prepare": "웹 게임 Interland를 즐기며 안전한 인터넷 습관을 배우세요.",
+      "category": "bigtech",
+      "scope": "international",
+      "regionGroup": "해외"
     }
   ],
   "areaGuides": {
@@ -3337,9 +3668,9 @@
           "period": "겨울 · 12~2월",
           "focus": "겨울방학 합숙·캠프와 온라인 영재교육 모집",
           "picks": [
-            "LG AI 청소년 캠프",
             "서울대 농업생명과학 청소년 캠프",
-            "KAIST 사이버영재교육"
+            "KAIST 사이버영재교육",
+            "UNIST 청소년 과학 캠프"
           ]
         },
         {
@@ -3506,6 +3837,68 @@
         "봉사 시간 인증",
         "지속성·책임감",
         "진로와 연결된 경험"
+      ]
+    },
+    "bigtech": {
+      "emoji": "🏢",
+      "title": "빅테크 캠프",
+      "color": "#22D3EE",
+      "tagline": "IT 기업 현장에서 배우는 실전",
+      "description": "삼성·LG·카카오·네이버·넥슨 같은 국내 기업과 구글·마이크로소프트 등 글로벌 빅테크가 직접 운영하는 청소년 캠프·교육·챌린지예요. 대부분 무료이고 현직 개발자와 함께 실무를 경험해요.",
+      "why": "빅테크 캠프는 학교에선 못 만나는 「현직 개발자·실제 서비스·최신 기술」을 직접 겪는 기회예요. 진로를 기업 현장 기준으로 확인할 수 있고, 여기서 익힌 도구·프로젝트가 이후 대회·탐구로 이어집니다.",
+      "how": [
+        "관심 기업·분야(AI·게임·클라우드·앱)를 정해 모집 시기를 미리 파악하세요.",
+        "대부분 무료이니 부담 없이 도전하되, 선발형은 지원서·포트폴리오를 준비하세요.",
+        "캠프에서 배운 도구로 나만의 작은 결과물을 만들어 남기세요.",
+        "해외 프로그램은 한국 참여 가능 여부·영어 요건을 먼저 확인하세요."
+      ],
+      "gains": [
+        "현직 개발자 멘토링",
+        "실무 도구·최신 기술 경험",
+        "기업·산업 진로 감각",
+        "결과물 포트폴리오"
+      ],
+      "perspective": "기업이 어떤 인재를 원하는지 「현장의 기준」으로 배우는 자리예요.",
+      "recognition": "기업 캠프 이수는 교외 활동이라 자기주도학습전형 서류엔 직접 못 쓰지만, 거기서 배운 걸 스스로 발전시킨 학습·프로젝트는 면접에서 「실행력」의 강력한 근거가 돼요.",
+      "yearCycle": [
+        {
+          "period": "겨울 · 12~2월",
+          "focus": "겨울방학 합숙 캠프 + Apple 챌린지·상시 온라인 교육",
+          "picks": [
+            "카카오 AI 루키 캠프",
+            "Apple Swift Student Challenge",
+            "엔트리·소프트웨어야 놀자"
+          ]
+        },
+        {
+          "period": "봄 · 3~5월",
+          "focus": "게임·SW 아카데미 모집 + 글로벌 코딩·보안 대회",
+          "picks": [
+            "넷마블게임아카데미",
+            "picoCTF·USACO"
+          ]
+        },
+        {
+          "period": "여름 · 6~8월",
+          "focus": "기업 여름 캠프·포럼과 무료 글로벌 강좌",
+          "picks": [
+            "메가존클라우드 포럼",
+            "IBM SkillsBuild·Cisco NetAcad"
+          ]
+        },
+        {
+          "period": "가을 · 9~11월",
+          "focus": "플래그십 캠프 모집·게임잼",
+          "picks": [
+            "LG AI 청소년 캠프",
+            "스마일게이트 퓨처랩"
+          ]
+        }
+      ],
+      "mustSee": [
+        "관심 기업 캠프 1개에 도전(무료가 대부분)",
+        "엔트리·구글 CS First·Elements of AI 등 상시 교육으로 기초 다지기",
+        "해외 챌린지는 한국 참여 가능 여부를 먼저 확인"
       ]
     }
   }
