@@ -184,7 +184,7 @@ export function EssaySuneungView({ content, onClose }: EssaySuneungViewProps) {
   const activeStage = curriculum.stages.find((s) => s.id === curriculumTab);
 
   return (
-    <>
+    <div className="flex flex-col max-h-[85vh] overflow-y-auto">
       {/* 헤더 */}
       <div
         className="flex-shrink-0 flex items-center justify-between px-4 py-3"
@@ -215,8 +215,8 @@ export function EssaySuneungView({ content, onClose }: EssaySuneungViewProps) {
         )}
       </div>
 
-      <div className="p-4 space-y-3">
-        {/* 상단 탭 — 긴 내용을 4개 그룹으로 나눠 직관적으로 */}
+      {/* 상단 탭 — sticky */}
+      <div className="sticky top-0 z-20 bg-[#0f172a] px-4 pt-3 pb-2">
         <div className="grid grid-cols-4 gap-1.5">
           {TOP_TABS.map((t) => {
             const on = topTab === t.id;
@@ -235,7 +235,9 @@ export function EssaySuneungView({ content, onClose }: EssaySuneungViewProps) {
             );
           })}
         </div>
+      </div>
 
+      <div className="p-4 space-y-3">
         {/* ═══════ 탭: 한국 현황 ═══════ */}
         {topTab === 'korea' && (
         <>
@@ -868,6 +870,6 @@ export function EssaySuneungView({ content, onClose }: EssaySuneungViewProps) {
           </details>
         )}
       </div>
-    </>
+    </div>
   );
 }

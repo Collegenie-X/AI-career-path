@@ -212,14 +212,13 @@ export function HighSchoolAdmissionTab() {
                 <div className="grid grid-cols-2 gap-1.5">
                   {YOUTH_SUBVIEWS.map((y) => {
                     const on = selectedYouthCat === y.cat;
-                    const full = y.cat === 'bigtech';
                     return (
                       <button
                         key={y.cat}
                         type="button"
                         onClick={() => handleSelectYouthCat(y)}
                         aria-pressed={on}
-                        className={`flex items-center gap-2 rounded-xl px-2.5 py-2.5 text-left transition-all hover:scale-[1.02] active:scale-[0.98] ${full ? 'col-span-2 justify-center' : ''}`}
+                        className="flex items-center gap-2 rounded-xl px-2.5 py-2.5 text-left transition-all hover:scale-[1.02] active:scale-[0.98]"
                         style={{
                           background: on ? y.color : `${y.color}1a`,
                           border: `1px solid ${on ? y.color : `${y.color}44`}`,
@@ -231,7 +230,7 @@ export function HighSchoolAdmissionTab() {
                           className="text-[11px] font-black leading-tight"
                           style={{ color: on ? '#0f172a' : '#fff' }}
                         >
-                          {y.label}{full ? ' ✨' : ''}
+                          {y.label}
                         </span>
                       </button>
                     );
