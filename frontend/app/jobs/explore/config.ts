@@ -285,7 +285,7 @@ export const JOB_ROUTE_LABELS = {
 // ─── Explore Page Layout (Responsive — web-first, career 셸 정렬) ──────────────
 export const EXPLORE_PAGE_LAYOUT_CLASS = {
   /** 페이지 루트: career 페이지와 동일한 배경 */
-  pageRoot: 'min-h-screen relative overflow-hidden pb-12',
+  pageRoot: 'min-h-screen relative overflow-clip pb-12',
   /** career 페이지의 web-container + py-4 md:py-6 와 동일 */
   contentShell: 'web-container relative z-10 py-4 md:py-6',
   /**
@@ -293,7 +293,7 @@ export const EXPLORE_PAGE_LAYOUT_CLASS = {
    * (탭 네비게이션 + 히어로 배너 + 본문이 한 덩어리로 이어짐)
    */
   contentFrame:
-    'rounded-none border border-t-0 border-x border-b overflow-hidden',
+    'rounded-none border border-t-0 border-x border-b overflow-clip',
   /** section-shell-layout.constants SECTION_SHELL_FRAME_STYLE 과 동일 */
   contentFrameStyle: {
     borderColor: 'rgba(255,255,255,0.12)',

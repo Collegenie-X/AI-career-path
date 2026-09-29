@@ -2,6 +2,7 @@
 
 import { Gift, Sparkles, Info } from 'lucide-react';
 import aboutContent from '@/data/about-content.json';
+import { renderHighlightedText } from '../utils/renderHighlightedText';
 
 const ICON_MAP = {
   gift: Gift,
@@ -23,7 +24,7 @@ export function AboutAIUsageSection() {
         </div>
 
         <p className="text-center text-sm text-white/60 max-w-2xl mx-auto mb-12 leading-relaxed">
-          {aiUsage.intro}
+          {renderHighlightedText(aiUsage.intro)}
         </p>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">

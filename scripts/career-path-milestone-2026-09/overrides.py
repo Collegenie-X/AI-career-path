@@ -1,0 +1,36 @@
+"""재작성 때 고정해 둔 표시용 필드 교정 (병합 단계에서 적용)."""
+FUTURE_NOTE = ('본 패스는 AI가 2028 대입 제도를 기준으로 작성한 가상 템플릿입니다. '
+               '전형·수능 최저·개설 과목은 해마다 달라지므로 해당 연도 모집요강과 학교 안내를 확인하고, '
+               '학교·전문가와 상의하세요.')
+OVERRIDES = {
+    'tpl-admission-snu-cse-001': {'jobName': '서울대 컴퓨터공학부'},
+    'tpl-admission-yonsei-med-001': {'jobName': '연세대 의예과'},
+    'tpl-admission-korea-biz-001': {'jobName': '고려대 경영대학'},
+    'tpl-admission-snu-law-001': {'jobName': '서울대 자유전공학부(로스쿨 진학)'},
+    'tpl-admission-kaist-ee-001': {'jobName': 'KAIST 전기및전자공학부 진입'},
+    'tpl-hs-ai-inquiry-journey-001': {'jobName': '일반고 진학 · 자연·공학 계열'},
+    'tpl-hs-social-ai-journey-001': {'jobName': '일반고 진학 · 인문·사회 계열'},
+    'tpl-hs-environment-journey-001': {'jobName': '일반고 진학 · 자연·환경 계열'},
+    'tpl-hs-vibe-coding-journey-001': {'jobName': 'SW·AI 마이스터고·특성화고 진학',
+                                       'schoolType': 'meister-vocational'},
+    'tpl-hs-literature-journey-001': {'jobName': '자사고 합격 · 인문·사회 계열'},
+    'tpl-hs-foreign-lang-journey-001': {'jobName': '외국어고 합격'},
+    'tpl-hs-science-olympiad-journey-001': {'jobName': '과학고·영재학교 합격'},
+    'tpl-univ-ai-paper-journey-001': {'jobName': '서울권 대학 학생부종합'},
+    'tpl-univ-vibe-coding-journey-001': {'jobName': 'SW·AI 계열 학생부종합'},
+    'tpl-univ-ai-ethics-journey-001': {'jobName': '인문·사회 계열 학생부종합'},
+    'tpl-univ-ai-data-social-journey-001': {'jobName': '사회과학·통계 계열 학생부종합'},
+    'tpl-univ-ai-biology-journey-001': {'jobName': '의생명·보건 계열 학생부종합'},
+    'tpl-univ-ai-language-journey-001': {'jobName': '국어국문·국어교육 계열 학생부종합'},
+    'tpl-univ-ai-economy-journey-001': {'jobName': '경영·경제 계열 학생부종합'},
+    'tpl-univ-ai-arts-journey-001': {'jobName': '예술·미디어·디자인 계열 대입'},
+    'tpl-future-ai-core-engineer-2028': {'jobName': '컴퓨터공학·AI학과 (2028 대입)', 'aiGeneratedNote': FUTURE_NOTE},
+    'tpl-future-physical-ai-robotics-2028': {'jobName': '기계·전자·로봇공학 (2028 대입)', 'aiGeneratedNote': FUTURE_NOTE},
+    'tpl-future-ai-bio-health-2028': {'jobName': '의생명·간호·약학 (2028 대입)', 'aiGeneratedNote': FUTURE_NOTE},
+    'tpl-future-ai-governance-2028': {'jobName': '정치외교·사회·자유전공 (2028 대입)', 'aiGeneratedNote': FUTURE_NOTE},
+    'tpl-job-prompt-engineer-journey-001': {'jobName': 'AI 서비스 기획·LLM 앱 개발'},
+    'tpl-job-vibe-dev-journey-001': {'jobName': '프론트엔드·풀스택 개발자'},
+    'tpl-job-content-creator-journey-001': {'jobName': '콘텐츠 마케터'},
+    'tpl-job-data-analyst-journey-001': {'jobName': '데이터 분석가'},
+    'tpl-job-edu-creator-journey-001': {'jobName': '에듀테크 교육 콘텐츠 기획·개발'},
+}

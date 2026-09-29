@@ -19,6 +19,11 @@ import portfolioItems from '@/data/portfolio-items.json';
 import goalRecommendedItems from '@/data/goal-recommended-items.json';
 import { GoalTemplateSelector } from './GoalTemplateSelector';
 import { CareerPathTimelinePreview } from './CareerPathTimelinePreview';
+import type { AiAlternativeItem, AiDetailLevel, AiItemSource } from '../utils/aiPathGenerator/types';
+import {
+  AiDraftProvider, AiDraftToolbar, AiGoalAssist, AiGoalReason, AiItemAssist, AiYearAssist,
+  AutoGenerateForm, BalanceCheckPanel, StartModeChooser, useAiPathDraft,
+} from './builder-ai';
 import { buildStructuredCareerItem, type CareerItemCategoryTag, type CareerActivitySubtype, type CareerItemLink } from '@/data/path-templates/career-item-structure';
 
 /* ─── Types ─── */
@@ -57,6 +62,13 @@ export type PlanItem = {
   checked?: boolean;
   /** 이 활동을 구성하는 하위 실행 항목들 */
   subItems?: SubItem[];
+  /** AI 자동 생성 — 추천 이유 */
+  aiReason?: string;
+  aiSource?: AiItemSource;
+  /** AI 자동 생성 — 재추천해도 유지할 항목 */
+  locked?: boolean;
+  /** AI 자동 생성 — 바꿔 끼울 수 있는 교체 후보 */
+  aiAlternatives?: AiAlternativeItem[];
 };
 
 /** 목표 하나 + 그 목표에 연결된 세부활동 묶음 */
@@ -65,6 +77,8 @@ export type GoalActivityGroup = {
   goal: string;
   items: PlanItem[];
   isExpanded?: boolean;
+  aiSource?: AiItemSource;
+  aiReason?: string;
 };
 
 /** 학기별 계획 단위 */
@@ -93,6 +107,11 @@ export type YearPlan = {
   /** 목표-활동 그룹핑 구조 (semester=split이면 학기별로 2개, 아니면 1개) */
   semesterPlans?: SemesterPlan[];
   goalGroups?: GoalActivityGroup[];
+  /** AI 자동 생성 — 학년 한 줄 주제와 역산 이유 */
+  aiTheme?: string;
+  aiThemeReason?: string;
+  /** detail=활동까지 자세히, outline=큰 목표만 */
+  aiDetail?: AiDetailLevel;
 };
 
 export type CareerPlan = {
@@ -1782,12 +1801,13 @@ function ActivityBuildSheet({
    ActivityItemCard — 세부활동 하나 + 하위활동 아코디언
 ══════════════════════════════════════════ */
 function ActivityItemCard({
-  item, color, starId, linkedGoalText, onUpdate, onChangeGoal, onRemove,
+  item, color, starId, linkedGoalText, goalAiReason, onUpdate, onChangeGoal, onRemove,
 }: {
   item: PlanItem;
   color: string;
   starId: string;
   linkedGoalText: string;
+  goalAiReason?: string;
   onUpdate: (updated: PlanItem) => void;
   onChangeGoal: (goal: string) => void;
   onRemove: () => void;
@@ -1898,6 +1918,9 @@ function ActivityItemCard({
           </button>
         </div>
       </div>
+
+      {/* AI 추천 이유 · 교체 · 고정 */}
+      <AiItemAssist item={item} onUpdate={onUpdate} goalReason={goalAiReason} />
 
       {/* 하위활동 패널 — 아코디언 */}
       <AnimatePresence>
@@ -2145,6 +2168,8 @@ function GoalActivityGroupCard({
                 className="px-3.5 pb-3 space-y-1.5"
                 style={{ borderTop: `1px solid ${color}18` }}
               >
+                <AiGoalReason group={group} />
+
                 {/* 세부활동 섹션 라벨 */}
                 <div className="flex items-center gap-1.5 pt-2.5">
                   <span className="text-[10px]">⚡</span>
@@ -2175,6 +2200,7 @@ function GoalActivityGroupCard({
                             color={color}
                             starId={starId}
                             linkedGoalText={group.goal}
+                            goalAiReason={group.aiReason}
                             onUpdate={handleUpdateItem}
                             onChangeGoal={(g) => onUpdate({ ...group, goal: g })}
                             onRemove={() => handleRemoveItem(item.id)}
@@ -2184,6 +2210,8 @@ function GoalActivityGroupCard({
                     </AnimatePresence>
                   </div>
                 )}
+
+                <AiGoalAssist group={group} onUpdate={onUpdate} />
 
                 {/* 활동 추가 버튼 */}
                 <button
@@ -2525,6 +2553,8 @@ function YearPlanCard({
       {isExpanded && (
         <div className="px-4 pb-4 space-y-4" style={{ borderTop: `1px solid ${color}20` }}>
 
+          <AiYearAssist yearPlan={yearPlan} />
+
           {/* ① 학기 선택 — semester 미설정 시 카드 상단에 인라인 표시 */}
           {needsSemesterPick ? (
             <div className="pt-3 space-y-2.5">
@@ -2627,7 +2657,9 @@ function Step3Planner({
   job: BuilderJob | undefined;
 }) {
   const [expandedId, setExpandedId] = useState<string | null>(
-    yearPlans.length > 0 ? yearPlans[yearPlans.length - 1].gradeId : null
+    yearPlans.length > 0
+      ? (yearPlans[0].aiTheme ? yearPlans[0] : yearPlans[yearPlans.length - 1]).gradeId
+      : null
   );
   const [showGradePicker, setShowGradePicker] = useState(yearPlans.length === 0);
   const [pendingGradeId, setPendingGradeId] = useState<string | null>(null);
@@ -2988,6 +3020,28 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   }, [kingdom, jobId]);
   const color = kingdom?.color ?? '#6C5CE7';
 
+  const ai = useAiPathDraft({
+    starId,
+    jobId,
+    jobName: job?.name ?? initialPlan?.jobName ?? '',
+    yearPlans,
+    setYearPlans,
+    hasInitialYears: (initialPlan?.years?.length ?? 0) > 0,
+  });
+  const jobLabel = job ? `${job.icon} ${job.name}` : '';
+  /** 3단계 안의 하위 화면: 시작 방식 선택 → AI 입력 폼 → 여정 편집 */
+  const isStartSubScreen = step === 3 && ai.startMode !== 'edit';
+
+  const handleBack = () => {
+    if (step === 1) return onClose();
+    if (step === 3 && ai.startMode === 'auto-form') {
+      if (ai.busyTarget) return;
+      return ai.setStartMode(yearPlans.length > 0 ? 'edit' : 'choose');
+    }
+    if (step === 3 && ai.startMode === 'edit' && yearPlans.length === 0) return ai.setStartMode('choose');
+    setStep(s => s - 1);
+  };
+
   const canProceed = () => {
     if (step === 1) return !!starId;
     if (step === 2) return !!jobId;
@@ -3035,7 +3089,13 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
   const headings: Record<number, { title: string; desc: string }> = {
     1: { title: '어떤 왕국으로 떠날까요?',  desc: '모험을 시작할 관심 분야의 별을 선택하세요' },
     2: { title: '함께할 직업을 정해요',     desc: `${kingdom?.name ?? ''}에서 목표로 삼을 직업을 골라보세요` },
-    3: { title: '학년별 여정을 그려요',     desc: '각 학년 정거장을 눌러 목표와 활동을 채우세요' },
+    3: ai.startMode === 'choose'
+      ? { title: '어떻게 시작할까요?', desc: '큰 계획이 막막하면 AI 초안으로, 이미 생각이 있으면 직접 만들어요' }
+      : ai.startMode === 'auto-form'
+        ? { title: '몇 가지만 알려 주세요', desc: '고른 내용으로 학년별 목표와 활동 초안을 만들어요' }
+        : ai.isAiDraft
+          ? { title: '초안을 내 것으로 고쳐요', desc: '마음에 드는 활동은 고정하고, 나머지는 교체하거나 다시 추천받으세요' }
+          : { title: '학년별 여정을 그려요', desc: '각 학년 정거장을 눌러 목표와 활동을 채우세요' },
     4: { title: '여정 완성!',               desc: '저장하면 타임라인에서 전체 로드맵을 볼 수 있어요' },
   };
 
@@ -3081,7 +3141,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
         }}
       >
         <div className="flex items-center justify-between px-4 py-3.5">
-          <button onClick={step === 1 ? onClose : () => setStep(s => s - 1)}
+          <button onClick={handleBack} aria-label="이전"
             className="w-9 h-9 rounded-xl flex items-center justify-center active:scale-90"
             style={{ backgroundColor: 'rgba(255,255,255,0.07)' }}>
             <ChevronLeft className="w-5 h-5 text-gray-300" />
@@ -3124,11 +3184,60 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
       <div className="flex-1 overflow-y-auto px-5 pb-6">
         {step === 1 && <Step1Kingdom selectedId={starId} onSelect={id => { setStarId(id); setJobId(''); }} />}
         {step === 2 && kingdom && <Step2Job kingdom={kingdom} selectedJobId={jobId} onSelect={setJobId} />}
-        {step === 3 && <Step3Planner yearPlans={yearPlans} onUpdateYears={setYearPlans} starId={starId} color={color} job={job} />}
+        {step === 3 && ai.startMode === 'choose' && (
+          <StartModeChooser
+            color={color}
+            credits={ai.credits}
+            onSelect={(mode) => (mode === 'auto' ? ai.openAutoForm() : ai.startManual())}
+          />
+        )}
+        {step === 3 && ai.startMode === 'auto-form' && (
+          <AutoGenerateForm
+            color={color}
+            jobLabel={jobLabel}
+            selection={ai.selection}
+            onChange={ai.setSelection}
+            credits={ai.credits}
+            isRegenerate={!!ai.generatedSelection}
+            hasExistingYears={yearPlans.length > 0}
+            busy={ai.busyTarget !== null}
+            error={ai.error}
+            onGenerate={() => void ai.generate()}
+            onManual={ai.startManual}
+            onResetTestCredits={ai.resetTestCredits}
+          />
+        )}
+        {step === 3 && ai.startMode === 'edit' && (
+          <AiDraftProvider value={ai.contextValue}>
+            <div className="space-y-4">
+              <AiDraftToolbar
+                color={color}
+                jobLabel={jobLabel}
+                selection={ai.generatedSelection}
+                summary={ai.summary}
+                assumptions={ai.assumptions}
+                credits={ai.credits}
+                busy={ai.busyTarget !== null}
+                canUndo={ai.canUndo}
+                error={ai.error}
+                onChangeIntensity={(id) => void ai.changeIntensity(id)}
+                onRegenerateAll={() => void ai.regenerateAll()}
+                onUndo={ai.undo}
+                onEditSelection={ai.openAutoForm}
+                onResetTestCredits={ai.resetTestCredits}
+              />
+              <Step3Planner
+                yearPlans={yearPlans} onUpdateYears={setYearPlans} starId={starId} color={color} job={job}
+              />
+              <BalanceCheckPanel yearPlans={yearPlans} color={color} onAddGoal={ai.addBalance} />
+            </div>
+          </AiDraftProvider>
+        )}
         {step === 4 && <Step4Summary plan={{ starId, starName: kingdom?.name, starEmoji: kingdom?.emoji, starColor: color, jobId, jobName: job?.name, jobEmoji: job?.icon, years: yearPlans }} color={color} />}
       </div>
 
-      {/* Footer */}
+      {/* Footer — 시작 방식 선택·AI 입력 폼에서는 각 화면의 버튼을 쓴다 */}
+      {!isStartSubScreen && (
       <div
         className="flex-shrink-0 px-5 space-y-2"
         style={{
@@ -3159,6 +3268,7 @@ export function CareerPathBuilder({ initialPlan, initialStep, onSave, onClose }:
           <p className="text-center text-xs text-gray-600">정거장(학년)을 1개 이상 추가하면 다음으로 넘어갈 수 있어요</p>
         )}
       </div>
+      )}
         </div>
       </div>
     </div>

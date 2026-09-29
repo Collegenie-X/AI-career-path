@@ -103,8 +103,8 @@ function JobsExploreContent() {
           style={EXPLORE_PAGE_LAYOUT_CLASS.contentFrameStyle}
         >
           <div
-            className={SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT}
-            style={SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE}
+            className={`${SECTION_SHELL_TAB_NAVIGATION_AREA_CLASS_NAME_FLUSH_RIGHT} sticky top-[65px] md:top-[73px] z-20`}
+            style={{ ...SECTION_SHELL_TAB_NAVIGATION_AREA_STYLE, backgroundColor: 'rgba(10,10,30,0.92)', backdropFilter: 'blur(20px)' }}
           >
             <GradientSegmentedTabBar
               tabs={EXPLORE_SEGMENT_TABS}

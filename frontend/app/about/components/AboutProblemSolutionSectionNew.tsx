@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Map, CalendarX, Lock, AlertCircle, Database, Bot, Users, FileText } from 'lucide-react';
 import aboutContent from '@/data/about-content.json';
+import { renderHighlightedText } from '../utils/renderHighlightedText';
 
 const ICON_MAP = {
   'map-off': Map,
@@ -74,7 +75,7 @@ export function AboutProblemSolutionSectionNew() {
                     <Icon className="w-5 h-5" style={{ color: problem.color }} />
                   </motion.div>
                   <h3 className="text-sm font-bold text-white mb-2">{problem.title}</h3>
-                  <p className="text-xs text-white/50 leading-relaxed">{problem.description}</p>
+                  <p className="text-xs text-white/50 leading-relaxed">{renderHighlightedText(problem.description)}</p>
 
                   {/* Problem number */}
                   <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center text-red-400 text-xs font-bold">
@@ -163,7 +164,7 @@ export function AboutProblemSolutionSectionNew() {
                     </motion.div>
                     <div>
                       <h4 className="text-base font-bold text-white mb-2">{feature.title}</h4>
-                      <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
+                      <p className="text-sm text-white/60 leading-relaxed">{renderHighlightedText(feature.description)}</p>
                     </div>
                   </div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import aboutContent from '@/data/about-content.json';
+import { renderHighlightedText } from '../utils/renderHighlightedText';
 
 function HumanIcon() {
   return (
@@ -119,7 +120,7 @@ export function AboutCreatorSectionNew() {
             </span>
           </h2>
           <p className="text-lg text-purple-400 font-bold mb-4">{creator.subtitle}</p>
-          <p className="text-base text-white/50 max-w-2xl mx-auto">{creator.description}</p>
+          <p className="text-base text-white/50 max-w-2xl mx-auto">{renderHighlightedText(creator.description)}</p>
         </motion.div>
 
         {/* SVG Illustration — placed between cards, defined here as a variable */}
@@ -156,7 +157,7 @@ export function AboutCreatorSectionNew() {
                   </div>
                   <motion.span className="shrink-0 text-2xl" animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity }}>{config.emoji}</motion.span>
                 </div>
-                <p className="text-sm text-white/65 leading-relaxed mb-6">{member.description}</p>
+                <p className="text-sm text-white/65 leading-relaxed mb-6">{renderHighlightedText(member.description)}</p>
                 <div className="flex flex-wrap gap-2">
                   {config.skills.map((skill, si) => (
                     <motion.span key={skill} className="px-3 py-1 rounded-full text-xs font-semibold border" style={{ borderColor: config.borderColor.replace('0.5', '0.3'), color: 'rgba(255,255,255,0.7)', background: config.glow.replace('0.4', '0.1') }} initial={{ scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 + si * 0.1 }} whileHover={{ scale: 1.1 }}>{skill}</motion.span>
@@ -319,7 +320,7 @@ export function AboutCreatorSectionNew() {
                   </div>
                   <motion.span className="shrink-0 text-2xl" animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}>{config.emoji}</motion.span>
                 </div>
-                <p className="text-sm text-white/65 leading-relaxed mb-6">{member.description}</p>
+                <p className="text-sm text-white/65 leading-relaxed mb-6">{renderHighlightedText(member.description)}</p>
                 <div className="flex flex-wrap gap-2">
                   {config.skills.map((skill, si) => (
                     <motion.span key={skill} className="px-3 py-1 rounded-full text-xs font-semibold border" style={{ borderColor: config.borderColor.replace('0.5', '0.3'), color: 'rgba(255,255,255,0.7)', background: config.glow.replace('0.4', '0.1') }} initial={{ scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 + si * 0.1 }} whileHover={{ scale: 1.1 }}>{skill}</motion.span>

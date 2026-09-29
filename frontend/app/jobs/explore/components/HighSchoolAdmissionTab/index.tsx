@@ -15,7 +15,6 @@ import meister from '@/data/high-school/meister.json';
 import business from '@/data/high-school/business.json';
 import specialized from '@/data/high-school/specialized.json';
 import generalElite from '@/data/high-school/general_elite.json';
-import general from '@/data/high-school/general.json';
 import alternative from '@/data/high-school/alternative.json';
 import identityChallengeData from '@/data/high-school/identity-challenge.json';
 import mentalChallengeData from '@/data/high-school/mental-challenge.json';
@@ -60,10 +59,19 @@ const typedData: HighSchoolAdmissionV2Data = {
     business,
     specialized,
     generalElite,
-    general,
     alternative,
   ] as unknown as HighSchoolCategory[]),
 };
+
+/** 전체 카테고리를 통합한 학교 인덱스 — 지도/매트릭스처럼 다른 카테고리의 학교를 클릭하는 경우까지 커버 */
+const SCHOOL_INDEX = new Map<string, { school: HighSchoolDetail; category: HighSchoolCategory }>();
+for (const category of typedData.categories) {
+  for (const school of category.schools ?? []) {
+    if (!SCHOOL_INDEX.has(school.id)) SCHOOL_INDEX.set(school.id, { school, category });
+  }
+}
+
+const DEFAULT_CATEGORY = typedData.categories.find((c) => c.id === 'science_high') ?? null;
 
 export function HighSchoolAdmissionTab() {
   const { searchParams, patchUrl } = useExploreUrlState();
@@ -105,32 +113,30 @@ export function HighSchoolAdmissionTab() {
     const categoryId = searchParams.get('category');
     const schoolId = searchParams.get('school');
 
-    if (!categoryId) {
-      // URL에 category 파라미터가 없으면 과학고·영재고를 기본 선택
-      const defaultCategory = typedData.categories.find((c) => c.id === 'science_high') ?? null;
-      if (defaultCategory && selectedCategory?.id !== defaultCategory.id) {
-        setSelectedCategory(defaultCategory);
-      }
+    // category 파라미터가 없거나(부분 patch·딥링크) 삭제된 유형(예: 일반고 general)이면
+    // 현재 선택을 그대로 유지하고, 그것도 없을 때만 과학고·영재고를 기본 선택한다.
+    // (여기서 selectedSchool을 비우면 학교 클릭 직후 팝업이 열렸다가 바로 닫힌다)
+    const categoryFromUrl = categoryId
+      ? typedData.categories.find((c) => c.id === categoryId) ?? null
+      : null;
+    const category = categoryFromUrl ?? selectedCategory ?? DEFAULT_CATEGORY;
+    if (category && selectedCategory?.id !== category.id) {
+      setSelectedCategory(category);
+    }
+
+    if (!schoolId) {
       if (selectedSchool) setSelectedSchool(null);
       return;
     }
 
-    const category = typedData.categories.find((c) => c.id === categoryId) ?? null;
-    if (category && selectedCategory?.id !== category.id) {
-      setSelectedCategory(category);
+    // 선택된 카테고리 → 전체 인덱스 순으로 학교를 찾는다 (지도·매트릭스에서 타 카테고리 학교 클릭 대응)
+    const school =
+      category?.schools?.find((s) => s.id === schoolId) ?? SCHOOL_INDEX.get(schoolId)?.school ?? null;
+    if (!school) {
+      if (selectedSchool) setSelectedSchool(null);
+      return;
     }
-    if (!category) return;
-
-    if (schoolId) {
-      const school = category.schools.find((s) => s.id === schoolId) ?? null;
-      if (school && selectedSchool?.id !== school.id) {
-        setSelectedSchool(school);
-      } else if (!school && selectedSchool) {
-        setSelectedSchool(null);
-      }
-    } else if (selectedSchool) {
-      setSelectedSchool(null);
-    }
+    if (selectedSchool?.id !== school.id) setSelectedSchool(school);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
@@ -153,7 +159,10 @@ export function HighSchoolAdmissionTab() {
   /** 2단계 → 3단계: 학교 선택 → 다이얼로그 노출 */
   const handleSelectSchool = (school: HighSchoolDetail) => {
     setSelectedSchool(school);
-    patchUrl({ school: school.id });
+    // category까지 함께 patch — URL에 category가 없는 상태(기본 선택)에서 school만 넣으면
+    // URL 동기화 이펙트가 선택을 초기화해 팝업이 즉시 닫혔다.
+    const categoryId = selectedCategory?.id ?? SCHOOL_INDEX.get(school.id)?.category.id ?? null;
+    patchUrl({ tab: 'admission', category: categoryId, school: school.id, subView: null });
   };
 
   const handleClearAll = () => {
@@ -170,6 +179,13 @@ export function HighSchoolAdmissionTab() {
 
   /** 2컬럼 레이아웃: 왼쪽 = 항상 카테고리 그리드, 오른쪽 = 카테고리 상세 + 학교 목록 (또는 서브뷰) */
   const hasDetailSelection = selectedCategory !== null || selectedYouthCat !== null;
+
+  /** 다이얼로그 테마 색 — 선택 카테고리에 없는 학교(지도·매트릭스)면 원 소속 카테고리로 폴백 */
+  const dialogCategory = selectedSchool
+    ? (selectedCategory?.schools?.some((s) => s.id === selectedSchool.id)
+        ? selectedCategory
+        : SCHOOL_INDEX.get(selectedSchool.id)?.category ?? selectedCategory ?? DEFAULT_CATEGORY)
+    : null;
 
   return (
     <>
@@ -258,11 +274,11 @@ export function HighSchoolAdmissionTab() {
         }
       />
 
-      {selectedSchool && selectedCategory && (
+      {selectedSchool && dialogCategory && (
         <SchoolDetailDialog
           school={selectedSchool}
-          categoryColor={selectedCategory.color}
-          categoryBgColor={selectedCategory.bgColor}
+          categoryColor={dialogCategory.color}
+          categoryBgColor={dialogCategory.bgColor}
           onClose={handleCloseSchool}
         />
       )}

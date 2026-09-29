@@ -327,7 +327,7 @@ export function CareerPathDetailPanel({ template, onClose, onUseTemplate, onExpa
 
           {/* Tags */}
           <div className="flex gap-1.5 flex-wrap">
-            {template.tags.map(tag => (
+            {(template.tags ?? []).map(tag => (
               <span
                 key={tag}
                 className="text-[13px] px-2.5 py-1 rounded-full text-gray-500"

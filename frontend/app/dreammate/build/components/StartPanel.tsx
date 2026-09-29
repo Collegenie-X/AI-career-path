@@ -64,6 +64,11 @@ export function StartPanel({ fields, onPickTemplate, onBlank }: Props) {
                   📚 {tpl.books.map((b) => b.title).join(' · ')}
                 </div>
               )}
+              {tpl.reality && (
+                <div className="text-[10px] text-emerald-300/80 mt-1 leading-snug line-clamp-1">
+                  ⏱ {tpl.reality.weeklyHours} · 💰 {tpl.reality.cost} · 👥 {tpl.reality.team}
+                </div>
+              )}
               <div className="text-[10px] text-gray-500 mt-1">{tpl.weeklyGoals.length}주 · 클릭하면 트랙으로 불러옵니다</div>
             </div>
           </button>

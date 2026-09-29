@@ -431,7 +431,7 @@ export function RoadmapDetailDialog({
             <RoadmapDetailVerticalFlowStep starColor={roadmap.starColor} dotTone="star">
               <p className="text-xs font-bold uppercase tracking-wide text-gray-500">개요</p>
               <div className="mt-1.5 rounded-lg p-3" style={{ backgroundColor: `${roadmap.starColor}0d` }}>
-                <p className="text-sm text-gray-200 leading-relaxed">{roadmap.description}</p>
+                <p className="text-sm text-gray-200 leading-relaxed whitespace-pre-line">{roadmap.description}</p>
               </div>
             </RoadmapDetailVerticalFlowStep>
 

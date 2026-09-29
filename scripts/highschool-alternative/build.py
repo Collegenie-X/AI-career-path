@@ -13,6 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from category import build_category, MOE_PDF, GOE_PDF, ALTER_EDU, NCS_URL, GGU_URL, ODY_URL  # noqa: E402
 from manual import next_challenge_school, ggukkuro_campus, ODYSSEY_OVERRIDE, MANUAL_OVERRIDES  # noqa: E402
+from roster import EXCLUDED_TARGET  # noqa: E402
 
 OUT = os.path.join(HERE, "..", "..", "frontend", "data", "high-school", "alternative.json")
 PALETTE = ["#a3e635", "#84cc16", "#4ade80", "#2dd4bf", "#38bdf8", "#facc15", "#fb923c", "#f472b6", "#c084fc"]
@@ -30,7 +31,7 @@ ZONE = {"서울": "수도권", "인천": "수도권", "경기": "수도권", "�
 
 THEMES = {
     "arts": ("🎭", "예술·미디어 특화"),
-    "restart": ("🤝", "다문화·북한이탈·재도전 지원"),
+    "restart": ("🤝", "재도전·회복 지원"),
     "global": ("🌏", "글로벌·국제형"),
     "community": ("🌱", "공동체·생태·진로"),
 }
@@ -66,7 +67,7 @@ def theme_of(name, feat_text):
     f = feat_text or ""
     if re.search(r"연극|영화|음악|예술", name) or re.search(r"연극|영화|음악예술|실용음악|예술중점|음악중점|문화예술|음악 연주|뮤지컬", f):
         return "arts"
-    if re.search(r"북한이탈|탈북|다문화|중도입국|학업\s*곤란|부적응|위기|위탁형|치유", f):
+    if re.search(r"학업\s*곤란|부적응|위기|위탁형|치유", f):
         return "restart"
     if re.search(r"글로벌|국제|영어", f):
         return "global"
@@ -440,7 +441,7 @@ def build_group_tree(schools):
             "total": "대안교육 특성화고 25교 · 대안학교(각종학교) 52교",
             "headline": "대안교육 특성화고는 전국 25교(공립 5 · 사립 20)예요.",
             "rows": [
-                {"sido": "경기", "count": 4, "detail": "두레자연·경기대명·이우·한겨레"},
+                {"sido": "경기", "count": 4, "detail": "두레자연·경기대명·이우 등"},
                 {"sido": "전북", "count": 4, "detail": "세인·푸른꿈·지평선·고산"},
                 {"sido": "경남", "count": 4, "detail": "간디·합천평화·지리산·태봉"},
                 {"sido": "강원", "count": 3, "detail": "전인·팔렬·현천"},
@@ -517,8 +518,8 @@ def build_feature_focus(schools):
          "admissionNote": "국내 학종과 해외 대학 병행. 비용이 큰 편이니 사전 확인.",
          "schools": pick(theme="global"),
          "sources": [{"label": "교육부 현황 (2024.03)", "url": MOE_PDF}]},
-        {"id": "restart", "emoji": "🤝", "label": "다문화·북한이탈·재도전 지원형",
-         "what": "학업 중단 위기, 다문화·북한이탈 청소년 등 새 출발이 필요한 학생을 돕는 학교.",
+        {"id": "restart", "emoji": "🤝", "label": "재도전·회복 지원형",
+         "what": "학업 중단 위기·학교 부적응 등으로 새 출발이 필요한 학생을 돕는 학교.",
          "howToEnter": "학교가 정한 대상 확인 → 상담·지원.",
          "admissionNote": "진로 맞춤 진학·취업. 소규모 개별 지원이 강점.",
          "schools": pick(theme="restart"),
@@ -548,6 +549,7 @@ def main():
 
     order = {"transition": 0, "special": 1, "public": 2, "private": 3}
     items = sorted(facts.items(), key=lambda kv: (order.get(kv[1]["axis"], 9), kv[1]["region"], kv[1]["name"]))
+    items = [kv for kv in items if kv[1]["name"] not in EXCLUDED_TARGET]
     for idx, (code, f) in enumerate(items):
         feat = feature_for(features, f)
         s = build_school(code, f, feat, idx)

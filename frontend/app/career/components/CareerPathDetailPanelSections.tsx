@@ -129,7 +129,7 @@ export function SuccessStoriesSection({ template }: { readonly template: Templat
       <div className="px-4 py-2.5 font-bold text-[14px] text-white flex items-center gap-2"
         style={{ backgroundColor: 'rgba(251,191,36,0.15)' }}>
         <ThumbsUp style={{ width: 14, height: 14, color: '#FBBF24' }} />
-        합격 후기
+        준비 예시 시나리오
       </div>
       <div className="px-4 pb-4 space-y-4">
         {tpl.successStories.map((s: { year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }, i) => (

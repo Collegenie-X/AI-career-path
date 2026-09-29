@@ -14,6 +14,7 @@ import {
   deriveTimelineItemLinkFields,
   normalizeTimelineItemMonths,
 } from '../../utils/careerPathTimelineItemDerivations';
+import { CareerPathExecutionRefChip, type CareerItemExecutionRef } from '../CareerPathExecutionRefChip';
 
 type TemplateItemLike = {
   readonly id?: string;
@@ -31,6 +32,7 @@ type TemplateItemLike = {
   readonly projectTrack?: boolean;
   readonly aiTools?: readonly string[];
   readonly deliverable?: string;
+  readonly executionRef?: CareerItemExecutionRef;
 };
 
 type CareerPathTimelineTemplateItemRowProps = {
@@ -108,7 +110,7 @@ export function CareerPathTimelineTemplateItemRow({
           )}
           <div className="text-[13px] font-semibold text-white leading-snug">{item.title}</div>
         </div>
-        {hasExpandableBody || (item.aiTools && item.aiTools.length > 0) || item.deliverable ? (
+        {hasExpandableBody || (item.aiTools && item.aiTools.length > 0) || item.deliverable || item.executionRef ? (
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -172,6 +174,7 @@ export function CareerPathTimelineTemplateItemRow({
               </span>
             </div>
           ) : null}
+          {item.executionRef ? <CareerPathExecutionRefChip executionRef={item.executionRef} /> : null}
         </>
       ) : null}
     </CareerPathTimelineItemCardShell>

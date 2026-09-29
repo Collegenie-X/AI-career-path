@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart } from 'lucide-react';
 import aboutContent from '@/data/about-content.json';
+import { renderHighlightedText } from '../utils/renderHighlightedText';
 
 const ICON_MAP = { target: Target, eye: Eye, heart: Heart } as const;
 
@@ -86,7 +87,7 @@ export function AboutMissionSectionNew() {
                 </motion.div>
 
                 <h3 className="text-xl font-bold text-white mb-3">{value.title}</h3>
-                <p className="text-sm text-white/55 leading-relaxed">{value.description}</p>
+                <p className="text-sm text-white/55 leading-relaxed">{renderHighlightedText(value.description)}</p>
 
                 {/* Bottom accent bar */}
                 <motion.div

@@ -25,6 +25,20 @@ interface BookRef {
   note?: string;
 }
 
+interface RealityCheck {
+  weeklyHours: string;
+  cost: string;
+  team: string;
+  schedule?: string;
+  permissions?: string[];
+  tools?: string[];
+}
+
+interface RiskFallback {
+  problem: string;
+  fallback: string;
+}
+
 interface ExecutionTemplate {
   id: string;
   title: string;
@@ -40,6 +54,12 @@ interface ExecutionTemplate {
   successCriteria?: string[];
   /** 주변 증거자료(설문·인터뷰·테스트 결과 등 포트폴리오 물증) */
   evidence?: string[];
+  /** 시작 전 현실 체크 (시간·비용·인원·일정·사전 허락·도구) */
+  reality?: RealityCheck;
+  /** 시간이 부족할 때의 최소 버전 */
+  minimumVersion?: string;
+  /** 흔한 걸림돌과 플랜 B */
+  risks?: RiskFallback[];
 }
 
 /** 카테고리 하위 분야(도메인) 그룹 — project 10분야, activity/paper 보강 그룹 */
@@ -398,6 +418,11 @@ function StepTemplate({
                   📚 추천도서 {tmpl.books.length}권
                 </span>
               )}
+              {tmpl.reality && (
+                <span className="text-[10px] text-emerald-300/80">
+                  ⏱ {tmpl.reality.weeklyHours} · 💰 {tmpl.reality.cost}
+                </span>
+              )}
             </div>
           </div>
           <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
@@ -495,6 +520,65 @@ function StepWeekly({
               </span>
             ))}
           </div>
+        </div>
+      )}
+
+      {/* 시작 전 현실 체크 (시간·비용·허락·도구) */}
+      {template.reality && (
+        <div className="rounded-2xl p-3.5" style={{ background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.22)' }}>
+          <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-2">
+            🧭 시작 전 현실 체크
+            <span className="text-[10px] font-normal text-gray-400">· 실제로 드는 시간·비용·허락</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5 mb-2">
+            {[`⏱ ${template.reality.weeklyHours}`, `💰 ${template.reality.cost}`, `👥 ${template.reality.team}`].map((chip, i) => (
+              <span key={i} className="text-[10px] leading-snug px-2 py-1 rounded-lg text-emerald-100" style={{ background: 'rgba(16,185,129,0.14)' }}>
+                {chip}
+              </span>
+            ))}
+          </div>
+          {template.reality.schedule && (
+            <div className="text-[11px] text-gray-300 leading-snug mb-2">🗓 {template.reality.schedule}</div>
+          )}
+          {template.reality.permissions && template.reality.permissions.length > 0 && (
+            <>
+              <div className="text-[10px] font-semibold text-gray-400 mb-1">✋ 먼저 허락·확인할 것</div>
+              <ul className="space-y-1 mb-2">
+                {template.reality.permissions.map((p, i) => (
+                  <li key={i} className="flex gap-1.5 text-[11px] text-gray-300 leading-snug">
+                    <span className="flex-shrink-0 text-emerald-300">·</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {template.reality.tools && template.reality.tools.length > 0 && (
+            <div className="text-[10px] text-gray-400 leading-snug">🧰 {template.reality.tools.join(' · ')}</div>
+          )}
+        </div>
+      )}
+
+      {/* 막힐 때 플랜 B + 최소 버전 */}
+      {((template.risks && template.risks.length > 0) || template.minimumVersion) && (
+        <div className="rounded-2xl p-3.5" style={{ background: 'rgba(245,158,11,0.06)', border: '1px solid rgba(245,158,11,0.22)' }}>
+          <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-2">
+            🛟 막힐 때 플랜 B
+            <span className="text-[10px] font-normal text-gray-400">· 흔한 걸림돌과 대처</span>
+          </div>
+          <div className="space-y-2">
+            {template.risks?.map((r, i) => (
+              <div key={i}>
+                <div className="text-[11px] font-semibold text-amber-200 leading-snug">Q. {r.problem}</div>
+                <div className="text-[11px] text-gray-300 leading-snug mt-0.5">→ {r.fallback}</div>
+              </div>
+            ))}
+          </div>
+          {template.minimumVersion && (
+            <div className="text-[11px] text-amber-100 leading-snug mt-2.5 pt-2 border-t border-amber-500/20">
+              ⏳ {template.minimumVersion}
+            </div>
+          )}
         </div>
       )}
 

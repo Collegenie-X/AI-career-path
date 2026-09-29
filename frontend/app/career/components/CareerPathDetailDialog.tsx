@@ -12,6 +12,7 @@ import type { CareerPathTemplate } from '@/data/path-templates';
 import { ReportModal, type ReportTarget } from './ReportModal';
 import { DetailRichInfoSection } from './DetailRichInfoSection';
 import { CareerPathAiEraSection } from './CareerPathAiEraSection';
+import { CareerPathExecutionRefChip } from './CareerPathExecutionRefChip';
 import { RecommendedActivitiesSection } from './CareerPathDetailPanelSections';
 import { CareerPathExpandBottomSheetDialog } from './expandable-detail';
 import { AiGeneratedNoticeBanner } from './AiGeneratedNotice';
@@ -505,7 +506,7 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                 <div className="px-4 py-2.5 font-bold text-sm text-white flex items-center gap-2"
                   style={{ backgroundColor: 'rgba(251,191,36,0.15)' }}>
                   <ThumbsUp style={{ width: 14, height: 14, color: '#FBBF24' }} />
-                  합격 후기
+                  준비 예시 시나리오
                 </div>
                 <div className="px-4 pb-4 space-y-4">
                   {(template as { successStories: Array<{ year: string; admissionType?: string; schoolName?: string; quote: string; strategy: string; tips?: string[] }> }).successStories.map((s, i) => (
@@ -813,6 +814,9 @@ export function CareerPathDetailDialog({ template, onClose, onUseTemplate }: Pro
                                                 <span>🎁</span>
                                                 <span><span className="font-bold">산출물:</span> {item.deliverable}</span>
                                               </div>
+                                            )}
+                                            {item.executionRef && (
+                                              <CareerPathExecutionRefChip executionRef={item.executionRef} />
                                             )}
                                             {/* Sub-items preview */}
                                             {Array.isArray(item.subItems) && item.subItems.length > 0 && (

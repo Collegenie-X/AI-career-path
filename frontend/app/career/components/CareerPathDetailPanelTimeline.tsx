@@ -90,7 +90,7 @@ export function CareerPathDetailPanelTimeline({
 
         return (
           <CareerPathTimelineGradeSectionChrome
-            key={year.gradeId}
+            key={year.gradeId ?? year.gradeLabel}
             accentColor={template.starColor}
             gradeShortLabel={gradeShortLabel}
             gradeBadgeVariant={gradeBadgeVariant}

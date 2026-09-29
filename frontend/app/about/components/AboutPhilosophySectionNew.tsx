@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Lightbulb, Target, Users, Zap, Search } from 'lucide-react';
 import { useState } from 'react';
 import aboutContent from '@/data/about-content.json';
+import { renderHighlightedText } from '../utils/renderHighlightedText';
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   target: Target,
@@ -67,7 +68,7 @@ function FlipCard({ capability, index }: { capability: { id: string; icon: strin
             borderColor: `${color}40`,
           }}
         >
-          <p className="text-sm text-white/75 leading-relaxed">{capability.description}</p>
+          <p className="text-sm text-white/75 leading-relaxed">{renderHighlightedText(capability.description)}</p>
           <p className="text-xs mt-3" style={{ color }}>클릭해서 돌아가기</p>
         </div>
       </motion.div>
@@ -222,7 +223,7 @@ export function AboutPhilosophySectionNew() {
                 className="flex-1 rounded-2xl p-5 mb-4 border border-white/8 bg-white/[0.02] hover:border-white/15 transition-colors"
               >
                 <h3 className="text-base font-bold text-white mb-2">{principle.title}</h3>
-                <p className="text-sm text-white/60 leading-relaxed">{principle.content}</p>
+                <p className="text-sm text-white/60 leading-relaxed">{renderHighlightedText(principle.content)}</p>
               </div>
             </motion.div>
           ))}

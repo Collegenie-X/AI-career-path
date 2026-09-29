@@ -2299,21 +2299,6 @@
         }
       ]
     },
-    "general": {
-      "pins": [
-        {
-          "name": "동인천고등학교",
-          "shortName": "인천고",
-          "sido": "incheon",
-          "district": "남동구",
-          "address": "인천광역시 남동구 만수로75번길 71-15",
-          "homepage": "dih.icehs.kr",
-          "tel": "032-721-3600",
-          "source": "NEIS",
-          "schoolId": "incheon_high"
-        }
-      ]
-    },
     "general_elite": {
       "pins": [
         {
@@ -6012,22 +5997,6 @@
           "schoolId": "alt_7530587"
         },
         {
-          "name": "한겨레고등학교",
-          "shortName": "한겨레고",
-          "sido": "gyeonggi",
-          "district": "안성시",
-          "address": "경기도 안성시 죽산면 칠장로 107-9",
-          "homepage": "https://han-mh.goean.kr/",
-          "tel": "031-674-0150",
-          "source": "NEIS",
-          "schoolType": "대안교육 특성화고",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 2,
-          "neisVerified": true,
-          "schoolId": "alt_7530775"
-        },
-        {
           "name": "옥길새길고등학교",
           "shortName": "옥길새길고",
           "sido": "gyeonggi",
@@ -6058,22 +6027,6 @@
           "firstYearClassCount": 5,
           "neisVerified": true,
           "schoolId": "odyssey_school"
-        },
-        {
-          "name": "서울다솜관광고등학교",
-          "shortName": "서울다솜관광고",
-          "sido": "seoul",
-          "district": "종로구",
-          "address": "서울특별시 종로구 종로58길 30",
-          "homepage": "http://sds.sen.hs.kr",
-          "tel": "02-6743-0510",
-          "source": "NEIS",
-          "schoolType": "공립 대안학교(각종학교)",
-          "founding": "공립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 3,
-          "neisVerified": true,
-          "schoolId": "alt_7011320"
         },
         {
           "name": "결마루미래학교",
@@ -6122,22 +6075,6 @@
           "firstYearClassCount": 2,
           "neisVerified": true,
           "schoolId": "alt_7011216"
-        },
-        {
-          "name": "여명학교",
-          "shortName": "여명학교",
-          "sido": "seoul",
-          "district": "강서구",
-          "address": "서울특별시 강서구 허준로 221-22",
-          "homepage": "http://ymschool.org",
-          "tel": "028881673",
-          "source": "NEIS",
-          "schoolType": "사립 대안학교(각종학교)",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 2,
-          "neisVerified": true,
-          "schoolId": "alt_7010966"
         },
         {
           "name": "인천청담고등학교",
@@ -6202,22 +6139,6 @@
           "firstYearClassCount": 2,
           "neisVerified": true,
           "schoolId": "alt_7531400"
-        },
-        {
-          "name": "하늘꿈중고등학교",
-          "shortName": "하늘꿈중고",
-          "sido": "gyeonggi",
-          "district": "성남시",
-          "address": "경기도 성남시 수정구 성남대로1518번길 11",
-          "homepage": "http://www.hdschool.org",
-          "tel": "031-758-2071",
-          "source": "NEIS",
-          "schoolType": "사립 대안학교(각종학교)",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 1,
-          "neisVerified": true,
-          "schoolId": "alt_7531371"
         },
         {
           "name": "중앙예닮학교",

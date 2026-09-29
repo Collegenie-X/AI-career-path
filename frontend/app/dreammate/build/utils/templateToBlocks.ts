@@ -25,6 +25,8 @@ export interface TemplateLike {
   weeklyGoals: WeeklyGoalLike[];
   /** 추천 도서 3권 (7형태 템플릿) */
   books?: BookRefLike[];
+  /** 현실 체크 요약 (시간·비용·인원) */
+  reality?: { weeklyHours: string; cost: string; team: string };
   successCriteria?: string[];
   /** 주변 증거자료(설문·인터뷰·테스트 물증) */
   evidence?: string[];
