@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" width="960" height="680" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eff6ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="680" rx="24" fill="url(#bg)"/>
+  <text x="40" y="52" font-size="26" font-weight="800" fill="#0f172a">경기외고 vs 표선고 — IB의 상한선과 하한선 돌파</text>
+  <text x="40" y="80" font-size="15" fill="#475569">같은 IB라도 선발 · 연차 · 운영 구조가 다르면 숫자가 완전히 달라집니다</text>
+
+  <!-- score scale -->
+  <rect x="40" y="100" width="880" height="140" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="132" font-size="16" font-weight="800" fill="#0f172a">IB DP 평균 점수 (45점 만점)</text>
+  <!-- axis from x=100 (0) to x=880 (45): 17.33 px/pt -->
+  <rect x="100" y="168" width="780" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="100" y="168" width="416" height="14" rx="7" fill="#fecaca"/>
+  <text x="100" y="204" font-size="12" fill="#94a3b8">0</text>
+  <text x="516" y="204" font-size="12" fill="#b91c1c" text-anchor="middle">24 · 디플로마 기준</text>
+  <text x="880" y="204" font-size="12" fill="#94a3b8" text-anchor="end">45</text>
+  <!-- markers -->
+  <g>
+    <line x1="602.6" y1="152" x2="602.6" y2="190" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="602.6" cy="175" r="9" fill="#2563eb"/>
+    <text x="596" y="150" font-size="13" font-weight="800" fill="#2563eb" text-anchor="end">표선고 29</text>
+    <line x1="615.3" y1="190" x2="615.3" y2="222" stroke="#64748b" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="622" y="226" font-size="12" fill="#64748b">세계 평균 ≈ 29.7</text>
+    <line x1="773.7" y1="152" x2="773.7" y2="190" stroke="#16a34a" stroke-width="3"/>
+    <circle cx="773.7" cy="175" r="9" fill="#16a34a"/>
+    <text x="773.7" y="150" font-size="13" font-weight="800" fill="#16a34a" text-anchor="middle">경기외고 38.87</text>
+  </g>
+
+  <!-- cards -->
+  <g>
+    <rect x="40" y="262" width="430" height="390" rx="20" fill="#ffffff" stroke="#86efac" stroke-width="2"/>
+    <rect x="40" y="262" width="430" height="64" rx="20" fill="#16a34a"/>
+    <rect x="40" y="300" width="430" height="26" fill="#16a34a"/>
+    <text x="64" y="302" font-size="20" font-weight="800" fill="#fff">경기외고 · 상한선</text>
+    <text x="446" y="302" font-size="13" fill="#dcfce7" text-anchor="end">사립 외고 · 영어 DP · 2011~</text>
+
+    <g font-size="13">
+      <rect x="64" y="344" width="120" height="76" rx="12" fill="#f0fdf4"/>
+      <text x="124" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#15803d">97.78%</text>
+      <text x="124" y="402" text-anchor="middle" fill="#166534">디플로마 취득</text>
+      <rect x="196" y="344" width="120" height="76" rx="12" fill="#f0fdf4"/>
+      <text x="256" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#15803d">33%</text>
+      <text x="256" y="402" text-anchor="middle" fill="#166534">40점 이상</text>
+      <rect x="328" y="344" width="120" height="76" rx="12" fill="#f0fdf4"/>
+      <text x="388" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#15803d">88%</text>
+      <text x="388" y="402" text-anchor="middle" fill="#166534">해외 100위권</text>
+    </g>
+    <text x="64" y="452" font-size="14" font-weight="800" fill="#0f172a">높은 성적의 3가지 원인</text>
+    <g font-size="13">
+      <rect x="64" y="466" width="384" height="50" rx="10" fill="#fef9c3"/>
+      <text x="80" y="488" font-weight="800" fill="#a16207">선발 효과</text>
+      <text x="80" y="507" fill="#713f12">외고 입시 + 교내 IB반 재선발 (학년 30~50명)</text>
+      <rect x="64" y="524" width="384" height="50" rx="10" fill="#dbeafe"/>
+      <text x="80" y="546" font-weight="800" fill="#1d4ed8">연차 효과</text>
+      <text x="80" y="565" fill="#1e3a8a">15년 코칭 아카이브 · 20년+ 경력 카운슬러 2명</text>
+      <rect x="64" y="582" width="384" height="50" rx="10" fill="#f3e8ff"/>
+      <text x="80" y="604" font-weight="800" fill="#7e22ce">운영 구조</text>
+      <text x="80" y="623" fill="#581c87">영어 DP · 학급 25명 · 전원 기숙 · IB/국내반 분리</text>
+    </g>
+  </g>
+
+  <g>
+    <rect x="490" y="262" width="430" height="390" rx="20" fill="#ffffff" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="490" y="262" width="430" height="64" rx="20" fill="#2563eb"/>
+    <rect x="490" y="300" width="430" height="26" fill="#2563eb"/>
+    <text x="514" y="302" font-size="20" font-weight="800" fill="#fff">표선고 · 하한선 돌파</text>
+    <text x="896" y="302" font-size="13" fill="#dbeafe" text-anchor="end">공립 일반고 · 한국어 DP · 2021~</text>
+
+    <g font-size="13">
+      <rect x="514" y="344" width="120" height="76" rx="12" fill="#eff6ff"/>
+      <text x="574" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#1d4ed8">0원</text>
+      <text x="574" y="402" text-anchor="middle" fill="#1e3a8a">학비 (무상)</text>
+      <rect x="646" y="344" width="120" height="76" rx="12" fill="#eff6ff"/>
+      <text x="706" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#1d4ed8">2년 연속</text>
+      <text x="706" y="402" text-anchor="middle" fill="#1e3a8a">서울대 (학종)</text>
+      <rect x="778" y="344" width="120" height="76" rx="12" fill="#eff6ff"/>
+      <text x="838" y="378" text-anchor="middle" font-size="22" font-weight="800" fill="#1d4ed8">+75%</text>
+      <text x="838" y="402" text-anchor="middle" fill="#1e3a8a">도외 4년제 합격</text>
+    </g>
+    <text x="514" y="452" font-size="14" font-weight="800" fill="#0f172a">이 학교가 증명한 것</text>
+    <g font-size="13">
+      <rect x="514" y="466" width="384" height="50" rx="10" fill="#f0fdf4"/>
+      <text x="530" y="488" font-weight="800" fill="#15803d">선발 없이</text>
+      <text x="530" y="507" fill="#14532d">내신 100% · 면접 없음 · 전교생 IB 수업</text>
+      <rect x="514" y="524" width="384" height="50" rx="10" fill="#f0fdf4"/>
+      <text x="530" y="546" font-weight="800" fill="#15803d">수능 없이</text>
+      <text x="530" y="565" fill="#14532d">수능 최저 없는 학종으로 서울대·연고대·KAIST</text>
+      <rect x="514" y="582" width="384" height="50" rx="10" fill="#fef2f2"/>
+      <text x="530" y="604" font-weight="800" fill="#b91c1c">한계도 있음</text>
+      <text x="530" y="623" fill="#7f1d1d">외부평가 응시 26명/105명 · 학력 격차 확대</text>
+    </g>
+  </g>
+</svg>

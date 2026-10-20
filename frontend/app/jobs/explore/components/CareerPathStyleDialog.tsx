@@ -15,9 +15,11 @@ import { createPortal } from 'react-dom';
 export interface CareerPathStyleDialogProps {
   onClose: () => void;
   children: React.ReactNode;
+  /** 시트 최대 너비 (기본 680px) — 표·지도처럼 넓은 내용을 담는 시트만 넓힌다 */
+  maxWidthClassName?: string;
 }
 
-export function CareerPathStyleDialog({ onClose, children }: CareerPathStyleDialogProps) {
+export function CareerPathStyleDialog({ onClose, children, maxWidthClassName = 'max-w-[680px]' }: CareerPathStyleDialogProps) {
   return createPortal(
     <div
       className="fixed inset-0 z-[9999] flex flex-col justify-end animate-fade-in"
@@ -25,7 +27,7 @@ export function CareerPathStyleDialog({ onClose, children }: CareerPathStyleDial
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[680px] mx-auto rounded-t-3xl overflow-hidden flex flex-col"
+        className={`w-full ${maxWidthClassName} mx-auto rounded-t-3xl overflow-hidden flex flex-col`}
         style={{
           backgroundColor: '#0d0d24',
           border: '1px solid rgba(255,255,255,0.08)',

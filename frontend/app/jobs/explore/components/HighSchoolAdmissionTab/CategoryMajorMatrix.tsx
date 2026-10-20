@@ -96,7 +96,7 @@ function fieldCert(school: HighSchoolDetail): string {
 
 function majorText(school: HighSchoolDetail): string {
   return [
-    ...(school.departments ?? []),
+    ...(school.departments ?? []).map((d) => (typeof d === 'string' ? d : d?.name ?? '')),
     ...(school.listTags ?? []),
     // 교명 자체가 계열을 밝히는 학교가 있다 (게임과학고·뷰티고 등)
     school.name ?? '',
@@ -118,7 +118,7 @@ function matchedBadges(school: HighSchoolDetail, track: MajorTrack): string[] {
 
   // 학과가 등록된 학교는 학과명만 쓴다. 태그("🏦 금융·회계 특화")까지 같이 넣으면
   // 학과 뱃지 옆에 같은 뜻의 계열 뱃지가 중복으로 붙는다.
-  const departments = [...(school.departments ?? []), ...(metroPinDepts[school.id] ?? [])];
+  const departments = [...(school.departments ?? []).map((d) => (typeof d === 'string' ? d : d?.name ?? '')), ...(metroPinDepts[school.id] ?? [])];
   const source = departments.length ? departments : (school.listTags ?? []);
   const badges = source
     .filter((t) => track.match.test(t))

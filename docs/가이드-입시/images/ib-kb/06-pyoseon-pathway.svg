@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" width="960" height="640" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0f9ff"/>
+      <stop offset="1" stop-color="#f0fdf4"/>
+    </linearGradient>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#334155"/>
+    </marker>
+    <marker id="arg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect width="960" height="640" rx="24" fill="url(#bg)"/>
+  <text x="40" y="52" font-size="26" font-weight="800" fill="#0f172a">표선고 — "수능 없이" 서울대에 간 경로</text>
+  <text x="40" y="80" font-size="15" fill="#475569">제주 서귀포 농어촌 공립고 · 전교생 한국어 IB DP · 학비 0원</text>
+
+  <!-- timeline -->
+  <line x1="70" y1="160" x2="900" y2="160" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+  <g font-size="13">
+    <circle cx="90" cy="160" r="12" fill="#64748b"/>
+    <text x="90" y="128" text-anchor="middle" font-weight="800" fill="#334155">중3 12월</text>
+    <text x="90" y="196" text-anchor="middle" fill="#475569">내신 100%</text>
+    <text x="90" y="214" text-anchor="middle" fill="#475569">입학 (면접 X)</text>
+
+    <circle cx="240" cy="160" r="12" fill="#0891b2"/>
+    <text x="240" y="128" text-anchor="middle" font-weight="800" fill="#0e7490">고1</text>
+    <text x="240" y="196" text-anchor="middle" fill="#475569">Pre-DP</text>
+    <text x="240" y="214" text-anchor="middle" fill="#475569">탐구·글쓰기 적응</text>
+
+    <circle cx="410" cy="160" r="12" fill="#2563eb"/>
+    <text x="410" y="128" text-anchor="middle" font-weight="800" fill="#1d4ed8">고2 · DP1</text>
+    <text x="410" y="196" text-anchor="middle" fill="#475569">6과목 + CAS 시작</text>
+    <text x="410" y="214" text-anchor="middle" fill="#475569">EE 주제 · TOK 전시</text>
+
+    <circle cx="580" cy="160" r="12" fill="#ca8a04"/>
+    <text x="580" y="128" text-anchor="middle" font-weight="800" fill="#a16207">고3 9월</text>
+    <text x="580" y="196" text-anchor="middle" font-weight="800" fill="#a16207">수시 원서</text>
+    <text x="580" y="214" text-anchor="middle" fill="#475569">학생부만으로 평가</text>
+
+    <circle cx="730" cy="160" r="12" fill="#9333ea"/>
+    <text x="730" y="128" text-anchor="middle" font-weight="800" fill="#7e22ce">고3 11월</text>
+    <text x="730" y="196" text-anchor="middle" fill="#475569">IB 외부평가</text>
+    <text x="730" y="214" text-anchor="middle" fill="#475569">(한국어 DP)</text>
+
+    <circle cx="880" cy="160" r="12" fill="#16a34a"/>
+    <text x="880" y="128" text-anchor="middle" font-weight="800" fill="#15803d">1월</text>
+    <text x="880" y="196" text-anchor="middle" fill="#475569">IB 점수 발표</text>
+    <text x="880" y="214" text-anchor="middle" fill="#475569">→ 해외대 활용</text>
+  </g>
+  <rect x="510" y="226" width="140" height="26" rx="13" fill="#fef9c3"/>
+  <text x="580" y="244" text-anchor="middle" font-size="12" font-weight="800" fill="#854d0e">IB 점수는 아직 없음!</text>
+
+  <!-- flow -->
+  <g font-size="14">
+    <rect x="40" y="280" width="190" height="120" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="135" y="312" text-anchor="middle" font-weight="800" fill="#1d4ed8">IB 수업·평가</text>
+    <text x="135" y="338" text-anchor="middle" font-size="13" fill="#334155">IA · EE 4,000단어</text>
+    <text x="135" y="358" text-anchor="middle" font-size="13" fill="#334155">TOK · CAS</text>
+    <text x="135" y="378" text-anchor="middle" font-size="13" fill="#334155">학교 내신</text>
+
+    <rect x="270" y="280" width="190" height="120" rx="16" fill="#ffffff" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="365" y="312" text-anchor="middle" font-weight="800" fill="#6d28d9">학교생활기록부</text>
+    <text x="365" y="338" text-anchor="middle" font-size="13" fill="#334155">세특에 남는 것:</text>
+    <text x="365" y="358" text-anchor="middle" font-size="13" fill="#334155">질문 → 방법</text>
+    <text x="365" y="378" text-anchor="middle" font-size="13" fill="#334155">→ 한계 → 수정</text>
+
+    <rect x="500" y="280" width="190" height="120" rx="16" fill="#16a34a"/>
+    <text x="595" y="316" text-anchor="middle" font-weight="800" fill="#ffffff">학생부종합전형</text>
+    <text x="595" y="344" text-anchor="middle" font-size="13" fill="#dcfce7">수능 최저 없음</text>
+    <text x="595" y="366" text-anchor="middle" font-size="13" fill="#dcfce7">+ 면접 (EE 방어)</text>
+    <text x="595" y="386" text-anchor="middle" font-size="12" fill="#bbf7d0">(+ 농어촌 전형 가능)</text>
+
+    <rect x="730" y="280" width="190" height="120" rx="16" fill="#ffffff" stroke="#86efac" stroke-width="2"/>
+    <text x="825" y="312" text-anchor="middle" font-weight="800" fill="#15803d">합격</text>
+    <text x="825" y="338" text-anchor="middle" font-size="13" fill="#334155">서울대 · 연세대</text>
+    <text x="825" y="358" text-anchor="middle" font-size="13" fill="#334155">고려대 · KAIST</text>
+    <text x="825" y="378" text-anchor="middle" font-size="13" fill="#334155">UNIST · DGIST</text>
+  </g>
+  <line x1="232" y1="340" x2="264" y2="340" stroke="#334155" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="462" y1="340" x2="494" y2="340" stroke="#334155" stroke-width="3" marker-end="url(#ar)"/>
+  <line x1="692" y1="340" x2="724" y2="340" stroke="#16a34a" stroke-width="3" marker-end="url(#arg)"/>
+
+  <!-- results -->
+  <rect x="40" y="424" width="880" height="190" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="458" font-size="16" font-weight="800" fill="#0f172a">숫자로 보는 표선고</text>
+  <g font-size="13">
+    <g transform="translate(64,474)">
+      <rect width="196" height="116" rx="14" fill="#eff6ff"/>
+      <text x="98" y="36" text-anchor="middle" fill="#1e3a8a" font-weight="700">2024 · 1기</text>
+      <text x="98" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="#1d4ed8">서울대 1</text>
+      <text x="98" y="98" text-anchor="middle" fill="#334155">연·고 각 1 · UNIST·DGIST 각 2</text>
+    </g>
+    <g transform="translate(276,474)">
+      <rect width="196" height="116" rx="14" fill="#eff6ff"/>
+      <text x="98" y="36" text-anchor="middle" fill="#1e3a8a" font-weight="700">2025 · 2기</text>
+      <text x="98" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="#1d4ed8">서울대 1</text>
+      <text x="98" y="98" text-anchor="middle" fill="#334155">연·고 각 2 · KAIST 1</text>
+    </g>
+    <g transform="translate(488,474)">
+      <rect width="196" height="116" rx="14" fill="#f0fdf4"/>
+      <text x="98" y="36" text-anchor="middle" fill="#166534" font-weight="700">도외 4년제 합격</text>
+      <text x="98" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="#15803d">108 → 189</text>
+      <text x="98" y="98" text-anchor="middle" fill="#334155">IB 1기 졸업 전후 (건)</text>
+    </g>
+    <g transform="translate(700,474)">
+      <rect width="196" height="116" rx="14" fill="#fefce8"/>
+      <text x="98" y="36" text-anchor="middle" fill="#854d0e" font-weight="700">1기 IB 외부평가</text>
+      <text x="98" y="72" text-anchor="middle" font-size="26" font-weight="800" fill="#a16207">평균 29점</text>
+      <text x="98" y="98" text-anchor="middle" fill="#334155">26명 응시 · 디플로마 11명</text>
+    </g>
+  </g>
+</svg>

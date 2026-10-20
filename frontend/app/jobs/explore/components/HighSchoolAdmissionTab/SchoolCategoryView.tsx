@@ -26,6 +26,9 @@ import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes, Verify
 import { CategoryMajorMatrix } from './CategoryMajorMatrix';
 import { IbSubjectMatrix } from './IbSubjectMatrix';
 import { MetroSchoolMap } from './MetroSchoolMap';
+import { NationalSchoolMap } from './NationalSchoolMap';
+import { CareerBridgeSection } from './CareerBridgeSection';
+import { CompetitionBadge } from './CompetitionBadge';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 
 /**
@@ -181,6 +184,9 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
         </div>
       </div>
 
+      {/* ── 🎓 대학 진학 + 💼 취업 — 졸업 후 두 길 (직업계고, 상단 강조) ── */}
+      <CareerBridgeSection bridge={category.careerBridge} color={category.color} bgColor={category.bgColor} />
+
       {/* 아코디언: 적성 검사 */}
       {content.quizQuestions.length > 0 && (
         <div
@@ -270,6 +276,17 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
 
       {/* ── 아래 3개 섹션(지도·공식 확인처·비교표)은 가로 폭이 좁은 모바일에서 숨김 ── */}
       <div className="hidden sm:block space-y-4">
+      {/* ── 전국 시·도 지도 (모든 유형 기본 표시 — nationalMap: false 로만 끈다) ── */}
+      {category.nationalMap !== false && (
+        <NationalSchoolMap
+          categoryName={category.name}
+          color={category.color}
+          bgColor={category.bgColor}
+          schools={category.schools}
+          onSelectSchool={onSelectSchool}
+        />
+      )}
+
       {/* ── 수도권(서울·경기·인천) 지도에서 찾기 ── */}
       <MetroSchoolMap
         categoryId={category.id}
@@ -715,7 +732,29 @@ function SchoolListCard({
             )}
           </div>
           <p className="text-xs text-gray-400 line-clamp-1 mb-1"><HL text={shortDesc} /></p>
-          
+
+          {/* 학과 — 개설 학과(또는 과정)를 이름 그대로 뱃지로 */}
+          {school.departments && school.departments.length > 0 && (
+            <div className="flex items-center gap-1 flex-wrap mb-1">
+              <span className="text-[11px] font-bold shrink-0" style={{ color: categoryColor }}>🎓 {school.departmentsLabel ?? '학과'}</span>
+              {school.departments.slice(0, 4).map((dept, idx) => {
+                const deptName = typeof dept === 'string' ? dept : dept?.name ?? '';
+                return (
+                  <span
+                    key={`${deptName}-${idx}`}
+                    className="text-[11px] font-semibold px-1.5 py-0.5 rounded-md leading-none"
+                    style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)', color: '#f3f4f6' }}
+                  >
+                    {deptName}
+                  </span>
+                );
+              })}
+              {school.departments.length > 4 && (
+                <span className="text-[11px] text-gray-500">+{school.departments.length - 4}</span>
+              )}
+            </div>
+          )}
+
           {/* 하단: 지역·난이도·정원 */}
           <div className="flex items-center gap-2 flex-wrap">
             <div className="flex items-center gap-1">
@@ -735,6 +774,7 @@ function SchoolListCard({
                     : '👥 정원 공시 확인'}
               </span>
             </div>
+            <CompetitionBadge raw={school.competitionLevel} color={categoryColor} />
           </div>
         </div>
 
@@ -784,7 +824,8 @@ function SchoolListCard({
           className="px-3 pb-2.5 flex flex-wrap gap-1.5"
           style={{ background: 'rgba(255,255,255,0.02)' }}
         >
-          {school.famousPrograms.slice(0, 3).map((prog, idx) => (
+          {/* 첫 줄 소개(shortDesc)와 같은 문장은 빼고 실제 프로그램만 */}
+          {school.famousPrograms.filter((prog) => prog !== shortDesc).slice(0, 3).map((prog, idx) => (
             <span
               key={idx}
               className="text-xs px-2 py-0.5 rounded-full text-gray-300"

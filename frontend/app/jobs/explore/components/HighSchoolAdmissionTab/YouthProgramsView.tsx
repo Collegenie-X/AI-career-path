@@ -41,7 +41,7 @@ type AreaGuide = {
   gains: string[];
   perspective: string;
   recognition: string;
-  yearCycle: { period: string; focus: string; picks: string[] }[];
+  yearCycle: { period: string; focus: string; months: number[]; pickIds: string[] }[];
   mustSee: string[];
 };
 
@@ -52,6 +52,7 @@ type YouthData = {
 };
 
 const DATA = youthData as unknown as YouthData;
+const PROGRAM_BY_ID: Record<string, Program> = Object.fromEntries(DATA.programs.map((p) => [p.id, p]));
 
 const MONTH_LABELS = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
 const REGION_ORDER = ['수도권', '충청', '영남', '호남', '강원·제주', '전국·온라인', '해외'];
@@ -106,11 +107,12 @@ function costTier(cost?: string): { label: string; color: string } {
   return { label: cost, color: '#94A3B8' };
 }
 
+const pill = (bg: string, fg: string, bd: string) => ({ background: bg, color: fg, border: `1px solid ${bd}` }) as React.CSSProperties;
+
 function BadgeRow({ program }: { readonly program: Program }) {
   const scope = SCOPE_META[program.scope];
   const fmt = program.format ? FORMAT_META[program.format] : undefined;
   const ct = costTier(program.cost);
-  const pill = (bg: string, fg: string, bd: string) => ({ background: bg, color: fg, border: `1px solid ${bd}` }) as React.CSSProperties;
   return (
     <div className="flex flex-wrap items-center gap-1 mt-1.5">
       <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full" style={pill(`${scope.color}22`, scope.color, `${scope.color}55`)}>
@@ -127,6 +129,127 @@ function BadgeRow({ program }: { readonly program: Program }) {
       <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full" style={pill(`${ct.color}22`, ct.color, `${ct.color}55`)}>
         💰 {ct.label}
       </span>
+    </div>
+  );
+}
+
+/** 로드맵·목록용 상세 뱃지 (시기 · 형식 · 지역 · 주최 · 대상 · 비용) */
+function MiniBadges({ program }: { readonly program: Program }) {
+  const scope = SCOPE_META[program.scope];
+  const fmt = program.format ? FORMAT_META[program.format] : undefined;
+  const ct = costTier(program.cost);
+  const cls = 'text-[9.5px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap';
+  const neutral = pill('rgba(255,255,255,0.06)', 'rgba(255,255,255,0.72)', 'rgba(255,255,255,0.13)');
+  return (
+    <div className="flex flex-wrap items-center gap-1 mt-1.5">
+      <span className={cls} style={pill('rgba(250,204,21,0.14)', '#FDE68A', 'rgba(250,204,21,0.32)')}>🗓️ {monthBadge(program)}</span>
+      {program.format && fmt && (
+        <span className={cls} style={pill(`${fmt.color}22`, fmt.color, `${fmt.color}55`)}>{fmt.emoji} {program.format}</span>
+      )}
+      <span className={cls} style={pill('rgba(148,163,184,0.16)', '#cbd5e1', 'rgba(148,163,184,0.35)')}>
+        {REGION_EMOJI[program.regionGroup] ?? '📍'} {program.regionGroup}
+      </span>
+      <span className={cls} style={pill(`${scope.color}1a`, scope.color, `${scope.color}44`)}>
+        {scope.flag} {program.scope === 'domestic' ? '국내' : '국외'}
+      </span>
+      <span className={cls} style={neutral}>🏛️ {program.host}</span>
+      <span className={cls} style={neutral}>🎓 {program.grades}</span>
+      <span className={cls} style={pill(`${ct.color}1f`, ct.color, `${ct.color}4d`)}>💰 {ct.label}</span>
+      {program.region && <span className={cls} style={neutral}>📌 {program.region}</span>}
+    </div>
+  );
+}
+
+/** 로드맵 안에서 프로그램 하나 — 누르면 공식 페이지로 이동 */
+function RoadmapProgramRow({ program, color, detailed = false }: {
+  readonly program: Program; readonly color: string; readonly detailed?: boolean;
+}) {
+  const isLink = Boolean(program.url);
+  const inner = (
+    <>
+      <div className="flex items-start gap-1.5">
+        {program.emoji && <span className="text-[13px] leading-none mt-[1px]" aria-hidden>{program.emoji}</span>}
+        <span className="text-[12px] font-bold text-white/95 leading-snug flex-1 min-w-0 group-hover:underline">{program.name}</span>
+        {program.featured && (
+          <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={pill('rgba(250,204,21,0.18)', '#FDE047', 'rgba(250,204,21,0.4)')}>⭐ 추천</span>
+        )}
+        {isLink && (
+          <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full flex-shrink-0" style={pill(`${color}1f`, color, `${color}4d`)}>바로가기 ↗</span>
+        )}
+      </div>
+      <MiniBadges program={program} />
+      {detailed && (
+        <p className="text-[10.5px] text-white/60 leading-relaxed mt-1.5" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+          {program.summary}
+        </p>
+      )}
+      {detailed && program.when && <p className="text-[10px] text-white/45 leading-tight mt-1">📅 {program.when}</p>}
+    </>
+  );
+  const cls = 'group block w-full text-left rounded-xl p-2.5 transition-all hover:bg-white/[0.07]';
+  const style: React.CSSProperties = { background: 'rgba(255,255,255,0.035)', border: `1px solid ${color}2e` };
+  return isLink ? (
+    <a href={program.url} target="_blank" rel="noopener noreferrer" className={cls} style={style}>{inner}</a>
+  ) : (
+    <div className={cls.replace(' hover:bg-white/[0.07]', '')} style={style}>{inner}</div>
+  );
+}
+
+/** 1년 로드맵의 계절 한 칸 — 추천 프로그램 + 같은 시기 나머지 프로그램 더보기 */
+function YearCycleBlock({ cycle, color, categoryPrograms, isLast }: {
+  readonly cycle: AreaGuide['yearCycle'][number];
+  readonly color: string;
+  readonly categoryPrograms: Program[];
+  readonly isLast: boolean;
+}) {
+  const [showMore, setShowMore] = useState(false);
+  const picks = cycle.pickIds.map((id) => PROGRAM_BY_ID[id]).filter(Boolean);
+  const pickIdSet = new Set(cycle.pickIds);
+  const inPeriod = (p: Program) => (
+    cycle.months.length === 0
+      ? Boolean(p.always) || p.months.length === 0
+      : p.months.some((m) => cycle.months.includes(m))
+  );
+  const more = categoryPrograms.filter((p) => !pickIdSet.has(p.id) && inPeriod(p)).sort(sortByMonth);
+
+  return (
+    <div className="flex gap-2.5">
+      <div className="flex flex-col items-center flex-shrink-0">
+        <span className="w-2.5 h-2.5 rounded-full mt-1" style={{ background: color, boxShadow: `0 0 8px ${color}` }} />
+        {!isLast && <span className="w-px flex-1 mt-1" style={{ background: `${color}44` }} />}
+      </div>
+      <div className="flex-1 min-w-0 pb-2">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <p className="text-[12px] font-black text-white leading-tight">{cycle.period}</p>
+          <span className="text-[9.5px] font-bold px-1.5 py-0.5 rounded-full" style={pill(`${color}1f`, color, `${color}44`)}>
+            {picks.length + more.length}개
+          </span>
+        </div>
+        <p className="text-[11px] text-white/60 leading-relaxed mt-0.5">{cycle.focus}</p>
+
+        <div className="grid grid-cols-1 gap-1.5 mt-2">
+          {picks.map((p) => <RoadmapProgramRow key={p.id} program={p} color={color} detailed />)}
+        </div>
+
+        {more.length > 0 && (
+          <>
+            <button
+              type="button"
+              onClick={() => setShowMore((v) => !v)}
+              aria-expanded={showMore}
+              className="mt-1.5 text-[10.5px] font-bold px-2 py-1 rounded-lg transition-all"
+              style={pill('rgba(255,255,255,0.05)', 'rgba(255,255,255,0.65)', 'rgba(255,255,255,0.12)')}
+            >
+              {showMore ? '이 시기 다른 프로그램 접기 ▲' : `이 시기 다른 프로그램 ${more.length}개 더 보기 ▼`}
+            </button>
+            {showMore && (
+              <div className="grid grid-cols-1 gap-1.5 mt-1.5">
+                {more.map((p) => <RoadmapProgramRow key={p.id} program={p} color={color} />)}
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }
@@ -227,9 +350,19 @@ function AccordionSection({ section, open, onToggle, cardColor, innerRef }: {
 }
 
 /** 영역별 안내: 설명 · 관점 · 인정 포인트 · 1년 로드맵 · 꼭 봐야 할 추천 */
-function AreaGuideIntro({ guide }: { readonly guide: AreaGuide }) {
+function AreaGuideIntro({ guide, programs }: { readonly guide: AreaGuide; readonly programs: Program[] }) {
   const c = guide.color;
   const [open, setOpen] = useState(true);
+  // 계절 로드맵 + (상시 프로그램이 따로 남으면) 연중 상시 칸을 마지막에 붙인다
+  const cycles = useMemo(() => {
+    const hasAlwaysCycle = guide.yearCycle.some((cyc) => cyc.months.length === 0);
+    const alwaysCount = programs.filter((p) => p.always || p.months.length === 0).length;
+    if (hasAlwaysCycle || alwaysCount === 0) return guide.yearCycle;
+    return [
+      ...guide.yearCycle,
+      { period: '♾️ 상시 · 연중', focus: '모집 시기 없이 아무 때나 시작할 수 있는 온라인 교육·플랫폼이에요.', months: [], pickIds: [] },
+    ];
+  }, [guide.yearCycle, programs]);
   return (
     <div className="rounded-2xl overflow-hidden" style={{ background: `linear-gradient(135deg, ${c}22 0%, rgba(15,23,42,0.5) 100%)`, border: `1px solid ${c}55` }}>
       <div className="p-4">
@@ -283,24 +416,17 @@ function AreaGuideIntro({ guide }: { readonly guide: AreaGuide }) {
         <span className="text-[11px] text-white/50">{open ? '▲' : '▼'}</span>
       </button>
       {open && (
-        <div className="px-4 pb-4 pt-3 space-y-2">
-          {guide.yearCycle.map((cyc, i) => (
-            <div key={i} className="flex gap-2.5">
-              <div className="flex flex-col items-center flex-shrink-0">
-                <span className="w-2.5 h-2.5 rounded-full mt-1" style={{ background: c, boxShadow: `0 0 8px ${c}` }} />
-                {i < guide.yearCycle.length - 1 && <span className="w-px flex-1 mt-1" style={{ background: `${c}44` }} />}
-              </div>
-              <div className="flex-1 min-w-0 pb-1">
-                <p className="text-[12px] font-black text-white leading-tight">{cyc.period}</p>
-                <p className="text-[11px] text-white/60 leading-relaxed mt-0.5">{cyc.focus}</p>
-                <div className="flex flex-wrap gap-1 mt-1.5">
-                  {cyc.picks.map((pk, j) => (
-                    <span key={j} className="text-[10px] font-semibold px-1.5 py-0.5 rounded-md" style={{ background: `${c}1f`, color: '#fff', border: `1px solid ${c}44` }}>{pk}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+        <div className="px-4 pb-4 pt-3 space-y-1">
+          {cycles.map((cyc, i) => (
+            <YearCycleBlock
+              key={cyc.period}
+              cycle={cyc}
+              color={c}
+              categoryPrograms={programs}
+              isLast={i === cycles.length - 1}
+            />
           ))}
+          <p className="text-[10.5px] text-white/40 leading-relaxed pt-1">💡 프로그램을 누르면 공식 페이지가 새 탭으로 열려요.</p>
         </div>
       )}
     </div>
@@ -426,7 +552,7 @@ export function YouthProgramsView({ category }: { readonly category: CategoryId 
       </div>
 
       {/* 준비 커리큘럼 탭 (생애주기 로드맵) */}
-      {viewMode === 'guide' && <AreaGuideIntro guide={guide} />}
+      {viewMode === 'guide' && <AreaGuideIntro guide={guide} programs={inCat} />}
 
       {/* 월별: 빠른 이동 (개수 배지) */}
       {viewMode === 'month' && (

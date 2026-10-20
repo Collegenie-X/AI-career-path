@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { GlossaryText } from '@/components/shared/GlossaryText';
 import metroMapData from '@/data/high-school/metro-school-map.json';
 import type { HighSchoolDetail } from '../../types';
-import { VerifySourceTable } from './CategoryStructuredSections';
+import { CompetitionBadge } from './CompetitionBadge';
 
 /** 지도에 찍히는 학교 한 곳 */
 type MetroPin = {
@@ -60,6 +60,61 @@ function labelAnchor(polygons: string[]): { x: number; y: number } {
   return centroid(biggest);
 }
 
+/** 난이도 1~5 → 라벨·색 (상세 카드의 difficulty 지표와 같은 척도) */
+const DIFFICULTY_META: Record<number, { label: string; color: string }> = {
+  1: { label: '입문', color: '#34d399' },
+  2: { label: '보통', color: '#60a5fa' },
+  3: { label: '중상위', color: '#a78bfa' },
+  4: { label: '상위권', color: '#fbbf24' },
+  5: { label: '최상위', color: '#f87171' },
+};
+
+/** 지도 카드에 띄울 난이도·특징 — 상세 카드가 있으면 그 학교 값, 없으면 유형 대표값 */
+type PinProfile = { difficulty: number; label: string; color: string; stars: string; feature: string | null; isTypeBaseline: boolean };
+
+function textOf(value: unknown): string | null {
+  if (typeof value === 'string') return value.trim() || null;
+  if (Array.isArray(value)) {
+    const joined = value.filter((v): v is string => typeof v === 'string').join(' · ');
+    return joined.trim() || null;
+  }
+  return null;
+}
+
+function buildProfile(detail: HighSchoolDetail | undefined, fallback: { difficulty?: number; feature?: string } | undefined): PinProfile | null {
+  const difficulty = detail?.difficulty ?? fallback?.difficulty;
+  if (!difficulty) return null;
+  const meta = DIFFICULTY_META[difficulty] ?? DIFFICULTY_META[3];
+  const feature = detail
+    ? textOf((detail as { specialCertification?: unknown }).specialCertification) ??
+      textOf((detail as { studentLevel?: unknown }).studentLevel) ??
+      fallback?.feature ??
+      null
+    : fallback?.feature ?? null;
+  return {
+    difficulty,
+    label: meta.label,
+    color: meta.color,
+    stars: '★'.repeat(difficulty) + '☆'.repeat(5 - difficulty),
+    feature,
+    isTypeBaseline: !detail,
+  };
+}
+
+/** 난이도 배지 */
+function DifficultyBadge({ profile }: { profile: PinProfile }) {
+  return (
+    <span
+      className="text-[10px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0 whitespace-nowrap"
+      style={{ background: `${profile.color}1f`, color: profile.color, border: `1px solid ${profile.color}44` }}
+      title={`난이도 ${profile.difficulty}/5 — ${profile.label}${profile.isTypeBaseline ? ' (유형 기준)' : ''}`}
+    >
+      {profile.stars} 난이도 {profile.difficulty}/5 · {profile.label}
+      {profile.isTypeBaseline ? ' (유형 기준)' : ''}
+    </span>
+  );
+}
+
 export function MetroSchoolMap({
   categoryId,
   categoryName,
@@ -87,6 +142,18 @@ export function MetroSchoolMap({
   const allPins = ((metroMapData.categories as Record<string, { pins: MetroPin[] } | undefined>)[categoryId]?.pins ??
     []) as MetroPin[];
 
+  const categoryProfile = ((metroMapData as { categoryProfile?: Record<string, { difficulty: number; feature: string }> })
+    .categoryProfile ?? {})[categoryId];
+  const detailById = useMemo(() => {
+    const acc: Record<string, HighSchoolDetail> = {};
+    schools.forEach((s) => {
+      acc[s.id] = s;
+    });
+    return acc;
+  }, [schools]);
+  /** 지도 핀 한 곳의 난이도·특징 (상세 카드 → 유형 대표값 순으로 채운다) */
+  const profileOf = (pin: MetroPin) => buildProfile(pin.schoolId ? detailById[pin.schoolId] : undefined, categoryProfile);
+
   const hasVocationalInfo = allPins.some((p) => p.schoolType || p.isBusinessField);
   const [filter, setFilter] = useState<MetroMapFocus>(hasVocationalInfo ? focus : 'all');
 
@@ -107,6 +174,8 @@ export function MetroSchoolMap({
   );
   const [regionId, setRegionId] = useState<string>(defaultRegion ?? 'seoul');
   const region = regions[regionId] ?? regions.seoul;
+  /** 지역마다 viewBox 높이가 달라(서울 828 · 경기 1458) 고정 크기로는 경기 라벨이 깨알처럼 작아진다 → viewBox 긴 변에 비례 */
+  const labelFontSize = Math.round((Math.max(...region.viewBox.split(' ').slice(2).map(Number)) / 1000) * 28);
   const regionPins = byRegion[regionId] ?? [];
 
   const countByDistrict = useMemo(() => {
@@ -219,7 +288,7 @@ export function MetroSchoolMap({
         className="rounded-2xl p-2"
         style={{ background: `linear-gradient(135deg, ${bgColor} 0%, rgba(0,0,0,0.25) 100%)`, border: `1px solid ${color}33` }}
       >
-        <svg viewBox={region.viewBox} className="w-full h-auto" role="img" aria-label={`${region.name} ${categoryName} 지도`}>
+        <svg viewBox={region.viewBox} className="block w-full h-auto mx-auto" style={{ maxHeight: 500 }} role="img" aria-label={`${region.name} ${categoryName} 지도`}>
           {region.districts.map((d) => {
             const count = countByDistrict[d.name] ?? 0;
             const isSelected = d.name === selectedDistrict;
@@ -255,19 +324,20 @@ export function MetroSchoolMap({
                 ))}
                 <text
                   x={x}
-                  y={y + 5}
+                  y={y + labelFontSize / 3}
                   textAnchor="middle"
                   paintOrder="stroke"
                   stroke="rgba(0,0,0,0.75)"
-                  strokeWidth={3.5}
+                  strokeWidth={labelFontSize / 4}
                   style={{
                     pointerEvents: 'none',
                     fill: isSelected ? '#fff' : count === 0 ? '#8b93a1' : '#f3f4f6',
-                    fontSize: 15,
+                    fontSize: labelFontSize,
                     fontWeight: 700,
                   }}
                 >
-                  {d.name.replace(/(시|군|구)$/, '')} {count}
+                  {/* 중구·동구·서구처럼 접미사를 떼면 한 글자만 남는 이름은 그대로 둔다 */}
+                  {d.name.replace(/^(.{2,})(시|군|구)$/, '$1')} {count}
                 </text>
               </g>
             );
@@ -312,18 +382,30 @@ export function MetroSchoolMap({
                     {p.schoolId ? '상세 보기 ›' : '정보 보기 ›'}
                   </span>
                 </p>
-                {p.schoolType && (
-                  <span
-                    className="text-[10px] font-bold px-1.5 py-0.5 rounded-md flex-shrink-0"
-                    style={{
-                      background: p.schoolType === '마이스터고' ? 'rgba(251,191,36,0.16)' : 'rgba(255,255,255,0.08)',
-                      color: p.schoolType === '마이스터고' ? '#fbbf24' : '#9ca3af',
-                    }}
-                  >
-                    {p.schoolType}
-                  </span>
-                )}
+                <div className="flex flex-wrap justify-end gap-1 flex-shrink-0">
+                  {p.schoolType && (
+                    <span
+                      className="text-[10px] font-bold px-1.5 py-0.5 rounded-md"
+                      style={{
+                        background: p.schoolType === '마이스터고' ? 'rgba(251,191,36,0.16)' : 'rgba(255,255,255,0.08)',
+                        color: p.schoolType === '마이스터고' ? '#fbbf24' : '#9ca3af',
+                      }}
+                    >
+                      {p.schoolType}
+                    </span>
+                  )}
+                  {profileOf(p) && <DifficultyBadge profile={profileOf(p)!} />}
+                  {p.schoolId && <CompetitionBadge raw={detailById[p.schoolId]?.competitionLevel} color={color} size={10} />}
+                </div>
               </div>
+
+              {profileOf(p)?.feature && (
+                <p className="text-[11px] text-gray-300 leading-relaxed mt-1.5">
+                  <span className="text-gray-500">특징 </span>
+                  <GlossaryText>{profileOf(p)!.feature as string}</GlossaryText>
+                  {profileOf(p)!.isTypeBaseline && <span className="text-gray-500"> (유형 공통)</span>}
+                </p>
+              )}
 
               {p.depts && p.depts.length > 0 && (
                 <div className="flex flex-wrap gap-1 mt-1.5">
@@ -375,6 +457,12 @@ export function MetroSchoolMap({
         )}
 
         <p className="text-[11px] text-gray-500 leading-relaxed pt-1">
+          <GlossaryText>{(metroMapData as { difficultyNote?: string }).difficultyNote ?? ''}</GlossaryText>
+        </p>
+        <p className="text-[11px] text-gray-500 leading-relaxed">
+          <GlossaryText>{(metroMapData as { featureNote?: string }).featureNote ?? ''}</GlossaryText>
+        </p>
+        <p className="text-[11px] text-gray-500 leading-relaxed">
           <GlossaryText>{metroMapData.shapeNote}</GlossaryText>
         </p>
         {regionId === 'incheon' && (
@@ -388,8 +476,6 @@ export function MetroSchoolMap({
           </p>
         )}
       </div>
-
-      <VerifySourceTable sources={metroMapData.sources} color={color} bgColor={bgColor} title="🔎 이 지도의 출처" />
 
       {/* 상세 카드가 없는 학교(지도 전용)의 간이 다이얼로그 */}
       {pinDialog && (
@@ -426,6 +512,21 @@ export function MetroSchoolMap({
             </div>
 
             <div className="mt-3 space-y-2.5">
+              {profileOf(pinDialog) && (
+                <div className="rounded-xl p-3 space-y-1.5" style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${color}22` }}>
+                  <DifficultyBadge profile={profileOf(pinDialog)!} />
+                  {profileOf(pinDialog)!.feature && (
+                    <p className="text-[12px] text-gray-200 leading-relaxed">
+                      <span className="text-gray-500">특징 </span>
+                      <GlossaryText>{profileOf(pinDialog)!.feature as string}</GlossaryText>
+                      {profileOf(pinDialog)!.isTypeBaseline && <span className="text-gray-500"> (유형 공통)</span>}
+                    </p>
+                  )}
+                  <p className="text-[10px] text-gray-500 leading-relaxed">
+                    난이도는 경쟁률·요구 내신·준비 부담을 종합한 참고치(1 입문 ~ 5 최상위)이며 공식 등급이 아닙니다.
+                  </p>
+                </div>
+              )}
               {/* NEIS 검증 기본 정보 (운영주체·공학·학급수·학비) */}
               {(pinDialog.schoolType || pinDialog.founding || pinDialog.coedu || pinDialog.firstYearClassCount) && (
                 <div className="flex flex-wrap gap-1">

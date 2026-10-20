@@ -1,14 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronRight, ExternalLink } from 'lucide-react';
-import type {
-  HighSchoolDetail,
-  SchoolSourceLink,
-  SchoolCostQuickTile,
-  SchoolCostPeriodTable,
-  SchoolCostTone,
-} from '../../types';
+import { ExternalLink } from 'lucide-react';
+import type { HighSchoolDetail, SchoolSourceLink } from '../../types';
 import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
 
 function HL({ text }: { text: string }) {
@@ -54,237 +47,44 @@ function SourceList({ sources, color }: { sources?: SchoolSourceLink[]; color: s
   );
 }
 
-const TONE: Record<SchoolCostTone, { color: string; bg: string; border: string; tag: string }> = {
-  free: { color: '#4ade80', bg: 'rgba(74,222,128,0.10)', border: 'rgba(74,222,128,0.30)', tag: '안 내는 돈' },
-  pay: { color: '#fbbf24', bg: 'rgba(251,191,36,0.10)', border: 'rgba(251,191,36,0.32)', tag: '내는 돈' },
-  get: { color: '#60a5fa', bg: 'rgba(96,165,250,0.10)', border: 'rgba(96,165,250,0.30)', tag: '받는 돈' },
-};
-const toneOf = (t?: string) => (t && t in TONE ? TONE[t as SchoolCostTone] : null);
-
-/** 등록금 한눈 요약 타일 */
-function CostQuickTiles({ tiles, color }: { tiles: SchoolCostQuickTile[]; color: string }) {
-  return (
-    <div className="grid grid-cols-2 gap-1.5 mb-2">
-      {tiles.map((t, i) => {
-        const tone = toneOf(t.tone);
-        return (
-          <div
-            key={i}
-            className="rounded-xl p-2.5"
-            style={{
-              background: tone?.bg ?? 'rgba(255,255,255,0.04)',
-              border: `1px solid ${tone?.border ?? `${color}25`}`,
-            }}
-          >
-            <p className="text-[10px] text-gray-400 leading-snug flex items-start gap-1">
-              <span>{t.emoji}</span>
-              <span className="flex-1">{t.label}</span>
-            </p>
-            <p className="text-base font-bold mt-1 leading-tight" style={{ color: tone?.color ?? color }}>
-              {t.value}
-            </p>
-            {t.sub && <p className="text-[10px] text-gray-500 mt-0.5 leading-snug">{t.sub}</p>}
-          </div>
-        );
-      })}
-    </div>
-  );
+/** 수업료가 0원(무상)인지 — totalPerYear 문구로 판단. 금액이 안 보이면 null(학교 확인) */
+function tuitionFreeOf(total: string): boolean | null {
+  if (/무상|(^|[^\d,.])0원/.test(total)) return true;
+  if (/\d[\d,.~]*\s*만\s*원/.test(total)) return false;
+  return null;
 }
 
-/** 월 / 연 / 3년 환산 표 */
-function CostPeriodTable({ table, color }: { table: SchoolCostPeriodTable; color: string }) {
-  const [openRow, setOpenRow] = useState<number | null>(null);
-  return (
-    <div className="mt-2">
-      <p className="text-[11px] font-bold text-gray-400 mb-1.5">🧮 {table.title ?? '월 / 연 / 3년으로 보면'}</p>
-      <div className="overflow-x-auto rounded-xl" style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-        <table className="w-full text-left" style={{ minWidth: 380 }}>
-          <thead>
-            <tr style={{ background: 'rgba(255,255,255,0.05)' }}>
-              <th className="text-[10px] font-semibold text-gray-400 px-2 py-1.5">항목</th>
-              <th className="text-[10px] font-semibold text-gray-400 px-2 py-1.5 text-right">월</th>
-              <th className="text-[10px] font-semibold text-gray-400 px-2 py-1.5 text-right">연</th>
-              <th className="text-[10px] font-semibold text-gray-400 px-2 py-1.5 text-right">3년</th>
-            </tr>
-          </thead>
-          <tbody>
-            {table.rows.map((r, i) => {
-              const tone = toneOf(r.tone);
-              const open = openRow === i;
-              return (
-                <tr
-                  key={i}
-                  onClick={() => r.note && setOpenRow(open ? null : i)}
-                  className={r.note ? 'cursor-pointer hover:bg-white/5' : ''}
-                  style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
-                >
-                  <td className="px-2 py-1.5 align-top">
-                    <span className="flex items-center gap-1">
-                      {tone && (
-                        <span
-                          className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                          style={{ background: tone.color }}
-                          aria-label={tone.tag}
-                        />
-                      )}
-                      <span className="text-[11px] text-gray-200 leading-snug">{r.label}</span>
-                    </span>
-                    {r.note && open && (
-                      <span className="block text-[10px] text-gray-500 mt-1 leading-relaxed pl-2.5">
-                        <HL text={r.note} />
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-2 py-1.5 text-[11px] text-right text-gray-300 align-top whitespace-nowrap">{r.monthly}</td>
-                  <td className="px-2 py-1.5 text-[11px] text-right text-gray-300 align-top whitespace-nowrap">{r.yearly}</td>
-                  <td
-                    className="px-2 py-1.5 text-[11px] text-right font-semibold align-top whitespace-nowrap"
-                    style={{ color: tone?.color ?? color }}
-                  >
-                    {r.threeYear}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-      <p className="text-[10px] text-gray-500 mt-1">💡 행을 누르면 설명이 열려요.</p>
-      {table.note && (
-        <p className="text-[11px] text-gray-400 mt-1 leading-relaxed">
-          <HL text={table.note} />
-        </p>
-      )}
-    </div>
-  );
-}
-
-/** ── 1. 등록금 구조: 그룹 → 항목 트리 + 과정별(IB/AP) 비교 ── */
+/** ── 1. 등록금 — 무상 여부 + 연 등록금만. 나머지 비용은 학교에서 직접 확인 ── */
 function CostStructureSection({ school, color }: { school: HighSchoolDetail; color: string }) {
   const cost = school.costStructure;
-  const groups = cost?.groups ?? [];
-  // 실제로 돈이 나가는 그룹을 기본으로 펼쳐 둔다 (없으면 첫 그룹)
-  const defaultGroup = groups.find((g) => g.id === 'pay')?.id ?? groups[0]?.id ?? null;
-  const [openGroup, setOpenGroup] = useState<string | null>(defaultGroup);
   if (!cost) return null;
+  const free = tuitionFreeOf(cost.totalPerYear);
+  const badge =
+    free === true
+      ? { text: '무상 교육', color: '#4ade80', bg: 'rgba(74,222,128,0.12)', border: 'rgba(74,222,128,0.35)' }
+      : free === false
+        ? { text: '등록금 있음', color: '#fbbf24', bg: 'rgba(251,191,36,0.12)', border: 'rgba(251,191,36,0.35)' }
+        : null;
 
   return (
-    <SectionShell emoji="💰" title="등록금 구조 한눈에 보기" subtitle={cost.asOf} color={color}>
-      {/* 헤드라인 + 총액 */}
-      <div className="rounded-xl p-2.5 mb-2" style={{ background: `${color}12`, border: `1px solid ${color}30` }}>
-        <p className="text-sm text-gray-100 leading-relaxed"><HL text={cost.headline} /></p>
-        <div className="mt-2 flex items-baseline gap-2">
-          <span className="text-[11px] text-gray-400">공시 1인당 연 학비</span>
-          <span className="text-lg font-bold" style={{ color }}>{cost.totalPerYear}</span>
+    <SectionShell emoji="💰" title="등록금" subtitle={cost.asOf} color={color}>
+      <div className="rounded-xl p-2.5 flex items-center justify-between gap-3 flex-wrap" style={{ background: `${color}12`, border: `1px solid ${color}30` }}>
+        <div className="min-w-0">
+          <p className="text-[11px] text-gray-400">연 등록금</p>
+          <p className="text-lg font-bold leading-snug" style={{ color }}><HL text={cost.totalPerYear} /></p>
         </div>
-        {cost.totalNote && <p className="text-[11px] text-gray-400 mt-1 leading-relaxed"><HL text={cost.totalNote} /></p>}
+        {badge && (
+          <span
+            className="text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0"
+            style={{ background: badge.bg, color: badge.color, border: `1px solid ${badge.border}` }}
+          >
+            {badge.text}
+          </span>
+        )}
       </div>
-
-      {(cost.quickTiles ?? []).length > 0 && <CostQuickTiles tiles={cost.quickTiles!} color={color} />}
-
-      {cost.periodTable && cost.periodTable.rows.length > 0 && (
-        <div className="mb-2">
-          <CostPeriodTable table={cost.periodTable} color={color} />
-        </div>
-      )}
-
-      {cost.actualPayNote && (
-        <div className="rounded-xl p-2.5 mb-2" style={{ background: 'rgba(248,113,113,0.10)', border: '1px solid rgba(248,113,113,0.30)' }}>
-          <p className="text-[11px] font-bold text-red-300 mb-0.5">🚨 실납부 기준</p>
-          <p className="text-sm text-gray-100 leading-relaxed"><HL text={cost.actualPayNote} /></p>
-        </div>
-      )}
-
-      {/* 그룹 트리 */}
-      <div className="space-y-1.5">
-        {groups.map((g) => {
-          const open = openGroup === g.id;
-          const gTone = toneOf(g.id);
-          const gColor = gTone?.color ?? color;
-          return (
-            <div
-              key={g.id}
-              className="rounded-xl overflow-hidden"
-              style={{ background: gTone?.bg ?? 'rgba(255,255,255,0.04)', border: `1px solid ${gTone?.border ?? 'rgba(255,255,255,0.08)'}` }}
-            >
-              <button
-                type="button"
-                onClick={() => setOpenGroup(open ? null : g.id)}
-                className="w-full flex items-start gap-2 p-2.5 text-left transition-colors hover:bg-white/5"
-              >
-                <ChevronRight
-                  className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 transition-transform"
-                  style={{ color: gColor, transform: open ? 'rotate(90deg)' : 'none' }}
-                />
-                <span className="flex-1 min-w-0">
-                  <span className="flex items-center justify-between gap-2">
-                    <span className="text-sm font-semibold text-gray-100">{g.emoji} {g.label}</span>
-                    <span className="text-sm font-bold flex-shrink-0" style={{ color: gColor }}>{g.amount}</span>
-                  </span>
-                  {g.note && <span className="block text-[11px] text-gray-400 mt-0.5 leading-relaxed"><HL text={g.note} /></span>}
-                </span>
-              </button>
-              {open && (
-                <ul className="px-2.5 pb-2.5 pl-7 space-y-1">
-                  {g.items.map((it, i) => (
-                    <li key={i} className="flex items-start gap-2 text-xs">
-                      <span className="text-gray-600 mt-0.5">└</span>
-                      <span className="flex-1">
-                        <span className="flex items-center justify-between gap-2">
-                          <span className="text-gray-200">{it.label}</span>
-                          <span className="font-semibold text-gray-300 flex-shrink-0">{it.amount}</span>
-                        </span>
-                        {it.note && <span className="block text-[11px] text-gray-500 leading-relaxed"><HL text={it.note} /></span>}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* 과정별(IB/AP/기숙) 비교 */}
-      {(cost.programTracks ?? []).length > 0 && (
-        <div className="mt-3">
-          <p className="text-[11px] font-bold text-gray-400 mb-1.5">🎓 과정·트랙별로 얼마나 달라지나요?</p>
-          <div className="space-y-1.5">
-            {(cost.programTracks ?? []).map((t, i) => (
-              <div key={i} className="rounded-xl p-2.5" style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}20` }}>
-                <p className="text-sm font-semibold text-gray-100 mb-1.5">{t.emoji ?? '•'} {t.track}</p>
-                <div className="grid grid-cols-3 gap-1.5">
-                  <div>
-                    <p className="text-[10px] text-gray-500">등록금</p>
-                    <p className="text-xs font-semibold text-gray-200 leading-snug">{t.tuition}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-gray-500">추가 비용</p>
-                    <p className="text-xs font-semibold text-gray-200 leading-snug">{t.extra}</p>
-                  </div>
-                  <div>
-                    <p className="text-[10px] text-gray-500">연 부담 합계</p>
-                    <p className="text-xs font-semibold leading-snug" style={{ color }}>{t.yearTotal}</p>
-                  </div>
-                </div>
-                {t.note && <p className="text-[11px] text-gray-400 mt-1.5 leading-relaxed"><HL text={t.note} /></p>}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* 주의 사항 */}
-      {(cost.notes ?? []).length > 0 && (
-        <ul className="mt-2.5 space-y-1">
-          {(cost.notes ?? []).map((n, i) => (
-            <li key={i} className="flex items-start gap-1.5 text-xs text-gray-300 leading-relaxed">
-              <span className="flex-shrink-0 mt-0.5" style={{ color }}>▸</span>
-              <span><HL text={n} /></span>
-            </li>
-          ))}
-        </ul>
-      )}
+      <p className="text-[11px] text-gray-400 mt-2 leading-relaxed">
+        💡 기숙사비·급식비·교복·실습비 같은 그 외 비용은 학교마다 달라요. 입학요강이나 학교에 직접 확인해 보세요.
+      </p>
       <SourceList sources={cost.sources} color={color} />
     </SectionShell>
   );

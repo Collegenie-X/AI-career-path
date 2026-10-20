@@ -112,7 +112,7 @@ export function CategoryTraitDetailDialog({ category, onClose }: CategoryTraitDe
   };
 
   return (
-    <CareerPathStyleDialog onClose={onClose}>
+    <CareerPathStyleDialog onClose={onClose} maxWidthClassName="max-w-[960px]">
       <div className="flex flex-col" style={{ maxHeight: 'calc(100vh - 56px)' }}>
         {/* ── 헤더 ── */}
         <div

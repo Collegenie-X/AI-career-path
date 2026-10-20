@@ -926,6 +926,604 @@
       "prepare": "모집 시기(보통 방학 2~4개월 전)를 놓치지 말고 지원, 배운 걸 후속 학습으로 이어가세요."
     },
     {
+      "id": "mirim-it-camp",
+      "name": "미림마이스터고 중학생 IT영재캠프",
+      "host": "미림마이스터고등학교",
+      "category": "camp",
+      "emoji": "💻",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        7,
+        8
+      ],
+      "when": "여름방학 1박2일 (7월 신청, 8월 진행)",
+      "region": "서울 관악구 미림마이스터고",
+      "url": "https://e-mirim.hs.kr/news/schoolNewsDetail.do?idx=4545",
+      "summary": "IT 분야 마이스터고가 직접 운영하는 중학생 대상 1박2일 영재캠프. 소프트웨어·디자인·IoT 등 전공 실습과 재학생 멘토링을 경험해요.",
+      "highlights": [
+        "마이스터고 직접 운영",
+        "1박2일 합숙",
+        "전공 실습"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "IT 특성화고 진학을 고민하는 중학생이 전공 실습실에서 직접 체험하고 재학생 이야기를 들을 수 있어요.",
+      "prepare": "7월 초 학교 홈페이지 공지를 확인하고, 코딩 기초(엔트리·파이썬)를 미리 경험해 보세요."
+    },
+    {
+      "id": "dsm-hackathon",
+      "name": "DSM 중학생 해커톤 (대덕SW마이스터고)",
+      "host": "대덕소프트웨어마이스터고등학교",
+      "category": "camp",
+      "emoji": "🖥️",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        7
+      ],
+      "when": "여름방학 중 (예년 7월)",
+      "region": "대전 유성구 대덕소프트웨어마이스터고",
+      "url": "https://dsmhs.djsch.kr/boardCnts/list.do?type=default&page=1&m=010301&boardID=56748",
+      "summary": "충청권 중학생이 팀을 이뤄 환경·사회 주제로 프로그램을 직접 만들고 시연하는 해커톤 대회. SW마이스터고 재학생이 멘토로 참여해요.",
+      "highlights": [
+        "SW마이스터고 주최",
+        "팀 해커톤",
+        "멘토링"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "오프라인",
+      "goodFor": "코딩 실력을 팀 프로젝트로 증명하고, SW마이스터고 분위기를 미리 느낄 수 있어요.",
+      "prepare": "기초 프로그래밍(파이썬·웹)을 익히고 2~4인 팀을 구성해 모집 공지를 기다리세요."
+    },
+    {
+      "id": "ggoomgil-vocational",
+      "name": "꿈길 직업계고 학과체험",
+      "host": "교육부 (꿈길 진로체험망)",
+      "category": "camp",
+      "emoji": "🛤️",
+      "grades": "초5~중3",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "학기 중 상시 (학교 단위 신청)",
+      "region": "전국 특성화고·마이스터고",
+      "url": "https://www.ggoomgil.go.kr/",
+      "summary": "교육부 꿈길 플랫폼에서 전국 특성화고·마이스터고의 학과체험을 검색·신청하는 국가 진로체험망. 실습실에서 전공을 직접 체험해요.",
+      "highlights": [
+        "교육부 공식 플랫폼",
+        "전국 특성화고 검색",
+        "학교 단위 신청"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "우리 학교에서 가까운 특성화고를 찾아 실습실에서 전공을 직접 체험하는 가장 쉬운 출발점이에요.",
+      "prepare": "담임·진로 선생님께 꿈길 학과체험 신청을 요청하거나, 직접 사이트에서 체험처를 검색해 보세요."
+    },
+    {
+      "id": "hifive-portal",
+      "name": "하이파이브 특성화고·마이스터고 포털",
+      "host": "교육부 (대한상공회의소)",
+      "category": "camp",
+      "emoji": "🖐️",
+      "grades": "중1~중3 (학부모 포함)",
+      "cost": "무료",
+      "months": [],
+      "always": true,
+      "when": "연중 상시 (입시 시즌 집중)",
+      "region": "전국 (온라인)",
+      "url": "https://www.hifive.go.kr/",
+      "summary": "전국 54개 마이스터고 + 특성화고의 학과 소개·취업 현황·체험 프로그램 안내를 한곳에 모은 교육부 공식 포털이에요.",
+      "highlights": [
+        "교육부 공식",
+        "마이스터고 54개교 정보",
+        "취업률·학과 비교"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온라인",
+      "goodFor": "특성화고·마이스터고 전체를 한눈에 비교하고 관심 학교의 체험 일정을 확인할 수 있어요.",
+      "prepare": "관심 분야(IT·디자인·요리·기계 등)로 학교를 검색하고, 체험 프로그램 일정을 미리 챙기세요."
+    },
+    {
+      "id": "futuredream-camp",
+      "name": "퓨처드림 취업캠프 (중진공)",
+      "host": "중소벤처기업진흥공단",
+      "category": "camp",
+      "emoji": "🚀",
+      "grades": "특성화고 1~2학년",
+      "cost": "무료 (숙식 전액 지원)",
+      "months": [
+        7
+      ],
+      "when": "2026.7월 권역별 순차 (2박3일)",
+      "region": "전국 4개 권역 (수도·강원, 호남, 영남, 충청)",
+      "url": "https://www.ajunews.com/view/20260707151600581",
+      "summary": "중진공이 특성화고 학생의 진로 설계를 돕는 2박3일 합숙 캠프. AI 교육 + 직무성향 진단 + 중소기업 이해 프로그램을 결합해요.",
+      "highlights": [
+        "2박3일 합숙",
+        "AI 교육 포함",
+        "전액 무료"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "특성화고 재학 중 자신의 적성·직무를 AI 시대 기준으로 미리 탐색하고, 중소기업 취업 루트를 파악해요.",
+      "prepare": "학교를 통해 신청하며, 본인의 관심 직무를 미리 정리해 가면 캠프 효과가 커요."
+    },
+    {
+      "id": "edu-office-vocational-fair",
+      "name": "교육청 직업계고 입시박람회·체험의 날",
+      "host": "시·도 교육청 + 관내 직업계고",
+      "category": "camp",
+      "emoji": "🎪",
+      "grades": "중1~중3 (학부모 포함)",
+      "cost": "무료",
+      "months": [
+        9,
+        10
+      ],
+      "when": "9~10월 (지역별 상이)",
+      "region": "전국 각 시·도",
+      "url": "https://www.hifive.go.kr/search/search_map.do?rootMenuId=99&menuId=9901",
+      "summary": "서울·대전·울산·광주·제주 등 각 교육청이 관내 특성화고·마이스터고를 한자리에 모아 학과 체험 부스·입학 상담을 제공하는 연합 행사예요.",
+      "highlights": [
+        "교육청 주관",
+        "다수 학교 한자리",
+        "학과 체험+입학 상담"
+      ],
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "오프라인",
+      "goodFor": "여러 특성화고를 한 번에 비교 체험하고, 입학 담당 선생님께 직접 상담받을 수 있어요.",
+      "prepare": "우리 지역 교육청 홈페이지에서 '직업계고 박람회' 일정을 확인하고 미리 관심 학교를 정해 가세요."
+    },
+    {
+      "id": "jeju-visit-vocational",
+      "name": "찾아가는 직업계고 이해 프로그램",
+      "host": "제주특별자치도교육청",
+      "category": "camp",
+      "emoji": "🏫",
+      "grades": "중1~중3 (학부모 포함)",
+      "cost": "무료",
+      "months": [
+        8,
+        9,
+        10
+      ],
+      "when": "2026.8.18~10.23 (학교 방문형)",
+      "region": "제주도 내 중학교",
+      "url": "https://www.mediajeju.com/news/articleView.html?idxno=365759",
+      "summary": "교육청 관계자가 직접 중학교를 방문해 AI 시대 직업 대전환, 직업계고 학과·진로, 고졸 지원 정책을 안내하는 프로그램이에요.",
+      "highlights": [
+        "찾아가는 방문형",
+        "AI 시대 진로 안내",
+        "학부모 동반"
+      ],
+      "scope": "domestic",
+      "regionGroup": "제주",
+      "format": "오프라인",
+      "goodFor": "학교에서 편하게 직업계고 정보를 듣고, 학부모도 함께 진로를 상의할 수 있어요.",
+      "prepare": "담임·진로 선생님을 통해 신청하고, 관심 학과를 미리 정리해 질문을 준비하세요."
+    },
+    {
+      "id": "cbprov-jinro-camp",
+      "name": "충북진로교육원 중학생 진로캠프",
+      "host": "충청북도교육청 진로교육원",
+      "category": "camp",
+      "emoji": "🧭",
+      "grades": "초(진로인식) · 중(진로탐색)",
+      "cost": "무료",
+      "months": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 연중 운영",
+      "region": "충북 (진로교육원 + 학교 방문)",
+      "url": "https://jinro.cbe.go.kr/home/sub.php?menukey=466",
+      "summary": "초등(진로인식)·중학(진로탐색)·고교(진로설계) 학교급별 맞춤 진로체험 프로그램. 직업계고 학과체험 포함.",
+      "highlights": [
+        "학교급별 맞춤",
+        "직업계고 체험 포함",
+        "무료"
+      ],
+      "scope": "domestic",
+      "regionGroup": "충청",
+      "format": "온·오프",
+      "goodFor": "학교 수업 안에서 자연스럽게 특성화고 학과를 체험하고, 진로심리검사도 함께 받을 수 있어요.",
+      "prepare": "학교 단위로 신청하므로 담임·진로 선생님께 참여 의사를 알려 주세요."
+    },
+    {
+      "id": "srobot-maker-lab",
+      "name": "서울로봇고 로봇메이커랩 체험",
+      "host": "서울로봇고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "🤖",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 토요일 (사전 예약)",
+      "region": "서울 강남구 서울로봇고",
+      "url": "https://robot151.cafe24.com/field_list.php",
+      "summary": "서울형 메이커스페이스 거점센터 '로봇메이커랩'에서 로봇 제작·코딩을 체험하는 DIY 프로그램. 로봇 마이스터고 실습실을 직접 써 봐요.",
+      "highlights": [
+        "로봇 마이스터고",
+        "메이커스페이스",
+        "DIY 로봇 제작"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "로봇·자동화 분야 마이스터고 진학을 고민하는 중학생이 실습실에서 로봇을 직접 만들어 볼 수 있어요.",
+      "prepare": "학교 홈페이지에서 '로봇메이커랩' 활동 프로그램 일정을 확인하고 사전 예약하세요."
+    },
+    {
+      "id": "dimigo-it-olympiad",
+      "name": "디미고 전국 중학생 IT올림피아드",
+      "host": "한국디지털미디어고등학교 (특성화고)",
+      "category": "contest",
+      "emoji": "🏅",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        7
+      ],
+      "when": "예선 7월 (본선 7~8월, 매년 개최)",
+      "region": "경기 안산 한국디지털미디어고",
+      "url": "https://contest.dimigo.hs.kr/",
+      "summary": "디미고가 주최하는 전국 중학생 IT 올림피아드. 프로그래밍·해킹방어·웹디자인·영상 등 종목별 대회로, 입상자는 디미고 특별전형 지원 자격을 받아요.",
+      "highlights": [
+        "디미고 주최",
+        "입상 시 특별전형 자격",
+        "프로그래밍·해킹방어"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "IT 특성화고 진학을 목표로 하는 중학생이 실력을 증명하고 입시 혜택도 받을 수 있어요.",
+      "prepare": "contest.dimigo.hs.kr에서 종목별 접수 일정을 확인하고, 프로그래밍·웹 기초를 익혀 두세요."
+    },
+    {
+      "id": "dimigo-startup-contest",
+      "name": "디미고 전국 중학생 창업아이디어 경진대회",
+      "host": "한국디지털미디어고등학교 (특성화고)",
+      "category": "contest",
+      "emoji": "💡",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        7,
+        8
+      ],
+      "when": "여름 (매년 개최)",
+      "region": "경기 안산 한국디지털미디어고",
+      "url": "https://startup.dimigo.hs.kr/",
+      "summary": "디미고가 주최하는 전국 중학생 창업아이디어 경진대회. IT·SW 기반 창업 아이디어를 발표하고 평가받아요.",
+      "highlights": [
+        "디미고 주최",
+        "창업 아이디어",
+        "전국 대회"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "IT 창업에 관심 있는 중학생이 아이디어를 구체화하고 발표 경험을 쌓아요.",
+      "prepare": "startup.dimigo.hs.kr에서 일정을 확인하고, IT로 해결할 수 있는 문제 아이디어를 준비하세요."
+    },
+    {
+      "id": "dimigo-major-experience",
+      "name": "디미고 중학생 학과체험교실",
+      "host": "한국디지털미디어고등학교 (특성화고)",
+      "category": "camp",
+      "emoji": "🖥️",
+      "grades": "중3",
+      "cost": "무료",
+      "months": [
+        6,
+        8
+      ],
+      "when": "6월·8월 (사전 예약, 모집 시 마감 빠름)",
+      "region": "경기 안산 한국디지털미디어고",
+      "url": "https://dimigo-h.goeas.kr/dimigo-h/na/ntt/selectNttInfo.do?mi=13631&nttSn=1512380&bbsId=6915",
+      "summary": "디미고(한국디지털미디어고)의 웹프로그래밍·해킹방어·e비즈니스·영상콘텐츠 학과를 실습실에서 직접 체험하는 중3 대상 프로그램이에요.",
+      "highlights": [
+        "디미고 실습실 체험",
+        "학과별 전공 실습",
+        "예약 선착순"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "디미고 입시를 준비하는 중학생이 전공 실습실에서 각 학과를 직접 경험해 볼 수 있어요.",
+      "prepare": "학교 홈페이지 입학안내에서 학과체험교실 공지를 확인하고, 오픈 즉시 예약하세요."
+    },
+    {
+      "id": "sudo-energy-experience",
+      "name": "수도전기공업고 에너지 체험교실",
+      "host": "수도전기공업고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "⚡",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 수요일 13:00~16:00",
+      "region": "서울 강남구 수도전기공업고",
+      "url": "https://sites.google.com/sudo.sen.hs.kr/sudomakerschool/%ED%99%88",
+      "summary": "한전 산하 에너지 마이스터고가 중학생에게 스마트조명 만들기 등 전기·에너지 전공을 체험시키는 수요 개방형 프로그램이에요.",
+      "highlights": [
+        "에너지 마이스터고",
+        "스마트조명 만들기",
+        "수요일 상시 운영"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "전기·에너지 분야 마이스터고 분위기를 미리 느끼고, 실습 결과물을 가져갈 수 있어요.",
+      "prepare": "학교 창의융합부에 전화(02-524-9800)로 방문 일정을 예약하세요."
+    },
+    {
+      "id": "intec-young-meister",
+      "name": "인천전자마이스터고 영마이스터 기술영재학교",
+      "host": "인천전자마이스터고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "🔌",
+      "grades": "중3",
+      "cost": "무료",
+      "months": [
+        6,
+        7,
+        8
+      ],
+      "when": "여름 (6~8월, 기수별 운영)",
+      "region": "인천 미추홀구 인천전자마이스터고",
+      "url": "https://intec.icehs.kr/boardCnts/list.do?boardID=12455&m=020201&s=intec",
+      "summary": "인천전자마이스터고가 중3 대상으로 운영하는 '영마이스터 기술영재학교'. 전자·통신 전공을 미리 체험하고, 수료자는 특별전형 지원 자격을 받아요.",
+      "highlights": [
+        "마이스터고 직접 운영",
+        "수료 시 특별전형 자격",
+        "전자·통신 실습"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "전자·통신 마이스터고 진학을 확실히 결심한 중3이 전공을 미리 경험하고 입시 혜택도 받아요.",
+      "prepare": "인천전자마이스터고 홈페이지에서 '영마이스터' 모집 공지를 확인하세요."
+    },
+    {
+      "id": "sdcont-drone-experience",
+      "name": "서울디지털콘텐츠고 진로체험·학교탐방",
+      "host": "서울디지털콘텐츠고등학교 (특성화고)",
+      "category": "camp",
+      "emoji": "🎬",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 수·금 14:10~16:10 (사전 신청)",
+      "region": "서울 강서구 서울디지털콘텐츠고",
+      "url": "https://sdcont.sen.hs.kr/boardCnts/list.do?type=default&page=1&m=010301&s=sdcont&boardID=75553",
+      "summary": "드론 조종·항공 촬영, 영상 편집, 디지털 콘텐츠 제작 등을 체험하는 특성화고 진로체험. 학교탐방은 월~금 운영해요.",
+      "highlights": [
+        "드론 체험",
+        "영상·콘텐츠 실습",
+        "수·금 상시 운영"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "영상·디지털콘텐츠 분야 특성화고를 고민하는 중학생이 실습실에서 드론·영상 제작을 직접 체험해요.",
+      "prepare": "학교 대표전화(02-2666-2106)로 문자 또는 전화 신청하세요."
+    },
+    {
+      "id": "mist-steam-experience",
+      "name": "미래산업과학고 STEAM 진로체험",
+      "host": "미래산업과학고등학교 (특성화고)",
+      "category": "camp",
+      "emoji": "🔬",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 (사전 신청)",
+      "region": "서울 노원구 미래산업과학고",
+      "url": "https://mist.sen.hs.kr/173449/subMenu.do",
+      "summary": "미래형 융합교육(STEAM) 선도학교로 로봇·드론·4차산업 분야 진로 체험을 운영해요. 서울시립과학관·노원수학문화관과도 연계해요.",
+      "highlights": [
+        "STEAM 선도학교",
+        "로봇·드론 체험",
+        "과학관 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "과학·기술 융합에 관심 있는 중학생이 산업 현장 기술을 학교 실습실에서 미리 경험해요.",
+      "prepare": "학교 홈페이지에서 체험 프로그램 일정을 확인하고 학교 단위 또는 개인으로 신청하세요."
+    },
+    {
+      "id": "jbprov-major-experience",
+      "name": "전북교육청 중학생 학과체험교실",
+      "host": "전북특별자치도교육청 + 관내 마이스터고·특성화고",
+      "category": "camp",
+      "emoji": "🌿",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 (교육청 일정에 따라 상이)",
+      "region": "전북 관내 특성화고·마이스터고",
+      "url": "https://www.ajunews.com/view/20230407171439456",
+      "summary": "전북 소재 마이스터고·특성화고 실습실에서 전공을 체험하는 프로그램. 전주생명과학고 '스마트팜 만들기', 군산기계공고 '우드트레이 만들기', 김제농생명고 '고체향수 만들기' 등 학교별 특색 프로그램이에요.",
+      "highlights": [
+        "전북 교육청 주관",
+        "학교별 특색 체험",
+        "실습 결과물 지참"
+      ],
+      "scope": "domestic",
+      "regionGroup": "호남",
+      "format": "오프라인",
+      "goodFor": "전북 지역 다양한 특성화고 학과를 한 시기에 여러 곳 체험하며 비교할 수 있어요.",
+      "prepare": "전북교육청 취업지원센터 누리집 공지사항에서 학과체험교실 안내서를 확인하세요."
+    },
+    {
+      "id": "busan-auto-meister",
+      "name": "부산자동차마이스터고 학교 체험",
+      "host": "부산자동차마이스터고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "🚗",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        9,
+        10
+      ],
+      "when": "9~10월 입학설명회 연계 체험 (예년 기준)",
+      "region": "부산 사하구 부산자동차마이스터고",
+      "url": "https://school.busanedu.net/automotive-h/na/ntt/selectNttList.do?bbsId=1002012",
+      "summary": "현대·기아·BMW 등과 산학 협력하는 자동차 마이스터고. 입학설명회와 함께 자동차 정비·전기차 실습실 체험을 제공해요.",
+      "highlights": [
+        "자동차 마이스터고",
+        "현대·기아 산학협력",
+        "전기차 실습"
+      ],
+      "scope": "domestic",
+      "regionGroup": "영남",
+      "format": "오프라인",
+      "goodFor": "자동차·모빌리티 분야에 관심 있는 중학생이 최신 자동차 실습 장비를 직접 체험해요.",
+      "prepare": "학교 홈페이지에서 입학설명회·체험 일정을 확인하고 사전 신청하세요."
+    },
+    {
+      "id": "gumi-electronics-experience",
+      "name": "국립구미전자공업고 학과체험",
+      "host": "국립구미전자공업고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "📡",
+      "grades": "중1~중3",
+      "cost": "무료",
+      "months": [
+        9,
+        10
+      ],
+      "when": "하반기 입학설명회 연계 (예년 기준)",
+      "region": "경북 구미 국립구미전자공업고",
+      "url": "https://school.gyo6.net/gnet/main.do?sysId=gnet",
+      "summary": "반도체·전자·정보통신 분야 국립 마이스터고. 삼성전자·LG 등 대기업 취업률이 높고, 입학설명회에서 전공 실습실 체험을 해요.",
+      "highlights": [
+        "국립 마이스터고",
+        "반도체·전자 특화",
+        "대기업 취업 연계"
+      ],
+      "scope": "domestic",
+      "regionGroup": "영남",
+      "format": "오프라인",
+      "goodFor": "반도체·전자 분야에 관심 있는 중학생이 국립 마이스터고의 최신 실습 장비를 체험해요.",
+      "prepare": "gnet.myapply.kr에서 입학전형 일정을 확인하고, 설명회 참석을 신청하세요."
+    },
+    {
+      "id": "samsung-junior-academy",
+      "name": "삼성물산 주니어건설아카데미",
+      "host": "삼성물산 건설부문 + 아이들과미래",
+      "category": "camp",
+      "emoji": "🏗️",
+      "grades": "초4~중2",
+      "cost": "무료",
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "when": "학기 중 연 10회 이상 (사회복지기관 연계)",
+      "region": "서울·경기 (래미안갤러리 등)",
+      "url": "https://csr.samsung.com/ko/story/inspiring-journeys/청소년들의-꿈이-자라나는-단단한-토양",
+      "summary": "삼성물산이 건설·건축·패션·리조트 사업장에서 중학생에게 직업체험·진로상담을 제공하는 CSR 프로그램. 건축모형 제작·VR 체험·트레이딩 게임 등을 해요.",
+      "highlights": [
+        "삼성물산 직접 운영",
+        "건축모형·VR 체험",
+        "무료"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "건설·건축·패션 등 대기업 현장을 직접 체험하고 진로 상담을 받을 수 있어요.",
+      "prepare": "사회복지기관을 통해 신청하거나, 삼성물산 CSR 사이트에서 모집 공지를 확인하세요."
+    },
+    {
+      "id": "gsm-sw-experience",
+      "name": "광주SW마이스터고 학과체험·입학설명회",
+      "host": "광주소프트웨어마이스터고등학교 (마이스터고)",
+      "category": "camp",
+      "emoji": "🖱️",
+      "grades": "중3",
+      "cost": "무료",
+      "months": [
+        9,
+        10
+      ],
+      "when": "9~10월 (입학전형 접수 전, 예년 기준)",
+      "region": "광주 광산구 광주SW마이스터고",
+      "url": "https://www.hellogsm.kr/",
+      "summary": "광주SW마이스터고의 소프트웨어 개발·IoT·AI 학과를 체험하는 입학설명회 연계 프로그램. 재학생 멘토와 실습실 투어를 해요.",
+      "highlights": [
+        "SW마이스터고",
+        "소프트웨어·IoT·AI",
+        "재학생 멘토"
+      ],
+      "scope": "domestic",
+      "regionGroup": "호남",
+      "format": "오프라인",
+      "goodFor": "호남 지역에서 SW마이스터고를 목표로 하는 중3이 입시 전에 학교를 직접 확인해요.",
+      "prepare": "hellogsm.kr(입학지원 서비스)에서 접수 일정을 확인하고, 코딩 포트폴리오를 준비하세요."
+    },
+    {
       "id": "wro-korea",
       "name": "WRO KOREA (월드로봇올림피아드)",
       "host": "WRO Korea 조직위",
@@ -1052,6 +1650,59 @@
       "format": "오프라인",
       "goodFor": "최신 기술과 또래 창작물을 직접 보고 체험하며 진로 영감을 얻어요.",
       "prepare": "일정을 미리 확인해 방문하고, 관심 부스는 깊이 보며 출품에도 도전하세요."
+    },
+    {
+      "id": "national-ai-festival-2026",
+      "name": "2026 전국민 AI 페스티벌",
+      "host": "과기정통부 · 한국과학창의재단",
+      "category": "exhibition",
+      "emoji": "🤖",
+      "grades": "전연령 (부스: 학교·기관)",
+      "cost": "무료",
+      "months": [
+        10,
+        12
+      ],
+      "when": "2026.12.11~13 (부스 모집 9.22~10.20 18:00, 결과 10.26)",
+      "region": "DDP 아트홀 1·2관",
+      "url": "https://www.sw.or.kr/site/sw/ex/board/View.do?cbIdx=382&bcIdx=66642&searchExt1=",
+      "summary": "AI 교육·에듀테크, 로봇·모빌리티, 콘텐츠, 생활 서비스까지 AI 전시·체험을 모은 전국민 축제. 학교·기관이 부스 18개 내외를 운영해요.",
+      "highlights": [
+        "AI 전시·체험",
+        "학교 부스 참여 가능",
+        "DDP 3일간"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "AI 로봇·에듀테크를 한자리에서 직접 체험하고, 학교 동아리라면 부스 운영으로 결과물을 보여줄 수 있어요.",
+      "prepare": "12.11~13 방문 일정을 잡고, 학교 동아리 부스는 선생님과 함께 창의재단 온라인 접수(10.20 마감)로 신청하세요."
+    },
+    {
+      "id": "ai-sw-talent-festival-2026",
+      "name": "2026 AI·SW인재페스티벌",
+      "host": "과기정통부 · IITP · SW중심대학협의회",
+      "category": "exhibition",
+      "emoji": "🎓",
+      "grades": "누구나 (중·고 추천)",
+      "cost": "무료",
+      "months": [
+        11
+      ],
+      "when": "2026.11.25~26 (25일 10:00~17:00, 26일 10:00~16:00)",
+      "region": "서울드래곤시티 한라홀",
+      "url": "https://www.swuniv.kr/55/?bmode=view&idx=168884668",
+      "summary": "AI·SW중심대학 60개교가 대학별 홍보관과 우수작품관을 함께 여는 축제. 대학생 수상작 발표, 기업 체험관, AI 특강이 열려요.",
+      "highlights": [
+        "60개 대학 부스",
+        "대학생 작품 전시",
+        "기업·명사 특강"
+      ],
+      "scope": "domestic",
+      "regionGroup": "수도권",
+      "format": "오프라인",
+      "goodFor": "가고 싶은 대학의 SW학과가 실제로 뭘 만드는지 60개교 작품으로 한 번에 비교해 볼 수 있어요.",
+      "prepare": "관심 대학 3곳을 골라 부스 동선을 짜고, 26일 수상작 발표에서 마음에 드는 작품 하나를 메모해 오세요."
     },
     {
       "id": "incheon-aisw-festa",
@@ -3088,6 +3739,37 @@
       "prepare": "주제 관련 독서로 관점을 쌓고 개요→초고→퇴고로 글을 다듬으세요."
     },
     {
+      "id": "ai-challenge4all-robotics",
+      "name": "전국민 AI 경진대회 · 로보틱스 챌린지",
+      "host": "과기정통부 · 한국과학창의재단",
+      "category": "contest",
+      "emoji": "🦾",
+      "grades": "초4~고3 (작품공모전은 누구나)",
+      "cost": "무료",
+      "months": [
+        5,
+        8,
+        9,
+        10,
+        11
+      ],
+      "when": "문제해결 접수 8.26~9.7 · 작품공모전 접수 10.8~11.2 · 본선 11월",
+      "region": "온라인 예선 + 지정 행사장 본선",
+      "url": "https://aichallenge4all.or.kr/competitions/ai-robot",
+      "summary": "AI·로봇으로 실생활 문제를 푸는 국민 참여형 대회의 청소년 트랙. 문제해결(보건 위기)·기초·작품공모전(인간과 로봇의 공존) 3갈래로 열리고, 장관상 등 41점·상금 4,000만원이 걸려 있어요.",
+      "highlights": [
+        "장관상·상금 4천만원",
+        "최우수팀 제네바 국제대회",
+        "팀 1~8인"
+      ],
+      "featured": true,
+      "scope": "domestic",
+      "regionGroup": "전국·온라인",
+      "format": "온·오프",
+      "goodFor": "로봇으로 진짜 문제(보건 위기)를 풀어 본 경험이 생기고, 최우수팀은 스위스 제네바 'Robotics for Good' 국제대회까지 이어져요.",
+      "prepare": "문제해결 트랙은 학교(기관) 단위로 8월 말에 신청하니 선생님과 팀을 미리 꾸리고, 직접 다룰 수 있는 로봇이 있다면 10~11월 작품공모전을 노려 보세요."
+    },
+    {
       "id": "john-locke",
       "name": "John Locke Essay Prize",
       "host": "John Locke Institute (UK)",
@@ -3604,36 +4286,57 @@
         {
           "period": "겨울 · 12~2월",
           "focus": "다음 해 요강을 확인하고 도전할 분야를 정하는 준비기",
-          "picks": [
-            "AMC(미국수학경시)",
-            "한국물리올림피아드 겨울학교"
+          "months": [
+            12,
+            1,
+            2
+          ],
+          "pickIds": [
+            "amc",
+            "kpho"
           ]
         },
         {
           "period": "봄 · 3~5월",
           "focus": "수학·과학 올림피아드 예선·접수가 몰리는 성수기",
-          "picks": [
-            "한국수학올림피아드(KMO) 1차",
-            "한국정보올림피아드(KOI) 1차",
-            "한국생물올림피아드(KBO)"
+          "months": [
+            3,
+            4,
+            5
+          ],
+          "pickIds": [
+            "kmo",
+            "koi",
+            "kbo"
           ]
         },
         {
           "period": "여름 · 6~8월",
           "focus": "올림피아드 본선·과학전람회·발명품·코드페어 해커톤",
-          "picks": [
-            "한국정보올림피아드(KOI) 2차",
-            "전국학생과학발명품경진대회",
-            "한국코드페어"
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "pickIds": [
+            "koi",
+            "student-invention-contest",
+            "korea-code-fair"
           ]
         },
         {
           "period": "가을 · 9~11월",
           "focus": "SW·로봇·창업 경진 본선과 한 해 기록 정리",
-          "picks": [
-            "성남×KAIST AI 경진대회",
-            "대한민국 청소년 창업경진대회",
-            "KMO 2차"
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "pickIds": [
+            "ai-challenge4all-robotics",
+            "seongnam-kaist-ai",
+            "youth-startup-contest",
+            "kmo"
           ]
         }
       ],
@@ -3660,49 +4363,76 @@
       "title": "캠프·교육",
       "color": "#34D399",
       "tagline": "몰입해서 배우고 경험하는 시간",
-      "description": "며칠~몇 주 몰입해 배우고 경험하는 활동이에요. 대학·기업·연구소 캠프, 영재교육, 온라인 교육이 여기 속해요.",
+      "description": "며칠~몇 주 몰입해 배우고 경험하는 활동이에요. 대학·기업·연구소 캠프, 영재교육, 온라인 교육이 여기 속하고, 특성화고·마이스터고 학과체험도 포함돼요.",
       "perspective": "「무엇을 배웠고 나는 어떻게 달라졌나」. 진로를 탐색하고 관심을 심화한 계기로 바라보세요.",
       "recognition": "캠프 이수 자체는 자기주도학습전형에 쓸 수 없지만(교외), 캠프에서 배운 걸 스스로 이어간 학습·독서·탐구는 면접에서 가장 강력한 스토리가 돼요.",
       "yearCycle": [
         {
           "period": "겨울 · 12~2월",
           "focus": "겨울방학 합숙·캠프와 온라인 영재교육 모집",
-          "picks": [
-            "서울대 농업생명과학 청소년 캠프",
-            "KAIST 사이버영재교육",
-            "UNIST 청소년 과학 캠프"
+          "months": [
+            12,
+            1,
+            2
+          ],
+          "pickIds": [
+            "snu-cals-camp",
+            "kaist-cyber-gifted",
+            "unist-science-camp"
           ]
         },
         {
           "period": "봄 · 3~5월",
-          "focus": "영재교육원·사이버영재·UNIST STEM 캠프 모집",
-          "picks": [
-            "KAIST 사이버영재교육",
-            "UNIST 청소년 과학 캠프"
+          "focus": "영재교육원 + 꿈길 학과체험 + 특성화고 수요 개방형 체험",
+          "months": [
+            3,
+            4,
+            5
+          ],
+          "pickIds": [
+            "kaist-cyber-gifted",
+            "ggoomgil-vocational",
+            "sudo-energy-experience",
+            "sdcont-drone-experience"
           ]
         },
         {
           "period": "여름 · 6~8월",
-          "focus": "대학·연구소·해외 프리칼리지 캠프 성수기",
-          "picks": [
-            "서울대 공학 프런티어 캠프",
-            "Space Camp",
-            "Harvard Pre-College Program"
+          "focus": "마이스터고 IT캠프·영마이스터 + 디미고 올림피아드·해커톤",
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "pickIds": [
+            "mirim-it-camp",
+            "dsm-hackathon",
+            "intec-young-meister",
+            "dimigo-it-olympiad",
+            "futuredream-camp"
           ]
         },
         {
           "period": "가을 · 9~11월",
-          "focus": "다음 기수 영재기업인·대학부설 영재원 모집",
-          "picks": [
-            "KAIST IP영재기업인교육원",
-            "POSTECH 영재기업인교육원",
-            "대학부설 과학영재교육원"
+          "focus": "교육청 직업계고 박람회 + 마이스터고 입학설명회·체험",
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "pickIds": [
+            "edu-office-vocational-fair",
+            "srobot-maker-lab",
+            "busan-auto-meister",
+            "gsm-sw-experience",
+            "hifive-portal"
           ]
         }
       ],
       "mustSee": [
         "관심 대학·기업 캠프 1개 지원",
-        "소프트웨어야 놀자·엔트리 등 온라인 상시 교육 꾸준히"
+        "소프트웨어야 놀자·엔트리 등 온라인 상시 교육 꾸준히",
+        "꿈길·하이파이브에서 관심 특성화고 학과체험 검색"
       ],
       "why": "캠프는 교실에서 못 하는 몰입 경험으로 진로를 「직접 확인」하는 기회예요. 이 시기에 관심 분야를 몸으로 겪어보면 고교·학과 선택의 근거가 생기고, 스스로 공부를 이어갈 동기가 만들어집니다.",
       "how": [
@@ -3730,33 +4460,53 @@
         {
           "period": "봄 · 4~5월",
           "focus": "과학의 달, 전국을 순회하는 대한민국 과학축제",
-          "picks": [
-            "대한민국 과학축제"
+          "months": [
+            4,
+            5
+          ],
+          "pickIds": [
+            "korea-science-festival"
           ]
         },
         {
           "period": "여름 · 6~8월",
           "focus": "학생 발명전시·국제 로봇대회(인천)·해외 캠프",
-          "picks": [
-            "대한민국학생발명전시회",
-            "RoboCup 2026 인천"
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "pickIds": [
+            "student-invention-exhibition",
+            "robocup-incheon-2026"
           ]
         },
         {
           "period": "가을 · 9~11월",
           "focus": "메이커페어·SW/AI 페스티벌이 몰리는 최대 성수기",
-          "picks": [
-            "메이커 페어 서울 2026",
-            "FIRST Global Challenge 2026 인천",
-            "대한민국 AI교육 페스티벌"
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "pickIds": [
+            "maker-faire-seoul",
+            "first-global-2026",
+            "ai-education-festival",
+            "ai-sw-talent-festival-2026"
           ]
         },
         {
           "period": "겨울 · 12~1월",
           "focus": "디지털 교육 페스타·스타트업 축제·글로벌 테크쇼",
-          "picks": [
-            "부산 디지털 교육 페스타",
-            "COMEUP 컴업"
+          "months": [
+            12,
+            1
+          ],
+          "pickIds": [
+            "national-ai-festival-2026",
+            "busan-digital-festa",
+            "comeup"
           ]
         }
       ],
@@ -3790,34 +4540,60 @@
         {
           "period": "연중 · 상시",
           "focus": "한 기관을 정해 월 1회 이상 꾸준히 봉사",
-          "picks": [
-            "1365 자원봉사포털",
-            "e청소년 DOVOL",
-            "VMS 사회복지자원봉사"
+          "months": [],
+          "pickIds": [
+            "vol-1365",
+            "vol-dovol",
+            "vol-vms"
           ]
         },
         {
           "period": "봄·가을",
           "focus": "환경정화 봉사(나무심기·연안·국립공원)",
-          "picks": [
-            "국립공원 자원봉사",
-            "해양환경공단 연안정화 봉사"
+          "months": [
+            3,
+            4,
+            5,
+            9,
+            10,
+            11
+          ],
+          "pickIds": [
+            "vol-knps",
+            "vol-koem"
           ]
         },
         {
           "period": "방학 · 여름·겨울",
           "focus": "집중 봉사와 해외 워크캠프",
-          "picks": [
-            "IWO 국제워크캠프(청소년)",
-            "한국해비타트 집짓기 봉사"
+          "months": [
+            1,
+            2,
+            7,
+            8,
+            12
+          ],
+          "pickIds": [
+            "vol-iwo",
+            "vol-habitat"
           ]
         },
         {
           "period": "학기 중",
           "focus": "학교 RCY·또래 멘토링·재능기부",
-          "picks": [
-            "청소년적십자(RCY)",
-            "굿네이버스 청소년 봉사"
+          "months": [
+            3,
+            4,
+            5,
+            6,
+            9,
+            10,
+            11,
+            12
+          ],
+          "pickIds": [
+            "vol-rcy",
+            "vol-goodneighbors"
           ]
         }
       ],
@@ -3864,34 +4640,57 @@
         {
           "period": "겨울 · 12~2월",
           "focus": "겨울방학 합숙 캠프 + Apple 챌린지·상시 온라인 교육",
-          "picks": [
-            "카카오 AI 루키 캠프",
-            "Apple Swift Student Challenge",
-            "엔트리·소프트웨어야 놀자"
+          "months": [
+            12,
+            1,
+            2
+          ],
+          "pickIds": [
+            "kakao-ai-rookie-camp",
+            "apple-swift-challenge",
+            "entry",
+            "playsw"
           ]
         },
         {
           "period": "봄 · 3~5월",
           "focus": "게임·SW 아카데미 모집 + 글로벌 코딩·보안 대회",
-          "picks": [
-            "넷마블게임아카데미",
-            "picoCTF·USACO"
+          "months": [
+            3,
+            4,
+            5
+          ],
+          "pickIds": [
+            "netmarble-game-academy",
+            "picoctf",
+            "usaco"
           ]
         },
         {
           "period": "여름 · 6~8월",
           "focus": "기업 여름 캠프·포럼과 무료 글로벌 강좌",
-          "picks": [
-            "메가존클라우드 포럼",
-            "IBM SkillsBuild·Cisco NetAcad"
+          "months": [
+            6,
+            7,
+            8
+          ],
+          "pickIds": [
+            "megazone-youth-forum",
+            "ibm-skillsbuild",
+            "cisco-netacad"
           ]
         },
         {
           "period": "가을 · 9~11월",
           "focus": "플래그십 캠프 모집·게임잼",
-          "picks": [
-            "LG AI 청소년 캠프",
-            "스마일게이트 퓨처랩"
+          "months": [
+            9,
+            10,
+            11
+          ],
+          "pickIds": [
+            "lg-ai-youth-camp",
+            "smilegate-futurelab"
           ]
         }
       ],

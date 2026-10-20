@@ -304,6 +304,15 @@ export const EXPLORE_PAGE_LAYOUT_CLASS = {
   tabNavigationArea:
     'border-b border-white/[0.08] px-4 pt-4 pb-3 md:px-5 md:pt-5 md:pb-3.5',
   tabNavigationAreaStyle: { backgroundColor: 'rgba(255,255,255,0.02)' } as React.CSSProperties,
+  /**
+   * 2컬럼 왼쪽 리스트 고정(md+) — WebHeader(73px) + sticky 탭 바(~89px) 아래에 붙인다.
+   * 오른쪽 상세를 길게 스크롤해도 왼쪽(맵·카테고리)이 계속 보이고,
+   * 왼쪽이 화면보다 길면 패널 안에서만 스크롤되도록 max-h 를 건다.
+   */
+  stickyListColumn:
+    'md:sticky md:top-[162px] md:max-h-[calc(100vh-178px)] md:overflow-y-auto md:overscroll-contain',
+  /** 오른쪽 상세 패널 제목 바 — WebHeader + sticky 탭 바 바로 아래에 고정 */
+  stickyDetailHeader: 'sticky top-[145px] md:top-[162px] z-10',
   /** 히어로 배너 바로 아래 본문 패딩 */
   bodyContentArea: 'px-4 pb-4 md:px-5 md:pb-5',
   /** 직업 탐색 탭 — 좌측 그리드 패널 */

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 700" width="960" height="700" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#ecfdf5"/>
+    </linearGradient>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+  <rect width="960" height="700" rx="24" fill="url(#bg)"/>
+  <text x="40" y="52" font-size="26" font-weight="800" fill="#0f172a">학교 선택의 숨은 변수 — IB 연차 = 코칭의 깊이</text>
+  <text x="40" y="80" font-size="15" fill="#475569">프로젝트형 교육은 졸업생을 낼 때마다 교사의 코칭 노하우가 쌓입니다</text>
+
+  <!-- staircase -->
+  <g>
+    <rect x="60" y="300" width="200" height="60" rx="10" fill="#fee2e2"/>
+    <rect x="270" y="250" width="200" height="110" rx="10" fill="#fef9c3"/>
+    <rect x="480" y="190" width="200" height="170" rx="10" fill="#dbeafe"/>
+    <rect x="690" y="120" width="210" height="240" rx="10" fill="#dcfce7"/>
+  </g>
+  <line x1="90" y1="290" x2="880" y2="104" stroke="#16a34a" stroke-width="4" stroke-dasharray="2 8" stroke-linecap="round" marker-end="url(#ar)"/>
+  <text x="500" y="160" font-size="14" font-weight="800" fill="#15803d" transform="rotate(-13 500 160)">코칭 노하우 누적</text>
+
+  <g font-size="14">
+    <text x="160" y="324" text-anchor="middle" font-weight="800" fill="#991b1b">후보학교</text>
+    <text x="160" y="346" text-anchor="middle" font-size="12" fill="#7f1d1d">디플로마 미발급</text>
+
+    <text x="370" y="276" text-anchor="middle" font-weight="800" fill="#854d0e">인증 1~2년차</text>
+    <text x="370" y="298" text-anchor="middle" font-size="12" fill="#713f12">졸업생 없음</text>
+    <text x="370" y="320" text-anchor="middle" font-size="12" fill="#713f12">죽산고 · 동탄국제고</text>
+    <text x="370" y="338" text-anchor="middle" font-size="12" fill="#713f12">대구중앙고 · 지평선고 등</text>
+
+    <text x="580" y="216" text-anchor="middle" font-weight="800" fill="#1e40af">4~6년차</text>
+    <text x="580" y="238" text-anchor="middle" font-size="12" fill="#1e3a8a">졸업생 1~4기 · 실적 공개 시작</text>
+    <text x="580" y="270" text-anchor="middle" font-size="12" fill="#1e3a8a">표선고 · 포산고</text>
+    <text x="580" y="290" text-anchor="middle" font-size="12" fill="#1e3a8a">경북대사대부고 · 대구외고</text>
+    <text x="580" y="310" text-anchor="middle" font-size="12" fill="#1e3a8a">대구국제고 · 충남삼성고</text>
+    <text x="580" y="342" text-anchor="middle" font-size="12" font-weight="800" fill="#1d4ed8">가장 현실적인 공교육 선택지</text>
+
+    <text x="795" y="148" text-anchor="middle" font-weight="800" fill="#166534">10년차 +</text>
+    <text x="795" y="170" text-anchor="middle" font-size="12" fill="#14532d">경기외고 (2011~)</text>
+    <text x="795" y="210" text-anchor="middle" font-size="30" font-weight="800" fill="#16a34a">38.87</text>
+    <text x="795" y="232" text-anchor="middle" font-size="12" fill="#14532d">평균 점수 (2018)</text>
+    <text x="795" y="276" text-anchor="middle" font-size="30" font-weight="800" fill="#16a34a">97.78%</text>
+    <text x="795" y="298" text-anchor="middle" font-size="12" fill="#14532d">디플로마 취득 (2023~25)</text>
+    <text x="795" y="340" text-anchor="middle" font-size="12" font-weight="800" fill="#15803d">"연차가 쌓이면 어디까지"의 상한선</text>
+  </g>
+
+  <!-- matrix -->
+  <rect x="40" y="388" width="880" height="280" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="64" y="422" font-size="17" font-weight="800" fill="#0f172a">연차가 쌓이면 학교 안에 쌓이는 5가지 자산</text>
+  <g font-size="13" font-weight="700" fill="#64748b" text-anchor="middle">
+    <text x="470" y="452">후보</text><text x="580" y="452">1~2년</text><text x="690" y="452">4~6년</text><text x="800" y="452">10년+</text>
+  </g>
+  <g font-size="14" fill="#334155">
+    <text x="64" y="488">IA·EE 점수대별 산출물 아카이브</text>
+    <text x="64" y="528">IBO 채점 조정(Moderation) 피드백 데이터</text>
+    <text x="64" y="568">IB 채점관(Examiner) 경험 교사</text>
+    <text x="64" y="608">세특 작성 · 전형 매칭 대입 노하우</text>
+    <text x="64" y="648">선배 네트워크 (EE 주제 · 해외대 경험)</text>
+  </g>
+  <!-- level dots: r size grows -->
+  <g>
+    <!-- row1 -->
+    <circle cx="470" cy="483" r="4" fill="#e2e8f0"/><circle cx="580" cy="483" r="7" fill="#fde68a"/><circle cx="690" cy="483" r="11" fill="#60a5fa"/><circle cx="800" cy="483" r="15" fill="#16a34a"/>
+    <!-- row2 -->
+    <circle cx="470" cy="523" r="4" fill="#e2e8f0"/><circle cx="580" cy="523" r="6" fill="#fde68a"/><circle cx="690" cy="523" r="11" fill="#60a5fa"/><circle cx="800" cy="523" r="15" fill="#16a34a"/>
+    <!-- row3 -->
+    <circle cx="470" cy="563" r="4" fill="#e2e8f0"/><circle cx="580" cy="563" r="4" fill="#e2e8f0"/><circle cx="690" cy="563" r="8" fill="#60a5fa"/><circle cx="800" cy="563" r="15" fill="#16a34a"/>
+    <!-- row4 -->
+    <circle cx="470" cy="603" r="4" fill="#e2e8f0"/><circle cx="580" cy="603" r="5" fill="#fde68a"/><circle cx="690" cy="603" r="11" fill="#60a5fa"/><circle cx="800" cy="603" r="15" fill="#16a34a"/>
+    <!-- row5 -->
+    <circle cx="470" cy="643" r="4" fill="#e2e8f0"/><circle cx="580" cy="643" r="4" fill="#e2e8f0"/><circle cx="690" cy="643" r="9" fill="#60a5fa"/><circle cx="800" cy="643" r="15" fill="#16a34a"/>
+  </g>
+  <text x="896" y="422" font-size="12" fill="#94a3b8" text-anchor="end">원 크기 = 축적 정도 (개념도)</text>
+</svg>

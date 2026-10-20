@@ -1,6 +1,6 @@
 {
-  "asOf": "2026-08-28",
-  "note": "==서울·경기·인천== 학교만 지도에 표시됩니다. 주소는 ==NEIS 학교기본정보(교육부)==의 도로명주소이고, 서울 직업계고는 ==하이잡(서울시교육청)==의 학과 정보를 함께 붙였습니다. ==지도에 없는 지역 학교는 아래 학교 목록==에서 확인하세요.",
+  "asOf": "2026-10-18",
+  "note": "==서울·경기·인천== 학교만 지도에 표시됩니다. 주소는 ==NEIS 학교기본정보(교육부)==의 도로명주소이고, 특성화고 학과는 ==각 학교가 공고한 2027학년도 입학전형 요강==으로 확인했습니다(2026-10). ==지도에 없는 지역 학교는 아래 학교 목록==에서 확인하세요.",
   "fieldNote": "분야는 ==학과명을 키워드로 자동 분류==한 것입니다(공식 분류표가 아님). 정확한 계열은 ==학교 홈페이지 학과 소개==로 확인하세요.",
   "shapeNote": "행정경계는 ==통계청 시군구 경계(2013) 간이 데이터==를 단순화해 그렸습니다. 실제 경계와 미세한 차이가 있을 수 있습니다.",
   "sources": [
@@ -10,9 +10,19 @@
       "what": "학교 공식명·도로명주소·설립구분·홈페이지"
     },
     {
+      "label": "각 학교 2027학년도 신입생 입학전형 요강 (학교 홈페이지 공고 · 학교 찾기는 학교알리미)",
+      "url": "https://www.schoolinfo.go.kr/",
+      "what": "특성화고 2027 모집 학과·학급·인원 (2026-10 확인)"
+    },
+    {
+      "label": "NEIS 학급정보·시간표 (교육부)",
+      "url": "https://open.neis.go.kr/hub/classInfo",
+      "what": "2026학년도 1학년 학과별 학급 (2027 요강과 대조)"
+    },
+    {
       "label": "하이잡 — 서울 특성화고 지도 검색 (서울시교육청)",
       "url": "https://high-job.sen.go.kr/FUS/HS/SMList.do",
-      "what": "서울 직업계고 자치구·개설 학과·연락처"
+      "what": "서울 직업계고 위치·연락처 (학과 목록은 갱신이 늦어 2027 입학전형 요강으로 대체)"
     },
     {
       "label": "고입정보포털 — 학교정보 조회·지도 검색 (교육부)",
@@ -1242,21 +1252,23 @@
           "address": "서울특별시 강서구 화곡로 379",
           "homepage": "http://kbb.sen.hs.kr",
           "tel": "070-7790-0903",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "1학년공통모집",
-            "국제관광비즈니스과",
-            "국제통상과",
-            "IT비즈니스과"
+            "관광서비스과",
+            "스마트경영과",
+            "AI융합콘텐츠과",
+            "콘텐츠디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
             "관광·호텔·컨벤션",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "gyeongbok_business"
+          "schoolId": "gyeongbok_business",
+          "coedu": "남녀공학"
         },
         {
           "name": "안산국제비즈니스고등학교",
@@ -1266,8 +1278,30 @@
           "address": "경기도 안산시 상록구 수인로 1981",
           "homepage": "https://ansanib-h.goeas.kr",
           "tel": "031-483-6181",
-          "source": "NEIS",
-          "schoolId": "ansan_international_business"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "경영사무과",
+            "비즈니스중국어과",
+            "비즈니스일본어과",
+            "부사관과",
+            "미용과",
+            "보건간호과",
+            "베이커리카페과",
+            "AI게임콘텐츠과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "음식·조리·베이커리",
+            "미용·뷰티",
+            "보건·복지·보육",
+            "금융·회계·사무",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "ansan_international_business",
+          "coedu": "남녀공학"
         },
         {
           "name": "신일비즈니스고등학교",
@@ -1277,8 +1311,23 @@
           "address": "경기도 고양시 일산서구 킨텍스로 452",
           "homepage": "https://i-shinil-h.goegy.kr/",
           "tel": "031-929-2106",
-          "source": "NEIS",
-          "schoolId": "sinil_business"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "스마트IT경영과",
+            "쇼핑라이브커머스과",
+            "시각디자인과",
+            "보건간호과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "보건·복지·보육",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "sinil_business",
+          "coedu": "남녀공학"
         },
         {
           "name": "서울금융고등학교",
@@ -1288,24 +1337,25 @@
           "address": "서울특별시 양천구 가로공원로61길 19",
           "homepage": "http://seoulfc.sen.hs.kr",
           "tel": "02-2694-8834",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "금융과",
-            "소프트웨어과",
-            "세무회계과",
             "스타트업과",
             "브랜딩디자인과",
-            "반려동물과"
+            "게임디자인과",
+            "반려동물과",
+            "디저트경영과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
-            "정보통신·AI",
+            "음식·조리·베이커리",
+            "금융·회계·사무",
             "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "seoul_finance_business"
+          "schoolId": "seoul_finance_business",
+          "coedu": "남녀공학"
         },
         {
           "name": "인천비즈니스고등학교",
@@ -1315,8 +1365,23 @@
           "address": "인천광역시 미추홀구 장고개로 31",
           "homepage": "http://ibg.icehs.kr",
           "tel": "032-763-3037",
-          "source": "NEIS",
-          "schoolId": "incheon_business"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "항공서비스과",
+            "부사관경영과",
+            "SNS마케팅과",
+            "콘텐츠디자인과"
+          ],
+          "fields": [
+            "디자인·문화콘텐츠",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "incheon_business",
+          "coedu": "여학교"
         },
         {
           "name": "서울여자상업고등학교",
@@ -1326,20 +1391,19 @@
           "address": "서울특별시 관악구 관악로 85",
           "homepage": "https://sys.sen.hs.kr",
           "tel": "02-873-3614",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "1학년공통모집",
-            "금융경제과",
-            "국제통상과",
-            "재무경영과"
+            "금융투자과",
+            "글로벌경영과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "음식·조리·베이커리"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "seoul_girls_commerce"
+          "schoolId": "seoul_girls_commerce",
+          "coedu": "여학교",
+          "note": "1학년 공통 8학급 모집 → 2학년에 금융투자과·글로벌경영과로 나뉩니다"
         },
         {
           "name": "성동글로벌경영고등학교",
@@ -1349,7 +1413,7 @@
           "address": "서울특별시 중구 퇴계로 375",
           "homepage": "http://sdglobal.sen.hs.kr",
           "tel": "02-2252-1932",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "반려동물케어과",
             "세무행정과",
@@ -1357,13 +1421,14 @@
             "패션디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
+            "금융·회계·사무",
             "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "sungdong_global_mgmt"
+          "schoolId": "sungdong_global_mgmt",
+          "coedu": "남녀공학"
         },
         {
           "name": "대동세무고등학교",
@@ -1373,19 +1438,19 @@
           "address": "서울특별시 종로구 계동길 84-10",
           "homepage": "http://daedong.sen.hs.kr",
           "tel": "02-763-1630",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "세무회계과",
-            "관세무역과",
-            "세무행정과",
-            "공통모집"
+            "관세무역과"
           ],
           "fields": [
             "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "daedong_tax"
+          "schoolId": "daedong_tax",
+          "coedu": "남녀공학",
+          "note": "1학년 공통 8학급 모집 → 2학년에 세무회계과·관세무역과로 나뉩니다"
         },
         {
           "name": "성암국제무역고등학교",
@@ -1395,7 +1460,7 @@
           "address": "서울특별시 강북구 도봉로29길 52",
           "homepage": "http://seongam.sen.hs.kr",
           "tel": "02-2179-1850",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "미주무역과",
             "중국무역과",
@@ -1403,12 +1468,13 @@
             "국제문화콘텐츠과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "seongam_intl_trade"
+          "schoolId": "seongam_intl_trade",
+          "coedu": "남녀공학"
         },
         {
           "name": "일신여자상업고등학교",
@@ -1418,7 +1484,7 @@
           "address": "서울특별시 송파구 송파대로38길 8",
           "homepage": "http://ilshin.sen.hs.kr",
           "tel": "02-2140-8231",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "금융정보과",
             "회계정보과",
@@ -1426,13 +1492,14 @@
             "스마트펫경영과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "ilshin_girls_commerce"
+          "schoolId": "ilshin_girls_commerce",
+          "coedu": "여학교"
         },
         {
           "name": "분당경영고등학교",
@@ -1442,8 +1509,24 @@
           "address": "경기도 성남시 분당구 금곡로 289",
           "homepage": "https://bundangmgt-h.goesn.kr/",
           "tel": "031-8023-1305",
-          "source": "NEIS",
-          "schoolId": "bundang_management"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "회계금융과",
+            "스마트경영과",
+            "인공지능개발과",
+            "스마트호텔관광과",
+            "그래픽디자인과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "bundang_management",
+          "coedu": "남녀공학"
         },
         {
           "name": "경기국제통상고등학교",
@@ -1453,8 +1536,21 @@
           "address": "경기도 부천시 석천로 141",
           "homepage": "https://git-h.goebc.kr",
           "tel": "032-320-6218~9",
-          "source": "NEIS",
-          "schoolId": "gyeonggi_intl_trade"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "스마트물류플랫폼과",
+            "스마트경영과",
+            "국제관광경영과",
+            "국제회계정보과"
+          ],
+          "fields": [
+            "관광·호텔·컨벤션",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "gyeonggi_intl_trade",
+          "coedu": "남녀공학"
         },
         {
           "name": "경기물류고등학교",
@@ -1464,8 +1560,20 @@
           "address": "경기도 평택시 안중읍 안현로 403",
           "homepage": "https://ggl-h.goept.kr/",
           "tel": "031-650-9911",
-          "source": "NEIS",
-          "schoolId": "gyeonggi_logistics"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "국제물류과",
+            "국제경영과",
+            "융합소프트웨어과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "gyeonggi_logistics",
+          "coedu": "남녀공학"
         },
         {
           "name": "이천세무고등학교",
@@ -1475,8 +1583,17 @@
           "address": "경기도 이천시 설성면 설성로15번길 26",
           "homepage": "semu.goeic.kr",
           "tel": "031-641-6038",
-          "source": "NEIS",
-          "schoolId": "icheon_tax"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "세무회계과"
+          ],
+          "fields": [
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "icheon_tax",
+          "coedu": "남녀공학"
         },
         {
           "name": "평촌경영고등학교",
@@ -1486,8 +1603,29 @@
           "address": "경기도 안양시 동안구 학의로 186",
           "homepage": "https://pcm-h.goeay.kr",
           "tel": "031-387-0271",
-          "source": "NEIS",
-          "schoolId": "pyeongchon_management"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "미래융합경영과",
+            "스포츠산업경영과",
+            "AI콘텐츠과",
+            "영상콘텐츠과",
+            "호텔제과제빵과",
+            "호텔식음료경영과",
+            "외식조리과",
+            "크리에이티브디자인과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "pyeongchon_management",
+          "coedu": "남녀공학"
         },
         {
           "name": "인천금융고등학교",
@@ -1497,8 +1635,25 @@
           "address": "인천광역시 남동구 함박뫼로 438-9",
           "homepage": "finance.icehs.kr",
           "tel": "032-465-6503",
-          "source": "NEIS",
-          "schoolId": "incheon_finance"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "금융사무과",
+            "유아보육과",
+            "펫뷰티케어과",
+            "웹툰애니메이션과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "미용·뷰티",
+            "보건·복지·보육",
+            "금융·회계·사무",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "incheon_finance",
+          "coedu": "여학교"
         },
         {
           "name": "영종국제물류고등학교",
@@ -1508,8 +1663,19 @@
           "address": "인천광역시 영종구 운남서로10번길 1",
           "homepage": "http://yjil.icehs.kr",
           "tel": "032-746-4400",
-          "source": "NEIS",
-          "schoolId": "yeongjong_intl_logistics"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "국제물류과",
+            "국제관세과"
+          ],
+          "fields": [
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "yeongjong_intl_logistics",
+          "coedu": "남녀공학",
+          "note": "1학년 공통과정 4학급(학급당 16명)으로 모집 → 2학년에 국제물류과·국제관세과 중 선택"
         },
         {
           "name": "서울문화고등학교",
@@ -1520,145 +1686,28 @@
           "homepage": "http://seoulculture.sen.hs.kr",
           "tel": "070-7603-7049",
           "depts": [
-            "스마트행정과",
+            "경영금융과",
             "광고마케팅과",
             "엔터테인먼트과",
+            "영상크리에이터과",
             "스마트소프트웨어과",
             "콘텐츠디자인과",
-            "영상크리에이터과",
             "영상애니메이션디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
-        },
-        {
-          "name": "세그루패션디자인고등학교",
-          "shortName": "세그루패션디자인고",
-          "sido": "seoul",
-          "district": "도봉구",
-          "address": "서울특별시 도봉구 시루봉로 53",
-          "homepage": "http://sfd.sen.hs.kr",
-          "tel": "02-993-6694",
-          "depts": [
-            "비주얼MD과",
-            "미디어디자인과",
-            "패션제품디자인과",
-            "의상패션디자인과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "여",
-          "firstYearClassCount": 8,
-          "neisVerified": true
-        },
-        {
-          "name": "미래산업과학고등학교",
-          "shortName": "미래산업과학고",
-          "sido": "seoul",
-          "district": "노원구",
-          "address": "서울특별시 노원구 덕릉로82길 54",
-          "homepage": "https://mist.hs.kr/",
-          "tel": "02-3391-9848",
-          "depts": [
-            "메이커창작과",
-            "컴퓨터특허과",
-            "발명경영과",
-            "시각디자인과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 8,
-          "neisVerified": true
-        },
-        {
-          "name": "서울동산고등학교",
-          "shortName": "서울동산고",
-          "sido": "seoul",
-          "district": "노원구",
-          "address": "서울특별시 노원구 공릉로 257",
-          "homepage": "http://seouldongsan.sen.hs.kr",
-          "tel": "070-4614-5060",
-          "depts": [
-            "외식조리과",
-            "보건간호과",
-            "영유아보육과",
-            "뷰티아트과",
-            "음악영상콘텐츠과",
-            "스포츠경영과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "음식·조리·베이커리",
-            "미용·뷰티",
-            "보건·복지·보육",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 15,
-          "neisVerified": true
-        },
-        {
-          "name": "영신간호비즈니스고등학교",
-          "shortName": "영신간호비즈니스고",
-          "sido": "seoul",
-          "district": "노원구",
-          "address": "서울특별시 노원구 중계로16나길 13",
-          "homepage": "http://youngshin.sen.hs.kr",
-          "tel": "02-2289-0320",
-          "depts": [
-            "보건간호과",
-            "보건뷰티과",
-            "보건비즈니스과",
-            "웰빙베이커리과",
-            "영상그래픽디자인과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "음식·조리·베이커리",
-            "미용·뷰티",
-            "보건·복지·보육",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "여",
-          "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_culture_biz"
         },
         {
           "name": "선일빅데이터고등학교",
@@ -1669,54 +1718,25 @@
           "homepage": "https://bigdata.sen.hs.kr/",
           "tel": "02-353-0453",
           "depts": [
-            "빅데이터소셜마케팅과",
-            "빅데이터소셜미디어과"
+            "웹툰일러스트과",
+            "방송미디어과",
+            "빅데이터마케팅과",
+            "쇼핑라이브과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "여",
-          "firstYearClassCount": 7,
-          "neisVerified": true
-        },
-        {
-          "name": "신진과학기술고등학교",
-          "shortName": "신진과학기술고",
-          "sido": "seoul",
-          "district": "은평구",
-          "address": "서울특별시 은평구 은평로6길 16",
-          "homepage": "http://shinjin.hs.kr",
-          "tel": "02-385-3451",
-          "depts": [
-            "미래자동차과",
-            "스마트건설과",
-            "인공지능자동화과",
-            "호텔조리과",
-            "호텔디저트경영과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
             "정보통신·AI",
-            "기계·자동차·로봇",
-            "건설·화공·환경"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 8,
-          "neisVerified": true
+          "coedu": "여학교",
+          "firstYearClassCount": 7,
+          "neisVerified": true,
+          "schoolId": "sunil_bigdata_biz"
         },
         {
           "name": "경기상업고등학교",
@@ -1732,49 +1752,23 @@
             "공공행정과",
             "스포츠경영과",
             "뷰티디자인과",
-            "크리에이터과"
+            "영화영상과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "미용·뷰티",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "공립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 9,
-          "neisVerified": true
-        },
-        {
-          "name": "고명외식고등학교",
-          "shortName": "고명외식고등학교",
-          "sido": "seoul",
-          "district": "성북구",
-          "address": "서울특별시 성북구 북악산로 870",
-          "homepage": "http://komyung.sen.hs.kr",
-          "tel": "02-928-8366",
-          "depts": [
-            "외식경영과",
-            "디저트제과경영과",
-            "카페경영과",
-            "국제관광과"
-          ],
-          "fields": [
             "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 8,
-          "neisVerified": true
+          "source": "2027 입학전형 요강+NEIS",
+          "founding": "공립",
+          "coedu": "남녀공학",
+          "firstYearClassCount": 9,
+          "neisVerified": true,
+          "schoolId": "gyeonggi_commercial_biz"
         },
         {
           "name": "서울동구고등학교",
@@ -1786,22 +1780,23 @@
           "tel": "02-2170-8611",
           "depts": [
             "스마트금융경영과",
-            "콘텐츠크리에이터과",
+            "디지털콘텐츠과",
             "디자인과",
             "공연예술과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_donggu_biz"
         },
         {
           "name": "대경생활과학고등학교",
@@ -1812,25 +1807,27 @@
           "homepage": "http://daekyeong.sen.hs.kr",
           "tel": "02-2235-5155",
           "depts": [
-            "방송공연콘텐츠과",
-            "스마트경영",
+            "스마트경영과",
             "핀테크경영과",
+            "방송공연콘텐츠과",
             "캐릭터디자인과",
             "푸드조리디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "daekyung_biz"
         },
         {
           "name": "해성국제컨벤션고등학교",
@@ -1846,18 +1843,19 @@
             "방송공연과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "관광·호텔·컨벤션",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "haesung_convention_biz"
         },
         {
           "name": "이화여자대학교병설미디어고등학교",
@@ -1873,17 +1871,18 @@
             "디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "1학년 공통 8학급 모집 → 2학년에 국제경영과·영상콘텐츠과·디자인과로 나뉩니다",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "ewha_media_biz"
         },
         {
           "name": "선린인터넷고등학교",
@@ -1900,18 +1899,19 @@
             "콘텐츠디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 10,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seonlin_internet_biz"
         },
         {
           "name": "서울백영고등학교",
@@ -1930,163 +1930,21 @@
             "디저트제과제빵과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
-        },
-        {
-          "name": "서울영상고등학교",
-          "shortName": "서울영상고",
-          "sido": "seoul",
-          "district": "양천구",
-          "address": "서울특별시 양천구 목동로11길 46",
-          "homepage": "http://youngsang.sen.hs.kr",
-          "tel": "02-2602-7121",
-          "depts": [
-            "영상콘텐츠과",
-            "영상미디어과",
-            "영상경영과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 6,
-          "neisVerified": true
-        },
-        {
-          "name": "서울컨벤션고등학교",
-          "shortName": "서울컨벤션고",
-          "sido": "seoul",
-          "district": "강동구",
-          "address": "서울특별시 강동구 동남로 964",
-          "homepage": "http://seoul-chs.sen.hs.kr",
-          "tel": "02-3427-7200",
-          "depts": [
-            "컨벤션외식조리과",
-            "컨벤션이벤트과",
-            "컨벤션비즈니스과",
-            "컨벤션경영과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 10,
-          "neisVerified": true
-        },
-        {
-          "name": "서서울생활과학고등학교",
-          "shortName": "서서울생활과학고등학교",
-          "sido": "seoul",
-          "district": "구로구",
-          "address": "서울특별시 구로구 오리로 1355-10",
-          "homepage": "http://ssls.sen.hs.kr",
-          "tel": "02-2613-5273",
-          "depts": [
-            "IT비즈니스과",
-            "실용음악과",
-            "생활체육과",
-            "국제뷰티아트과",
-            "국제조리과학과",
-            "제과제빵과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "음식·조리·베이커리",
-            "미용·뷰티",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 8,
-          "neisVerified": true
-        },
-        {
-          "name": "서울매그넷고등학교",
-          "shortName": "서울매그넷고등학교",
-          "sido": "seoul",
-          "district": "금천구",
-          "address": "서울특별시 금천구 탑골로10길 45",
-          "homepage": "http://seoulmagnet.sen.hs.kr",
-          "tel": "02-807-6333",
-          "depts": [
-            "베이커리과",
-            "관광경영과",
-            "시각애니메이션과",
-            "시각디자인과",
-            "금융세무과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
-            "디자인·문화콘텐츠"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "여",
-          "firstYearClassCount": 6,
-          "neisVerified": true
-        },
-        {
-          "name": "서울관광고등학교",
-          "shortName": "서울관광고",
-          "sido": "seoul",
-          "district": "관악구",
-          "address": "서울특별시 관악구 은천로15길 25",
-          "homepage": "http://seoul-tour.sen.hs.kr",
-          "tel": "02-886-6796",
-          "depts": [
-            "카페경영과",
-            "관광서비스과",
-            "외식조리과"
-          ],
-          "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
-          "founding": "사립",
-          "coedu": "남여공학",
-          "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_baekyoung_biz"
         },
         {
           "name": "영락의료과학고등학교",
@@ -2097,25 +1955,27 @@
           "homepage": "http://youngnak-c.sen.hs.kr",
           "tel": "02-884-1004",
           "depts": [
-            "의료IT과",
-            "3D콘텐츠디자인과 (학과개편예정)",
-            "보건행정과",
+            "디지털 의료IT과",
+            "건강과학과",
+            "의료비즈니스과",
+            "의료미용과",
             "보건간호과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "미용·뷰티",
             "보건·복지·보육",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "youngnak_medical_biz"
         }
       ]
     },
@@ -3810,7 +3670,16 @@
           "homepage": "https://ssc.sen.hs.kr/",
           "tel": "02-2230-9885",
           "source": "NEIS",
-          "schoolId": "seoul_semicon"
+          "schoolId": "seoul_semicon",
+          "schoolType": "마이스터고",
+          "depts": [
+            "반도체장비과",
+            "반도체제조과"
+          ],
+          "fields": [
+            "전기·전자·반도체"
+          ],
+          "note": "구 휘경공업고 — ==2027학년도 마이스터고 전형==으로 반도체장비과·반도체제조과 4학급 모집"
         },
         {
           "name": "인천전자마이스터고등학교",
@@ -3821,7 +3690,8 @@
           "homepage": "http://intec.icehs.kr",
           "tel": "032-764-7021",
           "source": "NEIS",
-          "schoolId": "incheon_electronics_meister"
+          "schoolId": "incheon_electronics_meister",
+          "schoolType": "마이스터고"
         },
         {
           "name": "인천해사고등학교",
@@ -3832,7 +3702,8 @@
           "homepage": "http://inm.icehs.kr",
           "tel": "032-770-1000",
           "source": "NEIS",
-          "schoolId": "incheon_maritime"
+          "schoolId": "incheon_maritime",
+          "schoolType": "마이스터고"
         },
         {
           "name": "경기게임마이스터고등학교",
@@ -3843,7 +3714,8 @@
           "homepage": "https://ggm-h.goeay.kr",
           "tel": "031-428-5402",
           "source": "NEIS",
-          "schoolId": "gyeonggi_game"
+          "schoolId": "gyeonggi_game",
+          "schoolType": "마이스터고"
         },
         {
           "name": "수원하이텍고등학교",
@@ -3854,7 +3726,8 @@
           "homepage": "https://sht-h.goesw.kr",
           "tel": "031-201-9000",
           "source": "NEIS",
-          "schoolId": "suwon_hitech"
+          "schoolId": "suwon_hitech",
+          "schoolType": "마이스터고"
         },
         {
           "name": "평택마이스터고등학교",
@@ -3865,7 +3738,8 @@
           "homepage": "https://ptmt-h.goept.kr/ptmt-h/main.do",
           "tel": "031-659-1213",
           "source": "NEIS",
-          "schoolId": "pyeongtaek_meister"
+          "schoolId": "pyeongtaek_meister",
+          "schoolType": "마이스터고"
         }
       ]
     },
@@ -3916,7 +3790,7 @@
           "address": "서울특별시 용산구 원효로97길 33-4",
           "homepage": "https://sunrint.sen.hs.kr/",
           "tel": "02-717-4616",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "정보보호과",
             "소프트웨어과",
@@ -3924,13 +3798,17 @@
             "콘텐츠디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "seonlin_internet"
+          "schoolId": "seonlin_internet",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 10,
+          "note": null
         },
         {
           "name": "한국애니메이션고등학교",
@@ -3940,8 +3818,24 @@
           "address": "경기도 하남시 검단산로 223",
           "homepage": "https://anigo-h.goegh.kr",
           "tel": "031-790-9031",
-          "source": "NEIS",
-          "schoolId": "korea_animation"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "만화창작과",
+            "애니메이션과",
+            "영상연출과",
+            "컴퓨터게임제작과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "korea_animation",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 4,
+          "note": null
         },
         {
           "name": "한국디지털미디어고등학교",
@@ -3951,8 +3845,25 @@
           "address": "경기도 안산시 단원구 사세충열로 94",
           "homepage": "www.dimigo.hs.kr",
           "tel": "031-363-7800",
-          "source": "NEIS",
-          "schoolId": "digimedia"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "e-비즈니스과",
+            "디지털콘텐츠과",
+            "웹프로그래밍과",
+            "해킹방어과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "digimedia",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": null
         },
         {
           "name": "서울디자인고등학교",
@@ -3962,24 +3873,30 @@
           "address": "서울특별시 마포구 백범로 139",
           "homepage": "http://seodi.sen.hs.kr",
           "tel": "02-715-2261",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "패션액세서리디자인과",
-            "건축디자인과",
-            "시각디자인과",
-            "패션디자인과",
+            "웹툰콘텐츠과",
+            "3D건축인테리어과",
+            "AI아트크리에이티브과",
+            "스마트패션디자인과",
             "영상디자인과",
             "푸드스타일디자인과",
-            "사운드뮤직디자인과"
+            "K-POP뮤직디자인과"
           ],
           "fields": [
-            "음식·조리·베이커리",
+            "정보통신·AI",
+            "건설·화공·환경",
             "디자인·문화콘텐츠",
-            "건설·화공·환경"
+            "음식·조리·베이커리"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "seoul_design"
+          "schoolId": "seoul_design",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 15,
+          "note": "2027학년도 학과 변화 — ==새로 모집== AI아트크리에이티브과·K-POP뮤직디자인과 / ==모집 안 함== 사운드뮤직디자인과·크리에이티브디자인과 (2026 1학년 대비)"
         },
         {
           "name": "한국조리과학고등학교",
@@ -3989,8 +3906,20 @@
           "address": "경기도 시흥시 금오로 640",
           "homepage": "https://kcas-h.goesh.kr/kcas-h/main.do",
           "tel": "02-2610-4600",
-          "source": "NEIS",
-          "schoolId": "korea_culinary"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "조리과"
+          ],
+          "fields": [
+            "음식·조리·베이커리"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "korea_culinary",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": null
         },
         {
           "name": "한국주얼리고등학교",
@@ -4000,8 +3929,20 @@
           "address": "인천광역시 검단구 서곶로 693-1",
           "homepage": "koreajewelry.icehs.kr",
           "tel": "032-562-7955",
-          "source": "NEIS",
-          "schoolId": "korea_jewelry"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "주얼리디자인과"
+          ],
+          "fields": [
+            "디자인·문화콘텐츠"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "korea_jewelry",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 4,
+          "note": null
         },
         {
           "name": "경기모바일과학고등학교",
@@ -4011,8 +3952,25 @@
           "address": "경기도 안산시 상록구 남산평길 35",
           "homepage": "gms-h.goeas.kr",
           "tel": "031-400-6780",
-          "source": "NEIS",
-          "schoolId": "gyeonggi_mobile_science"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "행정사무과",
+            "모바일IT과",
+            "시각미디어디자인과",
+            "크리에이터창업과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "gyeonggi_mobile_science",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": null
         },
         {
           "name": "경기자동차과학고등학교",
@@ -4022,8 +3980,23 @@
           "address": "경기도 시흥시 금오로 103",
           "homepage": "https://ghas-h.goesh.kr",
           "tel": "031-310-9000",
-          "source": "NEIS",
-          "schoolId": "gyeonggi_auto_science"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "자동차과",
+            "미래자동차과",
+            "자동차디자인과"
+          ],
+          "fields": [
+            "기계·자동차·로봇",
+            "디자인·문화콘텐츠"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "gyeonggi_auto_science",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": null
         },
         {
           "name": "상일미디어고등학교",
@@ -4033,24 +4006,26 @@
           "address": "서울특별시 강동구 천호대로219길 61",
           "homepage": "http://sangilmedia.sen.hs.kr",
           "tel": "02-428-0434",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "스마트소프트웨어과",
-            "스마트정보통신과",
-            "디지털미디어디자인과",
+            "인공지능소프트웨어과",
+            "사물인터넷과",
+            "디자인과",
             "디지털만화영상과",
             "바이오푸드과"
           ],
           "fields": [
-            "음식·조리·베이커리",
-            "디자인·문화콘텐츠",
             "정보통신·AI",
-            "전기·전자·반도체",
-            "건설·화공·환경"
+            "디자인·문화콘텐츠",
+            "음식·조리·베이커리"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "sangil_media"
+          "schoolId": "sangil_media",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 10,
+          "note": "2027학년도 학과 변화 — ==새로 모집== 디자인과 / ==모집 안 함== 디지털미디어디자인과 (2026 1학년 대비)"
         },
         {
           "name": "서울컨벤션고등학교",
@@ -4060,21 +4035,25 @@
           "address": "서울특별시 강동구 동남로 964",
           "homepage": "http://seoul-chs.sen.hs.kr",
           "tel": "02-3427-7200",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
+            "미디어사운드과",
+            "베이커리카페과",
             "컨벤션외식조리과",
-            "컨벤션이벤트과",
-            "컨벤션비즈니스과",
-            "컨벤션경영과"
+            "관광레저과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
+            "디자인·문화콘텐츠",
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "schoolId": "seoul_convention"
+          "isBusinessField": false,
+          "schoolId": "seoul_convention",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 10,
+          "note": null
         },
         {
           "name": "서울영상고등학교",
@@ -4084,19 +4063,22 @@
           "address": "서울특별시 양천구 목동로11길 46",
           "homepage": "http://youngsang.sen.hs.kr",
           "tel": "02-2602-7121",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "영상콘텐츠과",
             "영상미디어과",
-            "영상경영과"
+            "영상프로듀스과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "schoolId": "seoul_video"
+          "isBusinessField": false,
+          "schoolId": "seoul_video",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": null
         },
         {
           "name": "서울디지털콘텐츠고등학교",
@@ -4106,22 +4088,27 @@
           "address": "서울특별시 강서구 방화대로47길 9",
           "homepage": "https://sdcont.sen.hs.kr/",
           "tel": "02-2064-4711",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "친환경건축과",
-            "친환경에너지화학과",
-            "u-정보통신과",
-            "생활디자인과"
+            "건축과",
+            "바이오환경에너지과",
+            "스마트정보통신과",
+            "VR콘텐츠디자인과",
+            "영상콘텐츠디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI",
             "전기·전자·반도체",
-            "건설·화공·환경"
+            "정보통신·AI",
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "seoul_digital_content"
+          "schoolId": "seoul_digital_content",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": null
         },
         {
           "name": "세그루패션디자인고등학교",
@@ -4131,20 +4118,24 @@
           "address": "서울특별시 도봉구 시루봉로 53",
           "homepage": "http://sfd.sen.hs.kr",
           "tel": "02-993-6694",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "비주얼MD과",
+            "뷰티패션과",
             "미디어디자인과",
             "패션제품디자인과",
-            "의상패션디자인과"
+            "의상패션과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "미용·뷰티"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "schoolId": "segeuru_fashion"
+          "isBusinessField": false,
+          "schoolId": "segeuru_fashion",
+          "coedu": "여학교",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": null
         },
         {
           "name": "서울공업고등학교",
@@ -4154,31 +4145,34 @@
           "address": "서울특별시 동작구 대방동1길 46",
           "homepage": "http://seoul-th.sen.hs.kr",
           "tel": "02-2082-1814",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "정밀기계과",
-            "신소재금형과",
-            "산업설비과",
-            "자동차과",
+            "스마트기계과",
+            "스마트용접설비과",
+            "미래자동차과",
             "시스템자동화과",
-            "전기전자과",
+            "친환경에너지전기과",
+            "전자과",
             "신재생에너지과",
-            "토목건축과",
-            "바이오화공",
-            "섬유디자인과",
+            "스마트건축토목과",
+            "바이오화공과",
+            "섬유패션디자인과",
             "그래픽아트과",
-            "세라믹아트"
+            "신소재세라믹과"
           ],
           "fields": [
-            "미용·뷰티",
-            "디자인·문화콘텐츠",
-            "기계·자동차·로봇",
             "전기·전자·반도체",
-            "건설·화공·환경"
+            "기계·자동차·로봇",
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "seoul_tech_hs"
+          "schoolId": "seoul_tech_hs",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 14,
+          "note": null
         },
         {
           "name": "서울여자상업고등학교",
@@ -4188,20 +4182,21 @@
           "address": "서울특별시 관악구 관악로 85",
           "homepage": "https://sys.sen.hs.kr",
           "tel": "02-873-3614",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
-            "1학년공통모집",
-            "금융경제과",
-            "국제통상과",
-            "재무경영과"
+            "금융투자과",
+            "글로벌경영과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "음식·조리·베이커리"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "seoul_womens_biz"
+          "schoolId": "seoul_womens_biz",
+          "coedu": "여학교",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": "1학년 공통 8학급 모집 → 2학년에 금융투자과·글로벌경영과로 나뉩니다"
         },
         {
           "name": "광운인공지능고등학교",
@@ -4211,21 +4206,27 @@
           "address": "서울특별시 노원구 광운로1길 24",
           "homepage": "http://kwangwoon.sen.hs.kr",
           "tel": "02-915-2605",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "인공지능컴퓨팅과",
-            "전자융합과",
-            "네트워크통신과",
+            "AI로봇과",
+            "AI정보콘텐츠과",
             "인공지능전기과",
             "인공지능소프트웨어과"
           ],
           "fields": [
+            "전기·전자·반도체",
             "정보통신·AI",
-            "전기·전자·반도체"
+            "기계·자동차·로봇",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "kwangwoon_ai"
+          "schoolId": "kwangwoon_ai",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 10,
+          "note": null
         },
         {
           "name": "예림디자인고등학교",
@@ -4235,21 +4236,24 @@
           "address": "서울특별시 구로구 오리로21길 2",
           "homepage": "http://yerim.sen.hs.kr",
           "tel": "02-2617-2332",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "시각디자인과",
             "콘텐츠디자인과",
+            "게임그래픽디자인과",
             "만화애니메이션과",
-            "패션스타일리스트과",
-            "게임그래픽디자인과"
+            "패션스타일리스트과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "schoolId": "yerim_design"
+          "schoolId": "yerim_design",
+          "coedu": "여학교",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": null
         },
         {
           "name": "대동세무고등학교",
@@ -4259,19 +4263,21 @@
           "address": "서울특별시 종로구 계동길 84-10",
           "homepage": "http://daedong.sen.hs.kr",
           "tel": "02-763-1630",
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "depts": [
             "세무회계과",
-            "관세무역과",
-            "세무행정과",
-            "공통모집"
+            "관세무역과"
           ],
           "fields": [
             "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "schoolId": "daedong_tax"
+          "schoolId": "daedong_tax",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": "1학년 공통 8학급 모집 → 2학년에 세무회계과·관세무역과로 나뉩니다"
         },
         {
           "name": "수원정보과학고등학교",
@@ -4281,8 +4287,26 @@
           "address": "경기도 수원시 영통구 동수원로551번길 16",
           "homepage": "https://swjb-h.goesw.kr",
           "tel": "031-218-4100",
-          "source": "NEIS",
-          "schoolId": "suwon_infosci"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "AI융합전자과",
+            "스마트자동화과",
+            "디자인콘텐츠과",
+            "IT소프트웨어과"
+          ],
+          "fields": [
+            "전기·전자·반도체",
+            "정보통신·AI",
+            "기계·자동차·로봇",
+            "디자인·문화콘텐츠"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "suwon_infosci",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 8,
+          "note": null
         },
         {
           "name": "안산디자인문화고등학교",
@@ -4292,8 +4316,25 @@
           "address": "경기도 안산시 상록구 각골로 87",
           "homepage": "https://adc-h.goeas.kr/",
           "tel": "031-400-3100",
-          "source": "NEIS",
-          "schoolId": "ansan_designculture"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "미디어콘텐츠과",
+            "스마트경영과",
+            "공연콘텐츠과",
+            "시각디자인과",
+            "패션디자인과"
+          ],
+          "fields": [
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": true,
+          "schoolId": "ansan_designculture",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 11,
+          "note": null
         },
         {
           "name": "경기영상과학고등학교",
@@ -4303,8 +4344,24 @@
           "address": "경기도 고양시 일산서구 강선로 8",
           "homepage": "https://gmsh-h.goegy.kr/",
           "tel": "031-919-1160",
-          "source": "NEIS",
-          "schoolId": "gyeonggi_media"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "방송영상연출과",
+            "방송촬영조명과",
+            "영상커뮤니케이션과",
+            "미디어콘텐츠과",
+            "공간연출디자인과"
+          ],
+          "fields": [
+            "디자인·문화콘텐츠"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "gyeonggi_media",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 9,
+          "note": null
         },
         {
           "name": "수원농생명과학고등학교",
@@ -4314,8 +4371,26 @@
           "address": "경기도 수원시 장안구 광교산로 13",
           "homepage": "http://sunong-h.goesw.kr",
           "tel": "031-259-4300",
-          "source": "NEIS",
-          "schoolId": "suwon_agri"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "스마트생물자원과",
+            "반려동물과",
+            "글로벌파티쉐과",
+            "푸드테크과",
+            "팜모빌리티과"
+          ],
+          "fields": [
+            "기계·자동차·로봇",
+            "음식·조리·베이커리",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "suwon_agri",
+          "coedu": "남녀공학",
+          "neisVerified": true,
+          "firstYearClassCount": 9,
+          "note": "2027학년도 학과 변화 — ==새로 모집== 글로벌파티쉐과 / ==모집 안 함== 식품생명과학과 (2026 1학년 대비)"
         },
         {
           "name": "인천해양과학고등학교",
@@ -4325,8 +4400,25 @@
           "address": "인천광역시 연수구 능허대로 71",
           "homepage": "http://mars.icehs.kr",
           "tel": "032-832-4654",
-          "source": "NEIS",
-          "schoolId": "incheon_marine"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "해양경찰파일럿과",
+            "해양경찰엔지니어과",
+            "아쿠아반려동물과",
+            "식품외식산업과",
+            "해군부사관과"
+          ],
+          "fields": [
+            "음식·조리·베이커리",
+            "반려동물·기타"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "incheon_marine",
+          "coedu": "남학교",
+          "neisVerified": true,
+          "firstYearClassCount": 7,
+          "note": null
         },
         {
           "name": "인평자동차고등학교",
@@ -4336,8 +4428,23 @@
           "address": "인천광역시 부평구 화랑로 111",
           "homepage": "http://inpyung.icehs.kr/",
           "tel": "032-517-0721",
-          "source": "NEIS",
-          "schoolId": "inpyung_auto"
+          "source": "2027 입학전형 요강+NEIS",
+          "depts": [
+            "에코자동차과",
+            "자동차바디튜닝과",
+            "AI소프트웨어과"
+          ],
+          "fields": [
+            "정보통신·AI",
+            "기계·자동차·로봇"
+          ],
+          "schoolType": "특성화고",
+          "isBusinessField": false,
+          "schoolId": "inpyung_auto",
+          "coedu": "남학교",
+          "neisVerified": true,
+          "firstYearClassCount": 6,
+          "note": "자동차 공통과정 4학급 모집 → 2학년에 에코자동차과·자동차바디튜닝과 중 선택 (AI소프트웨어과는 따로 모집)"
         },
         {
           "name": "서울문화고등학교",
@@ -4348,27 +4455,28 @@
           "homepage": "http://seoulculture.sen.hs.kr",
           "tel": "070-7603-7049",
           "depts": [
-            "스마트행정과",
+            "경영금융과",
             "광고마케팅과",
             "엔터테인먼트과",
+            "영상크리에이터과",
             "스마트소프트웨어과",
             "콘텐츠디자인과",
-            "영상크리에이터과",
             "영상애니메이션디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 경영금융과 / ==모집 안 함== 스마트행정과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_culture"
         },
         {
           "name": "경기기계공업고등학교",
@@ -4379,29 +4487,32 @@
           "homepage": "http://ggmt.sen.hs.kr",
           "tel": "02-2289-1600",
           "depts": [
-            "자동화기계과",
+            "로봇자동화과",
             "하이텍융합기계과",
-            "3D융합설계과",
+            "메이커제품설계과",
             "항공드론과",
             "스마트설비과",
-            "산업안전제철과",
-            "스마트팩토리과",
-            "전기제어과",
+            "반도체재료과",
+            "반도체메카트로닉스과",
+            "전기시스템과",
             "컴퓨터전자과"
           ],
           "fields": [
+            "전기·전자·반도체",
             "정보통신·AI",
             "기계·자동차·로봇",
-            "전기·전자·반도체"
+            "건설·화공·환경",
+            "관광·호텔·컨벤션"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 14,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "gyeonggi_mech_tech"
         },
         {
           "name": "미래산업과학고등학교",
@@ -4412,24 +4523,24 @@
           "homepage": "https://mist.hs.kr/",
           "tel": "02-3391-9848",
           "depts": [
-            "메이커창작과",
-            "컴퓨터특허과",
-            "발명경영과",
-            "시각디자인과"
+            "피지컬AI과",
+            "컴퓨터미디어과",
+            "인공지능콘텐츠과",
+            "웹툰디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "isBusinessField": false,
+          "note": "2027학년도 학과 변화 — ==새로 모집== 피지컬AI과 / ==모집 안 함== 메이커창작과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "mirae_industry_science"
         },
         {
           "name": "서울동산고등학교",
@@ -4440,28 +4551,30 @@
           "homepage": "http://seouldongsan.sen.hs.kr",
           "tel": "070-4614-5060",
           "depts": [
-            "외식조리과",
             "보건간호과",
             "영유아보육과",
             "뷰티아트과",
+            "외식조리과",
             "음악영상콘텐츠과",
             "스포츠경영과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
             "미용·뷰티",
             "보건·복지·보육",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 15,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_dongsan"
         },
         {
           "name": "서울아이티고등학교",
@@ -4472,24 +4585,27 @@
           "homepage": "http://seoulit.sen.hs.kr",
           "tel": "02-948-1901",
           "depts": [
-            "컴퓨터전기전자과",
-            "네트워크보안솔루션과",
+            "영상디자인과",
+            "지능형사이버보안과",
+            "애니메이션디자인과",
             "스마트웹콘텐츠과",
-            "폴리메카닉스과"
+            "3D모델링과",
+            "스마트융합스포츠과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
             "정보통신·AI",
-            "전기·전자·반도체"
+            "디자인·문화콘텐츠",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 영상디자인과 / ==모집 안 함== 스마트크리에이터과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 10,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_it"
         },
         {
           "name": "염광메디텍고등학교",
@@ -4500,23 +4616,23 @@
           "homepage": "http://ykm.sen.hs.kr",
           "tel": "02-994-3105",
           "depts": [
-            "보건간호과",
+            "메디컬뷰티과",
             "바이오코스메틱과",
-            "메디컬뷰티과"
+            "보건간호과"
           ],
           "fields": [
             "미용·뷰티",
-            "보건·복지·보육",
-            "건설·화공·환경"
+            "보건·복지·보육"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "yeomkwang_meditech"
         },
         {
           "name": "영신간호비즈니스고등학교",
@@ -4527,27 +4643,26 @@
           "homepage": "http://youngshin.sen.hs.kr",
           "tel": "02-2289-0320",
           "depts": [
-            "보건간호과",
+            "스마트의료간호과",
             "보건뷰티과",
-            "보건비즈니스과",
             "웰빙베이커리과",
-            "영상그래픽디자인과"
+            "스마트영상디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
             "미용·뷰티",
-            "보건·복지·보육",
-            "디자인·문화콘텐츠"
+            "보건·복지·보육"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "isBusinessField": false,
+          "note": "2027학년도 학과 변화 — ==모집 안 함== 보건코디네이터과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "youngshin_nursing_biz"
         },
         {
           "name": "인덕과학기술고등학교",
@@ -4558,25 +4673,27 @@
           "homepage": "http://induk.sen.hs.kr",
           "tel": "02-902-2180",
           "depts": [
-            "스마기계과",
-            "도시공간건설과",
-            "미래자동차과",
+            "에너지관리시스템과",
+            "도시공간디자인과",
+            "스마트모빌리티과",
             "캐릭터디자인과",
-            "실내건축과"
+            "인테리어디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
+            "전기·전자·반도체",
             "기계·자동차·로봇",
-            "건설·화공·환경"
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 10,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "induk_science_tech"
         },
         {
           "name": "성암국제무역고등학교",
@@ -4593,17 +4710,18 @@
             "국제문화콘텐츠과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "sungam_trade"
         },
         {
           "name": "동명생활경영고등학교",
@@ -4614,9 +4732,9 @@
           "homepage": "http://dmgcab.sen.hs.kr/",
           "tel": "02-383-2628 (내선:228)",
           "depts": [
-            "뷰티아트과(2학급)",
-            "영유아보육과(2",
-            "3학년)"
+            "뷰티아트과",
+            "뷰티메디컬케어과",
+            "영유아보육과"
           ],
           "fields": [
             "미용·뷰티",
@@ -4624,12 +4742,13 @@
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 뷰티메디컬케어과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "dongmyung_life"
         },
         {
           "name": "선일빅데이터고등학교",
@@ -4640,22 +4759,25 @@
           "homepage": "https://bigdata.sen.hs.kr/",
           "tel": "02-353-0453",
           "depts": [
-            "빅데이터소셜마케팅과",
-            "빅데이터소셜미디어과"
+            "웹툰일러스트과",
+            "방송미디어과",
+            "빅데이터마케팅과",
+            "쇼핑라이브과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "sunil_bigdata"
         },
         {
           "name": "선정국제관광고등학교",
@@ -4666,23 +4788,24 @@
           "homepage": "http://sjt.sen.hs.kr",
           "tel": "02-3156-1600",
           "depts": [
-            "호텔항공과",
+            "호텔항공관광과",
             "관광콘텐츠과",
             "간호과"
           ],
           "fields": [
+            "디자인·문화콘텐츠",
             "관광·호텔·컨벤션",
-            "보건·복지·보육",
-            "디자인·문화콘텐츠"
+            "보건·복지·보육"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "sunjung_tourism"
         },
         {
           "name": "세명컴퓨터고등학교",
@@ -4696,19 +4819,25 @@
             "스마트보안솔루션과",
             "모빌리티메이커과",
             "인공지능소프트웨어과",
-            "게임소프트웨어과"
+            "게임소프트웨어과",
+            "AI미디어테크과",
+            "AI스포츠테크과"
           ],
           "fields": [
-            "정보통신·AI"
+            "정보통신·AI",
+            "기계·자동차·로봇",
+            "디자인·문화콘텐츠",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== AI미디어테크과·AI스포츠테크과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "semyung_computer"
         },
         {
           "name": "신진과학기술고등학교",
@@ -4726,21 +4855,22 @@
             "호텔디저트경영과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
             "정보통신·AI",
             "기계·자동차·로봇",
-            "건설·화공·환경"
+            "건설·화공·환경",
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "shinjin_science_tech"
         },
         {
           "name": "예일디자인고등학교",
@@ -4751,23 +4881,24 @@
           "homepage": "http://yaledesign.sen.hs.kr",
           "tel": "02-380-0865",
           "depts": [
-            "시각디자인과",
             "웹콘텐츠디자인과",
-            "패션스타일과",
-            "3D공간제품디자인과"
+            "패션·스타일과",
+            "웹툰·애니메이션과",
+            "시각디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 웹툰·애니메이션과 / ==모집 안 함== 3D공간제품디자인과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "yeil_design"
         },
         {
           "name": "은평메디텍고등학교",
@@ -4778,23 +4909,27 @@
           "homepage": "http://eunpyeong.sen.hs.kr",
           "tel": "070-4020-6862",
           "depts": [
-            "건강조리과",
-            "보건간호과",
             "e스포츠과",
-            "SMT코딩과"
+            "스마트AI과",
+            "조리디저트과",
+            "보건간호과"
           ],
           "fields": [
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
-            "보건·복지·보육"
+            "보건·복지·보육",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 스마트AI과·조리디저트과 / ==모집 안 함== SMT코딩과·건강조리과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "eunpyeong_meditech"
         },
         {
           "name": "경기상업고등학교",
@@ -4810,21 +4945,23 @@
             "공공행정과",
             "스포츠경영과",
             "뷰티디자인과",
-            "크리에이터과"
+            "영화영상과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "미용·뷰티",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 9,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "gyeonggi_commercial_seoul"
         },
         {
           "name": "서일문화예술고등학교",
@@ -4839,16 +4976,18 @@
             "뮤지컬연기과"
           ],
           "fields": [
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoil_arts"
         },
         {
           "name": "고명외식고등학교",
@@ -4865,18 +5004,19 @@
             "국제관광과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "음식·조리·베이커리",
             "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "gomyung_culinary"
         },
         {
           "name": "서울동구고등학교",
@@ -4888,22 +5028,23 @@
           "tel": "02-2170-8611",
           "depts": [
             "스마트금융경영과",
-            "콘텐츠크리에이터과",
+            "디지털콘텐츠과",
             "디자인과",
             "공연예술과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 디지털콘텐츠과 / ==모집 안 함== 콘텐츠크리에이터과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_donggu"
         },
         {
           "name": "대경생활과학고등학교",
@@ -4914,25 +5055,27 @@
           "homepage": "http://daekyeong.sen.hs.kr",
           "tel": "02-2235-5155",
           "depts": [
-            "방송공연콘텐츠과",
-            "스마트경영",
+            "스마트경영과",
             "핀테크경영과",
+            "방송공연콘텐츠과",
             "캐릭터디자인과",
             "푸드조리디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 스마트경영과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "daekyung_life_science"
         },
         {
           "name": "리라아트고등학교",
@@ -4947,16 +5090,18 @@
             "건강과학과"
           ],
           "fields": [
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "보건·복지·보육"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "lira_art"
         },
         {
           "name": "서울의료보건고등학교",
@@ -4975,11 +5120,12 @@
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_medical_health"
         },
         {
           "name": "성동공업고등학교",
@@ -4990,29 +5136,28 @@
           "homepage": "http://sdth.sen.hs.kr",
           "tel": "070-8685-7645",
           "depts": [
-            "컴퓨터응용기계과",
-            "산업설비과",
-            "스마트팩토리과",
-            "전기과",
-            "전자과",
-            "건축토목과",
-            "주얼리디자인과"
+            "소방안전기계과",
+            "소방시설관리과",
+            "소방전기과",
+            "소방모빌리티과",
+            "도시건축디자인과",
+            "패션주얼리디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI",
-            "기계·자동차·로봇",
             "전기·전자·반도체",
-            "건설·화공·환경"
+            "기계·자동차·로봇",
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 9,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "sungdong_tech"
         },
         {
           "name": "성동글로벌경영고등학교",
@@ -5029,18 +5174,19 @@
             "패션디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
+            "금융·회계·사무",
             "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "sungdong_global_biz"
         },
         {
           "name": "한양과학기술고등학교",
@@ -5051,57 +5197,26 @@
           "homepage": "http://hanyang.sen.hs.kr",
           "tel": "070-4832-3807",
           "depts": [
-            "건설정보과",
-            "건축과",
-            "자동화기계과",
-            "디지털전자과",
-            "자동차과",
-            "컴퓨터네트워크과"
+            "스마트건설정보과",
+            "디지털건축과",
+            "스마트융합기계과",
+            "스마트전자과",
+            "친환경자동차과"
           ],
           "fields": [
-            "정보통신·AI",
-            "기계·자동차·로봇",
             "전기·전자·반도체",
+            "기계·자동차·로봇",
             "건설·화공·환경"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남",
+          "coedu": "남녀공학",
           "firstYearClassCount": 10,
-          "neisVerified": true
-        },
-        {
-          "name": "서울반도체고등학교",
-          "shortName": "서울반도체고",
-          "sido": "seoul",
-          "district": "동대문구",
-          "address": "서울특별시 동대문구 겸재로 21",
-          "homepage": "https://ssc.sen.hs.kr/",
-          "tel": "02-2230-9951",
-          "depts": [
-            "컴퓨터응용기계과",
-            "기계설비과",
-            "자동차과",
-            "전기제어과",
-            "디지털전자과",
-            "건설교통과"
-          ],
-          "fields": [
-            "정보통신·AI",
-            "기계·자동차·로봇",
-            "전기·전자·반도체",
-            "건설·화공·환경"
-          ],
-          "schoolType": "특성화고",
-          "isBusinessField": false,
-          "note": "==마이스터고로 전환해 신입생 모집== (2026학년도 서울시교육청 안내 기준)",
-          "source": "하이잡+NEIS",
-          "founding": "공립",
-          "coedu": "남여공학",
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "hanyang_science_tech"
         },
         {
           "name": "서울정화고등학교",
@@ -5118,18 +5233,20 @@
             "뷰티디자인과"
           ],
           "fields": [
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
             "미용·뷰티",
-            "디자인·문화콘텐츠"
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_junghwa"
         },
         {
           "name": "해성국제컨벤션고등학교",
@@ -5145,18 +5262,19 @@
             "방송공연과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "관광·호텔·컨벤션",
-            "디자인·문화콘텐츠"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "haesung_convention"
         },
         {
           "name": "송곡관광고등학교",
@@ -5168,20 +5286,22 @@
           "tel": "02-434-5627",
           "depts": [
             "조리과학과",
+            "카페디저트과",
             "호텔관광과"
           ],
           "fields": [
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "songgok_tourism"
         },
         {
           "name": "이화여자대학교병설미디어고등학교",
@@ -5197,17 +5317,18 @@
             "디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "1학년 공통 8학급 모집 → 2학년에 국제경영과·영상콘텐츠과·디자인과로 나뉩니다",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "ewha_media"
         },
         {
           "name": "한세사이버보안고등학교",
@@ -5218,21 +5339,23 @@
           "homepage": "http://hansei.sen.hs.kr",
           "tel": "02-362-0132",
           "depts": [
-            "메타버스게임과",
             "지능형소프트웨어과",
-            "클라우드보안과"
+            "게임디자인과",
+            "해킹보안과"
           ],
           "fields": [
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 게임디자인과·해킹보안과 / ==모집 안 함== 메타버스게임과·클라우드보안과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 4,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "hansei_cyber"
         },
         {
           "name": "홍익디자인고등학교",
@@ -5252,11 +5375,12 @@
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "hongik_design"
         },
         {
           "name": "서울디지텍고등학교",
@@ -5268,20 +5392,21 @@
           "tel": "02-798-3641",
           "depts": [
             "게임개발과",
-            "인공지능소프트웨어과",
-            "빅데이터과"
+            "인공지능게임과"
           ],
           "fields": [
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "1학년 게임융합과정 4학급 모집 → 2학년에 게임개발과·인공지능게임과로 나뉩니다",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 4,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_digitech"
         },
         {
           "name": "용산철도고등학교",
@@ -5293,26 +5418,28 @@
           "tel": "02-6905-7739",
           "depts": [
             "철도운전기계과",
+            "철도차량과",
             "철도전기신호과",
             "철도전자통신과",
             "철도건설과",
-            "공조설비과",
-            "자동차과"
+            "철도운영사무과"
           ],
           "fields": [
-            "기계·자동차·로봇",
             "전기·전자·반도체",
+            "기계·자동차·로봇",
             "건설·화공·환경",
-            "철도"
+            "철도",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": false,
-          "note": "2026학년도 서울시교육청 안내 기준 ==마이스터고==로 표기 (NEIS 분류는 아직 특성화고)",
-          "source": "하이잡+NEIS",
+          "isBusinessField": true,
+          "note": "철도운전기계·차량 계열 4학급은 계열로 모집 → 2학년에 철도운전기계과·철도차량과로 나뉩니다 · 서울형 마이스터고 선도학교(특성화고 유지)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "yongsan_railway"
         },
         {
           "name": "서울방송고등학교",
@@ -5334,11 +5461,12 @@
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_broadcasting"
         },
         {
           "name": "경복비즈니스고등학교",
@@ -5349,24 +5477,26 @@
           "homepage": "http://kbb.sen.hs.kr",
           "tel": "070-7790-0903",
           "depts": [
-            "1학년공통모집",
-            "국제관광비즈니스과",
-            "국제통상과",
-            "IT비즈니스과"
+            "관광서비스과",
+            "스마트경영과",
+            "AI융합콘텐츠과",
+            "콘텐츠디자인과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "디자인·문화콘텐츠",
             "관광·호텔·컨벤션",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 관광서비스과 / ==모집 안 함== 국제관광비즈니스과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "kyungbok_business"
         },
         {
           "name": "서울백영고등학교",
@@ -5385,20 +5515,21 @@
             "디저트제과제빵과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "음식·조리·베이커리",
+            "관광·호텔·컨벤션",
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_baekyoung"
         },
         {
           "name": "서울신정고등학교",
@@ -5411,24 +5542,24 @@
           "depts": [
             "웹크리에이터과",
             "생활체육과",
-            "관광서비스과",
-            "베이커리과",
-            "외식조리과"
+            "푸드조리과",
+            "베이커리과"
           ],
           "fields": [
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
+            "정보통신·AI",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "음식·조리·베이커리",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "남녀공학",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_shinjeong"
         },
         {
           "name": "서울홍신고등학교",
@@ -5444,18 +5575,19 @@
             "뷰티아트과"
           ],
           "fields": [
+            "디자인·문화콘텐츠",
             "미용·뷰티",
-            "보건·복지·보육",
-            "디자인·문화콘텐츠"
+            "보건·복지·보육"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_hongshin"
         },
         {
           "name": "영등포공업고등학교",
@@ -5466,24 +5598,25 @@
           "homepage": "https://younggong.sen.hs.kr",
           "tel": "070-5068-4710",
           "depts": [
-            "IT융합건축과",
+            "공연무대디자인과",
             "스마트전기과",
-            "IT융합기계과"
+            "반도체시스템과",
+            "스포츠과학시설과"
           ],
           "fields": [
-            "정보통신·AI",
-            "기계·자동차·로봇",
             "전기·전자·반도체",
-            "건설·화공·환경"
+            "디자인·문화콘텐츠",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남",
+          "coedu": "남학교",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "yeongdeungpo_tech"
         },
         {
           "name": "대일관광고등학교",
@@ -5500,18 +5633,19 @@
             "뷰티아트과"
           ],
           "fields": [
-            "관광·호텔·컨벤션",
             "음식·조리·베이커리",
+            "관광·호텔·컨벤션",
             "미용·뷰티"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "daeil_tourism"
         },
         {
           "name": "서울금융고등학교",
@@ -5523,26 +5657,27 @@
           "tel": "02-2694-8834",
           "depts": [
             "금융과",
-            "소프트웨어과",
-            "세무회계과",
             "스타트업과",
             "브랜딩디자인과",
-            "반려동물과"
+            "게임디자인과",
+            "반려동물과",
+            "디저트경영과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
-            "정보통신·AI",
+            "음식·조리·베이커리",
+            "금융·회계·사무",
             "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 디저트경영과 / ==모집 안 함== 소프트웨어과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_finance"
         },
         {
           "name": "한강미디어고등학교",
@@ -5553,23 +5688,24 @@
           "homepage": "https://hm.sen.hs.kr",
           "tel": "02-2671-1448",
           "depts": [
-            "방송기술과",
-            "산업디자인과",
+            "방송미디어과",
+            "크리에이티브디자인과",
             "사진영상과",
-            "웹미디어콘텐츠과(2018학년도 신설학과)"
+            "웹미디어콘텐츠과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "hangang_media"
         },
         {
           "name": "서울웹툰애니메이션고등학교",
@@ -5580,24 +5716,23 @@
           "homepage": "https://swas.sen.hs.kr",
           "tel": "02-6011-4110",
           "depts": [
-            "스마트시스템과",
-            "조명아트과",
-            "게임콘텐츠과",
-            "미디어아트과"
+            "웹툰과",
+            "애니메이션과",
+            "게임콘텐츠과"
           ],
           "fields": [
-            "미용·뷰티",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "웹툰·애니메이션계열 4학급은 계열로 모집 → 2학년에 웹툰과·애니메이션과로 나뉩니다 (게임콘텐츠과는 따로 모집)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_webtoon_animation"
         },
         {
           "name": "단국대학교부속소프트웨어고등학교",
@@ -5613,17 +5748,18 @@
             "게임콘텐츠과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "정보통신·AI",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "1학년 공통 5학급 모집 → 2학년에 인공지능소프트웨어과·사물인터넷소프트웨어과·게임콘텐츠과로 나뉩니다",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남",
+          "coedu": "남학교",
           "firstYearClassCount": 5,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "dankook_software"
         },
         {
           "name": "대진디자인고등학교",
@@ -5639,18 +5775,18 @@
             "메타버스디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "정보통신·AI",
-            "건설·화공·환경"
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 9,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "daejin_design"
         },
         {
           "name": "서울인공지능고등학교",
@@ -5661,24 +5797,26 @@
           "homepage": "https://seoulai.sen.hs.kr",
           "tel": "02-6711-3430",
           "depts": [
-            "전기에너지과",
-            "AI전자과",
             "AI컴퓨터과",
-            "하이텍디자인과"
+            "AI로봇과",
+            "전기에너지과",
+            "AI콘텐츠디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
+            "전기·전자·반도체",
             "정보통신·AI",
-            "전기·전자·반도체"
+            "기계·자동차·로봇",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "공립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 7,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_ai"
         },
         {
           "name": "일신여자상업고등학교",
@@ -5695,18 +5833,19 @@
             "스마트펫경영과"
           ],
           "fields": [
-            "금융·회계·사무",
             "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무",
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "ilshin_girls_commercial"
         },
         {
           "name": "덕일전자공업고등학교",
@@ -5718,20 +5857,22 @@
           "tel": "02-2613-2762",
           "depts": [
             "전자과",
-            "정보통신과"
+            "전자시스템제어과",
+            "로봇드론과"
           ],
           "fields": [
-            "정보통신·AI",
-            "전기·전자·반도체"
+            "전기·전자·반도체",
+            "기계·자동차·로봇"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 4,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "deokil_electronics"
         },
         {
           "name": "서서울생활과학고등학교",
@@ -5742,7 +5883,6 @@
           "homepage": "http://ssls.sen.hs.kr",
           "tel": "02-2613-5273",
           "depts": [
-            "IT비즈니스과",
             "실용음악과",
             "생활체육과",
             "국제뷰티아트과",
@@ -5750,20 +5890,20 @@
             "제과제빵과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "디자인·문화콘텐츠",
             "음식·조리·베이커리",
             "미용·뷰티",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "반려동물·기타"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "isBusinessField": false,
+          "note": "2027학년도 학과 변화 — ==모집 안 함== IT비즈니스과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "west_seoul_life_science"
         },
         {
           "name": "유한공업고등학교",
@@ -5774,24 +5914,26 @@
           "homepage": "http://yuhan.sen.hs.kr",
           "tel": "02-2610-0952",
           "depts": [
+            "스마트제어과",
             "자동화시스템과",
-            "로봇전기자동화과",
-            "건축인테리어디자인과"
+            "로봇전기과",
+            "건축디자인과"
           ],
           "fields": [
-            "디자인·문화콘텐츠",
-            "기계·자동차·로봇",
             "전기·전자·반도체",
-            "건설·화공·환경"
+            "기계·자동차·로봇",
+            "건설·화공·환경",
+            "디자인·문화콘텐츠"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "yuhan_tech"
         },
         {
           "name": "서울매그넷고등학교",
@@ -5802,26 +5944,24 @@
           "homepage": "http://seoulmagnet.sen.hs.kr",
           "tel": "02-807-6333",
           "depts": [
-            "베이커리과",
-            "관광경영과",
-            "시각애니메이션과",
             "시각디자인과",
-            "금융세무과"
+            "시각애니메이션과",
+            "베이커리과",
+            "카페디저트과"
           ],
           "fields": [
-            "금융·회계·사무",
-            "관광·호텔·컨벤션",
-            "음식·조리·베이커리",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "음식·조리·베이커리"
           ],
           "schoolType": "특성화고",
-          "isBusinessField": true,
+          "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "여",
+          "coedu": "여학교",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_magnet"
         },
         {
           "name": "광신방송예술고등학교",
@@ -5832,23 +5972,24 @@
           "homepage": "http://ksmedia.sen.hs.kr",
           "tel": "02-881-8612",
           "depts": [
-            "만화영상과",
-            "방송영상과",
             "미디어메이크업아티스트과",
-            "연예엔터테인먼트과"
+            "연예엔터테인먼트과",
+            "방송영상과",
+            "만화영상과"
           ],
           "fields": [
-            "미용·뷰티",
-            "디자인·문화콘텐츠"
+            "디자인·문화콘텐츠",
+            "미용·뷰티"
           ],
           "schoolType": "특성화고",
           "isBusinessField": false,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "kwangshin_broadcast_arts"
         },
         {
           "name": "서울관광고등학교",
@@ -5864,18 +6005,19 @@
             "외식조리과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "음식·조리·베이커리",
             "관광·호텔·컨벤션",
-            "음식·조리·베이커리"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
           "note": null,
-          "source": "하이잡+NEIS",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 8,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "seoul_tourism"
         },
         {
           "name": "영락의료과학고등학교",
@@ -5886,25 +6028,27 @@
           "homepage": "http://youngnak-c.sen.hs.kr",
           "tel": "02-884-1004",
           "depts": [
-            "의료IT과",
-            "3D콘텐츠디자인과 (학과개편예정)",
-            "보건행정과",
+            "디지털 의료IT과",
+            "건강과학과",
+            "의료비즈니스과",
+            "의료미용과",
             "보건간호과"
           ],
           "fields": [
-            "금융·회계·사무",
+            "정보통신·AI",
+            "미용·뷰티",
             "보건·복지·보육",
-            "디자인·문화콘텐츠",
-            "정보통신·AI"
+            "금융·회계·사무"
           ],
           "schoolType": "특성화고",
           "isBusinessField": true,
-          "note": null,
-          "source": "하이잡+NEIS",
+          "note": "2027학년도 학과 변화 — ==새로 모집== 디지털 의료IT과 / ==모집 안 함== 의료IT과 (2026 1학년 대비)",
+          "source": "2027 입학전형 요강+NEIS",
           "founding": "사립",
-          "coedu": "남여공학",
+          "coedu": "남녀공학",
           "firstYearClassCount": 6,
-          "neisVerified": true
+          "neisVerified": true,
+          "schoolId": "youngnak_medical_science"
         }
       ]
     },
@@ -6182,5 +6326,74 @@
   "districtLabel": {
     "서구": "서구 (검단·서해)"
   },
-  "districtNote": "==인천은 2026년 7월 행정구역이 개편==(중구·동구 → 제물포구·영종구, 서구 → 서구·검단구·서해구)돼 지도 경계(2013년 기준)와 주소의 구 이름이 다를 수 있습니다. ==검단구·서해구 학교는 옛 서구 영역==에 함께 표시됩니다."
+  "districtNote": "==인천은 2026년 7월 행정구역이 개편==(중구·동구 → 제물포구·영종구, 서구 → 서구·검단구·서해구)돼 지도 경계(2013년 기준)와 주소의 구 이름이 다를 수 있습니다. ==검단구·서해구 학교는 옛 서구 영역==에 함께 표시됩니다.",
+  "categoryProfile": {
+    "arts_sports": {
+      "difficulty": 4,
+      "feature": "실기 중심 예체능 단일 트랙 — 일반 대입은 사실상 포기가 전제",
+      "sampleSize": 10
+    },
+    "autonomous_private": {
+      "difficulty": 4,
+      "feature": "교육과정 자율 + 학비 자부담 — 정시·학종 모두 강하지만 학교별 색이 뚜렷",
+      "sampleSize": 45
+    },
+    "autonomous_public": {
+      "difficulty": 3,
+      "feature": "무상교육 + 일반고 안정성 + 학교별 특색 심화과목 — 가성비형",
+      "sampleSize": 77
+    },
+    "business": {
+      "difficulty": 3,
+      "feature": "전산회계·금융 자격증으로 고졸 취업 직결 — 상경계 특별전형 진학도 병행",
+      "sampleSize": 37
+    },
+    "foreign_language": {
+      "difficulty": 4,
+      "feature": "전공어 1개를 깊게 — 어문·국제 학종에 최적, 이과·의대 목표면 재고",
+      "sampleSize": 28
+    },
+    "general": {
+      "difficulty": 3,
+      "feature": "선택지가 가장 넓고 1등급 확보에 유리한 표준 트랙",
+      "sampleSize": 8
+    },
+    "general_elite": {
+      "difficulty": 4,
+      "feature": "학군지 일반고 — 정시·학종 균형, 대신 내신 경쟁 모집단이 두꺼움",
+      "sampleSize": 194
+    },
+    "ib": {
+      "difficulty": 4,
+      "feature": "서술·논술형 IB 과정 — 학종·해외 진학형, 수능 정시와는 상충",
+      "sampleSize": 35
+    },
+    "international": {
+      "difficulty": 4,
+      "feature": "국제 이슈·사회과학 중심 — 글로벌 학종에 강하고 이과는 구조적 한계",
+      "sampleSize": 8
+    },
+    "meister": {
+      "difficulty": 3,
+      "feature": "국가가 산업 분야를 지정한 취업 특화고 — 학비 무상 + 전기 전형",
+      "sampleSize": 64
+    },
+    "science_high": {
+      "difficulty": 5,
+      "feature": "R&E 연구 중심 이공계 트랙 — 의약학 진학은 사실상 닫힘",
+      "sampleSize": 16
+    },
+    "specialized": {
+      "difficulty": 3,
+      "feature": "학과별 전문 기술 실습 중심 — 취업 + 동일계 특별전형 진학",
+      "sampleSize": 49
+    },
+    "alternative": {
+      "difficulty": 2,
+      "feature": "학력 인정 여부부터 확인 — 교육과정 자율성이 가장 큼",
+      "sampleSize": 53
+    }
+  },
+  "difficultyNote": "난이도는 ==이 사이트의 학교 상세 카드에 기록된 1~5단계 지표==입니다(1 입문 · 5 최상위). 공식 등급이 아니라 ==선발 경쟁률·요구 내신·준비 부담==을 종합한 참고치예요. 상세 카드가 없는 학교는 ==해당 유형의 대표값(유형 기준)==을 보여 줍니다.",
+  "featureNote": "특징은 ==상세 카드의 인증·지정 사실과 학생층 설명==에서 가져옵니다. 상세 카드가 없는 학교는 ==유형 공통 특징==을 보여 주니, 개별 학교는 홈페이지 모집요강으로 확인하세요."
 }

@@ -23,6 +23,7 @@ import type { IdentityChallengeData, MentalChallengeData } from '../../types';
 import { PlanetOrbitView } from './PlanetOrbitView';
 import { SchoolCategoryView } from './SchoolCategoryView';
 import { SchoolDetailDialog } from './SchoolDetailDialog';
+import { ExpandableDetailPanel } from './ExpandableDetailPanel';
 import { YouthProgramsView } from './YouthProgramsView';
 import { enrichHighSchoolCategories } from './school-profile-enricher';
 import {
@@ -193,7 +194,8 @@ export function HighSchoolAdmissionTab() {
         hasSelection={hasDetailSelection}
         onClearSelection={handleClearAll}
         mobileListMode="stack"
-
+        stickyListClassName={EXPLORE_PAGE_LAYOUT_CLASS.stickyListColumn}
+        listGrowClassName="md:grow-[7]"
         emptyPlaceholderText="학교 유형을 선택하세요"
         emptyPlaceholderSubText="왼쪽에서 학교 유형(행성)을 클릭하면 카테고리 설명과 학교 목록이 여기에 표시됩니다"
         listSlot={
@@ -258,18 +260,21 @@ export function HighSchoolAdmissionTab() {
         }
         detailSlot={
           selectedYouthCat ? (
-            <div className="rounded-2xl" style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(129,140,248,0.35)' }}>
+            <ExpandableDetailPanel
+              accentColor="#818CF8"
+              title={YOUTH_SUBVIEWS.find((y) => y.cat === selectedYouthCat)?.label ?? '청소년 활동'}
+            >
               <YouthProgramsView key={selectedYouthCat} category={selectedYouthCat} />
-            </div>
+            </ExpandableDetailPanel>
           ) : selectedCategory ? (
-            <div className="rounded-2xl p-4" style={{ background: 'rgba(15,23,42,0.6)', border: `1px solid ${selectedCategory.color}40` }}>
+            <ExpandableDetailPanel className="p-4" accentColor={selectedCategory.color} title={selectedCategory.name}>
               <SchoolCategoryView
                 variant="rightDetail"
                 category={selectedCategory}
                 onBack={handleClearAll}
                 onSelectSchool={handleSelectSchool}
               />
-            </div>
+            </ExpandableDetailPanel>
           ) : null
         }
       />

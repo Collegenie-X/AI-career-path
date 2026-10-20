@@ -648,7 +648,7 @@ export function TuitionStructureTree({
             >
               <div className="flex items-center gap-2">
                 <span className="text-lg flex-shrink-0">{layer.emoji}</span>
-                <span className="text-[13px] font-bold text-white flex-1 min-w-0">{layer.label}</span>
+                <span className="text-[13px] font-bold text-white flex-1 min-w-0"><HL text={layer.label} /></span>
                 <span
                   className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
                   style={{ background: badge.bg, color: badge.color }}
@@ -842,19 +842,35 @@ export function SchoolGroupTreeSection({
           <p className="text-[13px] text-gray-200 leading-relaxed mb-2">
             <HL text={tree.nationalStatus.headline} />
           </p>
-          <div className="space-y-1">
+          <div
+            className={tree.nationalStatus.rows.some((r) => r.sido.length > 4) ? 'space-y-2.5' : 'space-y-1'}
+          >
             {tree.nationalStatus.rows.map((row) => {
               const max = Math.max(...tree.nationalStatus!.rows.map((r) => r.count));
+              // 시·도명(2~3자)은 좁게, '마이스터고 1차 유지취업률' 같은 긴 라벨은 넓혀 2줄 이내로
+              const longLabel = tree.nationalStatus!.rows.some((r) => r.sido.length > 4);
+              // 취업률·비중 행은 학교 수가 아니라 비율 → % 단위, 막대도 100% 기준
+              const isPercent = /률|비중/.test(row.sido);
+              const barMax = isPercent ? 100 : max;
               return (
                 <div key={row.sido} className="flex items-center gap-2">
-                  <span className="text-[12px] font-bold text-gray-200 w-10 flex-shrink-0">{row.sido}</span>
+                  <span
+                    className={`text-[12px] font-bold text-gray-200 flex-shrink-0 ${
+                      longLabel ? 'w-[104px] leading-tight break-keep' : 'w-10'
+                    }`}
+                  >
+                    {row.sido}
+                  </span>
                   <span className="flex-1 h-3.5 rounded-full overflow-hidden" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <span
                       className="block h-full rounded-full"
-                      style={{ width: `${(row.count / max) * 100}%`, background: `linear-gradient(90deg, ${color}cc, ${color}66)` }}
+                      style={{ width: `${(row.count / barMax) * 100}%`, background: `linear-gradient(90deg, ${color}cc, ${color}66)` }}
                     />
                   </span>
-                  <span className="text-[12px] font-bold w-10 text-right flex-shrink-0" style={{ color }}>{row.count}교</span>
+                  <span className="text-[12px] font-bold w-10 text-right flex-shrink-0" style={{ color }}>
+                    {row.count}
+                    {isPercent ? '%' : '교'}
+                  </span>
                 </div>
               );
             })}
@@ -905,7 +921,7 @@ export function SchoolGroupTreeSection({
               >
                 <p className="text-[13px] font-bold mb-1 flex items-start gap-1.5" style={{ color }}>
                   <span className="text-base leading-none mt-0.5">{group.emoji}</span>
-                  <span className="flex-1 min-w-0">{group.label}</span>
+                  <span className="flex-1 min-w-0"><HL text={group.label} /></span>
                   <span className="text-[11px] font-bold flex-shrink-0" style={{ color: '#9ca3af' }}>
                     {group.schools.length}교
                   </span>
@@ -1313,7 +1329,7 @@ export function CategoryFocusAxes({
               className="w-full px-3.5 py-3 text-left"
             >
               <p className="text-[13px] font-bold flex items-center justify-between gap-2" style={{ color }}>
-                <span>{axis.emoji} {axis.label}</span>
+                <span>{axis.emoji} <HL text={axis.label} /></span>
                 <span className="text-gray-500 font-normal">
                   {axis.schools.length > 0 ? `${axis.schools.length}곳 ` : ''}{open ? '▲' : '▼'}
                 </span>

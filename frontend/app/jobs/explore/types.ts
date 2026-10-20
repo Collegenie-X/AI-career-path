@@ -437,7 +437,7 @@ export type HighSchoolDetail = {
   difficulty: number;
   annualAdmission: number;
   tuition: string;
-  dormitory: boolean;
+  dormitory: boolean | null;
   ibCertified: boolean;
   specialCertification: string;
   teachingMethod: string;
@@ -458,6 +458,7 @@ export type HighSchoolDetail = {
   dailySchedule?: SchoolDailyScheduleItem[];
   survivalTips?: SchoolSurvivalTip[];
   competitionLevel?: string;
+  competitionLevelSource?: string;
   studyHoursPerDay?: string;
   selfStudyRatio?: string;
   socialLife?: string;
@@ -499,9 +500,13 @@ export type HighSchoolDetail = {
   /** 목록 카드에 노출할 특화 태그 (예: "🤖 AI", "🔬 과학중점") */
   listTags?: string[];
   /** 개설 학과 목록 — 계열 분류·뱃지의 1순위 근거 */
-  departments?: string[];
+  departments?: (string | { name: string; description?: string })[];
+  /** 학과 대신 다른 이름으로 보여줄 때의 제목 (예: 국제고는 "전공 과목") — 없으면 "학과" */
+  departmentsLabel?: string;
   /** 학과 출처 표기 */
   departmentsSource?: string;
+  /** 학과·과정이 실제로 어떻게 나뉘는지 한 줄 설명 (예: "2학년부터 인문사회·자연 과정 선택") */
+  departmentsNote?: string;
   /** 1학년 학급 수 (NEIS 학급정보) */
   firstYearClassCount?: number;
   firstYearClassCountSource?: string;
@@ -525,6 +530,25 @@ export type HighSchoolDetail = {
   universityOutcomes?: SchoolUniversityOutcomes;
   /** 지역 연계·선발 범위 */
   regionalLinkage?: SchoolRegionalLinkage;
+  /** 홈페이지·공시·기사·졸업생 후기에서 모은 학교 이야기 (항목마다 출처 링크) */
+  webReview?: SchoolWebReview;
+};
+
+/** 웹 조사 항목 종류 — official: 학교 홈페이지, stats: 공시·합격자 수, news: 기사, alumni: 졸업생·재학생 후기, blog: 블로그·커뮤니티 */
+export type SchoolWebReviewKind = 'official' | 'stats' | 'news' | 'alumni' | 'blog';
+export type SchoolWebReviewItem = {
+  kind: SchoolWebReviewKind;
+  emoji: string;
+  title: string;
+  content: string;
+  source: SchoolSourceLink;
+};
+export type SchoolWebReview = {
+  asOf: string;
+  headline: string;
+  items: SchoolWebReviewItem[];
+  /** 조사로 바로잡거나 새로 확인한 사실 (공·사립, 성별, 위치, 기숙사, 지정 현황 등) */
+  factChecks?: { content: string; source: SchoolSourceLink }[];
 };
 
 export type HighSchoolAiEraStrategy = {
@@ -825,6 +849,76 @@ export type HighSchoolCategory = {
   verifyNote?: string;
   /** 수도권 지도에서 기본으로 켤 필터 — 'all' | 'meister' | 'business' (직업계고 전용) */
   seoulMapFocus?: 'all' | 'meister' | 'business';
+  /** 수도권 지도 위에 전국 시·도 지도를 함께 띄운다 — 기본 켜짐, false 일 때만 숨긴다 */
+  nationalMap?: boolean;
+  /** 직업계고 졸업 후 경로 — 선취업 후진학 3경로 + 고졸 채용 할당·지원 제도 */
+  careerBridge?: HighSchoolCareerBridge;
+};
+
+/** 선취업 후진학 경로 1개 (조기취업형 계약학과·일학습병행·재직자 전형 등) */
+export type HighSchoolCareerPathway = {
+  id: string;
+  no: string;
+  emoji: string;
+  title: string;
+  /** 한 줄 정의 */
+  oneLine: string;
+  /** 진행 순서 (칩으로 → 연결) */
+  flow: string[];
+  /** 지원 자격 */
+  who: string;
+  /** 학비·지원금 */
+  cost: string;
+  /** 운영 대학·기관 예시 */
+  examples: string[];
+  /** 언제 가는 길인가 — grade12=고3 때 바로 / onJob=입사 직후 / afterWork=몇 년 일한 뒤 */
+  stage?: 'grade12' | 'onJob' | 'afterWork';
+  /** 핵심 사실 (모든 경로가 같은 label 순서로 적으면 '한눈에 비교' 표가 된다) */
+  keyFacts?: Array<{ label: string; value: string }>;
+  /** 대학별 모집 단위·인원 */
+  schools?: Array<{ name: string; detail: string }>;
+  /** 눈에 띄는 숫자 한 줄 (실적·규모) */
+  stat?: string;
+  /** 놓치기 쉬운 함정 */
+  caution?: string;
+  sources: SchoolSourceLink[];
+};
+
+/** 고졸 채용·지원 제도 1개 */
+export type HighSchoolHiringSupport = {
+  id: string;
+  emoji: string;
+  label: string;
+  /** law=법정 제도(법령 근거 선발·금지) / target=정부 목표제 / voluntary=자율 협약 / money=지원금·세제 / military=병역 */
+  kind: 'law' | 'target' | 'voluntary' | 'money' | 'military';
+  /** 누구에게 적용되나 (학생 / 기업 / 공공기관) */
+  forWhom: string;
+  what: string;
+  /** 핵심 숫자 */
+  numbers?: string;
+  /** 학생이 실제로 챙길 것 */
+  howToUse?: string;
+  sources: SchoolSourceLink[];
+};
+
+export type HighSchoolCareerBridge = {
+  asOf: string;
+  /** 배너 한 줄 (대학 + 취업 둘 다) */
+  bannerLine?: string;
+  pathwayTitle: string;
+  pathwayHeadline: string;
+  pathways: HighSchoolCareerPathway[];
+  /** 경로 고르는 순서 */
+  pathwayPick?: string[];
+  /** 3경로 밖의 다른 길 (방송대·사이버대·사내대학 등) */
+  otherRoutes?: Array<{ emoji: string; name: string; summary: string; url?: string }>;
+  hiringTitle: string;
+  hiringHeadline: string;
+  /** "기업마다 할당제가 있다"류 오해 바로잡기 */
+  mythCheck?: { claim: string; verdict: string; detail: string };
+  hiring: HighSchoolHiringSupport[];
+  /** 학교 상세 화면 하단에 띄울 한 줄 */
+  schoolTip?: string;
 };
 
 /** 특색 축별 대표 중점학교 (검증된 지정·인증 사실만 수록) */

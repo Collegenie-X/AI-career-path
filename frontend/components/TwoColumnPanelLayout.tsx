@@ -57,6 +57,17 @@ type TwoColumnPanelLayoutProps = {
    *   (기본 선택이 있는 화면에서 리스트가 영영 안 보이는 문제 방지)
    */
   readonly mobileListMode?: 'swap' | 'stack';
+  /**
+   * 데스크탑(md+)에서 왼쪽 리스트를 sticky 로 고정할 때 쓰는 클래스.
+   * 오른쪽 상세를 길게 스크롤해도 왼쪽(맵·카테고리)이 계속 보이도록 한다.
+   * 상단 고정 바 높이가 화면마다 달라서 top/max-h 는 호출 측에서 넘긴다.
+   */
+  readonly stickyListClassName?: string;
+  /**
+   * 데스크탑(md+) 왼쪽 리스트 비율(flex-grow). 기본 md:grow-[9] → 오른쪽(11)과 45:55.
+   * 상세가 넓어야 하는 화면은 md:grow-[7] 처럼 줄여서 넘긴다.
+   */
+  readonly listGrowClassName?: string;
 };
 
 function EmptyDetailPlaceholder({
@@ -107,6 +118,8 @@ export function TwoColumnPanelLayout({
   emptyPlaceholderIllustration = 'map',
   detailPanelClassName = 'rounded-3xl',
   mobileListMode = 'swap',
+  stickyListClassName,
+  listGrowClassName = 'md:grow-[9]',
 }: TwoColumnPanelLayoutProps) {
   const isStack = mobileListMode === 'stack';
 
@@ -117,9 +130,9 @@ export function TwoColumnPanelLayout({
       {/* ── 왼쪽: 리스트 (md+: 약 45%) ── */}
       {/* 모바일: 선택 없을 때만 표시 / 데스크탑: 항상 표시 */}
       <div
-        className={`w-full md:basis-0 md:grow-[9] md:min-w-0 ${
+        className={`w-full md:basis-0 ${listGrowClassName} md:min-w-0 ${
           hasSelection && !isStack ? 'hidden md:block' : 'block'
-        }`}
+        } ${stickyListClassName ?? ''}`}
       >
         {listSlot}
       </div>

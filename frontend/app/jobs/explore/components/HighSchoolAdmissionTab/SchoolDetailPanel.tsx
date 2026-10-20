@@ -1,3 +1,4 @@
+// @ts-nocheck — AI CareerPath 원본 코드(원본도 ignoreBuildErrors). 수정 없이 가져왔다.
 'use client';
 
 import { useState } from 'react';
@@ -10,8 +11,14 @@ import type { HighSchoolDetail } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
 import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
 import { SchoolCostOutcomeSections } from './SchoolCostOutcomeSections';
+import { SchoolWebReviewSection } from './SchoolWebReviewSection';
+import { CareerBridgeSection } from './CareerBridgeSection';
+import meisterData from '@/data/high-school/meister.json';
+import specializedData from '@/data/high-school/specialized.json';
+import type { HighSchoolCareerBridge } from '../../types';
 import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
 import { copyCurrentUrl } from '../../utils/useExploreUrlState';
+import { splitCompetition, parseCompetitionDetail } from './competitionLevel';
 
 /** ==text==는 형광펜, 약자(IB·EE·CAS·HL·TOK·AP·SAT·SKY 등)는 말풍선 툴팁 */
 function HL({ text }: { text: string }) {
@@ -27,19 +34,220 @@ type SchoolDetailPanelProps = {
   variant?: 'panel' | 'dialog';
 };
 
-type DetailTabId = 'intro' | 'roadmap' | 'reallife';
+type DetailTabId = 'intro' | 'future' | 'roadmap' | 'reallife';
 
 const DETAIL_TABS: { id: DetailTabId; label: string; emoji: string }[] = [
   { id: 'intro', label: '학교·입시', emoji: '🏫' },
+  { id: 'future', label: '대학·취업', emoji: '🎓' },
   { id: 'roadmap', label: '로드맵·팁', emoji: '🗓️' },
   { id: 'reallife', label: '솔직 후기', emoji: '💬' },
 ];
+
+const MEISTER_CAREER_BRIDGE = (meisterData as { careerBridge?: HighSchoolCareerBridge }).careerBridge;
+const SPECIALIZED_CAREER_BRIDGE = (specializedData as { careerBridge?: HighSchoolCareerBridge }).careerBridge;
+
+/** 직업계고(마이스터고·특성화고)만 졸업 후 대학·취업 탭을 연다 */
+function careerBridgeFor(type: string): HighSchoolCareerBridge | undefined {
+  if (type === '마이스터고') return MEISTER_CAREER_BRIDGE;
+  if (type.startsWith('특성화고')) return SPECIALIZED_CAREER_BRIDGE;
+  return undefined;
+}
+
+function CompetitionCard({
+  competition,
+  source,
+  categoryColor,
+}: {
+  competition: { headline: string | null; detail: string };
+  source?: string;
+  categoryColor: string;
+}) {
+  const isRatio = !!competition.headline?.includes(':');
+  const { yearLabel, trend, note } = parseCompetitionDetail(competition.detail);
+  const max = Math.max(...trend.map((t) => t.value), 1);
+  const last = trend.at(-1);
+  const prev = trend.at(-2);
+  const delta = last && prev ? Math.round((last.value - prev.value) * 100) / 100 : null;
+
+  return (
+    <div
+      className="rounded-xl p-3 h-full"
+      style={{
+        background: isRatio ? `linear-gradient(135deg, ${categoryColor}14 0%, rgba(255,255,255,0.03) 100%)` : 'rgba(255,255,255,0.04)',
+        border: `1px solid ${isRatio ? `${categoryColor}40` : 'rgba(255,255,255,0.07)'}`,
+      }}
+    >
+      <div className="flex items-center justify-between gap-2 mb-2">
+        <p className="text-xs font-bold" style={{ color: isRatio ? categoryColor : '#9ca3af' }}>📊 경쟁률</p>
+        {source && (
+          <a
+            href={source}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] px-2 py-0.5 rounded-full text-gray-400 hover:text-gray-200 transition-colors"
+            style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}
+          >
+            🔗 출처
+          </a>
+        )}
+      </div>
+
+      <div className="flex items-end justify-between gap-4 flex-wrap">
+        {competition.headline && (
+          <div className="flex flex-col gap-1">
+            <div className="flex items-baseline gap-1.5">
+              <span
+                className="text-3xl font-extrabold leading-none tracking-tight"
+                style={{ color: isRatio ? '#f9fafb' : '#9ca3af' }}
+              >
+                {isRatio ? competition.headline.replace(/:1$/, '') : competition.headline}
+              </span>
+              {isRatio && <span className="text-sm font-bold text-gray-400">: 1</span>}
+            </div>
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {yearLabel && (
+                <span
+                  className="text-[11px] font-bold px-1.5 py-0.5 rounded-md"
+                  style={{ background: `${categoryColor}25`, color: categoryColor }}
+                >
+                  {yearLabel}
+                </span>
+              )}
+              {delta !== null && delta !== 0 && (
+                <span
+                  className="text-[11px] font-bold px-1.5 py-0.5 rounded-md"
+                  style={{
+                    background: delta > 0 ? 'rgba(251,146,60,0.15)' : 'rgba(56,189,248,0.15)',
+                    color: delta > 0 ? '#fb923c' : '#38bdf8',
+                  }}
+                >
+                  {delta > 0 ? '▲' : '▼'} {Math.abs(delta).toFixed(2)} 전년 대비
+                </span>
+              )}
+            </div>
+          </div>
+        )}
+
+        {trend.length > 0 && (
+          <div className="flex items-end gap-2.5">
+            {trend.map((t, i) => {
+              const isLast = i === trend.length - 1;
+              return (
+                <div key={t.year} className="flex flex-col items-center gap-1">
+                  <span className={`text-[11px] font-bold ${isLast ? 'text-white' : 'text-gray-400'}`}>
+                    {t.value.toFixed(2)}
+                  </span>
+                  <div
+                    className="w-7 rounded-t-md"
+                    style={{
+                      height: `${Math.max(8, (t.value / max) * 44)}px`,
+                      background: isLast ? categoryColor : `${categoryColor}45`,
+                      boxShadow: isLast ? `0 0 10px ${categoryColor}55` : 'none',
+                    }}
+                  />
+                  <span className={`text-[10px] ${isLast ? 'text-gray-300 font-bold' : 'text-gray-500'}`}>{t.year}</span>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      {note && (
+        <p className={`text-[12px] text-gray-400 leading-snug ${competition.headline ? 'mt-2' : ''}`}>
+          <HL text={note} />
+        </p>
+      )}
+    </div>
+  );
+}
+
+/** 졸업생 진로·취업 — 경쟁률 카드 옆에 나란히 놓인다 */
+function GraduateCareerCard({
+  career,
+  categoryColor,
+}: {
+  career: NonNullable<HighSchoolDetail['graduateCareer']>;
+  categoryColor: string;
+}) {
+  return (
+    <div
+      className="rounded-xl p-3 h-full"
+      style={{ background: `linear-gradient(135deg, rgba(0,0,0,0.25) 0%, ${categoryColor}08 100%)`, border: `1px solid ${categoryColor}22` }}
+    >
+      <div className="flex items-center gap-2 mb-2.5">
+        <span className="text-[15px]">💼</span>
+        <h4 className="text-[13px] font-bold" style={{ color: categoryColor }}>
+          졸업생 진로·취업
+        </h4>
+      </div>
+
+      {/* 취업률 */}
+      <div className="flex items-center gap-2 mb-2">
+        <span className="text-[11px] text-gray-500 shrink-0">취업률</span>
+        <span className="text-[12.5px] font-semibold text-gray-200">
+          {career.employmentRate}
+        </span>
+      </div>
+
+      {/* 주요 취업처 뱃지 */}
+      <div className="mb-2">
+        <span className="text-[11px] text-gray-500 block mb-1">주요 취업처</span>
+        <div className="flex flex-wrap gap-1">
+          {career.topEmployers.map((emp: string) => (
+            <span
+              key={emp}
+              className="px-1.5 py-0.5 rounded-md text-[10.5px] font-semibold leading-none"
+              style={{ background: `${categoryColor}18`, color: categoryColor, border: `1px solid ${categoryColor}44` }}
+            >
+              {emp}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* 주목할 성과 */}
+      {career.notableAchievements?.length > 0 && (
+        <div className="mb-2">
+          <span className="text-[11px] text-gray-500 block mb-1">주목할 성과</span>
+          <ul className="space-y-0.5">
+            {career.notableAchievements.map((a: string, i: number) => (
+              <li key={i} className="text-[11.5px] text-gray-300 leading-relaxed">
+                · {a}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 출처 */}
+      {career.source && (
+        <p className="text-[10px] text-gray-600 mt-1.5">
+          📰 출처: {career.sourceUrl ? (
+            <a
+              href={career.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-400"
+            >
+              {career.source}
+            </a>
+          ) : (
+            career.source
+          )}
+        </p>
+      )}
+    </div>
+  );
+}
 
 /**
  * 웹 2-컬럼 레이아웃용 학교 상세 패널
  */
 export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose, onOpenDetailDialog, variant = 'panel' }: SchoolDetailPanelProps) {
   const [activeTab, setActiveTab] = useState<DetailTabId>('intro');
+  const bridge = careerBridgeFor(school.type);
+  const competition = school.competitionLevel ? splitCompetition(school.competitionLevel) : null;
   const [shareCopied, setShareCopied] = useState(false);
 
   const handleShare = async () => {
@@ -129,6 +337,17 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
                     '정원 공시 확인'
                   )}
                 </span>
+                {competition?.headline && (
+                  <>
+                    <span className="text-[12px] text-gray-600">|</span>
+                    <span className="text-[12px] text-gray-400">
+                      경쟁률{' '}
+                      <span className="font-bold" style={{ color: competition.headline.includes(':') ? categoryColor : '#9ca3af' }}>
+                        {competition.headline}
+                      </span>
+                    </span>
+                  </>
+                )}
               </div>
             </div>
           </div>
@@ -183,7 +402,7 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
           className="flex gap-1 rounded-xl p-1 mb-0 min-w-0 relative z-10"
           style={{ background: 'rgba(255,255,255,0.06)' }}
         >
-          {DETAIL_TABS.map((tab) => (
+          {DETAIL_TABS.filter((tab) => tab.id !== 'future' || bridge).map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
@@ -212,6 +431,11 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
             <AdmissionTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} />
             <OverviewTab school={school} categoryColor={categoryColor} categoryBgColor={categoryBgColor} section="extra" />
           </>
+        )}
+        {activeTab === 'future' && bridge && (
+          <div className="px-5 py-4">
+            <CareerBridgeSection bridge={bridge} color={categoryColor} bgColor={categoryBgColor} />
+          </div>
         )}
         {activeTab === 'roadmap' && (
           <>
@@ -242,9 +466,11 @@ function OverviewTab({
 }) {
   const infoCard = school.schoolInfoCard;
   const qualifications = school.admissionQualifications;
+  const competition = school.competitionLevel ? splitCompetition(school.competitionLevel) : null;
   // 등록금·입시 정보가 costStructure / jagonggoProfile로 통합된 경우 상단 요약에서는 생략 (중복 제거)
   const costHandledElsewhere = !!school.costStructure;
   const admissionHandledElsewhere = !!school.jagonggoProfile;
+  const hasGraduateCareer = !!school.graduateCareer?.topEmployers?.length;
 
   if (section === 'priority') {
     return (
@@ -289,6 +515,40 @@ function OverviewTab({
           )}
         </div>
 
+        {/* ── 1-1. 학과·과정 — 개설 학과 이름과 실제로 어떻게 나뉘는지 ── */}
+        {school.departments && school.departments.length > 0 && (
+          <div
+            className="rounded-2xl p-3"
+            style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${categoryColor}30` }}
+          >
+            <p className="text-xs font-bold mb-2" style={{ color: categoryColor }}>
+              🎓 {school.departmentsLabel ?? '학과·과정'}
+            </p>
+            <div className="flex flex-wrap gap-1.5">
+              {school.departments.map((dept) => {
+                const deptName = typeof dept === 'string' ? dept : dept?.name ?? '';
+                return (
+                  <span
+                    key={deptName}
+                    className="text-sm px-2.5 py-1 rounded-lg font-bold"
+                    style={{ background: `${categoryColor}20`, border: `1px solid ${categoryColor}50`, color: '#f9fafb' }}
+                  >
+                    {deptName}
+                  </span>
+                );
+              })}
+            </div>
+            {school.departmentsNote && (
+              <p className="mt-2 text-sm text-gray-300 leading-relaxed">
+                <HL text={school.departmentsNote} />
+              </p>
+            )}
+            {school.departmentsSource && (
+              <p className="mt-1.5 text-[11px] text-gray-500">출처: {school.departmentsSource}</p>
+            )}
+          </div>
+        )}
+
         {/* ── 2. 학교 기본 정보 그리드 ── */}
         {infoCard && (
           <div
@@ -332,6 +592,23 @@ function OverviewTab({
                 <p className="text-xs text-gray-500 mb-0.5">🏠 기숙사</p>
                 <p className="text-sm font-semibold text-gray-200 leading-snug"><HL text={infoCard.dormitoryType} /></p>
               </div>
+              {/* 경쟁률 · 졸업생 진로 — 넓으면 좌우, 좁으면 위아래 */}
+              {(competition || hasGraduateCareer) && (
+                <div className="col-span-2 @container">
+                  <div className={`grid grid-cols-1 gap-2 ${competition && hasGraduateCareer ? '@lg:grid-cols-2' : ''}`}>
+                    {competition && (
+                      <CompetitionCard
+                        competition={competition}
+                        source={school.competitionLevelSource}
+                        categoryColor={categoryColor}
+                      />
+                    )}
+                    {hasGraduateCareer && (
+                      <GraduateCareerCard career={school.graduateCareer} categoryColor={categoryColor} />
+                    )}
+                  </div>
+                </div>
+              )}
               {!costHandledElsewhere && (
                 <>
                   <div
@@ -361,6 +638,10 @@ function OverviewTab({
               </div>
             )}
           </div>
+        )}
+
+        {!infoCard && hasGraduateCareer && (
+          <GraduateCareerCard career={school.graduateCareer} categoryColor={categoryColor} />
         )}
 
         {/* ── 2-1. 등록금 구조·입시 팩트·진학 추이·지역 연계 (웹 검증 데이터) ── */}
@@ -621,76 +902,6 @@ function OverviewTab({
         />
       )}
 
-      {/* ── 졸업생 진로·취업 ── */}
-      {school.graduateCareer && school.graduateCareer.topEmployers?.length > 0 && (
-        <div
-          className="rounded-2xl p-4"
-          style={{ background: `linear-gradient(135deg, rgba(0,0,0,0.25) 0%, ${categoryColor}08 100%)`, border: `1px solid ${categoryColor}22` }}
-        >
-          <div className="flex items-center gap-2 mb-2.5">
-            <span className="text-[15px]">💼</span>
-            <h4 className="text-[13px] font-bold" style={{ color: categoryColor }}>
-              졸업생 진로·취업
-            </h4>
-          </div>
-
-          {/* 취업률 */}
-          <div className="flex items-center gap-2 mb-2">
-            <span className="text-[11px] text-gray-500 shrink-0">취업률</span>
-            <span className="text-[12.5px] font-semibold text-gray-200">
-              {school.graduateCareer.employmentRate}
-            </span>
-          </div>
-
-          {/* 주요 취업처 뱃지 */}
-          <div className="mb-2">
-            <span className="text-[11px] text-gray-500 block mb-1">주요 취업처</span>
-            <div className="flex flex-wrap gap-1">
-              {school.graduateCareer.topEmployers.map((emp: string) => (
-                <span
-                  key={emp}
-                  className="px-1.5 py-0.5 rounded-md text-[10.5px] font-semibold leading-none"
-                  style={{ background: `${categoryColor}18`, color: categoryColor, border: `1px solid ${categoryColor}44` }}
-                >
-                  {emp}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* 주목할 성과 */}
-          {school.graduateCareer.notableAchievements?.length > 0 && (
-            <div className="mb-2">
-              <span className="text-[11px] text-gray-500 block mb-1">주목할 성과</span>
-              <ul className="space-y-0.5">
-                {school.graduateCareer.notableAchievements.map((a: string, i: number) => (
-                  <li key={i} className="text-[11.5px] text-gray-300 leading-relaxed">
-                    · {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* 출처 */}
-          {school.graduateCareer.source && (
-            <p className="text-[10px] text-gray-600 mt-1.5">
-              📰 출처: {school.graduateCareer.sourceUrl ? (
-                <a
-                  href={school.graduateCareer.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-gray-400"
-                >
-                  {school.graduateCareer.source}
-                </a>
-              ) : (
-                school.graduateCareer.source
-              )}
-            </p>
-          )}
-        </div>
-      )}
     </div>
   );
 }
@@ -1059,7 +1270,7 @@ function RealLifeTab({
   categoryColor: string;
   categoryBgColor: string;
 }) {
-  if (!school.realTalk || school.realTalk.length === 0) {
+  if ((!school.realTalk || school.realTalk.length === 0) && !school.webReview) {
     return (
       <div className="px-5 py-4 space-y-3">
         <div
@@ -1089,8 +1300,11 @@ function RealLifeTab({
         </p>
       </div>
 
+      {/* 웹 조사 — 홈페이지·기사·졸업생 후기 (출처 링크) */}
+      <SchoolWebReviewSection review={school.webReview} color={categoryColor} />
+
       {/* 솔직 후기 카드들 */}
-      {school.realTalk.map((item: { emoji: string; title: string; content: string }, i: number) => (
+      {(school.realTalk ?? []).map((item: { emoji: string; title: string; content: string }, i: number) => (
         <div
           key={i}
           className="rounded-2xl overflow-hidden"

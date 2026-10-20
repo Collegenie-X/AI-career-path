@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="960" height="600" rx="24" fill="url(#bg)"/>
+
+  <text x="40" y="52" font-size="26" font-weight="800" fill="#0f172a">IB 탐구 단원 6단계 사이클</text>
+  <text x="40" y="80" font-size="15" fill="#475569">한 단원 = 3~6주 · 진도가 아니라 "질문 → 산출물 → 수정"으로 굴러갑니다</text>
+
+  <!-- ring -->
+  <circle cx="330" cy="320" r="190" fill="none" stroke="#c7d2fe" stroke-width="10"/>
+  <g fill="none" stroke="#4f46e5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(425,155.5) rotate(30)"/>
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(520,320) rotate(90)"/>
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(425,484.5) rotate(150)"/>
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(235,484.5) rotate(210)"/>
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(140,320) rotate(270)"/>
+    <path d="M-8,-8 L6,0 L-8,8" transform="translate(235,155.5) rotate(330)"/>
+  </g>
+
+  <!-- center -->
+  <circle cx="330" cy="320" r="92" fill="#ffffff" stroke="#e0e7ff" stroke-width="2"/>
+  <text x="330" y="306" text-anchor="middle" font-size="15" fill="#64748b">탐구 단원</text>
+  <text x="330" y="334" text-anchor="middle" font-size="24" font-weight="800" fill="#4338ca">Unit of</text>
+  <text x="330" y="360" text-anchor="middle" font-size="24" font-weight="800" fill="#4338ca">Inquiry</text>
+
+  <!-- nodes -->
+  <g font-size="15">
+    <g transform="translate(330,130)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#2563eb"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">① 탐구 질문</text>
+      <text y="18" text-anchor="middle" fill="#dbeafe" font-size="13">정답이 하나가 아닌 질문</text>
+    </g>
+    <g transform="translate(494.5,225)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#0891b2"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">② 조사·실험</text>
+      <text y="18" text-anchor="middle" fill="#cffafe" font-size="13">자료·데이터 수집</text>
+    </g>
+    <g transform="translate(494.5,415)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#059669"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">③ 토론·협업</text>
+      <text y="18" text-anchor="middle" fill="#d1fae5" font-size="13">근거 비교 · 반론 세우기</text>
+    </g>
+    <g transform="translate(330,510)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#ca8a04"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">④ 산출물</text>
+      <text y="18" text-anchor="middle" fill="#fef9c3" font-size="13">에세이·보고서·발표</text>
+    </g>
+    <g transform="translate(165.5,415)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#ea580c"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">⑤ 피드백</text>
+      <text y="18" text-anchor="middle" fill="#ffedd5" font-size="13">루브릭 · 1:1 면담</text>
+    </g>
+    <g transform="translate(165.5,225)">
+      <rect x="-82" y="-34" width="164" height="68" rx="14" fill="#9333ea"/>
+      <text y="-6" text-anchor="middle" fill="#fff" font-weight="800">⑥ 성찰·수정</text>
+      <text y="18" text-anchor="middle" fill="#f3e8ff" font-size="13">초안 → 최종본</text>
+    </g>
+  </g>
+
+  <!-- right panel -->
+  <rect x="610" y="110" width="320" height="200" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="634" y="144" font-size="17" font-weight="800" fill="#0f172a">교실 시간은 이렇게 바뀝니다</text>
+  <text x="634" y="176" font-size="13" fill="#475569">교사 강의</text>
+  <rect x="634" y="184" width="270" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="634" y="184" width="216" height="14" rx="7" fill="#fca5a5"/>
+  <text x="904" y="176" font-size="13" text-anchor="end" fill="#dc2626" font-weight="700">기존 80%</text>
+  <rect x="634" y="204" width="270" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="634" y="204" width="54" height="14" rx="7" fill="#2563eb"/>
+  <text x="696" y="216" font-size="12" fill="#2563eb" font-weight="700">IB·KB 20%</text>
+  <text x="634" y="248" font-size="13" fill="#475569">학생 탐구·토론</text>
+  <rect x="634" y="256" width="270" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="634" y="256" width="54" height="14" rx="7" fill="#fca5a5"/>
+  <text x="696" y="268" font-size="12" fill="#dc2626" font-weight="700">기존 20%</text>
+  <rect x="634" y="276" width="270" height="14" rx="7" fill="#f1f5f9"/>
+  <rect x="634" y="276" width="216" height="14" rx="7" fill="#2563eb"/>
+  <text x="904" y="300" font-size="13" text-anchor="end" fill="#2563eb" font-weight="700">IB·KB 80%</text>
+
+  <rect x="610" y="330" width="320" height="230" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="634" y="364" font-size="17" font-weight="800" fill="#0f172a">IB와 KB — 같은 사이클, 다른 채점</text>
+  <rect x="634" y="382" width="272" height="72" rx="12" fill="#dbeafe"/>
+  <text x="650" y="410" font-size="15" font-weight="800" fill="#1d4ed8">IB</text>
+  <text x="690" y="410" font-size="13" fill="#1e3a8a">IBO가 채점 · 교사 채점 조정</text>
+  <text x="690" y="434" font-size="13" fill="#1e3a8a">자체 교육과정 · 영어/한국어 DP</text>
+  <rect x="634" y="466" width="272" height="72" rx="12" fill="#dcfce7"/>
+  <text x="650" y="494" font-size="15" font-weight="800" fill="#15803d">KB</text>
+  <text x="690" y="494" font-size="13" fill="#14532d">한국 교사 + 교육청 검증</text>
+  <text x="690" y="518" font-size="13" fill="#14532d">국가 교육과정 유지 · 한국어</text>
+</svg>
