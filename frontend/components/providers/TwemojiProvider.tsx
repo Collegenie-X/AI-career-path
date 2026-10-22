@@ -27,7 +27,51 @@ const TWEMOJI_OPTIONS = {
  */
 function applyTwemoji() {
   if (typeof window === 'undefined' || !window.twemoji) return;
-  window.twemoji.parse(document.body, TWEMOJI_OPTIONS);
+  const pending = parseHydratedEmoji(window.twemoji);
+  // 아직 하이드레이션 전인 <Suspense>·dynamic 경계가 남아 있으면 조금 뒤 다시 시도한다
+  if (pending) scheduleRetry();
+  else retryCount = 0;
+}
+
+const EMOJI_PATTERN = /\p{Extended_Pictographic}/u;
+const SKIP_TAGS = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'INPUT', 'CODE', 'PRE']);
+
+/** React가 이미 소유(하이드레이션 또는 클라이언트 생성)한 엘리먼트에는 __reactFiber$… 키가 붙어 있다 */
+function isOwnedByReact(el: Element) {
+  return Object.keys(el).some((key) => key.startsWith('__reactFiber$'));
+}
+
+/**
+ * 이모지가 든 텍스트의 부모 중 React가 이미 소유한 것만 치환한다.
+ * body 전체를 한 번에 치환하면, 늦게 하이드레이션되는 경계(예: /jobs/explore 의 Suspense·dynamic 탭)의
+ * 서버 HTML까지 바뀌어 "Hydration failed"가 난다.
+ * @returns 아직 하이드레이션 전이라 건너뛴 이모지가 있으면 true
+ */
+function parseHydratedEmoji(twemoji: NonNullable<Window['twemoji']>) {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const targets = new Set<Element>();
+  let pending = false;
+  for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+    const parent = node.parentElement;
+    if (!parent || SKIP_TAGS.has(parent.tagName) || !EMOJI_PATTERN.test(node.nodeValue ?? '')) continue;
+    if (isOwnedByReact(parent)) targets.add(parent);
+    else pending = true;
+  }
+  targets.forEach((el) => twemoji.parse(el as HTMLElement, TWEMOJI_OPTIONS));
+  return pending;
+}
+
+let retryTimer: ReturnType<typeof setTimeout> | undefined;
+let retryCount = 0;
+const MAX_RETRIES = 20;
+
+function scheduleRetry() {
+  if (retryTimer || retryCount >= MAX_RETRIES) return;
+  retryCount += 1;
+  retryTimer = setTimeout(() => {
+    retryTimer = undefined;
+    applyTwemoji();
+  }, 500);
 }
 
 /**

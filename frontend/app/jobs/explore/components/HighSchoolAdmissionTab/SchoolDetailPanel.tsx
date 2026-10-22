@@ -1,24 +1,28 @@
-// @ts-nocheck — AI CareerPath 원본 코드(원본도 ignoreBuildErrors). 수정 없이 가져왔다.
+// @ts-nocheck — 타입 정의에 없는 레거시 필드(keyActivities·comments·selectionInsights 등)를 읽는다. (ReadingClue 쪽과 동일 처리)
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   X, Star, MapPin, Users, BookOpen, Lightbulb, TrendingUp,
   CheckCircle, XCircle, Clock, Heart, MessageCircle, Calendar,
   Zap, Shield, Coffee, Target, Maximize2, Share2, Check,
 } from 'lucide-react';
-import type { HighSchoolDetail } from '../../types';
+import type { HighSchoolDetail, SchoolCareerPathDetail, SchoolRoadmapChallenge } from '../../types';
 import { SchoolSelectionInsightSection } from './SchoolSelectionInsightSection';
 import { SchoolCommentSharePanel } from './SchoolCommentSharePanel';
 import { SchoolCostOutcomeSections } from './SchoolCostOutcomeSections';
 import { SchoolWebReviewSection } from './SchoolWebReviewSection';
 import { CareerBridgeSection } from './CareerBridgeSection';
+import { CampScheduleSection } from './CampScheduleSection';
+import { IbStatusBadges } from './IbStatusBadges';
 import meisterData from '@/data/high-school/meister.json';
 import specializedData from '@/data/high-school/specialized.json';
 import type { HighSchoolCareerBridge } from '../../types';
 import { GlossaryText } from '../UniversityAdmissionTab/GlossaryText';
 import { copyCurrentUrl } from '../../utils/useExploreUrlState';
 import { splitCompetition, parseCompetitionDetail } from './competitionLevel';
+import { FavoriteStar } from './FavoriteStar';
+import { toggleFavoriteSchool, useHighSchoolFavorites } from './favorites-storage';
 
 /** ==text==는 형광펜, 약자(IB·EE·CAS·HL·TOK·AP·SAT·SKY 등)는 말풍선 툴팁 */
 function HL({ text }: { text: string }) {
@@ -32,6 +36,8 @@ type SchoolDetailPanelProps = {
   onClose: () => void;
   onOpenDetailDialog?: () => void;
   variant?: 'panel' | 'dialog';
+  /** 있으면 헤더에 즐겨찾기 별을 띄운다 (학교 id가 카테고리 사이에 겹칠 수 있어 함께 저장) */
+  favoriteCategoryId?: string;
 };
 
 type DetailTabId = 'intro' | 'future' | 'roadmap' | 'reallife';
@@ -184,15 +190,16 @@ function GraduateCareerCard({
 
       {/* 취업률 */}
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-[11px] text-gray-500 shrink-0">취업률</span>
+        <span className="text-[11px] text-gray-500 shrink-0">{career.rateLabel ?? '취업률'}</span>
         <span className="text-[12.5px] font-semibold text-gray-200">
           {career.employmentRate}
         </span>
       </div>
 
       {/* 주요 취업처 뱃지 */}
+      {career.topEmployers?.length > 0 && (
       <div className="mb-2">
-        <span className="text-[11px] text-gray-500 block mb-1">주요 취업처</span>
+        <span className="text-[11px] text-gray-500 block mb-1">{career.destinationsLabel ?? '주요 취업처'}</span>
         <div className="flex flex-wrap gap-1">
           {career.topEmployers.map((emp: string) => (
             <span
@@ -205,6 +212,7 @@ function GraduateCareerCard({
           ))}
         </div>
       </div>
+      )}
 
       {/* 주목할 성과 */}
       {career.notableAchievements?.length > 0 && (
@@ -244,7 +252,8 @@ function GraduateCareerCard({
 /**
  * 웹 2-컬럼 레이아웃용 학교 상세 패널
  */
-export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose, onOpenDetailDialog, variant = 'panel' }: SchoolDetailPanelProps) {
+export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onClose, onOpenDetailDialog, variant = 'panel', favoriteCategoryId }: SchoolDetailPanelProps) {
+  const { isSchoolFavorite } = useHighSchoolFavorites();
   const [activeTab, setActiveTab] = useState<DetailTabId>('intro');
   const bridge = careerBridgeFor(school.type);
   const competition = school.competitionLevel ? splitCompetition(school.competitionLevel) : null;
@@ -258,11 +267,132 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
     }
   };
 
+  /** 다이얼로그(모바일): 이름 + 버튼만 상단에 고정하고 나머지 헤더는 본문과 함께 스크롤 */
+  const compactMobile = variant === 'dialog';
+  const actionButtons = (
+    <>
+      {favoriteCategoryId && (
+        <FavoriteStar
+          active={isSchoolFavorite(favoriteCategoryId, school.id)}
+          onToggle={() => toggleFavoriteSchool(favoriteCategoryId, school.id)}
+          label={school.name}
+          variant="pill"
+        />
+      )}
+      <button
+        type="button"
+        onClick={handleShare}
+        className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+        style={{
+          background: shareCopied ? 'rgba(16,185,129,0.25)' : `${categoryColor}25`,
+          border: `1px solid ${shareCopied ? 'rgba(16,185,129,0.55)' : `${categoryColor}55`}`,
+        }}
+        title={shareCopied ? '링크가 복사되었어요' : '학교 링크 복사'}
+        aria-label={shareCopied ? '링크 복사 완료' : '학교 링크 공유'}
+      >
+        {shareCopied ? (
+          <Check className="w-3.5 h-3.5" style={{ color: '#10b981' }} />
+        ) : (
+          <Share2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
+        )}
+      </button>
+      {onOpenDetailDialog && (
+        <button
+          type="button"
+          onClick={onOpenDetailDialog}
+          className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
+          style={{
+            background: `${categoryColor}25`,
+            border: `1px solid ${categoryColor}55`,
+          }}
+          title="자세히 보기"
+          aria-label="자세히 보기"
+        >
+          <Maximize2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
+        </button>
+      )}
+      {variant === 'dialog' && (
+        <button
+          onClick={onClose}
+          className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
+          style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
+          aria-label="닫기"
+        >
+          <X className="w-3.5 h-3.5 text-white" />
+        </button>
+      )}
+    </>
+  );
+
+  // 탭 바를 이름 바(1~2줄) 바로 아래에 붙이려고 이름 바 높이를 잰다
+  const nameBarRef = useRef<HTMLDivElement>(null);
+  const [nameBarHeight, setNameBarHeight] = useState(0);
+  useEffect(() => {
+    const el = nameBarRef.current;
+    if (!el) return;
+    const observer = new ResizeObserver(() => setNameBarHeight(el.offsetHeight));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // 모바일 다이얼로그는 패널 전체가 스크롤되므로, 아래로 내려간 상태에서 탭을 바꾸면 새 탭 첫머리로 올린다
+  const scrollRootRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const mobileTabBarRef = useRef<HTMLDivElement>(null);
+  const selectTab = (id: DetailTabId) => {
+    setActiveTab(id);
+    const root = scrollRootRef.current;
+    const content = contentRef.current;
+    if (!compactMobile || !root || !content || root.scrollHeight <= root.clientHeight) return;
+    const stickyHeight = (nameBarRef.current?.offsetHeight ?? 0) + (mobileTabBarRef.current?.offsetHeight ?? 0);
+    const contentTop = content.offsetTop - stickyHeight;
+    if (root.scrollTop > contentTop) root.scrollTop = contentTop;
+  };
+
+  const tabBar = (
+    <div
+      className="flex gap-1 rounded-xl p-1 mb-0 min-w-0 relative z-10"
+      style={{ background: 'rgba(255,255,255,0.06)' }}
+    >
+      {DETAIL_TABS.filter((tab) => tab.id !== 'future' || bridge).map((tab) => (
+        <button
+          key={tab.id}
+          onClick={() => selectTab(tab.id)}
+          className="flex-1 py-2.5 rounded-lg font-semibold transition-all flex flex-col items-center gap-0.5"
+          style={{
+            background: activeTab === tab.id ? `${categoryColor}40` : 'transparent',
+            color: activeTab === tab.id ? categoryColor : '#6b7280',
+            boxShadow: activeTab === tab.id ? `0 2px 8px ${categoryColor}30` : 'none',
+          }}
+        >
+          <span className="text-base">{tab.emoji}</span>
+          <span className="text-[12px] leading-tight">{tab.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div
-      className="flex flex-col h-full"
+      ref={scrollRootRef}
+      className={`flex flex-col h-full ${compactMobile ? 'relative overflow-y-auto overflow-x-hidden overscroll-contain md:overflow-visible' : ''}`}
       style={{ animation: 'panel-slide-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}
     >
+      {/* 모바일 고정 바 — 학교 이름(최대 2줄) + 버튼 */}
+      {compactMobile && (
+        <div
+          ref={nameBarRef}
+          className="md:hidden sticky top-0 z-30 flex-shrink-0 flex items-center gap-2 px-4 py-2.5"
+          style={{
+            background: `linear-gradient(135deg, ${categoryColor}28, ${categoryColor}0a), rgb(15,23,42)`,
+            borderBottom: `1px solid ${categoryColor}30`,
+          }}
+        >
+          <h2 className="flex-1 min-w-0 text-[15px] font-bold text-white leading-snug line-clamp-2 break-words">{school.name}</h2>
+          <div className="flex items-center gap-1.5 flex-shrink-0">{actionButtons}</div>
+        </div>
+      )}
+
       {/* 헤더 */}
       <div
         className="flex-shrink-0 px-5 py-4 min-w-0 relative overflow-hidden"
@@ -296,13 +426,8 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center gap-1.5 flex-wrap">
-                <h2 className="text-base font-bold text-white break-words">{school.name}</h2>
-                {school.ibCertified && (
-                  <span className="text-xs font-bold px-1.5 py-0.5 rounded-full"
-                    style={{ background: 'rgba(16,185,129,0.25)', color: '#10b981' }}>
-                    🌐 IB인증
-                  </span>
-                )}
+                <h2 className={`text-base font-bold text-white break-words ${compactMobile ? 'hidden md:block' : ''}`}>{school.name}</h2>
+                <IbStatusBadges school={school} size="md" />
                 {school.dormitory && (
                   <span className="text-xs font-bold px-1.5 py-0.5 rounded-full"
                     style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
@@ -351,78 +476,48 @@ export function SchoolDetailPanel({ school, categoryColor, categoryBgColor, onCl
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 flex-shrink-0 relative z-10">
-            <button
-              type="button"
-              onClick={handleShare}
-              className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-              style={{
-                background: shareCopied ? 'rgba(16,185,129,0.25)' : `${categoryColor}25`,
-                border: `1px solid ${shareCopied ? 'rgba(16,185,129,0.55)' : `${categoryColor}55`}`,
-              }}
-              title={shareCopied ? '링크가 복사되었어요' : '학교 링크 복사'}
-              aria-label={shareCopied ? '링크 복사 완료' : '학교 링크 공유'}
-            >
-              {shareCopied ? (
-                <Check className="w-3.5 h-3.5" style={{ color: '#10b981' }} />
-              ) : (
-                <Share2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
-              )}
-            </button>
-            {onOpenDetailDialog && (
-              <button
-                type="button"
-                onClick={onOpenDetailDialog}
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95"
-                style={{
-                  background: `${categoryColor}25`,
-                  border: `1px solid ${categoryColor}55`,
-                }}
-                title="자세히 보기"
-                aria-label="자세히 보기"
-              >
-                <Maximize2 className="w-3.5 h-3.5" style={{ color: categoryColor }} />
-              </button>
-            )}
-            {variant === 'dialog' && (
-              <button
-                onClick={onClose}
-                className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all hover:bg-white/15 hover:rotate-90"
-                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)' }}
-                aria-label="닫기"
-              >
-                <X className="w-3.5 h-3.5 text-white" />
-              </button>
-            )}
+          <div className={`items-center gap-1.5 flex-shrink-0 relative z-10 ${compactMobile ? 'hidden md:flex' : 'flex'}`}>
+            {actionButtons}
           </div>
         </div>
 
-        {/* 탭 바 */}
-        <div
-          className="flex gap-1 rounded-xl p-1 mb-0 min-w-0 relative z-10"
-          style={{ background: 'rgba(255,255,255,0.06)' }}
-        >
-          {DETAIL_TABS.filter((tab) => tab.id !== 'future' || bridge).map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className="flex-1 py-2.5 rounded-lg font-semibold transition-all flex flex-col items-center gap-0.5"
-              style={{
-                background: activeTab === tab.id ? `${categoryColor}40` : 'transparent',
-                color: activeTab === tab.id ? categoryColor : '#6b7280',
-                boxShadow: activeTab === tab.id ? `0 2px 8px ${categoryColor}30` : 'none',
-              }}
-            >
-              <span className="text-base">{tab.emoji}</span>
-              <span className="text-[12px] leading-tight">{tab.label}</span>
-            </button>
-          ))}
-        </div>
+        {/* IB — 인증은 학교 단위, DP 이수 범위는 학교마다 다름 */}
+        {school.dpScope && (
+          <div
+            className="rounded-xl px-3 py-2 mb-2 relative z-10"
+            style={{ background: 'rgba(255,255,255,0.05)', border: `1px dashed ${categoryColor}45` }}
+          >
+            <p className="text-[12px] leading-relaxed text-gray-300">
+              <span className="font-bold" style={{ color: categoryColor }}>👥 DP 운영 범위 · {school.dpScope.label}</span>
+              <br />
+              <HL text={school.dpScope.basis} />
+            </p>
+          </div>
+        )}
+
+        {/* 탭 바 — 모바일 다이얼로그에서는 헤더 밖(이름 바 아래 고정)으로 뺀다 */}
+        {compactMobile ? <div className="hidden md:block">{tabBar}</div> : tabBar}
       </div>
+
+      {/* 모바일: 탭 바도 이름 바 바로 아래에 고정 */}
+      {compactMobile && (
+        <div
+          ref={mobileTabBarRef}
+          className="md:hidden sticky z-20 flex-shrink-0 px-4 py-2"
+          style={{
+            top: nameBarHeight,
+            background: `linear-gradient(135deg, ${categoryColor}1a, ${categoryColor}08), rgb(15,23,42)`,
+            borderBottom: `1px solid ${categoryColor}30`,
+          }}
+        >
+          {tabBar}
+        </div>
+      )}
 
       {/* 콘텐츠 — 스크롤 영역 */}
       <div
-        className="flex-1 overflow-y-auto overflow-x-hidden min-h-0 min-w-0"
+        ref={contentRef}
+        className={`min-w-0 ${compactMobile ? 'md:flex-1 md:overflow-y-auto md:overflow-x-hidden md:min-h-0' : 'flex-1 overflow-y-auto overflow-x-hidden min-h-0'}`}
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         {activeTab === 'intro' && (
@@ -470,7 +565,7 @@ function OverviewTab({
   // 등록금·입시 정보가 costStructure / jagonggoProfile로 통합된 경우 상단 요약에서는 생략 (중복 제거)
   const costHandledElsewhere = !!school.costStructure;
   const admissionHandledElsewhere = !!school.jagonggoProfile;
-  const hasGraduateCareer = !!school.graduateCareer?.topEmployers?.length;
+  const hasGraduateCareer = !!(school.graduateCareer?.topEmployers?.length || school.graduateCareer?.notableAchievements?.length);
 
   if (section === 'priority') {
     return (
@@ -544,7 +639,21 @@ function OverviewTab({
               </p>
             )}
             {school.departmentsSource && (
-              <p className="mt-1.5 text-[11px] text-gray-500">출처: {school.departmentsSource}</p>
+              <p className="mt-1.5 text-[11px] text-gray-500">
+                출처:{' '}
+                {school.departmentsSourceUrl ? (
+                  <a
+                    href={school.departmentsSourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-gray-400"
+                  >
+                    {school.departmentsSource}
+                  </a>
+                ) : (
+                  school.departmentsSource
+                )}
+              </p>
             )}
           </div>
         )}
@@ -1006,6 +1115,47 @@ function AdmissionTab({
   );
 }
 
+const CHALLENGE_META: Record<SchoolRoadmapChallenge['kind'], { label: string; emoji: string; color: string }> = {
+  camp: { label: '캠프·체험', emoji: '🏕️', color: '#34d399' },
+  contest: { label: '대회·공모전', emoji: '🏆', color: '#fbbf24' },
+  cert: { label: '자격증', emoji: '📜', color: '#60a5fa' },
+};
+
+const CHALLENGE_ORDER: SchoolRoadmapChallenge['kind'][] = ['camp', 'contest', 'cert'];
+
+function RoadmapChallenges({ items }: { items: SchoolRoadmapChallenge[] }) {
+  const groups = CHALLENGE_ORDER
+    .map((kind) => ({ kind, meta: CHALLENGE_META[kind], list: items.filter((c) => c.kind === kind) }))
+    .filter((g) => g.list.length > 0);
+  if (groups.length === 0) return null;
+  return (
+    <div className="space-y-2 mb-3">
+      {groups.map(({ kind, meta, list }) => (
+        <div key={kind} className="space-y-1">
+          <span
+            className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-extrabold"
+            style={{ backgroundColor: `${meta.color}22`, color: meta.color, border: `1px solid ${meta.color}55` }}
+          >
+            {meta.emoji} {meta.label}
+          </span>
+          <ul className="space-y-1">
+            {list.map((c) => (
+              <li
+                key={c.name}
+                className="rounded-xl px-2.5 py-2"
+                style={{ background: 'rgba(255,255,255,0.04)', borderLeft: `3px solid ${meta.color}` }}
+              >
+                <p className="text-xs font-bold text-gray-100 leading-snug"><HL text={c.name} /></p>
+                <p className="text-[11px] text-gray-400 leading-relaxed mt-0.5"><HL text={c.note} /></p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function CareerPathTab({
   school,
   categoryColor,
@@ -1033,9 +1183,22 @@ function CareerPathTab({
           🗓️ {school.name} 합격을 위한 3년 로드맵
         </p>
         <p className="text-xs text-gray-300 leading-relaxed">
-          중학교 3년 동안 무엇을 어떻게 준비해야 하는지 단계별로 알려드려요.
+          <HL
+            text={
+              school.careerPathDetails?.some((d) => d.challenges?.length)
+                ? '중학교 3년 동안 무엇을 어떻게 준비해야 하는지 단계별로 알려드려요. 학년마다 ==실제로 도전할 수 있는 캠프·대회·자격증==을 함께 담았어요.'
+                : school.campPrograms?.length
+                  ? '중학교 3년 동안 무엇을 어떻게 준비해야 하는지 단계별로 알려드려요. ==실제로 열리는 캠프·교육 일정==도 함께 담았어요.'
+                  : '중학교 3년 동안 무엇을 어떻게 준비해야 하는지 단계별로 알려드려요.'
+            }
+          />
         </p>
       </div>
+
+      {/* 캠프·교육 일정표 */}
+      {school.campPrograms && school.campPrograms.length > 0 && (
+        <CampScheduleSection programs={school.campPrograms} accentColor={categoryColor} />
+      )}
 
       {/* 상세 로드맵 */}
       {hasDetails && school.careerPathDetails ? (
@@ -1049,7 +1212,7 @@ function CareerPathTab({
             }}
           />
           <div className="relative space-y-0">
-            {school.careerPathDetails.map((step: { grade: string; icon: string; tasks: string[]; keyPoint: string }, i: number) => (
+            {school.careerPathDetails.map((step: SchoolCareerPathDetail, i: number) => (
               <div key={step.grade} className="relative flex gap-4">
                 <div className="flex flex-col items-center flex-shrink-0">
                   <div
@@ -1088,6 +1251,9 @@ function CareerPathTab({
                       </li>
                     ))}
                   </ul>
+                  {step.challenges && step.challenges.length > 0 && (
+                    <RoadmapChallenges items={step.challenges} />
+                  )}
                   <div
                     className="p-2.5 rounded-xl"
                     style={{

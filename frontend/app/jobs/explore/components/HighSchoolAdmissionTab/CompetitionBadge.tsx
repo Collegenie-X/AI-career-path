@@ -19,7 +19,7 @@ export function CompetitionBadge({ raw, color, size = 11 }: { raw?: string | nul
           ? { background: `${color}22`, border: `1px solid ${color}55`, color: '#f9fafb' }
           : { background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', color: '#9ca3af' }),
       }}
-      title={competition.detail || undefined}
+      title={competition.detail.replace(/==/g, '') || undefined}
     >
       📊 경쟁률 {competition.headline}
       {delta !== null && delta !== 0 && (

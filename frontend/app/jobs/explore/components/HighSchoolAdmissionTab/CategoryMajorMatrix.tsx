@@ -411,7 +411,7 @@ export function CategoryMajorMatrix({
                                   <span className="block text-[10px] text-gray-500 mt-1">{school.location}</span>
                                   {school.graduateCareer?.employmentRate && school.graduateCareer.employmentRate !== '미확인' && school.graduateCareer.employmentRate !== '미확인 (공개 자료 부족)' && (
                                     <span className="block text-[10px] mt-0.5" style={{ color: isCurrent ? color : '#9ca3af' }}>
-                                      💼 취업률 {school.graduateCareer.employmentRate}
+                                      💼 {school.graduateCareer.rateLabel ?? '취업률'} {school.graduateCareer.employmentRate}
                                     </span>
                                   )}
                                 </>

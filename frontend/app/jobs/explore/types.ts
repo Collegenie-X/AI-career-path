@@ -331,11 +331,53 @@ export type SchoolCareerPath = {
   middle3: string;
 };
 
+export type SchoolRoadmapChallengeKind = 'camp' | 'contest' | 'cert';
+
+export type SchoolRoadmapChallenge = {
+  kind: SchoolRoadmapChallengeKind;
+  name: string;
+  note: string;
+};
+
+export type SchoolCampHostType = 'highschool' | 'university' | 'institute' | 'government' | 'company';
+
+/** 학교별 캠프·교육 일정표 항목 (scripts/meister-roadmap/camps.py에서 생성) */
+export type SchoolCampProgram = {
+  id: string;
+  name: string;
+  host: string;
+  hostType: SchoolCampHostType;
+  /** 추천 시기: '중1~중3' · '중3' · '입학 후' 등 */
+  stage: string;
+  target: string;
+  /** 대표 운영·모집 월(1~12). 연중이면 빈 배열 + yearRound */
+  months: number[];
+  yearRound?: boolean;
+  schedule: string;
+  cost: string;
+  region: string;
+  intro: string;
+  howToApply: string;
+  url?: string;
+  sourceUrl?: string;
+  /** 이 프로그램을 다룬 언론 기사 */
+  articleUrl?: string;
+  articleTitle?: string;
+  /** 접수처: 실제로 신청하는 페이지(모집 공고·신청 메뉴) */
+  applyUrl?: string;
+  applyLabel?: string;
+  /** apply 바로 신청 · notice 모집 공고 · program 프로그램 안내 · school 학교 단위 · homepage 기관 홈페이지 */
+  applyKind?: 'apply' | 'notice' | 'program' | 'school' | 'homepage';
+  checked?: string;
+};
+
 export type SchoolCareerPathDetail = {
   grade: string;
   icon: string;
   tasks: string[];
   keyPoint: string;
+  /** 이 학년에 실제로 도전 가능한 캠프·대회·자격증 */
+  challenges?: SchoolRoadmapChallenge[];
 };
 
 export type SchoolRealTalkItem = {
@@ -447,6 +489,7 @@ export type HighSchoolDetail = {
   admissionProcess: SchoolAdmissionStep[];
   careerPath: SchoolCareerPath;
   careerPathDetails?: SchoolCareerPathDetail[];
+  campPrograms?: SchoolCampProgram[];
   pros: string[];
   cons: string[];
   admissionTip: string;
@@ -505,6 +548,8 @@ export type HighSchoolDetail = {
   departmentsLabel?: string;
   /** 학과 출처 표기 */
   departmentsSource?: string;
+  /** 학과 출처 링크 (요강 공고·교육과정 페이지) */
+  departmentsSourceUrl?: string;
   /** 학과·과정이 실제로 어떻게 나뉘는지 한 줄 설명 (예: "2학년부터 인문사회·자연 과정 선택") */
   departmentsNote?: string;
   /** 1학년 학급 수 (NEIS 학급정보) */
@@ -512,9 +557,21 @@ export type HighSchoolDetail = {
   firstYearClassCountSource?: string;
   /** IB 학교의 수업 언어·연계 프로그램 트랙 태그 */
   ibTrackTags?: string[];
+  /** IB 인증 단계 라벨 (월드스쿨 / 후보학교) */
+  ibStatusLabel?: string;
+  /** IB DP를 학교 안에서 누가 듣는지 — 인증은 학교 단위, 이수는 전교생/선발반 등으로 갈림 */
+  dpScope?: {
+    type: 'whole' | 'selected' | 'curriculum' | 'unknown';
+    label: string;
+    basis: string;
+  };
   /** 졸업생 진로·취업 정보 (뉴스·공개자료 기반) */
   graduateCareer?: {
+    /** 비율 칸 이름 — 없으면 "취업률" (대안학교는 "진학률"·"졸업생 진로") */
+    rateLabel?: string;
     employmentRate: string;
+    /** 진로처 칸 이름 — 없으면 "주요 취업처" */
+    destinationsLabel?: string;
     topEmployers: string[];
     notableAchievements: string[];
     source: string;
@@ -739,6 +796,12 @@ export type HighSchoolGroupAxis = {
 export type HighSchoolGroupTree = {
   coreSentence: string;
   scopeNote?: string;
+  /** 헷갈리는 용어 정리 (예: IB 월드스쿨 vs DP 인증 vs 운영 범위) */
+  conceptGuide?: {
+    title: string;
+    rows: Array<{ emoji: string; term: string; what: string }>;
+    note?: string;
+  };
   axes: HighSchoolGroupAxis[];
   pickGuide?: string[];
   /** 전국 시·도별 지정 현황 (공식 집계) */

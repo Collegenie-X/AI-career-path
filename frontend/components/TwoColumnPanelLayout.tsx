@@ -55,8 +55,9 @@ type TwoColumnPanelLayoutProps = {
    * - 'swap'(기본): 선택 시 리스트를 감추고 상세만 표시
    * - 'stack': 리스트를 항상 위에 두고 상세를 아래에 쌓아서 표시
    *   (기본 선택이 있는 화면에서 리스트가 영영 안 보이는 문제 방지)
+   * - 'popup': 리스트만 표시하고 상세 칸은 숨긴다 (상세는 호출 측에서 팝업으로 띄움)
    */
-  readonly mobileListMode?: 'swap' | 'stack';
+  readonly mobileListMode?: 'swap' | 'stack' | 'popup';
   /**
    * 데스크탑(md+)에서 왼쪽 리스트를 sticky 로 고정할 때 쓰는 클래스.
    * 오른쪽 상세를 길게 스크롤해도 왼쪽(맵·카테고리)이 계속 보이도록 한다.
@@ -121,7 +122,8 @@ export function TwoColumnPanelLayout({
   stickyListClassName,
   listGrowClassName = 'md:grow-[9]',
 }: TwoColumnPanelLayoutProps) {
-  const isStack = mobileListMode === 'stack';
+  const isPopup = mobileListMode === 'popup';
+  const isStack = mobileListMode === 'stack' || isPopup;
 
   return (
     <div
@@ -142,7 +144,7 @@ export function TwoColumnPanelLayout({
       <div
         className={`
           w-full md:basis-0 md:grow-[11] md:min-w-0 md:pl-2 lg:pl-5 md:border-l md:border-white/[0.06]
-          ${hasSelection || isStack ? 'block w-full' : 'hidden md:block'}
+          ${!isPopup && (hasSelection || isStack) ? 'block w-full' : 'hidden md:block'}
         `}
       >
         {/* 모바일 뒤로가기 버튼 */}

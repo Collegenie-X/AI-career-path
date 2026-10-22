@@ -24,12 +24,15 @@ import { TRAIT_ITEMS } from './highSchoolTraitItems';
 import { DescriptionOutlineTree } from './CategoryStructuredSections';
 import { CategoryComparisonTables, CategoryFeatureMap, CategoryFocusAxes, VerifySourceTable } from './CategoryStructuredSections';
 import { CategoryMajorMatrix } from './CategoryMajorMatrix';
+import { IbStatusBadges, isIbSchool } from './IbStatusBadges';
 import { IbSubjectMatrix } from './IbSubjectMatrix';
 import { MetroSchoolMap } from './MetroSchoolMap';
 import { NationalSchoolMap } from './NationalSchoolMap';
 import { CareerBridgeSection } from './CareerBridgeSection';
 import { CompetitionBadge } from './CompetitionBadge';
 import { GlossaryText } from '@/components/shared/GlossaryText';
+import { FavoriteStar } from './FavoriteStar';
+import { toggleFavoriteSchool, useHighSchoolFavorites } from './favorites-storage';
 
 /**
  * ==text== 형광펜 + 입시 약자 말풍선 툴팁을 함께 렌더링.
@@ -321,6 +324,7 @@ export function SchoolCategoryView({ category, onBack, onSelectSchool, variant =
           {category.schools.length}{HIGH_SCHOOL_LABELS.school_list_section_title} · {HIGH_SCHOOL_LABELS.school_list_click_hint}
         </p>
         <SchoolListByRegion
+          categoryId={category.id}
           schools={category.schools}
           color={category.color}
           bgColor={category.bgColor}
@@ -684,17 +688,24 @@ function AptitudeQuizContent({
   );
 }
 
-function SchoolListCard({
+export function SchoolListCard({
   school,
+  categoryId,
   categoryColor,
   categoryBgColor,
   onClick,
+  footer,
 }: {
   school: HighSchoolDetail;
+  categoryId: string;
   categoryColor: string;
   categoryBgColor: string;
   onClick: () => void;
+  /** 카드 맨 아래에 덧붙일 줄 (즐겨찾기 보관함의 등록금·기숙사·담은 날짜 등) */
+  footer?: React.ReactNode;
 }) {
+  const { isSchoolFavorite } = useHighSchoolFavorites();
+  const favorite = isSchoolFavorite(categoryId, school.id);
   const difficultyText = HIGH_SCHOOL_LABELS.school_difficulty_levels[String(school.difficulty)] ?? '';
   const shortDesc = (school.teachingMethod ?? '').split(',')[0].trim();
 
@@ -705,9 +716,9 @@ function SchoolListCard({
       onClick={onClick}
     >
       <div className="px-3 py-3 flex items-center gap-3">
-        {/* 좌측: 학교 아이콘 */}
+        {/* 윗줄: 아이콘 · 이름 · 즐겨찾기 · 화살표 */}
         <div
-          className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform"
+          className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 group-hover:scale-105 transition-transform"
           style={{
             background: `linear-gradient(135deg, ${categoryBgColor} 0%, ${categoryColor}15 100%)`,
             border: `1.5px solid ${categoryColor}40`,
@@ -716,69 +727,25 @@ function SchoolListCard({
           {school.emoji}
         </div>
 
-        {/* 중앙: 학교 정보 */}
+        {/* 이름 + 한 줄 소개 */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-1.5 mb-0.5">
             <span className="text-sm font-bold text-white truncate">{school.name}</span>
-            {school.ibCertified && (
-              <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(16,185,129,0.2)', color: '#10b981' }}>
-                IB
-              </span>
-            )}
             {school.dormitory && (
               <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ background: 'rgba(251,191,36,0.2)', color: '#fbbf24' }}>
                 🏠
               </span>
             )}
           </div>
-          <p className="text-xs text-gray-400 line-clamp-1 mb-1"><HL text={shortDesc} /></p>
-
-          {/* 학과 — 개설 학과(또는 과정)를 이름 그대로 뱃지로 */}
-          {school.departments && school.departments.length > 0 && (
-            <div className="flex items-center gap-1 flex-wrap mb-1">
-              <span className="text-[11px] font-bold shrink-0" style={{ color: categoryColor }}>🎓 {school.departmentsLabel ?? '학과'}</span>
-              {school.departments.slice(0, 4).map((dept, idx) => {
-                const deptName = typeof dept === 'string' ? dept : dept?.name ?? '';
-                return (
-                  <span
-                    key={`${deptName}-${idx}`}
-                    className="text-[11px] font-semibold px-1.5 py-0.5 rounded-md leading-none"
-                    style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)', color: '#f3f4f6' }}
-                  >
-                    {deptName}
-                  </span>
-                );
-              })}
-              {school.departments.length > 4 && (
-                <span className="text-[11px] text-gray-500">+{school.departments.length - 4}</span>
-              )}
-            </div>
-          )}
-
-          {/* 하단: 지역·난이도·정원 */}
-          <div className="flex items-center gap-2 flex-wrap">
-            <div className="flex items-center gap-1">
-              <MapPin className="w-3 h-3 flex-shrink-0 text-gray-500" />
-              <span className="text-xs text-gray-500">{school.location}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <DifficultyDots level={school.difficulty} color={categoryColor} />
-              <span className="text-xs text-gray-500">{difficultyText}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <span className="text-xs text-gray-500">
-                {school.annualAdmission
-                  ? `👥 ${school.annualAdmission}명`
-                  : school.firstYearClassCount
-                    ? `👥 1학년 ${school.firstYearClassCount}학급`
-                    : '👥 정원 공시 확인'}
-              </span>
-            </div>
-            <CompetitionBadge raw={school.competitionLevel} color={categoryColor} />
-          </div>
+          <p className="text-xs text-gray-400 line-clamp-1"><HL text={shortDesc} /></p>
         </div>
 
-        {/* 우측: 화살표 버튼 */}
+        {/* 우측: 즐겨찾기 + 화살표 버튼 */}
+        <FavoriteStar
+          active={favorite}
+          onToggle={() => toggleFavoriteSchool(categoryId, school.id)}
+          label={school.name}
+        />
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-all"
           style={{
@@ -787,6 +754,59 @@ function SchoolListCard({
           }}
         >
           <ChevronRight className="w-5 h-5" style={{ color: categoryColor }} />
+        </div>
+      </div>
+
+      {/* 아랫줄: IB·학과·지역·난이도·정원·경쟁률 — 카드 전체 폭으로 */}
+      <div className="px-3 pb-2.5 space-y-1">
+        {isIbSchool(school) && (
+          <div className="flex items-center gap-1 flex-wrap">
+            <IbStatusBadges school={school} />
+          </div>
+        )}
+
+        {/* 학과 — 개설 학과(또는 과정)를 이름 그대로 뱃지로 */}
+        {school.departments && school.departments.length > 0 && (
+          <div className="flex items-center gap-1 flex-wrap">
+            <span className="text-[11px] font-bold shrink-0" style={{ color: categoryColor }}>🎓 {school.departmentsLabel ?? '학과'}</span>
+            {school.departments.slice(0, 4).map((dept, idx) => {
+              const deptName = typeof dept === 'string' ? dept : dept?.name ?? '';
+              return (
+                <span
+                  key={`${deptName}-${idx}`}
+                  className="text-[11px] font-semibold px-1.5 py-0.5 rounded-md leading-none"
+                  style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.14)', color: '#f3f4f6' }}
+                >
+                  {deptName}
+                </span>
+              );
+            })}
+            {school.departments.length > 4 && (
+              <span className="text-[11px] text-gray-500">+{school.departments.length - 4}</span>
+            )}
+          </div>
+        )}
+
+        {/* 하단: 지역·난이도·정원 */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <div className="flex items-center gap-1">
+            <MapPin className="w-3 h-3 flex-shrink-0 text-gray-500" />
+            <span className="text-xs text-gray-500">{school.location}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <DifficultyDots level={school.difficulty} color={categoryColor} />
+            <span className="text-xs text-gray-500">{difficultyText}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="text-xs text-gray-500">
+              {school.annualAdmission
+                ? `👥 ${school.annualAdmission}명`
+                : school.firstYearClassCount
+                  ? `👥 1학년 ${school.firstYearClassCount}학급`
+                  : '👥 정원 공시 확인'}
+            </span>
+          </div>
+          <CompetitionBadge raw={school.competitionLevel} color={categoryColor} />
         </div>
       </div>
 
@@ -836,6 +856,8 @@ function SchoolListCard({
           ))}
         </div>
       )}
+
+      {footer}
     </button>
   );
 }
@@ -1139,12 +1161,14 @@ function sidoOf(location: string) {
 }
 
 function SchoolListByRegion({
+  categoryId,
   schools,
   color,
   bgColor,
   stagger,
   onSelectSchool,
 }: {
+  categoryId: string;
   schools: HighSchoolDetail[];
   color: string;
   bgColor: string;
@@ -1168,6 +1192,7 @@ function SchoolListByRegion({
           <SchoolListCard
             key={school.id}
             school={school}
+            categoryId={categoryId}
             categoryColor={color}
             categoryBgColor={bgColor}
             onClick={() => onSelectSchool(school)}
@@ -1200,6 +1225,7 @@ function SchoolListByRegion({
                   <SchoolListCard
                     key={school.id}
                     school={school}
+                    categoryId={categoryId}
                     categoryColor={color}
                     categoryBgColor={bgColor}
                     onClick={() => onSelectSchool(school)}

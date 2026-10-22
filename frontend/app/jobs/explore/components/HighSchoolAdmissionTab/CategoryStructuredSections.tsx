@@ -767,7 +767,7 @@ export function TuitionStructureTree({
                     {row.annual}
                   </span>
                 </div>
-                {row.note && <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed">{row.note}</p>}
+                {row.note && <p className="text-[11px] text-gray-400 mt-0.5 leading-relaxed"><GlossaryText>{row.note}</GlossaryText></p>}
               </div>
             ))}
           </div>
@@ -831,6 +831,29 @@ export function SchoolGroupTreeSection({
           </p>
         )}
       </div>
+
+      {/* 헷갈리는 용어 정리 */}
+      {tree.conceptGuide && (
+        <div className="rounded-2xl p-3.5 mb-3" style={{ background: 'rgba(255,255,255,0.05)', border: `1px solid ${color}2a` }}>
+          <p className="text-[12px] font-bold mb-2" style={{ color }}>{tree.conceptGuide.title}</p>
+          <div className="space-y-2">
+            {tree.conceptGuide.rows.map((row) => (
+              <div key={row.term} className="flex gap-2">
+                <span className="text-sm leading-5 shrink-0">{row.emoji}</span>
+                <div className="min-w-0">
+                  <p className="text-[12px] font-bold text-white">{row.term}</p>
+                  <p className="text-[12px] text-gray-300 leading-relaxed"><HL text={row.what} /></p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {tree.conceptGuide.note && (
+            <p className="text-[11px] text-gray-400 leading-relaxed mt-2.5 pt-2" style={{ borderTop: `1px dashed ${color}40` }}>
+              <HL text={tree.conceptGuide.note} />
+            </p>
+          )}
+        </div>
+      )}
 
       {/* 전국 시·도별 지정 현황 */}
       {tree.nationalStatus && (

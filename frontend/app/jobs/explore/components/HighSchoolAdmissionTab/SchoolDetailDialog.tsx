@@ -10,6 +10,7 @@ type SchoolDetailDialogProps = {
   readonly categoryColor: string;
   readonly categoryBgColor: string;
   readonly onClose: () => void;
+  readonly categoryId?: string;
 };
 
 export function SchoolDetailDialog({
@@ -17,6 +18,7 @@ export function SchoolDetailDialog({
   categoryColor,
   categoryBgColor,
   onClose,
+  categoryId,
 }: SchoolDetailDialogProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -46,6 +48,7 @@ export function SchoolDetailDialog({
         categoryBgColor={categoryBgColor}
         onClose={onClose}
         variant="dialog"
+        favoriteCategoryId={categoryId}
       />
     </div>
   );
