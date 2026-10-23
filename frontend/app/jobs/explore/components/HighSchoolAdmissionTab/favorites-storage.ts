@@ -6,9 +6,10 @@ import { useSyncExternalStore } from 'react';
  * 고입 즐겨찾기 — 학교(카테고리별) + 청소년 활동 5대 영역 프로그램.
  * 같은 학교 id가 두 카테고리에 겹칠 수 있어(예: 특성화·비즈니스) 학교는 `카테고리:학교` 키로 저장한다.
  * 이 브라우저(localStorage)에만 남는다.
+ * `pinnedAt` 이 있으면 카톡 대화방처럼 보관함 맨 위에 고정된다(나중에 고정한 것이 위).
  */
-export type FavoriteSchool = { categoryId: string; schoolId: string; addedAt: string };
-export type FavoriteYouth = { programId: string; addedAt: string };
+export type FavoriteSchool = { categoryId: string; schoolId: string; addedAt: string; pinnedAt?: string };
+export type FavoriteYouth = { programId: string; addedAt: string; pinnedAt?: string };
 export type HighSchoolFavorites = { schools: FavoriteSchool[]; youth: FavoriteYouth[] };
 
 const STORAGE_KEY = 'careerpath.highschool.favorites.v1';
@@ -77,6 +78,28 @@ export function toggleFavoriteYouth(programId: string) {
     youth: has
       ? cur.youth.filter((y) => y.programId !== programId)
       : [{ programId, addedAt: new Date().toISOString() }, ...cur.youth],
+  });
+}
+
+export function togglePinSchool(categoryId: string, schoolId: string) {
+  const cur = read();
+  write({
+    ...cur,
+    schools: cur.schools.map((s) =>
+      s.categoryId === categoryId && s.schoolId === schoolId
+        ? { ...s, pinnedAt: s.pinnedAt ? undefined : new Date().toISOString() }
+        : s,
+    ),
+  });
+}
+
+export function togglePinYouth(programId: string) {
+  const cur = read();
+  write({
+    ...cur,
+    youth: cur.youth.map((y) =>
+      y.programId === programId ? { ...y, pinnedAt: y.pinnedAt ? undefined : new Date().toISOString() } : y,
+    ),
   });
 }
 

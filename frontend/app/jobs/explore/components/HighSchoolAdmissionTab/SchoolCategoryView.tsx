@@ -695,6 +695,8 @@ export function SchoolListCard({
   categoryBgColor,
   onClick,
   footer,
+  headerAction,
+  highlightColor,
 }: {
   school: HighSchoolDetail;
   categoryId: string;
@@ -703,6 +705,10 @@ export function SchoolListCard({
   onClick: () => void;
   /** 카드 맨 아래에 덧붙일 줄 (즐겨찾기 보관함의 등록금·기숙사·담은 날짜 등) */
   footer?: React.ReactNode;
+  /** 별 왼쪽에 덧붙일 버튼 (즐겨찾기 보관함의 📌 상단 고정 등) */
+  headerAction?: React.ReactNode;
+  /** 지정하면 카드 테두리를 이 색으로 강조 (고정된 카드) */
+  highlightColor?: string;
 }) {
   const { isSchoolFavorite } = useHighSchoolFavorites();
   const favorite = isSchoolFavorite(categoryId, school.id);
@@ -712,7 +718,11 @@ export function SchoolListCard({
   return (
     <button
       className="w-full text-left rounded-2xl overflow-hidden transition-all active:scale-[0.98] group"
-      style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }}
+      style={
+        highlightColor
+          ? { background: 'rgba(255,255,255,0.04)', border: `1px solid ${highlightColor}66` }
+          : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)' }
+      }
       onClick={onClick}
     >
       <div className="px-3 py-3 flex items-center gap-3">
@@ -740,7 +750,8 @@ export function SchoolListCard({
           <p className="text-xs text-gray-400 line-clamp-1"><HL text={shortDesc} /></p>
         </div>
 
-        {/* 우측: 즐겨찾기 + 화살표 버튼 */}
+        {/* 우측: (고정) + 즐겨찾기 + 화살표 버튼 */}
+        {headerAction}
         <FavoriteStar
           active={favorite}
           onToggle={() => toggleFavoriteSchool(categoryId, school.id)}
